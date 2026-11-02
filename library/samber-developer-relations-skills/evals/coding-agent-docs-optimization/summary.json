@@ -1,0 +1,514 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "coding-agent-docs-optimization",
+  "scenarios": 11,
+  "expectations_total": 143,
+  "expectations_subjective": 2,
+  "expectations_objective": 141,
+  "pass_rate_with_skill_pct": 79.7,
+  "pass_rate_without_skill_pct": 38.5,
+  "delta_pp": 41.2,
+  "uplift_multiplier": 2.07,
+  "trigger_accuracy_pct": 53.0,
+  "trigger_queries": 132,
+  "trigger_positive_fire_rate": 0.212,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.274 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Specifies fetching both a docs page and the index with each agent user-agent string of interest, recording the HTTP status code per user-agent"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Specifies running those fetches from outside Halyard's own network"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Distinguishes signalling (per-agent robots.txt rules) from enforcement (WAF, bot management, paid-crawl gate), noting signalling is honour-system and only edge controls actually stop a fetch"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Treats admitting a crawler as a policy decision with sign-off outside the docs team rather than a docs-team edit"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Notes the asymmetry that the dashboard setting is reversible while the crawling that already happened is not"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes that an H2 section literally titled \"Optional\" is reserved for links an agent may skip when working in a shorter context"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Orders index sections by task frequency rather than by site hierarchy"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Flags the hand-written spec as needing generation from the implementation rather than hand-editing"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Warns explicitly against letting a stakeholder hear the stretch goal as a minimum"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Requires recording the model identifier and the date alongside any score, since a score is comparable only within one generation of agents"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Caps operationId at roughly 30 characters and drops articles and conjunctions such as \"a\", \"the\", \"and\", \"for\""
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires operationId uniqueness and stability across releases, noting that a renamed operationId silently renames a tool"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends enforcing operationId uniqueness in CI with a spec linter"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Puts closing the value space second, naming enums, explicit `required`, `default` values, `format` keywords, and `oneOf` with a discriminator"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Ranks the summary/description split below those cheaper edits and states it costs on the order of a week on a real spec"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends encoding the page rules in the contribution guide so incoming pull requests do not undo them"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the cold-run protocol, the task set, and the page rules are identical regardless of ownership model, and does not re-derive them for the open-source case"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends keeping previous major versions reachable at distinct URLs rather than overwriting them"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States the reason for deletion rather than demotion: a ruled-out surface parked at the bottom of a plan silently reappears as scope"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Keeps the deliverable an audit report and names which report sections will be empty and why, given the reduced scope"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States the reason for deleting rather than deferring: a bundle parked at the bottom of a plan is a defect waiting for someone with spare time"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Notes that an agent typically fetches these surfaces because a human, a rules file, or a tool pointed at them, not through passive discovery"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Notes the index and the full-corpus bundle tie on effort because both generate from the navigation source in one build step, while tying on no other axis"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that the index changes nothing measurable until the surfaces it points at exist"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that doc comments are otherwise what the default order starves, because every pull request can drift them so they never win on ratio"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that the signature and its adjacent doc comment are what an in-editor agent most reliably sees, while a reference page three hops away is invisible to it"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Requires fully typed signatures and descriptive names, not only added prose"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Warns that `$comment` is non-rendered and intended for schema maintainers, so anything an agent must see belongs in `description` or `examples`"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Notes that terminal and package-local paths tie with doc comments on both effort and value, since each ships on the SDK release cycle and each reaches only the agent already inside the user's codebase"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Refuses to produce an AI-readiness score or a yes/no verdict before an access check and a cold run exist"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Specifies fetching both a docs page and the index with each agent user-agent string of interest, recording the HTTP status code per user-agent"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Specifies running those fetches from outside Halyard's own network"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Distinguishes signalling (per-agent robots.txt rules) from enforcement (WAF, bot management, paid-crawl gate), noting signalling is honour-system and only edge controls actually stop a fetch"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that every surface scores zero until a fetch returns 200, so the audit cannot tell a good corpus from a bad one"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Treats admitting a crawler as a policy decision with sign-off outside the docs team rather than a docs-team edit"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Notes the asymmetry that the dashboard setting is reversible while the crawling that already happened is not"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Distinguishes training crawlers from search-and-fetch agents as separately nameable user-agents, so one can be admitted while the other is denied"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Ranks markdown endpoints and annotated spec files above the index file on efficiency, and says the ranking out loud"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Identifies that index entries pointing at HTML-only pages is the defect, since entries should point at markdown URLs so following a link needs no HTML stripping"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Requires the index be generated from the navigation source at build time rather than hand-maintained"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that a hand-maintained index rots within about two releases"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes that an H2 section literally titled \"Optional\" is reserved for links an agent may skip when working in a shorter context"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Orders index sections by task frequency rather than by site hierarchy"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Requires advertising the index in at least three places: the repository README, the docs navigation, and response headers or link relations"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Flags the hand-written spec as needing generation from the implementation rather than hand-editing"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Cites the published benchmark bands: backend-only roughly 73-85%, full-stack roughly 77-92%, depth-of-feature roughly 61-73%"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States those published figures were scored best-of-three rather than first-attempt, so they are not directly comparable to an unattended single-attempt target"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Presents 80% first-attempt as a stretch goal rather than a floor or minimum acceptable standard"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that depth-of-feature tasks land roughly 15-25 points below breadth tasks for every model"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Concludes that Corvid Data's 6-deep / 3-basic mix scores lower by construction and that this is not a regression"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Identifies that figure as self-reported by a single docs-platform vendor and measured across sites that had already invested in agent surfaces"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Permits using it as motivation while stating it is not evidence"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Requires recording the model identifier and the date alongside any score, since a score is comparable only within one generation of agents"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Offers one sub-agent per task where parallel sub-agents are available, and separate sequential sessions otherwise"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Rejects full web access and restricts sources to Meridian's own published agent-facing surfaces"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that if the agent needs something Meridian does not publish, that absence is the finding and the run should be allowed to fail"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Rejects task 1 as a weak task because it hands the agent the exact method name it was supposed to discover"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Rejects task 2 as ungradeable because it has no runnable or verifiable end state"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Endorses the webhook verification task shape because it names an outcome and leaves the path open"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names invented-surface rate, corrective turns per task, context cost per task, and fetch-path length alongside first-attempt success"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that success rate alone hides a corpus that only works after several expensive retries"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires freezing the task set, because a benchmark that changes between runs measures nothing"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Limits intervention to non-documentation obstacles such as a missing sandbox credential or a network block, and requires logging every intervention"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Caps operationId at roughly 30 characters and drops articles and conjunctions such as \"a\", \"the\", \"and\", \"for\""
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires operationId uniqueness and stability across releases, noting that a renamed operationId silently renames a tool"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends enforcing operationId uniqueness in CI with a spec linter"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Puts closing the value space second, naming enums, explicit `required`, `default` values, `format` keywords, and `oneOf` with a discriminator"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Ranks the summary/description split below those cheaper edits and states it costs on the order of a week on a real spec"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Splits summary and description by job: summary is one imperative line for choosing the call"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Assigns description the operational contract: preconditions, side effects, idempotency, required auth scope, rate limits, and a pointer to the sibling operation that might fit better"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Places per-language runnable samples attached to the operation last in the default order, while promoting them to first for the two or three operations cold runs fail on repeatedly"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Declines to build or operate the MCP server itself, naming that as product work rather than documentation work"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Hands the server build and hosting off to the platform-side skill rather than attempting it"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Cites the guidance of fewer than 20 functions available at the start of a turn"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends tag filtering or vendor extensions to expose only what agents need past roughly 20-30 operations"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes the converter name-resolution order: `x-mcp-tool-name`, then `operationId`, then a `{method}_{path}` fallback"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes that a tool whose name fails the `^[a-zA-Z0-9_-]{1,64}$` pattern is discarded"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes operationId truncation at the first `__` and a 56-character cap in at least one named generator"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends `x-mcp-tool-name` or an equivalent vendor extension when the SDK wants a terse method name and the agent wants a descriptive one, rather than compromising on a single string"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Warns that renaming an operationId silently renames the exposed tool for existing consumers"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends encoding the page rules in the contribution guide so incoming pull requests do not undo them"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the cold-run protocol, the task set, and the page rules are identical regardless of ownership model, and does not re-derive them for the open-source case"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Places that label at the top of the page rather than in a footnote, because an agent that got its answer in the first paragraph never reaches the footnote"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends Rust `///` doc comments as the language's native convention rather than a generic prose format"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends doctests, since a doc-comment example the toolchain compiles and runs cannot rot without failing the build"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Deletes SDK doc comments from the plan outright rather than parking them at the bottom, because the writer has no engineering time"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Deletes terminal and package-manager paths from the plan on the same grounds"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Records which surfaces were deleted and why, rather than leaving them silently absent"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States the reason for deletion rather than demotion: a ruled-out surface parked at the bottom of a plan silently reappears as scope"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Runs the crawler access check first regardless of deadline pressure"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Keeps the deliverable an audit report and names which report sections will be empty and why, given the reduced scope"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that this plan buys one release's worth of fixes rather than a standing guarantee, and names what a standing mandate would have promoted instead"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Admits findings by task impact first: only findings touching a task that actually failed enter the list"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Excludes items 1, 3, 8, 10 and 12 from the findings list entirely rather than merely ranking them last"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States the exclusion rule explicitly: a finding on a task no cold run failed does not make the list at all, however easy it would be to fix"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Orders the admitted findings by fixes-per-hour rather than by the user's speed-of-fix ranking"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that a page breaking a top revenue-driving task outranks ten cosmetic fixes because its value is higher, not because effort stopped counting"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Fixes item 4 with a complete snippet carrying imports, client construction, the call, the awaited result, and the error branch"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Fixes item 9 by reordering the page to the working call, then what it returns, then the parameters, then the rationale"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Fixes item 7 by adding the equivalent command or API call while keeping the dashboard click path as the human alternative"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Treats item 2 as a naming-discipline issue (one identifier per concept corpus-wide) and admits or excludes it on whether it touched a failed task"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Fixes item 6 by mapping the exact error text that reaches stderr to a cause, a fix, and a verification step"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Writes each admitted finding naming the failing task, the page or spec field involved, and what the agent did instead"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that a truncated bundle is worse than no bundle, because the agent believes it read everything"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that past the working context budget the bundle crowds out the user's own code"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States the reason for deleting rather than deferring: a bundle parked at the bottom of a plan is a defect waiting for someone with spare time"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Flags the 180,000-character index as past the split threshold of roughly 100,000 characters"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Rejects the docs footer as sufficient advertising and requires the README, the docs navigation, and response headers or link relations"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Notes that an agent typically fetches these surfaces because a human, a rules file, or a tool pointed at them, not through passive discovery"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Ranks markdown endpoints above both the index file and the full-corpus bundle on efficiency"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Notes the index and the full-corpus bundle tie on effort because both generate from the navigation source in one build step, while tying on no other axis"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that the index changes nothing measurable until the surfaces it points at exist"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that doc comments are otherwise what the default order starves, because every pull request can drift them so they never win on ratio"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Notes that web docs and SDK source are two different surfaces reaching two different agents"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Applies the OpenAPI-derived annotation rules to the AsyncAPI document while stating plainly that AsyncAPI guidance is inferred from the OpenAPI case by analogy rather than separately sourced"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Warns that `$comment` is non-rendered and intended for schema maintainers, so anything an agent must see belongs in `description` or `examples`"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Notes that terminal and package-local paths tie with doc comments on both effort and value, since each ships on the SDK release cycle and each reaches only the agent already inside the user's codebase"
+      }
+    ]
+  }
+}

@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Scores the portfolio against six named signals: public writing, public speaking, code in public, community evidence, teaching artefact, and developer-voice artefact",
+        "evidence": "Table rows: \"Public writing\", \"Public speaking\", \"Code in public\", \"Community evidence\", \"Teaching artefact\", \"Developer-voice artefact (friction log)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Uses a 0-3 scale per signal where 0 is absent, 1 is claimed but unevidenced, 2 is evidenced, and 3 is evidenced with an outcome",
+        "evidence": "\"Scored 0 (absent) \u00b7 1 (claimed, unevidenced) \u00b7 2 (evidenced) \u00b7 3 (evidenced with outcome).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Weights public writing and public speaking heaviest because the target is an outreach-focused advocate",
+        "evidence": "\"Outreach advocate weights writing + speaking heaviest.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Scores the unlinked blog-post claim as absent or unevidenced rather than crediting it",
+        "evidence": "\"Public writing | 1 | 'Many blog posts' \u2014 no links, no dates, can't verify.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the 22,000 follower count as a deduction or negative signal rather than a strength",
+        "evidence": "\"22,000 followers on X \u2014 a vanity metric with no attached substance is an explicit negative, not neutral. Cut it...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the ghostwritten guest post as a negative signal, including that it cannot be defended in a conversational round",
+        "evidence": "\"Ghostwritten guest post... cannot be defended in a conversational round either (an interviewer asking 'can I see it' has no good answer...)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the members-only or paywalled piece as a negative signal",
+        "evidence": "\"A members-only post is functionally unlinkable for a screener without a Medium account.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the unsourced 300% figure as an exaggerated or undefendable metric and a deduction",
+        "evidence": "\"'Grew community engagement 300%' \u2014 an unsourced percentage reads as exaggerated even if it's true.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that 'available for speaking engagements' does not count as speaking evidence while a delivered talk does",
+        "evidence": "Talks scored a 1 for being real but unlinked, while \"'available for speaking and podcasts'... Neither line is an artefact; both read as filler.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Credits the two recorded lightning talks as delivered talks",
+        "evidence": "\"Two lightning talks, recorded \u2014 this actually clears the field's stated bar (a couple of talks given; a 5-min lightning talk counts).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the missing developer-voice artefact, such as a published friction log, as the biggest single gap",
+        "evidence": "\"Currently your single biggest gap.\" under Developer-voice artefact row",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to optimise the resume for applicant-tracking-system keywords, and says this field hires on public work and referrals instead",
+        "evidence": "\"tuning for ATS keyword-matching is the wrong lever here. DevRel hiring... screens on shipped public work over resume keywords\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives a total score and places it in a readiness band rather than only listing fixes",
+        "evidence": "\"Total: 3/18 \u2014 weighted pair (writing+speaking): 2/6. Verdict: production before applications, not applications yet.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rewrites at least one resume line so it leads with the outcome and carries a link",
+        "evidence": "The opener rewrite (\"Developer advocate, Kubernetes and observability...\") carries no outcome or link; the outcome+link example given is a generic placeholder template (\"cut [specific confusion] by [specific fix] \u2014 talk, [link]\"), not an actual rewritten line.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Scores the portfolio against six named signals: public writing, public speaking, code in public, community evidence, teaching artefact, and developer-voice artefact",
+        "evidence": "The transcript is a flagged list of resume issues and a rewrite, not a scoring rubric against six named signals.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Uses a 0-3 scale per signal where 0 is absent, 1 is claimed but unevidenced, 2 is evidenced, and 3 is evidenced with an outcome",
+        "evidence": "No numeric 0-3 scale appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Weights public writing and public speaking heaviest because the target is an outreach-focused advocate",
+        "evidence": "No explicit weighting scheme is stated for any signals.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Scores the unlinked blog-post claim as absent or unevidenced rather than crediting it",
+        "evidence": "\"Members-only Medium post is a dead end for reviewers. Anyone who clicks through hits a paywall. Mirror it on a public dev.to/personal-blog post or link a free-access version.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the 22,000 follower count as a deduction or negative signal rather than a strength",
+        "evidence": "\"'300% engagement growth' and '22,000 followers' have no baseline or timeframe... Anchor every stat: from what, to what, over what period.\" \u2014 flagged as a weakness needing fixing, not credited as a strength outright.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the ghostwritten guest post as a negative signal, including that it cannot be defended in a conversational round",
+        "evidence": "\"Naming whose post you ghostwrote breaks the confidentiality that ghostwriting exists for \u2014 hiring managers at competing vendors will read this as 'will name my execs too.'\" flags it negatively but never addresses defensibility in a conversational/interview round.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the members-only or paywalled piece as a negative signal",
+        "evidence": "\"Members-only Medium post is a dead end for reviewers.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the unsourced 300% figure as an exaggerated or undefendable metric and a deduction",
+        "evidence": "\"'300% engagement growth' and '22,000 followers' have no baseline or timeframe. Bots don't care; the human who reads after the bot filter does.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that 'available for speaking engagements' does not count as speaking evidence while a delivered talk does",
+        "evidence": "The flag cuts that line for lacking \"keyword value\" for ATS purposes (\"Cut it \u2014 applying already signals availability\"), not because it fails as evidence of speaking versus a delivered talk.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Credits the two recorded lightning talks as delivered talks",
+        "evidence": "\"two lightning talks is a lower bar than what senior DevRel roles at bigger vendors... usually screen for\" \u2014 treats the two talks as real, counted talks, just insufficient for senior roles.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the missing developer-voice artefact, such as a published friction log, as the biggest single gap",
+        "evidence": "No mention of a friction log or any 'developer-voice artefact' gap anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to optimise the resume for applicant-tracking-system keywords, and says this field hires on public work and referrals instead",
+        "evidence": "The transcript explicitly optimizes for ATS: \"ATS (Workday, Greenhouse, Lever) parse Company/Title/Dates structure...\" and \"Use the space for tool names ATS actually matches against observability-vendor job descriptions.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives a total score and places it in a readiness band rather than only listing fixes",
+        "evidence": "No total score or readiness band is given anywhere; the output is a flags list plus a rewritten resume.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rewrites at least one resume line so it leads with the outcome and carries a link",
+        "evidence": "\"Published technical deep-dive content on OpenTelemetry sampling and Kubernetes observability, reaching [X] readers; publicly available at [link \u2014 not paywalled].\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

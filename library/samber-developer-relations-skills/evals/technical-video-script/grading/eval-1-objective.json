@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States the promise as a single sentence naming one specific viewer and the one specific thing the video shows working.",
+        "evidence": "Header Promise: \"For an engineer running webhooks through Loomcast, this video shows the old queue's retry storm, and the token-bucket fix (going GA Sept 24) that stops it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes the concept explainer from the shape menu because nobody can produce diagrams, rather than ranking it low or last.",
+        "evidence": "\"No diagram/motion-graphics skill deletes the concept explainer\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names which shapes were deleted out loud instead of silently omitting them.",
+        "evidence": "Names concept explainer, feature walkthrough, deep dive, and build-along as deleted, each with a reason.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the shape ranking and the final pick explicitly rather than presenting a single shape as the only option.",
+        "evidence": "\"Efficiency order is error/fix > changelog clip > short-form > feature walkthrough > concept explainer > build-along > deep dive.\" Final pick: \"changelog/release clip\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ranks shapes by production effort and value returned per unit of that effort, not by their runtime bands.",
+        "evidence": "The ranking is labelled \"Efficiency order\", and deletions cite effort (\"a week of work\", \"a quarter\") and missing skills.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the GA date on the 24th as a constraint that promotes the changelog/release clip and the error/fix shape.",
+        "evidence": "\"The hard GA date promotes the changelog clip.\" The error/fix shape is only borrowed for its structure, and the GA date is not named as promoting it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats the GA date as a reason to delete the deep dive outright rather than to shorten it.",
+        "evidence": "\"No video editor and a 6-day runway delete the feature walkthrough ... and the deep dive (a quarter).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists what the post proves as claims and discards the post's section headings as the video's structure.",
+        "evidence": "The script never lists claims the post proves. The beats follow a problem, cause, fix, proof, GA arc that tracks the post's section order (the Benchmarks section is cited for beat 4).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Drops or compresses the Background and \"What we tried first\" sections instead of giving each one a beat.",
+        "evidence": "The jitter attempt (what was tried first) is compressed to a cuttable clause in beat 2, and Background gets no beat.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Puts the measured 90% figure on screen twice - once as the problem, once as the proof - rather than only mentioning it in narration.",
+        "evidence": "Beat 1 shows a split-screen dashboard with the 90% in narration only. The \"\u221290%\" delta is on screen once, in beat 4.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Invents no figure, customer, persona or call to action that the request did not supply.",
+        "evidence": "The script invents \"every failed delivery retries in the same second\", \"token bucket\" per-receiver budgets, \"the incidents we measured\", and a \"nothing to turn on\" CTA. It also assumes a 150 wpm speaking rate and 265 words. Some are flagged [unconfirmed], but several are asserted as fact.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Returns a beat table whose columns include visual, on-screen action, narration, starting state, estimated seconds, and a core-or-cuttable marking.",
+        "evidence": "The table header is \"| # | Visual | On-screen action | Narration | Starting state | Est. s | Core/cut |\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats \"polished\" as an unusable adjective, converting it into a concrete decision (a runtime, a viewer, an on-screen artefact) or asking for one, rather than designing to it.",
+        "evidence": "The transcript never mentions \"polished\" or converts it into a concrete decision.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States the promise as a single sentence naming one specific viewer and the one specific thing the video shows working.",
+        "evidence": "No promise sentence appears. The transcript opens with '**Pick:** Renderforest' and a timeline.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes the concept explainer from the shape menu because nobody can produce diagrams, rather than ranking it low or last.",
+        "evidence": "No shape menu exists. The only comparison is Renderforest vs Vyond, which are tools.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names which shapes were deleted out loud instead of silently omitting them.",
+        "evidence": "No shapes are named or deleted.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the shape ranking and the final pick explicitly rather than presenting a single shape as the only option.",
+        "evidence": "'Pick: Renderforest ... Alt: Vyond' ranks tools, not video shapes.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ranks shapes by production effort and value returned per unit of that effort, not by their runtime bands.",
+        "evidence": "No shapes are ranked. Only tool learning curve is mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats the GA date on the 24th as a constraint that promotes the changelog/release clip and the error/fix shape.",
+        "evidence": "The GA date is used only to build a 6-day timeline for a 3:00 explainer.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats the GA date as a reason to delete the deep dive outright rather than to shorten it.",
+        "evidence": "It produces a 3-minute seven-scene explainer.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Lists what the post proves as claims and discards the post's section headings as the video's structure.",
+        "evidence": "The scenes follow the post structure: Hook, Background, Why retries storm, Old approach, Fix, Benchmarks, CTA.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Drops or compresses the Background and \"What we tried first\" sections instead of giving each one a beat.",
+        "evidence": "Scene 2 'Background' and Scene 4 'Old approach, first fix, still broken' each get a full scene.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Puts the measured 90% figure on screen twice - once as the problem, once as the proof - rather than only mentioning it in narration.",
+        "evidence": "The 90% appears on screen only in Scene 6: '\u221290% retry storms'. Scene 1 has 'On-screen text: none'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Invents no figure, customer, persona or call to action that the request did not supply.",
+        "evidence": "It adds claims such as 'measured it against real incident traffic' and 'Same failures, same retry volume'. It also adds the CTA 'Retry API \u2014 GA Sept 24' and an end-card button.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Returns a beat table whose columns include visual, on-screen action, narration, starting state, estimated seconds, and a core-or-cuttable marking.",
+        "evidence": "The output is prose scene blocks, not a table. It has no starting state, seconds or core/cuttable column.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats \"polished\" as an unusable adjective, converting it into a concrete decision (a runtime, a viewer, an on-screen artefact) or asking for one, rather than designing to it.",
+        "evidence": "'more polish' is mentioned only as a trait of Vyond. It is not converted into a decision.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

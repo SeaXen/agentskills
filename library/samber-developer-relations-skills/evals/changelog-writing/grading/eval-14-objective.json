@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Ranks surviving changes by consumer impact and sets an explicit cut line rather than trimming by feel",
+        "evidence": "\"190 PRs in a day means full drafting for all of them isn't happening \u2014 set the line explicitly instead of trimming by feel: 1. Rank `candidates.txt` by consumer impact...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the cut line to the user and lists what fell below it",
+        "evidence": "\"state it to whoever reviews the result, and hand over the exclusion list alongside it so 'what fell below the line' is visible, not implied\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not transfer a specific numeric significance threshold from a published study as the cut value",
+        "evidence": "\"This line is set by your own hour budget against the real candidate count from \u00a74, not borrowed from any published significance threshold\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes the email surface from the plan and says so, because the project has no email list",
+        "evidence": "\"Email | Deleted | No list exists. Don't build one to fill this gap.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes the hosted page and in-product note from the plan and says so, given the one-day ceiling",
+        "evidence": "\"Hosted changelog page | Deleted | No frontend team, one-day ceiling.\" / \"In-product note | Deleted | No frontend team.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the changelog and the release body as the two surfaces actually produced",
+        "evidence": "\"`CHANGELOG.md` | Keep | The ask.\" / \"Release body (git host) | Keep | Same text as the changelog, pasted twice\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the changelog and release body are the same text, so one edit produces both",
+        "evidence": "\"Same text as the changelog, pasted twice \u2014 one edit produces both.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a note-fragment workflow, each entry written as its own file in the same patch as the code, and recommends it once rather than repeatedly",
+        "evidence": "\"## 12. To stop this happening again \u2014 recommend once / Move to a note-fragment workflow: each PR adds its own small entry file in the same patch as the code\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that entries written at release time reconstruct impact from memory weeks after the change",
+        "evidence": "\"Entries written 18 months later are reconstructed from memory, not from what actually shipped \u2014 that's why this backlog built up in the first place\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends splitting the catch-up across the versions actually released, or states plainly that one entry cannot carry 18 months honestly",
+        "evidence": "\"document them as six or seven sections with their real dates, not one entry pretending to be a single release\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Ranks surviving changes by consumer impact and sets an explicit cut line rather than trimming by feel",
+        "evidence": "The only trimming guidance is impressionistic: 'trim \"Added\"/\"Fixed\" to the entries that matter, fold the rest into the compare-link line. Resist listing all 190 \u2014 nobody reads a 190-line changelog.' No ranking criterion (impact score, user-report count, etc.) or numeric/explicit cut line is defined anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the cut line to the user and lists what fell below it",
+        "evidence": "There is no stated cut line at all (see above), and correspondingly no enumerated list of what fell below it \u2014 the plan only says to fold 'the rest' into a generic compare-link reference, without naming what was excluded.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not transfer a specific numeric significance threshold from a published study as the cut value",
+        "evidence": "The transcript contains no reference to any published study or statistical significance threshold anywhere; the only numbers used are commit/PR counts (640 commits, 190 PRs) and time-of-day budget slots, so no such threshold is transferred.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes the email surface from the plan and says so, because the project has no email list",
+        "evidence": "Email is mentioned only once, incidentally, in Step 1's description of GitHub's generator: 'no server, no page, no email tool needed.' This is not an explicit statement that email is being dropped from the distribution plan, nor is any reason ('the project has no email list') given anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes the hosted page and in-product note from the plan and says so, given the one-day ceiling",
+        "evidence": "The hosted page is addressed ('That one link substitutes for the \"hosted page\" you don't have \u2014 GitHub's compare view already renders every commit... for free'), but 'in-product note' is never mentioned anywhere in the transcript, so that surface is never explicitly deleted or explained \u2014 it is simply absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the changelog and the release body as the two surfaces actually produced",
+        "evidence": "Step 4 instructs: '1. Commit the CHANGELOG.md update on main... 2. gh release create <next-version> ... --notes-file catchup-final.md' \u2014 the plan's only two produced artifacts are the CHANGELOG.md entry and the GitHub Release body.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the changelog and release body are the same text, so one edit produces both",
+        "evidence": "Step 3 opens with: 'Drop this into `CHANGELOG.md` and publish the same content as a GitHub Release,' explicitly indicating one authored block of text is used for both surfaces.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a note-fragment workflow, each entry written as its own file in the same patch as the code, and recommends it once rather than repeatedly",
+        "evidence": "No note-fragment, changeset, or per-PR-file workflow is mentioned anywhere; the entire approach is a single after-the-fact triage of merged PR titles via `gh pr list` and `generate-notes`, done in one day rather than incrementally per-patch.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that entries written at release time reconstruct impact from memory weeks after the change",
+        "evidence": "The transcript never raises this concern; instead it frames the whole exercise as fast title-only triage ('Sort that TSV by date, skim titles for feat|fix|BREAKING|deprecat... title only, no diffs') with no discussion of memory decay or reconstructing impact after the fact.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends splitting the catch-up across the versions actually released, or states plainly that one entry cannot carry 18 months honestly",
+        "evidence": "The transcript explicitly argues the opposite: 'Pick the shape: one entry, not seven ... Management asked for one entry, and that's the right call given your time \u2014 don't try to reconstruct six release boundaries from memory.'",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

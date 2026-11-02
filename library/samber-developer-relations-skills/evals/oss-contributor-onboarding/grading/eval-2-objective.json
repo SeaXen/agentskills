@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Names the two CONTRIBUTING copies as a defect and keeps exactly one",
+        "evidence": "Names the defect (\"The old docs/contributing.md is a real risk, not just clutter\") but ships a stub file at the old path (\"And the stub to drop in at docs/contributing.md so old links don't 404\"), leaving two files rather than exactly one.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the display precedence when copies exist: .github/ first, then the repository root, then docs/",
+        "evidence": "No display precedence is stated anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to publish setup commands that have not been run, and requires a cold run from a clean machine - or the maintainer pasting the full output including failures - before the setup section is written",
+        "evidence": "The setup section is written and published with a caveat (\"I haven't run this exact sequence on a clean machine since 2024\") rather than being withheld pending a cold run.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Moves the CLA disclosure into the file before the reader writes code, instead of leaving it to the signing bot after the pull request is opened",
+        "evidence": "\"One more thing before you open anything: this project uses a CLA... I'm telling you now so it isn't a surprise later, even though the bot itself only shows up after the PR exists.\" placed in the pre-PR section.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the CLA-versus-DCO choice itself to samber/developer-relations-skills@oss-license-strategy and keeps only its placement in scope",
+        "evidence": "No routing to another skill occurs; the choice (keeping the CLA) is treated as a given fact to document, not delegated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to leave the mandatory build steps behind the off-repo wiki link, and puts them in the file itself",
+        "evidence": "\"## Get it running\" section has literal clone/sync/test commands; \"The full setup walkthrough... lives on the wiki... This section is the minimum to get from a clone to a passing test suite.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes the literal commands out rather than only a wrapper target such as `make setup`",
+        "evidence": "\"git clone https://github.com/<you>/portmint.git\\ncd portmint\\nuv sync\" and \"export DATABASE_URL=...\\nuv run pytest\" are literal commands.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States branch naming and commit-message conventions literally and near the top of the file",
+        "evidence": "Only \"Target the main branch. Keep commits focused and use a short, plain summary line.\" appears, positioned mid-document (5th of 8 sections), not near the top, and with no branch-naming convention.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that an unstated convention is overwritten by a contributing agent's own generic template, not merely left undiscovered",
+        "evidence": "No mention of contribution agents or generic template overwriting appears in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Publishes a response target sized to the stated 3 hours per week rather than a 48-hour promise, on the ground that an honest target met beats a fast one missed",
+        "evidence": "\"I'm a solo maintainer doing this a few hours a week, so I can't promise speed, but I aim to leave some kind of reply... within a week.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sizes the file at roughly 150-300 words plus the setup block instead of the thorough document requested",
+        "evidence": "The CONTRIBUTING.md draft spans eight full sections (scope, setup, finding work, PR process, after submit, stuck, sticking around) well beyond a 150-300 word body.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names non-code contributions - documentation, tests, triage, translation, examples - in the scope section",
+        "evidence": "\"Code, bug reports, documentation fixes and test cases are all welcome. So is flagging a confusing error message or diff output, even with no patch attached.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Links CODE_OF_CONDUCT, SECURITY, SUPPORT and GOVERNANCE rather than absorbing their content",
+        "evidence": "None of these four files are mentioned anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Drafts section by section and gets the maintainer's agreement on each section before moving to the next",
+        "evidence": "The entire CONTRIBUTING.md and stub file are delivered at once in a single response with no section-by-section check-in.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Names the two CONTRIBUTING copies as a defect and keeps exactly one",
+        "evidence": "\"since you have two docs already (root `CONTRIBUTING.md` and the stale `docs/contributing.md`), delete `docs/contributing.md` once you drop this in, so contributors don't land on the outdated one\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the display precedence when copies exist: .github/ first, then the repository root, then docs/",
+        "evidence": "No precedence ordering is stated anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to publish setup commands that have not been run, and requires a cold run from a clean machine - or the maintainer pasting the full output including failures - before the setup section is written",
+        "evidence": "The setup command is published directly with only a caveat: \"Heads-up: this setup hasn't been verified on a clean machine since 2024. If `uv sync`... fails on a fresh checkout, that's useful information \u2014 please open an issue\" \u2014 it does not refuse to publish or require a cold run first.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Moves the CLA disclosure into the file before the reader writes code, instead of leaving it to the signing bot after the pull request is opened",
+        "evidence": "The CLA section appears only after the 'Making a change' (code-writing) section and is first mentioned in 'Opening a pull request' step 4, i.e. after the code-writing instructions, not before them.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the CLA-versus-DCO choice itself to samber/developer-relations-skills@oss-license-strategy and keeps only its placement in scope",
+        "evidence": "No routing to any external skill/decision-owner is mentioned; the CLA is simply described as required.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to leave the mandatory build steps behind the off-repo wiki link, and puts them in the file itself",
+        "evidence": "\"For the full build, test, and local-Postgres setup... see the **[Development Setup wiki page]**... duplicating it here would just mean two copies to keep in sync, so the wiki is the source of truth.\" \u2014 explicitly defers mandatory steps off-repo.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes the literal commands out rather than only a wrapper target such as `make setup`",
+        "evidence": "The setup section shows the literal command `uv sync`, not a wrapper make-target.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States branch naming and commit-message conventions literally and near the top of the file",
+        "evidence": "Only \"Fork the repo and create a branch off `main`\" and \"Write a clear commit message: what changed and why\" appear \u2014 no literal naming convention stated, and not near the top.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that an unstated convention is overwritten by a contributing agent's own generic template, not merely left undiscovered",
+        "evidence": "No such explanation appears anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Publishes a response target sized to the stated 3 hours per week rather than a 48-hour promise, on the ground that an honest target met beats a fast one missed",
+        "evidence": "\"Response times will be slow. Expect days, sometimes longer... this is a nights-and-weekends project, not a funded one. If you haven't heard back in two weeks, a polite ping on the PR is fine.\" \u2014 sized to the stated low-bandwidth reality rather than a fast promise.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sizes the file at roughly 150-300 words plus the setup block instead of the thorough document requested",
+        "evidence": "The delivered CONTRIBUTING.md is a long, multi-section document (Before you start, Prerequisites, Setup, Making a change, Opening a PR, CLA, Reporting bugs, Suggesting features, Questions) far exceeding 150-300 words.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names non-code contributions - documentation, tests, triage, translation, examples - in the scope section",
+        "evidence": "No scope section names documentation/tests/triage/translation as contribution types; the guide is code/PR-centric.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Links CODE_OF_CONDUCT, SECURITY, SUPPORT and GOVERNANCE rather than absorbing their content",
+        "evidence": "None of these documents are linked or referenced anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Drafts section by section and gets the maintainer's agreement on each section before moving to the next",
+        "evidence": "The entire CONTRIBUTING.md is delivered at once as a finished document, not section-by-section with approval gates.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

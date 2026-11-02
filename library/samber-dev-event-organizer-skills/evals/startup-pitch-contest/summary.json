@@ -1,0 +1,702 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "startup-pitch-contest",
+  "scenarios": 13,
+  "expectations_total": 163,
+  "expectations_subjective": 0,
+  "expectations_objective": 163,
+  "pass_rate_with_skill_pct": 82.2,
+  "pass_rate_without_skill_pct": 17.2,
+  "delta_pp": 65.0,
+  "uplift_multiplier": 4.78,
+  "trigger_accuracy_pct": 70.1,
+  "trigger_queries": 144,
+  "trigger_positive_fire_rate": 0.583,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": null,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Treats the 90-minute block as fixed by the schedule and names the schedule or format-selection owner if the block itself has to change"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names the verification source field for each claimed dimension in the revised rubric"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Keeps the dimension count small and warns extra criteria add noise rather than resolution"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes capital sits bottom on deliverability and is the one award that can be announced and then simply not happen"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names committed introductions as the default award rung, delivered by the organizer end to end"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Treats anchor gaps published by other contests as a range rather than as a target"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes widening the pool is an outreach job rather than a review job, so a compressed open call will not reach anyone new"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Adds the recording and press posture to the application form for the next edition, naming the actual posture"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States the media partner's own agreement does not substitute for applicant consent"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Routes judging of projects built during an event to samber/dev-event-organizer-skills@hackathon-judging as a different skill"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States no hand-off to a build-phase sibling skill exists here"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Keeps any rehearsal or tech check as a commitment named in the published route, distinct from coaching that changes what is judged"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Builds no booking, slot or confirmation mechanic inside the pitch-contest design"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Distinguishes a pitch as a broadcast to a jury from a meeting as a booked pair"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names the configuration this grows into: a curated founder-and-investor day rather than a conference with a meeting corner"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Routes the sponsor meeting quota to the matchmaking skill rather than committing a number here"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that rung's weakness plainly: paper review of strangers is the weakest available predictor of how a founder holds a stage"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Notes curated invitation produces a slate the organizer could have produced with no contest at all"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States the efficiency ordering across the funnel rungs rather than listing them flat"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names the screening-call rung's promotion conditions: a fixed short block, or a judge or audience invited specifically because of who would be pitching"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names the nomination rung's promotion condition: named referrers who would actually nominate already exist"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Notes a panel that never wrote its interests down cannot satisfy that rung"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States the ladder should have been published in the call before applications close rather than invented at the podium"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Notes a narrow score spread across a uniformly polished field is not evidence the scale failed"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Requires the conflict rule to state what it covers and what it does not"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Presents the design section by section for validation before the call goes public"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Names afterwards-signals as self-set, such as award items delivered against award items announced per party"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Names applications from companies nobody on the team already knew as the read on whether the funnel did anything an invitation list would not"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Says to pick two or three signals and write down the revision each would trigger"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Does not state a pitch length in minutes"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Does not state a slate size (a number of pitching companies)"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Does not state a judge count"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Does not state a prize amount or any currency figure"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Directs the reader to take the judge-coverage arithmetic from samber/dev-event-organizer-skills@hackathon-judging rather than deriving a formula here"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States the per-company time input must be re-measured against this stage instead of carried over from the hackathon figure"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Explains the hackathon per-company figure is dominated by setup and swap at a physical demo handoff, which a serial stage block does not have"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Defines the per-company figure as the slot plus any question time plus walk-on and walk-off"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Instructs running the feasibility gate before fixing the slate size, not after"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends stage pitch plus judge questions as the default format rung"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Treats the 90-minute block as fixed by the schedule and names the schedule or format-selection owner if the block itself has to change"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States scoring recusal does not address an investor judge's interest because the interest is in the access, not in the result"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States a judge gains the same early look at a company whether or not they score it"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names the backwards case: a judge holding a competing position has an interest in an applicant not winning"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names the judge's own institutional disclosure or allocation obligations as the judge's to answer and not the organizer's to interpret"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Recommends recusal plus disclosure to the pitching companies as the default rung"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Requires the disclosure to reach the pitching companies before they pitch, not after the result"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names the contact protocol rung (a stand-off window plus a routed introduction path) and states its promotion conditions rather than adopting it by default"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Collects interests in writing at invitation, including whether the judge intends to approach companies from this stage"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Asks in writing whether the judge is permitted by their own institution to sit and to see the material"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States the judge brief is delivered before a judge sees a single application, not before scoring"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Frames the contact rule as a routed offer rather than a prohibition"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Does not state a length for the stand-off window"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Sorts the dimensions into observable-in-the-block and claimed-and-verifiable-only-against-the-application"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Classifies traction, market size and team as claimed dimensions"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Classifies delivery and storytelling as observable in the block"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States the rule that a claimed dimension may carry weight only if the application collected something to check it against and a reviewer actually checked"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Identifies that the three-field form collects nothing to verify traction, market size or team against"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Requires either adding the collecting fields to the application or removing the weight from those dimensions"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Warns that weighting an unverifiable claimed dimension scores the confidence with which a number was said aloud"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names the verification source field for each claimed dimension in the revised rubric"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Adds a fit-to-the-award-on-offer dimension"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States weights are integers summing to 100 and published in the call before applications close"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States the call must say which criteria are checked against the application and which are judged on the stage"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Keeps the dimension count small and warns extra criteria add noise rather than resolution"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Does not present its own numeric weight split as a recommended standard"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Fires the capital gate and routes the structure to counsel before the award is announced"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Also routes to the funding party's own legal team"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States no securities threshold, no exemption name, no form name and no legal classification"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names contest-law classification where the contest runs as a second live category, routed rather than answered"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Refuses to announce the award while it exists only as a verbal commitment made on a call"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires the commitment in writing from someone with authority to commit it"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires a named delivering party and a date by which the winner receives it"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Decides in advance what happens if the party does not deliver"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Asks whether the award requires the winner to do anything to keep it, and when it becomes final"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes capital sits bottom on deliverability and is the one award that can be announced and then simply not happen"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names committed introductions as the default award rung, delivered by the organizer end to end"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States the prize goes to the business named in the application rather than to the person standing on stage"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States the award is decided before the funnel because what is on offer decides who applies"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Removes the stage-pitch-only format option because the award now commits a third party"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States a stage slot in front of investors is a speaking slot and is not for sale, citing the DevOpsDays organizing guide line that no speaker spots can be bought by sponsors"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Computes the result with and without the sponsor judge's scores and checks it survives"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Discloses the panel composition before applications close"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Treats this as the sponsor gate to be settled before applications close, not as a rung on the conflict menu"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Routes the unsigned clause drafting to samber/dev-event-organizer-skills@event-sponsor-agreement"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Asks that agreement for the say scoped to a named award, a stated public-disclosure obligation, and no sponsor influence over who is accepted"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Applies the award-commitment checklist to the sponsor-funded prize: named party, in writing, with a date"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Does not trade the refusal against the sponsorship revenue figure or propose selling a reduced number of slots"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Does not state a slate size or a judge count of its own"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Writes the published route as a single sentence before building any form"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "That sentence names who may apply, how the slate is chosen, who chooses it, and what an accepted company commits to"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Identifies the current site text as a route nobody can apply to, which fills the slate from the organizer's own contacts"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Removes the deck upload from the form"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Removes the financial detail beyond dated traction facts, including the revenue history and the cap table summary"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Explains those fields are custody-bearing, not scoreable in a reviewer's time, and signal a diligence process the contest is not running"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Adds a traction field stated as facts with dates"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Adds a team-and-prior-work field as the only source for the founder dimension"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Asks who is presenting and whether they are available on the date at application time rather than after acceptance"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Adds a field for any conflict the applicant already knows about"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Adds a recording and press consent field naming the actual posture rather than assuming it"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names in the call who reads the applications and what happens to them afterwards, and rejects 'the organizing team' as a name"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Deletes rather than archives application material once the review no longer needs it, with the deletion trigger taken from the jurisdiction's claims-limitation period rather than a round number"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Separates what the company does from what the company wants out of pitching, and scores positioning and award fit apart"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names the floor that people usually need at least 4-6 weeks to arrange travel or time off, attributing it to the DevOpsDays organizing guide"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Identifies the notification-to-stage gap in the plan as below that floor"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that below the floor the open funnel rungs stop working"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends filling this edition's slate by invitation rather than by open call"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes an accepted startup may need more than one person away from a business they are running, so the figure is a floor rather than a fit"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Treats anchor gaps published by other contests as a range rather than as a target"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires the published route to say the slate is filled by invitation rather than dressing invitation as an open call"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes widening the pool is an outreach job rather than a review job, so a compressed open call will not reach anyone new"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Gives exactly two acceptable outcomes: the room is not recorded, or every applicant is told and re-consents before the block"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Notes a founder on a pitch stage controls the distribution of what they say exactly once"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Adds the recording and press posture to the application form for the next edition, naming the actual posture"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States the media partner's own agreement does not substitute for applicant consent"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States there is no build phase in a pitch contest"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States nothing at the event improves what is judged"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States readiness is a property of the applicant, not of the event"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Removes the mentor office hours and the prep room, or reframes them as hospitality that does not change the result"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States everything deciding slate quality happens in the funnel, before the call closes"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names the failure of treating a demo day as a hackathon with better slides"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Routes judging of projects built during an event to samber/dev-event-organizer-skills@hackathon-judging as a different skill"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States no hand-off to a build-phase sibling skill exists here"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Redirects the freed budget and attention into the application and the review pass rather than the day"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Keeps any rehearsal or tech check as a commitment named in the published route, distinct from coaching that changes what is judged"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Routes the 1:1 meeting programme to samber/dev-event-organizer-skills@event-b2b-matchmaking"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Builds no booking, slot or confirmation mechanic inside the pitch-contest design"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Distinguishes a pitch as a broadcast to a jury from a meeting as a booked pair"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names the configuration this grows into: a curated founder-and-investor day rather than a conference with a meeting corner"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Routes the sponsor meeting quota to the matchmaking skill rather than committing a number here"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Still delivers the in-scope parts: the award, the funnel, the format, the rubric, the conflict rule and the gates"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Flags that investor judges who also take meetings interact with the conflict rule and the contact protocol"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Does not state a meeting count or a slot length of its own as a recommendation"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States the meeting programme does not remove the need to disclose judge interests to the pitching companies before they pitch"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Does not fold the meetings into the stage block the published schedule already fixed"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that running a call and then filling the slate from the organizer's own contacts is the single most contestable thing in this design"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Deletes the curated-invitation rung outright because a public route onto the stage has already been announced"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Recommends open application with a single review pass as the default rung"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that rung's weakness plainly: paper review of strangers is the weakest available predictor of how a founder holds a stage"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Notes curated invitation produces a slate the organizer could have produced with no contest at all"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States the efficiency ordering across the funnel rungs rather than listing them flat"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names the screening-call rung's promotion conditions: a fixed short block, or a judge or audience invited specifically because of who would be pitching"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names the nomination rung's promotion condition: named referrers who would actually nominate already exist"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Notes the compliance cost of a wider call: more custody taken on, and a deck circulated to a reviewer cannot be un-circulated"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Requires the criteria and their weights published before applications close"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Names contest-law classification as the reason and routes it rather than answering whether a random draw is permissible where the contest runs"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Starts the tie-break ladder with the highest score on the highest-weighted observable dimension"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Uses a named tie-break judge deciding on the record in one sentence as a later rung"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Requires that tie-break judge to have no declared interest in either company"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Notes a panel that never wrote its interests down cannot satisfy that rung"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Allows a shared award only where every item is divisible and the call said so in advance, noting introductions divide and a single program place does not"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States the ladder should have been published in the call before applications close rather than invented at the podium"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Tells the brief to say the first company is scored against the scale, not against nothing"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Notes a narrow score spread across a uniformly polished field is not evidence the scale failed"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Names the structural pass threshold: all six items exist in writing with zero blanks before the call goes public"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Lists the six items"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Identifies the missing ones: the criteria weights, the conflict rule, and the answers to the three gates"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Requires the criteria and their weights published in the call itself, before applications close"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Requires the conflict rule to state what it covers and what it does not"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Requires the award list to name the party who committed each item and its written status, including who makes the three introductions and by when"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Iterates until the count is six rather than proceeding at four"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Presents the design section by section for validation before the call goes public"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Names afterwards-signals as self-set, such as award items delivered against award items announced per party"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Names applications from companies nobody on the team already knew as the read on whether the funnel did anything an invitation list would not"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Says to pick two or three signals and write down the revision each would trigger"
+      }
+    ]
+  }
+}

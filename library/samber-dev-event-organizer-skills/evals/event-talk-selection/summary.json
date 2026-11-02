@@ -1,0 +1,374 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-talk-selection",
+  "scenarios": 9,
+  "expectations_total": 105,
+  "expectations_subjective": 0,
+  "expectations_objective": 105,
+  "pass_rate_with_skill_pct": 91.4,
+  "pass_rate_without_skill_pct": 30.5,
+  "delta_pp": 60.9,
+  "uplift_multiplier": 3.0,
+  "trigger_accuracy_pct": 80.0,
+  "trigger_queries": 100,
+  "trigger_positive_fire_rate": 0.86,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": null,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "States that at least one A is the practical floor for serious consideration, so a proposal carrying only B, C and D grades cannot get in"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Instructs writing the rubric down before any scoring begins, and warns that changing the rules once scoring has opened invalidates what was already read"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that this limit must be disclosed to submitters before the call closes rather than discovered during review"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names the information loss as the anonymizer's cost: reviewers genuinely see less than under platform-level hiding"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that the confirmation deadline is what makes the waitlist function at all"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the acceptance ratio reframes a decline as arithmetic rather than a verdict"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Requires the invited lane to be decided and written down before review opens"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that no published sponsored-to-CFP slot ratio exists for vendor conferences"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Notes that the program-fit pass at a vendor conference answers to the vendor's narrative as well as the audience's"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Recommends the small consensus committee model for this pool, given 190 proposals, six readers and one synchronous discussion round"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Replaces the proposed 1-to-5 quality average with the letter-grade advocate scale (A/B/C/D/X), whose grades describe advocacy rather than quality"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that A means the reviewer will actively advocate, B means likes it but will not advocate, C means neutral, and D means will advocate against"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Includes an X grade meaning the reviewer abstains because they suspect they have identified the speaker"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that grades aggregate as a best-worst pair per proposal (for example 'AC') and are never averaged"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that at least one A is the practical floor for serious consideration, so a proposal carrying only B, C and D grades cannot get in"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Requires a written comment attached to every grade"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Instructs writing the rubric down before any scoring begins, and warns that changing the rules once scoring has opened invalidates what was already read"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that the cut rule, as a threshold or a percentage, must be fixed before anyone sees the ranking"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Runs the topic, employer and first-timer balance pass on the shortlist rather than on all 190 proposals"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends an explicitly ordered backup list, cites about five talks as the documented single-track size, and flags any other number as extrapolation"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Does not recommend averaging numeric scores or ranking proposals by mean score"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Refuses to retrofit anonymization into this edition because the published call promised named review"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that anonymization introduced after reviewers have already read names anonymizes nothing"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Treats anonymization as deleted from the menu for this edition rather than demoted or parked as a fallback option"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that no evidence exists that anonymized review changes acceptance outcomes by demographic"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that under-representation is addressed by outreach before the call closes, not by the review process afterwards"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that a balance goal unsupported by outreach before the call closed can only be traded for at the shortlist stage this year"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Says that where the call published named review, the honest path is to run named review and carry the fairness load in the published criteria"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Routes the anonymization-policy decision to the next edition's call design rather than deciding it mid-review"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Places any balance work in a program-fit pass over the shortlist, with the trade-offs written down"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that this limit must be disclosed to submitters before the call closes rather than discovered during review"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Promotes a dedicated anonymizer above platform-level hiding for this event"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Keys that promotion to the travel-grant requests riding on the same submission form"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names anonymization as the enforcement mechanism for the promise that requesting financial assistance will not affect a proposal's chances"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Assigns the anonymizer role to a named person or people who will not score any proposal"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that the anonymizer rewrites identifying details into bracketed placeholders"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that the anonymizer deliberately preserves identity where it is the subject of the talk itself"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that proposals get random IDs so that submission order cannot re-identify a submitter"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names the information loss as the anonymizer's cost: reviewers genuinely see less than under platform-level hiding"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends the multi-tier cascade for this pool, given four tracks and 2,100 submissions"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Describes track committees scoring within their own track as the first tier"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that the top-scoring 30% advance from track committees to track chairs"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that track chairs pass roughly 30% of those on - about 9% of the original pool - to the co-chairs"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that comments are mandatory when track chairs pass proposals up to the co-chairs"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Places the final accept decision with the co-chairs, combining committee scores with a program-fit overlay"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends the multi-criteria star scale across content, originality, relevance and speaker fit, with mandatory written feedback on every rating, because these reviewers will not all meet"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Cites a developer-conference calibration point such as PyCon US 2025 selecting about 15% of 938 proposals or KubeCon EU 2024 accepting 9% of 2,541"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Refuses to add a fifth track in response to submission volume, stating that a high submission-to-slot ratio is a demand signal and that track count was fixed before the call opened"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that no published reviewers-per-proposal curve exists, and labels any per-proposal reviewer count it proposes as an interpolation"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Instructs the reviewer who suspects he has identified an anonymised submitter to abstain on that proposal"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Treats identity-suspicion abstention and relationship-based recusal as two distinct failures, both named in the reviewer brief"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes that one documented model additionally obliges a reviewer with a lesser conflict who continues reviewing to state that conflict in the review text itself"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that conflict-of-interest handling in this field is honour-system self-recusal, with no declared-conflict registry, escalation path or audit mechanism published anywhere"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Labels any escalation or arbitration procedure it proposes as the organizer's own design rather than established practice"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Decides in advance what happens to a proposal that loses so many reviewers to recusal that its scores are no longer comparable"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Frames reviewing as done wearing the event's hat rather than an employer's"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that declines are sent only once acceptances are confirmed, because a confirmed speaker dropping out would otherwise force retracting a decline"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Attaches a confirmation deadline to the acceptance email"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that the confirmation deadline is what makes the waitlist function at all"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that no published data exists on how often a waitlisted talk is actually promoted"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Builds and explicitly orders the waitlist before any notification is sent"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Advises against telling a waitlisted submitter they are first in line or that a slot will definitely open"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names the promotion conditions met here: a pool small enough to write them all, a first-time-heavy pool, and a rubric that already mandates written comments"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Says plainly to the submitter that the feedback explains this decision in this pool, not a general assessment of them as a speaker"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes that the default rung is a decline plus a recap of the published criteria including the acceptance ratio"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the plain identical form decline buys nothing beyond not being silent"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the acceptance ratio reframes a decline as arithmetic rather than a verdict"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Includes an invitation to submit again at the next edition"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that an invited speaker's identity is the reason they were invited, so anonymising it corrupts both the invited lane and the open pool"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Requires the invited lane to be decided and written down before review opens"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Identifies Cadence as a vendor or user conference rather than a community conference, and says so explicitly"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that at the community pole the rule is that no speaker spots can be bought by sponsors, ever"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Says which pole each recommendation assumes wherever the two poles differ"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that no published sponsored-to-CFP slot ratio exists for vendor conferences"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Notes that the program-fit pass at a vendor conference answers to the vendor's narrative as well as the audience's"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Notes that the documented 50%-new-speaker and 25%-end-user-company targets are event-level aims that appear as a line item in no documented reviewer rubric"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States the panel rule that a session with three or more speakers must include at least one speaker who does not identify as a man"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Applies that rule to the three-speaker all-men panel submission"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Treats both panel composition rules as gates applied at selection rather than as scoring inputs"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names the cost of an undocumented balance pass: next edition's committee re-litigates it blind and a submitter who asks gets an answer nobody can give"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Labels any balance-pass mechanics beyond weighing committee scores and diversity together at the final cut as the organizer's own design rather than documented practice"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Records first-time-speaker count, employer spread and local versus out-of-town share in the accepted set against what was promised"
+      }
+    ]
+  }
+}

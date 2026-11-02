@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Splits the request into two parts and routes them differently rather than answering both with one skill",
+        "evidence": "\"Two asks, two different owners:\" sponsorship routed to developer-event-sponsorship, conference routed as a gap",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends installing `samber/dev-event-organizer-skills` for the Lisbon conference work",
+        "evidence": "\"`samber/dev-event-organizer-skills` covers it; this collection stops at the sponsor and speaker side... Route that whole thread to `samber/dev-event-organizer-skills`.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not route the Lisbon conference to `samber/developer-relations-skills@developer-meetup-program`",
+        "evidence": "developer-meetup-program is never mentioned in the transcript",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not route the organizer-run CFP to `samber/developer-relations-skills@conference-cfp-submission`",
+        "evidence": "conference-cfp-submission is only mentioned once, to warn against stretching it onto the organizer work: \"Don't stretch `developer-event-sponsorship` or `conference-cfp-submission` onto it\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not route the sponsor prospectus to `samber/developer-relations-skills@developer-event-sponsorship` or `samber/developer-relations-skills@oss-sponsors-fundraising`",
+        "evidence": "Sponsor prospectus is kept under the organizer-side gap routed to dev-event-organizer-skills, not to either named skill",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the autumn sponsorship buying to `samber/developer-relations-skills@developer-event-sponsorship`",
+        "evidence": "\"\ud83c\udfaf The $85k / 3-conference sponsorship program \u2192 `samber/developer-relations-skills@developer-event-sponsorship`.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the events boundary as who is paying: this collection covers the speaker and the sponsor, the sibling collection covers the organizer",
+        "evidence": "\"this collection stops at the sponsor and speaker side\" contrasted with organizer work routed to dev-event-organizer-skills",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Presents the sibling collection as a recommendation, never as a dependency this collection needs to function",
+        "evidence": "Phrased as \"covers it\"/\"route that whole thread to\", not as a functional dependency of this collection",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not improvise organizer-side advice on venue, ticketing or prospectus pricing",
+        "evidence": "\"Open: ... venue, ticketing tiers, CFP structure, sponsor prospectus for own event\" \u2014 listed as open, no advice given",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that the fixed June date promotes event-related work for that season",
+        "evidence": "Only the autumn dates are used for promotion (\"Fixed autumn dates promote the sponsorship work to rung 1 outright\"); the June 2027 date is never discussed as promoting anything",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not claim a developer-relations skill exists for organizer-side sponsorship sales",
+        "evidence": "\"`samber/developer-relations-skills` has no skill for it \u2014 it's a named coverage gap\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes or updates `devrel-context.md` with a session-log line",
+        "evidence": "\"## Session log\\n- 2026-09-19 - \\\"where do we start on the conference + sponsorship spend\\\" \u2192 routed sponsorship to...\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Splits the request into two parts and routes them differently rather than answering both with one skill",
+        "evidence": "The output splits into 'PART 1' and 'PART 2' but never names any skill for either part \u2014 no routing shown.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends installing `samber/dev-event-organizer-skills` for the Lisbon conference work",
+        "evidence": "This collection is never mentioned anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not route the Lisbon conference to `samber/developer-relations-skills@developer-meetup-program`",
+        "evidence": "developer-meetup-program is never named.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not route the organizer-run CFP to `samber/developer-relations-skills@conference-cfp-submission`",
+        "evidence": "conference-cfp-submission is never named.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not route the sponsor prospectus to `samber/developer-relations-skills@developer-event-sponsorship` or `samber/developer-relations-skills@oss-sponsors-fundraising`",
+        "evidence": "Neither skill name appears anywhere for the prospectus section.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the autumn sponsorship buying to `samber/developer-relations-skills@developer-event-sponsorship`",
+        "evidence": "No skill name is used for the Part 2 sponsorship-buying section at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the events boundary as who is paying: this collection covers the speaker and the sponsor, the sibling collection covers the organizer",
+        "evidence": "No such boundary statement appears anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Presents the sibling collection as a recommendation, never as a dependency this collection needs to function",
+        "evidence": "The sibling collection is never mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not improvise organizer-side advice on venue, ticketing or prospectus pricing",
+        "evidence": "The transcript gives an extensive venue RFP checklist, a full ticketing-tier price table, and a sponsor prospectus with tier pricing ($60,000-90,000 Title Sponsor, etc.) \u2014 clear organizer-side improvisation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that the fixed June date promotes event-related work for that season",
+        "evidence": "No statement connects the fixed date to promoting a work class; only a generic 'timing reality check' is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not claim a developer-relations skill exists for organizer-side sponsorship sales",
+        "evidence": "No skill of any kind is named or claimed to exist in the transcript.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes or updates `devrel-context.md` with a session-log line",
+        "evidence": "No file-write action is shown.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

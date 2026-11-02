@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Deletes the hosted migration runner because the end-of-quarter date promotes options that bill within weeks and deletes hosting and license changes, which need months; says so explicitly.",
+        "evidence": "Hosted SaaS, date: it needs months, and you need money inside a quarter. Rejected: hosted runner and dashboard",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not design or price the SaaS the user asked about.",
+        "evidence": "A hosted SaaS has no price today.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a capped support contract to Oakhaven Analytics, the company that asked to pay, as the first sale, sold now.",
+        "evidence": "Reply to Oakhaven: 'Yes, I can offer a capped support contract...'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Caps the support contract's customer count and response terms in the contract, and states that support alone rarely scales past a side income.",
+        "evidence": "Cap of 4 h/month and 2-business-day response are given, but nothing says support alone rarely scales past a side income.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Uses the three company conversations as boundary validation for a later paid add-on, naming which features those companies would pay for as the thing to learn before writing code.",
+        "evidence": "validate with the 3 companies before coding... only if the contract buyers name the same feature unprompted.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not place the requested dry-run mode in a paid tier without validating it with the requesting company, and applies the rule that a feature everyone needs belongs in the free core.",
+        "evidence": "Dry-run is something everyone needs, so it ships in the free core under Apache-2.0.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the burnout risk once for 10 hours a week on top of a full-time job and caps the plan at that budget.",
+        "evidence": "No burnout warning appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Runs the capacity gate with an explicit hours estimate (fixed upkeep plus hours per customer per month times customers) against the 10-hour budget, labelled as the advisor's own estimate because no published per-option benchmark exists.",
+        "evidence": "Draft split of about 100 h table; Free upkeep assumed about 30 h; numbers are 'my estimates'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports the ownership gate as passed because Apache-2.0 inbound contributions can ship under other terms with notices kept and the maintainer wrote nearly all of the code.",
+        "evidence": "Apache-2.0 inbound is permissive. You wrote 95%",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Computes the paying organizations needed from the $2,500 target with the formula target / (monthly price x (1 - payment fee rate)) and shows the number.",
+        "evidence": "$2,500 / ($833 \u00d7 0.97) = 3.1",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Answers the billing question by asking the user's country and offering the choice between the maintainer's own registered business and a merchant-of-record service, sending tax and entity questions to an accountant.",
+        "evidence": "I don't know your country... merchant-of-record service... Entity and tax questions go to an accountant",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the paid support queue's response terms must be written down and the free issue queue's terms left unchanged.",
+        "evidence": "Keep the free queue's terms unchanged; 2-business-day response",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the hosted offering deleted rather than listing it as a phase two after the quarter.",
+        "evidence": "Rejected: hosted runner and dashboard",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets the time expectation that salary-level outcomes took years, while the support contract can bill within weeks.",
+        "evidence": "The years-not-months expectation never appears.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Deletes the hosted migration runner because the end-of-quarter date promotes options that bill within weeks and deletes hosting and license changes, which need months; says so explicitly.",
+        "evidence": "It rejects SaaS on hours and customers, but 'SaaS pricing, parked' keeps it. It does not state the end-of-quarter promotion rule.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not design or price the SaaS the user asked about.",
+        "evidence": "The parked section gives an architecture, a per-cluster metric, a paid boundary and a '$99\u2013199/month' price.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends a capped support contract to Oakhaven Analytics, the company that asked to pay, as the first sale, sold now.",
+        "evidence": "'reply to Oakhaven today... offer a monthly support subscription'; Oakhaven gets a Supported subscription at $750/month.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Caps the support contract's customer count and response terms in the contract, and states that support alone rarely scales past a side income.",
+        "evidence": "Response terms are best-effort, but there is no customer cap and no statement that support alone rarely scales.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Uses the three company conversations as boundary validation for a later paid add-on, naming which features those companies would pay for as the thing to learn before writing code.",
+        "evidence": "It sells the dry-run feature as fixed price. It does not frame the calls as learning which features to pay for.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not place the requested dry-run mode in a paid tier without validating it with the requesting company, and applies the rule that a feature everyone needs belongs in the free core.",
+        "evidence": "It prices dry-run at $4,500 one-off with no free-core rule applied. Acceptance criteria are the only protection.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the burnout risk once for 10 hours a week on top of a full-time job and caps the plan at that budget.",
+        "evidence": "The 100 h budget is respected, but no burnout warning appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Runs the capacity gate with an explicit hours estimate (fixed upkeep plus hours per customer per month times customers) against the 10-hour budget, labelled as the advisor's own estimate because no published per-option benchmark exists.",
+        "evidence": "There is an hour budget and a 300\u2013600 hour SaaS estimate. There is no upkeep-plus-per-customer formula.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reports the ownership gate as passed because Apache-2.0 inbound contributions can ship under other terms with notices kept and the maintainer wrote nearly all of the code.",
+        "evidence": "It says only that published Apache releases stay Apache. No ownership gate is run.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Computes the paying organizations needed from the $2,500 target with the formula target / (monthly price x (1 - payment fee rate)) and shows the number.",
+        "evidence": "'13\u201325 paying customers' for the SaaS has no fee rate; the formula is not used.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Answers the billing question by asking the user's country and offering the choice between the maintainer's own registered business and a merchant-of-record service, sending tax and entity questions to an accountant.",
+        "evidence": "It asks residence and suggests micro-entrepreneur and an accountant. It never mentions a merchant-of-record service.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the paid support queue's response terms must be written down and the free issue queue's terms left unchanged.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the hosted offering deleted rather than listing it as a phase two after the quarter.",
+        "evidence": "It is 'parked' with reopen conditions.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets the time expectation that salary-level outcomes took years, while the support contract can bill within weeks.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

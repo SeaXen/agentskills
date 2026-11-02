@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to supply an absolute day-one star or upvote target",
+        "evidence": "\"No safe number for day-one stars or upvotes.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that circulating figures for launch-day stars per hour, front-page point thresholds and Product Hunt vote thresholds trace back to single anecdotes and launch-consultancy claims",
+        "evidence": "\"PH's oft-quoted '500-1,200 quality-weighted upvotes...' is 'repeated everywhere, confirmed nowhere.' Same for HN front-page points and GitHub Trending \u2014 no published formula, single-anecdote folklore.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets targets as multiples of the project's own pre-launch baseline instead",
+        "evidence": "The transcript explicitly rejects this for this project: \"Baseline near zero (new project) \u2014 'hit N stars' meaningless, multiple of zero stays zero.\" It substitutes shape-based signals instead of baseline multiples.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Directs capture of the baseline on the evening before the launch",
+        "evidence": "Only says \"Do now, before Thursday (10 min)\" \u2014 no \"evening before\" instruction.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that repository traffic panels keep only a short rolling window, so an uncaptured baseline is unrecoverable",
+        "evidence": "\"Only last 14 days visible \u2014 capture now or gone for good.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Directs storing the baseline snapshot outside the platform's own traffic panel",
+        "evidence": "\"Save all 4 somewhere outside GitHub/npm \u2014 both panels roll off.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists the baseline items to capture, including stars, unique visitors and unique cloners, registry downloads for the last full week, documentation sessions, open issues, contributor count and the current referrer list",
+        "evidence": "Only lists unique visitors/cloners/referring sites, star/fork/watcher count, and npm downloads \u2014 no documentation sessions, open issues, or contributor count.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Splits the reading into day 1 as attention, day 7 as trial and day 30 as adoption",
+        "evidence": "\"Day 1 measures attention, not adoption\" / \"Day 7 \u2014 trial:\" / \"Day 30 \u2014 adoption, only window separating real use from applause\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the day-30 numbers decide the verdict",
+        "evidence": "\"Day 30 \u2014 adoption, only window separating real use from applause\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names retained download run-rate against the pre-launch week as the number that separates adoption from applause",
+        "evidence": "\"npm download run-rate vs pre-launch week.\" under Day 30 \u2014 adoption.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats stars as the loudest and least meaningful signal",
+        "evidence": "No statement in this transcript characterizes stars as \"loudest and least meaningful\"; stars are simply one metric among several tracked.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Pairs star growth against unique cloners and registry downloads rather than reading stars alone",
+        "evidence": "Stars-per-hour, cloners, and referrer mix are listed as separate bullet items to watch, not explicitly paired/read together as a composite check.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that a large \"direct\" referrer bucket is expected, because aggregators, chat clients and privacy-preserving browsers strip referrers",
+        "evidence": "The transcript attributes this to platform behavior instead: \"GitHub/npm strip much of the referrer data into 'direct.'\" \u2014 a different causal mechanism than aggregators/chat/privacy browsers stripping referrers.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that comparison against other projects is only meaningful within the same language, category and project age",
+        "evidence": "No such comparison caveat appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to supply an absolute day-one star or upvote target",
+        "evidence": "Gives explicit absolute figures: '\ud83d\udfe2 Solid, credible launch: 100\u2013200 net new stars... \ud83c\udfaf Good outcome: 250\u2013400... \ud83c\udff4\u200d\u2620\ufe0f Exceptional: 500+.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that circulating figures for launch-day stars per hour, front-page point thresholds and Product Hunt vote thresholds trace back to single anecdotes and launch-consultancy claims",
+        "evidence": "No caveat about the provenance/reliability of these numeric thresholds is given; they are presented as calibrated targets.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets targets as multiples of the project's own pre-launch baseline instead",
+        "evidence": "Targets are given as absolute star counts (100-200, 250-400, 500+), not as multiples of the captured baseline.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Directs capture of the baseline on the evening before the launch",
+        "evidence": "'Before anything else: snapshot your baseline today, not Thursday.' \u2014 directs capturing it ahead of launch day rather than late.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that repository traffic panels keep only a short rolling window, so an uncaptured baseline is unrecoverable",
+        "evidence": "'\u26a0\ufe0f Only a 14-day rolling window \u2014 export/screenshot it weekly or launch-week data is gone by the time you'd want to write the retro.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Directs storing the baseline snapshot outside the platform's own traffic panel",
+        "evidence": "'Record current star count, current npm downloads..., and today's date/time in whatever you use to track this' implies external tracking outside GitHub's own panel.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists the baseline items to capture, including stars, unique visitors and unique cloners, registry downloads for the last full week, documentation sessions, open issues, contributor count and the current referrer list",
+        "evidence": "The baseline instruction only names 'current star count, current npm downloads... and today's date/time' \u2014 missing visitors, cloners, documentation sessions, open issues, contributor count, and referrer list as baseline items.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Splits the reading into day 1 as attention, day 7 as trial and day 30 as adoption",
+        "evidence": "Cadence uses Day 1/7/30/90 checkpoints but never labels them with the attention/trial/adoption framework explicitly.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the day-30 numbers decide the verdict",
+        "evidence": "No statement privileges day-30 as the deciding checkpoint; a Day 90 checkpoint is also given equal weight.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names retained download run-rate against the pre-launch week as the number that separates adoption from applause",
+        "evidence": "No explicit 'download run-rate vs. pre-launch week' framing is stated as the adoption-vs-applause separator.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats stars as the loudest and least meaningful signal",
+        "evidence": "'A star is a bookmark; a clone is someone actually pulling the code' and \"don't let 'stars' or 'downloads' stand in for 'usage'\" downgrade stars' meaning relative to their prominence.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Pairs star growth against unique cloners and registry downloads rather than reading stars alone",
+        "evidence": "'Clones vs. stars ... Ratio of clones-to-stars is your realest usage proxy from GitHub alone' pairs stars with clones and downloads.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that a large \"direct\" referrer bucket is expected, because aggregators, chat clients and privacy-preserving browsers strip referrers",
+        "evidence": "No mention of a 'direct' referrer bucket or referrer-stripping behavior.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that comparison against other projects is only meaningful within the same language, category and project age",
+        "evidence": "Only category is addressed ('Webhook gateways are not a blank category \u2014 Svix, Hookdeck, Convoy...'); language and project age are not mentioned as comparison dimensions.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

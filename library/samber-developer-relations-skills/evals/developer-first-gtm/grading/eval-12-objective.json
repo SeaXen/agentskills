@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to design one entry serving both audiences, stating that an entry built for a hobbyist and an enterprise platform team at once serves neither.",
+        "evidence": "\"An entry designed for a card-swiping indie developer and a compliance-gated platform team at once serves neither\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the two paths to be ranked explicitly, with one named primary.",
+        "evidence": "\"## Primary motion: bottom-up self-serve\" and \"## Secondary motion: top-down with developer proof\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names what is identical for both: first value must be reachable by one developer working alone.",
+        "evidence": "The transcript gives explicitly different first-value moments per segment: for indie devs \"a migration plan generated and applied,\" but for regulated accounts \"a platform engineer's security team accepting the compliance packet\" \u2014 not framed as identical/solo-reachable for both.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names that documentation, limits and pricing detail stay open for both audiences.",
+        "evidence": "\"Shared, always open regardless of path: full docs, real pricing... all limits, error/troubleshooting content.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names what differs after the first paid moment: who is contacted, what is offered, and what expansion even means.",
+        "evidence": "Handoff rule and Expansion path sections differ explicitly by segment (\"no human contact below any threshold\" vs. \"route to a named owner within hours\"; \"more developers on the same team\" vs. \"more teams inside the same institution\").",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that in individual adoption the user and the payer are the same person, or no purchase exists at all.",
+        "evidence": "The transcript states \"individual/small-team developers can pay $9/month without anyone's approval\" but never generalizes to \"user and payer are the same person, or no purchase exists at all.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that for the individual-adoption path a human in the loop costs more than the contract.",
+        "evidence": "No statement comparing human-contact cost to contract value for the self-serve segment appears in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that company adoption requires account rollup, a champion enablement pack and procurement paperwork.",
+        "evidence": "The champion pack and paperwork are mentioned for the regulated segment, but \"account rollup\" is never tied to company adoption (segment B) specifically.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the single blended conversion number and requires conversion to be reported per audience as well as blended.",
+        "evidence": "\"Kill the single blended free-to-paid number\" instructs dropping it entirely, and the report format lists only per-segment numbers, never requiring a blended figure alongside them.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that larger target customers correlate with lower conversion, so blending the two hides both.",
+        "evidence": "The stated reasoning is that the segments have \"different shapes, different timelines and different denominators,\" not a size-correlates-with-lower-conversion argument.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires conversion to be measured at account level and by cohort.",
+        "evidence": "\"Report at minimum two numbers, each cohorted at account level over a consistent window\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not conclude that one onboarding flow can be optimized for both segments at once.",
+        "evidence": "\"Don't build one flow. Build one shared front door that forks on a real signal\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to design one entry serving both audiences, stating that an entry built for a hobbyist and an enterprise platform team at once serves neither.",
+        "evidence": "The transcript explicitly designs a shared entry: \"Design one product experience... Shared spine (everyone goes through this \u2014 this is the part where 'a developer is a developer' is correct)\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the two paths to be ranked explicitly, with one named primary.",
+        "evidence": "Self-serve and enterprise tracks are presented as parallel forks with no explicit primary/secondary ranking.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names what is identical for both: first value must be reachable by one developer working alone.",
+        "evidence": "\"First 5 minutes, same for both: tilcrest init against a sandbox schema you provide, not a real DB... This is the aha moment.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names that documentation, limits and pricing detail stay open for both audiences.",
+        "evidence": "No explicit statement that documentation, limits, and pricing stay open/identical for both segments.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names what differs after the first paid moment: who is contacted, what is offered, and what expansion even means.",
+        "evidence": "Self-serve track has \"No human touch\" while enterprise track \"surface... 'Talk to us,' and route it to a named person within 24 hours\" \u2014 differing contact, offer, and activation definitions ('milestone-based' vs usage-triggered).",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that in individual adoption the user and the payer are the same person, or no purchase exists at all.",
+        "evidence": "No such statement appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that for the individual-adoption path a human in the loop costs more than the contract.",
+        "evidence": "The transcript states \"No human touch \u2014 the whole point of this motion is that it never needs one\" but does not frame this as a human costing more than the contract value.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that company adoption requires account rollup, a champion enablement pack and procurement paperwork.",
+        "evidence": "The enterprise track mentions \"champion identified \u2192 security questionnaire requested \u2192 MSA in legal review \u2192 SSO configured\" but never mentions account rollup or a 'champion enablement pack' by name.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the single blended conversion number and requires conversion to be reported per audience as well as blended.",
+        "evidence": "\"Kill the single blended free-to-paid number as the headline metric... Report instead: 1. Two conversion lines, not one\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that larger target customers correlate with lower conversion, so blending the two hides both.",
+        "evidence": "\"A great quarter for enterprise (more regulated-company signups, each converting on its own much longer clock) will make the blended number drop, and the board will read that as a growth problem when it's actually a mix shift.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires conversion to be measured at account level and by cohort.",
+        "evidence": "Conversion lines are defined by time windows (\"trial \u2192 paid within N days\") but never explicitly labeled as measured 'at account level' or 'by cohort'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not conclude that one onboarding flow can be optimized for both segments at once.",
+        "evidence": "\"The instrumentation instinct \u2014 one number, one flow, one funnel \u2014 is the part that doesn't survive contact with how these two segments actually buy.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

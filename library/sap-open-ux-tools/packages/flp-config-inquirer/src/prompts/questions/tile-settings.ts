@@ -1,0 +1,38 @@
+import type { ListQuestion, ConfirmQuestion, YUIQuestion } from '@sap-ux/inquirer-common';
+import { type TileSettingsAnswers, tileActions, tilePromptNames } from '../../types.js';
+import { t } from '../../i18n.js';
+
+/**
+ * Returns the list of questions for tile handling actions.
+ *
+ * @returns {YUIQuestion<TileSettingsAnswers>[]} Array of tile action questions.
+ */
+export function getTileSettingsPrompts(): YUIQuestion<TileSettingsAnswers>[] {
+    return [
+        {
+            type: 'list',
+            name: tilePromptNames.tileHandlingAction,
+            message: t('prompts.tileHandlingAction'),
+            choices: [
+                { name: t('choices.addNewTile'), value: tileActions.ADD },
+                { name: t('choices.replaceOriginalTile'), value: tileActions.REPLACE }
+            ],
+            store: false,
+            guiOptions: {
+                mandatory: true,
+                breadcrumb: true
+            }
+        } as ListQuestion<TileSettingsAnswers>,
+        {
+            type: 'confirm',
+            name: tilePromptNames.copyFromExisting,
+            message: t('prompts.copyFromExisting'),
+            default: false,
+            guiOptions: {
+                mandatory: true,
+                breadcrumb: true
+            },
+            when: (answers: any): boolean => answers.tileHandlingAction === tileActions.ADD
+        } as ConfirmQuestion<TileSettingsAnswers>
+    ];
+}

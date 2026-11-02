@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Moves the default landing from the 5.0 beta to 4.x `current`",
+        "evidence": "\"Home lands on 4.x\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to reuse the old-version banner on the beta pages and writes a distinct `next` banner saying the version is unreleased and its features may change or not ship",
+        "evidence": "\"an unreleased version. Features here may change or not ship.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rewrites the banner with three parts in order: a status word, the consequence for the reader, and a same-page link to `current`",
+        "evidence": "\"Each banner has a status word, a consequence and a same-page link to `current`.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces the link to the docs home with a same-page link that falls back to the nearest ancestor section when the page no longer exists",
+        "evidence": "\"If the page is missing in 4.x, the link falls back to the ancestor section\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes a separate banner per state: `maintained` wording for 3.x (supported older release) and `frozen` wording for 1.x (no longer supported, static snapshot)",
+        "evidence": "Table has next, maintained 3.x, frozen 1.x, frozen insecure 2.x and archived.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Uses the 'known security issues' wording only on 2.x, the line with the CVE, and not on 1.x",
+        "evidence": "\"'Insecure' is only for 2.x\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Collapses the 31-entry dropdown to one entry per line, with 2.x and 1.x grouped under an 'Older versions' heading",
+        "evidence": "Switcher spec lists \"Older versions (unsupported)\" holding 2.x and 1.x.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Answers the enterprise request for exact versions with 'added in' and 'changed in' stamps or the per-release reference, not with 31 dropdown entries",
+        "evidence": "\"'added in', 'changed in' and 'removed in' stamps... per-release Javadoc\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the cookie that auto-redirects visitors arriving from search to a remembered version",
+        "evidence": "\"Never redirect.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Specifies that switching opens the same page in the target version and, when it is missing there, the nearest ancestor section with a one-line notice, never the version root or a 404",
+        "evidence": "\"open the nearest ancestor section and show a one-line notice\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Shows which versions are supported next to their labels in the switcher",
+        "evidence": "\"Support state in labels.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the 5.0 beta a visible label distinct from stable entries, such as Preview or Unreleased",
+        "evidence": "\"Preview / 5.0 beta (unreleased)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends instrumenting switcher clicks and switcher 404s before treating any selector change as an improvement",
+        "evidence": "\"Log switcher clicks and switcher 404s.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Scopes on-site search to the version being read, `current` by default",
+        "evidence": "\"Search is scoped to the version being read (4.x by default).\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Moves the default landing from the 5.0 beta to 4.x `current`",
+        "evidence": "\"Change the docs home from 5.0 beta to 4.x.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to reuse the old-version banner on the beta pages and writes a distinct `next` banner saying the version is unreleased and its features may change or not ship",
+        "evidence": "\"This version is a pre-release and may change before general availability.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rewrites the banner with three parts in order: a status word, the consequence for the reader, and a same-page link to `current`",
+        "evidence": "Banners carry a bold status, a consequence, and a same-page link to the 4.x docs.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces the link to the docs home with a same-page link that falls back to the nearest ancestor section when the page no longer exists",
+        "evidence": "\"If it doesn't, they go to that version's root.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes a separate banner per state: `maintained` wording for 3.x (supported older release) and `frozen` wording for 1.x (no longer supported, static snapshot)",
+        "evidence": "Separate `supported` 3.x and `unsupported` 1.x rows.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Uses the 'known security issues' wording only on 2.x, the line with the CVE, and not on 1.x",
+        "evidence": "Only 2.x gets the advisory banner; 1.x gets it only if the parser is shared.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Collapses the 31-entry dropdown to one entry per line, with 2.x and 1.x grouped under an 'Older versions' heading",
+        "evidence": "\"List all released versions, one entry per minor\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Answers the enterprise request for exact versions with 'added in' and 'changed in' stamps or the per-release reference, not with 31 dropdown entries",
+        "evidence": "\"Enterprise readers need exact versions.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the cookie that auto-redirects visitors arriving from search to a remembered version",
+        "evidence": "It specifies the redirect and its conditions.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Specifies that switching opens the same page in the target version and, when it is missing there, the nearest ancestor section with a one-line notice, never the version root or a 404",
+        "evidence": "Falls back to the version root.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Shows which versions are supported next to their labels in the switcher",
+        "evidence": "\"status badge on each entry: beta, current, supported, unsupported\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the 5.0 beta a visible label distinct from stable entries, such as Preview or Unreleased",
+        "evidence": "Label \"5.0 beta\" with a beta badge.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends instrumenting switcher clicks and switcher 404s before treating any selector change as an improvement",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Scopes on-site search to the version being read, `current` by default",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

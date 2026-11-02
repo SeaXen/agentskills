@@ -1,0 +1,646 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "github-profile-optimization",
+  "scenarios": 12,
+  "expectations_total": 142,
+  "expectations_subjective": 2,
+  "expectations_objective": 140,
+  "pass_rate_with_skill_pct": 67.6,
+  "pass_rate_without_skill_pct": 28.2,
+  "delta_pp": 39.4,
+  "uplift_multiplier": 2.4,
+  "trigger_accuracy_pct": 51.5,
+  "trigger_queries": 130,
+  "trigger_positive_fire_rate": 0.123,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 0.68,
+  "subjective_pass_disagreements": [
+    {
+      "eval_id": 1,
+      "condition": "with_skill",
+      "expectation": "Recommends far less than two weekends of work, scoping the pass to making the profile not contradict the resume",
+      "pass1": true,
+      "pass2": false
+    }
+  ],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.267 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Refuses to repeat the 78% recruiter figure and states that 60-80% recruiter statistics trace to vendor blogs with no traceable methodology"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Cites the 2018 developer skills survey finding that 81% of hiring managers use resumes as the first screening step"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Reports that portfolio weight concentrates at small companies over large ones, roughly 80% versus 66%"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Notes that the 2018 survey is dated and should be treated as such"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Notes that recruiter testimony on record is largely indifferent to the profile surface"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Notes that the evidence cited is English-language and US-centric"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Explains that only commits on the default branch or gh-pages count toward the graph"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that commits made inside a fork never count until the work is merged upstream"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes that a qualifying contribution can take up to 24 hours to appear"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that the profile README renders at the top of the Overview tab, above the pinned items"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that later emptying the file, flipping the repository to private, or renaming it removes the README silently"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that an organization has 6 public pins plus 6 member-visible pins"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends assigning an owner for the page before writing its content"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that each third-party card is an external dependency that can go down, rate-limit or freeze"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Explains that images are rewritten through an anonymizing proxy that honours upstream cache headers, so a generated image served without no-cache can be served stale indefinitely"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names a PURGE request against the proxied image URL as the escape hatch for a frozen image"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States the visitor counter is not evidence because it increments on every image load including bots and repeat loads, and public scripts inflate it"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Identifies the audience mismatch: these widgets read as engagement to an early-career peer group and as noise to the senior technical reviewer being targeted"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that the widgets cannot see private work at all"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires one sentence of prose above every image, badge and widget"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires alt text on every retained visual element, no meaning encoded in colour alone, and readability in a plain markdown viewer"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Emits at least three separate orderings - by effort, by value and by efficiency - and notes that they disagree"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Leads with the efficiency ordering"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Places killing the false claim and repairing the render tied at the top, explaining they tie because each takes minutes and each fixes a page that is wrong rather than merely weak"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Places setting the six pins ahead of the positioning sentence on the efficiency ordering"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Scores the positioning check at or near zero and quotes 'I love building things and learning new technologies' as the evidence"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States the ship bar as 13 of 16 with all four blocking checks passing"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Describes the cold-reader test as 45 seconds on the page followed by four questions, with four of four as the pass"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the auditor's own reading does not count as the cold reader, and offers a person or a fresh session with no context on the account instead"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that leaving pins unset is worse than an imperfect set, because the platform falls back to auto-selected 'Popular repositories'"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Requires each pinned repository to have a description and topics before it is pinned"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that a bare pin wastes one of only six slots"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that a personal account has six pin slots, repositories and gists combined"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Confirms that the order within the chosen set is real because it decides which repository a visitor opens first"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that no host offers profile-level analytics, and that the ship date must be written down with confounders annotated"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Builds the three candidates on different axes: what is built mechanically, what problem is removed for the reader, and what the reader can stop doing"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that the sentence propagates into the bio, the organization tagline, link unfurls and search listings"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States the team's dominant question as what they are depending on and who answers when it breaks"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names licensing stance, maintenance cadence, and support or security routes as what must surface early for the team audience"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names the absence of an answer to 'who maintains this' as the fatal omission for the team audience"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Keeps the first screen identical for both audiences and adds a short evaluation block lower down rather than writing the top twice"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Recommends a plain-language project status line such as maintained, seeking maintainers, or feature-frozen"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Offers the audience question plus the scorecard as what does the work a framework would claim to do"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Asks whether this is the organization page or a personal profile, and what one outcome the page should produce, before proposing content"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that the scorecard thresholds are self-set defaults the owner can move with a reason"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Cites roughly six million suspected fake stars across more than eighteen thousand repositories, from a multi-year study of public event data"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Refuses to repeat the 78% recruiter figure and states that 60-80% recruiter statistics trace to vendor blogs with no traceable methodology"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that no peer-reviewed study measures whether profile changes affect callback or interview rates"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Declines to promise that the rewrite produces interviews"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Cites the 2018 developer skills survey finding that 81% of hiring managers use resumes as the first screening step"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Reports that portfolio weight concentrates at small companies over large ones, roughly 80% versus 66%"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Notes that the 2018 survey is dated and should be treated as such"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Identifies the three named targets as large employers and recommends investing in the resume first"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends far less than two weekends of work, scoping the pass to making the profile not contradict the resume"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Notes that recruiter testimony on record is largely indifferent to the profile surface"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Notes that the evidence cited is English-language and US-centric"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that backdating a commit takes one environment variable, as a reason the graph is discounted"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that the private-contribution toggle is a setting rather than new public work"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Explains that only commits on the default branch or gh-pages count toward the graph"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that commits made inside a fork never count until the work is merged upstream"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes that a qualifying contribution can take up to 24 hours to appear"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Recommends merged pull requests in other people's repositories as the best-evidenced signal available"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Orders the honest moves with the private-contribution toggle first, the mechanical causes second, and merged pull requests elsewhere third"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that the file must not be empty"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that all four prerequisites must hold at once or nothing renders"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Mentions that a repository created before July 2020 with a matching name is not promoted automatically and must be shared to the profile by hand"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that the profile README renders at the top of the Overview tab, above the pinned items"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Classifies repairing the render as a blocking, minutes-long fix belonging at the top of the fix order"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that later emptying the file, flipping the repository to private, or renaming it removes the README silently"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States the member-only variant lives in a private repository named .github-private at the same profile/README.md path"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Rejects porting the homepage copy wholesale, on the grounds that the visitor came to GitHub for the code"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires a plainly stated open-source stance saying what is open, what is commercial, and under which licence"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires named entry-point repositories, each with a short line saying who should start there"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that an organization has 6 public pins plus 6 member-visible pins"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that only organization owners can set pins"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Adds the organization-only blocking condition that the page must answer which repository to open first without the visitor scrolling into the repository list"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States the organization cold-reader test is five questions and the pass is five of five"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends assigning an owner for the page before writing its content"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends the pins cover repositories the README prose does not already name, rather than repeating them"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Asks who owns the page after today and which event triggers the next review"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Caps decoration at three visual elements"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that each third-party card is an external dependency that can go down, rate-limit or freeze"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Explains that images are rewritten through an anonymizing proxy that honours upstream cache headers, so a generated image served without no-cache can be served stale indefinitely"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names a PURGE request against the proxied image URL as the escape hatch for a frozen image"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States the visitor counter is not evidence because it increments on every image load including bots and repeat loads, and public scripts inflate it"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that the widgets cannot see private work at all"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Prescribes the fix as pinned original repositories with descriptions and outcome lines plus the anonymized private-contribution toggle, not merely fewer widgets"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires one sentence of prose above every image, badge and widget"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires alt text on every retained visual element, no meaning encoded in colour alone, and readability in a plain markdown viewer"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Emits at least three separate orderings - by effort, by value and by efficiency - and notes that they disagree"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Leads with the efficiency ordering"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Places killing the false claim and repairing the render tied at the top, explaining they tie because each takes minutes and each fixes a page that is wrong rather than merely weak"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Puts repairing the broken render first or tied first"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Places setting the six pins ahead of the positioning sentence on the efficiency ordering"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Drops the full page rebuild from this pass because of the 3 November date"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Deletes the review habit from the plan outright rather than listing it last, because there is no standing owner"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names which of the user's answers moved which fix in the presented plan"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Produces the report in the scorecard format: blocking checks, then scored checks, then cold reader, then fix order"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Reports exactly four blocking checks"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Reports eight scored checks worth two points each, for a total out of 16"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Attaches evidence to each scored line - a quoted sentence, a field value, or a line of audit output"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Fails or flags the undated \"I'm currently working on something exciting\" line under the claims-are-true blocking check"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Scores the positioning check at or near zero and quotes 'I love building things and learning new technologies' as the evidence"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States the ship bar as 13 of 16 with all four blocking checks passing"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States explicitly that the checks and the pass mark are this skill's own baseline rather than a published or industry standard"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Describes the cold-reader test as 45 seconds on the page followed by four questions, with four of four as the pass"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the auditor's own reading does not count as the cold reader, and offers a person or a fresh session with no context on the account instead"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Presents the score and seeks the owner's agreement before rewriting anything"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that the platform already displays star counts, so star-ranked pins repeat information the visitor can already see"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Orders that set as the repository with curated good-first-issues first, then the one with the best contributor documentation"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that leaving pins unset is worse than an imperfect set, because the platform falls back to auto-selected 'Popular repositories'"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Requires each pinned repository to have a description and topics before it is pinned"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that a bare pin wastes one of only six slots"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that a personal account has six pin slots, repositories and gists combined"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Declines to rank the four pin sets against each other, on the grounds that the goal answer selects one outright and every pin costs the same to set"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Confirms that the order within the chosen set is real because it decides which repository a visitor opens first"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Deletes star growth from the measurement plan rather than ranking it last"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names tagged click-through to an owner-controlled destination as the first thing to build, costing roughly an hour, with the destination's analytics belonging to the owner"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names pinned-repository traffic second and states it is limited to a trailing 14-day window"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that pinned-repository traffic requires push access to that specific repository"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names qualified inbound as what the efficiency order starves, and promotes it here because the account is an organization"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Defines qualified inbound for an organization as a prospect who already knows what the company builds instead of asking"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that no host offers profile-level analytics, and that the ship date must be written down with confounders annotated"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Builds the three candidates on different axes: what is built mechanically, what problem is removed for the reader, and what the reader can stop doing"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Applies the test that a competitor's account must not be able to paste the sentence unchanged"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that the sentence propagates into the bio, the organization tagline, link unfurls and search listings"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States the solo developer's dominant question as whether this person can build the thing they need"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States the team's dominant question as what they are depending on and who answers when it breaks"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names licensing stance, maintenance cadence, and support or security routes as what must surface early for the team audience"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names the absence of an answer to 'who maintains this' as the fatal omission for the team audience"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Keeps the first screen identical for both audiences and adds a short evaluation block lower down rather than writing the top twice"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Recommends a plain-language project status line such as maintained, seeking maintainers, or feature-frozen"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that no validated framework exists for profile work"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Declines to name or repeat the one coined acronym framework in circulation, noting it has no adoption beyond its own post"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Offers the audience question plus the scorecard as what does the work a framework would claim to do"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that the bundled audit script calls GitHub's own APIs and has no equivalent for a self-hosted forge"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Directs applying the same checklist by hand from the profile page itself"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States plainly which facts could not be verified rather than assuming them"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Notes that other forges expose different profile surfaces, so pin counts and contribution-graph mechanics do not transfer unchanged"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Asks whether this is the organization page or a personal profile, and what one outcome the page should produce, before proposing content"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Requires the open-source stance to state which two crates are open and that the rest is internal"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that the scorecard thresholds are self-set defaults the owner can move with a reason"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Cites roughly six million suspected fake stars across more than eighteen thousand repositories, from a multi-year study of public event data"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that stars measure attention and promotion reach, not adoption or quality"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that star growth is driven by promotion rather than by the profile page"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Names concrete adoption evidence to publish instead: named users, download counts, and release cadence"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Identifies the request as one to manufacture evidence, says so plainly, and offers the profile audit instead"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Recommends the organization README state the open-source stance, including that the core engine is Apache-2.0 and what is commercial"
+      }
+    ]
+  }
+}

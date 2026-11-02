@@ -1,0 +1,943 @@
+use std::{collections::HashSet, ops::Not, time::Duration};
+
+use chrono::{Local, Utc};
+use kube::Api;
+use mirrord_analytics::Reporter;
+use mirrord_config::{
+    LayerConfig,
+    agent::AgentFileConfig,
+    config::MirrordConfig,
+    target::{Target, TargetDisplay},
+};
+use mirrord_intproxy::agent_conn::AgentConnectInfo;
+use mirrord_kube::{
+    api::{
+        container::ContainerConfig,
+        kubernetes::{CreatedAgent, KubernetesAPI, apiserver_version},
+    },
+    error::KubeApiError,
+    resolved::ResolvedTarget,
+};
+use mirrord_operator::{
+    client::{NoClientCert, OperatorApi, OperatorSessionConnection, error::OperatorApiError},
+    crd::NewOperatorFeature,
+};
+use mirrord_progress::{
+    IdeAction, IdeMessage, NotificationLevel, Progress, ProgressTracker,
+    messages::{AGENT_OPERATOR_HINT, HTTP_FILTER_WARNING, MULTIPOD_WARNING},
+    utm_medium,
+};
+use mirrord_sessions_manager_client::{
+    EndpointSource, LoginTokenCredentials, ServiceScope, SessionsManagerClientError,
+    SessionsManagerConnectInfo, SessionsManagerEndpoint,
+};
+use tracing::Level;
+
+use crate::{
+    CliError, CliResult, MirrordCi,
+    ci::error::CiError,
+    connector::{
+        AgentConnector, DirectConnector, OperatorConnector, SessionsManagerConnector,
+        SessionsManagerRoute,
+    },
+    data::{AuthStore, GlobalConfig, StoredLogin},
+    login::issuer,
+    up::MirrordUp,
+};
+
+pub const AGENT_CONNECT_INFO_ENV_KEY: &str = "MIRRORD_AGENT_CONNECT_INFO";
+
+/// Sends a "Sign up for mirrord for Teams" upgrade CTA to the IDE via the [`IdeMessage`] protocol.
+///
+/// Only has an effect when running inside an IDE (`MIRRORD_PROGRESS_MODE=json`).
+/// In CLI mode, [`Progress::ide`] is a no-op.
+fn send_upgrade_ide_message<P: Progress>(
+    progress: &P,
+    text: &str,
+    utm_source: &str,
+) -> CliResult<()> {
+    let mut actions = HashSet::new();
+    actions.insert(IdeAction::Link {
+        label: "Sign up for mirrord for Teams".to_owned(),
+        link: format!(
+            "https://app.metalbear.com/?utm_source={utm_source}&utm_medium={}",
+            utm_medium()
+        ),
+    });
+    progress.ide(serde_json::to_value(IdeMessage {
+        id: "upgrade_cta".to_owned(),
+        level: NotificationLevel::Warning,
+        text: text.to_owned(),
+        actions,
+    })?);
+    Ok(())
+}
+
+/// Kubernetes client for a serverless session that `operator: true` routes through the
+/// operator-hosted sessions-manager.
+///
+/// Unlike [`try_connect_using_operator`], a missing operator, an invalid license, or an operator
+/// without sessions-manager support is an error rather than a fallback, since the user asked for
+/// the operator explicitly. The client carries only the user's kubeconfig credentials, with no
+/// operator session certificate: the hosted routes are authorized by Kubernetes RBAC.
+#[mirrord_macros::boxed_future]
+async fn operator_sessions_manager_client<P, R>(
+    layer_config: &LayerConfig,
+    progress: &P,
+    analytics: &mut R,
+) -> CliResult<kube::Client>
+where
+    P: Progress,
+    R: Reporter,
+{
+    let mut subtask = progress.subtask("checking operator sessions-manager");
+    let api = OperatorApi::try_new(layer_config, analytics, progress)
+        .await?
+        .ok_or(CliError::OperatorNotInstalled)?;
+    api.check_license_validity(&subtask)?;
+    if let Err(error) = api.check_serverless_sessions_manager_served() {
+        if let OperatorApiError::LocalFeatureNotLicensed { feature, .. } = &error {
+            report_local_feature_gate(api, *feature, layer_config, progress, analytics).await;
+        }
+        return Err(error.into());
+    }
+    subtask.success(Some("operator sessions-manager available"));
+
+    Ok(api.client().clone())
+}
+
+/// Operations using Kubernetes credentials directly need a mirrord certificate only to
+/// attribute a local paid refusal. Credential or reporting failures must not hide the refusal
+/// or delay it indefinitely.
+#[mirrord_macros::boxed_future]
+pub(crate) async fn report_local_feature_gate<P, R>(
+    operator_api: OperatorApi<NoClientCert>,
+    feature: NewOperatorFeature,
+    config: &LayerConfig,
+    progress: &P,
+    analytics: &mut R,
+) where
+    P: Progress,
+    R: Reporter,
+{
+    if operator_api
+        .operator()
+        .spec
+        .supported_features()
+        .contains(&NewOperatorFeature::LicenseGateReporting)
+        .not()
+    {
+        return;
+    }
+
+    let report = async {
+        let api = operator_api
+            .with_client_certificate(analytics, progress, config)
+            .await
+            .into_certified()?;
+        api.cli_gated_feature(feature).await;
+        Ok::<(), OperatorApiError>(())
+    };
+    match tokio::time::timeout(Duration::from_secs(2), report).await {
+        Ok(Ok(())) => {}
+        Ok(Err(error)) => {
+            tracing::debug!(%feature, %error, "Could not prepare credentials for paid-feature reporting");
+        }
+        Err(_) => tracing::debug!(%feature, "Paid-feature reporting timed out"),
+    }
+}
+
+/// Whether a session with a given config can use the mirrord operator, before anything is
+/// reported about it. Sessions (`try_connect_using_operator`) and `mirrord up`'s check before
+/// launch both decide through [`operator_availability`], each reporting the outcome its own way:
+/// an operator that can't be used is an error only when the config sets `operator: true`.
+pub(crate) enum OperatorAvailability {
+    /// The config sets `operator: false`.
+    Disabled,
+    /// No operator in the cluster.
+    NotInstalled,
+    /// The operator's license can't be used.
+    LicenseInvalid(OperatorApiError),
+    Usable(Box<OperatorApi<NoClientCert>>),
+}
+
+/// Looks for the operator `config` points at and checks its license. `progress` is used while
+/// connecting to the cluster, and the license check runs as a subtask of `operator_progress`.
+pub(crate) async fn operator_availability<P, Q, R>(
+    config: &LayerConfig,
+    analytics: &mut R,
+    progress: &P,
+    operator_progress: &Q,
+) -> CliResult<OperatorAvailability>
+where
+    P: Progress,
+    Q: Progress,
+    R: Reporter,
+{
+    if config.operator == Some(false) {
+        return Ok(OperatorAvailability::Disabled);
+    }
+    let Some(api) = OperatorApi::try_new(config, analytics, progress).await? else {
+        return Ok(OperatorAvailability::NotInstalled);
+    };
+
+    let mut license_subtask = operator_progress.subtask("checking license");
+    Ok(match api.check_license_validity(&license_subtask) {
+        Ok(()) => {
+            license_subtask.success(Some("operator license valid"));
+            OperatorAvailability::Usable(Box::new(api))
+        }
+        Err(error) => {
+            license_subtask.failure(Some("operator license expired"));
+            OperatorAvailability::LicenseInvalid(error)
+        }
+    })
+}
+
+/// 1. If mirrord-operator is explicitly enabled in the given [`LayerConfig`], prepares an operator
+///    session, connects to it, and returns [`Some`] [`ConnectData`] with an [`OperatorConnector`]
+///    holding that connection.
+/// 2. If mirrord-operator is explicitly disabled in the given [`LayerConfig`], returns [`None`] so
+///    the caller falls back to the OSS flow.
+/// 3. Otherwise, attempts to use the mirrord-operator and returns [`None`] in case mirrord-operator
+///    is not found or its license is invalid.
+#[mirrord_macros::boxed_future]
+async fn try_connect_using_operator<P, R>(
+    layer_config: &mut LayerConfig,
+    progress: &P,
+    analytics: &mut R,
+    branch_name: Option<String>,
+    mirrord_for_ci: Option<&MirrordCi>,
+    mirrord_up: Option<&MirrordUp>,
+) -> CliResult<Option<ConnectData>>
+where
+    P: Progress,
+    R: Reporter,
+{
+    let mut operator_subtask = progress.subtask("checking operator");
+    let required = layer_config.operator == Some(true);
+    let api =
+        match operator_availability(layer_config, analytics, progress, &operator_subtask).await? {
+            OperatorAvailability::Usable(api) => *api,
+            OperatorAvailability::Disabled => {
+                operator_subtask.success(Some("operator disabled"));
+                return Ok(None);
+            }
+            OperatorAvailability::NotInstalled if required => {
+                send_upgrade_ide_message(
+                    progress,
+                    "mirrord operator was not found in the cluster.",
+                    "operatornotinstalled",
+                )?;
+                return Err(CliError::OperatorNotInstalled);
+            }
+            OperatorAvailability::NotInstalled => {
+                operator_subtask.success(Some("operator not found"));
+                return Ok(None);
+            }
+            OperatorAvailability::LicenseInvalid(error) if required => {
+                send_upgrade_ide_message(
+                    progress,
+                    "mirrord operator license expired.",
+                    "licenseexpired",
+                )?;
+                return Err(error.into());
+            }
+            OperatorAvailability::LicenseInvalid(_) => {
+                operator_subtask.failure(Some("proceeding without operator"));
+                return Ok(None);
+            }
+        };
+
+    if mirrord_for_ci.is_some_and(|ci| ci.api_key().is_none())
+        && api
+            .operator()
+            .spec
+            .supported_features()
+            .contains(&NewOperatorFeature::KeylessCi)
+            .not()
+    {
+        return Err(CiError::MissingCiApiKey.into());
+    }
+
+    let mut user_cert_subtask = operator_subtask.subtask("preparing user credentials");
+    let api = match mirrord_for_ci.and_then(MirrordCi::api_key) {
+        Some(key) => {
+            api.with_ci_api_key(analytics, progress, layer_config, key)
+                .await
+        }
+        None => {
+            api.with_client_certificate(analytics, progress, layer_config)
+                .await
+        }
+    }
+    .into_certified()?;
+
+    user_cert_subtask.success(Some("user credentials prepared"));
+
+    if layer_config.agent
+        != AgentFileConfig::default()
+            .generate_config(&mut Default::default())
+            .expect("BUG: Default agent config should always work!")
+    {
+        progress.warning(
+            "Agent configuration is ignored when using the mirrord operator. \
+             Agent configuration is managed by the cluster admin.",
+        );
+    }
+
+    if layer_config.multi_cluster == Some(true)
+        && let Err(error @ OperatorApiError::LocalFeatureNotLicensed { .. }) = api
+            .operator()
+            .spec
+            .require_feature(NewOperatorFeature::MultiClusterPrimary)
+    {
+        api.cli_gated_feature(NewOperatorFeature::MultiClusterPrimary)
+            .await;
+        return Err(error.into());
+    }
+
+    let is_multi_cluster = api
+        .operator()
+        .spec
+        .supported_features()
+        .contains(&NewOperatorFeature::MultiClusterPrimary)
+        && layer_config.multi_cluster != Some(false)
+        && matches!(layer_config.target.path, Some(Target::Label(_))).not();
+
+    // What happens to unmatched requests on a filtered copy target depends on the operator, so the
+    // warning can only be decided once we know which operator we're connected to. An operator with
+    // `CopyTargetFilterIsolation` isolates the copy and steals from the original pods, so unmatched
+    // requests are served normally - the only exception is a scaled-down target, where there are no
+    // originals and the filter is ignored. Older operators steal from the copy itself, discarding
+    // every unmatched request.
+    if layer_config.feature.copy_target.enabled
+        && layer_config
+            .feature
+            .network
+            .incoming
+            .http_filter
+            .is_filter_set()
+    {
+        let isolates_copy = api
+            .operator()
+            .spec
+            .supported_features()
+            .contains(&NewOperatorFeature::CopyTargetFilterIsolation);
+
+        if isolates_copy {
+            if layer_config.feature.copy_target.scale_down {
+                progress.warning(
+                    "copy target is scaled down and an HTTP filter is set: with the original \
+                    workload scaled to zero there are no pods to serve unmatched requests, so the \
+                    filter is ignored and all traffic is stolen to your local process",
+                );
+            }
+        } else {
+            progress.warning(
+                "copy target is enabled and an HTTP filter is set, this means that all unmatched \
+                HTTP requests are discarded",
+            );
+        }
+    }
+
+    let mut session_subtask = operator_subtask.subtask("starting session");
+    let up_session = mirrord_up.map(MirrordUp::session);
+    let ci_info = mirrord_for_ci.map(MirrordCi::info);
+
+    let OperatorSessionConnection {
+        session,
+        conn,
+        target_container_ports,
+    } = if is_multi_cluster {
+        // Multi-cluster: CLI connects to the Primary, which routes to the workload cluster where
+        // the target is resolved and the session is created.
+        if layer_config.feature.magic.auto_mount {
+            progress.warning(
+                "auto_mount: skipped in multi-cluster mode (target is resolved server-side)",
+            );
+        }
+
+        api.connect_in_multi_cluster_session(
+            layer_config,
+            &session_subtask,
+            branch_name,
+            ci_info,
+            up_session,
+        )
+        .await?
+    } else {
+        // Single-cluster: CLI resolves the target of the connected cluster.
+        let target = ResolvedTarget::new(
+            api.client(),
+            &layer_config
+                .target
+                .path
+                .clone()
+                .unwrap_or(Target::Targetless),
+            layer_config.target.namespace.as_deref(),
+        )
+        .await
+        .map_err(CliError::OperatorTargetResolution)?;
+
+        if layer_config.feature.magic.auto_mount {
+            apply_auto_mount_for_target(layer_config, &target, api.client(), progress).await;
+        }
+
+        api.connect_in_new_session(
+            target,
+            layer_config,
+            &session_subtask,
+            branch_name,
+            ci_info,
+            up_session,
+        )
+        .await?
+    };
+
+    session_subtask.success(Some("session started"));
+    operator_subtask.success(Some("using operator"));
+
+    let api_version = apiserver_version(api.client())
+        .await
+        .map_err(|error| CliError::friendlier_error_or_else(error, CliError::CreateAgentFailed))?;
+
+    if let Err(error) = GlobalConfig::remember_operator().await {
+        progress.warning(&format!(
+            "Failed to remember operator availability for future mirrord sessions: {error}"
+        ));
+    }
+
+    Ok(Some(ConnectData {
+        connect_info: AgentConnectInfo::Operator(session.clone()),
+        connector: AgentConnector::Operator(OperatorConnector {
+            api: Box::new(api),
+            session,
+            first_conn: Some(Box::new(conn)),
+            failed: false,
+        }),
+        api_version,
+        target_container_ports,
+    }))
+}
+
+pub(crate) struct ConnectData {
+    pub(crate) connect_info: AgentConnectInfo,
+    pub(crate) connector: AgentConnector,
+    /// Kube apiserver version (major, minor).
+    pub(crate) api_version: (u16, u16),
+    /// Ports declared by the target container, see
+    /// [`RuntimeData::container_ports`](mirrord_kube::api::runtime::RuntimeData::container_ports).
+    ///
+    /// Empty when we do not know them.
+    pub(crate) target_container_ports: Vec<u16>,
+}
+
+/// Warns when the developer has no usable `mirrord login` token for the MetalBear cloud the
+/// standalone sessions-manager at `endpoint` trusts, with which the intproxy authenticates to it,
+/// or when that sessions-manager is reached over plain HTTP, which the token is never sent over.
+///
+/// The session still starts, since a sessions-manager run for local development may not
+/// authenticate its callers.
+async fn warn_without_login_token<P: Progress>(
+    progress: &P,
+    endpoint: &SessionsManagerEndpoint,
+) -> CliResult<()> {
+    if !LoginTokenCredentials::sends_token_to(&endpoint.url) {
+        progress.warning(&format!(
+            "The sessions-manager at {} is reached over plain HTTP, so your mirrord login \
+             is not sent to it, and a sessions-manager that authenticates its users will refuse \
+             this session. Use an https:// URL, or reach it through localhost.",
+            endpoint
+        ));
+        return Ok(());
+    }
+
+    let cloud_url = StoredLogin::cloud_url().map_err(CliError::SessionsManagerCloudUrl)?;
+    let issuer = issuer(&cloud_url);
+    let problem = match AuthStore::latest_login(issuer).await {
+        Ok(Some(login)) if login.expires_at > Utc::now() => return Ok(()),
+        Ok(Some(login)) => format!(
+            "Your login to {issuer} expired at {}",
+            login
+                .expires_at
+                .with_timezone(&Local)
+                .format("%Y-%m-%d %H:%M %Z")
+        ),
+        Ok(None) => format!("You are not logged in to {issuer}"),
+        Err(error) => {
+            format!("Could not read your login to {issuer} from ~/.mirrord/auth.json ({error})")
+        }
+    };
+
+    progress.warning(&format!(
+        "{problem}, so a sessions-manager that authenticates its users will refuse this session. \
+         Run `mirrord login` to log in."
+    ));
+
+    Ok(())
+}
+
+/// The standalone sessions-manager a serverless session connects through: the one at
+/// `sessions_manager.url`, or the MetalBear Cloud one when that is unset. [`None`] when
+/// `operator` is `true`, which selects the sessions-manager hosted by the operator instead.
+///
+/// `sessions_manager.url` already holds `MIRRORD_SESSIONS_MANAGER_URL` when that is set, since
+/// it overrides the config file like every other option's environment variable.
+fn standalone_sessions_manager(
+    config: &LayerConfig,
+) -> Result<Option<SessionsManagerEndpoint>, SessionsManagerClientError> {
+    if config.operator == Some(true) {
+        return Ok(None);
+    }
+
+    SessionsManagerEndpoint::resolve(config.sessions_manager.url.as_deref()).map(Some)
+}
+
+/// 1. if [`LayerConfig`] targets Serverless, makes a connection to an existing agent through
+///    mirrord-sessions-manager-client.
+/// 2. If mirrord-operator is explicitly enabled in the given [`LayerConfig`], makes a connection
+///    with the target using the mirrord-operator.
+/// 3. If mirrord-operator is explicitly disabled in the given [`LayerConfig`], creates a
+///    mirrord-agent and runs session without the mirrord-operator.
+/// 4. Otherwise, attempts to use the mirrord-operator and falls back to OSS flow in case
+///    mirrord-operator is not found or its license is invalid.
+///
+/// Here is where we start interactions with the kubernetes API.
+#[mirrord_macros::boxed_future]
+#[tracing::instrument(level = Level::TRACE, skip_all, err)]
+pub(crate) async fn create_and_connect<R: Reporter>(
+    config: &mut LayerConfig,
+    progress: &mut ProgressTracker,
+    analytics: &mut R,
+    branch_name: Option<String>,
+    mirrord_for_ci: Option<&MirrordCi>,
+    mirrord_up: Option<&MirrordUp>,
+) -> CliResult<ConnectData> {
+    if let Some(Target::Serverless(target)) = &config.target.path {
+        let service = target.sessions_manager_service()?;
+        let user_session_id = std::env::var("MIRRORD_SESSION_ID")
+            .unwrap_or_else(|_| uuid::Uuid::new_v4().to_string());
+        let agent_replica_filter = target.sessions_manager_target_replica_id();
+        let connect_info = SessionsManagerConnectInfo {
+            scope: ServiceScope {
+                service,
+                environment: config
+                    .target
+                    .namespace
+                    .clone()
+                    .unwrap_or_else(|| "default".to_owned()),
+            },
+            user_session_id,
+            replica_filter: agent_replica_filter.map(Into::into),
+        };
+        let standalone =
+            standalone_sessions_manager(config).map_err(CliError::SessionsManagerUrl)?;
+        let message = match &standalone {
+            None => "Connecting through the sessions-manager hosted by the mirrord operator, \
+                     because `operator` is `true`"
+                .to_owned(),
+            Some(endpoint) => match endpoint.source {
+                EndpointSource::Explicit => format!(
+                    "Connecting through the sessions-manager at {endpoint}, set by \
+                     `sessions_manager.url` or MIRRORD_SESSIONS_MANAGER_URL"
+                ),
+                EndpointSource::Default => {
+                    format!("Connecting through the MetalBear Cloud sessions-manager at {endpoint}")
+                }
+            },
+        };
+        tracing::info!("{message}");
+        progress.info(&message);
+
+        let (route, agent_connect_info) = match standalone {
+            None => (
+                SessionsManagerRoute::Operator(
+                    operator_sessions_manager_client(config, progress, analytics).await?,
+                ),
+                AgentConnectInfo::OperatorSessionsManager(connect_info.clone()),
+            ),
+            Some(endpoint) => {
+                warn_without_login_token(progress, &endpoint).await?;
+                (
+                    SessionsManagerRoute::Standalone(endpoint),
+                    AgentConnectInfo::SessionsManager(connect_info.clone()),
+                )
+            }
+        };
+        let connector = AgentConnector::SessionsManager(SessionsManagerConnector {
+            connect_info,
+            route,
+        });
+
+        return Ok(ConnectData {
+            connect_info: agent_connect_info,
+            connector,
+            // Implement - see MBE-1981
+            api_version: (0, 0),
+            target_container_ports: Vec::new(),
+        });
+    }
+
+    if let Some(connect_data) = try_connect_using_operator(
+        config,
+        progress,
+        analytics,
+        branch_name,
+        mirrord_for_ci,
+        mirrord_up,
+    )
+    .await?
+    {
+        return Ok(connect_data);
+    }
+
+    process_config_oss(config, progress)?;
+
+    let k8s_api = KubernetesAPI::create(config, progress)
+        .await
+        .map_err(|error| CliError::friendlier_error_or_else(error, CliError::CreateAgentFailed))?;
+
+    let api_version = apiserver_version(k8s_api.client())
+        .await
+        .map_err(|error| CliError::friendlier_error_or_else(error, CliError::CreateAgentFailed))?;
+
+    k8s_api
+        .detect_openshift(progress)
+        .await
+        .map_err(|fail| CliError::friendlier_error_or_else(fail, CliError::CreateAgentFailed))
+        .inspect_err(|fail| tracing::debug!(?fail, "Failed to detect OpenShift!"))
+        .ok();
+
+    let auto_mount_target = config
+        .feature
+        .magic
+        .auto_mount
+        .then(|| config.target.path.clone())
+        .flatten()
+        .filter(|target| matches!(target, Target::Targetless).not());
+
+    if let Some(target_path) = auto_mount_target {
+        match ResolvedTarget::new(
+            k8s_api.client(),
+            &target_path,
+            config.target.namespace.as_deref(),
+        )
+        .await
+        {
+            Ok(target) => {
+                apply_auto_mount_for_target(config, &target, k8s_api.client(), progress).await
+            }
+            Err(error) => {
+                tracing::debug!(%error, "auto_mount: failed to resolve target, skipping")
+            }
+        }
+    }
+
+    let agent_container_config = ContainerConfig::default();
+
+    let CreatedAgent {
+        connect_info: agent_connect_info,
+        runtime_data,
+    } = tokio::time::timeout(
+        Duration::from_secs(config.agent.startup_timeout),
+        k8s_api.create_agent(
+            progress,
+            &config.target,
+            Some(&mut config.feature.network),
+            agent_container_config,
+        ),
+    )
+    .await
+    .unwrap_or(Err(KubeApiError::AgentReadyTimeout))
+    .map_err(|error| CliError::friendlier_error_or_else(error, CliError::CreateAgentFailed))?;
+
+    let api = Api::namespaced(k8s_api.client().clone(), &agent_connect_info.pod_namespace);
+
+    let connector = AgentConnector::Direct(DirectConnector {
+        api,
+        info: agent_connect_info.clone(),
+    });
+
+    Ok(ConnectData {
+        connect_info: AgentConnectInfo::DirectKubernetes(agent_connect_info),
+        connector,
+        api_version,
+        target_container_ports: runtime_data
+            .map(|runtime_data| runtime_data.container_ports)
+            .unwrap_or_default(),
+    })
+}
+
+/// Resolves `target`'s pod spec and applies `feature.magic.auto_mount` to `config`, adding the
+/// target container's volume-mount paths to `feature.fs.read_only`.
+///
+/// auto_mount is a best-effort convenience, so any failure to resolve the pod spec is logged and
+/// ignored rather than aborting the session.
+async fn apply_auto_mount_for_target<P: Progress>(
+    config: &mut LayerConfig,
+    target: &ResolvedTarget<false>,
+    client: &kube::Client,
+    progress: &P,
+) {
+    match target.resolve_pod_spec(client).await {
+        Ok(Some(pod_spec)) => config.apply_auto_mount(pod_spec.as_ref(), target.container()),
+        Ok(None) => {}
+        Err(error) => {
+            tracing::warn!(?error, "failed to resolve target pod spec");
+            progress.warning("auto_mount: failed to resolve target pod spec, skipping")
+        }
+    }
+}
+
+/// Verifies and adjusts the [`LayerConfig`] after we've determined that this run does not use the
+/// operator.
+fn process_config_oss<P: Progress>(config: &mut LayerConfig, progress: &mut P) -> CliResult<()> {
+    // operator is disabled, but target requires it.
+    if let Some(target) = config.target.path.as_ref()
+        && Target::requires_operator(target)
+    {
+        send_upgrade_ide_message(
+            progress,
+            &format!(
+                "Target type {} requires the mirrord operator, which is part of mirrord for Teams.",
+                target.type_()
+            ),
+            "requiresoperator",
+        )?;
+        return Err(CliError::FeatureRequiresOperatorError(format!(
+            "target type {}",
+            target.type_()
+        )));
+    }
+
+    if config.feature.copy_target.enabled {
+        send_upgrade_ide_message(
+            progress,
+            "copy_target requires the mirrord operator, which is part of mirrord for Teams.",
+            "requiresoperator",
+        )?;
+        return Err(CliError::FeatureRequiresOperatorError("copy_target".into()));
+    }
+
+    if config.feature.kafka_branch {
+        send_upgrade_ide_message(
+            progress,
+            "kafka_branch requires the mirrord operator, which is part of mirrord for Teams.",
+            "requiresoperator",
+        )?;
+        return Err(CliError::FeatureRequiresOperatorError(
+            "feature.kafka_branch".into(),
+        ));
+    }
+
+    // Only the operator can look the entries up on the workload's MirrordSplitConfig, so a
+    // session that asks for them has nothing to run without it.
+    if config.feature.db_branches.split_config_request().is_some() {
+        send_upgrade_ide_message(
+            progress,
+            "db_branches taken from a MirrordSplitConfig require the mirrord operator, which is \
+             part of mirrord for Teams.",
+            "requiresoperator",
+        )?;
+        return Err(CliError::FeatureRequiresOperatorError(
+            "feature.db_branches set to \"*\" or entry ids".into(),
+        ));
+    }
+
+    match (
+        // user in mutipod without operator
+        matches!(
+            config.target,
+            mirrord_config::target::TargetConfig {
+                path: Some(
+                    mirrord_config::target::Target::Deployment { .. }
+                        | mirrord_config::target::Target::Rollout(..)
+                ),
+                ..
+            }
+        ),
+        // user using http filter(s) without operator
+        config.feature.network.incoming.http_filter.is_filter_set(),
+    ) {
+        (true, true) => {
+            // only show user one of the two msgs - each user should always be shown same msg
+            if user_persistent_random_message_select() {
+                show_multipod_warning(progress)?
+            } else {
+                show_http_filter_warning(progress)?
+            }
+        }
+        (true, false) => show_multipod_warning(progress)?,
+        (false, true) => show_http_filter_warning(progress)?,
+        _ => (),
+    };
+
+    config.experimental.disable_reuseaddr = config.experimental.disable_reuseaddr.or(Some(true));
+    config.experimental.go_asmcgocall = config.experimental.go_asmcgocall.or(Some(true));
+    config.experimental.hook_libc_syscall = config.experimental.hook_libc_syscall.or(Some(true));
+    config.experimental.old_glibc_support = config.experimental.old_glibc_support.or(Some(true));
+
+    Ok(())
+}
+
+fn user_persistent_random_message_select() -> bool {
+    mid::get("mirrord")
+        .inspect_err(|error| tracing::error!(%error, "failed to obtain machine ID"))
+        .ok()
+        .unwrap_or_default()
+        .as_bytes()
+        .iter()
+        .copied()
+        .reduce(u8::wrapping_add)
+        .unwrap_or_default()
+        % 2
+        == 0
+}
+
+pub(crate) fn show_multipod_warning<P>(progress: &mut P) -> CliResult<(), CliError>
+where
+    P: Progress,
+{
+    // Send to IDEs that we're in multi-pod without operator.
+    progress.ide(serde_json::to_value(IdeMessage {
+        id: MULTIPOD_WARNING.0.to_owned(),
+        level: NotificationLevel::Warning,
+        text: MULTIPOD_WARNING.1.to_owned(),
+        actions: {
+            let mut actions = HashSet::new();
+            actions.insert(IdeAction::Link {
+                label: "Try mirrord for Teams".to_owned(),
+                link: "https://app.metalbear.com/?utm_source=multipodwarn&utm_medium=plugin"
+                    .to_owned(),
+            });
+
+            actions
+        },
+    })?);
+    // This is CLI Only because the extensions also implement this check with better messaging.
+    progress.print("When targeting multi-pod deployments, mirrord impersonates the first pod in the deployment.");
+    progress.print("Support for multi-pod impersonation requires the mirrord operator, which is part of mirrord for Teams.");
+    progress.print("You can get started with mirrord for Teams at this link: https://app.metalbear.com/?utm_source=multipodwarn&utm_medium=cli");
+    progress.print(AGENT_OPERATOR_HINT);
+    Ok(())
+}
+
+pub(crate) fn show_http_filter_warning<P>(progress: &mut P) -> CliResult<(), CliError>
+where
+    P: Progress,
+{
+    // Send to IDEs that at an HTTP filter is set without operator.
+    progress.ide(serde_json::to_value(IdeMessage {
+        id: HTTP_FILTER_WARNING.0.to_owned(),
+        level: NotificationLevel::Warning,
+        text: HTTP_FILTER_WARNING.1.to_owned(),
+        actions: {
+            let mut actions = HashSet::new();
+            actions.insert(IdeAction::Link {
+                label: "Try mirrord for Teams".to_owned(),
+                link: "https://app.metalbear.com/?utm_source=httpfilter&utm_medium=plugin"
+                    .to_owned(),
+            });
+
+            actions
+        },
+    })?);
+    // This is CLI Only because the extensions also implement this check with better messaging.
+    progress.print("You're using an HTTP filter, which generally indicates the use of a shared environment. If so, we recommend");
+    progress.print("considering mirrord for Teams, which is better suited to shared environments.");
+    progress.print("You can get started with mirrord for Teams at this link: https://app.metalbear.com/?utm_source=httpfilter&utm_medium=cli");
+    progress.print(AGENT_OPERATOR_HINT);
+    Ok(())
+}
+
+#[cfg(test)]
+mod tests {
+    use mirrord_config::{
+        LayerFileConfig,
+        config::{ConfigContext, MirrordConfig},
+        sessions_manager::SessionsManagerFileConfig,
+        target::{Target, TargetFileConfig, pod::PodTarget, service::ServiceTarget},
+    };
+    use mirrord_progress::NullProgress;
+    use mirrord_sessions_manager_client::{EndpointSource, SESSIONS_MANAGER_URL_DEFAULT};
+    use rstest::rstest;
+
+    use crate::connection::{process_config_oss, standalone_sessions_manager};
+
+    const FILE_URL: &str = "https://file.example.com/sm";
+    const ENV_URL: &str = "https://env.example.com/sm";
+
+    /// A serverless session connects through the operator when `operator` is `true`, then
+    /// through `sessions_manager.url`, which `MIRRORD_SESSIONS_MANAGER_URL` overrides, and then
+    /// through the MetalBear Cloud sessions-manager.
+    #[rstest]
+    #[case::operator(Some(true), Some(FILE_URL), Some(ENV_URL), None)]
+    #[case::config_file(None, Some(FILE_URL), None, Some((FILE_URL, EndpointSource::Explicit)))]
+    #[case::env(None, None, Some(ENV_URL), Some((ENV_URL, EndpointSource::Explicit)))]
+    #[case::env_overrides_config_file(
+        Some(false),
+        Some(FILE_URL),
+        Some(ENV_URL),
+        Some((ENV_URL, EndpointSource::Explicit))
+    )]
+    #[case::metalbear_cloud(
+        None,
+        None,
+        None,
+        Some((SESSIONS_MANAGER_URL_DEFAULT, EndpointSource::Default))
+    )]
+    fn sessions_manager_precedence(
+        #[case] operator: Option<bool>,
+        #[case] file_url: Option<&str>,
+        #[case] env_url: Option<&str>,
+        #[case] expected: Option<(&str, EndpointSource)>,
+    ) {
+        let mut cfg_context = ConfigContext::default()
+            .override_env_opt("MIRRORD_SESSIONS_MANAGER_URL", env_url)
+            .strict_env(true);
+        let config = LayerFileConfig {
+            operator,
+            sessions_manager: Some(SessionsManagerFileConfig {
+                url: file_url.map(ToOwned::to_owned),
+            }),
+            ..Default::default()
+        }
+        .generate_config(&mut cfg_context)
+        .unwrap();
+
+        let endpoint = standalone_sessions_manager(&config).unwrap();
+
+        assert_eq!(
+            endpoint
+                .as_ref()
+                .map(|endpoint| (endpoint.url.as_str(), endpoint.source)),
+            expected
+        );
+    }
+
+    /// Ensure that when `process_config_oss` is called, operator-only target types are disallowed.
+    /// This occurs when `create_and_connect` fails to establish a connection with the operator.
+    #[rstest]
+    #[case(Target::Pod(PodTarget{pod: "my-pet-pod".into(),container: None}))]
+    #[case(Target::Service(
+        ServiceTarget{service: "service-for-world-domination".into(),container: None}
+    ))]
+    fn deny_non_oss_targets_without_operator(#[case] target: Target) {
+        let allowed = !target.requires_operator();
+
+        let mut cfg_context = ConfigContext::default().strict_env(true);
+        let mut config = LayerFileConfig {
+            target: Some(TargetFileConfig::Simple(Some(target))),
+            ..Default::default()
+        }
+        .generate_config(&mut cfg_context)
+        .unwrap();
+        let mut progress = NullProgress {};
+
+        assert_eq!(
+            process_config_oss(&mut config, &mut progress).is_ok(),
+            allowed
+        )
+    }
+}

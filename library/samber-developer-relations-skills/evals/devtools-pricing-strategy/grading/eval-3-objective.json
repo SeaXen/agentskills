@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States explicitly that the lowest ceiling sits below the floor",
+        "evidence": "\"$0.006 is below your $0.084 floor by 14x.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to pick a price point in between the floor and the ceiling, and says so rather than splitting the difference",
+        "evidence": "\"no price gets you to 75% margin while a prospect's cited alternative costs less than your compute bill alone\" / \"Say so instead of picking a number in between.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the binding ceiling as self-hosting the open-weights model at roughly $0.006 per document",
+        "evidence": "\"Prospects are already telling you theirs: $0.006/doc to run the open-weights model on spot instances.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Computes the floor as about $0.021 per document of marginal cost - $0.017 GPU plus $0.004 support - before any margin is added",
+        "evidence": "\"Marginal cost per document: $0.017 (GPU inference) + $0.004 (support) = $0.021/doc.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Shows that a 75% gross-margin target implies a price of roughly $0.084 per document",
+        "evidence": "\"$0.021 \u00f7 (1 \u2212 0.75) = $0.021 \u00f7 0.25 = $0.084/document\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Attributes the problem to the cost structure or the business model rather than to the price point",
+        "evidence": "\"the problem is the cost structure or the model, not the price. Say so instead of picking a number in between.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not propose a willingness-to-pay survey, a Van Westendorp study or a Gabor-Granger exercise as the fix",
+        "evidence": "The four-step \"what actually moves you toward 75%\" list contains only: get real ceiling, attack cost side, differentiate, re-run floor \u2014 none reference survey methods",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Proposes changes to the cost structure, to what is sold, or to the value metric rather than a repricing",
+        "evidence": "\"Attack the cost side... Differentiate past the commodity comparison... that's a packaging move (Step 3), not just a number.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that usage-only pricing sits at a 62% median gross margin, so a 75% target is above that median and must be chosen deliberately",
+        "evidence": "\"The 62% median gross margin for usage-only pricing models (vs. 80% software median) is sourced... it's the context for why 75% is an aggressive ask\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that upstream pass-through costs change without notice, so the floor needs re-checking whenever they move",
+        "evidence": "Only says to \"Re-run the floor once 1\u20132 land... until the ceiling and the cost base both move\" \u2014 no statement that upstream costs can change without notice",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States explicitly that the lowest ceiling sits below the floor",
+        "evidence": "\"$0.006/doc \u2014 less than a third of what your own GPU inference costs you ($0.017), and 14x cheaper than the $0.084 you'd need to charge\" \u2014 clearly places the self-host ceiling far below the cost-plus floor.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to pick a price point in between the floor and the ceiling, and says so rather than splitting the difference",
+        "evidence": "\"Don't jump straight to $0.084. Sequence it: Fix the cost structure first...\" \u2014 response changes the floor rather than splitting the gap.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the binding ceiling as self-hosting the open-weights model at roughly $0.006 per document",
+        "evidence": "\"they can self-host the open-weights model on spot instances for $0.006/doc\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Computes the floor as about $0.021 per document of marginal cost - $0.017 GPU plus $0.004 support - before any margin is added",
+        "evidence": "\"COGS per document = $0.017 (GPU) + $0.004 (support) = $0.021\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Shows that a 75% gross-margin target implies a price of roughly $0.084 per document",
+        "evidence": "\"P = 0.021 / 0.25 = $0.084 per document\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Attributes the problem to the cost structure or the business model rather than to the price point",
+        "evidence": "\"Attack the cost side, not just the price side.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not propose a willingness-to-pay survey, a Van Westendorp study or a Gabor-Granger exercise as the fix",
+        "evidence": "\"A Van Westendorp pass with a few active prospects... would tell you whether $0.04\u20130.05 clears their willingness-to-pay\" \u2014 explicitly proposes it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Proposes changes to the cost structure, to what is sold, or to the value metric rather than a repricing",
+        "evidence": "\"Fix the cost structure first (target GPU cost toward $0.007\u20130.010/doc) \u2014 cheapest lever, no customer-facing risk.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that usage-only pricing sits at a 62% median gross margin, so a 75% target is above that median and must be chosen deliberately",
+        "evidence": "No such figure or framing appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that upstream pass-through costs change without notice, so the floor needs re-checking whenever they move",
+        "evidence": "No mention of upstream cost volatility or re-checking the floor over time.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

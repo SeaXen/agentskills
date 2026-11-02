@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Classifies Ferrocast as the 'hosted API, one callable behaviour' class, not the 'several callable versions' class",
+        "evidence": "\"Primary: **hosted API, one callable behaviour.**\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a latest-only reference plus a changelog and an upgrade guide per breaking version, not one docs set per release name",
+        "evidence": "\"latest-only reference, plus a changelog and an upgrade guide per breaking version.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses the four-release dropdown on the grounds that no client can call any version except the current behaviour",
+        "evidence": "\"A dropdown of those four would show readers pages that no client can call.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the single callable behaviour (no pinning, no version header, additive-only) as the interview answer that deleted the selector and per-major rungs",
+        "evidence": "\"Selector and per-major frozen sites: deleted because the API is additive and has one callable behaviour.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes the payments-API comparison: that switcher serves account-pinned callable versions, which Ferrocast does not have",
+        "evidence": "\"A payments API dropdown works because each version is pinned and callable; yours isn't.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Carries release history on the single docs set with 'added in <release>' stamps rather than duplicated pages",
+        "evidence": "\"Latest-only with 'added in' stamps. Each feature or field carries 'added in 2024.3'.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Answers the PM's 'docs as of the release they evaluated' need with the changelog and upgrade guides, not with frozen snapshots per release name",
+        "evidence": "Offers stamps, a release-names page and a per-release 'what was new' changelog section. A dated PDF export of `current` is mentioned only as a one-off for procurement.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes no canonical tags and states that search-entry intent is handed to samber/developer-relations-skills@docs-seo",
+        "evidence": "\"Canonical tags on older versions: none are needed.\" and \"canonical posture and redirect mechanics belong to `samber/developer-relations-skills@docs-seo`.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes any decision about the API's own version scheme to samber/developer-platform-skills@api-versioning-policy",
+        "evidence": "api-versioning-policy is never mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects 'free to turn on' as a reason, stating that each live version costs a copy of every released-behaviour fix or qualifying backports, and prices it or asks for the monthly doc-fix count to price it",
+        "evidence": "\"Not free.\" and \"\u2248 11 hours per month\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists tutorials, concepts and the changelog as content that stays unversioned",
+        "evidence": "\"Unversioned content (all of it): reference, guides, tutorials, concepts, changelog, blog.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ties the unversioned URL path for current docs to the condition that one supported line with latest-only docs holds",
+        "evidence": "\"This is the allowed case: one supported line and latest-only docs.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Classifies Ferrocast as the 'hosted API, one callable behaviour' class, not the 'several callable versions' class",
+        "evidence": "\"A single deployment with no pinning means every customer is on 2025.1\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a latest-only reference plus a changelog and an upgrade guide per breaking version, not one docs set per release name",
+        "evidence": "Recommends badges and a \"What's new by release\" page, with no upgrade guides per breaking version, and then details a dropdown build anyway.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses the four-release dropdown on the grounds that no client can call any version except the current behaviour",
+        "evidence": "\"choosing 2023.2 in the dropdown gives a customer no way to get 2023.2 behavior\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the single callable behaviour (no pinning, no version header, additive-only) as the interview answer that deleted the selector and per-major rungs",
+        "evidence": "\"Your releases are additive and unpinned\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes the payments-API comparison: that switcher serves account-pinned callable versions, which Ferrocast does not have",
+        "evidence": "\"Payments APIs have one because customers pin a version and the behavior differs between versions.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Carries release history on the single docs set with 'added in <release>' stamps rather than duplicated pages",
+        "evidence": "\"Put a small badge such as `Since 2024.1`\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Answers the PM's 'docs as of the release they evaluated' need with the changelog and upgrade guides, not with frozen snapshots per release name",
+        "evidence": "Proposes a what's-new page, Since badges and an \"Evaluating an older release?\" page instead of snapshots.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes no canonical tags and states that search-entry intent is handed to samber/developer-relations-skills@docs-seo",
+        "evidence": "Writes a full \"Canonical tags on the older sets\" section and never mentions docs-seo.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes any decision about the API's own version scheme to samber/developer-platform-skills@api-versioning-policy",
+        "evidence": "No mention of api-versioning-policy.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects 'free to turn on' as a reason, stating that each live version costs a copy of every released-behaviour fix or qualifying backports, and prices it or asks for the monthly doc-fix count to price it",
+        "evidence": "It says \"the editorial cost is not\" free but gives no price and does not ask for the monthly doc-fix count.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Lists tutorials, concepts and the changelog as content that stays unversioned",
+        "evidence": "No such list.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ties the unversioned URL path for current docs to the condition that one supported line with latest-only docs holds",
+        "evidence": "It keeps the unversioned URL only \"so existing links and rankings don't move\".",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,758 @@
+use std::{
+    ffi::OsStr,
+    ops::{Deref, Not},
+};
+
+use k8s_openapi::NamespaceResourceScope;
+use kube::{
+    Api, Client, Config, Discovery,
+    client::ClientBuilder,
+    config::{KubeConfigOptions, Kubeconfig},
+};
+use mirrord_agent_env::mesh::MeshVendor;
+use mirrord_config::{
+    LayerConfig,
+    agent::AgentConfig,
+    feature::network::NetworkConfig,
+    target::{Target, TargetConfig},
+};
+use mirrord_progress::Progress;
+use serde::{Deserialize, Serialize};
+use tower::{buffer::BufferLayer, retry::RetryLayer};
+use tracing::{Level, debug, info};
+
+use super::container::ContainerConfig;
+use crate::{
+    api::{
+        container::{
+            ContainerApi, ContainerParams,
+            ephemeral::EphemeralTargetedVariant,
+            job::{JobTargetedVariant, JobVariant},
+            targeted::Targeted,
+            targetless::Targetless,
+        },
+        runtime::{RuntimeData, RuntimeDataProvider},
+    },
+    error::{KubeApiError, KubeConfigInferenceError, Result},
+    retry::retry_policy_from_config,
+};
+
+#[cfg(feature = "portforward")]
+pub mod portforwarder;
+pub mod rollout;
+pub mod seeker;
+
+pub struct KubernetesAPI {
+    client: Client,
+    agent: AgentConfig,
+}
+
+impl KubernetesAPI {
+    /// Creates a new instance from the given [`LayerConfig`].
+    ///
+    /// If [`LayerConfig::target`] specifies a targetless run,
+    /// replaces [`AgentConfig::namespace`] with the target namespace.
+    #[mirrord_macros::boxed_future]
+    pub async fn create<P: Progress>(config: &LayerConfig, progress: &P) -> Result<Self> {
+        let mut client_config = create_kube_config(
+            config.accept_invalid_certificates,
+            config.kubeconfig.clone(),
+            config.kube_context.clone(),
+        )
+        .await?;
+        // `startup_retry` below is the only retry: kube's own, nested under it, turns a 503 into
+        // minutes of silent waiting.
+        client_config.default_retry = false;
+
+        let client = progress
+            .suspend(|| ClientBuilder::try_from(client_config.clone()))?
+            .with_layer(&BufferLayer::new(1024))
+            .with_layer(&RetryLayer::new(retry_policy_from_config(
+                &config.startup_retry,
+            )?))
+            .build();
+
+        let mut agent = config.agent.clone();
+        if config
+            .target
+            .path
+            .as_ref()
+            .is_none_or(|path| matches!(path, Target::Targetless))
+        {
+            agent.namespace = config.target.namespace.clone();
+        }
+
+        Ok(KubernetesAPI::new(client, agent))
+    }
+
+    pub fn new(client: Client, agent: AgentConfig) -> Self {
+        KubernetesAPI { client, agent }
+    }
+
+    /// Returns a reference to the [`Client`] used by this instance.
+    pub fn client(&self) -> &Client {
+        &self.client
+    }
+
+    /// Returns a reference to the [`AgentConfig`] used by this instance.
+    pub fn agent_config(&self) -> &AgentConfig {
+        &self.agent
+    }
+
+    pub async fn detect_openshift<P>(&self, progress: &P) -> Result<()>
+    where
+        P: Progress,
+    {
+        // filter openshift to make it a lot faster
+        if Discovery::new(self.client.clone())
+            .filter(&["route.openshift.io"])
+            .run()
+            .await?
+            .has_group("route.openshift.io")
+        {
+            progress.warning("mirrord has detected it's running on OpenShift. Due to the default PSP of OpenShift, mirrord may not be able to create the agent. Please refer to the documentation at https://metalbear.com/mirrord/docs/faq/limitations/#does-mirrord-support-openshift");
+        } else {
+            debug!("OpenShift was not detected.");
+        }
+        Ok(())
+    }
+
+    /// Connect to the agent using plain TCP connection.
+    #[cfg(feature = "incluster")]
+    pub async fn create_connection(
+        &self,
+        AgentKubernetesConnectInfo {
+            pod_name,
+            pod_namespace,
+            agent_port,
+            ..
+        }: &AgentKubernetesConnectInfo,
+    ) -> Result<tokio::net::TcpStream> {
+        use std::{net::IpAddr, time::Duration};
+
+        use k8s_openapi::api::core::v1::Pod;
+        use tokio::net::TcpStream;
+
+        let pod_api: Api<Pod> = Api::namespaced(self.client.clone(), pod_namespace);
+
+        let pod = pod_api.get(pod_name).await?;
+
+        let pod_ip = pod
+            .status
+            .as_ref()
+            .and_then(|status| status.pod_ip.as_ref());
+        let conn = if let Some(pod_ip) = pod_ip {
+            // When pod_ip is available we directly create it as SocketAddr to prevent tokio from
+            // performing a DNS lookup.
+            let ip = pod_ip
+                .parse::<IpAddr>()
+                .map_err(|e| KubeApiError::invalid_value(&pod, "status.podIp", e))?;
+            tracing::trace!("connecting to pod {pod_ip}:{agent_port}");
+
+            tokio::time::timeout(
+                Duration::from_secs(self.agent.startup_timeout),
+                TcpStream::connect((ip, *agent_port)),
+            )
+            .await
+            .map_err(|_| KubeApiError::AgentReadyTimeout)??
+        } else {
+            let hostname = format!("{pod_name}.{pod_namespace}");
+            tracing::trace!("connecting to pod {hostname}:{agent_port}");
+
+            tokio::time::timeout(
+                Duration::from_secs(self.agent.startup_timeout),
+                TcpStream::connect((hostname.as_str(), *agent_port)),
+            )
+            .await
+            .map_err(|_| KubeApiError::AgentReadyTimeout)??
+        };
+
+        // mirrord protocol messages are small and latency sensitive, buffering them with
+        // Nagle's algorithm only slows the session down. Failing to set it costs latency,
+        // not correctness, so it must not fail the connection.
+        if let Err(error) = conn.set_nodelay(true) {
+            tracing::warn!(%error, "Failed to set TCP_NODELAY on the agent connection");
+        }
+
+        Ok(conn)
+    }
+
+    /// Connects to the agent using kube's [`kube::Api::portforward`].
+    #[cfg(feature = "portforward")]
+    pub async fn create_connection_portforward(
+        &self,
+        connect_info: AgentKubernetesConnectInfo,
+    ) -> Result<Box<dyn UnpinStream>> {
+        let (stream, portforward) =
+            portforwarder::retry_portforward(&self.client, connect_info).await?;
+
+        tokio::spawn(portforward.into_retry_future());
+
+        Ok(stream)
+    }
+
+    /// Prepares params to create an agent.
+    ///
+    /// Unless targetless, fetches [`RuntimeData`] for the given target and fills
+    /// [`ContainerConfig::pod_ips`].
+    #[tracing::instrument(level = Level::TRACE, skip(self), ret, err)]
+    pub async fn create_agent_params(
+        &self,
+        target: &TargetConfig,
+        mut config: ContainerConfig,
+    ) -> Result<(ContainerParams, Option<RuntimeData>), KubeApiError> {
+        let mut runtime_data = match target.path.as_ref().unwrap_or(&Target::Targetless) {
+            Target::Targetless => None,
+            path => path
+                .runtime_data(&self.client, target.namespace.as_deref())
+                .await?
+                .into(),
+        };
+
+        if let Some(runtime_data) = runtime_data.as_mut() {
+            runtime_data.try_resolve_node_hostname(&self.client).await;
+        };
+
+        let pod_ips = runtime_data
+            .as_ref()
+            .map(|runtime_data| runtime_data.pod_ips.clone())
+            .filter(|pod_ips| !pod_ips.is_empty());
+
+        config.pod_ips = pod_ips;
+
+        Ok((config.into(), runtime_data))
+    }
+
+    /// Creates an agent.
+    ///
+    /// Unless targetless, fetches [`RuntimeData`] for the given target and fills
+    /// [`ContainerConfig::pod_ips`].
+    #[mirrord_macros::boxed_future]
+    #[tracing::instrument(level = "trace", skip(self, progress))]
+    pub async fn create_agent<P>(
+        &self,
+        progress: &mut P,
+        target_config: &TargetConfig,
+        network_config: Option<&mut NetworkConfig>,
+        container_config: ContainerConfig,
+    ) -> Result<CreatedAgent, KubeApiError>
+    where
+        P: Progress,
+    {
+        let (params, runtime_data) = self
+            .create_agent_params(target_config, container_config)
+            .await?;
+
+        if let Some(RuntimeData {
+            guessed_container,
+            container_name,
+            containers_probe_ports,
+            ..
+        }) = runtime_data.as_ref()
+        {
+            if *guessed_container {
+                progress.warning(format!("Target has multiple containers, mirrord picked \"{container_name}\". To target a different one, include it in the target path.").as_str());
+            }
+
+            if let Some(network_config) = network_config {
+                let stolen_probes = containers_probe_ports
+                    .iter()
+                    .copied()
+                    .filter(|port| network_config.incoming.steals_port_without_filter(*port))
+                    .map(|p| p.to_string())
+                    .collect::<Vec<_>>()
+                    .join(", ");
+
+                if stolen_probes.is_empty().not() {
+                    progress.warning(&format!(
+                    "Your mirrord config may steal HTTP/gRPC health checks configured on ports [{}], \
+                    causing Kubernetes to terminate containers on the targeted pod. \
+                    Use an HTTP filter to prevent this.",
+                    stolen_probes,
+                ));
+                }
+            }
+        }
+
+        if let Some(mesh) = runtime_data.as_ref().and_then(|data| data.mesh.as_ref()) {
+            progress.info(&format!("service mesh detected: {mesh}"));
+
+            if matches!(mesh, MeshVendor::IstioAmbient) && self.agent.privileged.not() {
+                progress.warning(
+                    "mirrord detected an ambient Istio service mesh but \
+                     the agent is not configured to run in a privileged SecurityContext.\
+                     Please set `agent.privileged = true`, otherwise the agent will not be able to start.",
+                );
+            }
+        }
+
+        info!(?params, "Spawning new agent");
+
+        let agent_connect_info = match (runtime_data.as_ref(), self.agent.ephemeral) {
+            (None, false) => {
+                let variant = JobVariant::new(&self.agent, &params);
+
+                Targetless::new(&self.client, &variant)
+                    .create_agent(progress)
+                    .await?
+            }
+            (Some(runtime_data), false) => {
+                let variant = JobTargetedVariant::new(&self.agent, &params, runtime_data);
+
+                Targeted::new(&self.client, runtime_data, &variant)
+                    .create_agent(progress)
+                    .await?
+            }
+            (Some(runtime_data), true) => {
+                let variant = EphemeralTargetedVariant::new(&self.agent, &params, runtime_data);
+
+                Targeted::new(&self.client, runtime_data, &variant)
+                    .create_agent(progress)
+                    .await?
+            }
+            (None, true) => return Err(KubeApiError::MissingRuntimeData),
+        };
+
+        info!(?agent_connect_info, "Created agent pod");
+
+        Ok(CreatedAgent {
+            connect_info: agent_connect_info,
+            runtime_data,
+        })
+    }
+}
+
+/// Agent created with [`KubernetesAPI::create_agent`].
+#[derive(Debug)]
+pub struct CreatedAgent {
+    /// Information needed to connect to the agent.
+    pub connect_info: AgentKubernetesConnectInfo,
+    /// Data of the target that the agent runs against, so that the caller can check the session
+    /// setup against the target.
+    ///
+    /// [`None`] when the agent is targetless.
+    pub runtime_data: Option<RuntimeData>,
+}
+
+/// Fetches the Kubernetes apiserver version as `(major, minor)`.
+pub async fn apiserver_version(client: &Client) -> Result<(u16, u16), KubeApiError> {
+    let version = client.apiserver_version().await?;
+    let major = parse_version_component("major", &version.major)?;
+    let minor = parse_version_component("minor", &version.minor)?;
+    Ok((major, minor))
+}
+
+fn parse_version_component(field: &'static str, data: &str) -> Result<u16, KubeApiError> {
+    // Sometimes version number are not purely numeric ("27+")
+    let end = data
+        .find(|c: char| c.is_ascii_digit().not())
+        .unwrap_or(data.len());
+
+    data[..end]
+        .parse()
+        .map_err(|_| KubeApiError::InvalidVersionNumber {
+            field,
+            data: data.to_owned(),
+        })
+}
+
+/// Trait for IO streams returned from [`KubernetesAPI::create_connection_portforward`].
+/// It's here only to group the exisiting traits we actually need and return a `Box<dyn ...>`
+#[cfg(feature = "portforward")]
+pub trait UnpinStream:
+    tokio::io::AsyncRead + tokio::io::AsyncWrite + Unpin + Send + 'static
+{
+}
+
+/// Any type that implements bidirectional IO and can be sent to a different [`tokio::task`] is good
+/// enough.
+#[cfg(feature = "portforward")]
+impl<T> UnpinStream for T where
+    T: tokio::io::AsyncRead + tokio::io::AsyncWrite + Unpin + Send + 'static
+{
+}
+
+/// Provides information necessary to make a connection to a running mirrord agent.
+#[derive(Debug, Clone, Serialize, Deserialize, Hash, PartialEq, Eq)]
+pub struct AgentKubernetesConnectInfo {
+    /// Name of the pod that hosts the agent container.
+    pub pod_name: String,
+    /// Namespace where the pod hosting the agent container lives.
+    pub pod_namespace: String,
+    /// Port on which the agent accepts connections.
+    pub agent_port: u16,
+}
+
+#[tracing::instrument(level = Level::TRACE, skip(kubeconfig), ret, err)]
+pub async fn create_kube_config<P>(
+    accept_invalid_certificates: Option<bool>,
+    kubeconfig: Option<P>,
+    kube_context: Option<String>,
+) -> Result<Config>
+where
+    P: AsRef<OsStr>,
+{
+    create_kube_config_with_context(accept_invalid_certificates, kubeconfig, kube_context)
+        .await
+        .map(|(config, _)| config)
+}
+
+/// Creates a Kubernetes client configuration and retains the kubeconfig context selected while
+/// creating it.
+///
+/// Keeping these values together prevents a later kubeconfig read from associating a successful
+/// session with a context selected after that session started.
+#[tracing::instrument(level = Level::TRACE, skip(kubeconfig), ret, err)]
+pub async fn create_kube_config_with_context<P>(
+    accept_invalid_certificates: Option<bool>,
+    kubeconfig: Option<P>,
+    kube_context: Option<String>,
+) -> Result<(Config, Option<String>)>
+where
+    P: AsRef<OsStr>,
+{
+    let kube_config_opts = KubeConfigOptions {
+        context: kube_context,
+        ..Default::default()
+    };
+
+    let custom_kubeconfig = kubeconfig
+        .as_ref()
+        .map(|path| read_custom_kubeconfig(path.as_ref()))
+        .transpose()?
+        .flatten();
+
+    let (mut config, context) = if let Some(parsed_kube_config) = custom_kubeconfig {
+        let context = selected_kube_context(&parsed_kube_config, &kube_config_opts);
+        let config = Config::from_custom_kubeconfig(parsed_kube_config, &kube_config_opts).await?;
+        (config, context)
+    } else if kube_config_opts.context.is_some() {
+        // if context is set, it's not in cluster so it has to be a kubeconfig.
+        let parsed_kube_config = Kubeconfig::read()?;
+        let context = selected_kube_context(&parsed_kube_config, &kube_config_opts);
+        let config = Config::from_custom_kubeconfig(parsed_kube_config, &kube_config_opts).await?;
+        (config, context)
+    } else {
+        // if context isn't set and user doesn't specify a kubeconfig, we infer which tries
+        // local kube or in-cluster configuration.
+        infer_kube_config_with_context().await?
+    };
+
+    if let Some(accept_invalid_certificates) = accept_invalid_certificates {
+        config.accept_invalid_certs = accept_invalid_certificates;
+    }
+
+    Ok((config, context))
+}
+
+fn selected_kube_context(kubeconfig: &Kubeconfig, options: &KubeConfigOptions) -> Option<String> {
+    options
+        .context
+        .clone()
+        .or_else(|| kubeconfig.current_context.clone())
+}
+
+async fn infer_kube_config_with_context() -> Result<(Config, Option<String>)> {
+    let options = KubeConfigOptions::default();
+    let kubeconfig_result = match Kubeconfig::read() {
+        Ok(kubeconfig) => {
+            let context = selected_kube_context(&kubeconfig, &options);
+            Config::from_custom_kubeconfig(kubeconfig, &options)
+                .await
+                .map(|config| (config, context))
+        }
+        Err(error) => Err(error),
+    };
+
+    let (mut config, context) = match kubeconfig_result {
+        Ok(config) => config,
+        Err(kubeconfig) => {
+            debug!(
+                error = &kubeconfig as &dyn std::error::Error,
+                "no local config found, falling back to local in-cluster config"
+            );
+
+            let config = Config::incluster()
+                .map_err(|in_cluster| KubeConfigInferenceError::new(in_cluster, kubeconfig))?;
+            (config, None)
+        }
+    };
+
+    config.apply_debug_overrides();
+    Ok((config, context))
+}
+
+/// Resolves the Kubernetes context selected by mirrord without contacting the cluster.
+///
+/// An explicitly configured context wins. Otherwise, this reads the current context from the
+/// configured kubeconfig, including merged path lists, or from the kubeconfig selected by
+/// `KUBECONFIG` and the standard kubeconfig lookup.
+pub fn resolve_kube_context(
+    kubeconfig: Option<&str>,
+    kube_context: Option<&str>,
+) -> Result<Option<String>> {
+    if let Some(context) = kube_context {
+        return Ok(Some(context.to_owned()));
+    }
+
+    Ok(read_kubeconfig(kubeconfig)?.current_context)
+}
+
+/// Reads the configured kubeconfig, including merged path lists, or the kubeconfig selected by
+/// `KUBECONFIG` and the standard kubeconfig lookup.
+fn read_kubeconfig(kubeconfig: Option<&str>) -> Result<Kubeconfig> {
+    match kubeconfig.map(|path| read_custom_kubeconfig(path.as_ref())) {
+        Some(result) => match result? {
+            Some(kubeconfig) => Ok(kubeconfig),
+            None => Ok(Kubeconfig::read()?),
+        },
+        None => Ok(Kubeconfig::read()?),
+    }
+}
+
+/// Where the Kubernetes environment of a session points to.
+#[derive(Debug, Clone, Default, PartialEq, Eq)]
+pub struct KubeEnvironment {
+    /// The selected kubeconfig context.
+    pub context: Option<String>,
+    /// Name of the cluster the selected context points to.
+    pub cluster: Option<String>,
+    /// API server URL of [`Self::cluster`].
+    pub server: Option<String>,
+    /// Default namespace of the selected context.
+    pub namespace: Option<String>,
+}
+
+/// Resolves the context, cluster, API server and default namespace selected by mirrord, reading
+/// only the local kubeconfig.
+pub fn resolve_kube_environment(
+    kubeconfig: Option<&str>,
+    kube_context: Option<&str>,
+) -> Result<KubeEnvironment> {
+    let parsed = read_kubeconfig(kubeconfig)?;
+
+    let context = kube_context
+        .map(ToOwned::to_owned)
+        .or_else(|| parsed.current_context.clone());
+
+    let context_entry = context.as_deref().and_then(|name| {
+        parsed
+            .contexts
+            .iter()
+            .find(|entry| entry.name == name)
+            .and_then(|entry| entry.context.as_ref())
+    });
+
+    let cluster = context_entry.map(|entry| entry.cluster.clone());
+    let server = cluster.as_deref().and_then(|name| {
+        parsed
+            .clusters
+            .iter()
+            .find(|entry| entry.name == name)
+            .and_then(|entry| entry.cluster.as_ref())
+            .and_then(|cluster| cluster.server.clone())
+    });
+
+    Ok(KubeEnvironment {
+        context,
+        cluster,
+        server,
+        namespace: context_entry.and_then(|entry| entry.namespace.clone()),
+    })
+}
+
+/// Parses kubeconfig paths the same way as `KUBECONFIG`, preserving the merge behavior used for
+/// actual Kubernetes clients when mirrord receives an explicit kubeconfig path.
+fn read_custom_kubeconfig(kubeconfig: &OsStr) -> Result<Option<Kubeconfig>> {
+    let paths = std::env::split_paths(kubeconfig)
+        .filter_map(|path| {
+            let path = path.as_os_str().to_string_lossy().into_owned();
+            path.is_empty().not().then_some(path)
+        })
+        .collect::<Vec<_>>();
+
+    if paths.is_empty() {
+        return Ok(None);
+    }
+
+    paths
+        .iter()
+        .try_fold(Kubeconfig::default(), |merged_kubeconfig, path| {
+            let expanded = shellexpand::full(path)
+                .map_err(|error| KubeApiError::ConfigPathExpansionError(error.to_string()))?;
+
+            Kubeconfig::read_from(expanded.deref())
+                .and_then(|config| merged_kubeconfig.merge(config))
+                .map_err(KubeApiError::from)
+        })
+        .map(Some)
+}
+
+#[tracing::instrument(level = "trace", skip(client))]
+pub fn get_k8s_resource_api<K>(client: &Client, namespace: Option<&str>) -> Api<K>
+where
+    K: kube::Resource<Scope = NamespaceResourceScope>,
+    <K as kube::Resource>::DynamicType: Default,
+{
+    if let Some(namespace) = namespace {
+        Api::namespaced(client.clone(), namespace)
+    } else {
+        Api::default_namespaced(client.clone())
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use std::{env::join_paths, ffi::OsStr, fs, path::Path};
+
+    use tempfile::NamedTempFile;
+
+    use super::{
+        KubeEnvironment, create_kube_config_with_context, read_custom_kubeconfig,
+        resolve_kube_context, resolve_kube_environment,
+    };
+
+    fn kubeconfig_with_current_context(context: Option<&str>) -> NamedTempFile {
+        let file = NamedTempFile::new().unwrap();
+        let current_context = context
+            .map(|context| format!("current-context: {context}\n"))
+            .unwrap_or_default();
+        fs::write(
+            file.path(),
+            format!(
+                "apiVersion: v1\nkind: Config\n{current_context}clusters: []\ncontexts: []\nusers: []\n"
+            ),
+        )
+        .unwrap();
+        file
+    }
+
+    fn write_usable_kubeconfig(path: &Path, current_context: &str) {
+        fs::write(
+            path,
+            format!(
+                concat!(
+                    "apiVersion: v1\n",
+                    "kind: Config\n",
+                    "current-context: {current_context}\n",
+                    "clusters:\n",
+                    "- name: kazimierz-wielki\n",
+                    "  cluster:\n",
+                    "    server: https://kazimierz-wielki.example.com\n",
+                    "- name: jan-sobieski\n",
+                    "  cluster:\n",
+                    "    server: https://jan-sobieski.example.com\n",
+                    "contexts:\n",
+                    "- name: wawel\n",
+                    "  context:\n",
+                    "    cluster: kazimierz-wielki\n",
+                    "- name: malbork\n",
+                    "  context:\n",
+                    "    cluster: jan-sobieski\n",
+                    "    namespace: krzyzacy\n",
+                    "users: []\n",
+                ),
+                current_context = current_context,
+            ),
+        )
+        .unwrap();
+    }
+
+    #[test]
+    fn explicit_context_does_not_require_reading_kubeconfig() {
+        let context = resolve_kube_context(Some("/missing/kubeconfig"), Some("explicit")).unwrap();
+
+        assert_eq!(context.as_deref(), Some("explicit"));
+    }
+
+    #[test]
+    fn merged_kubeconfig_paths_resolve_current_context() {
+        let first = kubeconfig_with_current_context(None);
+        let second = kubeconfig_with_current_context(Some("merged"));
+        let paths = join_paths([first.path(), second.path()]).unwrap();
+
+        let context = resolve_kube_context(Some(&paths.to_string_lossy()), None).unwrap();
+
+        assert_eq!(context.as_deref(), Some("merged"));
+    }
+
+    #[test]
+    fn empty_kubeconfig_path_list_uses_inference_path() {
+        let kubeconfig = read_custom_kubeconfig(OsStr::new("")).unwrap();
+
+        assert!(kubeconfig.is_none());
+    }
+
+    #[tokio::test]
+    async fn created_config_retains_the_context_used_for_resolution() {
+        let kubeconfig = NamedTempFile::new().unwrap();
+        write_usable_kubeconfig(kubeconfig.path(), "wawel");
+
+        let (config, context) =
+            create_kube_config_with_context(None, Some(kubeconfig.path()), None)
+                .await
+                .unwrap();
+
+        write_usable_kubeconfig(kubeconfig.path(), "malbork");
+
+        assert_eq!(
+            config.cluster_url.to_string(),
+            "https://kazimierz-wielki.example.com/"
+        );
+        assert_eq!(context.as_deref(), Some("wawel"));
+    }
+
+    #[test]
+    fn environment_uses_explicit_context_and_its_namespace() {
+        let kubeconfig = NamedTempFile::new().unwrap();
+        write_usable_kubeconfig(kubeconfig.path(), "wawel");
+
+        let environment =
+            resolve_kube_environment(Some(&kubeconfig.path().to_string_lossy()), Some("malbork"))
+                .unwrap();
+
+        assert_eq!(
+            environment,
+            KubeEnvironment {
+                context: Some("malbork".to_owned()),
+                cluster: Some("jan-sobieski".to_owned()),
+                server: Some("https://jan-sobieski.example.com".to_owned()),
+                namespace: Some("krzyzacy".to_owned()),
+            }
+        );
+    }
+
+    #[test]
+    fn environment_keeps_missing_context_name() {
+        let kubeconfig = NamedTempFile::new().unwrap();
+        write_usable_kubeconfig(kubeconfig.path(), "wawel");
+
+        let environment = resolve_kube_environment(
+            Some(&kubeconfig.path().to_string_lossy()),
+            Some("does-not-exist"),
+        )
+        .unwrap();
+
+        assert_eq!(
+            environment,
+            KubeEnvironment {
+                context: Some("does-not-exist".to_owned()),
+                ..Default::default()
+            }
+        );
+    }
+
+    #[test]
+    fn environment_resolves_merged_kubeconfig_paths() {
+        let first = kubeconfig_with_current_context(None);
+        let second = NamedTempFile::new().unwrap();
+        write_usable_kubeconfig(second.path(), "malbork");
+        let paths = join_paths([first.path(), second.path()]).unwrap();
+
+        let environment = resolve_kube_environment(Some(&paths.to_string_lossy()), None).unwrap();
+
+        assert_eq!(environment.context.as_deref(), Some("malbork"));
+        assert_eq!(environment.cluster.as_deref(), Some("jan-sobieski"));
+        assert_eq!(environment.namespace.as_deref(), Some("krzyzacy"));
+    }
+}

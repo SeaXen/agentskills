@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The response says to grade each conversation at the moment of capture rather than after the show",
+        "evidence": "\"Grade at capture, not at the hotel... Grade and write the note on the spot.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response uses a grade scale such as A/B/C tied to having the problem and an agreed next step",
+        "evidence": "\"A: has the problem now... agreed a named next step. B: has the problem, but no next step yet.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response counts only A-grade conversations toward the CEO's answer and reports B-grade as warm interest beside it",
+        "evidence": "\"Qualified conversations (A): X, against a minimum of Y... Warm (B): Z.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response introduces an end-of-shift log for day two",
+        "evidence": "\"Every shift ends with a 5-minute log.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response suggests reconstructing today's A and B conversations tonight while memory is fresh",
+        "evidence": "\"rebuild the 220 scans into graded records\"; \"A record rebuilt tonight is usable.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response answers the CEO with a count of qualified conversations, with scans reported only as activity",
+        "evidence": "\"Day 1: 220 scans (activity). Qualified conversations (A): X\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response moves the debrief to the day the hall closes rather than next week",
+        "evidence": "\"Run a 30-minute debrief the day the hall closes, not a week later.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response hands the graded log to an owner for follow-up rather than writing the follow-up sequence itself",
+        "evidence": "\"Hand each A, with its owner and date, to whoever runs follow-up (developer-event-followup).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response includes a record schema with fields such as problem, next step and owner",
+        "evidence": "\"problem, in their words; stack; role; dated next step; owner; route; consent basis\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response tells staff to state the purpose of the follow-up aloud before scanning",
+        "evidence": "\"Say the purpose aloud before scanning... 'I'll send the config we sketched...'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response routes questions the booth could not answer to docs or product in the debrief",
+        "evidence": "\"Top three questions the booth couldn't answer, for product and docs.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response compares day one's A count against the daily share of a stated or self-set minimum",
+        "evidence": "\"The daily share is Y divided by the number of show days. Compare day 1 against that share.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The response says to grade each conversation at the moment of capture rather than after the show",
+        "evidence": "'Grade at the booth. Type A, B, or C in the notes before the next person walks up.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response uses a grade scale such as A/B/C tied to having the problem and an agreed next step",
+        "evidence": "'A: real problem stated, fits your ICP, wants a next step.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response counts only A-grade conversations toward the CEO's answer and reports B-grade as warm interest beside it",
+        "evidence": "'Count the A's. That number is your answer for the CEO.' B is 'interested, no clear need yet' and gets a nurture asset.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response introduces an end-of-shift log for day two",
+        "evidence": "Only 'a 10-minute huddle at lunch and again at close' to grade scans. No end-of-shift log is introduced.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response suggests reconstructing today's A and B conversations tonight while memory is fresh",
+        "evidence": "'Start tonight... Memory of each chat fades fast.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response answers the CEO with a count of qualified conversations, with scans reported only as activity",
+        "evidence": "'Day 1: 220 scans, [X] real conversations.' with 'Do not say winning on 220 scans'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response moves the debrief to the day the hall closes rather than next week",
+        "evidence": "'Keep it' for the sit-down next week, with a changed purpose.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response hands the graded log to an owner for follow-up rather than writing the follow-up sequence itself",
+        "evidence": "No follow-up owner is named. The response writes the follow-up tiers itself.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response includes a record schema with fields such as problem, next step and owner",
+        "evidence": "Fields are only grade, a need line and a next step. There is no owner field and no schema.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response tells staff to state the purpose of the follow-up aloud before scanning",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response routes questions the booth could not answer to docs or product in the debrief",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response compares day one's A count against the daily share of a stated or self-set minimum",
+        "evidence": "No minimum or target is compared.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States the sort - outcome per page-hour, highest first - above the ranked table",
+        "evidence": "\"Sorted by outcome per page-hour, highest first, except two rows the pure ratio would have ranked lower...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not order the table cheapest-first",
+        "evidence": "Migration, described as \"the single most expensive family on the map (a week of borrowed engineering time),\" is listed first, not cheapest-first.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Emits a Company-adoption set as a section separate from the main ranked table",
+        "evidence": "\"## Company-adoption set\" is a distinct section with its own table.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the company-adoption set its own filled target count rather than letting it inherit the ratio's order",
+        "evidence": "\"Kept separate with its own filled target count (4) so the ratio can't bury it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names migration and comparison as the high-value clusters the efficiency ratio demotes",
+        "evidence": "\"except two rows the pure ratio would have ranked lower, both promoted explicitly: Migration (G)... Comparison (F)...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the condition that would promote each demoted cluster",
+        "evidence": "\"a rival's deprecation or breaking major is 'the one window where a switch is cheap to win'\" (migration); \"legal has already paid that compliance cost\" (comparison).",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Promotes the migration cluster outright because the rival announced a deprecation and a breaking major",
+        "evidence": "\"Driving event: the rival's 2.x line goes end-of-life in nine months (~June 2027) alongside a breaking 4.0.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Breaks ties on evidence tier first, then business proximity",
+        "evidence": "No statement anywhere describing a tie-break order of evidence tier then business proximity.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Assigns the evaluation queries ('tessellate rate limits', 'self-host tessellate requirements') to the company-adoption set",
+        "evidence": "Company-adoption set table includes both \"Rate limits\" and \"Self-host requirements\" rows.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes each cluster to exactly one canonical target surface",
+        "evidence": "Pass-threshold check: \"One canonical target surface per cluster, no two clusters sharing a page \u2014 checked (D and E share a page *type*... but not the same URL).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the ranking formula is a default to re-rank against this team's situation, not a law",
+        "evidence": "No such statement appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not rank the concept cluster ('what is an api gateway') above the error cluster",
+        "evidence": "'what is an api gateway' is placed in \"Do not target\" and refused, never appearing in the ranked table above the 502 error cluster (P1).",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States the sort - outcome per page-hour, highest first - above the ranked table",
+        "evidence": "No sort stated above the table.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not order the table cheapest-first",
+        "evidence": "The order runs 502 error, migration, comparison, and so on, driven by signal rather than cost.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Emits a Company-adoption set as a section separate from the main ranked table",
+        "evidence": "There is only one ranked table.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the company-adoption set its own filled target count rather than letting it inherit the ratio's order",
+        "evidence": "No such set.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names migration and comparison as the high-value clusters the efficiency ratio demotes",
+        "evidence": "No efficiency ratio is used.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the condition that would promote each demoted cluster",
+        "evidence": "No demoted clusters or promotion conditions.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Promotes the migration cluster outright because the rival announced a deprecation and a breaking major",
+        "evidence": "#2: 'Rival 2.x EOL in 9 months + breaking 4.0 = forced migration wave, time-boxed.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Breaks ties on evidence tier first, then business proximity",
+        "evidence": "No tie-break rule.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Assigns the evaluation queries ('tessellate rate limits', 'self-host tessellate requirements') to the company-adoption set",
+        "evidence": "There is no company-adoption set.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes each cluster to exactly one canonical target surface",
+        "evidence": "It proposes splitting #2 into two pages and mixes page types, with no canonical-surface routing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the ranking formula is a default to re-rank against this team's situation, not a law",
+        "evidence": "No such statement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not rank the concept cluster ('what is an api gateway') above the error cluster",
+        "evidence": "'What Is an API Gateway?' is #8 and the 502 error page is #1.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

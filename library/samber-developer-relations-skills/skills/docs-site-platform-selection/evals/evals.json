@@ -1,0 +1,378 @@
+{
+  "skill_name": "docs-site-platform-selection",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "quick one: we're launching public API docs for Tallyroute (payments reconciliation API) next quarter. Docusaurus or Mintlify? just tell me which one, I've read like five comparison posts and they all disagree",
+      "expected_output": "Does not name a winner. Explains briefly that the choice depends on authors, build owner and constraints, then asks a single interview question (multiple-choice where possible) about the trigger or the authors, and stops.",
+      "files": [],
+      "expectations": [
+        "The response does not recommend Docusaurus or Mintlify as the answer",
+        "The response asks exactly one question",
+        "The question offers multiple-choice options",
+        "The question concerns who authors/edits the docs, who maintains the build, or what triggered the choice",
+        "The response states that requirements come before product choice",
+        "The response does not present a feature comparison table of the two named tools",
+        "The response says comparison posts or vendor articles are claims rather than evidence, or that several are written by vendors",
+        "The response frames the two names as possibly different classes (hosted platform versus self-hosted generator) rather than equivalent options",
+        "The response explains why it is not answering with a tool name directly"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "We run the docs for Quarrystack (a Postgres-compatible serverless DB) on MkDocs Material, about 640 pages, 3 tech writers + engineers via PRs, builds take 90 seconds. Our NPS comments keep saying 'can't find anything in the docs'. Top site-search queries with zero results last month: 'connection pooling', 'pgvector', 'branching limits'. The nav has sections Get started / Guides / Reference / Billing, and Billing has a big FAQ page. Leadership wants to move to a hosted docs platform with AI search to fix findability. Write me the recommendation on which hosted platform to move to. Everything you need is here, don't ask questions.",
+      "expected_output": "Classifies the pains: missing pages and misplaced content are information-architecture causes, not platform causes; routes to the structure audit; finds no failed knockout on the current platform; recommends staying and fixing (write missing pages, move the limits content, optionally improve search on the current generator); names a revisit trigger and does not pick a hosted product.",
+      "files": [],
+      "expectations": [
+        "The response does not recommend a specific hosted docs product",
+        "The response identifies the zero-result queries as possible missing pages or a content gap to check, not a platform problem",
+        "The response flags that some answers may exist but be misplaced (for example inside the Billing FAQ) as an information architecture problem",
+        "The response routes the findability problem to samber/developer-relations-skills@developer-docs-structure-audit",
+        "The response states that moving platforms would carry the same content and structure problems over",
+        "The response recommends staying on the current platform (stay and fix) as the outcome",
+        "The response states that no knockout requirement fails on the current platform, or that no platform pain was reported",
+        "The response treats AI search as unable to answer from pages that do not exist",
+        "The response names at least one cheaper search improvement on the current platform or says search can be improved without moving",
+        "The response names a condition or revisit trigger under which a platform switch would be reconsidered"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Context dump for our docs platform decision at Kelpline (IoT fleet telemetry SaaS, 60 people): our Docusaurus site (~300 pages, OpenAPI reference via a community plugin, one version, English only) was maintained by Arjun, our docs engineer, who left in June. Since then nobody upgraded anything; the plugin is two majors behind and the build broke twice. Writers: 1 tech writer, plus 6 support engineers who should fix docs but don't use Git (they ping the writer in Slack instead). Engineering has zero hours for docs infra this year, the VP said so. My CTO says just stay on Docusaurus because it's free and open source. We want this sorted within one quarter. No hosting restrictions. Answers to all your interview questions are in here, so go straight to the recommendation and the requirements.",
+      "expected_output": "Root cause is a platform ownership and authoring-model problem. Register with knockouts: support engineers publish without Git, named build owner within the standing ceiling, OpenAPI reference renders from the spec, export of content/assets/nav, URL preservation. Deletes the self-hosted generator and custom build for lack of a build owner, recommends the hosted docs platform class, prices it as multipliers against 7 editors now and the year-out count, shortlists 2-3 products checked against vendor docs, and pilots on the hardest pages.",
+      "files": [],
+      "expectations": [
+        "The response challenges 'free' by naming the standing owner hours that self-hosting requires",
+        "The response cites the absence of a build owner (zero engineering hours) as the reason the self-hosted generator is ruled out",
+        "The response recommends the hosted docs platform class",
+        "The response includes a requirement that support engineers can publish a fix without Git",
+        "The response includes a named build owner as a requirement or register row",
+        "The response includes an export or exit-cost requirement",
+        "The response includes a URL preservation requirement",
+        "The response includes rendering the OpenAPI reference from the spec as a requirement",
+        "The response expresses hosted cost as multipliers (editors or seats, sites, gated tiers) against Kelpline's own editor count, not as list prices",
+        "The response does not quote any subscription price or currency amount",
+        "The response proposes a pilot on Kelpline's own pages before signing",
+        "The response limits the shortlist to two or three products",
+        "The response considers a Git-backed web editor on the current generator, or explains why it does not solve the missing build owner"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "I'm head of docs at Ostrander Clearing (clearing and settlement APIs for European banks). We're on a hosted docs SaaS today; they just moved customer-only pages to an enterprise tier and our renewal quote went up a lot. 38 editors now (writers, solutions engineers, product), planning ~85 next year because every PM will own their pages. Constraints: banking customers require EU data residency for the docs content and the editor, customer-only pages must sit behind our Okta SSO, ~1,100 pages, OpenAPI + AsyncAPI references, 3 live API versions, German and French locales. We have a 2-person platform team that can give docs about 10 h/month. Contract ends in 7 months. Give me the full selection plan; I've covered the interview.",
+      "expected_output": "Treats EU residency of content and editor as a knockout that deletes hosted platforms whose editor or content cannot be self-hosted or EU-resident; tests the platform team's 10 h/month against the self-hosting estimate; editor growth to 85 makes per-seat multipliers decisive; prices exit cost from the current vendor (components, export test, URLs); register with SSO gating, spec rendering for both spec types, version and locale knockouts; pilot with hardest pages; hands off versions, locales and redirects; decision record with a revisit trigger.",
+      "files": [],
+      "expectations": [
+        "The response treats EU data residency for content and editor as a knockout requirement",
+        "The response states that a hosted platform whose editor or content store cannot be EU-resident or self-hosted is eliminated",
+        "The response tests the platform team's 10 h/month against the estimated standing hours of self-hosting rather than assuming it is enough",
+        "The response uses the growth from 38 to about 85 editors as a reason per-seat or per-editor pricing weighs against hosted options",
+        "The response includes customer-only pages behind Okta SSO as a knockout with a test",
+        "The response includes rendering both OpenAPI and AsyncAPI references as requirements",
+        "The response prices the exit from the current vendor: proprietary components, export completeness, or URL shapes",
+        "The response includes a pilot on Ostrander's own hardest pages (for example a gated page, a versioned page, a translated page, a generated reference page)",
+        "The response hands off version handling to samber/developer-relations-skills@docs-versioning-strategy",
+        "The response hands off locales to samber/developer-relations-skills@docs-localization-strategy",
+        "The response hands off redirects or indexing at cutover to the docs SEO skill (samber/developer-relations-skills@docs-seo), by identifier or by name",
+        "The response schedules the decision so the move completes before the 7-month contract end",
+        "The response names a revisit trigger",
+        "The response does not quote any subscription price or currency amount"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Pasting the comparison table I built from a 'Top 9 documentation platforms 2026' article: Platform A ✓ versioning ✓ i18n ✓ AI search ✓ OpenAPI ✓ SSO ✓ analytics; Platform B ✓✓✓✓✓✓ same; Platform C ✓ everything except SSO. We're Brindlewick, dev tools for game studios, 220 pages. Can you just assign weights and score these three so I can take a winner to my director tomorrow? Use whatever weights make sense.",
+      "expected_output": "Refuses to score from listicle checkmarks; explains every candidate ticks every row, so the table cannot discriminate; separates knockouts (pass/fail tests) from a few differentiators whose weights are fixed before scoring and come from Brindlewick's own requirements; marks claims as vendor-published or claimed, not tested; proposes a short pilot on the hardest pages with thresholds written in advance; drops C only if SSO is a real knockout.",
+      "files": [],
+      "expectations": [
+        "The response does not produce a final weighted score for platforms A, B and C",
+        "The response states that a table where every candidate ticks every row cannot discriminate between them",
+        "The response states that comparison-article content is a claim rather than evidence, or warns that such lists are often written by a vendor",
+        "The response labels the checkmarks as vendor-published or claimed rather than tested",
+        "The response separates knockout requirements from weighted differentiators",
+        "The response says weights must be fixed before any candidate is scored",
+        "The response derives weights or requirements from Brindlewick's own needs rather than generic ones",
+        "The response says platform C is out only if SSO is a genuine knockout for Brindlewick",
+        "The response proposes a pilot on Brindlewick's own pages with pass thresholds written in advance",
+        "The response names an exit-cost or export test as part of the evaluation",
+        "The response gives the user something to take to the director tomorrow, such as the register or the pilot plan"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Our CTO at Halvane Robotics wants to build our own docs app on Next.js so it matches the marketing site exactly and plugs into our customer portal login. Docs are ~150 pages (robot SDK guides + C++ API reference from Doxygen), 2 writers; the web team (3 devs) says they can help. We need the new docs live for a product launch in 10 weeks. I've given you everything, please produce the platform recommendation.",
+      "expected_output": "Ranks the custom build last on efficiency and standing effort, names the condition that would promote it (a funded owning team plus a written list of what no other class can do), rejects it here because 'can help' is not a committed owner and 10 weeks is too short; keeps company branding and portal login as requirements to test on hosted or self-hosted candidates; picks a class with an importer or Doxygen-compatible reference path; adds the named owner row.",
+      "files": [],
+      "expectations": [
+        "The response recommends against the custom build for Halvane, or makes it conditional on a funded owning team",
+        "The response states that 'can help' from the web team is not a committed build owner",
+        "The response names the condition under which a custom build would be justified (a funded owning team plus a written list of what no other class can do, or equivalent)",
+        "The response weighs the 10-week launch date against the effort of a custom build",
+        "The response keeps matching the marketing site branding as a requirement to test on other classes",
+        "The response keeps integration with the customer portal login as a requirement to test on other classes",
+        "The response includes generating the C++ API reference from Doxygen or the source as a requirement",
+        "The response includes a named build owner requirement with monthly hours",
+        "The response recommends a hosted docs platform or a self-hosted generator class",
+        "The response presents the custom build's standing cost as a platform team for the life of the site, or equivalent"
+      ]
+    }
+  ],
+  "trigger_queries": [
+    {
+      "query": "Docusaurus vs Mintlify vs GitBook for our API docs, which should we pick?",
+      "should_trigger": true
+    },
+    {
+      "query": "we're thinking of migrating our docs off ReadMe, the pricing went up. how do we choose what to move to",
+      "should_trigger": true
+    },
+    {
+      "query": "Should we self-host our documentation with MkDocs or pay for a hosted docs product? 4 writers, no infra team",
+      "should_trigger": true
+    },
+    {
+      "query": "Our Sphinx docs site is a pain to maintain, nobody wants to touch the build. Is it time to re-platform?",
+      "should_trigger": true
+    },
+    {
+      "query": "help me write requirements for choosing a new documentation platform for our developer docs",
+      "should_trigger": true
+    },
+    {
+      "query": "Which static site generator should we use for a new developer docs site? We have OpenAPI specs and two languages.",
+      "should_trigger": true
+    },
+    {
+      "query": "our support team can't edit the docs because everything is in git, what docs tool lets non-engineers contribute",
+      "should_trigger": true
+    },
+    {
+      "query": "We need customer-only docs behind SSO. Our current docs generator can't do it. What are our options?",
+      "should_trigger": true
+    },
+    {
+      "query": "evaluating Starlight, VitePress and Docusaurus for our open-source project docs, help me compare them properly",
+      "should_trigger": true
+    },
+    {
+      "query": "Our CTO wants to build a custom docs site on Next.js instead of using a docs tool. Good idea?",
+      "should_trigger": true
+    },
+    {
+      "query": "docs tooling decision: GitBook or a docs-as-code setup? we're 25 people",
+      "should_trigger": true
+    },
+    {
+      "query": "Plan a pilot to compare two documentation platforms before we sign a contract",
+      "should_trigger": true
+    },
+    {
+      "query": "what's the exit cost of moving our docs off a hosted platform, how locked in are we",
+      "should_trigger": true
+    },
+    {
+      "query": "build vs buy for our documentation site, we currently run an in-house docs app nobody maintains",
+      "should_trigger": true
+    },
+    {
+      "query": "is Redocly enough for our whole docs site or do we need a separate generator for the guides",
+      "should_trigger": true
+    },
+    {
+      "query": "We have EU data residency requirements for our docs. Which kind of docs platform can we even use?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our Hugo docs build takes 25 minutes and plugins are abandoned. Move or fix?",
+      "should_trigger": true
+    },
+    {
+      "query": "make me a weighted scoring matrix for docs platforms",
+      "should_trigger": true
+    },
+    {
+      "query": "which docs platform should a 3-person startup use for API docs, no devops person",
+      "should_trigger": true
+    },
+    {
+      "query": "Document360 vs Confluence vs a docs-as-code site for developer documentation?",
+      "should_trigger": true
+    },
+    {
+      "query": "We're replatforming our docs, what should go in the decision record?",
+      "should_trigger": true
+    },
+    {
+      "query": "is our docs platform the reason our docs feel bad, or is it the content?",
+      "should_trigger": true
+    },
+    {
+      "query": "picking docs tooling for a new SDK, contributors are mostly community members on GitHub",
+      "should_trigger": true
+    },
+    {
+      "query": "hosted docs per-seat pricing is killing us as we add PMs as editors, alternatives?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our documentation CMS can't render AsyncAPI. Should we switch platforms?",
+      "should_trigger": true
+    },
+    {
+      "query": "how do I choose between Read the Docs and a hosted docs SaaS for our Python library",
+      "should_trigger": true
+    },
+    {
+      "query": "we need PDF output and a web docs site from the same source, which platform class fits",
+      "should_trigger": true
+    },
+    {
+      "query": "docs site platform selection for a fintech with 1,000 pages and three API versions",
+      "should_trigger": true
+    },
+    {
+      "query": "our vendor is sunsetting our docs product, how do we pick the replacement",
+      "should_trigger": true
+    },
+    {
+      "query": "Compare docs-as-code vs WYSIWYG documentation platforms for a devtools company",
+      "should_trigger": true
+    },
+    {
+      "query": "we want AI search in our docs, is that a reason to switch docs platforms?",
+      "should_trigger": true
+    },
+    {
+      "query": "what docs platform requirements matter most when engineers and support both write docs",
+      "should_trigger": true
+    },
+    {
+      "query": "Audit our docs information architecture against Diátaxis, pages feel misplaced",
+      "should_trigger": false
+    },
+    {
+      "query": "our old v2 docs outrank the current docs in Google, fix it",
+      "should_trigger": false
+    },
+    {
+      "query": "Should we keep docs for v1, v2 and v3 or go latest-only with a version switcher?",
+      "should_trigger": false
+    },
+    {
+      "query": "Should we translate our developer docs into Japanese?",
+      "should_trigger": false
+    },
+    {
+      "query": "add llms.txt and markdown endpoints so coding agents can use our SDK docs",
+      "should_trigger": false
+    },
+    {
+      "query": "ChatGPT keeps citing our deprecated docs, how do we get current pages cited",
+      "should_trigger": false
+    },
+    {
+      "query": "Design our developer portal: API key dashboard, request logs, sandbox, onboarding to first call",
+      "should_trigger": false
+    },
+    {
+      "query": "Audit our API reference for undocumented endpoints and missing error codes",
+      "should_trigger": false
+    },
+    {
+      "query": "set up Docusaurus versioning config for our 2.x and 3.x docs",
+      "should_trigger": false
+    },
+    {
+      "query": "How do I add a custom React component to my Docusaurus sidebar?",
+      "should_trigger": false
+    },
+    {
+      "query": "Configure mkdocs.yml navigation and the Material theme palette",
+      "should_trigger": false
+    },
+    {
+      "query": "Write the quickstart page for our Python SDK",
+      "should_trigger": false
+    },
+    {
+      "query": "Our docs code samples don't compile anymore, set up testing in CI",
+      "should_trigger": false
+    },
+    {
+      "query": "Write a migration guide for users upgrading from v2 to v3 of our SDK",
+      "should_trigger": false
+    },
+    {
+      "query": "translate this README into French",
+      "should_trigger": false
+    },
+    {
+      "query": "Which hosting should I use for my personal blog, Hugo on Netlify or Ghost?",
+      "should_trigger": false
+    },
+    {
+      "query": "Choose a CMS for our marketing website, Webflow or Contentful",
+      "should_trigger": false
+    },
+    {
+      "query": "pick an internal developer portal: Backstage or Port?",
+      "should_trigger": false
+    },
+    {
+      "query": "Which knowledge base tool should our customer support team use for help-center articles? No developer docs involved.",
+      "should_trigger": false
+    },
+    {
+      "query": "fix the hreflang tags on our translated docs",
+      "should_trigger": false
+    },
+    {
+      "query": "write a technical tutorial for building a webhook consumer",
+      "should_trigger": false
+    },
+    {
+      "query": "Plan our docs content calendar for Q1",
+      "should_trigger": false
+    },
+    {
+      "query": "What metrics should our DevRel team report on documentation?",
+      "should_trigger": false
+    },
+    {
+      "query": "migrate our docs from Docusaurus to Mintlify, we already decided, convert the admonitions and sidebars",
+      "should_trigger": false
+    },
+    {
+      "query": "choose an SDK generator: Speakeasy, Stainless or Fern for our client libraries",
+      "should_trigger": false
+    },
+    {
+      "query": "Generate API docs from my OpenAPI spec with Redoc",
+      "should_trigger": false
+    },
+    {
+      "query": "Pick an API gateway for our public API",
+      "should_trigger": false
+    },
+    {
+      "query": "How should we structure our README so visitors try the project fast?",
+      "should_trigger": false
+    },
+    {
+      "query": "Which troubleshooting pages should our docs have for common errors?",
+      "should_trigger": false
+    },
+    {
+      "query": "Design our docs search analytics dashboard in GA4",
+      "should_trigger": false
+    },
+    {
+      "query": "Choose a static site generator for our company's engineering blog",
+      "should_trigger": false
+    },
+    {
+      "query": "Our Discourse forum or a docs site, where should community Q&A live?",
+      "should_trigger": false
+    }
+  ]
+}

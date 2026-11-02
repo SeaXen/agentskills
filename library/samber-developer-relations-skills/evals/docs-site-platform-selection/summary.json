@@ -1,0 +1,190 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "docs-site-platform-selection",
+  "scenarios": 6,
+  "expectations_total": 67,
+  "expectations_subjective": 1,
+  "expectations_objective": 66,
+  "pass_rate_with_skill_pct": 92.5,
+  "pass_rate_without_skill_pct": 56.7,
+  "delta_pp": 35.8,
+  "uplift_multiplier": 1.63,
+  "trigger_accuracy_pct": 75.0,
+  "trigger_queries": 64,
+  "trigger_positive_fire_rate": 0.844,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": 0.2,
+  "subjective_pass_disagreements": [
+    {
+      "eval_id": 5,
+      "condition": "without_skill",
+      "expectation": "The response derives weights or requirements from Brindlewick's own needs rather than generic ones",
+      "pass1": false,
+      "pass2": true
+    }
+  ],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.309 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "The response does not recommend Docusaurus or Mintlify as the answer"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The question offers multiple-choice options"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The response states that requirements come before product choice"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The response explains why it is not answering with a tool name directly"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The response derives weights or requirements from Brindlewick's own needs rather than generic ones"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "The response does not recommend Docusaurus or Mintlify as the answer"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The response asks exactly one question"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The question offers multiple-choice options"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The question concerns who authors/edits the docs, who maintains the build, or what triggered the choice"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The response states that requirements come before product choice"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The response says comparison posts or vendor articles are claims rather than evidence, or that several are written by vendors"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The response frames the two names as possibly different classes (hosted platform versus self-hosted generator) rather than equivalent options"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The response explains why it is not answering with a tool name directly"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The response does not recommend a specific hosted docs product"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The response routes the findability problem to samber/developer-relations-skills@developer-docs-structure-audit"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The response states that no knockout requirement fails on the current platform, or that no platform pain was reported"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The response treats AI search as unable to answer from pages that do not exist"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The response expresses hosted cost as multipliers (editors or seats, sites, gated tiers) against Kelpline's own editor count, not as list prices"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The response hands off version handling to samber/developer-relations-skills@docs-versioning-strategy"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The response hands off locales to samber/developer-relations-skills@docs-localization-strategy"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The response hands off redirects or indexing at cutover to the docs SEO skill (samber/developer-relations-skills@docs-seo), by identifier or by name"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The response names a revisit trigger"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The response does not produce a final weighted score for platforms A, B and C"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The response states that comparison-article content is a claim rather than evidence, or warns that such lists are often written by a vendor"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The response labels the checkmarks as vendor-published or claimed rather than tested"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The response separates knockout requirements from weighted differentiators"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The response says weights must be fixed before any candidate is scored"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The response derives weights or requirements from Brindlewick's own needs rather than generic ones"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The response proposes a pilot on Brindlewick's own pages with pass thresholds written in advance"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The response names an exit-cost or export test as part of the evaluation"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The response states that 'can help' from the web team is not a committed build owner"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The response names the condition under which a custom build would be justified (a funded owning team plus a written list of what no other class can do, or equivalent)"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The response includes a named build owner requirement with monthly hours"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The response presents the custom build's standing cost as a platform team for the life of the site, or equivalent"
+      }
+    ]
+  }
+}

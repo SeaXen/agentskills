@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+# shellcheck source=scripts/test/common.sh
+source "$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/common.sh"
+
+cd "$REPO_ROOT"
+
+# scripts/test/test-global.sh [PATH...]: PATHs narrow the suite to those test files.
+for argument in "$@"; do
+  case "$argument" in
+    -*) echo "test-global.sh: unknown argument $argument" >&2; exit 2 ;;
+    *) TEST_PATHS+=("$argument") ;;
+  esac
+done
+
+# The checkout's own packages, as test-python.sh does: without them a worktree run tests
+# whatever the venv's editable installs point at (the primary checkout).
+run_python_unittest "Global policy tests" "tests/python/global" "${PACKAGE_SOURCES[@]}"
+require_selected_tests

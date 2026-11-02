@@ -1,0 +1,742 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "tech-podcast-interview-prep",
+  "scenarios": 15,
+  "expectations_total": 159,
+  "expectations_subjective": 1,
+  "expectations_objective": 158,
+  "pass_rate_with_skill_pct": 63.5,
+  "pass_rate_without_skill_pct": 27.0,
+  "delta_pp": 36.5,
+  "uplift_multiplier": 2.35,
+  "trigger_accuracy_pct": 52.1,
+  "trigger_queries": 146,
+  "trigger_positive_fire_rate": 0.178,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.236 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Response asks clarifying questions instead of delivering talking points, a message spine, or a prep brief."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Questions are asked one at a time rather than as a single list of ten or more questions."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The first question establishes the format: audio-only, video or livestream, and recorded-and-edited or live with no retakes."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Response drafts no message, claim, angle or sound bite before the format, episode length and host configuration, audience, and booked-topic questions are answered."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Response asks how many hours of prep the user has before the recording."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Response asks what the user is representing and what must be disclosed."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Response asks what outcome the user wants from the appearance."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Response describes the deliverable as one prep brief agreed section by section, not a finished document delivered in a single pass."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Response allocates the two available hours to the message spine and the opening answer only."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Response does not make show reconnaissance or listening to back-catalogue episodes the first task."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Response states that the disclosure line and the off-limits check are never traded away for time, whatever the prep ceiling."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Response attributes And-But-Therefore to Randy Olson rather than presenting it as generic storytelling advice."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Response asks the user to say each claim out loud, noting that a claim which is hard to say will not land under pressure."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Response names the flip-the-formula principle - start at the end - and attributes it to Brad Phillips."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Response applies the so-what test to the bio and states that years of experience earn nothing on their own."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Response states that the opening answer is the one moment of the episode the guest controls."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Response asks for or uses a concrete incident, system or number as the answer's opening material rather than a credential."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Response has the user say the answer aloud until it survives being clipped, rather than memorising it word for word."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Each candidate is in present tense and active voice."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Response states that the cold-read test, not the word count, is the real gate."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Response explains that the transcript and show notes become a machine-readable record later cited by AI assistants, which is why the number has to be spoken out loud."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Response states that bridging straight from the question is what a developer audience reads as PR training, and that it costs more trust than the awkward answer would have."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Response sorts ordinary questions from hostile ones and applies Answer, Detailed example, Describe relevance to the ordinary ones."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Response attributes the Answer-Detailed example-Describe relevance pattern to Matt Abrahams."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The eight predicted questions are drawn from the show's recurring threads, the booked topic, and the questions the user does not want to be asked."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Response flags that the licensing answer may need legal or employer sign-off before the recording."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Response removes the unpublished 3.2x internal benchmark rather than merely demoting it, on the grounds that only already-published numbers may be spoken and the recording outlives the embargo."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Each story carries something the user got wrong."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Response identifies a five-second moment for each story and attributes the idea to Matthew Dicks."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Response instructs opening each story at the opposite of its five-second moment."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Response recommends an up-down-up, Man in a Hole shape and credits the empirical test to Del Vecchio, Kharlamov, Parry and Pogrebna across 6,174 movie scripts."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Response notes the finding concerns the most talked-about films rather than the most liked."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Response plants one open loop early and closes it late, crediting the raise-questions-and-answer-them device to Ira Glass."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Response writes a one-sentence definition for each unavoidable piece of jargon."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Response sets a 15 to 20 second target for self-contained answers on a live show, attributed to broadcast media-training guidance."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Response covers the video dimension: clips get cut vertically, stay in frame, expect to be on camera while the hosts talk."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Response warns against opening a turn with agreement such as \"I completely agree with what X just said\"."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Response names domination as the symmetrical failure and notes the camera is on everyone the whole time."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Response gives the one-sentence-answer drill: answer every likely question in exactly one sentence to find which points compress."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Response frames the panellist as the audience's advocate rather than the moderator's respondent."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Response has the user prepare a topic-avoidance plan naming which prepared message each avoided subject bridges to."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Response treats click attribution as a floor, never a total."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Response names repeat invitation, referral to another show, or an inbound speaking request as the real compounding return, despite being the slowest signal."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Response offers a branded-search and direct-traffic lift comparison over a 7 to 14 day window against baseline, labelled as directional only."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Response flags that the branded-search comparison is worthless if a launch overlapped the window."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Response states that the host controls distribution but has no incentive to relaunch an old episode."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Response distinguishes a topic from an angle and rejects \"observability at scale\" as an angle."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Response discards any candidate the show's back catalogue already covers twice, naming the OpenTelemetry migration episodes as the reason."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Response gives the reason for deleting rather than demoting: shortlisting a ruled-out shape makes the user rehearse an angle they cannot use."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Response ranks the angle shapes - war story, practical how-we-do-it, contrarian thesis - by audience moved per hour of preparation."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Response names the contrarian thesis as the highest-value and most expensive shape, and states the condition that promotes it."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Response notes that the contrarian thesis carries the highest compliance cost when it takes a public position against a named competitor or a standard."
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Response treats the pre-interview call as the negotiation where the episode's content actually gets decided, not a formality."
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Response discards any angle that is the user's own stock answer from the previous appearance."
+      },
+      {
+        "eval_id": 15,
+        "expectation": "Response caps the invited pitch at under 30 seconds."
+      },
+      {
+        "eval_id": 15,
+        "expectation": "Response states that claims about compliance, SLAs, pricing and roadmap can be quoted back in a procurement conversation."
+      },
+      {
+        "eval_id": 15,
+        "expectation": "Response requires every number spoken on air to be one the company already publishes."
+      },
+      {
+        "eval_id": 15,
+        "expectation": "Response gives one destination for the call to action, said slowly and spelled out if unusual."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Response asks clarifying questions instead of delivering talking points, a message spine, or a prep brief."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Questions are asked one at a time rather than as a single list of ten or more questions."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The first question establishes the format: audio-only, video or livestream, and recorded-and-edited or live with no retakes."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Response drafts no message, claim, angle or sound bite before the format, episode length and host configuration, audience, and booked-topic questions are answered."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Response treats the show's own back catalogue as the authority on who listens if the user cannot answer, rather than the show's tagline or marketing copy."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Response asks what is off-limits: embargoed releases, unnamed customers, security detail, pending legal or funding news."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Response asks how many hours of prep the user has before the recording."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Response asks what the user is representing and what must be disclosed."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Response asks what outcome the user wants from the appearance."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Response describes the deliverable as one prep brief agreed section by section, not a finished document delivered in a single pass."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Response allocates the two available hours to the message spine and the opening answer only."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Response explicitly names the steps it is dropping, so the user knows what they will be improvising."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Response still produces a disclosure line covering the user's employment at Tarnhelm Data and the fact that the company sells a Postgres tuning product."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Response still checks the material against an off-limits list of embargoes, customer names and unpublished numbers."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Response states that the disclosure line and the off-limits check are never traded away for time, whatever the prep ceiling."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The spine is delivered as one And-But-Therefore sentence."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Response fixes three messages for the 45-minute episode, not more."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Each message carries a claim, an evidence item and a so-what."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Response does not deliver a full multi-step workflow or a fully populated prep brief covering stories, sound bites, promotion and measurement."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Response names the user's paragraph as an and-and-and (AAA) construction with no tension."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Response rewrites it as one And-But-Therefore sentence containing an explicit \"but\" turn and a \"therefore\"."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Response attributes And-But-Therefore to Randy Olson rather than presenting it as generic storytelling advice."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Response fixes two messages, not five, because the episode runs under 30 minutes."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Response explicitly refuses the request for five messages and gives a reason tied to listener retention or to a fourth message stealing airtime from the first three."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Each message is written as claim, evidence, so-what."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Each claim is one falsifiable sentence with no adjectives."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Response does not write messages that are product features."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Response asks the user to say each claim out loud, noting that a claim which is hard to say will not land under pressure."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The drafted opening answer starts at the punchline or outcome and backfills context afterwards, not chronologically."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Response names the flip-the-formula principle - start at the end - and attributes it to Brad Phillips."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The drafted answer is capped at roughly 30 seconds for video."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Response refuses to open with the 14 years, the Delft master's, or the four conference talks."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Response applies the so-what test to the bio and states that years of experience earn nothing on their own."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Response states that the opening answer is the one moment of the episode the guest controls."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Response notes the answer has to survive being clipped, given that the show cuts shorts."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Response asks for or uses a concrete incident, system or number as the answer's opening material rather than a credential."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Response has the user say the answer aloud until it survives being clipped, rather than memorising it word for word."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "All but one of the drafted candidates omit the product name \"Skerry\"."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Exactly one candidate is identified as the liftable bite and names Skerry next to its category in plain words."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The liftable bite speaks an actual number rather than gesturing at one."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Response states that the liftable bite is said once in the episode and never repeated."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Each candidate runs roughly 15 to 25 words."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Each candidate is in present tense and active voice."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Response applies a cold-read test, reading each candidate with nothing before it."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Response states that the cold-read test, not the word count, is the real gate."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Response rejects \"the fastest open-source feature-flag service available\" as a superlative with no falsifiable claim."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Response explains that the transcript and show notes become a machine-readable record later cited by AI assistants, which is why the number has to be spoken out loud."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The licence answer concedes something real first - what the change cost users, or what was communicated badly - before any bridge."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Response uses Acknowledge-Bridge-Content for the hostile questions and places the honest answer, including the unflattering part, before the bridge."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Response states that bridging straight from the question is what a developer audience reads as PR training, and that it costs more trust than the awkward answer would have."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Response sorts ordinary questions from hostile ones and applies Answer, Detailed example, Describe relevance to the ordinary ones."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Response attributes the Answer-Detailed example-Describe relevance pattern to Matt Abrahams."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Response includes a \"who is this not for\" question and recommends offering it unprompted."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Response flags that the licensing answer may need legal or employer sign-off before the recording."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Response removes the unpublished 3.2x internal benchmark rather than merely demoting it, on the grounds that only already-published numbers may be spoken and the recording outlives the embargo."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Response asks the user for further stories to reach a bank of five to eight, rather than stopping at the three supplied."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Each story carries something the user got wrong."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Response identifies a five-second moment for each story and attributes the idea to Matthew Dicks."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Response instructs opening each story at the opposite of its five-second moment."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Response recommends an up-down-up, Man in a Hole shape and credits the empirical test to Del Vecchio, Kharlamov, Parry and Pogrebna across 6,174 movie scripts."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Response notes the finding concerns the most talked-about films rather than the most liked."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Response warns against reusing one story for two answers in the same episode."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Response plants one open loop early and closes it late, crediting the raise-questions-and-answer-them device to Ira Glass."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Response refuses to narrate the five-node-state diagram aloud and replaces it with a physical metaphor plus one number."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Response rounds every number used and pairs each one with a comparison rather than stating an absolute alone."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Response anchors the explanation for hands-on engineers in API surface, failure modes and migration cost, and leaves out org framing and market size."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Response writes a one-sentence definition for each unavoidable piece of jargon."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Response drops the jargon whose definition does not earn its place."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Response names \"picture a box with three arrows\" style narration as a failure mode for audio."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Response sets a 15 to 20 second target for self-contained answers on a live show, attributed to broadcast media-training guidance."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Response notes that the pause before answering removes filler words more reliably than trying to suppress them."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Response covers the video dimension: clips get cut vertically, stay in frame, expect to be on camera while the hosts talk."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Response computes airtime as the slot divided by the panellists, giving roughly 12 to 15 minutes each, arriving in fragments of a minute or two."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Response instructs headlining each point in one sentence before any context."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Response warns against opening a turn with agreement such as \"I completely agree with what X just said\"."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Response instructs the user to jump in unasked rather than wait to be spoken to."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Response names domination as the symmetrical failure and notes the camera is on everyone the whole time."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Response gives the one-sentence-answer drill: answer every likely question in exactly one sentence to find which points compress."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Response gives a handling for a bad or leading moderator question: rephrase it out loud, then answer the better version."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Response frames the panellist as the audience's advocate rather than the moderator's respondent."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Response has the user prepare a topic-avoidance plan naming which prepared message each avoided subject bridges to."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Response states that podcast clients strip referrers, that most listening happens off-web, and that downloads are not listens."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Response treats click attribution as a floor, never a total."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Response names a vanity URL or spoken code, and a \"where did you hear about us\" signup field, as the signals that would have produced clean per-episode attribution."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Response names repeat invitation, referral to another show, or an inbound speaking request as the real compounding return, despite being the slowest signal."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Response offers a branded-search and direct-traffic lift comparison over a 7 to 14 day window against baseline, labelled as directional only."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Response flags that the branded-search comparison is worthless if a launch overlapped the window."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Response has the user send the host, before publication and unasked, a third-person two-line bio, a headshot, the exact links to reference, and three to five candidate timestamps or quotes."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Response notes that hosts rarely ask for this and that sending it shapes how the appearance is framed."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Response has the user set up attribution - a vanity URL, a spoken code, or a signup-form option - before publication day."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Response rejects a bare \"I was on this show\" post."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Response includes answering comments in the first week where the episode is discussed, including the critical ones."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Response states that the host controls distribution but has no incentive to relaunch an old episode."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Response tells the user to run the written promotion copy through a humanizer pass before publishing."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Response distinguishes a topic from an angle and rejects \"observability at scale\" as an angle."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Response generates at least three candidate angles the user could defend from their own experience."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Response deletes the April outage war story outright rather than ranking it last, because the incident review is under NDA until January."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Response gives the reason for deleting rather than demoting: shortlisting a ruled-out shape makes the user rehearse an angle they cannot use."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Response presents the surviving candidates with trade-offs and a recommendation."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Response ranks the angle shapes - war story, practical how-we-do-it, contrarian thesis - by audience moved per hour of preparation."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Response names the contrarian thesis as the highest-value and most expensive shape, and states the condition that promotes it."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Response notes that the contrarian thesis carries the highest compliance cost when it takes a public position against a named competitor or a standard."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Response does not draft messages, sound bites or an opening answer before the angle is chosen."
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Response tells the user not to ask for the full question list."
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Response gives the reason: a guest who receives every question memorises answers and sounds robotic on the day."
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Response names losing your place in a memorised script as the cause of the worst on-air freezes, because there is nothing underneath it."
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Response treats the pre-interview call as the negotiation where the episode's content actually gets decided, not a formality."
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Response has the user pin down whether the host wants story-first or tips-first."
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Response has the user pre-agree the literal opening question."
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Response discards any angle that is the user's own stock answer from the previous appearance."
+      },
+      {
+        "eval_id": 15,
+        "expectation": "Response has the user be fair about the named competitors, conceding where each is genuinely the better choice."
+      },
+      {
+        "eval_id": 15,
+        "expectation": "Response redirects the closing call to action to a neutral resource such as the docs or the repository."
+      },
+      {
+        "eval_id": 15,
+        "expectation": "Response caps the invited pitch at under 30 seconds."
+      },
+      {
+        "eval_id": 15,
+        "expectation": "Response states that claims about compliance, SLAs, pricing and roadmap can be quoted back in a procurement conversation."
+      },
+      {
+        "eval_id": 15,
+        "expectation": "Response requires every number spoken on air to be one the company already publishes."
+      },
+      {
+        "eval_id": 15,
+        "expectation": "Response gives one destination for the call to action, said slowly and spelled out if unusual."
+      }
+    ]
+  }
+}

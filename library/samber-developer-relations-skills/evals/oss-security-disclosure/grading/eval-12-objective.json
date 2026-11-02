@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to reply in the public forum thread or argue the broken agreement in public",
+        "evidence": "Drafts a public forum reply (\"4. Public reply in the forum thread\") and release-day public post, though not arguing the agreement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Switches to the fast track: finish the fix, publish the patched release and the advisory the same day",
+        "evidence": "\"fix and advisory the same day... Monday is too late.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps Bram's agreed credit in the advisory rather than removing it",
+        "evidence": "\"Ask him how he wants to be credited, and keep the credit.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sends Bram the early-disclosure message stating the release time and asking him to avoid adding further technical detail until it is out",
+        "evidence": "Reply to Bram: releasing on <date/time>; \"avoid adding further technical detail until the release is out.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that only what Bram published is public, and keeps any additional detail (other affected methods, variants) private until the release exists",
+        "evidence": "Only \"Do not confirm or deny his payload\"; no statement that only what he published is public.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Publishes the advisory only after the patched version is confirmed installable from PyPI, not before",
+        "evidence": "Checklist step 7 pip install before step 8 publish advisory.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Defers writing SECURITY.md to the retrospective, stating that when incident and setup coincide the incident runs first",
+        "evidence": "\"the skill defers Setup until the advisory is out... Commit it after the advisory\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notifies any downstream with hours of notice rather than days",
+        "evidence": "\"known large users only, hours of notice, no embargo\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Updates the incident record's Disclosure and Reporter deadline fields to today with the reason",
+        "evidence": "\"Disclosure: already public (Bram's post, 2026-10-23) Reporter deadline: 2026-11-05\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Adds what slowed the timeline to the retrospective, with none of the blog's detail entering any committed file",
+        "evidence": "\"The lesson from this incident goes into the retrospective, not the file... 2-day acknowledgement had no dated release plan\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not threaten Bram or demand silence in any message",
+        "evidence": "\"Do not add a complaint about the date. Do not threaten. Do not ask him to retract the post.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to reply in the public forum thread or argue the broken agreement in public",
+        "evidence": "Drafts a full public \"Thread reply\" with a timeline.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Switches to the fast track: finish the fix, publish the patched release and the advisory the same day",
+        "evidence": "\"Finish and release the fix now... Publish the advisory and request the CVE at the same time as the release.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps Bram's agreed credit in the advisory rather than removing it",
+        "evidence": "\"I'm recommending against pulling Bram's credit.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sends Bram the early-disclosure message stating the release time and asking him to avoid adding further technical detail until it is out",
+        "evidence": "The optional note gives no release time and does not ask for restraint.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that only what Bram published is public, and keeps any additional detail (other affected methods, variants) private until the release exists",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Publishes the advisory only after the patched version is confirmed installable from PyPI, not before",
+        "evidence": "Publishes the advisory with the release; no PyPI check.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Defers writing SECURITY.md to the retrospective, stating that when incident and setup coincide the incident runs first",
+        "evidence": "Writes a full SECURITY.md draft now.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notifies any downstream with hours of notice rather than days",
+        "evidence": "No downstream notice.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Updates the incident record's Disclosure and Reporter deadline fields to today with the reason",
+        "evidence": "No incident record.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds what slowed the timeline to the retrospective, with none of the blog's detail entering any committed file",
+        "evidence": "No retrospective.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not threaten Bram or demand silence in any message",
+        "evidence": "The private note is calm and makes no demands; \"It's a request, not a penalty.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Binds the credential to the supported major version rather than re-certifying on every biweekly release.",
+        "evidence": "'Bind the credential to the major version instead'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that biweekly releases re-align the exam continuously and that the credential version changes only when the blueprint changes.",
+        "evidence": "'The credential changes only when the blueprint changes, which is once per major'; 'the exam is re-aligned on every release'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets a written re-alignment window in weeks per release derived from Keldrick's own cadence, with checkers or item review run against each release.",
+        "evidence": "'Checkers run in CI on every release... fix before the next release, so within 2 weeks.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends renewal as a short hands-on delta task on each new major version covering only what changed, with the same sampled live explanation as the initial award.",
+        "evidence": "'hands-on, auto-graded task covering only what changed... Same sampled live explanation as the initial award'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the reason the delta task carries a sampled live explanation: renewal must not become the proxy-sitting route.",
+        "evidence": "'Renewal must not become the proxy route.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to void v3 holders when v4 lands; keeps them valid until their own expiry while v3 is supported, stamps the version passed, and offers a path to the replacement.",
+        "evidence": "'Void v3 holders when v4 lands \u2192 no'; the v3 credential 'stays listed until its own end of support'; delta path to v4.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the v3 exam retirement to be announced in advance.",
+        "evidence": "'Announce 6 months ahead (self-set).'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the 'industry standard' framing, quotes any vendor validity or retake figure as that vendor's own choice with its read date, and labels every number in the section as sourced or self-set.",
+        "evidence": "'Vendors made different choices, so there is no standard to copy'; 'CKA... (read 2026-10-21)'; 'Every number is self-set until you supply the inputs.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not copy a $300 fee or a two-to-three-year validity from other vendors; derives any fee from Keldrick's own break-even per attempt.",
+        "evidence": "'Do not set $300 from other vendors' and the fee formula with 'Yearly fixed = build cost / credential version life'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that full-price and discounted retakes carry an equal currency signal because both re-test the full blueprint, and that price changes who renews, not what renewal proves.",
+        "evidence": "This is not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that activity-based renewal proves exposure to changes, not competence on them.",
+        "evidence": "Activity-based renewal is not discussed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes a retake rule with a waiting period after a fail, an attempt cap per window, and whether the fee recurs.",
+        "evidence": "'Wait 14 days... Cap: 3 attempts per rolling 12 months... Fee: paid per attempt'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Adds a program retirement rule: honour every unexpired credential, keep verification live for a stated period, refund or honour sold vouchers.",
+        "evidence": "'Honour every unexpired credential. Keep verification live for 3 years... Honour or refund sold vouchers.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Binds the credential to the supported major version rather than re-certifying on every biweekly release.",
+        "evidence": "'A credential names its major' and 'Minor and biweekly releases never affect validity.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that biweekly releases re-align the exam continuously and that the credential version changes only when the blueprint changes.",
+        "evidence": "Not addressed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets a written re-alignment window in weeks per release derived from Keldrick's own cadence, with checkers or item review run against each release.",
+        "evidence": "None given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends renewal as a short hands-on delta task on each new major version covering only what changed, with the same sampled live explanation as the initial award.",
+        "evidence": "'A renewal is a delta exam.' It is not hands-on and has no live explanation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the reason the delta task carries a sampled live explanation: renewal must not become the proxy-sitting route.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to void v3 holders when v4 lands; keeps them valid until their own expiry while v3 is supported, stamps the version passed, and offers a path to the replacement.",
+        "evidence": "'Nobody is ever \"voided\"'; 'A v3 holder can sit the v4 delta exam any time after v4 GA.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the v3 exam retirement to be announced in advance.",
+        "evidence": "'Publish the full retirement schedule at each GA, not at EOL.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the 'industry standard' framing, quotes any vendor validity or retake figure as that vendor's own choice with its read date, and labels every number in the section as sourced or self-set.",
+        "evidence": "It flags the vendor numbers as 'from memory, and unchecked' but does not label the section's numbers as sourced or self-set.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not copy a $300 fee or a two-to-three-year validity from other vendors; derives any fee from Keldrick's own break-even per attempt.",
+        "evidence": "'Don't fix a number until you know the cost per sitting'; 24 months is tied to the support window.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that full-price and discounted retakes carry an equal currency signal because both re-test the full blueprint, and that price changes who renews, not what renewal proves.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that activity-based renewal proves exposure to changes, not competence on them.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes a retake rule with a waiting period after a fail, an attempt cap per window, and whether the fee recurs.",
+        "evidence": "It has a 14-day wait, a same-price retake and a 60-day wait after a third failure, but no attempt cap per window.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds a program retirement rule: honour every unexpired credential, keep verification live for a stated period, refund or honour sold vouchers.",
+        "evidence": "Only retirement of a major is covered, not retirement of the program with vouchers or verification.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects writing 30 more entries as the primary next-quarter action",
+        "evidence": "\"Don't write 30 new entries yet. Fix 2 rotting things in existing 22 first...\" and later \"Real number after that cut is very likely under 30\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires re-running the clustering pass and comparing it against the pre-publication pass",
+        "evidence": "\"Re-run `error-cluster.py` on this quarter's tickets/issues + the docs-search log. Compare against the original 22 clusters \u2014 are they still top, or did new ones spike?\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the same clusters reappearing unchanged indicates a discoverability problem, not a volume problem",
+        "evidence": "\"Skill's own line: 'the same clusters reappearing unchanged means the entries are not being found \u2014 a discoverability problem, not a volume problem.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reads the 190 zero-result searches for covered strings as evidence that the error string is not verbatim on the page",
+        "evidence": "\"nonzero usually means the string isn't verbatim on the page\" and audit step \"is the string verbatim in title, first heading, and body?\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that zero-result searches for covered strings should reach zero",
+        "evidence": "\"Metric target is zero; nonzero usually means the string isn't verbatim on the page.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the six known-issues entries for bugs fixed in 5.0 to be retired, moved into the changelog, or folded into the error entry with a version note",
+        "evidence": "\"Per Step 10: bug ships fix \u2192 move entry into changelog, delete it, add version note ('Fixed in 5.0'). Not archive \u2014 delete. Do this for all 6 now.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a known-issues list that only grows becomes a graveyard nobody reads",
+        "evidence": "No such statement appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the dead #support-legacy escape hatch to be replaced everywhere it appears, not only on the entries being edited",
+        "evidence": "\"Dead escape hatch, all 22 entries... Same string in all 22 files \u2014 batch find/replace, not a rewrite... Confirm, then patch all 22 same day.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names a watched channel and the attachments to include as the replacement escape hatch",
+        "evidence": "The transcript only asks \"what channel/form replaced #support-legacy? Confirm, then patch\" \u2014 it never names a specific replacement channel or required attachments.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a dead escape hatch converts a helped reader into an angry one",
+        "evidence": "\"dead escape hatch converts a helped reader into an angry one.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends stamping each page with a last-verified date and an owner so staleness is visible without reading the page",
+        "evidence": "No mention of a last-verified date or page owner anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names entries touched since the last release as a staleness metric, and notes that publishing volume without it is vanity",
+        "evidence": "The transcript's metrics list is \"cluster coverage, ticket-volume-per-covered-error, zero-result-search count \u2014 not raw deflection rate\" with no mention of entries touched since last release.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends archiving an entry whose cluster disappears from the mining pass for two cycles",
+        "evidence": "No such recommendation appears; the only archiving-related statement is the opposite instruction to delete (not archive) fixed known-issues entries.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends persisting the durable decisions, such as signal sources and export paths, the agreed cluster ranking, the negotiated coverage target, and the clusters routed away from docs with their reasons, so the next pass is a diff rather than a re-derivation",
+        "evidence": "No mention of persisting signal sources, export paths, ranking, coverage target, or routed-away clusters for future passes.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects writing 30 more entries as the primary next-quarter action",
+        "evidence": "\"Reject 30-entry plan as written. Fix 3 broken things first, size new writing off real demand data after.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires re-running the clustering pass and comparing it against the pre-publication pass",
+        "evidence": "No mention of re-running or comparing against an original pre-publication clustering pass; analysis is based on the 190 zero-result queries instead.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the same clusters reappearing unchanged indicates a discoverability problem, not a volume problem",
+        "evidence": "\"190 zero-result searches for strings pages already cover \u2192 search broken, not content missing.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reads the 190 zero-result searches for covered strings as evidence that the error string is not verbatim on the page",
+        "evidence": "Attributes it generically to \"phrasing mismatch (page exists, different words)\" rather than specifically to the error string not being verbatim.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that zero-result searches for covered strings should reach zero",
+        "evidence": "Only says to track \"zero-result search count, trending down monthly\" \u2014 not that it should reach zero.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the six known-issues entries for bugs fixed in 5.0 to be retired, moved into the changelog, or folded into the error entry with a version note",
+        "evidence": "\"Mark 6 stale known-issues entries 'Resolved in 5.0' with date, or archive + redirect to changelog.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a known-issues list that only grows becomes a graveyard nobody reads",
+        "evidence": "No such statement appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the dead #support-legacy escape hatch to be replaced everywhere it appears, not only on the entries being edited",
+        "evidence": "\"Find/replace '#support-legacy' across all entries with live escalation path (ticket link or current channel).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names a watched channel and the attachments to include as the replacement escape hatch",
+        "evidence": "Only says \"live escalation path (ticket link or current channel)\" without naming a specific watched channel or required attachments.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a dead escape hatch converts a helped reader into an angry one",
+        "evidence": "Only states \"every reader who needs escalation hits dead end\" \u2014 does not use the 'helped reader into an angry one' framing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends stamping each page with a last-verified date and an owner so staleness is visible without reading the page",
+        "evidence": "No last-verified-date or owner stamp is recommended; the only related item is checking known-issues against the changelog every release.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names entries touched since the last release as a staleness metric, and notes that publishing volume without it is vanity",
+        "evidence": "Drops 'entries published' as KPI (\"Drop 'entries published' as the KPI\") but never names 'entries touched since last release' as the replacement metric.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends archiving an entry whose cluster disappears from the mining pass for two cycles",
+        "evidence": "No such recommendation appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends persisting the durable decisions, such as signal sources and export paths, the agreed cluster ranking, the negotiated coverage target, and the clusters routed away from docs with their reasons, so the next pass is a diff rather than a re-derivation",
+        "evidence": "No recommendation to persist prior decisions for future diffing appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

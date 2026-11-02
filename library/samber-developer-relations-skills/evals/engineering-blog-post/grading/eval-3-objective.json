@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Classifies the post as benchmarketing because it compares the author's own product against a competitor, and states that class owes the most disclosure",
+        "evidence": "\"benchmarketing... the highest-scrutiny class and carries a legal-read cost\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that benchmark readers start from disbelief, so the post is guilty until proven innocent",
+        "evidence": "No statement about reader disbelief appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the methodology to appear before the results rather than in an appendix",
+        "evidence": "\"Methodology before results.\" The draft puts \"How we measured\" before \"Results\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names tuning only your own side as the specific move that gets a benchmark post publicly dismantled",
+        "evidence": "\"The skill calls this 'the specific move that gets a post publicly dismantled'.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires either re-running with both sides tuned fairly, or stating which side is untuned and labelling the result indicative rather than conclusive",
+        "evidence": "Labels the result indicative and offers Route B to re-run with both sides tuned.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects a single run per side and requires multiple runs with their variance reported",
+        "evidence": "Route A publishes with \"Runs: 1\". Multiple runs are required only for the \"N\u00d7 faster\" headline in Route B.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires absolute ingest numbers alongside the 3x ratio",
+        "evidence": "\"[CHART: ... absolute points/s]\"; \"3 versus 1 points/s or 3M versus 1M\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the disclosure to name the hardware or instance type",
+        "evidence": "\"Hardware: [N] \u00d7 m6i.2xlarge\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the disclosure to name the version of both systems compared",
+        "evidence": "\"Versions: Vantage Metrics [VERSION], Northlake TSDB [VERSION]\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the disclosure to describe the workload and the dataset",
+        "evidence": "\"Workload: [series count, ... dataset shape]\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the disclosure to state the configuration and tuning applied to each side",
+        "evidence": "Separate config bullets for the Vantage production profile and the Northlake install defaults.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a link to the benchmark scripts so a reader can reproduce the run",
+        "evidence": "\"Reproduce: [LINK TO SCRIPTS]\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires at least one chart rather than a table alone",
+        "evidence": "\"one chart is required\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the extra compliance cost of naming a competitor, such as a legal read and the difficulty of withdrawing the claim once it is quoted",
+        "evidence": "\"legal read... A named-competitor comparison invites both.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Classifies the post as benchmarketing because it compares the author's own product against a competitor, and states that class owes the most disclosure",
+        "evidence": "No such classification appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that benchmark readers start from disbelief, so the post is guilty until proven innocent",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the methodology to appear before the results rather than in an appendix",
+        "evidence": "The draft happens to put the setup table before the result, but it never states this as a requirement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names tuning only your own side as the specific move that gets a benchmark post publicly dismantled",
+        "evidence": "\"the test compared our tuned production profile against Northlake's untuned defaults ... Northlake's users or engineers can rerun it with a tuned config and publicly contradict the claim.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires either re-running with both sides tuned fairly, or stating which side is untuned and labelling the result indicative rather than conclusive",
+        "evidence": "The headline states \"default configuration\"; the post says \"treat 3x as indicative\"; step 2 suggests a tuned third arm.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects a single run per side and requires multiple runs with their variance reported",
+        "evidence": "\"Rerun 5 or more times per system ... Report the median and range.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires absolute ingest numbers alongside the 3x ratio",
+        "evidence": "\"[Vantage Metrics: X points/s] vs. [Northlake: Y points/s], a ratio of about 3x.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the disclosure to name the hardware or instance type",
+        "evidence": "The table lists \"AWS m6i.2xlarge (8 vCPU, 32 GiB)\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the disclosure to name the version of both systems compared",
+        "evidence": "The table has a \"Version | [version] | [version]\" row.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the disclosure to describe the workload and the dataset",
+        "evidence": "The \"**Workload:** [number of series, cardinality, ...]\" slot.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the disclosure to state the configuration and tuning applied to each side",
+        "evidence": "The \"Configuration\" row of the table, plus \"Publishing both configs\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a link to the benchmark scripts so a reader can reproduce the run",
+        "evidence": "\"Reproduce it: [Link to scripts, configs for both systems...]\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires at least one chart rather than a table alone",
+        "evidence": "No chart is mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the extra compliance cost of naming a competitor, such as a legal read and the difficulty of withdrawing the claim once it is quoted",
+        "evidence": "\"Check any Northlake license terms that restrict publishing benchmarks (DeWitt-style clauses).\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

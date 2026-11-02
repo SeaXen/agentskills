@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that the Search Analytics API has no position filter",
+        "evidence": "\"Position isn't a filterable dimension in the Search Analytics API.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists the groupable and filterable dimensions as country, device, page, query, searchAppearance, date and hour",
+        "evidence": "The transcript lists only 5: \"dimensionFilterGroups only accepts country, device, page, query, searchAppearance.\" Date and hour are never mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that average position comes back as a metric, so a positions 5-20 shortlist has to be filtered client-side after a large export",
+        "evidence": "\"Position is a metric returned per row, not a stored value you can filter server-side... You have to pull every query row and filter on the returned position field client-side, after the fact.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that rowLimit accepts 1 to 25,000 and defaults to 1,000, so the default response is the head of the list only",
+        "evidence": "\"Unspecified rowLimit defaults to 1000, capped at 25,000, with startRow for pagination... Taking 'the default response' means you get some arbitrary top-N slice\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the API does not guarantee returning all data rows, only top ones",
+        "evidence": "\"Taking 'the default response' means you get some arbitrary top-N slice with no error or warning that rows were dropped\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that rare queries are withheld for privacy",
+        "evidence": "\"GSC also drops very low-impression/long-tail queries below an anonymization threshold\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that the withheld tail is exactly the long tail of error strings and symbol names that matters on a technical property",
+        "evidence": "\"exactly the profile of a docs site's query variety (specific error messages, API method names, param combos)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects summing query rows into a site total, and says the visible tail should be treated as a floor",
+        "evidence": "The transcript rejects summing against keyword-tool volume specifically, but never uses a 'floor' framing for the visible tail or a general rejection of summing query rows into a site total.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the keyword-tool volume comparison as a benchmark, noting that most technical queries report as zero and third-party estimates are directional at best",
+        "evidence": "\"Keyword-tool volume is a modeled monthly-search estimate, independent of whether you rank, and it's notoriously unreliable on niche technical/developer terms\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires segmenting by path prefix, one filter set each for /docs/, /reference/ and /blog/, before reading anything",
+        "evidence": "No mention of segmenting by /docs/, /reference/, /blog/ path prefixes anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason for segmenting: a sitewide average hides opposite patterns per section, such as reference pages earning impressions without clicks while guides do the reverse",
+        "evidence": "Not present anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Instructs reading the Pages report against the sitemap in both directions: in the sitemap but not indexed is the indexation gap, indexed but absent from the sitemap is the leak",
+        "evidence": "Not present anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that the Search Analytics API has no position filter",
+        "evidence": "\"dimensionFilterGroups only accepts filters on query, page, country, device, searchAppearance \u2014 position, impressions, and clicks are metrics returned per row, not filterable dimensions. There's no request parameter that gets you 'queries between position 5 and 20' server-side.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists the groupable and filterable dimensions as country, device, page, query, searchAppearance, date and hour",
+        "evidence": "Transcript only lists \"query, page, country, device, searchAppearance\" \u2014 omits date and hour entirely.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that average position comes back as a metric, so a positions 5-20 shortlist has to be filtered client-side after a large export",
+        "evidence": "\"Fix: pull rows dimensioned by query (or query+page \u2014 see #3) for your date range, then filter client-side on the returned position field: 5 <= position <= 20.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that rowLimit accepts 1 to 25,000 and defaults to 1,000, so the default response is the head of the list only",
+        "evidence": "States \"Row limit defaults to 1000, max is 25,000 per call\" but never frames the default response as returning only the head of the list \u2014 instead it says rows \"aren't returned position-sorted in any way that protects you,\" which is a different (and somewhat contrary) claim.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the API does not guarantee returning all data rows, only top ones",
+        "evidence": "No such statement; instead the transcript instructs \"page through with startRow until a call returns fewer than the row limit,\" implying full pagination is achievable, without noting the API's documented non-guarantee of completeness.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that rare queries are withheld for privacy",
+        "evidence": "\"GSC also drops 'anonymized' low-volume queries entirely for privacy, below GSC's significance threshold.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that the withheld tail is exactly the long tail of error strings and symbol names that matters on a technical property",
+        "evidence": "No mention of error strings, symbol names, or a technical-property-specific long tail; the withheld-query point is left generic (\"This isn't a ranking problem, it's a reporting artifact\").",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects summing query rows into a site total, and says the visible tail should be treated as a floor",
+        "evidence": "The transcript critiques comparing summed impressions to keyword-tool volume, but never frames the visible GSC sum as a \"floor\" nor rejects summing rows generally.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the keyword-tool volume comparison as a benchmark, noting that most technical queries report as zero and third-party estimates are directional at best",
+        "evidence": "The transcript instead recommends using the keyword tool for a matched query list (\"look up those exact query strings in the keyword tool and sum volume for that same list\") and only caveats precision (\"Keyword-tool volumes are themselves modeled/bucketed... not ground truth either\") rather than rejecting the comparison or noting technical queries report as zero.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires segmenting by path prefix, one filter set each for /docs/, /reference/ and /blog/, before reading anything",
+        "evidence": "Only a soft, optional suggestion: \"decide now whether 'docs search demand' includes blog or not, and filter the page dimension accordingly (contains /docs/ etc.) if you want to scope it tighter\" \u2014 not a requirement for three separate filter sets.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason for segmenting: a sitewide average hides opposite patterns per section, such as reference pages earning impressions without clicks while guides do the reverse",
+        "evidence": "No such explanation appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Instructs reading the Pages report against the sitemap in both directions: in the sitemap but not indexed is the indexation gap, indexed but absent from the sitemap is the leak",
+        "evidence": "The transcript never discusses the Pages report or sitemap cross-referencing at all.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

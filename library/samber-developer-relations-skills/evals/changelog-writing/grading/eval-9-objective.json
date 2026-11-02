@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Treats GitHub's generated output as raw material rather than a finished artefact",
+        "evidence": "\"Paste the 22 auto-generated bullets (PR titles are fine, dependabot ones included \u2014 I'll filter them)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that generated output is ordered by merge time, titled by whoever opened the pull request, and blind to what the changes mean",
+        "evidence": "No such statement appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Delivers a release body that opens with a summary paragraph",
+        "evidence": "No release body is delivered; the transcript is blocked requesting source material.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Also delivers a traceability table mapping each entry to a pull request, despite the user asking only for the release body",
+        "evidence": "Nothing is delivered yet in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Also delivers an exclusion list covering the dependabot pull requests and anything else dropped",
+        "evidence": "Nothing is delivered yet in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Also delivers a list of open items needing a human",
+        "evidence": "Nothing is delivered yet; only clarifying questions are asked.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Orders items inside each category by consumer impact, with breaking items first",
+        "evidence": "No content is delivered to order.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Mentions .github/release.yml label mapping, with exclude.labels or exclude.authors, as the durable fix for dependabot noise",
+        "evidence": "No such mention appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends producing CHANGELOG.md alongside the release body, since they are the same text and one edit produces both",
+        "evidence": "No such recommendation appears; the transcript only asks for raw material.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not add a hosted page, email or in-product note to the plan given the two-hour deadline",
+        "evidence": "No plan is articulated at all in this transcript, so there is no clear demonstration of this decision being made.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the two-hour deadline as the reason surfaces requiring another team's review cycle are dropped",
+        "evidence": "The two-hour clock is mentioned only regarding which info-gathering option is faster, not tied to dropping any specific surface.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Treats GitHub's generated output as raw material rather than a finished artefact",
+        "evidence": "The message asks the user to \"paste the 22 auto-generated bullets (or the PR titles) here and I'll turn them into a clean release body right now,\" treating the auto-generated bullets as raw input to be transformed rather than accepting them as a finished release body.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that generated output is ordered by merge time, titled by whoever opened the pull request, and blind to what the changes mean",
+        "evidence": "The transcript contains no statement about ordering by merge time, PR-author titling, or the generated output being blind to meaning \u2014 it only says access to the repo isn't confirmed and asks for the bullets to be pasted.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Delivers a release body that opens with a summary paragraph",
+        "evidence": "No release body is delivered anywhere in the transcript; the message only requests the raw bullets be pasted in.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Also delivers a traceability table mapping each entry to a pull request, despite the user asking only for the release body",
+        "evidence": "No table of any kind appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Also delivers an exclusion list covering the dependabot pull requests and anything else dropped",
+        "evidence": "No exclusion list, and no mention of dependabot at all, appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Also delivers a list of open items needing a human",
+        "evidence": "No such list appears; the transcript is a single short request for the bullets/PR titles.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Orders items inside each category by consumer impact, with breaking items first",
+        "evidence": "No categorized or ordered list exists in the transcript to evaluate ordering against.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Mentions .github/release.yml label mapping, with exclude.labels or exclude.authors, as the durable fix for dependabot noise",
+        "evidence": "No mention of .github/release.yml, exclude.labels, or exclude.authors anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends producing CHANGELOG.md alongside the release body, since they are the same text and one edit produces both",
+        "evidence": "No mention of CHANGELOG.md or any such recommendation in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not add a hosted page, email or in-product note to the plan given the two-hour deadline",
+        "evidence": "The transcript contains no plan at all (it only asks the user to paste bullets), so there is no evidence of a plan that deliberately excludes those channels \u2014 the rubric presupposes a delivered plan that this transcript never provides.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the two-hour deadline as the reason surfaces requiring another team's review cycle are dropped",
+        "evidence": "The transcript never mentions a two-hour deadline, another team's review cycle, or any dropped surfaces \u2014 it only says hunting for the repo via `gh` 'will cost time you don't have.'",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

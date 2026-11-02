@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Lists the Community-mode requirements: verified-email verification level, explicit media filter, rules channel and a moderator-only updates channel",
+        "evidence": "\"Set the verified-email level, the explicit-media filter on all members, a rules channel and a moderator-only updates channel\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends native Rules Screening instead of the reaction-role bot verification gate",
+        "evidence": "\"Turn on Rules Screening\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that Discord's own guidance advises removing bot verification steps in favour of Onboarding and Raid Protection",
+        "evidence": "\"Discord advises removing bot verification steps and using Raid Protection instead\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Advises against the welcome DM bot that pushes a newsletter signup",
+        "evidence": "\"Join-DM promotions are 'regarded as spammy'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Uses Discord Onboarding and proposes a starting channel set that meets its minimum of 7 default channels with 5 writable by everyone",
+        "evidence": "\"Onboarding minimum: 7 default channels, 5 writable by @everyone\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces the 12 per-SDK channels with an onboarding question or forum tags routing by SDK",
+        "evidence": "\"One help forum with a required tag per SDK.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a forum channel with required tags for help instead of a #help text channel",
+        "evidence": "\"Require a tag on every post.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites Discord's guidance of about 4-5 channels per category or its warning that too many channels spread conversation thin",
+        "evidence": "\"Discord says 4\u20135 per category and warns that extra channels 'spread the conversation too thin'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names an owner per weekday for answering help posts, covering US and EU time zones",
+        "evidence": "\"EU devrel owns Mon/Wed and the US devrel owns Tue/Thu.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends Server Guide first tasks (3-5) for newcomers",
+        "evidence": "\"Write the Server Guide (3\u20135 to-dos...)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not route the user back to the whether-to-launch decision, since the venue is already chosen",
+        "evidence": "Proceeds with build checklist; no venue reconsideration.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Hands code-of-conduct writing to the moderation skill rather than drafting the enforcement ladder in full",
+        "evidence": "\"use developer-community-moderation\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Adds a help-channel rule against pasting API keys, tokens or customer data",
+        "evidence": "\"Never paste API keys, tokens, cluster URLs, connection strings or customer data.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Lists the Community-mode requirements: verified-email verification level, explicit media filter, rules channel and a moderator-only updates channel",
+        "evidence": "Says 'enable Community' and sets verification level, but never lists the explicit media filter, rules channel and mod-only updates channel as requirements.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends native Rules Screening instead of the reaction-role bot verification gate",
+        "evidence": "'Use Rules Screening and Onboarding. Keep Carl-bot as optional backup.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that Discord's own guidance advises removing bot verification steps in favour of Onboarding and Raid Protection",
+        "evidence": "Only says 'Discord has a native gate'; no Discord guidance cited.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Advises against the welcome DM bot that pushes a newsletter signup",
+        "evidence": "'Bot DMs to strangers get flagged as spam... Newsletter is a link only'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Uses Discord Onboarding and proposes a starting channel set that meets its minimum of 7 default channels with 5 writable by everyone",
+        "evidence": "Onboarding default channels are only '#start-here, #general, #help'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Replaces the 12 per-SDK channels with an onboarding question or forum tags routing by SDK",
+        "evidence": "'One #help forum channel with 12 SDK tags'; onboarding question assigns SDK roles.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a forum channel with required tags for help instead of a #help text channel",
+        "evidence": "'#help | Forum | Tags: 12 SDKs + server/core + docs + solved'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites Discord's guidance of about 4-5 channels per category or its warning that too many channels spread conversation thin",
+        "evidence": "No such guidance cited.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names an owner per weekday for answering help posts, covering US and EU time zones",
+        "evidence": "Splits by EU/US hours only; no per-weekday owners.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends Server Guide first tasks (3-5) for newcomers",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not route the user back to the whether-to-launch decision, since the venue is already chosen",
+        "evidence": "'The Discord decision stays as made.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Hands code-of-conduct writing to the moderation skill rather than drafting the enforcement ladder in full",
+        "evidence": "Phase 3 drafts the ladder itself: 'warning, then timeout, then temp ban, then permanent ban.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds a help-channel rule against pasting API keys, tokens or customer data",
+        "evidence": "No such help-channel rule appears.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

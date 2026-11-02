@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Each question is tested against the decision it would change, and questions with no named decision behind them are cut.",
+        "evidence": "The response cuts Q8\u201310 because they have 'no named decision behind them'. Its gate table says 'Each question needs a named decision and a named owner... If you can't, cut the question.' Most kept questions get a decision: Q2 decides talk formats, Q3 the venue, Q5 the next-edition priority and Q6 the workshop day. But the response keeps Q1 (0\u201310 recommend) with its decision left as '?', so a question survives without the named decision the rule demands. It also keeps Q4, a return-intent prediction, even though it rejected the original Q6 as 'Predictions are imagination'. Questions 11\u201331 were n",
+        "score": 3,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Each question is tested against the decision it would change, and questions with no named decision behind them are cut.",
+        "evidence": "The response states the right rule: keep a question only if you can finish 'If most people answer X, we will do Y.' It applies the rule clearly to one question, cutting the draft's Q10 on social networks because it has no decision behind it. It also ties Q8 (pricing) to a pre-set workshop threshold. Most of the 12 kept questions have no named decision, though. These include Q5 (best part), Q9 (how did you hear), Q10 (role), Q11 (anything else) and Q12 (contact). Q9 and Q10 are even added without saying what they would change. The other cuts are justified by duplication, leading wording or scal",
+        "score": 2,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

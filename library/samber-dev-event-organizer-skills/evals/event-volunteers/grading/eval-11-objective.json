@@ -1,0 +1,118 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the sign-up count as the health metric and states it is the number most likely to look healthy on an event about to run short mid-afternoon",
+        "evidence": "\"'144% subscribed' counts sign-ups, not coverage... A roster can balance over the day and still have a hole at 15:00.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces it with post-hours covered as a share of the post-hours the schedule requires",
+        "evidence": "Metric 1: \"Post-hours covered as a share of post-hours required\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires that share to be computed per hour rather than as a daily total, because a roster that balances across the day still has a hole in it",
+        "evidence": "Metric 1 is bolded \"per hour\"; the daily-balance hole is explained.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Adds the share of posts with a named backup as a separate metric from coverage",
+        "evidence": "Metric 2: \"Share of posts with a named backup\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Adds the no-show rate together with the share of no-shows where a replacement was confirmed before the post was left",
+        "evidence": "Metric 5: \"No-show rate, and the share of no-shows replaced before the post was left\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets briefing coverage before the first shift, including the escalation script, at a 100% target",
+        "evidence": "Metric 3: \"Share briefed on the escalation script before their first shift | 100%\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the 31-of-78 optional webinar as failing that target and makes the briefing a gate on the first shift rather than an option",
+        "evidence": "\"31 of 78 is 40%... I'd make the briefing a condition of the first shift.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Adds the share of shifts that started on time, measured against published times with the arrival buffer included",
+        "evidence": "Buffers are mentioned only as a checklist item; the on-time-start share is not among the metrics.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the pass threshold: every post-hour covered by a named person with a named backup, and every volunteer briefed on the escalation script before their first shift",
+        "evidence": "\"Moves to green when every post-hour has a named person and a named backup, and every volunteer has completed the briefing.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the sign-up count as the health metric and states it is the number most likely to look healthy on an event about to run short mid-afternoon",
+        "evidence": "'Sign-ups are a leading indicator... You can't tell that from 78 sign-ups against 54 slots'; slot coverage 'is the headline number, ahead of sign-ups.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces it with post-hours covered as a share of the post-hours the schedule requires",
+        "evidence": "It uses slots with at least one confirmed volunteer, not post-hours.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires that share to be computed per hour rather than as a daily total, because a roster that balances across the day still has a hole in it",
+        "evidence": "Not specified.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds the share of posts with a named backup as a separate metric from coverage",
+        "evidence": "It reports slots with exactly one person, but no named-backup metric.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds the no-show rate together with the share of no-shows where a replacement was confirmed before the post was left",
+        "evidence": "It says to 'Measure your own rate', with no replacement-confirmed share.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets briefing coverage before the first shift, including the escalation script, at a 100% target",
+        "evidence": "No 100% target. It says 'consider making that part mandatory'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the 31-of-78 optional webinar as failing that target and makes the briefing a gate on the first shift rather than an option",
+        "evidence": "It calls 40% 'neither good nor bad'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds the share of shifts that started on time, measured against published times with the arrival buffer included",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the pass threshold: every post-hour covered by a named person with a named backup, and every volunteer briefed on the escalation script before their first shift",
+        "evidence": "Amber triggers are given, but no pass threshold of named person plus backup plus briefed.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

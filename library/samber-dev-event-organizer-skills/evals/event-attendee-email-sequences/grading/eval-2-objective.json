@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to claim tickets are almost gone when the stated figure is 40% of capacity",
+        "evidence": "\"That claim is false at send time\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes a true, checkable figure (stating the real number if anything) from manufactured scarcity",
+        "evidence": "\"only [N] early-bird tickets left\" allowed only if true and checkable.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Produces exactly one last-call email and declines the Thursday-plus-Sunday double send: one cutoff, one email",
+        "evidence": "\"One email, Thursday, not two.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to extend or quietly move the early-bird deadline; the cutoff is treated as fixed and owned by pricing, not by email performance",
+        "evidence": "\"Don't quietly extend to Monday.\" \"Pricing cutoffs belong to event-ticket-pricing\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Schedules the last-call for Saturday, the day before the Sunday 23:59 cutoff",
+        "evidence": "It schedules \"Thursday [date], morning\", not Saturday.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Targets only the not-yet-registered, cross-referenced against the registered list so no ticket holder receives it",
+        "evidence": "\"to the not-yet-registered only, cross-referenced against the registered list.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The copy states what changes and exactly when, letting the date carry the urgency - no 'last chance', 'don't miss out', countdown, or scarcity phrasing",
+        "evidence": "\"From Monday, standard pricing applies.\" No 'last chance' language in the draft.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The subject names TidePool Conf and the deadline plainly, roughly in the 40-60 character range",
+        "evidence": "\"TidePool Conf early-bird pricing ends Sunday 23:59\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Preview text extends the subject with an additional usable fact rather than repeating it",
+        "evidence": "\"Rotterdam, 21-22 May. Standard pricing starts Monday.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The body carries one CTA and one link",
+        "evidence": "A single \"[Get an early-bird ticket]\" CTA; the forward block is plain text.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The sign-off is a named human, not a team or role",
+        "evidence": "\"[Name] On behalf of the TidePool Conf team\" with a person's name placeholder.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not propose a 'deadline extended' follow-up email as an alternative tactic",
+        "evidence": "No such email is proposed; extension is rejected.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to claim tickets are almost gone when the stated figure is 40% of capacity",
+        "evidence": "\"I didn't write 'tickets are almost gone.' At about 40% of capacity, roughly 360 seats are open.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes a true, checkable figure (stating the real number if anything) from manufactured scarcity",
+        "evidence": "Suggests a real count such as \"240 of 600 seats taken\" and says to use it only if accurate.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Produces exactly one last-call email and declines the Thursday-plus-Sunday double send: one cutoff, one email",
+        "evidence": "Drafts Email 1 (Thursday) and Email 2 (Saturday) and calls Option B's Monday email a \"final day\" email.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to extend or quietly move the early-bird deadline; the cutoff is treated as fixed and owned by pricing, not by email performance",
+        "evidence": "Offers \"Option B: Extend openly... early-bird to Monday 23:59\" as an acceptable alternative.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Schedules the last-call for Saturday, the day before the Sunday 23:59 cutoff",
+        "evidence": "Email 2 is \"Saturday 18:00 CET (or Sunday 19:00)\", and a Thursday email is also sent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Targets only the not-yet-registered, cross-referenced against the registered list so no ticket holder receives it",
+        "evidence": "No suppression of ticket holders is mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The copy states what changes and exactly when, letting the date carry the urgency - no 'last chance', 'don't miss out', countdown, or scarcity phrasing",
+        "evidence": "Alt subject: \"Last call: \u20ac[X] off TidePool Conf, gone at midnight Sunday\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The subject names TidePool Conf and the deadline plainly, roughly in the 40-60 character range",
+        "evidence": "Main subject \"Tonight at 23:59: early-bird ends\" omits the event name.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Preview text extends the subject with an additional usable fact rather than repeating it",
+        "evidence": "Preheader \"After tonight, tickets go to \u20ac[regular].\" adds price information.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The body carries one CTA and one link",
+        "evidence": "Email 1 has the ticket CTA plus a manager-justification link and a group-discount P.S.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The sign-off is a named human, not a team or role",
+        "evidence": "Signs \"[Name]\", a person placeholder, then TidePool Conf.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not propose a 'deadline extended' follow-up email as an alternative tactic",
+        "evidence": "Option B includes a Monday \"Final day\" email after a Friday extension announcement.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

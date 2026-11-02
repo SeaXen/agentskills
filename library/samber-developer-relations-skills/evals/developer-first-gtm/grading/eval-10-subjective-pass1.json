@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Names a concrete first-value moment as an observable event rather than calling it 'activation'.",
+        "evidence": "Entry design section: \"Name the first-value moment concretely: **an engineer retrieves a real secret into a running service using their own sandbox key, without talking to a human.**\" This is an observable event with a specific actor, action and condition, not a generic 'activation' label. The post-sale signal is also made concrete: a 'live API call' by licensed engineers.",
+        "score": 5,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Names a concrete first-value moment as an observable event rather than calling it 'activation'.",
+        "evidence": "The transcript never defines a specific first-value event (e.g., 'first secret fetched by a production service via API'). It mentions vague signals like 'engineers never touch product deep', 'sandbox usage + production usage', 'API call volume', and 'engineers who build real integrations', but none is named as the observable first-value moment. It doesn't use the word 'activation', yet there is still no concrete event defined.",
+        "score": 1,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

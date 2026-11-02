@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the author as runner, stating the author fills gaps from memory and is the worst runner, and requires someone at the competence floor who has not seen the draft.",
+        "evidence": "'The author fills gaps from memory, so her run can't clear the gate. Only a cold run by someone who hasn't seen the draft counts.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the author's laptop and the production account; requires a disposable environment seeded to the competence floor, never blank, never the author's machine, never production.",
+        "evidence": "'The gate bans production and the author's own machine.' The run list Environment line uses a test tenant with a deployed site, not production.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Because a certificate for a real domain has no disposable equivalent, prescribes the lowest-blast-radius real resource (a test domain or staging tenant), recorded in `tested_with`, with the page stating what the run did not cover.",
+        "evidence": "'use the lowest-blast-radius real resource and record it in `tested_with`. Say on the page what that run did not cover.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Drops the Windows variant from the page, keeps a one-line out-of-scope note, and lists the variant in the hand-over with the team that must test it; rejects shipping it tagged \"untested\".",
+        "evidence": "'Drop the Windows steps. Leave one line... List Windows in the hand-over with the team that must test it'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Blocks shipping while any `UNVERIFIED` marker remains, with no \"with a note\" exception.",
+        "evidence": "'A page carrying any marker does not ship... A note doesn't verify a command.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Corrects the style guide: the seven-criterion gate is this skill's own baseline, not a published standard; only the principle (test from start to finish, re-test after every notable product release) is sourced to the Good Docs Project.",
+        "evidence": "'The seven-point threshold is the skill's own baseline, not a published standard.' Suggested rewording is given.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists all seven pass criteria: commands run as written; verification passes with matching output; no prerequisite discovered after the block; every variant run once; destructive steps carry warning, safeguard and checkpoint and safe-to-re-run holds; the reader leaves only via offered links; no UNVERIFIED marker.",
+        "evidence": "Only 'Ship if all seven criteria hold'. The seven are not listed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the runner to build the starting state from the prerequisites block only, and to log anything else needed as a hidden prerequisite and stop.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires re-running every step marked safe to re-run on the finished state, never past the point of no return.",
+        "evidence": "'Every step marked \"safe to re-run\", repeated on the finished state. Upload first.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires exercising the roll back section before and after the point of no return.",
+        "evidence": "'Exercise the section before and after the certificate swap.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires waiting out the stated certificate propagation delay, polling with a timeout, before judging the verification check.",
+        "evidence": "'Propagation: state the expected delay and give a poll command with a timeout.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies every defect found into the fixed set (hidden prerequisite, missing variant, unsafe step, no verification, teaching or reference inline, wrong scope) and reruns the affected steps.",
+        "evidence": "The defects found are not classified into the fixed kinds. Only 'Fix and re-run only the affected steps' appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Hands over a run list in the fixed format (Environment, Runner, Capture, Variants, Re-run, Roll back, Fill, Product gaps) naming the two renewal blocks under Capture.",
+        "evidence": "Capture: 'The two UNVERIFIED renewal blocks, by step number.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that a baseline presented as an industry standard gets the whole page discounted when someone checks.",
+        "evidence": "'A false citation gets the whole style guide discounted.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the author as runner, stating the author fills gaps from memory and is the worst runner, and requires someone at the competence floor who has not seen the draft.",
+        "evidence": "'Wrong tester. She wrote the feature... needs someone who follows the text literally'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the author's laptop and the production account; requires a disposable environment seeded to the competence floor, never blank, never the author's machine, never production.",
+        "evidence": "It rejects production and proposes a throwaway account, but never says to seed to the competence floor or avoid a blank environment.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Because a certificate for a real domain has no disposable equivalent, prescribes the lowest-blast-radius real resource (a test domain or staging tenant), recorded in `tested_with`, with the page stating what the run did not cover.",
+        "evidence": "A disposable subdomain is suggested, with no tested_with record and no statement of what the run did not cover.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Drops the Windows variant from the page, keeps a one-line out-of-scope note, and lists the variant in the hand-over with the team that must test it; rejects shipping it tagged \"untested\".",
+        "evidence": "'If not possible, tag it visibly' still ships it untested.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Blocks shipping while any `UNVERIFIED` marker remains, with no \"with a note\" exception.",
+        "evidence": "'Only as a last resort, ship them with a prominent warning'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Corrects the style guide: the seven-criterion gate is this skill's own baseline, not a published standard; only the principle (test from start to finish, re-test after every notable product release) is sourced to the Good Docs Project.",
+        "evidence": "It only says it could not confirm the claim; it does not say the gate is the skill's own baseline.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Lists all seven pass criteria: commands run as written; verification passes with matching output; no prerequisite discovered after the block; every variant run once; destructive steps carry warning, safeguard and checkpoint and safe-to-re-run holds; the reader leaves only via offered links; no UNVERIFIED marker.",
+        "evidence": "The seven criteria are not listed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the runner to build the starting state from the prerequisites block only, and to log anything else needed as a hidden prerequisite and stop.",
+        "evidence": "It is not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires re-running every step marked safe to re-run on the finished state, never past the point of no return.",
+        "evidence": "It is not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires exercising the roll back section before and after the point of no return.",
+        "evidence": "It is not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires waiting out the stated certificate propagation delay, polling with a timeout, before judging the verification check.",
+        "evidence": "It is not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Classifies every defect found into the fixed set (hidden prerequisite, missing variant, unsafe step, no verification, teaching or reference inline, wrong scope) and reruns the affected steps.",
+        "evidence": "It is not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Hands over a run list in the fixed format (Environment, Runner, Capture, Variants, Re-run, Roll back, Fill, Product gaps) naming the two renewal blocks under Capture.",
+        "evidence": "The 'Revised plan' is not the fixed-format run list.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that a baseline presented as an industry standard gets the whole page discounted when someone checks.",
+        "evidence": "'A false citation costs more than it saves. Reviewers who check will stop trusting the whole style guide.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

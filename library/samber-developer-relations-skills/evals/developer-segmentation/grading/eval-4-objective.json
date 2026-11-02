@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Returns a range rather than a single point figure.",
+        "evidence": "'**~350,000\u2013600,000**, as a rough order of magnitude.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the method used to assemble the range.",
+        "evidence": "'method: SlashData/Developer Nation total Rust population (~3.5\u20135M developers...) \u00d7 Rust Annual Survey \"embedded devices\" domain-selection share (~10\u201315%...)'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States a date alongside the figure.",
+        "evidence": "'as of: not re-verified this session ... so this is recalled from memory, not fetched live' \u2014 no actual calendar date or year is ever given for the underlying figures, only an admission that verification wasn't done.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels the figure with a confidence tier of measured, estimated or inferred.",
+        "evidence": "'confidence: inferred (would be \"estimated\" once re-pulled live and the filter is applied deliberately rather than from memory)'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to read the RedMonk rank as a population count or as a market share.",
+        "evidence": "'RedMonk rank 19 is an activity-correlation tier... not a population count. RedMonk's own publisher explicitly says not to read a rank as market size.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that RedMonk's own publisher treats the tier as more meaningful than the individual rank.",
+        "evidence": "'RedMonk rank 19 is an activity-correlation tier... there's no formula that turns \"19th\" into a developer count, and a one-rank move means nothing.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to treat forge account counts as a count of professional developers, naming bots, duplicates or dormant accounts as inflation.",
+        "evidence": "'Octoverse's ~100M counts GitHub accounts, not developers \u2014 bots, orgs, duplicates and dormant accounts inflate it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States what the number cannot support, not only what it can.",
+        "evidence": "'What it can't support: a precise headcount, a claim that these are professional/paid firmware engineers rather than hobbyists tinkering with a microcontroller, or \"measured\" status.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a cross-check against a source of a different class, and states that two sources of the same class usually share an upstream dataset.",
+        "evidence": "The text states 'two different source classes multiplied together... is the minimum defensible cross-check' but never states that two sources of the same class usually share an upstream dataset.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends a bottom-up cross-check against the company's own funnel.",
+        "evidence": "The only recommended re-pulls are external ('SlashData's current \"Sizing programming language communities\" cut for Rust, and the latest Rust Foundation Annual Survey's domain breakdown') \u2014 no bottom-up check against any company funnel is proposed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not produce a full segment map, segment scoring or a primary-segment recommendation.",
+        "evidence": "The transcript is limited to a single population-size estimate and source critique; no segments table, scoring, or primary/secondary/anti-segment recommendation appears.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Returns a range rather than a single point figure.",
+        "evidence": "'plausible range: 150,000\u2013350,000' is given alongside the headline figure.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the method used to assemble the range.",
+        "evidence": "'Fermi estimate, not a directly published stat' with an explicit top-down and bottom-up cross-check calculation shown.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States a date alongside the figure.",
+        "evidence": "No calendar date is stated anywhere alongside the figure; only 'this session' is referenced.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels the figure with a confidence tier of measured, estimated or inferred.",
+        "evidence": "The figure is explicitly labeled 'a Fermi estimate, not a directly published stat.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to read the RedMonk rank as a population count or as a market share.",
+        "evidence": "'RedMonk's #19 is an ordinal rank... not a percentage or headcount \u2014 you can't back out a developer count from a rank position.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that RedMonk's own publisher treats the tier as more meaningful than the individual rank.",
+        "evidence": "No mention that RedMonk's own publisher treats tiers as more meaningful than the individual rank.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to treat forge account counts as a count of professional developers, naming bots, duplicates or dormant accounts as inflation.",
+        "evidence": "'Octoverse's ~100M is cumulative registered GitHub accounts (students, bots, dormant accounts, duplicates all included), not active professional developers.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States what the number cannot support, not only what it can.",
+        "evidence": "'Don't use your two anchor numbers directly \u2014 they don't answer this question' details what each number cannot support.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a cross-check against a source of a different class, and states that two sources of the same class usually share an upstream dataset.",
+        "evidence": "Cross-check between top-down and bottom-up sources is done, but nothing states that two same-class sources usually share an upstream dataset.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends a bottom-up cross-check against the company's own funnel.",
+        "evidence": "No recommendation to check the estimate against the company's own funnel/telemetry data.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not produce a full segment map, segment scoring or a primary-segment recommendation.",
+        "evidence": "The entire output is a single Fermi estimate for a board deck; no segment map, scoring, or primary-segment call is produced.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

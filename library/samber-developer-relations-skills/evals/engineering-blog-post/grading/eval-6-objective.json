@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Selects the Non-markety Product Perspectives pattern",
+        "evidence": "Selects \"How We Built It\" and ranks Non-markety only as a survivor.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects or reworks the suggested announcement-style title",
+        "evidence": "\"The suggested title is an announcement... I recommend leading with the problem\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps \"who we are\" to one plain sentence about what the company builds and sells",
+        "evidence": "\"Disclosure: we build and sell Riverbend Cloud, and this post describes how one of its features works.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the largest share of the post to how the mechanism actually works rather than to a feature list",
+        "evidence": "No share allocation is stated; the outline is spread across eight sections.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes a section on what the design cost: trade-offs accepted, work abandoned, and the parts still unfinished",
+        "evidence": "\"## Decisions and what each one cost\" plus \"What went wrong\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Applies the test that deleting every product name must still leave something behind, and says so",
+        "evidence": "\"Delete the product name and nothing remains\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the commercial interest once, plainly and early in the post, not in a footer",
+        "evidence": "The disclosure sits at the top of the draft.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Optimises the call to action for trying it immediately rather than contacting sales, because the audience is product-led",
+        "evidence": "\"The call to action is 'try it now'... There's no 'contact sales'.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Attributes the post to named engineers rather than publishing it unsigned",
+        "evidence": "\"Named authors, not an unsigned corporate post.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks what an engineer who will never buy Riverbend takes home from the post",
+        "evidence": "The question is not asked.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that a marketing sign-off requirement raises this pattern's effort and lowers its rank",
+        "evidence": "Only asks whether marketing can accept the title; says nothing about rank.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes a limitation naming where queue-depth-based autoscaling is the wrong choice",
+        "evidence": "\"Services with no queue: [what happens; does CPU scaling still apply?]\" and \"If raw depth, say so under limitations.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Selects the Non-markety Product Perspectives pattern",
+        "evidence": "\"**Pattern:** Non-markety Product Perspectives.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects or reworks the suggested announcement-style title",
+        "evidence": "\"An 'Introducing\u2026' title passes none of the topic filters\". Retitled \"Why we scale on queue depth, not CPU\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps \"who we are\" to one plain sentence about what the company builds and sells",
+        "evidence": "\"Riverbend Cloud is our product; this post describes how its autoscaler works.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the largest share of the post to how the mechanism actually works rather than to a feature list",
+        "evidence": "The failure section, \"What 2.0 does instead\" with signal/scale rules, and the decisions section make up most of the draft.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes a section on what the design cost: trade-offs accepted, work abandoned, and the parts still unfinished",
+        "evidence": "The \"Decisions and trade-offs\" section and the \"Cost. More workers sooner means more spend\" limitation.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Applies the test that deleting every product name must still leave something behind, and says so",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the commercial interest once, plainly and early in the post, not in a footer",
+        "evidence": "The byline says \"Riverbend Cloud is our product\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Optimises the call to action for trying it immediately rather than contacting sales, because the audience is product-led",
+        "evidence": "\"Sign up with a card ... enable it with [command]\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Attributes the post to named engineers rather than publishing it unsigned",
+        "evidence": "\"Sign it with the engineers who built it, not 'The Riverbend Team'.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks what an engineer who will never buy Riverbend takes home from the post",
+        "evidence": "Not asked.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that a marketing sign-off requirement raises this pattern's effort and lowers its rank",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes a limitation naming where queue-depth-based autoscaling is the wrong choice",
+        "evidence": "\"CPU-bound services with no queue ... Queue depth has nothing to measure.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

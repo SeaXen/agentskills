@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Announces brainstorming mode and withholds the final recommendation until candidate bundles are presented",
+        "evidence": "Opens with \"Answer: LLM pipeline, with Claire and Yannis...\" before any bundles are shown.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the rungs deleted by the answers and why: the community program (no volunteer cohort, not open source) and full human sync (no contract or regulation names French)",
+        "evidence": "\"Community program: Marrowick is SaaS, there is no cohort\"; \"No contract names French\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Presents two or three candidate bundles for fr, each stating its rung, the page set it covers, the owner and the standing hours it costs",
+        "evidence": "Candidate bundles table A-D",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends one bundle and names what eliminated each alternative",
+        "evidence": "\"Chosen: A, then B\" with an Eliminated by column",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks the user to choose a bundle before selecting pages",
+        "evidence": "The recommendation is made and the page set selected without asking.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reads the 17/22 browser-to-country ratio (about three quarters) as above the one-half baseline and the 13-point quickstart gap as above the 10-point baseline, classifying fr as barrier confirmed, owner named",
+        "evidence": "\"0.77... above the 0.5 baseline\"; \"13 points... over the 10-point baseline\"; \"Class: barrier confirmed, owner named\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends source hardening for every market alongside the critical-path pack as the default",
+        "evidence": "The Source hardening (all markets) section",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the move-up condition: the pack's KPIs hold for two release cycles and the owners have spare review hours",
+        "evidence": "\"once A's KPIs hold for 2 releases\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reframes the agency-versus-LLM question as a choice of rung, page set and review model rather than a binary",
+        "evidence": "Presented as rungs, page sets and review models rather than a binary",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the efficiency order of the ladder with source hardening first and full human sync last",
+        "evidence": "No efficiency ordering is stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the value, effort or durability orderings separately from the efficiency order rather than one blended rank",
+        "evidence": "None are stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reads the user's answers back in one line and asks no question they already answered",
+        "evidence": "No one-line readback is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Runs the steady-state capacity check against the 10 reviewer hours per release that Claire and Yannis supply",
+        "evidence": "\"5 changed pages \u00d7 0.5h = 2.5h \u2264 10h\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the 13-point gap and the 40 tickets a month as measured, and the thresholds they are compared against as baseline",
+        "evidence": "\"13 points... measured\"; \"about 40 tickets... measured\"; thresholds labelled baseline",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Announces brainstorming mode and withholds the final recommendation until candidate bundles are presented",
+        "evidence": "Opens with \"Use an LLM pipeline\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the rungs deleted by the answers and why: the community program (no volunteer cohort, not open source) and full human sync (no contract or regulation names French)",
+        "evidence": "Not named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Presents two or three candidate bundles for fr, each stating its rung, the page set it covers, the owner and the standing hours it costs",
+        "evidence": "Single plan.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends one bundle and names what eliminated each alternative",
+        "evidence": "No bundles.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks the user to choose a bundle before selecting pages",
+        "evidence": "Picks pages itself.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reads the 17/22 browser-to-country ratio (about three quarters) as above the one-half baseline and the 13-point quickstart gap as above the 10-point baseline, classifying fr as barrier confirmed, owner named",
+        "evidence": "Says the 48% vs 61% gap may not close by translation alone; no baseline classification.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends source hardening for every market alongside the critical-path pack as the default",
+        "evidence": "No source hardening.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the move-up condition: the pack's KPIs hold for two release cycles and the owners have spare review hours",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reframes the agency-versus-LLM question as a choice of rung, page set and review model rather than a binary",
+        "evidence": "Treats as binary with agency fallback.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the efficiency order of the ladder with source hardening first and full human sync last",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the value, effort or durability orderings separately from the efficiency order rather than one blended rank",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reads the user's answers back in one line and asks no question they already answered",
+        "evidence": "No readback.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Runs the steady-state capacity check against the 10 reviewer hours per release that Claire and Yannis supply",
+        "evidence": "Only informal: \"enough to review diffs. It is not enough to review 300 pages cold.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels the 13-point gap and the 40 tickets a month as measured, and the thresholds they are compared against as baseline",
+        "evidence": "Not done.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

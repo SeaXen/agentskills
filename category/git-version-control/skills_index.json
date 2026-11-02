@@ -104,6 +104,14 @@
     "path": "category/git-version-control/ai-release-hunter"
   },
   {
+    "id": "analyzing-release-readiness",
+    "name": "analyzing-release-readiness",
+    "category": "git-version-control",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Trigger a pre-merge release readiness review on a GitHub PR, GitLab MR, or local branch. Use when the user wants to analyze code changes for risk, correctness, and potential rollback issues before merging. Trigger words include release readiness, analyze PR, analyze MR, review PR, risk analysis, pre-merge, safe to ship, ready to merge, ready to commit, any risks, before merging, validate changes, release management.",
+    "path": "category/git-version-control/analyzing-release-readiness"
+  },
+  {
     "id": "animated-github-profile",
     "name": "animated-github-profile",
     "category": "git-version-control",
@@ -176,6 +184,14 @@
     "path": "category/git-version-control/autoresearch-agent"
   },
   {
+    "id": "aws-marketplace-playbook",
+    "name": "aws-marketplace-playbook",
+    "category": "git-version-control",
+    "repository": "samber-developer-platform-skills",
+    "description": "Takes a B2B SaaS vendor onto AWS Marketplace as the ISV seller - whether to list, irreversible account and pricing model choices, going public, private offers, CPPO resale authorizations, EDP/PPA commit drawdown, and co-selling through ACE and ISV Accelerate. Use whenever a vendor mentions AWS Marketplace, a private offer, CPPO, burning a customer's AWS commit, the Deployed on AWS badge, or ACE, ISV Accelerate or FTR for its listing, even if they only ask how to sell through AWS. ISV side only: not buyers, not resellers. Do NOT use for listing copy or search rank (use samber/developer-platform-skills@integration-listing-optimization), for your own marketplace's billing (use samber/developer-platform-skills@app-marketplace-monetization-model), or for metering code.",
+    "path": "category/git-version-control/aws-marketplace-playbook"
+  },
+  {
     "id": "ax-extract-workflow",
     "name": "ax-extract-workflow",
     "category": "git-version-control",
@@ -206,6 +222,14 @@
     "repository": "antigravity-awesome-skills",
     "description": "Automate Bitbucket repositories, pull requests, branches, issues, and workspace management via Rube MCP (Composio). Always search tools first for current schemas.",
     "path": "category/git-version-control/bitbucket-automation"
+  },
+  {
+    "id": "block-no-verify-hook",
+    "name": "block-no-verify-hook",
+    "category": "git-version-control",
+    "repository": "wshobson-agents",
+    "description": "Configure a PreToolUse hook to prevent AI agents from skipping git pre-commit hooks with --no-verify and other bypass flags. Use when setting up Claude Code projects that enforce commit quality gates.",
+    "path": "category/git-version-control/block-no-verify-hook"
   },
   {
     "id": "bmad-review",
@@ -416,6 +440,14 @@
     "path": "category/git-version-control/cmux-capture"
   },
   {
+    "id": "code-improver",
+    "name": "code-improver",
+    "category": "git-version-control",
+    "repository": "trailofbits-skills",
+    "description": "Runs an autonomous review-and-fix improvement loop over any code target \u2014 a skill, plugin, module, or directory \u2014 using a reviewer the user names: any installed skill or agent. Keeps a cross-round findings ledger, escalates when fixes stop converging, and guards scope mechanically. Use when asked to 'improve this code until review passes', 'run an improvement loop with <reviewer>', or to iterate review-and-fix with a specific reviewer. For skills prefer the skill-improver entry; for a branch prefer pr-improver.",
+    "path": "category/git-version-control/code-improver"
+  },
+  {
     "id": "codebase-audit-pre-push",
     "name": "codebase-audit-pre-push",
     "category": "git-version-control",
@@ -438,6 +470,14 @@
     "repository": "rohitg00-agentmemory",
     "description": "Trace a file, function, or line back to the agent session that produced its current commit. Use when the user asks \"why is this code here\", \"what was the agent doing when this changed\", \"who wrote this\", or wants context on a specific location in the codebase.",
     "path": "category/git-version-control/commit-context"
+  },
+  {
+    "id": "commit-craft",
+    "name": "commit-craft",
+    "category": "git-version-control",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when committing a mix of changes, before a push, or when asked to split work into commits or write commit messages. Plans a reviewable series, blocks staged secrets and .env files, and lints messages with commit_planner.py, secret_gate.py and message_linter.py.",
+    "path": "category/git-version-control/commit-craft"
   },
   {
     "id": "commit-history",
@@ -560,6 +600,14 @@
     "path": "category/git-version-control/cost-diff"
   },
   {
+    "id": "cost-estimation",
+    "name": "cost-estimation",
+    "category": "git-version-control",
+    "repository": "microsoft-azure-skills",
+    "description": "Forecast Azure spend and price planned resources or workloads. WHEN: \\\"forecast Azure spending\\\", \\\"project next month cost\\\", \\\"compare forecast to my planning target\\\", \\\"how much will Azure cost\\\", \\\"estimate VM cost\\\", \\\"compare storage tiers\\\", \\\"compare Azure regions\\\", \\\"retail price\\\", \\\"EA rate card\\\", \\\"negotiated pricesheet\\\". DO NOT USE FOR: configured budget health or alerts, bill analysis, cost spikes, rightsizing, or commitments.",
+    "path": "category/git-version-control/cost-estimation"
+  },
+  {
     "id": "coverage-analysis",
     "name": "coverage-analysis",
     "category": "git-version-control",
@@ -660,7 +708,7 @@
     "name": "dev-skills",
     "category": "git-version-control",
     "repository": "claude-vibe-skills",
-    "description": "Development discipline: commit approval, versioned builds, security scanning, cost control, and a strict gate workflow that never advances silently. Trigger on: \"dev mode\", \"dev skills\", \"start coding\", \"build\", \"ship it\", \"push\", \"release\", \"commit\", \"done\", \"just push it\", \"skip the version\", \"audit\", \"security review\", \"scan this\", \"check my code\", \"create a workflow\", \"set up CI\", \"add GitHub Actions\", \"add CI/CD\", \"audit my workflows\", \"review my CI\", \"design audit\", \"audit the design\", \"review the mockups\", \"UI redesign\", \"dev branch\", \"dev build\", \"auto mode\", \"semi-autonomous mode\", \"manual mode\", \"take it from here\", or any attempt to bypass a gate.",
+    "description": "Development discipline: commit approval, versioned builds, security scanning, cost control, and a strict gate workflow that never advances silently. Trigger on: \"dev mode\", \"dev skills\", \"start coding\", \"build\", \"ship it\", \"push\", \"release\", \"commit\", \"done\", \"just push it\", \"skip the version\", \"audit\", \"security review\", \"scan this\", \"check my code\", \"create a workflow\", \"set up CI\", \"add GitHub Actions\", \"add CI/CD\", \"audit my workflows\", \"review my CI\", \"design audit\", \"audit the design\", \"review the mockups\", \"UI redesign\", \"dev branch\", \"dev build\", \"auto mode\", \"semi-autonomous mode\", \"manual mode\", \"take it from here\", \"Gitea\", \"Forgejo\", \"GitLab\", \"self-hosted repo\", \"monorepo\", \"I only own this folder\", or any attempt to bypass a gate.",
     "path": "category/git-version-control/dev-skills"
   },
   {
@@ -712,12 +760,36 @@
     "path": "category/git-version-control/diff-intake"
   },
   {
+    "id": "diff-scanning-with-aws-security-agent",
+    "name": "diff-scanning-with-aws-security-agent",
+    "category": "git-version-control",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Run a fast AWS Security Agent diff scan on only the changed code since a git ref. Use when the user asks to scan changes, run a diff scan, check what changed for security issues, scan before committing, scan before PR, or any pre-commit/pre-push security check.",
+    "path": "category/git-version-control/diff-scanning-with-aws-security-agent"
+  },
+  {
     "id": "django-verification",
     "name": "django-verification",
     "category": "git-version-control",
     "repository": "affaan-m-ecc",
     "description": "Run the full Django verification loop \u2014 environment check, mypy/ruff/black linting, migration safety, pytest with coverage targets, pip-audit and bandit security scans, settings and logging review, and diff review \u2014 producing a phased pass/fail report before release or PR. Use when preparing a Django pull request, validating migrations or coverage, or running pre-deploy readiness checks.",
     "path": "category/git-version-control/django-verification"
+  },
+  {
+    "id": "doca-public-knowledge-map",
+    "name": "doca-public-knowledge-map",
+    "category": "git-version-control",
+    "repository": "nvidia-skills",
+    "description": "Use this skill to locate authoritative NVIDIA DOCA information without the source tree: the docs.nvidia.com page for a library/service/tool, which DOCA libraries are installed and at what version, a sample on disk or GitHub, a path under /opt/mellanox/doca, or a 404'd/renamed doc URL. Activate on implicit phrasing only when the conversation already names DOCA, BlueField, ConnectX, or /opt/mellanox. Do not activate for generic 'which version is installed' or 'where is the sample' questions with none of that context. Refuse and route elsewhere for hands-on programming, env prep, API tutorials, or hardware/firmware mutation \u2014 those belong to doca-programming-guide, doca-setup, the per-library skills, and doca-hardware-safety.",
+    "path": "category/git-version-control/doca-public-knowledge-map"
+  },
+  {
+    "id": "doca-structured-tools-contract",
+    "name": "doca-structured-tools-contract",
+    "category": "git-version-control",
+    "repository": "nvidia-skills",
+    "description": "Not for writing library code (name that library skill). Use this skill whenever another DOCA skill says \"prefer the structured tool per doca-structured-tools-contract\", or when the user wants a one-shot answer consolidating what multiple manual commands would produce \u2014 DOCA env / version / devices / capabilities / validate / host vs DPU state. Trigger even without the phrases \"structured tool\" or \"doca-env --json\" \u2014 typical phrasings include \"is there one command that tells me everything about my DOCA install\", \"what version is X capability available since\", \"every PF/VF/SF visible on this BlueField with PCIe address\", or \"will this pipe pass validate before commit\". Refuse and route elsewhere for general DOCA orientation, library API how-to, or install-from-scratch guidance \u2014 those belong to the per-library skill, doca-public-knowledge-map, or doca-setup.",
+    "path": "category/git-version-control/doca-structured-tools-contract"
   },
   {
     "id": "docs-localization-strategy",
@@ -824,6 +896,14 @@
     "path": "category/git-version-control/event-talk-selection"
   },
   {
+    "id": "experiment-orchestration",
+    "name": "experiment-orchestration",
+    "category": "git-version-control",
+    "repository": "launchdarkly-ai-tooling",
+    "description": "Takes a product goal through a LaunchDarkly experiment and, if it wins, a guarded rollout (or a regular rollout on plans without guarded rollouts). Uses GitHub for the code change and deployment when it is connected to the agent space; otherwise hands those steps to a person.",
+    "path": "category/git-version-control/experiment-orchestration"
+  },
+  {
     "id": "explore-code",
     "name": "explore-code",
     "category": "git-version-control",
@@ -892,8 +972,24 @@
     "name": "finishing-a-development-branch",
     "category": "git-version-control",
     "repository": "active",
-    "description": "Use when implementation is complete, all tests pass, and you need to decide how to integrate the work",
+    "description": "Use when implementation is complete, all tests pass, and you need to decide how to integrate the work - guides completion of development work by presenting structured options for merge, PR, or cleanup",
     "path": "category/git-version-control/finishing-a-development-branch"
+  },
+  {
+    "id": "flag-and-release-change",
+    "name": "flag-and-release-change",
+    "category": "git-version-control",
+    "repository": "launchdarkly-ai-tooling",
+    "description": "Drive a pull request's change end to end: decide it's flag-worthy, create the guarding flag, wire the new code path behind it on the PR branch, and record an automated release so the change ships safely when the PR merges. A portable orchestrator that composes should-flag-change, launchdarkly-flag-create, and flag-release. Keywords: flag a PR, wrap change in a flag, dark launch, kill switch, auto-release, automated rollout, end-to-end flag workflow.",
+    "path": "category/git-version-control/flag-and-release-change"
+  },
+  {
+    "id": "flag-release",
+    "name": "flag-release",
+    "category": "git-version-control",
+    "repository": "launchdarkly-ai-tooling",
+    "description": "Record an automated rollout for an existing LaunchDarkly flag that guards a pull request's change, so the change releases safely when the PR merges. Honors a stated release intent (release now / hold / notBefore / segment / prerequisite) and defers per-environment to the project's release policies. Use as the release step once the guarding flag exists and its code is wired. Keywords: record release, automated rollout, release policy, guarded rollout, staged rollout, simple vs policy, release intent, hold release, dark launch.",
+    "path": "category/git-version-control/flag-release"
   },
   {
     "id": "fulfill-git-escrow",
@@ -934,6 +1030,14 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Upload and download GitHub user-attachments (screenshots, PDFs, zips, videos) from the terminal; use when asked to attach or embed a file in a PR, issue, or comment, or download an attachment URL.",
     "path": "category/git-version-control/gh-attach"
+  },
+  {
+    "id": "gh-cli",
+    "name": "gh-cli",
+    "category": "git-version-control",
+    "repository": "trailofbits-skills",
+    "description": "Enforces authenticated gh CLI workflows over unauthenticated curl, WebFetch, and MCP fetch patterns. Use when working with GitHub URLs, API access, pull requests, or issues.",
+    "path": "category/git-version-control/gh-cli"
   },
   {
     "id": "gh-fix-ci",
@@ -1084,7 +1188,7 @@
     "name": "git-workflow-and-versioning",
     "category": "git-version-control",
     "repository": "addyosmani-agent-skills",
-    "description": "Structures git workflow practices. Use when making any code change. Use when committing, branching, resolving conflicts, splitting uncommitted work in a messy working tree into clean atomic commits, opening or reviewing a pull request (PR), pushing to a remote, or when you need to organize work across multiple parallel streams. Use when cutting a release, choosing a semantic version bump, tagging, or writing a changelog.",
+    "description": "Structures git workflow practices. Use when making any code change. Use when committing, branching, resolving conflicts, splitting uncommitted work in a messy working tree into clean atomic commits, opening or reviewing a pull request (PR), pushing to a remote, or when you need to organize work across multiple parallel streams. Use when cutting a release, choosing a semantic version bump, tagging, or writing a changelog. Use when asked to write a commit message or a changelog entry for a change, or to split a change into commits, even when the diff is pasted inline and the message seems easy to write from it.",
     "path": "category/git-version-control/git-workflow-and-versioning"
   },
   {
@@ -1208,6 +1312,14 @@
     "path": "category/git-version-control/github-issue-workflow"
   },
   {
+    "id": "github-marketplace-playbook",
+    "name": "github-marketplace-playbook",
+    "category": "git-version-control",
+    "repository": "samber-developer-platform-skills",
+    "description": "Gets a vendor's GitHub App or GitHub Action listed on GitHub Marketplace and, for apps, selling there - free vs paid listing, publisher verification, marketplace_purchase billing duties, immutable pricing plans, enterprise buyers Marketplace cannot bill, the verified creator badge, delisting. Use whenever a vendor mentions GitHub Marketplace, listing a GitHub App, Marketplace paid plans, or selling through GitHub billing. Publisher side only; not for buying or allowlisting Marketplace apps as a customer. Do NOT use for building the action (use samber/developer-platform-skills@github-action-offering), repository growth (use samber/developer-platform-skills@github-engagement-playbook), or launch announcements (use samber/developer-platform-skills@app-marketplace-launch-marketing).",
+    "path": "category/git-version-control/github-marketplace-playbook"
+  },
+  {
     "id": "github-ops",
     "name": "github-ops",
     "category": "git-version-control",
@@ -1246,6 +1358,14 @@
     "repository": "reason-machines-trending-skills",
     "description": "Download files into a GitHub repository by writing special commit messages that trigger a GitHub Actions workflow.",
     "path": "category/git-version-control/github-sandbox-file-downloader"
+  },
+  {
+    "id": "github-triage",
+    "name": "github-triage",
+    "category": "git-version-control",
+    "repository": "trailofbits-skills",
+    "description": "Triages a repository's open GitHub issues and pull requests via the gh CLI. Optionally reviews and merges ready PRs \u2014 incrementally merging passing automated/bot PRs and maintainer-approved ones, and spawning review subagents for never-reviewed ones \u2014 then closes already-resolved issues with comments citing the resolving PR or commit, cross-links issues with their pending fix PRs, and assigns local-only priority and change-size estimates for everything outstanding. Use when triaging, grooming, or reviewing a repository's open issues and PRs.",
+    "path": "category/git-version-control/github-triage"
   },
   {
     "id": "github-workflow",
@@ -1304,12 +1424,92 @@
     "path": "category/git-version-control/gitlab-workflow"
   },
   {
+    "id": "golang-google-wire",
+    "name": "golang-google-wire",
+    "category": "git-version-control",
+    "repository": "samber-cc-skills-golang",
+    "description": "Compile-time dependency injection in Golang using google/wire \u2014 wire.NewSet, wire.Build, wire.Bind (interface\u2192concrete), wire.Struct, wire.Value, wire.InterfaceValue, wire.FieldsOf, cleanup functions, //go:build wireinject injector files, and generated wire_gen.go. Apply when using or adopting google/wire, when the codebase imports `github.com/google/wire`, or when wiring an application graph at compile time via `wire.Build`. For runtime DI with reflection, see `samber/cc-skills-golang@golang-uber-dig` skill.",
+    "path": "category/git-version-control/golang-google-wire"
+  },
+  {
+    "id": "golang-samber-do",
+    "name": "golang-samber-do",
+    "category": "git-version-control",
+    "repository": "samber-cc-skills-golang",
+    "description": "Dependency injection in Golang using samber/do \u2014 service containers, lifecycle management, scopes, health checks, graceful shutdown, and module organization. Apply when using or adopting samber/do, when the codebase imports github.com/samber/do or github.com/samber/do/v2, or when refactoring manual constructor injection into a DI container.",
+    "path": "category/git-version-control/golang-samber-do"
+  },
+  {
+    "id": "golang-samber-hot",
+    "name": "golang-samber-hot",
+    "category": "git-version-control",
+    "repository": "samber-cc-skills-golang",
+    "description": "In-memory caching in Golang using samber/hot \u2014 eviction algorithms (LRU, LFU, TinyLFU, W-TinyLFU, S3FIFO, ARC, TwoQueue, SIEVE, FIFO), TTL, cache loaders, sharding, stale-while-revalidate, missing key caching, and Prometheus metrics. Apply when using or adopting samber/hot, when the codebase imports github.com/samber/hot, or when the project repeatedly loads the same medium-to-low cardinality resources at high frequency and needs to reduce latency or backend pressure.",
+    "path": "category/git-version-control/golang-samber-hot"
+  },
+  {
+    "id": "golang-samber-lo",
+    "name": "golang-samber-lo",
+    "category": "git-version-control",
+    "repository": "samber-cc-skills-golang",
+    "description": "Functional programming helpers for Golang using samber/lo \u2014 500+ type-safe generic functions for slices, maps, channels, strings, math, tuples, and concurrency (Map, Filter, Reduce, GroupBy, Chunk, Flatten, Find, Uniq, etc.). Core immutable package (lo), concurrent variants (lo/parallel aka lop), in-place mutations (lo/mutable aka lom), lazy iterators (lo/it aka loi for Go 1.23+), and experimental SIMD (lo/exp/simd). Apply when using or adopting samber/lo, when the codebase imports github.com/samber/lo, or when implementing functional-style data transformations in Go. Not for streaming pipelines (\u2192 See `samber/cc-skills-golang@golang-samber-ro` skill).",
+    "path": "category/git-version-control/golang-samber-lo"
+  },
+  {
+    "id": "golang-samber-mo",
+    "name": "golang-samber-mo",
+    "category": "git-version-control",
+    "repository": "samber-cc-skills-golang",
+    "description": "Monadic types for Golang using samber/mo \u2014 Option, Result, Either, Future, IO, Task, and State types for type-safe nullable values, error handling, and functional composition with pipeline sub-packages. Apply when using or adopting samber/mo, when the codebase imports `github.com/samber/mo`, or when considering functional programming patterns as a safety design for Golang. Not for nil-safety and zero-value design without this library (\u2192 See `samber/cc-skills-golang@golang-safety` skill), nor for native error wrapping with fmt.Errorf, errors.Is and errors.As (\u2192 See `samber/cc-skills-golang@golang-error-handling` skill).",
+    "path": "category/git-version-control/golang-samber-mo"
+  },
+  {
+    "id": "golang-samber-oops",
+    "name": "golang-samber-oops",
+    "category": "git-version-control",
+    "repository": "samber-cc-skills-golang",
+    "description": "Structured error handling in Golang with samber/oops \u2014 error builders, stack traces, error codes, error context, error wrapping, error attributes, user-facing vs developer messages, panic recovery, and logger integration. Apply when using or adopting samber/oops, or when the codebase already imports github.com/samber/oops.",
+    "path": "category/git-version-control/golang-samber-oops"
+  },
+  {
+    "id": "golang-samber-ro",
+    "name": "golang-samber-ro",
+    "category": "git-version-control",
+    "repository": "samber-cc-skills-golang",
+    "description": "Reactive streams and event-driven programming in Golang using samber/ro \u2014 ReactiveX implementation with 150+ type-safe operators, cold/hot observables, 5 subject types (Publish, Behavior, Replay, Async, Unicast), declarative pipelines via Pipe, 40+ plugins (HTTP, cron, fsnotify, JSON, logging), automatic backpressure, error propagation, and Go context integration. Apply when using or adopting samber/ro, when the codebase imports github.com/samber/ro, or when building asynchronous event-driven pipelines, real-time data processing, streams, or reactive architectures in Go. Not for finite slice transforms (\u2192 See `samber/cc-skills-golang@golang-samber-lo` skill).",
+    "path": "category/git-version-control/golang-samber-ro"
+  },
+  {
+    "id": "golang-stay-updated",
+    "name": "golang-stay-updated",
+    "category": "git-version-control",
+    "repository": "samber-cc-skills-golang",
+    "description": "Golang ecosystem watch list \u2014 official sources (go.dev/blog, pkg.go.dev, tour.golang.org, golang-nuts), newsletters (Golang Weekly, Awesome Go Newsletter), communities (r/golang, gophers.slack.com, Go Forum, go.dev/wiki), blogs (Dave Cheney, Ardan Labs, Rob Pike), YouTube channels (Gopher Academy, GopherCon EU/UK), conferences, and Go contributors to follow on GitHub, X and Bluesky. Use when seeking Golang learning resources, discovering new libraries or tools, finding community channels or meetups, picking Go people to follow, or keeping up with Go language changes and releases. Not for querying a specific module's versions, docs, or vulnerabilities from the CLI (\u2192 See `samber/cc-skills-golang@golang-pkg-go-dev` skill).",
+    "path": "category/git-version-control/golang-stay-updated"
+  },
+  {
+    "id": "golang-stretchr-testify",
+    "name": "golang-stretchr-testify",
+    "category": "git-version-control",
+    "repository": "samber-cc-skills-golang",
+    "description": "Comprehensive guide to stretchr/testify for Golang testing. Covers assert, require, mock, and suite packages in depth. Use when writing tests with testify, creating mocks, setting up test suites, or choosing between assert and require. Covers testify assertions, mock expectations, argument matchers, call verification, suite lifecycle, and advanced patterns like Eventually, JSONEq, and custom matchers. Apply when the codebase imports github.com/stretchr/testify.",
+    "path": "category/git-version-control/golang-stretchr-testify"
+  },
+  {
     "id": "google-workspace-cli",
     "name": "google-workspace-cli",
     "category": "git-version-control",
     "repository": "alirezarezvani-claude-skills",
     "description": "Google Workspace administration via the gws CLI (github.com/googleworkspace/cli). Install, authenticate, and automate Gmail, Drive, Sheets, Calendar, Docs, Chat, and Tasks. Run security audits and use local recipe templates and persona bundles. Use for Google Workspace admin, gws CLI setup, Gmail automation, Drive management, or Calendar scheduling.",
     "path": "category/git-version-control/google-workspace-cli"
+  },
+  {
+    "id": "graph-evolution",
+    "name": "graph-evolution",
+    "category": "git-version-control",
+    "repository": "trailofbits-skills",
+    "description": "Compares Trailmark code graphs at two source code snapshots (git commits, tags, or directories) to surface security-relevant structural changes. Detects new attack paths, complexity shifts, blast radius growth, taint propagation changes, and privilege boundary modifications that text diffs miss. Use when comparing code between commits or tags, analyzing structural evolution, detecting attack surface growth, reviewing what changed between audit snapshots, or finding security-relevant changes that text diffs miss.",
+    "path": "category/git-version-control/graph-evolution"
   },
   {
     "id": "grill-me",
@@ -1392,6 +1592,14 @@
     "path": "category/git-version-control/idea-refine"
   },
   {
+    "id": "implement-patch",
+    "name": "implement-patch",
+    "category": "git-version-control",
+    "repository": "trailofbits-skills",
+    "description": "Use when a confirmed local bug needs an invariant-level fix, variant search, tests, and one local commit.",
+    "path": "category/git-version-control/implement-patch"
+  },
+  {
     "id": "implementing-gdpr-data-subject-access-request",
     "name": "implementing-gdpr-data-subject-access-request",
     "category": "git-version-control",
@@ -1448,6 +1656,14 @@
     "path": "category/git-version-control/jenkins-pipeline"
   },
   {
+    "id": "k-skill-setup",
+    "name": "k-skill-setup",
+    "category": "git-version-control",
+    "repository": "nomadamas-k-skill",
+    "description": "Install the k-skill bundle, use the unified CLI, resolve credentials, verify the runtime, and optionally configure update checks and GitHub starring.",
+    "path": "category/git-version-control/k-skill-setup"
+  },
+  {
     "id": "langgraph",
     "name": "langgraph",
     "category": "git-version-control",
@@ -1462,6 +1678,22 @@
     "repository": "davidondrej-skills",
     "description": "Skeptical review of outside contributions to public repos. Use when reviewing, ranking, or replying to public GitHub pull requests or issues from outside contributors, or when the user says \"larp-detector\".",
     "path": "category/git-version-control/larp-detector"
+  },
+  {
+    "id": "launchdarkly-release-autopilot-onboarding",
+    "name": "launchdarkly-release-autopilot-onboarding",
+    "category": "git-version-control",
+    "repository": "launchdarkly-ai-tooling",
+    "description": "Step-by-step onboarding wizard for LaunchDarkly Release Autopilot: pick capabilities (auto-flagging, auto-releasing, auto-cleanup, auto-archival), connect the GitHub App, map repositories to projects, choose which AI model account runs the agents (LaunchDarkly's by default, or your own Anthropic or OpenAI key), review release policies (release plans by GA), and turn on scheduled flag cleanup and archival. Use when the user wants to set up, onboard to, preview, or continue setting up Release Autopilot. For a single settings change or 'why didn't my PR get classified?', use launchdarkly-release-autopilot-settings instead.",
+    "path": "category/git-version-control/launchdarkly-release-autopilot-onboarding"
+  },
+  {
+    "id": "launchdarkly-release-autopilot-settings",
+    "name": "launchdarkly-release-autopilot-settings",
+    "category": "git-version-control",
+    "repository": "launchdarkly-ai-tooling",
+    "description": "Configure LaunchDarkly Release Autopilot settings (GitHub App auto-flagging and auto-releasing) via the hosted MCP, or diagnose why a pull request was not classified / auto-flagged. Use when the user wants to turn on auto-flagging, map a GitHub repo to a LaunchDarkly project, change Release Autopilot account defaults, unmap a repo, or asks why Release Autopilot did not classify their PR. For first-time setup (pick capabilities, connect GitHub, choose inference, review release policies), use launchdarkly-release-autopilot-onboarding instead.",
+    "path": "category/git-version-control/launchdarkly-release-autopilot-settings"
   },
   {
     "id": "leaving-pr-comments",
@@ -1536,6 +1768,14 @@
     "path": "category/git-version-control/managed-deep-agents"
   },
   {
+    "id": "mcore-create-issue",
+    "name": "mcore-create-issue",
+    "category": "git-version-control",
+    "repository": "nvidia-skills",
+    "description": "Investigate a failing GitHub Actions run or job and create a GitHub issue for the failure.",
+    "path": "category/git-version-control/mcore-create-issue"
+  },
+  {
     "id": "mdpr-skill",
     "name": "mdpr-skill",
     "category": "git-version-control",
@@ -1560,6 +1800,14 @@
     "path": "category/git-version-control/message-system-architect"
   },
   {
+    "id": "migrate-to-msk",
+    "name": "migrate-to-msk",
+    "category": "git-version-control",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Helps migrate self-managed Apache Kafka workloads to Amazon MSK Express. Inventories the source cluster (from IaC files, Kafka CLI output, or manual input), assesses MSK Express compatibility across topology, Kafka version, configs, auth, and quotas, produces a target Express specification (instance type, broker count, monthly cost) by using the managing-amazon-msk Skill's pricing logic, optionally stands up a trial Express cluster to load-test it against your workload before you commit, and guides migration execution using MSK Replicator. Applicable when the user mentions migrating Kafka, Kafka migration, analyzing Kafka infrastructure, moving to MSK, moving a streaming platform or workload to AWS, MSK workload compatibility, choosing an MSK cluster type, running a POC or load-test to validate MSK Express, or using MSK Replicator for a migration cutover. Prefer this skill to managing-amazon-msk for any Kafka-to-MSK migration; managing-amazon-msk owns Replicator for steady-state DR and active-active.",
+    "path": "category/git-version-control/migrate-to-msk"
+  },
+  {
     "id": "mirrord-prev-env",
     "name": "mirrord-prev-env",
     "category": "git-version-control",
@@ -1582,6 +1830,14 @@
     "repository": "davidondrej-skills",
     "description": "Launch a new bb worker thread with the right project, model, worktree, and task brief. Use for nagent, launching a bb session, or a standalone bb agent. Covers thread creation; use bb-cli for managing existing threads.",
     "path": "category/git-version-control/nagent"
+  },
+  {
+    "id": "neon-functions",
+    "name": "neon-functions",
+    "category": "git-version-control",
+    "repository": "neondatabase-agent-skills",
+    "description": "Long-running, serverless Node.js HTTP functions deployed onto your Neon branch, with DATABASE_URL injected automatically and compute that runs next to your data. Use when a user wants to host an API, an AI agent with long streaming responses, a WebSocket or server-sent-events (SSE) server, a webhook handler, a Discord bot, an MCP server, or any request/response workload that risks timing out on short, lambda-style serverless functions \u2014 and wants it to branch with their database. Also use for Function Triggers: a cron or an object-storage event that POSTs to a function. Triggers include \"serverless function\", \"deploy an API\", \"long-running function\", \"streaming agent\", \"SSE server\", \"WebSocket server\", \"webhook handler\", \"MCP server\", \"cron\", \"scheduled function\", \"object storage trigger\", \"on upload\", \"function that won't time out\", \"function logs\", \"Neon Functions\", \"Neon Compute\", \"DDoS protection\", \"rate limiting\", and \"production hardening\". For live UIs over database rows, use neon-realtime.",
+    "path": "category/git-version-control/neon-functions"
   },
   {
     "id": "new-branch-and-pr",
@@ -1744,6 +2000,14 @@
     "path": "category/git-version-control/om-fix"
   },
   {
+    "id": "om-fix-issue",
+    "name": "om-fix-issue",
+    "category": "git-version-control",
+    "repository": "open-mercato-skills",
+    "description": "Qualify and fix a tracker issue through the existing lower-level analysis, implementation, test, and review skills, then leave a verified staged branch for human review without committing, pushing, or opening a pull request. Use when the user says \"fix this issue but stop before PR\", \"leave the fix staged\", \"staged issue fix\", \"napraw issue bez PR\", or \"zostaw zmiany staged\".",
+    "path": "category/git-version-control/om-fix-issue"
+  },
+  {
     "id": "om-followup-issue-from-pr",
     "name": "om-followup-issue-from-pr",
     "category": "git-version-control",
@@ -1758,6 +2022,22 @@
     "repository": "open-mercato-skills",
     "description": "Grounded gap analysis of requirements against the platform an app builds on \u2014 client docs become an Epic/Story tree whose every coverage verdict is re-run by executable gates against a validated platform checkout, scored in atomic commits, license-tier-tagged, summarized with a backlog. Use for \"gap analysis\", \"what does the platform already cover\".",
     "path": "category/git-version-control/om-gap-analysis"
+  },
+  {
+    "id": "om-harness",
+    "name": "om-harness",
+    "category": "git-version-control",
+    "repository": "open-mercato-skills",
+    "description": "Shared internal runtime for configurable staged-only implementation workers, evidence-gated work packets, and multi-model review councils. Use indirectly through om-fix-issue, om-implement-feature, or om-setup-agent-harness; do not use it to publish, commit, push, or open a pull request.",
+    "path": "category/git-version-control/om-harness"
+  },
+  {
+    "id": "om-implement-feature",
+    "name": "om-implement-feature",
+    "category": "git-version-control",
+    "repository": "open-mercato-skills",
+    "description": "Design and implement a feature through existing spec, testing, environment, and review skills, then leave a verified staged branch for human review without committing, pushing, or opening a pull request. Use when the user says \"implement this feature but stop before PR\", \"leave the feature staged\", \"staged feature build\", \"zaimplementuj bez PR\", or \"zostaw feature staged\".",
+    "path": "category/git-version-control/om-implement-feature"
   },
   {
     "id": "om-merge-buddy",
@@ -1928,6 +2208,14 @@
     "path": "category/git-version-control/parallel-execution-optimizer"
   },
   {
+    "id": "patching-bugs",
+    "name": "patching-bugs",
+    "category": "git-version-control",
+    "repository": "trailofbits-skills",
+    "description": "Use when a known bug or falsifiable bug hypothesis in a local codebase needs a patch commit and reviewable proof report.",
+    "path": "category/git-version-control/patching-bugs"
+  },
+  {
     "id": "pathway-enrichment",
     "name": "pathway-enrichment",
     "category": "git-version-control",
@@ -1960,12 +2248,28 @@
     "path": "category/git-version-control/phylogenetics"
   },
   {
+    "id": "playwright-triage",
+    "name": "playwright-triage",
+    "category": "git-version-control",
+    "repository": "microsoft-playwright-cli",
+    "description": "Triage and fix one microsoft/playwright-cli issue, or do a maintainer's task, unattended inside the Issue triage GitHub Actions workflow (.github/workflows/triage.yml), which a needs-triage, needs-triage-mac or needs-triage-win label starts, or a maintainer starts by hand with an issue, a task or both. Reproduces the issue on the runner, then leaves a verified fix proposal for the workflow to open as a draft PR, in this repo or in microsoft/playwright where the source of the CLI is, or an investigation note for it to post on the issue. Only for that workflow.",
+    "path": "category/git-version-control/playwright-triage"
+  },
+  {
     "id": "port-github-app-to-origin",
     "name": "port-github-app-to-origin",
     "category": "git-version-control",
     "repository": "cursor-plugins",
     "description": "Plans the port of an existing GitHub App to a Cursor Origin App. Use when the task is to bring a GitHub App to Origin or compare what it uses against the Origin API. Reads the app's needs out of its code, maps them onto the live Origin spec, and writes a porting brief with feedback for Cursor. Planning only.",
     "path": "category/git-version-control/port-github-app-to-origin"
+  },
+  {
+    "id": "post-patch-validation",
+    "name": "post-patch-validation",
+    "category": "git-version-control",
+    "repository": "trailofbits-skills",
+    "description": "Validates security patches with reproducible baseline-versus-patched evidence, including original exploits, root-cause variants, behavior preservation, regressions, and newly introduced security failures. Use after a patch exists and before accepting, merging, or reporting it as fixed; also use when an AI-generated patch, remediation commit, pull request, or proposed upstream fix needs adversarial post-patch validation across any language.",
+    "path": "category/git-version-control/post-patch-validation"
   },
   {
     "id": "pr-and-press",
@@ -1982,6 +2286,14 @@
     "repository": "nexu-io-open-design",
     "description": "Safely track pull request feedback, resolve review comments or merge conflicts, validate fixes, and use a read-only cross-review before committing or pushing follow-up changes.",
     "path": "category/git-version-control/pr-feedback-quality-gate"
+  },
+  {
+    "id": "pr-improver",
+    "name": "pr-improver",
+    "category": "git-version-control",
+    "repository": "trailofbits-skills",
+    "description": "Runs an autonomous review-and-fix improvement loop over the current branch's changes until a PR review comes back clean, scoped mechanically to the directories the branch touched. Reviews are performed by an installed PR-review skill (default: pr-review-toolkit's review-pr). Use to fix review findings on a branch before opening or updating a pull request ('clean up this branch', 'fix this PR until review passes', 'run review-and-fix on my changes'). NOT for a one-time review \u2014 run the PR-review skill directly.",
+    "path": "category/git-version-control/pr-improver"
   },
   {
     "id": "pr-labeling",
@@ -2088,6 +2400,14 @@
     "path": "category/git-version-control/pr-writer"
   },
   {
+    "id": "prepare-regression",
+    "name": "prepare-regression",
+    "category": "git-version-control",
+    "repository": "trailofbits-skills",
+    "description": "Use when pinning before/after sources and collecting PR or commit context for a regression investigation.",
+    "path": "category/git-version-control/prepare-regression"
+  },
+  {
     "id": "principle-exhaust-the-design-space",
     "name": "principle-exhaust-the-design-space",
     "category": "git-version-control",
@@ -2144,6 +2464,14 @@
     "path": "category/git-version-control/project-state-governor"
   },
   {
+    "id": "prove-patch",
+    "name": "prove-patch",
+    "category": "git-version-control",
+    "repository": "trailofbits-skills",
+    "description": "Use when a local security patch commit needs independent scoped and three-arm proof.",
+    "path": "category/git-version-control/prove-patch"
+  },
+  {
     "id": "pseudo-merge",
     "name": "pseudo-merge",
     "category": "git-version-control",
@@ -2168,6 +2496,14 @@
     "path": "category/git-version-control/push-skill-to-github"
   },
   {
+    "id": "python-design-patterns",
+    "name": "python-design-patterns",
+    "category": "git-version-control",
+    "repository": "wshobson-agents",
+    "description": "Python design patterns including KISS, Separation of Concerns, Single Responsibility, and composition over inheritance. Use this skill when designing a new service or component from scratch and choosing how to layer responsibilities, when refactoring a God class or monolithic function that has grown too large, when deciding whether to add a new abstraction or live with duplication, when evaluating a pull request for structural issues like tight coupling or leaking internal types, when choosing between inheritance and composition for a new class hierarchy, or when a codebase is becoming hard to test because of entangled I/O and business logic.",
+    "path": "category/git-version-control/python-design-patterns"
+  },
+  {
     "id": "readme-optimization",
     "name": "readme-optimization",
     "category": "git-version-control",
@@ -2182,6 +2518,14 @@
     "repository": "warpdotdev-common-skills",
     "description": "Produce a polished, self-contained HTML \"readout\" document under ~/.readouts (with an auto-maintained index page), either by snapshotting the findings accumulated in the current conversation or \u2014 when invoked fresh, e.g. \"/readout on how github webhook events are processed\" \u2014 by sharpening scope with clarifying questions and researching the codebase before documenting. The work runs in a child agent so the main conversation's context stays clean. Use whenever the user invokes /readout, says \"write this up\", \"turn this into a doc/page\", \"make a readout\", or asks for a readable, shareable document capturing findings or explaining how something works.",
     "path": "category/git-version-control/readout"
+  },
+  {
+    "id": "regression-hunt",
+    "name": "regression-hunt",
+    "category": "git-version-control",
+    "repository": "trailofbits-skills",
+    "description": "Use when investigating regressions in PRs or commits, coordinating a regression campaign, or resuming saved progress.",
+    "path": "category/git-version-control/regression-hunt"
   },
   {
     "id": "release-skills",
@@ -2259,8 +2603,8 @@
     "id": "review-pr",
     "name": "review-pr",
     "category": "git-version-control",
-    "repository": "warpdotdev-common-skills",
-    "description": "Review a pull request diff and write structured feedback to review.json for the workflow to publish. Use when reviewing a checked-out PR from local artifacts like pr_diff.txt and pr_description.txt and producing machine-readable review output instead of posting directly to GitHub.",
+    "repository": "trailofbits-skills",
+    "description": "Reviews the current branch's changes against its base branch as a pull request: correctness of new and modified code, test coverage for it, and documentation accuracy. Use when asked to review a branch, a diff, or a pull request.",
     "path": "category/git-version-control/review-pr"
   },
   {
@@ -2302,6 +2646,14 @@
     "repository": "affaan-m-ecc",
     "description": "Research-before-coding workflow: search npm/PyPI, MCP servers, skills, and GitHub for existing tools before writing custom code, then adopt, extend, or build. Launches the researcher agent for non-trivial needs. Use when starting a feature, adding a dependency or integration, or about to write a utility that may already exist.",
     "path": "category/git-version-control/search-first"
+  },
+  {
+    "id": "second-opinion",
+    "name": "second-opinion",
+    "category": "git-version-control",
+    "repository": "trailofbits-skills",
+    "description": "Gets independent code reviews from Codex or Antigravity for uncommitted changes, branch diffs, and commits. Use when the user requests an external review, a second opinion on code, a codex review, a gemini review, an antigravity review, or /second-opinion.",
+    "path": "category/git-version-control/second-opinion"
   },
   {
     "id": "secrets-in-git-history",
@@ -2384,12 +2736,28 @@
     "path": "category/git-version-control/shipping-a-pr"
   },
   {
+    "id": "should-flag-change",
+    "name": "should-flag-change",
+    "category": "git-version-control",
+    "repository": "launchdarkly-ai-tooling",
+    "description": "Decide whether a given code change should be placed behind a LaunchDarkly feature flag. Use when a developer asks whether a change should be behind a flag, when reviewing a diff or pull request, or when running in CI on a PR. Reads the diff and surrounding code, then emits a structured advisory recommendation. Read-only: it never creates or modifies flags.",
+    "path": "category/git-version-control/should-flag-change"
+  },
+  {
     "id": "show-me-your-work",
     "name": "show-me-your-work",
     "category": "git-version-control",
     "repository": "backnotprop-pstack",
     "description": "Keep a reviewable decision trail for long-running or unattended work: a TSV log with one row per decision (what, why, evidence, result). Local by default; commit it when a reviewer needs the trail to trust the result. Use for /show-me-your-work, autonomous or multi-phase runs, or work a human reviews after stepping away.",
     "path": "category/git-version-control/show-me-your-work"
+  },
+  {
+    "id": "sitetositevpn",
+    "name": "sitetositevpn",
+    "category": "git-version-control",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Configures AWS Site-to-Site VPN: creating an IPsec VPN connection between an on-premises network and a VPC, choosing the target gateway (virtual private gateway, transit gateway, or AWS Cloud WAN), choosing static or dynamic (BGP) routing, sizing tunnel bandwidth (Standard 1.25 Gbps or Large 5 Gbps), connecting many sites through a VPN Concentrator, applying the customer gateway device configuration, making a connection highly available, and monitoring tunnels with CloudWatch. Applicable when the user wants to connect a data center or branch office to AWS over an encrypted tunnel, choose how routes are exchanged, scale throughput, consolidate sites, or diagnose a down tunnel. Routes to the right per-task procedure in references. Not for AWS Direct Connect (its own service), Client VPN for individual remote users, the transit gateway side of a VPN attachment (transitgateway skill), or Route 53 DNS work.",
+    "path": "category/git-version-control/sitetositevpn"
   },
   {
     "id": "skill-installer",
@@ -2560,6 +2928,14 @@
     "path": "category/git-version-control/tools"
   },
   {
+    "id": "trailmark-review-gate",
+    "name": "trailmark-review-gate",
+    "category": "git-version-control",
+    "repository": "trailofbits-skills",
+    "description": "Runs a Trailmark structural review gate over a branch, pull request, fix commit, release diff, or git ref range to detect new entrypoints, new tainted paths, removed validation or authorization calls, privilege-boundary drift, blast-radius growth, complexity growth, and newly reachable sensitive sinks. Use when reviewing a PR, branch, remediation commit, or release diff where graph-level security regressions should be checked before merge.",
+    "path": "category/git-version-control/trailmark-review-gate"
+  },
+  {
     "id": "ui-test",
     "name": "ui-test",
     "category": "git-version-control",
@@ -2620,7 +2996,7 @@
     "name": "using-git-worktrees",
     "category": "git-version-control",
     "repository": "active",
-    "description": "Use when starting feature work that needs isolation from current workspace or before executing implementation plans - ensures an isolated workspace exists via native tools or git worktree fallback",
+    "description": "Git worktrees create isolated workspaces sharing the same repository, allowing work on multiple branches simultaneously without switching.",
     "path": "category/git-version-control/using-git-worktrees"
   },
   {
@@ -2656,14 +3032,6 @@
     "path": "category/git-version-control/vercel-labs-emulate"
   },
   {
-    "id": "verification-before-completion",
-    "name": "verification-before-completion",
-    "category": "git-version-control",
-    "repository": "active",
-    "description": "Use when about to claim work is complete, fixed, or passing, before committing or creating PRs - requires running verification commands and confirming output before making any success claims; evidence before assertions always",
-    "path": "category/git-version-control/verification-before-completion"
-  },
-  {
     "id": "vibers-code-review",
     "name": "vibers-code-review",
     "category": "git-version-control",
@@ -2680,12 +3048,28 @@
     "path": "category/git-version-control/virgiliojr94-book-to"
   },
   {
+    "id": "virgiliojr94-book-to-skill",
+    "name": "virgiliojr94-book-to-skill",
+    "category": "git-version-control",
+    "repository": "virgiliojr94-book-to-skill",
+    "description": "Converts books and documents (PDF, EPUB, DOCX, HTML, Markdown, plain text, RTF, MOBI/AZW with Calibre) into structured agent skills, extracting frameworks, mental models, principles, techniques, and anti-patterns. Use when the user wants to study a document through GitHub Copilot CLI, Amp, Claude Code, Hermes Agent, OpenCode, or OpenClaw, apply an author's frameworks while working, or build a reusable knowledge base from a file.",
+    "path": "category/git-version-control/virgiliojr94-book-to-skill"
+  },
+  {
     "id": "visual-recap",
     "name": "visual-recap",
     "category": "git-version-control",
     "repository": "builderio-skills",
     "description": "Turn a PR, branch, commit, or git diff into an interactive visual recap with diagrams, file maps, API/schema summaries, annotated diffs, and focused review notes.",
     "path": "category/git-version-control/visual-recap"
+  },
+  {
+    "id": "warp-eval",
+    "name": "warp-eval",
+    "category": "git-version-control",
+    "repository": "nvidia-skills",
+    "description": "Evaluate whether an existing hot path is a credible NVIDIA Warp candidate. Use for irregular or spatial queries, particle or geometry simulation, branch-heavy loops, many small launches, host fallbacks, or large intermediates. CPU-only code and absent GPU dependencies are normal unless NVIDIA is prohibited. Exclude required cross-vendor or CPU-only deployment, vendor-lowered dense or NN layers, general Warp API questions, and already-selected Warp kernels. Contribution policy alone is not exclusion.",
+    "path": "category/git-version-control/warp-eval"
   },
   {
     "id": "web-to-app-funnel",

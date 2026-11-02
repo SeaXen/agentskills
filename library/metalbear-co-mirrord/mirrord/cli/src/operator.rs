@@ -1,0 +1,66 @@
+use std::{env, ops::Not};
+
+use futures::TryFutureExt;
+use status::StatusCommandHandler;
+
+use self::session::SessionCommandHandler;
+use crate::{
+    CliResult,
+    config::{OperatorArgs, OperatorCommand},
+    data::UserData,
+    error::{CliError, OperatorSetupError},
+};
+
+mod install;
+mod session;
+pub(super) mod status;
+
+pub(crate) use install::OperatorInstallError;
+use install::OperatorTelemetry;
+
+/// Set up the operator into a file or to stdout, with explanation.
+async fn operator_setup() -> CliResult<(), OperatorSetupError> {
+    Err(OperatorSetupError::Deleted)
+}
+
+/// Handle commands related to the operator `mirrord operator ...`
+#[mirrord_macros::boxed_future]
+pub(crate) async fn operator_command(
+    args: OperatorArgs,
+    watch: drain::Watch,
+    user_data: &UserData,
+) -> CliResult<()> {
+    let telemetry = OperatorTelemetry {
+        enabled: env::var("MIRRORD_TELEMETRY")
+            .is_ok_and(|value| value == "false")
+            .not(),
+        machine_id: user_data.machine_id(),
+        watch,
+    };
+
+    match args.command {
+        OperatorCommand::Setup => operator_setup().await.map_err(CliError::from),
+        OperatorCommand::Install(args) => install::operator_install(*args, &telemetry)
+            .await
+            .map_err(CliError::from),
+        OperatorCommand::Signup(args) => {
+            install::operator_signup(args).await.map_err(CliError::from)
+        }
+        OperatorCommand::Uninstall(args) => install::operator_uninstall(args, &telemetry)
+            .await
+            .map_err(CliError::from),
+        OperatorCommand::Status { config_file } => {
+            StatusCommandHandler::new(config_file)
+                .and_then(StatusCommandHandler::handle)
+                .await
+        }
+        OperatorCommand::Session {
+            command,
+            config_file,
+        } => {
+            SessionCommandHandler::new(command, config_file)
+                .and_then(SessionCommandHandler::handle)
+                .await
+        }
+    }
+}

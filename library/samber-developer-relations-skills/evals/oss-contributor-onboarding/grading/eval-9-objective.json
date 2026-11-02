@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Identifies the study as Terrell et al., PeerJ Computer Science 3:e111 (2017), covering 3,064,667 pull requests",
+        "evidence": "\"The source is Terrell et al., *\"Gender differences and bias in open source: pull request acceptance of women versus men\"* (PeerJ Computer Science 3:e111, 2017, DOI 10.7717/peerj-cs.111) \u2014 3,064,667 pull requests analyzed, with gender inferred for 35.3% of users via name/Google+ linkage.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Confirms the 78.7% versus 74.6% figures describe the overall population, not the population this contribution path serves",
+        "evidence": "\"78.7% vs 74.6% is the overall, aggregate acceptance rate \u2014 insiders and outsiders mixed together. That's the wrong slice to answer 'is there a bias problem in how we review outside contributions'...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the restricted figures for outside contributors with an identifiable gender: women 58% against men 61%",
+        "evidence": "\"Restricted to outside contributors with an identifiable gender \u2014 the exact population your good-first-issue queue and cold-review process serve \u2014 women's merge rate drops to 58% against men's 61%. Lower, not higher.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that contributors whose profiles were gender-neutral had the highest merge rate of all",
+        "evidence": "\"Contributors whose profiles were gender-neutral scored highest of all (70% women, 65% men) \u2014 i.e., when identity isn't visible, judgment is closer to pure merit...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the caveats: gender was inferred, only 35.3% of users were linkable, and the study predates many platform changes",
+        "evidence": "\"gender was inferred, not self-reported, only 35.3% of users were linkable, and this is 2017 data on a platform that's changed since.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says the direction is robust while the exact percentages are not",
+        "evidence": "\"Treat the *direction* (outside-contribution bias against identifiably-female contributors, mitigated when identity is invisible) as robust; don't defend the exact percentages as precise.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Concludes that 'therefore there is no bias problem' does not follow, because the reversal appears exactly on outside contributions",
+        "evidence": "\"The pushback took the number that reflects the first fact and used it to deny the second, which is the opposite of what the paper's authors did with their own data.\" combined with the restricted-figure reversal specific to outside contributors",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prescribes reviewing against the written scope rule and the fixed review order rather than against an impression of the person, as the cheapest available control",
+        "evidence": "\"Review against a written scope rule and a fixed order, never against an impression of the contributor... This is the cheapest available control on reviewer bias precisely because it removes the reviewer's read of *who* submitted the patch from the decision path.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes the project needs a published scope rule and a fixed review order for that control to exist at all",
+        "evidence": "\"if Halyard doesn't already have a written scope statement and a fixed review order that maintainers actually follow, build that now \u2014 it's the direct, evidence-backed response to 'contributor diversity'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Raises information-foraging cost - having to hunt for the process - as unevenly distributed across newcomers, citing the GenderMag work on cognitive-style barriers",
+        "evidence": "The transcript cites Steinmacher et al.'s five-category barrier taxonomy (social interaction, prior knowledge, finding a way to start, documentation, technical hurdles), but never mentions 'information-foraging cost' or 'GenderMag' anywhere in the text.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not present the overall 78.7% and 74.6% figures as the answer to the question asked",
+        "evidence": "The transcript explicitly labels 78.7%/74.6% as 'the wrong slice' and instead answers with the restricted 58%/61% figures as the relevant data for the question posed.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Identifies the study as Terrell et al., PeerJ Computer Science 3:e111 (2017), covering 3,064,667 pull requests",
+        "evidence": "\"Terrell, Kofink, Middleton, Rainear, Murphy-Hill, Parnin & Stallings... PeerJ Computer Science 3:e111 (2017)\" is cited correctly, but no pull-request count (3,064,667) is given anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Confirms the 78.7% versus 74.6% figures describe the overall population, not the population this contribution path serves",
+        "evidence": "\"The pooled acceptance-rate number is real, but it's not the paper's main finding... first-time/outside contributors \u2014 the exact population your meeting is about\" \u2014 vs. the pooled figure.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the restricted figures for outside contributors with an identifiable gender: women 58% against men 61%",
+        "evidence": "No such specific percentages (58%/61%) are given anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that contributors whose profiles were gender-neutral had the highest merge rate of all",
+        "evidence": "The transcript states only that \"women's PRs are accepted more than men's specifically when their gender is not identifiable,\" not that gender-neutral profiles had the highest rate of all groups.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the caveats: gender was inferred, only 35.3% of users were linkable, and the study predates many platform changes",
+        "evidence": "No mention of the 35.3% linkability figure or platform-changes caveat; only a general note that exact digits weren't re-verified this session.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says the direction is robust while the exact percentages are not",
+        "evidence": "\"I wasn't able to pull the primary source live this session to re-verify the exact digits, so before quoting them... have someone confirm\" combined with confident reliance on the insider/outsider and identifiability direction throughout the analysis.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Concludes that 'therefore there is no bias problem' does not follow, because the reversal appears exactly on outside contributions",
+        "evidence": "\"citing only the pooled number to argue 'no bias problem' is using the study that is the primary empirical evidence for gender bias in open-source review to argue against the existence of gender bias... That's the core error in the pushback.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prescribes reviewing against the written scope rule and the fixed review order rather than against an impression of the person, as the cheapest available control",
+        "evidence": "The transcript instead proposes \"Standardize review criteria for first-time/outside contributors (checklist, consistent turnaround-time expectations, consistent nitpick threshold)\" \u2014 not framed as a written scope rule plus fixed review order, nor called the cheapest control.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes the project needs a published scope rule and a fixed review order for that control to exist at all",
+        "evidence": "Not present.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Raises information-foraging cost - having to hunt for the process - as unevenly distributed across newcomers, citing the GenderMag work on cognitive-style barriers",
+        "evidence": "Not mentioned anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not present the overall 78.7% and 74.6% figures as the answer to the question asked",
+        "evidence": "\"bring the actual paper to the follow-up meeting rather than the one-line stat, since the one-line stat is doing the opposite of what its source argues\" \u2014 explicitly rejects the pooled figures as a sufficient answer.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

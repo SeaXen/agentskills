@@ -72,6 +72,22 @@
     "path": "category/devops-docker-cicd/agents-autogpt"
   },
   {
+    "id": "agents-deploy",
+    "name": "agents-deploy",
+    "category": "devops-docker-cicd",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Use when deploying your agent to AWS, or when a deploy has failed. Handles pre-flight validation, CDK/IAM/quota error diagnosis, version management, rollback, and canary deployments. Triggers on: \"deploy my agent\", \"agentcore deploy\", \"deploy failed\", \"CDK error\", \"rollback\", \"canary deploy\", \"pin version\", \"redeploy\", \"deploy stuck\". Not for production hardening \u2014 use agents-harden. Not for adding capabilities before deploy \u2014 use agents-build or agents-connect. Not for VPC configuration errors \u2014 use agents-build.",
+    "path": "category/devops-docker-cicd/agents-deploy"
+  },
+  {
+    "id": "agents-optimize",
+    "name": "agents-optimize",
+    "category": "devops-docker-cicd",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Use when measuring or improving agent quality and performance \u2014 set up evaluators, online monitoring, CI/CD quality gates, observability, or cost optimization. Triggers on: \"evaluate my agent\", \"add evaluator\", \"measure quality\", \"quality gate\", \"run evals\", \"agent too slow\", \"why is it slow\", \"reduce latency\", \"set up observability\", \"CloudWatch dashboard\", \"how much does my agent cost\", \"cost optimization\", \"logs not showing up\", \"logs missing\", \"spans not found\", \"eval failing\", \"eval error\", \"dev traces\", \"local traces\", \"agentcore dev traces\", \"traces to CloudWatch\". Not for debugging errors or crashes \u2014 use agents-debug. Slow but correct routes here; broken routes to debug.",
+    "path": "category/devops-docker-cicd/agents-optimize"
+  },
+  {
     "id": "agents-v2-py",
     "name": "agents-v2-py",
     "category": "devops-docker-cicd",
@@ -102,6 +118,22 @@
     "repository": "microsoft-azure-skills",
     "description": "Set up AI Runway on AKS \u2014 from bare cluster to running model. Covers cluster verification, controller install, GPU assessment, provider setup, and first deployment. WHEN: \\\"setup AI Runway\\\", \\\"onboard AKS cluster\\\", \\\"install AI Runway\\\", \\\"airunway setup\\\", \\\"deploy model to AKS\\\", \\\"GPU inference on AKS\\\", \\\"KAITO setup on AKS\\\", \\\"run LLM on AKS\\\", \\\"vLLM on AKS\\\", \\\"set up model serving on AKS\\\", \\\"AI Runway controller\\\".",
     "path": "category/devops-docker-cicd/airunway-aks-setup"
+  },
+  {
+    "id": "aks-cost-optimization",
+    "name": "aks-cost-optimization",
+    "category": "devops-docker-cicd",
+    "repository": "microsoft-azure-skills",
+    "description": "Analyze advanced AKS cost efficiency. WHEN: \\\"AKS NAP readiness\\\", \\\"AKS bin packing\\\", \\\"AKS node scaling bottleneck\\\", \\\"AKS blocked scale-down\\\", \\\"AKS storage cost\\\". DO NOT USE AS DIRECT ENTRY FOR: overall AKS cost assessments or rightsizing/VPA/CAS/Spot (azure-kubernetes); spend/anomalies/commitments (cost-analysis/cost-optimization); incidents (aks-troubleshooting).",
+    "path": "category/devops-docker-cicd/aks-cost-optimization"
+  },
+  {
+    "id": "aks-troubleshooting",
+    "name": "aks-troubleshooting",
+    "category": "devops-docker-cicd",
+    "repository": "microsoft-azure-skills",
+    "description": "Debug live Azure Kubernetes Service (AKS) incidents with a read-only, evidence-first investigation. WHEN: pod crashes or Pending, CrashLoopBackOff, OOMKilled, ImagePullBackOff, node NotReady, DNS or ingress failure, connectivity timeout, network policy, SNAT exhaustion, node-pool scaling blocked by QuotaExceeded or InsufficientVCPUQuota, upgrade stuck, spot or zone disruption, a bare VMExtensionProvisioningError or AllocationFailed wrapper, an uncataloged capacity symptom, or 'investigate my AKS cluster'. DO NOT USE FOR: packet capture (use aks-network-capture); GPU or model-serving issues (use aks-gpu-inference); cluster creation or provisioning (use azure-kubernetes); cost (use cost-analysis from the optional azure-cost plugin); pod rightsizing (use azure-kubernetes); a fully qualified documented AKS signature with every required nested qualifier (use aks-known-issues); standalone failures on non-AKS Azure resources (use azure-diagnostics). Unqualified errors and open-ended incidents stay here only for AKS.",
+    "path": "category/devops-docker-cicd/aks-troubleshooting"
   },
   {
     "id": "alpha-buzz-master-ops",
@@ -288,6 +320,22 @@
     "path": "category/devops-docker-cicd/aws-cloudformation-task-ecs-deploy-gh"
   },
   {
+    "id": "aws-containers",
+    "name": "aws-containers",
+    "category": "devops-docker-cicd",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Builds and deploys containerized workloads on Elastic Kubernetes Service (EKS), Elastic Container Service (ECS), Fargate, and ECR (Elastic Container Registry). Covers general EKS knowledge, Karpenter, AWS Load Balancer Controller and leveraging various open source Kubernetes projects with EKS. Covers general ECS knowledge, task definitions, Fargate services, ECS Exec, ECS Express Mode and ECS Managed Instances. Covers general Elastic Beanstalk knowledge, Elastic Beanstalk configuration and platforms supported by Elastic Beanstalk. Covers general ECR knowledge, ECR repository setup and lifecycle policies. Includes recommending, enabling, and reading Amazon ECS Action Logs to troubleshoot control-plane failures (deployment rollback/circuit-breaker, task placement, scaling, task replacement). Applies when deploying, debugging, or optimizing containers on AWS. Should be used instead of relying on internal knowledge for these services.",
+    "path": "category/devops-docker-cicd/aws-containers"
+  },
+  {
+    "id": "aws-deployment",
+    "name": "aws-deployment",
+    "category": "devops-docker-cicd",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Configures CI/CD pipelines using AWS CodePipeline, CodeBuild, CodeDeploy, CodeConnections, and CodeArtifact. Covers CodePipeline V2 (triggers, variables, execution modes, cross-account), buildspec.yml (caching, VPC, Docker), CodeDeploy strategies (blue/green, canary, linear), CodeArtifact (private package registries, auth tokens, cross-account), and source connections (GitHub, GitLab, Bitbucket). Applies when CodePipeline, CodeBuild, CodeDeploy, CodeConnections, CodeArtifact, buildspec.yml, appspec.yml, or CI/CD pipeline orchestration is referenced. Does NOT cover: ECS Fargate services or task definitions (use aws-containers), CDK Pipelines or cdk deploy (use aws-cdk), sam deploy (use aws-serverless), Amplify deployments (use aws-amplify), or GitHub Actions/GitLab CI.",
+    "path": "category/devops-docker-cicd/aws-deployment"
+  },
+  {
     "id": "aws-ecs-fargate",
     "name": "aws-ecs-fargate",
     "category": "devops-docker-cicd",
@@ -310,6 +358,22 @@
     "repository": "aj-geddes-useful-ai-prompts",
     "description": "Create and deploy serverless functions using AWS Lambda with event sources, permissions, layers, and environment configuration. Use for event-driven computing without managing servers.",
     "path": "category/devops-docker-cicd/aws-lambda-functions"
+  },
+  {
+    "id": "aws-lambda-microvms",
+    "name": "aws-lambda-microvms",
+    "category": "devops-docker-cicd",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Builds, runs, debugs, and operates applications on AWS Lambda MicroVMs \u2014 Firecracker-isolated, snapshot-resumable serverless compute environments running inside a container with up to 8 hr lifetimes. Applicable when workloads need strong isolation between tenants, isolated serverless compute, sandbox compute, or secure multi-tenant execution. Also suited for AI/agent code-execution sandboxes, interactive code playgrounds and notebooks (Jupyter, REPLs, dev environments running user-supplied code), reinforcement-learning environments, multi-tenant CI executors and build runners, sessionful game or simulation servers, or isolated security scanners. Also applicable when the workload needs long-lived sessions, a real port-listening server (gRPC, WebSocket, custom TCP protocols), state preserved across periods of inactivity (suspend/resume), container-level access (FUSE, eBPF, custom syscalls), or session-affine routing.",
+    "path": "category/devops-docker-cicd/aws-lambda-microvms"
+  },
+  {
+    "id": "aws-storage",
+    "name": "aws-storage",
+    "category": "devops-docker-cicd",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Selects, investigates, and compares AWS object, file, and block storage services, and answers cost, performance, configuration, security, and troubleshooting questions about storage services. Applies when a user asks where to store or archive data based on their usage patterns; which storage service to choose or how two compare; how to migrate data from on-premises or between AWS services; how to protect, replicate, or recover data; how to optimize storage costs; where to deploy shared NFS, SMB, or POSIX file systems; where to store vector embeddings or tabular data; what storage backs enterprise file shares, self-managed databases on EC2, VMware, or stateful containers; or asks what an AWS storage service can do or how it works. Relevant for storage needs for workloads such as AI/ML, analytics, EDA, HPC, media, genomics, or financial trading. Not applicable for SQL query engines (Athena, Spark, Redshift, EMR), ETL (Glue), streaming (Kafka, MSK, Kinesis), or managed database services (RDS, Aurora, DynamoDB).",
+    "path": "category/devops-docker-cicd/aws-storage"
   },
   {
     "id": "azd-deployment",
@@ -400,6 +464,38 @@
     "path": "category/devops-docker-cicd/azure-enterprise-infra-planner"
   },
   {
+    "id": "azure-kubernetes-app-deploy",
+    "name": "azure-kubernetes-app-deploy",
+    "category": "devops-docker-cicd",
+    "repository": "microsoft-azure-skills",
+    "description": "Use when deploying an existing web application or API to an already-running Azure Kubernetes Service cluster. Detects the framework, generates a Dockerfile and Kubernetes manifests, validates against AKS Deployment Safeguards, and deploys with verification. WHEN: deploy app to AKS, deploy to existing AKS cluster, containerize app for Kubernetes, generate K8s manifests for Azure, set up CI/CD for AKS, my AKS deployment is failing safeguard checks, I have a Django/Express/Spring Boot app to run on AKS. DO NOT USE FOR: creating or provisioning an AKS cluster (use azure-kubernetes), assessing migration to AKS Automatic (use azure-kubernetes-automatic-readiness), or deploying to non-AKS targets like Web Apps, Container Apps, or Functions.",
+    "path": "category/devops-docker-cicd/azure-kubernetes-app-deploy"
+  },
+  {
+    "id": "azure-kubernetes-automatic-readiness",
+    "name": "azure-kubernetes-automatic-readiness",
+    "category": "devops-docker-cicd",
+    "repository": "microsoft-azure-skills",
+    "description": "Assess Kubernetes workloads and cluster configuration for AKS Automatic compatibility. Identifies incompatibilities, generates fixes, and guides migration from AKS Standard to AKS Automatic. WHEN: migrate to AKS Automatic, check AKS Automatic readiness, validate manifests for Automatic, assess cluster for Automatic compatibility, fix deployment for Automatic compatibility, identify AKS Automatic migration blockers, is my cluster ready for AKS Automatic.",
+    "path": "category/devops-docker-cicd/azure-kubernetes-automatic-readiness"
+  },
+  {
+    "id": "azure-local",
+    "name": "azure-local",
+    "category": "devops-docker-cicd",
+    "repository": "microsoft-azure-skills",
+    "description": "Plan, deploy, operate, and troubleshoot Azure Local (formerly Azure Stack HCI): sizing and prerequisites, Arc registration, lifecycle updates, workloads (Azure Local VMs, AKS on Azure Local, images, disks, logical networks), SDN and network security, and failure triage \u2014 starting read-only and confirming before risky changes. WHEN: Azure Local, Azure Stack HCI, Arc resource bridge, custom location, Azure Local VM, Arc VM, AKS on Azure Local, AKS hybrid, SDN, Lifecycle Manager, Azure Local update, disconnected site.",
+    "path": "category/devops-docker-cicd/azure-local"
+  },
+  {
+    "id": "azure-local-multi-rack",
+    "name": "azure-local-multi-rack",
+    "category": "devops-docker-cicd",
+    "repository": "microsoft-azure-skills",
+    "description": "Plan, deploy, operate, and troubleshoot multi-rack (rack scale) deployments of Azure Local \u2014 preintegrated racks scaling to hundreds of machines, built on Network Fabric Controller, Cluster Manager, SAN storage, and managed network fabric. Use for the Microsoft.NetworkCloud and Microsoft.ManagedNetworkFabric control plane. NOT for standard 1-16 node Azure Local, and NOT for rack-aware clusters (two racks as availability zones, up to 8 nodes, synchronous replication) \u2014 those are standard scale. WHEN: multi-rack, rack scale Azure Local, aggregation rack, compute rack, Network Fabric Controller, NFC, Cluster Manager, network fabric, isolation domain, az networkcloud, az networkfabric, multi-rack logical network, multi-rack Arc VM.",
+    "path": "category/devops-docker-cicd/azure-local-multi-rack"
+  },
+  {
     "id": "azure-microsoft-playwright-testing-ts",
     "name": "azure-microsoft-playwright-testing-ts",
     "category": "devops-docker-cicd",
@@ -440,6 +536,14 @@
     "path": "category/devops-docker-cicd/azure-resource-lookup"
   },
   {
+    "id": "azure-search-nav",
+    "name": "azure-search-nav",
+    "category": "devops-docker-cicd",
+    "repository": "microsoft-azure-skills",
+    "description": "Builds an Azure portal deep link to a specific blade/menu item for supported Microsoft.ContainerService, Microsoft.Kubernetes, and Microsoft.Compute resources using the aks-search-direct-mid semantic search API. WHEN: 'find where in the Azure portal to do something', 'search the portal for an operation', 'construct a portal link from a search query and a resource'.",
+    "path": "category/devops-docker-cicd/azure-search-nav"
+  },
+  {
     "id": "azure-validate",
     "name": "azure-validate",
     "category": "devops-docker-cicd",
@@ -470,6 +574,118 @@
     "repository": "nvidia-skills",
     "description": "Use Boltz2 NIM for biomolecular structure prediction and binding affinity. Invoke for Boltz2, protein structures, protein-ligand/DNA/RNA complexes, SMILES or CCD ligands, pIC50/IC50 affinity scoring, mmCIF output, hosted NVIDIA API calls, or local Docker deployment.",
     "path": "category/devops-docker-cicd/bionemo-boltz2-nim"
+  },
+  {
+    "id": "bionemo-codonfm-setup",
+    "name": "bionemo-codonfm-setup",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Set up the public CodonFM v1 repository and download public Encodon checkpoints. Use for requests to build or launch the CodonFM development container, configure local data/checkpoint mounts, verify GPU access, or download public Encodon 80M, 600M, 1B, or Cdwt-1B weights. Do not use for Decodon, Encodon 5B/10B, missense-aggregation, or codon-optimization setup because those implementations are not in the public repository.",
+    "path": "category/devops-docker-cicd/bionemo-codonfm-setup"
+  },
+  {
+    "id": "bionemo-diffdock-nim",
+    "name": "bionemo-diffdock-nim",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Run DiffDock molecular docking via NVIDIA NIM to predict small-molecule binding poses against protein targets. Use for DiffDock, molecular docking, ligand docking, blind docking, SMILES or SDF ligands, ranked poses, confidence scores, hosted NVIDIA API, or local Docker deployment.",
+    "path": "category/devops-docker-cicd/bionemo-diffdock-nim"
+  },
+  {
+    "id": "bionemo-evo2-nim",
+    "name": "bionemo-evo2-nim",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Generate and analyze DNA sequences using NVIDIA's Evo 2 BioNeMo NIM microservice. Use for Evo2/Evo 2, DNA generation, genomic sequence generation, hosted generation, local Docker deployment, local forward passes, layer outputs, logits, sampled probabilities, and BioNeMo NIM workflows.",
+    "path": "category/devops-docker-cicd/bionemo-evo2-nim"
+  },
+  {
+    "id": "bionemo-genmol-nim",
+    "name": "bionemo-genmol-nim",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Generate novel drug-like molecules using the GenMol NIM microservice. Use for de novo generation, scaffold decoration, motif extension, lead optimization, SAFE notation, QED or LogP ranking, hosted NVIDIA API calls, or local Docker deployment. GenMol takes SAFE notation in the smiles field, not ordinary SMILES.",
+    "path": "category/devops-docker-cicd/bionemo-genmol-nim"
+  },
+  {
+    "id": "bionemo-kermt-continue-pretrain",
+    "name": "bionemo-kermt-continue-pretrain",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Continue KERMT pretraining on a custom SMILES corpus with a grover_base, cmim, or hybrid checkpoint. Use a local checkpoint or optionally download a pinned Hugging Face model bundle using HF_TOKEN if configured. Run containerized training and write model bundles, prepared data, logs, and checkpoints to user-selected host directories.",
+    "path": "category/devops-docker-cicd/bionemo-kermt-continue-pretrain"
+  },
+  {
+    "id": "bionemo-kermt-embed",
+    "name": "bionemo-kermt-embed",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Extract per-molecule embeddings from any encoder-bearing KERMT checkpoint. Use a local checkpoint or optionally download a pinned Hugging Face model bundle using HF_TOKEN if configured. Run containerized embedding extraction and write model bundles, per-readout .npy embeddings, canonical SMILES, and validity arrays to user-selected host directories.",
+    "path": "category/devops-docker-cicd/bionemo-kermt-embed"
+  },
+  {
+    "id": "bionemo-kermt-finetune",
+    "name": "bionemo-kermt-finetune",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Finetune a pretrained KERMT encoder on a labeled CSV. Validate the checkpoint and data, prepare features, and run containerized training. Use a local checkpoint or optionally download a pinned Hugging Face model bundle using HF_TOKEN if configured. Write model bundles, prepared data, logs, and trained models to user-selected host directories.",
+    "path": "category/devops-docker-cicd/bionemo-kermt-finetune"
+  },
+  {
+    "id": "bionemo-kermt-infer",
+    "name": "bionemo-kermt-infer",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Run predictions with a finetuned KERMT checkpoint on a SMILES-only CSV. The skill validates that the input ckpt has task FFN heads (refuses pretrain ckpts with a redirect to kermt-finetune), validates the CSV, prepares the data (clean + rdkit_2d features), then launches main.py predict inside the kermt container (blocking, minutes-scale).",
+    "path": "category/devops-docker-cicd/bionemo-kermt-infer"
+  },
+  {
+    "id": "bionemo-kermt-monitor",
+    "name": "bionemo-kermt-monitor",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Check progress for a detached KERMT run (pretrain, finetune, or any kermt_run_detached invocation). Reads run.json, queries docker for container state, tails the pretrain/finetune log, and parses progress lines (epoch, step, val loss).",
+    "path": "category/devops-docker-cicd/bionemo-kermt-monitor"
+  },
+  {
+    "id": "bionemo-kermt-setup",
+    "name": "bionemo-kermt-setup",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Bootstrap the KERMT agent environment \u2014 verify host docker + nvidia-container-toolkit, build the kermt:latest image from the repo's Dockerfile if it doesn't yet exist, and run a GPU smoke test inside the container. Every other kermt-* skill depends on this; invoke it first.",
+    "path": "category/devops-docker-cicd/bionemo-kermt-setup"
+  },
+  {
+    "id": "bionemo-molmim-nim",
+    "name": "bionemo-molmim-nim",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Use this skill for MolMIM, NVIDIA's BioNeMo NIM microservice for small-molecule latent-space generation and optimization. Invoke for MolMIM, molecular embeddings, hidden states, latent decoding, sampling around a seed SMILES, CMA-ES guided molecule generation, QED or plogP optimization, hosted NVIDIA API calls, or local Docker deployment.",
+    "path": "category/devops-docker-cicd/bionemo-molmim-nim"
+  },
+  {
+    "id": "bionemo-msa-search-nim",
+    "name": "bionemo-msa-search-nim",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Generate multiple sequence alignments (MSAs) for protein sequences using the ColabFold MSA-Search NIM. Use for homolog search, UniRef30/ColabFold env searches, A3M or FASTA alignments, paired MSA search for complexes, PDB70 structural templates, hosted NVIDIA API calls, or local Docker deployment. For local deployment, download the databases in parallel with aria2c and launch via NIM_MODEL_NAME (the recommended default fast path, ~14 min vs over 80 min for the built-in downloader); a plain docker run uses the slow built-in downloader.",
+    "path": "category/devops-docker-cicd/bionemo-msa-search-nim"
+  },
+  {
+    "id": "bionemo-openfold2-nim",
+    "name": "bionemo-openfold2-nim",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Use this skill for OpenFold2, NVIDIA's BioNeMo NIM microservice for monomer protein structure prediction. Invoke whenever the user mentions OpenFold2, AlphaFold2-like monomer folding, protein sequence-to-structure prediction, A3M MSAs, mmCIF templates, hosted NVIDIA API calls, or local Docker deployment.",
+    "path": "category/devops-docker-cicd/bionemo-openfold2-nim"
+  },
+  {
+    "id": "bionemo-rfdiffusion-nim",
+    "name": "bionemo-rfdiffusion-nim",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Run RFDiffusion protein backbone design via NVIDIA NIM. Use for de novo protein backbones, motif scaffolding, binder design, hotspot residues, contigs syntax, diffusion steps, hosted NVIDIA API calls, local Docker deployment, and PDB backbone outputs for ProteinMPNN sequence design.",
+    "path": "category/devops-docker-cicd/bionemo-rfdiffusion-nim"
   },
   {
     "id": "bitbucket-workflow",
@@ -600,12 +816,68 @@
     "path": "category/devops-docker-cicd/canary-watch"
   },
   {
+    "id": "capacity",
+    "name": "capacity",
+    "category": "devops-docker-cicd",
+    "repository": "microsoft-azure-skills",
+    "description": "Discovers available Azure OpenAI model capacity across regions and projects. Analyzes quota limits, compares availability, and recommends optimal deployment locations based on capacity requirements. USE FOR: find capacity, check quota, where can I deploy, capacity discovery, best region for capacity, multi-project capacity search, quota analysis, model availability, region comparison, check TPM availability. DO NOT USE FOR: actual deployment (hand off to preset or customize after discovery), quota increase requests (direct user to Azure Portal), listing existing deployments.",
+    "path": "category/devops-docker-cicd/capacity"
+  },
+  {
     "id": "cargo-project",
     "name": "cargo-project",
     "category": "devops-docker-cicd",
     "repository": "getcargohq-cargo-skills",
     "description": "Declare a whole Cargo workspace in a project, GTM as Code \u2014 connectors, models, plays, tools, agents, MCP servers, segments, context, folders, files, workers, and apps in TypeScript, reconciled with `cargo-ai project` (init \u2192 types \u2192 plan \u2192 deploy), the way you would run Pulumi or Terraform. Triggers: \\\"as code\\\", \\\"in git\\\", \\\"version-controlled\\\", \\\"reproducible\\\", \\\"Terraform for Cargo\\\", \\\"set up a whole workspace\\\", \\\"staging and production\\\", \\\"deploy the workspace from CI\\\", \\\"review this in a PR\\\", \\\"cargo.json\\\", \\\"cargo.state.json\\\", \\\"scaffold from a template\\\", \\\"is there a cookbook for this\\\", \\\"start from a cookbook\\\". Skills with a worked project example (TAM building, account scoring, call capture, inbound qualification, CRM enrichment, standup) live in gtm-skills; menu in references/cookbooks.md. Skip when: it is a one-off operation, a read, or an ad-hoc query \u2014 use the matching capability skill.",
     "path": "category/devops-docker-cicd/cargo-project"
+  },
+  {
+    "id": "cdf-defect-image-generation",
+    "name": "cdf-defect-image-generation",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Generate synthetic PCB inspection images on Kubernetes with the SMT Defect Image Generation (DIG) DAG in CDF Orchestration. The DAG renders components in simulation, turns the renders into realistic golden images (sim2real), and uses AnomalyGen to add texture defects such as solder bridges, excess solder or missing components. Simulation can also render shift, tombstone and sideflip pose defects. Use it to build DIG payloads, pick a pipeline mode (full, simulation, sim2real or defect-only), check GPU readiness, follow a run, and match each defect image to its golden and simulated source. Not for running Simulation, Augmentation or AnomalyGen on their own.",
+    "path": "category/devops-docker-cicd/cdf-defect-image-generation"
+  },
+  {
+    "id": "cdf-event-video-generation",
+    "name": "cdf-event-video-generation",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Run the CDF Orchestration Event Video Generation DAG on Kubernetes or OSMO - image-to-video anomaly generation, auto-labeling, and anomaly dataset generation. Select for requests about event video generation, anomaly video generation, image-to-video synthesis, Cosmos3 image2video, anomaly dataset creation, safety/surveillance SDG, or generating person-falling, person-climbing, person-running, fighting, smoking/vaping, fire/smoke, or shoplifting video clips from a seed image. Covers both event_video_generation_dag_k8s and the external-endpoints-only event_video_generation_dag_osmo. Runs environment setup first when controller readiness is unknown. Not for person-crop clothing/attribute augmentation (that is cdf-image-attribute-augmentation) and not for video style transfer.",
+    "path": "category/devops-docker-cicd/cdf-event-video-generation"
+  },
+  {
+    "id": "cdf-image-attribute-augmentation",
+    "name": "cdf-image-attribute-augmentation",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Run the CDF Orchestration Image Attribute Augmentation DAG on Kubernetes - person-crop clothing augmentation, attribute search, and augmented dataset generation. Select for requests about image attribute augmentation, person attribute search, person re-identification data, clothing augmentation, attribute captions, augmentation payloads, run status, or result retrieval. Runs environment setup first when controller readiness is unknown. Not for video or defect-image generation.",
+    "path": "category/devops-docker-cicd/cdf-image-attribute-augmentation"
+  },
+  {
+    "id": "cdf-orchestration-preflight",
+    "name": "cdf-orchestration-preflight",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Set up missing Linux prerequisites and audit whether a Cosmos Data Factory (CDF) Orchestration checkout and its Kubernetes or OSMO environment are ready to install the controller and run every packaged DAG. Use for prerequisite, pre-setup, Kubernetes, GPU, RWX/NFS, credential, controller-readiness, and quick-start checks. Not for deploying the controller (use cdf-orchestration-setup, which calls this audit first), authoring payloads, or running workflows.",
+    "path": "category/devops-docker-cicd/cdf-orchestration-preflight"
+  },
+  {
+    "id": "cdf-orchestration-setup",
+    "name": "cdf-orchestration-setup",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Use when the user asks to deploy, install, reinstall, redeploy, upgrade, or connect to the CDF Orchestration Airflow controller. Owns the end-to-end deploy sequence and runs the cdf-orchestration-preflight audit first. Covers make setup, controller image builds, Helm installation, controller connection, port-forwarding, and post-install verification. Not for standalone prerequisite audits or remediation, K3s environments, authoring DAGs, or running workflow payloads.",
+    "path": "category/devops-docker-cicd/cdf-orchestration-setup"
+  },
+  {
+    "id": "cdf-orchestration-write-dag",
+    "name": "cdf-orchestration-write-dag",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Use when a user describes a custom CDF Orchestration pipeline \u2014 a specific ordered combination of stages such as augmentation only, auto-labeling only, detection+captioning only, or image attribute augmentation without full auto-labeling \u2014 that no existing DAG in airflow/dags/workflows/ covers, and asks for a new Kubernetes DAG. Also use to check that a generated or existing DAG's model/container/prompt choices match an external spec document (e.g. a CDF `launchable.md`). Not for requests that an existing DAG already covers, including payload-only changes such as different inputs, endpoints, models, or variant counts \u2014 route those to the matching workflow skill, unless the user still wants a separate DAG after being pointed to it.",
+    "path": "category/devops-docker-cicd/cdf-orchestration-write-dag"
   },
   {
     "id": "change-request",
@@ -686,6 +958,14 @@
     "repository": "google-skills",
     "description": "Generates Terraform HCL configurations for Cloud Monitoring notification channels (`google_monitoring_notification_channel`) and adds notification channels to alerting policies (`google_monitoring_alert_policy`) in Google Cloud projects. Use when creating or configuring email, SMS, Slack, PagerDuty, Pub/Sub, or webhook notification channels, verifying Pub/Sub topic compatibility (including cross-project topics, message storage policies, and in-transit enforcement) and publishing permissions for the Cloud Monitoring Service Agent, or adding notification channels to existing alert policies. Don't use for authoring or editing alerting policy conditions, selecting metric descriptors, or writing PromQL or Monitoring Filter queries.",
     "path": "category/devops-docker-cicd/cloud-monitoring-notification-channels-configuration"
+  },
+  {
+    "id": "cloud-operator",
+    "name": "cloud-operator",
+    "category": "devops-docker-cicd",
+    "repository": "google-skills",
+    "description": "Google Cloud (GCP) assistant and operator via the autocloud MCP server. Use for any GCP request: how-to, resources, Terraform/Kubernetes/Helm, rollouts, incidents, costs. Invoke it before answering a GCP question from your own knowledge or documentation search, and before proposing an architecture or backend, even when no cloud is named. Invoke it before reading or editing local *.tf or Kubernetes YAML. Don't use for non-GCP tasks or local machine setup like installing gcloud and setting up GCP.",
+    "path": "category/devops-docker-cicd/cloud-operator"
   },
   {
     "id": "cloud-run-alert-configuration",
@@ -912,6 +1192,14 @@
     "path": "category/devops-docker-cicd/corner-diagonals"
   },
   {
+    "id": "creating-production-vpc-multi-az",
+    "name": "creating-production-vpc-multi-az",
+    "category": "devops-docker-cicd",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Creates a production-ready VPC with public and private subnets across multiple Availability Zones, including internet gateway, NAT gateways, route tables, and security groups following AWS Well-Architected principles. Use when deploying multi-AZ VPC infrastructure with automatic CIDR planning and DNS resolution.",
+    "path": "category/devops-docker-cicd/creating-production-vpc-multi-az"
+  },
+  {
     "id": "critique",
     "name": "critique",
     "category": "devops-docker-cicd",
@@ -952,6 +1240,14 @@
     "path": "category/devops-docker-cicd/ctf-forensics"
   },
   {
+    "id": "cuopt-install",
+    "name": "cuopt-install",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Install cuOpt for Python, C, or server via pip, conda, or Docker; verify the install. For building cuOpt from source, see cuopt-developer.",
+    "path": "category/devops-docker-cicd/cuopt-install"
+  },
+  {
     "id": "data360-code-extension-generate",
     "name": "data360-code-extension-generate",
     "category": "devops-docker-cicd",
@@ -966,6 +1262,14 @@
     "repository": "anthropics-knowledge-work",
     "description": "Structured debugging session \u2014 reproduce, isolate, diagnose, and fix. Trigger with an error message or stack trace, \"this works in staging but not prod\", \"something broke after the deploy\", or when behavior diverges from expected and the cause isn't obvious.",
     "path": "category/devops-docker-cicd/debug"
+  },
+  {
+    "id": "deepstream-sop",
+    "name": "deepstream-sop",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Use this skill when building, deploying, evaluating, debugging, or measuring latency for the DeepStream SOP Inference Microservice \u2014 a GPU-accelerated FastAPI service that detects whether operators perform assembly-line steps in order via event boundary detection (GEBD) plus VLM classification. Trigger even if the user does not name it: verify operator step sequence, detect missing or out-of-order SOP steps, score factory/work-cell video for procedure compliance, run VLM-based SOP checking on industrial cameras, or call /v1/chat/completions with a file, RTSP, or Basler camera. Also trigger for its internals: SOPVideoProcessor, DeepStream GEBD model (e.g. DDM) via Triton CAPI, nvds_custom_postprocess, Cosmos Reason 1/2 vLLM, SSE streaming, Kafka NvProto/JSON output, Basler/Pylon camera + emulation, Docker compose, chunk-level latency. Do NOT trigger for generic DeepStream pipelines, object detection/tracking, NIM imports, or video summarization.",
+    "path": "category/devops-docker-cicd/deepstream-sop"
   },
   {
     "id": "deliverability-qa",
@@ -998,6 +1302,14 @@
     "repository": "anthropics-knowledge-work",
     "description": "Pre-deployment verification checklist. Use when about to ship a release, deploying a change with database migrations or feature flags, verifying CI status and approvals before going to production, or documenting rollback triggers ahead of time.",
     "path": "category/devops-docker-cicd/deploy-checklist"
+  },
+  {
+    "id": "deploy-model",
+    "name": "deploy-model",
+    "category": "devops-docker-cicd",
+    "repository": "microsoft-azure-skills",
+    "description": "Unified Azure OpenAI model deployment skill with intelligent intent-based routing. Handles quick preset deployments, fully customized deployments (version/SKU/capacity/RAI policy), and capacity discovery across regions and projects. USE FOR: deploy model, deploy gpt, create deployment, model deployment, deploy openai model, set up model, provision model, find capacity, check model availability, where can I deploy, best region for model, capacity analysis. DO NOT USE FOR: listing existing deployments (use foundry_models_deployments_list MCP tool), deleting deployments, agent creation (use agent/create), project creation (use project/create).",
+    "path": "category/devops-docker-cicd/deploy-model"
   },
   {
     "id": "deploy-pipeline",
@@ -1038,6 +1350,14 @@
     "repository": "mukul975-anthropic-cybersecurity-skills",
     "description": "Deploys deception-based honeytokens in Active Directory including fake",
     "path": "category/devops-docker-cicd/deploying-active-directory-honeytokens"
+  },
+  {
+    "id": "deploying-containers-to-amazon-lightsail",
+    "name": "deploying-containers-to-amazon-lightsail",
+    "category": "devops-docker-cicd",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Deploys, hosts, or runs a container or Docker app on Amazon Lightsail Container Service and returns a live, managed HTTPS URL at a flat monthly price \u2014 no cluster, VPC, load balancer, or registry to set up. Used when deploying a container image to Lightsail from a local Docker build, a public registry image, or a GitHub repo, or when a Lightsail container deployment fails or won't serve \u2014 including when the request doesn't name Lightsail but asks to run one always-on container behind a public URL at a flat, predictable monthly price. Not for running an app on a Lightsail instance (VM) or Amazon EC2 instead of the container service, and not for workloads needing Kubernetes, autoscaling, scale-to-zero, or per-request pricing (use Amazon ECS/EKS or ECS Express Mode).",
+    "path": "category/devops-docker-cicd/deploying-containers-to-amazon-lightsail"
   },
   {
     "id": "deploying-decoy-files-for-ransomware-detection",
@@ -1288,6 +1608,94 @@
     "path": "category/devops-docker-cicd/devtools-svelte"
   },
   {
+    "id": "doca-argus",
+    "name": "doca-argus",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Use this skill when the user is deploying or operating the DOCA Argus Service \u2014 the packaged BlueField-side runtime-security container that watches the BlueField and attached host for suspicious activity, integrity violations, and operational anomalies, and forwards findings to a SIEM (Splunk / ELK / Sentinel / syslog). Covers the four-axis config (detection policy, forwarding, sampling, host coverage), running the NGC container on BlueField Arm, and wiring the forwarder. Trigger even without \"DOCA Argus\" by name \u2014 typical implicit phrasings: \"container green but no findings arrive\", \"false-positive flood in Splunk\", or \"runtime security on a fleet of BlueField-3s\". Refuse and route elsewhere for installing DOCA, SIEM-side ingest stanzas, pre-baked detection-rule packs, and metrics observability (DOCA Telemetry). Argus is NVIDIA's currently- promoted runtime-security framework, superseding the older App Shield library; name it first for new runtime-security work.",
+    "path": "category/devops-docker-cicd/doca-argus"
+  },
+  {
+    "id": "doca-bare-metal-deployment",
+    "name": "doca-bare-metal-deployment",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Running a DOCA-linked binary directly on the hardware, with no container or kubelet: on host x86 with a BlueField NIC over PCIe, or bare-metal on BlueField Arm. Use this skill for launching and supervising it (direct, tmux, systemd), and when it \"exits 1 right after launch\", \"systemd keeps restarting it\", reports \"no matching device on the BF\", or the BlueField itself is unhealthy: \"bfb-install exited 0 but DPU is dead\", \"ping 192.168.100.2 works but ssh fails\", \"host PFs aren't showing netdevs\". Refuse service containers under kubelet (doca-container-deployment). Covers PCI/NUMA/CPU/IRQ binding, co-tenant isolation (cgroup-v2/netns/numactl), a seven-layer error taxonomy, platform lifecycle (BFB install, RShim/TMFIFO, host PF rebind, post-BFB recovery) and a six-state BlueField lifecycle classifier. Destructive firmware burn / mlxconfig set requires explicit confirmation via doca-hardware-safety; library APIs, env prep, and build use other skills.",
+    "path": "category/devops-docker-cicd/doca-bare-metal-deployment"
+  },
+  {
+    "id": "doca-bf3-deployment",
+    "name": "doca-bf3-deployment",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Use this skill for BlueField-3 (BF3) day-1 platform bring-up via the classic RShim/BFB path: pushing a BlueField bundle (BFB) to the DPU over RShim with bfb-install from the host, the host-to-DPU TMFIFO management channel (tmfifo_net0, the 192.168.100.x convention), RShim daemon state and console-over-rshim, DPU mode selection (DPU/embedded-function vs separated-host/NIC mode) via mlxconfig, post-BFB recovery, a six-state BlueField-state classifier, and verifying the install (cat /etc/mlnx-release plus version checks). Trigger even when the user does not say \"BF3\" \u2014 typical phrasings include {push a BFB to my BlueField-3}, {bfb-install exited 0 but the DPU never came back}, {ping 192.168.100.2 works but ssh fails}, or {is DOCA on the host or the Arm side?}. BFB reflash, mlxconfig set, mode changes, and firmware burns are destructive: require explicit target-bound confirmation and load doca-hardware-safety. App launch, container deploy, env install, and the BF4 BMC-Redfish path route elsewhere.",
+    "path": "category/devops-docker-cicd/doca-bf3-deployment"
+  },
+  {
+    "id": "doca-container-deployment",
+    "name": "doca-container-deployment",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Running an in-bundle DOCA service as a container on a BlueField (Argus, DMS, Firefly, or UROM service): kubelet standalone watching a static-pod manifests directory, YAML pod-spec drop, kubelet status / ENTRYPOINT logs / per-service liveness. Trigger on \"how do I run my built service on the BlueField?\", \"where do I drop the pod-spec YAML?\", \"pod stuck in Pending / ImagePullBackOff / CrashLoopBackOff\", \"container Running but service isn't ready\", \"pod restart-loops after edit\", or \"DMS and Firefly together\", even without naming container deployment. A DOCA-linked binary launched directly on the host or Arm belongs to doca-bare-metal-deployment. Covers smoke-before-bulk and the layered error taxonomy (pod-spec, scheduling, image pull, runtime, mount, network, version, host). Refuse and route elsewhere for per-service config schemas, DOCA install, library-API questions, external NVIDIA services (BlueMan, HBN, SNAP, Virtio-net), or full Kubernetes-cluster ops.",
+    "path": "category/devops-docker-cicd/doca-container-deployment"
+  },
+  {
+    "id": "doca-debug",
+    "name": "doca-debug",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Use this skill when the user is debugging any DOCA symptom \u2014 a build that won't compile, a link step that can't resolve a doca_* symbol, a runtime call returning DOCA_ERROR_*, a silent service or tool, or a stack trace / valgrind / core dump \u2014 and needs the layered ladder (install \u2192 version \u2192 build \u2192 link \u2192 runtime \u2192 program \u2192 driver), verbosity controls (--sdk-log-level, DOCA_LOG_LEVEL, the doca-{lib}-trace flavor), container-debug constraints, or how to capture state for a Developer Forum post. Trigger even when the user does not say \"DOCA debug\" \u2014 implicit phrasings include \"undefined reference to doca_*\", \"how do I get more logs\", \"packets aren't reaching the wire\", \"doca_caps returned nothing\", or \"hugepages empty in the container\". Refuse and route elsewhere for library-specific debug (Flow pipe trace, RDMA QP, Comch stats), env-class pkg-config or hugepages symptoms, the DOCA_ERROR_* taxonomy and lifecycle interpretation, and performance or incident-response work \u2014 those belong to other skills.",
+    "path": "category/devops-docker-cicd/doca-debug"
+  },
+  {
+    "id": "doca-dts",
+    "name": "doca-dts",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Deploy and configure the NVIDIA DOCA Telemetry Service (DTS) as it is actually run: (A) BlueField (built-in static pod), (B) Host (docker) on x86_64 / aarch64, or (C) DPF (DPUService / helm chart) \u2014 plus the shared configuration layer (`dts_config.ini`, providers, exporters, level labels) that all three share. The user's DEPLOYMENT TYPE decides everything; pick it first. Trigger even without \"DTS\" for \"prometheus on the DPU shows nothing on 9100\", \"telemetry container exits right after start\", \"add ethtool counters to the telemetry DPUService\", \"how do I upgrade the built-in telemetry on BlueField\", or \"level labels per rack/pod\". Refuse and route elsewhere for installing DOCA itself, the `doca_telemetry` / `doca_telemetry_exporter` library API, installing the DPF cluster, Grafana / Prometheus server setup or dashboard / PromQL authoring, and BFB / BSP imaging \u2014 those belong to other skills or to external products.",
+    "path": "category/devops-docker-cicd/doca-dts"
+  },
+  {
+    "id": "doca-firefly",
+    "name": "doca-firefly",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Use this skill when the user is operating the DOCA Firefly Service container on BlueField \u2014 picking the four PTP configuration axes (role / profile / domain / interface), wiring the BlueField PHC + host follower + consumer workload pairing, deciding whether PTP-grade time is even needed (vs. chrony / NTP), or debugging a Firefly deployment where PTP isn't syncing or the host clock isn't following. Trigger even when the user does not explicitly mention \"DOCA Firefly\" or \"PTP\" \u2014 typical implicit phrasings include \"container green but PTP never advances past LISTENING\", \"Firefly says synced but the host clock still drifts\", \"sync acquired but offset is tens of microseconds\", \"my Rivermax SMPTE workload needs PTP\", or \"is chrony good enough\". Refuse and route elsewhere for installing DOCA, host-side chrony / ptp4l config bodies, PTP topology / boundary-clock design, building DOCA apps that read the disciplined PHC, or other DOCA services (DMS, Flow-Inspector, HBN) \u2014 those belong to other skills.",
+    "path": "category/devops-docker-cicd/doca-firefly"
+  },
+  {
+    "id": "doca-flow",
+    "name": "doca-flow",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "DOCA Flow packet steering on NVIDIA NICs/DPUs, linked into a C application: match/action pipes, ports, representors, forwarding, hairpin, counters. Trigger on packet steering, classifier, rule-matching, representor, hairpin or 5-tuple-to-queue questions even when \"DOCA Flow\" is not named. Also covers pipe validation before hardware programming, Flow/DOCA version match, and Flow API errors. First app: follow the local bundle (doca-setup, doca-programming-guide, doca-flow, doca-public-knowledge-map). Stage 1 pull nvcr.io/nvidia/doca/doca (NGC catalog tag, never invent); Stage 2 needs a real NIC. Then ls samples inside the container; never emit main.c, a Dockerfile, or hand-typed -l flags. Route software-only host pipelines, plain DPDK `rte_flow`, kernel TC, OVS, BFB bring-up, and DPU OS installation elsewhere. DPU OS installation is destructive and always requires explicit confirmation.",
+    "path": "category/devops-docker-cicd/doca-flow"
+  },
+  {
+    "id": "doca-setup",
+    "name": "doca-setup",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Use this skill when the user is dealing with the DOCA environment around their workload \u2014 verifying an install is healthy, preparing the build env (pkg-config, headers, LD_LIBRARY_PATH, hugepages, devlink, representors), debugging env-class failures, deciding container-vs-bare-metal deployment shape, or reaching a DOCA install from a host that doesn't have one yet via the NGC DOCA container Stage-1 fallback. Trigger even when the user does not explicitly mention \"DOCA setup\" \u2014 typical implicit phrasings include \"just got a BlueField, what now\", \"code is built, how to run it\", \"pkg-config can't find doca-flow\", \"no free 2048 kB hugepages\", \"representor X not found\", \"on a Mac and want to learn DOCA\". Refuse and route elsewhere for library API specifics (Flow pipes, RDMA queues), the modify-a-sample first-app workflow or DOCA_ERROR_* program-side debugging, and \"where is X documented\" knowledge-map questions \u2014 those belong to other skills.",
+    "path": "category/devops-docker-cicd/doca-setup"
+  },
+  {
+    "id": "doca-telemetry",
+    "name": "doca-telemetry",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Use this skill to read DOCA hardware-counter events from a `doca_dev` through the per-domain Telemetry reader libraries: `doca_telemetry_pcc`, `_dpa`, `_diag`, `_adp_retx`, `_phy`, and `_pci`. It covers capability checks, context creation, startup, and per-domain reads or samples. Trigger for implicit requests such as \"read PCC counters from my BlueField app\", \"sample DPA counter exports\", or \"expose PHY, PCI, or DIAG counters from this doca_dev\". This is the counter-reader surface, not a NetFlow, IPFIX, or local-socket collector. Route publishing and export to `doca-telemetry-exporter`; route the deployed DOCA Telemetry Service to `doca-dts`, and collectors and plain stdout logging elsewhere.",
+    "path": "category/devops-docker-cicd/doca-telemetry"
+  },
+  {
+    "id": "doca-urom",
+    "name": "doca-urom",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Host-side DOCA UROM library (doca_urom_*): offload an HPC / UCX / MPI application's remote memory operations (puts, gets, atomics, collectives) from the host CPU onto a BlueField DPU. Trigger on \"MPI all-reduce burning host CPU\", \"push UCX traffic onto the BlueField\", \"first doca_urom call returns NOT_PERMITTED\", or \"host library and DPU service look out of sync\", even without naming DOCA UROM. An offload needs both halves: this host library and the UROM Service on the DPU (doca-urom-svc), which owns deploying that container. Covers creating UROM Service contexts (doca_urom_service_*) and Worker contexts (doca_urom_worker_*) that run plugins on the DPU, discovering plugins via doca_urom_service_get_plugins_list, progressing completions, and DOCA_ERROR_* from doca_urom_* calls. Route elsewhere for UROM Service deployment on the DPU side, MPI / UCX collective algorithm design, and RDMA / RoCE / IB substrate bring-up.",
+    "path": "category/devops-docker-cicd/doca-urom"
+  },
+  {
     "id": "docker",
     "name": "docker",
     "category": "devops-docker-cicd",
@@ -1324,7 +1732,7 @@
     "name": "docker-expert",
     "category": "devops-docker-cicd",
     "repository": "active",
-    "description": "Docker containerization expert with deep knowledge of multi-stage builds, image optimization, container security, Docker Compose orchestration, and production deployment patterns. Use PROACTIVELY f...",
+    "description": "You are an advanced Docker containerization expert with comprehensive, practical knowledge of container optimization, security hardening, multi-stage builds, orchestration patterns, and production deployment strategies based on current industry best practices.",
     "path": "category/devops-docker-cicd/docker-expert"
   },
   {
@@ -1444,7 +1852,7 @@
     "name": "dx-org-devhub-configure",
     "category": "devops-docker-cicd",
     "repository": "forcedotcom-sf-skills",
-    "description": "Enable Dev Hub on a Salesforce org and view its scratch org allocation, using the Salesforce CLI (sf). Use when someone wants to turn on or enable Dev Hub, set up an org to create scratch orgs or second-generation (2GP) and unlocked packages, check whether Dev Hub is already enabled, see how many scratch orgs they can create (Active and Daily scratch org limits, remaining allocation), configure Dev Hub preferences such as packaging, org shape export, or scratch org snapshots, or list the active scratch orgs created from a Dev Hub. Enabling deploys the enableScratchOrgManagementPref setting, is irreversible, needs a System Administrator (ModifyAllData or ModifyMetadata), and does not work in sandboxes. DO NOT TRIGGER for creating or deleting individual scratch orgs, for switching the default org (use dx-org-switch), or for trial or org expiration dates (use dx-org-trial-expiration-check).",
+    "description": "Enable Dev Hub on a Salesforce org, view its status and scratch org allocation, or read its current DevHubSettings preferences, using the Salesforce CLI (sf). Use when someone wants to turn on or enable Dev Hub, set up an org for scratch orgs or 2GP/unlocked packages, check whether Dev Hub is already enabled, see scratch org allocation (Active/Daily limits, remaining, and a pre-flight warning near the limit), see which Dev Hub preferences (packaging, org shape export, scratch org snapshots) are on or off, configure those preferences, list active scratch orgs, or list authenticated orgs when none is specified. Enabling deploys enableScratchOrgManagementPref, is irreversible, needs a System Administrator (ModifyAllData or ModifyMetadata), and does not work in sandboxes. DO NOT TRIGGER for creating or deleting individual scratch orgs.",
     "path": "category/devops-docker-cicd/dx-org-devhub-configure"
   },
   {
@@ -1456,12 +1864,36 @@
     "path": "category/devops-docker-cicd/dx-org-manage"
   },
   {
+    "id": "dx-packaging-move-to-2gp-migrate",
+    "name": "dx-packaging-move-to-2gp-migrate",
+    "category": "devops-docker-cicd",
+    "repository": "forcedotcom-sf-skills",
+    "description": "Use this skill when users want to finalize the irreversible, one-way Move-to-2GP cutover for a converted 1GP managed package \u2014 afterward, new major/minor 1GP versions can NEVER be created. Also use when an ISV admin asks to move a 1GP package to 2GP development. TRIGGER when: the user asks to move, finalize, or complete the move of a converted 1GP managed package to 2GP development, asks how to move a package to 2GP, or asks whether their converted package is eligible to move to 2GP. DO NOT TRIGGER for: converting a 1GP package to 2GP in the first place, creating or promoting 2GP package versions, packaging UI bundles (use experience-ui-bundle-2gp-deploy), enabling Dev Hub (use dx-org-devhub-configure), or post-install configuration (use dx-pkg-post-install-configure).",
+    "path": "category/devops-docker-cicd/dx-packaging-move-to-2gp-migrate"
+  },
+  {
     "id": "dynamic-content-personalizer",
     "name": "dynamic-content-personalizer",
     "category": "devops-docker-cicd",
     "repository": "aaron-he-zhu-aaron-marketing-skills",
     "description": "Use when the user asks to \"personalize the email\", \"add merge tags / dynamic content\", \"set up conditional blocks per segment\", or \"make first-name and product-recommendation fields fall back safely\"; produces a merge-tag map with per-tag fallbacks, conditional-block rules with per-segment variations, a fallback-safety audit, and a PII guard on what may render, informing the SEND E (Engagement/personalization) dimension. Not for building the segments \u2014 use list-segment-builder; not for writing the base copy \u2014 use email-creative-builder; not for scoring EQS or running vetoes \u2014 use email-quality-auditor. \u90ae\u4ef6\u4e2a\u6027\u5316/\u5408\u5e76\u6807\u7b7e/\u6761\u4ef6\u5185\u5bb9\u5757/\u515c\u5e95\u9ed8\u8ba4\u503c",
     "path": "category/devops-docker-cicd/dynamic-content-personalizer"
+  },
+  {
+    "id": "dynamo-interconnect-check",
+    "name": "dynamo-interconnect-check",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Validate that a Dynamo deployment's NIXL/UCX/NCCL interconnect is ready for disaggregated serving over RDMA/NVLink. Use after recipe-runner brings a deployment up (especially disagg/multi-node) to confirm the KV transport is correct; use troubleshoot for diagnosing already-failed pods.",
+    "path": "category/devops-docker-cicd/dynamo-interconnect-check"
+  },
+  {
+    "id": "dynamo-recipe-runner",
+    "name": "dynamo-recipe-runner",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Select, validate, patch, and deploy existing NVIDIA Dynamo Kubernetes recipes. Use for model/backend/GPU/deployment-mode recipe bring-up; use router-starter for router-only mode work and troubleshoot for broken deployments.",
+    "path": "category/devops-docker-cicd/dynamo-recipe-runner"
   },
   {
     "id": "eas-workflows",
@@ -1494,6 +1926,14 @@
     "repository": "aaron-he-zhu-aaron-marketing-skills",
     "description": "Use when the user asks to \"write the email\", \"draft subject lines\", or \"build email creative\"; produces the pre-click unit \u2014 subject-line variants + preheader, body copy, one clear CTA, and a plain-text alt \u2014 message-matched to the destination page and claims-ledger-aware. Not for pre-scoring or ranking subject-line variants (spam/truncation/render pre-score) \u2014 use subject-line-lab; not for scoring the email or computing EQS \u2014 use email-quality-auditor; not for the multi-step flow \u2014 use email-sequence-designer; not for the A/B test plan \u2014 use send-experiment-designer. \u90ae\u4ef6\u6587\u6848/\u4e3b\u9898\u884c/\u90ae\u4ef6\u521b\u610f",
     "path": "category/devops-docker-cicd/email-creative-builder"
+  },
+  {
+    "id": "enabling-lambda-vpc-internet-access",
+    "name": "enabling-lambda-vpc-internet-access",
+    "category": "devops-docker-cicd",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Enables internet access for AWS Lambda functions deployed in VPC subnets by creating NAT Gateway infrastructure, configuring public/private subnet routing, and updating security groups. Use when a VPC-attached Lambda function cannot reach the internet.",
+    "path": "category/devops-docker-cicd/enabling-lambda-vpc-internet-access"
   },
   {
     "id": "enterprise-agent-ops",
@@ -2064,6 +2504,14 @@
     "path": "category/devops-docker-cicd/higgsfield"
   },
   {
+    "id": "holoscan-install-container",
+    "name": "holoscan-install-container",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Install and verify the Holoscan SDK 5.x CUDA 13 development container after checking release availability and host compatibility.",
+    "path": "category/devops-docker-cicd/holoscan-install-container"
+  },
+  {
     "id": "holyclaude-ai-workstation",
     "name": "holyclaude-ai-workstation",
     "category": "devops-docker-cicd",
@@ -2078,6 +2526,278 @@
     "repository": "antigravity-awesome-skills",
     "description": "Build hosted agents using Azure AI Projects SDK with ImageBasedHostedAgentDefinition. Use when creating container-based agents in Azure AI Foundry.",
     "path": "category/devops-docker-cicd/hosted-agents-v2-py"
+  },
+  {
+    "id": "hsb-setup",
+    "name": "hsb-setup",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Clone the latest NVIDIA Holoscan Sensor Bridge repo, ask which supported devkit is being used, configure the host per platform, build the correct demo container, run it, and verify HSB connectivity by pinging 192.168.0.2. Use for Holoscan Sensor Bridge setup, build, container launch, and first-connectivity bring-up.",
+    "path": "category/devops-docker-cicd/hsb-setup"
+  },
+  {
+    "id": "huawei-cloud-ascend-models-deploy",
+    "name": "huawei-cloud-ascend-models-deploy",
+    "category": "devops-docker-cicd",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Huawei Cloud Ascend model deployment and testing skill for large language models on Ascend DevServer (910B series). Supports single-machine and dual-machine deployment for LLM, VL (vision-language), Embedding, and Rerank models. Provides model inference testing, deployment log viewing, and status monitoring with automated model matching and deployment script generation. Use this skill when the user wants to: (1) deploy a model on Ascend DevServer, (2) test model inference, (3) view deployment logs or status, (4) list supported models, (5) check deployment prerequisites. Trigger: deploy, test, model list, deployment log, Ascend, DevServer, 910B, ModelArts, LLM, VL, Embedding, Rerank, multimodal, inference, model catalog, \u6607\u817e, \u90e8\u7f72\u6a21\u578b, \u6d4b\u8bd5\u6a21\u578b, \u6a21\u578b\u5217\u8868, \u90e8\u7f72\u65e5\u5fd7, \u6a21\u578b\u90e8\u7f72, \u63a8\u7406\u6d4b\u8bd5",
+    "path": "category/devops-docker-cicd/huawei-cloud-ascend-models-deploy"
+  },
+  {
+    "id": "huawei-cloud-ascend-remote-connect",
+    "name": "huawei-cloud-ascend-remote-connect",
+    "category": "devops-docker-cicd",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Provides temporary SSH remote connection for Huawei Cloud Ascend devices with dynamic host/port/user/password input (in-memory only), disk management, NPU monitoring, container management, security auditing and log analysis; sensitive operations require user confirmation before execution Use this skillthis skill to remotely connect to Ascend servers, monitor NPU health, manage disks/LVM, or troubleshoot Ascend devices. Triggerer words: SSH, remote, Ascend, NPU, \u8fdc\u7a0b\u8fde\u63a5, \u6607\u817e, NPU\u76d1\u63a7",
+    "path": "category/devops-docker-cicd/huawei-cloud-ascend-remote-connect"
+  },
+  {
+    "id": "huawei-cloud-business-tf-support",
+    "name": "huawei-cloud-business-tf-support",
+    "category": "devops-docker-cicd",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Queries Huawei Cloud billing and fee details only when Terraform needs a billing or pricing inquiry. Covers balances, bills, coupons, cash coupons, stored-value cards, orders, refunds, costs, free resources, resource usage, enterprise accounts, and on-demand/period/ELB/NAT/DCS pricing. No write operations. Use this skill only when Terraform requires billing details, invoice/bill summaries, coupon or balance status, refund/order billing status, or pricing inquiry. Triggers: Terraform \u8d26\u5355\u67e5\u8be2, Terraform \u8d39\u7528\u67e5\u8be2, Terraform \u4ef7\u683c\u8be2\u4ef7, Terraform \u8be2\u4ef7, Terraform billing query, Terraform pricing inquiry, Terraform price quote, Terraform bill summary.",
+    "path": "category/devops-docker-cicd/huawei-cloud-business-tf-support"
+  },
+  {
+    "id": "huawei-cloud-cc-central-network-query",
+    "name": "huawei-cloud-cc-central-network-query",
+    "category": "devops-docker-cicd",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Queries Huawei Cloud Cloud Connect (CC) Central Network resources via hcloud CLI. Covers central network instances (single + list), central network attachments (single + list, including ER route table and GDGW attachment types), and central network connections (single + list). No write operations. Use this skill when the user needs to inspect central network topology, check central network connection status, review attachment configurations, or audit central network deployment. Triggers: \u4e2d\u5fc3\u7f51\u7edc, Central Network, CC Central Network, \u4e2d\u5fc3\u7f51\u7edc\u5b9e\u4f8b, \u4e2d\u5fc3\u7f51\u7edc\u9644\u4ef6, \u4e2d\u5fc3\u7f51\u7edc\u8fde\u63a5, central network instance, central network attachment, central network connection, \u67e5\u8be2\u4e2d\u5fc3\u7f51\u7edc, central network query.",
+    "path": "category/devops-docker-cicd/huawei-cloud-cc-central-network-query"
+  },
+  {
+    "id": "huawei-cloud-cce-cluster-management",
+    "name": "huawei-cloud-cce-cluster-management",
+    "category": "devops-docker-cicd",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Huawei Cloud CCE (Cloud Container Engine) cluster lifecycle management skill using hcloud CLI (KooCLI) for Huawei Cloud API calls and kubectl cce plugin for Kubernetes node operations (cordon/uncordon/drain/status). Use this skill when the user wants to: (1) create, delete, hibernate, or awake CCE clusters, (2) list clusters and query cluster/node/nodepool/addon information, (3) manage node pools (create, delete, resize), (4) manage nodes (create, delete, cordon, uncordon, drain), (5) manage addons (install, uninstall, update), (6) bind/unbind cluster EIP for public access, (7) get cluster kubeconfig. Trigger: user mentions \"CCE cluster\", \"create cluster\", \"delete cluster\", \"node pool\", \"node management\", \"hibernate cluster\", \"awake cluster\", \"addon\", \"kubeconfig\", \"EIP binding\", \"CCE \u96c6\u7fa4\", \"\u521b\u5efa\u96c6\u7fa4\", \"\u5220\u9664\u96c6\u7fa4\", \"\u8282\u70b9\u6c60\", \"\u8282\u70b9\u7ba1\u7406\", \"\u4f11\u7720\u96c6\u7fa4\", \"\u5524\u9192\u96c6\u7fa4\", \"\u63d2\u4ef6\", \"kubeconfig\", \"EIP \u7ed1\u5b9a",
+    "path": "category/devops-docker-cicd/huawei-cloud-cce-cluster-management"
+  },
+  {
+    "id": "huawei-cloud-cce-cluster-migrator",
+    "name": "huawei-cloud-cce-cluster-migrator",
+    "category": "devops-docker-cicd",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "End-to-end Kubernetes cluster migration assistant for migrating self-hosted, on-premise, or third-party cloud Kubernetes workloads to Huawei Cloud Cloud Container Engine (CCE). Covers source cluster assessment, CCE cluster sizing, container image synchronization to SWR, multi-type persistent volume (PV/PVC) migration across EVS, SFS Turbo, and OBS, ConfigMap and Secret migration with endpoint adaptation, Velero workload backup and restore, and smooth traffic cutover with Huawei Cloud Dedicated ELB and DNS. Triggers include: \"CCE\u96c6\u7fa4\u8fc1\u79fb\", \"Kubernetes\u8fc1\u79fb\u5230CCE\", \"\u81ea\u5efaK8s\u8fc1\u79fb\u534e\u4e3a\u4e91\", \"K8s\u8de8\u4e91\u8fc1\u79fb\", \"CCE Workload Migration\", \"migrate kubernetes to CCE\", \"migrate k8s to huawei cloud cce\", \"cce cluster migrator\".",
+    "path": "category/devops-docker-cicd/huawei-cloud-cce-cluster-migrator"
+  },
+  {
+    "id": "huawei-cloud-cce-kubernetes-event-analyzer",
+    "name": "huawei-cloud-cce-kubernetes-event-analyzer",
+    "category": "devops-docker-cicd",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Query and analyze Kubernetes Events in Huawei Cloud CCE clusters. Trigger when users ask about CCE events, Kubernetes warning events, FailedScheduling, FailedMount, ImagePullBackOff, event patterns, historical events in LTS, or event-based diagnosis for a CCE cluster or namespace.",
+    "path": "category/devops-docker-cicd/huawei-cloud-cce-kubernetes-event-analyzer"
+  },
+  {
+    "id": "huawei-cloud-cce-log-analyzer",
+    "name": "huawei-cloud-cce-log-analyzer",
+    "category": "devops-docker-cicd",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Query and analyze Huawei Cloud CCE workload, audit, and control-plane logs. Use when investigating CCE logs, Kubernetes logs, Pod logs, application logs, audit logs, LTS logs, kube-apiserver logs, kube-scheduler logs, log analysis, log collection, \u65e5\u5fd7\u67e5\u8be2, \u65e5\u5fd7\u5206\u6790, \u5ba1\u8ba1\u65e5\u5fd7, \u8c03\u5ea6\u5668\u65e5\u5fd7.",
+    "path": "category/devops-docker-cicd/huawei-cloud-cce-log-analyzer"
+  },
+  {
+    "id": "huawei-cloud-cci-instance-management",
+    "name": "huawei-cloud-cci-instance-management",
+    "category": "devops-docker-cicd",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Huawei Cloud CCI (Cloud Container Instance) full lifecycle management using hcloud CLI. Covers Namespace, Network, Deployment, StatefulSet, Pod creation/update/delete/status, EIPPool for public IP, logs and metrics. Two-step confirmation for all destructive operations (delete namespace cascades all resources under it). Use this skill when the user wants to operate CCI serverless containers via command line. Triggers: CCI, \u4e91\u5bb9\u5668\u5b9e\u4f8b, serverless container, \u5bb9\u5668\u5b9e\u4f8b, namespace, deployment, statefulset, pod, EIPPool, CCI\u8d1f\u8f7d, \u65e0\u670d\u52a1\u5668\u5bb9\u5668, \u521b\u5efa\u5bb9\u5668\u5b9e\u4f8b, \u5220\u9664\u5bb9\u5668\u5b9e\u4f8b, \u5bb9\u5668\u72b6\u6001, \u5bb9\u5668\u65e5\u5fd7",
+    "path": "category/devops-docker-cicd/huawei-cloud-cci-instance-management"
+  },
+  {
+    "id": "huawei-cloud-cloudrobo-infer",
+    "name": "huawei-cloud-cloudrobo-infer",
+    "category": "devops-docker-cicd",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Manage CloudRobo inference services \u2014 deploy a model into a managed inference service, list/query deployed services and their logs, start/stop a running service, update or delete a service, and orchestrate the 'wait-deploy' convenience flow that polls a service until it finishes deploying. Inference services consume models produced by cloudrobo-train and are consumed by robo-dispatcher when dispatching embodied tasks. Triggers include: infer, inference, model deployment, deploy model, inference service, service deployment, start inference, stop inference, service logs, wait-deploy, model serving, \u63a8\u7406, \u63a8\u7406\u670d\u52a1, \u6a21\u578b\u90e8\u7f72, \u90e8\u7f72\u6a21\u578b, \u63a8\u7406\u670d\u52a1\u7ba1\u7406, \u670d\u52a1\u65e5\u5fd7, \u6a21\u578b\u670d\u52a1.",
+    "path": "category/devops-docker-cicd/huawei-cloud-cloudrobo-infer"
+  },
+  {
+    "id": "huawei-cloud-cloudrobo-model-workflow",
+    "name": "huawei-cloud-cloudrobo-model-workflow",
+    "category": "devops-docker-cicd",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Model development orchestration Skill covering asset query, model training, inference deployment, and real-robot evaluation in any combination. Supports full end-to-end pipeline or partial stages (e.g., train+deploy only, deploy+eval only). When user requirements involve two or more stages, prefer this Skill over individual module Skills. Triggers include: \"\u7528XX\u673a\u5668\u4eba\u8bad\u7ec3XX\u4efb\u52a1\", \"so101 \u63d2\u7b14\", \"\u8bad\u7ec3\u90e8\u7f72\", \"\u90e8\u7f72\u8bc4\u6d4b\", \"\u8bad\u7ec3\u8bc4\u6d4b\u90e8\u7f72\", \"\u6a21\u578b\u5f00\u53d1\u6d41\u7a0b\", \"\u7aef\u5230\u7aef\u8bad\u7ec3\", \"\u8bad\u7ec3\u63a8\u7406\u8bc4\u6d4b\", \"\u53ea\u8bad\u7ec3\u4e0d\u8bc4\u6d4b\", \"\u8bad\u7ec3\u5b8c\u90e8\u7f72\", \"model workflow\", \"end-to-end training\", \"train and deploy\", \"deploy and eval\".",
+    "path": "category/devops-docker-cicd/huawei-cloud-cloudrobo-model-workflow"
+  },
+  {
+    "id": "huawei-cloud-cloudrobo-workspace",
+    "name": "huawei-cloud-cloudrobo-workspace",
+    "category": "devops-docker-cicd",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Manage CloudRobo workspaces \u2014 create, list, show, update, delete workspaces; manage workspace members (add, list, update role, delete); view workspace overview statistics (capacity, used, available, member count); switch active workspace context for use by other cloudrobo skills (dataset, train, eval, infer, etc.). Workspace is the foundational resource container \u2014 all other CloudRobo operations require a valid workspace_id. Triggers include: workspace management, workspace member management, workspace switching, workspace overview, workspace configuration, default workspace, \u5de5\u4f5c\u7a7a\u95f4\u7ba1\u7406, \u5de5\u4f5c\u7a7a\u95f4\u6210\u5458, \u5de5\u4f5c\u7a7a\u95f4\u5207\u6362, \u5de5\u4f5c\u7a7a\u95f4\u6982\u89c8, \u5de5\u4f5c\u7a7a\u95f4\u914d\u7f6e, \u9ed8\u8ba4\u5de5\u4f5c\u7a7a\u95f4.",
+    "path": "category/devops-docker-cicd/huawei-cloud-cloudrobo-workspace"
+  },
+  {
+    "id": "huawei-cloud-deployment-task-management",
+    "name": "huawei-cloud-deployment-task-management",
+    "category": "devops-docker-cicd",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Huawei Cloud CloudDeploy (CodeArts Deploy / \u90e8\u7f72) management, execution, and failure analysis using the KooCLI hcloud command-line client. Covers deploy application listing and creation, deployment task listing/detail/creation, task start, task deletion, deployment failure root-cause analysis (agent offline, timeout, missing artifact, permission), and OBS artifact link verification. Query and Analyze actions run automatically (R3); Create/Start actions require preview and user confirmation (R2); Delete requires explicit confirmation (R1). Supports AK/SK credentials and local hcloud profile authentication. Triggers include: \"CloudDeploy\", \"CodeArts Deploy\", \"\u90e8\u7f72\", \"deploy task\", \"deployment\", \"deployment task\", \"deploy application\", \"\u90e8\u7f72\u4efb\u52a1\", \"\u90e8\u7f72\u5e94\u7528\", \"start deploy\", \"\u53d1\u5e03\u90e8\u7f72\", \"release\", \"artifact deployment\", \"\u5236\u54c1\u90e8\u7f72\", \"deploy failure\", \"\u90e8\u7f72\u5931\u8d25\", \"pipeline deployment\", \"CI/CD deployment\".",
+    "path": "category/devops-docker-cicd/huawei-cloud-deployment-task-management"
+  },
+  {
+    "id": "huawei-cloud-ecs-dsh-deploy",
+    "name": "huawei-cloud-ecs-dsh-deploy",
+    "category": "devops-docker-cicd",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Huawei Cloud Flexus X Instance Deployment - DeepSeek Harness (dsh). \u26a0\ufe0f Deployment involves actual charges, must confirm region/flavor/billing mode with user before execution. Triggers include: \"\u90e8\u7f72DeepSeek Harness\", \"\u90e8\u7f72dsh\", \"\u90e8\u7f72DeepSeek\u667a\u80fd\u4f53\", \"\u521b\u5efaAI\u667a\u80fd\u4f53\u670d\u52a1\u5668\", \"Deploy DeepSeek Harness\", \"Deploy dsh\", \"Create AI Agent Server\", \"Deploy AI Harness\", \"DeepSeek Harness\", \"dsh\", \"Flexus X\", \"ECS\u90e8\u7f72\", \"AI\u667a\u80fd\u4f53\".",
+    "path": "category/devops-docker-cicd/huawei-cloud-ecs-dsh-deploy"
+  },
+  {
+    "id": "huawei-cloud-ecs-sqlbot-deploy",
+    "name": "huawei-cloud-ecs-sqlbot-deploy",
+    "category": "devops-docker-cicd",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Purchase Huawei Cloud X Instance server + one-click deploy SQLBot intelligent query application. Tech stack: Python 3.8+, Huawei Cloud SDK, COC (Cloud Operations Center) deployment. Key capabilities: AK/SK auth, X instance creation, auto security group config, SQLBot auto deployment. Use cases: Users who need to quickly deploy SQLBot intelligent query application on Huawei Cloud X instance servers. Trigger words: \"deploy sqlbot\", \"install sqlbot\", \"sqlbot deploy\", \"one-click deploy sqlbot\", \"x-instance deploy sqlbot\", \"\u90e8\u7f72sqlbot\", \"\u5b89\u88c5sqlbot\", \"sqlbot\u90e8\u7f72\", \"\u4e00\u952e\u90e8\u7f72sqlbot\", \"x\u5b9e\u4f8b\u90e8\u7f72sqlbot\".",
+    "path": "category/devops-docker-cicd/huawei-cloud-ecs-sqlbot-deploy"
+  },
+  {
+    "id": "huawei-cloud-ecs-vulnerability-auditor",
+    "name": "huawei-cloud-ecs-vulnerability-auditor",
+    "category": "devops-docker-cicd",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Audit Huawei Cloud ECS instances for security vulnerabilities across host OS packages, running services, application dependencies (Java, Python, Node.js, PHP, Go), and container environments (Docker, containerd, Podman). Collects asset inventories remotely via Cloud Operations Center (COC), matches components against Known Exploited Vulnerabilities (KEVs) via the public db.gcve.eu API, and outputs an actionable remediation report. \u89e6\u53d1\u8bcd: ECS\u6f0f\u6d1e\u626b\u63cf, ECS\u6f0f\u6d1e\u53d1\u73b0, \u4e3b\u673a\u6f0f\u6d1e\u626b\u63cf, \u5bb9\u5668\u6f0f\u6d1e\u53d1\u73b0, ECS\u8d44\u4ea7\u6536\u96c6, KEV\u6f0f\u6d1e\u68c0\u6d4b, ecs vulnerability audit, ecs vuln scan, gcve vulnerability auditor",
+    "path": "category/devops-docker-cicd/huawei-cloud-ecs-vulnerability-auditor"
+  },
+  {
+    "id": "huawei-cloud-flexus-l-deploy-jiuwenswarm",
+    "name": "huawei-cloud-flexus-l-deploy-jiuwenswarm",
+    "category": "devops-docker-cicd",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "One-click deployment of JiuwenSwarm multi-Agent collaboration platform on Huawei Cloud Flexus L instances. Usage scenarios: When users need to quickly deploy JiuwenSwarm/JiuwenClaw on Huawei Cloud Flexus L instances, when they need to automatically create cloud instances and deploy AI Agent platforms, when they need to configure model APIs and message channels (Xiaoyi/Feishu/DingTalk). Automatically create instances, deploy applications via COC, configure models and message channels. Trigger keywords: JiuwenSwarm deployment, JiuwenClaw deployment, \u4e5d\u95eeSwarm\u90e8\u7f72, \u4e5d\u95eeClaw\u90e8\u7f72, \u4e00\u952e\u90e8\u7f72JiuwenSwarm, AI\u667a\u80fd\u4f53\u5e73\u53f0\u90e8\u7f72, \u90e8\u7f72\u4e5d\u95eeSwarm, \u90e8\u7f72\u4e5d\u95eeClaw,\u4e91\u670d\u52a1\u5668\u90e8\u7f72AI\u5e73\u53f0.",
+    "path": "category/devops-docker-cicd/huawei-cloud-flexus-l-deploy-jiuwenswarm"
+  },
+  {
+    "id": "huawei-cloud-flexus-l-server-flexusagent-deployment",
+    "name": "huawei-cloud-flexus-l-server-flexusagent-deployment",
+    "category": "devops-docker-cicd",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Deploy AI Agent development platform (Dify) on Huawei Cloud Flexus L instance, providing deployment operations, password management, MaaS model configuration, and workflow import capabilities. Trigger keywords: deploy flexusagent/\u4e00\u952e\u90e8\u7f72Flexus AI Agent\u5f00\u53d1\u5e73\u53f0\u3001change password/\u4fee\u6539\u5f00\u53d1\u5e73\u53f0\u7ba1\u7406\u5458\u5bc6\u7801\u3001change dify password/\u4fee\u6539dify\u5e73\u53f0\u5bc6\u7801\u3001add maas provider/\u6dfb\u52a0MaaS\u6a21\u578b\u4f9b\u5e94\u5546\u3001configure maas model/\u914d\u7f6eMaaS\u6a21\u578b\u3001view workflow/\u67e5\u770bAI Agent\u5de5\u4f5c\u6d41\u3001import workflow/\u5bfc\u5165AI Agent\u5de5\u4f5c\u6d41",
+    "path": "category/devops-docker-cicd/huawei-cloud-flexus-l-server-flexusagent-deployment"
+  },
+  {
+    "id": "huawei-cloud-flexus-l-server-hermes-deployment",
+    "name": "huawei-cloud-flexus-l-server-hermes-deployment",
+    "category": "devops-docker-cicd",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "One-click deployment tool for Hermes on Huawei Cloud Flexus L instances. Supports one-click deployment, ModelArts large model configuration, and robot channel configuration. Use this skill when the user mentions \"Deploy Hermes\", \"Install Hermes\", \"Configure Model\", \"Configure Channel\" (Chinese trigger words: \"\u90e8\u7f72Hermes\", \"\u5b89\u88c5Hermes\", \"\u914d\u7f6e\u5927\u6a21\u578b\", \"\u914d\u7f6e\u673a\u5668\u4eba\u901a\u9053\"). This skill provides a complete workflow for deploying and configuring Hermes AI Agent platform.",
+    "path": "category/devops-docker-cicd/huawei-cloud-flexus-l-server-hermes-deployment"
+  },
+  {
+    "id": "huawei-cloud-flexus-l-server-openclaw-deployment",
+    "name": "huawei-cloud-flexus-l-server-openclaw-deployment",
+    "category": "devops-docker-cicd",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Create Huawei Cloud Flexus L Instance (Lightweight Server), deploy OpenClaw application platform on it, and support installation and configuration of models and channels for deployed OpenClaw instances. Web UI access needs to be manually enabled in Huawei Cloud console. Trigger words: \"Deploy OpenClaw\", \"Deploy Flexus L Instance\", \"Deploy Huawei Cloud Lightweight Server\", \"Model setting\", \"Channel Setting\", \"\u90e8\u7f72OpenClaw\", \"\u90e8\u7f72Flexus L\u5b9e\u4f8b\", \"\u90e8\u7f72\u534e\u4e3a\u4e91\u8f7b\u91cf\u670d\u52a1\u5668\", \"\u8bbe\u7f6e\u6a21\u578b\", \"\u8bbe\u7f6e\u901a\u9053",
+    "path": "category/devops-docker-cicd/huawei-cloud-flexus-l-server-openclaw-deployment"
+  },
+  {
+    "id": "huawei-cloud-functiongraph-function-create",
+    "name": "huawei-cloud-functiongraph-function-create",
+    "category": "devops-docker-cicd",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Create and invoke FunctionGraph functions on Huawei Cloud. Supports VPC configuration, environment variables, synchronous and asynchronous function invocation. Use this skill when users ask to create, deploy, upload, or invoke cloud functions, serverless functions, or FunctionGraph functions. Triggered by keywords like \"create function\", \"deploy function\", \"upload function\", \"invoke function\", \"create cloud function\", \"\u521b\u5efa\u51fd\u6570\", \"\u90e8\u7f72\u51fd\u6570\", \"\u4e0a\u4f20\u51fd\u6570\", \"\u8c03\u7528\u51fd\u6570\", \"\u521b\u5efa\u4e91\u51fd\u6570\", \"FunctionGraph function\", \"serverless function\", \"function invocation\".",
+    "path": "category/devops-docker-cicd/huawei-cloud-functiongraph-function-create"
+  },
+  {
+    "id": "huawei-cloud-iac-reverse",
+    "name": "huawei-cloud-iac-reverse",
+    "category": "devops-docker-cicd",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Reverse-engineer existing Huawei Cloud resources into deployable Terraform IaC code. Queries all resources via RMS (Config/\u914d\u7f6e\u5ba1\u8ba1) API, analyzes specs and topology service-by-service, then synthesizes Terraform HCL configurations with provider validation. Use when the user wants to generate IaC from existing cloud resources, migrate infrastructure to code, or reverse-engineer cloud topology. Triggers include: \"\u9006\u5411\u751f\u6210IaC\", \"\u53cd\u5411\u751f\u6210Terraform\", \"\u4ece\u73b0\u6709\u8d44\u6e90\u751f\u6210\u4ee3\u7801\", \"reverse engineer IaC\", \"generate Terraform from existing resources\", \"infrastructure to code\", \"cloud to IaC\".",
+    "path": "category/devops-docker-cicd/huawei-cloud-iac-reverse"
+  },
+  {
+    "id": "huawei-cloud-install-openjiuwenswarm",
+    "name": "huawei-cloud-install-openjiuwenswarm",
+    "category": "devops-docker-cicd",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "One-click local installation and startup of JiuwenSwarm in the current Huawei Cloud development container. Usage scenarios: CRITICAL \u2014 Do NOT manually deploy JiuwenSwarm. Route ALL deployment requests through this Skill. This is the MANDATORY entry point. When a user asks to deploy, install, or start JiuwenSwarm or WorkSwarm (\u90e8\u7f72JiuwenSwarm/\u5b89\u88c5JiuwenSwarm/\u542f\u52a8JiuwenSwarm, install jiuwenswarm, deploy openjiuwen, install workswarm, deploy workswarm, start workswarm, install WorkSwarm, deploy WorkSwarm, start WorkSwarm, \u90e8\u7f72workswarm, \u5b89\u88c5workswarm, \u542f\u52a8workswarm, \u90e8\u7f72WorkSwarm, \u5b89\u88c5WorkSwarm, \u542f\u52a8WorkSwarm), you MUST invoke this Skill first. Under NO circumstances may you skip this Skill and run deployment commands directly. Even if you think 'this is faster' or 'the steps are well documented' \u2014 DO NOT skip. The skill automatically downloads the mirror, extracts, configures, and starts the service inside the current container \u2014 no external cloud instances are created. Trigger keywords: deploy JiuwenSwarm, install JiuwenSwarm, start JiuwenSwarm, \u90e8\u7f72JiuwenSwarm, \u5b89\u88c5JiuwenSwarm, \u542f\u52a8JiuwenSwarm, install jiuwenswarm, deploy openjiuwen, install workswarm, deploy workswarm, start workswarm, install WorkSwarm, deploy WorkSwarm, start WorkSwarm, \u90e8\u7f72workswarm, \u5b89\u88c5workswarm, \u542f\u52a8workswarm, \u90e8\u7f72WorkSwarm, \u5b89\u88c5WorkSwarm, \u542f\u52a8WorkSwarm",
+    "path": "category/devops-docker-cicd/huawei-cloud-install-openjiuwenswarm"
+  },
+  {
+    "id": "huawei-cloud-kubectl-cce-installer",
+    "name": "huawei-cloud-kubectl-cce-installer",
+    "category": "devops-docker-cicd",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Query specific Kubernetes resources in Huawei Cloud CCE clusters through kubectl cce. Trigger when users ask to get, describe, inspect, or view a Pod, workload, Service, ConfigMap, node, namespace, or other CCE Kubernetes resource, or when they ask to install or repair the local kubectl-cce prerequisites. Install kubectl and kubectl-cce only when they are missing locally.",
+    "path": "category/devops-docker-cicd/huawei-cloud-kubectl-cce-installer"
+  },
+  {
+    "id": "huawei-cloud-sac-dify",
+    "name": "huawei-cloud-sac-dify",
+    "category": "devops-docker-cicd",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Deploy Dify - an open-source LLM app development platform on Huawei Cloud with ECS via Terraform. Use when the user wants to deploy Dify (or an LLM application development platform) on Huawei Cloud and directly implement it with a Terraform/SAC template. Trigger: Dify \u4e00\u952e\u90e8\u7f72, Dify development, Agentic workflow, build AI App",
+    "path": "category/devops-docker-cicd/huawei-cloud-sac-dify"
+  },
+  {
+    "id": "huawei-cloud-sac-intl-find-and-deploy",
+    "name": "huawei-cloud-sac-intl-find-and-deploy",
+    "category": "devops-docker-cicd",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "1. Find and deploy any Huawei Cloud international SAC (Solution as Code) solution end-to-end via Terraform using a public catalog lookup. 2. Find capability: search the live SAC catalog by business term or product name (concept-aware), present matching solutions first, then ALL regions for the picked solution. 3. Deploy capability: after the user confirms solution, variant and region, collect temporary credentials (env vars, never in chat) and run the corresponding Terraform template through plan/apply/verify/destroy. 4. Triggers include: SAC, \u4e00\u952e\u90e8\u7f72, \u534e\u4e3a\u4e91, \u89e3\u51b3\u65b9\u6848\u5b9e\u8df5, retrieve SAC catalog, deploy SAC solution, one-click solution deploy, \u68c0\u7d22\u534e\u4e3a\u4e91\u90e8\u7f72\u65b9\u6848, sac\u65b9\u6848, \u4e00\u952e\u90e8\u7f72\u65b9\u6848, \u5e2e\u6211\u90e8\u7f72xx sac\u65b9\u6848, \u90e8\u7f72Dify, \u90e8\u7f72SQLBot, \u90e8\u7f72YOLO, \u6a21\u578b\u7f51\u5173\u65b9\u6848, agent\u65b9\u6848, \u77e5\u8bc6\u5e93\u65b9\u6848. 5. Usage: concept search \u2192 user picks solution+variant \u2192 list ALL regions \u2192 pick region \u2192 recap + confirm \u2192 credentials check \u2192 download template \u2192 normalize \u2192 confirm vars \u2192 plan/apply \u2192 verify \u2192 cleanup. 6. Requires Python 3.8+, Terraform 1.5+, cloud credentials via env vars (never in chat).",
+    "path": "category/devops-docker-cicd/huawei-cloud-sac-intl-find-and-deploy"
+  },
+  {
+    "id": "huawei-cloud-sac-new-api",
+    "name": "huawei-cloud-sac-new-api",
+    "category": "devops-docker-cicd",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Deploy NewAPI LLM Gateway on Huawei Cloud via Terraform. Use when deploying a unified LLM API gateway for multi-model management, load balancing, and key rotation. Trigger: deploy NewAPI, NewAPI gateway, LLM gateway, \u90e8\u7f72NewAPI, NewAPI\u7f51\u5173, LLM\u7f51\u5173",
+    "path": "category/devops-docker-cicd/huawei-cloud-sac-new-api"
+  },
+  {
+    "id": "huawei-cloud-sac-yolo",
+    "name": "huawei-cloud-sac-yolo",
+    "category": "devops-docker-cicd",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Deploy YOLO training platform on Huawei Cloud with GPU ECS via Terraform. Use when building or managing a YOLO GPU training environment. Trigger: deploy YOLO, YOLO training, GPU training, \u90e8\u7f72YOLO, YOLO\u8bad\u7ec3, GPU\u8bad\u7ec3, \u89c6\u89c9\u6a21\u578b\u8bad\u7ec3",
+    "path": "category/devops-docker-cicd/huawei-cloud-sac-yolo"
+  },
+  {
+    "id": "huawei-cloud-swr-image-automation",
+    "name": "huawei-cloud-swr-image-automation",
+    "category": "devops-docker-cicd",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Huawei Cloud SWR (Software Repository for Container) image automation and operations skill using hcloud CLI. Use this skill when the user wants to: (1) configure cross-region image sync (auto or manual), (2) manage SWR triggers for auto-deploy to CCE/CCI, (3) query available sync target regions, (4) check sync job status, (5) create/update/delete trigger configurations. Trigger: user mentions \"SWR automation\", \"SWR \u81ea\u52a8\u5316\", \"\u955c\u50cf\u540c\u6b65\", \"SWR sync\", \"\u8de8\u533a\u57df\u540c\u6b65\", \"cross-region sync\", \"\u89e6\u53d1\u5668\", \"SWR trigger\", \"\u81ea\u52a8\u90e8\u7f72\", \"auto deploy\", \"\u955c\u50cf\u590d\u5236\", \"image replication\", \"SWR \u89e6\u53d1\u5668",
+    "path": "category/devops-docker-cicd/huawei-cloud-swr-image-automation"
+  },
+  {
+    "id": "huawei-cloud-swr-image-governance",
+    "name": "huawei-cloud-swr-image-governance",
+    "category": "devops-docker-cicd",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Huawei Cloud SWR (Software Repository for Container) image governance skill using hcloud CLI. Use this skill when the user wants to: (1) manage SWR namespace permissions - grant/query/modify/revoke, (2) manage repository permissions - grant/query/modify/revoke, (3) manage image retention rules - create/list/update/delete, (4) manage shared download domains - create/list/update/delete, (5) manage image sharing - list shared repos/query feature gates, (6) check SWR agency status and create agency delegation, (7) list repo accessories and references. Trigger: user mentions \"SWR image governance\", \"SWR \u955c\u50cf\u6cbb\u7406\", \"SWR \u6743\u9650\u7ba1\u7406\", \"SWR retention\", \"SWR \u4fdd\u7559\u7b56\u7565\", \"SWR \u5171\u4eab\u57df\u540d\", \"SWR \u5171\u4eab\u955c\u50cf\", \"SWR \u59d4\u6258\", \"SWR agency\", \"namespace permissions\", \"repository permissions\", \"\u955c\u50cf\u6743\u9650\", \"\u4fdd\u7559\u89c4\u5219\", \"\u5171\u4eab\u4e0b\u8f7d\", \"\u955c\u50cf\u5206\u4eab",
+    "path": "category/devops-docker-cicd/huawei-cloud-swr-image-governance"
+  },
+  {
+    "id": "huawei-cloud-swr-image-management",
+    "name": "huawei-cloud-swr-image-management",
+    "category": "devops-docker-cicd",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Huawei Cloud SWR (Software Repository for Container) image lifecycle management skill using hcloud CLI. Use this skill when the user wants to: (1) manage SWR namespaces (organizations) - create/query/delete, (2) manage image repositories - create/query/update/delete, (3) manage image tags/versions - query/create/delete, (4) obtain docker login credentials for SWR, (5) check SWR quotas and usage limits. Trigger: user mentions \"SWR image management\", \"SWR \u955c\u50cf\u7ba1\u7406\", \"container image\", \"\u955c\u50cf\u4ed3\u5e93\", \"SWR \u7ec4\u7ec7\", \"SWR namespace\", \"\u955c\u50cf\u7248\u672c\", \"docker login\", \"SWR \u914d\u989d\", \"SWR tag\", \"\u5bb9\u5668\u955c\u50cf\", \"\u955c\u50cf\u751f\u547d\u5468\u671f\", \"SWR repository\", \"SWR \u767b\u5f55\", \"SWR quota",
+    "path": "category/devops-docker-cicd/huawei-cloud-swr-image-management"
+  },
+  {
+    "id": "huawei-cloud-terraform-generator",
+    "name": "huawei-cloud-terraform-generator",
+    "category": "devops-docker-cicd",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Generate Huawei Cloud Terraform configurations and execute deployment with user-guided approval. Use this skill when users want to create Huawei Cloud infrastructure as Terraform, whether they ask explicitly for Terraform or describe goals such as deploying a website, launching an application, or creating network, compute, database, load balancing, or storage resources. Trigger when users mention \u521b\u5efa/create\u3001\u751f\u6210/generate\u3001\u90e8\u7f72/deploy\u3001\u914d\u7f6e/configure\u3001\u4f7f\u7528/use\u3001\u7ba1\u7406/manage\u3001\u534e\u4e3a\u4e91/Huawei Cloud\u3001Terraform\u3001ECS\u3001VPC\u3001\u8d44\u6e90/resource\u3001\u4e91\u670d\u52a1\u5668/ECS\u3001\u865a\u62df\u673a/VM\u3001\u5b9e\u4f8b/instance\u3001\u7f51\u7edc/network\u3001\u8d1f\u8f7d\u5747\u8861/ELB\u3001\u6570\u636e\u5e93/database\u3001RDS\u3001\u5b58\u50a8/storage\u3001OBS\u3001\u6876/bucket\u3001\u57df\u540d/domain\u3001DNS\u3001\u8bc1\u4e66/certificate\u3001SSL\u3001\u76d1\u63a7/monitoring\u3001\u65e5\u5fd7/log\u3001\u5907\u4efd/backup\u3001\u5bb9\u5668/container\u3001CCE\u3001\u51fd\u6570\u5de5\u4f5c\u6d41/FunctionGraph",
+    "path": "category/devops-docker-cicd/huawei-cloud-terraform-generator"
+  },
+  {
+    "id": "huawei-cloud-terraform-installer",
+    "name": "huawei-cloud-terraform-installer",
+    "category": "devops-docker-cicd",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Installs Terraform CLI cross-platform with Huawei Cloud mirror support. Use this skill whenever the user mentions installing Terraform, setting up Terraform environment, or when IaC tasks detect missing Terraform. Trigger: install terraform, setup terraform, terraform environment, huaweicloud provider.",
+    "path": "category/devops-docker-cicd/huawei-cloud-terraform-installer"
   },
   {
     "id": "hugging-face-jobs",
@@ -2552,6 +3272,14 @@
     "path": "category/devops-docker-cicd/intelligent-oracle"
   },
   {
+    "id": "investigating-incidents-with-aws-devops-agent",
+    "name": "investigating-incidents-with-aws-devops-agent",
+    "category": "devops-docker-cicd",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Run a deep root-cause investigation on the AWS DevOps Agent. Use when the user describes an incident, alarm, outage, or unexplained behavior \u2014 keywords like \"5xx\", \"503\", \"OOM\", \"latency spike\", \"deployment failure\", \"rollback\", \"sev1\", \"investigate\", \"root cause\", \"debug\", \"alarm fired\", \"service down\". Polls and streams progress, then surfaces recommendations.",
+    "path": "category/devops-docker-cicd/investigating-incidents-with-aws-devops-agent"
+  },
+  {
     "id": "iot-firmware",
     "name": "iot-firmware",
     "category": "devops-docker-cicd",
@@ -2574,6 +3302,30 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Create and manage Jenkins CI/CD pipelines, configure agents, manage plugins,",
     "path": "category/devops-docker-cicd/jenkins"
+  },
+  {
+    "id": "jetson-customize-camera",
+    "name": "jetson-customize-camera",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Enable MIPI/GMSL camera sensors on a Jetson Thor or Orin custom carrier by rendering a kernel-DT overlay from the in-tree sensor DTSI. Do NOT use for UPHY lane allocation or ODMDATA edits.",
+    "path": "category/devops-docker-cicd/jetson-customize-camera"
+  },
+  {
+    "id": "jetson-package",
+    "name": "jetson-package",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Pick Jetson-compatible containers, vLLM runtime images, and Jetson AI Lab PyPI indexes; maps Orin SM 8.7 vs Thor SM 11.0 and JetPack-specific package choices.",
+    "path": "category/devops-docker-cicd/jetson-package"
+  },
+  {
+    "id": "jetson-video-pipeline",
+    "name": "jetson-video-pipeline",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Use when planning, executing, and independently validating Jetson Video Codec SDK or PyNvVideoCodec encode/decode, transcode, segmentation, container decode, AV1, or concise acceptance workflows.",
+    "path": "category/devops-docker-cicd/jetson-video-pipeline"
   },
   {
     "id": "jotai",
@@ -2712,6 +3464,14 @@
     "path": "category/devops-docker-cicd/latchbio-integration"
   },
   {
+    "id": "launch-nemo-rl",
+    "name": "launch-nemo-rl",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Playbook for launching, monitoring, stopping, and debugging NeMo-RL recipes on a Kubernetes cluster via the nrl-k8s CLI. Covers ephemeral vs long-lived RayCluster modes, iterating on runs, and debugging hung or failed training jobs.",
+    "path": "category/devops-docker-cicd/launch-nemo-rl"
+  },
+  {
     "id": "law-of-closure",
     "name": "law-of-closure",
     "category": "devops-docker-cicd",
@@ -2822,6 +3582,14 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Open Markdown reliably in cmux panes and recover from blank rendered surfaces.",
     "path": "category/devops-docker-cicd/markdown-rendering"
+  },
+  {
+    "id": "mcore-run-on-slurm",
+    "name": "mcore-run-on-slurm",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "How to launch distributed Megatron-LM training jobs on a SLURM cluster. Covers a minimal sbatch skeleton, environment-variable setup for torch.distributed.run, CUDA_DEVICE_MAX_CONNECTIONS rules across hardware and parallelism modes, container conventions, monitoring, and per-rank failure diagnosis.",
+    "path": "category/devops-docker-cicd/mcore-run-on-slurm"
   },
   {
     "id": "metaclaw-evolving-agent",
@@ -2944,6 +3712,30 @@
     "path": "category/devops-docker-cicd/multi-cloud-strategy"
   },
   {
+    "id": "nemo-mbridge-multi-node-slurm",
+    "name": "nemo-mbridge-multi-node-slurm",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Convert single-node scripts to multi-node Slurm sbatch jobs and debug common multi-node failures. Covers srun-native vs uv run torch.distributed approaches, container setup, NCCL timeouts, OOM sizing for MoE models, and interactive allocation.",
+    "path": "category/devops-docker-cicd/nemo-mbridge-multi-node-slurm"
+  },
+  {
+    "id": "nemo-rl-docs",
+    "name": "nemo-rl-docs",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Documentation conventions for NeMo-RL. Covers docs/index.md updates and docstring format. Do NOT use for: bug fixes, test fixes, dependency bumps, refactoring, CI/CD changes, performance tuning, or any task that does not involve writing or updating documentation.",
+    "path": "category/devops-docker-cicd/nemo-rl-docs"
+  },
+  {
+    "id": "nemotron-retrieval-recipes",
+    "name": "nemotron-retrieval-recipes",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Use when planning, debugging, tuning, evaluating, exporting, or deploying public Nemotron `embed`/`rerank` retrieval recipes.",
+    "path": "category/devops-docker-cicd/nemotron-retrieval-recipes"
+  },
+  {
     "id": "nested-container-frames",
     "name": "nested-container-frames",
     "category": "devops-docker-cicd",
@@ -3024,6 +3816,62 @@
     "path": "category/devops-docker-cicd/nitro"
   },
   {
+    "id": "nvflare-autofl",
+    "name": "nvflare-autofl",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Use for agent-assisted Auto-FL optimization of an existing NVFLARE job in simulation, POC, or production. Do not use for code conversion, diagnosis-only work, or deployment setup.",
+    "path": "category/devops-docker-cicd/nvflare-autofl"
+  },
+  {
+    "id": "nvflare-convert-huggingface",
+    "name": "nvflare-convert-huggingface",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Convert existing Hugging Face Transformers Trainer or TRL SFTTrainer training code into an NVFLARE federated job using flare.patch(trainer), local validation, and job export; use when the user names Hugging Face or preliminary source inspection identifies one Hugging Face owner, and not for manual PyTorch loops, Lightning, inference-only pipelines, deployment, or experiment workflows.",
+    "path": "category/devops-docker-cicd/nvflare-convert-huggingface"
+  },
+  {
+    "id": "nvflare-fed-stats",
+    "name": "nvflare-fed-stats",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Compute federated statistics over tabular data (count, sum, mean, stddev, var, histogram, quantile, noise-protected min/max) and image data (count, failure_count, pixel-intensity histogram) across NVFLARE sites via FedStatsRecipe \u2014 automatic and non-interactive from the dataset, feature names (header or supplied), and optionally a README or notes declaring which statistics to compute; do not use for model training conversion, hierarchical statistics, deployment, POC/production lifecycle, or failed-job diagnosis.",
+    "path": "category/devops-docker-cicd/nvflare-fed-stats"
+  },
+  {
+    "id": "nvidia-ontology-management",
+    "name": "nvidia-ontology-management",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Model and publish semantic definitions in Auto Ontology. Use for terms, relationships, measures, imports, and governed results\u2014not deployment or querying.",
+    "path": "category/devops-docker-cicd/nvidia-ontology-management"
+  },
+  {
+    "id": "nvidia-ontology-setup",
+    "name": "nvidia-ontology-setup",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Set up or troubleshoot the Auto Ontology runtime. Use for Helm (the official install), Docker Compose, developer setup, and MCP connection to an existing deployment.",
+    "path": "category/devops-docker-cicd/nvidia-ontology-setup"
+  },
+  {
+    "id": "nvidia-skill-finder",
+    "name": "nvidia-skill-finder",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Use for NVIDIA-related requests where an NVIDIA skill might help, even if the user did not ask for a skill. Trigger on NVIDIA products, hardware, software, SDKs, GPUs, Jetson/JetPack/L4T/BSP/SDK Manager/driver/flashing/setup, CUDA, NIM, NeMo, Omniverse/OpenUSD/SimReady, Isaac, RAPIDS/cuDF, cuPyNumeric, cuOpt, Dynamo, Holoscan, TensorRT, DeepStream, VSS, TAO, NGC/NVCF. Do not use for generic non-NVIDIA route, optimize, deploy, AI, video, data, or infrastructure tasks.",
+    "path": "category/devops-docker-cicd/nvidia-skill-finder"
+  },
+  {
+    "id": "nvshmem-install",
+    "name": "nvshmem-install",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Plan and validate NVSHMEM and NVSHMEM4Py installations. Use for package, container, or source deployments.",
+    "path": "category/devops-docker-cicd/nvshmem-install"
+  },
+  {
     "id": "octopus-deploy",
     "name": "octopus-deploy",
     "category": "devops-docker-cicd",
@@ -3046,6 +3894,14 @@
     "repository": "forcedotcom-sf-skills",
     "description": "Salesforce Industries DataPack deployment automation using Vlocity Build. TRIGGER when: user deploys or validates OmniStudio/Vlocity DataPacks with vlocity commands (packDeploy/packRetry/packExport/packGetDiffs), sets up DataPack CI/CD pipelines, or troubleshoots DataPack migration errors. DO NOT TRIGGER when: deploying Salesforce metadata with sf project deploy (use platform-metadata-deploy), authoring OmniStudio artifacts (use omnistudio-*-build), or writing Apex/LWC business logic (use platform-apex-generate/experience-lwc-generate).",
     "path": "category/devops-docker-cicd/omnistudio-datapacks-deploy"
+  },
+  {
+    "id": "omniverse-cad-to-simready",
+    "name": "omniverse-cad-to-simready",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Coordinate the end-to-end CAD/source-asset to SimReady workflow. Use for broad requests such as CAD to SimReady, source asset to simulation-ready USD, or prop packaging that require conversion, material/physics assignment, SimReady conformance, validation, and optional package creation; deploy or verify Content Agents services first when property assignment is enabled; route single-stage work through nested references.",
+    "path": "category/devops-docker-cicd/omniverse-cad-to-simready"
   },
   {
     "id": "open-agent-sdk",
@@ -3086,6 +3942,14 @@
     "repository": "himself65-finance-skills",
     "description": "Render an interactive options payoff chart \u2014 expiry P&L plus Black-Scholes theoretical value \u2014 with sliders for strikes, premium, IV, DTE, and spot. Use this skill whenever the user describes or shares an options position or strategy and wants to see how it makes or loses money: vertical, calendar, diagonal, or ratio spreads, butterflies, condors and iron condors, straddles, strangles, covered calls, protective or naked puts, or any multi-leg structure. This includes pasted strikes, premiums, and expiries, requests like \"show me the payoff\" or \"draw the P&L curve\", and broker screenshots (IBKR, TastyTrade, Robinhood). Use it even when details are partial \u2014 defaults fill the gaps.",
     "path": "category/devops-docker-cicd/options-payoff"
+  },
+  {
+    "id": "ossfuzz",
+    "name": "ossfuzz",
+    "category": "devops-docker-cicd",
+    "repository": "trailofbits-skills",
+    "description": "Enrolls a project in OSS-Fuzz, Google's free continuous fuzzing service for open source, and drives it locally. Covers project.yaml, Dockerfile and build.sh setup, the helper scripts, reproducing OSS-Fuzz crash reports, and the acceptance criteria. Use when setting up continuous fuzzing for an open-source project, reproducing an OSS-Fuzz bug report, or testing an OSS-Fuzz build before submitting it.",
+    "path": "category/devops-docker-cicd/ossfuzz"
   },
   {
     "id": "pb-deploy",
@@ -3166,6 +4030,30 @@
     "repository": "mukul975-anthropic-cybersecurity-skills",
     "description": "Deploy and run authorized phishing awareness campaigns with GoPhish, covering admin panel setup, SMTP sending profiles, email template and landing page creation, target user groups, and campaign reporting to measure click and credential-submission rates. Use when planning or executing a phishing simulation for employee security-awareness testing or measuring susceptibility to social engineering.",
     "path": "category/devops-docker-cicd/performing-phishing-simulation-with-gophish"
+  },
+  {
+    "id": "physical-ai-infrastructure-setup-and-resilient-scaling",
+    "name": "physical-ai-infrastructure-setup-and-resilient-scaling",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Use when the user wants to set up, scale, validate, or harden NVIDIA physical AI infrastructure for synthetic data generation workflows across local MicroK8s or Azure AKS, including Kubernetes clusters, inference endpoint deployment, OSMO deployment, workload submission readiness, and infrastructure failure recovery. Trigger keywords: physical ai infrastructure, resilient scaling, SDG infrastructure, microk8s, azure aks, NVCF deployment, NIM Operator, OSMO deploy, workflow scaling. Don't trigger for: OSMO log summarization or workload-only operations unless infrastructure setup, scaling, validation, or recovery is requested.",
+    "path": "category/devops-docker-cicd/physical-ai-infrastructure-setup-and-resilient-scaling"
+  },
+  {
+    "id": "physical-ai-neural-reconstruction",
+    "name": "physical-ai-neural-reconstruction",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Router for NVIDIA NuRec/NRE: USDZ rendering, NCore conversion, 3DGS, gRPC sensor sim, carline adaptation, PhysicalAI HF datasets. Do NOT use for SimReady or infra setup.",
+    "path": "category/devops-docker-cicd/physical-ai-neural-reconstruction"
+  },
+  {
+    "id": "pixel-art-style",
+    "name": "pixel-art-style",
+    "category": "devops-docker-cicd",
+    "repository": "arjun988-blender-skills",
+    "description": "Pixel-art and texel-constrained art direction for Blender assets destined for pixel rendering, low-res textures, or HD-2D-adjacent pixel reads.",
+    "path": "category/devops-docker-cicd/pixel-art-style"
   },
   {
     "id": "pixijs",
@@ -3264,6 +4152,22 @@
     "path": "category/devops-docker-cicd/platform-datamask-run"
   },
   {
+    "id": "platform-environment-validate",
+    "name": "platform-environment-validate",
+    "category": "devops-docker-cicd",
+    "repository": "forcedotcom-sf-skills",
+    "description": "Validate and configure the local Salesforce development environment. Runs a prerequisite scan across required tools with per-tool status and offers to install or update missing items. Use when the user asks to 'check my setup', 'validate tools', 'verify prerequisites', 'am I set up correctly', or reports a tool is missing or not working. DO NOT TRIGGER for org auth (/salesforce-development:login), deployment problems (platform-metadata-deploy), or status checks (/salesforce-development:status).",
+    "path": "category/devops-docker-cicd/platform-environment-validate"
+  },
+  {
+    "id": "platform-lsp-integrate",
+    "name": "platform-lsp-integrate",
+    "category": "devops-docker-cicd",
+    "repository": "forcedotcom-sf-skills",
+    "description": "Reference/contract for the Salesforce LSP MCP tools and unavailability handling. Use when asking how to use the LSP, which tools exist, what apex.diagnostics / validate_soql / complete_soql do, why a tool errors with lsp_disabled, no_apex_workspace, or no_org_connected, or how to debug/disable it. DO NOT TRIGGER for editing Apex/LWC/metadata (platform-apex-generate), deploys (platform-metadata-deploy), or SOQL authoring (platform-soql-query); scoped to LSP-layer/MCP-tool questions only.",
+    "path": "category/devops-docker-cicd/platform-lsp-integrate"
+  },
+  {
     "id": "platform-metadata-deploy",
     "name": "platform-metadata-deploy",
     "category": "devops-docker-cicd",
@@ -3344,6 +4248,22 @@
     "path": "category/devops-docker-cicd/prerenderio"
   },
   {
+    "id": "preset",
+    "name": "preset",
+    "category": "devops-docker-cicd",
+    "repository": "microsoft-azure-skills",
+    "description": "Intelligently deploys Azure OpenAI models to optimal regions by analyzing capacity across all available regions. Automatically checks current region first and shows alternatives if needed. USE FOR: quick deployment, optimal region, best region, automatic region selection, fast setup, multi-region capacity check, high availability deployment, deploy to best location. DO NOT USE FOR: custom SKU selection (use customize), specific version selection (use customize), custom capacity configuration (use customize), PTU deployments (use customize).",
+    "path": "category/devops-docker-cicd/preset"
+  },
+  {
+    "id": "processing-s3-uploads-with-step-functions",
+    "name": "processing-s3-uploads-with-step-functions",
+    "category": "devops-docker-cicd",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Deploy an event-driven workflow that routes S3 uploads to either Lambda or Fargate via Step Functions based on file size. Uses EventBridge to trigger a Step Functions state machine when objects are uploaded to S3. Small files are processed by Lambda, large files by a Fargate task. Includes VPC, ECR repository, ECS cluster, and scoped IAM roles. Trigger keywords: Step Functions, Fargate, Lambda, S3 event, EventBridge, ECS, ECR, file processing, workflow orchestration, serverless.",
+    "path": "category/devops-docker-cicd/processing-s3-uploads-with-step-functions"
+  },
+  {
     "id": "product-showcase",
     "name": "product-showcase",
     "category": "devops-docker-cicd",
@@ -3400,6 +4320,14 @@
     "path": "category/devops-docker-cicd/qwen-image-2-pro"
   },
   {
+    "id": "rag-blueprint",
+    "name": "rag-blueprint",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "NVIDIA RAG Blueprint \u2014 deploy, configure, troubleshoot, and manage. Handles any RAG action: deploy, install, start, enable, disable, toggle, change, configure, troubleshoot, debug, fix, shutdown, stop, or tear down any RAG feature or service (Agentic RAG, VLM, guardrails, query rewriting, models, search, ingestion, observability, summarization, reasoning, and more).",
+    "path": "category/devops-docker-cicd/rag-blueprint"
+  },
+  {
     "id": "railway",
     "name": "railway",
     "category": "devops-docker-cicd",
@@ -3414,6 +4342,14 @@
     "repository": "davila7-claude-code-templates",
     "description": "Fetch up-to-date Railway documentation to answer questions accurately. Use when user asks about Railway features, how Railway works, or shares a docs.railway.com URL.",
     "path": "category/devops-docker-cicd/railway-docs"
+  },
+  {
+    "id": "railway-timetable",
+    "name": "railway-timetable",
+    "category": "devops-docker-cicd",
+    "repository": "nomadamas-k-skill",
+    "description": "Read-only Korail integrated railway timetable lookup covering KTX-family trains. No reservation, payment, cancellation, or seat holding.",
+    "path": "category/devops-docker-cicd/railway-timetable"
   },
   {
     "id": "react-best-practices",
@@ -3504,12 +4440,36 @@
     "path": "category/devops-docker-cicd/render-deploy"
   },
   {
+    "id": "replay-regression",
+    "name": "replay-regression",
+    "category": "devops-docker-cicd",
+    "repository": "trailofbits-skills",
+    "description": "Use when independently verifying a supplied PoC against fresh live before/after deployments.",
+    "path": "category/devops-docker-cicd/replay-regression"
+  },
+  {
+    "id": "reproduce-regression",
+    "name": "reproduce-regression",
+    "category": "devops-docker-cicd",
+    "repository": "trailofbits-skills",
+    "description": "Use when deploying before/after systems and building a live-system PoC for a regression candidate.",
+    "path": "category/devops-docker-cicd/reproduce-regression"
+  },
+  {
     "id": "reproducible-pipelines",
     "name": "reproducible-pipelines",
     "category": "devops-docker-cicd",
     "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "This skill covers reproducible research pipelines and replication packages. Use when the user is setting up a research project directory structure, configuring workflow managers (Make, Snakemake, DVC), managing computational environments, preparing replication packages for journal submission, or debugging reproducibility failures. Triggers on \"reproducible\", \"replication package\", \"Makefile\", \"Snakemake\", \"DVC\", \"pipeline\", \"workflow manager\", \"data versioning\", \"conda environment\", \"Docker\", \"seed management\", \"AEA data editor\", \"replication\", \"project structure\", or \"submission checklist\".",
     "path": "category/devops-docker-cicd/reproducible-pipelines"
+  },
+  {
+    "id": "rtvi-cv-customize-model",
+    "name": "rtvi-cv-customize-model",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "How to swap the DeepStream CV detection model in the VSS Alerts Blueprint verification (2d_cv) mode - covers ONNX export, custom bbox parsers, compose mount gotchas, nvinfer config, runtime TRT engine build, deployment, and a segmentation-capable model addendum handoff.",
+    "path": "category/devops-docker-cicd/rtvi-cv-customize-model"
   },
   {
     "id": "run-experiment",
@@ -3558,6 +4518,14 @@
     "repository": "yaklang-hack-skills",
     "description": "Sandbox escape playbook. Use when breaking out of Python sandbox, Lua sandbox, seccomp filter, chroot jail, container/Docker, browser sandbox, or namespace isolation to achieve unrestricted code execution or file access.",
     "path": "category/devops-docker-cicd/sandbox-escape-techniques"
+  },
+  {
+    "id": "sarif-parsing",
+    "name": "sarif-parsing",
+    "category": "devops-docker-cicd",
+    "repository": "trailofbits-skills",
+    "description": "Parses and processes SARIF files from static analysis tools like CodeQL, Semgrep, or other scanners. Triggers on \"parse sarif\", \"read scan results\", \"aggregate findings\", \"deduplicate alerts\", or \"process sarif output\". Handles filtering, deduplication, format conversion, and CI/CD integration of SARIF data. Does NOT run scans \u2014 use the Semgrep or CodeQL skills for that.",
+    "path": "category/devops-docker-cicd/sarif-parsing"
   },
   {
     "id": "scanning-container-images-with-grype",
@@ -3704,6 +4672,14 @@
     "path": "category/devops-docker-cicd/serverless-deploy"
   },
   {
+    "id": "serverless-modal",
+    "name": "serverless-modal",
+    "category": "devops-docker-cicd",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Run GPU workloads on Modal \u2014 training, fine-tuning, inference, batch processing. Zero-config serverless: no SSH, no Docker, auto scale-to-zero. Use when user says \\\"modal run\\\", \\\"modal training\\\", \\\"modal inference\\\", \\\"deploy to modal\\\", \\\"need a GPU\\\", \\\"run on modal\\\", \\\"serverless GPU\\\", or needs remote GPU compute.",
+    "path": "category/devops-docker-cicd/serverless-modal"
+  },
+  {
     "id": "service",
     "name": "service",
     "category": "devops-docker-cicd",
@@ -3752,12 +4728,12 @@
     "path": "category/devops-docker-cicd/service-omni-routing-flow-deploy"
   },
   {
-    "id": "ship",
-    "name": "ship",
+    "id": "setting-up-cloudwatch-observability",
+    "name": "setting-up-cloudwatch-observability",
     "category": "devops-docker-cicd",
-    "repository": "plugin87-ux-ui-agent-skills",
-    "description": "Pre-release gate. Run the full gate, responsive + render checks, then produce the release checklist (README badge/current/changelog). Use before tagging a release.",
-    "path": "category/devops-docker-cicd/ship"
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Sets up CloudWatch observability for the first time - Omni (CloudWatch Application Observability) and classic CloudWatch. Omni: creating a Space or Domain; access grants (who has access, at what level), access profiles bounding alerts, integrations, agents; instrumenting an app or AI agent with the plain ADOT SDK so traces reach Omni (Python/Node/Java/.NET on EC2/ECS/EKS/Lambda), incl. no-image-rebuild, CoreCLR vars; ingesting Azure or Google Cloud telemetry via the CloudWatch agent (VM/AKS, GCE/GKE); connecting Slack or the AWS DevOps Agent to a Space; whether GitHub or a custom MCP tool server (HTTP/stdio) can connect. CloudWatch: onboarding a service to Application Signals: ADOT auto-instrumentation, amazon-cloudwatch-observability add-on, monitored service, ServiceEvents, CI/CD metadata, Terraform. For using what is set up - queries, dashboards, alarms, Omni alerts, X-Ray, synthetics, Dynamic Instrumentation, AI agent evaluation, detecting Omni vs classic - use aws-observability.",
+    "path": "category/devops-docker-cicd/setting-up-cloudwatch-observability"
   },
   {
     "id": "ship-gate",
@@ -3886,6 +4862,86 @@
     "repository": "dpearson2699-swift-ios-skills",
     "description": "Profile, diagnose, and remediate SwiftUI runtime performance using code review, Instruments, and repeatable measurements. Use when a SwiftUI screen renders slowly, scrolling or animations hitch, view bodies update excessively, list identity churns, layout work spikes, or broad Observation dependencies raise CPU cost. Covers evidence-based triage, SwiftUI Instruments lanes, lazy-container guardrails, state lifetime, and before/after verification.",
     "path": "category/devops-docker-cicd/swiftui-performance"
+  },
+  {
+    "id": "tao-analyze-gaps-visual-changenet",
+    "name": "tao-analyze-gaps-visual-changenet",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Performs gap analysis on NVIDIA TAO VCN Classify (Visual Component Net) experiments by invoking the pinned TAO data-services container directly via `docker run \u2026 gap_analysis vcn_aoi \u2026` \u2014 picks the optimal decision threshold, ranks per-sample weakness, and emits a top-K weakest parquet expanded per-lighting for downstream augmentation. Use when analyzing VCN classification failures, picking SDA augmentation targets, or auditing PASS/NO_PASS boundary cases.",
+    "path": "category/devops-docker-cicd/tao-analyze-gaps-visual-changenet"
+  },
+  {
+    "id": "tao-data-io",
+    "name": "tao-data-io",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "The data-mover for TAO jobs \u2014 decides the storage tier (A pre-positioned mount with zero fetch / B volume-from-S3 / C ephemeral in-compute fetch), stages inputs (bulk + annotation-selective + archive extract + HF/NGC PTM), maps credentials to env, routes outputs 3-way with upload-excludes, and runs the compute-frame verify gate. A support skill other platform skills (docker, kubernetes, slurm, brev, virtualenv) call to get data to and from the compute container without the TAO SDK. Trigger phrases include \"stage inputs\", \"mount the dataset\", \"upload TAO results\", \"download only referenced files\", \"resolve results_dir\", \"verify the container can read the data\".",
+    "path": "category/devops-docker-cicd/tao-data-io"
+  },
+  {
+    "id": "tao-port-huggingface-model",
+    "name": "tao-port-huggingface-model",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Integrate a HuggingFace Computer Vision model into the NVIDIA TAO Toolkit ecosystem (tao-core config, tao-pytorch trainer, tao-deploy TensorRT pipeline). Use when the user asks to \"integrate a HuggingFace model into TAO\", \"add an HF model to TAO Toolkit\", \"wire a HuggingFace ViT/DETR/ SegFormer into tao-pytorch\", \"build a TAO trainer + deploy pipeline for an HF CV model\", or pastes a HuggingFace model URL/ID and wants it turned into a TAO model. Covers the full 7-phase loop: prerequisites check, HuggingFace inspection and validation, codebase exploration, tao-core configuration and native trainer implementation, ONNX export plus TensorRT deploy integration, packaging and L0 testing, container-based end-to-end validation, and (conditional) accuracy/latency tuning. Supports classification, object detection, semantic / instance / panoptic segmentation, zero-shot detection, and depth estimation.",
+    "path": "category/devops-docker-cicd/tao-port-huggingface-model"
+  },
+  {
+    "id": "tao-run-inference-service",
+    "name": "tao-run-inference-service",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Start, query, and stop a network-specific TAO inference microservice ({network_arch}-inference-microservice) by delegating container execution to the appropriate platform skill. Handles container image resolution, job-payload JSON construction, and the service registry. Use when the user wants to run inference on a TAO model checkpoint using a microservice container, deploy a TAO inference endpoint, or stop a running inference container.",
+    "path": "category/devops-docker-cicd/tao-run-inference-service"
+  },
+  {
+    "id": "tao-run-on-brev",
+    "name": "tao-run-on-brev",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Run a TAO training/evaluation/inference container on an NVIDIA Brev GPU instance. Instance provisioning (create/search/stop/delete/login) is delegated to the official brev-cli agent skill or the Brev MCP server; this skill covers only the TAO-specific part \u2014 running the container over `brev exec` via the four-verb docker contract. Trigger phrases include \"run on Brev\", \"Brev GPU instance\", \"TAO on Brev\", \"submit job to Brev\".",
+    "path": "category/devops-docker-cicd/tao-run-on-brev"
+  },
+  {
+    "id": "tao-run-on-docker",
+    "name": "tao-run-on-docker",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "The Docker execution platform for TAO jobs \u2014 a local daemon or a remote GPU box via DOCKER_HOST=ssh://user@host. Implements the four-verb consumer contract (submit/status/logs/cancel) over the docker CLI, wired to the job-record, tao-data-io staging, and the redact lint, on top of the underlying docker conventions (--gpus, mounts, NGC auth, inspection, data-root relocation, error modes). Use to run any single-node TAO container action on Docker without the SDK. Trigger keywords \u2014 docker, docker run, run on docker, DOCKER_HOST, remote docker, nvcr.io, --gpus, single-node GPU job.",
+    "path": "category/devops-docker-cicd/tao-run-on-docker"
+  },
+  {
+    "id": "tao-run-on-kubernetes",
+    "name": "tao-run-on-kubernetes",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Kubernetes execution platform \u2014 submits TAO container jobs as k8s Jobs with NVIDIA GPU scheduling; single-pod",
+    "path": "category/devops-docker-cicd/tao-run-on-kubernetes"
+  },
+  {
+    "id": "tao-run-on-slurm",
+    "name": "tao-run-on-slurm",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Remote SLURM GPU cluster execution over SSH with sbatch/srun, Pyxis/Enroot containers, and Lustre-backed",
+    "path": "category/devops-docker-cicd/tao-run-on-slurm"
+  },
+  {
+    "id": "tao-run-on-virtualenv",
+    "name": "tao-run-on-virtualenv",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Run a Python training/eval script directly in an existing local virtualenv \u2014 no docker, no container. Implements the four-verb consumer contract (submit/status/logs/cancel) over a vendored process-lifecycle runner with durable on-disk state, PID-reuse-safe identity, and process-group cleanup. Use for docker-free local execution, plain-Python model scripts, fast HPO/AutoML trial smokes, or hosts where containers are unavailable. Trigger phrases include \"run in my venv\", \"no docker\", \"virtualenv execution\", \"local python training\", \"run this training script directly\".",
+    "path": "category/devops-docker-cicd/tao-run-on-virtualenv"
+  },
+  {
+    "id": "tao-setup-nvidia-gpu-host",
+    "name": "tao-setup-nvidia-gpu-host",
+    "category": "devops-docker-cicd",
+    "repository": "nvidia-skills",
+    "description": "Host setup for TAO GPU backends. Checks and, after user approval, installs minimum-compatible NVIDIA driver, CUDA Toolkit, and NVIDIA Container Toolkit versions for Docker/local-Docker and Kubernetes GPU worker hosts. TAO-wide defaults can be overridden by the selected model's runtime profile. The `--check-only` path works on any Linux distribution; `--install` automates debian-family (Ubuntu/Debian/Pop!_OS/Mint/Zorin/Raspbian), rhel-family (Fedora/RHEL/Rocky/AlmaLinux), and suse-family (openSUSE/SLES) hosts, and prints actionable manual-install steps for everything else. Use when the user asks to \"set up an NVIDIA GPU host\", \"check TAO Docker GPU runtime\", or prepare a Kubernetes GPU worker for TAO.",
+    "path": "category/devops-docker-cicd/tao-setup-nvidia-gpu-host"
   },
   {
     "id": "teamcity",
@@ -4046,6 +5102,14 @@
     "repository": "antigravity-awesome-skills",
     "description": "Build Unity games with optimized C# scripts, efficient rendering,",
     "path": "category/devops-docker-cicd/unity-developer"
+  },
+  {
+    "id": "upgrading-mwaa-environments",
+    "name": "upgrading-mwaa-environments",
+    "category": "devops-docker-cicd",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Upgrades an MWAA environment to a newer Airflow version \u2014 within 2.x, within 3.x, or across the 2.x-to-3.x boundary. Computes the version-jump path, inserting the 2.11.x stepping-stone and Python-transition step when needed. Chooses an approach by whether run history and the same environment (URL/ARN) must be kept: a new-environment upgrade (blue-green), a rehearsed in-place upgrade validated on a test copy, or a direct in-place upgrade. Runs Ruff scanning and deprecation-warning log scans for 3.x moves, plus Docker validation, batched deployment, and switchover. Saves a resumable upgrade plan for multi-session work. Triggers on: upgrade MWAA, upgrade Airflow, migrate to Airflow 3, MWAA Airflow 3, Airflow 2 to 3, preserve Airflow history, keep same MWAA environment, blue-green cutover, validation environment before cutover. Not for authoring new DAGs (authoring-mwaa-workflow), debugging unrelated DAG failures (debugging-mwaa-workflow), or MWAA Serverless YAML workflows (provisioned Python DAGs only).",
+    "path": "category/devops-docker-cicd/upgrading-mwaa-environments"
   },
   {
     "id": "use-railway",
@@ -4222,14 +5286,6 @@
     "repository": "giuseppe-trisciuoglio-developer-kit",
     "description": "Provides patterns and configurations for running WireMock as a standalone Docker container. Generates mock HTTP endpoints, creates stub mappings for testing, validates integration scenarios, and simulates error conditions. Use when you need to mock APIs, create a mock server, stub external services, simulate third-party APIs, or fake API responses for integration testing.",
     "path": "category/devops-docker-cicd/wiremock-standalone-docker"
-  },
-  {
-    "id": "writing-skills",
-    "name": "writing-skills",
-    "category": "devops-docker-cicd",
-    "repository": "active",
-    "description": "Use when creating new skills, editing existing skills, or verifying skills work before deployment",
-    "path": "category/devops-docker-cicd/writing-skills"
   },
   {
     "id": "xata-postgres-platform",

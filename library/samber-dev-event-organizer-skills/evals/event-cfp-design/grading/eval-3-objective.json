@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the single unlimited free-text field as the form's core",
+        "evidence": "\"Replaced with split fields and a word cap\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that one merged field prevents reviewers from scoring topic quality and speaker fit separately",
+        "evidence": "\"Reviewers can't score topic and speaker fit separately\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the title its own field",
+        "evidence": "\"Title* (one line)\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes the title carries roughly twice the review weight of the abstract",
+        "evidence": "No mention of review weight for the title.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Caps the abstract near 100 words",
+        "evidence": "\"Abstract* (max 100 words: the pitch, not the outline)\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Adds a separate optional context or why-me field distinct from the abstract",
+        "evidence": "\"Why you? (optional, max 100 words)\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Limits the format menu to exactly the 30-minute talk and half-day workshop the structure offers",
+        "evidence": "Only Type A 30-minute talk and Type B half-day workshop are offered.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines to add lightning talks to the call, or requires the structure decision to change upstream before the call can offer them",
+        "evidence": "\"Dropped... reopen the structure through `event-format-selection` first.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces the 1-10 audience self-rating with a three-tier audience level",
+        "evidence": "\"Just starting out / Some experience / Advanced experience\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes a short speaker bio field and optional prior-talk links",
+        "evidence": "\"Speaker bio* (2-3 sentences)\" and \"Links to prior talks (optional)\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives workshops their own submission type or conditional fields such as prerequisites and capacity rather than one shared field set",
+        "evidence": "\"Type B... (shown only when selected)\" with Outline, Prerequisites, Capacity and Setup.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets a per-person submission cap of about three proposals instead of unlimited submissions",
+        "evidence": "\"Capped at 3\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the submission cap in the published call rather than enforcing it silently",
+        "evidence": "\"Cap, as stated in the form: 'Up to 3 proposals per person, across both types.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that the unbounded one-box field makes blind review impossible because identity is woven through the only field there is",
+        "evidence": "The table says one box means \"no anonymization is possible\".",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the single unlimited free-text field as the form's core",
+        "evidence": "'One unlimited text field | \u274c Replaced with structured fields, each with a character limit'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that one merged field prevents reviewers from scoring topic quality and speaker fit separately",
+        "evidence": "The only reason given is 'Reviewers can't score what they can't find', which says nothing about topic quality versus speaker fit.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the title its own field",
+        "evidence": "'8 | Title | Short text | Yes | 80 chars'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes the title carries roughly twice the review weight of the abstract",
+        "evidence": "No such claim appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Caps the abstract near 100 words",
+        "evidence": "'Abstract (public) | Long text | Yes | 800 chars', which is about 130 words.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds a separate optional context or why-me field distinct from the abstract",
+        "evidence": "Field 10 'Details for reviewers' is required and bundles outline with why-you. It is not an optional why-me field.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Limits the format menu to exactly the 30-minute talk and half-day workshop the structure offers",
+        "evidence": "'30-minute talk / Half-day workshop (3-4 hours)'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines to add lightning talks to the call, or requires the structure decision to change upstream before the call can offer them",
+        "evidence": "'Lightning talks | \u274c Not offered... add the slots to the program first, then add the format option'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces the 1-10 audience self-rating with a three-tier audience level",
+        "evidence": "Audience level has three tiers: Beginner, Intermediate and Advanced.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes a short speaker bio field and optional prior-talk links",
+        "evidence": "Field 3 is a 600-char bio. Field 5 is an optional 'Links (website, GitHub, social, past talk video)'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives workshops their own submission type or conditional fields such as prerequisites and capacity rather than one shared field set",
+        "evidence": "'Workshop-only fields (shown only if field 7 = workshop)': max participants and prerequisites, and an hour-by-hour plan.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets a per-person submission cap of about three proposals instead of unlimited submissions",
+        "evidence": "'Capped at 3 per speaker'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the submission cap in the published call rather than enforcing it silently",
+        "evidence": "The intro text says 'You can submit up to **3 proposals**'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that the unbounded one-box field makes blind review impossible because identity is woven through the only field there is",
+        "evidence": "No such explanation. It only suggests 'Consider hiding name, bio, and links for a first scoring pass'.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

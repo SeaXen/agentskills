@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Declines to write a press release and states there is no news to announce",
+        "evidence": "The transcript instead drafts a full FOR IMMEDIATE RELEASE document with placeholders, framed as \"qualifies as a story... as 'the number' angle\" rather than declining to write one.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Runs the five qualification tests against the current situation and reports at least two failures",
+        "evidence": "\"qualifies as a story (evidence + shift, 2 of 5 tests solid)\" implying three of five tests failed.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not invent or manufacture an announcement event to hang coverage on",
+        "evidence": "\"Never call it a launch.\" The release is built around the real anonymised dataset, not a manufactured launch.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Offers the no-news alternatives: proprietary data, a defensible position, being a source, or publishing the primary artefact",
+        "evidence": "Only the proprietary-data option is presented (\"proprietary data drop\"); the other three alternatives are not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends the 3,400-team dataset as the proprietary-data route and treats it as the actual story",
+        "evidence": "\"Sablefish... today published an analysis of six months of anonymised usage data from 3,400 engineering teams.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the methodology to be published alongside any number drawn from that dataset",
+        "evidence": "\"Full methodology, the anonymisation process, and an aggregated version of the dataset are available at [LINK].\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Frames the data as an industry benchmark rather than a product claim",
+        "evidence": "Headline: \"...According to New Analysis of 3,400 Engineering Teams\" and \"Limitations\" section discussing industry-wide rate, not a Sablefish product claim.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that a vendor-run comparison against named competitors gets challenged within hours unless the harness is public and reproducible",
+        "evidence": "No mention of competitor comparisons or this warning anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the consent and anonymisation review the dataset needs before publication",
+        "evidence": "\"consent/anonymization sign-off (data already anonymised \u2014 confirm a human actually reviewed it, don't assume)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that recommending no pitch is a legitimate outcome of the work rather than a failure",
+        "evidence": "No such statement appears; the transcript proceeds directly to drafting the release rather than discussing no-pitch as a legitimate outcome.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that a benchmark republished on a schedule becomes a citable recurring event",
+        "evidence": "No mention of republishing on a schedule anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Declines to write a press release and states there is no news to announce",
+        "evidence": "'So the release below is complete except for the bracketed stats... Once the numbers are in, this is ready to send.' \u2014 a full release draft is produced, not declined.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Runs the five qualification tests against the current situation and reports at least two failures",
+        "evidence": "No qualification-test framework or failure count appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not invent or manufacture an announcement event to hang coverage on",
+        "evidence": "The release is built entirely around real, already-collected data ('six months, 3,400 teams') rather than a fabricated event.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Offers the no-news alternatives: proprietary data, a defensible position, being a source, or publishing the primary artefact",
+        "evidence": "No enumerated list of alternatives is presented; the response moves directly to drafting the data-driven release.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends the 3,400-team dataset as the proprietary-data route and treats it as the actual story",
+        "evidence": "'The dataset \u2014 six months, 3,400 teams, breaking changes vs. version bumps \u2014 is a genuinely pitchable \"State of X\" report.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the methodology to be published alongside any number drawn from that dataset",
+        "evidence": "'The full dataset and methodology are available at [link to a standalone report page \u2014 not the homepage].'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Frames the data as an industry benchmark rather than a product claim",
+        "evidence": "'a genuinely pitchable \"State of X\" report in the mold of Stripe's or Intercom's annual benchmarks.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that a vendor-run comparison against named competitors gets challenged within hours unless the harness is public and reproducible",
+        "evidence": "No competitor-comparison content appears; the transcript is entirely about the internal breaking-change dataset.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the consent and anonymisation review the dataset needs before publication",
+        "evidence": "Only anonymization is flagged ('no team, company, or individual schema is identifiable... [Confirm this claim with whoever owns data/privacy before publishing.]') \u2014 consent is never mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that recommending no pitch is a legitimate outcome of the work rather than a failure",
+        "evidence": "No statement frames a no-pitch outcome as legitimate; the closest is treating a boring stat as 'still a usable story.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that a benchmark republished on a schedule becomes a citable recurring event",
+        "evidence": "Publishing 'the Index annually' is listed only as one bracketed, optional, unconfirmed idea ('Only include if true'), not stated as building a citable recurring event.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

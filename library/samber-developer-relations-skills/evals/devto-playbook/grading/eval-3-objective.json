@@ -1,0 +1,70 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Identifies that the RSS import only sets canonical_url when the 'mark the RSS source as canonical URL' option is enabled",
+        "evidence": "\"Canonical is opt-in on the RSS import... The box is not ticked by default.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends checking each imported dev.to post for a canonical_url pointing to the original blog URL",
+        "evidence": "Step 1 says to view source on 3 posts for `<link rel=\"canonical\">`. Step 2 opens \"each post's editor\" to add the canonical to all 30.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that search engines treat canonical as a hint, so the fix is not guaranteed or immediate",
+        "evidence": "\"A canonical tag is a hint to Google, not a command... expect weeks, not days.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends setting canonical_url on each already-published post via front matter or post settings",
+        "evidence": "\"Set the canonical on all 30 published posts... add `canonical_url: https://yourblog.com/the-original-post` to the front matter.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends turning on the canonical option in the RSS import settings for future imports",
+        "evidence": "\"Tick 'Mark the RSS source as canonical URL' now, and note the date you did.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Identifies that the RSS import only sets canonical_url when the 'mark the RSS source as canonical URL' option is enabled",
+        "evidence": "Says \"Your feed must include the original link. dev.to uses it to set the canonical URL\" and never mentions the option.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends checking each imported dev.to post for a canonical_url pointing to the original blog URL",
+        "evidence": "\"Open the HTML of 3 dev.to copies and look for `<link rel=\"canonical\"...>`\" and \"Set the canonical URL on all ~30 dev.to posts.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that search engines treat canonical as a hint, so the fix is not guaranteed or immediate",
+        "evidence": "\"Canonical is a hint, not a command.\" and \"over 2 to 8 weeks\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends setting canonical_url on each already-published post via front matter or post settings",
+        "evidence": "\"Open a post, then Edit, then Settings, then 'Canonical URL'\" plus the API option.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends turning on the canonical option in the RSS import settings for future imports",
+        "evidence": "Recommends only the drafts toggle and the feed link, not the canonical option.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

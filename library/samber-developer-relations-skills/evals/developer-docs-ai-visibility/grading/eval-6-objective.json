@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Classifies IDE assistant and coding agent failures as training recall or a fetch the logs may not show, not as a docs readability problem",
+        "evidence": "\"The likely cause is training recall... Copilot and Cursor mostly write code from model weights.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that many coding agents send generic user agents, so a missing log hit is weak evidence that the tools cannot reach the docs",
+        "evidence": "\"Many coding agents send generic user agents, so a log gap proves little for them.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a page rewrite cannot reach an answer already written from training recall",
+        "evidence": "\"A clearer getting-started page won't remove `legacyBatch` from the model's memory.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Promotes runtime deprecation warnings and agent-delivered docs above the default lever order because the failure tally is mostly uncited training-recall failures inside coding agents, and names that promoting condition",
+        "evidence": "\"Promote it if the tally comes back mostly uncited recall inside Copilot and Cursor\"; warning ranks highest.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Specifies the runtime warning shape: names `legacyBatch` as removed in 5.0, names the replacement, links the migration page, and emits once per process",
+        "evidence": "Sample message names legacyBatch removed in 5.0, replacement, migration link, \"once per process\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prescribes shipping the warning in the last release of the old major and a clear error in the new major",
+        "evidence": "\"Make 5.x return a clear error... Consider a final 4.x patch whose release notes or README name the replacement.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes agent-delivered, version-matched docs to the coding-agent-docs-optimization skill rather than designing them",
+        "evidence": "\"Owned by `coding-agent-docs-optimization`.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the 23 tickets as the first-party signal of training-recall failures and prescribes tagging tickets \"code from an assistant\" as an ongoing measure",
+        "evidence": "\"tagged 'code from an assistant'. For you this is the primary signal: 23 per quarter is your baseline.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the training-recall lag is the next model release, and that only a later model trained on a corpus where 5.x dominates shrinks it",
+        "evidence": "\"until a later model trains on a corpus where 5.x dominates.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Still runs the access check (robots.txt, CDN rules, plain-HTTP rendering) before concluding anything about reachability",
+        "evidence": "Step 1 access check table, plain HTTP fetch.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Builds a prompt panel with `legacyBatch` as a status or migration prompt and separate Go and Java rows, run five or more times per assistant",
+        "evidence": "\"is `legacyBatch` still supported?\"; one row per client (Go, Java); 10\u00d75\u00d72.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the markdown twin only as a coding-agent convenience, not as a citation lever",
+        "evidence": "\"Keep it for coding agents only.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Puts an old-to-new symbol map with `legacyBatch: true` in exact old spelling on the plan as the retrieval lever for old-symbol prompts",
+        "evidence": "Table row \"`Init(apiKey)` with `legacyBatch: true`\" with exact old spelling.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Classifies IDE assistant and coding agent failures as training recall or a fetch the logs may not show, not as a docs readability problem",
+        "evidence": "'Stale training data is the likelier cause'; fetchers may not identify as bots.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that many coding agents send generic user agents, so a missing log hit is weak evidence that the tools cannot reach the docs",
+        "evidence": "'may not identify themselves as bots... generic user agents.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a page rewrite cannot reach an answer already written from training recall",
+        "evidence": "'A clearer page won't outvote that, because the tool isn't reading the page'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Promotes runtime deprecation warnings and agent-delivered docs above the default lever order because the failure tally is mostly uncited training-recall failures inside coding agents, and names that promoting condition",
+        "evidence": "Ranked #1 'only fix that works whatever the tool read', based on training-data cause.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Specifies the runtime warning shape: names `legacyBatch` as removed in 5.0, names the replacement, links the migration page, and emits once per process",
+        "evidence": "Names removal, replacement, URL but no emit-once.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Prescribes shipping the warning in the last release of the old major and a clear error in the new major",
+        "evidence": "Only a 5.x patch error.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes agent-delivered, version-matched docs to the coding-agent-docs-optimization skill rather than designing them",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats the 23 tickets as the first-party signal of training-recall failures and prescribes tagging tickets \"code from an assistant\" as an ongoing measure",
+        "evidence": "Opens 3 tickets once; no tagging.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the training-recall lag is the next model release, and that only a later model trained on a corpus where 5.x dominates shrinks it",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Still runs the access check (robots.txt, CDN rules, plain-HTTP rendering) before concluding anything about reachability",
+        "evidence": "Not present.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Builds a prompt panel with `legacyBatch` as a status or migration prompt and separate Go and Java rows, run five or more times per assistant",
+        "evidence": "One-off test for Go and Java.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the markdown twin only as a coding-agent convenience, not as a citation lever",
+        "evidence": "'expect little effect on these 23 tickets'; helps runtime-fetching agents.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Puts an old-to-new symbol map with `legacyBatch: true` in exact old spelling on the plan as the retrieval lever for old-symbol prompts",
+        "evidence": "'migration entry that names legacyBatch... rank for the exact string'.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

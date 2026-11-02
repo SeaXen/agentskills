@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States the demo's claim as a single sentence about reindexing while concurrent writes keep landing",
+        "evidence": "Transcript is only: 'Memory saved and indexed. The runbook above is the complete deliverable \u2014 next action is measuring segment 3's real duration on the actual stage laptop...' No claim sentence is present in the transcript itself.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends the fully-local, offline live-execution tier (tier 2) rather than a recorded screencast or a live run against the staging cluster",
+        "evidence": "The transcript contains no tier discussion at all \u2014 only a closing note referring to an unseen 'runbook above'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites the re-use across five events as the reason the cost of building a local stack is amortized and that tier is promoted",
+        "evidence": "No mention of five events or amortization anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the standing fallback as exactly one row down the ladder, a recorded screencast of the same segments, rather than jumping to screenshots",
+        "evidence": "No fallback tier is mentioned in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cuts the demo into segments each budgeted under roughly 90 seconds",
+        "evidence": "Only 'segment 3' is referenced in passing; no segment budgets are shown.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names each segment by what it proves rather than by the commands it types",
+        "evidence": "No segment names or descriptions appear in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives every segment its own named restore point (git tag, image tag, database dump, seeded tenant or equivalent)",
+        "evidence": "No restore points are mentioned in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that no segment may depend on a previous segment's live output",
+        "evidence": "This rule is not stated anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Specifies a single idempotent reset command and requires it to be rehearsed from a cold machine, not from one that has already run the demo",
+        "evidence": "No reset command is mentioned in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires at least one full rehearsal run with the network disconnected",
+        "evidence": "No mention of an offline/network-disconnected rehearsal requirement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires three consecutive clean cold runs before the demo is considered ready",
+        "evidence": "No cold-run count requirement appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the measured demo time to come in under half the 8 minutes allowed",
+        "evidence": "No budget or measured-time figures appear in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not offer additional rehearsal repetitions as the fix for the previous event's failure",
+        "evidence": "The transcript's only substantive statement is 'next action is measuring segment 3's real duration on the actual stage laptop' \u2014 there is no discussion of a previous failure or its fix to evaluate against.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States the demo's claim as a single sentence about reindexing while concurrent writes keep landing",
+        "evidence": "\"state the claim: '2 million rows, reindexing, writes never stop.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends the fully-local, offline live-execution tier (tier 2) rather than a recorded screencast or a live run against the staging cluster",
+        "evidence": "\"5 pieces, all in docker-compose.yml, all offline\" and \"Tier 1 (primary): live local demo above\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites the re-use across five events as the reason the cost of building a local stack is amortized and that tier is promoted",
+        "evidence": "\"create local repo riftline-demo/. Build order below kills wifi dependency and gets reused across all 5 events.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the standing fallback as exactly one row down the ladder, a recorded screencast of the same segments, rather than jumping to screenshots",
+        "evidence": "\"Tier 2 (fallback): screen capture of one clean full run, same terminal theme/timing, cued in the deck, one hotkey away.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cuts the demo into segments each budgeted under roughly 90 seconds",
+        "evidence": "the segment \"1:00\u20135:30\" is 4.5 minutes (270s), far exceeding 90 seconds",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names each segment by what it proves rather than by the commands it types",
+        "evidence": "segments are labeled by action/time only, e.g. \"5:30\u20137:00 \u2014 reindex completes, cut back to terminal, show exit code 0\" not by a proof label",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives every segment its own named restore point (git tag, image tag, database dump, seeded tenant or equivalent)",
+        "evidence": "only one global \"Reset script \u2014 one command, restores DB snapshot + restarts write generator\" is given, not per-segment restore points",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that no segment may depend on a previous segment's live output",
+        "evidence": "no such rule is stated; the script is a single continuous reindex run across segments",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Specifies a single idempotent reset command and requires it to be rehearsed from a cold machine, not from one that has already run the demo",
+        "evidence": "reset script is specified (\"one command...under 30 sec\") but no requirement to rehearse it from a cold/fresh machine is stated",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires at least one full rehearsal run with the network disconnected",
+        "evidence": "\"Rehearse the full 8 min, 5+ times, airplane mode ON every time.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires three consecutive clean cold runs before the demo is considered ready",
+        "evidence": "only \"5+ times\" rehearsal is mentioned, with no \"three consecutive clean\" requirement",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the measured demo time to come in under half the 8 minutes allowed",
+        "evidence": "\"Budget 6 of the 8 minutes to run+narration, 2 min buffer\" \u2014 not under half of 8 minutes",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not offer additional rehearsal repetitions as the fix for the previous event's failure",
+        "evidence": "\"Root cause of last year: demo depended on network you don't control. Fix: demo depends on nothing but the laptop\" \u2014 the fix is architectural, not more rehearsal",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

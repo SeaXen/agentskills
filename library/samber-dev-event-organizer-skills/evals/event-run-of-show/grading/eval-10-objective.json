@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Declines to author the evacuation procedure and names risk management as the owner of the printed emergency plan",
+        "evidence": "'event-risk-management | I won't write it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that this document executes the printed emergency plan rather than rewriting which scenarios it covers",
+        "evidence": "'I execute the printed emergency plan and never re-author a safety scenario.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the printed emergency plan to exist with named contacts, and flags its absence as blocking",
+        "evidence": "Asks 'whether a printed emergency plan exists, and who is named on it'; 'It also blocks me (interview Q8).'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines to re-lay the session grid and hands the clashing big talks back to schedule design",
+        "evidence": "'event-schedule-design | I won't change the grid.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines to engineer camera redundancy and hands it to production",
+        "evidence": "'event-production owns the redundancy'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Still owns and specifies what the room lead does in the moments after the AV redundancy fails",
+        "evidence": "'I'll write what the room lead does in the 90 seconds after the redundancy fails.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines to design the green room and hands it to speaker experience",
+        "evidence": "'event-speaker-experience owns the green room'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Accepts each speaker's arrival and timing constraints as an input to this document",
+        "evidence": "'I'll take each speaker's arrival and timing as input.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Takes the volunteer shift plan as an input rather than building or resizing it",
+        "evidence": "Asks 'Who is on the day, and in what shifts' as an input to collect.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not silently absorb any of the four out-of-scope requests into the run of show",
+        "evidence": "The table routes each of the four to its owning skill.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes the incident escalation path as routing into the printed plan's contacts",
+        "evidence": "'the incident-escalation row into the sheet, pointing at that plan.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes the routine escalation path as routing to the organizer on duty on the organizer channel",
+        "evidence": "Only 'the on-duty person, the channel' is mentioned. No routine path to the on-duty organizer on the org channel is written.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Declines to author the evacuation procedure and names risk management as the owner of the printed emergency plan",
+        "evidence": "It authors a full \"Evacuation procedure\" section.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that this document executes the printed emergency plan rather than rewriting which scenarios it covers",
+        "evidence": "It says the procedure \"replaces the evacuation entries in the old register\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the printed emergency plan to exist with named contacts, and flags its absence as blocking",
+        "evidence": "It asks for the venue fire plan, but does not flag its absence as blocking.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines to re-lay the session grid and hands the clashing big talks back to schedule design",
+        "evidence": "Section 2 \"Grid fix\" re-lays the grid.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines to engineer camera redundancy and hands it to production",
+        "evidence": "Section 4 designs camera redundancy and failover.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Still owns and specifies what the room lead does in the moments after the AV redundancy fails",
+        "evidence": "Only \"the Show Caller tells the next speaker\" appears, within an engineered camera plan.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines to design the green room and hands it to speaker experience",
+        "evidence": "Section 3 designs the green room.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Accepts each speaker's arrival and timing constraints as an input to this document",
+        "evidence": "Speaker constraints are only a swap check within the grid fix.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Takes the volunteer shift plan as an input rather than building or resizing it",
+        "evidence": "Not addressed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not silently absorb any of the four out-of-scope requests into the run of show",
+        "evidence": "It absorbs all four.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes the incident escalation path as routing into the printed plan's contacts",
+        "evidence": "The escalation goes to its own Safety Lead.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes the routine escalation path as routing to the organizer on duty on the organizer channel",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

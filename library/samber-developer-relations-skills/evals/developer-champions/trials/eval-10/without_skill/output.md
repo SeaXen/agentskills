@@ -1,0 +1,33 @@
+Ranked by how much damage each one does if you ship the plan as-is.
+
+**1. You're hiding the scoreboard but not the money — that's backwards**
+Competitiveness in a points system comes from the payout being real and unequal, not from the leaderboard being visible. Hiding totals from contributors doesn't remove the competitive pressure — it just removes their ability to see whether the system is fair, while the actual competitive driver (cash-equivalent value) stays fully intact. You'll get the competitiveness you wanted to avoid, plus suspicion of favoritism on top, because nobody can audit their own number. If the goal is "reduce competitiveness," the lever is the reward type (recognition > cash), not visibility of a cash ledger.
+
+**2. One global table isn't neutral — it's a hidden prioritization decision**
+Contribution types aren't fungible: a security fix, a 40-line doc typo fix, and three weeks of code review don't sit on the same axis. Whoever sets the point values is choosing what the project rewards, and a flat global table will get gamed toward whatever has the best points-per-hour ratio — usually small, high-volume, low-risk PRs — not what the roadmap actually needs. "Fair to everyone" is doing a lot of work here; it's actually "fair according to one arbitrary conversion rate you haven't picked yet."
+
+**3. Cash-out + "anyone can join" is an open invitation to farm it**
+No identity verification, no anti-sockpuppet controls, no minimum quality bar mentioned. Expect PR-splitting (one change submitted as five to multiply points), low-effort drive-by contributions optimized for point yield, and possibly outright fake accounts once real money is on the other end. Every one of those still needs a human to review and merge — so the two borrowed engineers become a review queue for point-farmers instead of doing the work they were borrowed for.
+
+**4. ⚠️ Gift cards are compensation, not swag, and you're not set up to treat them that way**
+Once points convert to something with clear cash value, you've created taxable income for the recipient and likely a reporting obligation for Gallowbridge (e.g. 1099-NEC in the US above $600/year aggregate; other jurisdictions have their own thresholds and may reclassify sustained paid contribution as employment or trigger platform-worker rules). You have no tax-ID collection step, no threshold tracking, no per-jurisdiction rules — a spreadsheet won't catch a contributor crossing a reporting threshold. Amazon gift cards also can't be issued in a large share of countries where OSS contributors actually live, and are subject to sanctions/export restrictions in some regions — so global contributors get a worse (or no) redemption path than US ones, undermining the "anyone can join" pitch.
+
+**5. ⚠️ A spreadsheet is a compliance liability, not just a scaling problem**
+It's tracking real names, likely emails, and payout amounts tied to individual behavior — that's personal data under GDPR for any EU-based contributor, with no stated retention policy, access control, or deletion process. It's also fully unauditable: no version history a contributor can trust, no dispute log, trivially editable by anyone with access. If a contributor disputes their total, you have no record to point to — which is a bad place to be once real money is involved.
+
+**6. The system has no owner after the quarter ends**
+Two engineers for one quarter builds it; nobody's named to run adjudication, handle disputes, or maintain the ledger afterward. Points programs are much easier to start than to stop — devaluing or discontinuing already-earned points reads as bad faith to a community, and "we forgot to plan the wind-down" is exactly how that happens.
+
+**7. Extrinsic cash rewards can crowd out the volunteers you already have**
+This is a well-documented effect in OSS specifically: once contribution becomes "the thing that pays," people who were contributing for reputation, learning, or belief in the project can start feeling like unpaid labor next to paid labor, and quietly disengage. Community-building best practice (echoed directly in the community/power-user playbooks I checked) is blunt about this: commission-style cash rewards for community contribution read as MLM-like and erode authenticity — credits, access, and recognition consistently outperform cash for retention, and cash is the one option that most reliably backfires.
+
+**8. Optics risk given the commercial edition**
+"Company with a paid product pays outside contributors in Amazon gift cards for work that improves the product it sells" is a narrative that writes itself unfavorably if a contributor feels short-changed or a payout dispute goes public. You don't need to abandon the idea, but you should assume it will be read that way and design the comms accordingly — this is the kind of thing that shows up as a GitHub issue or HN thread, not a private complaint.
+
+**9. No weighting toward what you actually need**
+Nothing in the plan ties points to roadmap priority. A flat rate per "tracked contribution" means the system is indifferent between someone fixing a P0 security bug and someone doing five trivial README edits — worse than indifferent, actually, since the trivial path is easier to farm.
+
+**10. Two people, one quarter, building a spreadsheet is a strange resourcing choice**
+If the real deliverable is a manually-maintained spreadsheet, that's not really "building a system" — it's a policy decision plus a ledger, doable without two borrowed engineers. If you do want to spend the quarter on engineering, that budget is better spent on the thing a spreadsheet structurally can't do: pulling contribution signal automatically from GitHub/GitLab so nobody's hand-tallying PRs forever, and building in the audit trail and identity checks that items 3–5 above are missing. Otherwise you're spending scarce engineering time to build something with a worse trust and scaling profile than not automating at all.
+
+**What I'd push back on hardest:** the cash-out mechanic. Everything else here is fixable with better design; the cash-out is the piece that introduces tax/legal exposure, farming incentives, and motivation-crowding all at once, for a reward type your own contributors will value unevenly by geography. A tiered recognition model — public credit, early access, contributor-only channel, swag, conference sponsorship for sustained contributors, with an internal-only spot bonus fund for genuinely exceptional cases handled case-by-case rather than a formula — gets you the "anyone can join, contributions are tracked and recognized" outcome without the compliance surface or the farming problem.

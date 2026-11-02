@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Explains that tagging a repository with a topic does not surface it until the topic itself is curated.",
+        "evidence": "'topic pages for established topics list every repo tagged with that topic automatically \u2014 there's no curation gate on membership, only on the topic's own descriptive page (which kubernetes and gitops already have)'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that GitHub topics and collections are community-curated through pull requests to the github/explore repository.",
+        "evidence": "Only Collections are explicitly tied to 'a pull request to `github/explore`'; the topic descriptive-page curation mechanism is not explicitly linked to github/explore PRs.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that self-promotion is explicitly disallowed there: the submission requires attesting the submitter is neither the sole author of the entry nor an employee of the company behind it.",
+        "evidence": "'The PR template explicitly requires the submitter to attest they are **neither the sole author of the entry nor an employee of the company behind it**.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the submission through a community ally rather than a self-submission.",
+        "evidence": "'You need a third party \u2014 a user, contributor, or community advocate who isn't you or your employer \u2014 to open that PR on cloudferry's behalf.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that merges go live on a delay.",
+        "evidence": "No mention of merge/publish delay appears in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the required artifacts for a collection entry: a folder named for the URL slug, an index.md, and where applicable a 288x288 PNG under 75KB.",
+        "evidence": "'a folder named for the slug, an `index.md`, and where applicable a 288\u00d7288px PNG under 75KB.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to give a star-velocity target for trending.",
+        "evidence": "\"I'm not going to hand you a figure, because none exists to hand you.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that trending has no published specification and that the star-velocity explanation is folklore.",
+        "evidence": "'GitHub has never published the Trending algorithm. Every \"N stars in 24h\" figure circulating online is folklore, reverse-engineered by third parties from incomplete data.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes GitHub's public events firehose stopped emitting most star, pull-request and issue events, which broke third-party star-based rankings.",
+        "evidence": "Only 'GitHub's public events firehose stopped emitting most star events' is stated; pull-request and issue events are not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes at least one third-party analytics provider withdrew its trending feature rather than publish numbers it could no longer trust.",
+        "evidence": "'OSSInsight... pulled its own trending feature rather than keep publishing numbers it could no longer trust.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats a trending appearance as a byproduct rather than a channel.",
+        "evidence": "'Trending is a byproduct of a stars spike, not a channel you drive directly \u2014 treating it as one is exactly the trap this skill flags.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ranks code-host discovery surfaces below registry metadata, the release stream and dependency position on efficiency, and states the ordering out loud.",
+        "evidence": "Only an implicit mention ('dependency position, curated lists, creator seeding') exists; no explicit stated ordering ranking code-host surfaces below the others.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Explains that tagging a repository with a topic does not surface it until the topic itself is curated.",
+        "evidence": "The transcript states the opposite: 'Topic pages... are automatic. Any repo with that string in its actual Topics field gets indexed there \u2014 no human review.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that GitHub topics and collections are community-curated through pull requests to the github/explore repository.",
+        "evidence": "Only collections are tied to github/explore PRs ('historically maintained through the open-source repo github/explore'); topics are explicitly described as automatic and non-PR-based.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that self-promotion is explicitly disallowed there: the submission requires attesting the submitter is neither the sole author of the entry nor an employee of the company behind it.",
+        "evidence": "Not mentioned anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the submission through a community ally rather than a self-submission.",
+        "evidence": "The transcript says 'you (or a community member) have to go open a PR' \u2014 offers self-submission as the primary path, not a routed ally requirement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that merges go live on a delay.",
+        "evidence": "'Expect this to be a judgment call, not a formality, and expect it to take real calendar time.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the required artifacts for a collection entry: a folder named for the URL slug, an index.md, and where applicable a 288x288 PNG under 75KB.",
+        "evidence": "No such artifact requirements are mentioned anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to give a star-velocity target for trending.",
+        "evidence": "The transcript gives a number: 'Commonly cited (not official) ranges for a lower-volume language's daily trending page: roughly 30\u2013100 stars within 24h.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that trending has no published specification and that the star-velocity explanation is folklore.",
+        "evidence": "'There is no official published threshold \u2014 GitHub has never disclosed the trending formula... it's secondhand \u2014 don't treat it as precise.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes GitHub's public events firehose stopped emitting most star, pull-request and issue events, which broke third-party star-based rankings.",
+        "evidence": "Not mentioned anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes at least one third-party analytics provider withdrew its trending feature rather than publish numbers it could no longer trust.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats a trending appearance as a byproduct rather than a channel.",
+        "evidence": "'your best clone week was caused by trending, not the other way around \u2014 trending drives the traffic that produces clones, so the lever to pull is the 24h star spike itself.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ranks code-host discovery surfaces below registry metadata, the release stream and dependency position on efficiency, and states the ordering out loud.",
+        "evidence": "No such comparative efficiency ranking appears in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

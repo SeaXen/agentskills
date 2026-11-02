@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Sizes each issue at roughly one evening for someone who has never seen the codebase, setup included",
+        "evidence": "The answer never assigns or requires an effort/time budget per issue. Its prescribed 'seven-part shape' (observed behaviour, expected behaviour, file + test location, required skills, suggested approach, verification command, named mentor) contains no scope or duration field, and the triage instructions ('Rewrite it to the seven-part shape', 'Re-tag as help wanted', 'Close it') never ask whether a task is completable in one sitting. Partial credit only for adjacent framing: it states \"'Small for someone who knows the codebase' is not small for a stranger\" and separately flags setup as a distin",
+        "score": 1,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Sizes each issue at roughly one evening for someone who has never seen the codebase, setup included",
+        "evidence": "The answer addresses scoping quality but never sizes work in time. Step 2 asks maintainers to add \"exact file/function to touch, a concrete definition of done, and what tests are expected\" \u2014 specificity, not effort budget. The only time figure applied to an issue is maintainer-side (\"a maintainer spends 10 minutes adding...\"), and the other durations are a review SLA (\"3 business days\") and a re-evaluation window (\"60 days\"). Nothing anywhere estimates how long a task takes a newcomer, and environment setup / build / test-running cost \u2014 the dominant first-contribution overhead \u2014 is never menti",
+        "score": 1,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

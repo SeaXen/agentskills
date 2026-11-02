@@ -1,0 +1,2683 @@
+"""Extraction and entity resolution: unit splitting, output parsing, merging, sameness judgement, noise reduction,
+ontology."""
+from __future__ import annotations
+
+import json
+import tempfile
+import time
+import unittest
+from typing import Any
+from pathlib import Path
+from types import SimpleNamespace
+
+from kb_pipeline import db
+from kb_pipeline.graph import prompts, resolution, schema as graph_schema
+from kb_pipeline.graph.extract import ExtractionSchema, GraphExtractor, consolidate, entity_key, extraction_fingerprint, normalize_name, parse_records, render_extract_prompt
+from kb_pipeline.graph.llm import ChatClient, HTTPStatusError, LLMCache, LLMSpec
+from kb_pipeline.graph.merge import attribute_mentions, compute_weights, is_negated, merge_extractions, pagerank
+from kb_pipeline.graph.units import ChunkRef, Unit, build_units, dedupe_overlap, read_units, unit_id_for, write_units
+from kb_pipeline.models import KBSource
+
+from _support import SPEC, _CodexAudit20260906TestsSupport, _CodexFinalTestsSupport, _bundle_dir, _chunk, _client, _ext, _fake_chat_client, _repo_file, _schema_entry, _unit
+
+
+class UnitBuildingTests(unittest.TestCase):
+    def test_overlap_between_consecutive_chunks_is_removed(self) -> None:
+        self.assertEqual(dedupe_overlap("A sentence one. B sentence two.", "B sentence two. C sentence three."),
+                         "C sentence three.")
+        # An overlap that is too short does not count (coincidentally identical characters)
+        self.assertEqual(dedupe_overlap("abc", "c def"), "c def")
+        self.assertEqual(dedupe_overlap("", "x"), "x")
+
+    def test_units_group_n_consecutive_chunks(self) -> None:
+        chunks = [_chunk(i, f"第一节内容{i}。", block=f"b{i}", tokens=300) for i in range(5)]
+        by3 = build_units(chunks, kb_id="kb_003", unit_chunks=3)
+        self.assertEqual([len(u.chunk_uids) for u in by3], [3, 2])
+        self.assertEqual(by3[0].block_ids, ["b0", "b1", "b2"])
+        self.assertEqual([u.order for u in by3], [0, 1])
+        self.assertEqual([len(u.chunk_uids) for u in build_units(chunks, kb_id="kb_003", unit_chunks=2)], [2, 2, 1])
+        # 1 = no merging: one chunk per unit
+        single = build_units(chunks, kb_id="kb_003", unit_chunks=1)
+        self.assertEqual([len(u.chunk_uids) for u in single], [1, 1, 1, 1, 1])
+        self.assertEqual(single[0].text, "第一节内容0。")
+        # Content-addressed: the same text + the same positions give the same id; chunk uids carrying
+        # content_version are no longer accepted (health check R10)
+        self.assertEqual(by3[0].unit_id, unit_id_for("kb_003", "kb_003:1", by3[0].text, positions=[0, 1, 2]))
+        self.assertNotEqual(by3[0].unit_id, unit_id_for("kb_003", "kb_003:1", by3[0].text, positions=[3, 4, 5]))
+        self.assertNotEqual(by3[0].unit_id, unit_id_for("kb_003", "kb_003:1", by3[0].text, by3[0].chunk_uids))
+
+    def test_section_change_breaks_only_after_half_a_unit(self) -> None:
+        """Tiny sections of a few dozen tokens one after another: a section change does not break the current unit
+        until it has accumulated at least half a unit, and the Section line lists every section crossed."""
+        chunks = [
+            _chunk(0, "引脚 A。", section=("引脚", "A"), tokens=80),
+            _chunk(1, "引脚 B。", block="b2", section=("引脚", "B"), tokens=80),
+            _chunk(2, "引脚 C。", block="b3", section=("引脚", "C"), tokens=80),
+            _chunk(3, "时序。", block="b4", section=("时序",), tokens=600),
+            _chunk(4, "封装。", block="b5", section=("封装",), tokens=100),
+        ]
+        units = build_units(chunks, kb_id="kb_003", unit_chunks=3)      # breaks at a section change only after 2 accumulated
+        self.assertEqual([len(u.chunk_uids) for u in units], [2, 2, 1])
+        self.assertEqual(units[0].section_label, "引脚 > A | 引脚 > B")
+        self.assertEqual(units[1].section_label, "引脚 > C | 时序")
+        self.assertEqual(units[2].section_label, "封装")
+        # Without merging it is naturally one unit per section
+        self.assertEqual([len(u.chunk_uids) for u in build_units(chunks, kb_id="kb_003", unit_chunks=1)], [1, 1, 1, 1, 1])
+
+    def test_table_block_stays_whole_when_it_fits_twice_the_budget(self) -> None:
+        chunks = [
+            _chunk(0, "引言。", tokens=700),
+            _chunk(1, "| a | b |\n| 1 | 2 |", block="t1", block_type="table", tokens=500),
+            _chunk(2, "| a | b |\n| 3 | 4 |", block="t1", block_type="table", tokens=500),
+            _chunk(3, "| a | b |\n| 5 | 6 |", block="t1", block_type="table", tokens=500),
+            _chunk(4, "结语。", block="b9", tokens=100),
+        ]
+        units = build_units(chunks, kb_id="kb_003", unit_chunks=3)
+        # The three-chunk table following the intro would exceed 3 chunks, but ≤ 2×3, so the whole block starts its own unit
+        self.assertEqual([len(u.chunk_uids) for u in units], [1, 3, 1])
+        # Without merging, tables are no exception: each chunk is its own unit
+        self.assertEqual([len(u.chunk_uids) for u in build_units(chunks, kb_id="kb_003", unit_chunks=1)], [1, 1, 1, 1, 1])
+        self.assertEqual(units[1].block_ids, ["t1"])
+        self.assertEqual(units[1].block_types, ["table"])
+
+    def test_consecutive_chunks_of_one_block_are_joined_without_duplicate_text(self) -> None:
+        chunks = [
+            _chunk(0, "The device has 8 pins. Pin 1 is VDD.", tokens=100),
+            _chunk(1, "Pin 1 is VDD. Pin 2 is GND.", tokens=100),
+        ]
+        units = build_units(chunks, kb_id="kb_003", unit_chunks=3)
+        self.assertEqual(len(units), 1)
+        self.assertEqual(units[0].text.count("Pin 1 is VDD."), 1)
+        self.assertIn("Pin 2 is GND.", units[0].text)
+
+    def test_identical_text_in_two_places_yields_two_units(self) -> None:
+        """The same table appears twice in a datasheet: two units, two ids, so Neo4j ends up with two TextUnits."""
+        chunks = [_chunk(0, "| a | b |", block="t1", block_type="table", section=("A",), tokens=500),
+                  _chunk(1, "| a | b |", block="t2", block_type="table", section=("B",), tokens=500)]
+        units = build_units(chunks, kb_id="kb_003", unit_chunks=1)
+        self.assertEqual(len(units), 2)
+        self.assertNotEqual(units[0].unit_id, units[1].unit_id)
+
+    def test_units_round_trip_through_jsonl(self) -> None:
+        units = build_units([_chunk(0, "文本。", tokens=10)], kb_id="kb_003")
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "units.jsonl"
+            self.assertEqual(write_units(path, units), 1)
+            back = read_units(path)
+        self.assertEqual(back[0].to_json(), units[0].to_json())
+        self.assertEqual(back[0].section_label, "第一章")
+
+
+class ExtractionOutputParserTests(unittest.TestCase):
+    SCHEMA = ExtractionSchema(entity_types=("organization", "person"),
+                              predicates=({"name": "chairs", "description": "", "source_parents": [], "target_parents": []},))
+
+    def test_complete_marker_glued_to_last_record_does_not_corrupt_fields(self) -> None:
+        text = ('("entity"<|>Central Institution<|>ORGANIZATION<|>The bank)\n##\n'
+                '("relationship"<|>Martin Smith<|>Central Institution<|>chairs<|>Martin chairs it<|>9)\n<|COMPLETE|>')
+        entities, relations, stats = parse_records(text, self.SCHEMA)
+        self.assertEqual(entities[0]["type"], "organization")           # normalised to the spelling in the configuration
+        self.assertEqual(relations[0]["strength"], 9.0)                  # upstream glued ")\\n<|COMPLETE|>" into the strength, making it 1.0
+        self.assertEqual(relations[0]["predicate"], "chairs")
+        self.assertEqual(stats["malformed"], 0)
+
+    def test_five_field_relationship_without_predicate_falls_back(self) -> None:
+        text = '("relationship"<|>A<|>B<|>A owns B<|>5)'
+        _, relations, stats = parse_records(text, self.SCHEMA)
+        self.assertEqual((relations[0]["predicate"], relations[0]["strength"]), (prompts.DEFAULT_PREDICATE, 5.0))
+        # Predicate not in the table → related_to, and counted as drift
+        _, relations, stats = parse_records('("relationship"<|>A<|>B<|>owns<|>A owns B<|>5)', self.SCHEMA)
+        self.assertEqual(relations[0]["predicate"], prompts.DEFAULT_PREDICATE)
+        self.assertEqual(relations[0]["predicate_raw"], "owns")
+        self.assertEqual(stats["unknown_predicates"], 1)
+
+    def test_quotes_parens_and_unknown_types_are_tolerated(self) -> None:
+        text = '（entity<|>Sample A<|>Person<|>desc）\n##\n(entity<|>Acme<|>company<|>x)\n##\ngarbage'
+        entities, _, stats = parse_records(text, self.SCHEMA)
+        self.assertEqual([e["type"] for e in entities], ["person", "company"])
+        self.assertEqual(stats["unknown_types"], 1)
+        self.assertEqual(stats["malformed"], 1)
+
+    def test_consolidate_merges_within_a_unit(self) -> None:
+        entities = [{"name": "Acme", "type": "organization", "description": "a"},
+                    {"name": "ACME", "type": "organization", "description": "b"},
+                    {"name": "acme ", "type": "company", "description": "a"}]
+        relations = [{"source": "Acme", "target": "Bob", "predicate": "related_to", "description": "x", "strength": 2},
+                     {"source": "ACME", "target": "bob", "predicate": "related_to", "description": "y", "strength": 7},
+                     {"source": "Bob", "target": "Bob", "predicate": "related_to", "description": "self", "strength": 1}]
+        ents, rels = consolidate(entities, relations)
+        self.assertEqual(len(ents), 1)
+        self.assertEqual((ents[0]["mentions"], ents[0]["descriptions"]), (3, ["a", "b"]))
+        self.assertEqual(ents[0]["types"], {"organization": 2, "company": 1})
+        self.assertEqual(len(rels), 1)                 # self-loop dropped, same key merged
+        self.assertEqual((rels[0]["strength"], rels[0]["descriptions"]), (7.0, ["x", "y"]))
+
+    def test_gleaning_rounds_and_yes_no_gate(self) -> None:
+        first = '("entity"<|>A<|>ORGANIZATION<|>first)'
+        cont = '("entity"<|>B<|>ORGANIZATION<|>second)<|COMPLETE|>'
+        client = _client([first, cont, "y\n", '("entity"<|>C<|>PERSON<|>third)'])
+        extractor = GraphExtractor(client, self.SCHEMA, max_gleanings=2)
+        unit = Unit(unit_id="u", doc_id="d", rel_path="a.pdf", section_path=["S"], block_ids=[], chunk_uids=[],
+                    point_ids=[], n_tokens=500, text="A and B and C")
+        result = extractor.extract(unit)
+        self.assertEqual(sorted(e["name"] for e in result.entities), ["A", "B", "C"])
+        self.assertEqual(result.calls, 4)              # first round + gleaning + Y/N + gleaning
+        self.assertEqual(result.stats["gleanings"], 2)
+        # N stops it: with two gleaning rounds configured there are only 3 calls
+        client = _client([first, cont, " n "])
+        result = GraphExtractor(client, self.SCHEMA, max_gleanings=2).extract(unit)
+        self.assertEqual(result.calls, 3)
+        # Units that are too short get no gleaning: done in a single call
+        tiny = Unit(unit_id="t", doc_id="d", rel_path="a.pdf", section_path=["S"], block_ids=[], chunk_uids=[],
+                    point_ids=[], n_tokens=120, text="A")
+        client = _client([first, cont])
+        result = GraphExtractor(client, self.SCHEMA, max_gleanings=2).extract(tiny)
+        self.assertEqual((result.calls, result.stats["gleanings"]), (1, 0))
+
+    def test_second_gleaning_round_sees_the_yes_no_answer_in_history(self) -> None:
+        """With two or more gleaning rounds the answer to the yes/no question has to stay in the conversation history.
+        It used to be dropped, and the next round appended the previous gleaning output once more: the same output
+        appeared twice in the history, as if the model had answered the yes/no question with it."""
+        first = '("entity"<|>A<|>ORGANIZATION<|>first)'
+        gleaned = '("entity"<|>B<|>ORGANIZATION<|>second)<|COMPLETE|>'
+        replies = [first, gleaned, "Y", '("entity"<|>C<|>PERSON<|>third)<|COMPLETE|>']
+        seen: list[list[dict]] = []
+
+        def chat(messages):
+            seen.append([dict(m) for m in messages])
+            return replies[len(seen) - 1]
+
+        unit = Unit(unit_id="u", doc_id="d", rel_path="a.pdf", section_path=["S"], block_ids=[], chunk_uids=[],
+                    point_ids=[], n_tokens=500, text="A and B and C")
+        result = GraphExtractor(_client(chat), self.SCHEMA, max_gleanings=2).extract(unit)
+        self.assertEqual(sorted(e["name"] for e in result.entities), ["A", "B", "C"])
+        last = seen[-1]
+        self.assertEqual([m["role"] for m in last], ["user", "assistant", "user", "assistant", "user", "assistant", "user"])
+        self.assertEqual([m["content"] for m in last[1:]],
+                         [first, prompts.CONTINUE_PROMPT, gleaned, prompts.LOOP_PROMPT, "Y", prompts.CONTINUE_PROMPT])
+        # with a single gleaning round (the usual setting) the conversation is unchanged: the first output is followed
+        # directly by the gleaning prompt
+        self.assertEqual([m["content"] for m in seen[1][1:]], [first, prompts.CONTINUE_PROMPT])
+
+    def test_truncated_output_is_asked_again_with_a_bigger_budget(self) -> None:
+        """2026-09-12: extraction budget 4096 → 8192; when the output is truncated (finish_reason=length) ask again
+        with double the budget; if still truncated keep the longer one and record truncated. Previously this step
+        ignored finish_reason, so lost records left no trace."""
+        from kb_pipeline.graph.extract import EXTRACT_MAX_TOKENS
+
+        seen: list[int] = []
+
+        def chat(spec, messages, max_tokens=None, meta=None, **_):
+            seen.append(int(max_tokens))
+            if int(max_tokens) == EXTRACT_MAX_TOKENS:
+                if meta is not None:
+                    meta.update(finish_reason="length", truncated=True, cached=False)
+                return '("entity"<|>A<|>ORGANIZATION<|>cut'
+            if meta is not None:
+                meta.update(finish_reason="stop", truncated=False, cached=False)
+            return '("entity"<|>A<|>ORGANIZATION<|>full)\n##\n("entity"<|>B<|>ORGANIZATION<|>second)<|COMPLETE|>'
+        client = ChatClient(SPEC, chat=chat, cache=LLMCache(None), backoff_base=0.0, backoff_max=0.0)
+        extractor = GraphExtractor(client, self.SCHEMA, max_gleanings=1)
+        self.assertEqual(extractor.max_tokens, 8192)
+        tiny = Unit(unit_id="t", doc_id="d", rel_path="a.pdf", section_path=["S"], block_ids=[], chunk_uids=[],
+                    point_ids=[], n_tokens=120, text="A and B")
+        result = extractor.extract(tiny)
+        self.assertEqual(seen, [8192, 16384])
+        self.assertEqual((result.calls, result.stats["truncated"]), (2, 0))
+        self.assertEqual(sorted(e["name"] for e in result.entities), ["A", "B"])
+        # Still truncated at double the budget: keep the longer one, record truncated
+
+        def chat_always_cut(spec, messages, max_tokens=None, meta=None, **_):
+            if meta is not None:
+                meta.update(finish_reason="length", truncated=True, cached=False)
+            return '("entity"<|>A<|>ORGANIZATION<|>cut)' + ('\n##\n("entity"<|>B<|>ORGANIZATION<|>more' if int(max_tokens) > 8192 else "")
+        client = ChatClient(SPEC, chat=chat_always_cut, cache=LLMCache(None), backoff_base=0.0, backoff_max=0.0)
+        result = GraphExtractor(client, self.SCHEMA, max_gleanings=1).extract(tiny)
+        self.assertEqual((result.calls, result.stats["truncated"]), (2, 1))
+        self.assertEqual(sorted(e["name"] for e in result.entities), ["A", "B"])   # the longer one is kept
+
+    def test_prompt_carries_section_predicates_language(self) -> None:
+        text = render_extract_prompt("正文", section="第二章 > 2.5", schema=ExtractionSchema(
+            entity_types=("pin",), predicates=({"name": "has_pin"},), language="Chinese"))
+        self.assertIn("Section: 第二章 > 2.5", text)
+        self.assertIn("Predicates: has_pin; related_to", text)      # 09-06 evening: predicates carry descriptions and endpoints, semicolon-separated
+        self.assertIn("Write all descriptions in Chinese", text)
+        self.assertIn("Entity_types: pin\n", text)
+
+    def test_fingerprint_changes_with_model_types_predicates_language_and_gleanings(self) -> None:
+        base = ExtractionSchema(entity_types=("a",), predicates=(), language="English")
+        fp = extraction_fingerprint(SPEC, base, max_gleanings=1)
+        self.assertNotEqual(fp, extraction_fingerprint(SPEC, base, max_gleanings=0))
+        self.assertNotEqual(fp, extraction_fingerprint(SPEC, ExtractionSchema(entity_types=("b",)), max_gleanings=1))
+        self.assertNotEqual(fp, extraction_fingerprint(SPEC, ExtractionSchema(entity_types=("a",), predicates=({"name": "p"},)), max_gleanings=1))
+        self.assertNotEqual(fp, extraction_fingerprint(SPEC, ExtractionSchema(entity_types=("a",), language="Chinese"), max_gleanings=1))
+        other = LLMSpec(name="m", base_url="http://x/v1", api_key="", model_id="model-b")
+        self.assertNotEqual(fp, extraction_fingerprint(other, base, max_gleanings=1))
+        self.assertEqual(fp, extraction_fingerprint(LLMSpec(name="n", base_url="http://y", api_key="k", model_id="model-a"), base, max_gleanings=1))
+
+    def test_names_keep_case_but_keys_do_not(self) -> None:
+        self.assertEqual(normalize_name('  "ZX8D1049GN"  '), "ZX8D1049GN")
+        self.assertEqual(entity_key("Ｅxample  Tech"), "example tech")
+
+
+class RecordFormatTests(unittest.TestCase):
+    """2026-10-24:实体记录多一段类与实例,关系记录多一段起止;旧格式(少这两段)照样能读。
+    抽取提示词带 Document date 行,相对日期、缺年份的日期按它换算。"""
+
+    def test_kind_and_period_fields_parse_and_old_records_still_read(self) -> None:
+        from kb_pipeline.graph.extract import parse_period, parse_records
+
+        schema = ExtractionSchema(entity_types=("person", "org", "meeting"), predicates=({"name": "works_for"}, {"name": "precedes"}),
+                                  parent_types={"meeting": "event"})
+        raw = ('("entity"<|>样例A<|>person<|>工程师<|>instance)##("entity"<|>客户<|>org<|>泛指的客户<|>class)##'
+               '("entity"<|>Acme<|>org<|>old style)##'
+               '("relationship"<|>样例A<|>Acme<|>works_for<|>2021 年入职<|>8<|>2021-03..)##'
+               '("relationship"<|>样例A<|>客户<|>related_to<|>对接客户<|>3<|>)##'
+               '("relationship"<|>Acme<|>样例A<|>related_to<|>old style<|>2)##'
+               '("relationship"<|>周会 2026-03-21<|>评审 2026-03-14<|>follows<|>周会在评审之后<|>5<|>)<|COMPLETE|>')
+        ents, rels, stats = parse_records(raw, schema)
+        self.assertEqual([(e["name"], e["kind"], e["description"]) for e in ents],
+                         [("样例A", "instance", "工程师"), ("客户", "class", "泛指的客户"), ("Acme", "instance", "old style")])
+        by = {(r["source"], r["target"]): r for r in rels}
+        self.assertEqual((by[("样例A", "Acme")]["valid_from"], by[("样例A", "Acme")]["valid_until"], by[("样例A", "Acme")]["strength"]),
+                         ("2021-03", "", 8.0))
+        self.assertEqual((by[("样例A", "客户")]["valid_from"], by[("样例A", "客户")]["strength"]), ("", 3.0))
+        self.assertEqual((by[("Acme", "样例A")]["description"], by[("Acme", "样例A")]["strength"]), ("old style", 2.0))
+        flipped = by[("评审 2026-03-14", "周会 2026-03-21")]                 # follows 归一成反向的 precedes
+        self.assertEqual(flipped["predicate"], "precedes")
+        self.assertEqual(stats["malformed"], 0)
+        self.assertEqual(parse_period("2021..2023-06"), ("2021", "2023-06"))
+        self.assertEqual(parse_period("..2025"), ("", "2025"))
+        self.assertEqual(parse_period("2024年3月"), ("2024-03", ""))
+        self.assertEqual(parse_period("2025..2021"), ("2021", "2025"))
+        self.assertIsNone(parse_period("not a period"))
+
+    def test_prompt_carries_the_document_date(self) -> None:
+        from kb_pipeline.graph.extract import render_extract_prompt
+
+        schema = ExtractionSchema(entity_types=("person",))
+        text = render_extract_prompt("x", section="S", schema=schema, document="周报.docx", document_date="2026-03-14")
+        self.assertIn("Document date: 2026-03-14", text.split("-Real Data-", 1)[1])
+        self.assertIn("Document date: (unknown)", render_extract_prompt("x", section="S", schema=schema).split("-Real Data-", 1)[1])
+        for needle in ("entity_kind", "relationship_period", "add the event's date to the name", "Turn relative or incomplete dates"):
+            self.assertIn(needle, prompts.GRAPH_EXTRACTION_PROMPT, needle)
+        self.assertIn("<|>class)", prompts.DEFAULT_EXAMPLES)                   # 通用示例里有一个泛指的类别名
+        self.assertIn("<|>2014..<|>", prompts.DEFAULT_EXAMPLES)                # 和一条带起点及断言限定的关系
+
+    def test_file_names_do_not_turn_part_numbers_into_years(self) -> None:
+        from kb_pipeline.graph.temporal import document_axis, name_date
+
+        self.assertIsNone(name_date("ZX8C2048KV17.pdf"))
+        self.assertIsNone(name_date("plan_2099.pdf"))                          # 晚于明年的不是文档日期
+        self.assertEqual(name_date("report_2024.pdf"), "2024")                 # 扩展名前的年份照认
+        self.assertEqual(name_date("notes-20240315.md"), "2024-03-15")
+        self.assertEqual(name_date("2025-波形图.pdf"), "2025")
+        self.assertEqual(document_axis("ZX8C2048KV17.pdf", "Rev. *L")["kind"], "version")
+
+
+class MergeTests(unittest.TestCase):
+    def test_entities_merge_by_normalized_name_with_majority_type(self) -> None:
+        units = [_unit("u1"), _unit("u2", order=1)]
+        ext = {
+            "u1": _ext([("Example", "organization", "maker"), ("STORE", "sample module", "chip")],
+                       [("Example", "STORE", "produces", "makes it", 8)]),
+            "u2": _ext([("EXAMPLE", "company", "Sample company"), ("STORE", "sample module", "chip")],
+                       [("STORE", "Example", "related_to", "made by", 3), ("Ghost", "STORE", "related_to", "x", 1)]),
+        }
+        out = merge_extractions(units, ext, entity_types=("organization", "sample module"),
+                                upper_parents={"organization": "agent", "sample module": "entity"},
+                                allowed_ends={"produces": ({"agent"}, {"part"})})
+        ents = {e["key"]: e for e in out["entities"]}
+        self.assertEqual(set(ents), {"example", "store"})
+        self.assertEqual(ents["example"]["title"], "Example")          # 出现次数平手取首次写法
+        self.assertEqual(ents["example"]["descriptions"], ["maker", "Sample company"])
+        self.assertEqual(ents["example"]["frequency"], 2)
+        self.assertEqual((ents["example"]["upper"], ents["example"]["type_path"]), ("agent", ["organization", "agent"]))
+        self.assertEqual(ents["example"]["kind"], "instance")
+        self.assertEqual(ents["store"]["descriptions"], ["chip"])          # 去重
+        rels = {(r["source_key"], r["target_key"], r["predicate"]): r for r in out["relations"]}
+        self.assertIn(("example", "store", "produces"), rels)             # 受控谓词保留方向
+        self.assertIn(("example", "store", "related_to"), rels)           # 兜底谓词按 sorted 端点
+        self.assertTrue(rels[("example", "store", "produces")]["type_violation"])   # store 的上层类是 entity 不是 part
+        self.assertEqual(out["stats"]["orphan_dropped"], 1)               # Ghost 没有实体
+        self.assertEqual(out["stats"]["schema_drift_types"], 0)           # company 输给了 organization
+        self.assertEqual(out["stats"]["type_violations"], 1)
+
+    def test_out_of_schema_type_names_get_the_upper_they_name(self) -> None:
+        """Synthetic regression: out of schema type names get the upper they name."""
+        units = [_unit("u1")]
+        ext = {"u1": _ext([("上下文工程", "concept", "x"), ("功能安全标准", "standard", "y"), ("小部件", "gizmo", "z"),
+                           ("Acme", "organization", "w")], [])}
+        out = merge_extractions(units, ext, entity_types=("organization",), upper_parents={"organization": "agent"})
+        ents = {e["title"]: e for e in out["entities"]}
+        self.assertEqual((ents["上下文工程"]["upper"], ents["上下文工程"]["type_path"]), ("concept", ["concept"]))
+        self.assertEqual((ents["功能安全标准"]["upper"], ents["功能安全标准"]["type_path"]), ("concept", ["standard", "concept"]))
+        self.assertEqual(ents["小部件"]["upper"], "entity")
+        self.assertEqual(ents["Acme"]["upper"], "agent")
+        self.assertEqual(out["stats"]["schema_drift_types"], 3)
+
+    def test_negated_and_self_loop_relations_are_dropped(self) -> None:
+        self.assertTrue(is_negated("There is no clear relationship between A and B"))
+        self.assertTrue(is_negated("两者无明确关系"))
+        self.assertFalse(is_negated("A supplies power to B"))
+        units = [_unit("u1")]
+        ext = {"u1": _ext([("A", "t", "a"), ("B", "t", "b")],
+                          [("A", "B", "related_to", "no clear relationship", 1), ("A", "a", "related_to", "self", 1)])}
+        out = merge_extractions(units, ext)
+        self.assertEqual(len(out["relations"]), 1)
+        self.assertEqual(out["relations"][0]["polarity"], "uncertain")
+        self.assertEqual((out["stats"]["negated_dropped"], out["stats"]["self_loops_dropped"]), (0, 1))
+
+    def test_weights_npmi_and_pagerank(self) -> None:
+        # Since 2026-09-12 single-letter names are document-scoped; the fixture uses two capital letters (still global entities)
+        units = [_unit(f"u{i}", order=i) for i in range(4)]
+        ext = {
+            "u0": _ext([("AA", "t", "a"), ("BB", "t", "b")], [("AA", "BB", "related_to", "ab", 9)]),
+            "u1": _ext([("AA", "t", "a"), ("BB", "t", "b")], [("AA", "BB", "related_to", "ab", 9)]),
+            "u2": _ext([("AA", "t", "a"), ("CC", "t", "c")], [("AA", "CC", "related_to", "ac", 1)]),
+            "u3": _ext([("DD", "t", "d"), ("CC", "t", "c")], [("DD", "CC", "related_to", "dc", 1)]),
+        }
+        out = merge_extractions(units, ext)
+        info = compute_weights(out["entities"], out["relations"], n_units=4)
+        ents = {e["key"]: e for e in out["entities"]}
+        rels = {(r["source_key"], r["target_key"]): r for r in out["relations"]}
+        self.assertEqual(ents["aa"]["degree"], 2)
+        self.assertEqual(rels[("aa", "bb")]["cooccur"], 2)
+        self.assertEqual(rels[("aa", "bb")]["evidence"], 2)
+        self.assertEqual(rels[("aa", "bb")]["combined_degree"], 3)
+        # NPMI: p(a)=3/4, p(b)=2/4, p(ab)=2/4 → pmi=log(0.5/0.375)>0, within (0,1] after normalisation
+        self.assertGreater(rels[("aa", "bb")]["npmi"], 0)
+        self.assertLessEqual(rels[("aa", "bb")]["npmi"], 1.0)
+        # a-c co-occur only once and a is very common → the negative NPMI is kept
+        self.assertLess(rels[("aa", "cc")]["npmi"], rels[("aa", "bb")]["npmi"])
+        for r in out["relations"]:
+            self.assertGreaterEqual(r["weight"], 1.0)
+            self.assertLessEqual(r["weight"], 10.0)
+        self.assertGreater(rels[("aa", "bb")]["weight"], rels[("cc", "dd")]["weight"])   # undirected edges use sorted endpoints
+        self.assertAlmostEqual(sum(e["pagerank"] for e in out["entities"]), 1.0, places=5)
+        self.assertEqual(ents["aa"]["pagerank_norm"], 1.0)
+        self.assertEqual(info["n_units"], 4)
+
+    def test_scope_is_decided_per_name_not_per_unit(self) -> None:
+        """2026-10-24:作用域按名字在全库的类型众数定一次。以前按每个单元自己的类型定,同一份文档里一处抽成参数、
+        一处抽成器件,就同时成了文档内节点和全局节点,两者永远并不到一起。"""
+        units = [_unit("u1", doc="kb:1"), _unit("u2", doc="kb:1", order=1), _unit("u3", doc="kb:2", order=2)]
+        ext = {"u1": _ext([("tAS", "timing parameter", "setup")], []),
+               "u2": _ext([("tAS", "device", "odd label")], []),
+               "u3": _ext([("tAS", "timing parameter", "setup B")], [])}
+        out = merge_extractions(units, ext, entity_types=("timing parameter", "device"),
+                                upper_parents={"timing parameter": "property", "device": "entity"})
+        self.assertEqual(sorted(e["key"] for e in out["entities"]), ["kb:1::tas", "kb:2::tas"])
+        # 作用域也可以按类型单独判定:同一个上层类,声明全局的类型就跨文档认同一个
+        out = merge_extractions(units, ext, entity_types=("timing parameter", "device"),
+                                upper_parents={"timing parameter": "property", "device": "entity"},
+                                type_scopes={"timing parameter": "global"})
+        self.assertEqual([e["key"] for e in out["entities"]], ["tas"])
+
+    def test_same_name_with_different_upper_classes_splits_only_on_real_evidence(self) -> None:
+        """公司与它的同名产品:两种上层类各有足够的提及、来自不同文档,才拆成两个节点;零星的类型分歧仍按众数归一个。"""
+        units = [_unit(f"u{i}", doc=f"kb:{i}", order=i) for i in range(5)]
+        ext = {f"u{i}": _ext([("ExampleHub", "organization" if i < 3 else "product", f"d{i}")], []) for i in range(5)}
+        kw = dict(entity_types=("organization", "product"), upper_parents={"organization": "agent", "product": "entity"})
+        out = merge_extractions(units, ext, **kw)
+        ents = {e["key"]: e for e in out["entities"]}
+        self.assertEqual(set(ents), {"examplehub", "examplehub||entity"})
+        self.assertEqual((ents["examplehub"]["upper"], ents["examplehub||entity"]["upper"]), ("agent", "entity"))
+        self.assertEqual(out["stats"]["homonyms_split"], 1)
+        noisy = {f"u{i}": _ext([("ExampleHub", "organization" if i else "product", f"d{i}")], []) for i in range(5)}
+        self.assertEqual([e["key"] for e in merge_extractions(units, noisy, **kw)["entities"]], ["examplehub"])   # 1/5 只算噪声
+
+    def test_dated_event_names_are_global_and_undated_ones_stay_in_their_document(self) -> None:
+        units = [_unit("u1", doc="kb:1"), _unit("u2", doc="kb:2", order=1)]
+        ext = {u: _ext([("2026-03-14 设计评审", "meeting", "评审"), ("周会", "meeting", "例会")], []) for u in ("u1", "u2")}
+        out = merge_extractions(units, ext, entity_types=("meeting",), upper_parents={"meeting": "event"})
+        self.assertEqual(sorted(e["key"] for e in out["entities"]), ["2026-03-14 设计评审", "kb:1::周会", "kb:2::周会"])
+
+    def test_undated_events_in_documents_of_different_dates_are_separate_occurrences(self) -> None:
+        """合成的年度记录包含同名事件,这些事件不能因类型作用域为全局就跨年合并。不带日期的事件名
+        出现在几份日期不同的文档里时按文档各算一次;日期相同(或文档都没有日期)时照类型的作用域;名字里只有年份也算带日期。"""
+        units = [_unit("u1", doc="kb:1"), _unit("u2", doc="kb:2", order=1), _unit("u3", doc="kb:3", order=2)]
+        for u, day in zip(units, ("2024-07-26", "2025-10-11", "2025-10-11")):
+            u.doc_date = day
+        ext = {u.unit_id: _ext([("样例巡检", "examination", "巡检"), ("2024年样例巡检", "examination", "那一年的巡检")], []) for u in units}
+        kw = dict(entity_types=("examination",), upper_parents={"examination": "event"}, type_scopes={"examination": "global"})
+        keys = sorted(e["key"] for e in merge_extractions(units, ext, **kw)["entities"])
+        self.assertEqual(keys, ["2024年样例巡检", "kb:1::样例巡检", "kb:2::样例巡检", "kb:3::样例巡检"])
+        same_day = [units[1], units[2]]
+        keys = sorted(e["key"] for e in merge_extractions(same_day, {u.unit_id: ext[u.unit_id] for u in same_day}, **kw)["entities"])
+        self.assertEqual(keys, ["2024年样例巡检", "样例巡检"])                   # 同一天的两份文档说的是同一次
+
+    def test_type_disagreement_among_abstract_classes_is_noise_not_two_things(self) -> None:
+        """同一个名字一处判成故障(概念)、一处判成风险因素(属性),是同一个东西的类型摇摆,不拆;
+        人员与组织 / 具体的东西 / 抽象的东西三组之间的分歧才拆(见上一条的公司与同名产品)。"""
+        units = [_unit(f"u{i}", doc=f"kb:{i}", order=i) for i in range(5)]
+        ext = {f"u{i}": _ext([("过载", "condition" if i < 3 else "risk factor", f"d{i}")], []) for i in range(5)}
+        out = merge_extractions(units, ext, entity_types=("condition", "risk factor"),
+                                upper_parents={"condition": "concept", "risk factor": "property"},
+                                type_scopes={"condition": "global", "risk factor": "global"})
+        self.assertEqual([(e["key"], e["type"]) for e in out["entities"]], [("过载", "condition")])
+        self.assertEqual(out["stats"]["homonyms_split"], 0)
+
+    def test_kind_scope_and_external_ids_are_carried_to_the_entity(self) -> None:
+        units = [_unit("u1"), _unit("u2", order=1), _unit("u3", order=2)]
+        rec = lambda kind, ext=None: {"name": "传感器", "type": "product", "description": "x", "mentions": 1, "types": {"product": 1},
+                                     "kind": kind, **({"external_ids": [ext]} if ext else {})}
+        ext = {"u1": {"entities": [rec("class")], "relations": []}, "u2": {"entities": [rec("class")], "relations": []},
+               "u3": {"entities": [rec("instance", {"scheme": "SKU", "value": "S-1"})], "relations": []}}
+        (e,) = merge_extractions(units, ext, entity_types=("product",), upper_parents={"product": "entity"})["entities"]
+        self.assertEqual((e["kind"], e["external_ids"], e["scope"]), ("class", [{"scheme": "SKU", "value": "S-1"}], ""))
+
+    def test_pagerank_handles_isolated_nodes(self) -> None:
+        ranks = pagerank(["a", "b", "c"], [("a", "b", 1.0)])
+        self.assertAlmostEqual(sum(ranks.values()), 1.0, places=6)
+        self.assertGreater(ranks["a"], ranks["c"])
+
+    def test_mentions_are_attributed_to_the_chunks_that_contain_the_name(self) -> None:
+        unit = _unit("u1", points=("p1", "p2"))
+        entities = [{"key": "vdd", "title": "VDD", "aliases": ["Vdd pin"], "unit_ids": ["u1"]},
+                    {"key": "ghost", "title": "Ghost", "aliases": [], "unit_ids": ["u1"]}]
+        rows = attribute_mentions(entities, {"u1": unit}, {"p1": "VDD is 1.8V; the vdd pin", "p2": "nothing here"})
+        by = {(r["entity_key"], r["point_id"]): r["count"] for r in rows}
+        self.assertEqual(by[("vdd", "p1")], 3)                      # VDD + vdd + "vdd pin" each count as one hit
+        self.assertNotIn(("vdd", "p2"), by)
+        self.assertEqual((by[("ghost", "p1")], by[("ghost", "p2")]), (0, 0))   # no hit: attached to every chunk, count=0
+
+
+class ResolutionTests(unittest.TestCase):
+    def test_prefilter_rules(self) -> None:
+        self.assertFalse(resolution.is_similar("ZX8D4021KV13", "ZX8D4041KV13"))
+        self.assertTrue(resolution.is_similar("Example", "EXAMPLE"))
+        self.assertTrue(resolution.is_similar("nvSTORE", "nv-STORE"))
+        self.assertFalse(resolution.is_similar("STORE", "Static Random Access Memory"))
+        self.assertTrue(resolution.is_similar("非易失性存储器", "非易失存储器"))
+        self.assertFalse(resolution.is_similar("电源电压", "输入电压"))
+        self.assertFalse(resolution.is_similar("电源管理", "管理电源"))          # ordered n-grams: a bag of characters would misjudge this
+        self.assertFalse(resolution.is_similar("", "x"))
+
+    def test_candidates_and_prompt(self) -> None:
+        ents = [{"title": "Example", "type": "ORGANIZATION", "descriptions": ["Sample maker. Big."]},
+                {"title": "EXAMPLE", "type": "ORGANIZATION", "descriptions": []},
+                {"title": "Example", "type": "PRODUCT"},
+                {"title": "ZX8D1049GN", "type": "PRODUCT"}, {"title": "ZX8D1049GN-10", "type": "PRODUCT"}]
+        pairs = resolution.candidate_pairs(ents)
+        self.assertIn((0, 1), pairs)
+        self.assertNotIn((0, 2), pairs)
+        self.assertNotIn((3, 4), pairs)
+        prompt = resolution.render_batch([(0, 1)], ents)
+        self.assertIn('1. "Example" [Sample maker. Big.] | "EXAMPLE" []', prompt)          # sameness judgement sees the first two sentences of the description
+        self.assertIn("Entity type: ORGANIZATION", prompt)
+        self.assertEqual(resolution.parse_answers("1: yes\n2: no\n3. YES\n4) 否", 5), [True, False, True, False, False])
+
+    def test_components_merge_whole_and_edges_are_rewritten(self) -> None:
+        ents = [
+            {"key": "example", "title": "EXAMPLE", "type": "ORG", "descriptions": ["maker"], "unit_ids": ["t1"], "frequency": 5, "aliases": []},
+            {"key": "example technologies", "title": "Example Technologies", "type": "ORG", "descriptions": ["sample module company"], "unit_ids": ["t2", "t1"], "frequency": 2, "aliases": []},
+            {"key": "example ag", "title": "Example AG", "type": "ORG", "descriptions": ["maker"], "unit_ids": ["t3"], "frequency": 1, "aliases": []},
+            {"key": "zx8d1049gn", "title": "ZX8D1049GN", "type": "PRODUCT", "descriptions": ["store"], "unit_ids": ["t1"], "frequency": 3, "aliases": []},
+        ]
+        rels = [
+            {"source_key": "example", "target_key": "zx8d1049gn", "source": "EXAMPLE", "target": "ZX8D1049GN", "predicate": "produces", "directed": True, "descriptions": ["makes"], "strength_sum": 2.0, "evidence": 1, "unit_ids": ["t1"]},
+            {"source_key": "example technologies", "target_key": "zx8d1049gn", "source": "Example Technologies", "target": "ZX8D1049GN", "predicate": "produces", "directed": True, "descriptions": ["manufactures"], "strength_sum": 1.0, "evidence": 1, "unit_ids": ["t2"]},
+            {"source_key": "example ag", "target_key": "example", "source": "Example AG", "target": "EXAMPLE", "predicate": "related_to", "directed": False, "descriptions": ["same"], "strength_sum": 1.0, "evidence": 1, "unit_ids": ["t3"]},
+        ]
+        merged, edges, stats = resolution.merge_entities(ents, rels, [(0, 1), (1, 2)])
+        self.assertEqual(stats["entities_after"], 2)
+        head = next(e for e in merged if e["type"] == "ORG")
+        self.assertEqual(head["title"], "EXAMPLE")
+        self.assertEqual(head["frequency"], 8)
+        self.assertEqual(head["unit_ids"], ["t1", "t2", "t3"])
+        self.assertEqual(head["descriptions"], ["maker", "sample module company"])
+        self.assertEqual(head["aliases"], ["Example Technologies", "Example AG"])
+        self.assertEqual(len(edges), 1)
+        self.assertEqual((edges[0]["source"], edges[0]["target"], edges[0]["strength_sum"], edges[0]["evidence"]),
+                         ("EXAMPLE", "ZX8D1049GN", 3.0, 2))
+        self.assertEqual(edges[0]["unit_ids"], ["t1", "t2"])
+        self.assertEqual(stats["self_loops_dropped"], 1)
+
+    def test_merges_keep_old_ids_and_never_join_different_external_ids(self) -> None:
+        """方案附录第 4 条:归并后代表换了、名字变了,旧编号照样能查到(member_keys → 负载里的 ids);
+        同一体系下外部编号不同的两个实体绝不合并,经由第三个实体传递也不行;带外部编号的优先当代表。"""
+        from kb_pipeline.graph.vectors import entity_id, entity_ids
+
+        ents = [
+            {"key": "acme", "title": "Acme", "type": "org", "frequency": 9, "unit_ids": ["u1"], "aliases": [], "descriptions": ["a"]},
+            {"key": "acme inc", "title": "Acme Inc", "type": "org", "frequency": 1, "unit_ids": ["u2"], "aliases": [], "descriptions": ["b"],
+             "external_ids": [{"scheme": "客户编号", "value": "C-001"}]},
+            {"key": "acme ltd", "title": "Acme Ltd", "type": "org", "frequency": 1, "unit_ids": ["u3"], "aliases": [], "descriptions": ["c"],
+             "external_ids": [{"scheme": "客户编号", "value": "C-002"}]},
+        ]
+        merged, _, stats = resolution.merge_entities(ents, [], [(0, 1), (0, 2)])
+        self.assertEqual(stats["external_id_conflicts_blocked"], 1)
+        self.assertEqual(stats["entities_after"], 2)
+        head = next(e for e in merged if e["key"] == "acme inc")              # 带编号的当代表,哪怕提及少
+        self.assertEqual(head["member_keys"], ["acme inc", "acme"])
+        self.assertEqual(entity_ids(head), [entity_id("acme inc"), entity_id("acme")])
+        self.assertEqual(head["external_ids"], [{"scheme": "客户编号", "value": "C-001"}])
+        self.assertIn("acme ltd", {e["key"] for e in merged})
+
+    def test_merged_rows_keep_every_description_with_its_source(self) -> None:
+        """A merged entity used to keep only its first 8 descriptions, with source labels only for the
+        representative's own, and merged relations did not carry sources either: the statements merged in reached
+        the summary without source or date. Now nothing is cut, and descriptions and sources are aligned by index."""
+        from kb_pipeline.graph.summarize import description_rows
+
+        def src(doc: str, when: str) -> dict:
+            return {"source": f"{doc}.pdf", "when": when}
+
+        ents = [
+            {"key": "lix", "title": "LIX", "type": "indicator", "frequency": 9, "unit_ids": ["u1"], "aliases": [],
+             "descriptions": [f"报告 {i} 的说法" for i in range(10)], "description_sources": [src(f"d{i}", f"20{10 + i}") for i in range(10)]},
+            {"key": "负载指数", "title": "负载指数", "type": "indicator", "frequency": 2, "unit_ids": ["u2"], "aliases": [],
+             "attributes": ["measured_as = 22.6"],
+             # the last one is an attribute row synthesised at admission and never had a source; the second repeats
+             # a description of the representative
+             "descriptions": ["另一份报告的说法", "报告 3 的说法", "负载指数: measured_as = 22.6"],
+             "description_sources": [src("other", "2026"), src("other", "2026")]},
+            {"key": "负载指数(lix)", "title": "负载指数(LIX)", "type": "indicator", "frequency": 1, "unit_ids": ["u3"], "aliases": [],
+             "descriptions": ["第三份报告的说法"], "description_sources": [src("third", "2027")]},
+            {"key": "zhang", "title": "样例A", "type": "person", "frequency": 5, "unit_ids": ["u1"], "aliases": [], "descriptions": ["样例负责人"]},
+        ]
+        rels = [
+            {"source_key": "zhang", "target_key": "负载指数", "predicate": "variant_of", "directed": True, "strength_sum": 1.0, "evidence": 0,
+             "unit_ids": ["u2"], "descriptions": ["推出来的边,没有来源"]},
+            {"source_key": "zhang", "target_key": "lix", "predicate": "variant_of", "directed": True, "strength_sum": 2.0, "evidence": 1,
+             "unit_ids": ["u1"], "descriptions": ["2024 年的说法"], "description_sources": [src("d1", "2024")]},
+            {"source_key": "zhang", "target_key": "负载指数(lix)", "predicate": "variant_of", "directed": True, "strength_sum": 1.0, "evidence": 1,
+             "unit_ids": ["u3"], "descriptions": ["2027 年的说法", "2024 年的说法"], "description_sources": [src("third", "2027"), src("third", "2027")]},
+        ]
+        original = json.dumps([ents, rels], ensure_ascii=False, sort_keys=True)
+        merged, edges, _ = resolution.merge_entities(ents, rels, [(0, 1), (1, 2)])
+        head = next(e for e in merged if e["key"] == "lix")
+        self.assertEqual(head["descriptions"], [f"报告 {i} 的说法" for i in range(10)]
+                         + ["另一份报告的说法", "负载指数: measured_as = 22.6", "第三份报告的说法"])
+        self.assertEqual(len(head["description_sources"]), len(head["descriptions"]))
+        rows = description_rows(head)
+        self.assertEqual(rows[9], {"text": "报告 9 的说法", "source": "d9.pdf", "when": "2019"})
+        self.assertEqual(rows[10], {"text": "另一份报告的说法", "source": "other.pdf", "when": "2026"})
+        self.assertEqual(rows[11], {"text": "负载指数: measured_as = 22.6"})                     # a description without a source takes an empty slot, so the ones after it do not shift
+        self.assertEqual(rows[12], {"text": "第三份报告的说法", "source": "third.pdf", "when": "2027"})
+        self.assertEqual(len(edges), 1)
+        self.assertEqual(description_rows(edges[0]), [{"text": "推出来的边,没有来源"},
+                                                      {"text": "2024 年的说法", "source": "d1.pdf", "when": "2024"},
+                                                      {"text": "2027 年的说法", "source": "third.pdf", "when": "2027"}])
+        self.assertEqual(json.dumps([ents, rels], ensure_ascii=False, sort_keys=True), original)      # the input rows are not modified
+        # entities that were not merged stay as they are
+        self.assertEqual(next(e for e in merged if e["key"] == "zhang")["descriptions"], ["样例负责人"])
+
+    def test_resolve_runs_batches_and_tolerates_a_failed_batch(self) -> None:
+        # Example / EXAMPLE and Example / Example Technologies are now merged directly without asking the
+        # model (identifier equality, organisation suffix); here we use a pair that does need the model (spelling variant)
+        ents = [{"key": "a", "title": "Example", "type": "ORG", "descriptions": [], "unit_ids": ["t1"], "frequency": 1, "aliases": []},
+                {"key": "b", "title": "Examplen", "type": "ORG", "descriptions": [], "unit_ids": ["t2"], "frequency": 1, "aliases": []}]
+        client = _client(["1: yes"])
+        merged, _, stats = resolution.resolve(client, ents, [])
+        self.assertEqual((stats["candidates"], stats["yes"], stats["entities_after"]), (1, 1, 1))
+        client = _client([HTTPStatusError(400, "bad")], attempts=1)
+        merged, _, stats = resolution.resolve(client, ents, [])
+        self.assertEqual((stats["failed_batches"], stats["entities_after"]), (1, 2))
+
+
+class NoiseReductionTests(unittest.TestCase):
+    """Graph-build noise reduction (2026-09-04): unit classification,
+    value / reference admission, splitting of combined names, deterministic resolution rules and vector candidates,
+    section-path attribution, type health check, landing checks for capability questions, recall filtering."""
+
+    def test_unit_classifier_recognises_toc_history_and_listings(self) -> None:
+        from kb_pipeline.graph.units import classify_unit_text, unit_signals
+
+        toc = "Contents Pin Configurations ....5 Pin Definitions ....7 Functional Overview ...... 9 Command Cycles ....9 Read and Write ....11 TAP ....22"
+        history = ("CAPTION: Document History Page | Document Title: ZX8D4021KV13 | Rev | ECN | Date | Description |\n"
+                   "| *J | 4575129 | 11/20/2014 | PRIT | Updated Functional Description |\n"
+                   "| *K | 4741050 | 05/05/2015 | PRIT | Updated Ordering Information |\n"
+                   "| *L | 5012377 | 12/01/2015 | PRIT | Updated to new template |")
+        ballmap = "\n".join("| " + " | ".join(f"{r}{c}" if (r + c) % 3 else "VDD" for c in range(1, 13)) + " |" for r in range(1, 12))
+        ac_table = ("| Parameter | Description | 667 MHz Min | 667 MHz Max | 600 MHz Min | Unit |\n"
+                    "| tAS | Address setup to CK rising edge, measured from the address transition | 0.160 | - | 0.180 | ns |\n"
+                    "| tCK | Clock cycle time, defined between two rising edges of the same clock | 1.5 | 3.333 | 1.667 | ns |")
+        prose = "The CK/CK# clock is associated with the address and control pins: A[24:0], LDA#, LDB#, RWA#, RWB#. The CK/CK# transitions are centered with respect to the address and control signal transitions."
+        self.assertEqual(classify_unit_text(toc, ["Contents"]), "boilerplate")
+        self.assertEqual(classify_unit_text(history, ["Units of Measure"]), "boilerplate")   # heading is no help; relies on the first line and the dates
+        self.assertEqual(classify_unit_text(ballmap, ["Pin Configurations"]), "listing")
+        self.assertEqual(classify_unit_text(ac_table, ["Switching Characteristics"]), "body")   # parameter tables are body text
+        self.assertEqual(classify_unit_text(prose, ["Functional Overview"]), "body")
+        self.assertEqual(classify_unit_text("本文档所含信息如有更改,恕不另行通知。版权所有。", ["法律声明"]), "boilerplate")
+        self.assertEqual(classify_unit_text("销售、解决方案和法律信息 全球销售和设计支持 示例模块公司拥有一个由办事处组成的全球性网络。", ["销售、解决方案和法律信息"]), "boilerplate")
+        self.assertEqual(classify_unit_text("CAPTION: 测量单位 | 符号 | 测量单位 | | --- | --- | | °C | 摄氏度 | | MHz | 兆赫兹 |", ["封装图"]), "boilerplate")
+        sig = unit_signals(ballmap)
+        self.assertGreaterEqual(sig["table_ratio"], 0.5)
+        self.assertLessEqual(sig["cell_len"], 8)
+
+    def test_units_carry_a_kind_and_the_parser_reads_the_unit_record(self) -> None:
+        from kb_pipeline.graph.extract import ExtractionResult, extraction_fingerprint, parse_records
+
+        chunks = [_chunk(0, "Contents Pin Configurations ....5 Pin Definitions ....7 Overview ...... 9 Cycles ....9 TAP ....22 Timing ....30")]
+        units = build_units(chunks, kb_id="kb_t", unit_chunks=3)
+        self.assertEqual(units[0].kind, "boilerplate")
+        rt = Unit.from_json(units[0].to_json())
+        self.assertEqual(rt.kind, "boilerplate")
+        self.assertEqual(Unit.from_json({"unit_id": "u", "doc_id": "d"}).kind, "body")   # old units.jsonl has no such field
+        text = '("unit"<|>boilerplate<|>table of contents)##("entity"<|>TAP<|>logic block<|>test port)<|COMPLETE|>'
+        ents, rels, stats = parse_records(text, None)
+        self.assertEqual(stats["unit_kind"], "boilerplate")
+        self.assertEqual(stats["malformed"], 0)
+        self.assertEqual(len(ents), 1)
+        _, _, stats2 = parse_records('("unit"<|>garbage<|>x)##("entity"<|>A<|>t<|>d)', None)
+        self.assertEqual(stats2["unit_kind"], "body")
+        self.assertEqual(ExtractionResult("u", [], [], 1, {"unit_kind": "listing"}).unit_kind, "listing")
+        self.assertEqual(ExtractionResult("u", [], [], 1, {}).unit_kind, "body")
+        # The prompt changed, so the fingerprint must change (otherwise old extractions would count as hits for the new prompt)
+        self.assertIn("unit", prompts.GRAPH_EXTRACTION_PROMPT)
+        self.assertNotEqual(extraction_fingerprint(SPEC, ExtractionSchema(("a",)), max_gleanings=1)[:4], "")
+
+    def test_latex_names_are_normalised_to_plain_identifiers(self) -> None:
+        from kb_pipeline.graph.extract import normalize_name, strip_latex
+
+        self.assertEqual(strip_latex("$t_{\\text{AS}}$"), "tAS")
+        self.assertEqual(strip_latex("$V_{CC}$"), "VCC")
+        self.assertEqual(strip_latex("$\\overline{\\mathrm{CE}}$"), "CE#")
+        self.assertEqual(strip_latex("$t_{JIT(per)}$"), "tJIT(per)")
+        self.assertEqual(strip_latex("t_AS"), "t_AS")                      # a non-LaTeX underscore is left alone
+        self.assertEqual(strip_latex("t $_{AA}$"), "tAA")
+        self.assertEqual(strip_latex("A $_{0-A19}$"), "A0-A19")
+        self.assertEqual(strip_latex("芯片使能($\\overline{\\mathrm{CE}}$)"), "芯片使能(CE#)")
+        self.assertEqual(strip_latex("ZX8D4021KV13"), "ZX8D4021KV13")
+        # a $, backslash or underscore that is not LaTeX stays untouched: variable names, currencies, paths
+        for name in ("$SKILL_DIR", "${HOME}_dir", "Revenue A$", "$schema", "C:\\data\\my_file", "$100 to $200",
+                     "$PATH and $HOME_DIR", "部门\\成员_列表"):
+            self.assertEqual(strip_latex(name), name)
+            self.assertEqual(normalize_name(name), name)
+        self.assertEqual(normalize_name("  $t_{\\text{TF}}$ "), "tTF")
+        self.assertEqual(entity_key("$t_{\\text{AS}}$"), entity_key("tAS"))
+        # Merging recomputes the key from the name: a stored extraction whose name is LaTeX and whose key came from
+        # the old rule still merges with the plain-text form
+        units = [_unit("u1"), _unit("u2", order=1)]
+        ext = {"u1": {"entities": [{"name": "$t_{\\text{AS}}$", "key": "$t_{\\text{as}}$", "type": "timing parameter", "description": "setup"}],
+                      "relations": []},
+               "u2": {"entities": [{"name": "tAS", "key": "tas", "type": "timing parameter", "description": "address setup"}],
+                      "relations": []}}
+        out = merge_extractions(units, ext)
+        self.assertEqual([e["title"] for e in out["entities"]], ["tAS"])
+        self.assertEqual(out["entities"][0]["frequency"], 2)
+
+    def test_digit_superscripts_keep_the_caret_and_values_only_restore_math(self) -> None:
+        from kb_pipeline.graph.extract import strip_latex, strip_math
+
+        # a numeric superscript after a digit would merge with its base into another number once the marker is gone,
+        # so the ^ stays; a superscript after a letter still joins the name
+        self.assertEqual(strip_latex("$10^{9}$/L"), "10^9/L")
+        self.assertEqual(strip_latex("$10^{-6}$"), "10^-6")
+        self.assertEqual(strip_latex("$10^9$"), "10^9")
+        self.assertEqual(strip_latex("$I^{2}C$"), "I2C")
+        self.assertEqual(strip_latex("$x^{2}$"), "x2")
+        self.assertEqual(strip_latex("$t_{1}$"), "t1")
+        # strip_math: only recognisable fragments inside a paired $...$ are touched
+        self.assertEqual(strip_math("$V_{CC}$ + 0.5"), "VCC + 0.5")
+        self.assertEqual(strip_math("$t_{\\text{AS}}$ 与 $\\overline{\\mathrm{CE}}$"), "tAS 与 CE#")
+        self.assertEqual(strip_math("$10^{9}$/L"), "10^9/L")
+        self.assertEqual(strip_math("$5\\%$"), "5%")
+        for raw in ("$85K", "$85K – $120K", "${HOME}_dir", "${A_B}:${C_D}", "a\\b", "$\\pm 5$", "$\\frac{1}{2}$", "$a\\_b$", "$x$",
+                    "V_{CC}", ""):
+            self.assertEqual(strip_math(raw), raw, raw)
+
+    def test_combine_unit_kind_prefers_boilerplate_then_listing(self) -> None:
+        from kb_pipeline.graph.merge import combine_unit_kind
+
+        self.assertEqual(combine_unit_kind("body", "boilerplate"), "boilerplate")
+        self.assertEqual(combine_unit_kind("boilerplate", None), "boilerplate")
+        self.assertEqual(combine_unit_kind("listing", "body"), "listing")
+        self.assertEqual(combine_unit_kind("body", "listing"), "body")        # the model's listing does not count: it calls spec tables listings too
+        self.assertEqual(combine_unit_kind("body", "body"), "body")
+        self.assertEqual(combine_unit_kind(None, "nonsense"), "body")
+
+    def test_value_and_reference_names(self) -> None:
+        from kb_pipeline.graph.merge import is_reference_name, is_value_name
+
+        for name in ("1.3V", "667 MHz", "2.7 V至3.6 V", "1024 K × 8", "65nm", "-40°C to 85°C", "4021", "3.333 ns", "0.160"):
+            self.assertTrue(is_value_name(name), name)
+        for name in ("ZX8D4021KV13", "256-pin EXBOX", "8 Mbit", "Commercial", "tAS", "PE#", "ExampleCell", "边界扫描寄存器"):
+            self.assertFalse(is_value_name(name), name)
+        for name in ("Figure 5", "Table 20", "图 5", "表 3.2", "000-12345", "Rev *J", "*J", "Note 15", "附录 A"):
+            self.assertTrue(is_reference_name(name), name)
+        for name in ("Errata", "TAP Timing Diagram", "ZX8D4021KV13", "STORE"):
+            self.assertFalse(is_reference_name(name), name)
+
+    def _merge_input(self):
+        u_body = _unit("u1", points=("p1",))
+        u_toc = _unit("u2", points=("p2",))
+        u_toc.kind = "boilerplate"
+        extractions = {
+            "u1": {"entities": [
+                        {"name": "ZX8D4021KV13", "type": "device", "description": "a sample store", "mentions": 2},
+                        {"name": "1.3V", "type": "operating condition", "description": "core voltage", "mentions": 1},
+                        {"name": "tAS", "type": "timing parameter", "description": "address setup", "mentions": 1},
+                        {"name": "Figure 5", "type": "document", "description": "block diagram", "mentions": 1},
+                        {"name": "ZX8D4041KV13", "type": "device", "description": "the x36 sibling", "mentions": 1},
+                        {"name": "ZX8D4021KV13/ZX8D4041KV13", "type": "device", "description": "the family datasheet", "mentions": 1}],
+                   "relations": [
+                        {"source": "ZX8D4021KV13", "target": "1.3V", "predicate": "has_voltage_level", "description": "VDD is 1.3V", "strength": 8},
+                        {"source": "ZX8D4021KV13", "target": "tAS", "predicate": "has_timing_parameter", "description": "tAS min 0.16 ns", "strength": 7},
+                        {"source": "ZX8D4021KV13", "target": "Figure 5", "predicate": "has_document", "description": "shown in figure 5", "strength": 3},
+                        {"source": "ZX8D4021KV13/ZX8D4041KV13", "target": "tAS", "predicate": "has_timing_parameter", "description": "family has tAS", "strength": 5}]},
+            "u2": {"entities": [{"name": "TAP Registers", "type": "document", "description": "section title", "mentions": 1},
+                                {"name": "ZX8D4021KV13", "type": "device", "description": "the part", "mentions": 1}],
+                   "relations": [{"source": "ZX8D4021KV13", "target": "TAP Registers", "predicate": "has_document", "description": "toc entry", "strength": 4}]},
+        }
+        return [u_body, u_toc], extractions
+
+    def test_merge_marks_boilerplate_folds_values_and_splits_combined_names(self) -> None:
+        units, extractions = self._merge_input()
+        out = merge_extractions(units, extractions, entity_types=["device", "timing parameter", "operating condition", "document"])
+        ents = {e["key"]: e for e in out["entities"]}
+        rels = {(r["source"], r["predicate"], r["target"]): r for r in out["relations"]}
+        st = out["stats"]
+        # Values do not become nodes; they fold into the device's attribute descriptions
+        self.assertNotIn("1.3v", ents)
+        self.assertIn("has_voltage_level = 1.3V", ents["zx8d4021kv13"]["attributes"])
+        self.assertTrue(any("has_voltage_level = 1.3V" in d for d in ents["zx8d4021kv13"]["descriptions"]))
+        self.assertEqual((st["value_entities_dropped"], st["value_relations_folded"]), (1, 1))
+        # References are kept but flagged reference, and relations touching them carry the same flag
+        self.assertTrue(ents["figure 5"]["reference"])
+        self.assertTrue(rels[("ZX8D4021KV13", "has_document", "Figure 5")]["reference"])
+        self.assertFalse(rels[("ZX8D4021KV13", "has_timing_parameter", "tAS")]["reference"])
+        # A combined name splits into its two parts: the combined node disappears and each device gets its own
+        # has_timing_parameter → tAS
+        self.assertNotIn("zx8d4021kv13/zx8d4041kv13", ents)
+        self.assertEqual(st["combined_names_split"], 1)
+        self.assertIn(("ZX8D4041KV13", "has_timing_parameter", "tAS"), rels)
+        self.assertIn("ZX8D4021KV13/ZX8D4041KV13", ents["zx8d4041kv13"]["aliases"])
+        merged = rels[("ZX8D4021KV13", "has_timing_parameter", "tAS")]
+        self.assertEqual(merged["evidence"], 1)                       # same unit, evidence is not counted twice
+        self.assertAlmostEqual(merged["strength_sum"], 12.0)          # 7 + 5 merged into the same edge
+        # Boilerplate unit: relations and entities are flagged, strength is discounted
+        toc_rel = rels[("ZX8D4021KV13", "has_document", "TAP Registers")]
+        self.assertTrue(toc_rel["boilerplate"])
+        self.assertEqual(toc_rel["evidence_kind"], "boilerplate")
+        self.assertAlmostEqual(toc_rel["strength_sum"], 1.0)         # 4 × 0.25
+        self.assertTrue(ents["tap registers"]["boilerplate"])
+        self.assertFalse(ents["zx8d4021kv13"]["boilerplate"])         # also appeared in body text
+        self.assertEqual(ents["zx8d4021kv13"]["evidence_kind"], "body")
+        self.assertEqual((st["boilerplate_units"], st["boilerplate_relations"], st["boilerplate_entities"]), (1, 1, 1))
+        self.assertIn("type_health", st)
+        # The type health check only reports, it does not demote whole types: in type document, Figure 5 is a
+        # reference and TAP Registers is boilerplate-only, but the other entities of that type must not lose seed status
+        self.assertEqual(st["demoted_types"], 0)
+        self.assertEqual(st["demoted_type_names"], [])
+
+    def test_combined_name_split_does_not_depend_on_relation_order(self) -> None:
+        """Two problems when splitting combined names: an original relation that came after a split-off relation with
+        the same key was skipped entirely and its evidence lost; and swapping the ends of an undirected edge changed
+        the loop variables, so when the target was split into several parts the later parts attached to the wrong
+        start."""
+        from kb_pipeline.graph.merge import dissolve_combined_names
+
+        def ent(key: str, title: str) -> dict:
+            return {"key": key, "title": title, "descriptions": [], "description_sources": [], "unit_ids": [], "doc_ids": [],
+                    "frequency": 1, "aliases": [], "scope": ""}
+
+        def rel(source: str, target: str, *, predicate: str = "supports", strength: float, units: list, text: str, doc: str) -> dict:
+            return {"source_key": source, "target_key": target, "predicate": predicate, "directed": predicate != "related_to",
+                    "descriptions": [text], "description_sources": [{"source": doc}], "unit_ids": list(units),
+                    "strength_sum": strength, "evidence": len(units), "evidence_kind": "body", "boilerplate": False}
+
+        ents = [ent("abc", "ABC"), ent("def", "DEF"), ent("xyz", "XYZ"), ent("abc/def", "ABC/DEF")]
+        combined = rel("abc/def", "xyz", strength=1.0, units=["u1"], text="合写的说法", doc="a.pdf")
+        own = rel("abc", "xyz", strength=2.0, units=["u2", "u3"], text="原有的说法", doc="b.pdf")
+        results = []
+        for order in ([combined, own], [own, combined]):
+            _, rows, split = dissolve_combined_names([dict(e) for e in ents], [dict(r) for r in order])
+            self.assertEqual(split, 1)
+            by = {(r["source_key"], r["target_key"]): r for r in rows}
+            self.assertEqual(set(by), {("abc", "xyz"), ("def", "xyz")})
+            edge = by[("abc", "xyz")]
+            self.assertEqual((edge["strength_sum"], edge["evidence"], sorted(edge["unit_ids"])), (3.0, 3, ["u1", "u2", "u3"]))
+            self.assertEqual(sorted(zip(edge["descriptions"], (s["source"] for s in edge["description_sources"]))),
+                             [("原有的说法", "b.pdf"), ("合写的说法", "a.pdf")])
+            self.assertEqual((by[("def", "xyz")]["strength_sum"], by[("def", "xyz")]["unit_ids"]), (1.0, ["u1"]))
+            results.append(edge["strength_sum"])
+        self.assertEqual(results[0], results[1])
+        # undirected edge: the start key sorts between the parts of the combined name (abc < mmm < zzz), and every part
+        # has to link back to mmm
+        ents2 = [ent("abc", "abc"), ent("zzz", "zzz"), ent("mmm", "mmm"), ent("abc/zzz", "abc/zzz")]
+        loose = rel("abc/zzz", "mmm", predicate="related_to", strength=1.0, units=["u1"], text="x", doc="a.pdf")
+        _, rows, _ = dissolve_combined_names(ents2, [loose])
+        self.assertEqual([(r["source_key"], r["target_key"]) for r in rows], [("abc", "mmm"), ("mmm", "zzz")])
+        flipped = rel("mmm", "abc/zzz", predicate="related_to", strength=1.0, units=["u1"], text="x", doc="a.pdf")
+        _, rows, _ = dissolve_combined_names([dict(e) for e in ents2], [flipped])
+        self.assertEqual([(r["source_key"], r["target_key"]) for r in rows], [("abc", "mmm"), ("mmm", "zzz")])
+        # both ends are combined names and the two split pairs land on the same key: the relation counts once
+        ents3 = [ent("abc", "abc"), ent("zzz", "zzz"), ent("abc/zzz", "abc/zzz"), ent("zzz/abc", "zzz/abc")]
+        twice = rel("abc/zzz", "zzz/abc", predicate="related_to", strength=4.0, units=["u1"], text="x", doc="a.pdf")
+        _, rows, _ = dissolve_combined_names(ents3, [twice])
+        self.assertEqual([(r["source_key"], r["target_key"], r["strength_sum"]) for r in rows], [("abc", "zzz", 4.0)])
+
+    def test_type_health_demotes_types_made_of_references_and_boilerplate(self) -> None:
+        from kb_pipeline.graph.merge import type_health
+
+        ents = [{"key": f"d{i}", "type": "document", "reference": i < 3, "boilerplate": i >= 3} for i in range(5)]
+        ents += [{"key": f"t{i}", "type": "timing parameter", "reference": False, "boilerplate": False} for i in range(5)]
+        rows = {r["type"]: r for r in type_health(ents, value_counts={"operating condition": 6, "timing parameter": 1})}
+        self.assertTrue(rows["document"]["demoted"])
+        self.assertFalse(rows["timing parameter"]["demoted"])
+        self.assertEqual(rows["operating condition"]["values"], 6)
+        self.assertFalse(rows["operating condition"]["demoted"])      # no remaining entities to demote
+        # Too few instances: no demotion
+        few = type_health([{"key": "x", "type": "t", "reference": True, "boilerplate": False}])
+        self.assertFalse(few[0]["demoted"])
+
+    def test_resolution_auto_merges_identifier_variants_and_type_words(self) -> None:
+        from kb_pipeline.graph.resolution import (
+            auto_merge_pairs, canonical_identifier, embedding_candidates, is_containment, strip_type_words,
+        )
+
+        self.assertEqual(canonical_identifier("t_AS"), canonical_identifier("tAS"))
+        self.assertEqual(canonical_identifier("t AS"), "tas")
+        # Type words are no longer hard-coded: with none passed only organisation suffix words are stripped; words
+        # from ontology type names / profile type_words are passed through extra
+        self.assertEqual(strip_type_words("tASH parameter"), "tash parameter")
+        self.assertEqual(strip_type_words("tASH parameter", ("parameter",)), "tash")
+        self.assertEqual(strip_type_words("输出使能信号", ("信号",)), "输出使能")
+        self.assertEqual(strip_type_words("信号", ("信号",)), "")                       # the whole name is a type word: nothing left, and callers never merge on an empty string
+        self.assertEqual(strip_type_words("parameter", ("parameter",)), "")
+        ents = [{"title": "tASH", "type": "timing parameter"}, {"title": "tASH parameter", "type": "timing parameter"},
+                {"title": "t_AS", "type": "timing parameter"}, {"title": "tAS", "type": "timing parameter"},
+                {"title": "tAS", "type": "pin"}]
+        pairs = auto_merge_pairs(ents)
+        self.assertIn((0, 1), pairs)
+        self.assertIn((2, 3), pairs)
+        self.assertFalse(any(4 in p for p in pairs))                  # different types do not merge
+        self.assertTrue(is_containment("tASH", "tASH setup time"))
+        self.assertFalse(is_containment("STORE", "Static Random Access Memory"))
+        self.assertFalse(is_containment("ZX8D4021KV13", "ZX8D4041KV13 device"))   # the digits differ
+        vectors = {"AutoStore": [1.0, 0.0], "自动存储": [0.99, 0.1], "PE#": [0.0, 1.0]}
+
+        def embed(titles):
+            return [vectors[t] for t in titles]
+
+        ents2 = [{"title": "AutoStore", "type": "feature"}, {"title": "自动存储", "type": "feature"}, {"title": "PE#", "type": "feature"}]
+        self.assertEqual(embedding_candidates(ents2, embed), [(0, 1)])
+
+    def test_resolve_applies_auto_pairs_without_asking_the_model(self) -> None:
+        ents = [{"key": "t_as", "title": "t_AS", "type": "timing parameter", "descriptions": [], "unit_ids": ["t1"], "frequency": 1, "aliases": [],
+                 "boilerplate": False, "reference": False, "evidence_kind": "body", "attributes": ["min = 0.16 ns"]},
+                {"key": "tas", "title": "tAS", "type": "timing parameter", "descriptions": [], "unit_ids": ["t2"], "frequency": 3, "aliases": [],
+                 "boilerplate": True, "reference": False, "evidence_kind": "boilerplate", "attributes": []}]
+        client = _client([])          # no candidate batches, so the model must not be called
+        merged, _, stats = resolution.resolve(client, ents, [])
+        self.assertEqual((stats["auto_pairs"], stats["candidates"], stats["batches"], stats["entities_after"]), (1, 0, 0, 1))
+        self.assertEqual(merged[0]["title"], "tAS")
+        self.assertFalse(merged[0]["boilerplate"])                   # with a body source it is not boilerplate-only
+        self.assertEqual(merged[0]["evidence_kind"], "body")
+        self.assertEqual(merged[0]["attributes"], ["min = 0.16 ns"])
+
+    def test_mentions_also_match_the_section_path(self) -> None:
+        unit = _unit("u1", points=("p1", "p2"))
+        entities = [{"key": "tap registers", "title": "TAP Registers", "aliases": [], "unit_ids": ["u1"]}]
+        rows = attribute_mentions(entities, {"u1": unit}, {"p1": "During this state, instructions are shifted…", "p2": "Contents … TAP Registers ....22"},
+                                  chunk_sections={"p1": "IEEE 1149.1 > TAP Registers", "p2": "Contents"})
+        by = {r["point_id"]: r["count"] for r in rows}
+        self.assertEqual(by["p1"], 1)          # hit in the section heading
+        self.assertEqual(by["p2"], 1)          # hit in the table-of-contents text
+
+    def test_question_identifiers_pick_the_tokens_worth_matching(self) -> None:
+        from kb_pipeline.graph.merge import question_identifiers
+
+        self.assertEqual(question_identifiers("ZX8D4021KV13 的输入高电平电压 VIH 在 VCC 为 2.7 V 至 3.6 V 时的最小值是多少？"),
+                         ["ZX8D4021KV13", "VIH", "VCC", "2.7", "3.6"])
+        self.assertEqual(question_identifiers("IDCODE 指令在 TAP 控制器中执行什么功能？"), ["IDCODE", "TAP"])
+        self.assertEqual(question_identifiers("tAS 的最小值"), ["tAS"])
+
+    def test_payloads_bundle_and_seed_filter_carry_the_flags(self) -> None:
+        from kb_pipeline.graph.recall import seed_filter
+        from kb_pipeline.graph.vectors import entity_payload, relation_payload
+        from kb_pipeline.vector.qdrant import GRAPH_PAYLOAD_INDEX_FIELDS
+
+        e = {"key": "a", "title": "A", "type": "t", "boilerplate": True, "reference": False, "evidence_kind": "boilerplate",
+             "attributes": ["has_voltage_level = 1.3V"], "unit_ids": ["u1"]}
+        pe = entity_payload(e, kb_id="kb", source_collection="kb", graph_version="v1", point_ids=["p1"])
+        self.assertEqual((pe["boilerplate"], pe["reference"], pe["evidence_kind"], pe["attributes"]),
+                         (True, False, "boilerplate", ["has_voltage_level = 1.3V"]))
+        r = {"source_key": "a", "target_key": "b", "predicate": "related_to", "source": "A", "target": "B",
+             "reference": True, "evidence_kind": "listing"}
+        pr = relation_payload(r, kb_id="kb", source_collection="kb", graph_version="v1", point_ids=[])
+        self.assertEqual((pr["boilerplate"], pr["reference"], pr["evidence_kind"]), (False, True, "listing"))
+        for field in ("boilerplate", "reference"):
+            self.assertIn(field, GRAPH_PAYLOAD_INDEX_FIELDS)
+        self.assertNotIn("evidence_kind", GRAPH_PAYLOAD_INDEX_FIELDS)       # carried in the payload, but no filter uses it: no index
+        flt = seed_filter()
+        self.assertEqual(sorted(c.key for c in flt.must_not), ["boilerplate", "reference"])
+        recall_src = Path(__file__).resolve().parents[1].joinpath("kb_pipeline/graph/recall.py").read_text(encoding="utf-8")
+        self.assertIn("coalesce(r.boilerplate, false) = false", recall_src)
+        self.assertIn("coalesce(c.kind, 'body') <> 'boilerplate'", recall_src)
+        self.assertIn("coalesce(tu.kind, 'body') <> 'boilerplate'", recall_src)
+
+    def test_bundle_writes_unit_kind_on_text_units_and_chunks(self) -> None:
+        from kb_pipeline.graph.neo4j_import import load_bundle
+
+        source = KBSource(kb_id="kb_003", collection="kb_003", source_root="样例模块", source_type="local_mirror",
+                          max_tokens=400, overlap_tokens=80)
+        with tempfile.TemporaryDirectory() as tmp:
+            out, graph, units, entity_id = _bundle_dir(self, tmp)
+            graph["unit_kinds"] = {units[0].unit_id: "boilerplate"}
+            graph["entities"][0]["boilerplate"] = True
+            graph["relations"][0]["evidence_kind"] = "listing"
+            (out / "graph.json").write_text(json.dumps(graph), encoding="utf-8")
+            bundle = load_bundle(out, source=source, graph_version="v1")
+        kinds = {tu["id"]: tu["kind"] for tu in bundle["text_units"]}
+        self.assertEqual(kinds[units[0].unit_id], "boilerplate")
+        self.assertEqual(kinds[units[1].unit_id], "body")
+        chunk_kinds = {c["point_id"]: c["kind"] for c in bundle["qdrant_chunks"]}
+        self.assertEqual(chunk_kinds["p1"], "boilerplate")
+        self.assertTrue(bundle["entities"][0]["boilerplate"])
+        self.assertEqual(bundle["relation_entity_edges"][0]["related_props"]["evidence_kind"], "listing")
+
+    def test_lexical_seeds_find_entities_by_exact_identifier(self) -> None:
+        """Dense seeds miss short identifiers like "tAS"; an exact pass over titles / aliases / relation endpoints fills them in."""
+        from kb_pipeline.graph.recall import identifier_variants, lexical_seeds, lexical_tokens
+
+        q = "ZX8D4021KV13 的地址建立时间 tAS 在 667 MHz 和 600 MHz 下的最小值分别是多少？"
+        self.assertEqual(lexical_tokens(q), ["ZX8D4021KV13", "tAS", "MHz"])   # 667 / 600 are values, not searched
+        self.assertIn("TAS", identifier_variants("tAS"))
+        self.assertEqual(identifier_variants("t_AS")[:2], ["t_AS", "T_AS"])
+        calls: list[tuple[str, Any]] = []
+        points = {
+            "graph_kb_entity": [SimpleNamespace(id="p1", payload={"gr_id": "e1", "title": "tAS", "aliases": ["t_AS"]}),
+                                SimpleNamespace(id="p2", payload={"gr_id": "e2", "title": "ZX8D4021KV13", "aliases": []})],
+            "graph_kb_relation": [SimpleNamespace(id="p3", payload={"gr_id": "r1", "source": "ZX8D4021KV13", "target": "tAS", "type": "has_timing_parameter"})],
+        }
+
+        class FakeQ:
+            def scroll(self, collection_name, scroll_filter, limit, with_payload, with_vectors):
+                calls.append((collection_name, scroll_filter))
+                wanted = set(scroll_filter.should[0].match.any)
+                keys = [c.key for c in scroll_filter.should]
+                hits = []
+                for p in points[collection_name]:
+                    values = set()
+                    for key in keys:
+                        v = p.payload.get(key)
+                        values |= set(v) if isinstance(v, list) else {v}
+                    if values & wanted:
+                        hits.append(p)
+                return hits, None
+
+        ents, rels = lexical_seeds(FakeQ(), "graph_kb_entity", "graph_kb_relation", q)
+        self.assertEqual({e["gr_id"]: e["_score"] for e in ents}, {"e1": 0.85, "e2": 0.85})   # exact title hit
+        self.assertEqual([(r["gr_id"], r["_score"]) for r in rels], [("r1", 0.8)])
+        self.assertEqual(len(calls), 6)                                   # 3 identifiers × (entity + relation)
+        flt = calls[0][1]
+        self.assertEqual(sorted(c.key for c in flt.should), ["aliases", "external_ids", "title"])        # 外部编号也按记号精确找
+        self.assertEqual(sorted(c.key for c in flt.must_not), ["boilerplate", "reference"])
+        self.assertEqual(lexical_seeds(FakeQ(), "a", "b", "这是一个没有记号的问题？"), ([], []))
+
+    def test_lexical_relations_of_a_hub_follow_the_question(self) -> None:
+        """合成的中心实体有许多关系时,仅按存储顺序取边可能错过与问题相关的能力关系。
+        有问题向量时在端点匹配的边里按语义相似度取;只走词法时按存储顺序取,分数口径不变。"""
+        from kb_pipeline.graph.recall import LEXICAL_SEED_SCORE, lexical_seeds
+
+        rels = [SimpleNamespace(id=f"p{i}", payload={"gr_id": f"r{i}", "source": "DSE", "target": t, "type": "related_to"})
+                for i, t in enumerate(["日程管理", "库存管理", "工程能力"])]
+        used: list[str] = []
+
+        class FakeQ:
+            def scroll(self, collection_name, scroll_filter, limit, with_payload, with_vectors):
+                used.append(f"scroll:{collection_name}")
+                return (rels[:limit] if collection_name == "rel" else []), None
+
+            def query_points(self, collection_name, query, limit, with_payload, query_filter=None, **kw):
+                used.append(f"query:{collection_name}")
+                self.filter = query_filter
+                return SimpleNamespace(points=[SimpleNamespace(id="p2", score=0.93, payload=rels[2].payload)][:limit])
+
+        fake = FakeQ()
+        _, got = lexical_seeds(fake, "ent", "rel", "DSE 需要具备哪些能力？", per_token=1, vector=[0.1, 0.2])
+        self.assertEqual([(r["gr_id"], r["_score"]) for r in got], [("r2", LEXICAL_SEED_SCORE["relation"])])
+        self.assertEqual(sorted(c.key for c in fake.filter.should), ["source", "target"])     # 仍只在端点对得上的边里挑
+        self.assertEqual(used, ["scroll:ent", "query:rel"])
+        used.clear()
+        _, got = lexical_seeds(fake, "ent", "rel", "DSE 需要具备哪些能力？", per_token=1)
+        self.assertEqual([r["gr_id"] for r in got], ["r0", "r1"])
+        self.assertEqual(used, ["scroll:ent", "scroll:rel"])
+
+
+class OntologyTests(unittest.TestCase):
+    """Ontology strengthening (2026-09-04): fixed upper
+    ontology, document-local scope, qualified facts, derived variant edges, predicate health check, fact seeds in
+    recall."""
+
+    def test_upper_ontology_is_fixed_and_synonyms_map_onto_it(self) -> None:
+        from kb_pipeline.ontology import DEFAULT_SCOPE, UPPER_CLASSES, upper_of_name
+
+        self.assertEqual(UPPER_CLASSES, ("agent", "entity", "part", "property", "process", "event", "concept", "document"))
+        self.assertEqual(upper_of_name("Organization"), "agent")
+        self.assertEqual(upper_of_name("person"), "agent")
+        self.assertEqual(upper_of_name("parameter"), "property")
+        self.assertEqual(upper_of_name("standard"), "concept")
+        self.assertEqual(upper_of_name("事件"), "event")
+        self.assertIsNone(upper_of_name("something new"))
+        self.assertEqual({k for k, v in DEFAULT_SCOPE.items() if v == "document"}, {"part", "property", "process", "event"})
+        # 采样提示词给的是八个上层类;父类也可以是表内另一个类型(多层)
+        self.assertIn("{upper_parents}", prompts.PARENT_TYPES_PROMPT)
+        self.assertFalse(hasattr(prompts, "UPPER_MAPPING_PROMPT"))
+        self.assertEqual(graph_schema.normalize_parent_types(
+            {"parent_types": {"pin": "component", "tAS": "parameter", "chip": "device", "device": "entity", "x": "??"}},
+            ["pin", "tAS", "chip", "device", "x"]),
+            {"pin": "part", "tAS": "property", "chip": "device", "device": "entity", "x": "entity"})
+        for name in ("agent", "event", "concept"):
+            self.assertIn(f"- {name}: ", graph_schema.upper_parents_text())
+
+    def test_scoped_types_get_document_local_keys(self) -> None:
+        from kb_pipeline.graph.merge import scoped_key
+
+        u1 = _unit("u1", doc="kb_003:1"); u2 = _unit("u2", doc="kb_003:2", order=1)
+        ext = {
+            "u1": _ext([("ZX8D4021KV13", "device", "part A"), ("tAS", "timing parameter", "setup A")],
+                       [("ZX8D4021KV13", "tAS", "has_timing_parameter", "A has tAS", 7)]),
+            "u2": _ext([("ZX8D1049GN", "device", "part B"), ("tAS", "timing parameter", "setup B")],
+                       [("ZX8D1049GN", "tAS", "has_timing_parameter", "B has tAS", 7)]),
+        }
+        out = merge_extractions([u1, u2], ext, entity_types=("device", "timing parameter"),
+                                upper_parents={"device": "entity", "timing parameter": "property"})
+        ents = {e["key"]: e for e in out["entities"]}
+        self.assertEqual(set(ents), {"zx8d4021kv13", "zx8d1049gn", scoped_key("tas", "kb_003:1"), scoped_key("tas", "kb_003:2")})
+        self.assertEqual(ents[scoped_key("tas", "kb_003:1")]["scope"], "kb_003:1")
+        self.assertEqual(ents[scoped_key("tas", "kb_003:1")]["upper"], "property")
+        self.assertEqual(ents["zx8d4021kv13"]["scope"], "")
+        rels = {(r["source_key"], r["target_key"]) for r in out["relations"]}
+        self.assertIn(("zx8d4021kv13", scoped_key("tas", "kb_003:1")), rels)
+        self.assertIn(("zx8d1049gn", scoped_key("tas", "kb_003:2")), rels)
+        self.assertEqual(out["stats"]["scoped_entities"], 2)
+        # No upper mapping given: old behaviour, global merge
+        old = merge_extractions([u1, u2], ext, entity_types=("device", "timing parameter"))
+        self.assertIn("tas", {e["key"] for e in old["entities"]})
+        # Resolution does not cross scopes: the two tAS share name and type but differ in scope, so no auto-merge
+        pairs = resolution.auto_merge_pairs(out["entities"])
+        self.assertEqual(pairs, [])
+        self.assertEqual(resolution.candidate_pairs(out["entities"]), [])
+
+    def test_two_letter_pin_names_count_as_identifiers(self) -> None:
+        from kb_pipeline.graph.merge import question_identifiers
+
+        self.assertEqual(question_identifiers("ZX8D4021KV13 的 AP 引脚在 ×18 数据宽度下覆盖哪些地址引脚"), ["ZX8D4021KV13", "AP", "18"])
+        self.assertEqual(question_identifiers("ap 引脚 pin"), [])      # lowercase ordinary words do not count
+
+    def test_variant_edges_are_derived_from_names(self) -> None:
+        from kb_pipeline.graph.merge import derive_variant_edges
+
+        ents = [{"key": "zx8d4021kv13", "title": "ZX8D4021KV13", "type": "device", "scope": "", "unit_ids": ["u1"]},
+                {"key": "zx8d4021kv13-667fcxc", "title": "ZX8D4021KV13-667FCXC", "type": "device", "scope": "", "unit_ids": ["u2"]},
+                {"key": "iphone 15", "title": "iPhone 15", "type": "device", "scope": "", "unit_ids": []},
+                {"key": "iphone 15 pro", "title": "iPhone 15 Pro", "type": "device", "scope": "", "unit_ids": []},
+                {"key": "kb_003:1::tas", "title": "tAS", "type": "timing parameter", "scope": "kb_003:1", "unit_ids": []},
+                {"key": "kb_003:1::tas-x", "title": "tAS-x", "type": "timing parameter", "scope": "kb_003:1", "unit_ids": []},
+                {"key": "ab", "title": "AB", "type": "device", "scope": "", "unit_ids": []},
+                {"key": "ab-1", "title": "AB-1", "type": "device", "scope": "", "unit_ids": []}]
+        derived = derive_variant_edges(ents, [{"source_key": "iphone 15 pro", "target_key": "iphone 15"}])
+        pairs = {(d["source_key"], d["target_key"]) for d in derived}
+        self.assertEqual(pairs, {("zx8d4021kv13-667fcxc", "zx8d4021kv13")})   # iPhone already has a relation; document-local entities and too-short base names are not derived
+        self.assertTrue(derived[0]["derived"])
+        self.assertEqual(derived[0]["predicate"], "variant_of")
+
+    def test_predicate_health_reports_violations_and_fanout(self) -> None:
+        from kb_pipeline.graph.merge import predicate_health
+
+        ents = [{"key": "a", "upper": "part"}, {"key": "b", "upper": "document"}, {"key": "c", "upper": "part"}]
+        rels = [{"source_key": "a", "target_key": "b", "predicate": "has_pin", "type_violation": True},
+                {"source_key": "a", "target_key": "c", "predicate": "has_pin", "type_violation": False},
+                {"source_key": "c", "target_key": "a", "predicate": "variant_of", "derived": True}]
+        rows = {r["predicate"]: r for r in predicate_health(rels, ents)}
+        self.assertEqual((rows["has_pin"]["edges"], rows["has_pin"]["violations"], rows["has_pin"]["violation_ratio"]), (2, 1, 0.5))
+        self.assertEqual(rows["has_pin"]["top_violating_pairs"], [{"source_parent": "part", "target_parent": "document", "count": 1}])
+        self.assertEqual(rows["has_pin"]["fanout_p95"], 2)
+        self.assertEqual(rows["variant_of"]["derived"], 1)
+
+    def test_fact_parsing_and_normalisation(self) -> None:
+        from kb_pipeline.graph.facts import fact_id, normalize_fact, parse_facts_json, parse_number, spec_text, wants_facts
+
+        raw = '''```json
+{"facts": [
+  {"subject": "ZX8D4021KV13", "property": "Address setup to CK", "symbol": "tAS", "min": "0.160", "unit": "ns", "conditions": {"speed grade": "667 MHz"}},
+  {"subject": "ZX8D4021KV13", "property": "Address setup to CK", "symbol": "tAS", "min": "0.180", "unit": "ns", "conditions": {"speed grade": "600 MHz"}},
+  {"subject": "", "property": "x", "value": "1"},
+  {"subject": "ZX8D4021KV13", "property": "no value here"},
+]}
+```'''
+        facts, malformed = parse_facts_json(raw)
+        self.assertEqual((len(facts), malformed), (4, 0))
+        norm = [normalize_fact(f) for f in facts]
+        self.assertEqual([n is not None for n in norm], [True, True, False, False])
+        self.assertEqual(norm[0]["min_num"], 0.16)
+        self.assertEqual(norm[0]["conditions"], {"speed grade": "667 MHz"})
+        self.assertNotEqual(fact_id("u1", norm[0]), fact_id("u1", norm[1]))     # different conditions make two facts
+        self.assertEqual(spec_text(norm[0]), "ZX8D4021KV13 · Address setup to CK (tAS): min 0.160 ns | speed grade: 667 MHz")
+        self.assertEqual(parse_facts_json("no json here"), ([], 1))
+        self.assertEqual(parse_number("1,024"), 1024.0)
+        self.assertEqual(parse_number("-40°C"), -40.0)
+        self.assertIsNone(parse_number("n/a"))
+        table_unit = _unit("t1")
+        table_unit.block_types = ["table"]
+        self.assertTrue(wants_facts(table_unit))
+        self.assertFalse(wants_facts(table_unit, "boilerplate"))
+        self.assertFalse(wants_facts(_unit("p1")))
+
+    def test_fact_extractor_links_subjects_and_builds_spec_payloads(self) -> None:
+        from kb_pipeline.graph.facts import FactExtractor, document_subjects, link_facts
+        from kb_pipeline.graph.vectors import spec_payload
+
+        unit = _unit("u1", doc="kb_003:1", points=("p1", "p2"))
+        unit.block_types = ["table"]
+        client = _client(['{"facts": [{"subject": "ZX8D4021KV13", "property": "Address setup", "symbol": "tAS", "min": "0.160", "unit": "ns", "conditions": {"speed grade": "667 MHz"}}]}'])
+        res = FactExtractor(client).extract(unit, document="a.pdf", subjects=["ZX8D4021KV13"])
+        self.assertEqual((len(res.facts), res.calls, res.stats["facts"]), (1, 1, 1))
+        ents = [{"key": "zx8d4021kv13", "title": "ZX8D4021KV13", "aliases": [], "scope": "", "upper": "entity", "doc_ids": ["kb_003:1"], "frequency": 9},
+                {"key": "kb_003:1::tas", "title": "tAS", "aliases": ["t_AS"], "scope": "kb_003:1", "upper": "property", "doc_ids": ["kb_003:1"], "frequency": 2}]
+        stats = link_facts(res.facts, ents, units_by_id={"u1": unit})
+        self.assertEqual(stats, {"subjects_linked": 1, "properties_linked": 1, "compound_subjects": 0})
+        # Compound subject "A, B": both are linked, the primary key takes the first
+        both = [{"subject": "ZX8D4021KV13, ZX8D4041KV13", "property": "x", "value": "1", "unit_id": "u1"}]
+        ents2 = ents + [{"key": "zx8d4041kv13", "title": "ZX8D4041KV13", "aliases": [], "scope": "", "upper": "entity", "doc_ids": ["kb_003:1"], "frequency": 3}]
+        st2 = link_facts(both, ents2, units_by_id={"u1": unit})
+        self.assertEqual((both[0]["subject_key"], both[0]["subject_keys"], st2["compound_subjects"]), ("zx8d4021kv13", ["zx8d4021kv13", "zx8d4041kv13"], 1))
+        fact = res.facts[0]
+        self.assertEqual((fact["subject_key"], fact["property_key"], fact["point_ids"]), ("zx8d4021kv13", "kb_003:1::tas", ["p1", "p2"]))
+        self.assertEqual(document_subjects(ents), {"kb_003:1": ["ZX8D4021KV13"]})   # document-local entities are not subjects
+        payload = spec_payload(fact, kb_id="kb_003", source_collection="kb_003", graph_version="v1")
+        self.assertEqual(payload["graph_type"], "spec")
+        self.assertEqual(payload["symbol"], "tAS")
+        self.assertEqual(payload["conditions"], {"speed grade": "667 MHz"})
+        self.assertIn("0.160", payload["text"])
+        self.assertEqual(payload["point_ids"], ["p1", "p2"])
+
+    def test_bundle_carries_specs_and_recall_seeds_from_the_spec_collection(self) -> None:
+        from kb_pipeline.graph.neo4j_import import load_bundle
+        from kb_pipeline.graph.recall import spec_seeds
+        from kb_pipeline.vector.qdrant import GRAPH_COLLECTION_RE, GRAPH_VECTOR_TYPES
+
+        self.assertIn("spec", GRAPH_VECTOR_TYPES)
+        self.assertTrue(GRAPH_COLLECTION_RE.match("graph_003_spec__v1"))
+        source = KBSource(kb_id="kb_003", collection="kb_003", source_root="样例模块", source_type="local_mirror",
+                          max_tokens=400, overlap_tokens=80)
+        with tempfile.TemporaryDirectory() as tmp:
+            out, graph, units, entity_id = _bundle_dir(self, tmp)
+            graph["specs"] = [{"id": "f1", "subject": "A, B", "subject_key": "a", "subject_keys": ["a", "b"], "property": "p", "symbol": "", "value": "1", "unit": "V",
+                               "conditions": {"mode": "x"}, "unit_id": units[0].unit_id, "doc_id": units[0].doc_id}]
+            (out / "graph.json").write_text(json.dumps(graph), encoding="utf-8")
+            bundle = load_bundle(out, source=source, graph_version="v1")
+        self.assertEqual(bundle["expected_counts"]["specs"], 1)
+        from kb_pipeline.graph.neo4j_import import bundle_type_counts
+        self.assertEqual(bundle_type_counts({"entities": [1, 2], "relations": [1], "specs": [1, 2, 3]}), {"entity": 2, "relation": 1, "spec": 3, "page": 0})
+        self.assertEqual(set(bundle_type_counts({})), set(GRAPH_VECTOR_TYPES))    # preflight compares counts per type, so a new type must have a key
+        self.assertEqual((bundle["expected_counts"]["has_spec_edges"], bundle["expected_counts"]["states_edges"], bundle["expected_counts"]["of_property_edges"]), (2, 1, 0))
+        self.assertEqual(bundle["specs"][0]["conditions"], '{"mode": "x"}')
+
+        class FakeQ:
+            def query_points(self, collection_name, query, limit, with_payload, query_filter=None):
+                return SimpleNamespace(points=[SimpleNamespace(id="s1", score=0.7, payload={"gr_id": "f1", "subject": "ZX8D4021KV13", "symbol": "tCK", "property": "cycle", "point_ids": ["p9"]})])
+
+            def scroll(self, collection_name, scroll_filter, limit, with_payload, with_vectors):
+                return [SimpleNamespace(id="s2", payload={"gr_id": "f2", "subject": "ZX8D4021KV13", "symbol": "tAS", "property": "setup", "point_ids": ["p1"]})], None
+
+        seeds = spec_seeds(FakeQ(), "graph_003_spec", [0.1], "ZX8D4021KV13 的 tAS 最小值")
+        by = {s["gr_id"]: s for s in seeds}
+        self.assertEqual(by["f2"]["_via"], "lexical")
+        self.assertGreater(by["f2"]["_score"], by["f1"]["_score"])      # a hit on both subject and symbol ranks first
+        from kb_pipeline.graph.recall import SPEC_EVIDENCE_LIMIT, spec_evidence_seeds
+        weak = [{"gr_id": f"w{i}", "_score": 0.5} for i in range(6)]
+        strong = [{"gr_id": "s1", "_score": 0.95}, {"gr_id": "s2", "_score": 0.86}]
+        self.assertEqual([x["gr_id"] for x in spec_evidence_seeds(strong + weak)], ["s1", "s2"])   # weakly related facts do not affect chunk ranking
+        self.assertEqual(len(spec_evidence_seeds([{"gr_id": str(i), "_score": 0.9} for i in range(10)])), SPEC_EVIDENCE_LIMIT)
+        self.assertEqual(spec_seeds(SimpleNamespace(query_points=lambda **kw: (_ for _ in ()).throw(RuntimeError("no collection"))), "x", [0.1], "q"), [])
+
+
+class DeterministicBuilderTests(unittest.TestCase):
+    """Code-repository knowledge base: rule-based extraction routed by file type (code AST / structured markdown /
+    config), producing records of the same shape as model extraction; cross-file references carry scope_doc, and
+    exact identities are never merged."""
+
+    REPO = {
+        "wiki/lib/util.py": "def helper(x):\n    \"\"\"Help.\"\"\"\n    return x\n\n\nclass Base:\n    def ping(self):\n        return 1\n",
+        "wiki/cli.py": "import os\nimport requests\nfrom lib.util import helper, Base\n\nLIMIT = 3\n\n\ndef main():\n    \"\"\"Entry.\"\"\"\n    return helper(LIMIT) + Engine().run()\n\n\nclass Engine(Base):\n    def run(self):\n        return self.ping() + os.getpid()\n\n\nif __name__ == \"__main__\":\n    main()\n",
+        "wiki/SKILL.md": "---\nname: wiki-skill\ndescription: 编译 wiki。\nversion: 1.2\ntags: a,b\n---\n\n# 用法\n\n运行 `python cli.py build`,配置见 skillhub.json。\n",
+        "wiki/skillhub.json": "{\"name\": \"wiki-skill\", \"ns\": \"demo\", \"limits\": {\"max\": 5}}",
+        "wiki/requirements.txt": "requests>=2.28\n# comment\npyyaml>=6.0\n",
+        "wiki/design.md": "# 设计\n\n普通说明文档。\n",
+    }
+
+    def _units(self, root: Path):
+        from kb_pipeline.graph.units import ChunkRef, build_units
+        from kb_pipeline.parsers.router import parse_native
+
+        refs = []
+        doc_ids = {}
+        for i, (rel, text) in enumerate(self.REPO.items(), 1):
+            path = root / rel
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text(text, encoding="utf-8")
+            doc_ids[rel] = f"kb_006:{i}"
+            blocks = parse_native(path, "")
+            refs += [ChunkRef(point_id=f"p{i}-{k}", chunk_uid=f"c{i}-{k}", doc_id=doc_ids[rel], content_version="v", chunk_index=k,
+                              block_id=b.block_id, block_type=b.block_type, section_path=list(b.metadata.get("section_path") or []),
+                              text=b.text, n_tokens=max(1, len(b.text) // 4), rel_path=rel, filename=rel.rsplit("/", 1)[-1])
+                     for k, b in enumerate(blocks)]
+        # Units are built for the whole KB at once: order is KB-wide, so a config file's unit order is not 0 (as in the
+        # graph build)
+        return build_units(refs, kb_id="kb_006", unit_chunks=3), doc_ids
+
+    def test_routes_records_and_cross_file_scope(self) -> None:
+        from kb_pipeline.graph.deterministic import DeterministicExtractor, route_for
+
+        self.assertEqual([route_for(p) for p in ("a/x.py", "a/skillhub.json", "a/requirements.txt", "a/SKILL.md", "a/notes.md", "a/x.pdf")],
+                         ["code", "config", "config", "structured_md", "llm", "llm"])
+        self.assertEqual(route_for("a/notes.md", first_line="---"), "structured_md")
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            units, doc_ids = self._units(root)
+            det = DeterministicExtractor(units, file_for=lambda rel: root / rel, kb_id="kb_006")
+            by_rel = {}
+            for u in units:
+                by_rel.setdefault(u.rel_path, []).append(u)
+            self.assertFalse(det.wants(by_rel["wiki/design.md"][0]))          # ordinary md still goes to the model
+            # Code: the units of cli.py
+            ents, rels = [], []
+            for u in by_rel["wiki/cli.py"]:
+                res = det.extract(u)
+                self.assertEqual(res.calls, 0)
+                ents += res.entities; rels += res.relations
+            names = {(e["name"], e["type"]) for e in ents}
+            self.assertIn(("wiki/cli.py", "module"), names)
+            self.assertIn(("main", "function"), names)
+            self.assertIn(("Engine", "class"), names)
+            self.assertIn(("Engine.run", "method"), names)
+            self.assertIn(("LIMIT", "constant"), names)
+            self.assertIn(("requests", "package"), names)
+            self.assertNotIn(("os", "package"), names)                          # the standard library does not become an entity
+            helper = next(e for e in ents if e["name"] == "helper")
+            self.assertEqual(helper["scope_doc"], doc_ids["wiki/lib/util.py"])   # a cross-file reference points to the file that defines it
+            self.assertTrue(all(e.get("exact") for e in ents))
+            triples = {(r["source"], r["predicate"], r["target"]) for r in rels}
+            for t in [("wiki/cli.py", "imports", "wiki/lib/util.py"), ("wiki/cli.py", "imports", "requests"),
+                      ("wiki/cli.py", "defines", "main"), ("wiki/cli.py", "defines", "LIMIT"),
+                      ("main", "calls", "helper"), ("main", "calls", "Engine"), ("Engine", "has_method", "Engine.run"),
+                      ("Engine.run", "calls", "Base.ping"), ("Engine", "inherits", "Base")]:
+                self.assertIn(t, triples, t)
+            ping = next(e for e in ents if e["name"] == "Base.ping")
+            self.assertEqual(ping["scope_doc"], doc_ids["wiki/lib/util.py"])     # an inherited method points to the file that defines it
+            self.assertEqual(det.route_counts["code"], len(by_rel["wiki/cli.py"]))
+            # Structured markdown: entities + frontmatter facts + reference edges
+            md_ents, md_rels, md_facts = [], [], []
+            for u in by_rel["wiki/SKILL.md"]:
+                res = det.extract(u); md_ents += res.entities; md_rels += res.relations; md_facts += det.facts(u)
+            skill = next(e for e in md_ents if e["type"] == "skill")
+            self.assertEqual((skill["name"], skill["descriptions"]), ("wiki-skill", ["编译 wiki。"]))
+            self.assertEqual({(r["source"], r["predicate"], r["target"]) for r in md_rels},
+                             {("wiki-skill", "references", "wiki/cli.py"), ("wiki-skill", "references", "wiki/skillhub.json")})
+            self.assertEqual({(f["property"], f["value"]) for f in md_facts}, {("version", "1.2"), ("tags", "a,b")})
+            # Config: key-path facts; requirements: package entities and depends_on
+            cfg = by_rel["wiki/skillhub.json"][0]
+            self.assertEqual({(f["property"], f["value"]) for f in det.facts(cfg)}, {("name", "wiki-skill"), ("ns", "demo"), ("limits.max", "5")})
+            req = by_rel["wiki/requirements.txt"][0]
+            res = det.extract(req)
+            self.assertEqual({(r["source"], r["predicate"], r["target"]) for r in res.relations}, {("wiki", "depends_on", "requests"), ("wiki", "depends_on", "pyyaml")})
+            self.assertEqual({(f["symbol"], f["value"]) for f in det.facts(req)}, {("requests", ">=2.28"), ("pyyaml", ">=6.0")})
+            self.assertTrue(all(u.kind == "body" for u in by_rel["wiki/cli.py"]))   # code units are not down-weighted as listings
+
+    def test_merge_honours_scope_doc_exact_and_aliases(self) -> None:
+        from kb_pipeline.graph.deterministic import TYPES, UPPER
+        from kb_pipeline.graph.merge import scoped_key
+
+        u1 = _unit("u1", doc="kb_006:1"); u2 = _unit("u2", doc="kb_006:2", order=1)
+        ext = {
+            "u1": {"entities": [{"name": "helper", "type": "function", "descriptions": ["def helper(x)"], "mentions": 1, "types": {"function": 1}, "exact": True}],
+                   "relations": []},
+            "u2": {"entities": [{"name": "main", "type": "function", "descriptions": ["def main()"], "mentions": 1, "types": {"function": 1}, "exact": True, "aliases": ["entry"]},
+                               {"name": "helper", "type": "function", "descriptions": [], "mentions": 1, "types": {"function": 1}, "exact": True, "scope_doc": "kb_006:1"}],
+                   "relations": [{"source": "main", "target": "helper", "predicate": "calls", "predicate_raw": "calls", "descriptions": ["main calls helper"], "strength": 1}]},
+        }
+        out = merge_extractions([u1, u2], ext, entity_types=TYPES, exact_types=UPPER)
+        ents = {e["key"]: e for e in out["entities"]}
+        self.assertEqual(set(ents), {scoped_key("helper", "kb_006:1"), scoped_key("main", "kb_006:2")})   # no kb_006:2::helper
+        helper = ents[scoped_key("helper", "kb_006:1")]
+        self.assertEqual((helper["scope"], helper["exact"], sorted(helper["unit_ids"])), ("kb_006:1", True, ["u1", "u2"]))
+        self.assertIn("entry", ents[scoped_key("main", "kb_006:2")]["aliases"])
+        self.assertEqual([(r["source_key"], r["target_key"], r["predicate"]) for r in out["relations"]],
+                         [(scoped_key("main", "kb_006:2"), scoped_key("helper", "kb_006:1"), "calls")])
+        # exact entities never enter the resolution candidates
+        rows = [{"key": "a", "title": "Engine", "type": "class", "scope": "d", "exact": True},
+                {"key": "b", "title": "engine", "type": "class", "scope": "d", "exact": True}]
+        self.assertEqual(resolution.auto_merge_pairs(rows), [])
+        self.assertEqual(resolution.candidate_pairs(rows), [])
+
+    def test_code_names_count_as_identifiers_and_modules_have_path_aliases(self) -> None:
+        from kb_pipeline.graph.deterministic import module_aliases
+        from kb_pipeline.graph.merge import question_identifiers
+
+        self.assertEqual(question_identifiers("team_wiki_search 函数定义在哪个文件里"), ["team_wiki_search"])
+        self.assertEqual(question_identifiers("lib/http_client.py 导入了 lib.v7_env 吗"), ["lib/http_client.py", "lib.v7_env"])
+        self.assertEqual(question_identifiers("这个函数返回什么"), [])
+        self.assertEqual(module_aliases("示例365-wiki/lib/http_client.py"), ["lib.http_client", "lib/http_client.py", "http_client.py"])
+        self.assertEqual(module_aliases("示例365-wiki/lib/mcts/__init__.py"), ["lib.mcts", "lib/mcts/__init__.py", "__init__.py"])
+
+    def test_javascript_repo_cross_file_imports(self) -> None:
+        try:
+            import tree_sitter_language_pack  # noqa: F401
+        except ImportError:
+            self.skipTest("tree-sitter-language-pack not installed")
+        from kb_pipeline.graph.deterministic import DeterministicExtractor, module_aliases, route_for
+        from kb_pipeline.graph.units import ChunkRef, build_units
+        from kb_pipeline.parsers.router import parse_native
+
+        self.assertEqual([route_for(p) for p in ("a/x.ts", "a/y.go", "a/z.rs", "a/w.sh", "a/s.css", "a/q.sql", "a/n.ini")],
+                         ["code", "code", "code", "code", "code_plain", "code_plain", "config"])
+        self.assertEqual(module_aliases("app/lib/util.js"), ["lib.util", "lib/util.js", "util.js"])
+        repo = {
+            "app/lib/util.js": "export function helper(x) { return x; }\nexport class Base {\n  ping() { return 1; }\n}\n",
+            "app/index.js": "import express from \"express\";\nimport fs from \"fs\";\nimport { helper, Base } from \"./lib/util.js\";\nexport const LIMIT = 3;\nexport function main() { return helper(LIMIT) + new Engine().run(); }\nclass Engine extends Base {\n  run() { return this.ping() + fs.readFileSync(\"x\"); }\n}\nmain();\n",
+        }
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            refs, doc_ids = [], {}
+            for i, (rel, text) in enumerate(repo.items(), 1):
+                path = root / rel
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text(text, encoding="utf-8")
+                doc_ids[rel] = f"kb_007:{i}"
+                blocks = parse_native(path, "")
+                self.assertEqual(blocks[0].parser_profile, "code-symbols-v2+source-v1")
+                refs += [ChunkRef(point_id=f"p{i}-{k}", chunk_uid=f"c{i}-{k}", doc_id=doc_ids[rel], content_version="v", chunk_index=k,
+                                  block_id=b.block_id, block_type=b.block_type, section_path=list(b.metadata.get("section_path") or []),
+                                  text=b.text, n_tokens=max(1, len(b.text) // 4), rel_path=rel, filename=rel.rsplit("/", 1)[-1])
+                         for k, b in enumerate(blocks)]
+            units = build_units(refs, kb_id="kb_007", unit_chunks=3)
+            det = DeterministicExtractor(units, file_for=lambda rel: root / rel, kb_id="kb_007")
+            ents, rels = [], []
+            for u in units:
+                if u.rel_path == "app/index.js":
+                    res = det.extract(u); ents += res.entities; rels += res.relations
+            names = {(e["name"], e["type"]) for e in ents}
+            for n in [("app/index.js", "module"), ("main", "function"), ("Engine", "class"), ("Engine.run", "method"), ("LIMIT", "constant"), ("express", "package")]:
+                self.assertIn(n, names, n)
+            self.assertNotIn(("fs", "package"), names)                      # node built-in modules do not count as packages
+            helper = next(e for e in ents if e["name"] == "helper")
+            self.assertEqual(helper["scope_doc"], doc_ids["app/lib/util.js"])
+            triples = {(r["source"], r["predicate"], r["target"]) for r in rels}
+            for t in [("app/index.js", "imports", "app/lib/util.js"), ("app/index.js", "imports", "express"), ("main", "calls", "helper"),
+                      ("main", "calls", "Engine"), ("Engine", "inherits", "Base"), ("Engine.run", "calls", "Base.ping"), ("app/index.js", "calls", "main")]:
+                self.assertIn(t, triples, t)
+
+    def test_python_submodule_imports_resolve_call_edges(self) -> None:
+        """Imports of submodules (`from .. import db`, `from .graph import build`) must resolve to module aliases so
+        that `db.claim()` and `build.build_graph()` get calls edges (the repository's own worker -> claim edge was
+        lost this way); class-method calls on imported and local classes (Store.open(), Local.make()) get edges too."""
+        from kb_pipeline.graph.deterministic import DeterministicExtractor
+        from kb_pipeline.graph.units import ChunkRef, build_units
+        from kb_pipeline.parsers.router import parse_native
+
+        repo = {
+            "app/pkg/__init__.py": '"""pkg"""\n',
+            "app/pkg/db.py": "def claim(con):\n    return 1\n\n\nclass Store:\n    @classmethod\n    def open(cls):\n        return cls()\n",
+            "app/pkg/graph/__init__.py": '"""graph"""\n',
+            "app/pkg/graph/build.py": "def build_graph():\n    return 2\n",
+            "app/pkg/pipeline/__init__.py": "",
+            "app/pkg/pipeline/worker.py": ("from .. import db\nfrom ..graph import build\nfrom ..db import Store\n\n\n"
+                                           "class Local:\n    @classmethod\n    def make(cls):\n        return cls()\n\n\n"
+                                           "def run(con):\n    job = db.claim(con)\n    build.build_graph()\n    Store.open()\n    Local.make()\n    return job\n"),
+        }
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            refs = []
+            for i, (rel, text) in enumerate(repo.items(), 1):
+                path = root / rel
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text(text, encoding="utf-8")
+                refs += [ChunkRef(point_id=f"p{i}-{k}", chunk_uid=f"c{i}-{k}", doc_id=f"kb_x:{i}", content_version="v", chunk_index=k,
+                                  block_id=b.block_id, block_type=b.block_type, section_path=list(b.metadata.get("section_path") or []),
+                                  text=b.text, n_tokens=max(1, len(b.text) // 4), rel_path=rel, filename=rel.rsplit("/", 1)[-1])
+                         for k, b in enumerate(parse_native(path, ""))]
+            units = build_units(refs, kb_id="kb_x", unit_chunks=3)
+            det = DeterministicExtractor(units, file_for=lambda rel: root / rel, kb_id="kb_x")
+            imports = det._import_map("app/pkg/pipeline/worker.py")
+            self.assertEqual(imports["db"], ("app/pkg/db.py", None, None))                 # submodule -> module alias
+            self.assertEqual(imports["build"], ("app/pkg/graph/build.py", None, None))     # no longer graph/__init__.py
+            self.assertEqual(imports["Store"], ("app/pkg/db.py", "Store", None))           # a real symbol import is unchanged
+            rels = []
+            for u in units:
+                if u.rel_path == "app/pkg/pipeline/worker.py":
+                    rels += det.extract(u).relations
+            triples = {(r["source"], r["predicate"], r["target"]) for r in rels}
+            for t in [("run", "calls", "claim"), ("run", "calls", "build_graph"), ("run", "calls", "Store.open"), ("run", "calls", "Local.make"),
+                      ("app/pkg/pipeline/worker.py", "imports", "app/pkg/db.py"), ("app/pkg/pipeline/worker.py", "imports", "app/pkg/graph/build.py")]:
+                self.assertIn(t, triples, t)
+            self.assertNotIn(("app/pkg/pipeline/worker.py", "imports", "app/pkg/graph/__init__.py"), triples)
+
+    def test_external_imports_never_land_on_a_same_named_file(self) -> None:
+        """2026-09-29 audit: the submodule fallback resolved ``from qdrant_client.http import models`` to a models.py
+        in the base and dropped the edge to the external package. Submodules are only looked for in the package
+        directory the import names; when the whole path does not match it is an external package."""
+        from kb_pipeline.graph.deterministic import DeterministicExtractor
+        from kb_pipeline.graph.units import ChunkRef, build_units
+        from kb_pipeline.parsers.router import parse_native
+
+        repo = {
+            "app/pkg/__init__.py": "",
+            "app/pkg/models.py": "class Row:\n    pass\n",
+            "app/pkg/utils.py": "def helper():\n    return 1\n",
+            "app/pkg/vector/__init__.py": "",
+            "app/pkg/vector/store.py": ("from qdrant_client.http import models\nfrom django.db import models as dj\n"
+                                        "from requests import utils\nfrom pkg import models as own\nfrom pkg.vector import missing\n"
+                                        "from tools.extra import helper_mod\n\n\n"
+                                        "def point():\n    return models.PointStruct(id=1)\n"),
+            "app/tools/extra/helper_mod.py": "def run():\n    return 1\n",      # a namespace package inside the same project
+        }
+        with tempfile.TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            refs = []
+            for i, (rel, text) in enumerate(repo.items(), 1):
+                path = root / rel
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_text(text, encoding="utf-8")
+                refs += [ChunkRef(point_id=f"p{i}-{k}", chunk_uid=f"c{i}-{k}", doc_id=f"kb_x:{i}", content_version="v", chunk_index=k,
+                                  block_id=b.block_id, block_type=b.block_type, section_path=list(b.metadata.get("section_path") or []),
+                                  text=b.text, n_tokens=max(1, len(b.text) // 4), rel_path=rel, filename=rel.rsplit("/", 1)[-1])
+                         for k, b in enumerate(parse_native(path, ""))]
+            units = build_units(refs, kb_id="kb_x", unit_chunks=3)
+            det = DeterministicExtractor(units, file_for=lambda rel: root / rel, kb_id="kb_x")
+            imports = det._import_map("app/pkg/vector/store.py")
+            self.assertEqual(imports["models"], (None, "models", "qdrant_client"))         # an external package, not the base's models.py
+            self.assertEqual(imports["dj"], (None, "models", "django"))
+            self.assertEqual(imports["utils"], (None, "utils", "requests"))
+            self.assertEqual(imports["own"], ("app/pkg/models.py", None, None))            # a package of the base still resolves to its submodule
+            self.assertEqual(imports["helper_mod"], ("app/tools/extra/helper_mod.py", None, None))
+            self.assertNotEqual(imports.get("missing", (None,))[0], "app/pkg/models.py")
+            rels = []
+            for u in units:
+                if u.rel_path == "app/pkg/vector/store.py":
+                    rels += det.extract(u).relations
+            triples = {(r["source"], r["predicate"], r["target"]) for r in rels}
+            self.assertIn(("app/pkg/vector/store.py", "imports", "qdrant_client"), triples)
+            self.assertIn(("app/pkg/vector/store.py", "imports", "app/pkg/models.py"), triples)   # from `from pkg import models`
+
+    def _config_extractor(self, root: Path, files: dict[str, str]):
+        from kb_pipeline.graph.deterministic import DeterministicExtractor
+
+        units = []
+        for i, (rel, text) in enumerate(files.items()):
+            path = root / rel
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text(text, encoding="utf-8")
+            unit = _unit(f"u{i}", doc=f"kb_x:{i}", order=i)
+            unit.rel_path, unit.text = rel, text
+            units.append(unit)
+        return DeterministicExtractor(units, file_for=lambda rel: root / rel, kb_id="kb_x"), {u.rel_path: u for u in units}
+
+    def test_config_files_that_cannot_be_parsed_go_to_the_model(self) -> None:
+        """Without PyYAML, YAML cannot be parsed, and .ini / .conf have no parser at all: such files used to stay on
+        the config route and yield only an empty shell entity, and the model did not pick them up either. Config
+        files that cannot be parsed now go to llm as plain text, and the route counts record them."""
+        import sys
+        from unittest import mock
+
+        from kb_pipeline.graph.deterministic import route_for
+
+        files = {"app/compose.yml": "services:\n  web:\n    image: example/web\n", "app/setup.ini": "[core]\nname = demo\n",
+                 "app/server.conf": "server { listen 80; }\n", "app/broken.json": "{\"name\": ", "app/ok.json": "{\"name\": \"demo\"}",
+                 "app/pyproject.toml": "[project]\nname = \"demo\"\n", "app/requirements.txt": "requests>=2.28\n"}
+        self.assertEqual({route_for(rel) for rel in files}, {"config"})           # the routing by suffix is unchanged
+        with tempfile.TemporaryDirectory() as tmp, mock.patch.dict(sys.modules, {"yaml": None}):      # import yaml raises ImportError
+            det, by_rel = self._config_extractor(Path(tmp), files)
+            routes = {rel: det.route(u) for rel, u in by_rel.items()}
+            self.assertEqual(routes, {"app/compose.yml": "llm", "app/setup.ini": "llm", "app/server.conf": "llm", "app/broken.json": "llm",
+                                      "app/ok.json": "config", "app/pyproject.toml": "config", "app/requirements.txt": "config"})
+            self.assertFalse(det.wants(by_rel["app/compose.yml"]))                 # every build phase treats it as an llm unit
+            self.assertEqual(det.facts(by_rel["app/compose.yml"]), [])
+            self.assertEqual(det.route_counts["config_unparsed"], 4)
+            self.assertEqual({(f["property"], f["value"]) for f in det.facts(by_rel["app/ok.json"])}, {("name", "demo")})
+            self.assertEqual({(f["property"], f["value"]) for f in det.facts(by_rel["app/pyproject.toml"])}, {("project.name", "demo")})
+
+    def test_yaml_config_facts(self) -> None:
+        try:
+            import yaml  # noqa: F401
+        except ImportError:
+            self.skipTest("PyYAML not installed")
+        files = {"app/compose.yml": ("services:\n  web:\n    image: example/web:1.27\n    environment:\n      DB_URL: \"${DB_HOST}:${DB_PORT}\"\n"
+                                     "    ports: [\"80:80\", \"443:443\"]\n"),
+                 "deploy/all.yaml": "kind: Service\nmetadata:\n  name: web\n---\nkind: Deployment\nmetadata:\n  name: web\n",
+                 "deploy/empty.yaml": "# 只有注释\n", "deploy/broken.yaml": "a: [1, 2\n"}
+        with tempfile.TemporaryDirectory() as tmp:
+            det, by_rel = self._config_extractor(Path(tmp), files)
+            self.assertEqual({rel: det.route(u) for rel, u in by_rel.items()},
+                             {"app/compose.yml": "config", "deploy/all.yaml": "config", "deploy/empty.yaml": "llm", "deploy/broken.yaml": "llm"})
+            facts = {(f["property"], f["value"]) for f in det.facts(by_rel["app/compose.yml"])}
+            self.assertEqual(facts, {("services.web.image", "example/web:1.27"), ("services.web.environment.DB_URL", "${DB_HOST}:${DB_PORT}"),
+                                     ("services.web.ports", "80:80, 443:443")})
+            # several documents separated by --- in one file: key paths per document
+            multi = {(f["property"], f["value"]) for f in det.facts(by_rel["deploy/all.yaml"])}
+            self.assertEqual(multi, {("[0].kind", "Service"), ("[0].metadata.name", "web"), ("[1].kind", "Deployment"), ("[1].metadata.name", "web")})
+            res = det.extract(by_rel["app/compose.yml"])
+            self.assertEqual([(e["name"], e["type"]) for e in res.entities], [("app/compose.yml", "config_file")])
+
+    def test_extraction_fingerprint_only_changes_with_deterministic_units(self) -> None:
+        from kb_pipeline.graph.build import extraction_fingerprint
+
+        self.assertEqual(extraction_fingerprint("abc", deterministic_units=0), "abc")
+        mixed = extraction_fingerprint("abc", deterministic_units=3)
+        self.assertNotEqual(mixed, "abc")
+        self.assertEqual(mixed, extraction_fingerprint("abc", deterministic_units=1))
+
+
+class ConceptNeighbourScaleTests(unittest.TestCase):
+    def test_numpy_neighbour_search_matches_the_pairwise_definition_and_scales(self) -> None:
+        """Seeded synthetic vectors must yield the same ordered neighbours in the vectorized and pairwise implementations, including zero vectors, while meeting the runtime bound."""
+        import random
+        import time
+        from kb_pipeline.graph.concepts import _neighbour_pairs, _neighbour_pairs_python, _unit_family
+
+        rnd = random.Random(7)
+        n, d = 400, 32
+        cands = [{"label": f"c{i}", "unit": rnd.choice(["", "", "", "%", "个", "CNY"]), "symbols_text": ""} for i in range(n)]
+        vectors = [[rnd.gauss(0, 1) for _ in range(d)] for _ in range(n)]
+        vectors[5] = [0.0] * d                                    # zero vector: norm counted as 1, no division by zero
+        fast = _neighbour_pairs(vectors, cands, 3)
+        slow = _neighbour_pairs_python(vectors, cands, [_unit_family(c["unit"]) for c in cands], 3)
+        self.assertEqual([(i, j) for i, j, _ in fast], [(i, j) for i, j, _ in slow])
+        for (_, _, a), (_, _, b) in zip(fast, slow):
+            self.assertAlmostEqual(a, b, places=9)
+        # Comparable pool by unit family: candidates with a unit only compare with the same family and unit-less ones
+        fams = [_unit_family(c["unit"]) for c in cands]
+        for i, j, _ in fast:
+            self.assertTrue(fams[i] == "" or fams[j] == "" or fams[i] == fams[j])
+        big = [[rnd.gauss(0, 1) for _ in range(64)] for _ in range(3000)]
+        bcands = [{"label": f"b{i}", "unit": "", "symbols_text": ""} for i in range(3000)]
+        t0 = time.time()
+        pairs = _neighbour_pairs(big, bcands, 3)
+        self.assertLess(time.time() - t0, 20)                     # pure-Python pairwise takes minutes here
+        self.assertEqual(len(pairs), 3000 * 3)
+        # Ragged vector lengths (common with test stubs): fall back to the pairwise implementation without an error
+        ragged = [[1.0, 0.0], [1.0, 0.0, 0.0], [0.0, 1.0]]
+        rc = [{"label": f"r{i}", "unit": "", "symbols_text": ""} for i in range(3)]
+        self.assertEqual([(i, j) for i, j, _ in _neighbour_pairs(ragged, rc, 1)], [(0, 1), (1, 0), (2, 1)])
+
+
+class PromptAndUnitClassificationTests(unittest.TestCase):
+    """First batch of the 2026-09-07 plan: tightened prompts (type menu, record caps, Document/Section as context
+    only, corpus examples), unit classification gains a conclusion kind plus Chinese report layouts, summary
+    thresholds and source attribution, axis / bound fields on facts, scenario profile and the config pipeline."""
+
+    def test_temporal_dates_versions_axis_and_question_window(self) -> None:
+        from datetime import date
+
+        from kb_pipeline.graph.temporal import (
+            axis_sort_key, document_axis, find_dates, find_versions, in_window, parse_date, question_time_window,
+        )
+
+        self.assertEqual(parse_date("现将您2021年03月14日的巡检结果"), "2021-03-14")
+        self.assertEqual(parse_date("Revised August 24, 2020"), "2020-08-24")
+        self.assertEqual(parse_date("2023/09/12 14:27"), "2023-09-12")
+        self.assertEqual(parse_date("报告时间 20230912"), "2023-09-12")
+        self.assertEqual(parse_date("2022 年 06 月"), "2022-06")
+        self.assertEqual(parse_date("2021巡检报告.pdf"), "2021")
+        self.assertIsNone(parse_date("01/02/03 nothing here"))
+        self.assertEqual(find_dates("2021年3月14日 与 2022-06-05,以及 2026"), ["2021-03-14", "2022-06-05", "2026"])
+        self.assertEqual(find_versions("Document Number: 000-12345 Rev. *L  Version 2.1 版本 3"), ["rev *L", "v2.1", "v3"])
+        health = document_axis("样例C/巡检报告/2021巡检报告.pdf", "尊敬的先生,您好!现将您2021年03月14日的巡检结果报告如下")
+        self.assertEqual((health["kind"], health["value"], health["date"]), ("date", "2021-03-14", "2021-03-14"))
+        sheet = document_axis("example-zx8d4021kv13-datasheet-en.pdf", "ZX8D4021KV13 72-unit Sample Store Document Number: 000-12345 Rev. *L Revised August 24, 2020", kind="version")
+        self.assertEqual((sheet["kind"], sheet["value"], sheet["date"]), ("version", "rev *L", "2020-08-24"))
+        self.assertEqual(document_axis("notes.md", "nothing dated")["kind"], "none")
+        self.assertEqual(document_axis("2022-report.pdf", "2022-06-05 发布", kind="date")["value"], "2022-06-05")   # the filename only has the year; the first page completes it
+        self.assertLess(axis_sort_key("2021-03"), axis_sort_key("2022-06-05"))
+        self.assertLess(axis_sort_key("rev *J"), axis_sort_key("rev *L"))
+        self.assertLess(axis_sort_key("v1.2"), axis_sort_key("v1.10"))
+        self.assertLess(axis_sort_key("2024"), axis_sort_key(""))
+        today = date(2026, 9, 7)
+        self.assertEqual(question_time_window("这两年我的身体状况如何", today=today), {"from": "2025", "to": "2026", "text": "这两年"})
+        self.assertEqual(question_time_window("最近三年的组分变化", today=today)["from"], "2024")
+        self.assertEqual(question_time_window("2024到2026年巡检有什么变化", today=today)["to"], "2026")
+        self.assertEqual(question_time_window("去年的报告", today=today), {"from": "2025", "to": "2025", "text": "去年"})
+        self.assertEqual(question_time_window("since 2023 what changed", today=today)["from"], "2023")
+        self.assertEqual(question_time_window("2025年10月的波形图", today=today)["from"], "2025")
+        self.assertIsNone(question_time_window("tAS 的最小值是多少", today=today))
+        win = {"from": "2022", "to": "2023"}
+        self.assertTrue(in_window("2022-06-05", win))
+        self.assertFalse(in_window("2021-03-14", win))
+        self.assertTrue(in_window("rev *L", win))      # non-date axis values are not filtered
+        self.assertTrue(in_window("", None))
+
+    def test_document_axis_ignores_bare_years_in_the_body(self) -> None:
+        """A lone 19xx / 20xx number in the first-page text used to be taken as the document's year and so became the
+        validity of every fact in the document. The text now only counts dates given to the month or day; a bare
+        year only counts in the file name."""
+        from kb_pipeline.graph.temporal import document_axis, find_dates
+
+        for head in ("MAX_TOKENS = 2048\nWIDTH = 1920", "公司现有 2023 个员工", "从1988年到2023年,公司经历了三个阶段",
+                     "方案编号 YY-2026-018", "Copyright 2019 Example Press"):
+            axis = document_axis("docs/overview.md", head)
+            self.assertEqual((axis["kind"], axis["value"], axis["date"]), ("none", "", ""), head)
+            self.assertEqual(document_axis("docs/overview.md", head, kind="version")["kind"], "none", head)
+        self.assertEqual(find_dates("公司现有 2023 个员工"), ["2023"])                # the time window of a question still needs bare years: find_dates is unchanged
+        # a bare year earlier on does not hide a full date after it
+        self.assertEqual(document_axis("方案.md", "方案编号 YY-2026-018\n日期:2026 年 3 月 9 日")["value"], "2026-03-09")
+        self.assertEqual(document_axis("notes.md", "2024 年度总结,发布于 2025-01-15")["value"], "2025-01-15")
+        self.assertEqual(document_axis("notes.md", "Revised August 2020")["value"], "2020-08")
+        # the year in the file name works as before; a full date of the same year on the first page completes it, one
+        # of another year does not
+        self.assertEqual(document_axis("2021巡检报告.pdf", "本中心成立于 1995 年")["value"], "2021")
+        self.assertEqual(document_axis("2021巡检报告.pdf", "2021 年度巡检报告\n检查日期 2021-03-14")["value"], "2021-03-14")
+        self.assertEqual(document_axis("2021巡检报告.pdf", "制造日期 1980-01-01")["value"], "2021")
+        # a version axis without a version number falls back to the date, again only a full one
+        self.assertEqual(document_axis("a.py", "# 2026-09-12 改过一次\nLIMIT = 2048", kind="version")["value"], "2026-09-12")
+
+    def test_unit_classifier_recognises_report_boilerplate_and_conclusions(self) -> None:
+        from kb_pipeline.graph.units import classify_unit_text, unit_signals
+
+        toc = ("www.example-inspection.test / 目录 / CONTENTS\n1 巡检重要异常结果、复查建议及维护建议 04 异常情况、专家建议与指导、标准维护方案\n"
+               "2 专家建议与指导 05 建议与指导\n3 样例巡检结果 07 检查详细结果\n4 装配检查结果 26 装配状态整体改进方案/建议\n"
+               "5 历年主要异常指标对比 28 历年数据对比及状态预测\n尊敬的样例C先生,您好! 感谢您的光临。现将您2023年09月12日的巡检结果报告如下。")
+        self.assertEqual(classify_unit_text(toc, []), "boilerplate")
+        guide = ("报告阅读说明书\n1. 您本次巡检报告由设备信息、本次巡检主要阳性结果和异常情况、专家指导建议及本次巡检结果等部分组成。\n"
+                 "2. 样例巡检数据只是针对本次巡检覆盖的相关部件的相关项目或指标的检查结果,并非能覆盖装置全部部件及全部指标。")
+        self.assertEqual(classify_unit_text(guide, []), "boilerplate")
+        self.assertEqual(classify_unit_text("尊敬的样例A女士,您好!感谢您选择我们的巡检服务,现将报告奉上。", []), "boilerplate")
+        promo = "想随时随地看报告?扫码下载Example巡检APP。关注公众号,检前检后全管理。IMAGE: 一个二维码。"
+        self.assertEqual(classify_unit_text(promo, []), "boilerplate")
+        findings = ("1. 巡检重要异常结果、复查建议及维护建议 / 阳性结果和异常情况 / 【1】左侧壳体小凹点(LEVEL2类) / 【2】轻度涂层不均 / "
+                    "【3】中心轴偏移 / 【4】低密度组分浓度增高 / 【5】焦距偏移 / 2. 专家建议与指导")
+        self.assertEqual(classify_unit_text(findings, ["巡检重要异常结果"]), "body")                  # the "advice" word is not a generic conclusion cue (every section has it)
+        self.assertEqual(classify_unit_text("异常结果汇总\n1. 总组分浓度偏高", ["异常结果汇总"]), "conclusion")   # the "summary" word is
+        domain_only = "阳性结果和异常情况 / 【1】左侧壳体小凹点(LEVEL2类) / 【2】轻度涂层不均 / 【3】中心轴偏移"
+        self.assertEqual(classify_unit_text(domain_only, ["阳性结果和异常情况"]), "body")               # domain words are not in the code
+        self.assertEqual(classify_unit_text(domain_only, ["阳性结果和异常情况"], conclusion_headings=["阳性结果和异常情况"]), "conclusion")
+        self.assertEqual(classify_unit_text("Key findings: the device meets the 667 MHz timing budget across all corners.", ["Summary"]), "conclusion")
+        body = "The CK/CK# clock is associated with the address and control pins. Transitions are centered with respect to the address bus."
+        self.assertEqual(classify_unit_text(body, ["Functional Overview"]), "body")
+        # Conclusion heading words learned by this KB's profile: recognised even when the generic word list lacks them
+        self.assertEqual(classify_unit_text("本次评估结果:风险指数 36,中低风险。", ["评估总览"]), "body")
+        self.assertEqual(classify_unit_text("本次评估结果:风险指数 36,中低风险。", ["评估总览"], conclusion_headings=["评估总览"]), "conclusion")
+        # Parameter tables and ball maps are judged as before
+        ac_table = ("| Parameter | Description | 667 MHz Min | Unit |\n| tAS | Address setup to CK rising edge, measured from the transition | 0.160 | ns |\n"
+                    "| tCK | Clock cycle time, defined between two rising edges of the same clock | 1.5 | ns |")
+        self.assertEqual(classify_unit_text(ac_table, ["Switching Characteristics"]), "body")
+        self.assertGreaterEqual(unit_signals(toc)["toc_lines"], 3)
+
+    def test_units_carry_axis_and_document_label(self) -> None:
+        chunks = [_chunk(0, "第一段正文,讲的是器件的概述与特性。" * 3, doc="kb_t:1"), _chunk(1, "第二段正文,讲的是引脚。" * 3, doc="kb_t:1")]
+        units = build_units(chunks, kb_id="kb_t", unit_chunks=3, axes={"kb_t:1": "2021-03-14"})
+        self.assertEqual(units[0].axis, "2021-03-14")
+        self.assertEqual(units[0].document_label, "a.pdf (2021-03-14)")
+        rt = Unit.from_json(units[0].to_json())
+        self.assertEqual(rt.axis, "2021-03-14")
+        self.assertEqual(Unit.from_json({"unit_id": "u", "doc_id": "d"}).document_label, "d")
+        # The axis value does not enter unit_id
+        self.assertEqual(build_units(chunks, kb_id="kb_t", unit_chunks=3)[0].unit_id, units[0].unit_id)
+
+    def test_extract_prompt_has_type_menu_caps_document_and_examples(self) -> None:
+        from kb_pipeline.graph.extract import consolidate, record_caps, type_menu
+
+        schema = ExtractionSchema(entity_types=("pin", "signal"), predicates=({"name": "has_pin", "source_parents": ["entity"], "target_parents": ["part"]},),
+                                  language="Chinese", parent_types={"pin": "part", "signal": "part"},
+                                  type_definitions={"pin": "a physical package terminal, not the logical signal it carries"})
+        self.assertEqual(type_menu(schema), "pin: a physical package terminal, not the logical signal it carries (parent: part); signal (parent: part)")
+        text = render_extract_prompt("正文", section="第二章 > 2.5", schema=schema, document="a.pdf (rev *L)", unit_kind="listing")
+        self.assertIn("Entity_types: pin: a physical package terminal", text)
+        self.assertIn("Document: a.pdf (rev *L)", text)
+        self.assertIn("at most 30 records in total and at most 20 entity records", text)
+        self.assertIn("do NOT extract entities or relationships from the document name or the section heading", text)
+        self.assertIn("Example 1:", text)      # generic examples when the KB has none of its own
+        self.assertIn("conclusion:", text)
+        self.assertEqual(record_caps("body", has_table=True), (160, 80))
+        self.assertEqual(record_caps("boilerplate"), (8, 5))
+        self.assertEqual(record_caps("nonsense"), (120, 50))
+        custom = ExtractionSchema(entity_types=("pin",), examples="Example 1:\nEntity_types: pin\nText: x\nOutput:\n(\"unit\"<|>body<|>s)\n<|COMPLETE|>")
+        text2 = render_extract_prompt("正文", section="s", schema=custom)
+        self.assertIn("Text: x", text2)
+        self.assertNotIn("Central Institution", text2)
+        # Fingerprint: type definitions, examples and caps all enter the fingerprint
+        fp = extraction_fingerprint(SPEC, schema, max_gleanings=1)
+        self.assertNotEqual(fp, extraction_fingerprint(SPEC, ExtractionSchema(entity_types=("pin", "signal"), predicates=schema.predicates, language="Chinese", parent_types=schema.parent_types), max_gleanings=1))
+        self.assertNotEqual(fp, extraction_fingerprint(SPEC, ExtractionSchema(entity_types=("pin", "signal"), predicates=schema.predicates, language="Chinese", parent_types=schema.parent_types, type_definitions=schema.type_definitions, examples="x"), max_gleanings=1))
+        # The longer description from a gleaning round wins: a containing one replaces, unrelated ones sit side by side,
+        # exact duplicates are not repeated
+        ents, _ = consolidate([{"name": "A", "type": "t", "description": "a pin"},
+                               {"name": "A", "type": "t", "description": "A pin used for chip enable"},
+                               {"name": "A", "type": "t", "description": "a pin"},
+                               {"name": "A", "type": "t", "description": "something else"}], [])
+        self.assertEqual(ents[0]["descriptions"], ["A pin used for chip enable", "something else"])
+
+    def test_summaries_use_thresholds_json_rows_and_attribution(self) -> None:
+        from kb_pipeline.graph.summarize import concatenate, description_rows, needs_summary, summarize_one, summarize_rows
+
+        row = {"descriptions": ["42 批", "43 批", "样例负责人"], "description_sources": [{"source": "2021巡检报告.pdf", "when": "2021-03-14"}, {"source": "2022巡检报告.pdf", "when": "2022-06-05"}, {}]}
+        rows = description_rows(row)
+        self.assertEqual(rows[0], {"text": "42 批", "source": "2021巡检报告.pdf", "when": "2021-03-14"})
+        self.assertEqual(rows[2], {"text": "样例负责人"})
+        self.assertFalse(needs_summary(rows))                      # 3 short descriptions: concatenate, no model call
+        self.assertTrue(needs_summary(rows + [{"text": "x"}]))     # ≥4 rows
+        self.assertTrue(needs_summary([{"text": "长" * 900}, {"text": "文" * 900}]))   # over the token limit
+        self.assertIn("[2021巡检报告.pdf (2021-03-14)] 42 批", concatenate(rows))
+        seen: list[str] = []
+
+        def chat(messages):
+            seen.append(messages[-1]["content"])
+            return "汇总"
+        client = _client(chat)
+        self.assertEqual(summarize_one(client, "样例C", rows + [{"text": "x"}], language="Chinese"), "汇总")
+        self.assertIn('{"text": "42 批", "source": "2021巡检报告.pdf", "when": "2021-03-14"}', seen[0])
+        self.assertIn("keep the differences and attribute them", seen[0])
+        stats = summarize_rows(client, [dict(row), {"descriptions": ["only one"]}], language="Chinese", name_of=lambda r: "n")
+        self.assertEqual((stats["summarized"], stats["concatenated"], stats["skipped"]), (0, 2, 2))
+
+    def test_facts_carry_flag_reference_range_axis_and_bound_distance(self) -> None:
+        from kb_pipeline.graph.facts import (
+            bound_distance, canonical_unit, fact_id, link_facts, normalize_fact, property_text, spec_text, value_text, wants_facts,
+        )
+
+        raw = {"subject": "负载指数", "property": "测量结果", "value": "25.5", "unit": "", "flag": "↑", "ref_min": "18.5", "ref_max": "23.99",
+               "valid_from": "2023年09月12日", "period_text": "2026/09", "note": ""}
+        f = normalize_fact(raw)
+        self.assertEqual((f["flag"], f["ref_min_num"], f["ref_max_num"], f["valid_from"], f["period_text"]), ("↑", 18.5, 23.99, "2023-09-12", "2026/09"))
+        self.assertAlmostEqual(bound_distance(f), round((25.5 - 23.99) / (23.99 - 18.5), 4))
+        self.assertEqual(bound_distance({"value_num": 20.0, "ref_min_num": 18.5, "ref_max_num": 23.99}), 0.0)
+        self.assertIsNone(bound_distance({"value_num": 1.0}))
+        self.assertEqual(bound_distance({"value_num": 5.0, "ref_max_num": 4.0}), 1.0)
+        self.assertEqual(canonical_unit("×10~9/L"), "10^9/L")
+        self.assertEqual(canonical_unit("毫安"), "mA")
+        self.assertEqual(canonical_unit("mmol/l"), "mmol/L")
+        self.assertEqual(canonical_unit("weird"), "weird")
+        # A leading M / m carries physical meaning: MA is no longer folded into mA as a spelling variant (Codex re-review
+        # N06); an unrecognised unit is kept as is, and all-lowercase ma still normalises
+        self.assertEqual(normalize_fact({"subject": "X", "property": "p", "value": "1", "unit": "MA"})["unit_canonical"], "MA")
+        self.assertEqual(normalize_fact({"subject": "X", "property": "p", "value": "1", "unit": "ma"})["unit_canonical"], "mA")
+        g = normalize_fact({"subject": "X", "property": "p", "value": "1", "valid_from": "not a date", "period_text": "x"})
+        self.assertNotIn("valid_from", g)
+        self.assertEqual(g["period_text"], "x")
+        self.assertEqual(g["time_basis"], "unknown")
+        a = normalize_fact({"subject": "X", "property": "p", "value": "1", "valid_from": "2024"})
+        b = normalize_fact({"subject": "X", "property": "p", "value": "1", "valid_from": "2025"})
+        self.assertNotEqual(fact_id("u", a), fact_id("u", b))
+        self.assertIn("| when: 2023-09-12 | ref: 18.5~23.99", spec_text(f))
+        self.assertIn("25.5 ↑", value_text(f))
+        self.assertEqual(property_text({"concept": "lix", "property": "测量结果", "symbol": "", "subject": "负载指数"}), "lix · 测量结果 · 负载指数")
+        unit = _unit("u1", doc="kb_t:1", points=("p1",))
+        unit.axis = "2022-06-05"
+        facts = [{"subject": "X", "property": "p", "value": "30", "unit_id": "u1", "ref_min_num": 18.5, "ref_max_num": 24.0, "value_num": 30.0},
+                 {"subject": "X", "property": "q", "value": "1", "unit_id": "u1", "valid_from": "2020"}]
+        link_facts(facts, [], units_by_id={"u1": unit})
+        self.assertEqual((facts[0]["axis"], facts[0]["time_basis"], facts[1]["valid_from"]), ("2022-06-05", "document", "2020"))
+        self.assertNotIn("valid_from", facts[0])
+        self.assertGreater(facts[0]["bound_distance"], 0)
+        conclusion = _unit("c1")
+        conclusion.kind = "conclusion"
+        self.assertTrue(wants_facts(conclusion))
+        self.assertTrue(wants_facts(_unit("c2"), "conclusion"))
+
+    def test_merge_records_description_sources_and_conclusion_kind(self) -> None:
+        from kb_pipeline.graph.merge import combine_unit_kind
+
+        units = [_unit("u1", doc="kb_t:1"), _unit("u2", doc="kb_t:2")]
+        units[0].rel_path, units[0].axis = "2021巡检报告.pdf", "2021-03-14"
+        units[1].rel_path, units[1].axis = "2022巡检报告.pdf", "2022-06-05"
+        ex = {"u1": {"entities": [{"name": "样例C", "type": "person", "descriptions": ["34 岁"]}], "relations": []},
+              "u2": {"entities": [{"name": "样例C", "type": "person", "descriptions": ["35 岁"]}], "relations": []}}
+        merged = merge_extractions(units, ex, entity_types=("person",))
+        e = merged["entities"][0]
+        self.assertEqual(e["descriptions"], ["34 岁", "35 岁"])
+        self.assertEqual(e["description_sources"], [{"source": "2021巡检报告.pdf", "when": "2021-03-14"}, {"source": "2022巡检报告.pdf", "when": "2022-06-05"}])
+        self.assertEqual(combine_unit_kind("conclusion", "body"), "conclusion")
+        self.assertEqual(combine_unit_kind("body", "conclusion"), "conclusion")
+        self.assertEqual(combine_unit_kind("conclusion", "boilerplate"), "boilerplate")
+        self.assertEqual(combine_unit_kind("listing", "conclusion"), "listing")
+
+    def test_schema_suggests_definitions_profile_and_examples(self) -> None:
+        from kb_pipeline.graph.schema import generate_examples
+
+        answers = ["Synthetic records", "Chinese", "You are an expert.",
+                   '{"entity_types": ["person", "indicator", "examination"]}',
+                   '{"parent_types": {"person": "agent", "indicator": "property", "examination": "event"}}',
+                   '{"predicates": [{"name": "has_indicator", "description": "d", "source_parents": ["agent"], "target_parents": ["property"]},'
+                   ' {"name": "examined_by", "description": "e", "source_parents": ["agent"], "target_parents": ["agent"], "single_valued": true}]}',
+                   '{"types": {"person": {"definition": "the record owner a report is about", "scope": "global"},'
+                   ' "indicator": {"definition": "a measured sample metric", "scope": "document"}, "ghost": {"definition": "x"}}}',
+                   '{"subject_types": ["person", "nope"], "axis": "date", "conclusion_headings": ["异常结果汇总", "综合建议"], "extension_predicates": ["has_indicator", "bogus"]}']
+        client = _client(list(answers))
+        out = graph_schema.suggest(client, ["sample text"], examples=False)
+        model = out["model"]
+        types = {t["name"]: t for t in model["types"]}
+        self.assertEqual({k: v["description"] for k, v in types.items()},
+                         {"person": "the record owner a report is about", "indicator": "a measured sample metric", "examination": ""})
+        self.assertEqual({k: (v["is_a"], v["scope"]) for k, v in types.items()},
+                         {"person": ("agent", "global"), "indicator": ("property", "document"), "examination": ("event", "document")})
+        self.assertEqual(model["profile"], {"subject_types": ["person"], "axis": "date", "conclusion_headings": ["异常结果汇总", "综合建议"],
+                                            "boilerplate_headings": [], "listing_headings": [], "type_words": [], "extension_predicates": ["has_indicator"]})
+        preds = {p["name"]: p for p in model["predicates"]}
+        self.assertEqual((preds["has_indicator"]["multivalued"], preds["examined_by"]["multivalued"]), (True, False))
+        self.assertTrue({"precedes", "concurrent_with", "causes", "results_in"} <= set(preds))     # 有事件类型就带上事件核心关系
+        self.assertTrue(all(preds[n]["core"] for n in ("precedes", "causes")))
+        self.assertEqual(out["examples"], "")
+        self.assertEqual(client.stats["calls"], 8)
+        schema = ExtractionSchema(entity_types=("person", "indicator"), predicates=({"name": "has_indicator", "source_parents": ["agent"], "target_parents": ["property"]},),
+                                  language="Chinese", parent_types={"person": "agent", "indicator": "property"})
+        good = ('("unit"<|>body<|>s)##("entity"<|>样例C<|>person<|>样例负责人)##("entity"<|>负载指数<|>indicator<|>指标)##'
+                '("relationship"<|>样例C<|>负载指数<|>has_indicator<|>报告给出负载指数<|>8)##'
+                '("relationship"<|>负载指数<|>样例C<|>has_indicator<|>越界的方向<|>3)<|COMPLETE|>')
+        weak = '("entity"<|>A<|>person<|>x)##("entity"<|>B<|>indicator<|>y)##("relationship"<|>A<|>B<|>related_to<|>泛化<|>2)<|COMPLETE|>'
+        text, stats = generate_examples(_client([weak, good]), ["短" * 220, "长文本 " * 60], schema)
+        # Tried in descending length: the "long text" sample gets weak first (only related_to, below the bar), the "short"
+        # one gets good; the reversed record in good violates the endpoints (1/2, not over half) and is removed
+        self.assertEqual((stats["kept"], stats["fallback"], stats["violations_removed"], stats["dropped_empty"]), (1, 0, 1, 0))
+        self.assertIn("Example 1:", text)
+        self.assertIn('("relationship"<|>样例C<|>负载指数<|>has_indicator<|>报告给出负载指数<|>8<|><|>{', text)
+        self.assertIn('("entity"<|>样例C<|>person<|>样例负责人<|>instance)', text)        # 示例与正文提示词用同一种记录格式
+        self.assertNotIn("越界的方向", text)
+        self.assertNotIn("(parent:", text)                                          # the menu in examples lists names only, definitions are not repeated
+        self.assertIn("Predicates: has_indicator", text)
+        self.assertEqual(generate_examples(_client([]), ["x"], schema)[0], "")   # no sample long enough: empty
+
+    def test_schema_fields_flow_through_config_source_and_version_apply(self) -> None:
+        from kb_pipeline import discovery
+        from kb_pipeline.graph.build import extraction_schema_for, scenario_profile
+        from kb_pipeline.limits import normalize_examples, normalize_profile, normalize_type_definitions
+        from kb_server.service import _apply_schema_version
+
+        self.assertEqual(normalize_type_definitions({"Pin": " a terminal ", "ghost": "x"}, ["pin"]), {"pin": "a terminal"})
+        self.assertEqual(normalize_type_definitions('{"pin": "t"}'), {"pin": "t"})
+        self.assertEqual(normalize_profile({"axis": "DATE", "subject_types": "person, person", "extension_predicates": ["Has Pin"]}),
+                         {"subject_types": ["person"], "axis": "date", "conclusion_headings": [], "boilerplate_headings": [], "listing_headings": [], "type_words": [], "extension_predicates": ["has_pin"]})
+        self.assertEqual(normalize_profile({"axis": "weird"}), {})
+        self.assertEqual(normalize_examples("  ex  "), "ex")
+        for key in ("graph_type_definitions", "graph_examples", "graph_profile"):
+            self.assertIn(key, discovery.CONFIG_KEYS)
+            self.assertIn(key, discovery.DEFAULTS)
+        with tempfile.TemporaryDirectory() as tmp:
+            src = discovery.build_source(Path(tmp), "库", {
+                "graph_entity_types": ["pin"], "graph_parent_types": {"pin": "part"},
+                "graph_type_definitions": {"pin": "a terminal"}, "graph_examples": "Example 1: x",
+                "graph_profile": {"subject_types": ["pin"], "axis": "version", "conclusion_headings": ["Summary"]},
+            })
+        self.assertEqual(src.graph_type_definitions, {"pin": "a terminal"})
+        self.assertEqual(scenario_profile(src)["axis"], "version")
+        schema = extraction_schema_for(src)
+        self.assertEqual((schema.type_definitions, schema.examples, schema.subject_types), ({"pin": "a terminal"}, "Example 1: x", ("pin",)))
+        current = {"graph_schema_versions": [_schema_entry("v9", [("pin", "part")], language="Chinese", definitions={"pin": "t"},
+                                                           examples="E", profile={"axis": "date"}),
+                                             _schema_entry("v8", ["pin"])]}
+        updates = {"graph_schema_active": "v9"}
+        _apply_schema_version(current, updates)
+        self.assertEqual((updates["graph_type_definitions"], updates["graph_examples"], updates["graph_profile"]),
+                         ({"pin": "t"}, "E", {"subject_types": [], "axis": "date", "conclusion_headings": [], "boilerplate_headings": [], "listing_headings": [], "type_words": [], "extension_predicates": []}))
+        self.assertEqual((updates["graph_parent_types"], updates["graph_type_scopes"], updates["graph_language"]),
+                         ({"pin": "part"}, {"pin": "document"}, "Chinese"))
+        old = {"graph_schema_active": "v8"}
+        _apply_schema_version(current, old)
+        self.assertEqual((old["graph_type_definitions"], old["graph_examples"], old["graph_profile"]), (None, None, None))
+
+
+class ResolutionEvidenceTests(unittest.TestCase):
+    """2026-09-08 generality review: merges need evidence. Identifier-like names merge only on canonical identifier
+    equality; opposite polarity never merges; a meaningful extra qualifier (subclass) never merges; a model "yes"
+    must give an evidence category; every merged pair records its source and category."""
+
+    def test_identifier_like_names_only_merge_on_canonical_equality(self) -> None:
+        from kb_pipeline.graph.resolution import candidate_pairs, embedding_candidates, is_identifier_like, is_similar
+
+        for name in ("t_DBE", "VIH", "ZX8D1049GN", "mx0000133", "ASMB2", "PE#", "51-85087"):
+            self.assertTrue(is_identifier_like(name), name)
+        for name in ("Example", "总组分浓度", "data input", "AutoStore", "Market Strategy Committee"):
+            self.assertFalse(is_identifier_like(name), name)
+        self.assertFalse(is_similar("t_DBE", "t_DOE"))          # identifiers one letter apart are two parameters (kb_001 once merged them)
+        self.assertFalse(is_similar("ASMB2", "ADRB3"))
+        self.assertFalse(is_similar("ADH2", "ALDH2"))
+        ents = [{"title": "t_DBE", "type": "timing parameter"}, {"title": "t_DOE", "type": "timing parameter"},
+                {"title": "tDOE", "type": "timing parameter"}]
+        self.assertEqual(candidate_pairs(ents), [])            # the similarity route does not admit them
+        vectors = {"t_DBE": [1.0, 0.0], "t_DOE": [0.99, 0.1], "tDOE": [0.99, 0.1]}
+        self.assertEqual(embedding_candidates(ents, lambda titles: [vectors[t] for t in titles]), [])   # nor does the vector route
+        from kb_pipeline.graph.resolution import auto_merge_pairs
+        self.assertEqual(auto_merge_pairs(ents), [(1, 2)])     # t_DOE / tDOE: merged only on canonical identifier equality
+
+    def test_identifier_keys_keep_the_grouping_of_digits(self) -> None:
+        """A separator between digits decides how the digits are grouped: identifiers, part numbers or versions
+        grouped differently are not the same, and the rules must not merge them outright; those that differ only in
+        spelling (the kind of separator, a separator or none between letters and digits) still merge."""
+        from kb_pipeline.graph.resolution import auto_merge_pairs, canonical_identifier
+
+        def pairs(a: str, b: str) -> list:
+            return auto_merge_pairs([{"title": a, "type": "t"}, {"title": b, "type": "t"}])
+
+        for a, b in (("Nova3-2B", "Nova-32B"), ("表 3-12", "表31-2"), ("式(1-11)", "式(11-1)"), ("v1.10", "v11.0"),
+                     ("1.1.0", "11.0"), ("v1.10", "v110")):
+            self.assertNotEqual(canonical_identifier(a), canonical_identifier(b), (a, b))
+            self.assertEqual(pairs(a, b), [], (a, b))
+        for a, b in (("t_AS", "t AS"), ("ZX8D 1049 GN", "ZX8D1049GN"), ("ZM32 F103", "ZM32F103"), ("表 3-12", "表3.12"),
+                     ("2024-01-05", "2024/01/05"), ("ISO 9001:2015", "ISO9001-2015"), ("W.W.", "WW")):
+            self.assertEqual(pairs(a, b), [(0, 1)], (a, b))
+        # keys obtained by stripping type words or bracketed aliases go through the same function: a different grouping
+        # of digits still does not merge
+        rows = [{"title": "Rev 1.10 package", "type": "package"}, {"title": "Rev 11.0", "type": "package"},
+                {"title": "协议(v1.10)", "type": "standard"}, {"title": "V11.0", "type": "standard"}]
+        self.assertEqual(auto_merge_pairs(rows), [])
+        # a pair the rules do not merge does not come back through the model either: the digit pairs of the two sides
+        # differ, so they never become candidates
+        ents = [{"key": "a", "title": "Nova3-2B", "type": "model", "descriptions": ["x"], "unit_ids": ["u1"], "frequency": 1, "aliases": []},
+                {"key": "b", "title": "Nova-32B", "type": "model", "descriptions": ["y"], "unit_ids": ["u2"], "frequency": 1, "aliases": []}]
+        merged, _, stats = resolution.resolve(_client([]), ents, [])
+        self.assertEqual((stats["auto_pairs"], stats["candidates"], len(merged)), (0, 0, 2))
+
+    def test_polarity_and_qualifiers_block_merges(self) -> None:
+        from kb_pipeline.graph.resolution import is_containment, is_similar, polarity_conflict
+
+        self.assertTrue(polarity_conflict("data input", "Data Output"))
+        self.assertTrue(polarity_conflict("输入数据", "输出数据"))
+        self.assertTrue(polarity_conflict("VIH input high", "VIL input low"))
+        self.assertFalse(polarity_conflict("data input", "input data"))
+        self.assertFalse(polarity_conflict("Example", "Example Technologies"))
+        self.assertFalse(is_similar("data input", "data output"))
+        self.assertFalse(is_similar("output data valid", "input data valid"))
+        # A subclass is not the same thing: a meaningful extra word blocks the merge; only type words / organisation
+        # suffixes / "identifier + descriptor" count as qualifiers
+        self.assertFalse(is_containment("联动故障", "过载联动故障"))
+        self.assertFalse(is_containment("精度减退原因待查", "双侧清晰度降低原因待查"))
+        self.assertFalse(is_containment("Overload", "Type 2 Overload"))
+        from kb_pipeline.graph.resolution import auto_merge_pairs, strip_type_words
+        self.assertEqual(strip_type_words("Example Technologies AG"), "example")            # organisation suffix words: identical once stripped → merged directly
+        rows = [{"title": "Example", "type": "ORG"}, {"title": "Example Technologies", "type": "ORG"},
+                {"title": "输出使能", "type": "signal"}, {"title": "输出使能信号", "type": "signal"}]
+        self.assertEqual(auto_merge_pairs(rows), [(0, 1)])                                 # Chinese type words come from the profile and only enter candidates, never merge directly
+        self.assertTrue(is_containment("tASH", "tASH setup time"))
+        self.assertFalse(is_containment("VSS", "I VSS"))                                    # the word before the identifier is a modifier: a current is not a voltage
+        self.assertFalse(is_containment("FBGA", "48 FBGA"))
+        self.assertFalse(is_containment("LDB#", "LDA#, LDB#"))
+        self.assertFalse(is_containment("Example", "Example Module Technologies"))  # a meaningful extra word beyond type / suffix: not containment
+        self.assertFalse(is_containment("Overload", "Overload Mellitus Complications"))
+
+    def test_paren_aliases_type_name_words_and_symbol_descriptions(self) -> None:
+        from kb_pipeline.graph.resolution import auto_merge_pairs, is_containment, paren_alias, strip_type_words, type_words_of
+
+        self.assertEqual(paren_alias("负载指数(LIX)"), ("负载指数", "LIX"))
+        self.assertEqual(paren_alias("低密度组分浓度 (LDC-X)"), ("低密度组分浓度", "LDC-X"))
+        self.assertEqual(paren_alias("深色涂层(墨蓝)"), ("", ""))                       # the parenthesis holds an example, not an alias
+        self.assertEqual(paren_alias("停机(供流不足型停机)"), ("", ""))
+        # The reverse "identifier (expansion)" is an alias too: DSE (Data-Systems Engineer), AIP (AI Platform); the
+        # expansion may contain Chinese characters and may exceed 24 characters
+        self.assertEqual(paren_alias("DSE (Data-Systems Engineer)"), ("DSE", "Data-Systems Engineer"))
+        self.assertEqual(paren_alias("DSE(Data Systems Engineer,数据系统工程师)"), ("DSE", "Data Systems Engineer,数据系统工程师"))
+        self.assertEqual(paren_alias("AIP (AI Platform)"), ("AIP", "AI Platform"))      # the capital letters joined = AIP
+        self.assertEqual(paren_alias("Skill(x)"), ("", ""))
+        self.assertEqual(paren_alias("ΘJA (With Still Air)"), ("", ""))                    # the parenthesis holds a condition, the initials do not match
+        self.assertEqual(paren_alias("HSB (STORE only)"), ("", ""))
+        self.assertEqual(paren_alias("DSE(数据系统工程师)"), ("", ""))                       # a purely Chinese expansion cannot be checked by initials; left to the model
+        dse = [{"title": "DSE", "type": "role"}, {"title": "DSE (Data-Systems Engineer)", "type": "role"},
+               {"title": "DSE(Data Systems Engineer,数据系统工程师)", "type": "role"}, {"title": "Data-Systems Engineer", "type": "role"}]
+        reasons: dict = {}
+        groups = auto_merge_pairs(dse, reasons)
+        self.assertEqual({frozenset(p) for p in groups} & {frozenset((0, 1)), frozenset((0, 2)), frozenset((1, 3))},
+                         {frozenset((0, 1)), frozenset((0, 2)), frozenset((1, 3))})
+        self.assertEqual({reasons[p] for p in groups}, {"paren"})                                   # the resolution log records a paren alias, not identifier equality
+        reasons2: dict = {}
+        auto_merge_pairs([{"title": "t_AS", "type": "timing parameter"}, {"title": "tAS", "type": "timing parameter"},
+                          {"title": "256-pin EXBOX Package", "type": "package"}, {"title": "256-pin EXBOX", "type": "package"}], reasons2)
+        self.assertEqual(sorted(reasons2.values()), ["identifier", "type_words"])
+        ents = [{"title": "负载指数(LIX)", "type": "sample indicator"}, {"title": "负载指数", "type": "sample indicator"},
+                {"title": "LIX", "type": "sample indicator"}, {"title": "深色涂层(墨蓝)", "type": "coating"}, {"title": "深色涂层", "type": "coating"},
+                {"title": "256-pin EXBOX Package", "type": "package"}, {"title": "256-pin EXBOX", "type": "package"},
+                {"title": "常规检测 test", "type": "sample test"}, {"title": "常规检测", "type": "sample test"}]
+        pairs = set(auto_merge_pairs(ents))
+        self.assertIn((0, 1), pairs)
+        self.assertIn((0, 2), pairs)
+        self.assertNotIn((3, 4), pairs)
+        self.assertIn((5, 6), pairs)                                                      # the words of the type name package are type words
+        self.assertIn((7, 8), pairs)
+        self.assertEqual(type_words_of("sample test"), {"sample", "test"})
+        self.assertEqual(strip_type_words("256-pin EXBOX Package", type_words_of("package")), "256-pin exbox")
+        self.assertTrue(is_containment("CYP2C9", "CYP2C9酶"))                             # identifier + Chinese descriptor
+        self.assertTrue(is_containment("CYP2C9", "细胞色素CYP2C9"))
+        self.assertFalse(is_containment("联动故障", "过载联动故障"))
+
+    def test_variant_edges_cover_packaging_suffixes_and_paren_forms(self) -> None:
+        from kb_pipeline.graph.merge import derive_variant_edges
+
+        def ent(key, title, etype="product"):
+            return {"key": key, "title": title, "type": etype, "unit_ids": ["u1"]}
+        ents = [ent("a", "ZX25D108L-ZS25XI"), ent("b", "ZX25D108L-ZS25XIT"), ent("c", "ZX8D4021KV13"), ent("d", "ZX8D4021KV13-667FCXC"),
+                ent("e", "停机", "operating condition"), ent("f", "停机(供流不足型停机)", "operating condition"), ent("g", "ZX8D4041KV13")]
+        edges = {(r["source_key"], r["target_key"]) for r in derive_variant_edges(ents, [])}
+        self.assertEqual(edges, {("b", "a"), ("d", "c"), ("f", "e")})                     # 4041 is not a variant of 4021
+
+    def test_judge_answers_carry_a_category_and_merges_are_logged(self) -> None:
+        from kb_pipeline.graph import resolution
+
+        self.assertEqual(resolution.parse_answer_categories("1: yes abbreviation\n2: no\n3: yes (translation)\n4: yes\n5: yes bogus", 5),
+                         ["abbreviation", "", "translation", "unspecified", "unspecified"])
+        prompt = resolution.render_batch([(0, 1)], [{"title": "Example", "type": "ORG", "descriptions": ["maker"]},
+                                                    {"title": "Example Technologies", "type": "ORG", "descriptions": []}])
+        self.assertIn("abbreviation", prompt)
+        self.assertIn("a specific thing and its general category", prompt)
+        self.assertIn("a function and its module, a clause and its contract", prompt)      # the examples span domains
+        for dead in ("merely look alike", "opposite direction or polarity"):            # identifiers / polarity are blocked by code, the prompt does not repeat it
+            self.assertNotIn(dead, prompt, dead)
+        self.assertIn("`<number>: yes <category>`", prompt)
+        ents = [{"key": "a", "title": "Example", "type": "ORG", "descriptions": ["maker"], "unit_ids": ["t1"], "frequency": 3, "aliases": []},
+                {"key": "b", "title": "Examplen", "type": "ORG", "descriptions": ["sample module maker"], "unit_ids": ["t2"], "frequency": 1, "aliases": []},
+                {"key": "c", "title": "data input", "type": "signal", "descriptions": ["input"], "unit_ids": ["t3"], "frequency": 1, "aliases": []},
+                {"key": "d", "title": "data output", "type": "signal", "descriptions": ["output"], "unit_ids": ["t4"], "frequency": 1, "aliases": []}]
+        client = _client(["1: yes alias"])
+        merged, _, stats = resolution.resolve(client, ents, [])
+        self.assertEqual(stats["candidates"], 1)                     # data input / output never enter the candidates at all
+        self.assertEqual(stats["yes_by_category"], {"alias": 1})
+        self.assertEqual(stats["_log"], [{"kept": "a", "merged": "b", "kept_title": "Example", "merged_title": "Examplen",
+                                          "source": "lexical", "category": "alias"}])
+        self.assertEqual({e["key"] for e in merged}, {"a", "c", "d"})
+        src = (Path(__file__).resolve().parents[1] / "kb_pipeline" / "graph" / "build.py").read_text(encoding="utf-8")
+        self.assertIn('"resolution_log": resolution_log', src)
+
+    def test_merge_log_has_one_row_per_merged_entity(self) -> None:
+        """When neither end of a matched pair is the representative (the "body mass index (LIX)" entity links "body
+        mass index" and "LIX", and "body mass index" is the representative), the log used to record the
+        representative's key with another entity's title, and the merged-away entity could not be found in it. Now
+        there is one row per merged-away entity, kept is always the representative, and the entity it was linked
+        through is recorded in via_title."""
+        def ent(key: str, title: str, freq: int) -> dict:
+            return {"key": key, "title": title, "type": "sample indicator", "descriptions": [], "unit_ids": [f"u-{key}"],
+                    "frequency": freq, "aliases": []}
+
+        ents = [ent("lix", "LIX", 2), ent("负载指数(lix)", "负载指数(LIX)", 1), ent("负载指数", "负载指数", 9),
+                ent("高度", "高度", 3)]
+        merged, _, stats = resolution.resolve(_client([]), ents, [])
+        self.assertEqual({e["key"] for e in merged}, {"负载指数", "高度"})
+        self.assertEqual(stats["_map"], {"lix": "负载指数", "负载指数(lix)": "负载指数"})
+        log = stats["_log"]
+        self.assertEqual(sorted(r["merged"] for r in log), sorted(stats["_map"]))                # every merged-away key exactly once
+        self.assertEqual({(r["kept"], r["kept_title"]) for r in log}, {("负载指数", "负载指数")})
+        direct = next(r for r in log if r["merged"] == "负载指数(lix)")
+        self.assertEqual((direct["merged_title"], direct["source"], direct["category"], direct.get("via_title")),
+                         ("负载指数(LIX)", "auto", "paren", None))
+        chained = next(r for r in log if r["merged"] == "lix")
+        self.assertEqual((chained["merged_title"], chained["source"], chained["category"], chained["via_title"]),
+                         ("LIX", "auto", "paren", "负载指数(LIX)"))
+
+    def test_embedding_alias_merges_get_a_second_stricter_check(self) -> None:
+        from kb_pipeline.graph import resolution
+
+        self.assertEqual(resolution.parse_same("1: same\n2: narrower\n3: different\n4: broader", 5), [True, False, False, False, False])
+        self.assertEqual(resolution.parse_verdicts("1: same\n2: narrower\n3: 不同\n4: broader", 5), ["same", "narrower", "different", "broader", ""])
+        prompt = resolution.render_hyponym_batch([(0, 1)], [{"title": "浓度增高", "type": "finding", "descriptions": ["检测所见"]},
+                                                              {"title": "浓度超限状态", "type": "finding", "descriptions": ["故障判定"]}])
+        self.assertIn("a finding and a diagnosis", prompt)
+        self.assertIn("a function and its module, a clause and its contract", prompt)      # the examples span domains, not only medicine
+        self.assertIn("are never `same`", prompt)                                          # this sentence is the task definition; 88d3e91 removed it once, the paper KB got looser, restored
+        self.assertIn("`<number>: same|broader|narrower|different`", prompt)
+        ents = [{"key": "a", "title": "浓度增高", "type": "finding", "descriptions": ["检测所见"], "unit_ids": ["t1"], "frequency": 2, "aliases": []},
+                {"key": "b", "title": "浓度超限状态", "type": "finding", "descriptions": ["故障判定"], "unit_ids": ["t2"], "frequency": 1, "aliases": []},
+                {"key": "c", "title": "急停", "type": "finding", "descriptions": ["瞬时管路故障"], "unit_ids": ["t3"], "frequency": 2, "aliases": []},
+                {"key": "d", "title": "设备急停", "type": "finding", "descriptions": ["瞬时管路故障"], "unit_ids": ["t4"], "frequency": 1, "aliases": []}]
+        vectors = {"浓度增高": [1.0, 0.0], "浓度超限状态": [0.98, 0.15], "急停": [0.0, 1.0], "设备急停": [0.1, 0.99]}
+        # The first pass says alias for both pairs; the second pass: a (elevated concentration) is a manifestation of
+        # b (concentration excess), so narrower; c / d (shutdown / automatic shutdown) are same
+        client = _client(["1: yes alias\n2: yes alias", "1: narrower\n2: same"])
+        merged, _, stats = resolution.resolve(client, ents, [], embed=lambda titles: [vectors[t] for t in titles])
+        self.assertEqual((stats["embedding_candidates"], stats["yes"], stats["rechecked"], stats["recheck_dropped"]), (2, 2, 2, 1))
+        # Pairs the model calls alias are re-checked regardless of route (profile type words let these two pairs in):
+        # s1 / s2 (permission model / permission) judged narrower is not merged; s3 / s4 (AutoStore feature / AutoStore)
+        # judged same is merged. All four entities share a type: sameness is asked in one batch, candidates sorted by
+        # title put the AutoStore pair first and the permission pair second, and the re-check batch follows that order
+        ents2 = [{"key": "s1", "title": "权限模型", "type": "technology", "descriptions": ["平台的权限模型"], "unit_ids": ["t1"], "frequency": 1, "aliases": []},
+                 {"key": "s2", "title": "权限", "type": "technology", "descriptions": ["访问权限"], "unit_ids": ["t2"], "frequency": 3, "aliases": []},
+                 {"key": "s3", "title": "AutoStore功能", "type": "technology", "descriptions": ["断电自动存储"], "unit_ids": ["t3"], "frequency": 1, "aliases": []},
+                 {"key": "s4", "title": "AutoStore", "type": "technology", "descriptions": ["断电自动存储"], "unit_ids": ["t4"], "frequency": 2, "aliases": []}]
+        self.assertEqual(resolution.candidate_pairs(ents2), [])
+        self.assertEqual(resolution.candidate_pairs(ents2, type_words=["模型", "功能"]), [(3, 2), (1, 0)])
+        client2 = _client(["1: yes alias\n2: yes alias", "1: same\n2: narrower"])
+        merged2, _, stats2 = resolution.resolve(client2, ents2, [], type_words=["模型", "功能"])
+        self.assertEqual((stats2["rechecked"], stats2["recheck_dropped"]), (2, 1))
+        self.assertEqual({e["key"] for e in merged2}, {"s1", "s2", "s4"})
+        self.assertEqual([r["reason"] for r in stats2["_rejected"]], ["recheck"])
+        # Literally similar (edit distance) + alias pairs are re-checked too: output buffers / Output drivers differ by
+        # a meaningful word; "identifier + descriptor" (CLK / CLK clock input) and spelling pairs (Examplen / Example)
+        # are not re-checked. Same type → asked in one batch, sorted by title
+        ents3 = [{"key": "r1", "title": "output buffers", "type": "component", "descriptions": ["buffers"], "unit_ids": ["t1"], "frequency": 1, "aliases": []},
+                 {"key": "r2", "title": "Output drivers", "type": "component", "descriptions": ["drivers"], "unit_ids": ["t2"], "frequency": 2, "aliases": []},
+                 {"key": "r3", "title": "CLK", "type": "component", "descriptions": ["clock"], "unit_ids": ["t3"], "frequency": 2, "aliases": []},
+                 {"key": "r4", "title": "CLK clock input", "type": "component", "descriptions": ["clock input"], "unit_ids": ["t4"], "frequency": 1, "aliases": []},
+                 {"key": "r5", "title": "Example", "type": "component", "descriptions": ["maker"], "unit_ids": ["t5"], "frequency": 2, "aliases": []},
+                 {"key": "r6", "title": "Examplen", "type": "component", "descriptions": ["maker"], "unit_ids": ["t6"], "frequency": 1, "aliases": []}]
+        self.assertEqual(resolution.candidate_pairs(ents3), [(2, 3), (4, 5), (0, 1)])
+        client3 = _client(["1: yes alias\n2: yes spelling\n3: yes alias", "1: different"])
+        merged3, _, stats3 = resolution.resolve(client3, ents3, [])
+        self.assertEqual(stats3["yes"], 3)
+        self.assertEqual((stats3["rechecked"], stats3["recheck_dropped"]), (1, 1))
+        self.assertEqual({e["key"] for e in merged3}, {"r1", "r2", "r3", "r5"})
+        self.assertEqual({e["key"] for e in merged}, {"a", "b", "c"})
+        self.assertEqual(stats["_log"], [{"kept": "c", "merged": "d", "kept_title": "急停", "merged_title": "设备急停", "source": "embedding", "category": "alias"}])
+        # Pairs blocked by the second pass leave a trace too (not merged, not in the resolution log), stored as
+        # resolution_rejected in the graph-build output
+        self.assertEqual(stats["_rejected"], [{"a": "a", "b": "b", "a_title": "浓度增高", "b_title": "浓度超限状态", "source": "embedding",
+                                               "category": "alias", "reason": "recheck", "verdict": "narrower"}])     # a withdrawn pair records the relation the model answered
+        self.assertEqual(stats["yes_by_category"], {"alias": 1})
+        src = (Path(__file__).resolve().parents[1] / "kb_pipeline" / "graph" / "build.py").read_text(encoding="utf-8")
+        self.assertIn('"resolution_rejected": resolution_rejected', src)
+
+    def test_profile_headings_replace_domain_words_in_code(self) -> None:
+        from kb_pipeline.graph.units import _BOILER_STRONG_RE, _CONCLUSION_HINT_RE, _LISTING_HINT_RE, classify_unit_text
+        from kb_pipeline.limits import normalize_profile
+
+        for word in ("主检员", "总检", "巡检小结", "阳性结果", "worldwide", "sales", "ordering", "ball", "pinout", "引脚"):
+            self.assertNotIn(word, _CONCLUSION_HINT_RE.pattern + _BOILER_STRONG_RE.pattern + _LISTING_HINT_RE.pattern, word)
+        sales = "Worldwide Sales and Design Support ExampleDevices maintains a worldwide network of offices, solution centers and distributors."
+        self.assertEqual(classify_unit_text(sales, ["Worldwide Sales and Design Support"]), "body")
+        self.assertEqual(classify_unit_text(sales, ["Worldwide Sales and Design Support"], boilerplate_headings=["Worldwide Sales"]), "boilerplate")
+        grid = "| A1 | VDD |\n| A2 | GND |\n| A3 | DQ0 |\n| A4 | DQ1 |\n| B1 | CK |\n| B2 | CK# |\n| B3 | DQ2 |\n| B4 | DQ3 |\n" * 2
+        self.assertEqual(classify_unit_text("Ball Map\n" + grid, ["Ball Map"], listing_headings=["Ball Map"]), "listing")
+        prof = normalize_profile({"axis": "auto", "boilerplate_headings": ["Worldwide Sales"], "listing_headings": ["Ball Map"]})
+        self.assertEqual((prof["boilerplate_headings"], prof["listing_headings"], prof["subject_types"]), (["Worldwide Sales"], ["Ball Map"], []))
+        # Type words also come from the profile: the code has no TYPE_WORDS any more; profile type_words takes single
+        # words only, at most 10
+        from kb_pipeline.graph import resolution
+        self.assertFalse(hasattr(resolution, "TYPE_WORDS"))
+        self.assertEqual(normalize_profile({"type_words": ["信号", "status register", " 指标 "]})["type_words"], ["信号", "指标"])
+        ents = [{"title": "复位信号", "type": "signal"}, {"title": "复位", "type": "signal"},
+                {"title": "溶质浓度指标", "type": "indicator"}, {"title": "溶质浓度", "type": "indicator"}]
+        # Profile type words do not merge directly (permission model / permission are identical once stripped yet not
+        # necessarily one thing); the pair only becomes a candidate for the model to judge from the descriptions
+        self.assertEqual(resolution.auto_merge_pairs(ents), [])
+        pairs_plain = {frozenset(p) for p in resolution.candidate_pairs(ents)}
+        pairs_learned = {frozenset(p) for p in resolution.candidate_pairs(ents, type_words=["信号", "指标"])}
+        self.assertNotIn(frozenset((0, 1)), pairs_plain)                                   # reset signal / reset: without the profile word it is not a candidate
+        self.assertEqual(pairs_learned, {frozenset((0, 1)), frozenset((2, 3))})
+        self.assertTrue(resolution.is_containment("复位", "复位信号", ["信号"]))
+        self.assertFalse(resolution.is_containment("复位", "复位信号"))                     # without the profile word the extra "signal" is a meaningful qualifier
+        self.assertEqual(resolution.strip_type_words("大模型", ("模型",)), "大模型")          # fewer than two characters would remain after stripping: not stripped
+        # Similarity for mixed Chinese / English: an English run counts as one feature, so "reusable Skill / Skill" no
+        # longer looks alike; "standardised SaaS / standard SaaS" and "ERP industry / ERP industry" (spacing) still do
+        self.assertFalse(resolution.is_similar("可复用Skill", "Skill"))
+        self.assertFalse(resolution.is_similar("交付Playbook", "Playbook"))
+        self.assertTrue(resolution.is_similar("标准化SaaS", "标准SaaS"))
+        self.assertTrue(resolution.is_similar("ERP 行业", "ERP行业"))
+        self.assertTrue(resolution.is_similar("非易失性存储器", "非易失存储器"))
+        src = (Path(__file__).resolve().parents[1] / "kb_pipeline" / "graph" / "prompts.py").read_text(encoding="utf-8")
+        self.assertIn('"type_words": ["<word>", ...]', src)
+        for word in ("has_pin, part_of", "tAS, VCC", "Ball Map", "Worldwide Sales", "operates_in_mode"):
+            self.assertNotIn(word, src, word)                                             # the prompt examples are not only electronics datasheets
+
+
+class ExtractionFixRegressionTests(_CodexAudit20260906TestsSupport, _CodexFinalTestsSupport, unittest.TestCase):
+    """Regressions for problems found by past re-reviews, health checks and audits; each case's docstring names the
+    source and the symptom at the time."""
+
+    def test_short_ascii_entity_names_match_on_word_boundaries(self) -> None:
+        """B10: CE is not counted inside CELL; Chinese names still match by substring."""
+        from kb_pipeline.graph.merge import attribute_mentions
+        from kb_pipeline.graph.units import Unit
+
+        unit = Unit(unit_id="u1", doc_id="d", rel_path="a.pdf", section_path=[], block_ids=[],
+                    chunk_uids=["c1", "c2"], point_ids=["p1", "p2"], n_tokens=10, text="")
+        entities = [{"key": "ce", "title": "CE", "aliases": ["chip enable"], "unit_ids": ["u1"]},
+                    {"key": "华为", "title": "华为", "aliases": [], "unit_ids": ["u1"]}]
+        texts = {"p1": "the CELL array; CE# pin goes low; chip enable", "p2": "华为云与华为终端"}
+        rows = attribute_mentions(entities, {"u1": unit}, texts)
+        by = {(r["entity_key"], r["point_id"]): r["count"] for r in rows}
+        self.assertEqual(by[("ce", "p1")], 2)
+        self.assertNotIn(("ce", "p2"), by)
+        self.assertEqual(by[("华为", "p2")], 2)
+
+    def test_f05_extraction_prompt_shows_predicate_descriptions_and_endpoints(self) -> None:
+        from kb_pipeline.graph.extract import ExtractionSchema, render_extract_prompt
+
+        schema = ExtractionSchema(entity_types=("component", "pin"), predicates=(
+            {"name": "has_pin", "description": "a component exposes a pin", "source_parents": ["component"], "target_parents": ["interface"]},
+            {"name": "conforms_to"},
+        ))
+        prompt = render_extract_prompt("text", section="s", schema=schema)
+        self.assertIn("has_pin: a component exposes a pin (component -> interface); conforms_to; related_to", prompt)
+
+    def test_protocol_failures_in_entity_extraction_are_not_cached_as_empty_success(self) -> None:
+        from kb_pipeline.graph import prompts
+        from kb_pipeline.graph.extract import ExtractionSchema, GraphExtractor, extraction_response_ok
+        from kb_pipeline.graph.llm import LLMMalformedResponse
+        from kb_pipeline.graph.units import Unit
+
+        td, rd, cd = prompts.TUPLE_DELIMITER, prompts.RECORD_DELIMITER, prompts.COMPLETION_DELIMITER
+        self.assertFalse(extraction_response_ok("I cannot provide the requested format."))
+        self.assertTrue(extraction_response_ok(cd))                                            # a legitimate "no entities"
+        self.assertTrue(extraction_response_ok(f'("entity"{td}ACME{td}organization{td}a company){rd}{cd}'))
+        self.assertTrue(extraction_response_ok(f'("unit"{td}boilerplate){rd}{cd}'))
+        self.assertFalse(extraction_response_ok(f'garbage{rd}more garbage{rd}{cd}'))
+        unit = Unit(unit_id="u", doc_id="d", rel_path="d.pdf", section_path=["S"], block_ids=["b"], chunk_uids=["c"],
+                    point_ids=["p"], n_tokens=10, text="t", order=0)
+        client = _fake_chat_client(["nope", "still nope", "nope again"])              # still malformed after two corrections → failure, not cached
+        with self.assertRaises(LLMMalformedResponse):
+            GraphExtractor(client, ExtractionSchema(entity_types=("organization",)), max_gleanings=0).extract(unit)
+        self.assertEqual(client.stats["malformed"], 1)
+        ok = _fake_chat_client([f'("entity"{td}ACME{td}organization{td}a company){rd}{cd}'])
+        res = GraphExtractor(ok, ExtractionSchema(entity_types=("organization",)), max_gleanings=0).extract(unit)
+        self.assertEqual([e["name"] for e in res.entities], ["ACME"])
+        with tempfile.TemporaryDirectory() as tmp:
+            state = Path(tmp) / "s.db"; db.init_db(state)
+            with db.connect(state) as con:
+                for uid, ents, stats in (("u-bad", [], {"records": 1, "malformed": 1}), ("u-empty", [], {"records": 0, "malformed": 0}),
+                                         ("u-ok", [{"name": "A", "type": "t", "description": ""}], {"records": 1, "malformed": 0})):
+                    db.save_graph_extraction(con, kb_id="kb", unit_id=uid, fingerprint="fp", entities=ents, relations=[],
+                                             model="m", calls=1, stats=stats)
+                con.commit()
+                self.assertEqual(db.graph_extraction_unit_ids(con, "kb", "fp"), {"u-bad", "u-empty", "u-ok"})
+                self.assertEqual(db.graph_extraction_unit_ids(con, "kb", "fp", skip_empty_malformed=True), {"u-empty", "u-ok"})
+        from kb_pipeline.graph.unit_cache import valid_ids
+        self.assertEqual(valid_ids({"bad": {"entities": [], "stats": {"malformed": 1}},
+                                    "empty": {"entities": [], "stats": {"malformed": 0}}}), {"empty"})
+
+
+class WideTableRenderingTests(unittest.TestCase):
+    """Wide tables reach the model as "column: value" pairs (spot check: entity descriptions read the wrong column of a
+    15-column comparison sheet); chunk text is untouched and only expanded units get a render-versioned unit_id."""
+
+    NATIVE = ("SHEET: 竞品对比表\nROWS: 126-129\nHEADER: 一级模块 | 二级模块 | 功能 | 描述 | 协作甲 | 协作乙 | 协作丙v2.3.0 | 备注\n"
+              "聊天能力 | 会话列表 | 移除会话 |  | 1 | 0 | 1 | \n聊天能力 | 会话列表 | 标签 |  | 1 | 1 | 0 | 计划支持")
+    NARROW = "SHEET: s\nROWS: 1-2\nHEADER: 功能 | 协作甲 | 协作乙\n标签 | 1 | 0"
+    MARKDOWN = "| 功能 | a | b | c | d | e |\n|---|---|---|---|---|---|\n| 标签 | 1 | 0 | 1 |  | 0 |\n\n后面的正文 | 不是表"
+
+    def test_native_and_markdown_wide_rows_become_name_value_pairs(self) -> None:
+        from kb_pipeline.graph.tabletext import expand_wide_tables, table_render_tag
+
+        out = expand_wide_tables(self.NATIVE)
+        self.assertIn("HEADER: 一级模块 | 二级模块", out)                                          # prefix lines stay as they are
+        self.assertIn("一级模块: 聊天能力 | 二级模块: 会话列表 | 功能: 移除会话 | 协作甲: 1 | 协作乙: 0 | 协作丙v2.3.0: 1", out)
+        self.assertIn("功能: 标签 | 协作甲: 1 | 协作乙: 1 | 协作丙v2.3.0: 0 | 备注: 计划支持", out)
+        self.assertNotIn("聊天能力 | 会话列表 | 标签", out)                                          # empty cells skipped, column names keep positions clear
+        self.assertIsNone(expand_wide_tables(self.NARROW))                                       # tables with few columns are left alone
+        md = expand_wide_tables(self.MARKDOWN)
+        self.assertIn("功能: 标签 | a: 1 | b: 0 | c: 1 | e: 0", md)
+        self.assertIn("后面的正文 | 不是表", md)                                                    # after a blank line it is no longer a table
+        self.assertEqual(table_render_tag(self.NATIVE), table_render_tag(self.MARKDOWN))
+        self.assertTrue(table_render_tag(self.NATIVE).startswith("wide-table-v1"))
+        self.assertEqual(table_render_tag(self.NARROW), "")
+
+    # 2026-09-29 audit: positions are checked before names are assigned by position
+    LEAD_EMPTY = ("SHEET: editions\nROWS: 2-4\nHEADER: | Spec | Team | Pro | Plus | Standard | Flagship\n"
+                  "| Editors | - | Web | Web | Web | Web+PC\n"
+                  "|  | Private | Public |  | Hybrid\n"
+                  "Storage | Quota | 100G | 1T | 1T | 2T | Unlimited")
+    SPLIT_PIECES = ("SHEET: survey\nROWS: 7-7\nHEADER: Submitted | ID | Team | Question 1 | Question 2 | Question 3\n"
+                    "Submitted: 2026-08-24 08:42:00 | Question 2: less stock on hand, fewer stock-outs\n"
+                    "Submitted: 2026-08-24 08:42:00 | F: sales of the last 7/14/30 days")
+    DOUBLE_LABELLED = ("SHEET: features\nROWS: 9-9\nHEADER: Module | Level 1 | Level 2 | Level 3 | Description | Public\n"
+                       "Module: Module: Contacts | Level 1: Description: use the group in documents | Level 2: Public: yes")
+    MD_PIECES = ("| Model | a | b | c | d | e |\n|---|---|---|---|---|---|\n"
+                 "| Model: customer model | c: provided by the customer | column 9: note |\n"
+                 "| In-house model | 1 | 0 |\n"
+                 "| Open model | 1 | 0 | 1 | 0 | 1 |")
+
+    def test_rows_with_an_empty_first_cell_keep_their_columns(self) -> None:
+        """A row whose first cell is empty starts with "| " in the text and has lost one empty cell; it is put back
+        before names are assigned, otherwise the whole row shifts one column to the left."""
+        from kb_pipeline.graph.tabletext import RENDER_TAG, RENDER_TAG_REALIGNED, expand_wide_tables, table_render_tag
+
+        out = expand_wide_tables(self.LEAD_EMPTY)
+        self.assertIn("Spec: Editors | Team: - | Pro: Web | Plus: Web | Standard: Web | Flagship: Web+PC", out)
+        self.assertIn("Team: Private | Pro: Public | Standard: Hybrid", out)                       # two empty cells in a row
+        self.assertIn("A: Storage | Spec: Quota | Team: 100G", out)                                # unnamed first header cell: column letter
+        self.assertNotIn("Spec: Private", out)
+        self.assertFalse([line for line in out.split("\n") if line.startswith("| Spec:")])          # the first version merged "| " into the first cell
+        self.assertIn("HEADER: | Spec | Team", out)                                                # prefix lines untouched
+        self.assertEqual(table_render_tag(self.LEAD_EMPTY), RENDER_TAG_REALIGNED)
+        self.assertNotEqual(RENDER_TAG, RENDER_TAG_REALIGNED)
+        self.assertEqual(table_render_tag(self.NATIVE), RENDER_TAG)                                # same rendering, same version, cache kept
+
+    def test_rows_that_already_carry_column_names_are_left_alone(self) -> None:
+        """The continuation pieces of an over-long row are already "column: value" and skip empty cells; pairing them
+        by position once more puts every value under the wrong column."""
+        from kb_pipeline.graph.tabletext import RENDER_TAG_REALIGNED, expand_wide_tables, table_render_tag
+
+        self.assertIsNone(expand_wide_tables(self.SPLIT_PIECES))                                   # nothing to rewrite: the original text is used
+        self.assertEqual(table_render_tag(self.SPLIT_PIECES), "")
+        mixed = self.SPLIT_PIECES + "\n2026-08-25 09:00:00 | 17 | Purchasing | x | y | z"
+        out = expand_wide_tables(mixed)
+        self.assertIn("Submitted: 2026-08-24 08:42:00 | Question 2: less stock on hand, fewer stock-outs\n", out)
+        self.assertIn("Submitted: 2026-08-24 08:42:00 | F: sales of the last 7/14/30 days", out)
+        self.assertIn("Submitted: 2026-08-25 09:00:00 | ID: 17 | Team: Purchasing | Question 1: x | Question 2: y | Question 3: z", out)
+        self.assertNotIn("Submitted: Submitted", out)
+        self.assertEqual(table_render_tag(mixed), RENDER_TAG_REALIGNED)
+        # chunk text the chunker already paired by position once more: the inner name is the right one
+        fixed = expand_wide_tables(self.DOUBLE_LABELLED)
+        self.assertIn("Module: Contacts | Description: use the group in documents | Public: yes", fixed)
+        self.assertNotIn("Module: Module", fixed)
+        self.assertNotIn("Level 2: Public", fixed)
+        self.assertEqual(table_render_tag(self.DOUBLE_LABELLED), RENDER_TAG_REALIGNED)
+        # an ordinary row whose value happens to start with a column name does not qualify: not every cell is named
+        plain = ("SHEET: s\nROWS: 1-1\nHEADER: Module | Level 1 | Level 2 | Level 3 | Description | Public\n"
+                 "Module: Contacts | groups | dynamic | scenes | text | yes")
+        self.assertIn("Module: Module: Contacts | Level 1: groups", expand_wide_tables(plain))
+
+    def test_markdown_rows_with_unreliable_positions_are_left_alone(self) -> None:
+        from kb_pipeline.graph.tabletext import RENDER_TAG_REALIGNED, expand_wide_tables, table_render_tag
+
+        out = expand_wide_tables(self.MD_PIECES)
+        self.assertIn("| Model: customer model | c: provided by the customer | column 9: note |", out)   # a continuation piece, untouched
+        self.assertIn("| In-house model | 1 | 0 |", out)                 # cell count differs from the header: no names assigned
+        self.assertIn("Model: Open model | a: 1 | b: 0 | c: 1 | d: 0 | e: 1", out)
+        self.assertNotIn("Model: Model", out)
+        self.assertNotIn("Model: In-house model", out)
+        self.assertEqual(table_render_tag(self.MD_PIECES), RENDER_TAG_REALIGNED)
+
+    def test_only_expanded_units_get_a_new_unit_id(self) -> None:
+        from kb_pipeline.graph.tabletext import table_render_tag
+        from kb_pipeline.graph.units import unit_id_for
+
+        plain = unit_id_for("kb", "d", self.NARROW, positions=[0])
+        self.assertEqual(unit_id_for("kb", "d", self.NARROW, positions=[0], render_tag=table_render_tag(self.NARROW)), plain)
+        wide = unit_id_for("kb", "d", self.NATIVE, positions=[0])
+        self.assertNotEqual(unit_id_for("kb", "d", self.NATIVE, positions=[0], render_tag=table_render_tag(self.NATIVE)), wide)
+        src = (Path(__file__).resolve().parents[1] / "kb_pipeline" / "graph" / "extract.py").read_text(encoding="utf-8")
+        self.assertIn("render_extract_prompt(expand_wide_tables(unit.text) or unit.text", src)   # the extraction prompt uses the expanded text
+        src = (Path(__file__).resolve().parents[1] / "kb_pipeline" / "graph" / "units.py").read_text(encoding="utf-8")
+        for text in (self.NARROW, self.NATIVE):
+            unit = build_units([_chunk(0, text, block_type="table")], kb_id="kb")[0]
+            self.assertEqual(unit.unit_id, unit_id_for("kb", unit.doc_id, unit.text, positions=[0],
+                                                      render_tag=table_render_tag(unit.text)))
+
+
+class TableRouteTests(unittest.TestCase):
+    """2026-10-24 表格规则路线(方案第 4、5 条):每张表问一次模型拿画像,是实体清单的按行规则建图 —— 编号列进外部编号、
+    引用列建关系、其余列进事实;不是清单的表(对比矩阵、报表)照旧交给模型。"""
+
+    SCHEMA = ExtractionSchema(entity_types=("scenario", "person", "department"),
+                              predicates=({"name": "owned_by"}, {"name": "depends_on"}),
+                              parent_types={"scenario": "concept", "person": "agent", "department": "agent"})
+
+    def _unit(self, uid: str, text: str, order: int = 0) -> Unit:
+        u = _unit(uid, doc="kb:t", order=order)
+        u.rel_path = "客户A/需求清单.xlsx"
+        u.text = text
+        u.block_types = ["table"]
+        return u
+
+    def _text(self, rows: list[str], *, start: int = 2) -> str:
+        return "\n".join(["SHEET: 场景", f"ROWS: {start}-{start + len(rows) - 1}",
+                          "HEADER: 编号 | 场景名称 | 负责人 | 依赖 | 状态 | 上线日期"] + rows)
+
+    ROWS = ["S01 | 月结辅助 | 样例A |  | 进行中 | 2026-03-01",
+            "S02 | 预算差异分析 | 样例D | S01 | 待启动 | 2026-05-01",
+            "S03 | 报表问数 | 样例A | S01、S02 | 进行中 | 2026-04-15"]
+    PROFILE = ('{"row_type": "scenario", "key_column": "编号", "name_column": "场景名称", '
+               '"references": [{"column": "负责人", "target_type": "person", "predicate": "owned_by"}, '
+               '{"column": "依赖", "target_type": "scenario", "predicate": "depends_on"}, {"column": "不存在", "target_type": "person"}], '
+               '"date_column": "上线日期"}')
+
+    def test_a_running_row_number_is_not_an_identifier(self) -> None:
+        """Synthetic regression: a running row number is not an identifier."""
+        from kb_pipeline.graph.tables import TableExtractor, running_numbers
+
+        self.assertTrue(running_numbers(["1", "2", "3", "5"]))
+        self.assertFalse(running_numbers(["10086", "10087", "10090"]))
+        self.assertFalse(running_numbers(["S01", "S02"]))
+        rows = ["1 | 月结辅助 | 样例A |  | 进行中 | 2026-03-01", "2 | 预算差异分析 | 样例D |  | 待启动 | 2026-05-01",
+                "3 | 报表问数 | 样例A |  | 进行中 | 2026-04-15"]
+        text = "\n".join(["SHEET: 场景", "ROWS: 2-4", "HEADER: 序号 | 场景名称 | 负责人 | 依赖 | 状态 | 上线日期"] + rows)
+        tx = TableExtractor([self._unit("u1", text)], schema=self.SCHEMA)
+        (p,) = tx.profile(_client(['{"row_type": "scenario", "key_column": "序号", "name_column": "场景名称", "references": []}'])).values()
+        self.assertEqual((p["key_column"], p["name_column"], p.get("skip_columns")), ("", "场景名称", ["序号"]))
+        res = tx.extract(tx.units[0])
+        ents = {e["name"]: e for e in res.entities if e.get("source_kind") == "table"}
+        self.assertNotIn("external_ids", ents["月结辅助"]); self.assertNotIn("序号: 1", ents["月结辅助"]["descriptions"][0])
+        self.assertNotIn("序号", {f["property"] for f in tx.facts(tx.units[0])})
+        # 名字列也写成行号:这张表不当实体清单
+        (q,) = TableExtractor([self._unit("u2", text)], schema=self.SCHEMA).profile(
+            _client(['{"row_type": "scenario", "key_column": "序号", "name_column": "序号"}'])).values()
+        self.assertEqual(q["row_type"], "")
+
+    def test_a_long_table_split_across_units_is_judged_as_a_whole(self) -> None:
+        """Synthetic regression: a long table split across units is judged as a whole."""
+        from kb_pipeline.graph.tables import TableExtractor
+
+        def text(rows, start):
+            return "\n".join(["SHEET: 场景", f"ROWS: {start}-{start + len(rows) - 1}",
+                              "HEADER: 序号 | 场景名称 | 负责人 | 依赖 | 状态 | 上线日期"] + rows)
+
+        rows = [f"{i} | 场景{i} | 样例A |  | 进行中 | 2026-03-01" for i in range(1, 8)]
+        units = [self._unit("u1", text(rows[:2], 2)), self._unit("u2", text(rows[1:3], 3), order=1),     # 第 2 行两段都有
+                 self._unit("u3", text(rows[3:4], 5), order=2), self._unit("u4", text(rows[4:7], 6), order=3)]   # 最长的一段从 5 起
+        # 切块器把开头几行写成「列名: 值」的散行:那段算成另一张表,带表头的段合起来序号从 3 起
+        scattered = "\n".join(["SHEET: 场景", "ROWS: 2-4"] + [f"序号: {i} | 场景名称: 场景{i} | 负责人: 样例D" for i in (1, 2, 8)])
+        prompts_seen: list[str] = []
+
+        def answer(messages):
+            prompts_seen.append(str(messages[-1]["content"]))
+            return '{"row_type": "scenario", "key_column": "序号", "name_column": "场景名称", "references": []}'
+
+        tx = TableExtractor(units, schema=self.SCHEMA)
+        (p,) = tx.profile(_client(answer)).values()
+        self.assertEqual((p["key_column"], p.get("skip_columns")), ("", ["序号"]))
+        self.assertEqual(tx.stats["profile_calls"], 1)
+        self.assertIn("场景名称: 场景1", prompts_seen[0]); self.assertIn("场景名称: 场景7", prompts_seen[0])   # 样例从整张表里取
+        tx = TableExtractor([*units[2:], self._unit("u5", scattered, order=4)], schema=self.SCHEMA)
+        profiles = list(tx.profile(_client(answer)).values())
+        self.assertEqual(len(profiles), 2)                                                          # 散行段是另一张表
+        self.assertEqual([(q["key_column"], q.get("skip_columns")) for q in profiles], [("", ["序号"])] * 2)   # 两张都认出是行号
+        # 真编号:合回整张表后照样唯一(重叠切块重复的那行只算一次)
+        ids = ["S01", "S02", "S03", "S04"]
+        units = [self._unit(f"v{i}", "\n".join(["SHEET: 场景", f"ROWS: {i + 2}-{i + 3}", "HEADER: 编号 | 场景名称 | 负责人 | 依赖 | 状态 | 上线日期",
+                                                 f"{ids[i]} | 场景{i} | 样例A |  | 进行中 | 2026-03-01",
+                                                 f"{ids[i + 1]} | 场景{i + 1} | 样例A |  | 进行中 | 2026-03-01"]), order=i) for i in range(3)]
+        (q,) = TableExtractor(units, schema=self.SCHEMA).profile(
+            _client(['{"row_type": "scenario", "key_column": "编号", "name_column": "场景名称", "references": []}'])).values()
+        self.assertEqual(q["key_column"], "编号")
+
+    def test_chunk_text_is_read_back_into_rows(self) -> None:
+        from kb_pipeline.graph.tables import parse_table_text
+
+        text = ("Sheet: 场景\nRows: 3\nColumns: 编号 | 场景名称\n" + self._text(self.ROWS[:2]) + "\n"
+                + "SHEET: 场景\nROWS: 4-4\n编号: S09 | 场景名称: 长文本\n编号: S09 | 备注: 第二段")
+        sections = parse_table_text(text)
+        self.assertEqual([len(s["rows"]) for s in sections], [2, 1])
+        self.assertEqual(sections[0]["header"][:2], ["编号", "场景名称"])
+        self.assertEqual(sections[0]["rows"][0]["cells"][3], "")                 # 空格子保住位置
+        self.assertEqual(sections[1]["rows"][0]["labelled"], {"编号": "S09", "场景名称": "长文本", "备注": "第二段"})
+
+    def test_entity_tables_become_rows_with_ids_references_and_facts(self) -> None:
+        from kb_pipeline.graph.tables import TableExtractor
+
+        u1 = self._unit("u1", self._text(self.ROWS))
+        u2 = self._unit("u2", self._text(["S04 | 主数据映射 | 王五 | S03 | 待启动 | 2026-06-01"], start=5), order=1)
+        tx = TableExtractor([u1, u2], schema=self.SCHEMA)
+        prof = tx.profile(_client([self.PROFILE]))
+        (p,) = prof.values()
+        self.assertEqual((p["row_type"], p["key_column"], p["name_column"], p["date_column"]), ("scenario", "编号", "场景名称", "上线日期"))
+        self.assertEqual([r["column"] for r in p["references"]], ["负责人", "依赖"])     # 表里没有的列丢掉
+        self.assertTrue(tx.wants(u1) and tx.wants(u2))
+        res = tx.extract(u1)
+        rows = {e["name"]: e for e in res.entities if e.get("source_kind") == "table"}
+        self.assertEqual(set(rows), {"月结辅助", "预算差异分析", "报表问数"})
+        self.assertEqual(rows["月结辅助"]["external_ids"], [{"scheme": "编号", "value": "S01"}])
+        self.assertEqual(rows["月结辅助"]["aliases"], ["S01"])
+        self.assertIn("状态: 进行中", rows["月结辅助"]["descriptions"][0])
+        rels = {(r["source"], r["target"], r["predicate"]) for r in res.relations}
+        self.assertIn(("报表问数", "样例A", "owned_by"), rels)
+        self.assertIn(("报表问数", "S02", "depends_on"), rels)                 # 「S01、S02」拆成两条
+        facts = {(f["subject"], f["property"], f["value"], f.get("valid_from")) for f in tx.facts(u1)}
+        self.assertIn(("月结辅助", "状态", "进行中", "2026-03-01"), facts)
+        self.assertIn(("月结辅助", "编号", "S01", "2026-03-01"), facts)
+        self.assertFalse(any(f[1] == "负责人" for f in facts))                    # 引用列是关系,不是事实
+        self.assertEqual(res.calls, 0)
+
+    def test_tables_that_are_not_entity_lists_go_back_to_the_model(self) -> None:
+        from kb_pipeline.graph.tables import TableExtractor
+
+        matrix = self._unit("u1", "SHEET: 对比\nROWS: 2-5\nHEADER: 功能 | 产品A | 产品B\n导出 | 1 | 0\n协作 | 1 | 1\n权限 | 0 | 1\n日志 | 1 | 1")
+        tx = TableExtractor([matrix], schema=self.SCHEMA)
+        tx.profile(_client(['{"row_type": "none"}']))
+        self.assertFalse(tx.wants(matrix))
+        tx2 = TableExtractor([self._unit("u2", self._text(self.ROWS + ["一期验收方法", "编号 | 验收方面", "V01 | 业务数字", "V02 | 连续运行"]))],
+                             schema=self.SCHEMA)
+        tx2.profile(_client([self.PROFILE]))
+        self.assertFalse(tx2.wants(tx2.units[0]))                                 # 子表与说明行占了四成以上:整单元退回模型
+        dup = ["S01 | 月结辅助 | 样例A |  | 进行中 | 2026-03-01", "S01 | 预算差异分析 | 样例D |  | 待启动 | 2026-05-01",
+               "S01 | 报表问数 | 样例A |  | 进行中 | 2026-04-15"]
+        tx3 = TableExtractor([self._unit("u3", self._text(dup))], schema=self.SCHEMA)
+        (p3,) = tx3.profile(_client([self.PROFILE])).values()
+        self.assertEqual((p3["key_column"], p3["name_column"]), ("", "场景名称"))    # 编号不唯一:不当外部编号
+
+    def test_same_name_with_different_ids_stays_apart_and_id_mentions_link_up(self) -> None:
+        from kb_pipeline.graph.merge import link_external_ids
+        from kb_pipeline.graph.tables import TableExtractor
+
+        rows = ["S01 | 月结辅助 | 样例A |  | 进行中 | 2026-03-01", "S02 | 月结辅助 | 样例D |  | 待启动 | 2026-05-01",
+                "S03 | 报表问数 | 样例A |  | 进行中"]
+        unit = self._unit("u1", self._text(rows))
+        tx = TableExtractor([unit], schema=self.SCHEMA)
+        tx.profile(_client([self.PROFILE]))
+        res = tx.extract(unit)
+        prose = _unit("u2", doc="kb:p", order=1)
+        ext = {"u1": {"entities": res.entities, "relations": res.relations},
+               "u2": _ext([("S03", "scenario", "文中直接写编号"), ("月结辅助", "scenario", "只写名字")], [("S03", "月结辅助", "depends_on", "x", 3)])}
+        out = merge_extractions([unit, prose], ext, entity_types=self.SCHEMA.entity_types,
+                                upper_parents=dict(self.SCHEMA.parent_types))
+        keys = {e["key"] for e in out["entities"]}
+        self.assertTrue({"月结辅助||编号:S01", "月结辅助||编号:S02", "月结辅助"} <= keys)      # 同名不同号:各成一个,只写名字的另成一个
+        ents, rels, stats = link_external_ids(out["entities"], out["relations"])
+        self.assertEqual(stats["external_id_mentions_linked"], 1)                 # 正文里的「S03」并到编号 S03 那一行
+        merged = next(e for e in ents if e["key"] == "报表问数")
+        self.assertIn("S03", merged["aliases"])
+        self.assertIn("s03", merged["member_keys"])
+
+
+class CorrectionsOverlayTests(unittest.TestCase):
+    """2026-10-24 更正文件(方案第 8、9 条):建图时套在抽取结果之上,重建后依然有效;写错的条目记进 errors,其余照常生效。
+    2026-10-25 起一个库一份 config/corrections/<kb_id>.yaml,跟着库的生命周期建删,不跟着图谱。"""
+
+    TEXT = """
+entities:
+  merge:
+    - [Acme Inc, Acme, ACME 公司]
+  separate:
+    - [苹果公司, 苹果]
+  aliases:
+    Acme Inc: [艾克米]
+  types:
+    样例A: person
+    样例D: nonexistent_type
+  reject: [噪声实体]
+relations:
+  reject:
+    - {source: 样例A, predicate: works_for, target: Acme Inc}
+facts:
+  reject:
+    - {subject: Acme Inc, property: 价格}
+documents:
+  - {path: 2024/价格表.xlsx, status: superseded, superseded_by: 2025/价格表.xlsx}
+  - {path: 旧资料/, status: archived}
+  - {path: 合同/*.pdf, valid_until: 2024-12-31}
+  - {path: x.pdf, status: weird}
+"""
+
+    def _corr(self):
+        from kb_pipeline.graph.corrections import load_corrections
+
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "kb_009.yaml"          # 手写的文件可以不带文件头
+            path.write_text(self.TEXT, encoding="utf-8")
+            return load_corrections(path)
+
+    def test_one_file_per_library_with_a_template_and_an_owner_check(self) -> None:
+        from kb_pipeline.graph.corrections import (
+            corrections_path, corrections_sha, ensure_corrections_file, is_empty, load_corrections, reconcile_corrections_files,
+            remove_corrections_file)
+
+        with tempfile.TemporaryDirectory() as tmp:
+            settings = SimpleNamespace(corrections_dir=Path(tmp) / "corrections")
+            path = corrections_path(settings, "kb_004")
+            self.assertEqual(path, Path(tmp) / "corrections" / "kb_004.yaml")
+            self.assertIsNone(corrections_path(SimpleNamespace(), "kb_004"))           # 设置里没有更正目录:等于没有更正
+            made = ensure_corrections_file(settings, "kb_004", folder="Synthetic Delta: 2026", fresh=True)
+            self.assertTrue(made["created"])
+            self.assertIsNone(made["orphaned"])
+            corr = load_corrections(path)
+            self.assertTrue(is_empty(corr))                                          # 模板本身是空的更正,能解析
+            self.assertEqual(corr["errors"], [])
+            # 指纹按有效条目算:空模板与没有文件一样,已建好的图不会因为开库补了模板就重新合并;改注释也不算改动
+            self.assertEqual(corrections_sha(path), "")
+            self.assertEqual(corrections_sha(None), "")
+            path.write_text("kb:\n  id: kb_004\nentities:\n  reject: [噪声]\n", encoding="utf-8")
+            sha = corrections_sha(path)
+            self.assertNotEqual(sha, "")
+            path.write_text("# 改个注释\nkb:\n  id: kb_004\nentities:\n  reject: [噪声]   # 噪声实体\n", encoding="utf-8")
+            self.assertEqual(corrections_sha(path), sha)
+            self.assertFalse(ensure_corrections_file(settings, "kb_004", folder="Synthetic Delta")["created"])   # 重新开启:原样保留
+            self.assertEqual(load_corrections(path)["reject_entities"], ["噪声"])
+            # 整库初始化后编号从头再排:新编号第一次开库,同名的旧文件先挪开再写模板,旧库的更正不会套到新库上
+            again = ensure_corrections_file(settings, "kb_004", folder="别的库", fresh=True)
+            self.assertTrue(again["created"])
+            self.assertIn("噪声", Path(again["orphaned"]).read_text(encoding="utf-8"))
+            self.assertTrue(is_empty(load_corrections(path)))
+            # 文件头和文件名对不上:整份不套用
+            stray = settings.corrections_dir / "kb_005.yaml"
+            stray.write_text("kb:\n  id: kb_004\nentities:\n  reject: [噪声]\n", encoding="utf-8")
+            wrong = load_corrections(stray)
+            self.assertTrue(is_empty(wrong))
+            self.assertIn("kb_004", wrong["errors"][0])
+            # 每晚对账:登记着的缺文件补模板,登记表里没有的挪进 orphaned/,删到一半的留着
+            (settings.corrections_dir / "kb_007.yaml").write_text("documents: []\n", encoding="utf-8")
+            (settings.corrections_dir / "kb_008.yaml").write_text("documents: []\n", encoding="utf-8")
+            out = reconcile_corrections_files(settings, {"kb_004": "别的库", "kb_006": "新库"}, keep=["kb_008"])
+            self.assertEqual(out["created"], ["kb_006"])
+            self.assertEqual(sorted(Path(p).name.split("-")[0] for p in out["orphaned"]), ["kb_005", "kb_007"])
+            self.assertEqual(sorted(p.name for p in settings.corrections_dir.glob("*.yaml")),
+                             ["kb_004.yaml", "kb_006.yaml", "kb_008.yaml"])
+            self.assertEqual(remove_corrections_file(settings, "kb_006"), str(settings.corrections_dir / "kb_006.yaml"))
+            self.assertIsNone(remove_corrections_file(settings, "kb_006"))
+            self.assertEqual(reconcile_corrections_files(SimpleNamespace(), {"kb_004": "x"}), {})
+
+    def test_file_is_parsed_and_bad_entries_are_reported_not_fatal(self) -> None:
+        from kb_pipeline.graph.corrections import document_status, load_corrections, status_on
+
+        corr = self._corr()
+        self.assertEqual(corr["merge"], [["Acme Inc", "Acme", "ACME 公司"]])
+        self.assertEqual(len(corr["documents"]), 3)
+        self.assertTrue(any("weird" in e or "current / superseded" in e for e in corr["errors"]))
+        self.assertEqual(document_status("2024/价格表.xlsx", corr)["superseded_by"], "2025/价格表.xlsx")
+        self.assertEqual(status_on(document_status("旧资料/a/b.docx", corr), today="2026-10-24"), "archived")
+        self.assertEqual(status_on(document_status("合同/框架协议.pdf", corr), today="2026-10-24"), "superseded")   # 过了有效期
+        self.assertEqual(status_on(document_status("合同/框架协议.pdf", corr), today="2024-06-01"), "current")
+        self.assertIsNone(document_status("2025/价格表.xlsx", corr))
+        self.assertEqual(load_corrections(None)["merge"], [])
+        with tempfile.TemporaryDirectory() as tmp:
+            bad = Path(tmp) / "c.yaml"
+            bad.write_text("entities: [unclosed", encoding="utf-8")
+            self.assertTrue(load_corrections(bad)["errors"])
+
+    def test_entity_relation_and_fact_corrections_apply(self) -> None:
+        from kb_pipeline.graph.corrections import apply_entity_corrections, apply_fact_corrections, apply_relation_corrections
+
+        corr = self._corr()
+        ents = [{"key": k, "title": t, "type": ty, "frequency": f, "unit_ids": [], "aliases": [], "descriptions": []}
+                for k, t, ty, f in (("acme", "Acme", "org", 5), ("acme inc", "Acme Inc", "org", 1), ("acme 公司", "ACME 公司", "org", 1),
+                                    ("样例A", "样例A", "org", 2), ("噪声实体", "噪声实体", "org", 1), ("苹果公司", "苹果公司", "org", 3),
+                                    ("苹果", "苹果", "org", 3))]
+        rels = [{"source_key": "样例A", "target_key": "acme inc", "predicate": "works_for", "directed": True, "descriptions": [], "strength_sum": 1, "evidence": 1, "unit_ids": []},
+                {"source_key": "噪声实体", "target_key": "acme", "predicate": "related_to", "directed": False, "descriptions": [], "strength_sum": 1, "evidence": 1, "unit_ids": []}]
+        out, rels2, stats, forbidden = apply_entity_corrections(ents, rels, corr, known_types=("org", "person"),
+                                                                upper_of=lambda t: "agent", path_of=lambda t: [t, "agent"])
+        by_title = {e["title"]: e for e in out}
+        self.assertNotIn("噪声实体", by_title)
+        self.assertEqual(stats["rejected_entities"], 1)
+        self.assertEqual((by_title["样例A"]["type"], by_title["样例A"]["type_path"]), ("person", ["person", "agent"]))
+        self.assertEqual(stats["unknown_types"], ["样例D: nonexistent_type"])
+        acme = by_title["Acme Inc"]                                                # 规范名是更正里写的第一个
+        self.assertTrue({"Acme", "ACME 公司", "艾克米"} <= set(acme["aliases"]))
+        self.assertEqual(stats["forced_merges"], 2)
+        self.assertEqual(forbidden, {frozenset(("苹果公司", "苹果"))})
+        # 归并阶段守住禁止合并:模型判成同一个也不并
+        merged, _, rstats = resolution.merge_entities(out, rels2, [(next(i for i, e in enumerate(out) if e["title"] == "苹果公司"),
+                                                                     next(i for i, e in enumerate(out) if e["title"] == "苹果"))],
+                                                      forbidden=forbidden)
+        self.assertEqual(rstats["merged_away"], 0)
+        kept, dropped = apply_relation_corrections(rels2, out, corr)
+        self.assertEqual(dropped, 1)
+        facts = [{"subject": "Acme Inc", "property": "价格", "value": "100"}, {"subject": "Acme Inc", "property": "地址", "value": "x"}]
+        self.assertEqual([f["property"] for f in apply_fact_corrections(facts, corr)[0]], ["地址"])
+
+    def test_rows_from_only_non_current_documents_are_marked(self) -> None:
+        from kb_pipeline.graph.corrections import mark_document_status
+
+        corr = self._corr()
+        rows = [{"doc_ids": ["d1"]}, {"doc_ids": ["d1", "d2"]}, {"doc_id": "d3"}]
+        n = mark_document_status(rows, corr, rel_of_doc={"d1": "2024/价格表.xlsx", "d2": "2025/价格表.xlsx", "d3": "旧资料/x.pdf"},
+                                 today="2026-10-24")
+        self.assertEqual(n, 2)
+        self.assertEqual([r.get("doc_status") for r in rows], ["superseded", None, "archived"])   # 现行文档里也说过的还是现行
+        build = _repo_file("app/kb_pipeline/graph/build.py")
+        self.assertIn('out["corrections_changed"] = current_corr != str(base_manifest.get("corrections_sha") or "")', build)

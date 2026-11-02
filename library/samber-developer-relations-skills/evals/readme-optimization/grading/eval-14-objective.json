@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States the default ordering for this step out loud: furniture, then render mechanics, then terminal demo",
+        "evidence": "No explicit statement of a default three-step ordering (furniture, render mechanics, demo) appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Promotes the terminal demo above render mechanics for this project, and says explicitly that it is because the output is the product for a CLI",
+        "evidence": "\"Output *is* the product, so this is where the week's real budget goes, ranked above badges, funnel order, everything except the two blocking checks above.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says the promotion is a deliberate departure from the default ordering",
+        "evidence": "No explicit framing of this as a departure from a stated default ordering.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Fixes the repository furniture first: description, website link, topics, and social preview",
+        "evidence": "Description/topics/website are Day 1 items, but the social preview image is only generated later during the Days 2-4 demo step, not fixed first alongside the rest.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that furniture is what search listings carry and what unfurls when the link is pasted into a chat",
+        "evidence": "No such explanation of furniture's purpose appears in section 14.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Prices the demo at roughly a week, and warns it becomes a standing job that goes stale when the output changes",
+        "evidence": "The demo is allotted 'Days 2\u20134' (3 of 5 days), not 'roughly a week'; staleness is mentioned only as a reason to script it, not as a standing-job warning.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires generating the demo from a script so that re-rendering stays cheap",
+        "evidence": "\"Script it with **VHS** (`.tape` file), not a hand-recorded GIF \u2014 diffable, re-renders in seconds when output changes\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places the demo immediately after the tagline",
+        "evidence": "\"Place the demo second in the README, right under the one-liner, per the CLI skeleton (below) \u2014 before install, before differentiation.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the demo to be short, high-contrast and legible at embed scale",
+        "evidence": "Only \"keep it short and legible at embed scale\" is stated; 'high-contrast' is not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the commands shown in the demo to also appear as copyable text, since a reader on a registry page or in a terminal sees nothing",
+        "evidence": "No such requirement appears anywhere in section 14.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Selects the CLI skeleton, leading with a real terminal transcript and then why this over the incumbent tool, with per-platform package-manager one-liners in the install section",
+        "evidence": "\"Reorder into the CLI skeleton: name+one-liner \u2192 demo \u2192 why-over-incumbent \u2192 install (package manager one-liners first)\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States the default ordering for this step out loud: furniture, then render mechanics, then terminal demo",
+        "evidence": "No explicit statement of a default furniture\u2192render-mechanics\u2192demo ordering appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Promotes the terminal demo above render mechanics for this project, and says explicitly that it is because the output is the product for a CLI",
+        "evidence": "\"dtx's entire pitch is \\\"look at this output.\\\" Every other GitHub-presence lever... is in service of getting eyeballs onto that one recording faster.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says the promotion is a deliberate departure from the default ordering",
+        "evidence": "No explicit \"default ordering\" is named, so no departure from it is stated either.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Fixes the repository furniture first: description, website link, topics, and social preview",
+        "evidence": "Repo metadata is scheduled for \"Day 3\", after the hero capture (Day 1) and README rebuild (Day 2), not first.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that furniture is what search listings carry and what unfurls when the link is pasted into a chat",
+        "evidence": "\"Avoid burying 'Terraform' or 'diff' past word 5; that's what search and link-preview truncation both key off\" and \"When this repo gets linked in Slack/Discord/a tweet, the colourized diff *is* the pitch\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prices the demo at roughly a week, and warns it becomes a standing job that goes stale when the output changes",
+        "evidence": "The demo capture is scoped to \"Day 1\" of the week, and staleness is explicitly minimized rather than warned about: \"vhs is the better pick since the .tape file is scriptable and reproducible, so you can re-record in 30 seconds when you tweak colours\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires generating the demo from a script so that re-rendering stays cheap",
+        "evidence": "\"vhs is the better pick since the .tape file is scriptable and reproducible, so you can re-record in 30 seconds\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places the demo immediately after the tagline",
+        "evidence": "\"# dtx\\nOne sentence: diffs two Terraform plans and colour-codes the drift.\\n[hero GIF, full width, right under the one-liner \u2014 before any prose]\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the demo to be short, high-contrast and legible at embed scale",
+        "evidence": "\"Target terminal width ~100 cols, dark theme (matches how most devs actually run a terminal), font large enough to read on a phone-width GitHub preview.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the commands shown in the demo to also appear as copyable text, since a reader on a registry page or in a terminal sees nothing",
+        "evidence": "No reasoning ties the demo's commands to needing copyable text elsewhere; the Usage section is generic and not explicitly linked to demo content.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Selects the CLI skeleton, leading with a real terminal transcript and then why this over the incumbent tool, with per-platform package-manager one-liners in the install section",
+        "evidence": "The \"why over incumbent\" comparison (vs. terraform show -json | diff) is explicitly deferred \"below the fold\" rather than placed prominently, and install shows only brew/go install, not a broader per-platform set.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

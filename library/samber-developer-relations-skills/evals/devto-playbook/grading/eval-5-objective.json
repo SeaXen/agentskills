@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that #opensource bans project announcements and contributor requests",
+        "evidence": "\"#opensource... Project promotion, announcements and contributor requests are banned. Drop.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps #news (with a summary and source) or #contributorswanted as acceptable tags for the release and contributor ask",
+        "evidence": "\"#news: A launched or updated product, with a brief summary and the source. Keep.\" \"#contributorswanted... Keep.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends #showdev for the launch post",
+        "evidence": "#showdev is only a fallback: \"If #productivity's sidebar excludes launch posts, use `showdev` instead.\" The final tag set is \"news, contributorswanted, <language>, productivity\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that dev.to Listings have been turned off",
+        "evidence": "\"Listings are gone. Billboards replaced them.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names Billboards (via Pro Tools, requiring an organization admin) as the replacement paid option",
+        "evidence": "\"promoted Billboards (Pro Tools, org admin)\" and \"test one promoted Billboard via Pro Tools\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names DEV's paid offers such as DEV Ads, DEV Takeover or sponsored DEV Challenges, routed through DEV's partnership contact",
+        "evidence": "\"DEV Ads, Takeover, sponsored Challenges (partners@dev.to)\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not claim that money can buy organic featured or Top 7 placement",
+        "evidence": "\"You can't pay to pin a post to the homepage... Featured placement is editorial and ranking-driven.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a story-led post with the problem, what was built, a trade-off and limitations rather than a feature list",
+        "evidence": "The post template has \"The problem\", \"What shipped in 1.0\", \"How it works\" (one design decision and its trade-off) and \"What it does not do yet\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a #discuss companion post or question during launch week",
+        "evidence": "\"Companion #discuss post (Wednesday 2026-11-04)\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Points to the launch-window skill (oss-launch) or Hacker News playbook for the rest of launch day",
+        "evidence": "The transcript never mentions oss-launch, Hacker News or any launch-day skill.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that #opensource bans project announcements and contributor requests",
+        "evidence": "Recommends keeping `#opensource` for the launch post.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps #news (with a summary and source) or #contributorswanted as acceptable tags for the release and contributor ask",
+        "evidence": "\"Keep `#opensource` and `#news`\" and keeps `contributorswanted` in the tags.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends #showdev for the launch post",
+        "evidence": "#showdev is never mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that dev.to Listings have been turned off",
+        "evidence": "\"I'm not sure the feature is still active\"; it also suggests publishing a listing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names Billboards (via Pro Tools, requiring an organization admin) as the replacement paid option",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names DEV's paid offers such as DEV Ads, DEV Takeover or sponsored DEV Challenges, routed through DEV's partnership contact",
+        "evidence": "\"sponsorship or ad inventory through their partnerships team. It's labeled as sponsored\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not claim that money can buy organic featured or Top 7 placement",
+        "evidence": "\"dev.to doesn't sell homepage pinning. Featured placement is editorial.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a story-led post with the problem, what was built, a trade-off and limitations rather than a feature list",
+        "evidence": "The template is a feature-list structure with no trade-off or limitations section.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends a #discuss companion post or question during launch week",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Points to the launch-window skill (oss-launch) or Hacker News playbook for the rest of launch day",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

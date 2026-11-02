@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Computes the triage threshold as (J x W) / t = (7 x 100) / 4 = 175 teams",
+        "evidence": "\"7\u00d7100/4 = 175 teams. You have 210.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States 210 exceeds 175, so not even one judge per team fits the window",
+        "evidence": "\"k = floor(700 / 840) = 0\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names this as the triage band (Band 3), not merely an expensive plan",
+        "evidence": "\"That is Band 3, so only triage-then-finals is left.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to shorten the per-team judging time on the day",
+        "evidence": "\"A 90-second visit is not a legitimate way out.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason that shortening t mid-round re-scores whichever teams were seen first",
+        "evidence": "\"Teams seen first get a different visit than teams seen last, so you re-score the field.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prescribes triage-then-finals as the only live-window allocation available in this band",
+        "evidence": "\"only triage-then-finals is left\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Specifies the first round as a pass/fail gate, never a score",
+        "evidence": "\"pass/fail gate... No scoring.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Bases the gate on published submission requirements such as whether it runs, whether it meets the brief's deliverable format, and whether it is eligible",
+        "evidence": "\"does it run, does it meet the brief's deliverable format, is it eligible\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the pre-screen and its criteria must be published in the brief before submissions close",
+        "evidence": "\"The gate must be published before submissions closed.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sizes the finalist slate from the remaining window W2 after the pre-screen consumes part of W, not from the original 100 minutes",
+        "evidence": "\"W\u2082 = 65 min of visits after the gate... N\u2082 \u2264 7 \u00d7 14 = 98 finalists\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Re-runs the k >= 1 feasibility check on the surviving finalist count and the remaining window",
+        "evidence": "Finalist cap table by judge count; 14 \u00d7 4 = 56 of 65 min",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names a longer window or a format change, decided before the event, as the only legitimate responses if the finals round also fails the gate",
+        "evidence": "\"you then need more judges or a format change\"; section 5 format change \"decided before the event\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Computes the triage threshold as (J x W) / t = (7 x 100) / 4 = 175 teams",
+        "evidence": "It compares judge-minutes (840 vs 700) and never gives 175.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States 210 exceeds 175, so not even one judge per team fits the window",
+        "evidence": "It says 'Your original plan was short even before judges dropped out', in judge-minutes. It never states 175.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names this as the triage band (Band 3), not merely an expensive plan",
+        "evidence": "No band is named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to shorten the per-team judging time on the day",
+        "evidence": "It proposes '90 seconds works only if travel time is counted' and 'Making 90 seconds work'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason that shortening t mid-round re-scores whichever teams were seen first",
+        "evidence": "It gives no such reasoning.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Prescribes triage-then-finals as the only live-window allocation available in this band",
+        "evidence": "Round 1 covers each zone, then 'pick a shortlist of about 20 teams' and Round 2 gives 'each shortlisted team 3 more 90 s looks'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Specifies the first round as a pass/fail gate, never a score",
+        "evidence": "Round 1 is 'scored as Yes / Maybe / No plus a 1\u20135 on each rubric line'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Bases the gate on published submission requirements such as whether it runs, whether it meets the brief's deliverable format, and whether it is eligible",
+        "evidence": "The gate is based on a judge's live impression, not on published requirements.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the pre-screen and its criteria must be published in the brief before submissions close",
+        "evidence": "There is no pre-screen. It only says 'Tell teams the format today'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sizes the finalist slate from the remaining window W2 after the pre-screen consumes part of W, not from the original 100 minutes",
+        "evidence": "'64\u201382: Round 2... 20 \u00d7 3 \u00d7 2 min = 120 judge-min, against 126 available.' This is sized from the time left after Round 1.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Re-runs the k >= 1 feasibility check on the surviving finalist count and the remaining window",
+        "evidence": "It checks that 120 fits in 126 but does not frame this as a k check.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names a longer window or a format change, decided before the event, as the only legitimate responses if the finals round also fails the gate",
+        "evidence": "It offers 'Recruit replacement judges today' and a desk review. It does not name a longer window or a format change.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

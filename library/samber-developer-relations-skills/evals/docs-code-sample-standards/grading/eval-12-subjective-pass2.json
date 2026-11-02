@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Does not silently downgrade the audit or present its partial coverage as a corpus-wide verdict",
+        "evidence": "The report opens with 'Status: no census run\u2026 this report has no counts, no findings and no scores. I won't invent numbers.' Section 3 says Java, Ruby and Go samples get no check on this machine and must be reported as 'Unverified, never \"passing\"'. It labels Python checks 'Compile-only'. It names the fallback outright: 'Tier deletion: \u2026 Run and Compile-only are unavailable for Java, Ruby and Go.' Section 6 requires stratified-sample results to be quoted 'as estimates with that base, not as corpus-wide counts'. Section 7 states that the \u226580% tested-share gate 'fails by construction' and warns ",
+        "score": 5,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Does not silently downgrade the audit or present its partial coverage as a corpus-wide verdict",
+        "evidence": "The response opens with 'No audit findings. I could not find your docs tree, so there is nothing to score' and says 'I will not invent counts.' It names the dropped tiers openly: 'Tiers deleted: Run and Compile-only are dropped for Java, Ruby and Go.' It labels those languages 'unverified' and says the parity matrix 'cannot claim tested cells for three of four languages. Report that as a gap. It is not a pass.' It marks the script 'untested' and calls a script 'only a census'. It reports no corpus-wide verdict, and its report template keeps 'java/ruby/go unverified (no toolchain)' as an explic",
+        "score": 5,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

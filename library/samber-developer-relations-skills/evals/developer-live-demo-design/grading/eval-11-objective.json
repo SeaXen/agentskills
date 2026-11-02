@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Recommends live execution against the live system, the top of the ladder, despite it ranking last on efficiency",
+        "evidence": "\"tier 0-equivalent \u2014 the schema is genuinely unknown until it's drawn... this is the most expensive, most rehearsal-hungry option on the ladder\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the promotion condition explicitly: the liveness is the claim, with input supplied by the audience and a recording open to the accusation of being faked",
+        "evidence": "\"Promote it [tier 0] anyway when the claim is the liveness itself: an audience-supplied input, a race the recording could be accused of faking, or a launch where 'we really ran this today' is the point.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that a ranking by value per unit of effort would otherwise never select this tier",
+        "evidence": "\"this is the most expensive, most rehearsal-hungry option on the ladder, and it is also the only one that answers the actual accusation.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a golden path: the exact order of operations discovered by rehearsal and never deviated from on stage",
+        "evidence": "\"You're not typing a migration by hand on stage \u2014 you're triggering a fixed sequence against a variable input.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats any improvised detour from that order as a tier drop",
+        "evidence": "No statement links improvisation/deviation from the fixed sequence to a tier drop anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a recorded screencast of the same segments loaded and ready as the standing fallback",
+        "evidence": "\"Fallback tier is 3: a full recorded run, disclosed as a recording if it's ever shown.\" plus `recorded-blind-run.mp4` fallback asset.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires human redundancy, a colleague holding a clone of everything on a working machine",
+        "evidence": "\"Buddy: <named engineer>, front row, laptop with cloned repo, deck PDF, and the fallback recording loaded and ready\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that this tier carries the highest chance of failing in the room and costs days of rehearsal",
+        "evidence": "\"A failed tier-0 run in front of a room, with a bad recovery, actively confirms every doubt at once.\" and the 4-week rehearsal plan / \"most rehearsal-hungry option\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the demo to complete without the venue network wherever possible, isolating any genuinely remote step as the droppable segment with a hotspot behind it",
+        "evidence": "The remote model-endpoint call (segments 3\u20135) is explicitly marked \"Droppable: no\" \u2014 the genuinely remote step is core and non-droppable, and no hotspot backup for that link is specified.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires per-segment restore points so a failed segment can be skipped rather than ending the demo",
+        "evidence": "\"What is independently enterable is segment 2 (the draw itself never depends on 3\u20135...) and segment 6\" with explicit restore-point handling per segment.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that rehearsal repetitions alone do not buy reliability, and that the fixed operation order and controlled infrastructure are what make the run survivable",
+        "evidence": "\"If any of these doesn't hold four weeks in, the fix is a design change... not more rehearsal hours thrown at the same design.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Pre-writes a recovery line for the case where the audience-supplied input fails, instead of debugging on stage",
+        "evidence": "\"Drawn schema breaks something Grebe genuinely can't handle: 'That's a real gap, and I'd rather show it to you than hide it...'\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Recommends live execution against the live system, the top of the ladder, despite it ranking last on efficiency",
+        "evidence": "the plan is built entirely around unscripted, live execution with real audience-supplied schemas rather than a recording or curated demo",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the promotion condition explicitly: the liveness is the claim, with input supplied by the audience and a recording open to the accusation of being faked",
+        "evidence": "\"people said our demos were cherry-picked \u2014 so tonight we're not choosing the schema, you are.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that a ranking by value per unit of effort would otherwise never select this tier",
+        "evidence": "no value-per-effort ranking discussion appears",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a golden path: the exact order of operations discovered by rehearsal and never deviated from on stage",
+        "evidence": "the fixed \"20-minute stage runsheet (draft)\" table of beats applies regardless of the schema content",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats any improvised detour from that order as a tier drop",
+        "evidence": "no such statement about detours causing a tier drop appears",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a recorded screencast of the same segments loaded and ready as the standing fallback",
+        "evidence": "the recorded fallback is explicitly restricted: \"an explicit, named last resort (venue-wide power/network failure class of event only)\", not a general standing fallback",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires human redundancy, a colleague holding a clone of everything on a working machine",
+        "evidence": "only an engineer holding the kill switch is mentioned, not a colleague with a full working clone",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that this tier carries the highest chance of failing in the room and costs days of rehearsal",
+        "evidence": "no explicit statement of this trade-off, only extensive rehearsal planning",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the demo to complete without the venue network wherever possible, isolating any genuinely remote step as the droppable segment with a hotspot behind it",
+        "evidence": "\"everything (sandbox, Grebe, DB) runs on hardware physically in the room, zero dependency on venue network. Non-negotiable\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires per-segment restore points so a failed segment can be skipped rather than ending the demo",
+        "evidence": "\"Have a second sandbox pool warmed and ready; failover is invisible if pre-built\" and \"move to second pre-staged submission\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that rehearsal repetitions alone do not buy reliability, and that the fixed operation order and controlled infrastructure are what make the run survivable",
+        "evidence": "no explicit contrast between rehearsal-alone and infrastructure/fixed-order is stated",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Pre-writes a recovery line for the case where the audience-supplied input fails, instead of debugging on stage",
+        "evidence": "\"'it got this one wrong, here's what happened' is a stronger four-week-later story than a suspiciously perfect run\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

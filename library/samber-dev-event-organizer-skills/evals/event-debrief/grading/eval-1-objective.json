@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Recommends holding the debrief despite nothing going wrong, explicitly rejecting the idea that a debrief is gated on something breaking",
+        "evidence": "\"No. Run the debrief, but make it the light version\"; \"Why 'only when something breaks' is wrong\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the severity threshold from incident/outage postmortem practice does not transfer to recurring events",
+        "evidence": "\"SRE teams only write a post-mortem above a severity threshold... Why it doesn't transfer. A post-mortem contains an incident. A debrief improves something you will run again\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Justifies the debrief for a quiet edition by naming the risk that practices which worked but go unnamed get silently dropped next edition",
+        "evidence": "\"Practices that worked but nobody named get dropped quietly next year.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends setting and calendaring the debrief date immediately, before the team disperses, rather than deferring the scheduling decision",
+        "evidence": "\"book it today before the three of you disperse\"; \"Calendar it now\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that no standard interval after the event exists and proposes a concrete date anyway",
+        "evidence": "It proposes \"the next 7 to 10 days\" but never says that no standard interval exists.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends a lightweight depth rung (single session, or written pre-read plus one session), not per-track or multi-track formats",
+        "evidence": "\"one 60-minute session plus a 10-minute written pre-read\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes both track-based depth options entirely for the three-person team rather than merely ranking them lower",
+        "evidence": "\"I cut the multi-track and per-track options entirely.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the team's exhaustion as a finding of the debrief itself, not merely a scheduling constraint to work around",
+        "evidence": "\"Your exhaustion is a finding.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns against manufacturing action items to look thorough, and allows an explicit 'no action, because [reason]' as a complete outcome",
+        "evidence": "It allows 'no action, because\u2026' but never warns against inventing actions to look thorough.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires every log entry to carry a named owner and a due date, or an explicit no-action",
+        "evidence": "\"Give every entry a name and a date, or an explicit 'no action, because\u2026'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the planning start in five weeks as the debrief's deadline and recommends writing open items into next edition's plan",
+        "evidence": "\"Your planning start in about five weeks is the deadline\"; \"Paste every open item into next edition's work-back plan as a real task\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Runs what-went-well and what-went-poorly as two separate passes with the well pass first, and does not compare this edition against previous editions",
+        "evidence": "Separate 10-min rows for \"What went well\" (\"Do this first\") and \"What went poorly\"; no cross-edition comparison, trends go to event-continuous-improvement.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Recommends holding the debrief despite nothing going wrong, explicitly rejecting the idea that a debrief is gated on something breaking",
+        "evidence": "\"a debrief isn't only for failures... also captures what worked, near-misses, and what to repeat.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the severity threshold from incident/outage postmortem practice does not transfer to recurring events",
+        "evidence": "\"an outage post-mortem exists to find a failure. No failure means no post-mortem.\" is called his fair core, then \"a debrief isn't only for failures\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Justifies the debrief for a quiet edition by naming the risk that practices which worked but go unnamed get silently dropped next edition",
+        "evidence": "\"A venue fix or a favour that saved a session counts as nothing went wrong, but next year it may not be there.\" and \"Success hides what to keep.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends setting and calendaring the debrief date immediately, before the team disperses, rather than deferring the scheduling decision",
+        "evidence": "\"Don't schedule a meeting yet.\" The call is set vaguely for \"around week 3\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that no standard interval after the event exists and proposes a concrete date anyway",
+        "evidence": "Only \"Around week 3\"; there is no statement about the lack of a standard interval and no concrete date.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends a lightweight depth rung (single session, or written pre-read plus one session), not per-track or multi-track formats",
+        "evidence": "Async solo doc plus a single 45-min call, about 3.5 person-hours.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes both track-based depth options entirely for the three-person team rather than merely ranking them lower",
+        "evidence": "Track-based formats are never mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the team's exhaustion as a finding of the debrief itself, not merely a scheduling constraint to work around",
+        "evidence": "\"Your exhaustion is a finding... the workload split is the problem to fix.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns against manufacturing action items to look thorough, and allows an explicit 'no action, because [reason]' as a complete outcome",
+        "evidence": "No such warning. The output requires \"Top 3 changes\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires every log entry to carry a named owner and a due date, or an explicit no-action",
+        "evidence": "Only \"One owner per change\"; there is no due date and no no-action option.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats the planning start in five weeks as the debrief's deadline and recommends writing open items into next edition's plan",
+        "evidence": "\"Planning starts in about 5 weeks\"; \"Pin that page at the top of the planning doc. It becomes the input to the kickoff.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Runs what-went-well and what-went-poorly as two separate passes with the well pass first, and does not compare this edition against previous editions",
+        "evidence": "The three prompts are mixed in one solo pass, with no separate ordered passes.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

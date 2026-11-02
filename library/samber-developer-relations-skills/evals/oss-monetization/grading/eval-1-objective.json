@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Runs the ownership gate before ranking and reports that the GPL-3.0 inbound contributions block selling the existing code under commercial terms without every remaining contributor's consent, a CLA covering their code, or a rewrite of their code.",
+        "evidence": "DCO grants no right to relicense... needs every remaining contributor's consent; a CLA from each of them; a rewrite of their code.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the compression layer and the Kafka sink as contributor-written code that specifically needs consent, a CLA or a rewrite before any commercial terms can cover it.",
+        "evidence": "Two of them wrote the compression layer and the Kafka sink.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports the shape gate: because Quillfeed runs inside backend services, GPL creates no pressure to buy a commercial license; only AGPL would.",
+        "evidence": "Running GPL code on your own servers is not distribution... Only AGPL pressures server use",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not deliver the commercial-license launch plan the user asked for as the primary offer.",
+        "evidence": "Dual licensing fails two gates. Drop it for now.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the paid add-on passes the ownership gate regardless, because new code the maintainer writes alone is theirs to sell.",
+        "evidence": "Code you write alone is yours to sell.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports the buyer gate as passed, citing the two support-contract requests and the invoice request as the buyer evidence.",
+        "evidence": "3 asked to pay (2 for support, 1 for an invoice).",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends capped support contracts sold now to the companies that already asked, as the first sale and as validation of which add-on features those companies would pay for.",
+        "evidence": "first sale to the companies that already asked... shows which add-on features they would pay for.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends the paid add-on on a free core as the primary option.",
+        "evidence": "The transcript labels the capped support contract 'Primary' and the add-on 'Secondary'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a deleted option does not reappear lower in the ranking as a later phase.",
+        "evidence": "No such rule stated. The plan adds an 'Optional track' that 'reopens relicensing' through the contributor consent drive.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "If any license move is kept for a future major, requires it to land on a new major with a new Go module import path, with old releases untouched and the module proxy serving the last GPL version forever.",
+        "evidence": "'License moves: none.' The new-major and new-import-path requirement is never stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes a fork forecast naming who would maintain a fork and whether a company would fund it, and states that only the trademark controls what a fork may be called.",
+        "evidence": "Only 'Relicensing also risks a fork of the last free version.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets the time expectation that the cited salary-level cases took years, not months, and checks the 4,000 EUR within a year target against that.",
+        "evidence": "The skill's own cases took years: Sidekiq launched in 2012... 4,000 EUR is more likely year 2 or later.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Compares the plan against an employment baseline, such as a contract with one of the dozen companies paying for maintenance time, and says whether it beats the plan's first-year revenue per hour.",
+        "evidence": "4,000 EUR over 52 hours is about 77 EUR per hour net. A contract or part-time job... may beat the plan's first-year revenue per hour.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sends license wording and the contributor-consent question to counsel and routes license text to samber/developer-relations-skills@oss-license-strategy rather than drafting license terms.",
+        "evidence": "Counsel is mentioned, but oss-license-strategy is never named.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Runs the ownership gate before ranking and reports that the GPL-3.0 inbound contributions block selling the existing code under commercial terms without every remaining contributor's consent, a CLA covering their code, or a rewrite of their code.",
+        "evidence": "Runs the blame count first. 'DCO does not give you relicensing rights... You cannot sell a commercial license to the whole codebase without their consent.' It also covers a relicensing grant, a CLA and a clean-room rewrite.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the compression layer and the Kafka sink as contributor-written code that specifically needs consent, a CLA or a rewrite before any commercial terms can cover it.",
+        "evidence": "'two of them wrote the compression layer and the Kafka sink'; the fallback also names 'the compression layer or Kafka sink'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports the shape gate: because Quillfeed runs inside backend services, GPL creates no pressure to buy a commercial license; only AGPL would.",
+        "evidence": "It says most users run it internally and distribute nothing, but never says AGPL would create the pressure. It only says AGPL 'adds nothing for your revenue'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not deliver the commercial-license launch plan the user asked for as the primary offer.",
+        "evidence": "'Primary: support and LTS subscription, starting now.' The commercial license is secondary.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the paid add-on passes the ownership gate regardless, because new code the maintainer writes alone is theirs to sell.",
+        "evidence": "No paid add-on is discussed. Open core is rejected.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reports the buyer gate as passed, citing the two support-contract requests and the invoice request as the buyer evidence.",
+        "evidence": "'Two of your dozen known users already asked for this'; 'The invoice request for \"a license\" is a signal that someone wants to pay.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends capped support contracts sold now to the companies that already asked, as the first sale and as validation of which add-on features those companies would pay for.",
+        "evidence": "Support is sold now with a monthly hour cap, but nothing frames it as validating which add-on features those companies would pay for.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends the paid add-on on a free core as the primary option.",
+        "evidence": "Open core with a closed module is rejected. The primary is support/LTS.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a deleted option does not reappear lower in the ranking as a later phase.",
+        "evidence": "Phase 3 (months 4-6) brings back the commercial license after the go/no-go.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "If any license move is kept for a future major, requires it to land on a new major with a new Go module import path, with old releases untouched and the module proxy serving the last GPL version forever.",
+        "evidence": "No mention of a new major or a Go module import path.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes a fork forecast naming who would maintain a fork and whether a company would fund it, and states that only the trademark controls what a fork may be called.",
+        "evidence": "It says only that forks historically follow relicensing. It names no maintainer or funder, and does not say the trademark controls a fork's name.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets the time expectation that the cited salary-level cases took years, not months, and checks the 4,000 EUR within a year target against that.",
+        "evidence": "It plans 4-6 customers and about 4,000 EUR by month 12 and never says salary-level cases took years.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Compares the plan against an employment baseline, such as a contract with one of the dozen companies paying for maintenance time, and says whether it beats the plan's first-year revenue per hour.",
+        "evidence": "No comparison with a contract or job baseline on revenue per hour.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sends license wording and the contributor-consent question to counsel and routes license text to samber/developer-relations-skills@oss-license-strategy rather than drafting license terms.",
+        "evidence": "It sends license wording to a lawyer ('Keep the commercial license text lawyer-drafted') but never routes to samber/developer-relations-skills@oss-license-strategy.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

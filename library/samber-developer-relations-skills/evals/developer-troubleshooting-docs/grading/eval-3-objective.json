@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Does not produce five troubleshooting pages",
+        "evidence": "Cluster C is explicitly not a page: '### C \u2014 `403 ingest rejected: account not provisioned` (routed away from docs \u2014 not a page)' and 'This cluster fails the \"write a page\" test on purpose.' Only D, B, A, E get documented entries (of varying, partial completeness), so five full troubleshooting pages are not produced.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes cluster A to a product-side error-message rewrite, stating that a docs page cannot be pasted into the reader's terminal",
+        "evidence": "The transcript does escalate A ('split `code 7` into distinct codes, or at minimum emit the reason string already used for support triage directly in the top-level message... a doc page is a workaround for a message defect, not a fix for it') but nowhere states or implies the specific framing that 'a docs page cannot be pasted into the reader's terminal' \u2014 that phrase/concept does not appear anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that rewriting the emitted string is a product change owned by an engineer, not a docs task",
+        "evidence": "For cluster A, the transcript only says 'Escalate alongside the page... Say this to engineering explicitly' is used for cluster B/E's escalation, not A's. A's escalation text reads: 'That's the routing table's \"error text does not name what to do\" row \u2014 a doc page is a workaround for a message defect, not a fix for it.' This does not explicitly attribute ownership of the string rewrite to 'an engineer' or say it is 'not a docs task.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes cluster B to a product or DX change, or to a single command that performs the steps, rather than documenting a three-file ordered edit as the permanent answer",
+        "evidence": "'Escalate alongside the page: this is the routing table's \"fix is edit three config files in order\" row \u2014 the permanent answer is a single idempotent command (`agent doctor --fix-tls-proxy` or equivalent) that does all four steps atomically, not four manual edits a reader can get wrong. Say this to engineering explicitly; the page is the stopgap, not the fix.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes cluster C to a product surface or a support macro rather than a public page, because the cause is account state",
+        "evidence": "'All 33 records reduce to one deterministic cause \u2014 expired trial or plan downgrade \u2014 which is exactly the routing table's row: \"Cause is account state (quota, plan, suspension) \u2192 Product surface or a support macro, not a public page.\"' followed by a 'Product string change' and a 'Support macro' deliverable instead of a page.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies cluster D as a regression introduced by 5.2 and says to file it rather than document it",
+        "evidence": "'Zero reports before 5.2 shipped (11 days ago); 28 reports since, and growing daily \u2014 this is a regression, not a pre-existing edge case.' and 'Action, not just a page: file this as a regression against 5.2 today.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that documenting cluster D would document a bug into permanence",
+        "evidence": "The transcript says 'Retire this entry the moment a 5.2.x patch ships... A known-issues list that only grows becomes a graveyard nobody reads' and cites Google SRE's rule that 'a workaround page can speed up incident response but the postmortem/regression fix is what actually stops the recurrence' \u2014 but it never explicitly frames documenting D as making the bug permanent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Escalates cluster E to a scheduled product fix because the same failure class recurs across several postmortems",
+        "evidence": "'publishing this page is an admission that a defect named in 4 of the last 7 incident reviews is being tolerated, not fixed... Owner for the scheduled fix: TBD' and 'This page is a stopgap; the scheduled fix (a cardinality guard or bounded eviction on the agent's label store) belongs to engineering, tracked at <link the postmortem action items here>.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States out loud that any interim page for cluster E is an admission that a defect is being tolerated",
+        "evidence": "'Saying this out loud per Step 3: publishing this page is an admission that a defect named in 4 of the last 7 incident reviews is being tolerated, not fixed. It ships anyway because readers are hitting it now and a scheduled fix takes longer than this cycle.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names an owner for each cluster routed away from docs",
+        "evidence": "Cluster C is the only cluster fully routed away from docs, but its deliverables ('Product string change (send to the owning team, not docs)' and the support macro) never name a specific owner or use the 'Owner: TBD' marker used elsewhere (e.g., B, A, E each list 'Owner: TBD'); the maintenance table only says 'C: no maintenance \u2014 it's not a page' with no owner assigned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that deciding not to document an error is a legitimate output, referencing that not all diagnostics warrant a durable explanation",
+        "evidence": "'Two of these are not simple \"write the page\" cases \u2014 C is redirected entirely, D and A ship as intentionally partial/short-lived artifacts. That's the gate working, not scope creep.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names Google SRE postmortem practice, or its rule that action items must be preventative rather than merely mitigative, as the basis for the escalation gate",
+        "evidence": "'Google SRE's rule applies directly: a workaround page \"can speed up incident response\" but the postmortem/regression fix is what actually stops the recurrence, and growth rate says this isn't stabilizing on its own.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Does not produce five troubleshooting pages",
+        "evidence": "Opens with \"Here are the five pages, ready to drop into the KB\" and delivers KB-041, KB-019, KB-033, KB-028, KB-012 in full page format.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes cluster A to a product-side error-message rewrite, stating that a docs page cannot be pasted into the reader's terminal",
+        "evidence": "No statement resembling 'a docs page cannot be pasted into the reader's terminal' appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that rewriting the emitted string is a product change owned by an engineer, not a docs task",
+        "evidence": "KB-041 labels the fix 'Real fix (tracked, not yet shipped)' with 'Owner: Agent Core' but never explicitly frames it as 'a product change owned by an engineer, not a docs task'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes cluster B to a product or DX change, or to a single command that performs the steps, rather than documenting a three-file ordered edit as the permanent answer",
+        "evidence": "KB-019's 'Fix procedure \u2014 order matters' documents the 4-step, 3-file edit ('Edit agent.yaml... Regenerate the cert bundle... Edit collector.toml... Restart') as the primary answer; Prevention only proposes a loud startup failure, not a single command.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes cluster C to a product surface or a support macro rather than a public page, because the cause is account state",
+        "evidence": "KB-033: '**Status:** Not a bug \u2014 support/billing macro' and 'Support should be able to close these without pulling logs \u2014 checking account/plan status in the billing console is sufficient.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies cluster D as a regression introduced by 5.2 and says to file it rather than document it",
+        "evidence": "KB-028 is delivered as one of 'the five pages, ready to drop into the KB' with 'This page will be updated once the offending change is found' \u2014 it documents rather than just files it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that documenting cluster D would document a bug into permanence",
+        "evidence": "No statement of this kind appears anywhere in the KB-028 entry.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Escalates cluster E to a scheduled product fix because the same failure class recurs across several postmortems",
+        "evidence": "\"It's the named root cause in more than half of the team's last seven incident reviews... Rank this by incident weight, not record count\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States out loud that any interim page for cluster E is an admission that a defect is being tolerated",
+        "evidence": "No such explicit statement appears in the KB-012 entry.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names an owner for each cluster routed away from docs",
+        "evidence": "Each page has an explicit Owner field, e.g. 'Owner: Support, with Billing as escalation path' and 'Owner: Storage/Sharding, escalated to on-call'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that deciding not to document an error is a legitimate output, referencing that not all diagnostics warrant a durable explanation",
+        "evidence": "No such meta-statement appears; every cluster is still written up as a KB page.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names Google SRE postmortem practice, or its rule that action items must be preventative rather than merely mitigative, as the basis for the escalation gate",
+        "evidence": "No mention of Google SRE or postmortem practice anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

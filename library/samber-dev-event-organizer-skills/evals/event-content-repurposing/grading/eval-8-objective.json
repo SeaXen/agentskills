@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Drops sending speakers their own full-talk video links - that message belongs to the post-event follow-up someone else already owns",
+        "evidence": "\"Full-talk links are already sent by `event-production` and `event-speaker-experience`.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Scopes the outreach to the derivative made from each speaker's own talk, and nothing else",
+        "evidence": "\"This message covers the clip and nothing else.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Defaults to a one-line ask riding the follow-up message already being sent, coordinating the wording rather than sending a separate message to all 30",
+        "evidence": "\"Coordinate it with the follow-up `event-speaker-experience` already sends ... add this single line\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Upgrades to a ready-made asset (clip plus drafted caption and link) only for the speakers of the most-asked-about sessions, not for everyone",
+        "evidence": "\"Promote to a standalone email with the ready-made asset only for speakers whose sessions people asked about (Q7).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "For the 120k-follower keynote speaker, proposes a dated joint push (same-day, cross-tagged) conditional on her agreeing to a date, instead of just tagging her",
+        "evidence": "\"the dated joint push fits. It only works if she agrees to a date\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to ask any speaker to amplify a clip they have not seen - the two unreviewed clips get no ask until the speaker has seen the cut",
+        "evidence": "\"Asking a speaker to amplify a clip they haven't seen ... They get a review request instead.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reuses the event's existing shareable kit rather than building a second one",
+        "evidence": "It drafts new caption emails and never mentions reusing an existing kit.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses the 10,000-views-per-clip target and does not invent any numeric view, retention, or engagement threshold",
+        "evidence": "\"The skill sets no view target ... The report states measured actuals instead.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Offers self-set measures instead, such as amplification take-up (speakers who posted over speakers asked)",
+        "evidence": "\"Speakers asked to share: {n_asked}. Speakers who shared: {n_shared}.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reads a low take-up rate as diagnosing the ask (usually a missing attached asset), not the speakers",
+        "evidence": "\"A low rate usually means an ask that arrived without the asset attached.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites the checkable completeness gates: every derivative traces to a consent-covered session, and every artifact had a date and an owner before production",
+        "evidence": "\"Every planned artifact needs both [owner and end date] before anything ships\"; the consent-record check precedes the clip rows.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the teaser from the unsigned workshop as unpublishable regardless of length, and sends that host no amplification ask",
+        "evidence": "\"Length doesn't matter, and there is no partial version.\"; \"Take down, no ask, no tag\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Drops sending speakers their own full-talk video links - that message belongs to the post-event follow-up someone else already owns",
+        "evidence": "Variants A, B and C all include {full_talk_url}.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Scopes the outreach to the derivative made from each speaker's own talk, and nothing else",
+        "evidence": "Variant C is for speakers without a clip, so it only promotes the full talk.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Defaults to a one-line ask riding the follow-up message already being sent, coordinating the wording rather than sending a separate message to all 30",
+        "evidence": "It writes separate full emails for all 30 speakers.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Upgrades to a ready-made asset (clip plus drafted caption and link) only for the speakers of the most-asked-about sessions, not for everyone",
+        "evidence": "Ready-made posts are given to all variants.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "For the 120k-follower keynote speaker, proposes a dated joint push (same-day, cross-tagged) conditional on her agreeing to a date, instead of just tagging her",
+        "evidence": "It tags her, adds a note and offers 'No pressure if the timing doesn't suit you'. No joint date is proposed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to ask any speaker to amplify a clip they have not seen - the two unreviewed clips get no ask until the speaker has seen the cut",
+        "evidence": "Variant B is a review-first email: \"we won't promote the clip until we've heard from you\". There is no share ask until approval.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reuses the event's existing shareable kit rather than building a second one",
+        "evidence": "It drafts new post texts for each variant.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses the 10,000-views-per-clip target and does not invent any numeric view, retention, or engagement threshold",
+        "evidence": "It refuses 10k but offers \"at least 8 of 30 speakers\" for sharing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Offers self-set measures instead, such as amplification take-up (speakers who posted over speakers asked)",
+        "evidence": "\"We will report the share rate, counted from tracked links\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reads a low take-up rate as diagnosing the ask (usually a missing attached asset), not the speakers",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites the checkable completeness gates: every derivative traces to a consent-covered session, and every artifact had a date and an owner before production",
+        "evidence": "Not cited.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the teaser from the unsigned workshop as unpublishable regardless of length, and sends that host no amplification ask",
+        "evidence": "\"Length doesn't matter without a release... Take it down\"; the host gets only a release request (D).",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

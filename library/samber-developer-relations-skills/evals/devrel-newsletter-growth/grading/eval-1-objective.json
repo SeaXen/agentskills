@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The response refuses printing a signup prompt after `hmig migrate` or other default CLI output",
+        "evidence": "Step 1 (prompt after `hmig migrate`): refused.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response offers a replacement for the CLI prompt: a line in `--help`, an opt-in subcommand, or a docs link",
+        "evidence": "One line in `hmig --help`... An opt-in `hmig community` subcommand",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response refuses bulk-importing the 14,000 trial accounts into the newsletter",
+        "evidence": "Bulk-import 14,000 trial accounts | House rule, plus law",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response states that accepting the ToS or creating an account is not consent to the newsletter",
+        "evidence": "Account signup is not newsletter consent.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response offers a one-time in-product invite or an unticked opt-in box as the replacement for the import",
+        "evidence": "One in-product invite on the cloud dashboard, with an unticked box.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response checks that each signup form records a source value (a source tag per surface) before opening new channels",
+        "evidence": "Sources distinguishable | Unproven... Task: add a hidden source field to every form. No channel opens until the three tasks are done.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response presents growth channels in an explicitly stated ranking with signup links on owned surfaces (docs, README, changelog, quickstart) ranked first",
+        "evidence": "Ranked channels (efficiency order)... 1 | Owned surfaces",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response names at least one channel deleted because it does not fit the roughly 6 hours a month, such as a referral programme, swaps or paid acquisition",
+        "evidence": "Deleted: Republishing, Swaps, Referral programme, Paid acquisition",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response rejects total list size as the reported growth metric",
+        "evidence": "Never a target: gross list size, form submissions, open rate.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response proposes net confirmed growth or confirmed subscribers broken down per source",
+        "evidence": "Metric sheet (per source, confirmed only): Net confirmed growth",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response says the 10k target cannot be forecast or committed to until per-source baseline data exists",
+        "evidence": "The 10k target can't be forecast yet... sets the number after two tagged issues.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Each kept channel has an owner, a source tag and a date or done-when",
+        "evidence": "Kept table has Owner, Source tag, Date, Done when columns for all four rows.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response does not propose a referral programme with rewards as a primary channel",
+        "evidence": "Referral programme: weeks of setup, then a standing fraud job... listed under Deleted",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The response refuses printing a signup prompt after `hmig migrate` or other default CLI output",
+        "evidence": "\"(1) In-CLI prompt: keep it, with changes.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response offers a replacement for the CLI prompt: a line in `--help`, an opt-in subcommand, or a docs link",
+        "evidence": "\"Have `hmig subscribe` print a URL\" and signup links in docs.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response refuses bulk-importing the 14,000 trial accounts into the newsletter",
+        "evidence": "\"(2) Bulk import of 14,000 trial accounts: don't do it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response states that accepting the ToS or creating an account is not consent to the newsletter",
+        "evidence": "\"ToS acceptance is not marketing consent.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response offers a one-time in-product invite or an unticked opt-in box as the replacement for the import",
+        "evidence": "\"consented invite\" and \"unchecked 'Send me release news' checkbox\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response checks that each signup form records a source value (a source tag per surface) before opening new channels",
+        "evidence": "Only adds a ?src=cli parameter for the CLI landing page; no check that every signup form records a source.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response presents growth channels in an explicitly stated ranking with signup links on owned surfaces (docs, README, changelog, quickstart) ranked first",
+        "evidence": "No stated ranking of channels; the CLI prompt is called \"best channel\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response names at least one channel deleted because it does not fit the roughly 6 hours a month, such as a referral programme, swaps or paid acquisition",
+        "evidence": "No channel is cut for the 6-hour limit.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response rejects total list size as the reported growth metric",
+        "evidence": "\"Total subscribers | The VP's headline number\" is kept.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response proposes net confirmed growth or confirmed subscribers broken down per source",
+        "evidence": "\"Net new, with source (CLI, docs, cloud signup, trial invite, other)\" with double opt-in.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response says the 10k target cannot be forecast or committed to until per-source baseline data exists",
+        "evidence": "\"Reset the Q2 target once the first 60 days of data are in.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Each kept channel has an owner, a source tag and a date or done-when",
+        "evidence": "The timeline has months but no owners or per-channel source tags.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response does not propose a referral programme with rewards as a primary channel",
+        "evidence": "No referral programme is proposed.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

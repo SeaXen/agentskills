@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that compatibility is directional, asking whether code under A can be combined into a work distributed under B rather than whether A and B are 'compatible'",
+        "evidence": "\"you'd have a path through GPL-3.0 (which Apache-2.0 flows into cleanly \u2014 that direction works). 'Only' removes that escape hatch.\" \u2014 frames the question as whether Apache-2.0 code can flow into a GPL-3.0 work, not generic 'compatibility'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the FSF does not accept Apache-2.0 into GPLv2, on the grounds of Apache-2.0's patent-termination and indemnification terms",
+        "evidence": "\"the FSF has never treated Apache-2.0 as GPLv2-compatible at all (its patent-termination and indemnification clauses), independent of what license your own code carries.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects Apache-2.0 as the outbound license while libtapedrive (GPL-2.0-only) ships in the artifact",
+        "evidence": "\"No \u2014 not as currently built. The C shim's link against `libtapedrive` (GPL-2.0-only) forces the *distributed `trailcut` binary* to ship under GPL-2.0, not Apache-2.0.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that Apache-2.0 into GPLv3 works while GPLv3 into an Apache-2.0 project does not",
+        "evidence": "Only the forward direction is stated ('Apache-2.0 flows into cleanly \u2014 that direction works'); no statement about GPLv3 code failing to flow into an Apache-2.0 project.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that copyleft into permissive never works, so a single copyleft dependency can decide the outbound license before any preference is expressed",
+        "evidence": "\"This isn't a preference call \u2014 it's a legal gate from a shipped dependency, and gates get deleted, not ranked.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Separates build-only and test-only dependencies from what actually ships, because obligations attach to what is distributed",
+        "evidence": "No mention of build-only or test-only dependency scoping anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires enumerating transitive dependencies, not just direct ones",
+        "evidence": "The transcript only says \"Needs 100% enumeration, not 'mostly'\" without ever using the word transitive or distinguishing direct from transitive deps.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the vendored BSD-3-Clause CRC routine and the AI-generated retry logic as provenance items to resolve",
+        "evidence": "\"~200 lines of AI-assisted retry logic | Unclear provenance | ... Needs a review pass before the license record can call the repo clean\" and the CRC routine row noting notices \"must be preserved verbatim\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends recording each dependency result as an SPDX identifier so the check is repeatable in CI",
+        "evidence": "SPDX headers are only recommended for Mirefold-authored files (\"SPDX-License-Identifier: GPL-2.0-only headers on files Mirefold authored\"), not as a record of each dependency's license result.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats the copyleft dependency as a gate that deletes options rather than an option with a poor ratio",
+        "evidence": "\"gates get deleted, not ranked\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Produces the constraint list with a written reason per eliminated option before discussing preferences or postures",
+        "evidence": "The 'Constraints (Step 1)' table and 'What this eliminates, in writing' section precede 'Paths forward \u2014 pick one, this isn't a ranking'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Makes no claim about what a court would decide on the linking question",
+        "evidence": "\"it's fact-specific and contested at the margins \u2014 I won't tell you where your shim's actual coupling lands on that line without reading the code\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that compatibility is directional, asking whether code under A can be combined into a work distributed under B rather than whether A and B are 'compatible'",
+        "evidence": "Says Apache-2.0 and GPL-2.0 are 'mutually incompatible for combined works'. It never frames compatibility as a one-way question of A into B.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the FSF does not accept Apache-2.0 into GPLv2, on the grounds of Apache-2.0's patent-termination and indemnification terms",
+        "evidence": "'this is FSF's own published position (the Apache-2.0 patent-termination and indemnification clauses are treated as additional restrictions GPLv2 \u00a76 doesn't permit)'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects Apache-2.0 as the outbound license while libtapedrive (GPL-2.0-only) ships in the artifact",
+        "evidence": "'No \u2014 not as currently architected.' and 'the moment the shim links libtapedrive, \"ship it Apache-2.0\" and \"keep linking libtapedrive\" are mutually exclusive.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that Apache-2.0 into GPLv3 works while GPLv3 into an Apache-2.0 project does not",
+        "evidence": "Only says 'GPLv3 fixed this by explicitly listing Apache-2.0 as compatible'. It never states that the reverse direction fails.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that copyleft into permissive never works, so a single copyleft dependency can decide the outbound license before any preference is expressed",
+        "evidence": "It treats libtapedrive as a specific blocker. It never states the general rule that copyleft cannot flow into a permissive outbound license.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Separates build-only and test-only dependencies from what actually ships, because obligations attach to what is distributed",
+        "evidence": "No mention of build-only or test-only dependencies.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires enumerating transitive dependencies, not just direct ones",
+        "evidence": "Only says to run 'cargo license' or 'cargo-deny' on the 63 crates. It never mentions transitive dependencies.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the vendored BSD-3-Clause CRC routine and the AI-generated retry logic as provenance items to resolve",
+        "evidence": "The CRC routine is a 'pasted-in copy' whose header must be kept. The retry logic gets 'Two separate concerns... (1) provenance'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends recording each dependency result as an SPDX identifier so the check is repeatable in CI",
+        "evidence": "Suggests a cargo-deny allow-list in CI, but never recommends recording results as SPDX identifiers.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats the copyleft dependency as a gate that deletes options rather than an option with a poor ratio",
+        "evidence": "'There's no license text trick around this; it's a code-architecture problem wearing a licensing costume.' It treats the dependency as removing the Apache-2.0 option unless the architecture changes.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Produces the constraint list with a written reason per eliminated option before discussing preferences or postures",
+        "evidence": "It goes from a short answer to paths forward and a recommendation ('I'd steer toward (1)'). It has no explicit per-option elimination list.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Makes no claim about what a court would decide on the linking question",
+        "evidence": "It makes no court prediction and closes with 'not a substitute for counsel'.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

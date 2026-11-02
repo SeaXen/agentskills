@@ -1,16 +1,23 @@
 ---
 name: find-bugs
 description: Find bugs, security vulnerabilities, and code quality issues in local branch changes. Use when asked to review changes, find bugs, security review, or audit code on the current branch.
-category: code-quality-refactoring
+risk: critical
+source: community
+date_added: "2026-01-30"
 ---
 
 # Find Bugs
 
 Review changes on this branch for bugs, security vulnerabilities, and code quality issues.
 
+## When to Use
+- You need a review focused on bugs, security issues, or risky code changes.
+- The task involves auditing the current branch diff rather than implementing new behavior.
+- You want a structured review process with checklist-driven verification against changed files.
+
 ## Phase 1: Complete Input Gathering
 
-1. Get the FULL diff: `git diff $(gh repo view --json defaultBranchRef --jq '.defaultBranchRef.name')...HEAD`
+1. Establish the requested base and head as verified commit SHAs. Check the remote/default branch if needed; do not assume a stale local branch is current. Read the full branch diff with `git diff "$BASE_SHA...$HEAD_SHA" --`, using validated refs in separately quoted arguments. Include staged and unstaged changes when they are in scope; preserve the checkout.
 2. If output is truncated, read each changed file individually until you have seen every changed line
 3. List all files modified in this branch before proceeding
 
@@ -52,7 +59,7 @@ For each potential issue:
 Before finalizing, you MUST:
 
 1. List every file you reviewed and confirm you read it completely
-2. List every checklist item and note whether you found issues or confirmed it's clean
+2. List each applicable checklist item as a finding, verified within the reviewed scope, not applicable, or unverified; absence of a finding is not proof of security
 3. List any areas you could NOT fully verify and why
 4. Only then provide your final findings
 
@@ -67,10 +74,21 @@ For each issue:
 * **File:Line** - Brief description
 * **Severity**: Critical/High/Medium/Low
 * **Problem**: What's wrong
-* **Evidence**: Why this is real (not already fixed, no existing test, etc.)
+* **Evidence**: Concrete trigger, reachable path and observed or reasoned impact; missing tests alone do not prove a bug
 * **Fix**: Concrete suggestion
 * **References**: OWASP, RFCs, or other standards if applicable
 
 If you find nothing significant, say so - don't invent issues.
 
-Do not make changes - just report findings. I'll decide what to address.
+For a review-only request, report findings without changing code. An explicit combined review-and-fix request authorizes scoped repairs and verification; preserve the distinction between findings and completed fixes.
+
+## Example
+
+**User request:**
+
+> Review the current branch diff for real bugs, security issues, and regressions, citing exact files and lines.
+
+## Limitations
+- Use this skill only when the task clearly matches the scope described above.
+- Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
+- Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.

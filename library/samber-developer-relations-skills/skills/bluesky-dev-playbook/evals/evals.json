@@ -1,0 +1,377 @@
+{
+  "skill_name": "bluesky-dev-playbook",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I run marketing at Tessellate CI (hosted CI runners). We have 22k followers on X and leadership wants us on Bluesky by end of month. My plan: create @tessellateci.bsky.social, connect it to Buffer so every X post and thread mirrors over automatically, keep threads at 5-7 posts with a strong hook, post at the best engagement hours, and keep hashtags to one or zero like we do on X. Can you sanity-check this and fill in the best posting times for Bluesky?",
+      "expected_output": "Rejects the X transplant: explains reach on Bluesky runs through a chronological Following feed, a per-user Discover, opt-in custom feeds and starter packs; refuses the unattended mirror; gives cross-post rules; recommends person-led accounts and a domain handle; ranks surfaces; does not supply a best-time table as the main lever.",
+      "files": [],
+      "expectations": [
+        "States that the Following feed is chronological and Discover is personalized per user, so there is no single algorithm to tune posting time against.",
+        "Does not present a table or list of best posting hours as the primary growth lever.",
+        "Names community starter packs as a route to reach.",
+        "Names existing developer custom feeds as a route to reach, entered through the keyword, hashtag or emoji the feed matches.",
+        "Recommends against the unattended automatic X-to-Bluesky mirror.",
+        "Says replies and posts that only make sense on X should not be cross-posted.",
+        "Says cross-posted posts must fit 300 characters, carry alt text and drop x.com links.",
+        "Recommends that named people (engineers, advocates) post from their own accounts, with the brand account as a hub.",
+        "Recommends a domain handle such as tessellateci.com instead of the .bsky.social handle.",
+        "Labels at least one claim as Bluesky-published versus practitioner.",
+        "Revises the one-or-zero hashtag rule: a feed's matching tag or keyword is how a post enters that feed.",
+        "Assigns a named person to read and answer Bluesky replies if any cross-posting continues."
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "We're Driftwell, we make a Kafka monitoring tool. Our DX team wants to build a Bluesky bot account: it searches for any post mentioning 'kafka lag' or 'consumer lag', likes it, replies with a link to our troubleshooting guide, and auto-follows the author. Bluesky allows 1,666 likes an hour so we'd be way under the limit at maybe 200 a day. Can you write the bot's reply template and posting rules?",
+      "expected_output": "Refuses the keyword-triggered like, reply and follow bot as spam under Bluesky's Developer and Community Guidelines, explains the rate limit is not permission, gives the allowed bot shape (scheduled posts, interact only when tagged, labelled) and a human alternative.",
+      "files": [],
+      "expectations": [
+        "Refuses to write the unsolicited auto-reply template.",
+        "States that automated or bulk interactions that notify users (likes, follows, replies) count as spam under Bluesky's guidelines.",
+        "States that the write-points rate limit is not permission: bulk interactions breach the rules at volumes far below it.",
+        "States that a bot may like, repost or reply only when a user has tagged it.",
+        "Says scheduled or regular posting by a bot account is allowed.",
+        "Recommends turning on the bot label in account settings or self-labelling the account as a bot.",
+        "Recommends a separate bot handle with 'bot' in the display name or bio and a named human operator.",
+        "Offers a human alternative: a person searches the term and replies manually, with disclosure, where the link answers the question.",
+        "Includes a disclosure line such as 'I work on Driftwell' for staff replies.",
+        "Says building the bot's code is outside the playbook's scope or points to the protocol's developer documentation for it.",
+        "Warns that undeclared automation can be flagged by third-party labelers."
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Quick one. Our account @nimbusdb.bsky.social got the blue check from Bluesky last month. Next week we rebrand to Nimbus Cloud, so we'll switch the handle to nimbuscloud.com and change the display name. While we're at it, I want to register handles like planetscale-alternative.bsky.social and a few competitor-name handles so nobody squats them. Anything to watch out for?",
+      "expected_output": "Warns the blue check drops when handle or display name change, including a move to a domain handle; sequences the change then re-application; explains domain-handle setup, reserved old name and kept followers; refuses squatting competitor handles.",
+      "files": [],
+      "expectations": [
+        "Warns that changing the handle or display name removes the blue check until the account is re-verified.",
+        "States that moving to a domain handle counts as a handle change for verification.",
+        "Recommends finalizing both handle and display name before asking Bluesky for re-verification.",
+        "Explains the domain handle is set through a DNS TXT record on _atproto or a /.well-known/atproto-did file.",
+        "States followers and posts are kept through the change because the account identity is its DID.",
+        "Mentions that the old .bsky.social name is reserved or that old mentions keep resolving.",
+        "Refuses registering competitor-name handles, citing handle-squatting or brand impersonation rules.",
+        "Does not claim the blue check increases reach or ranking.",
+        "Suggests staff subdomain handles under nimbuscloud.com."
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Promptwright (AI code review for GitHub PRs) launches on Bluesky next Tuesday. Plan: the brand account posts a daily AI-generated tip, our CEO asks all 40 employees to like and repost the launch post in the first hour, and engineering will pull every Bluesky post mentioning 'code review' from the firehose to build a prospect list and fine-tune our model on the tone. Write me the launch-week plan.",
+      "expected_output": "Gives a go-small verdict for an AI-forward product, refuses staff like-bombing, AI-generated posts and firehose scraping for leads and training, explains the mass-block risk with incidents, and gives a person-led launch with disclosure and block-list monitoring.",
+      "files": [],
+      "expectations": [
+        "Refuses the coordinated employee like-and-repost push as artificial manipulation of social signals.",
+        "Recommends against AI-generated daily posts.",
+        "Warns that AI-forward accounts and content draw mass blocks and block-list inclusion on Bluesky.",
+        "Cites at least one real incident (the removed one-million-post Hugging Face dataset or the mass-blocked Bluesky AI assistant account).",
+        "Refuses scraping posts to build a prospect list or train the model without users' consent.",
+        "Frames the scraping objection as community consent norms and reputational risk rather than claiming the open API forbids reading posts.",
+        "Gives a go-small or person-led verdict rather than a brand-led broadcast launch.",
+        "Has the launch post come from a named person who built the product, with the brand account reposting.",
+        "Tells staff to answer questions in replies with a disclosure line instead of liking.",
+        "Includes monitoring block lists or labelers that list the account as a metric or stop signal.",
+        "Leads messaging with what the product does for the developer rather than 'AI-powered'."
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "I maintain Sorrel, a Rust web framework (~3k GitHub stars). I want to grow on Bluesky: (1) make a starter pack with our 6 core team members plus the project account, (2) DM about 200 Rust people asking them to follow the pack, and (3) build our own Rust custom feed so our posts show up there. Which order should I do these in?",
+      "expected_output": "Reorders around value per hour: replies and inclusion in existing community packs first, posting into existing Rust feeds with their matching tag, a community-curated own pack later; refuses the 200 DMs; own feed only if a gap and owner exist; cites starter-pack research with caveats.",
+      "files": [],
+      "expectations": [
+        "Ranks getting core members into existing community starter packs above building a pack of the team itself.",
+        "Recommends that any own starter pack curate community people rather than only Sorrel staff.",
+        "Refuses or strongly advises against DMing about 200 people, as bulk unsolicited interaction.",
+        "Says one curator ask at a time, for a named person, with a reason the pack's readers gain.",
+        "Notes that Rust custom feeds already exist and that posts enter them through the feed's entry rule (keyword, hashtag such as #rustlang, or the operator), checked before tagging.",
+        "Recommends building an own feed only when no active feed covers the topic and someone will maintain it.",
+        "Cites starter-pack research (members gaining up to about 85% more followers, or packs driving up to 43% of daily follows) and labels it as research.",
+        "States a caveat on that research (rich-get-richer effect or possible overstated lift).",
+        "States the starter-pack limits of 150 people and 3 feeds.",
+        "Gives an explicit ranked order with an efficiency rationale.",
+        "Starts with a period of replies in Rust conversations before asking for anything."
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Our devrel account @gridmesh.bsky.social has posted 3 times a day for two months. 140 followers, most posts get 0-2 likes. Every post is a product announcement or blog link with 5 hashtags (#devops #cloud #kubernetes #ai #startup). Is Bluesky shadowbanning posts with links? Should we switch to text-only posts?",
+      "expected_output": "Says Bluesky itself states links get the same visibility and are not downranked [Bluesky], diagnoses broadcast-only behaviour and hashtag stuffing, checks labels and block lists, and moves the account to person-led replies, correct feed tags and reply-based metrics.",
+      "files": [],
+      "expectations": [
+        "States that Bluesky itself says links get the same visibility as other posts and are not downranked, attributed to Bluesky.",
+        "Does not recommend switching to text-only posts as the fix.",
+        "Diagnoses the broadcast-only, announcement-only pattern as the main cause.",
+        "Flags stuffing unrelated hashtags as counterproductive, since feed operators and readers filter it.",
+        "Recommends checking whether labelers or block lists include the account.",
+        "Recommends named people replying in their stack's conversations instead of more brand posts.",
+        "Recommends using only the tag or keyword that a relevant dev feed actually matches.",
+        "Recommends measuring replies and referrals rather than follower count.",
+        "Recommends a domain handle for the official account.",
+        "Explains that 'show less like this' and dislikes reduce a post's reach with those readers.",
+        "Names go.bsky.app as Bluesky's analytics referrer or recommends UTM-tagged links for attribution."
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "Two things for our Go SDK launch at Velarion. First, we're paying three well-known Go developers to post about the SDK on Bluesky; they'd rather not mention it's paid so it feels organic. Second, our main social account is on fosstodon (Mastodon) and I'd like a script that copies every toot to a new Bluesky account. Thoughts?",
+      "expected_output": "Requires disclosure of the paid posts under Bluesky's rules with ready lines; recommends the opt-in Bridgy Fed bridge or a person-run Bluesky account over a copy script, with opt-in mechanics and caveats.",
+      "files": [],
+      "expectations": [
+        "States that undisclosed sponsored or commercial posts break Bluesky's Community Guidelines.",
+        "Requires the three developers to disclose the payment in the posts.",
+        "Provides a ready-to-adapt disclosure line.",
+        "Recommends the Bridgy Fed bridge over a copy script for Mastodon content.",
+        "Explains Bridgy Fed is opt-in by following the bridge account.",
+        "Mentions that some Mastodon instances block the bridge, so the setup needs checking.",
+        "Recommends that a person reads and answers Bluesky replies rather than leaving a mirror unattended.",
+        "Recommends a domain handle for the new Bluesky account.",
+        "Does not write the copy script itself."
+      ]
+    }
+  ],
+  "trigger_queries": [
+    {
+      "query": "should our devtool company even be on Bluesky or is it a waste of time",
+      "should_trigger": true
+    },
+    {
+      "query": "how do I get added to a Bluesky starter pack for Python people",
+      "should_trigger": true
+    },
+    {
+      "query": "we want to mirror our X account to bsky automatically, good idea?",
+      "should_trigger": true
+    },
+    {
+      "query": "set up our company's Bluesky account with our domain as the handle",
+      "should_trigger": true
+    },
+    {
+      "query": "our Bluesky posts get zero likes, are links being suppressed?",
+      "should_trigger": true
+    },
+    {
+      "query": "is it allowed for a bot to auto-reply to people who mention our product on Bluesky",
+      "should_trigger": true
+    },
+    {
+      "query": "we lost our blue checkmark on Bluesky after changing our name, why",
+      "should_trigger": true
+    },
+    {
+      "query": "which Bluesky custom feeds should our Rust maintainers post into",
+      "should_trigger": true
+    },
+    {
+      "query": "plan our developer advocate's first month on Bluesky",
+      "should_trigger": true
+    },
+    {
+      "query": "should our brand account or our engineers post on Bluesky",
+      "should_trigger": true
+    },
+    {
+      "query": "is it worth building our own custom feed on Bluesky for the Elixir community",
+      "should_trigger": true
+    },
+    {
+      "query": "we got added to a block list on bsky after our launch post, what now",
+      "should_trigger": true
+    },
+    {
+      "query": "how do I bridge our Mastodon account so Bluesky people can follow it",
+      "should_trigger": true
+    },
+    {
+      "query": "make a starter pack for our open source project's community on Bluesky",
+      "should_trigger": true
+    },
+    {
+      "query": "can I ask my team to like and repost our Bluesky announcement",
+      "should_trigger": true
+    },
+    {
+      "query": "We're moving our maintainers off X. What's the Bluesky equivalent of growing a dev following?",
+      "should_trigger": true
+    },
+    {
+      "query": "launch our CLI on Bluesky next week, what should the post and replies look like",
+      "should_trigger": true
+    },
+    {
+      "query": "how does discovery work on Bluesky without an algorithm",
+      "should_trigger": true
+    },
+    {
+      "query": "our release bot on Bluesky, what rules do we need to follow",
+      "should_trigger": true
+    },
+    {
+      "query": "is it okay to pay Go developers to post about our SDK on bsky",
+      "should_trigger": true
+    },
+    {
+      "query": "how do I get my posts into the Developers feed on Bluesky",
+      "should_trigger": true
+    },
+    {
+      "query": "we're an AI coding tool, how do we avoid getting mass-blocked on Bluesky",
+      "should_trigger": true
+    },
+    {
+      "query": "subdomain handles for all our staff on Bluesky, how",
+      "should_trigger": true
+    },
+    {
+      "query": "audit our Bluesky presence, 3 months in and nothing is working",
+      "should_trigger": true
+    },
+    {
+      "query": "Bluesky follow limits per day for a dev advocate account",
+      "should_trigger": true
+    },
+    {
+      "query": "cross-post our engineering blog announcements to Bluesky and Mastodon properly",
+      "should_trigger": true
+    },
+    {
+      "query": "should our startup apply for Bluesky verification",
+      "should_trigger": true
+    },
+    {
+      "query": "what do devs on Bluesky hate seeing from company accounts",
+      "should_trigger": true
+    },
+    {
+      "query": "our OSS project's Bluesky account keeps getting added to block lists, how do we recover",
+      "should_trigger": true
+    },
+    {
+      "query": "best way for our devtool's engineers to find conversations to join on Bluesky",
+      "should_trigger": true
+    },
+    {
+      "query": "write a Bluesky feed generator in TypeScript that indexes posts about Postgres",
+      "should_trigger": false
+    },
+    {
+      "query": "implement Login with Bluesky OAuth in our Next.js app",
+      "should_trigger": false
+    },
+    {
+      "query": "set up an Ozone labeler service for our community moderation",
+      "should_trigger": false
+    },
+    {
+      "query": "plan what we post every week about building our startup in public",
+      "should_trigger": false
+    },
+    {
+      "query": "build next quarter's devrel content calendar around our v3 release",
+      "should_trigger": false
+    },
+    {
+      "query": "write our Show HN title and first comment",
+      "should_trigger": false
+    },
+    {
+      "query": "cross-post our blog to dev.to with the canonical URL",
+      "should_trigger": false
+    },
+    {
+      "query": "sequence the channels for our open source launch day",
+      "should_trigger": false
+    },
+    {
+      "query": "should we start a Discord or a forum for our users",
+      "should_trigger": false
+    },
+    {
+      "query": "set up onboarding and channels for our developer Discord server",
+      "should_trigger": false
+    },
+    {
+      "query": "which Mastodon instance should our engineering team join",
+      "should_trigger": false
+    },
+    {
+      "query": "write a technical thread for developer Twitter about our new caching layer",
+      "should_trigger": false
+    },
+    {
+      "query": "draft a LinkedIn post announcing our Series A for engineers",
+      "should_trigger": false
+    },
+    {
+      "query": "compare Buffer, Hootsuite and Typefully for scheduling social posts",
+      "should_trigger": false
+    },
+    {
+      "query": "run the social accounts for our 600-person Go conference in March",
+      "should_trigger": false
+    },
+    {
+      "query": "build a watch list of DevRel podcasts, newsletters and people to follow",
+      "should_trigger": false
+    },
+    {
+      "query": "attribute signups to our social channels with UTMs in our analytics",
+      "should_trigger": false
+    },
+    {
+      "query": "write a code of conduct and enforcement ladder for our community",
+      "should_trigger": false
+    },
+    {
+      "query": "plan our Product Hunt launch and maker comment",
+      "should_trigger": false
+    },
+    {
+      "query": "why are our GitHub stars flat after launch",
+      "should_trigger": false
+    },
+    {
+      "query": "pitch our release to tech journalists under embargo",
+      "should_trigger": false
+    },
+    {
+      "query": "design an employer-brand strategy to attract backend engineers",
+      "should_trigger": false
+    },
+    {
+      "query": "how should our team post in r/rust without getting banned",
+      "should_trigger": false
+    },
+    {
+      "query": "analyze sentiment of Bluesky posts about our product using the firehose API",
+      "should_trigger": false
+    },
+    {
+      "query": "write a bot in Python that posts our GitHub releases to Bluesky using the atproto SDK",
+      "should_trigger": false
+    },
+    {
+      "query": "start a Substack newsletter for our devtool",
+      "should_trigger": false
+    },
+    {
+      "query": "make a short demo video for our launch",
+      "should_trigger": false
+    },
+    {
+      "query": "build a social media content strategy across Instagram, TikTok and LinkedIn for our consumer app",
+      "should_trigger": false
+    },
+    {
+      "query": "our bakery's Bluesky posts get no reach, what are we doing wrong",
+      "should_trigger": false
+    },
+    {
+      "query": "someone added me to a Bluesky block list over my politics, how do I get off it",
+      "should_trigger": false
+    }
+  ]
+}

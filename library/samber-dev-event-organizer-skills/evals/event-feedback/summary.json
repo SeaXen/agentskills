@@ -1,0 +1,306 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-feedback",
+  "scenarios": 9,
+  "expectations_total": 111,
+  "expectations_subjective": 1,
+  "expectations_objective": 110,
+  "pass_rate_with_skill_pct": 92.8,
+  "pass_rate_without_skill_pct": 48.6,
+  "delta_pp": 44.2,
+  "uplift_multiplier": 1.91,
+  "trigger_accuracy_pct": 76.4,
+  "trigger_queries": 106,
+  "trigger_positive_fire_rate": 0.792,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Anonymity is turned on for the instrument or at least for the judge and mentor rating questions, with the reasoning that respondents who suspect the rated person will read their name give unusable ratings."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Each question is tested against the decision it would change, and questions with no named decision behind them are cut."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Free-text results appear as themes with counts, not as an unquantified mood summary."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The summary includes what the instrument failed to ask, inferred from what open answers kept raising unprompted."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The response distinguishes owning the survey's question set from owning the email's copy and cadence, rather than treating them as one deliverable."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "A public findings post is promoted in this specific case, because the event compounds across editions and a recap is already planned."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "The published version includes the negative findings, with publishing what went wrong (ideally including what the survey design itself got wrong) framed as the established precedent rather than a risk."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Publication sign-off is owned by the team's debrief process; this workstream supplies the survey half."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Project continuation is measured with a separate short follow-up survey sent one to two weeks after the event, not solely by a question on the demo-day instrument."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Anonymity is turned on for the instrument or at least for the judge and mentor rating questions, with the reasoning that respondents who suspect the rated person will read their name give unusable ratings."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "In-room collection is justified with a materially higher response-rate band than email (roughly 40-60% versus 10-30%, or described as a multiple of the email rate)."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The response computes or states the response rate (roughly 4-5%) and compares it against the published emailed band of roughly 10-30%, or a floor of roughly one in ten."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The 24-48 hour window is presented as practitioner consensus rather than a measured effect, and no percentage improvement is quoted for send timing."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The 23-question length is identified as a cause, citing that a very short survey more than doubles the median response rate of a long one, stated as a ratio rather than invented point precision."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The response recommends sending a reminder now, capped at no more than two reminders in total."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The response warns that additional reminders beyond that cap produce fatigue rather than more responses."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The response recommends cutting every question that has no named decision behind it, rather than trimming by topic or taste."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "An incentive or prize draw is presented as a legitimately available lever in this specific situation (prior rate below the band floor and the event already over), with event-specific prizes preferred over generic gadgets."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The user is instructed to state the response rate beside any finding drawn from the 22 responses rather than presenting the answers as a verdict."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The response requires choosing one before fielding, and does not paper over the conflict with a workaround such as anonymizing after the draw."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The recommendation is to keep anonymity and drop the draw, because the instrument rates judges and mentors by name."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The anonymity rationale is stated as mechanical, not merely ethical: a respondent who suspects the judge or mentor will read their name gives a rating that cannot be used."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The chosen promise is stated inside the survey intro text the response drafts."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "If any incentive is retained in the plan, an event-specific prize is recommended over a generic gadget like an iPad."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The response notes that a code-of-conduct-type allegation arriving in free text is routed to the code-of-conduct process immediately rather than treated as a survey finding."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Each question is tested against the decision it would change, and questions with no named decision behind them are cut."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The length trade is stated to the user: a very short survey more than doubles the median response rate of a long one."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The final instrument lands at roughly 3-5 questions."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The question 'Did you enjoy our amazing speaker lineup?' is flagged as leading or unfalsifiable and replaced with a behavioural question such as which sessions the respondent attended or left before the end."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The question 'Would you attend a paid workshop day next year?' is flagged as hypothetical and replaced with a past-behaviour question, such as whether the respondent has paid for a workshop day at another event in the last two years."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The unbounded 'Any other comments?' box is replaced with a bounded question such as the one thing to change for next edition."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The four separate 1-10 rating scales are collapsed rather than all kept, on the grounds that multiple stacked scales get answered on autopilot as one blended impression."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The question 'How was the venue?' is either cut or rewritten to surface concrete obstacles rather than collect a polite 'fine'."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Because the event ended yesterday, sending within the 24-48 hour window is stated as urgent."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Demographic or curiosity questions such as job title and social networks are cut unless tied to a named decision, and no new questions are added from a generic question bank."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The response states that what a speaker receives, and its timing and framing, is owned by the speaker-experience side of the operation rather than decided ad hoc from the survey."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Free text is grouped into themes with counts rather than forwarded raw."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The response rate (74 of 300, roughly 25%) is stated beside the findings."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Raw response exports are not handed to anyone downstream; a summary is handed over instead."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The response refuses to compute the single blended score, explaining that satisfaction, return intent, and operations answer different questions and averaging them produces a number nobody can explain."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The slide presents one number per metric: satisfaction, return intent, and operations reported separately."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The 58% return intent is flagged as below the roughly two-thirds early-warning threshold."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The return-intent trend is marked for hand-off to the cross-edition improvement process rather than resolved inside this edition's findings."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The sponsor who ticked 'will not sponsor again' triggers an immediate phone call, not an appendix row to analyze later."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Sponsor verdicts are passed onward to whoever manages sponsor relationships immediately rather than at the end of the analysis."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The 2-of-6 sponsor sample is treated by name, not by percentage: no sponsor-satisfaction or sponsor-response percentage is presented as meaningful."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Free-text results appear as themes with counts, not as an unquantified mood summary."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The findings are framed as input to the team's own debrief, and the response issues no go/no-go verdict on the event itself."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The summary includes what the instrument failed to ask, inferred from what open answers kept raising unprompted."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The channel move is justified with the response-rate multiple: in-room lands roughly 40-60% against roughly 10-30% for email."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Channels are compared on response rate only."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The voucher raffle is demoted: with last year's 19% inside the emailed band rather than at or below its floor, and the day still open, the condition that would promote an incentive is not met."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The response notes the incentive is the costliest option on effort and on compliance exposure (prize administration, and an identifier attached to responses) while buying less than the channel move."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The response notes that a raffle requires identifying respondents, which conflicts with any anonymity promise the instrument might need."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "If any prize is kept, an event-specific prize is recommended over the generic voucher."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The response distinguishes owning the survey's question set from owning the email's copy and cadence, rather than treating them as one deliverable."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The speaker instrument includes whether the speaker achieved what they came to do, or how engaged the audience was."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The speaker instrument includes whether they would recommend qualified peers as future speakers."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The 'speaker satisfaction: 71%' statistic is refused: a population of 7 is treated by name, not by percentage."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The comparison against last year's 83% is handed to the cross-edition trends process rather than performed as part of this edition's findings."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "What each speaker receives from attendee ratings, and when, is routed through the speaker-experience side rather than sent directly from the survey analysis."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "The note is preferred over a bare thank-you because a respondent seeing their own answer move something is what builds next edition's response rate."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Publication consent collected at survey time is checked before any verbatim comment is quoted; without it, quotes stay out or are reduced to redacted substance."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Publication sign-off is owned by the team's debrief process; this workstream supplies the survey half."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "The whole findings summary goes to the debrief before the debrief meeting, not during or after it."
+      }
+    ]
+  }
+}

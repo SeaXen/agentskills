@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Gives a way to find which segment drives the Gmail spam rate: Feedback-ID feedback-loop data where the platform supports it, or sending cohorts on separate days and comparing Postmaster's daily rate",
+        "evidence": "Fix 1a: Feedback-ID view, or \"send cohorts (recent clickers, mid-age, oldest) on separate days and compare each day's rate.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends NOT deleting or suppressing the 1,930 5.7.515 addresses",
+        "evidence": "\"Do not delete the 1,930 Outlook/Hotmail 'hard bounces'.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains 5.7.515 as Outlook.com rejecting the sender for failing its authentication requirement, not bad addresses",
+        "evidence": "\"Microsoft refused your sending domain's authentication. The addresses are fine\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the fix for 5.7.515 as SPF, DKIM and DMARC passing and aligned on the sending domain",
+        "evidence": "Fix 2: seed shows `dkim=pass` with `d=saltmarshdevs.io`, `spf=pass` and `dmarc=pass`.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says the 5.7.515 readers can be reached again after the fix",
+        "evidence": "\"Mail the 1,930 Outlook addresses only after Fix 2 passes\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that Gmail provides no per-message complaint feedback, so individual complainers cannot be identified",
+        "evidence": "\"Gmail gives senders only an aggregate spam rate, with no list of who complained.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that at a Gmail spam rate above 0.3% the sender is ineligible for Google mitigation until 7 consecutive days below it",
+        "evidence": "\"Gmail offers no mitigation help until your rate has been under 0.3% for 7 consecutive days.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives 0.1% as the target spam rate",
+        "evidence": "\"four times the 0.1% target\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends prevention levers instead: pausing the segment driving complaints, a working one-click unsubscribe, the inactivity rule",
+        "evidence": "Fix 1b pause worst cohort, fix 3 one-click, fix 7 inactivity rule on human clicks.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks what changed recently (import, old segment, new form) to explain the complaint spike",
+        "evidence": "Open question 4: \"What changed before last Thursday: a platform move, an import, a send to an old segment, a volume jump?\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends reading bounce reply text rather than the platform's hard/soft label",
+        "evidence": "\"The platform's hard/soft label isn't evidence. Read the raw SMTP text per provider.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends stopping or slowing sends to the complaining segment before other fixes",
+        "evidence": "Fix 1 \"Stop the harm. Hold the next send to Gmail addresses until the cause is localized\"; 1b pause worst cohort.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says to pause and escalate a receiver only if it still blocks two sends after the authentication fix is verified",
+        "evidence": "\"If Outlook still rejects two sends after the fix is verified, pause that domain and escalate\".",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Gives a way to find which segment drives the Gmail spam rate: Feedback-ID feedback-loop data where the platform supports it, or sending cohorts on separate days and comparing Postmaster's daily rate",
+        "evidence": "\"Add a Feedback-ID header... Postmaster Tools then breaks the spam rate down by ID.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends NOT deleting or suppressing the 1,930 5.7.515 addresses",
+        "evidence": "\"don't delete anything yet\"; \"Remove the 5.7.515 contacts from the bounce/suppression list.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains 5.7.515 as Outlook.com rejecting the sender for failing its authentication requirement, not bad addresses",
+        "evidence": "\"Microsoft is rejecting your mail because saltmarshdevs.io fails its sender-authentication requirements.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the fix for 5.7.515 as SPF, DKIM and DMARC passing and aligned on the sending domain",
+        "evidence": "Steps for custom DKIM, return-path and DMARC, with \"spf=pass, dkim=pass, and dmarc=pass\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says the 5.7.515 readers can be reached again after the fix",
+        "evidence": "Set them back to subscribed and re-send in batches.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that Gmail provides no per-message complaint feedback, so individual complainers cannot be identified",
+        "evidence": "\"Gmail never tells senders who clicked 'Report spam'.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that at a Gmail spam rate above 0.3% the sender is ineligible for Google mitigation until 7 consecutive days below it",
+        "evidence": "Only \"never reach 0.3%\"; the 7-day mitigation rule is not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives 0.1% as the target spam rate",
+        "evidence": "\"stay under 0.1% and never reach 0.3%\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends prevention levers instead: pausing the segment driving complaints, a working one-click unsubscribe, the inactivity rule",
+        "evidence": "One-click unsubscribe check and suppressing inactive Gmail subscribers over 90-180 days.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks what changed recently (import, old segment, new form) to explain the complaint spike",
+        "evidence": "\"segments that grew recently or came from a bulk import are the usual source\"; \"Find out why Thursday was different.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends reading bounce reply text rather than the platform's hard/soft label",
+        "evidence": "Counts by status code (5.7.515 vs 5.1.1) from the reason column.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends stopping or slowing sends to the complaining segment before other fixes",
+        "evidence": "It does not tell the user to pause the complaining segment; it only suppresses inactive Gmail subscribers before the next send.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says to pause and escalate a receiver only if it still blocks two sends after the authentication fix is verified",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

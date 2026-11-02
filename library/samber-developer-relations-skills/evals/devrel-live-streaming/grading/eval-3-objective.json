@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Says live (production) keys must never be used or shown on stream",
+        "evidence": "No live keys on the machine.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a dedicated demo account with scoped, low-limit keys",
+        "evidence": "Demo account with scoped, low-limit sandbox keys.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends rotating the demo keys after every stream",
+        "evidence": "Rotate them after the stream.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends rotating or revoking the keys that may already have been exposed on past streams",
+        "evidence": "rotate Dana's live keys now regardless of what the audit finds",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a separate OS user or browser profile without saved passwords or personal tabs",
+        "evidence": "Separate OS user or browser profile: no saved passwords, no personal tabs",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a privacy or BRB scene to cut to before any credential screen",
+        "evidence": "Privacy scene ready to cut to before any credential screen.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Mentions protecting the stream key itself (not visible in captured scenes or shared documents)",
+        "evidence": "Stream key in a password manager, never in the run-of-show doc.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a vulnerability reported in chat must not be reproduced or discussed live",
+        "evidence": "Dana never reproduces a vulnerability live again.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the reporter to a security disclosure channel",
+        "evidence": "move them to the security disclosure channel",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends cutting the vulnerability segment from the archive or VOD and any clips",
+        "evidence": "Cut the vulnerability moment out of the archive... find and delete viewer clips",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Assigns at least one named moderator who is not the host",
+        "evidence": "A named moderator for Twitch chat who isn't Dana. Owner: to confirm.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists moderation presets to set before the show (blocked terms, AutoMod or held messages, link policy)",
+        "evidence": "AutoMod on... Blocked terms... Link policy: only moderators post links.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends that the webhook issue be handled as a security incident by the right team, not just a stream fix",
+        "evidence": "Tell the security team today. They own the decision about public statements.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Says live (production) keys must never be used or shown on stream",
+        "evidence": "'Streaming does not need live keys at all.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a dedicated demo account with scoped, low-limit keys",
+        "evidence": "It recommends 'Sandbox keys only' and 'restricted, scoped keys' but no dedicated demo account or low limits.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends rotating the demo keys after every stream",
+        "evidence": "Rotation is a one-time action now, not a per-stream habit.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends rotating or revoking the keys that may already have been exposed on past streams",
+        "evidence": "'Rotate every key Dana holds... Rotate both sandbox and live keys.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a separate OS user or browser profile without saved passwords or personal tabs",
+        "evidence": "'Use a separate OS user or a dedicated laptop, with no work SSO, no password manager'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a privacy or BRB scene to cut to before any credential screen",
+        "evidence": "It mentions 'a single window or a dedicated scene' for capture, but no privacy or BRB scene.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Mentions protecting the stream key itself (not visible in captured scenes or shared documents)",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a vulnerability reported in chat must not be reproduced or discussed live",
+        "evidence": "'Never test a claimed vulnerability live... Say \"email security@ and I'll pass it on,\" then stop.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the reporter to a security disclosure channel",
+        "evidence": "'Publish a security contact or disclosure policy... invite them to submit it properly.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends cutting the vulnerability segment from the archive or VOD and any clips",
+        "evidence": "The VOD audit targets '.env, console, and key flashes', not the vulnerability segment.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Assigns at least one named moderator who is not the host",
+        "evidence": "'Recruit at least one moderator, a colleague or trusted regular' names no one.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Lists moderation presets to set before the show (blocked terms, AutoMod or held messages, link policy)",
+        "evidence": "'Turn on AutoMod and slow mode, and block links.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends that the webhook issue be handled as a security incident by the right team, not just a stream fix",
+        "evidence": "Assigns 'security, ~2 hours' to check abuse, plus 'Write a short incident note' and an eng ticket.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

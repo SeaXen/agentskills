@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses buying stars by name and states the practice is detectable",
+        "evidence": "'\u274c **Star-buying service.** Refuse by name, don't rank it last. Detectable: He et al. ... found ~6M suspected fake stars across 18,617 repos'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites roughly six million suspected fake stars across more than eighteen thousand repositories, from a multi-year study of public event data",
+        "evidence": "'found ~6M suspected fake stars across 18,617 repos, caught by burst-pattern analysis on public event data' \u2014 the numbers match but no multi-year time span is stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes the star-buying option from the plan rather than ranking it last",
+        "evidence": "'**Kill both ideas today.**... Refuse by name, don't rank it last.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that stars measure attention and promotion reach, not adoption or quality",
+        "evidence": "'Stars measure promotion reach, not adoption (Borges & Valente, 2018)'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that star growth is driven by promotion rather than by the profile page",
+        "evidence": "'Stars measure promotion reach, not adoption (Borges & Valente, 2018) \u2014 buying them doesn't answer what your investor actually implicitly wants to know'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends contextualizing stars next to adoption data when investors ask, rather than optimizing stars",
+        "evidence": "'\"if investors ask for stars, contextualize them next to adoption data rather than optimizing them.\"'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names concrete adoption evidence to publish instead: named users, download counts, and release cadence",
+        "evidence": "'pull real adoption numbers \u2014 package/registry download counts, count of external contributors, known production users, release cadence.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines to treat the 1,900 versus 14,000 comparison as a measure of relative adoption or quality",
+        "evidence": "'Stars measure promotion reach, not adoption... buying them doesn't answer what your investor actually implicitly wants to know: is anyone real using this.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the request as one to manufacture evidence, says so plainly, and offers the profile audit instead",
+        "evidence": "Both ideas refused outright and redirected: 'This is a board-narrative problem, not a GitHub-page problem' plus the parallel 'Profile work worth doing in parallel' audit section.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not promise that any profile change will close the star gap",
+        "evidence": "No claim anywhere that profile fixes will close the 1,900 vs 14,000 star gap; profile fixes are framed around credibility/adoption evidence instead.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends the organization README state the open-source stance, including that the core engine is Apache-2.0 and what is commercial",
+        "evidence": "'Add one plain-stated paragraph: what's Apache-2.0, what (if anything) is commercial. Required for a 22-person company profile'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses buying stars by name and states the practice is detectable",
+        "evidence": "'Reject paid-stars service today.' and 'Detection is trivial now. star-history.com shows a vertical spike instantly.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites roughly six million suspected fake stars across more than eighteen thousand repositories, from a multi-year study of public event data",
+        "evidence": "No such figures (six million, eighteen thousand repos) are cited; only a general reference to 'GitHub runs bulk purges of fake stars (happened 2024, public incident, thousands of repos hit)'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes the star-buying option from the plan rather than ranking it last",
+        "evidence": "'Reject paid-stars service today' is an outright rejection, not a lower ranking among options.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that stars measure attention and promotion reach, not adoption or quality",
+        "evidence": "Only the negative half is stated ('Stars don't correlate with revenue, retention, or adoption'); it never explicitly frames stars as measuring attention/promotion reach.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that star growth is driven by promotion rather than by the profile page",
+        "evidence": "No discussion of star growth being tied to a profile page versus promotion \u2014 this transcript is not about a profile-page change.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends contextualizing stars next to adoption data when investors ask, rather than optimizing stars",
+        "evidence": "'Give them better ones instead... One line for the deck: \"Stars are a vanity metric; here's what tracks real adoption.\"'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names concrete adoption evidence to publish instead: named users, download counts, and release cadence",
+        "evidence": "Listed metrics are downloads, dependents graph, contributor count, and customer logos \u2014 release cadence is never mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines to treat the 1,900 versus 14,000 comparison as a measure of relative adoption or quality",
+        "evidence": "'Stars don't correlate with revenue, retention, or adoption... steady organic growth reads as more trustworthy... than a competitor's shape' reframes comparison away from raw magnitude.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the request as one to manufacture evidence, says so plainly, and offers the profile audit instead",
+        "evidence": "The rejection is framed around detection risk and lack of correlation with adoption, not explicitly labeled 'manufacturing evidence', and no profile audit is offered.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not promise that any profile change will close the star gap",
+        "evidence": "No such promise appears anywhere in the transcript.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends the organization README state the open-source stance, including that the core engine is Apache-2.0 and what is commercial",
+        "evidence": "No mention of an organization README, Apache-2.0, or licensing stance.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

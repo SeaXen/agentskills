@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Recommends publishing it publicly and first, on the company's own terms, rather than emailing affected accounts only",
+        "evidence": "\"Post publicly, and email affected accounts individually. This isn't an either/or\" ... \"Support lead is wrong that silence is safe.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the same news extracted or surfaced by someone else is far more expensive than publishing it yourself",
+        "evidence": "\"'Bad news published on your own terms is the highest-value content the practice produces; the same news extracted by someone else is the most damaging.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Specifies the order: impact on the reader first, then cause, then what changes systemically, and explicitly rejects the reverse order",
+        "evidence": "\"this has to read as a postmortem, not a PR post. Lead with impact, not with 'we fixed it.'\" \u2014 the sample post opens with \"Who was affected\" and ends with \"What changes systemically.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the impact stated in terms a reader can check against their own account or installation",
+        "evidence": "\"Roughly 300 accounts: everyone running the async client with a custom retry policy on 4.2. If you're on the default retry policy, or on the sync client, this doesn't apply to you.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires saying what is not yet known and when the next update lands, then meeting that date",
+        "evidence": "\"We're also auditing every account on 4.2 for the same pattern ... We expect that audit done by [date] \u2014 if it turns up anything, we'll update this post\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prohibits blame of individuals, vendors or contributors, and requires a systemic description instead",
+        "evidence": "\"No spin, no blame, no vagueness about scope.\" paired with the \"What changes systemically\" section about the missing CI test.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Publishes once, in full, in one place, with replies linking back to it rather than relitigating the same point across threads",
+        "evidence": "\"Publish once, on your blog (your anchor surface) ... and don't relitigate it in social replies \u2014 point every thread back to the one post.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Instructs to answer the strongest objection once, in public, and never to argue the same point across many threads",
+        "evidence": "\"don't relitigate it in social replies \u2014 point every thread back to the one post.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires any later correction to be published at the same prominence as the original claim, never as a reply to a stale post",
+        "evidence": "No statement about correction prominence appears; the transcript only mentions updating the same post if the audit turns up more affected accounts.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes live-incident status updates, which belong on a status page, from analysis, which belongs in a postmortem once causes are confirmed",
+        "evidence": "No status page vs. postmortem distinction is made anywhere in the transcript; the bug is already fixed before publication is discussed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the post to name a systemic change to the release or testing process, not only the patched version",
+        "evidence": "\"Every retry-policy variant we support now runs against the billing path in CI before a release goes out, not just the happy path we already tested.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Recommends publishing it publicly and first, on the company's own terms, rather than emailing affected accounts only",
+        "evidence": "Sequencing explicitly allows email-first: 'Send the individual emails first, or at the same time as the public post \u2014 never after,' not requiring public-first.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the same news extracted or surfaced by someone else is far more expensive than publishing it yourself",
+        "evidence": "'If that happens and there's nothing public from you, the story becomes \"they tried to bury a billing bug\" instead of \"they had a bug and fixed it in a day.\"'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Specifies the order: impact on the reader first, then cause, then what changes systemically, and explicitly rejects the reverse order",
+        "evidence": "Email/post lead with a cause-oriented 'What happened' section describing the bug mechanism rather than an explicit reader-impact-first framing, and no statement explicitly rejects the reverse order.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the impact stated in terms a reader can check against their own account or installation",
+        "evidence": "'Your account was one of about 300 affected' and public post: 'If you're running 4.2 with a custom retry policy and see something on your invoice that doesn't look right.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires saying what is not yet known and when the next update lands, then meeting that date",
+        "evidence": "Neither the email nor the public post mentions open unknowns or a scheduled follow-up date.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Prohibits blame of individuals, vendors or contributors, and requires a systemic description instead",
+        "evidence": "Both texts describe the bug systemically ('a retry could be billed again without checking whether it had already succeeded') with no blame assigned to any person.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Publishes once, in full, in one place, with replies linking back to it rather than relitigating the same point across threads",
+        "evidence": "Not discussed; no guidance on handling replies/threads is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Instructs to answer the strongest objection once, in public, and never to argue the same point across many threads",
+        "evidence": "Not addressed anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires any later correction to be published at the same prominence as the original claim, never as a reply to a stale post",
+        "evidence": "Not discussed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes live-incident status updates, which belong on a status page, from analysis, which belongs in a postmortem once causes are confirmed",
+        "evidence": "No status-page vs postmortem distinction is made.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the post to name a systemic change to the release or testing process, not only the patched version",
+        "evidence": "'What we're changing: ...\"retries now check for an existing charge before billing again, and we've added test coverage for custom retry policies to our release checklist.\"'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Tests the embedded shape against all four promotion conditions before recommending or rejecting it.",
+        "evidence": "\"Embedded is only justified when all four hold: driver is product input (ours is sales enablement \u2014 fails), squads have genuinely different audiences (unconfirmed \u2014 enterprise buyers likely evaluate the *whole platform's* integration story, not squad-by-squad \u2014 probably fails), each squad can fund and level the role (unconfirmed), a craft owner survives outside the squads (not named in CTO's plan \u2014 fails). Missing even one kills it; this fails at least two.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the funded driver here is not product input, so embedded fails at least one of the four conditions.",
+        "evidence": "\"driver is product input (ours is sales enablement \u2014 fails)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires each host team to be able to fund and level the advocate role, not just host it.",
+        "evidence": "\"each squad can fund and level the role (unconfirmed)\" listed as one of the four justifying conditions for embedded.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a named craft owner who survives outside the host teams.",
+        "evidence": "\"a craft owner survives outside the squads (not named in CTO's plan \u2014 fails)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the product lines to have genuinely different audiences.",
+        "evidence": "\"squads have genuinely different audiences (unconfirmed \u2014 enterprise buyers likely evaluate the *whole platform's* integration story, not squad-by-squad \u2014 probably fails)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that embedded is the least reversible shape, because each advocate is levelled and promoted by a host manager who now owns that headcount.",
+        "evidence": "\"Least reversible shape there is: each advocate gets levelled and promoted by an EM using engineering criteria that don't describe advocacy work. Retention leak, not a loud failure.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the career ladder as what embedded usually costs.",
+        "evidence": "\"If CTO's plan had gone through as stated, advocates would level against engineering criteria that don't describe their work \u2014 a slow retention leak, flag this explicitly if he pushes back on hub-and-spoke.\" and \"Advocates stay on a DevRel-specific ladder, owned by the hub lead \u2014 this is the whole point of keeping a craft owner.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the shared craft and the shared calendar as what embedded costs.",
+        "evidence": "No mention of a 'shared calendar' anywhere in the transcript; the costs listed for embedded are backup/bus-factor, reversibility/ladder, and the Conway's Law fragmentation of the docs story \u2014 'shared craft' is implied via the craft-owner condition but 'shared calendar' is never named as a cost.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Acknowledges that embedded buys the best product feedback available, and does not reject it as simply wrong.",
+        "evidence": "\"CTO's stated reason (\\\"advocates close to code\\\") is real value, not fake \u2014 but it's a proxy for a different driver (product input) than the one funding the headcount.\" and shape C is chosen because it \"Buys CTO's proximity without the fragmentation, the reversibility problem, or the ladder collapse.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that embedded's coordination is a standing job rather than a one-off setup cost.",
+        "evidence": "The transcript names 'standing coordination overhead (spoke syncs)' only as a cost of the recommended hub-and-spoke shape C, not as a property of embedded (shape B); no equivalent statement appears in the B section framing embedded's coordination as an ongoing job.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the embedded staffing floor as one advocate per host team plus a craft owner somewhere, i.e. at least five advocates plus a craft owner for five squads.",
+        "evidence": "The transcript only notes \"6 advocates into 5 squads doesn't divide. One squad gets 2, or one gets 0, or someone floats\" and separately flags the missing craft owner as a failed condition, but never states a floor formula of 'one per squad plus a craft owner elsewhere, i.e. at least 5+1' for the embedded model.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the sales-enablement driver to a product or marketing line with a sales interlock, and does not place developer relations under sales.",
+        "evidence": "\"DevRel reports to Product, because the funded driver is sales enablement... Marketing covers that gap via a named distribution partner\" and the Interlocks table lists \"Sales \u2014 X-as-a-service, strictly \u2014 field objections and lost-deal doc gaps in, evaluation material out \u2014 arbiter: hub lead.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Tests the embedded shape against all four promotion conditions before recommending or rejecting it.",
+        "evidence": "No four-condition test framework is used; the analysis proceeds directly from 'the mismatch' to a matrixed recommendation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the funded driver here is not product input, so embedded fails at least one of the four conditions.",
+        "evidence": "The funded driver (lost enterprise deals) is discussed but never explicitly mapped onto a 'not product input, therefore fails a condition' framework.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires each host team to be able to fund and level the advocate role, not just host it.",
+        "evidence": "No requirement about host teams funding/leveling the role is stated; comp/leveling stays with 'you' regardless of squad.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a named craft owner who survives outside the host teams.",
+        "evidence": "\"Keep a solid functional reporting line to you for all five... you own comp, career development, and the DevRel craft bar.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the product lines to have genuinely different audiences.",
+        "evidence": "No discussion of whether the five squads' audiences genuinely differ.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that embedded is the least reversible shape, because each advocate is levelled and promoted by a host manager who now owns that headcount.",
+        "evidence": "Not stated; the plan actually avoids full embedding specifically to keep the functional line, but never frames this as 'least reversible.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the career ladder as what embedded usually costs.",
+        "evidence": "\"Career path and hiring bar collapse. An EM managing one advocate for the first time can't develop them as a DevRel professional. Retention risk within two quarters.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the shared craft and the shared calendar as what embedded costs.",
+        "evidence": "Craft/consistency erosion is named (\"Docs voice, sample-code standards... need a single bar\") but a shared calendar is never mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Acknowledges that embedded buys the best product feedback available, and does not reject it as simply wrong.",
+        "evidence": "\"None of this means 'reject the CTO's plan.' Proximity to the code is a real, valid fix for a real problem.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that embedded's coordination is a standing job rather than a one-off setup cost.",
+        "evidence": "A weekly sync is set up as an ongoing mechanism but the transcript never explicitly states coordination is a standing job vs. one-off cost.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the embedded staffing floor as one advocate per host team plus a craft owner somewhere, i.e. at least five advocates plus a craft owner for five squads.",
+        "evidence": "No staffing-floor statement is made; the 5+1 split is implemented but not framed as a required floor.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the sales-enablement driver to a product or marketing line with a sales interlock, and does not place developer relations under sales.",
+        "evidence": "The transcript does not discuss sales reporting lines or a sales interlock at all; the topic is squad embedding, not sales placement.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

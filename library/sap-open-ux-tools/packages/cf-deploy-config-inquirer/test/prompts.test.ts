@@ -1,0 +1,372 @@
+import { jest } from '@jest/globals';
+import { Severity } from '@sap-devx/yeoman-ui-types';
+
+// Pre-import real modules before mocking
+const realBtpUtils = await import('@sap-ux/btp-utils');
+const realPromptHelpers = await import('../src/prompts/prompt-helpers.js');
+
+const mockIsAppStudio = jest.fn<typeof realBtpUtils.isAppStudio>();
+const mockFetchBTPDestinations = jest.fn<typeof realPromptHelpers.fetchBTPDestinations>();
+
+jest.unstable_mockModule('@sap-ux/btp-utils', () => ({
+    ...realBtpUtils,
+    isAppStudio: mockIsAppStudio
+}));
+
+jest.unstable_mockModule('../src/prompts/prompt-helpers', () => ({
+    ...realPromptHelpers,
+    fetchBTPDestinations: mockFetchBTPDestinations
+}));
+
+const { getQuestions } = await import('../src/prompts/index.js');
+const { t } = await import('../src/i18n.js');
+const { promptNames } = await import('../src/index.js');
+import type {
+    CfDeployConfigPromptOptions,
+    CfSystemChoice,
+    CfDeployConfigQuestions,
+    DestinationNamePromptOptions
+} from '../src/types.js';
+import { RouterModuleType } from '../src/types.js';
+import { type ListQuestion, type YUIQuestion } from '@sap-ux/inquirer-common';
+import type { Logger } from '@sap-ux/logger';
+
+const mockLog = {
+    info: jest.fn(),
+    warn: jest.fn()
+} as unknown as Logger;
+
+describe('Prompt Generation Tests', () => {
+    let promptOptions: CfDeployConfigPromptOptions;
+    const destinationPrompts: DestinationNamePromptOptions = {
+        defaultValue: 'defaultDestination',
+        hint: false
+    };
+    const additionalChoiceList: CfSystemChoice[] = [
+        {
+            name: 'testChoice',
+            value: 'testValue',
+            scp: false,
+            url: 'testUrl'
+        },
+        {
+            name: 'testChoice1',
+            value: 'testValue1',
+            scp: false,
+            url: 'testUrl'
+        }
+    ];
+
+    beforeEach(() => {
+        jest.clearAllMocks();
+        promptOptions = {
+            [promptNames.destinationName]: destinationPrompts
+        };
+    });
+
+    describe('getDestinationNamePrompt', () => {
+        it('returns list-based prompt when environment is BAS', async () => {
+            mockIsAppStudio.mockReturnValueOnce(true);
+
+            const questions: CfDeployConfigQuestions[] = await getQuestions(promptOptions);
+            const destinationNamePrompt = questions.find((question) => question.name === promptNames.destinationName);
+            expect(destinationNamePrompt?.type).toBe('list');
+            expect(destinationNamePrompt?.default()).toBe('defaultDestination');
+        });
+
+        it('returns list-based prompt for cap project when environment is BAS', async () => {
+            mockIsAppStudio.mockReturnValueOnce(true);
+            mockFetchBTPDestinations.mockResolvedValueOnce({
+                btpTestDest: {
+                    Name: 'btpTestDest',
+                    Host: 'btpTestDest',
+                    Type: 'HTTP',
+                    Authentication: 'BasicAuthentication',
+                    ProxyType: 'OnPremise',
+                    Description: 'btpTestDest'
+                }
+            });
+            // cap destination is provided as an additional choice
+            promptOptions = {
+                [promptNames.destinationName]: {
+                    ...destinationPrompts,
+                    additionalChoiceList
+                }
+            };
+
+            const questions: CfDeployConfigQuestions[] = await getQuestions(promptOptions);
+            const destinationNamePrompt = questions.find((question) => question.name === promptNames.destinationName);
+            expect(destinationNamePrompt?.type).toBe('list');
+            expect(destinationNamePrompt?.default()).toBe('defaultDestination');
+            // ensure additional choice is added to the BTP destination list
+            expect((destinationNamePrompt as ListQuestion)?.choices).toStrictEqual([
+                ...additionalChoiceList,
+                {
+                    name: 'btpTestDest - btpTestDest',
+                    value: 'btpTestDest',
+                    scp: false,
+                    url: 'btpTestDest',
+                    isFullUrl: false
+                }
+            ]);
+        });
+
+        it('enables autocomplete when enabled and additionalChoiceList is provided', async () => {
+            mockIsAppStudio.mockReturnValueOnce(false);
+            promptOptions = {
+                [promptNames.destinationName]: {
+                    ...destinationPrompts,
+                    addBTPDestinationList: false,
+                    useAutocomplete: true,
+                    additionalChoiceList
+                }
+            };
+
+            const questions: CfDeployConfigQuestions[] = await getQuestions(promptOptions);
+            const destinationNamePrompt = questions.find((question) => question.name === promptNames.destinationName);
+            expect(destinationNamePrompt?.type).toBe('autocomplete');
+        });
+
+        it('returns input-based prompt when environment is vscode', async () => {
+            mockIsAppStudio.mockReturnValueOnce(false);
+
+            const questions: CfDeployConfigQuestions[] = await getQuestions(promptOptions);
+            const destinationNamePrompt = questions.find((question) => question.name === promptNames.destinationName);
+            expect(destinationNamePrompt?.type).toBe('input');
+            expect((destinationNamePrompt?.message as Function)()).toBe(t('prompts.destinationNameMessage'));
+            expect((destinationNamePrompt as ListQuestion)?.choices).toStrictEqual([]);
+        });
+
+        it('returns list-based prompt when environment is vscode and additionalChoiceList is provided', async () => {
+            mockIsAppStudio.mockReturnValueOnce(false);
+            promptOptions = {
+                [promptNames.destinationName]: {
+                    ...destinationPrompts,
+                    additionalChoiceList
+                }
+            };
+            const questions: CfDeployConfigQuestions[] = await getQuestions(promptOptions);
+            const destinationNamePrompt = questions.find((question) => question.name === promptNames.destinationName);
+            expect(destinationNamePrompt?.type).toBe('list');
+            expect((destinationNamePrompt?.message as Function)()).toBe(t('prompts.destinationNameMessage'));
+            expect((destinationNamePrompt as ListQuestion)?.choices).toStrictEqual(additionalChoiceList);
+        });
+
+        it('validates destination correctly and shows hint when directBindingDestinationHint is enabled', async () => {
+            promptOptions = {
+                [promptNames.destinationName]: {
+                    ...destinationPrompts,
+                    hint: true
+                }
+            };
+            const questions: CfDeployConfigQuestions[] = await getQuestions(promptOptions);
+            const destinationNamePrompt = questions.find((question) => question.name === promptNames.destinationName);
+            expect((destinationNamePrompt?.validate as Function)()).toBe(true);
+            expect((destinationNamePrompt?.message as Function)()).toBe(t('prompts.directBindingDestinationHint'));
+        });
+
+        it('Shows default hint when directBindingDestinationHint is not provided', async () => {
+            promptOptions = {
+                [promptNames.destinationName]: {
+                    ...destinationPrompts,
+                    hint: undefined
+                }
+            };
+            const questions: CfDeployConfigQuestions[] = await getQuestions(promptOptions);
+            const destinationNamePrompt = questions.find((question) => question.name === promptNames.destinationName);
+            expect((destinationNamePrompt?.message as Function)()).toBe(t('prompts.destinationNameMessage'));
+        });
+
+        test('Destination name when autocomplete is specified', async () => {
+            // Option `useAutocomplete` specified
+            promptOptions = {
+                [promptNames.destinationName]: {
+                    ...destinationPrompts,
+                    useAutocomplete: true,
+                    additionalChoiceList,
+                    defaultValue: 'testChoice'
+                }
+            };
+            const questions: CfDeployConfigQuestions[] = await getQuestions(promptOptions);
+            const destinationNamePrompt = questions.find(
+                (question: CfDeployConfigQuestions) => question.name === promptNames.destinationName
+            );
+            expect(destinationNamePrompt?.type).toEqual('autocomplete');
+            expect((destinationNamePrompt as ListQuestion)?.choices).toEqual(additionalChoiceList);
+            expect((destinationNamePrompt?.source as Function)()).toEqual(additionalChoiceList);
+            // Default should be used
+            expect((destinationNamePrompt?.default as Function)()).toEqual(additionalChoiceList[0].name);
+        });
+
+        it('shows warning additionalMessage when selected destination is a full URL destination', async () => {
+            const fullUrlChoice: CfSystemChoice = {
+                name: 'fullUrlDest - https://example.com/sap/opu/odata',
+                value: 'fullUrlDest',
+                scp: false,
+                url: 'https://example.com/sap/opu/odata',
+                isFullUrl: true
+            };
+            promptOptions = {
+                [promptNames.destinationName]: {
+                    ...destinationPrompts,
+                    additionalChoiceList: [fullUrlChoice],
+                    addBTPDestinationList: false
+                }
+            };
+            mockIsAppStudio.mockReturnValueOnce(false);
+            const questions: CfDeployConfigQuestions[] = await getQuestions(promptOptions);
+            const destinationNamePrompt = questions.find((question) => question.name === promptNames.destinationName);
+            const result = ((destinationNamePrompt as YUIQuestion)?.additionalMessages as Function)('fullUrlDest');
+            expect(result).toEqual({ message: t('warning.fullUrlDestination'), severity: Severity.warning });
+        });
+
+        it('shows warning via raw destinations fallback when destination is filtered from choice list', async () => {
+            // Destination has no Host so it is filtered out by createDestinationChoices,
+            // but the raw destinations map still has it — the fallback lookup fires
+            mockFetchBTPDestinations.mockResolvedValueOnce({
+                btpFullUrlDest: {
+                    Name: 'btpFullUrlDest',
+                    WebIDEAdditionalData: 'full_url',
+                    WebIDEUsage: 'odata_gen'
+                } as any
+            });
+            promptOptions = {
+                [promptNames.destinationName]: {
+                    ...destinationPrompts,
+                    additionalChoiceList: [],
+                    addBTPDestinationList: true
+                }
+            };
+            mockIsAppStudio.mockReturnValueOnce(false);
+            const questions: CfDeployConfigQuestions[] = await getQuestions(promptOptions);
+            const destinationNamePrompt = questions.find((question) => question.name === promptNames.destinationName);
+            const result = ((destinationNamePrompt as YUIQuestion)?.additionalMessages as Function)('btpFullUrlDest');
+            expect(result).toEqual({ message: t('warning.fullUrlDestination'), severity: Severity.warning });
+        });
+
+        it('returns undefined additionalMessage when selected destination is not a full URL destination', async () => {
+            promptOptions = {
+                [promptNames.destinationName]: {
+                    ...destinationPrompts,
+                    additionalChoiceList,
+                    addBTPDestinationList: false
+                }
+            };
+            mockIsAppStudio.mockReturnValueOnce(false);
+            const questions: CfDeployConfigQuestions[] = await getQuestions(promptOptions);
+            const destinationNamePrompt = questions.find((question) => question.name === promptNames.destinationName);
+            const result = ((destinationNamePrompt as YUIQuestion)?.additionalMessages as Function)('testValue');
+            expect(result).toBeUndefined();
+        });
+    });
+
+    describe('getaddManagedAppRouterPrompt', () => {
+        beforeEach(() => {
+            promptOptions = {
+                ...promptOptions,
+                [promptNames.addManagedAppRouter]: {
+                    hide: false
+                }
+            };
+        });
+
+        it('Displays managed router prompt when enabled', async () => {
+            const questions: CfDeployConfigQuestions[] = await getQuestions(promptOptions, mockLog);
+            const managedAppRouterPrompt = questions.find(
+                (question) => question.name === promptNames.addManagedAppRouter
+            );
+            expect(managedAppRouterPrompt?.type).toBe('confirm');
+            expect(managedAppRouterPrompt?.guiOptions?.breadcrumb).toBe(
+                t('prompts.addApplicationRouterBreadcrumbMessage')
+            );
+            expect((managedAppRouterPrompt?.message as Function)()).toBe(
+                t('prompts.generateManagedApplicationToRouterMessage')
+            );
+            expect((managedAppRouterPrompt?.default as Function)()).toBe(true);
+            expect(mockLog.info).toHaveBeenCalledWith(t('info.addManagedAppRouter'));
+        });
+
+        it('Displays managed router prompt when disabled', async () => {
+            promptOptions[promptNames.addManagedAppRouter] = {
+                hide: true
+            };
+
+            const questions: CfDeployConfigQuestions[] = await getQuestions(promptOptions, mockLog);
+            const managedAppRouterPrompt = questions.find(
+                (question) => question.name === promptNames.addManagedAppRouter
+            );
+            expect(managedAppRouterPrompt).toBeUndefined();
+        });
+    });
+
+    describe('getOverwritePrompt', () => {
+        beforeEach(() => {
+            promptOptions = {
+                ...promptOptions,
+                [promptNames.overwriteCfConfig]: {
+                    hide: false
+                }
+            };
+        });
+
+        it('Displays get overwrite prompt when enabled', async () => {
+            const questions: CfDeployConfigQuestions[] = await getQuestions(promptOptions, mockLog);
+            const overwritePrompt = questions.find((question) => question.name === promptNames.overwriteCfConfig);
+            expect(overwritePrompt?.type).toBe('confirm');
+            expect((overwritePrompt?.default as Function)()).toBe(true);
+            expect((overwritePrompt?.message as Function)()).toBe(t('prompts.overwriteMessage'));
+            expect(mockLog.info).toHaveBeenCalledWith(t('info.overwriteDestination'));
+        });
+
+        it('Displays get overwrite prompt when disabled', async () => {
+            if (promptOptions[promptNames.overwriteCfConfig]) {
+                promptOptions[promptNames.overwriteCfConfig] = {
+                    hide: true
+                };
+            }
+            const questions: CfDeployConfigQuestions[] = await getQuestions(promptOptions, mockLog);
+            const overwritePrompt = questions.find((question) => question.name === promptNames.overwriteCfConfig);
+            expect(overwritePrompt?.type).toBeUndefined();
+        });
+    });
+
+    describe('getQuestions with Router Option', () => {
+        it('Displays CF prompt with App Router selection', async () => {
+            const questions: CfDeployConfigQuestions[] = await getQuestions(
+                {
+                    ...promptOptions,
+                    routerType: {
+                        hide: false
+                    }
+                },
+                mockLog
+            );
+            const routerTypePrompt = questions.find((question) => question.name === promptNames.routerType);
+            expect(routerTypePrompt?.guiOptions?.mandatory).toBe(true);
+            expect(routerTypePrompt?.guiOptions?.breadcrumb).toBe(t('prompts.generateDeploymentRouterOptionsMessage'));
+            expect((routerTypePrompt?.default as Function)()).toBe(RouterModuleType.Managed);
+            expect((routerTypePrompt?.message as Function)()).toBe(t('prompts.generateDeploymentRouterOptionsMessage'));
+            expect((routerTypePrompt as ListQuestion)?.choices).toEqual([
+                { name: t('prompts.routerType.managedAppRouter'), value: RouterModuleType.Managed },
+                { name: t('prompts.routerType.appFrontAppService'), value: RouterModuleType.AppFront }
+            ]);
+            expect(
+                ((routerTypePrompt as YUIQuestion)?.additionalMessages as Function)(RouterModuleType.AppFront)
+            ).toStrictEqual({
+                message: t('warning.appFrontendServiceRouterChoice'),
+                severity: Severity.warning
+            });
+        });
+        it('Displays CF prompt with App Router selection disabled', async () => {
+            const promptOptionsWithRouterDisabled: CfDeployConfigPromptOptions = {
+                ...promptOptions,
+                routerType: {
+                    hide: true
+                }
+            };
+            const questions: CfDeployConfigQuestions[] = await getQuestions(promptOptionsWithRouterDisabled, mockLog);
+            const routerTypePrompt = questions.find((question) => question.name === promptNames.routerType);
+            expect(routerTypePrompt).toBeUndefined();
+        });
+    });
+});

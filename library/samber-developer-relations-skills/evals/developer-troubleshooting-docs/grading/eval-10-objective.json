@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that publishing ends at re-index, not at merge",
+        "evidence": "\"Publishing ends at re-index, not at merge.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the three re-embedding triggers: the embedding model meaningfully improving, roughly 10-15% of the content changing, and the domain shifting",
+        "evidence": "The transcript only cites one trigger: \"Practitioner threshold for re-embedding a docs-grounded assistant: ~10-15% content change.\" No mention of embedding-model improvements or domain shift as separate triggers.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the roughly one-fifth corpus change as crossing the content-change trigger",
+        "evidence": "\"20 new + 6 rewritten \u2248 fifth of corpus by word count, roughly 20%. Practitioner threshold for re-embedding a docs-grounded assistant: ~10-15% content change. You're over it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the 10-15% figure as practitioner guidance rather than a measured or standardized threshold",
+        "evidence": "\"Practitioner threshold for re-embedding a docs-grounded assistant: ~10-15% content change.\" \u2014 framed explicitly as a practitioner threshold, not a formal/standardized metric.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Assigns the re-index the same owner as the docs release, as a booked maintenance trigger",
+        "evidence": "\"Name an owner who can trigger the re-embed, tied to this release, not to memory.\" \u2014 this asks for an owner tied to the release event, but never states it should be the same owner as the docs release.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a corrected page keeps being answered from the stale index until re-embedding happens",
+        "evidence": "\"'Rebuilt whenever we remember' is the exact failure this threshold exists to catch \u2014 corrected page keeps getting answered from stale index until someone re-embeds.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that llms.txt is a proposal, not a ratified standard, with no W3C or IETF working group behind it",
+        "evidence": "\"llms.txt is a proposal (Jeremy Howard, Answer.AI, Sept 2024), no ratified standard, no W3C or IETF working group behind it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Advises treating llms.txt as cheap and optional, worth adding only if the generator supports it and never worth a project",
+        "evidence": "\"Care level: cheap and optional. Add it only if your docs generator emits it near-free. Never worth a dedicated project or sprint.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends an explicit 'I don't know' guardrail so the bot refuses rather than inventing a fix for an undocumented error",
+        "evidence": "\"Add an explicit refusal guardrail: low retrieval confidence or no matching entry \u2192 state no documented fix exists, never fabricate.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that an honest refusal costs less trust than an invented fix",
+        "evidence": "\"A bot inventing a fix costs more trust than one that says 'no documented fix yet.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires each cause-remedy pair to stand alone so it survives chunking, rather than depending on the paragraph above it",
+        "evidence": "No mention of standalone cause-remedy pairs, chunking, or retrieval independence anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires explicit field headings such as message, applies-to, cause, fix and confirmation as retrieval anchors",
+        "evidence": "The transcript contains no mention of field headings like message/applies-to/cause/fix/confirmation or retrieval-anchor formatting.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends feeding the assistant's unanswered-query log back in as a signal source for the next clustering pass",
+        "evidence": "\"the bot's own log of invented/no-match answers is your newest zero-result-search signal, in the reader's own words. Feed it into next cycle's cluster pass same as tickets.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that publishing ends at re-index, not at merge",
+        "evidence": "\"Merge lands text in the docs repo. Bot still serves whatever the last index build baked in. Two separate systems, two separate 'done' states.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the three re-embedding triggers: the embedding model meaningfully improving, roughly 10-15% of the content changing, and the domain shifting",
+        "evidence": "No such triggers are named; the only stated condition is that the rebuild must run and old chunks be purged.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the roughly one-fifth corpus change as crossing the content-change trigger",
+        "evidence": "\"a fifth of your corpus by word count sits stale until someone remembers to rebuild. That's not a rounding error.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the 10-15% figure as practitioner guidance rather than a measured or standardized threshold",
+        "evidence": "No 10-15% figure is mentioned at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Assigns the re-index the same owner as the docs release, as a booked maintenance trigger",
+        "evidence": "Recommends automation instead of an owner: \"Put the rebuild as a required step of the merge (CI hook on merge to main), not a manual follow-up someone owns in their head.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a corrected page keeps being answered from the stale index until re-embedding happens",
+        "evidence": "\"Rewrite-without-delete is a classic RAG bug: old + new chunks both retrievable, sometimes old version wins on similarity score, bot contradicts its own new docs.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that llms.txt is a proposal, not a ratified standard, with no W3C or IETF working group behind it",
+        "evidence": "\"No W3C standard. No standards body of any kind \u2014 it's an informal convention from llmstxt.org (2024), nobody enforces it\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Advises treating llms.txt as cheap and optional, worth adding only if the generator supports it and never worth a project",
+        "evidence": "\"Verdict: cheap to add (afternoon, markdown index of the docs site), harmless, not urgent, not blocking anything.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends an explicit 'I don't know' guardrail so the bot refuses rather than inventing a fix for an undocumented error",
+        "evidence": "\"Constrain the generation prompt: answer only from provided context; say 'not documented, escalate to support' when context doesn't cover it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that an honest refusal costs less trust than an invented fix",
+        "evidence": "No explicit trust-cost comparison between refusal and fabrication is stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires each cause-remedy pair to stand alone so it survives chunking, rather than depending on the paragraph above it",
+        "evidence": "No discussion of self-contained cause-remedy pairs surviving chunking appears anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires explicit field headings such as message, applies-to, cause, fix and confirmation as retrieval anchors",
+        "evidence": "No such field-heading schema is discussed in this section.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends feeding the assistant's unanswered-query log back in as a signal source for the next clustering pass",
+        "evidence": "No mention of using the bot's unanswered-query log as a future signal source.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

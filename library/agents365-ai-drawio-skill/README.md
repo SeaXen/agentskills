@@ -9,7 +9,7 @@
 [![SkillsMP](https://img.shields.io/badge/SkillsMP-listed-1f6feb)](https://skillsmp.com/skills/agents365-ai-drawio-skill-skills-drawio-skill-skill-md)
 [![Agent Skills](https://img.shields.io/badge/Agent%20Skills-compatible-2ea44f)](https://agentskills.io)
 
-**English** · [中文](README_CN.md) · [📖 Online Docs](https://agents365-ai.github.io/drawio-skill/)
+**English** · [中文](README_CN.md) · [日本語](README_JA.md) · [📖 Online Docs](https://agents365-ai.github.io/drawio-skill/)
 
 A skill that turns natural language and real system sources into maintainable `.drawio` architecture models. Beyond generation and export, it incrementally synchronizes without discarding manual layout, projects multiple views from one model, enforces architecture contracts, queries dependencies, simulates failure propagation, and publishes dependency-free interactive walkthroughs. Works with **Claude Code, Cursor, Copilot, OpenClaw, Codex, Autohand Code, Hermes**, and any agent compatible with the [Agent Skills](https://agentskills.io) format.
 
@@ -44,7 +44,7 @@ A skill that turns natural language and real system sources into maintainable `.
 
 **Share and restyle**
 
-- **Repurpose with one command** — interactive HTML viewer (pan/zoom/search), PowerPoint deck, animated data-flow SVG, Mermaid or Markdown export, click-through runbook, exec-summary compression
+- **Repurpose with one command** — interactive HTML viewer (pan/zoom/search), PowerPoint deck (raster page images, not individually editable shapes), animated data-flow SVG, Mermaid or Markdown export, click-through runbook, exec-summary compression
 - **Restyle and enrich** — style presets (yours or built-in `dark`/`corporate`/…), bilingual label variants with layout untouched, data-driven heat maps, white-to-metro tubemap mode
 - **10,000+ official shapes + 321 AI/LLM logos** — resolve exact AWS / Cisco / K8s / UML icon styles instead of guessing, plus brand logos draw.io itself lacks
 - **One CLI, optional MCP server** — `diagramctl doctor/build/sync/views/query/test/review/whatif/story/publish/transform`, core workflows stdlib-only and offline; the MCP server exposes them to Claude Desktop, Cursor, VS Code, Codex, and any MCP host. Portable to any Agent Skills-compatible agent, no daemon

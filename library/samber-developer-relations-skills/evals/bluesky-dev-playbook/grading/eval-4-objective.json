@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses the coordinated employee like-and-repost push as artificial manipulation of social signals.",
+        "evidence": "\"CEO asks all 40... | Refused | The Guidelines ban artificially manipulating social signals\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends against AI-generated daily posts.",
+        "evidence": "Daily AI tip \"Changed\" to \"2-3 tips a week, written by named engineers\"; AI draft is only a starting point",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that AI-forward accounts and content draw mass blocks and block-list inclusion on Bluesky.",
+        "evidence": "\"AI content and AI branding draw mass blocks and block-list inclusion.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites at least one real incident (the removed one-million-post Hugging Face dataset or the mass-blocked Bluesky AI assistant account).",
+        "evidence": "\"Bluesky's own AI assistant became the second most-blocked account [press]\"; \"one-million-post dataset was pulled within a day\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses scraping posts to build a prospect list or train the model without users' consent.",
+        "evidence": "Firehose pull row: \"Refused\"; \"No scrape, no dataset.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Frames the scraping objection as community consent norms and reputational risk rather than claiming the open API forbids reading posts.",
+        "evidence": "\"Consent is the norm here, not the API's openness.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives a go-small or person-led verdict rather than a brand-led broadcast launch.",
+        "evidence": "\"Verdict: Go small, with a Monday gate\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Has the launch post come from a named person who built the product, with the brand account reposting.",
+        "evidence": "\"The builder posts from their own account... The hub reposts\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Tells staff to answer questions in replies with a disclosure line instead of liking.",
+        "evidence": "\"Staff reply to questions with the disclosure line and never mass-like.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes monitoring block lists or labelers that list the account as a metric or stop signal.",
+        "evidence": "\"Block lists and labelers that list your accounts. Any increase after a post is a stop signal\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Leads messaging with what the product does for the developer rather than 'AI-powered'.",
+        "evidence": "\"Say what Promptwright does in plain words... Don't lead with 'AI-powered'.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses the coordinated employee like-and-repost push as artificial manipulation of social signals.",
+        "evidence": "Replaces it with \"Ask, don't instruct... opt-in and stagger it\"; \"looks like coordinated inauthentic behavior.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends against AI-generated daily posts.",
+        "evidence": "\"Keep the daily tip... AI drafts are fine, and the human is the author.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that AI-forward accounts and content draw mass blocks and block-list inclusion on Bluesky.",
+        "evidence": "Warns of a \"pile-on\" but never mentions blocks or block lists.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites at least one real incident (the removed one-million-post Hugging Face dataset or the mass-blocked Bluesky AI assistant account).",
+        "evidence": "\"the 2024 dataset backlash is the precedent.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses scraping posts to build a prospect list or train the model without users' consent.",
+        "evidence": "\"Don't train on Bluesky users' posts\"; the prospect list is replaced by manual listening.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Frames the scraping objection as community consent norms and reputational risk rather than claiming the open API forbids reading posts.",
+        "evidence": "\"Bluesky data is technically public. The community strongly objects to AI training on user posts.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives a go-small or person-led verdict rather than a brand-led broadcast launch.",
+        "evidence": "The launch thread is pinned on the brand account, and a named human only writes the tips.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Has the launch post come from a named person who built the product, with the brand account reposting.",
+        "evidence": "\"pin the launch thread\" on the brand account; no person-led launch post.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Tells staff to answer questions in replies with a disclosure line instead of liking.",
+        "evidence": "Staff are told to share with disclosure and \"Likes and reposts only for content they actually agree with\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes monitoring block lists or labelers that list the account as a metric or stop signal.",
+        "evidence": "The metrics table has no block-list or labeler item.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Leads messaging with what the product does for the developer rather than 'AI-powered'.",
+        "evidence": "The hook is \"a real bug caught on a real open-source PR\"; there is no explicit guidance to avoid leading with AI.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

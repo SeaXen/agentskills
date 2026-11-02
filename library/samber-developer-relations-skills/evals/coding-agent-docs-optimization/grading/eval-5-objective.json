@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Re-sequences the work rather than endorsing descriptions-first",
+        "evidence": "\"No. Spending the whole sprint on rich per-operation prose is the fourth-highest-leverage fix for this spec, not the first... Reorder it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Puts operationId first and gives the reason: generators derive the agent-facing tool name from it",
+        "evidence": "\"The tool name comes from operationId, not from the description.\"; ranked \"1. operationId on all 90 missing operations.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Describes the operationId work as near-zero effort and mechanical",
+        "evidence": "\"Mechanical, near-zero effort per operation, and it's the single highest-leverage field in the whole spec.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the auto-generated fallback produces names like `get_api_v1_users_id` that models handle badly",
+        "evidence": "\"the fallback is a {method}_{path} slug like get_api_v1_customers_id \u2014 a name models handle badly\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Specifies verb-noun camelCase for operationId, with concrete examples such as `listCustomers`, `getUserById` or `createRefund`",
+        "evidence": "\"Verb-noun camelCase (listEmployees, getPayrollRun), \u226430 characters...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Caps operationId at roughly 30 characters and drops articles and conjunctions such as \"a\", \"the\", \"and\", \"for\"",
+        "evidence": "only \"\u226430 characters\" is stated; no mention of dropping articles or conjunctions",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires operationId uniqueness and stability across releases, noting that a renamed operationId silently renames a tool",
+        "evidence": "\"unique and stable across releases\" is stated but no mention that renaming silently renames the tool",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends enforcing operationId uniqueness in CI with a spec linter",
+        "evidence": "no mention of CI enforcement or a spec linter anywhere in section 5",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Puts closing the value space second, naming enums, explicit `required`, `default` values, `format` keywords, and `oneOf` with a discriminator",
+        "evidence": "\"Add enum... Add required, default, and format (date, date-time, uuid)\" \u2014 enum/required/default/format present but no mention of oneOf or discriminator",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that an unconstrained field is where an invented value goes, and that each constraint is a one-line edit removing a whole class of them",
+        "evidence": "\"An unconstrained parameter is where invented values go...\"; \"This is a one-line edit per field, and each one removes a whole class of invented values.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ranks the summary/description split below those cheaper edits and states it costs on the order of a week on a real spec",
+        "evidence": "ranked 4th (\"this is where your writers belong, once 1\u20133 are in shape\") but no cost figure like \"a week\" is stated anywhere in section 5",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Splits summary and description by job: summary is one imperative line for choosing the call",
+        "evidence": "\"summary: one imperative line, for disambiguation.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Assigns description the operational contract: preconditions, side effects, idempotency, required auth scope, rate limits, and a pointer to the sibling operation that might fit better",
+        "evidence": "\"description: preconditions, side effects, idempotency, required auth scope, rate limits, response shape, and a pointer to the sibling operation that might fit better.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places per-language runnable samples attached to the operation last in the default order, while promoting them to first for the two or three operations cold runs fail on repeatedly",
+        "evidence": "\"5. Runnable per-operation samples \u2014 not this sprint. These are the highest-value single fix for whichever 2\u20133 operations your own testing shows agents repeatedly getting wrong...\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Re-sequences the work rather than endorsing descriptions-first",
+        "evidence": "'No. Rebalance the sprint \u2014 engineering fixes first, writing second, and much less writing than planned.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Puts operationId first and gives the reason: generators derive the agent-facing tool name from it",
+        "evidence": "'Missing operationId is the bigger lever... most OpenAPI\u2192tool generators synthesize a name from method+path... Models weigh the tool name as heavily as the description.' Listed first under 'Days 1\u20133, engineering.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Describes the operationId work as near-zero effort and mechanical",
+        "evidence": "'Script it from existing Go handler names + method + path \u2014 this is templating, not 90 manual decisions.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the auto-generated fallback produces names like `get_api_v1_users_id` that models handle badly",
+        "evidence": "'a synthesized name like that actively misleads' referring to the fallback 'post__v2_employees__id__paystubs' example.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Specifies verb-noun camelCase for operationId, with concrete examples such as `listCustomers`, `getUserById` or `createRefund`",
+        "evidence": "'one consistent verb-resource convention (listEmployeePaystubs, createPayrollRun)'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Caps operationId at roughly 30 characters and drops articles and conjunctions such as \"a\", \"the\", \"and\", \"for\"",
+        "evidence": "No character cap or article-dropping rule is mentioned anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires operationId uniqueness and stability across releases, noting that a renamed operationId silently renames a tool",
+        "evidence": "No mention of uniqueness, stability, or renaming consequences for operationId.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends enforcing operationId uniqueness in CI with a spec linter",
+        "evidence": "The CI gate described only blocks missing operationId/unconstrained params, not duplicate/non-unique operationIds.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Puts closing the value space second, naming enums, explicit `required`, `default` values, `format` keywords, and `oneOf` with a discriminator",
+        "evidence": "Second item names only 'enum, format... pattern, minimum/maximum' \u2014 required, default, and oneOf/discriminator are never mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that an unconstrained field is where an invented value goes, and that each constraint is a one-line edit removing a whole class of them",
+        "evidence": "'a query param that's really an enum... typed as bare string, means the model guesses values and casing... Constraints... are machine-checked; prose is not.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ranks the summary/description split below those cheaper edits and states it costs on the order of a week on a real spec",
+        "evidence": "No summary/description split concept or week-long cost estimate appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Splits summary and description by job: summary is one imperative line for choosing the call",
+        "evidence": "No distinction between 'summary' and 'description' fields is made anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Assigns description the operational contract: preconditions, side effects, idempotency, required auth scope, rate limits, and a pointer to the sibling operation that might fit better",
+        "evidence": "None of these specific contract elements are discussed in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places per-language runnable samples attached to the operation last in the default order, while promoting them to first for the two or three operations cold runs fail on repeatedly",
+        "evidence": "No discussion of per-language runnable code samples appears anywhere.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

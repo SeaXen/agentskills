@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to mark the install check (A2) as passed on inspection alone",
+        "evidence": "\"I'm not marking this passed on inspection.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States plainly that commands cannot be executed here and asks the user to run the documented sequence and paste the output",
+        "evidence": "\"you've confirmed no shell/command execution is available either\" ... \"4. Paste back the actual output\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Specifies starting from a clean state - a container, a fresh virtual environment, or a temporary directory",
+        "evidence": "\"1. Start from a clean state \u2014 a fresh container or virtualenv, not your dev machine.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires running the install command and then the first usage example exactly as written",
+        "evidence": "\"2. Run `pip install haze` exactly as documented. 3. Run the first usage example exactly as written\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats 'automatically reconnects' and 'case-insensitive by default' as behavioural claims to verify rather than as prose",
+        "evidence": "Both listed in the claim-check table as 'behavioral assertion hidden in a verb' requiring source verification.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Checks `--watch` against the argument parser and calls an absent flag a hallucination rather than a typo",
+        "evidence": "\"A documented flag the parser doesn't define is a hallucination, not a typo, so this can't be waved through\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a benchmark script, CI matrix or changelog entry inside the repository behind the '10k requests/sec' claim, or the claim comes out",
+        "evidence": "\"benchmark script, CI benchmark job, or changelog entry in the repo | unverifiable\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Checks 'Python 3.8+' against the package manifest rather than accepting it as written",
+        "evidence": "\"`python_requires` in the package manifest, or the CI test matrix | unverifiable\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports the count of unverifiable claims on its own line of the scorecard",
+        "evidence": "\"Claim check: 6 unverifiable of 6 given\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Downgrades any claim it cannot verify to what it can verify, and says which part is unconfirmed",
+        "evidence": "All six lines are uniformly marked 'unverifiable' with critique, with no instance of confirming a partial fact while flagging the rest as unconfirmed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines to issue an overall pass verdict while a blocking Band A check is unresolved",
+        "evidence": "\"**Does not pass.** Band A only needs one failure to sink the whole README, and this one has two\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to mark the install check (A2) as passed on inspection alone",
+        "evidence": "\"pip install haze | \u26a0\ufe0f | Package name is a single generic word \u2014 high collision risk on PyPI... Confirm the PyPI project is actually this tool before publishing the line\" \u2014 marked \u26a0\ufe0f, not passed.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States plainly that commands cannot be executed here and asks the user to run the documented sequence and paste the output",
+        "evidence": "No statement about inability to execute commands or a request to run/paste output appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Specifies starting from a clean state - a container, a fresh virtual environment, or a temporary directory",
+        "evidence": "No mention of a container, fresh virtual environment, or temp directory appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires running the install command and then the first usage example exactly as written",
+        "evidence": "No instruction to run the install command followed by the first usage example appears; the audit is a static prose/table review only.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats 'automatically reconnects' and 'case-insensitive by default' as behavioural claims to verify rather than as prose",
+        "evidence": "The critiques are prose-clarity issues (\"Missing the object... this sentence is ambiguous, not just under-specified\"; \"No retry policy given\") asking for more written detail, not proposing behavioral/execution verification.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Checks `--watch` against the argument parser and calls an absent flag a hallucination rather than a typo",
+        "evidence": "`--watch` is marked \u2705 (\"Fine as a one-liner\") and accepted at face value with no check against the parser or any hallucination flag.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a benchmark script, CI matrix or changelog entry inside the repository behind the '10k requests/sec' claim, or the claim comes out",
+        "evidence": "\"\u274c Unscoped benchmark claim: no hardware spec, no methodology, no reproducible script... Either link a BENCHMARKS.md with hardware + method, or cut it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Checks 'Python 3.8+' against the package manifest rather than accepting it as written",
+        "evidence": "\"\u26a0\ufe0f | Must match python_requires in packaging metadata and the CI test matrix, not just prose \u2014 otherwise it's an unverified claim.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports the count of unverifiable claims on its own line of the scorecard",
+        "evidence": "No dedicated scorecard line reporting a count of unverifiable claims appears; the verdict paragraph only says \"All six lines are either unverifiable... or make an assertion that needs supporting detail\" without a tallied count line.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Downgrades any claim it cannot verify to what it can verify, and says which part is unconfirmed",
+        "evidence": "The table flags issues and requests more detail but never proposes a downgraded, confirmed-only replacement claim for any line.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines to issue an overall pass verdict while a blocking Band A check is unresolved",
+        "evidence": "\"Verdict: \u274c Does not pass. All six lines are either unverifiable as written, missing the object of their claim, or make an assertion that needs supporting detail before it belongs in a README.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

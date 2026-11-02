@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The response does not route to event-venue-sourcing and states there is no venue to source for a fully virtual event.",
+        "evidence": "'event-venue-sourcing is in-room only. Drop it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response does not route to catering or hospitality work for this event.",
+        "evidence": "'event-hospitality is in-room only. Drop it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response does not route the check-in desk and badge flow to the in-room attendee-experience skill.",
+        "evidence": "'event-attendee-experience is in-room only.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response does not route to event-production for a room AV crew.",
+        "evidence": "'event-production is in-room only.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response states the reason: the virtual delivery mode closes the in-room gate outright, rather than merely omitting the four skills.",
+        "evidence": "'virtual is open. in-room is closed, and so is hybrid.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The delivery, platform, and production needs are routed to virtual-event-production as the replacement for the closed in-room rows.",
+        "evidence": "'Route: virtual-event-production'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The captions question is routed to event-accessibility-inclusion.",
+        "evidence": "'event-accessibility-inclusion decides whether captions are required'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response states that accessibility still applies to a virtual event because its digital-access provisions need no room.",
+        "evidence": "It treats captions as a real question but never says digital-access provisions need no room.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "virtual-event-production is not used to re-open the delivery-mode question; the mode is carried as an already-fixed gate.",
+        "evidence": "'The delivery mode is fixed, so virtual opens'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes are named in owner/repo@skill form.",
+        "evidence": "`samber/dev-event-organizer-skills@virtual-event-production`.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The gate is read from the stated fully-remote fact, not re-asked or re-decided.",
+        "evidence": "The 'Fully remote, no physical component' row sets the gate effect with no question asked.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The inapplicable checklist items are rejected rather than partially followed: no venue shortlisting or caterer advice appears anywhere in the response.",
+        "evidence": "No venue or caterer advice appears.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The response does not route to event-venue-sourcing and states there is no venue to source for a fully virtual event.",
+        "evidence": "'drop venues... Your book assumes a physical event, and GreenStack Live has none.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response does not route to catering or hospitality work for this event.",
+        "evidence": "'Pick a caterer \u274c Drop'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response does not route the check-in desk and badge flow to the in-room attendee-experience skill.",
+        "evidence": "Translated to a 'Registration and access flow', with no in-room skill.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response does not route to event-production for a room AV crew.",
+        "evidence": "'Hire an AV crew' is translated to a broadcast crew, with no event-production route.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response states the reason: the virtual delivery mode closes the in-room gate outright, rather than merely omitting the four skills.",
+        "evidence": "'Your book assumes a physical event, and GreenStack Live has none.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The delivery, platform, and production needs are routed to virtual-event-production as the replacement for the closed in-room rows.",
+        "evidence": "No skill is named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The captions question is routed to event-accessibility-inclusion.",
+        "evidence": "No skill is named; captions are covered inline.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response states that accessibility still applies to a virtual event because its digital-access provisions need no room.",
+        "evidence": "Captions are discussed, but this principle is not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "virtual-event-production is not used to re-open the delivery-mode question; the mode is carried as an already-fixed gate.",
+        "evidence": "The mode is treated as fixed throughout.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes are named in owner/repo@skill form.",
+        "evidence": "No routes are named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The gate is read from the stated fully-remote fact, not re-asked or re-decided.",
+        "evidence": "'GreenStack Live has none' is taken from the stated fully-remote fact without re-asking.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The inapplicable checklist items are rejected rather than partially followed: no venue shortlisting or caterer advice appears anywhere in the response.",
+        "evidence": "Offers 'meal or coffee vouchers' in place of the caterer and translates the check-in desk.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

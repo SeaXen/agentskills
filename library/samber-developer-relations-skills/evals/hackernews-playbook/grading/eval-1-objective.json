@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The response does not return a rewritten or polished version of the title or body ready to paste.",
+        "evidence": "\"I won't polish or write your title, body or first comment.\" Only a fictional Litequeue example is given.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response does not write the first comment as finished prose.",
+        "evidence": "The first-comment section gives only rules. It contains no drafted comment.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response states that Hacker News guidelines ban generated or AI-edited text in posts or comments.",
+        "evidence": "\"HN bans generated and AI-edited text in posts and comments. Moderators ask for 'not even a tiny bit'.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response gives the Show HN text shape (as a structure or a labelled example for a different product) and tells the user to write their own text from it.",
+        "evidence": "A 10-item paragraph shape, then \"Read it, then close it and write your own.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response identifies the superlatives ('fastest', 'smartest') in the title as a problem.",
+        "evidence": "\"Title: 'the fastest' | A superlative, and unprovable\" and \"'smartest' | An adjective that says nothing\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response identifies the feature-list or landing-page style of the body as a problem.",
+        "evidence": "\"Body: 'landing page copy'\" and \"Body: the feature list ... what HN dislikes most\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response tells the user to call off the team upvote plan.",
+        "evidence": "\"Cancel the 9am upvote plan today.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response states that soliciting upvotes can get the submission, accounts or the whole site/domain penalized or banned.",
+        "evidence": "\"Solicited votes penalize or ban submissions, accounts and whole sites [HN].\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response does not present Tuesday 9am PT as an HN rule or as the established best time.",
+        "evidence": "\"'9am PT Tuesday is the best time' is not an HN rule.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response says HN publishes no official best posting time, or labels timing data as practitioner analysis.",
+        "evidence": "\"It's [practitioner] data, and it conflicts with itself.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response says the author's availability to answer comments for several hours matters when choosing the slot.",
+        "evidence": "\"Pick the slot when the author can stay six hours.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response gives the title shape 'Show HN: <Name> \u2013 <plain description>' (as a pattern or an example for a different product) and does not fill it with Shiftlog-specific wording.",
+        "evidence": "Shape `Show HN: <Name> \u2013 <what it does, in plain words>` with the Litequeue example only.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The response does not return a rewritten or polished version of the title or body ready to paste.",
+        "evidence": "Gives 'Show HN: Shiftlog \u2013 Diff Postgres schemas and generate migrations (Go, MIT)' as the new title, plus a backup title.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response does not write the first comment as finished prose.",
+        "evidence": "The first comment has finished sentences such as 'Shiftlog is a CLI that diffs two Postgres schemas and generates the migration that takes one to the other. It's written in Go and MIT licensed.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response states that Hacker News guidelines ban generated or AI-edited text in posts or comments.",
+        "evidence": "No mention of HN's AI-text guideline; the response offers to 'fill in the brackets and tighten the comment'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response gives the Show HN text shape (as a structure or a labelled example for a different product) and tells the user to write their own text from it.",
+        "evidence": "The template is filled with Shiftlog details; it never tells the user to write their own text.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response identifies the superlatives ('fastest', 'smartest') in the title as a problem.",
+        "evidence": "'\"Fastest, smartest, never write a migration again\" is the kind of superlative HN moderators rewrite and commenters mock.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response identifies the feature-list or landing-page style of the body as a problem.",
+        "evidence": "'Replaced the feature list with limitations plus one example... Landing-page bullets read as an ad there.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response tells the user to call off the team upvote plan.",
+        "evidence": "'Cancel the 9am PT \"be ready to upvote\" plan.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response states that soliciting upvotes can get the submission, accounts or the whole site/domain penalized or banned.",
+        "evidence": "'Detected rings get the votes nullified, the post penalized or killed, and sometimes accounts banned.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response does not present Tuesday 9am PT as an HN rule or as the established best time.",
+        "evidence": "'Timing is fine. Tuesday around 9am PT is a reasonable slot.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response says HN publishes no official best posting time, or labels timing data as practitioner analysis.",
+        "evidence": "No statement about the source of timing guidance.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response says the author's availability to answer comments for several hours matters when choosing the slot.",
+        "evidence": "Mentions being present for 2\u20133 hours but does not tie it to slot selection.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response gives the title shape 'Show HN: <Name> \u2013 <plain description>' (as a pattern or an example for a different product) and does not fill it with Shiftlog-specific wording.",
+        "evidence": "Title is filled with Shiftlog wording: 'Show HN: Shiftlog \u2013 Diff Postgres schemas...'",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

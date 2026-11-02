@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that one primary motive must be named and ranked, not averaged across several co-equal motives",
+        "evidence": "'Candidate: commoditize your complement...' as primary, 'Secondary candidate worth investigating, not yet evidenced: block a competitor...' and 'Not a motive, logged so it doesn't resurface as one next quarter: retention pressure ... and competitor mimicry.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects 'commoditize your complement' for this asset because the complement being opened and the product whose demand rises are the same thing",
+        "evidence": "\"The complement and the product are still the same object in your business model, even if they're no longer the same object in your engineering org.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names Sun's Java as the counter-example where a company commoditized the wrong complement, the hardware it sold",
+        "evidence": "\"it's Spolsky's own counter-example, Sun giving away the hardware it sold\" combined with \"Until it does, this motive fails its own test \u2014 it's the Java trap, not the DOS-licensing case.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the evidence test for commoditize-your-complement: name the product whose demand rises and name the complement being opened",
+        "evidence": "\"Evidence test per the skill: name the product whose demand rises, name the complement.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects 'two competitors did it' as a motive, on the ground that their line served a value capture Halyard cannot see",
+        "evidence": "\"'Two competitors open-sourced their engines.' Their line served their value capture, which you can't see from outside.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the engineers' desire to open source as retention pressure rather than strategy, and routes it into the talent motive or a sanctioned contribution policy",
+        "evidence": "\"'Three engineers have pushed for a year, one may quit.' Real retention risk. Not a strategy. Route it into a talent motive or a contribution policy, never into the open/closed decision itself.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects 'the engine isn't really the core anymore' as a reason to open, noting not-core argues against keeping it closed, not for paying to run it in public",
+        "evidence": "The transcript instead endorses this fact as 'the one fact that matters most' pointing toward a real motive ('it points toward a real motive: commoditize your complement, correctly formed'), rather than rejecting it as insufficient grounds to open; it blocks on value capture, not on the not-for-paying-to-run-in-public logic the rubric describes.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Applies the talent motive's evidence test: the asset has to be work an engineer would want to be seen doing",
+        "evidence": "The document only says to 'route it into a talent motive or a contribution policy' without ever applying or stating the CV/visibility evidence test for that motive.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Inventories candidate assets separately rather than returning one yes/no verdict over the whole codebase",
+        "evidence": "Separate 'Open' table rows for 'Wire protocol / client SDKs' and 'Engine's commodity internals', plus a distinct 'Closed' table for differentiating internals and ops tooling.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the signal for a commoditization motive is growth in the paid product, not adoption of the opened component",
+        "evidence": "\"Declared objective, once you move: growth in ops-tooling/enterprise-tier ARR, **not** downloads, stars, or adoption of the opened engine \u2014 adoption is the mechanism, the paid line moving is the signal.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks what would still capture value if the engine were opened, rather than accepting a license as the answer",
+        "evidence": "\"Today: **nothing.** ... After the ops-tooling line is built and priced: cluster operations at scale, upgrade/HA automation, compliance features, support SLAs, the trademark, and 38 existing relationships.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend a specific open source license",
+        "evidence": "\"hand the actual license choice (MIT vs Apache vs a source-available instrument if you later decide the risk needs it) to `oss-license-strategy`\" \u2014 defers rather than picking one.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that one primary motive must be named and ranked, not averaged across several co-equal motives",
+        "evidence": "No such framing appears; the piece blends multiple motives (commoditization, competitor pressure, retention, ops-tooling pivot) into one narrative without naming/ranking a single primary motive.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects 'commoditize your complement' for this asset because the complement being opened and the product whose demand rises are the same thing",
+        "evidence": "\"'Commoditize your complement' only holds if the thing you're giving away is genuinely a *complement* to what you now sell \u2014 not the product the $6.1M is currently billed against. Right now it's the same thing... Open-sourcing it doesn't commoditize a complement to your revenue model, it deletes your revenue model's enforcement mechanism.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names Sun's Java as the counter-example where a company commoditized the wrong complement, the hardware it sold",
+        "evidence": "No mention of Sun or Java anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the evidence test for commoditize-your-complement: name the product whose demand rises and name the complement being opened",
+        "evidence": "The transcript discusses the concept generally but never frames it as a two-part naming test.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects 'two competitors did it' as a motive, on the ground that their line served a value capture Halyard cannot see",
+        "evidence": "Instead it treats this as validating evidence: \"The market is already commoditizing your engine whether you act or not \u2014 two competitors moved last spring\" \u2014 used to support acting, not rejected as an insufficient motive.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats the engineers' desire to open source as retention pressure rather than strategy, and routes it into the talent motive or a sanctioned contribution policy",
+        "evidence": "\"Don't let the retention threat drive the timeline... handle the retention conversation separately and directly with that engineer\" \u2014 separates it, but does not route it into a talent motive or contribution policy framework.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects 'the engine isn't really the core anymore' as a reason to open, noting not-core argues against keeping it closed, not for paying to run it in public",
+        "evidence": "Instead it's used as timing validation: \"You said the work has already moved to ops tooling. That's the tell the strategy is timed correctly, not evidence the license change is free.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Applies the talent motive's evidence test: the asset has to be work an engineer would want to be seen doing",
+        "evidence": "No such test is applied anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Inventories candidate assets separately rather than returning one yes/no verdict over the whole codebase",
+        "evidence": "The response splits the codebase into the engine (open, BSL) and \"What stays closed\": \"clustering/HA orchestration, multi-tenant management, security/compliance tooling, monitoring integrations, migration/upgrade automation.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the signal for a commoditization motive is growth in the paid product, not adoption of the opened component",
+        "evidence": "Not stated anywhere; no discussion of what metric would validate the commoditization motive.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks what would still capture value if the engine were opened, rather than accepting a license as the answer",
+        "evidence": "\"The move that works is a staged transition that protects the $6.1M while you rebuild the pricing lever around ops tooling\" \u2014 identifies ops tooling, not just the license, as the ongoing value-capture mechanism.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend a specific open source license",
+        "evidence": "\"Use a **source-available license with a delayed open-source conversion**... (Business Source License...)\" \u2014 explicitly recommends BSL.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

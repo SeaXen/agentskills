@@ -1,0 +1,490 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-ticket-pricing",
+  "scenarios": 9,
+  "expectations_total": 108,
+  "expectations_subjective": 1,
+  "expectations_objective": 107,
+  "pass_rate_with_skill_pct": 78.7,
+  "pass_rate_without_skill_pct": 18.5,
+  "delta_pp": 60.2,
+  "uplift_multiplier": 4.25,
+  "trigger_accuracy_pct": 69.0,
+  "trigger_queries": 100,
+  "trigger_positive_fire_rate": 0.76,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Directs the user to build or complete the budget first when no expense total and sponsorship share is on hand."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Refuses to set comps as a percentage of capacity and states that the count comes from the agreements already held."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends a nominal-fee posture and identifies it as the efficiency-leading option rather than the highest-value one."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that a published price cannot be withdrawn mid-sale without refunding whoever already paid, so the priced posture is less reversible than staying free."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Presents the structure section by section for validation rather than returning a single final number."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Caps public price points at two per persona and rejects the four-phase Super Early Bird / Early Bird / Regular / Last Chance time ladder."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names which comparable's ratio it transposed and justifies the pick on matching payer mix rather than matching city or headcount."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Confirms the ticket revenue target comes from the budget before allocating it across the tiers."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Requires the group discount to apply only within a single order."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that an organizer with no invoicing capacity should delete the rung outright, and that inability to take payment in the form buyers need is an upstream problem rather than a pricing one."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Reports published group thresholds and percentages as a range - for example 15% at five or more in one order, or a 5% / 10% step at 5-9 and 10-plus - rather than asserting one industry-standard number."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends one threshold and one percentage rather than a multi-step table for an event of this size."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that a credit toward the next edition does not appear in the sourced examples, so an organizer choosing it should say it is their own invention."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that an unanswered application is worse than offering no route at all, because the applicant has disclosed hardship to a silent inbox."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that pricing does not fix no-shows and that a nominal fee reduces the exposure without solving it."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Sends the funding-model question back upstream to the budget skill rather than settling it as a pricing question."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that free-by-design is an argued legitimate posture rather than a failure to price, and notes that a full multi-track conference exists that charges nothing and requires no registration at all."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Does not apply an exchange-rate or purchasing-power multiplier to the $850 / $420 / $120 figures to generate the three new grids."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that the vendor-run versus community-run distinction bounds the price band but does not pick the ladder's shape."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that the commercial posture tops both value and effort so it never leads on efficiency, and names the sales and refund machinery it drags in."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Requires the $1,200 figure be justified against the budget's ticket-revenue target rather than against what other conferences charge."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that the whole structure - every price, every date, every gate - should have been published at once when the sale opened."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that a published price cannot be withdrawn mid-sale without refunding whoever already paid."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "States that the ticket revenue target must come from the event budget - total expenses minus the sponsorship share - and does not produce a final price from comparable prices alone."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Directs the user to build or complete the budget first when no expense total and sponsorship share is on hand."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Refuses to set comps as a percentage of capacity and states that the count comes from the agreements already held."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends a nominal-fee posture and identifies it as the efficiency-leading option rather than the highest-value one."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States the nominal-fee band as roughly 10-20% of what a commercial tech conference charges in the same region, and applies it to the 9,500 SEK reference."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Warns that charging any non-zero price pulls in accounting and tax obligations, and that this compliance cost is the same for a token price as for a commercial one."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that a published price cannot be withdrawn mid-sale without refunding whoever already paid, so the priced posture is less reversible than staying free."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Does not claim the fee eliminates no-shows, and routes the no-show exposure to the no-show management skill."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Presents the structure section by section for validation rather than returning a single final number."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Caps public price points at two per persona and rejects the four-phase Super Early Bird / Early Bird / Regular / Last Chance time ladder."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that a third phase is legitimate only as a late surcharge, never as a third discount step."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Warns that extra discount steps read as pressure tactics and train buyers to wait for the next one."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Sets the floor price from the 47 EUR per-attendee cost and the chosen posture, not from a comparable event's floor price."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Applies a top-to-floor ratio drawn from a published range of roughly 1.7:1 to 6.5:1 and reports it as a range rather than as one canonical number."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names which comparable's ratio it transposed and justifies the pick on matching payer mix rather than matching city or headcount."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States explicitly whether the single time step is an expiring discount or a surcharge that lands."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Gives the time gate as a published calendar date, or as a first-N-tickets count, announced from the day tickets go on sale."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Labels each price it produces as sourced or self-set."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Confirms the ticket revenue target comes from the budget before allocating it across the tiers."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Refuses to stack the group discount on the 240 EUR early-bird price and gives the reason as discounting the same seat twice."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Restricts the group discount to the standard tier, excluding both the early and the late tiers, and requires that exclusion to be published on the page."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Requires the group discount to apply only within a single order."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Rejects the extra 5% for paying by invoice and states that invoicing is a payment rail, not a discount."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that invoicing is offered at full price."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Explains that the invoice rail's value is unlocking orders that would otherwise not happen at all, not reducing the price."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Warns that discounting the invoice rail hands the top-paying corporate segment a second reduction for a problem that was never about money."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that the rail requires an entity able to issue invoices and reconcile payment, and confirms the nonprofit with a bookkeeper satisfies that."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that an organizer with no invoicing capacity should delete the rung outright, and that inability to take payment in the form buyers need is an upstream problem rather than a pricing one."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Reports published group thresholds and percentages as a range - for example 15% at five or more in one order, or a 5% / 10% step at 5-9 and 10-plus - rather than asserting one industry-standard number."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends one threshold and one percentage rather than a multi-step table for an event of this size."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that community technical events have no industry standard refund practice beyond a single dated cutoff."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Does not present a graduated or sliding refund schedule - for example 100% at 60 days out, 50% at 30 days - as standard practice."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes that the worked example policies do not grade the refund by how many days out the request lands."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Presents the real policies as a demonstrated range of options rather than as a ranked list or a norm."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Shows that the administrative fee varies across the examples: a flat amount, a percentage of the price, or none at all."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Shows that the fee itself can be tiered to the ticket type rather than flat across the ladder, with a lower fee on student tickets."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Presents at least two distinct hardship mechanisms: waiving the fee for named reasons, and granting a separate later deadline for visa or travel issues."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Forces an explicit decision on each of: refund deadline, administrative fee, hardship waiver, post-deadline handling, person-to-person transfer, and transfer within a company."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that a credit toward the next edition does not appear in the sourced examples, so an organizer choosing it should say it is their own invention."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that the 11 hardship tickets should be non-transferable, because transferring a need-reviewed ticket defeats the review it went through."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires the deadline be written as a calendar date rather than a relative window such as 30 days before the event."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes that the route may deliberately leave the price unpublished, which keeps the decision with the reviewer."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that the existing 45 GBP student price does not reach the unemployed, career-changers, or others in hardship, which is why the two rungs coexist rather than compete."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires four things written before the route is published: who reads applications, how fast they promise to answer, whether the window closes, and what the applicant receives - a code, a free pass, or a price."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that an unanswered application is worse than offering no route at all, because the applicant has disclosed hardship to a silent inbox."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Uses the stated accessibility positioning claim as the reason the rung is promoted despite ranking last on efficiency."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Distinguishes need-based framing from an identity-based eligibility enumeration, and notes that events publish them as separate routes rather than merged into one paragraph."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Warns against copying an eligibility list across jurisdictions without local checking, and declines to give legal advice."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that deposit-hold tickets remain untested as a developer-event pricing lever specifically."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Cites the single cross-industry data point in full: Eventtia's 2024 managed-conference data, where a $3 refundable deposit cut a previously-free event's no-show rate from 38% to 14%."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Labels that data point as general-conference evidence rather than developer-event evidence, and does not present it as proof the mechanic works here."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Routes the no-show problem itself to the no-show management skill rather than answering it with a price."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that pricing does not fix no-shows and that a nominal fee reduces the exposure without solving it."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Identifies that a format funded at roughly 100% by sponsorship has no ticket-revenue line, so the priced postures are deleted rather than ranked."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Sends the funding-model question back upstream to the budget skill rather than settling it as a pricing question."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that free-by-design is an argued legitimate posture rather than a failure to price, and notes that a full multi-track conference exists that charges nothing and requires no registration at all."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Warns that charging 15 EUR pulls in accounting and tax obligations the free model currently carries none of."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes that a published price is not reversible mid-sale without refunding whoever already paid, unlike the free posture."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that regional and currency price parity for one format run in several countries has no established method, and declines to produce a purchasing-power formula as though it were a standard."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Leaves the per-market price decision with the organizer rather than resolving it with an invented conversion."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Rebuilds each market's floor from that market's own per-attendee cost and posture rather than converting the Seattle prices."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Does not apply an exchange-rate or purchasing-power multiplier to the $850 / $420 / $120 figures to generate the three new grids."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that anchoring and decoy ordering is unconfirmed for event tickets and should not be imported from software pricing."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes that published registration pages list personas in plain reading order rather than in an anchoring order."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Asks for the payer mix in each market as the axis that sets each ladder's shape."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Checks the existing Seattle top-to-floor ratio - roughly 7:1 from $850 to $120 - against the published range of about 1.7:1 to 6.5:1 and flags that it sits above it."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Transposes ratios rather than amounts between markets."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Sanity-checks each market's top rung against what an employer in that market approves without a purchase order."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires each market's own ticket revenue target from its own budget before any price is set."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Labels every new figure it produces as self-set rather than sourced."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that the vendor-run versus community-run distinction bounds the price band but does not pick the ladder's shape."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Rejects the $2,200 'Supporter' ticket as described, on the grounds that it buys the buyer benefits and is therefore a VIP upsell rather than a supporter tier."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Defines a supporter tier as a voluntary pay-more ticket whose premium visibly funds access for other attendees."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States the promotion condition for a supporter tier: a named scholarship or aid program must already exist for the tier to point at."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Notes that supporter-tier uptake is small, so its cash value is modest against the effort of running the program it funds."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Confirms the commercial-price posture is legitimately available here, because a company-run event priced against marketing budgets meets its promotion condition."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that the commercial posture tops both value and effort so it never leads on efficiency, and names the sales and refund machinery it drags in."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Warns against copying a named conference's absolute ticket price and transposes ratios instead."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Subtracts committed comps - customer invitees, speakers, staff, sponsor allotments - from the 600 seats before pricing."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Declines to treat the slow sale as a pricing failure by default, and names demand, marketing execution and price as the three candidate causes."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Routes the diagnosis to the market-fit skill before any price is changed."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that the whole structure - every price, every date, every gate - should have been published at once when the sale opened."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that a published price cannot be withdrawn mid-sale without refunding whoever already paid."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Rejects the 48-hour flash code as a third public price point beyond the two-step ladder already published."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Notes that extra discount steps read as pressure tactics and train every buyer to wait for the next one."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Rejects applying the 15% group discount to any tier, restricting it to the standard tier and excluding the early and late tiers."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Frames the 91-of-250 position against a self-set measure such as paid share of the revenue target by the gate date, rather than against an industry benchmark."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that ticket-ladder design has no industry benchmark to score against, so any pace measure here is self-set."
+      }
+    ]
+  }
+}

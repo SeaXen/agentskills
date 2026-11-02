@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Computes 150 / 4 and states 72 teams exceeds that full-coverage ceiling",
+        "evidence": "\"W/t = 37.5, so 37 teams. 72 is above it\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Computes judges per team as k = floor((9 x 150) / (72 x 4)) = 4",
+        "evidence": "\"k = floor(1350 / 288) = 4\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the band as a sampled panel band",
+        "evidence": "\"Band 2 (sampled panel)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects clustering judges by background and mixes judge types within each panel instead",
+        "evidence": "\"Make each panel one backend engineer, one VC and one designer.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason that no team's whole panel should share one blind spot",
+        "evidence": "\"a team in the VC slice is never seen by an engineer\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States panel composition is a constraint on the allocation map, not only on recruitment",
+        "evidence": "Under allocation: assign teams to panels at random, spread tracks evenly, stagger starts.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prescribes per-judge normalization because each judge scores a proper subset of the field",
+        "evidence": "\"Each judge saw 24 of the 72 teams... Normalize per judge\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces the single open discussion with two timed passes: a short fixed slot per team, then a longer pass on the shortlist only",
+        "evidence": "\"Pass 1, shortlist (16 min)... Pass 2, podium order (9 min).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names a timekeeper before the deliberation round starts",
+        "evidence": "\"A named timekeeper enforces both passes.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Takes every networked device in the deliberation room off the network for the duration",
+        "evidence": "\"Every device in the room is off the network for the whole discussion.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that synchronous consensus needs every judge in one room with no pressing schedule waiting, and is the starved option",
+        "evidence": "\"Open-ended consensus is the 'starved' rung. It works only with slack\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes technical judges need to touch the demo while business judges need the narrative delivered deliberately",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Leaves buffer in the window rather than allocating all 150 minutes to visits",
+        "evidence": "\"96\u2013110 Buffer for no-shows and late starts\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Computes 150 / 4 and states 72 teams exceeds that full-coverage ceiling",
+        "evidence": "'covers 150 \u00f7 4 = 37 teams at most' against 72 teams, then 'about 30 teams' with walking.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Computes judges per team as k = floor((9 x 150) / (72 x 4)) = 4",
+        "evidence": "It uses 3 visits per team, 'Each of the 72 teams gets 3 visits'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the band as a sampled panel band",
+        "evidence": "No band is named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects clustering judges by background and mixes judge types within each panel instead",
+        "evidence": "'Problems with same-discipline panels' and 'use mixed ones. Put one backend engineer, one VC and one designer in each of the three panels.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason that no team's whole panel should share one blind spot",
+        "evidence": "'Three VCs agreeing fast means they share a lens.' and 'Each team gets only one lens.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States panel composition is a constraint on the allocation map, not only on recruitment",
+        "evidence": "The assignment steps rotate zones so 'Every table then gets exactly one judge of each type'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prescribes per-judge normalization because each judge scores a proper subset of the field",
+        "evidence": "'Normalise each judge's scores, either by z-score or by rank within their 24 teams.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces the single open discussion with two timed passes: a short fixed slot per team, then a longer pass on the shortlist only",
+        "evidence": "Visits of 4 minutes per team, then 'Discuss only the shortlist (about 45 min)... 3 minutes per team'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names a timekeeper before the deliberation round starts",
+        "evidence": "No timekeeper is named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Takes every networked device in the deliberation room off the network for the duration",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that synchronous consensus needs every judge in one room with no pressing schedule waiting, and is the starved option",
+        "evidence": "Not noted.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes technical judges need to touch the demo while business judges need the narrative delivered deliberately",
+        "evidence": "Not noted.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Leaves buffer in the window rather than allocating all 150 minutes to visits",
+        "evidence": "'Total ~132 min of 150. Buffer ~18 min'.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

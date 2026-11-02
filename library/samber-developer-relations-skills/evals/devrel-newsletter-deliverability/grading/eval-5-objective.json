@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Says sending From a gmail.com address through a third-party platform cannot align DKIM or SPF to gmail.com",
+        "evidence": "\"The platform can't sign DKIM for gmail.com, so `dmarc=fail` on `header.from=gmail.com`.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Mentions that Google warns it will apply DMARC quarantine to Gmail From impersonation, or that freemail domains like yahoo.com publish p=reject",
+        "evidence": "\"gmail.com publishes `p=none; sp=quarantine`, and Google warns it will tighten that policy\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends sending the newsletter from a domain the user owns (pebbleworth.app or a subdomain of it)",
+        "evidence": "\"Send from `jonah@news.pebbleworth.app`\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes Reply-To can still point to the personal inbox so replies keep arriving there",
+        "evidence": "\"Set `Reply-To: jonah.pebble@gmail.com`.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that Gmail counts mail to personal Gmail accounts from the same primary domain, including subdomains, toward the 5,000 a day, and only that Gmail-consumer share",
+        "evidence": "\"Gmail counts messages to personal Gmail accounts, across the primary domain and its subdomains\"; \"Only the Gmail-consumer share counts\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that once a domain reaches bulk status at Gmail it stays bulk permanently",
+        "evidence": "\"Bulk status is permanent once reached.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says to estimate the Gmail-consumer share of the newsletter plus the 3,000 daily notifications before deciding whether the domain is a bulk sender",
+        "evidence": "Fix 10: \"Count the Gmail-consumer share from your app database and the platform export.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Advises against the dedicated IP for a 4,200-subscriber weekly list",
+        "evidence": "\"Don't buy the dedicated IP.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that one weekly burst then silence is inconsistent volume that hurts a dedicated IP's reputation",
+        "evidence": "\"one burst of 4,200, then six quiet days. That is the inconsistent volume pattern reputation punishes.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends staying on the platform's shared pool with custom DKIM on the user's own domain",
+        "evidence": "\"Stay on the shared pool and sign with your own domain.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a dedicated newsletter subdomain separate from the app's notification mail",
+        "evidence": "Fix 4 and 5: `news.pebbleworth.app` for the newsletter.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a warm-up for the new sending domain or subdomain",
+        "evidence": "Fix 7: \"Warm the new sending identity. Send in click-cohort order\".",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Says sending From a gmail.com address through a third-party platform cannot align DKIM or SPF to gmail.com",
+        "evidence": "\"SPF and DKIM pass for the platform's domain, not Gmail's, so DMARC alignment fails.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Mentions that Google warns it will apply DMARC quarantine to Gmail From impersonation, or that freemail domains like yahoo.com publish p=reject",
+        "evidence": "\"Google has said it will enforce DMARC on gmail.com From addresses.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends sending the newsletter from a domain the user owns (pebbleworth.app or a subdomain of it)",
+        "evidence": "\"Send from a domain you own, such as jonah@news.pebbleworth.app.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes Reply-To can still point to the personal inbox so replies keep arriving there",
+        "evidence": "\"Set Reply-To: jonah.pebble@gmail.com.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that Gmail counts mail to personal Gmail accounts from the same primary domain, including subdomains, toward the 5,000 a day, and only that Gmail-consumer share",
+        "evidence": "\"Google counts messages to personal Gmail addresses, aggregated across the whole primary domain, subdomains included.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that once a domain reaches bulk status at Gmail it stays bulk permanently",
+        "evidence": "\"Once you cross it you're treated as a bulk sender permanently.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says to estimate the Gmail-consumer share of the newsletter plus the 3,000 daily notifications before deciding whether the domain is a bulk sender",
+        "evidence": "\"Your Gmail share of 4,200 newsletter subscribers plus 3,000 app emails is likely well below 5,000 a day.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Advises against the dedicated IP for a 4,200-subscriber weekly list",
+        "evidence": "\"Dedicated IP: not worth it for you.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that one weekly burst then silence is inconsistent volume that hurts a dedicated IP's reputation",
+        "evidence": "\"A cold IP sending a weekly burst looks suspicious and gets throttled.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends staying on the platform's shared pool with custom DKIM on the user's own domain",
+        "evidence": "\"Shared pools from reputable platforms already have history\" and the custom sending domain with DKIM.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a dedicated newsletter subdomain separate from the app's notification mail",
+        "evidence": "\"news.pebbleworth.app... app notifications on a different one (mail.pebbleworth.app).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a warm-up for the new sending domain or subdomain",
+        "evidence": "Warm-up is mentioned only for a dedicated IP, not for the new domain.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

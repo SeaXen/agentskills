@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that more than one company now employing maintainers makes asset separation urgent now, while moving the trademark and domains is still uncontroversial.",
+        "evidence": "The transcript keeps assets with Kestrel as a disclosed reserved right (\"Kestrel Data owns the 'Sablewire' trademark...\") rather than urging separation now while uncontroversial.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes out explicitly what the company reserves - brand, hosted product, release timing - as a stated clause rather than leaving it implicit.",
+        "evidence": "GOVERNANCE.md: \"Kestrel Data owns the 'Sablewire' trademark, the project domain, and the package-registry account, and operates Sablewire Cloud\" plus the reserved release-timing clause.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that what triggers a maintainer revolt is an assurance that drifts, not a limit that was stated up front.",
+        "evidence": "No use of 'revolt' or the drift-framing anywhere in Section 13; closest is \"a known, reserved position rather than an assumption anyone has to guess at\", which doesn't name the revolt risk.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends per-organization seat or vote caps, and says to adopt them while the seat count is still small enough for the cap to be uncontroversial.",
+        "evidence": "The vote cap is adopted reactively (Kestrel already holds a 5/7 majority), with no 'while still small/uncontroversial' framing anywhere in the text.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Describes organization-balanced voting correctly: one vote per employer, independents counting as their own, applied to listed decision types, while day-to-day merges stay on lazy consensus.",
+        "evidence": "The actual mechanism described is a numeric cap (\"votes cast by maintainers employed by one organization count for at most 3\"), not a one-vote-per-employer scheme.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Moves roadmap decisions out of the internal planning meeting and into public issues.",
+        "evidence": "\"No standing meeting. Proposals and votes happen in public GitHub issues, labeled governance\" covering the breaking/scope-change track that supersedes the private roadmap meeting.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names invisible control - an internal roadmap meeting, a trademark on a company balance sheet, one shared employer - as the specific risk of a company-backed project.",
+        "evidence": "The phrase 'invisible control' never appears anywhere in Section 13.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds that maintainer nominations are judged without prejudice to employer, plus a cap on nominations from an organization already employing half the maintainers.",
+        "evidence": "\"No maintainer seat may be added for a Kestrel Data employee while Kestrel already holds a majority of seats, unless at least one external... maintainer agrees\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports the five-of-seven affiliation ratio as still classifying the project as single-vendor by the measure adopters and researchers use.",
+        "evidence": "\"Worse than the 2-of-5 (40%) ratio that flagged Redis as single-vendor pre-fork\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites the .NET Foundation episode, or its read that creating a foundation does not by itself remove the founder's authority: only the asset transfer and the bylaw amendment rule do.",
+        "evidence": "No mention of the .NET Foundation anywhere in Section 13.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names 'maintainers on more than one payroll' as one of the conditions that promotes an elected steering committee, and states that it is now met.",
+        "evidence": "The transcript explicitly says the opposite: \"Nothing here calls for that yet \u2014 no foundation deadline, no contributor base bigger than the maintainer set\" without naming the multi-payroll trigger despite three employers already present.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the trademark arrangement and any contributor agreement to legal counsel rather than drafting terms.",
+        "evidence": "\"Route the actual text to counsel \u2014 not a governance question\" (CLA); trademark is disclosed as existing fact, not newly drafted.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends published, versioned minutes on a real cadence, with the categories that may be decided privately enumerated.",
+        "evidence": "Only \"Recommend a short public decision log\" appears, with no stated cadence (unlike a weekly-sync/3-business-day pattern seen elsewhere).",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that more than one company now employing maintainers makes asset separation urgent now, while moving the trademark and domains is still uncontroversial.",
+        "evidence": "The document instead keeps the trademark with Kestrel and calls it fine as-is: 'This is a standard single-vendor open-core arrangement. Naming it as such, instead of leaving people to infer it, is the point.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes out explicitly what the company reserves - brand, hosted product, release timing - as a stated clause rather than leaving it implicit.",
+        "evidence": "Dedicated sections state 'Kestrel Data owns the Sablewire trademark and operates Sablewire Cloud' and 'Kestrel controls release timing because Sablewire Cloud rollouts are tied to Sablewire releases.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that what triggers a maintainer revolt is an assurance that drifts, not a limit that was stated up front.",
+        "evidence": "No such statement about drifting assurances triggering revolt appears anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends per-organization seat or vote caps, and says to adopt them while the seat count is still small enough for the cap to be uncontroversial.",
+        "evidence": "No seat or vote cap by organization is proposed; the document instead notes Kestrel's 5/7 majority is 'a numerical majority, not a formal one' without capping it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Describes organization-balanced voting correctly: one vote per employer, independents counting as their own, applied to listed decision types, while day-to-day merges stay on lazy consensus.",
+        "evidence": "RFC decisions are 'decided by rough consensus among all seven' maintainers individually, not one-vote-per-employer; no organization-balanced voting scheme is described.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Moves roadmap decisions out of the internal planning meeting and into public issues.",
+        "evidence": "Roadmap planning is moved into 'a standing quarterly meeting that every maintainer is invited to,' not into public issues/async tracking.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names invisible control - an internal roadmap meeting, a trademark on a company balance sheet, one shared employer - as the specific risk of a company-backed project.",
+        "evidence": "The document describes the internal roadmap meeting as 'what's true today' being changed, but never frames these as an 'invisible control' risk category.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds that maintainer nominations are judged without prejudice to employer, plus a cap on nominations from an organization already employing half the maintainers.",
+        "evidence": "'Company affiliation is never a factor for or against' is stated, but no cap on nominations from an organization already employing half the maintainers is included.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reports the five-of-seven affiliation ratio as still classifying the project as single-vendor by the measure adopters and researchers use.",
+        "evidence": "The document instead downplays the ratio's significance: 'its five-of-seven maintainer count is a numerical majority, not a formal one, same as it would be if the ratio were reversed.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites the .NET Foundation episode, or its read that creating a foundation does not by itself remove the founder's authority: only the asset transfer and the bylaw amendment rule do.",
+        "evidence": "No mention of .NET Foundation or any such precedent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names 'maintainers on more than one payroll' as one of the conditions that promotes an elected steering committee, and states that it is now met.",
+        "evidence": "No discussion of an elected steering committee or promotion conditions appears in this document at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the trademark arrangement and any contributor agreement to legal counsel rather than drafting terms.",
+        "evidence": "The document itself drafts the trademark terms directly ('What requires Kestrel's sign-off is using the Sablewire name or logo...') rather than routing to legal counsel.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends published, versioned minutes on a real cadence, with the categories that may be decided privately enumerated.",
+        "evidence": "No mention of publishing minutes anywhere in the document.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

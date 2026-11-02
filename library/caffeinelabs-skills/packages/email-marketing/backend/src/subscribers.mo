@@ -1,0 +1,211 @@
+import Array "mo:core/Array";
+import Iter "mo:core/Iter";
+import Map "mo:core/Map";
+import Nat "mo:core/Nat";
+import Set "mo:core/Set";
+import Text "mo:core/Text";
+import VerifiedEmails "mo:caffeineai-email-verification/verifiedEmails";
+import UnsubscribeTokens "unsubscribeTokens";
+
+module {
+  public type State = {
+    topics : Map.Map<Nat, TopicRecord>;
+    topicsByName : Map.Map<Text, Nat>;
+    var idGen : Nat;
+  };
+
+  type TopicRecord = {
+    var name : Text;
+    subscribers : Set.Set<Text>;
+  };
+
+  public type Topic = {
+    id : Nat;
+    name : Text;
+  };
+
+  public func new(topics : [Text]) : State {
+    let state = {
+      topics = Map.empty<Nat, TopicRecord>();
+      topicsByName = Map.empty<Text, Nat>();
+      var idGen = 0;
+    };
+
+    for (name in topics.vals()) {
+      ignore addTopic(state, name);
+    };
+
+    state;
+  };
+
+  // Add a topic if it doesn't exist and return its ID or the existing topic ID.
+  public func addTopic(state : State, name : Text) : Nat {
+    switch (state.topicsByName.get(name)) {
+      case (?topicId) { topicId };
+      case (_) {
+        let newId = state.idGen;
+        state.idGen += 1;
+        let record = {
+          var name;
+          subscribers = Set.empty<Text>();
+        };
+        state.topics.add(newId, record);
+        state.topicsByName.add(name, newId);
+        newId;
+      };
+    };
+  };
+
+  // Rename a topic. Returns false if a topic with the new name already exists or the topic ID does not exist.
+  public func renameTopic(state : State, topicId : Nat, newName : Text) : Bool {
+    switch (state.topics.get(topicId)) {
+      case (?topicRecord) {
+        switch (state.topicsByName.get(newName)) {
+          case (?_) { false };
+          case (_) {
+            state.topicsByName.remove(topicRecord.name);
+            topicRecord.name := newName;
+            state.topicsByName.add(newName, topicId);
+            true;
+          };
+        };
+      };
+      case (_) { false };
+    };
+  };
+
+  // Remove a topic. Also removes all subscribers from that topic, and their
+  // unsubscribe links stop working.
+  public func removeTopic(state : State, tokens : UnsubscribeTokens.State, topicId : Nat) {
+    switch (state.topics.get(topicId)) {
+      case (?topicRecord) {
+        for (email in topicRecord.subscribers.values()) {
+          UnsubscribeTokens.remove(tokens, email, topicId);
+        };
+        state.topicsByName.remove(topicRecord.name);
+        state.topics.remove(topicId);
+      };
+      case (_) {};
+    };
+  };
+
+  // List all topics (without subscribers).
+  public func listTopics(state : State) : [Topic] {
+    state.topics.toArray().map(
+      func((id, record)) { { id; name = record.name } }
+    );
+  };
+
+  // Get a topic ID by name
+  public func getTopicId(state : State, name : Text) : ?Nat {
+    state.topicsByName.get(name);
+  };
+
+  // Get a topic name by ID
+  public func getTopicName(state : State, topicId : Nat) : ?Text {
+    switch (state.topics.get(topicId)) {
+      case (?topicRecord) { ?topicRecord.name };
+      case (_) { null };
+    };
+  };
+
+  // Add a subscriber to a topic. Returns false if the topic doesn't exist
+  public func add(state : State, topicId : Nat, email : Text) : Bool {
+    switch (state.topics.get(topicId)) {
+      case (?topicRecord) {
+        topicRecord.subscribers.add(email);
+        true;
+      };
+      case (_) { false };
+    };
+  };
+
+  // Remove a subscriber from a topic. The unsubscribe link in mail already
+  // sent to them stops working; a later re-subscription mints a fresh one on
+  // the next send.
+  public func remove(state : State, tokens : UnsubscribeTokens.State, topicId : Nat, email : Text) {
+    switch (state.topics.get(topicId)) {
+      case (?topicRecord) {
+        topicRecord.subscribers.remove(email);
+      };
+      case (_) {};
+    };
+    UnsubscribeTokens.remove(tokens, email, topicId);
+  };
+
+  // Remove a subscriber from all topics
+  public func removeFromAllTopics(state : State, tokens : UnsubscribeTokens.State, email : Text) {
+    for ((topicId, topicRecord) in state.topics.entries()) {
+      topicRecord.subscribers.remove(email);
+      UnsubscribeTokens.remove(tokens, email, topicId);
+    };
+  };
+
+  // List all subscribers alongside their verification status for a given topic. Returns null if the topic doesn't exist.
+  public func list(state : State, verifiedEmails : VerifiedEmails.State, topicId : Nat) : ?[(Text, Bool)] {
+    switch (state.topics.get(topicId)) {
+      case (?topicRecord) {
+        ?topicRecord.subscribers.values().toArray().map(
+          func(email) {
+            let isVerified = VerifiedEmails.contains(verifiedEmails, email);
+            (email, isVerified);
+          }
+        );
+      };
+      case (_) { null };
+    };
+  };
+
+  // List all verified subscribers for a given topic. Returns null if the topic doesn't exist.
+  public func verified(state : State, verifiedEmails : VerifiedEmails.State, topicId : Nat) : ?[Text] {
+    switch (state.topics.get(topicId)) {
+      case (?topicRecord) {
+        ?topicRecord.subscribers.toArray().filter(
+          func(email) {
+            VerifiedEmails.contains(verifiedEmails, email);
+          }
+        );
+      };
+      case (_) { null };
+    };
+  };
+
+  // Return whether a subscriber is subscribed to a topic
+  public func isSubscribed(state : State, topicId : Nat, email : Text) : Bool {
+    switch (state.topics.get(topicId)) {
+      case (?topicRecord) {
+        topicRecord.subscribers.contains(email);
+      };
+      case (_) { false };
+    };
+  };
+
+  // List all topics a subscriber is subscribed to.
+  public func listTopicsForSubscriber(state : State, email : Text) : [Topic] {
+    state.topics.toArray().filter(
+      func((_, record)) {
+        record.subscribers.contains(email);
+      }
+    ).map(
+      func((id, record)) { { id; name = record.name } }
+    );
+  };
+
+  // Returns the count of subscribers for a given topic
+  public func count(state : State, topicId : Nat) : Nat {
+    switch (state.topics.get(topicId)) {
+      case (?topicRecord) { topicRecord.subscribers.size() };
+      case (_) { 0 };
+    };
+  };
+
+  // Returns the count of verified subscribers for a given topic
+  public func verifiedCount(state : State, verifiedEmails : VerifiedEmails.State, topicId : Nat) : Nat {
+    switch (state.topics.get(topicId)) {
+      case (?topicRecord) {
+        VerifiedEmails.intersect(verifiedEmails, topicRecord.subscribers).size();
+      };
+      case (_) { 0 };
+    };
+  };
+};

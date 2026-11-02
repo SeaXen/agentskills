@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Produces the developer journey map.",
+        "evidence": "Section '# 1. Developer journey map \u2014 backend engineer at a scale-up, 2026-09-19' is fully produced with Scope, Journey table, Buyer lane, Moments, Leak, Handoff, and Gaps.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines to rewrite the quickstart page as part of this run.",
+        "evidence": "The transcript fully writes the quickstart page under '# 2. Quickstart rewrite', including a complete markdown page, cut list, verification plan, instrumentation, and ownership section \u2014 it does not decline.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the quickstart rewrite to samber/developer-relations-skills@developer-quickstart-guide by name.",
+        "evidence": "No mention of 'samber/developer-relations-skills' or 'developer-quickstart-guide' anywhere in the transcript; the rewrite is done inline instead of routed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason for routing it out: a one-stage fix does not need a seven-stage artefact.",
+        "evidence": "No such reasoning appears; instead the transcript proceeds directly to writing the quickstart content itself.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines to build the DevRel KPI framework as part of this run.",
+        "evidence": "Section '# 3. DevRel KPI framework \u2014 November review' is fully built, including a full metric sheet, attribution rule, reporting cadence, and a five-sentence summary \u2014 it is not declined.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the KPI framework to samber/developer-relations-skills@devrel-metrics by name.",
+        "evidence": "No mention of 'samber/developer-relations-skills' or 'devrel-metrics' anywhere in the transcript; the KPI framework is built inline instead of routed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reports DevRel owning every row as a finding about the organisation, not merely a detail of the map.",
+        "evidence": "\"**Organizational finding, not a stage finding:** four of five rows name DevRel as owner, and only Advocacy is a stage DevRel would own under any normal org chart.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that it means the surfaces have no accountable owner, which is a bigger problem than the leak itself.",
+        "evidence": "\"Per the skill this map is built on: *\"If most rows name DevRel as owner, report that as a finding about the organisation. It means the surfaces have no accountable owner, which is a bigger problem than the leak.\"* That's the headline of this map as much as any single stage is.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the gate line that at least one owner must sit outside the DevRel team, and reports this map failing it.",
+        "evidence": "\"every stage has one named owner \u2713 (but four of five collapse to DevRel, failing the \"at least one owner outside DevRel\" line \u2014 see the organizational finding above)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not fabricate an external owner in order to satisfy that gate.",
+        "evidence": "The Production row states \"DevRel for docs and dashboard UX; **no owner** for alerting reliability itself\" rather than inventing an external owner, and the self-check honestly reports the gate failure instead of papering over it.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Produces the deliverable under its seven headings: Scope, Journey, Buyer lane, Moments, Leak, Handoff, Gaps.",
+        "evidence": "The journey map uses exactly these headings in order: '## Scope', '## Journey', '## Buyer lane', '## Moments', '## Leak', '## Handoff', '## Gaps'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the three moments separately: first success, moment of truth, abandonment point.",
+        "evidence": "Under '## Moments': \"**First success**\", \"**Moment of truth**\", and \"**Abandonment point (hypothesis, not measured)**\" are each listed as separate bullets.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Presents the document section by section for agreement rather than delivering it all at once.",
+        "evidence": "The transcript is one continuous response delivering all three complete documents (journey map, quickstart rewrite, KPI framework) together with no pause points or requests for agreement between sections.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Produces the developer journey map.",
+        "evidence": "Section '1. Developer Journey Map \u2014 Backend Engineer @ Scale-Up \u2192 Production Usage' with a full 9-row stage table.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines to rewrite the quickstart page as part of this run.",
+        "evidence": "A full '2. Quickstart Rewrite' section with complete rewritten markdown content is produced in this same run.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the quickstart rewrite to samber/developer-relations-skills@developer-quickstart-guide by name.",
+        "evidence": "No routing to an external skill occurs; the rewrite is done inline.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason for routing it out: a one-stage fix does not need a seven-stage artefact.",
+        "evidence": "Not stated, since no routing occurred.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines to build the DevRel KPI framework as part of this run.",
+        "evidence": "A full '3. DevRel KPI Framework \u2014 November Presentation' section is produced in this same run.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the KPI framework to samber/developer-relations-skills@devrel-metrics by name.",
+        "evidence": "No such routing occurs.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reports DevRel owning every row as a finding about the organisation, not merely a detail of the map.",
+        "evidence": "The 'Capacity reality' framing treats this as a resourcing constraint to report honestly ('Three people own four developer-facing surfaces'), not as an organizational governance finding about accountable ownership.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that it means the surfaces have no accountable owner, which is a bigger problem than the leak itself.",
+        "evidence": "The closest statement is about protecting DevRel from blame for unallocated eng time, not a declaration that lack of outside ownership is itself a bigger problem than the leak.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the gate line that at least one owner must sit outside the DevRel team, and reports this map failing it.",
+        "evidence": "No such gate line is stated anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not fabricate an external owner in order to satisfy that gate.",
+        "evidence": "All 'Owned touchpoint' entries in the journey map (Docs, SDK, Dashboard, Community) are honestly attributed to the three-person DevRel team with no invented external owner.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Produces the deliverable under its seven headings: Scope, Journey, Buyer lane, Moments, Leak, Handoff, Gaps.",
+        "evidence": "Actual headings are '1. Developer Journey Map,' '2. Quickstart Rewrite,' '3. DevRel KPI Framework' \u2014 none of the seven named headings appear.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the three moments separately: first success, moment of truth, abandonment point.",
+        "evidence": "Only an 'Activation (aha moment)' concept appears; no three-moment framework (first success, moment of truth, abandonment point) is used.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Presents the document section by section for agreement rather than delivering it all at once.",
+        "evidence": "All three deliverables (map, quickstart rewrite, KPI framework) are delivered together in a single response with no section-by-section approval step.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

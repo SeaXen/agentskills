@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Scores the page against six named pass-threshold criteria covering completeness, detectability, sufficiency, automation honesty, path validity and self-containment",
+        "evidence": "Table lists exactly: \"Completeness\", \"Detectability\", \"Sufficiency\", \"Automation honesty\", \"Path validity\", \"Self-containment\", each with a verdict and reasoning.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the Requirements section carrying the Java 21 floor at the bottom of the page as a defect and moves it above the code examples",
+        "evidence": "\"4. Requirements (Java 21) is the last section... Move Requirements to the top, right after scope, before the breaking changes.\" The target outline also places \"## Requirements\" before \"## Breaking changes\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ranks the floors-at-the-bottom defect as the costliest of the structural defects",
+        "evidence": "The \"four defects, in order of what's costing you the most tickets\" lists the FAQ-hidden-steps issue as #1 and the Requirements-last issue as #4 (last), i.e., least costly, not costliest.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the A-to-Z ordering of the 14 entries as a defect and prescribes reordering by blast radius",
+        "evidence": "\"3. Breaking changes are ordered alphabetically by class name. That's an organizing principle for you, not for a reader triaging... Reorder by blast radius \u2014 whichever change the most call sites hit goes first\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies that the install command and config-rename steps are hidden in the FAQ and must move into the main migration flow",
+        "evidence": "\"The real migration steps are in the FAQ. The npm install command and the config-file rename steps are the two things a reader actually needs to type... Move the install command to a dedicated ## Install section near the top, and turn the config-file rename into its own ### Changed: config file renamed to X breaking-change entry\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies 'What's new in v3' and 'Why we rebuilt the core' as launch narrative that does not belong on a work document",
+        "evidence": "\"'What's new in v3' and 'Why we rebuilt the core' are, per the skill's own reference, 'a marketing section on a work document' and 'rationale that belongs in a blog post.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags every 'update your usage accordingly' entry as missing a before/after code block",
+        "evidence": "\"All 14 breaking-change entries fail the entry anatomy. Two sentences plus 'update your usage accordingly' is short for: no detection signal, no before/after code, no fix command, no escape hatch.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a change for which no before/after block can be written is not understood well enough to publish",
+        "evidence": "No such statement appears anywhere in the transcript; the audit discusses missing before/after code as a defect but never frames it as evidence the change itself isn't understood well enough to publish.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags every entry as missing an affects-you-if line carrying both a search pattern and the literal error or warning text",
+        "evidence": "\"Detectability | Fail | None of the 14 entries has a search pattern or literal error/warning text.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the absence of escape-hatch statements and requires an explicit 'there is none' where no escape hatch exists",
+        "evidence": "The entry-anatomy critique lists \"no escape hatch\" as a failure, and the prescribed template requires \"an explicit escape hatch or 'none.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Returns a prioritized fix list rather than an unordered list of problems",
+        "evidence": "\"### The four defects, in order of what's costing you the most tickets\" with numbered items 1\u20134.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Supplies rewritten text for the top three entries rather than only describing what should change",
+        "evidence": "The transcript defers this work: \"Hand me the actual entry text and the answers to (2), and I'll rewrite the top three highest-blast-radius entries in full six-part form as the next step\" \u2014 no rewritten entries are actually supplied.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Scores the page against six named pass-threshold criteria covering completeness, detectability, sufficiency, automation honesty, path validity and self-containment",
+        "evidence": "The transcript is a ranked list of six problems ('ranked by how directly each one drives tickets'), not a scoring against six named pass-threshold criteria of that kind.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the Requirements section carrying the Java 21 floor at the bottom of the page as a defect and moves it above the code examples",
+        "evidence": "'Java 21 requirement sits last \u2014 move it to the top, before anything else... Put a \"Before you upgrade\" callout above \"What's new\" stating the Java 21 requirement.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ranks the floors-at-the-bottom defect as the costliest of the structural defects",
+        "evidence": "It is listed as item '1' in a list explicitly 'ranked by how directly each one drives tickets.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the A-to-Z ordering of the 14 entries as a defect and prescribes reordering by blast radius",
+        "evidence": "It flags alphabetical sorting as a defect ('Breaking changes are sorted alphabetically by class name \u2014 sort by required action or migration order instead') but prescribes sorting by action type/migration order, not by 'blast radius', and does not tie this point to the '14' entry count (that number appears only in point 4).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies that the install command and config-rename steps are hidden in the FAQ and must move into the main migration flow",
+        "evidence": "'The npm install command and config-file rename live in FAQ \u2014 move them to a dedicated \"Migration steps\" section... Add a numbered \"## How to upgrade\" section right after Requirements.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies 'What's new in v3' and 'Why we rebuilt the core' as launch narrative that does not belong on a work document",
+        "evidence": "The transcript explicitly calls the rationale 'legitimate content' and only recommends demoting it ('Push it down, or collapse it into a details/expander'), not that it doesn't belong on the document; 'What's new in v3' is never flagged as a problem at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags every 'update your usage accordingly' entry as missing a before/after code block",
+        "evidence": "'Every entry ends in \"update your usage accordingly\" with no example \u2014 replace with a concrete before/after... repeated 14 times is what's actually generating ticket volume.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a change for which no before/after block can be written is not understood well enough to publish",
+        "evidence": "No such statement appears; the critique only asks for before/after examples to be added, not a claim about publishing readiness tied to writability of such a block.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags every entry as missing an affects-you-if line carrying both a search pattern and the literal error or warning text",
+        "evidence": "No mention of search patterns or literal error/warning text anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the absence of escape-hatch statements and requires an explicit 'there is none' where no escape hatch exists",
+        "evidence": "Escape hatches are never discussed in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Returns a prioritized fix list rather than an unordered list of problems",
+        "evidence": "'Here's what's wrong with the page, ranked by how directly each one drives tickets' followed by a numbered 1-6 list, plus a numbered 'Recommended section order'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Supplies rewritten text for the top three entries rather than only describing what should change",
+        "evidence": "For items 1-3 it only describes the change to make (e.g. 'Add a numbered \"## How to upgrade\" section...') without supplying actual rewritten prose/table content.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

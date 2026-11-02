@@ -1,0 +1,197 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Plannotator artifact review mockup</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --shell: #080d18;
+        --shell-2: #0d1421;
+        --panel: #111a28;
+        --panel-2: #172131;
+        --border: #283449;
+        --border-soft: #202b3d;
+        --text: #e7ecf5;
+        --muted: #8e99aa;
+        --faint: #657186;
+        --purple: #a68af8;
+        --purple-soft: #2a2440;
+        --green: #43d077;
+        --amber: #e5ad55;
+        --danger: #ed7180;
+        --paper: #f7f4ed;
+        --paper-ink: #171716;
+        --paper-line: #d5cec1;
+        font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+      * { box-sizing: border-box; }
+      html, body { min-height: 100%; }
+      body { min-width: 320px; margin: 0; color: var(--text); background: var(--shell); overflow: hidden; }
+      button, textarea { font: inherit; }
+      button { color: inherit; }
+      button:focus-visible, textarea:focus-visible { outline: 3px solid var(--purple); outline-offset: 2px; }
+      .app { height: 100vh; display: grid; grid-template-rows: 54px 1fr; }
+      .topbar { display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 18px; padding: 0 14px 0 18px; border-bottom: 1px solid var(--border); background: #0a101c; }
+      .brand { display: flex; align-items: center; gap: 12px; font-size: .84rem; font-weight: 760; }
+      .brand small { padding: 4px 7px; border-radius: 4px; color: var(--green); background: #112a21; font-size: .58rem; font-weight: 760; }
+      .file { min-width: 0; color: var(--muted); font: .68rem ui-monospace, SFMono-Regular, Menlo, monospace; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+      .top-actions { display: flex; align-items: center; gap: 7px; }
+      .top-actions button { min-height: 34px; border: 1px solid var(--border); border-radius: 6px; padding: 0 11px; background: var(--panel); cursor: pointer; font-size: .68rem; font-weight: 650; }
+      .top-actions .send { border-color: #6d5dc1; background: var(--purple-soft); }
+      .top-actions .approve { border-color: #286f47; color: #07150d; background: var(--green); }
+
+      .workspace { min-height: 0; display: grid; grid-template-columns: 48px minmax(0, 1fr) 330px; }
+      .tools { display: grid; align-content: start; gap: 8px; padding: 10px 6px; border-right: 1px solid var(--border); background: #0a101b; }
+      .tool { width: 36px; height: 36px; display: grid; place-items: center; border: 1px solid transparent; border-radius: 6px; color: var(--muted); background: transparent; cursor: pointer; font-size: .72rem; }
+      .tool[aria-pressed="true"] { border-color: #5f50a9; color: var(--text); background: var(--purple-soft); }
+
+      .canvas-shell { min-width: 0; min-height: 0; display: grid; grid-template-rows: 44px 1fr; background: #0b111d; }
+      .canvas-bar { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 0 14px; border-bottom: 1px solid var(--border); color: var(--muted); font-size: .66rem; }
+      .canvas-bar strong { color: var(--text); font-weight: 650; }
+      .canvas-controls { display: flex; gap: 6px; }
+      .canvas-controls button { min-height: 28px; border: 1px solid var(--border); border-radius: 5px; padding: 0 9px; background: var(--panel); color: var(--muted); font-size: .62rem; }
+      .canvas-controls button[aria-pressed="true"] { color: var(--text); border-color: #5d4fa2; background: var(--purple-soft); }
+      .canvas { min-height: 0; overflow: auto; padding: clamp(18px, 3vw, 42px); background: #0d1420; }
+      .page { position: relative; width: min(1050px, 100%); min-height: 710px; margin: 0 auto; overflow: hidden; border-radius: 6px; color: var(--paper-ink); background: var(--paper); box-shadow: 0 26px 70px rgba(0, 0, 0, .45); transition: width 240ms cubic-bezier(.16,1,.3,1); }
+      .page[data-width="mobile"] { width: min(390px, 100%); }
+      .site-nav { min-height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 24px; border-bottom: 1px solid var(--paper-line); background: #171716; color: #fff9ef; }
+      .site-brand { display: flex; align-items: center; gap: 8px; font-weight: 820; letter-spacing: -.03em; }
+      .site-mark { width: 16px; height: 16px; display: grid; grid-template-columns: 1fr 1fr; gap: 2px; }
+      .site-mark i { background: #fff9ef; }
+      .site-mark i:last-child { background: #1bae61; }
+      .site-links { display: flex; gap: 18px; font-size: .7rem; }
+      .page-content { display: grid; grid-template-columns: .8fr 1.2fr; gap: 34px; padding: 42px 36px 52px; }
+      .page[data-width="mobile"] .page-content { grid-template-columns: 1fr; padding: 30px 20px; }
+      .hero-copy h1 { margin: 0; font-size: clamp(2.7rem, 5vw, 5.5rem); line-height: .86; letter-spacing: -.045em; }
+      .page[data-width="mobile"] .hero-copy h1 { font-size: 3.3rem; }
+      .hero-copy p { max-width: 38ch; margin: 22px 0; color: #5c574f; line-height: 1.55; }
+      .hero-actions { display: flex; gap: 8px; }
+      .hero-actions button { min-height: 42px; border: 1px solid #171716; border-radius: 5px; padding: 0 13px; background: transparent; color: #171716; font-size: .72rem; font-weight: 760; }
+      .hero-actions button:first-child { background: #1bae61; }
+      .folio { min-height: 440px; display: grid; grid-template-columns: repeat(12, 1fr); grid-template-rows: repeat(10, 1fr); }
+      .sheet { border: 1px solid #171716; border-radius: 5px; box-shadow: 0 14px 24px rgba(20,20,19,.2); }
+      .sheet.a { grid-column: 1 / 8; grid-row: 2 / 10; transform: rotate(-2deg); background: #f3e6d2; }
+      .sheet.b { grid-column: 5 / 13; grid-row: 1 / 8; z-index: 1; transform: rotate(2deg); background: #1649d8; }
+      .sheet.c { grid-column: 4 / 11; grid-row: 5 / 11; z-index: 2; background: #fff9ef; }
+      .sheet.c::before { content: ""; display: block; height: 32%; background: #a884e8; border-bottom: 1px solid #171716; }
+      .sheet.c::after { content: ""; display: block; width: 58%; height: 8px; margin: 28px 20px; background: #171716; box-shadow: 0 18px 0 #1bae61, 0 36px 0 #d8cebf; }
+      .annotation-highlight { position: absolute; left: 7%; top: 37%; width: 31%; height: 28%; border: 2px solid var(--amber); border-radius: 4px; background: rgba(229,173,85,.1); }
+      .annotation-pin { position: absolute; left: calc(38% - 14px); top: calc(37% - 14px); width: 28px; height: 28px; display: grid; place-items: center; border: 2px solid #0b111d; border-radius: 50%; color: #0b111d; background: var(--amber); font-size: .68rem; font-weight: 850; box-shadow: 0 6px 14px rgba(0,0,0,.2); }
+      .page[data-width="mobile"] .annotation-highlight { left: 5%; top: 39%; width: 89%; height: 21%; }
+      .page[data-width="mobile"] .annotation-pin { left: calc(94% - 14px); top: calc(39% - 14px); }
+      .page[data-width="mobile"] .folio { min-height: 340px; }
+
+      .sidebar { min-width: 0; min-height: 0; display: grid; grid-template-rows: 44px auto 1fr auto; border-left: 1px solid var(--border); background: var(--shell-2); }
+      .sidebar-head { display: flex; align-items: center; justify-content: space-between; padding: 0 13px; border-bottom: 1px solid var(--border); font-size: .72rem; font-weight: 720; }
+      .sidebar-head span { display: grid; place-items: center; width: 22px; height: 22px; border-radius: 50%; color: var(--purple); background: var(--purple-soft); font-size: .62rem; }
+      .summary { display: grid; grid-template-columns: repeat(3, 1fr); border-bottom: 1px solid var(--border); }
+      .summary div { padding: 12px 9px; border-right: 1px solid var(--border-soft); }
+      .summary div:last-child { border-right: 0; }
+      .summary strong, .summary small { display: block; }
+      .summary strong { font-size: .78rem; }
+      .summary small { margin-top: 4px; color: var(--faint); font-size: .56rem; }
+      .comments { overflow: auto; }
+      .comment { width: 100%; display: block; padding: 14px 13px; border: 0; border-bottom: 1px solid var(--border-soft); text-align: left; background: transparent; cursor: pointer; }
+      .comment[aria-pressed="true"] { background: var(--panel-2); }
+      .comment-meta { display: flex; align-items: center; justify-content: space-between; gap: 8px; margin-bottom: 8px; }
+      .comment-meta strong { color: var(--amber); font-size: .62rem; }
+      .comment-meta span { color: var(--faint); font: .56rem ui-monospace, SFMono-Regular, Menlo, monospace; }
+      .comment p { margin: 0; color: var(--text); font-size: .7rem; line-height: 1.5; }
+      .quote { margin: 9px 0 0; padding: 8px; border-radius: 5px; color: var(--muted); background: #0b121e; font: .6rem/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; }
+      .sidebar-foot { display: grid; gap: 9px; padding: 12px; border-top: 1px solid var(--border); }
+      .sidebar-foot button { min-height: 38px; border: 1px solid #6e5fc0; border-radius: 6px; background: var(--purple-soft); font-size: .68rem; font-weight: 700; }
+      .copy { color: var(--muted); text-align: center; font-size: .57rem; }
+
+      .toast { position: fixed; right: 24px; bottom: 24px; max-width: 330px; padding: 13px 15px; border: 1px solid #397651; border-radius: 7px; color: #dff7e8; background: #153524; box-shadow: 0 16px 36px rgba(0,0,0,.4); transform: translateY(12px); opacity: 0; pointer-events: none; transition: transform 220ms cubic-bezier(.19,1,.22,1), opacity 180ms ease; font-size: .72rem; }
+      .toast[data-visible="true"] { transform: translateY(0); opacity: 1; }
+
+      @media (max-width: 960px) {
+        body { overflow: auto; }
+        .app { height: auto; min-height: 100vh; }
+        .workspace { grid-template-columns: 44px minmax(0, 1fr); grid-template-rows: minmax(660px, 1fr) auto; }
+        .sidebar { grid-column: 1 / -1; grid-row: 2; min-height: 420px; border-top: 1px solid var(--border); border-left: 0; }
+      }
+      @media (max-width: 620px) {
+        .topbar { grid-template-columns: 1fr auto; }
+        .file, .top-actions button:not(.send) { display: none; }
+        .workspace { grid-template-columns: 1fr; }
+        .tools { display: none; }
+        .canvas { padding: 14px 8px; }
+        .page-content { gap: 22px; }
+        .summary { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .page, .toast { transition: opacity 180ms ease; }
+        .toast { transform: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <!--
+      THESIS: Plannotator review keeps the rendered artifact central while comments remain immediately actionable.
+      OWN-WORLD: Dense midnight review shell, muted blue-gray panels, purple selection, amber annotations, and green completion.
+      STORY: Inspect the rendered HTML, select the highlighted annotation, and send concise feedback to the agent.
+      FIRST VIEWPORT: A full browser review workspace with narrow tools, dominant artifact canvas, and compact annotation rail.
+      FORM: System-aligned Plannotator mockup based on the current review surfaces; seed plannotator-review-mockup.
+      FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+    -->
+    <div class="app">
+      <header class="topbar">
+        <div class="brand">Plannotator <small>HTML review</small></div>
+        <div class="file">plannotator/effective-html · effective-html-compare-mockup.html</div>
+        <div class="top-actions"><button type="button">Close</button><button class="send" type="button" data-send>Send feedback</button><button class="approve" type="button">Approve</button></div>
+      </header>
+      <main class="workspace">
+        <nav class="tools" aria-label="Annotation tools"><button class="tool" type="button" aria-label="Select" aria-pressed="true">↖</button><button class="tool" type="button" aria-label="Markup" aria-pressed="false">✎</button><button class="tool" type="button" aria-label="Comment" aria-pressed="false">▢</button><button class="tool" type="button" aria-label="Hide markers" aria-pressed="false">◉</button></nav>
+        <section class="canvas-shell">
+          <header class="canvas-bar"><span><strong>Rendered HTML</strong> · local sample data</span><div class="canvas-controls" role="group" aria-label="Rendered width"><button type="button" data-canvas-width="desktop" aria-pressed="true">Desktop</button><button type="button" data-canvas-width="mobile" aria-pressed="false">Mobile</button></div></header>
+          <div class="canvas">
+            <article class="page" data-page>
+              <header class="site-nav"><div class="site-brand"><span class="site-mark"><i></i><i></i></span>Effective HTML</div><div class="site-links"><span>Catalog</span><span>Guide</span><span>Compare</span></div></header>
+              <div class="page-content">
+                <section class="hero-copy"><h1>Put the work side by side.</h1><p>Compare the actual HTML artifacts at the same width. Keep their source, purpose, and live behavior one click away.</p><div class="hero-actions"><button type="button">Browse artifacts</button><button type="button">Clear comparison</button></div></section>
+                <div class="folio"><span class="sheet a"></span><span class="sheet b"></span><span class="sheet c"></span></div>
+              </div>
+              <div class="annotation-highlight" aria-hidden="true"></div><span class="annotation-pin" aria-hidden="true">1</span>
+            </article>
+          </div>
+        </section>
+        <aside class="sidebar">
+          <header class="sidebar-head">Annotations <span>3</span></header>
+          <div class="summary"><div><strong>3</strong><small>Open</small></div><div><strong>1</strong><small>Selected</small></div><div><strong>0</strong><small>Blocking</small></div></div>
+          <div class="comments">
+            <button class="comment" type="button" aria-pressed="true"><span class="comment-meta"><strong>Comment</strong><span>hero · 1m</span></span><p>The comparison action should appear before the secondary catalog link.</p><div class="quote">Browse artifacts · Clear comparison</div></button>
+            <button class="comment" type="button" aria-pressed="false"><span class="comment-meta"><strong>Comment</strong><span>mobile · 3m</span></span><p>Keep the artifact titles visible when the preview switches to mobile.</p></button>
+            <button class="comment" type="button" aria-pressed="false"><span class="comment-meta"><strong>Suggestion</strong><span>copy · 5m</span></span><p>Use “Open HTML” instead of “Browse artifacts” when only one artifact opens.</p></button>
+          </div>
+          <footer class="sidebar-foot"><button type="button" data-send>Send 3 annotations</button><span class="copy">Feedback returns to the current agent session</span></footer>
+        </aside>
+      </main>
+    </div>
+    <div class="toast" role="status" aria-live="polite" data-toast>3 annotations ready for the agent.</div>
+    <script>
+      const widthButtons = [...document.querySelectorAll("[data-canvas-width]")];
+      const page = document.querySelector("[data-page]");
+      widthButtons.forEach((button) => button.addEventListener("click", () => {
+        page.dataset.width = button.dataset.canvasWidth;
+        widthButtons.forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
+      }));
+
+      const comments = [...document.querySelectorAll(".comment")];
+      comments.forEach((comment) => comment.addEventListener("click", () => comments.forEach((item) => item.setAttribute("aria-pressed", String(item === comment)))));
+
+      const tools = [...document.querySelectorAll(".tool")];
+      tools.forEach((tool) => tool.addEventListener("click", () => tools.forEach((item) => item.setAttribute("aria-pressed", String(item === tool)))));
+
+      const toast = document.querySelector("[data-toast]");
+      let toastTimer;
+      document.querySelectorAll("[data-send]").forEach((button) => button.addEventListener("click", () => {
+        clearTimeout(toastTimer);
+        toast.dataset.visible = "true";
+        toastTimer = setTimeout(() => toast.dataset.visible = "false", 2400);
+      }));
+    </script>
+  </body>
+</html>

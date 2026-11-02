@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Produces a plan re-ranked against Osprey's constraints rather than reciting the default surface order",
+        "evidence": "entire plan structured around \"Constraints \u2014 confirmed vs assumed\" and a \"Cut from this quarter's plan, and why\" section",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names explicitly which constraint moved which surface",
+        "evidence": "\"Hard date drops anything needing a build change or another team's release. Cut: markdown endpoints via build, response headers/link relations, build-generated index, robots.txt/bot-policy change.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Drops every surface needing a docs build change, given the nine-day deadline against the web team's six-week queue",
+        "evidence": "\"Cut: markdown endpoints via build, response headers/link relations, build-generated index, robots.txt/bot-policy change.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Drops every surface needing another team's release cycle",
+        "evidence": "\"Hard date drops anything needing a build change or another team's release.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes SDK doc comments from the plan outright rather than parking them at the bottom, because the writer has no engineering time",
+        "evidence": "\"Hours-only ceiling deletes doc comments and terminal paths outright, not just deprioritizes. Cut: SDK docstrings, CLI doc command.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes terminal and package-manager paths from the plan on the same grounds",
+        "evidence": "\"Cut: SDK docstrings, CLI doc command. Both need engineering + a release. Zero available.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Records which surfaces were deleted and why, rather than leaving them silently absent",
+        "evidence": "dedicated \"## Cut from this quarter's plan, and why\" section",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the reason for deletion rather than demotion: a ruled-out surface parked at the bottom of a plan silently reappears as scope",
+        "evidence": "states deletion is \"outright, not just deprioritizes\" but never explains that a parked/demoted item risks silently reappearing as scope",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Runs the crawler access check first regardless of deadline pressure",
+        "evidence": "\"First move, today, 2 minutes: Open Cursor... Do this before anything below.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Builds the frozen task set around the specific integration jobs Northwind's team will actually perform",
+        "evidence": "\"Confirm with your Northwind counterpart: what are they actually building first?... swap in Northwind's real 3 tasks for tasks 1\u20133.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the deliverable an audit report and names which report sections will be empty and why, given the reduced scope",
+        "evidence": "document is framed as a timeline/plan (Phases, Timeline, Fix plan) rather than an audit report with explicitly named empty sections",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that this plan buys one release's worth of fixes rather than a standing guarantee, and names what a standing mandate would have promoted instead",
+        "evidence": "\"the gap between this and 80% is the argument for the next-quarter engineering ask (doc comments, build changes), not a thing to hide\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prioritizes page-level edits reachable through a content commit, since those ship without the web team",
+        "evidence": "\"Ships in your 5 working days (no one else needed): Page rewrites on failed-task pages. Spec field annotation, if editable directly. New Cursor-setup content page.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Produces a plan re-ranked against Osprey's constraints rather than reciting the default surface order",
+        "evidence": "The plan is organized into Track A (critical path, solo, no engineering), Track B (web team, non-critical), Track C (optional) \u2014 explicitly structured around the writer's solo/no-engineering-time constraint.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names explicitly which constraint moved which surface",
+        "evidence": "'Neither needs engineering time or the web team's pipeline \u2014 a technical writer with repo write access can ship both directly' and 'a 6-week queue puts it in early November at best.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Drops every surface needing a docs build change, given the nine-day deadline against the web team's six-week queue",
+        "evidence": "'Don't wait on the web team for anything gating Northwind's start \u2014 their queue outlasts your entire runway twice over.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Drops every surface needing another team's release cycle",
+        "evidence": "Track B is explicitly marked 'not on critical path' and excluded from anything gating the Sep 27 start.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes SDK doc comments from the plan outright rather than parking them at the bottom, because the writer has no engineering time",
+        "evidence": "SDK inline doc comments are never mentioned anywhere in the plan \u2014 silently absent rather than explicitly ruled out.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes terminal and package-manager paths from the plan on the same grounds",
+        "evidence": "No mention of terminal/CLI help or package-manager-surfaced docs anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Records which surfaces were deleted and why, rather than leaving them silently absent",
+        "evidence": "Only Track B/C deprioritization is explained; other surfaces (doc comments, terminal paths) are never named, so no deletion reasoning is recorded for them.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the reason for deletion rather than demotion: a ruled-out surface parked at the bottom of a plan silently reappears as scope",
+        "evidence": "No such reasoning about deletion-vs-demotion risk appears anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Runs the crawler access check first regardless of deadline pressure",
+        "evidence": "No crawler/bot access check is proposed anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Builds the frozen task set around the specific integration jobs Northwind's team will actually perform",
+        "evidence": "'Core workflow examples \u2014 the 3\u20135 calls Northwind will actually make, in their language. Confirm their stack directly with them or your PM this weekend.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the deliverable an audit report and names which report sections will be empty and why, given the reduced scope",
+        "evidence": "The deliverable is a forward-looking day-by-day plan, not an audit report with named empty sections.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that this plan buys one release's worth of fixes rather than a standing guarantee, and names what a standing mandate would have promoted instead",
+        "evidence": "No such framing appears; Track C is discussed as a long-term option but not tied to a 'one release vs standing guarantee' statement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Prioritizes page-level edits reachable through a content commit, since those ship without the web team",
+        "evidence": "'Ship these directly into the SDK repo as markdown/comments, via normal PRs' as the entirety of the critical-path Track A.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

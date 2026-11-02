@@ -64,6 +64,14 @@
     "path": "category/graphics-branding-design/audience-belief-mapper"
   },
   {
+    "id": "aws-sms-voice",
+    "name": "aws-sms-voice",
+    "category": "graphics-branding-design",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Onboards RCS Business Messaging and Notify OTP via the pinpoint-sms-voice-v2 AWS CLI. Covers creating a branded RCS test agent (logo, banner, rich cards, suggested replies), adding verified testers, and sending/receiving the first RCS message; and configuring AWS End User Messaging Notify to send one-time-passcode (OTP) verification codes through AWS-managed phone numbers without buying a number or completing carrier registration. Also discovers which registration type a country requires from live API definitions and runs the universal registration lifecycle (create, derive fields, fill, submit, recover from denial, resubmit) shared by 10DLC, toll-free, short code, sender ID, RCS country launch, and Notify tier upgrade. Applicable to RCS agent setup, RCS message send/receive, Notify OTP configuration, verification-code delivery, registration requirements by country, and registration submission. Does not cover WhatsApp (see aws-social-messaging).",
+    "path": "category/graphics-branding-design/aws-sms-voice"
+  },
+  {
     "id": "axton-obsidian-visual",
     "name": "axton-obsidian-visual",
     "category": "graphics-branding-design",
@@ -118,6 +126,14 @@
     "repository": "jakubkrehel-skills",
     "description": "Builds UI from a Figma file or a design image so it matches the design, using the project's existing tokens and components.",
     "path": "category/graphics-branding-design/build-design"
+  },
+  {
+    "id": "business-model",
+    "name": "business-model",
+    "category": "graphics-branding-design",
+    "repository": "phuryn-pm-skills",
+    "description": "Generate a Business Model Canvas with all 9 building blocks. Use when creating a business model, documenting how a business creates value, or analyzing an existing business model.",
+    "path": "category/graphics-branding-design/business-model"
   },
   {
     "id": "canva",
@@ -412,16 +428,24 @@
     "name": "figma-create-new-file",
     "category": "graphics-branding-design",
     "repository": "figma-mcp-server-guide",
-    "description": "Create a new blank Figma file. Use when the user wants to create a new Figma design or FigJam file, or when you need a new file before calling use_figma. Handles plan resolution via whoami if needed. Usage \u2014 /figma-create-new-file [editorType] [fileName] (e.g. /figma-create-new-file figjam My Whiteboard)",
+    "description": "Always use this skill when the user wants to create a new Figma Design, FigJam, or Slides file. You MUST invoke this skill BEFORE every `create_new_file` tool call.",
     "path": "category/graphics-branding-design/figma-create-new-file"
   },
   {
-    "id": "figma-generate-design",
-    "name": "figma-generate-design",
+    "id": "figma-design-to-code",
+    "name": "figma-design-to-code",
     "category": "graphics-branding-design",
     "repository": "figma-mcp-server-guide",
-    "description": "Use this skill alongside figma-use when the task involves translating an application page, view, or multi-section layout into Figma. Triggers: 'write to Figma', 'create in Figma from code', 'push page to Figma', 'take this app/page and build it in Figma', 'create a screen', 'build a landing page in Figma', 'update the Figma screen to match code'. This is the preferred workflow skill whenever the user wants to build or update a full page, screen, or view in Figma from code or a description. Discovers design system components, variables, and styles via search_design_system, imports them, and assembles screens incrementally section-by-section using design system tokens instead of hardcoded values.",
-    "path": "category/graphics-branding-design/figma-generate-design"
+    "description": "**MANDATORY prerequisite** \u2014 you MUST invoke this skill BEFORE calling the `get_design_context` Figma MCP tool. You MUST trigger this skill whenever the user wants to implement, build, port, or code up a Figma design as code. Example prompts (not exhaustive) are 'implement this Figma design', 'build this screen from Figma', 'turn this Figma into code', 'design to code'. This skill provides critical instructions and steps to the agent on how to correctly implement Figma designs in code and must NOT be skipped.",
+    "path": "category/graphics-branding-design/figma-design-to-code"
+  },
+  {
+    "id": "figma-generative-plugins",
+    "name": "figma-generative-plugins",
+    "category": "graphics-branding-design",
+    "repository": "figma-mcp-server-guide",
+    "description": "**MANDATORY prerequisite** \u2014 load this skill before calling `create_generative_plugin` or `update_generative_plugin`. Use when the user asks to create, author, change, fix, or extend a reusable generative Figma plugin.",
+    "path": "category/graphics-branding-design/figma-generative-plugins"
   },
   {
     "id": "figma-implement-design",
@@ -440,12 +464,36 @@
     "path": "category/graphics-branding-design/figma-integration"
   },
   {
+    "id": "figma-shaders",
+    "name": "figma-shaders",
+    "category": "graphics-branding-design",
+    "repository": "figma-mcp-server-guide",
+    "description": "**MANDATORY prerequisite** \u2014 load this skill before calling `create_shader` or `update_shader`. Use when the user asks to create, author, change, fix, or iterate on a shader effect, shader fill, custom effect, custom fill, or procedural shader in Figma.",
+    "path": "category/graphics-branding-design/figma-shaders"
+  },
+  {
     "id": "figma-use",
     "name": "figma-use",
     "category": "graphics-branding-design",
     "repository": "figma-mcp-server-guide",
     "description": "**MANDATORY prerequisite** \u2014 you MUST invoke this skill BEFORE every `use_figma` tool call. NEVER call `use_figma` directly without loading this skill first. Skipping it causes common, hard-to-debug failures. Trigger whenever the user wants to perform a write action or a unique read action that requires JavaScript execution in the Figma file context \u2014 e.g. create/edit/delete nodes, set up variables or tokens, build components and variants, modify auto-layout or fills, bind variables to properties, or inspect file structure programmatically.",
     "path": "category/graphics-branding-design/figma-use"
+  },
+  {
+    "id": "figma-use-figjam",
+    "name": "figma-use-figjam",
+    "category": "graphics-branding-design",
+    "repository": "figma-mcp-server-guide",
+    "description": "This skill helps agents use Figma's use_figma MCP tool in the FigJam context. Can be used alongside figma-use which has foundational context for using the use_figma tool.",
+    "path": "category/graphics-branding-design/figma-use-figjam"
+  },
+  {
+    "id": "figma-use-slides",
+    "name": "figma-use-slides",
+    "category": "graphics-branding-design",
+    "repository": "figma-mcp-server-guide",
+    "description": "This skill helps agents use Figma's use_figma MCP tool in the Slides context. Can be used alongside figma-use which has foundational context for using the use_figma tool.",
+    "path": "category/graphics-branding-design/figma-use-slides"
   },
   {
     "id": "firecrawl-website-design-clone",
@@ -550,6 +598,14 @@
     "repository": "aaron-he-zhu-aaron-marketing-skills",
     "description": "Use when the user asks to \"package the launch assets\", \"build a press kit\", or \"prep the store listing and go-live checklist\"; produces a tier-scoped launch asset manifest with production status \u2014 a press kit spec (factsheet, description, history, features, videos, images, logo and icon, awards, contact), demo script and screenshot specs, a launch FAQ, dual-store listing metadata drafts against the official character budgets (per App Store Connect / Play Console documentation), and a technical go-live checklist manifest (robots flip, sitemap, OG tags, analytics verification \u2014 execution stays with technical-seo-checker and serp-markup-builder). Not for the message copy itself \u2014 use message-house-builder or content-writer; not for landing page UX \u2014 use landing-optimizer; not for keyword research beyond the store surfaces \u2014 use keyword-research. \u53d1\u5e03\u8d44\u4ea7\u6253\u5305/press kit/\u5546\u5e97listing\u89c4\u683c/\u4e0a\u7ebf\u68c0\u67e5\u6e05\u5355",
     "path": "category/graphics-branding-design/launch-asset-packager"
+  },
+  {
+    "id": "lean-canvas",
+    "name": "lean-canvas",
+    "category": "graphics-branding-design",
+    "repository": "phuryn-pm-skills",
+    "description": "Generate a Lean Canvas with problem, solution, metrics, cost structure, UVP, unfair advantage, channels, segments, and revenue. Use when exploring a lean startup canvas, testing a business hypothesis, or modeling a new venture.",
+    "path": "category/graphics-branding-design/lean-canvas"
   },
   {
     "id": "lean-ux-canvas",
@@ -808,12 +864,28 @@
     "path": "category/graphics-branding-design/positioning-truth-tracer"
   },
   {
+    "id": "prioritize-assumptions",
+    "name": "prioritize-assumptions",
+    "category": "graphics-branding-design",
+    "repository": "phuryn-pm-skills",
+    "description": "Prioritize assumptions using an Impact \u00d7 Risk matrix and suggest experiments for each. Use when triaging a list of assumptions, deciding what to test first, or applying the assumption prioritization canvas.",
+    "path": "category/graphics-branding-design/prioritize-assumptions"
+  },
+  {
     "id": "problem-framing-canvas",
     "name": "problem-framing-canvas",
     "category": "graphics-branding-design",
     "repository": "deanpeters-product-manager-skills",
     "description": "Guide teams through MITRE's Problem Framing Canvas. Use when you need a clearer problem statement before jumping to solutions.",
     "path": "category/graphics-branding-design/problem-framing-canvas"
+  },
+  {
+    "id": "product-strategy",
+    "name": "product-strategy",
+    "category": "graphics-branding-design",
+    "repository": "phuryn-pm-skills",
+    "description": "Create a comprehensive product strategy using the 9-section Product Strategy Canvas \u2014 vision, segments, costs, value propositions, trade-offs, metrics, growth, capabilities, and defensibility. Use when building a product strategy, creating a strategic plan, or defining product direction.",
+    "path": "category/graphics-branding-design/product-strategy"
   },
   {
     "id": "profile-optimizer",
@@ -878,6 +950,14 @@
     "repository": "forcedotcom-sf-skills",
     "description": "Deploys an Agentforce Concierge portal on an LWR Experience Cloud site: provisions the site, configures Concierge components, sets up branding, wires the agent, enables guest access, and publishes. Use when the user wants to stand up a Help Portal / Agentforce Concierge portal \u2014 standalone or as the channel step in a Help Agent setup. Requires an existing, active Agentforce Service Agent on the org. DO NOT TRIGGER when the user only wants to embed a chat widget on an existing site (use service-digital-engagement-deployment-configure instead).",
     "path": "category/graphics-branding-design/service-concierge-portal-generate"
+  },
+  {
+    "id": "startup-canvas",
+    "name": "startup-canvas",
+    "category": "graphics-branding-design",
+    "repository": "phuryn-pm-skills",
+    "description": "Generate a Startup Canvas combining Product Strategy (9 sections) and Business Model (costs + revenue) for a new product. An alternative to BMC and Lean Canvas that separates strategy from business model. Use when launching a new product or evaluating a startup concept.",
+    "path": "category/graphics-branding-design/startup-canvas"
   },
   {
     "id": "tech-employer-branding",

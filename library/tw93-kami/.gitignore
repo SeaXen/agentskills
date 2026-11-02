@@ -1,0 +1,30 @@
+# macOS
+.DS_Store
+
+# Agent local settings
+.claude/settings.local.json
+
+# Python
+__pycache__/
+*.pyc
+.pytest_cache/
+
+# Font build artifacts, plus the commercial fonts ensure-fonts.sh copies into the skill checkout
+assets/fonts/*.otf
+skills/kami/assets/fonts/*.ttf
+skills/kami/assets/fonts/*.otf
+
+# Template examples with placeholder content, regenerate via: python3 skills/kami/scripts/build.py
+assets/examples/
+skills/kami/assets/examples/
+
+/tmp/
+/dist/
+*.log
+.vercel
+
+# Legacy slides build artifact (current builds use skills/kami/assets/examples/)
+/output.pptx
+
+# Eval run output (claude plugin eval)
+/evals/results/

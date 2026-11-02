@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Deletes the recorded-screencast and annotated-screenshot tiers from the options because the embargoed UI cannot leave the room",
+        "evidence": "Tier 3 is explicitly kept: \"Fallback tier: 3 \u2014 locally recorded clips. Kept only on the demo laptop and the buddy's laptop.\" \u2014 it is retained, not deleted, and tier 4 is rejected for a behavioral reason (\"needs live behaviour, not a picture\"), not an embargo reason.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says explicitly which tiers were deleted and why, rather than silently leaving them available as fallbacks",
+        "evidence": "Tier 3 is designated \"Fallback tier: 3\" and used for segment fallbacks (`01-outbound.mp4`, `02-inbound.mp4`, `03-noconflict.png`) rather than being deleted.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends the fully-local, offline live-execution tier",
+        "evidence": "\"Recommendation: tier 2 \u2014 fully local, offline stack.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that seeded local fixtures trigger no legal or comms review, which is what promotes that tier under an embargo",
+        "evidence": "\"Compliance cost is lowest of any tier for exactly this reason (sources-and-thresholds.md: tier 2 needs no security review a live tenant would trigger).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not offer a recorded clip or a screenshot as the fallback for any segment",
+        "evidence": "Segments table fallback column literally lists `01-outbound.mp4`, `02-inbound.mp4`, and `03-noconflict.png`.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Proposes a fallback that keeps the embargoed material inside the room, such as a reduced local path, a pre-seeded end state, or a diagram",
+        "evidence": "The only fallback offered is recorded clips/screenshot (see segments table), not a reduced local path, pre-seeded end state, or diagram.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Specifies synthetic CRM fixtures rather than anonymised records from a real customer",
+        "evidence": "\"Generate synthetic fixture data (faker-style). Hand-check company/contact names against the real customer list \u2014 random generators do collide with real names often enough to matter here.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that anonymising real data leaves re-identifiable traces such as email domains, URLs, ticket references, codenames or a colleague's name",
+        "evidence": "No discussion of anonymization risks or residual identifiers appears; the only data concern raised is synthetic-name collision with real customer names.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the embargoed feature to be flagged off anywhere outside the demo path, and every screen that will be shown to be checked first",
+        "evidence": "No feature-flag requirement appears; pre-flight only says \"Nothing embargoed beyond Vaneer Sync itself visible on any screen, menu, or tooltip\" with no flag-off instruction.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a pre-flight pass over error states, empty states, dropdowns and autocomplete, not only the screens the happy path visits",
+        "evidence": "No mention of error states, empty states, dropdowns, or autocomplete review in the pre-flight checklist.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a dedicated demo repository with clean or no history rather than the team's working repo",
+        "evidence": "\"`git init` empty demo repo, fresh identity, no history from the real product repo.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires human redundancy, a colleague holding a clone of everything on a working machine, for the dead-laptop case",
+        "evidence": "\"Identify and brief the buddy \u2014 colleague, front row, second demo-only laptop, holding the repo clone + deck + clips.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires each segment to be enterable from its own restore point without running the segments before it",
+        "evidence": "\"Enter each segment directly from its checkpoint, skipping the ones before it \u2014 this is what catches a segment secretly depending on a prior one's live output.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Deletes the recorded-screencast and annotated-screenshot tiers from the options because the embargoed UI cannot leave the room",
+        "evidence": "a recorded fallback is kept: \"Build a fallback: a locally-stored recording of a perfect run, triggerable by a single keystroke\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says explicitly which tiers were deleted and why, rather than silently leaving them available as fallbacks",
+        "evidence": "no tiers are explicitly deleted; the recorded fallback is retained",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends the fully-local, offline live-execution tier",
+        "evidence": "\"run the entire thing offline on a dedicated, locked-down machine that never touches cloud storage or a public remote until the keynote starts\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that seeded local fixtures trigger no legal or comms review, which is what promotes that tier under an embargo",
+        "evidence": "no such legal/comms-review reasoning is given for promoting the tier",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not offer a recorded clip or a screenshot as the fallback for any segment",
+        "evidence": "\"Build a fallback: a locally-stored recording of a perfect run, triggerable by a single keystroke to go full-screen if live sync breaks\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Proposes a fallback that keeps the embargoed material inside the room, such as a reduced local path, a pre-seeded end state, or a diagram",
+        "evidence": "the fallback proposed is a recorded video, not a reduced local path, pre-seeded state, or diagram",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Specifies synthetic CRM fixtures rather than anonymised records from a real customer",
+        "evidence": "\"seeded with realistic but fake data (fake companies, fake names \u2014 never real customer data)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that anonymising real data leaves re-identifiable traces such as email domains, URLs, ticket references, codenames or a colleague's name",
+        "evidence": "no such re-identification-trace explanation appears",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the embargoed feature to be flagged off anywhere outside the demo path, and every screen that will be shown to be checked first",
+        "evidence": "not mentioned",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a pre-flight pass over error states, empty states, dropdowns and autocomplete, not only the screens the happy path visits",
+        "evidence": "not mentioned",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a dedicated demo repository with clean or no history rather than the team's working repo",
+        "evidence": "\"Keep the git repo local only. No git push to any remote\" \u2014 does not require a separate dedicated repo",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires human redundancy, a colleague holding a clone of everything on a working machine, for the dead-laptop case",
+        "evidence": "only \"demo laptop in carry-on, never left unattended\" is mentioned, no colleague backup clone",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires each segment to be enterable from its own restore point without running the segments before it",
+        "evidence": "only a single \"one-command reset script that restores both sides to the known seed state\" is given, not per-segment restore points",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

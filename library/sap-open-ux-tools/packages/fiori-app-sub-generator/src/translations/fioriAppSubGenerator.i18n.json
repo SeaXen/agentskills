@@ -1,0 +1,94 @@
+{
+    "defaults": {
+        "projectName": "project{{defaultProjectNumber}}",
+        "projectTitle": "Application Title",
+        "projectDescription": "An SAP Fiori application."
+    },
+    "readme": {
+        "label": {
+            "mainEntity": "Main Entity",
+            "filterEntityType": "Filter Entity Type",
+            "navigationEntity": "Navigation Entity",
+            "sapSystemType": {
+                "onPrem": "ABAP On-Premise",
+                "abapCloud": "ABAP Cloud"
+            },
+            "datasourceType": {
+                "sapSystem": "SAP System",
+                "buinessHub": "SAP Business Accelerator Hub",
+                "apiBusinessHubEnterprise": "SAP API Business Hub Enterprise",
+                "capProject": "Local CAP",
+                "odataServiceUrl": "OData URL",
+                "none": "None",
+                "metadataFile": "File",
+                "projectSpecificDestination": "MTA File"
+            }
+        },
+        "texts": {
+            "runInstruction": "To launch the generated application, run the following from the generated application root folder:\n\n```\n    npm start\n```"
+        }
+    },
+    "texts": {
+        "notApplicable": "N/A"
+    },
+    "steps": {
+        "templateSelection": {
+            "description": "Choose your application template.",
+            "title": "Template Selection"
+        },
+        "datasourceAndServiceSelection": {
+            "description": "Configure the data source and select a service.",
+            "title": "Data Source and Service Selection"
+        },
+        "entityOrViewConfig": {
+            "description": "Configure the selected service.",
+            "title": "Entity Selection"
+        },
+        "projectAttributesConfig": {
+            "description": "Configure the main project attributes.",
+            "title": "Project Attributes"
+        },
+        "deployConfig": {
+            "description": "Configure deployment settings.",
+            "title": "Deployment Configuration"
+        },
+        "flpConfig": {
+            "description": "Configure SAP Fiori launchpad settings {{appFolderName}}.",
+            "title": "SAP Fiori Launchpad Configuration"
+        }
+    },
+    "logMessages": {
+        "installingDependencies": "Installing dependencies to package path: {{- path}}...",
+        "dependenciesInstalled": "Project dependencies installed in {{installTime}} seconds.",
+        "errorInstallingDependencies": "An unknown error occurred when installing the project dependencies.",
+        "commandFailedWithError": "{{command}} failed with error code: {{errorCode}}.",
+        "commandErrorCodeWithStack": "Error code: {{errorCode}} returned from {{command}}. {{stack}}",
+        "applicationGenerationSuccess": "The application has been generated and is available at {{- targetFolder}}",
+        "copyingTemplateFiles": "Copying {{templateName}} template files...",
+        "generatingAppWithVersion": "Generating application with {{- generatorName}} {{generatorVersion}}",
+        "warningCachingNotSupported": "Warning: caching is not supported.",
+        "attemptingToExecutePostGenerationCommand": "Attempting to execute command after app generation: {{- command}}",
+        "installSkippedOptionSpecified": "Option `--skipInstall` was specified. Installation of dependencies will be skipped.",
+        "generatorExiting": "Application generation exiting due to error: {{error}}",
+        "backendSystemSaveError": "An error occurred when saving the system '{{system}}' to the store: {{error}}"
+    },
+    "error": {
+        "fatalError": "An error has occurred, please restart the generator.",
+        "errorWritingApplicationFiles": "An error occurred writing application files.",
+        "appConfigVersion": "The application config version must match a supported version: {{versions}}.",
+        "appConfigUnparseableEdmx": "Application config property: edmx cannot be parsed.",
+        "appConfigMissingRequiredProperty": "The application config is missing a required property: {{propertyName}}.",
+        "edmxNotFound": "Edmx metadata is required to continue with generation. Application generation exiting.",
+        "unsupportedPostGenerationEvent": "Unsupported post generation event: {{event}}.",
+        "commandFailed": "Command failed with error.",
+        "invalidYUIStepConfig": "Invalid Yeoman UI step config: First step cannot have a dependency property."
+    },
+    "wizardMessages": {
+        "filesGenerated": "The files have been generated."
+    },
+    "prompts": {
+        "viewName": {
+            "message": "View Name"
+        }
+    }
+}

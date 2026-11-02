@@ -1,0 +1,19 @@
+## Sanity check: Weatherline gating plan
+
+**🔴 Security-patch embargo (30-day delay for community edition) — drop this one, full stop.**
+- Once a fix ships to paying customers, the CVE/changelog/commit diff makes the vulnerability public knowledge. Community-edition users then sit exposed for 30 known days — that's not a feature delay, it's a deliberate N-day exploit window on your free population.
+- This is categorically different from feature-gating. Withholding a known fix reads as negligence, not monetization, the moment it's disclosed — and it will be, because security researchers and CVE trackers watch exactly this pattern.
+- Reputational risk is asymmetric: this is the kind of policy that becomes the HN/Reddit headline ("Weatherline sells you the patch"), and if a breach ever traces back to a fix you had and sat on, it's a liability conversation, not a pricing one.
+- Monetize speed-of-notification or support SLA instead — advance heads-up, a hotfix channel, guaranteed patch turnaround for paying customers — never the fix itself. Patch everyone simultaneously, always.
+
+**🟠 Data export / CSV download behind paywall — the principle is fine, "block entirely" is the wrong lever.**
+- Egress cost is a legitimate thing to gate on. But "no export" and "rate-limited export" are different policies with very different resentment profiles. This is observability data the customer generated themselves — for this product category, "export to your own SIEM/warehouse" is often the actual reason a team adopted the tool, not a bonus feature.
+- If any customers are EU-based and payloads carry personal data, fully blocking export can bump into GDPR Article 20 data-portability expectations — worth a compliance check alongside the monetization one.
+- Better gate: cap volume/frequency on free (e.g., manual CSV, N rows/day, 7-day retention) and sell bulk/streaming/API export on paid. Controls egress without "your own data is hostage" framing.
+
+**🟠 SSO enterprise-only, $28k floor — the "SSO tax" pattern itself is common and defensible; the cliff size is the actual problem.**
+- Gating SSO at the top tier is standard industry practice (sso.tax has a long list of companies doing exactly this), so it's not wrong per se.
+- The real issue: Team is $240/mo (~$2.9k/yr), Enterprise "starts at $28k" — roughly a 10x jump with nothing in between. You've told me SSO is the single biggest upgrade driver, which means that cliff is exactly where mid-market prospects who need SSO but not the rest of Enterprise (dedicated support, custom contracts, procurement overhead) either balk, negotiate hard, or churn to a competitor selling SSO as a lower-tier add-on — increasingly common precisely because of SSO-tax backlash.
+- Consider a mid-tier ("Business," ballpark $500–1,000/mo) that includes SSO without full Enterprise scope, to capture that segment instead of losing it at the cliff. At minimum, don't let the $28k floor be perceived as "the price of SSO" — bundle it with enough other enterprise value that it doesn't read as a $27k SSO surcharge.
+
+**Compounding effect worth flagging on its own:** all three gates lock the same theme — security and data ownership — behind payment, at the same time. A technical evaluator reading community-edition docs hits, in order: patches are embargoed, you can't get your own data out, and the security control you actually need is a 10x price cliff away. Each is individually defensible; together they read as monetizing exactly the two things a security-conscious buyer checks first before trusting you with production API traffic. Recommend keeping the SSO gate, softening the export gate to a cap instead of a block, and removing the patch embargo entirely — that's the one with real legal/reputational tail risk and comparatively little revenue upside (nobody upgrades *specifically* to get patched faster; they upgrade for SSO and support).

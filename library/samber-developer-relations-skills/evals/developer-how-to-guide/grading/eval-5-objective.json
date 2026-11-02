@@ -1,0 +1,190 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Replaces \"Just run this loop\" with a description of what the command does; no \"just\", \"simple\" or \"easy\" remains on the page.",
+        "evidence": "Step 4 describes what the loop does. No 'just', 'simple' or 'easy' appears on the page.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces `<API_KEY>` with an UPPER_SNAKE placeholder or shell variable and states that angle brackets are shell redirection when pasted unfilled.",
+        "evidence": "BRINDLEWICK_API_KEY is used, but the transcript never states that angle brackets act as shell redirection.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Loads the API key through a no-echo prompt (`read -rs`) or the tool's credential prompt and passes it via stdin or a config file, never pasted inline or exported.",
+        "evidence": "'read -rs BRINDLEWICK_API_KEY' and 'printf 'Authorization: Bearer %s\\n' ... | curl ... -H @-'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sends an `Idempotency-Key` on each POST because readers may retry after a timeout.",
+        "evidence": "'-H \"Idempotency-Key: $IMPORT_ID-$key\"'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Paces the loop under the 50 req/s rate limit (a sleep or a concurrency cap) and says so in the step.",
+        "evidence": "'paced at 20 per second at most' with sleep 0.05.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rewrites the duplicate check to follow `next_cursor` pagination rather than reading only the first page.",
+        "evidence": "The fetch_contacts function loops on next_cursor.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Moves the duplicate check before the import loop as the checkpoint before the writes.",
+        "evidence": "Steps 2 and 3 (fetch and filter) come before step 4 (send).",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Pins the API version with the `Brindlewick-Version` header in every request.",
+        "evidence": "Both the GET and the POST use '-H \"Brindlewick-Version: $BW_VERSION\"'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the 202 response as verification and verifies through an independent read (a GET on /contacts, a count, or the dashboard).",
+        "evidence": "'A 202 means Brindlewick accepted the contact, not that it is stored: the verification step proves that.' The poll re-reads the contacts.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists a reachable endpoint or local tunnel for the `import.completed` webhook as a prerequisite and verifies the received event.",
+        "evidence": "The webhook check is 'Optional' only. It is not a prerequisite.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the billable resource (stored contacts at $0.002 each) in the prerequisites block.",
+        "evidence": "'This guide creates billable contacts in your live account (step 6)', with $0.002 per contact in the intro.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Uses `bk_test_` test-mode credentials and objects in every example and marks any step that needs live mode.",
+        "evidence": "Step 1 rehearses with the test key and verifies the prefix. Step 6 is labelled 'Go live'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Orders each step as description, command, placeholder explanation, explanation of the command, then output in its own block.",
+        "evidence": "Steps put the explanation after the command. No separate output blocks are shown.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Marks the import step \"Safe to re-run.\" only on the strength of the idempotency key, and otherwise writes \"do not re-run; check state with ... first\".",
+        "evidence": "'Do not re-run step 4 on its own: always restart from step 2.' Step 4 itself carries no 'Safe to re-run'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Adds a Clean up section (delete the test contacts) placed after Roll back, and a Next steps block with at most three links.",
+        "evidence": "The order is Roll back, then Clean up, then Next steps with three links.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Replaces \"Just run this loop\" with a description of what the command does; no \"just\", \"simple\" or \"easy\" remains on the page.",
+        "evidence": "The page describes the script's behavior and contains no 'just', 'simple' or 'easy'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces `<API_KEY>` with an UPPER_SNAKE placeholder or shell variable and states that angle brackets are shell redirection when pasted unfilled.",
+        "evidence": "`<version>` remains in the commands, and no redirection explanation is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Loads the API key through a no-echo prompt (`read -rs`) or the tool's credential prompt and passes it via stdin or a config file, never pasted inline or exported.",
+        "evidence": "It uses `export BRINDLEWICK_API_KEY=bk_test_...`.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sends an `Idempotency-Key` on each POST because readers may retry after a timeout.",
+        "evidence": "`\"Idempotency-Key\": key` is sent per contact.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Paces the loop under the 50 req/s rate limit (a sleep or a concurrency cap) and says so in the step.",
+        "evidence": "`MIN_INTERVAL = 1 / MAX_RPS` and a sleep in the loop.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rewrites the duplicate check to follow `next_cursor` pagination rather than reading only the first page.",
+        "evidence": "'Follow next_cursor until it is empty'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Moves the duplicate check before the import loop as the checkpoint before the writes.",
+        "evidence": "Step 2 comes before step 3.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Pins the API version with the `Brindlewick-Version` header in every request.",
+        "evidence": "The `Brindlewick-Version` header is sent in every request.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the 202 response as verification and verifies through an independent read (a GET on /contacts, a count, or the dashboard).",
+        "evidence": "'202 Accepted... not that it has been stored'; 'spot-check a few records with GET /contacts'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists a reachable endpoint or local tunnel for the `import.completed` webhook as a prerequisite and verifies the received event.",
+        "evidence": "Prerequisites do not list a reachable endpoint or tunnel.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the billable resource (stored contacts at $0.002 each) in the prerequisites block.",
+        "evidence": "'Billing is $0.002 per stored contact'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Uses `bk_test_` test-mode credentials and objects in every example and marks any step that needs live mode.",
+        "evidence": "'Use a test-mode API key (bk_test_)... Switch to a live key once the results look right.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Orders each step as description, command, placeholder explanation, explanation of the command, then output in its own block.",
+        "evidence": "The steps do not follow the required order and have no separate output blocks.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Marks the import step \"Safe to re-run.\" only on the strength of the idempotency key, and otherwise writes \"do not re-run; check state with ... first\".",
+        "evidence": "There is no 'Safe to re-run.' marking, only a troubleshooting bullet.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds a Clean up section (delete the test contacts) placed after Roll back, and a Next steps block with at most three links.",
+        "evidence": "Neither section exists.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

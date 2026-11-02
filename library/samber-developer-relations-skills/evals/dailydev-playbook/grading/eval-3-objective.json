@@ -1,0 +1,118 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that daily.dev rejects AI-generated content or content with AI-generated characteristics",
+        "evidence": "\"AI-generated text, or text with its characteristics, is rejected, and automated screening looks for it\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that content made primarily for SEO, backlinks or AI citation (AEO/GEO) is rejected",
+        "evidence": "\"Content made to rank, earn backlinks or get cited by AI tools (SEO, AEO, GEO) is rejected\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that links inside daily.dev posts are nofollow, so they pass no backlink value",
+        "evidence": "\"Links in posts are nofollow, so there is no link equity anyway.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a removed post costs the author 100 reputation or that reputation loss reduces future visibility",
+        "evidence": "\"A removed post costs -100 reputation.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says daily.dev publishes no best posting time or ranking formula, instead of inventing one",
+        "evidence": "\"There is no published best posting time [platform]\"; \"daily.dev publishes no formula\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends far fewer posts written by a human engineer with real technical substance",
+        "evidence": "\"That is about 8 posts in the eight weeks, not 56... have an engineer rewrite it from their own experience and numbers.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that dofollow links exist only on a paid Verified Company Squad (website plus up to 10 links)",
+        "evidence": "Only the nofollow rule is stated; dofollow links on a Verified Company Squad are not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that tags act as targeting because feeds match readers' followed tags",
+        "evidence": "\"tags are your targeting: personalized feeds match the tags readers follow [platform]\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not provide a daily posting schedule for the 30 generated articles",
+        "evidence": "The plan uses one post per week and rejects the one-post-per-day idea.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that daily.dev rejects AI-generated content or content with AI-generated characteristics",
+        "evidence": "Only says developers \"spot generic AI text quickly\" and to review output by hand. It does not state a platform rule.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that content made primarily for SEO, backlinks or AI citation (AEO/GEO) is rejected",
+        "evidence": "Not stated. It only advises not to count on SEO value.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that links inside daily.dev posts are nofollow, so they pass no backlink value",
+        "evidence": "Hedged: \"User-submitted links on large aggregators are often nofollow\" and \"Check the link attribute\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a removed post costs the author 100 reputation or that reputation loss reduces future visibility",
+        "evidence": "No reputation mechanics are mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says daily.dev publishes no best posting time or ranking formula, instead of inventing one",
+        "evidence": "It says only \"I have no verified daily.dev engagement data\" and then proposes Slot A and Slot B times.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends far fewer posts written by a human engineer with real technical substance",
+        "evidence": "Recommends 8\u201312 a month of the LLM-generated articles, with a hand review. It does not call for human-engineer authorship.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that dofollow links exist only on a paid Verified Company Squad (website plus up to 10 links)",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that tags act as targeting because feeds match readers' followed tags",
+        "evidence": "Tags are treated as a relevance check: \"Mismatched tags get posts downvoted\". Followed-tag matching is not explained.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not provide a daily posting schedule for the 30 generated articles",
+        "evidence": "Recommends \"about 2\u20133 a week\" of the best 8\u201312 a month, not one a day.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

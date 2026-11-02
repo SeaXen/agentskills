@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Identifies that the repository name must match the username exactly, and that Marguerite-Vasseur-Profile does not",
+        "evidence": "'Repository name matches your username exactly. Yours is Marguerite-Vasseur-Profile; it needs to be marguerite-vasseur. \u2014 fails'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the correct repository name is marguerite-vasseur",
+        "evidence": "'it needs to be marguerite-vasseur'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies that the repository must be public",
+        "evidence": "'Repository is public. Yours is private. \u2014 fails'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies that README.md must sit at the repository root, not in docs/",
+        "evidence": "'README.md sits at the repository root. Yours is at docs/README.md, one level down. \u2014 fails'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the file must not be empty",
+        "evidence": "'The file is not empty. Fine on your end.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that all four prerequisites must hold at once or nothing renders",
+        "evidence": "'all four must hold *at once*, or nothing renders and no error is shown anywhere.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that no warning or error is shown when a prerequisite fails",
+        "evidence": "'or nothing renders and no error is shown anywhere' / 'there's nothing to error on.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Mentions that a repository created before July 2020 with a matching name is not promoted automatically and must be shared to the profile by hand",
+        "evidence": "'if you'd created this repository before July 2020 under a matching name, GitHub wouldn't auto-promote it either \u2014 you'd have to enable it by hand.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the profile README renders at the top of the Overview tab, above the pinned items",
+        "evidence": "Not mentioned anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Classifies repairing the render as a blocking, minutes-long fix belonging at the top of the fix order",
+        "evidence": "'Fix, in order: 1. Rename... 2. Move... 3. Flip... All three have to be true simultaneously... allow up to a few minutes for GitHub to pick it up.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not attribute the failure to markdown syntax, a caching delay, or a rendering queue",
+        "evidence": "The failure is attributed entirely to name mismatch, privacy, and file path \u2014 never to markdown syntax, caching, or a rendering queue.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that later emptying the file, flipping the repository to private, or renaming it removes the README silently",
+        "evidence": "No discussion of future removal/regression scenarios anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Identifies that the repository name must match the username exactly, and that Marguerite-Vasseur-Profile does not",
+        "evidence": "'GitHub only treats a repo as the special profile repo when its name is an exact match (case-insensitive) to your username... the repo is named Marguerite-Vasseur-Profile.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the correct repository name is marguerite-vasseur",
+        "evidence": "'Fix: rename the repo to exactly marguerite-vasseur (Settings \u2192 repository name).'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies that the repository must be public",
+        "evidence": "'The profile README only renders when the repo is public.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies that README.md must sit at the repository root, not in docs/",
+        "evidence": "'GitHub looks for README.md at the root of the repo, not inside a subfolder. docs/README.md won't be picked up.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the file must not be empty",
+        "evidence": "No mention of file emptiness as a requirement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that all four prerequisites must hold at once or nothing renders",
+        "evidence": "The transcript only names three conditions and says 'Once all three are true simultaneously, the profile page picks it up' \u2014 not four.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that no warning or error is shown when a prerequisite fails",
+        "evidence": "'that's why there's no error message anywhere... again, silently, no error.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Mentions that a repository created before July 2020 with a matching name is not promoted automatically and must be shared to the profile by hand",
+        "evidence": "No mention of a July 2020 cutoff or manual promotion requirement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the profile README renders at the top of the Overview tab, above the pinned items",
+        "evidence": "No mention of the Overview tab or its position relative to pinned items.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Classifies repairing the render as a blocking, minutes-long fix belonging at the top of the fix order",
+        "evidence": "There is no broader task list to rank this fix against, and no 'minutes-long' framing is used.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not attribute the failure to markdown syntax, a caching delay, or a rendering queue",
+        "evidence": "The entire explanation attributes the failure to naming, location, and visibility misconfiguration, never to markdown syntax, caching, or a rendering queue.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that later emptying the file, flipping the repository to private, or renaming it removes the README silently",
+        "evidence": "No discussion of future silent-removal scenarios appears in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

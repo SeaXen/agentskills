@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States the fix ordering out loud rather than implying it by row order",
+        "evidence": "'Order (do-first-per-hour, adapted to your case):' explicitly labels the ordering principle before listing steps.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Emits at least three separate orderings - by effort, by value and by efficiency - and notes that they disagree",
+        "evidence": "Only a single ordering is given ('do-first-per-hour'); no separate effort/value/efficiency orderings are presented or contrasted.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Leads with the efficiency ordering",
+        "evidence": "No distinct set of orderings exists to lead with; only one ordering is presented.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places killing the false claim and repairing the render tied at the top, explaining they tie because each takes minutes and each fixes a page that is wrong rather than merely weak",
+        "evidence": "The two are sequential (render fix in 'Do this now' preamble, false claim as numbered step 1) with no explicit statement that they 'tie' or why.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Puts removing or updating the archived 'currently building' scheduler line first or tied first",
+        "evidence": "'1. Kill the false claim \u2014 10 min. Delete or rewrite the \"currently building [scheduler]\" line.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Puts repairing the broken render first or tied first",
+        "evidence": "'**Do this now:** open `github.com/renske-boomgaard/renske-boomgaard` (create that repo if it doesn't exist yet \u2014 name must match your username exactly, public, `README.md` at root, non-empty, or nothing renders at all).' \u2014 placed before the numbered order even begins.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places setting the six pins ahead of the positioning sentence on the efficiency ordering",
+        "evidence": "Order lists '3. Write the positioning sentence' before '4. Set the 6 pins' \u2014 pins come after, not ahead.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Drops the full page rebuild from this pass because of the 3 November date",
+        "evidence": "'Hard deadline also kills the full page rebuild \u2014 you do the minimum that passes, not the ideal version.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes the review habit from the plan outright rather than listing it last, because there is no standing owner",
+        "evidence": "'That kills two things outright: no review-habit, no calendar reminder \u2014 ship once, done.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names which of the user's answers moved which fix in the presented plan",
+        "evidence": "'Given: talk Nov 3, today Oct 20, 4 hours total, nobody reviews this again after the talk, you're sole owner. That kills two things outright... Hard deadline also kills the full page rebuild'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the recommended work inside the stated four-hour ceiling",
+        "evidence": "'Total: ~2h50 against your 4h budget.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces the undated 'currently building' line with a dated line or deletes it, rather than rewriting it as another undated claim",
+        "evidence": "'Replace with either nothing, or a truthful dated line (template below)... Never a bare \"currently exploring X\" with no date \u2014 that's the exact failure you're fixing.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States the fix ordering out loud rather than implying it by row order",
+        "evidence": "The numbered list explicitly states rationale for order: 'Kill \"currently building [scheduler]\" line first. Most damage, fastest fix, do it now.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Emits at least three separate orderings - by effort, by value and by efficiency - and notes that they disagree",
+        "evidence": "Only one ordering (the 5-step list) is presented; no separate effort/value/efficiency orderings are shown.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Leads with the efficiency ordering",
+        "evidence": "No orderings are explicitly labeled 'efficiency', 'effort', or 'value'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places killing the false claim and repairing the render tied at the top, explaining they tie because each takes minutes and each fixes a page that is wrong rather than merely weak",
+        "evidence": "The steps are sequential (step 1 then step 2), not presented as tied, and no such 'wrong vs merely weak' rationale is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Puts removing or updating the archived 'currently building' scheduler line first or tied first",
+        "evidence": "Step 1: 'Rewrite intro (20 min). Delete stale \"currently building\" line...' listed first, and the opening line says 'Kill... first.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Puts repairing the broken render first or tied first",
+        "evidence": "The banner fix is step 2, listed after the intro rewrite, not first or tied first.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places setting the six pins ahead of the positioning sentence on the efficiency ordering",
+        "evidence": "Pins are step 3, after the intro rewrite (step 1) which is the positioning sentence.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Drops the full page rebuild from this pass because of the 3 November date",
+        "evidence": "No mention of dropping a full rebuild due to the Nov 3 date; the plan simply lists scoped tasks within the 4h budget.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes the review habit from the plan outright rather than listing it last, because there is no standing owner",
+        "evidence": "The plan explicitly keeps a review habit: 'Repeat this 5-min check morning of Nov 3 \u2014 catches CDN cache lag or a repo someone else silently flipped private.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names which of the user's answers moved which fix in the presented plan",
+        "evidence": "No reference to specific prior user answers is made in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the recommended work inside the stated four-hour ceiling",
+        "evidence": "'5 steps, ~2h work inside your 4h budget' with itemized times summing to about 2 hours.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces the undated 'currently building' line with a dated line or deletes it, rather than rewriting it as another undated claim",
+        "evidence": "The stale undated line is replaced with 'Speaking at [conference name] on Nov 3, 2026: \"[talk title]\".' \u2014 a dated line.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

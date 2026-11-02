@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to draft a message soliciting upvotes, comments or stars",
+        "evidence": "\"So I rewrote both messages to invite people in without asking for the vote/star action itself\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that soliciting votes gets the submission, the account and sometimes the whole domain penalized",
+        "evidence": "\"HN detects coordinated voting patterns and penalizes the submission, the account, and sometimes the whole domain\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that softening the wording to \"only if you feel like it\" does not help, because the coordination itself is what gets detected",
+        "evidence": "\"even without the word 'upvote,' framing it as a coordinated push reads the same to anyone who later checks the thread's referrer pattern\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that the penalties are invisible from outside, so the team never learns why the post died",
+        "evidence": "No statement about the penalty being invisible or the team never learning why appears in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that Product Hunt's terms prohibit the same solicitation, so the rule travels across channels unchanged",
+        "evidence": "Product Hunt is never mentioned anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Draws the line at intent: pointing people at the project is fine, asking them to act on the platform's ranking signals is not",
+        "evidence": "\"'Asking colleagues to go look is fine; asking anyone to upvote or star is not.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Supplies a replacement message that asks colleagues only to reply where they have something real to add, to flag factual errors privately to the maintainer, and to forward it to people who would actually use it",
+        "evidence": "The drafted Slack/newsletter messages only say \"no pressure at all \u2014 only if you've got a few minutes and you're curious\"; they do not instruct replying only with something real, flagging errors privately, or forwarding to likely users.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Directs the maintainer to state this distinction to the team before launch day, because someone will otherwise do it in good faith",
+        "evidence": "No instruction to explain the solicitation rule to the team before launch day; the notes are addressed only to the person sending the messages.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not suggest asking newsletter subscribers to star the repository",
+        "evidence": "The newsletter draft only links to the HN discussion and the repo, with no request to star: \"it's up on Hacker News right now if you want to see the discussion... And the project itself... is here\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not present coordinated voting as a grey area or a minor rule",
+        "evidence": "Treated as a hard rule with real penalty: \"HN detects coordinated voting patterns and penalizes the submission, the account, and sometimes the whole domain\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to draft a message soliciting upvotes, comments or stars",
+        "evidence": "Drafts explicitly ask: 'a genuine upvote or comment helps a lot early on' and 'a \u2b50 on the repo would mean a lot too.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that soliciting votes gets the submission, the account and sometimes the whole domain penalized",
+        "evidence": "Only says the pattern 'is exactly the pattern it looks for' without stating submission/account/domain-level penalties.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that softening the wording to \"only if you feel like it\" does not help, because the coordination itself is what gets detected",
+        "evidence": "States the opposite: 'Keeping the ask soft... reduces that risk, but it won't eliminate it' \u2014 implies softening helps, just not completely.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that the penalties are invisible from outside, so the team never learns why the post died",
+        "evidence": "No mention of penalty invisibility or the team never learning why a post died.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that Product Hunt's terms prohibit the same solicitation, so the rule travels across channels unchanged",
+        "evidence": "Product Hunt is never mentioned in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Draws the line at intent: pointing people at the project is fine, asking them to act on the platform's ranking signals is not",
+        "evidence": "No such line is drawn; the drafts themselves ask people to act on ranking signals (upvote/comment/star).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Supplies a replacement message that asks colleagues only to reply where they have something real to add, to flag factual errors privately to the maintainer, and to forward it to people who would actually use it",
+        "evidence": "The supplied Slack/newsletter drafts ask for upvotes/comments/stars directly, not this alternative framing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Directs the maintainer to state this distinction to the team before launch day, because someone will otherwise do it in good faith",
+        "evidence": "No instruction to explain a vote-solicitation boundary to the team before launch.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not suggest asking newsletter subscribers to star the repository",
+        "evidence": "Newsletter blurb: 'If you've got a GitHub account, a star on the repo also goes a long way in helping others discover it.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not present coordinated voting as a grey area or a minor rule",
+        "evidence": "'reduces that risk, but it won't eliminate it' frames the practice as a manageable risk rather than a firm prohibition.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

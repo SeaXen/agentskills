@@ -1,0 +1,798 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "oss-contributor-onboarding",
+  "scenarios": 12,
+  "expectations_total": 150,
+  "expectations_subjective": 1,
+  "expectations_objective": 149,
+  "pass_rate_with_skill_pct": 52.7,
+  "pass_rate_without_skill_pct": 22.0,
+  "delta_pp": 30.7,
+  "uplift_multiplier": 2.4,
+  "trigger_accuracy_pct": 59.3,
+  "trigger_queries": 140,
+  "trigger_positive_fire_rate": 0.443,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.267 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Scores the current path against the scorecard and shows the maintainer the result before proposing changes"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names the four blocking checks: contribution is invited, the documented setup runs cold, there is work available, submissions get answered"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States there are eight scored checks worth 0-2 points each, 16 points total"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States the pass threshold as all four blocking checks passing plus at least 12 of 16 scored points"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that the 12-of-16 mark is this skill's own baseline rather than a published standard"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Asks to read the last ten pull requests from non-maintainers, oldest comment first, noting where each stalled and what the first maintainer reply said"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Requires evidence attached to every finding - a file path and line, a command output, or a counted number with its date"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names which of the five published newcomer-barrier categories (social interaction, prior knowledge, finding a way to start, documentation, technical hurdles) each finding falls into"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Does not draft or rewrite CONTRIBUTING prose in this response"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names the two CONTRIBUTING copies as a defect and keeps exactly one"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States the display precedence when copies exist: .github/ first, then the repository root, then docs/"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Refuses to publish setup commands that have not been run, and requires a cold run from a clean machine - or the maintainer pasting the full output including failures - before the setup section is written"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Routes the CLA-versus-DCO choice itself to samber/developer-relations-skills@oss-license-strategy and keeps only its placement in scope"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States branch naming and commit-message conventions literally and near the top of the file"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Explains that an unstated convention is overwritten by a contributing agent's own generic template, not merely left undiscovered"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Sizes the file at roughly 150-300 words plus the setup block instead of the thorough document requested"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Links CODE_OF_CONDUCT, SECURITY, SUPPORT and GOVERNANCE rather than absorbing their content"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Drafts section by section and gets the maintainer's agreement on each section before moving to the next"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Rewrites each candidate issue against the seven parts: observed behaviour, expected behaviour, the file and its test, the skills or APIs required, a suggested approach or an explicit 'design not settled', the exact verification command, and a named mentor"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Adds a technical-domain or skills label, citing the 74-participant study finding newcomers picked issues labelled by the technical domain required over issues labelled by architecture area"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Sizes each issue at roughly one evening for someone who has never seen the codebase, setup included"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Identifies the one-evening sizing as this skill's own default rather than a published standard"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Rejects typo-sized or one-word issues on the ground that they teach nothing and produce a contributor who never returns"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that a queue which looks full but is entirely claimed by absent people is worse than an empty one"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Tells the maintainers to stop fixing the easy bugs themselves, framing each one as a recruiting opportunity spent"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Deletes the reward-with-no-quality-gate option rather than ranking it last, and says explicitly that it was deleted"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Cites the 2020 Hacktoberfest spam wave and the response to it: opt-in repositories, a longer grace period, repeat spammers banned, and the T-shirt dropped entirely"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Gives the efficiency ordering: bot > structured program > onboarding event"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Gives the value ordering: structured program > bot > onboarding event"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that a bot may absorb mechanical work but never the first reply, the decline, or the stall check-in"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names the compliance obligations each carries - a third party's participation agreement, mentor commitments, stipend administration and a code of conduct for a season; a code of conduct and a venue for an event; neither for a bot"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names the three reproducibility tiers: bootstrap command, pinned toolchain, container definition"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Gives the default efficiency ordering: bootstrap command > pinned toolchain > container definition"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Gives the value ordering: container definition > pinned toolchain > bootstrap command"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Raises who pays for compute, including that storage bills while a workspace is stopped and that free personal allotments are small"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Requires every gate CI enforces to be runnable locally with one documented command"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Splits the pipeline into a credential-free lane that always runs on fork pull requests and a privileged lane a maintainer triggers"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Says in the CONTRIBUTING file who approves a held fork run and how fast"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Turns on maintainer edits to contributor branches and states in the file that this is done"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Re-runs the cold run from clean after each fix, until nothing new is discovered"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Specifies a clean start: a fresh container, a new user account, or a machine that has never built this project, with no warm caches, global config, or forgotten credentials"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Restricts the cold-run reader to the README and the CONTRIBUTING file only, with no repository knowledge already held"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Asks for every undocumented requirement to be logged: system package, environment variable, running service, credential, minimum resource, platform assumption"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires the whole sequence to be re-run from clean after the documentation is fixed, repeated until nothing new is discovered"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requests a friction log with a timestamped entry per moment of confusion, each carrying a traffic-light severity, what was expected, what happened, and what had to be known that was not written down"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Instructs the runner not to fix anything mid-run, because fixing hides the size of the problem"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Specifies a second, task-path cold run: whether a stranger can pick an issue, understand what is asked, and locate the file to change in under 15 minutes without asking a question"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Produces the report in the prescribed shape: verdict, blocking checks table, scored checks table, funnel baseline, fix order, confounders"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Keeps this first score so the delta after the fixes is measurable"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Raises information-foraging cost - having to hunt for the process - as unevenly distributed across newcomers, citing the GenderMag work on cognitive-style barriers"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Compares that median against the 48-hour reference point and attributes it to practitioner guidance with no published dataset behind the figure"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Tracks external first-pull-request merge rate and median time to merge separately from maintainers' own pull requests"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Explains that maintainers' own pull requests are always faster and hide the number that matters"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Tracks contributor absence factor and states it should rise slowly, as the only signal here measuring whether the project got less fragile"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Warns against quoting another project's outcome figure in place of measuring this project's own funnel"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Routes the triage rota and label taxonomy to samber/developer-relations-skills@oss-issue-triage instead of designing them"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Routes the CLA-versus-DCO decision to samber/developer-relations-skills@oss-license-strategy instead of choosing"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Routes the promotion ladder and voting rules to samber/developer-relations-skills@oss-governance instead of writing them"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Keeps the placement of the legal gate inside the CONTRIBUTING file in scope even while routing the choice itself away"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Warns against copying a large project's process at this project's scale - take the shape, not the scale"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Refuses to draft any file before the gating interview questions are answered"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Asks one question at a time rather than presenting a full questionnaire at once"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Skips any question it can answer itself by reading the repository"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Asks which kind of contribution the maintainer actually wants more of: code, documentation and translation, triage and support, or co-maintainers who can share the load"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Asks whether the project is volunteer or solo-maintained, corporate-backed, or foundation-hosted, and connects the answer to the response target, the legal gate and the ladder"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Asks how many hours per week the maintainer can realistically spend on contributors, review included, in a normal week rather than a good one"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Asks what is out of scope, and records a blank answer as the audit's first finding rather than treating it as a blocker"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Asks what happened the last three times an outsider tried to contribute - merged, stalled, declined, or vanished"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Asks when the setup was last run from a clean machine"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Asks who besides the maintainer can review a pull request, and what happens to contributors while they are away"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Uses the November 14 deadline to promote fixes that land in an afternoon - the response target, the issue queue, the first reply - over environment tiers that need a rebuild, and says explicitly which answer moved what"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Declines to start with contributing-guide wording, and says this symptom usually points at the environment step or the review-and-response step rather than the wording of any file"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Scores the current path against the scorecard and shows the maintainer the result before proposing changes"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names the four blocking checks: contribution is invited, the documented setup runs cold, there is work available, submissions get answered"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States there are eight scored checks worth 0-2 points each, 16 points total"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States the pass threshold as all four blocking checks passing plus at least 12 of 16 scored points"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that the 12-of-16 mark is this skill's own baseline rather than a published standard"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Requires a cold run from a clean machine before the setup check can be marked as passing"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Flags the eleven relabelled old bugs as a likely failure: small for someone who knows the codebase is not small for a stranger"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Asks to read the last ten pull requests from non-maintainers, oldest comment first, noting where each stalled and what the first maintainer reply said"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Requires evidence attached to every finding - a file path and line, a command output, or a counted number with its date"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names which of the five published newcomer-barrier categories (social interaction, prior knowledge, finding a way to start, documentation, technical hurdles) each finding falls into"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Does not draft or rewrite CONTRIBUTING prose in this response"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States the display precedence when copies exist: .github/ first, then the repository root, then docs/"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Refuses to publish setup commands that have not been run, and requires a cold run from a clean machine - or the maintainer pasting the full output including failures - before the setup section is written"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Moves the CLA disclosure into the file before the reader writes code, instead of leaving it to the signing bot after the pull request is opened"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Routes the CLA-versus-DCO choice itself to samber/developer-relations-skills@oss-license-strategy and keeps only its placement in scope"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Refuses to leave the mandatory build steps behind the off-repo wiki link, and puts them in the file itself"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States branch naming and commit-message conventions literally and near the top of the file"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Explains that an unstated convention is overwritten by a contributing agent's own generic template, not merely left undiscovered"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Sizes the file at roughly 150-300 words plus the setup block instead of the thorough document requested"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names non-code contributions - documentation, tests, triage, translation, examples - in the scope section"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Links CODE_OF_CONDUCT, SECURITY, SUPPORT and GOVERNANCE rather than absorbing their content"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Drafts section by section and gets the maintainer's agreement on each section before moving to the next"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that a beginner label is a promise of mentoring, not a difficulty rating"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Distinguishes `good first issue` (members have committed to extra assistance) from `help wanted` (the broader 'we would take a patch'), citing the Kubernetes convention"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes the forge surfaces the `good first issue` label algorithmically and publishes no criteria for it, so the label pulls in strangers from outside the project"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Rewrites each candidate issue against the seven parts: observed behaviour, expected behaviour, the file and its test, the skills or APIs required, a suggested approach or an explicit 'design not settled', the exact verification command, and a named mentor"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Adds a technical-domain or skills label, citing the 74-participant study finding newcomers picked issues labelled by the technical domain required over issues labelled by architecture area"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Sizes each issue at roughly one evening for someone who has never seen the codebase, setup included"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Identifies the one-evening sizing as this skill's own default rather than a published standard"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Rejects typo-sized or one-word issues on the ground that they teach nothing and produce a contributor who never returns"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Publishes a claiming convention and a stale-claim expiry, and applies the expiry to the January claim"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Sets a standing floor of at least three valid unclaimed beginner issues and names it as a self-set default"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Reserves non-code entry points explicitly - documentation, tests, triage, translation, examples"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Tells the maintainers to stop fixing the easy bugs themselves, framing each one as a recruiting opportunity spent"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Refuses to rank any accelerator before the environment fix and the review loop hold, stating that on a broken path every one of them scores zero"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Deletes the reward-with-no-quality-gate option rather than ranking it last, and says explicitly that it was deleted"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Cites the 2020 Hacktoberfest spam wave and the response to it: opt-in repositories, a longer grace period, repeat spammers banned, and the T-shirt dropped entirely"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Corrects the 80% figure as a self-reported 2019 alum survey with a 37% response rate"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Cites the Mozilla analysis (Labuschagne & Holmes, MSR 2015) finding contributors who started on a good-first-bug or mentored bug were less likely to become long-term contributors"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States the two most-cited studies disagree and neither used a matched control group, so program-driven retention is unproven in the general case"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Gives the efficiency ordering: bot > structured program > onboarding event"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Gives the value ordering: structured program > bot > onboarding event"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that a bot may absorb mechanical work but never the first reply, the decline, or the stall check-in"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names the compliance obligations each carries - a third party's participation agreement, mentor commitments, stipend administration and a code of conduct for a season; a code of conduct and a venue for an event; neither for a bot"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Declines fast and kindly: thanks them, names the scope rule, links where it was published, offers an alternative issue, closes"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Keeps naming and formatting out of human review comments where the formatter can fix them"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Gives the fixed review order: scope, then correctness and tests, then design with the reasoning attached, then only the style the formatter missed"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Labels every review comment as blocking or optional"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Mirrors the published response target into the CONTRIBUTING file so contributors and maintainers read the same number"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Says a stated target that is honest and met beats a faster one that is missed"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Prescribes reviewing against the written scope rule and the fixed order rather than against an impression of the person, naming it as the cheapest available control on reviewer bias"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names the three reproducibility tiers: bootstrap command, pinned toolchain, container definition"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Gives the default efficiency ordering: bootstrap command > pinned toolchain > container definition"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Gives the value ordering: container definition > pinned toolchain > bootstrap command"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Raises who pays for compute, including that storage bills while a workspace is stopped and that free personal allotments are small"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Raises portability before hosting, citing Gitpod dropping its self-hosted option in 2024 as the cautionary case"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Raises drift: a cloud environment the maintainers do not use themselves bit-rots, and local setup stays a first-class path"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Requires every gate CI enforces to be runnable locally with one documented command"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Splits the pipeline into a credential-free lane that always runs on fork pull requests and a privileged lane a maintainer triggers"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Says in the CONTRIBUTING file who approves a held fork run and how fast"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Turns on maintainer edits to contributor branches and states in the file that this is done"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Re-runs the cold run from clean after each fix, until nothing new is discovered"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Asks the maintainer to run the sequence and paste the full output, including the failures"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Specifies a clean start: a fresh container, a new user account, or a machine that has never built this project, with no warm caches, global config, or forgotten credentials"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Restricts the cold-run reader to the README and the CONTRIBUTING file only, with no repository knowledge already held"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Asks for wall-clock time to the first passing test run"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Asks for every undocumented requirement to be logged: system package, environment variable, running service, credential, minimum resource, platform assumption"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires the whole sequence to be re-run from clean after the documentation is fixed, repeated until nothing new is discovered"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requests a friction log with a timestamped entry per moment of confusion, each carrying a traffic-light severity, what was expected, what happened, and what had to be known that was not written down"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Instructs the runner not to fix anything mid-run, because fixing hides the size of the problem"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Specifies a second, task-path cold run: whether a stranger can pick an issue, understand what is asked, and locate the file to change in under 15 minutes without asking a question"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Marks the work-available blocking check as failed because fewer than three unclaimed valid beginner issues exist"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that this check cannot be fixed by publishing a slower target and then meeting it, and records the honest target as a finding rather than a pass in disguise"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Scores the out-of-scope-stated check at 0"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Scores the legal-gate check below 2 because the CLA appears only in the pull request template rather than in the CONTRIBUTING file before the reader writes code"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Scores the credit-and-next-step check below 2 because merged contributors are credited but never pointed at a concrete next issue"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Returns a verdict line carrying blocking n/4 and scored n/16"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that a failed blocking check outranks every scored check"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Produces the report in the prescribed shape: verdict, blocking checks table, scored checks table, funnel baseline, fix order, confounders"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Ranks the fix order by damage removed per hour spent, letting effort break ties only among fixes of similar damage"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Keeps this first score so the delta after the fixes is measurable"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Identifies the study as Terrell et al., PeerJ Computer Science 3:e111 (2017), covering 3,064,667 pull requests"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Gives the restricted figures for outside contributors with an identifiable gender: women 58% against men 61%"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Notes that contributors whose profiles were gender-neutral had the highest merge rate of all"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States the caveats: gender was inferred, only 35.3% of users were linkable, and the study predates many platform changes"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Prescribes reviewing against the written scope rule and the fixed review order rather than against an impression of the person, as the cheapest available control"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Notes the project needs a published scope rule and a fixed review order for that control to exist at all"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Raises information-foraging cost - having to hunt for the process - as unevenly distributed across newcomers, citing the GenderMag work on cognitive-style barriers"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Declines to present these numbers as a proven trend, stating that at this volume they are anecdotes with dates attached rather than a dashboard"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Reports second-contribution rate within 90 days as the retention number the whole path exists to move"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Identifies the 90-day window as this skill's own default rather than a published standard"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Excludes bot replies from median time to first human response"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Compares that median against the 48-hour reference point and attributes it to practitioner guidance with no published dataset behind the figure"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Tracks external first-pull-request merge rate and median time to merge separately from maintainers' own pull requests"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Explains that maintainers' own pull requests are always faster and hide the number that matters"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Tracks contributor absence factor and states it should rise slowly, as the only signal here measuring whether the project got less fragile"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Tracks setup support load - issues and messages that are really 'I could not build it' - as the fastest-visible win"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Warns against quoting another project's outcome figure in place of measuring this project's own funnel"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Routes the triage rota and label taxonomy to samber/developer-relations-skills@oss-issue-triage instead of designing them"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Routes the CLA-versus-DCO decision to samber/developer-relations-skills@oss-license-strategy instead of choosing"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Routes the promotion ladder and voting rules to samber/developer-relations-skills@oss-governance instead of writing them"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Keeps the placement of the legal gate inside the CONTRIBUTING file in scope even while routing the choice itself away"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Notes that the CNCF encourages projects to use a DCO as it is easier to set up and use, and attributes it as foundation policy rather than a measured friction study"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Links the governance document from the CONTRIBUTING file rather than reproducing the ladder inside it"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Warns against copying a large project's process at this project's scale - take the shape, not the scale"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Starts the in-scope work from a baseline measurement rather than from proposals"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Refuses to draft any file before the gating interview questions are answered"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Asks one question at a time rather than presenting a full questionnaire at once"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Asks which kind of contribution the maintainer actually wants more of: code, documentation and translation, triage and support, or co-maintainers who can share the load"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Asks whether the project is volunteer or solo-maintained, corporate-backed, or foundation-hosted, and connects the answer to the response target, the legal gate and the ladder"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Asks how many hours per week the maintainer can realistically spend on contributors, review included, in a normal week rather than a good one"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Asks what is out of scope, and records a blank answer as the audit's first finding rather than treating it as a blocker"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Asks what happened the last three times an outsider tried to contribute - merged, stalled, declined, or vanished"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Asks when the setup was last run from a clean machine"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Asks who besides the maintainer can review a pull request, and what happens to contributors while they are away"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Uses the November 14 deadline to promote fixes that land in an afternoon - the response target, the issue queue, the first reply - over environment tiers that need a rebuild, and says explicitly which answer moved what"
+      }
+    ]
+  }
+}

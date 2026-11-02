@@ -1,0 +1,403 @@
+use std::{
+    collections::HashSet,
+    fmt,
+    hash::Hash,
+    marker::PhantomData,
+    ops::{Deref, Not},
+    str::FromStr,
+    sync::LazyLock,
+};
+
+use mirrord_command::resolve_command;
+use schemars::JsonSchema;
+use serde::{Deserialize, Deserializer, Serialize, de};
+
+use crate::{
+    LayerConfig,
+    config::{ConfigContext, ConfigError, FromMirrordConfig, MirrordConfig, Result},
+};
+
+pub trait MirrordToggleableConfig: MirrordConfig + Default {
+    fn enabled_config(context: &mut ConfigContext) -> Result<Self::Generated, ConfigError> {
+        Self::default().generate_config(context)
+    }
+
+    fn disabled_config(context: &mut ConfigContext) -> Result<Self::Generated, ConfigError>;
+}
+
+#[derive(PartialEq, Eq, Clone, Debug, JsonSchema, Serialize)]
+#[schemars(untagged, deny_unknown_fields)]
+#[serde(untagged)]
+pub enum ToggleableConfig<T> {
+    Enabled(bool),
+    Config(T),
+}
+
+impl<T> Default for ToggleableConfig<T> {
+    fn default() -> Self {
+        ToggleableConfig::<T>::Enabled(true)
+    }
+}
+
+impl<T> MirrordConfig for ToggleableConfig<T>
+where
+    T: MirrordToggleableConfig,
+{
+    type Generated = T::Generated;
+
+    fn generate_config(self, context: &mut ConfigContext) -> Result<Self::Generated, ConfigError> {
+        match self {
+            ToggleableConfig::Enabled(true) => T::enabled_config(context),
+            ToggleableConfig::Enabled(false) => T::disabled_config(context),
+            ToggleableConfig::Config(inner) => inner.generate_config(context),
+        }
+    }
+}
+
+impl<T> FromMirrordConfig for ToggleableConfig<T>
+where
+    T: FromMirrordConfig,
+{
+    type Generator = T::Generator;
+}
+
+// We manually deserialize ToggleableConfig to properly propagate deserialization errors and not via
+// untagged enum useless error
+impl<'de, T> Deserialize<'de> for ToggleableConfig<T>
+where
+    T: Deserialize<'de>,
+{
+    fn deserialize<D>(deserializer: D) -> Result<ToggleableConfig<T>, D::Error>
+    where
+        D: Deserializer<'de>,
+    {
+        deserializer.deserialize_any(ToggleableConfigVisitor(PhantomData))
+    }
+}
+
+/// [`Visitor`](de::Visitor) for [`ToggleableConfig`] that searches for bool or calls the inner type
+/// deserialize
+struct ToggleableConfigVisitor<T>(PhantomData<T>);
+
+impl<'de, T> de::Visitor<'de> for ToggleableConfigVisitor<T>
+where
+    T: Deserialize<'de>,
+{
+    type Value = ToggleableConfig<T>;
+
+    fn expecting(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
+        write!(formatter, "bool or nested config")
+    }
+
+    fn visit_bool<E>(self, value: bool) -> Result<Self::Value, E>
+    where
+        E: de::Error,
+    {
+        Ok(ToggleableConfig::Enabled(value))
+    }
+
+    fn visit_str<E>(self, value: &str) -> Result<Self::Value, E>
+    where
+        E: de::Error,
+    {
+        Deserialize::deserialize(de::value::StrDeserializer::new(value))
+            .map(ToggleableConfig::Config)
+    }
+
+    fn visit_string<E>(self, value: String) -> Result<Self::Value, E>
+    where
+        E: de::Error,
+    {
+        Deserialize::deserialize(de::value::StringDeserializer::new(value))
+            .map(ToggleableConfig::Config)
+    }
+
+    fn visit_some<D>(self, deserializer: D) -> Result<Self::Value, D::Error>
+    where
+        D: Deserializer<'de>,
+    {
+        T::deserialize(deserializer).map(ToggleableConfig::Config)
+    }
+
+    fn visit_unit<E>(self) -> Result<Self::Value, E>
+    where
+        E: de::Error,
+    {
+        Deserialize::deserialize(de::value::UnitDeserializer::new()).map(ToggleableConfig::Config)
+    }
+
+    fn visit_newtype_struct<D>(self, deserializer: D) -> Result<Self::Value, D::Error>
+    where
+        D: Deserializer<'de>,
+    {
+        T::deserialize(deserializer).map(ToggleableConfig::Config)
+    }
+
+    fn visit_seq<A>(self, seq: A) -> Result<Self::Value, A::Error>
+    where
+        A: de::SeqAccess<'de>,
+    {
+        Deserialize::deserialize(de::value::SeqAccessDeserializer::new(seq))
+            .map(ToggleableConfig::Config)
+    }
+
+    fn visit_map<M>(self, map: M) -> Result<Self::Value, M::Error>
+    where
+        M: de::MapAccess<'de>,
+    {
+        Deserialize::deserialize(de::value::MapAccessDeserializer::new(map))
+            .map(ToggleableConfig::Config)
+    }
+
+    fn visit_enum<A>(self, data: A) -> Result<Self::Value, A::Error>
+    where
+        A: de::EnumAccess<'de>,
+    {
+        Deserialize::deserialize(de::value::EnumAccessDeserializer::new(data))
+            .map(ToggleableConfig::Config)
+    }
+}
+
+#[derive(Serialize, Deserialize, PartialEq, Eq, Clone, Debug, JsonSchema)]
+#[serde(untagged, deny_unknown_fields)]
+pub enum VecOrSingle<T> {
+    Single(T),
+    Multiple(Vec<T>),
+}
+
+impl<T> VecOrSingle<T> {
+    pub fn is_single(&self) -> bool {
+        matches!(self, VecOrSingle::Single(_))
+    }
+
+    pub fn is_multiple(&self) -> bool {
+        matches!(self, VecOrSingle::Multiple(_))
+    }
+}
+
+impl<T> Deref for VecOrSingle<T> {
+    type Target = [T];
+
+    fn deref(&self) -> &Self::Target {
+        match self {
+            Self::Single(v) => std::slice::from_ref(v),
+            Self::Multiple(v) => v.as_slice(),
+        }
+    }
+}
+
+impl<T: Hash + Eq> From<VecOrSingle<T>> for HashSet<T> {
+    fn from(value: VecOrSingle<T>) -> Self {
+        match value {
+            VecOrSingle::Single(val) => {
+                let mut set = HashSet::with_capacity(1);
+                set.insert(val);
+                set
+            }
+            VecOrSingle::Multiple(vals) => vals.into_iter().collect(),
+        }
+    }
+}
+
+impl<T> From<HashSet<T>> for VecOrSingle<T> {
+    fn from(value: HashSet<T>) -> Self {
+        Self::Multiple(Vec::from_iter(value))
+    }
+}
+
+impl<T> From<Vec<T>> for VecOrSingle<T> {
+    fn from(value: Vec<T>) -> Self {
+        Self::Multiple(value)
+    }
+}
+
+impl<T> From<VecOrSingle<T>> for Vec<T> {
+    fn from(value: VecOrSingle<T>) -> Self {
+        match value {
+            VecOrSingle::Single(item) => vec![item],
+            VecOrSingle::Multiple(items) => items,
+        }
+    }
+}
+
+impl<T: core::fmt::Display> core::fmt::Display for VecOrSingle<T> {
+    fn fmt(&self, f: &mut std::fmt::Formatter<'_>) -> std::fmt::Result {
+        write!(f, "[")?;
+        let mut first = true;
+        for item in self.iter() {
+            if first {
+                write!(f, "{item}")?;
+                first = false;
+            } else {
+                write!(f, ", {item}")?;
+            }
+        }
+        write!(f, "]")?;
+        Ok(())
+    }
+}
+
+impl<T> FromStr for VecOrSingle<T>
+where
+    T: FromStr,
+{
+    type Err = T::Err;
+
+    fn from_str(val: &str) -> Result<Self, Self::Err> {
+        let mut multiple = Vec::new();
+
+        for part in val.split(';') {
+            multiple.push(T::from_str(part)?);
+        }
+
+        if multiple.len() == 1 {
+            return Ok(VecOrSingle::Single(multiple.remove(0)));
+        }
+
+        Ok(VecOrSingle::Multiple(multiple))
+    }
+}
+
+pub fn string_or_struct_option<'de, T, D>(deserializer: D) -> Result<Option<T>, D::Error>
+where
+    T: Deserialize<'de> + FromStr<Err = ConfigError>,
+    D: Deserializer<'de>,
+{
+    // This is a Visitor that forwards string types to T's `FromStr` impl and
+    // forwards map types to T's `Deserialize` impl. The `PhantomData` is to
+    // keep the compiler from complaining about T being an unused generic type
+    // parameter. We need T in order to know the Value type for the Visitor
+    // impl.
+    struct StringOrStruct<T>(PhantomData<fn() -> T>);
+
+    impl<'de, T> de::Visitor<'de> for StringOrStruct<T>
+    where
+        T: Deserialize<'de> + FromStr<Err = ConfigError>,
+    {
+        type Value = Option<T>;
+
+        fn expecting(&self, formatter: &mut fmt::Formatter) -> fmt::Result {
+            formatter.write_str("string or map or none")
+        }
+
+        fn visit_none<E>(self) -> Result<Self::Value, E>
+        where
+            E: de::Error,
+        {
+            Ok(None)
+        }
+
+        fn visit_str<E>(self, value: &str) -> Result<Self::Value, E>
+        where
+            E: de::Error,
+        {
+            FromStr::from_str(value)
+                .map(T::into)
+                .map_err(|err| de::Error::custom(err))
+        }
+
+        fn visit_map<M>(self, map: M) -> Result<Self::Value, M::Error>
+        where
+            M: de::MapAccess<'de>,
+        {
+            // `MapAccessDeserializer` is a wrapper that turns a `MapAccess`
+            // into a `Deserializer`, allowing it to be used as the input to T's
+            // `Deserialize` implementation. T then deserializes itself using
+            // the entries from the map visitor.
+            Deserialize::deserialize(de::value::MapAccessDeserializer::new(map)).map(T::into)
+        }
+    }
+
+    deserializer.deserialize_any(StringOrStruct(PhantomData))
+}
+
+/// Convenience function to be used in mirrord-intproxy, mirrord-extproxy and mirrord-layer.
+///
+/// Reads the resolved [`LayerConfig`] from the [`LayerConfig::RESOLVED_CONFIG_ENV`]
+/// environment variable.
+pub fn read_resolved_config() -> Result<LayerConfig, ConfigError> {
+    let encoded = std::env::var(LayerConfig::RESOLVED_CONFIG_ENV).map_err(|error| {
+        ConfigError::DecodeError(format!(
+            "failed to access the {} variable: {error}",
+            LayerConfig::RESOLVED_CONFIG_ENV
+        ))
+    })?;
+
+    LayerConfig::decode(&encoded)
+}
+
+/// Returns the user's home directory in the form the mirrord-layer's path matchers see at
+/// runtime, so a regex built here will line up with paths the layer feeds into it.
+///
+/// On Windows the layer matches paths in the forms `str_win::path_to_unix_path` gives (forward
+/// slashes, with and without the drive letter). This returns the form without the drive, so a
+/// regex built from it matches the home directory on any drive, and reads `USERPROFILE` rather
+/// than `HOME`.
+///
+/// The returned string is *not* regex-escaped; callers that build a regex from it must call
+/// [`regex::escape`] themselves.
+pub fn home_dir_for_path_mapping() -> Option<String> {
+    #[cfg(windows)]
+    {
+        let home = std::env::var("USERPROFILE").ok()?;
+        let home = str_win::path_to_unix_path(home)?.path;
+        Some(home.trim_end_matches('/').to_owned())
+    }
+
+    #[cfg(unix)]
+    {
+        let home = std::env::var("HOME").ok()?;
+        Some(home.trim_end_matches('/').to_owned())
+    }
+}
+
+/// Overrides the git branch mirrord would otherwise resolve from the working directory.
+///
+/// The JetBrains plugin sets it to the branch of the project the user has open, which is not
+/// necessarily the repository containing the working directory the CLI inherits.
+pub const MIRRORD_BRANCH_NAME_ENV: &str = "MIRRORD_BRANCH_NAME";
+
+/// The user's current git branch, or [`None`] if it could not be determined.
+///
+/// Taken from [`MIRRORD_BRANCH_NAME_ENV`] when set, otherwise resolved by running
+/// `git branch --show-current`. A detached HEAD, a working directory outside any repository, or a
+/// missing `git` binary all produce [`None`] rather than an error - the branch is a convenience,
+/// never something a mirrord session depends on.
+///
+/// Resolved on first access and reused afterwards, so the config templating and the analytics
+/// reporter share a single `git` invocation.
+///
+/// Deliberately blocking: config rendering is synchronous, and `mirrord up` resolves its config
+/// outside any async context.
+pub static GIT_BRANCH: LazyLock<Option<String>> = LazyLock::new(|| {
+    if let Ok(branch_name) = std::env::var(MIRRORD_BRANCH_NAME_ENV)
+        && branch_name.is_empty().not()
+    {
+        return Some(branch_name);
+    }
+
+    match resolve_command("git")
+        .args(["branch", "--show-current"])
+        .output()
+    {
+        Ok(output) if output.status.success() => String::from_utf8(output.stdout)
+            .ok()
+            .map(|output| output.trim().to_owned())
+            .filter(|branch| branch.is_empty().not()),
+        Ok(output) => {
+            tracing::debug!(
+                status = %output.status,
+                stderr = ?String::from_utf8_lossy(&output.stderr),
+                "`git branch --show-current` command failed."
+            );
+            None
+        }
+        Err(error) => {
+            tracing::debug!(
+                %error,
+                "Failed to execute `git branch` command, check that git is installed."
+            );
+            None
+        }
+    }
+});

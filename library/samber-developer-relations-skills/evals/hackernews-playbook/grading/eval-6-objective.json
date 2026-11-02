@@ -1,0 +1,106 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The response states that Launch HN is only for YC companies.",
+        "evidence": "\"Launch HN is YC-only and curated by HN staff [HN].\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response recommends a Show HN instead for the 1.0, if it is tryable.",
+        "evidence": "\"One Show HN for 1.0\"; it assumes the database runs from a binary or container with no signup.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response says commenting on competitors' Show HNs to promote their product is not acceptable or is considered hijacking.",
+        "evidence": "\"An unprompted link on every thread is hijacking.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response allows at most a single, disclosed mention in a competitor thread, and only when it answers a question.",
+        "evidence": "\"answer only a direct question, once, disclosed\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response cites HN's guideline that self-promotion is OK only part of the time and HN should not be used primarily for promotion.",
+        "evidence": "\"Promotion is tolerated 'part of the time' [HN].\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response advises against posting from a company account.",
+        "evidence": "\"Moderators ask for a person's username, not a brand\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response recommends substantive comments in others' threads before any further own-content submissions.",
+        "evidence": "Rank 1 surface and cadence weeks -6 to -1 of commenting before the Show HN.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response does not claim that posting regularly or building karma increases a story's rank.",
+        "evidence": "\"Karma buys no rank [HN].\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The response states that Launch HN is only for YC companies.",
+        "evidence": "'Launch HN is reserved for YC companies... You're not, so you can't use it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response recommends a Show HN instead for the 1.0, if it is tryable.",
+        "evidence": "'The equivalent for you is a Show HN... Make it tryable now.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response says commenting on competitors' Show HNs to promote their product is not acceptable or is considered hijacking.",
+        "evidence": "'Don't do this... HN reads it as astroturfing and spam.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response allows at most a single, disclosed mention in a competitor thread, and only when it answers a question.",
+        "evidence": "Allows substantive comments with no link or pitch; no single-mention-when-asked rule.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response cites HN's guideline that self-promotion is OK only part of the time and HN should not be used primarily for promotion.",
+        "evidence": "Says it 'looks like self-promotion' but does not cite the guideline.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response advises against posting from a company account.",
+        "evidence": "'Post from a personal account... not a brand account.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response recommends substantive comments in others' threads before any further own-content submissions.",
+        "evidence": "'A few weeks of genuine commenting... before the launch.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response does not claim that posting regularly or building karma increases a story's rank.",
+        "evidence": "No such claim.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

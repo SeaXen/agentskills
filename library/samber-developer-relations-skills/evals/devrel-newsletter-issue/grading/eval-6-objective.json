@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The sponsor block carries a visible label such as 'Sponsor', 'Sponsored' or 'Together with'.",
+        "evidence": "'> **Sponsor**'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response declines the request to run the sponsor item without a label.",
+        "evidence": "'An unlabelled paid item is not allowed in our issues.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The sponsor block contains exactly one link.",
+        "evidence": "Only the SIGNUP_URL link appears in each version.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The sponsor block does not contain '#1', 'fastest' or 'in the world'.",
+        "evidence": "The sponsor copy is 'Lumora is an observability platform. You can start on a free plan.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The sponsor block does not contain 'don't miss out'.",
+        "evidence": "It was cut as pressure language.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response proposes, given the 4-hour window, running a neutral line with the label, sponsor name and link, and telling the sponsor what changed.",
+        "evidence": "Version B is 'Sponsor / Lumora / Observability platform.' with a draft message explaining the edits.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response does not add editorial coverage praising Lumora elsewhere in the issue.",
+        "evidence": "No such coverage appears.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The bottom of the issue carries one primary ask, not five separate calls to action of equal weight.",
+        "evidence": "'The issue carries one ask.' The ask is to register for the webinar.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The Nov 14 webinar is placed in an events section or listed as a dated event rather than as a generic call to action.",
+        "evidence": "'Events (dated items go here): Webinar: TITLE... Nov 14'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "GitHub, Discord and Bluesky links are grouped into a single footer line rather than separate calls to action.",
+        "evidence": "'[Star us on GitHub] \u00b7 [Join our Discord] \u00b7 [Follow us on Bluesky]'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The sponsor block carries a visible label such as 'Sponsor', 'Sponsored' or 'Together with'.",
+        "evidence": "'<sub>SPONSORED \u00b7 LUMORA</sub>'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response declines the request to run the sponsor item without a label.",
+        "evidence": "'The \"Sponsored\" tag stays.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The sponsor block contains exactly one link.",
+        "evidence": "The block has three links: 'Sign up free \u00b7 Read the docs \u00b7 See pricing'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The sponsor block does not contain '#1', 'fastest' or 'in the world'.",
+        "evidence": "Version B reads 'it ranked fastest at [SPECIFIC_METRIC]'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The sponsor block does not contain 'don't miss out'.",
+        "evidence": "'I dropped \"don't miss out!\"'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response proposes, given the 4-hour window, running a neutral line with the label, sponsor name and link, and telling the sponsor what changed.",
+        "evidence": "It proposes full copy blocks, not a neutral line. It says 'send Lumora the final copy for sign-off' and never mentions the 4-hour window.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response does not add editorial coverage praising Lumora elsewhere in the issue.",
+        "evidence": "Lumora appears only in the sponsor block.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The bottom of the issue carries one primary ask, not five separate calls to action of equal weight.",
+        "evidence": "The bottom still has two separate bold asks (webinar and Driftwood) plus a row of three links.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The Nov 14 webinar is placed in an events section or listed as a dated event rather than as a generic call to action.",
+        "evidence": "'Join us live: Nov 14 webinar' is listed with its date, and the response explains 'it has a date'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "GitHub, Discord and Bluesky links are grouped into a single footer line rather than separate calls to action.",
+        "evidence": "'[Star us on GitHub] \u00b7 [Join the Discord] \u00b7 [Follow on Bluesky]'.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

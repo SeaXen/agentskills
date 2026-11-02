@@ -147,7 +147,7 @@ CSS `0 4px 6px -1px rgba(0,0,0,0.1)` → Figma:
 |---|---|
 | `font-size: 16px` | FLOAT variable (scope `FONT_SIZE`) or Text Style `fontSize` |
 | `line-height: 1.5` | Text Style `lineHeight: {value: 24, unit: "PIXELS"}` |
-| `font-weight: 600` | Text Style `fontName: {family: "Inter", style: "Semi Bold"}` |
+| `font-weight: 600` | STRING variable (scope `FONT_STYLE`, holds a font-specific style name like `"Regular"` — discover via `listAvailableFontsAsync()`) or Text Style `fontName.style` |
 | `letter-spacing: -0.02em` | Text Style `letterSpacing: {value: -2, unit: "PERCENT"}` |
 | `font-family: "Inter"` | STRING variable (scope `FONT_FAMILY`) or Text Style `fontName.family` |
 
@@ -179,22 +179,18 @@ interface ButtonProps {
 
 ## 2. Figma File Inspection
 
-Run these `use_figma` snippets at the start of every build. All are read-only and safe to run before any user checkpoint.
+Run these `use_figma` snippets during scoped discovery. All are read-only and safe to run before any mutation.
 
 ### List All Pages
 
 ```javascript
-(async () => {
-  try {
-    const pages = figma.root.children.map((p, i) => ({
-      index: i,
-      name: p.name,
-      id: p.id,
-      childCount: p.children.length
-    }));
-    figma.closePlugin(JSON.stringify({ pages }));
-  } catch(e) { figma.closePluginWithFailure(e.toString()); }
-})();
+const pages = figma.root.children.map((p, i) => ({
+  index: i,
+  name: p.name,
+  id: p.id,
+  childCount: p.children.length
+}));
+return { pages };
 ```
 
 Interpret: note page names for naming convention (are they PascalCase? sentence case?), count separator pages (`---`), identify existing component pages vs foundations pages.
@@ -202,19 +198,15 @@ Interpret: note page names for naming convention (are they PascalCase? sentence 
 ### List Variable Collections With Modes
 
 ```javascript
-(async () => {
-  try {
-    const collections = await figma.variables.getLocalVariableCollectionsAsync();
-    const result = collections.map(c => ({
-      id: c.id,
-      name: c.name,
-      modes: c.modes,                    // [{modeId, name}, ...]
-      variableCount: c.variableIds.length,
-      defaultModeId: c.defaultModeId
-    }));
-    figma.closePlugin(JSON.stringify({ collections: result }));
-  } catch(e) { figma.closePluginWithFailure(e.toString()); }
-})();
+const collections = await figma.variables.getLocalVariableCollectionsAsync();
+const result = collections.map(c => ({
+  id: c.id,
+  name: c.name,
+  modes: c.modes,                    // [{modeId, name}, ...]
+  variableCount: c.variableIds.length,
+  defaultModeId: c.defaultModeId
+}));
+return { collections: result };
 ```
 
 Interpret: identify existing primitive/semantic split, note mode names (do they use "Light/Dark" or "SDS Light/SDS Dark"?), count variables to understand scope.
@@ -222,29 +214,25 @@ Interpret: identify existing primitive/semantic split, note mode names (do they 
 ### List Variables in a Collection (with names, types, scopes, and sample values)
 
 ```javascript
-(async () => {
-  try {
-    const collections = await figma.variables.getLocalVariableCollectionsAsync();
-    const targetName = "Color"; // change to the collection you want to inspect
-    const coll = collections.find(c => c.name === targetName);
-    if (!coll) { figma.closePlugin(JSON.stringify({ error: `Collection "${targetName}" not found` })); return; }
+const collections = await figma.variables.getLocalVariableCollectionsAsync();
+const targetName = "Color"; // change to the collection you want to inspect
+const coll = collections.find(c => c.name === targetName);
+if (!coll) { return { error: `Collection "${targetName}" not found` }; }
 
-    const allVars = await figma.variables.getLocalVariablesAsync();
-    const vars = allVars.filter(v => v.variableCollectionId === coll.id);
+const allVars = await figma.variables.getLocalVariablesAsync();
+const vars = allVars.filter(v => v.variableCollectionId === coll.id);
 
-    const result = vars.map(v => ({
-      id: v.id,
-      name: v.name,
-      resolvedType: v.resolvedType,
-      scopes: v.scopes,
-      codeSyntax: v.codeSyntax,
-      // First mode value only, for a sample
-      sampleValue: v.valuesByMode[coll.defaultModeId]
-    }));
+const result = vars.map(v => ({
+  id: v.id,
+  name: v.name,
+  resolvedType: v.resolvedType,
+  scopes: v.scopes,
+  codeSyntax: v.codeSyntax,
+  // First mode value only, for a sample
+  sampleValue: v.valuesByMode[coll.defaultModeId]
+}));
 
-    figma.closePlugin(JSON.stringify({ collection: coll.name, variableCount: result.length, variables: result }));
-  } catch(e) { figma.closePluginWithFailure(e.toString()); }
-})();
+return { collection: coll.name, variableCount: result.length, variables: result };
 ```
 
 Interpret: check if variables use `ALL_SCOPES` (bad), check naming convention (slash-separated hierarchy?), check if code syntax is set, identify alias chains.
@@ -252,103 +240,128 @@ Interpret: check if variables use `ALL_SCOPES` (bad), check naming convention (s
 ### List Component Sets with Properties
 
 ```javascript
-(async () => {
-  try {
-    await figma.setCurrentPageAsync(figma.currentPage); // ensures page context
-    const componentSets = figma.currentPage.findAll(n => n.type === 'COMPONENT_SET');
-    const result = componentSets.map(cs => ({
-      id: cs.id,
-      name: cs.name,
-      variantCount: cs.children.length,
-      properties: Object.entries(cs.componentPropertyDefinitions).map(([key, def]) => ({
-        name: key,
-        type: def.type,
-        variantOptions: def.variantOptions || null,
-        defaultValue: def.defaultValue
-      }))
-    }));
-    figma.closePlugin(JSON.stringify({ componentSets: result, count: result.length }));
-  } catch(e) { figma.closePluginWithFailure(e.toString()); }
-})();
+// To inspect a specific page, switch to it first:
+// await figma.setCurrentPageAsync(targetPage);
+const componentSets = figma.currentPage.findAllWithCriteria({ types: ['COMPONENT_SET'] });
+const result = componentSets.map(cs => ({
+  id: cs.id,
+  name: cs.name,
+  variantCount: cs.children.length,
+  properties: Object.entries(cs.componentPropertyDefinitions).map(([key, def]) => ({
+    name: key,
+    type: def.type,
+    variantOptions: def.variantOptions || null,
+    defaultValue: def.defaultValue
+  }))
+}));
+return { componentSets: result, count: result.length };
 ```
 
-Note: to search ALL pages, iterate `figma.root.children` and `setCurrentPageAsync` for each.
+Note: to search ALL pages, **do not iterate `figma.root.children` and `setCurrentPageAsync` inside one script.** Run a cheap discovery call first (`figma.root.children.map(p => ({id: p.id, name: p.name}))`), then in the next assistant turn emit **one `use_figma` per page in parallel** — a single message with N tool-use blocks — each setting `currentPage` once. See [figma-use → gotchas.md → Set current page once per `use_figma` call](../../figma-use/references/gotchas.md#set-current-page-once-per-use_figma-call--split-multi-page-work-into-parallel-calls).
 
 ### List All Styles
 
 ```javascript
-(async () => {
-  try {
-    const [textStyles, effectStyles, paintStyles] = await Promise.all([
-      figma.getLocalTextStylesAsync(),
-      figma.getLocalEffectStylesAsync(),
-      figma.getLocalPaintStylesAsync()
-    ]);
+const [textStyles, effectStyles, paintStyles] = await Promise.all([
+  figma.getLocalTextStylesAsync(),
+  figma.getLocalEffectStylesAsync(),
+  figma.getLocalPaintStylesAsync()
+]);
 
-    figma.closePlugin(JSON.stringify({
-      textStyles: textStyles.map(s => ({ id: s.id, name: s.name, fontSize: s.fontSize, fontName: s.fontName })),
-      effectStyles: effectStyles.map(s => ({ id: s.id, name: s.name, effectCount: s.effects.length })),
-      paintStyles: paintStyles.map(s => ({ id: s.id, name: s.name })),
-      counts: { text: textStyles.length, effect: effectStyles.length, paint: paintStyles.length }
-    }));
-  } catch(e) { figma.closePluginWithFailure(e.toString()); }
-})();
+return {
+  textStyles: textStyles.map(s => ({ id: s.id, name: s.name, fontSize: s.fontSize, fontName: s.fontName })),
+  effectStyles: effectStyles.map(s => ({ id: s.id, name: s.name, effectCount: s.effects.length })),
+  paintStyles: paintStyles.map(s => ({ id: s.id, name: s.name })),
+  counts: { text: textStyles.length, effect: effectStyles.length, paint: paintStyles.length }
+};
 ```
 
 ### Check Naming Conventions on an Existing Component
 
 ```javascript
-(async () => {
-  try {
-    // Replace with the node ID of an existing component to analyze
-    const node = await figma.getNodeByIdAsync("YOUR_NODE_ID");
-    if (!node) { figma.closePlugin(JSON.stringify({ error: "Node not found" })); return; }
+// Replace with the node ID of an existing component to analyze
+const node = await figma.getNodeByIdAsync("YOUR_NODE_ID");
+if (!node) { return { error: "Node not found" }; }
 
-    // Check fills for variable bindings
-    const fillInfo = [];
-    if ('fills' in node && Array.isArray(node.fills)) {
-      for (const fill of node.fills) {
-        if (fill.type === 'SOLID' && fill.boundVariables?.color) {
-          fillInfo.push({ type: 'variable_alias', id: fill.boundVariables.color.id });
-        } else if (fill.type === 'SOLID') {
-          fillInfo.push({ type: 'hardcoded', r: fill.color.r, g: fill.color.g, b: fill.color.b });
-        }
-      }
+// Check fills for variable bindings
+const fillInfo = [];
+if ('fills' in node && Array.isArray(node.fills)) {
+  for (const fill of node.fills) {
+    if (fill.type === 'SOLID' && fill.boundVariables?.color) {
+      fillInfo.push({ type: 'variable_alias', id: fill.boundVariables.color.id });
+    } else if (fill.type === 'SOLID') {
+      fillInfo.push({ type: 'hardcoded', r: fill.color.r, g: fill.color.g, b: fill.color.b });
     }
+  }
+}
 
-    figma.closePlugin(JSON.stringify({
-      name: node.name,
-      type: node.type,
-      fills: fillInfo,
-      pluginData: node.getPluginData('dsb_key') || null
-    }));
-  } catch(e) { figma.closePluginWithFailure(e.toString()); }
-})();
+return {
+  name: node.name,
+  type: node.type,
+  fills: fillInfo
+};
 ```
 
 ---
 
-## 3. Using search_design_system
+## 3. Library Discovery and search_design_system
 
-### What It Searches
+### Step 1: Discover available libraries with `get_libraries`
 
-`search_design_system` runs three parallel searches against **subscribed design libraries** for the given file:
+Before searching, call `get_libraries` to see what libraries the file has access to:
+
+```
+get_libraries({ fileKey: "abc123" })
+// offset is optional; omit (or pass 0) for the first page
+```
+
+Returns:
+- **`libraries_added_to_file`** — libraries currently subscribed (team libraries, community UI kits already enabled)
+- **`libraries_available_to_add`** — community UI kits and org libraries not yet subscribed
+- **`libraries_available_to_add_next_offset`** — non-null when more org libraries are available; pass it back as `offset` to fetch the next page
+
+Each library entry includes `name`, `libraryKey`, `description`, and `source` ("team", "community", or "organization"). Use the `libraryKey` values to scope searches in the next step.
+
+**Pagination.** Org libraries paginate in batches of 20. Community UI kits are only returned on the first page (`offset=0`), so subsequent pages contain only org libraries. If the user is looking for a specific library by name and it isn't in the current page, page further (call `get_libraries` again with `offset: libraries_available_to_add_next_offset`) or ask them to subscribe it to the file.
+
+```
+// Page 1
+get_libraries({ fileKey: "abc123" })
+// → { ..., libraries_available_to_add_next_offset: 20 }
+
+// Page 2
+get_libraries({ fileKey: "abc123", offset: 20 })
+// → { ..., libraries_available_to_add_next_offset: 40 | null }
+```
+
+### Step 2: Search with `search_design_system`
+
+`search_design_system` searches design libraries for the given file. Each `queries` entry names one entity type:
 
 1. **Components** — published library components, searched by name/description via a recommendation engine (relevance-ranked, not exact match)
 2. **Variables** — design tokens (colors, spacing, etc.) across subscribed libraries
 3. **Styles** — paint styles, text styles, and effect styles
 
-Only libraries the file has subscribed to are searched. If results are empty, the file may not be subscribed to any design system libraries.
+By default it searches all accessible libraries. Pass `includeLibraryKeys` to search within specific libraries only. This is useful when you have many libraries and want targeted results.
 
 ### Input
 
 ```
+// Search all libraries
 search_design_system({
-  query: "button",              // required — text query
-  fileKey: "abc123",            // required — your file key
-  includeComponents: true,      // default true
-  includeVariables: true,       // default true
-  includeStyles: true           // default true
+  queries: [
+    { entity: "component", query: "button" },
+    { entity: "variable", query: "color" },
+    { entity: "style", query: "heading" }
+  ],
+  fileKey: "abc123"            // required — your file key
+})
+
+// Search a specific library only (use libraryKey from get_libraries)
+search_design_system({
+  queries: [{ entity: "component", query: "button" }],
+  fileKey: "abc123",
+  includeLibraryKeys: ["lk-abc123..."]
 })
 ```
 
@@ -356,30 +369,44 @@ search_design_system({
 
 ```json
 {
-  "components": [
+  "results": [
     {
-      "name": "Button",
-      "libraryName": "Design System",
-      "assetType": "component_set",
-      "componentKey": "abc123def",
-      "description": "Primary action button"
-    }
-  ],
-  "variables": [
+      "entity": "component",
+      "query": "button",
+      "components": [
+        {
+          "name": "Button",
+          "libraryName": "Design System",
+          "assetType": "component_set",
+          "componentSetKey": "abc123def",
+          "description": "Primary action button"
+        }
+      ]
+    },
     {
-      "name": "colors/primary/500",
-      "variableType": "COLOR",
-      "variableSetKey": "set1key",
-      "key": "var1key",
-      "scopes": ["FILL_COLOR"],
-      "variableCollectionName": "Colors"
-    }
-  ],
-  "styles": [
+      "entity": "variable",
+      "query": "color",
+      "variables": [
+        {
+          "name": "colors/primary/500",
+          "variableType": "COLOR",
+          "variableSetKey": "set1key",
+          "key": "var1key",
+          "scopes": ["FRAME_FILL", "SHAPE_FILL"],
+          "variableCollectionName": "Colors"
+        }
+      ]
+    },
     {
-      "name": "Heading/H1",
-      "styleType": "TEXT",
-      "key": "style1key"
+      "entity": "style",
+      "query": "heading",
+      "styles": [
+        {
+          "name": "Heading/H1",
+          "styleType": "TEXT",
+          "key": "style1key"
+        }
+      ]
     }
   ]
 }
@@ -387,10 +414,8 @@ search_design_system({
 
 ### How to Interpret Results
 
-**Components:** The `componentKey` can be used in `use_figma` to import the component:
+**Components:** Inspect `assetType`: use `componentKey` for a `component` and `componentSetKey` for a `component_set`. The example above is a set:
 ```javascript
-const component = await figma.importComponentByKeyAsync("abc123def");
-// or for component sets:
 const componentSet = await figma.importComponentSetByKeyAsync("abc123def");
 ```
 
@@ -400,8 +425,8 @@ const componentSet = await figma.importComponentSetByKeyAsync("abc123def");
 
 ### When to Search
 
-- **Phase 0, step 0c**: Search broadly (`query: "button"`, `query: "color"`, `query: "spacing"`) before planning anything. This establishes the reuse baseline.
-- **Immediately before each component creation**: Search for the specific component name before writing any `use_figma` creation code.
+- **During scoped discovery:** Search broadly for the selected inventory (`queries: [{ entity: "component", query: "button" }, { entity: "variable", query: "color" }, { entity: "variable", query: "spacing" }]`). This establishes the reuse baseline.
+- **Search again only when needed:** Repeat a component search when it was outside the selected inventory, available libraries changed, or the earlier result did not resolve it. Reuse current results for in-scope components.
 
 **Reuse decision:**
 
@@ -445,9 +470,9 @@ Compare what was found in code vs what already exists in Figma:
 - **Conflict:** same name, different value → escalate to user (see section 5)
 - **Figma-only:** exists in Figma but not in code → flag for user, likely skip
 
-### User-Facing Checkpoint Message Template
+### User-Facing Discovery Summary Template
 
-Present this message before proceeding. Never begin Phase 1 without explicit user approval.
+Present one concise scope and acceptance summary, then continue into the selected workflow path. Ask the user only when an unresolved conflict requires a decision.
 
 ```
 Here's what I found and what I plan to build:
@@ -470,16 +495,14 @@ PLAN
   New variables: ~{N} ({breakdown by collection})
   New styles: {N} text, {M} effect
   New components: {list}
-  Libraries to search before each component: {list}
+  Reusable library results for the selected inventory: {list}
 
 GAPS / CONFLICTS NEEDING DECISIONS
   ⚠ {conflict description} — Code says X, Figma already has Y. Which wins?
 
 WHAT I WON'T BUILD (and why)
   - {item}: already exists in Figma with matching conventions
-  - {item}: not supported as a Figma variable (e.g. z-index, animation timing)
-
-Shall I proceed?
+  - {item}: not supported as a Figma variable (e.g. z-index)
 ```
 
 ---

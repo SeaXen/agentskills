@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Declines to present any figure as an industry standard, stating that the field has conventions rather than standards.",
+        "evidence": "\"the skill this answer follows is explicit that this field has *conventions*, not standards\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Attributes every quoted figure to its owning project or body, in the shape 'Node.js waits 72 hours' rather than 'the standard is 72 hours'.",
+        "evidence": "\"10 days minimum... \u2014 Rust RFC process\"; \"Two-thirds supermajority... \u2014 pattern shared by Python PEP 13... and CNCF/GitHub\"; \"Two approvals... \u2014 Node.js GOVERNANCE.md\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Quotes the pattern of two approvals to land a change, dropping to one once the change has sat 7 days, attributed to Node.js.",
+        "evidence": "\"Two approvals normally, dropping to one once the change has sat 7 days \u2014 Node.js GOVERNANCE.md.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Quotes a minimum 72-hour voting period with its stated reason of letting other time zones take part, attributed to Apache.",
+        "evidence": "Apache is never mentioned anywhere in Section 6; the only 72-hour reference is attributed to Node's \"general 72-hour window\", not Apache.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Quotes a final comment period of 10 days with a minimum of 5 business days, attributed to the Rust RFC process.",
+        "evidence": "\"10 days minimum (at least 5 business days) \u2014 Rust RFC process, final comment period.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the two-thirds removal and amendment threshold as a common template value with a named source, not as a standard.",
+        "evidence": "\"pattern shared by Python PEP 13 (removal/amendment) and CNCF/GitHub Minimum Viable Governance templates\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the 6-to-12-month inactivity definition as a common convention rather than a standard.",
+        "evidence": "\"6\u201312 months of very low activity \u2014 CNCF elections/maintainer-council templates and GitHub's Minimum Viable Governance; no tighter published figure exists.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Separates published figures from self-set baselines explicitly, and says which of its own recommendations are which.",
+        "evidence": "No use of 'self-set' or similar explicit labeling distinguishing the assistant's own adjustments (e.g. \"pick the low end\") from the published figures.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends the aging-approval rule as the single most useful import for a small maintainer team, because it stops the repository stalling when one maintainer is away.",
+        "evidence": "\"the skill's own reference flags as the single most useful import for a small maintainer set, specifically because it stops the project stalling when one of four people is unavailable\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Advises adjusting every window for community size and timezone spread rather than pasting the numbers unchanged.",
+        "evidence": "\"Adjust the one flagged below for your timezone spread\" and \"pick the low end so the project doesn't carry a silent vacancy\" (size-based adjustment).",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that a named project's published thresholds change, and that the project's own governance file should be re-checked before the number is quoted.",
+        "evidence": "No statement anywhere warning that Node/Rust/Python/CNCF figures change over time and should be re-verified against the live governance file.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that a team split across three widely separated timezones changes whether a given voting window actually buys the participation it was meant to buy.",
+        "evidence": "\"your timezone spread needs the longer window to actually reach everyone once\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Declines to present any figure as an industry standard, stating that the field has conventions rather than standards.",
+        "evidence": "'No single body owns these, but this is the de facto convergence' and 'These are conventions, not a formal standard.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Attributes every quoted figure to its owning project or body, in the shape 'Node.js waits 72 hours' rather than 'the standard is 72 hours'.",
+        "evidence": "Figures are presented generically ('14 days is the standard lazy-consensus window') with only a blended attribution ('pull straight from the Apache-style \"lazy consensus\" model and the CNCF/Kubernetes/Node.js governance templates') rather than per-figure sourcing to a specific project.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Quotes the pattern of two approvals to land a change, dropping to one once the change has sat 7 days, attributed to Node.js.",
+        "evidence": "The transcript gives a flat rule (1 approval routine, 2 for breaking changes) with no 7-day aging mechanism and no Node.js attribution.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Quotes a minimum 72-hour voting period with its stated reason of letting other time zones take part, attributed to Apache.",
+        "evidence": "No 72-hour figure appears anywhere; the comment period given is 14/30 days.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Quotes a final comment period of 10 days with a minimum of 5 business days, attributed to the Rust RFC process.",
+        "evidence": "No 10-day/5-business-day figure or Rust attribution appears; only a generic 14-day/30-day window is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels the two-thirds removal and amendment threshold as a common template value with a named source, not as a standard.",
+        "evidence": "'2/3 supermajority' is stated for maintainer removal with no named source attached to that specific figure.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels the 6-to-12-month inactivity definition as a common convention rather than a standard.",
+        "evidence": "The transcript uses 3-month/6-month inactivity windows, not a 6-to-12-month range, and does not separately label this figure as convention vs. standard.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Separates published figures from self-set baselines explicitly, and says which of its own recommendations are which.",
+        "evidence": "All figures are covered by one blanket disclaimer at the end rather than being individually separated into published vs. self-set.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends the aging-approval rule as the single most useful import for a small maintainer team, because it stops the repository stalling when one maintainer is away.",
+        "evidence": "No aging-approval concept (approvals reducing over time) appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Advises adjusting every window for community size and timezone spread rather than pasting the numbers unchanged.",
+        "evidence": "Timezones are mentioned only as justification for the fixed 14-day figure ('comfortably spans weekends and holidays across Lisbon/Bangalore/Vancouver'), not as general advice to adjust windows for the team's own size/spread.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that a named project's published thresholds change, and that the project's own governance file should be re-checked before the number is quoted.",
+        "evidence": "No such warning appears anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that a team split across three widely separated timezones changes whether a given voting window actually buys the participation it was meant to buy.",
+        "evidence": "Timezone spread is mentioned only as a justification for the chosen window length, not analyzed for whether it changes the window's effectiveness.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that a third-party client-side analytics script is blocked by roughly 58% of a tech audience, and attaches that figure to a published measurement rather than presenting it as its own estimate.",
+        "evidence": "\"Independent measurement (Plausible, Aug 2021, tech-heavy audience) found 58% of a developer-type audience blocks third-party analytics scripts\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names at least one per-segment blocking rate (68.2% desktop, 88.3% Firefox, or 82.3% Linux) when explaining that the miss rate is not uniform.",
+        "evidence": "\"88.3% on Firefox, 82.3% on Linux\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to average or blend the client-side session count with the server-side CDN log count into a single figure.",
+        "evidence": "\"Don't blend these into one number.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the blocking bias varies by page, so it cannot be corrected by applying one multiplier.",
+        "evidence": "No statement in the transcript says the blocking bias varies page-to-page; the closest is the per-source table, but no page-level variance or non-correctability claim is made.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines to produce a single headline 'developer reach' number spanning the three sources.",
+        "evidence": "The headline uses only CDN data: \"19,000+ developers reached docs.velmont.io last month ... unique IPs, server-side edge logs\" \u2014 not a number spanning/blending all three sources.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels each of the three numbers with the source it came from and what that source actually counts.",
+        "evidence": "Table rows: \"GA docs sessions \u2014 4,200 | Browser sessions where Google Analytics' client-side script successfully fired\"; \"PyPI downloads \u2014 61,000 | HTTP 200s served for package tarballs\"; \"CDN unique IPs on /docs \u2014 19,000 | Distinct IP addresses making requests...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends first-party or proxied collection on the docs site as the fix that recovers the missing share, rather than switching to a different third-party tool.",
+        "evidence": "\"that requires a first-party or proxied analytics script on the docs site \u2014 recovers the ad-blocked half of the audience GA is currently missing\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Advises trusting ratios inside one source, such as step-to-step drop-off, over absolute counts compared across sources.",
+        "evidence": "\"Trend and funnel shape \u2014 step-to-step drop-off inside the quickstart, page-to-page navigation. Not defensible as an absolute count of anything.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the PyPI figure is a request count and cannot be converted into a count of people or users.",
+        "evidence": "\"This is not a reach number at all \u2014 it's an install-event count... One download \u2260 one developer\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reconciles the gap between the sources explicitly instead of splitting the difference.",
+        "evidence": "\"The GA-vs-CDN gap (4,200 vs 19,000, roughly 4.5x) is directionally consistent with the published blocking-rate research \u2014 GA is not \\\"wrong,\\\" it's measuring the minority of your audience that doesn't block it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not offer bot traffic or a tracking misconfiguration as the leading explanation for the gap between analytics and the CDN logs.",
+        "evidence": "The leading explanation given for the GA-CDN gap is ad-blocking research; bots are mentioned only as a caveat on CDN's own precision (\"edge logs generally include bot and scraper traffic\"), not as the explanation for the gap.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that a third-party client-side analytics script is blocked by roughly 58% of a tech audience, and attaches that figure to a published measurement rather than presenting it as its own estimate.",
+        "evidence": "No mention of any '58%' blocking figure anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names at least one per-segment blocking rate (68.2% desktop, 88.3% Firefox, or 82.3% Linux) when explaining that the miss rate is not uniform.",
+        "evidence": "No per-segment blocking rates are named anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to average or blend the client-side session count with the server-side CDN log count into a single figure.",
+        "evidence": "\"Don't force these three into one blended number \u2014 averaging or summing metrics that measure different populations (that's exactly what a board member's own engineering lead would poke a hole in).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the blocking bias varies by page, so it cannot be corrected by applying one multiplier.",
+        "evidence": "No discussion of blocking bias varying by page or of a single-multiplier correction being invalid.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines to produce a single headline 'developer reach' number spanning the three sources.",
+        "evidence": "\"Don't use 61,000 labeled as 'developers reached'... Label it 'visitors,' never 'developers' or 'reach' unqualified\" \u2014 the single-number fallback is sourced from one metric (CDN visitors), never a blend of all three.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels each of the three numbers with the source it came from and what that source actually counts.",
+        "evidence": "\"PyPI downloads \u2014 61,000/mo... CDN unique IPs on /docs \u2014 19,000/mo... GA docs sessions \u2014 4,200/mo\" each followed by an explanation of what it counts.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends first-party or proxied collection on the docs site as the fix that recovers the missing share, rather than switching to a different third-party tool.",
+        "evidence": "The only fix offered is bot-filtering the CDN logs (\"Pull the CDN logs and exclude known bot/crawler user-agents and ASNs\"); no first-party/proxied collection recommendation appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Advises trusting ratios inside one source, such as step-to-step drop-off, over absolute counts compared across sources.",
+        "evidence": "No mention of within-source ratios or step-to-step drop-off being more trustworthy than cross-source absolute comparisons.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the PyPI figure is a request count and cannot be converted into a count of people or users.",
+        "evidence": "\"Counts *file-fetch events*, not people... This is an **adoption/usage signal**, not a reach signal\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reconciles the gap between the sources explicitly instead of splitting the difference.",
+        "evidence": "The 'mechanism' section explains why each number differs (funnel logic) rather than averaging or splitting the difference between them.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not offer bot traffic or a tracking misconfiguration as the leading explanation for the gap between analytics and the CDN logs.",
+        "evidence": "The gap between GA and CDN is explained via tracker-blocking (\"Developers block trackers at meaningfully higher rates...\"), not bots; bots are raised only as a separate caveat on the CDN figure's own accuracy.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

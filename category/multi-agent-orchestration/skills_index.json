@@ -44,7 +44,7 @@
     "name": "agent-orchestration",
     "category": "multi-agent-orchestration",
     "repository": "davidondrej-skills",
-    "description": "Tools for managing BB services via CLI and developing custom plugins, agent tools, and provider extensions.",
+    "description": "",
     "path": "category/multi-agent-orchestration/agent-orchestration"
   },
   {
@@ -352,12 +352,28 @@
     "path": "category/multi-agent-orchestration/edict-multi-agent-orchestration"
   },
   {
+    "id": "efficient-fable",
+    "name": "efficient-fable",
+    "category": "multi-agent-orchestration",
+    "repository": "builderio-skills",
+    "description": "Alias for /efficient-orchestrator. Run only when the user explicitly invokes /efficient-fable; never self-activate.",
+    "path": "category/multi-agent-orchestration/efficient-fable"
+  },
+  {
     "id": "efficient-frontier",
     "name": "efficient-frontier",
     "category": "multi-agent-orchestration",
     "repository": "builderio-skills",
-    "description": "Apply the same orchestration as `/efficient-fable` to any high-cost frontier model: delegate research, coding, and testing to cheaper subagents while keeping planning, synthesis, and final review with the expensive model.",
+    "description": "Alias for /efficient-orchestrator. Run only when the user explicitly invokes /efficient-frontier; never self-activate.",
     "path": "category/multi-agent-orchestration/efficient-frontier"
+  },
+  {
+    "id": "efficient-orchestrator",
+    "name": "efficient-orchestrator",
+    "category": "multi-agent-orchestration",
+    "repository": "builderio-skills",
+    "description": "Run only when the user explicitly invokes /efficient-orchestrator (or the /efficient-frontier and /efficient-fable aliases). Keeps an expensive model (Fable, Opus, Astra, Sol) on planning, judgment and review while cheaper subagents do bounded research, coding, QA and log work. Never self-activate.",
+    "path": "category/multi-agent-orchestration/efficient-orchestrator"
   },
   {
     "id": "egm-review",
@@ -368,12 +384,28 @@
     "path": "category/multi-agent-orchestration/egm-review"
   },
   {
+    "id": "ethos-orchestrate",
+    "name": "ethos-orchestrate",
+    "category": "multi-agent-orchestration",
+    "repository": "nvidia-skills",
+    "description": "Entry point for an AI agent's ETHOS.md: a durable snapshot of what the agent is for, what it must not do, and what success looks like. Routes a request to explore and capture intent (ethos-explore), or write or edit the file (ethos-write). Owns the standard every ethos sub-flow follows. Use when the user asks \"help me write an ETHOS.md\", \"does my agent have an ETHOS.md?\", \"update my agent's ETHOS.md\", or when you need to pick between the ethos sub-flows.",
+    "path": "category/multi-agent-orchestration/ethos-orchestrate"
+  },
+  {
     "id": "event-description-generator",
     "name": "event-description-generator",
     "category": "multi-agent-orchestration",
     "repository": "amplitude-mcp-marketplace",
     "description": "Orchestrate event description audits by delegating chunk work to the event-descriptions-worker subagent. Resolve a project name to projectId via get_context when needed, then spawn worker subagents over cursors for a bounded run window and write outputs into run-scoped directories. Use when auditing missing event descriptions at scale without doing per-event analysis directly in this skill.",
     "path": "category/multi-agent-orchestration/event-description-generator"
+  },
+  {
+    "id": "experiment-queue",
+    "name": "experiment-queue",
+    "category": "multi-agent-orchestration",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "SSH job queue for multi-seed/multi-config ML experiments with OOM-aware retry, stale-screen cleanup, and wave-transition race prevention. Use when user says \"batch experiments\", \"\u961f\u5217\u5b9e\u9a8c\", \"run grid\", \"multi-seed sweep\", \"auto-chain experiments\", or when /run-experiment is insufficient for 10+ jobs that need orchestration.",
+    "path": "category/multi-agent-orchestration/experiment-queue"
   },
   {
     "id": "fabro-workflow-factory",
@@ -454,6 +486,14 @@
     "repository": "alirezarezvani-claude-skills",
     "description": "Orchestrate free opencode workers from Claude Code to cut token costs. Use when delegating grunt work to a single worker or a parallel swarm (scout/coder/tester) with worktree isolation, benchmarking against opencode, or when the user says \"spawn a worker\", \"swarm\", \"delegate to opencode\", or \"/oc\".",
     "path": "category/multi-agent-orchestration/hivemind"
+  },
+  {
+    "id": "huawei-cloud-cloudrobo-dispatch",
+    "name": "huawei-cloud-cloudrobo-dispatch",
+    "category": "multi-agent-orchestration",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Manage CloudRobo embodied-agent task dispatch (robo-dispatcher) \u2014 create embodied tasks that drive a robot via an exec/model and constraints, list/show tasks in a session, cancel tasks, and retrieve task results. Dispatch orchestrates robots (robot_id from cloudrobo-robot) with inference models (exec_model_id from cloudrobo-infer / cloudrobo-asset) inside a session. Triggers include: dispatch, dispatcher, task dispatch, embodied task, agent task, run task on robot, task scheduling, cancel task, task result, robo-dispatcher, \u8c03\u5ea6, \u667a\u80fd\u4f53\u8c03\u5ea6, \u4efb\u52a1\u4e0b\u53d1, \u673a\u5668\u4eba\u4efb\u52a1, \u53d6\u6d88\u4efb\u52a1, \u4efb\u52a1\u7ed3\u679c, \u4f1a\u8bdd\u4efb\u52a1.",
+    "path": "category/multi-agent-orchestration/huawei-cloud-cloudrobo-dispatch"
   },
   {
     "id": "hunt-dispatch",
@@ -680,6 +720,14 @@
     "path": "category/multi-agent-orchestration/principle-guard-the-context-window"
   },
   {
+    "id": "proof-orchestrator",
+    "name": "proof-orchestrator",
+    "category": "multi-agent-orchestration",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Manage a stateful, run-directory-based proof project: continuation across runs, run-local source bookkeeping, manual GPT Pro handoff packages when a local attempt stalls, and an optional DeepSeek second opinion as additional evidence only. Use when the user asks for proof-run orchestration, a GPT Pro handoff, or cross-run proof continuation \u2014 use /proof-writer for ordinary proof drafting and /proof-checker for rigorous verification or submission acceptance.",
+    "path": "category/multi-agent-orchestration/proof-orchestrator"
+  },
+  {
     "id": "qoder-delegate",
     "name": "qoder-delegate",
     "category": "multi-agent-orchestration",
@@ -752,6 +800,14 @@
     "path": "category/multi-agent-orchestration/slfg"
   },
   {
+    "id": "slicing-code-context",
+    "name": "slicing-code-context",
+    "category": "multi-agent-orchestration",
+    "repository": "trailofbits-skills",
+    "description": "Selects bounded, graph-informed source slices with Trailmark and delegates focused code analysis or patch-proposal work to a smaller subagent. Use when offloading function-, class-, caller-, callee-, call-path-, entrypoint-, or line-focused code tasks to constrained or locally hosted models without exposing the full repository.",
+    "path": "category/multi-agent-orchestration/slicing-code-context"
+  },
+  {
     "id": "social-orchestrator",
     "name": "social-orchestrator",
     "category": "multi-agent-orchestration",
@@ -784,6 +840,14 @@
     "path": "category/multi-agent-orchestration/subagent-orchestrator"
   },
   {
+    "id": "tao-setup",
+    "name": "tao-setup",
+    "category": "multi-agent-orchestration",
+    "repository": "nvidia-skills",
+    "description": "One-time session setup and orchestration map for the TAO skill bank. Run this first when the TAO skills were installed individually (e.g. from a public skills catalog) so the session gets the cross-skill discovery flow, credential checks, and host preflight that the bundled plugin hook would otherwise inject automatically. Trigger phrases include \"set up TAO skills\", \"TAO session setup\", \"prepare TAO environment\", \"TAO getting started\".",
+    "path": "category/multi-agent-orchestration/tao-setup"
+  },
+  {
     "id": "team-level",
     "name": "team-level",
     "category": "multi-agent-orchestration",
@@ -814,6 +878,14 @@
     "repository": "antigravity-awesome-skills",
     "description": "Master Temporal workflow orchestration with Python SDK. Implements",
     "path": "category/multi-agent-orchestration/temporal-python-pro"
+  },
+  {
+    "id": "tilegym-cutile-python",
+    "name": "tilegym-cutile-python",
+    "category": "multi-agent-orchestration",
+    "repository": "nvidia-skills",
+    "description": "Expert cuTile programming assistant. Write high-performance GPU kernels using cuTile's tile-based programming model with proper validation and optimization. Supports deep agent orchestration for complex multi-kernel tasks.",
+    "path": "category/multi-agent-orchestration/tilegym-cutile-python"
   },
   {
     "id": "vibe-delegate",

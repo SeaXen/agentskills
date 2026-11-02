@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Runs a sellability check before discussing price",
+        "evidence": "The \"Gate result\" section precedes the \"Rate card\" section.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies missing click data as a failed condition",
+        "evidence": "\"4 issues sent, no click tracking, no bot filter ... Fails\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Counts the evidence in issues, not months (six issues needed, four sent)",
+        "evidence": "\"The gate needs 6 issues of per-link data\" against \"4 issues sent.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies that the signup form does not tell readers issues carry sponsor content",
+        "evidence": "\"The form says only 'Get monthly project news'. It doesn't mention sponsor content.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends updating the signup text or privacy notice before the first paid issue",
+        "evidence": "\"Change the form to something like 'Monthly project news. Issues may carry labelled sponsor content.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks who would invoice, or whether a fiscal host or entity can receive the money",
+        "evidence": "\"Name the entity that invoices\"; \"Who publishes The Lantern (project, company, fiscal host?)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the failed reader-notice condition blocks any sale, including a pilot, until it is fixed",
+        "evidence": "\"Fails, and blocks every sale until fixed\"; the pilot is \"allowed once 'readers told' and 'seller' pass\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends announcing sponsor content to existing subscribers in an issue before the first paid one",
+        "evidence": "\"Announce sponsor content in the next issue, before any paid one, with the unsubscribe link prominent.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Once the notice is fixed, offers a pilot booking with the missing click evidence disclosed to the sponsor in writing",
+        "evidence": "\"one issue, at the cost-recovery floor, with the missing evidence disclosed to the sponsor in writing.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prices any pilot at or above a cost-recovery floor, not simply accepting $300 without a basis",
+        "evidence": "\"Price for the pilot: quote the cost-recovery floor\"; \"$300 is about 2.2\u00d7 that ceiling.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Mentions classified lines or no sales as alternatives",
+        "evidence": "Classifieds appear only in a route ranking and a cap line. They are not offered as an alternative to the pilot, and no explicit no-sale alternative is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that ad networks and marketplaces mostly pass on lists of this size",
+        "evidence": "\"1,380 subscribers barely clears the lowest stated floors (about 1,000)... Not worth it at this size.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires labelling the section as an ad, not 'sponsored section' styling alone",
+        "evidence": "\"AD \u00b7 Acme Host: ...\"; asks the sponsor which unit its \"sponsored section\" means.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Checks whether the project charter or maintainers allow paid placements before selling",
+        "evidence": "\"does a charter allow paid placements, with what cap?\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Runs a sellability check before discussing price",
+        "evidence": "Opens with 'Why it's fair' price analysis ($217 CPM) before gaps.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies missing click data as a failed condition",
+        "evidence": "'You have no click tracking...' and 'Gaps to close before saying yes: Tracking.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Counts the evidence in issues, not months (six issues needed, four sent)",
+        "evidence": "Says 'only 4 issues of history' with no six-issue threshold.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies that the signup form does not tell readers issues carry sponsor content",
+        "evidence": "'\"Get monthly project news\" doesn't mention sponsors.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends updating the signup text or privacy notice before the first paid issue",
+        "evidence": "'Change it to something like: \"Monthly project news, occasionally with a clearly labelled sponsor message.\"'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks who would invoice, or whether a fiscal host or entity can receive the money",
+        "evidence": "Only suggests 'ideally through your fiscal host'; does not ask who invoices.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the failed reader-notice condition blocks any sale, including a pilot, until it is fixed",
+        "evidence": "Listed under 'Gaps to close before saying yes'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends announcing sponsor content to existing subscribers in an issue before the first paid one",
+        "evidence": "Disclosure is placed in the sponsored issue itself, not an earlier one.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Once the notice is fixed, offers a pilot booking with the missing click evidence disclosed to the sponsor in writing",
+        "evidence": "Not offered.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Prices any pilot at or above a cost-recovery floor, not simply accepting $300 without a basis",
+        "evidence": "'Keep the $300' with no cost basis.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Mentions classified lines or no sales as alternatives",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that ad networks and marketplaces mostly pass on lists of this size",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires labelling the section as an ad, not 'sponsored section' styling alone",
+        "evidence": "Uses 'labelled \"Sponsored\"' only.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Checks whether the project charter or maintainers allow paid placements before selling",
+        "evidence": "'Check with the other maintainers first.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

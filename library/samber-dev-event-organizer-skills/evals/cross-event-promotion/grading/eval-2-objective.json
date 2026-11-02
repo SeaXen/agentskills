@@ -1,0 +1,106 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The response flags that one mention each is a bad trade for the much larger side given the roughly 30x newsletter size gap.",
+        "evidence": "'I know this isn't a symmetric trade. Your list is about 30 times larger than ours'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The proposal is rebalanced in units, not kind: the smaller side offers more mentions, a richer placement, a longer or deeper discount window, or on-site visibility.",
+        "evidence": "Offers a mention in a dedicated top section plus a spoken plug at the next session.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The size asymmetry is named openly inside the outreach message itself rather than left unmentioned.",
+        "evidence": "The email itself says 'I know this isn't a symmetric trade.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The email opens with a one-line description of who the sender is and cites a specific observed audience overlap, not a generic compliment.",
+        "evidence": "'I organize TinyTypes, a monthly TypeScript meetup in Manchester...' followed by a bracketed overlap observation to fill with a real fact.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The email contains exactly one concrete swap proposal, with no vague partnership language such as exploring synergies.",
+        "evidence": "'I'd like to propose a one-for-one newsletter swap'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The email closes with a single ask answerable with yes or no.",
+        "evidence": "'Would you be open to a 15-minute call, or a reply here, to confirm? A \"yes, with these tweaks\" works too.' It offers several response routes.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "No money, commission, or paid placement is offered; the exchange is visibility only.",
+        "evidence": "Only mentions and a spoken plug are offered.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response recommends checking for a warm organizer connection or shared community space before sending the cold email.",
+        "evidence": "The notes never suggest looking for a warm organizer connection first.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The response flags that one mention each is a bad trade for the much larger side given the roughly 30x newsletter size gap.",
+        "evidence": "The 'Before you send' notes never say the 1:1 swap is a bad trade for the larger side. The email only says 'I know the numbers are lopsided.' and the notes say concessions were added 'to the size gap'. This acknowledges the gap but does not call the trade bad for them.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The proposal is rebalanced in units, not kind: the smaller side offers more mentions, a richer placement, a longer or deeper discount window, or on-site visibility.",
+        "evidence": "Offers 'A dedicated spot in our newsletter, placed near the top' (richer placement) and 'A mention from the stage at our next session, to the roughly 120 people in the room' (on-site visibility).",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The size asymmetry is named openly inside the outreach message itself rather than left unmentioned.",
+        "evidence": "'I know the numbers are lopsided. Your list is about 30 times ours, so I don't expect the reach to be equal.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The email opens with a one-line description of who the sender is and cites a specific observed audience overlap, not a generic compliment.",
+        "evidence": "The opener is 'I'm [Your name], and I organize TinyTypes...' followed by 'A lot of our regulars already go to StaticLand, or would like to.' The overlap is asserted loosely ('or would like to') and is not a specific observation. The sender line also runs on into audience stats.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The email contains exactly one concrete swap proposal, with no vague partnership language such as exploring synergies.",
+        "evidence": "It proposes the one-mention swap, then adds a stage mention, timing options and an alternative: 'If you'd rather give us a different form of mention, such as a line in a roundup, that works too.' It also says 'Either way, I'd love to hear what your next edition has planned.' These dilute the single proposal.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The email closes with a single ask answerable with yes or no.",
+        "evidence": "The close is 'If it's a fit, tell me what you'd like promoted and when. If it isn't, no problem at all. Either way, I'd love to hear what your next edition has planned.' These are open-ended asks, not one yes/no question.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "No money, commission, or paid placement is offered; the exchange is visibility only.",
+        "evidence": "All offers are mentions, a newsletter spot and a stage mention. No payment or commission appears.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response recommends checking for a warm organizer connection or shared community space before sending the cold email.",
+        "evidence": "The 'Before you send' list covers filling in placeholders, cutting concessions, and a follow-up nudge after 7 to 10 days. It never suggests looking for a warm intro or shared community.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

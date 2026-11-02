@@ -1,0 +1,670 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-press-relations",
+  "scenarios": 13,
+  "expectations_total": 148,
+  "expectations_subjective": 1,
+  "expectations_objective": 147,
+  "pass_rate_with_skill_pct": 85.1,
+  "pass_rate_without_skill_pct": 9.5,
+  "delta_pp": 75.6,
+  "uplift_multiplier": 8.96,
+  "trigger_accuracy_pct": 61.2,
+  "trigger_queries": 134,
+  "trigger_positive_fire_rate": 0.597,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Frames both events as deliberate precedent rather than as a gap those events forgot to fill."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Notes that no press function sits last on the efficiency ordering, and is promoted to first outright here only because of the two interview answers."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Cites SXSW as running two separate intake forms, a Press Application for editorial journalism and a Content Creator Application, reviewed separately."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that none is otherwise last on the accreditation efficiency ordering, and is promoted to first outright only because of the free-and-uncapped answer."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Points the attendee photo and recording opt-out mechanism itself at samber/dev-event-organizer-skills@event-accessibility-inclusion rather than owning it here."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Explains the effort half: under a proof stack every application must be screened, where an open policy screens nothing."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Does not treat last year's one-published-out-of-six as a rate that predicts this year's outcome."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the deleted rungs are removed from the menu and from its axis orderings, not demoted to the bottom."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Recommends the direct-to-speaker interview model rather than the organiser brokering every slot, citing DEF CON's practice of telling reporters to contact speakers directly."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Ranks a named contact plus a written recording rule above a working corner, on the grounds that a table with power does not stop a camera and a written rule does."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Attributes ownership of the coloured-lanyard opt-out mechanism to samber/dev-event-organizer-skills@event-accessibility-inclusion rather than to the code of conduct."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that samber/dev-event-organizer-skills@event-code-of-conduct owns only the adjacent harassing photography or recording line, and nothing else about consent."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Routes the incident reporting and response process itself to samber/dev-event-organizer-skills@event-code-of-conduct rather than owning it here."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that the deletion applies to the menu and to its axis orderings, not only to this one recommendation."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Frames the two exposures as equal, differing only in that one voice is assigned and one is not."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Places the CFP-opens beat at roughly eight to twelve months before the event date."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that in that arrangement both sides lose what made the coverage worth having."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Names offering a sponsorship discount, a speaking slot or an exclusive in exchange for an article as the same failure."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Distinguishes an early exclusive angle offered to one outlet ahead of a blanket release, which is legitimate, from an exclusive traded for guaranteed coverage, which is not."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Lists the fact sheet as a media-page element covering dates, venue and city, format, ticket types, expected scale and a one-line description."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Includes a boilerplate about paragraph, written once, frozen, and reused verbatim across every release so a journalist copying it produces the same sentence every year."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Includes brand assets with usage rules, and states the event's own name or logo rule where one exists rather than correcting people afterwards."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Recommends running no press function at all, instead of producing the requested press kit, media page, accreditation form or embargo calendar."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Ties the recommendation to two conditions together: no outlet, newsletter, podcast or creator can be named who covers this subject at this scale, and registration is meeting its curve without earned coverage."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Cites PyCon US as precedent for a major developer event publishing no current press accreditation page."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Cites FOSDEM as precedent, noting it requires no registration at all, so press access there has no mechanism to grant or deny."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Frames both events as deliberate precedent rather than as a gap those events forgot to fill."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that the residual incident exposure does not vanish, and routes the incident reporting and response path to samber/dev-event-organizer-skills@event-code-of-conduct."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names what is actually absent under this recommendation as only a press-facing voice nobody is asking for, not the incident path."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Explains that every higher rung would manufacture a press function for an audience of nobody."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Does not deliver an accreditation policy, a media-page contents list or an embargo calendar as the output."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Notes that no press function sits last on the efficiency ordering, and is promoted to first outright here only because of the two interview answers."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Stops after naming the posture and the residual exposure, rather than continuing through the remaining build steps."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Rejects the proposed design in which the creator lane is lighter than the journalist lane."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that every published policy operating a separate creator lane holds that lane to an equal or higher verification bar than the editorial press lane."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names at least two of MWC/GSMA, IBIE Baking Expo, IFEBP or ALA as published policies applying the stricter bar to the creator lane."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes the asymmetry concretely: the press lane asks for a byline or an assignment letter, while the creator lane asks for a follower or view threshold, a traffic minimum, or a publishing-history requirement."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Cites SXSW as running two separate intake forms, a Press Application for editorial journalism and a Content Creator Application, reviewed separately."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Does not present MWC Barcelona's 100,000-subscriber and 2,500-average-view bar as an industry standard, and does not transfer it to this event."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Where MWC's number appears at all, labels it as MWC's own bar for its own creator lane at MWC's scale."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Instructs the organiser to set a creator bar proportionate to this event's own audience and publish it as theirs, with a willingness to defend the number chosen."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Requires the bar to be published before the first application, because a criterion invented after an application arrives reads as a criterion invented about that applicant."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The refusal wording quotes back the published criterion that was not met, in one sentence, without commentary on the outlet, the audience or the person."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The refusal offers the fallback that costs nothing: an ordinary ticket at the usual price, the ungated media page, and the post-event stats."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Routes the refusal through the single designated voice, so a second organiser does not answer again in different words."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends no accreditation process for this event, rather than drafting the requested form."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Cites FOSDEM as the precedent for a free, unregistered event where accreditation has nothing to grant or deny."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Describes an accreditation process here as a form standing in front of an open door."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that none is otherwise last on the accreditation efficiency ordering, and is promoted to first outright only because of the free-and-uncapped answer."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that the only enforcement lever an organiser has is withdrawal of a credential, and flags that this lever is weak or absent where no credential is issued."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names a single press contact and a single voice on the record despite there being no accreditation."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Points the attendee photo and recording opt-out mechanism itself at samber/dev-event-organizer-skills@event-accessibility-inclusion rather than owning it here."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Warns that a proof-heavy editorial-journalists-only policy loses on both value and effort at a developer event."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States the specific relation: an open policy reaches more of the developer audience than a traditional-outlets-only policy while costing less effort to administer."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Explains the effort half: under a proof stack every application must be screened, where an open policy screens nothing."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Explains the value half: a journalists-only policy excludes by definition the constituency that most reliably reaches developers."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends one item of proof at this scale, such as links to two recent pieces carrying the applicant's byline, instead of the three-part stack."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Identifies the quoted proof stack as MWC/GSMA's own published requirements for its own edition, not a standard for a 1,100-person event."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Confirms the purchased press card is not a credential, citing the published line that a press card alone will not be accepted as press credentials."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Frames declining that applicant as a decision against a published criterion rather than a judgement call, conditional on the criterion having been published first."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends publishing a cap in advance, so that a later refusal is arithmetic rather than a verdict on the applicant."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Does not treat last year's one-published-out-of-six as a rate that predicts this year's outcome."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names published-versus-accredited as the measurement that actually answers whether the bar is working, and as the input to next edition's comp allocation."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends adding a creator lane rather than removing one, with a bar at least as strict as the press lane's."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Refuses to put the schedule page under embargo, because a page going live on a planned date is a publication date, not an embargo."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Warns that dressing a scheduled publication as an embargo teaches recipients that this event's embargoes mean nothing."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Treats the keynote reveal as genuinely embargoable material, distinguishing it from the schedule page."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Deletes credential-gated distribution from the embargo menu because the event is community-run with no sponsor product news, rather than ranking it last."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Gives the deletion reason: a gated platform standing between a handful of friendly reporters and a speaker list guards nothing, and parked at the bottom it returns next cycle as a budget line."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Warns against sending an embargo to anyone who did not ask for one."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Identifies the lineup and schedule reveal as the single highest-leverage earned-media moment of the annual cycle, to be worked as a dedicated press moment rather than a passive page update."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Considers promoting to a pre-brief under embargo, conditioned on an outlet having covered a past edition so a warm path exists."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Does not claim any embargo rung makes an embargo more likely to hold, noting a gate controls who sees the material rather than whether they wait."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends a dedicated press function despite the event sitting well below the 500 to 1,000 attendee band."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names the trigger as sponsors making their own product news at the event, not attendance, and notes that this trigger fires far more often than the attendance one at a small vendor event."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Labels the 500 to 1,000 attendee band as a self-set graduation band rather than a measured threshold."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States explicitly that the recommendation assumes the vendor or company-run pole rather than the community-run one."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends the PR-brokered interview model, contrasting it with the direct-to-speaker model community events use."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Flags the conflict in the CEO serving as both keynote speaker and sole on-record spokesperson."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Designates a named backup spokesperson alongside the primary, and briefs everyone else that they do not speak to press and should point reporters at the spokesperson."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Presents the plan section by section for explicit approval rather than as one finished document."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Deletes both the staffed press room and the working corner because the event is online-only."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the deleted rungs are removed from the menu and from its axis orderings, not demoted to the bottom."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Keeps the named contact plus the written recording rule as what survives."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Rewrites the recording rule for the stream, stating who may clip it."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States how long a clip may be, expressed as a duration."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States how a speaker or attendee opts out of being clipped."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States what a breach costs, naming withdrawal of the credential as the only lever the organiser has."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes that an unmanaged recording exposure is not a low one, and that a published image or recording cannot be unpublished afterwards."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Does not present SXSW's four-minute session-video limit or 45-second filmed-music cap as a standard, labelling either as SXSW's own limit for its own venues if cited."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Points the attendee opt-out mechanism itself at samber/dev-event-organizer-skills@event-accessibility-inclusion."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Recommends the direct-to-speaker interview model rather than the organiser brokering every slot, citing DEF CON's practice of telling reporters to contact speakers directly."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States the two things that still belong to the organiser under the direct model: telling the reporter which speakers agreed to be contacted, and telling those speakers a reporter may contact them."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Routes the speaker's own consent and pre-event cadence to samber/dev-event-organizer-skills@event-speaker-experience."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Ranks a named contact plus a written recording rule above a working corner, on the grounds that a table with power does not stop a camera and a written rule does."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Produces a written shooting rule with four published parts, before doors."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States where cameras may and may not go, naming specific areas such as stage areas, hallways, the quiet room and sponsor booths."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States how much of a session may be recorded, expressed as a duration."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States how the attendee opt-out is respected, naming the coloured-lanyard mechanism in use."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that a breach costs the credential, which is the only lever an organiser actually has."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Attributes ownership of the coloured-lanyard opt-out mechanism to samber/dev-event-organizer-skills@event-accessibility-inclusion rather than to the code of conduct."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that samber/dev-event-organizer-skills@event-code-of-conduct owns only the adjacent harassing photography or recording line, and nothing else about consent."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Requires press to disclose press status when interviewing anyone, with credential forfeit as the stated consequence."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Refuses to ship one merged statement, splitting it into a holding statement now and a remedy announcement days later."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Explains that merging the two either delays the acknowledgement or ships a half-considered remedy."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Cites SXSW's 2024 sequence as the pattern: a same-day statement acknowledging the situation, then the revised sponsorship model days later."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "The holding statement acknowledges quickly, states what is known right now, and says when the next update comes."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names the next-update line as the one that buys the time to investigate."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Instructs volunteers and staff to stop: no photos or videos shared, no comments to reporters, no public posting about the incident."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Attributes that instruction to DEF CON's published Goon guidance for staff and volunteers."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Designates one spokesperson and one named backup in writing, and tells every organiser, volunteer and vendor who they are."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Supplies a refusal line the spokesperson can use, declining to comment while the matter is looked into and committing to come back by a stated time."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Puts owned channels first in the channel order, with direct statements to outlets who ask second."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Instructs the organiser not to speculate, to protect identities, and to preserve evidence."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Routes the incident reporting and response process itself to samber/dev-event-organizer-skills@event-code-of-conduct rather than owning it here."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Deletes the dedicated press function rung outright rather than demoting it or leaving it on the table."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that the deletion applies to the menu and to its axis orderings, not only to this one recommendation."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Gives the reason: a press operation whose spokesperson slot is empty produces statements answered by whoever is nearest, which is the failure the rung was bought to prevent."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Recommends a rung at or below the staged build instead of the full press operation requested."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Explains that declining to run a press function does not remove the exposure, because the statement still gets made by whichever volunteer is standing nearest the reporter."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Frames the two exposures as equal, differing only in that one voice is assigned and one is not."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that a statement cannot be unsaid, and treats that irreversibility as why the designation sits inside the cheapest rung rather than at the top of a build ladder."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires a backup spokesperson as well as a primary, once someone is found."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Notes that the CFP-opens beat is covered by niche and developer press, CFP aggregators and community channels, not mainstream press."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Places the CFP-opens beat at roughly eight to twelve months before the event date."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States plainly that no published figure quantifies what press coverage volume does to registrations."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Declines to supply a percentage-of-ticket-sales forecast, rather than substituting a proxy metric that would read as one."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Labels every non-binary signal on the sheet as self-set rather than published or benchmarked."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Requires each target to be fixed before the edition, never after the data arrives."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Includes published-versus-accredited: of everyone credentialed, how many published anything at all."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names published-versus-accredited as the input to the next edition's comp allocation."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Includes beat coverage: per calendar beat, who was pitched and who published."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names the lineup and schedule beat as the one to judge the year on."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Includes embargo integrity as a binary: zero breaks before the stated lift time."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Includes consent breaches as a binary: zero published images or recordings of anyone who used the opt-out mechanism."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Includes voice discipline as a binary: during any incident, zero on-record statements from anyone but the designated spokesperson and backup."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Distinguishes the three binaries, which have no acceptable non-zero value, from the self-set signals, which carry a chosen target."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Classifies the newsletter deal as a two-way barter exchange and hands it to samber/dev-event-organizer-skills@event-media-partnerships."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States the boundary explicitly: the moment something is promised back in return for words, it stops being earned coverage."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Classifies the creator promising three tagged posts in return for a pass as barter rather than an unconditional credential."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Notes that a pass obligating specific promotional output is an exchange, not a credential, even when it resembles a creator accreditation lane."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Cites IBIE's separate influencer category as the mechanic that looks like a lighter creator bar but is actually a barter exchange."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that in that arrangement both sides lose what made the coverage worth having."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Names offering a sponsorship discount, a speaking slot or an exclusive in exchange for an article as the same failure."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Distinguishes an early exclusive angle offered to one outlet ahead of a blanket release, which is legitimate, from an exclusive traded for guaranteed coverage, which is not."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Keeps a route open for each of the three to be accredited on the ordinary published criteria, with no promised output attached."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Routes the pricing of any paid or barter placement to samber/dev-event-organizer-skills@event-media-partnerships rather than pricing it here."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Notes that on large conferences' media pages every element downloads with no registration at all."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Warns that the copied Web Summit wording is stale, citing that its accreditation page reads last updated October 2020."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Instructs the organiser to re-check the date on any policy page before adopting its wording."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "States that each published past-edition figure is one event's own figure for one edition, and transfers to no one else."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Lists the fact sheet as a media-page element covering dates, venue and city, format, ticket types, expected scale and a one-line description."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Includes a boilerplate about paragraph, written once, frozen, and reused verbatim across every release so a journalist copying it produces the same sentence every year."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Includes brand assets with usage rules, and states the event's own name or logo rule where one exists rather than correcting people afterwards."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Includes one named media contact with a working, monitored address, answered by the designated voice."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Labels any minimum viable subset of the media page as the organiser's own judgement call rather than a published standard."
+      }
+    ]
+  }
+}

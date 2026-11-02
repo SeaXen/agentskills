@@ -1,0 +1,118 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Identifies the authors' low reputation as a reach problem because higher-reputation authors get ranking priority",
+        "evidence": "\"High-reputation authors' posts and comments get ranking priority [platform]... your accounts have barely moved.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends earning reputation through substantive comments toward 250",
+        "evidence": "\"1-3, earn first: Comment substantively on 3-5 posts a week in your tags\"; \"Reputation per engineer, weekly, until 250.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the clickbait titles as a problem, noting clickbait is demoted or rewritten for Plus readers",
+        "evidence": "\"Clickbait titles get demoted, and Plus readers see them rewritten [platform].\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that teammates upvoting each other's comments to reach 250 counts as reputation farming",
+        "evidence": "\"Do not have teammates upvote each other's comments or posts on cue. It reads as reputation farming\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that downvotes are private but lower a post's ranking",
+        "evidence": "Only \"Each downvote lowers the post's ranking [platform]\" appears; privacy of downvotes is not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends choosing tags that match what target readers follow",
+        "evidence": "\"Tags are your targeting: personalized feeds match the tags readers follow [platform].\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains author claiming with the twitter:creator meta tag plus the matching handle in daily.dev account settings",
+        "evidence": "\"add `<meta name=\\\"twitter:creator\\\" content=\\\"@handle\\\">`... and add the same X handle under Account details\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists post analytics metrics to read (impressions, unique reach, upvotes, comments or clicks)",
+        "evidence": "\"Per post at day 3: impressions, unique reach, upvotes, comments, clicks.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets a hygiene metric for declined or removed posts or reputation drops",
+        "evidence": "\"Hygiene, pass threshold zero: declined posts, removals, reputation drops.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Identifies the authors' low reputation as a reach problem because higher-reputation authors get ranking priority",
+        "evidence": "\"Low-reputation accounts then get little boost.\" and \"At 10\u201330 reputation, the accounts have no track record.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends earning reputation through substantive comments toward 250",
+        "evidence": "Recommends \"Engage as a reader first\" and genuine comments, but never cites the 250 threshold. It says \"verify the exact thresholds\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the clickbait titles as a problem, noting clickbait is demoted or rewritten for Plus readers",
+        "evidence": "Calls the title clickbait and developers distrust it, but says nothing about demotion or rewriting for Plus.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that teammates upvoting each other's comments to reach 250 counts as reputation farming",
+        "evidence": "Only says \"Do not ask colleagues to upvote. Coordinated voting is detectable.\" Comment upvotes and the 250 threshold are not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that downvotes are private but lower a post's ranking",
+        "evidence": "Mentions \"downvoted\" only as a reader reaction.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends choosing tags that match what target readers follow",
+        "evidence": "\"Reach scales with how many people follow the matching tags\" and the point about the ranker getting nothing from thin tags.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains author claiming with the twitter:creator meta tag plus the matching handle in daily.dev account settings",
+        "evidence": "Mentions author, JSON-LD and rel=author, and claiming \"(verify the current flow)\". No twitter:creator.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Lists post analytics metrics to read (impressions, unique reach, upvotes, comments or clicks)",
+        "evidence": "Only says \"Judge by clicks to the article or repo, and by stars, installs and doc traffic\". No daily.dev analytics metrics are listed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets a hygiene metric for declined or removed posts or reputation drops",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

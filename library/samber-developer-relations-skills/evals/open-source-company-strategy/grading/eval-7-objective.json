@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Presents 2 or 3 candidate lines rather than a single recommendation",
+        "evidence": "\"## Candidate lines (ranked)\" lists three: interface-open, buyer-tiered open core, fully closed.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ranks the candidate lines explicitly rather than listing them flat",
+        "evidence": "Numbered 1-3 with explicit qualifiers: \"1. Interface-open \u2014 recommended.\", \"2. Buyer-tiered open core \u2014 the strong alternative, deleted...\", \"3. Fully closed... \u2014 rejected.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the candidate lines as interface-open, infrastructure-only and buyer-tiered open core",
+        "evidence": "The three named lines are 'interface-open', 'buyer-tiered open core', and 'fully closed, nothing published' \u2014 'infrastructure-only' is never used as one of the candidate lines.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Enters an explicit brainstorming mode and says so before proposing any verdict",
+        "evidence": "The document goes directly from 'Scope check' into 'What we sell' and 'Candidate lines (ranked)' with no announced brainstorming phase.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes buyer-tiered open core outright because of the stated low appetite for irreversibility, rather than ranking it last",
+        "evidence": "\"Buyer-tiered open core \u2014 the strong alternative, deleted by your own stated constraint, not by weakness.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States which interview answer moved which candidate line",
+        "evidence": "\"1. **Hard date** (board in three weeks) \u2192 rules out any line that needs a tiering matrix... 2. **Low irreversibility appetite, stated directly by the CTO** \u2192 ... It removes it from consideration today\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Promotes interface-open on the basis of the hard board date, because it is the line needing no tiering matrix and no executive sign-off",
+        "evidence": "\"Hard date (board in three weeks) \u2192 rules out any line that needs a tiering matrix or a cross-functional sign-off process to stand behind... you have three weeks to make one clean call.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a one-off decision rather than an inherited policy removes the argument that would have promoted buyer-tiered",
+        "evidence": "The 'One-off, not policy' note is stated generically ('noted, and the commitments section below is written narrowly') without connecting it to why buyer-tiered would otherwise have been favored.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives each surviving line what it opens, what captures value, its cost per year, the risk it accepts and the motive it serves",
+        "evidence": "Only interface-open (the sole surviving line) receives this full treatment; the framework does not include a second surviving line to compare, since buyer-tiered was deleted and fully-closed rejected outright.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that interface-open and infrastructure-only genuinely tie on irreversibility because neither publishes anything the company sells",
+        "evidence": "'Infrastructure-only' is not presented as a distinct candidate line at all, so no such tie is stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Raises the strongest argument against drawing a line at all, that the value sits in the totality of the product rather than a proprietary sliver, and answers what the closed part captures that the totality does not",
+        "evidence": "No such counter-argument about the value sitting in the product's totality appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States a recommendation and lets the user choose before detailing the chosen line further",
+        "evidence": "The document proceeds directly from the ranked recommendation through motive, tables, competitive case, decision rights, commitments, operating model, and measurement without pausing for user selection.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Describes each line's effort as an order of magnitude, such as a week per repository or a standing job, rather than as a currency amount",
+        "evidence": "\"Cost: roughly one engineer at a few hours a week.\" (order-of-magnitude effort description for the interface-open line).",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Presents 2 or 3 candidate lines rather than a single recommendation",
+        "evidence": "The transcript opens with a single decisive recommendation: \"The line: give away the edges, license the core so it can only loosen, never promise 'always open.'\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ranks the candidate lines explicitly rather than listing them flat",
+        "evidence": "No candidate lines are listed to rank; only one integrated recommendation is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the candidate lines as interface-open, infrastructure-only and buyer-tiered open core",
+        "evidence": "These terms never appear in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Enters an explicit brainstorming mode and says so before proposing any verdict",
+        "evidence": "No brainstorming mode is announced; the piece opens directly with the verdict.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes buyer-tiered open core outright because of the stated low appetite for irreversibility, rather than ranking it last",
+        "evidence": "No such elimination process appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States which interview answer moved which candidate line",
+        "evidence": "No interview answers are referenced or tied to line choices.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Promotes interface-open on the basis of the hard board date, because it is the line needing no tiering matrix and no executive sign-off",
+        "evidence": "Not present; the board date is used only as a general deadline reference for the final pitch, not to justify choosing among named lines.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a one-off decision rather than an inherited policy removes the argument that would have promoted buyer-tiered",
+        "evidence": "Not discussed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives each surviving line what it opens, what captures value, its cost per year, the risk it accepts and the motive it serves",
+        "evidence": "No per-line structured breakdown of this kind exists; reasoning is given in prose about the single recommended approach.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that interface-open and infrastructure-only genuinely tie on irreversibility because neither publishes anything the company sells",
+        "evidence": "Not discussed; no such comparison is made.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Raises the strongest argument against drawing a line at all, that the value sits in the totality of the product rather than a proprietary sliver, and answers what the closed part captures that the totality does not",
+        "evidence": "Not present in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States a recommendation and lets the user choose before detailing the chosen line further",
+        "evidence": "The transcript states and fully details the recommendation directly, without pausing for user choice.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Describes each line's effort as an order of magnitude, such as a week per repository or a standing job, rather than as a currency amount",
+        "evidence": "Effort is described qualitatively (\"Costs nothing today\") rather than as an order-of-magnitude time estimate across multiple lines.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

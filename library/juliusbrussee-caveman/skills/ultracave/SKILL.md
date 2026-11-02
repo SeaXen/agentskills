@@ -5,7 +5,6 @@ description: >
   each fact once. Invoke only with /ultracave or /caveman ultra. Stays on until
   "stop caveman" or "normal mode".
 disable-model-invocation: true
-category: code-quality-refactoring
 ---
 
 # ultracave

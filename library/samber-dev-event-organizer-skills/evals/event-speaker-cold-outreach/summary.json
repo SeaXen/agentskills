@@ -1,0 +1,414 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-speaker-cold-outreach",
+  "scenarios": 9,
+  "expectations_total": 103,
+  "expectations_subjective": 2,
+  "expectations_objective": 101,
+  "pass_rate_with_skill_pct": 74.8,
+  "pass_rate_without_skill_pct": 35.9,
+  "delta_pp": 38.9,
+  "uplift_multiplier": 2.08,
+  "trigger_accuracy_pct": 65.6,
+  "trigger_queries": 96,
+  "trigger_positive_fire_rate": 0.396,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "The email closes with a specific low-friction next step carrying a proposed date, never an open-ended 'let me know if you're interested'."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The response tells the user to run the draft through a humanizer pass before sending, and to review the draft themselves before it goes out."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The response explicitly warns against countering with an invented figure, and frames 'I don't have a benchmark for this, here is our budget' as both the honest and the stronger answer."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The response states that the concession list is fixed before the first message goes out and that anything not on it is not available, whatever the negotiation does."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "If a real fee were ever agreed, the response routes the payment through whoever handles the event's money and contracts, citing tax, visa, or conflict-of-interest and employment complications rather than the organizer paying a speaker directly."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The response states that a follow-up with nothing new to carry should not be sent at all, and that the gap itself is the message."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The close-out carries no guilt, no manufactured deadline pressure, and is not a further touch disguised as a goodbye."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The response warns that a bumped invitation costs the event's reputation in a community whose members talk to each other."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The response states that an invitation sent under the travel floor without naming the constraint is functionally a request to decline."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The response forbids a mail-merge or single templated blast to all three candidates."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The response accounts for only one international flight being funded and keeps the budget line in the invitation honest about that for the two international candidates."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The response treats the committee member's university connection as a possible referrer-relayed introduction and says to exhaust that path first where it exists."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The response explains that a referrer-relayed introduction is the cheapest strong option because a vouch arrives attached and nobody is contacted until the candidate answers."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The response states that a published profile or directory listing is consent to be found, never consent to be pitched."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The response requires the message to state how she was found."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The response notes that a DM and an email are the same act in effort and in consent or e-marketing exposure, and that the channel changes the character limit rather than the work."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The response ranks a direct email above a published DM on quality of answer, because a DM invites a fast reflexive reply to a request needing a calendar check and often an employer's sign-off."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The response states that the deepest option is never what an efficiency ordering picks on its own, and that it is promoted only by a named condition."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The response warns against sending a generic slot-brief-only invitation to candidates chosen specifically, because it throws away the qualification that put them on the list."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The response notes that the deeper options mean researching a named individual past what the shortlist recorded, and flags the line between reading someone's public work and assembling a file on them."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The response names what a candidate hand-off must carry before an invitation can be written: the evidence-backed reason, a fit score, availability and travel constraints, the honest budget line, the published contact route, and which review lane applies."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The confirmation states travel and lodging terms including who books what."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The confirmation resolves and states the recording and publication terms rather than leaving that question open."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The confirmation states which review lane the invited proposal goes through rather than leaving it to be guessed."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The response checks both conditions against a concession list fixed before the invitation went out, and flags that agreeing on the spot to anything outside that list is the failure to avoid."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The response names the real cost of each granted concession - a schedule rebalance, and one extra ticket or a shared slot - rather than treating them as free goodwill."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "The drafted email body runs at roughly 150 words or fewer."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The email opens by naming Dara's specific recent work - the Riga meetup talk about deleting their service mesh - rather than complimenting her reputation or standing in the field."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "That opening line also states how she was found, making the discovery route explicit in the message itself."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The email contains no links, no attachments and no images, and the response explains that corporate filters auto-trash mail carrying them so those wait for a later touch."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "A subject line is supplied, under 50 characters, naming the specific theme or angle rather than a generic 'Speaking invitation' or 'Invitation to speak at NordHack Day' shape."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The response tells the user to run the draft through a humanizer pass before sending, and to review the draft themselves before it goes out."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The response explicitly warns against countering with an invented figure, and frames 'I don't have a benchmark for this, here is our budget' as both the honest and the stronger answer."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The response warns that an unexplained silence from the organizer's side cools a warm candidate, and that the follow-up cadence has no rung for 'waiting on us'."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The response advises asking what the EUR 2,500 is actually covering - travel, preparation time, lost billable days - rather than treating it as a single indivisible fee."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The response offers concessions by name from a fixed list, drawing on options such as travel dates, slot length, remote delivery, a co-speaker seat, a companion ticket, recording and publication terms, session time of day, or an introduction to someone in the room."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The response states that the concession list is fixed before the first message goes out and that anything not on it is not available, whatever the negotiation does."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "If a real fee were ever agreed, the response routes the payment through whoever handles the event's money and contracts, citing tax, visa, or conflict-of-interest and employment complications rather than the organizer paying a speaker directly."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The response refuses a bump: no 'just bumping this up', no 'did you see my email', no 'following up on my last message', and no re-sending of the same pitch reformatted."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The follow-up is built around a genuinely new angle, specifically the newly confirmed co-speaker working on the same problem."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The response identifies a confirmed co-speaker as the strongest angle available among the options."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The response names other legitimate angles available for rotation - a program detail that landed since, a specific audience question her work answers, a constraint update, or a narrowed ask - rather than offering only one."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The response caps the sequence at three touches in total and stops after the third rather than continuing indefinitely."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The response states that a follow-up with nothing new to carry should not be sent at all, and that the gap itself is the message."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The close-out separates 'no to this slot' from 'no to this event' and asks for the reason behind any decline."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The close-out carries no guilt, no manufactured deadline pressure, and is not a further touch disguised as a goodbye."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The response requires every angle used to be true, and forbids inventing a confirmation or manufacturing urgency to create momentum."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The response warns that a bumped invitation costs the event's reputation in a community whose members talk to each other."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The response applies a four-to-six-week travel lead-time floor and flags that the 20 October answer date leaves the international candidates inside or under it."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The response requires that constraint to be named inside the invitation itself rather than left for the candidate to discover."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The response states that an invitation sent under the travel floor without naming the constraint is functionally a request to decline."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "If parallel approaches are chosen, the response requires deciding in advance what happens on two yeses, including where a second yes could honestly be placed."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The response forbids CCing two candidates on the same thread and requires one candidate per slot per thread."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The response forbids a mail-merge or single templated blast to all three candidates."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The response rules out a long-runway cadence for this deadline and picks a compressed sequence instead, explaining that a hard date promotes the faster options."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The response weighs the cost of holding the slot open behind an unanswered candidate when choosing between sequential and parallel."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The response accounts for only one international flight being funded and keeps the budget line in the invitation honest about that for the two international candidates."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The response gives the reason: many community codes of conduct treat recruiting and solicitation in their spaces as off-limits, the breach is public, and it cannot be walked back."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The response treats the committee member's university connection as a possible referrer-relayed introduction and says to exhaust that path first where it exists."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The response explains that a referrer-relayed introduction is the cheapest strong option because a vouch arrives attached and nobody is contacted until the candidate answers."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The response states that a published profile or directory listing is consent to be found, never consent to be pitched."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The response requires the message to state how she was found."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The response notes that a DM and an email are the same act in effort and in consent or e-marketing exposure, and that the channel changes the character limit rather than the work."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The response ranks a direct email above a published DM on quality of answer, because a DM invites a fast reflexive reply to a request needing a calendar check and often an employer's sign-off."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The response makes the reason already recorded on the shortlist the default depth for every candidate, on the grounds that the evidence is already paid for and reusing it costs one sentence."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The response promotes both Hot candidates to fresh personalization built on work published since the shortlist was compiled."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The response promotes the closing-keynote candidate to the deepest option: an invitation restructured around a talk only that person could give, naming the gap in the program their work fills."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The response justifies that promotion by the slot concentrating the program's risk or by it being a keynote, not by the candidate's score alone."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The response notes that the event's annual, compounding nature is itself a reason to spend more on the relationship, because a candidate who declines with the relationship intact is next year's first call."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The response states that the deepest option is never what an efficiency ordering picks on its own, and that it is promoted only by a named condition."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The response warns against sending a generic slot-brief-only invitation to candidates chosen specifically, because it throws away the qualification that put them on the list."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The response forbids a merge-field or mail-merge blast to the shortlist outright rather than ranking it last."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The response notes that the deeper options mean researching a named individual past what the shortlist recorded, and flags the line between reading someone's public work and assembling a file on them."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The response states that an invitation unable to answer 'why me, why this event, why now' is a form letter sent to someone chosen specifically."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The response names what a candidate hand-off must carry before an invitation can be written: the evidence-backed reason, a fit score, availability and travel constraints, the honest budget line, the published contact route, and which review lane applies."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The confirmation states the slot, date, start time, length and format."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The confirmation states what the event pays and, explicitly, what it does not."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The confirmation states travel and lodging terms including who books what."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The confirmation resolves and states the recording and publication terms rather than leaving that question open."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The confirmation names the deadline for the title and abstract."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The confirmation states which review lane the invited proposal goes through rather than leaving it to be guessed."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The response states that a condition agreed in a call and absent from the confirmation is a condition nobody agreed."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The response checks both conditions against a concession list fixed before the invitation went out, and flags that agreeing on the spot to anything outside that list is the failure to avoid."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The response names the real cost of each granted concession - a schedule rebalance, and one extra ticket or a shared slot - rather than treating them as free goodwill."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The response hands the confirmed speaker onward to the post-yes briefing, travel and on-site care work rather than continuing to run it here."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "The response computes or references the event's own invitation-to-acceptance rate from the 14 sent and 6 accepted, and recommends tracking it per slot type."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "The response recommends tracking time-to-answer split by channel, and explains that this is what re-ranks the first-touch channel choice for this organizer."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "The response names decline-reason capture as the metric with a real threshold: every decline carries a recorded reason."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "The response explains that without recorded decline reasons the next edition's candidate search repeats the mistake that produced them."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "The response names slot-holding time - days a slot spends behind an unanswered candidate - as a metric worth tracking."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "The response recommends picking a small number of metrics, around two, and writing down what each one would change next edition, rather than adopting the whole list."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "The response treats the 5 non-replies as recorded nos with the slots released, not as still pending."
+      }
+    ]
+  }
+}

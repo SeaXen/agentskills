@@ -1,0 +1,2017 @@
+import { describe, expect, setDefaultTimeout, test } from "bun:test"
+import { spawnSync } from "node:child_process"
+import { mkdtempSync, readdirSync, readFileSync, writeFileSync } from "node:fs"
+import { tmpdir } from "node:os"
+import path from "node:path"
+import {
+  compareObjective,
+  decide,
+  gatePasses,
+  median,
+  regressions,
+} from "../../skills/ce-optimize/scripts/decide.mjs"
+
+setDefaultTimeout(20_000)
+
+const SKILL_DIR = path.join(import.meta.dir, "..", "..", "skills", "ce-optimize")
+const DECIDE = path.join(SKILL_DIR, "scripts", "decide.mjs")
+const MEASURE = path.join(SKILL_DIR, "scripts", "measure.sh")
+const SCHEMA = readFileSync(path.join(SKILL_DIR, "references", "optimize-spec-schema.yaml"), "utf8")
+const LOG_SCHEMA = readFileSync(path.join(SKILL_DIR, "references", "experiment-log-schema.yaml"), "utf8")
+const EXAMPLE = readFileSync(
+  path.join(SKILL_DIR, "references", "example-expensive-benchmark-spec.yaml"),
+  "utf8",
+)
+const LOOP = readFileSync(path.join(SKILL_DIR, "references", "loop.md"), "utf8")
+const SPEC = readFileSync(path.join(SKILL_DIR, "references", "spec.md"), "utf8")
+const MEASUREMENT = readFileSync(path.join(SKILL_DIR, "references", "measurement.md"), "utf8")
+const PERSISTENCE = readFileSync(path.join(SKILL_DIR, "references", "persistence.md"), "utf8")
+const TEMPLATE = readFileSync(
+  path.join(SKILL_DIR, "references", "experiment-prompt-template.md"),
+  "utf8",
+)
+const WRAP_UP = readFileSync(path.join(SKILL_DIR, "references", "wrap-up.md"), "utf8")
+const SKILL_BODY = readFileSync(path.join(SKILL_DIR, "SKILL.md"), "utf8")
+
+const BASELINE_WALL = 372.869
+const OBSERVED = {
+  nestedConcurrency2: 722.742,
+  pythonSerialized: 513.811,
+  reusedStub: 494.657,
+  nestedConcurrency8: 924.515,
+}
+
+function hardSpec<T extends Record<string, unknown> = {}>(overrides: T = {} as T) {
+  return {
+    primary: { name: "wall_seconds", direction: "minimize", type: "hard" },
+    degenerate_gates: [{ name: "suite_passed", check: "== 1" }],
+    comparison: { method: "absolute", noise_threshold: 0.02 },
+    ...overrides,
+  }
+}
+
+function snapshot(wall: number, extras: Record<string, unknown> = {}) {
+  return {
+    gates: { suite_passed: 1 },
+    metrics: {
+      wall_seconds: { aggregate: wall, samples: [wall] },
+    },
+    sample_count: 1,
+    ...extras,
+  }
+}
+
+describe("ce-optimize decide helpers", () => {
+  test("median matches the configured aggregation for odd and even samples", () => {
+    expect(median([504.309, 368.915, 372.869])).toBe(372.869)
+    expect(median([1, 2, 3, 4])).toBe(2.5)
+  })
+
+  test("gate operators match the spec schema", () => {
+    expect(gatePasses(1, "== 1")).toBe(true)
+    expect(gatePasses(0.95, ">= 1.0")).toBe(false)
+    expect(gatePasses(0, "<= 0")).toBe(true)
+    expect(gatePasses(1, "!= 0")).toBe(true)
+    expect(gatePasses("not-a-number", "!= 0")).toBe(false)
+    expect(gatePasses(NaN, "!= 0")).toBe(false)
+  })
+})
+
+describe("legacy single-primary absolute comparison", () => {
+  const spec = hardSpec()
+  const baseline = snapshot(10)
+
+  test("a delta inside noise_threshold is inconclusive, not a keep", () => {
+    const result = decide({ spec, baseline, candidate: snapshot(9.99) })
+    expect(result.decision).toBe("inconclusive")
+    expect(result.eligible).toBe(false)
+    expect(result.next_measurement).toBe("none")
+  })
+
+  test("an improvement above noise_threshold is a keep", () => {
+    const result = decide({ spec, baseline, candidate: snapshot(9.97) })
+    expect(result.decision).toBe("keep")
+    expect(result.eligible).toBe(true)
+    expect(result.improved_objectives).toEqual(["wall_seconds"])
+  })
+
+  test("a clear regression is a revert", () => {
+    const result = decide({ spec, baseline, candidate: snapshot(10.05) })
+    expect(result.decision).toBe("revert")
+    expect(result.eligible).toBe(false)
+    expect(result.violated_objectives).toEqual(["wall_seconds"])
+  })
+
+  test("a failed degenerate gate is degenerate even if the primary improved", () => {
+    const result = decide({
+      spec,
+      baseline,
+      candidate: { gates: { suite_passed: 0 }, metrics: { wall_seconds: { aggregate: 1, samples: [1] } } },
+    })
+    expect(result.decision).toBe("degenerate")
+    expect(result.eligible).toBe(false)
+  })
+
+  test("a non-finite gate value fails != instead of passing as NaN", () => {
+    const spec = hardSpec({
+      degenerate_gates: [{ name: "valid", check: "!= 0" }],
+    })
+    const result = decide({
+      spec,
+      baseline: snapshot(10, { gates: { valid: 1 } }),
+      candidate: {
+        gates: { valid: "not-a-number" },
+        metrics: { wall_seconds: { aggregate: 1, samples: [1] } },
+      },
+    })
+    expect(result.decision).toBe("degenerate")
+    expect(result.eligible).toBe(false)
+    expect(result.violated_objectives).toContain("valid")
+  })
+
+  test("a canonical nested spec keeps a clear primary improvement", () => {
+    const spec = {
+      metric: {
+        primary: { name: "wall_seconds", direction: "minimize", type: "hard" },
+        degenerate_gates: [{ name: "suite_passed", check: "== 1" }],
+      },
+      measurement: {
+        stability: {
+          mode: "stable",
+          noise_threshold: 0.02,
+          comparison: { method: "absolute" },
+        },
+      },
+    }
+    const result = decide({ spec, baseline: snapshot(10), candidate: snapshot(9.97) })
+    expect(result.decision).toBe("keep")
+    expect(result.eligible).toBe(true)
+    expect(result.improved_objectives).toEqual(["wall_seconds"])
+  })
+
+  test("a nested spec with required objectives keeps a CI-only win", () => {
+    const spec = {
+      metric: {
+        primary: { name: "local_wall_seconds", direction: "minimize", type: "hard" },
+        objectives: [{ name: "ci_critical_path_seconds", direction: "minimize", role: "required" }],
+        degenerate_gates: [{ name: "suite_passed", check: "== 1" }],
+      },
+      measurement: {
+        stability: {
+          comparison: { method: "relative", relative_threshold: 0.05 },
+        },
+      },
+    }
+    const result = decide({
+      spec,
+      baseline: {
+        gates: { suite_passed: 1 },
+        metrics: {
+          local_wall_seconds: { aggregate: 100, samples: [100] },
+          ci_critical_path_seconds: { aggregate: 120, samples: [120] },
+        },
+      },
+      candidate: {
+        gates: { suite_passed: 1 },
+        metrics: {
+          local_wall_seconds: { aggregate: 101, samples: [101] },
+          ci_critical_path_seconds: { aggregate: 80, samples: [80] },
+        },
+      },
+    })
+    expect(result.decision).toBe("keep")
+    expect(result.improved_objectives).toEqual(["ci_critical_path_seconds"])
+  })
+
+  test("a payload with no primary is an error, not an empty-required inconclusive", () => {
+    const result = decide({
+      spec: { degenerate_gates: [{ name: "suite_passed", check: "== 1" }] },
+      baseline: snapshot(10),
+      candidate: snapshot(1),
+    })
+    expect(result.decision).toBe("error")
+    expect(result.eligible).toBe(false)
+    expect(result.reason).toContain("primary")
+  })
+
+  test("the declared stability noise_threshold is the absolute bar when comparison omits it", () => {
+    const spec = hardSpec({
+      comparison: { method: "absolute" },
+      measurement: { stability: { noise_threshold: 0.05 } },
+    })
+    const insideDefault = decide({ spec, baseline, candidate: snapshot(9.97) })
+    expect(insideDefault.decision).toBe("inconclusive")
+    expect(insideDefault.eligible).toBe(false)
+
+    const aboveDeclared = decide({ spec, baseline, candidate: snapshot(9.94) })
+    expect(aboveDeclared.decision).toBe("keep")
+  })
+
+  test("a non-finite required aggregate is an error, not an eligible keep", () => {
+    const spec = hardSpec({
+      primary: { name: "local_wall_seconds", direction: "minimize", type: "hard" },
+      objectives: [{ name: "ci_critical_path_seconds", direction: "minimize", role: "required" }],
+    })
+    const result = decide({
+      spec,
+      baseline: {
+        gates: { suite_passed: 1 },
+        metrics: {
+          local_wall_seconds: { aggregate: 100, samples: [100] },
+          ci_critical_path_seconds: { aggregate: 120, samples: [120] },
+        },
+      },
+      candidate: {
+        gates: { suite_passed: 1 },
+        metrics: {
+          local_wall_seconds: { aggregate: "bad", samples: ["bad"] },
+          ci_critical_path_seconds: { aggregate: 80, samples: [80] },
+        },
+      },
+    })
+    expect(result.decision).toBe("error")
+    expect(result.eligible).toBe(false)
+    expect(result.reason).toContain("local_wall_seconds")
+  })
+})
+
+describe("multi-objective acceptance", () => {
+  const spec = hardSpec({
+    primary: { name: "local_wall_seconds", direction: "minimize", type: "hard", target: 300 },
+    objectives: [
+      { name: "local_wall_seconds", direction: "minimize", role: "required", target: 300 },
+      { name: "ci_critical_path_seconds", direction: "minimize", role: "required", target: 90 },
+      { name: "runner_minutes", direction: "minimize", role: "required", target: 40 },
+    ],
+    comparison: { method: "relative", relative_threshold: 0.05, noise_threshold: 10 },
+  })
+
+  const baseline = {
+    gates: { suite_passed: 1 },
+    metrics: {
+      local_wall_seconds: { aggregate: BASELINE_WALL, samples: [BASELINE_WALL] },
+      ci_critical_path_seconds: { aggregate: 120, samples: [120] },
+      runner_minutes: { aggregate: 50, samples: [50] },
+    },
+  }
+
+  test("a CI-only win that does not regress the other required objectives is eligible", () => {
+    const result = decide({
+      spec,
+      baseline,
+      candidate: {
+        gates: { suite_passed: 1 },
+        metrics: {
+          local_wall_seconds: { aggregate: 370, samples: [370] },
+          ci_critical_path_seconds: { aggregate: 80, samples: [80] },
+          runner_minutes: { aggregate: 49, samples: [49] },
+        },
+      },
+    })
+    expect(result.eligible).toBe(true)
+    expect(result.decision).toBe("keep")
+    expect(result.improved_objectives).toEqual(["ci_critical_path_seconds"])
+    expect(result.violated_objectives).toEqual([])
+    expect(result.rank_score).toBeGreaterThan(0)
+  })
+
+  test("rank_score stays unit-invariant when the primary's unit is scaled", () => {
+    const ranked = (scale: number, primaryMoved: boolean) => {
+      const spec = hardSpec({
+        primary: { name: "wall", direction: "minimize", type: "hard" },
+        objectives: [
+          { name: "wall", direction: "minimize", role: "required" },
+          { name: "ci", direction: "minimize", role: "required" },
+        ],
+      })
+      const baseline = {
+        gates: { suite_passed: 1 },
+        metrics: {
+          wall: { aggregate: 1 * scale, samples: [1 * scale] },
+          ci: { aggregate: 100, samples: [100] },
+        },
+      }
+      const candidate = primaryMoved
+        ? {
+            gates: { suite_passed: 1 },
+            metrics: {
+              wall: { aggregate: 0.9 * scale, samples: [0.9 * scale] },
+              ci: { aggregate: 100, samples: [100] },
+            },
+          }
+        : {
+            gates: { suite_passed: 1 },
+            metrics: {
+              wall: { aggregate: 1 * scale, samples: [1 * scale] },
+              ci: { aggregate: 50, samples: [50] },
+            },
+          }
+      return decide({ spec, baseline, candidate }).rank_score
+    }
+    const winnerAt = (scale: number) => (ranked(scale, true) >= ranked(scale, false) ? "primary" : "secondary")
+    expect(winnerAt(1)).toBe(winnerAt(1000))
+    expect(ranked(1, true)).toBeCloseTo(ranked(1000, true))
+    expect(ranked(1, false)).toBeCloseTo(ranked(1000, false))
+    expect(ranked(1, true)).toBeCloseTo(0.1)
+    expect(ranked(1, false)).toBeCloseTo(0.5)
+  })
+
+  test("a CI win that regresses local wall beyond the threshold is not eligible", () => {
+    const result = decide({
+      spec,
+      baseline,
+      candidate: {
+        gates: { suite_passed: 1 },
+        metrics: {
+          local_wall_seconds: { aggregate: 494.657, samples: [494.657] },
+          ci_critical_path_seconds: { aggregate: 80, samples: [80] },
+          runner_minutes: { aggregate: 49, samples: [49] },
+        },
+      },
+    })
+    expect(result.eligible).toBe(false)
+    expect(result.decision).toBe("revert")
+    expect(result.violated_objectives).toContain("local_wall_seconds")
+  })
+
+  test("the primary remains required when objectives omit it", () => {
+    const spec = hardSpec({
+      primary: { name: "local_wall_seconds", direction: "minimize", type: "hard" },
+      objectives: [{ name: "ci_critical_path_seconds", direction: "minimize", role: "required" }],
+      comparison: { method: "relative", relative_threshold: 0.05, noise_threshold: 10 },
+    })
+    const result = decide({
+      spec,
+      baseline: {
+        gates: { suite_passed: 1 },
+        metrics: {
+          local_wall_seconds: { aggregate: 100, samples: [100] },
+          ci_critical_path_seconds: { aggregate: 120, samples: [120] },
+        },
+      },
+      candidate: {
+        gates: { suite_passed: 1 },
+        metrics: {
+          local_wall_seconds: { aggregate: 150, samples: [150] },
+          ci_critical_path_seconds: { aggregate: 80, samples: [80] },
+        },
+      },
+    })
+    expect(result.eligible).toBe(false)
+    expect(result.decision).toBe("revert")
+    expect(result.violated_objectives).toContain("local_wall_seconds")
+    expect(result.improved_objectives).toEqual(["ci_critical_path_seconds"])
+  })
+
+  test("a tolerated regression with no compensating gain is a revert, not inconclusive", () => {
+    const spec = hardSpec({
+      primary: { name: "local_wall_seconds", direction: "minimize", type: "hard" },
+      objectives: [
+        {
+          name: "local_wall_seconds",
+          direction: "minimize",
+          role: "required",
+          max_regression: { type: "relative", value: 0.1 },
+        },
+      ],
+      comparison: { method: "relative", relative_threshold: 0.05, noise_threshold: 10 },
+    })
+    const result = decide({
+      spec,
+      baseline: snapshot(100, {
+        metrics: { local_wall_seconds: { aggregate: 100, samples: [100] } },
+      }),
+      candidate: snapshot(107, {
+        metrics: { local_wall_seconds: { aggregate: 107, samples: [107] } },
+      }),
+    })
+    expect(result.eligible).toBe(false)
+    expect(result.decision).toBe("revert")
+    expect(result.violated_objectives).toEqual([])
+    expect(result.comparisons.local_wall_seconds.verdict).toBe("regressed")
+  })
+
+  test("a negative max_regression bound does not turn an unchanged objective into a violation", () => {
+    const spec = hardSpec({
+      primary: { name: "local_wall_seconds", direction: "minimize", type: "hard" },
+      objectives: [
+        {
+          name: "local_wall_seconds",
+          direction: "minimize",
+          role: "required",
+          max_regression: { type: "relative", value: -0.1 },
+        },
+        { name: "ci_critical_path_seconds", direction: "minimize", role: "required" },
+      ],
+      comparison: { method: "relative", relative_threshold: 0.05, noise_threshold: 10 },
+    })
+    const result = decide({
+      spec,
+      baseline: {
+        gates: { suite_passed: 1 },
+        metrics: {
+          local_wall_seconds: { aggregate: 100, samples: [100] },
+          ci_critical_path_seconds: { aggregate: 120, samples: [120] },
+        },
+      },
+      candidate: {
+        gates: { suite_passed: 1 },
+        metrics: {
+          local_wall_seconds: { aggregate: 100, samples: [100] },
+          ci_critical_path_seconds: { aggregate: 80, samples: [80] },
+        },
+      },
+    })
+    expect(result.eligible).toBe(true)
+    expect(result.decision).toBe("keep")
+    expect(result.violated_objectives).toEqual([])
+    expect(result.improved_objectives).toEqual(["ci_critical_path_seconds"])
+  })
+
+  test("a looser max_regression is the violation bound, not the comparison threshold", () => {
+    const spec = hardSpec({
+      primary: { name: "local_wall_seconds", direction: "minimize", type: "hard" },
+      objectives: [
+        {
+          name: "local_wall_seconds",
+          direction: "minimize",
+          role: "required",
+          max_regression: { type: "relative", value: 0.1 },
+        },
+        { name: "ci_critical_path_seconds", direction: "minimize", role: "required" },
+      ],
+      comparison: { method: "relative", relative_threshold: 0.05, noise_threshold: 10 },
+    })
+    const result = decide({
+      spec,
+      baseline: {
+        gates: { suite_passed: 1 },
+        metrics: {
+          local_wall_seconds: { aggregate: 100, samples: [100] },
+          ci_critical_path_seconds: { aggregate: 120, samples: [120] },
+        },
+      },
+      candidate: {
+        gates: { suite_passed: 1 },
+        metrics: {
+          local_wall_seconds: { aggregate: 107, samples: [107] },
+          ci_critical_path_seconds: { aggregate: 80, samples: [80] },
+        },
+      },
+    })
+    expect(result.eligible).toBe(true)
+    expect(result.decision).toBe("keep")
+    expect(result.violated_objectives).toEqual([])
+    expect(result.improved_objectives).toEqual(["ci_critical_path_seconds"])
+  })
+
+  test("target_reached requires every declared required target, not only the primary", () => {
+    const almost = decide({
+      spec,
+      baseline,
+      candidate: {
+        gates: { suite_passed: 1 },
+        metrics: {
+          local_wall_seconds: { aggregate: 280, samples: [280] },
+          ci_critical_path_seconds: { aggregate: 80, samples: [80] },
+          runner_minutes: { aggregate: 45, samples: [45] },
+        },
+      },
+    })
+    expect(almost.eligible).toBe(true)
+    expect(almost.target_reached).toBe(false)
+
+    const done = decide({
+      spec,
+      baseline,
+      candidate: {
+        gates: { suite_passed: 1 },
+        metrics: {
+          local_wall_seconds: { aggregate: 280, samples: [280] },
+          ci_critical_path_seconds: { aggregate: 80, samples: [80] },
+          runner_minutes: { aggregate: 38, samples: [38] },
+        },
+      },
+    })
+    expect(done.target_reached).toBe(true)
+  })
+
+  test("a listed primary target does not replace the canonical primary target", () => {
+    const spec = hardSpec({
+      primary: { name: "local_wall_seconds", direction: "minimize", type: "hard", target: 300 },
+      objectives: [
+        { name: "local_wall_seconds", direction: "minimize", role: "required", target: 400 },
+      ],
+    })
+    const result = decide({
+      spec,
+      baseline: snapshot(500, {
+        metrics: { local_wall_seconds: { aggregate: 500, samples: [500] } },
+      }),
+      candidate: snapshot(350, {
+        metrics: { local_wall_seconds: { aggregate: 350, samples: [350] } },
+      }),
+    })
+    expect(result.eligible).toBe(true)
+    expect(result.target_reached).toBe(false)
+  })
+})
+
+describe("noise-aware comparison from the observed suite run", () => {
+  const spec = hardSpec({
+    comparison: { method: "relative", relative_threshold: 0.05, noise_threshold: 10 },
+  })
+  const baseline = snapshot(BASELINE_WALL, {
+    metrics: {
+      wall_seconds: {
+        aggregate: BASELINE_WALL,
+        samples: [368.915, 372.869, 375.1, 380.2, 504.309],
+      },
+    },
+  })
+
+  test("each screened experiment is a revert or censor, not a keep", () => {
+    for (const wall of Object.values(OBSERVED)) {
+      const result = decide({ spec, baseline, candidate: snapshot(wall) })
+      expect(result.eligible).toBe(false)
+      expect(["revert", "censored"]).toContain(result.decision)
+    }
+  })
+
+  test("a 2% improvement against a 5% relative threshold is inconclusive", () => {
+    const result = decide({ spec, baseline, candidate: snapshot(BASELINE_WALL * 0.98) })
+    expect(result.decision).toBe("inconclusive")
+    expect(result.eligible).toBe(false)
+  })
+
+  test("a negative relative_threshold is rejected instead of turning a tie into a keep", () => {
+    const result = decide({
+      spec: hardSpec({ comparison: { method: "relative", relative_threshold: -0.05 } }),
+      baseline: snapshot(10),
+      candidate: snapshot(10),
+    })
+    expect(result.eligible).toBe(false)
+    expect(result.decision).toBe("inconclusive")
+  })
+
+  test("a zero baseline does not mix relative and absolute units", () => {
+    const relativeSpec = hardSpec({
+      comparison: { method: "relative", relative_threshold: 0.05, noise_threshold: 0.02 },
+    })
+    const atUnit = decide({
+      spec: relativeSpec,
+      baseline: snapshot(0),
+      candidate: snapshot(0.01),
+    })
+    const scaled = decide({
+      spec: relativeSpec,
+      baseline: snapshot(0),
+      candidate: snapshot(10),
+    })
+    expect(atUnit.decision).toBe("inconclusive")
+    expect(scaled.decision).toBe(atUnit.decision)
+    expect(atUnit.eligible).toBe(false)
+    expect(scaled.eligible).toBe(false)
+    expect(atUnit.rank_score).toBe(scaled.rank_score)
+  })
+
+  test("paired comparison of a scalar judge snapshot can still keep a real gain", () => {
+    const spec = hardSpec({
+      primary: { name: "mean_score", direction: "maximize", type: "judge" },
+      comparison: { method: "paired", relative_threshold: 0.05, minimum_improvement: 0.3 },
+    })
+    const result = decide({
+      spec,
+      baseline: { gates: { suite_passed: 1 }, judge: { mean_score: 4.0 } },
+      candidate: {
+        gates: { suite_passed: 1 },
+        judge: { mean_score: 4.5 },
+        sample_count: 5,
+      },
+    })
+    expect(result.decision).toBe("keep")
+    expect(result.eligible).toBe(true)
+  })
+
+  test("paired comparison without sample ranges is inconclusive", () => {
+    const spec = hardSpec({
+      comparison: { method: "paired", relative_threshold: 0.05, noise_threshold: 10 },
+    })
+    const result = decide({
+      spec,
+      baseline: { gates: { suite_passed: 1 }, diagnostics: { wall_seconds: 100 } },
+      candidate: { gates: { suite_passed: 1 }, diagnostics: { wall_seconds: 90 } },
+    })
+    expect(result.decision).toBe("inconclusive")
+    expect(result.eligible).toBe(false)
+  })
+
+  test("paired comparison of a scalar snapshot still flags a clear regression", () => {
+    const spec = hardSpec({
+      comparison: { method: "paired", relative_threshold: 0.05, noise_threshold: 10 },
+    })
+    const result = decide({
+      spec,
+      baseline: { gates: { suite_passed: 1 }, diagnostics: { wall_seconds: 100 } },
+      candidate: { gates: { suite_passed: 1 }, diagnostics: { wall_seconds: 150 } },
+    })
+    expect(result.decision).toBe("revert")
+    expect(result.eligible).toBe(false)
+    expect(result.violated_objectives).toEqual(["wall_seconds"])
+  })
+
+  test("a sampled paired win does not keep when a required scalar objective regresses", () => {
+    const spec = hardSpec({
+      primary: { name: "local_wall_seconds", direction: "minimize", type: "hard" },
+      objectives: [
+        { name: "local_wall_seconds", direction: "minimize", role: "required" },
+        { name: "ci_critical_path_seconds", direction: "minimize", role: "required" },
+      ],
+      comparison: { method: "paired", relative_threshold: 0.05, noise_threshold: 10 },
+    })
+    const result = decide({
+      spec,
+      baseline: {
+        gates: { suite_passed: 1 },
+        diagnostics: { local_wall_seconds: 100 },
+        metrics: {
+          ci_critical_path_seconds: { aggregate: 120, samples: [118, 120, 122] },
+        },
+      },
+      candidate: {
+        gates: { suite_passed: 1 },
+        diagnostics: { local_wall_seconds: 150 },
+        metrics: {
+          ci_critical_path_seconds: { aggregate: 80, samples: [78, 80, 82] },
+        },
+      },
+    })
+    expect(result.eligible).toBe(false)
+    expect(result.decision).toBe("revert")
+    expect(result.improved_objectives).toEqual(["ci_critical_path_seconds"])
+    expect(result.violated_objectives).toEqual(["local_wall_seconds"])
+  })
+
+  test("persisted samples override a contradicting aggregate", () => {
+    const spec = hardSpec({
+      comparison: { method: "absolute", noise_threshold: 1 },
+    })
+    const result = decide({
+      spec,
+      baseline: snapshot(100),
+      candidate: {
+        gates: { suite_passed: 1 },
+        metrics: {
+          wall_seconds: { aggregate: 80, samples: [120, 120, 120, 120, 120] },
+        },
+        sample_count: 5,
+      },
+    })
+    expect(result.decision).toBe("revert")
+    expect(result.eligible).toBe(false)
+  })
+
+  test("sample-only bundles use the configured aggregation, not always the median", () => {
+    const spec = hardSpec({
+      aggregation: "mean",
+      comparison: { method: "absolute", noise_threshold: 1 },
+    })
+    const result = decide({
+      spec,
+      baseline: {
+        gates: { suite_passed: 1 },
+        metrics: { wall_seconds: { samples: [0, 100, 100] } },
+      },
+      candidate: {
+        gates: { suite_passed: 1 },
+        metrics: { wall_seconds: { samples: [80, 80, 80] } },
+      },
+    })
+    expect(result.decision).toBe("revert")
+    expect(result.eligible).toBe(false)
+  })
+
+  test("paired comparison is inconclusive when sample ranges overlap", () => {
+    const result = compareObjective({
+      baselineValue: BASELINE_WALL,
+      candidateValue: 360,
+      baselineSamples: [368.915, 372.869, 504.309],
+      candidateSamples: [355, 380],
+      direction: "minimize",
+      type: "hard",
+      comparison: { method: "paired", noise_threshold: 10, relative_threshold: 0.05 },
+      maxRegression: null,
+    })
+    expect(result.verdict).toBe("inconclusive")
+  })
+})
+
+describe("sampled paired baseline evidence", () => {
+  const spec = hardSpec({
+    comparison: { method: "paired", relative_threshold: 0.05 },
+    stability_mode: "ladder",
+    ladder: { confirmation_repeats: 5 },
+  })
+
+  test.each([8, 12])("does not reuse the last baseline sample to compare candidate %s", (value) => {
+    const result = compareObjective({
+      baselineValue: 10,
+      candidateValue: value,
+      baselineSamples: [10],
+      candidateSamples: Array(5).fill(value),
+      direction: "minimize",
+      type: "hard",
+      comparison: { method: "paired", relative_threshold: 0.05 },
+      maxRegression: null,
+    })
+    expect(result.verdict).toBe("inconclusive")
+    expect(result.violated).toBe(false)
+  })
+
+  test.each([1, 5])("rejects a short ladder baseline with %s candidate samples", (count) => {
+    const result = decide({
+      spec,
+      baseline: snapshot(10, { sample_count: 5 }),
+      candidate: snapshot(8, { metrics: { wall_seconds: { samples: Array(count).fill(8) } } }),
+    })
+    expect(result.decision).toBe("error")
+    expect(result.eligible).toBe(false)
+    expect(result.next_measurement).toBe("none")
+    expect(result.reason).toBe("insufficient paired baseline samples: wall_seconds (1 observed, 5 required)")
+  })
+
+  test("rejects unpaired candidate samples even without a ladder", () => {
+    const result = decide({
+      spec: { ...spec, stability_mode: "stable" },
+      baseline: snapshot(10),
+      candidate: snapshot(8, { metrics: { wall_seconds: { samples: [8, 8] } } }),
+    })
+    expect(result.decision).toBe("error")
+    expect(result.eligible).toBe(false)
+    expect(result.reason).toBe("insufficient paired baseline samples: wall_seconds (1 observed, 2 required)")
+  })
+
+  test.each(["hard", "judge"])("checks the sampled baseline of a required non-primary %s objective", (type) => {
+    const result = decide({
+      spec: {
+        ...spec,
+        objectives: [{ name: "quality", type, direction: "maximize", role: "required" }],
+      },
+      baseline: snapshot(10, {
+        metrics: { wall_seconds: { samples: Array(5).fill(10) }, quality: { samples: [4] } },
+      }),
+      candidate: snapshot(8, {
+        metrics: { wall_seconds: { samples: Array(5).fill(8) }, quality: { samples: Array(5).fill(4) } },
+      }),
+    })
+    expect(result.decision).toBe("error")
+    expect(result.eligible).toBe(false)
+    expect(result.reason).toBe("insufficient paired baseline samples: quality (1 observed, 5 required)")
+  })
+
+  test.each([
+    [1, "promising", "confirm"],
+    [5, "keep", "none"],
+  ])("a complete baseline supports %s candidate samples", (count, decision, next) => {
+    const result = decide({
+      spec,
+      baseline: snapshot(10, { metrics: { wall_seconds: { samples: Array(5).fill(10) } } }),
+      candidate: snapshot(8, { metrics: { wall_seconds: { samples: Array(count).fill(8) } } }),
+    })
+    expect(result.decision).toBe(decision)
+    expect(result.eligible).toBe(true)
+    expect(result.next_measurement).toBe(next)
+  })
+
+  test("preserves scalar judge confirmation from sample_count with paired comparison", () => {
+    const result = decide({
+      spec: {
+        ...spec,
+        primary: { name: "mean_score", direction: "maximize", type: "judge" },
+      },
+      baseline: { judge: { mean_score: 4 } },
+      candidate: { gates: { suite_passed: 1 }, judge: { mean_score: 4.5 }, sample_count: 5 },
+    })
+    expect(result.decision).toBe("keep")
+    expect(result.eligible).toBe(true)
+    expect(result.next_measurement).toBe("none")
+  })
+})
+
+describe("cost-aware measurement ladder", () => {
+  const spec = hardSpec({
+    stability_mode: "ladder",
+    ladder: {
+      smoke_command: "python tools/eval/measure.py --smoke",
+      exploratory_pairs: 1,
+      confirmation_repeats: 5,
+      futility: { worse_factor: 1.2 },
+    },
+    comparison: { method: "relative", relative_threshold: 0.05, noise_threshold: 10 },
+  })
+  const baseline = snapshot(BASELINE_WALL)
+
+  test("a failed smoke test is degenerate before any timed run", () => {
+    const result = decide({
+      spec,
+      baseline,
+      candidate: { ...snapshot(1), smoke_passed: false },
+    })
+    expect(result.decision).toBe("degenerate")
+    expect(result.next_measurement).toBe("none")
+    expect(result.reason).toContain("smoke")
+  })
+
+  test("the first 1.9x-worse sample is censored instead of spending the five-run protocol", () => {
+    const result = decide({
+      spec,
+      baseline,
+      candidate: { ...snapshot(OBSERVED.nestedConcurrency2), smoke_passed: true, sample_count: 1 },
+    })
+    expect(result.decision).toBe("censored")
+    expect(result.next_measurement).toBe("none")
+  })
+
+  test("multiplicative futility does not reverse the bound on a negative baseline", () => {
+    const spec = hardSpec({
+      primary: { name: "score", direction: "maximize", type: "hard" },
+      stability_mode: "ladder",
+      ladder: {
+        smoke_command: "python tools/eval/measure.py --smoke",
+        exploratory_pairs: 1,
+        confirmation_repeats: 5,
+        futility: { worse_factor: 1.2 },
+      },
+      comparison: { method: "relative", relative_threshold: 0.1, noise_threshold: 10 },
+    })
+    const result = decide({
+      spec,
+      baseline: snapshot(-100, { metrics: { score: { aggregate: -100, samples: [-100] } } }),
+      candidate: {
+        gates: { suite_passed: 1 },
+        metrics: { score: { aggregate: -95, samples: [-95] } },
+        smoke_passed: true,
+        sample_count: 1,
+      },
+    })
+    expect(result.decision).not.toBe("censored")
+    expect(result.eligible).toBe(false)
+  })
+
+  test("a configured futility object applies the documented 1.2 worse_factor default", () => {
+    const result = decide({
+      spec: hardSpec({
+        stability_mode: "ladder",
+        ladder: {
+          smoke_command: "python tools/eval/measure.py --smoke",
+          exploratory_pairs: 1,
+          confirmation_repeats: 5,
+          futility: {},
+        },
+        comparison: { method: "relative", relative_threshold: 0.05, noise_threshold: 10 },
+      }),
+      baseline,
+      candidate: { ...snapshot(BASELINE_WALL * 1.3), smoke_passed: true, sample_count: 1 },
+    })
+    expect(result.decision).toBe("censored")
+    expect(result.next_measurement).toBe("none")
+  })
+
+  test("elapsed-time futility does not censor an eligible required-objective win", () => {
+    const spec = hardSpec({
+      primary: { name: "local_wall_seconds", direction: "minimize", type: "hard" },
+      objectives: [
+        { name: "local_wall_seconds", direction: "minimize", role: "required" },
+        { name: "ci_critical_path_seconds", direction: "minimize", role: "required" },
+      ],
+      stability_mode: "ladder",
+      ladder: {
+        smoke_command: "python tools/eval/measure.py --smoke",
+        exploratory_pairs: 1,
+        confirmation_repeats: 5,
+        futility: { worse_factor: 1.2, after_elapsed_seconds: 415 },
+      },
+      comparison: { method: "relative", relative_threshold: 0.05, noise_threshold: 10 },
+    })
+    const result = decide({
+      spec,
+      baseline: {
+        gates: { suite_passed: 1 },
+        metrics: {
+          local_wall_seconds: { aggregate: BASELINE_WALL, samples: [BASELINE_WALL] },
+          ci_critical_path_seconds: { aggregate: 120, samples: [120] },
+        },
+      },
+      candidate: {
+        gates: { suite_passed: 1 },
+        metrics: {
+          local_wall_seconds: {
+            aggregate: BASELINE_WALL + 1,
+            samples: Array(5).fill(BASELINE_WALL + 1),
+          },
+          ci_critical_path_seconds: { aggregate: 80, samples: Array(5).fill(80) },
+        },
+        smoke_passed: true,
+        sample_count: 5,
+        elapsed_seconds: 415,
+      },
+    })
+    expect(result.eligible).toBe(true)
+    expect(result.decision).toBe("keep")
+    expect(result.improved_objectives).toEqual(["ci_critical_path_seconds"])
+  })
+
+  test("multiplicative futility does not censor when a required objective is still inside threshold", () => {
+    const spec = hardSpec({
+      primary: { name: "local_wall_seconds", direction: "minimize", type: "hard" },
+      objectives: [
+        {
+          name: "local_wall_seconds",
+          direction: "minimize",
+          role: "required",
+          max_regression: { type: "relative", value: 0.5 },
+        },
+        { name: "ci_critical_path_seconds", direction: "minimize", role: "required" },
+      ],
+      stability_mode: "ladder",
+      ladder: {
+        smoke_command: "python tools/eval/measure.py --smoke",
+        exploratory_pairs: 1,
+        confirmation_repeats: 5,
+        futility: { worse_factor: 1.2 },
+      },
+      comparison: { method: "relative", relative_threshold: 0.05, noise_threshold: 10 },
+    })
+    const result = decide({
+      spec,
+      baseline: {
+        gates: { suite_passed: 1 },
+        metrics: {
+          local_wall_seconds: { aggregate: 100, samples: [100] },
+          ci_critical_path_seconds: { aggregate: 100, samples: [100] },
+        },
+      },
+      candidate: {
+        gates: { suite_passed: 1 },
+        metrics: {
+          local_wall_seconds: { aggregate: 130, samples: [130] },
+          ci_critical_path_seconds: { aggregate: 96, samples: [96] },
+        },
+        smoke_passed: true,
+        sample_count: 1,
+      },
+    })
+    expect(result.decision).not.toBe("censored")
+    expect(result.next_measurement).toBe("add_sample")
+  })
+
+  test("elapsed-time futility does not censor a candidate still inside the comparison threshold", () => {
+    const spec = hardSpec({
+      primary: { name: "local_wall_seconds", direction: "minimize", type: "hard" },
+      objectives: [
+        { name: "local_wall_seconds", direction: "minimize", role: "required" },
+        { name: "ci_critical_path_seconds", direction: "minimize", role: "required" },
+      ],
+      stability_mode: "ladder",
+      ladder: {
+        smoke_command: "python tools/eval/measure.py --smoke",
+        exploratory_pairs: 1,
+        confirmation_repeats: 5,
+        futility: { worse_factor: 1.2, after_elapsed_seconds: 415 },
+      },
+      comparison: { method: "relative", relative_threshold: 0.05, noise_threshold: 10 },
+    })
+    const result = decide({
+      spec,
+      baseline: {
+        gates: { suite_passed: 1 },
+        metrics: {
+          local_wall_seconds: { aggregate: 100, samples: [100] },
+          ci_critical_path_seconds: { aggregate: 100, samples: [100] },
+        },
+      },
+      candidate: {
+        gates: { suite_passed: 1 },
+        metrics: {
+          local_wall_seconds: { aggregate: 100, samples: [100] },
+          ci_critical_path_seconds: { aggregate: 96, samples: [96] },
+        },
+        smoke_passed: true,
+        sample_count: 1,
+        elapsed_seconds: 415,
+      },
+    })
+    expect(result.decision).not.toBe("censored")
+    expect(result.next_measurement).toBe("add_sample")
+  })
+
+  test("an elapsed-time futility bound censors an already-noncompetitive live run", () => {
+    const result = decide({
+      spec: {
+        ...spec,
+        ladder: { ...spec.ladder, futility: { worse_factor: 1.2, after_elapsed_seconds: 415 } },
+      },
+      baseline,
+      candidate: {
+        ...snapshot(420),
+        smoke_passed: true,
+        sample_count: 1,
+        elapsed_seconds: 415,
+      },
+    })
+    expect(result.decision).toBe("censored")
+  })
+
+  test("a nonpositive after_elapsed_seconds bound does not censor a completed measurement", () => {
+    const result = decide({
+      spec: {
+        ...spec,
+        ladder: { ...spec.ladder, futility: { worse_factor: 1.2, after_elapsed_seconds: 0 } },
+      },
+      baseline,
+      candidate: {
+        ...snapshot(BASELINE_WALL),
+        smoke_passed: true,
+        sample_count: 1,
+        elapsed_seconds: 10,
+      },
+    })
+    expect(result.decision).not.toBe("censored")
+  })
+
+  test("a first sample with exploratory_pairs above 1 asks for another exploratory sample", () => {
+    const spec = hardSpec({
+      stability_mode: "ladder",
+      ladder: {
+        smoke_command: "python tools/eval/measure.py --smoke",
+        exploratory_pairs: 2,
+        confirmation_repeats: 5,
+        futility: { worse_factor: 1.2 },
+      },
+      comparison: { method: "relative", relative_threshold: 0.05, noise_threshold: 10 },
+    })
+    const result = decide({
+      spec,
+      baseline: snapshot(BASELINE_WALL),
+      candidate: { ...snapshot(300), smoke_passed: true, sample_count: 1 },
+    })
+    expect(result.decision).toBe("promising")
+    expect(result.next_measurement).toBe("exploratory")
+  })
+
+  test("a promising first pair asks for confirmation instead of keeping on one sample", () => {
+    const result = decide({
+      spec,
+      baseline,
+      candidate: { ...snapshot(300), smoke_passed: true, sample_count: 1 },
+    })
+    expect(result.decision).toBe("promising")
+    expect(result.eligible).toBe(true)
+    expect(result.next_measurement).toBe("confirm")
+  })
+
+  test("an inconclusive first pair asks for one more sample, not the full protocol", () => {
+    const result = decide({
+      spec,
+      baseline,
+      candidate: { ...snapshot(BASELINE_WALL * 0.98), smoke_passed: true, sample_count: 1 },
+    })
+    expect(result.decision).toBe("inconclusive")
+    expect(result.next_measurement).toBe("add_sample")
+  })
+
+  test("inconclusive sampling does not exceed the confirmation budget", () => {
+    const spec = hardSpec({
+      stability_mode: "ladder",
+      ladder: {
+        smoke_command: "python tools/eval/measure.py --smoke",
+        exploratory_pairs: 3,
+        confirmation_repeats: 3,
+      },
+      comparison: { method: "relative", relative_threshold: 0.05, noise_threshold: 10 },
+    })
+    const result = decide({
+      spec,
+      baseline: snapshot(BASELINE_WALL),
+      candidate: {
+        gates: { suite_passed: 1 },
+        metrics: {
+          wall_seconds: {
+            aggregate: BASELINE_WALL * 0.98,
+            samples: [BASELINE_WALL * 0.98, BASELINE_WALL * 0.98, BASELINE_WALL * 0.98],
+          },
+        },
+        sample_count: 3,
+        smoke_passed: true,
+      },
+    })
+    expect(result.decision).toBe("inconclusive")
+    expect(result.next_measurement).toBe("none")
+  })
+
+  test("an inconclusive extra sample is terminal before the confirmation budget", () => {
+    const wall = BASELINE_WALL * 0.98
+    const result = decide({
+      spec,
+      baseline,
+      candidate: {
+        gates: { suite_passed: 1 },
+        metrics: { wall_seconds: { aggregate: wall, samples: [wall, wall] } },
+        sample_count: 2,
+        smoke_passed: true,
+      },
+    })
+    expect(result.decision).toBe("inconclusive")
+    expect(result.next_measurement).toBe("none")
+    expect(result.eligible).toBe(false)
+  })
+
+  test("confirmation samples default to repeat_count when confirmation_repeats is omitted", () => {
+    const spec = hardSpec({
+      stability_mode: "ladder",
+      repeat_count: 3,
+      ladder: {
+        smoke_command: "python tools/eval/measure.py --smoke",
+        exploratory_pairs: 1,
+        futility: { worse_factor: 1.2 },
+      },
+      comparison: { method: "relative", relative_threshold: 0.05, noise_threshold: 10 },
+    })
+    const result = decide({
+      spec,
+      baseline,
+      candidate: {
+        gates: { suite_passed: 1 },
+        metrics: { wall_seconds: { aggregate: 300, samples: [298, 300, 301] } },
+        sample_count: 3,
+        smoke_passed: true,
+      },
+    })
+    expect(result.decision).toBe("keep")
+    expect(result.next_measurement).toBe("none")
+  })
+
+  test("confirmation_repeats of 0 does not keep on the first favorable sample", () => {
+    const spec = hardSpec({
+      stability_mode: "ladder",
+      ladder: {
+        smoke_command: "python tools/eval/measure.py --smoke",
+        exploratory_pairs: 1,
+        confirmation_repeats: 0,
+      },
+      comparison: { method: "relative", relative_threshold: 0.05, noise_threshold: 10 },
+    })
+    const result = decide({
+      spec,
+      baseline: snapshot(BASELINE_WALL),
+      candidate: { ...snapshot(300), smoke_passed: true, sample_count: 1 },
+    })
+    expect(result.decision).toBe("promising")
+    expect(result.next_measurement).not.toBe("none")
+  })
+
+  test("confirmation_repeats below exploratory_pairs still finishes the exploratory stage", () => {
+    const spec = hardSpec({
+      stability_mode: "ladder",
+      ladder: {
+        smoke_command: "python tools/eval/measure.py --smoke",
+        exploratory_pairs: 3,
+        confirmation_repeats: 2,
+      },
+      comparison: { method: "relative", relative_threshold: 0.05, noise_threshold: 10 },
+    })
+    const result = decide({
+      spec,
+      baseline: snapshot(BASELINE_WALL),
+      candidate: {
+        gates: { suite_passed: 1 },
+        metrics: { wall_seconds: { aggregate: 300, samples: [298, 300] } },
+        sample_count: 2,
+        smoke_passed: true,
+      },
+    })
+    expect(result.decision).toBe("promising")
+    expect(result.next_measurement).toBe("exploratory")
+  })
+
+  test("confirmation waits for every required objective's samples, not only the primary", () => {
+    const spec = hardSpec({
+      primary: { name: "local_wall_seconds", direction: "minimize", type: "hard" },
+      objectives: [
+        { name: "local_wall_seconds", direction: "minimize", role: "required" },
+        { name: "ci_critical_path_seconds", direction: "minimize", role: "required" },
+      ],
+      stability_mode: "ladder",
+      ladder: {
+        smoke_command: "python tools/eval/measure.py --smoke",
+        exploratory_pairs: 1,
+        confirmation_repeats: 5,
+      },
+      comparison: { method: "relative", relative_threshold: 0.05, noise_threshold: 10 },
+    })
+    const result = decide({
+      spec,
+      baseline: {
+        gates: { suite_passed: 1 },
+        metrics: {
+          local_wall_seconds: { aggregate: BASELINE_WALL, samples: Array(5).fill(BASELINE_WALL) },
+          ci_critical_path_seconds: { aggregate: 120, samples: [120] },
+        },
+      },
+      candidate: {
+        gates: { suite_passed: 1 },
+        metrics: {
+          local_wall_seconds: { aggregate: 300, samples: Array(5).fill(300) },
+          ci_critical_path_seconds: { aggregate: 80, samples: [80] },
+        },
+        smoke_passed: true,
+        sample_count: 5,
+      },
+    })
+    expect(result.decision).toBe("promising")
+    expect(result.next_measurement).not.toBe("none")
+  })
+
+  test("a stale low sample_count does not block keep when sample arrays are complete", () => {
+    const spec = hardSpec({
+      stability_mode: "ladder",
+      ladder: {
+        smoke_command: "python tools/eval/measure.py --smoke",
+        exploratory_pairs: 1,
+        confirmation_repeats: 5,
+      },
+      comparison: { method: "relative", relative_threshold: 0.05, noise_threshold: 10 },
+    })
+    const result = decide({
+      spec,
+      baseline: snapshot(BASELINE_WALL),
+      candidate: {
+        gates: { suite_passed: 1 },
+        metrics: { wall_seconds: { aggregate: 300, samples: [298, 300, 301, 299, 302] } },
+        sample_count: 1,
+        smoke_passed: true,
+      },
+    })
+    expect(result.decision).toBe("keep")
+    expect(result.next_measurement).toBe("none")
+  })
+
+  test("a scalar judge snapshot can complete confirmation from sample_count", () => {
+    const spec = hardSpec({
+      primary: { name: "mean_score", direction: "maximize", type: "judge" },
+      stability_mode: "ladder",
+      ladder: {
+        smoke_command: "python tools/eval/measure.py --smoke",
+        exploratory_pairs: 1,
+        confirmation_repeats: 5,
+      },
+      comparison: { method: "relative", relative_threshold: 0.05, minimum_improvement: 0.3 },
+    })
+    const result = decide({
+      spec,
+      baseline: { gates: { suite_passed: 1 }, judge: { mean_score: 4.0 } },
+      candidate: {
+        gates: { suite_passed: 1 },
+        judge: { mean_score: 4.5 },
+        sample_count: 5,
+        smoke_passed: true,
+      },
+    })
+    expect(result.decision).toBe("keep")
+    expect(result.next_measurement).toBe("none")
+  })
+
+  test("a listed judge primary reads the judge container instead of a same-named metric", () => {
+    const spec = hardSpec({
+      primary: { name: "mean_score", direction: "maximize", type: "judge" },
+      objectives: [{ name: "mean_score", direction: "maximize", role: "required", type: "hard" }],
+      comparison: { method: "absolute", noise_threshold: 0.02, minimum_improvement: 0.3 },
+    })
+    const result = decide({
+      spec,
+      baseline: {
+        gates: { suite_passed: 1 },
+        metrics: { mean_score: { aggregate: 10, samples: [10] } },
+        judge: { mean_score: 4.5 },
+      },
+      candidate: {
+        gates: { suite_passed: 1 },
+        metrics: { mean_score: { aggregate: 20, samples: [20] } },
+        judge: { mean_score: 4.0 },
+      },
+    })
+    expect(result.eligible).toBe(false)
+    expect(result.decision).not.toBe("keep")
+  })
+
+  test("a declared sample_count larger than the sample array does not skip confirmation", () => {
+    const spec = hardSpec({
+      stability_mode: "ladder",
+      ladder: {
+        smoke_command: "python tools/eval/measure.py --smoke",
+        exploratory_pairs: 1,
+        confirmation_repeats: 5,
+      },
+      comparison: { method: "relative", relative_threshold: 0.05, noise_threshold: 10 },
+    })
+    const result = decide({
+      spec,
+      baseline: snapshot(BASELINE_WALL),
+      candidate: { ...snapshot(300), smoke_passed: true, sample_count: 5 },
+    })
+    expect(result.decision).toBe("promising")
+    expect(result.next_measurement).not.toBe("none")
+  })
+
+  test("a nonnumeric sample_count does not skip confirmation", () => {
+    const spec = hardSpec({
+      stability_mode: "ladder",
+      ladder: {
+        smoke_command: "python tools/eval/measure.py --smoke",
+        exploratory_pairs: 1,
+        confirmation_repeats: 5,
+      },
+      comparison: { method: "relative", relative_threshold: 0.05, noise_threshold: 10 },
+    })
+    const result = decide({
+      spec,
+      baseline: snapshot(BASELINE_WALL),
+      candidate: { ...snapshot(300), smoke_passed: true, sample_count: "bad" },
+    })
+    expect(result.decision).toBe("promising")
+    expect(result.next_measurement).not.toBe("none")
+  })
+
+  test("a confirmed promising candidate becomes a keep after the full protocol", () => {
+    const result = decide({
+      spec,
+      baseline,
+      candidate: {
+        gates: { suite_passed: 1 },
+        metrics: { wall_seconds: { aggregate: 300, samples: [298, 300, 301, 299, 302] } },
+        sample_count: 5,
+        smoke_passed: true,
+      },
+    })
+    expect(result.decision).toBe("keep")
+    expect(result.next_measurement).toBe("none")
+  })
+})
+
+describe("judge minimum as a comparison floor", () => {
+  test("a relative judge gain below minimum_improvement is not a keep", () => {
+    const spec = hardSpec({
+      primary: { name: "mean_score", direction: "maximize", type: "judge" },
+      comparison: { method: "relative", relative_threshold: 0.05 },
+      minimum_improvement: 0.3,
+    })
+    const baseline = {
+      gates: { suite_passed: 1 },
+      metrics: { mean_score: { aggregate: 4.0, samples: [4.0] } },
+    }
+    const belowFloor = decide({
+      spec,
+      baseline,
+      candidate: {
+        gates: { suite_passed: 1 },
+        metrics: { mean_score: { aggregate: 4.25, samples: [4.25] } },
+      },
+    })
+    expect(belowFloor.decision).toBe("inconclusive")
+    expect(belowFloor.eligible).toBe(false)
+
+    const aboveFloor = decide({
+      spec,
+      baseline,
+      candidate: {
+        gates: { suite_passed: 1 },
+        metrics: { mean_score: { aggregate: 4.4, samples: [4.4] } },
+      },
+    })
+    expect(aboveFloor.decision).toBe("keep")
+    expect(aboveFloor.eligible).toBe(true)
+  })
+
+  test("a listed judge primary keeps the judge floor instead of inheriting hard", () => {
+    const spec = {
+      metric: {
+        primary: { name: "mean_score", direction: "maximize", type: "judge" },
+        objectives: [{ name: "mean_score", direction: "maximize", role: "required", type: "hard" }],
+        judge: { scoring: { primary: "mean_score" } },
+        degenerate_gates: [{ name: "suite_passed", check: "== 1" }],
+      },
+    }
+    const result = decide({
+      spec,
+      baseline: {
+        gates: { suite_passed: 1 },
+        metrics: { mean_score: { aggregate: 4.0, samples: [4.0] } },
+      },
+      candidate: {
+        gates: { suite_passed: 1 },
+        metrics: { mean_score: { aggregate: 4.1, samples: [4.1] } },
+      },
+    })
+    expect(result.decision).toBe("inconclusive")
+    expect(result.eligible).toBe(false)
+  })
+
+  test("canonical log snapshots keep a hard primary stored under diagnostics", () => {
+    const result = decide({
+      spec: hardSpec(),
+      baseline: { gates: { suite_passed: 1 }, diagnostics: { wall_seconds: 10 } },
+      candidate: { gates: { suite_passed: 1 }, diagnostics: { wall_seconds: 9.97 } },
+    })
+    expect(result.decision).toBe("keep")
+    expect(result.eligible).toBe(true)
+    expect(result.improved_objectives).toEqual(["wall_seconds"])
+  })
+
+  test("canonical log snapshots keep a judge win stored under judge, not metrics", () => {
+    const spec = {
+      metric: {
+        primary: { name: "mean_score", direction: "maximize", type: "judge" },
+        judge: { scoring: { primary: "mean_score" }, minimum_improvement: 0.3 },
+        degenerate_gates: [{ name: "result_count", check: ">= 5" }],
+      },
+    }
+    const result = decide({
+      spec,
+      baseline: { gates: { result_count: 10 }, judge: { mean_score: 4.0 } },
+      candidate: { gates: { result_count: 10 }, judge: { mean_score: 4.5 } },
+    })
+    expect(result.decision).toBe("keep")
+    expect(result.eligible).toBe(true)
+    expect(result.improved_objectives).toEqual(["mean_score"])
+  })
+
+  test("an omitted judge minimum_improvement defaults to 0.3", () => {
+    const spec = {
+      metric: {
+        primary: { name: "mean_score", direction: "maximize", type: "judge" },
+        judge: { scoring: { primary: "mean_score" } },
+        degenerate_gates: [{ name: "suite_passed", check: "== 1" }],
+      },
+    }
+    const baseline = {
+      gates: { suite_passed: 1 },
+      metrics: { mean_score: { aggregate: 4.0, samples: [4.0] } },
+    }
+    const belowDefault = decide({
+      spec,
+      baseline,
+      candidate: {
+        gates: { suite_passed: 1 },
+        metrics: { mean_score: { aggregate: 4.1, samples: [4.1] } },
+      },
+    })
+    expect(belowDefault.decision).toBe("inconclusive")
+    expect(belowDefault.eligible).toBe(false)
+
+    const aboveDefault = decide({
+      spec,
+      baseline,
+      candidate: {
+        gates: { suite_passed: 1 },
+        metrics: { mean_score: { aggregate: 4.4, samples: [4.4] } },
+      },
+    })
+    expect(aboveDefault.decision).toBe("keep")
+    expect(aboveDefault.eligible).toBe(true)
+  })
+})
+
+describe("held-out confirmation", () => {
+  const judgeSpec = {
+    metric: {
+      primary: { name: "mean_score", direction: "maximize", type: "judge" },
+      judge: { scoring: { primary: "mean_score" }, sample_seed: 42, confirmation_seed: 7 },
+      degenerate_gates: [{ name: "result_count", check: ">= 5" }],
+    },
+  }
+  const baseline = { gates: { result_count: 10 }, judge: { mean_score: 4.0 } }
+  const candidate = { gates: { result_count: 10 }, judge: { mean_score: 4.6 } }
+
+  test("a would-be keep asks for the holdout pair instead of keeping", () => {
+    const result = decide({ spec: judgeSpec, baseline, candidate })
+    expect(result.decision).toBe("promising")
+    expect(result.next_measurement).toBe("holdout")
+    expect(result.eligible).toBe(true)
+    expect(result.holdout).toBeNull()
+  })
+
+  test("a holdout that confirms the gain keeps", () => {
+    const result = decide({
+      spec: judgeSpec,
+      baseline,
+      candidate,
+      holdout: { baseline, candidate: { gates: { result_count: 10 }, judge: { mean_score: 4.5 } } },
+    })
+    expect(result.decision).toBe("keep")
+    expect(result.next_measurement).toBe("none")
+    expect(result.holdout?.agrees).toBe(true)
+  })
+
+  test("a holdout inside the threshold withholds the keep as inconclusive", () => {
+    const result = decide({
+      spec: judgeSpec,
+      baseline,
+      candidate,
+      holdout: { baseline, candidate: { gates: { result_count: 10 }, judge: { mean_score: 4.1 } } },
+    })
+    expect(result.decision).toBe("inconclusive")
+    expect(result.eligible).toBe(false)
+    expect(result.holdout?.agrees).toBe(false)
+    expect(result.reason).toContain("holdout")
+  })
+
+  test("a holdout regression reverts a selection-sample win", () => {
+    const result = decide({
+      spec: judgeSpec,
+      baseline,
+      candidate,
+      holdout: { baseline, candidate: { gates: { result_count: 10 }, judge: { mean_score: 3.2 } } },
+    })
+    expect(result.decision).toBe("revert")
+    expect(result.eligible).toBe(false)
+    expect(result.holdout?.violated_objectives).toEqual(["mean_score"])
+  })
+
+  test("a holdout candidate that fails a degenerate gate withholds the keep", () => {
+    const result = decide({
+      spec: judgeSpec,
+      baseline,
+      candidate,
+      holdout: { baseline, candidate: { gates: { result_count: 0 }, judge: { mean_score: 4.9 } } },
+    })
+    expect(result.decision).toBe("degenerate")
+    expect(result.eligible).toBe(false)
+    expect(result.holdout?.violated_objectives).toEqual(["result_count"])
+  })
+
+  test("a confirmation_seed equal to sample_seed is not a holdout", () => {
+    const spec = {
+      metric: {
+        ...judgeSpec.metric,
+        judge: { scoring: { primary: "mean_score" }, sample_seed: 42, confirmation_seed: 42 },
+      },
+    }
+    const result = decide({ spec, baseline, candidate })
+    expect(result.decision).toBe("keep")
+    expect(result.next_measurement).toBe("none")
+  })
+
+  test("a measurement.holdout.command configures a holdout for a hard primary", () => {
+    const spec = {
+      metric: {
+        primary: { name: "wall_seconds", direction: "minimize", type: "hard" },
+        degenerate_gates: [{ name: "suite_passed", check: "== 1" }],
+      },
+      measurement: {
+        holdout: { command: "python evaluate.py --holdout" },
+        stability: { mode: "stable", noise_threshold: 0.02 },
+      },
+    }
+    const asked = decide({ spec, baseline: snapshot(10), candidate: snapshot(9) })
+    expect(asked.next_measurement).toBe("holdout")
+
+    const confirmed = decide({
+      spec,
+      baseline: snapshot(10),
+      candidate: snapshot(9),
+      holdout: { baseline: snapshot(20), candidate: snapshot(18) },
+    })
+    expect(confirmed.decision).toBe("keep")
+    expect(confirmed.next_measurement).toBe("none")
+  })
+
+  test("a holdout with an incomplete paired baseline withholds the keep", () => {
+    const spec = hardSpec({
+      objectives: [
+        { name: "wall_seconds", direction: "minimize", role: "required" },
+        { name: "ci_seconds", direction: "minimize", role: "required" },
+      ],
+      comparison: { method: "paired", relative_threshold: 0.05, noise_threshold: 1 },
+      measurement: { holdout: { command: "python evaluate.py --holdout" } },
+    })
+    const pair = (wall: number[], ci: number[]) => ({
+      gates: { suite_passed: 1 },
+      metrics: { wall_seconds: { samples: wall }, ci_seconds: { samples: ci } },
+    })
+    const result = decide({
+      spec,
+      baseline: pair([10, 10], [20, 20]),
+      candidate: pair([8, 8], [16, 16]),
+      holdout: { baseline: pair([10], [20, 20]), candidate: pair([8, 8], [16, 16]) },
+    })
+    expect(result.decision).toBe("error")
+    expect(result.eligible).toBe(false)
+    expect(result.holdout?.agrees).toBe(false)
+    expect(result.reason).toBe(
+      "holdout has insufficient paired baseline samples: wall_seconds (1 observed, 2 required)",
+    )
+  })
+
+  test("a holdout gain only in an objective the selection did not improve withholds the keep", () => {
+    const spec = hardSpec({
+      objectives: [
+        { name: "wall_seconds", direction: "minimize", role: "required" },
+        { name: "memory_mb", direction: "minimize", role: "required" },
+      ],
+      comparison: { method: "relative", relative_threshold: 0.05 },
+      measurement: { holdout: { command: "python evaluate.py --holdout" } },
+    })
+    const snap = (wall: number, memory: number) => ({
+      gates: { suite_passed: 1 },
+      metrics: { wall_seconds: wall, memory_mb: memory },
+    })
+    const result = decide({
+      spec,
+      baseline: snap(10, 100),
+      candidate: snap(8, 100),
+      holdout: { baseline: snap(10, 100), candidate: snap(10, 80) },
+    })
+    expect(result.improved_objectives).toEqual(["wall_seconds"])
+    expect(result.holdout?.improved_objectives).toEqual(["memory_mb"])
+    expect(result.holdout?.agrees).toBe(false)
+    expect(result.decision).toBe("inconclusive")
+    expect(result.eligible).toBe(false)
+  })
+
+  test("a spec without a holdout keeps exactly as before", () => {
+    const result = decide({ spec: hardSpec(), baseline: snapshot(10), candidate: snapshot(9.97) })
+    expect(result.decision).toBe("keep")
+    expect(result.next_measurement).toBe("none")
+    expect(result.holdout).toBeNull()
+  })
+
+  test("the holdout is scored only after the ladder would keep", () => {
+    const spec = hardSpec({
+      stability_mode: "ladder",
+      ladder: { exploratory_pairs: 1, confirmation_repeats: 5 },
+      comparison: { method: "relative", relative_threshold: 0.05, noise_threshold: 10 },
+      measurement: { holdout: { command: "python evaluate.py --holdout" } },
+    })
+    const result = decide({
+      spec,
+      baseline: snapshot(BASELINE_WALL),
+      candidate: { ...snapshot(300), smoke_passed: true, sample_count: 1 },
+    })
+    expect(result.decision).toBe("promising")
+    expect(result.next_measurement).toBe("confirm")
+  })
+})
+
+describe("per-case regressions", () => {
+  test("lists cases the reference passed and the candidate fails, without changing the decision", () => {
+    const result = decide({
+      spec: hardSpec(),
+      baseline: snapshot(10, { cases: { a: true, b: true, c: false, d: 1 } }),
+      candidate: snapshot(9.9, { cases: { a: true, b: false, c: true, d: 0 } }),
+    })
+    expect(result.decision).toBe("keep")
+    expect(result.regressions).toEqual(["b", "d"])
+  })
+
+  test("is empty when either side has no cases", () => {
+    expect(regressions({ cases: { a: true } }, {})).toEqual([])
+    expect(regressions({}, { cases: { a: false } })).toEqual([])
+    expect(decide({ spec: hardSpec(), baseline: snapshot(10), candidate: snapshot(9.9) }).regressions).toEqual([])
+  })
+})
+
+describe("decide.mjs CLI", () => {
+  test("prints a JSON decision for a file path", () => {
+    const dir = mkdtempSync(path.join(tmpdir(), "ce-optimize-decide-"))
+    const inputPath = path.join(dir, "input.json")
+    writeFileSync(
+      inputPath,
+      JSON.stringify({
+        spec: hardSpec(),
+        baseline: snapshot(10),
+        candidate: snapshot(9.97),
+      }),
+    )
+    const result = spawnSync("node", [DECIDE, inputPath], { encoding: "utf8" })
+    expect(result.status, result.stderr).toBe(0)
+    expect(JSON.parse(result.stdout).decision).toBe("keep")
+  })
+})
+
+describe("measure.sh futility censor", () => {
+  test("CE_OPTIMIZE_CENSOR_AFTER exits 125 instead of waiting for the full timeout", () => {
+    const result = spawnSync("bash", [MEASURE, "sleep 10", "30", "."], {
+      encoding: "utf8",
+      env: { ...process.env, CE_OPTIMIZE_CENSOR_AFTER: "1" },
+    })
+    expect(result.status).toBe(125)
+    expect(result.stderr).toContain("censored")
+  })
+
+  test("a fractional CE_OPTIMIZE_CENSOR_AFTER still censors a live run", () => {
+    const result = spawnSync("bash", [MEASURE, "sleep 1", "30", "."], {
+      encoding: "utf8",
+      env: { ...process.env, CE_OPTIMIZE_CENSOR_AFTER: "0.2" },
+    })
+    expect(result.status).toBe(125)
+    expect(result.stderr).toContain("censored")
+  })
+
+  test("a command exit 125 is not treated as censored when the deadline did not fire", () => {
+    const result = spawnSync("bash", [MEASURE, "exit 125", "30", "."], {
+      encoding: "utf8",
+      env: { ...process.env, CE_OPTIMIZE_CENSOR_AFTER: "5" },
+    })
+    expect(result.status).toBe(125)
+    expect(result.stderr).not.toContain("censored")
+  })
+
+  test("a command exit 124 is not rewritten to censored when the deadline did not fire", () => {
+    const result = spawnSync("bash", [MEASURE, "exit 124", "30", "."], {
+      encoding: "utf8",
+      env: { ...process.env, CE_OPTIMIZE_CENSOR_AFTER: "5" },
+    })
+    expect(result.status).toBe(124)
+    expect(result.stderr).not.toContain("censored")
+  })
+})
+
+describe("schema and skill pins", () => {
+  test("the spec schema documents optional objectives, comparison, and ladder", () => {
+    expect(SCHEMA).toContain("objectives:")
+    expect(SCHEMA).toContain("comparison.method, when set, must be one of: absolute, relative, paired")
+    expect(SCHEMA).toContain(
+      "exploratory_pairs and confirmation_repeats (or repeat_count) must be positive integers",
+    )
+    expect(SCHEMA).toContain("futility.after_elapsed_seconds, when set, must be a positive number")
+    expect(MEASUREMENT).toContain("every required hard objective")
+    expect(MEASUREMENT).toContain("A repeat-mode spec does not need ladder fields")
+    expect(SCHEMA).toContain("- ladder")
+    expect(SCHEMA).toContain("worse_factor")
+    expect(SCHEMA).toContain("A spec without metric.objectives keeps single-primary acceptance")
+    expect(SCHEMA).toContain("The primary is always a required comparison")
+    expect(SCHEMA).toContain("each additional objective is a hard metric")
+    expect(SCHEMA).toContain("Always hard. Additional objectives come from the measurement command.")
+  })
+
+  test("the experiment log schema includes inconclusive and censored outcomes", () => {
+    expect(LOG_SCHEMA).toContain("- inconclusive")
+    expect(LOG_SCHEMA).toContain("- censored")
+    expect(LOG_SCHEMA).toContain("- promising")
+    expect(LOG_SCHEMA).toContain("- not_selected")
+  })
+
+  test("long runs: two clocks, per-tick cap, approval and run_state records, capability conditions", () => {
+    expect(SCHEMA).toContain("max_wall_hours:")
+    expect(SCHEMA).toContain("max_experiments_per_tick:")
+    expect(SCHEMA).toContain("stopping.max_wall_hours must be a positive number and at least stopping.max_hours")
+    expect(SCHEMA).toContain("metric.judge.max_total_cost_usd must be set; unattended spend is never uncapped")
+    expect(LOG_SCHEMA).toContain("  approval:")
+    expect(LOG_SCHEMA).toContain("spec_sha256:")
+    expect(LOG_SCHEMA).toContain("  run_state:")
+    expect(LOG_SCHEMA).toContain("pending_waits:")
+    expect(LOG_SCHEMA).toContain("active_seconds:")
+    expect(LOG_SCHEMA).toContain("phase3_started_at:")
+    expect(LOG_SCHEMA).toContain("enum: [running, waiting, blocked, final]")
+    expect(SKILL_BODY).toContain("## Execution Surface")
+    expect(SKILL_BODY).toContain("**durable state root**")
+    expect(SKILL_BODY).toContain("**wake after turn end**")
+    expect(SKILL_BODY).toContain("a missing binary or environment variable proves nothing")
+    expect(SKILL_BODY).toContain("either bounded automatic resumption or an explicit manual-resume handback")
+    expect(SKILL_BODY).toContain("bound to the spec digest and the caps it approved")
+    expect(SKILL_BODY).toContain("the wall-clock backstop")
+    expect(SKILL_BODY).not.toMatch(/Cursor Project|Agent Store|cursor-subscriptions/)
+    expect(LOOP).toContain("**Tick boundary.**")
+    expect(LOOP).toContain("`run_state.active_seconds` (not time since the invocation, not time spent waiting) >= `stopping.max_hours`")
+    expect(LOOP).toContain("since `run_state.phase3_started_at` >= `stopping.max_wall_hours`")
+    expect(LOOP).toContain("**Codex delegation condition.**")
+    expect(LOOP).not.toContain("**Codex backend:**")
+    expect(PERSISTENCE).toContain("### The State Root")
+    expect(PERSISTENCE).toContain("### The Approval Record")
+    expect(PERSISTENCE).toContain("never move a ledger mid-run")
+    expect(PERSISTENCE).toContain("Never fake a wait with a foreground sleep")
+    expect(MEASUREMENT).toContain("write the approval record")
+    expect(WRAP_UP).toContain("<root>/optimize/<spec-name>-report.md")
+    expect(SPEC).toContain("<state-root>/spec.yaml")
+  })
+
+  test("remote backend: enum, paired-or-relative rule, template delta, independent confirmation", () => {
+    expect(SCHEMA).toContain("          - remote    #")
+    expect(SCHEMA).toContain("execution.backend must be one of: worktree, codex, remote")
+    expect(SCHEMA).toContain(
+      "If execution.backend is 'remote', measurement.stability.comparison.method must be 'paired' or 'relative'",
+    )
+    expect(SKILL_BODY).toContain("**detached worker**")
+    expect(SKILL_BODY).toContain("`execution.backend: remote` needs one")
+    expect(TEMPLATE).toContain("## Delta for `execution.backend: remote`: measure and report")
+    expect(TEMPLATE).toContain("<remote-worker>")
+    expect(TEMPLATE).toContain("verify your HEAD is exactly {base_sha}")
+    expect(TEMPLATE).toContain("measure PAIRED on this machine")
+    expect(TEMPLATE).toContain("{result_ref}")
+    expect(TEMPLATE).toContain("Do NOT run the measurement harness (the orchestrator handles this)")
+    expect(LOOP).toContain("**Collecting a `remote` result.**")
+    expect(LOOP).toContain("`base_sha` equals the `base_sha` you dispatched")
+    expect(LOOP).toContain("never repair a worker's numbers")
+    expect(LOOP).toContain("one independent measurement owns both the confirmation and the holdout")
+    expect(LOOP).toContain("a pairing the candidate's author did not produce")
+    expect(LOOP).toContain("that holdout is collected by the independent confirmation in 3.4")
+    expect(LOG_SCHEMA).toContain("on every kind including holdout")
+    expect(TEMPLATE).toContain("only when the harness emits them")
+    expect(LOG_SCHEMA).toContain("          machine:")
+    expect(LOG_SCHEMA).toContain("enum: [orchestrator, worker, confirmation_worker]")
+    expect(LOG_SCHEMA).toContain("result_marker:")
+    expect(MEASUREMENT).toContain("1.4 and 1.5 apply when experiments share this machine")
+    expect(PERSISTENCE).toContain("| Detached worker |")
+  })
+
+  test("a keep earns its gain by doing the work the metric stands for; immutability is not anti-gaming", () => {
+    // arXiv 2609.12039: a candidate can score by exploiting what the harness does not
+    // observe without touching it (the optimize-live fixture's count()-skipping dedupe).
+    // The keep step states the condition once; the template no longer claims immutability
+    // prevents gaming.
+    expect(LOOP).toContain("Every retained change must have earned its gain by doing the work the metric stands for.")
+    expect(LOOP).toContain("or from breaking a `constraints` entry the harness does not check, is not a keep")
+    expect(LOOP).toContain("Closing the gap is a harness or spec change for a new run")
+    expect(TEMPLATE).toContain("which means the metric cannot be changed, not that it cannot be gamed")
+    expect(TEMPLATE).not.toContain("cannot game the metric")
+    expect(LOG_SCHEMA).toContain("its gain did not come from doing the work the metric stands for")
+    expect(WRAP_UP).toContain("a revert found the harness does not check")
+  })
+
+  test("the expensive-benchmark example declares three required hard targets and a ladder", () => {
+    expect(EXAMPLE).toContain("name: reduce-test-suite-wall-time")
+    expect(EXAMPLE).toContain("local_wall_seconds")
+    expect(EXAMPLE).toContain("ci_critical_path_seconds")
+    expect(EXAMPLE).toContain("runner_minutes")
+    expect(EXAMPLE).toContain("mode: ladder")
+    expect(EXAMPLE).toContain("method: relative")
+  })
+
+  test("the loop and measurement references send comparison through decide.mjs", () => {
+    expect(LOOP).toContain("scripts/decide.mjs")
+    expect(MEASUREMENT).toContain("scripts/decide.mjs")
+    expect(LOOP).toContain("every declared required target")
+    expect(LOOP).toContain("every required objective value")
+    expect(LOOP).toContain("the spec as loaded")
+    expect(LOOP).toContain("elapsed wall time itself proves the candidate cannot become eligible")
+    expect(LOG_SCHEMA).toContain("Required hard-objective snapshots")
+    expect(LOG_SCHEMA).toContain("stay measured until integration")
+    expect(LOOP).toContain("including 125 without that marker")
+    expect(LOOP).toContain("same decide loop as step 3.3")
+    expect(LOOP).toContain("fresh sample set")
+    expect(LOOP).toContain("not_selected")
+    expect(LOOP).toContain("no working Node runtime on PATH")
+    expect(LOOP).toContain("whenever `next_measurement` is not `none`")
+    expect(LOOP).toContain("Write a decide terminal only when `next_measurement` is `none`")
+    expect(LOOP).toContain("one log entry per experiment")
+    expect(LOOP).toContain("success proceeds to the first exploratory sample")
+    expect(LOOP).toContain("CP-2 is incomplete until")
+    expect(LOOP).toContain("uniquely identify the bytes")
+    expect(LOOP).toContain("without replacing the standalone comparison")
+    expect(SKILL_BODY).toContain("cheapest step that would change what gets implemented")
+    expect(SKILL_BODY).toContain("locating measurement")
+    expect(SKILL_BODY).toContain("**Outcome:**")
+    expect(SPEC).toContain("**Horizon:**")
+    expect(SKILL_BODY).toContain("references/spec.md")
+    expect(SKILL_BODY).toContain('description: "Optimize a named target with a measured loop:')
+    expect(SKILL_BODY).toContain("attribute a workload's cost, or score variants and keep winners")
+    expect(SKILL_BODY).toContain("working system's metric should move")
+    expect(SKILL_BODY).toContain("winning change is not already known")
+    expect(SKILL_BODY).toContain("Use ce-debug when the job is diagnosis")
+    expect(SKILL_BODY).toContain("use ce-work when the change is already known")
+    expect(SKILL_BODY).not.toContain("unexpectedly slow")
+    expect(SKILL_BODY).not.toContain("Optimize a working system against a measurable target")
+    expect(SKILL_BODY).not.toContain("named workload's cost should drop")
+    expect(SKILL_BODY).not.toContain("several variants must be scored and kept")
+    expect(SKILL_BODY).not.toContain("Not for diagnosing failing or slow behavior (ce-debug)")
+    expect(SKILL_BODY).not.toContain("faster, cheaper, or leaner")
+    expect(SKILL_BODY).not.toContain("clustering, ranking, search, or prompt quality")
+    expect(LOOP).toContain("locating measurement")
+    expect(LOOP).toContain("the locating measurement is attribution")
+    expect(LOOP).toContain("when the Phase 1 baseline total cannot say which hypothesis is worth keeping and those same conditions hold")
+    expect(LOOP).not.toContain("implement only opportunities connected to an observed cost share")
+    expect(LOOP).not.toContain("Missing profile data does not block")
+    expect(LOOP).toContain("does not require a performance profile")
+    expect(LOOP).toContain("attribute a cost change to one lever")
+    expect(LOOP).toContain("unable to say whether the next hypothesis is worth keeping")
+    expect(LOOP).toContain("no executable next action remains")
+    expect(LOOP).toContain("cannot be obtained is a blocker")
+    expect(LOOP).not.toContain("the backlog is empty and no new one can be generated")
+    expect(LOOP).not.toContain(
+      "no executable next action remains (no runnable hypothesis, no new one can be generated, and locating would not change keep or skip)",
+    )
+    expect(MEASUREMENT).toContain("not the cost shares")
+    expect(LOG_SCHEMA).toContain("uniquely identifies the measured")
+    expect(LOOP).not.toContain("confirm` or `add_sample")
+    expect(MEASUREMENT).toContain("Spend only the measurement the current decision needs")
+    expect(WRAP_UP).toContain("Not selected: <count>")
+  })
+})
+
+describe("eval discipline pins", () => {
+  const JUDGE_TEMPLATE = readFileSync(
+    path.join(SKILL_DIR, "references", "judge-prompt-template.md"),
+    "utf8",
+  )
+  const TEXT_TARGETS = readFileSync(path.join(SKILL_DIR, "references", "text-targets.md"), "utf8")
+  const TEXT_EXAMPLE = readFileSync(
+    path.join(SKILL_DIR, "references", "example-text-target-spec.yaml"),
+    "utf8",
+  )
+  const JUDGE_EXAMPLE = readFileSync(
+    path.join(SKILL_DIR, "references", "example-judge-spec.yaml"),
+    "utf8",
+  )
+  const WRAP_UP = readFileSync(path.join(SKILL_DIR, "references", "wrap-up.md"), "utf8")
+
+  test("the spec schema carries the holdout, calibration, and per-case keys and their rules", () => {
+    expect(SCHEMA).toContain("holdout:")
+    expect(SCHEMA).toContain("confirmation_seed:")
+    expect(SCHEMA).toContain("calibration:")
+    expect(SCHEMA).toContain("min_agreement:")
+    expect(SCHEMA).toContain("per_case:")
+    expect(SCHEMA).toContain("If metric.primary.type is 'judge', a holdout must be configured")
+    expect(SCHEMA).toContain("waits between ticks through a wake after turn end, a holdout must be configured")
+    expect(SCHEMA).toContain("the holdout is never used to select or generate hypotheses")
+    // Calibration is human work, so it is required only where nobody is watching the judge.
+    expect(SCHEMA).toContain("an attended judge run may proceed uncalibrated, stated at approval")
+  })
+
+  test("the judge model is a capability tier, not a vendor model name", () => {
+    expect(SCHEMA).toContain("- cheap")
+    expect(SCHEMA).toContain("- strong")
+    expect(SCHEMA).not.toMatch(/^\s+- haiku\s*$/m)
+    expect(SCHEMA).not.toMatch(/^\s+- sonnet\s*$/m)
+    expect(JUDGE_EXAMPLE).toContain("model: cheap")
+    expect(JUDGE_EXAMPLE).toContain("confirmation_seed:")
+    expect(JUDGE_TEMPLATE).not.toContain("Designed for Haiku")
+  })
+
+  test("the judge template requires per-item feedback and repeatable scores", () => {
+    expect(JUDGE_TEMPLATE).toContain('"feedback"')
+    expect(JUDGE_TEMPLATE).toContain("the same item must receive the same score")
+  })
+
+  test("the log schema records harness validation, judge feedback, cost, regressions, and the holdout step", () => {
+    expect(LOG_SCHEMA).toContain("harness_validation:")
+    expect(LOG_SCHEMA).toContain("feedback:")
+    expect(LOG_SCHEMA).toContain("content_hash:")
+    expect(LOG_SCHEMA).toContain("regressions:")
+    expect(LOG_SCHEMA).toContain("latency_seconds:")
+    expect(LOG_SCHEMA).toContain("enum: [standalone, integrated, holdout]")
+    expect(LOG_SCHEMA).toContain("enum: [none, smoke, exploratory, add_sample, confirm, holdout]")
+    expect(LOG_SCHEMA).toContain("judge-cache.yaml")
+    expect(PERSISTENCE).toContain("| `judge-cache.yaml` |")
+  })
+
+  test("Phase 1 gates on harness validity and states the holdout limitation at approval", () => {
+    expect(MEASUREMENT).toContain("Validity gate (before the baseline)")
+    expect(MEASUREMENT).toContain("does not reward a trivial shortcut")
+    expect(MEASUREMENT).toContain("a probe with no inputs is recorded as not run and stated at approval, never asked for here")
+    expect(SPEC).toContain("ask the user for nothing here")
+    expect(MEASUREMENT).toContain("selection and reporting will share one sample")
+    expect(SPEC).toContain("Exemplars for the validity gate")
+    expect(SPEC).toContain("references/text-targets.md")
+    expect(MEASUREMENT).toContain("references/text-targets.md")
+  })
+
+  test("the loop caches judge scores, confirms on the holdout before keep, and builds hypotheses from failure themes", () => {
+    expect(LOOP).toContain("judge-cache.yaml")
+    expect(LOOP).toContain("`next_measurement: holdout`")
+    expect(LOOP).toContain("it does not enter the digest")
+    expect(LOOP).toContain("**Failure themes:**")
+    expect(LOOP).toContain("A rule per failing item is not a hypothesis")
+    expect(WRAP_UP).toContain("**Held-out result and regressions:**")
+  })
+
+  test("text-targets.md names the coverage rule and the model roles", () => {
+    expect(TEXT_TARGETS).toContain("every rule you want preserved needs a case that fails without it")
+    expect(TEXT_TARGETS).toContain("A ceiling is a smell, not a finish")
+    expect(TEXT_TARGETS).toContain("task model")
+    expect(TEXT_TARGETS).toContain("`external-optimizer`")
+    expect(TEXT_TARGETS).not.toMatch(/\b(?:DSPy|GEPA|MIPRO|COPRO|SIMBA)\b/)
+    expect(TEXT_EXAMPLE).toContain("per_case: true")
+    expect(TEXT_EXAMPLE).toContain("holdout:")
+    expect(TEXT_EXAMPLE).toContain("name: prompt_tokens")
+  })
+})
+
+function listSkillFiles(dir: string): string[] {
+  return readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+    const next = path.join(dir, entry.name)
+    return entry.isDirectory() ? listSkillFiles(next) : [next]
+  })
+}
+
+describe("ce-optimize skill prose", () => {
+  test("does not use em dashes or the phrase load-bearing", () => {
+    const offenders: string[] = []
+    for (const file of listSkillFiles(SKILL_DIR)) {
+      const text = readFileSync(file, "utf8")
+      const rel = path.relative(process.cwd(), file)
+      if (text.includes("\u2014")) offenders.push(`${rel}: em dash`)
+      if (/load-bearing/i.test(text)) offenders.push(`${rel}: load-bearing`)
+    }
+    expect(offenders).toEqual([])
+  })
+})

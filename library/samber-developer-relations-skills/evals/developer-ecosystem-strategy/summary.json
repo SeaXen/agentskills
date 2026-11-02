@@ -1,0 +1,426 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "developer-ecosystem-strategy",
+  "scenarios": 9,
+  "expectations_total": 105,
+  "expectations_subjective": 0,
+  "expectations_objective": 105,
+  "pass_rate_with_skill_pct": 64.8,
+  "pass_rate_without_skill_pct": 44.8,
+  "delta_pp": 20.0,
+  "uplift_multiplier": 1.45,
+  "trigger_accuracy_pct": 49.0,
+  "trigger_queries": 96,
+  "trigger_positive_fire_rate": 0.021,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": null,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.274 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Presents two or three candidate rungs rather than a single recommendation."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that publishing a surface buys the possibility of complements, never the complements themselves."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that the fix for a wrong-builder signal is the offer, not the surface."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Recommends hand-recruiting a founding cohort chosen to cover the complements customers ask for most, explicitly not chosen for logo value."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Recommends building the first complements in-house to prove the surface and set the pattern, then handing them over or retiring them."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Recommends routing Northfleet's own distribution - in-product placement, onboarding, docs, sales conversations - at complementors."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Defines a minimum credible pool: the count and category coverage below which a customer browsing the ecosystem reads it as abandoned."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Identifies complementors as the price-sensitive side to subsidize, and the buying customer as the side whose demand rises most when the other side grows."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Attributes the subsidize-one-side pricing rule to Rochet and Tirole's two-sided-market work."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Marks the claim that complementors are the price-sensitive side in developer-tool ecosystems as a judgment layered on top of that pricing rule rather than part of it."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that any eventual fee should be charged for something that grew because of Ordwell - distribution, billing or trust - not for the right to exist on the surface."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that this value-share position is a design principle asserted here rather than a measured result, and invites the user to argue with it explicitly."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Declines to specify billing mechanics, payout rails or fee collection, naming them as downstream execution."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Concludes the independent software vendor column is not clearly positive against its alternative."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Identifies the four customers' own ops teams as the only clearly positive column."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Fills a worksheet line per archetype with ranges where a figure is rough, leaving no line blank."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Counts the migrations Parcelwise would force on builders inside the maintenance cost line rather than omitting it."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that any builder return that depends on Parcelwise routing customers to them becomes part of the obligations, not part of the pitch."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Attributes the commoditize-your-complements economics to Joel Spolsky's Strategy Letter V."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Stops the workflow here rather than continuing into rung selection, seeding or flywheel design."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that a decision not to open is a valid outcome of this analysis, not a non-event."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Rejects the network-effect moat claim, on the grounds that abundance moves value away from the side that is scarce today."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends covering the six uncovered rule requests as a roadmap item rather than as an extension surface."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States the efficiency ordering of the candidates out loud rather than leaving it implied by the order they are listed in."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes that vendor-built integrations carry zero leverage by definition and that their effort grows with every connector added."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names all three conditions required to promote a runtime platform: the complements genuinely cannot run outside the execution context, a dedicated platform team is funded indefinitely rather than borrowed, and the team would actually run the shutdown migration it is signing up for."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes that two requesting customers is below the counted-demand threshold, and names what would resolve it and how long that takes."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Adds every published surface to a liability register, and states that this register rather than the architecture diagram is what tells Brightwell whether its next refactor is affordable."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names the planned native feature as sherlocking a complementor, and attributes the term to Apple's Sherlock being superseded by Spotlight."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Requires the roadmap boundary to be published, with notice promised before the line is crossed, while admitting the line can move rather than pretending otherwise."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names the permanent obligations owed at this rung with an owner for each: surface stability and deprecation policy, roadmap boundary, support and escalation, review and safety, and wind-down terms."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that a third party's bug arrives as Cindermill's own outage."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that from partner-built integrations upward, the customer blames Cindermill when a complement fails, whoever wrote the code."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Declines to draft the partner contract or reseller agreement, naming it as downstream execution."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Reports complement supply as net new complements per quarter plus coverage of the counted demand list."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Writes kill criteria containing at least one failure condition with both a threshold and a date, including a de-escalation to a lower rung."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that nobody shuts an ecosystem program down voluntarily because withdrawal is embarrassing, which is why the criteria get written while the decision is still cheap."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Reports counted demand as a fail, noting that three complements from effectively one customer falls short of the five-complements-from-named-customers pass condition."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Reports identified builders as a fail or unknown, because no organization with a reason of its own to build has been named or spoken to."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States explicitly that an unknown gate does not count as a pass, and attaches a resolver and an elapsed time or date to each unknown it reports."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that a ruled-out rung is deleted rather than parked at the bottom as a 'phase two', because a parked rung reappears as scope."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Presents two or three candidate rungs rather than a single recommendation."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Ranks the evidence for counted demand, placing unsupported glue customers already built above requests that were refused, above feature requests or sales anecdotes."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that publishing a surface buys the possibility of complements, never the complements themselves."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that the fix for a wrong-builder signal is the offer, not the surface."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Runs the complementor arithmetic per builder archetype instead of treating 'developers' as a single audience."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Recommends hand-recruiting a founding cohort chosen to cover the complements customers ask for most, explicitly not chosen for logo value."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Recommends building the first complements in-house to prove the surface and set the pattern, then handing them over or retiring them."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Recommends routing Northfleet's own distribution - in-product placement, onboarding, docs, sales conversations - at complementors."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Defines a minimum credible pool: the count and category coverage below which a customer browsing the ecosystem reads it as abandoned."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends holding the take-rate at zero until liquidity is real, stating that a tax on a market that does not exist yet deters the supply Ordwell is trying to recruit."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Identifies complementors as the price-sensitive side to subsidize, and the buying customer as the side whose demand rises most when the other side grows."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Attributes the subsidize-one-side pricing rule to Rochet and Tirole's two-sided-market work."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Marks the claim that complementors are the price-sensitive side in developer-tool ecosystems as a judgment layered on top of that pricing rule rather than part of it."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that any eventual fee should be charged for something that grew because of Ordwell - distribution, billing or trust - not for the right to exist on the surface."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Offers agencies referral flow and certification rather than a revenue share, on the grounds that agencies monetize hours."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Tests whether the surplus left with each builder beats that builder's own alternative, including the alternative of not building at all."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Declines to specify billing mechanics, payout rails or fee collection, naming them as downstream execution."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Fills a worksheet line per archetype with ranges where a figure is rough, leaving no line blank."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Counts the migrations Parcelwise would force on builders inside the maintenance cost line rather than omitting it."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Applies the mirror test: if both sides can walk away at zero cost this is a handshake, not an ecosystem."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that any builder return that depends on Parcelwise routing customers to them becomes part of the obligations, not part of the pitch."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Refuses the community rule marketplace instead of designing its contribution model or review queue."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Reports the commoditized-complement gate as a fail, and as the failure direction that matters most."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that no amount of demand would fix this particular gate failure."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Attributes the commoditize-your-complements economics to Joel Spolsky's Strategy Letter V."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names explicitly which complement would be commoditized, as a required output of the hypothesis step."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Stops the workflow here rather than continuing into rung selection, seeding or flywheel design."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that a decision not to open is a valid outcome of this analysis, not a non-event."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Produces a written decline carrying reopen conditions, a named owner and a review date."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends covering the six uncovered rule requests as a roadmap item rather than as an extension surface."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Deletes installable third-party apps and the runtime platform because there is no security review function, and says so explicitly."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names partner-built integrations as the first rung that cannot be walked back, because another company's revenue would then ride on Halyard's surface."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Presents two or three candidate rungs rather than one."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States the efficiency ordering of the candidates out loud rather than leaving it implied by the order they are listed in."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes that vendor-built integrations carry zero leverage by definition and that their effort grows with every connector added."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes that vendor-built integrations are nonetheless the cheapest instrument for discovering which of the three asset-management connectors customers actually adopt."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Declines to review or extend the sandbox architecture and redirects to whether a runtime platform is the right rung at all."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names all three conditions required to promote a runtime platform: the complements genuinely cannot run outside the execution context, a dedicated platform team is funded indefinitely rather than borrowed, and the team would actually run the shutdown migration it is signing up for."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the runtime platform loses on value per unit of effort every time, because it carries the largest permanent obligation on the ladder."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that shutting down a runtime platform is a migration event for every complementor."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that each in-product extension point permanently freezes an internal seam."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Adds every published surface to a liability register, and states that this register rather than the architecture diagram is what tells Brightwell whether its next refactor is affordable."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names the planned native feature as sherlocking a complementor, and attributes the term to Apple's Sherlock being superseded by Spotlight."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Requires the roadmap boundary to be published, with notice promised before the line is crossed, while admitting the line can move rather than pretending otherwise."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names the permanent obligations owed at this rung with an owner for each: surface stability and deprecation policy, roadmap boundary, support and escalation, review and safety, and wind-down terms."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States the deprecation policy in terms of how long a published interface lives and how much notice a breaking change gets."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that a third party's bug arrives as Cindermill's own outage."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that from partner-built integrations upward, the customer blames Cindermill when a complement fails, whoever wrote the code."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Declines to draft the partner contract or reseller agreement, naming it as downstream execution."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Reports complement supply as net new complements per quarter plus coverage of the counted demand list."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Reports complementor activation as the share of registered builders who ship anything and the time to a first working complement."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Reports cost metrics: engineering hours held hostage by extension-point compatibility, and support tickets caused by third-party code."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Writes kill criteria containing at least one failure condition with both a threshold and a date, including a de-escalation to a lower rung."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that nobody shuts an ecosystem program down voluntarily because withdrawal is embarrassing, which is why the criteria get written while the decision is still cheap."
+      }
+    ]
+  }
+}

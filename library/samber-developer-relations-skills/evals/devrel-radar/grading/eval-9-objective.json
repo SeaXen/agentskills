@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Re-asks which pillars the user owns, and treats the newly acquired developer marketing pillar as voiding the coverage guarantee until a source covers it.",
+        "evidence": "It says 'the pillar-coverage guarantee doesn't hold' but never re-asks which pillars the user owns.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds at least one verified-active developer marketing source to restore pillar coverage.",
+        "evidence": "'Add Scaling DevTools... active, Ep 197 on 20 Aug 2026'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Re-resolves every URL on the existing list, including the ones that worked last time, to catch renames, acquisitions and resold domains.",
+        "evidence": "'I re-verified nothing live.' No prior list was available either.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Re-runs the freshness and ownership check: downgrades newly stale entries, removes dead ones, and retries previously unverified ones.",
+        "evidence": "Statuses are 'as recorded'; the check is deferred to the user.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Drops the two unread newsletters, on the stated ground that an unread source costs attention anyway.",
+        "evidence": "'An unread source still costs attention. Deleting beats parking.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Re-ranks against the new conference budget and states that a budget turns an event from a personal expense into a cleared slot.",
+        "evidence": "'The EUR 4k budget turns events from an expense into a cleared slot.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names which new fact moved which source, rather than presenting a silently reordered list.",
+        "evidence": "The section is headed 'What changes, in order of impact', with each change tied to a fact.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the colleague inside the gated community as someone to ask, rather than as a reason to join the community.",
+        "evidence": "'Your colleague is in, so ask them instead of joining.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not re-offer any source previously deleted for a constraint unless the user has said that constraint lifted.",
+        "evidence": "'The gated Slack stays dropped; use the colleague as proxy.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refreshes the event calendar on a twice-yearly rather than quarterly cadence, because CFP deadlines land months before the event.",
+        "evidence": "No cadence is mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks the peer community and the newest additions for one candidate discovery each, and verifies it before promoting it to the bench or the list.",
+        "evidence": "No discovery request is made to the community or the new additions.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Checks the consumption bar - that the user consumed at least two thirds of the entries - and reports the result against it.",
+        "evidence": "'Everything but 2 entries. That passes the two-thirds bar as long as the list had 6 or more entries.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Re-totals estimated weekly minutes against the 60-minute budget and trims any overflow.",
+        "evidence": "'Budget: spend about 54, reserve about 6... fits under 60'.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Re-asks which pillars the user owns, and treats the newly acquired developer marketing pillar as voiding the coverage guarantee until a source covers it.",
+        "evidence": "\"That pillar is a hard gap.\" and \"Your list has none until I add one.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Adds at least one verified-active developer marketing source to restore pillar coverage.",
+        "evidence": "\"Pick one text source about technical SEO and launches\" is deferred, and no source is named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Re-resolves every URL on the existing list, including the ones that worked last time, to catch renames, acquisitions and resold domains.",
+        "evidence": "\"I haven't re-checked any URL this quarter.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Re-runs the freshness and ownership check: downgrades newly stale entries, removes dead ones, and retries previously unverified ones.",
+        "evidence": "It defers them until the user pastes the list.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Drops the two unread newsletters, on the stated ground that an unread source costs attention anyway.",
+        "evidence": "\"Drop both. An unread source still costs attention.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Re-ranks against the new conference budget and states that a budget turns an event from a personal expense into a cleared slot.",
+        "evidence": "\"Conferences become a cleared slot.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names which new fact moved which source, rather than presenting a silently reordered list.",
+        "evidence": "A \"Your inputs and what each one moves\" table is given.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the colleague inside the gated community as someone to ask, rather than as a reason to join the community.",
+        "evidence": "\"Gated Slack: ask your colleague, don't join.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not re-offer any source previously deleted for a constraint unless the user has said that constraint lifted.",
+        "evidence": "No deleted source is re-offered.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refreshes the event calendar on a twice-yearly rather than quarterly cadence, because CFP deadlines land months before the event.",
+        "evidence": "\"CFP deadlines land months before events... normally done twice a year.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks the peer community and the newest additions for one candidate discovery each, and verifies it before promoting it to the bench or the list.",
+        "evidence": "There is no such step.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Checks the consumption bar - that the user consumed at least two thirds of the entries - and reports the result against it.",
+        "evidence": "\"Everything else consumed. Keep it. The two-thirds consumption bar is met.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Re-totals estimated weekly minutes against the 60-minute budget and trims any overflow.",
+        "evidence": "It gives only a target mix with \"trimmed to fit\" and no actual total.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

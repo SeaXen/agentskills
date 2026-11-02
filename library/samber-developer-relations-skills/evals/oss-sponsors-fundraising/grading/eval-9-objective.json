@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that an amount goal publicly and permanently displays monthly sponsorship income, and treats that as a disclosure decision rather than a UI toggle.",
+        "evidence": "\"Amount goal (not sponsor-count) is right here** \u2014 it permanently shows monthly income, but you already publish that on your blog, so no new disclosure.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Offers the sponsor-count goal as the alternative that keeps income private.",
+        "evidence": "\"Amount goal (not sponsor-count) is right here\" explicitly names sponsor-count as the alternative being weighed against.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects $5,000 as a first goal from a $210/month base and recommends a first goal that closes this quarter.",
+        "evidence": "\"Go \u2014 with one tweak. Set it live today... keep $5,000 as the headline number\" \u2014 explicitly keeps $5,000 rather than rejecting it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a completed goal is worth more than an ambitious one stuck at a low percentage for a year.",
+        "evidence": "Not stated; the transcript instead frames the low percentage as needing context, not replacement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that a goal cannot be edited below what has already been achieved.",
+        "evidence": "\"once published, this specific goal can never be edited down\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that a retired goal cannot be reactivated and must be replaced with a new one.",
+        "evidence": "\"once retired it can't be reactivated \u2014 only replaced by a fresh goal\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that only one goal can run at a time.",
+        "evidence": "Not stated in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reconciles the goal type with the maintainer's existing public revenue posting rather than treating the two as unrelated decisions.",
+        "evidence": "\"you already publish that on your blog, so no new disclosure. Consistent with what you're already doing.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Converts the goal into units a reader recognises - a maintenance day a week, a named infrastructure or code-signing bill, a dated deliverable - rather than a bare number.",
+        "evidence": "Suggested copy is \"Long-term target \u2014 full-time on this project. Follow monthly progress on the blog\" \u2014 narrative framing, not a concrete recognizable unit like a bill or deliverable.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not simply configure the $5,000 amount goal as asked.",
+        "evidence": "\"Go \u2014 with one tweak. Set it live today\" and the steps literally set \"Target: 5000\" \u2014 it does configure exactly what was asked, plus a description tweak.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that an amount goal publicly and permanently displays monthly sponsorship income, and treats that as a disclosure decision rather than a UI toggle.",
+        "evidence": "Only notes the progress bar shows \"$210/$5,000... ~4%\" as a framing/optics concern, without treating public income display as a disclosure decision or noting permanence.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Offers the sponsor-count goal as the alternative that keeps income private.",
+        "evidence": "No mention of a sponsor-count goal type at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects $5,000 as a first goal from a $210/month base and recommends a first goal that closes this quarter.",
+        "evidence": "The response opens with \"Go\" (endorsing the $5,000 goal) rather than rejecting it or proposing a smaller near-term goal.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a completed goal is worth more than an ambitious one stuck at a low percentage for a year.",
+        "evidence": "No such statement appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that a goal cannot be edited below what has already been achieved.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that a retired goal cannot be reactivated and must be replaced with a new one.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that only one goal can run at a time.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reconciles the goal type with the maintainer's existing public revenue posting rather than treating the two as unrelated decisions.",
+        "evidence": "\"pairing an aspirational number with the monthly revenue updates you already publish gives it credibility a bare number wouldn't have\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Converts the goal into units a reader recognises - a maintenance day a week, a named infrastructure or code-signing bill, a dated deliverable - rather than a bare number.",
+        "evidence": "Only suggests stating in the description that \"$5,000 is the full-time threshold\" \u2014 not converted into a relatable unit like a bill or deliverable.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not simply configure the $5,000 amount goal as asked.",
+        "evidence": "The response opens with \"Go\" and proceeds to endorse configuring the $5,000 goal, only adding a minor description-field caveat.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

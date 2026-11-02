@@ -1,0 +1,419 @@
+import { jest } from '@jest/globals';
+import type { OutlineNode } from '@sap-ux-private/control-property-editor-common';
+
+import type { OutlineViewNode } from 'sap/ui/rta/command/OutlineService';
+import type { Scenario } from 'sap/ui/fl/Scenario';
+
+import type { ControlTreeIndex } from 'open/ux/preview/client/cpe/types';
+
+import { sapCoreMock } from 'mock/window';
+import VersionInfo from 'mock/sap/ui/VersionInfo';
+import { mockOverlay } from 'mock/sap/ui/dt/OverlayRegistry';
+
+// Pre-import for spread
+const _editable = await import('open/ux/preview/client/cpe/outline/editable');
+const _cpeUtils = await import('open/ux/preview/client/cpe/utils');
+const _v4Utils = await import('open/ux/preview/client/utils/fe-v4');
+
+jest.unstable_mockModule('open/ux/preview/client/cpe/outline/editable', () => ({
+    ..._editable,
+    isEditable: () => false
+}));
+
+jest.unstable_mockModule('open/ux/preview/client/cpe/utils', () => ({
+    ..._cpeUtils,
+    isReuseComponent: () => true
+}));
+
+const getPageNameMock = jest.fn();
+jest.unstable_mockModule('open/ux/preview/client/utils/fe-v4', () => ({
+    ..._v4Utils,
+    getPageName: getPageNameMock
+}));
+
+const { transformNodes: tn } = await import('open/ux/preview/client/cpe/outline/nodes');
+
+describe('outline nodes', () => {
+    const transformNodes = (
+        nodes: OutlineViewNode[],
+        scenario: Scenario,
+        controlIndex: ControlTreeIndex = {}
+    ): Promise<OutlineNode[]> => tn(nodes, scenario, controlIndex, {} as any, new Map());
+    sapCoreMock.byId.mockReturnValue({
+        getMetadata: jest.fn().mockReturnValue({
+            getProperty: jest
+                .fn()
+                .mockReturnValueOnce('Component')
+                .mockReturnValueOnce('Component')
+                .mockReturnValue(''),
+            getElementName: jest.fn().mockReturnValue('some-name')
+        }),
+        getProperty: jest.fn().mockReturnValueOnce('Component').mockReturnValueOnce('Component').mockReturnValue('')
+    });
+
+    mockOverlay.getDesignTimeMetadata = jest.fn().mockReturnValue({
+        getData: jest
+            .fn()
+            .mockReturnValueOnce({
+                manifestPropertyPath: jest
+                    .fn()
+                    .mockReturnValue('controlConfiguration/@sap.ui.com.v1.LineItem/tableSettings')
+            })
+            .mockReturnValue(undefined)
+    });
+    getPageNameMock.mockReturnValue('TestListReport');
+    beforeAll(() => {
+        VersionInfo.load.mockResolvedValue({ name: 'sap.ui.core', version: '1.118.1' });
+    });
+
+    describe('transformNodes', () => {
+        test('table element with configuration setting', async () => {
+            expect(
+                await transformNodes(
+                    [
+                        {
+                            id: 'table',
+                            technicalName: 'sap.SmartTable',
+                            editable: false,
+                            type: 'element',
+                            visible: true
+                        }
+                    ],
+                    'UI_ADAPTATION'
+                )
+            ).toStrictEqual([
+                {
+                    children: [],
+                    controlId: 'table',
+                    controlType: 'sap.SmartTable',
+                    editable: false,
+                    name: 'Component',
+                    visible: true
+                }
+            ]);
+        });
+        test('empty tree', async () => {
+            expect(await transformNodes([], 'UI_ADAPTATION')).toStrictEqual([]);
+        });
+        test('single element', async () => {
+            expect(
+                await transformNodes(
+                    [
+                        {
+                            id: 'application-preview-app-component',
+                            technicalName: 'v2flex.Component',
+                            editable: false,
+                            type: 'element',
+                            visible: true
+                        }
+                    ],
+                    'UI_ADAPTATION'
+                )
+            ).toStrictEqual([
+                {
+                    children: [],
+                    controlId: 'application-preview-app-component',
+                    controlType: 'v2flex.Component',
+                    editable: false,
+                    name: 'Component',
+                    visible: true
+                }
+            ]);
+        });
+
+        test('extension point', async () => {
+            expect(
+                await transformNodes(
+                    [
+                        {
+                            id: 'sap.ui.demoapps.rta.fiorielements::SEPMRA_C_PD_Product--listReportFilter',
+                            technicalName: 'sap.ui.extensionpoint',
+                            name: 'ResponsiveTableColumnsExtension|SEPMRA_C_PD_Product',
+                            editable: false,
+                            type: 'extensionPoint',
+                            visible: true,
+                            extensionPointInfo: {
+                                createdControls: [],
+                                defaultContent: []
+                            }
+                        }
+                    ],
+                    'ADAPTATION_PROJECT'
+                )
+            ).toStrictEqual([
+                {
+                    children: [],
+                    controlId:
+                        'sap.ui.demoapps.rta.fiorielements::SEPMRA_C_PD_Product--listReportFilter--ResponsiveTableColumnsExtension|SEPMRA_C_PD_Product',
+                    controlType: 'sap.ui.extensionpoint',
+                    editable: false,
+                    hasDefaultContent: false,
+                    name: 'ResponsiveTableColumnsExtension|SEPMRA_C_PD_Product',
+                    visible: true
+                }
+            ]);
+        });
+
+        test('extension point with default content and no created controls present', async () => {
+            const node1 = {
+                id: 'sap.ui.demoapps.rta.fiorielements::SEPMRA_C_PD_Product--listReportFilter',
+                technicalName: 'sap.ui.extensionpoint',
+                name: 'ResponsiveTableColumnsExtension|SEPMRA_C_PD_Product',
+                editable: false,
+                type: 'extensionPoint',
+                visible: true,
+                extensionPointInfo: {
+                    defaultContent: ['id1']
+                }
+            };
+
+            const node2 = {
+                id: 'id1',
+                technicalName: 'sap.m.Label',
+                name: 'New Label',
+                editable: false,
+                type: 'element',
+                visible: true
+            };
+
+            const aggregation = {
+                editable: false,
+                elements: [node1, node2],
+                id: 'application-app-preview-component---View1--hbox',
+                technicalName: 'items',
+                type: 'aggregation'
+            };
+
+            const nodes = [
+                {
+                    icon: 'sap/m/designtime/HBox.icon.svg',
+                    id: 'application-app-preview-component---View1--hbox',
+                    name: 'HBox',
+                    technicalName: 'sap.m.HBox',
+                    type: 'element',
+                    visible: true,
+                    elements: [aggregation]
+                } as unknown as OutlineViewNode
+            ];
+
+            console.log(JSON.stringify(await transformNodes(nodes, 'ADAPTATION_PROJECT'), null, 2));
+
+            expect(await transformNodes(nodes, 'ADAPTATION_PROJECT')).toStrictEqual([
+                {
+                    controlId: 'application-app-preview-component---View1--hbox',
+                    controlType: 'sap.m.HBox',
+                    name: 'HBox',
+                    editable: false,
+                    visible: true,
+                    children: [
+                        {
+                            controlId:
+                                'sap.ui.demoapps.rta.fiorielements::SEPMRA_C_PD_Product--listReportFilter--ResponsiveTableColumnsExtension|SEPMRA_C_PD_Product',
+                            controlType: 'sap.ui.extensionpoint',
+                            name: 'ResponsiveTableColumnsExtension|SEPMRA_C_PD_Product',
+                            editable: false,
+                            visible: true,
+                            hasDefaultContent: true,
+                            children: [
+                                {
+                                    controlId: 'id1',
+                                    controlType: 'some-name',
+                                    name: 'id1',
+                                    visible: true,
+                                    editable: false,
+                                    children: [],
+                                    hasDefaultContent: false
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]);
+        });
+
+        test('extension point with created controls', async () => {
+            const node = {
+                id: 'sap.ui.demoapps.rta.fiorielements::SEPMRA_C_PD_Product--listReportFilter',
+                technicalName: 'sap.ui.extensionpoint',
+                name: 'ResponsiveTableColumnsExtension|SEPMRA_C_PD_Product',
+                editable: false,
+                type: 'extensionPoint',
+                extensionPointInfo: {
+                    defaultContent: [],
+                    createdControls: ['id1']
+                },
+                visible: true
+            } as unknown as OutlineViewNode;
+
+            expect(await transformNodes([node], 'ADAPTATION_PROJECT')).toStrictEqual([
+                {
+                    children: [
+                        {
+                            children: [],
+                            controlId: 'id1',
+                            controlType: 'some-name',
+                            editable: false,
+                            hasDefaultContent: false,
+                            name: 'id1',
+                            visible: true
+                        }
+                    ],
+                    controlId:
+                        'sap.ui.demoapps.rta.fiorielements::SEPMRA_C_PD_Product--listReportFilter--ResponsiveTableColumnsExtension|SEPMRA_C_PD_Product',
+                    controlType: 'sap.ui.extensionpoint',
+                    editable: false,
+                    hasDefaultContent: false,
+                    name: 'ResponsiveTableColumnsExtension|SEPMRA_C_PD_Product',
+                    visible: true
+                }
+            ]);
+        });
+
+        test('aggregation', async () => {
+            expect(
+                await transformNodes(
+                    [
+                        {
+                            id: 'application-preview-app-component',
+                            technicalName: 'v2flex.Component',
+                            editable: false,
+                            type: 'element',
+                            visible: true,
+                            elements: [
+                                {
+                                    id: 'application-preview-app-component',
+                                    technicalName: 'rootControl',
+                                    editable: false,
+                                    type: 'aggregation',
+                                    elements: [
+                                        {
+                                            id: '__layout0',
+                                            technicalName: 'sap.f.FlexibleColumnLayout',
+                                            editable: false,
+                                            type: 'element',
+                                            visible: true
+                                        }
+                                    ]
+                                }
+                            ]
+                        }
+                    ],
+                    'UI_ADAPTATION'
+                )
+            ).toStrictEqual([
+                {
+                    controlId: 'application-preview-app-component',
+                    controlType: 'v2flex.Component',
+                    editable: false,
+                    name: 'Component',
+                    visible: true,
+                    children: [
+                        {
+                            controlId: '__layout0',
+                            controlType: 'sap.f.FlexibleColumnLayout',
+                            name: 'FlexibleColumnLayout',
+                            editable: false,
+                            visible: true,
+                            children: []
+                        }
+                    ]
+                }
+            ]);
+        });
+
+        test('element with extension point as direct child', async () => {
+            expect(
+                await transformNodes(
+                    [
+                        {
+                            id: 'container-element',
+                            technicalName: 'sap.m.VBox',
+                            editable: false,
+                            type: 'element',
+                            visible: true,
+                            elements: [
+                                {
+                                    id: 'extension-point-1',
+                                    technicalName: 'sap.ui.extensionpoint',
+                                    name: 'CustomExtensionPoint',
+                                    editable: false,
+                                    type: 'extensionPoint',
+                                    visible: true,
+                                    extensionPointInfo: {
+                                        createdControls: ['control-1'],
+                                        defaultContent: []
+                                    }
+                                }
+                            ]
+                        }
+                    ],
+                    'ADAPTATION_PROJECT'
+                )
+            ).toStrictEqual([
+                {
+                    controlId: 'container-element',
+                    controlType: 'sap.m.VBox',
+                    editable: false,
+                    name: 'VBox',
+                    visible: true,
+                    children: [
+                        {
+                            controlId: 'extension-point-1--CustomExtensionPoint',
+                            controlType: 'sap.ui.extensionpoint',
+                            editable: false,
+                            hasDefaultContent: false,
+                            name: 'CustomExtensionPoint',
+                            visible: true,
+                            children: [
+                                {
+                                    controlId: 'control-1',
+                                    controlType: 'some-name',
+                                    editable: false,
+                                    hasDefaultContent: false,
+                                    name: 'control-1',
+                                    visible: true,
+                                    children: []
+                                }
+                            ]
+                        }
+                    ]
+                }
+            ]);
+        });
+
+        test('element with unprocessed child types', async () => {
+            expect(
+                await transformNodes(
+                    [
+                        {
+                            id: 'parent-element',
+                            technicalName: 'sap.m.Table',
+                            editable: false,
+                            type: 'element',
+                            visible: true,
+                            elements: [
+                                {
+                                    id: 'template-1',
+                                    technicalName: 'aggregationBindingTemplate',
+                                    editable: false,
+                                    type: 'aggregationBindingTemplate' as any,
+                                    visible: true
+                                }
+                            ]
+                        }
+                    ],
+                    'UI_ADAPTATION'
+                )
+            ).toStrictEqual([
+                {
+                    controlId: 'parent-element',
+                    controlType: 'sap.m.Table',
+                    editable: false,
+                    name: 'Table',
+                    visible: true,
+                    children: []
+                }
+            ]);
+        });
+    });
+});

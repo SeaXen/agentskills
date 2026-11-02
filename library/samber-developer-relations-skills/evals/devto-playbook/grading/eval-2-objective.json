@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Says the posts must carry an AI disclosure tier on dev.to (Hand Written, AI-Assisted, Fully Autonomous)",
+        "evidence": "\"Every post needs an AI tier: Hand Written, AI-Assisted or Fully Autonomous.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that an LLM draft that a human only skims or approves counts as Fully Autonomous, not Hand Written or AI-Assisted",
+        "evidence": "\"'Claude drafts, PM skims and approves' stays Fully Autonomous. Approval alone doesn't change the tier.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites the DEV AI guideline that AI-assisted posts must not promote a business, including the author's own",
+        "evidence": "\"The AI guidelines also bar AI-assisted posts that promote a business, including your own.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends that posts naming the product be human-written or meaningfully rewritten by a human",
+        "evidence": "\"Engineers write product-naming posts by hand, with `ai_disclosure_level: no_ai`.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that DEV's AI guidelines exempt a company-blog backlink only when the post is published under the company's DEV organization",
+        "evidence": "\"The AI guidelines exempt company-blog links only when the post sits under the company's DEV organization.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that an organization byline does not make AI-assisted product promotion acceptable",
+        "evidence": "\"The org exempts a backlink, not promotion. A post that exists only to sell still fails.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the Terms rule against content designed primarily for promotion or backlinks",
+        "evidence": "\"Terms ban content 'designed primarily for the purposes of promotion or creating backlinks'.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends moving the posts to an organization byline",
+        "evidence": "\"Post under a Ratchet organization, not personal accounts... Publish from the editor's author menu under the organization.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that undisclosed AI or synthetic firsthand claims risk suspension",
+        "evidence": "\"Undisclosed or heavy AI risks suspension.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Mentions that readers can choose to reduce AI-labelled posts in their feed, lowering reach",
+        "evidence": "\"Readers can down-rank AI tiers in their feed [platform].\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Questions the 3-posts-a-week volume against the team's capacity to answer comments",
+        "evidence": "\"Three posts a week is the weakest part of the plan... At 3 posts a week, 6 or more posts are in their ranking window at once. Each needs an owner replying within 24 hours.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Says the posts must carry an AI disclosure tier on dev.to (Hand Written, AI-Assisted, Fully Autonomous)",
+        "evidence": "Asks for a generic disclosure line, \"Drafted with AI assistance\", and never names the tiers.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that an LLM draft that a human only skims or approves counts as Fully Autonomous, not Hand Written or AI-Assisted",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites the DEV AI guideline that AI-assisted posts must not promote a business, including the author's own",
+        "evidence": "Only \"posts that aren't purely promotional\" from memory, with no AI-specific promotion rule.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends that posts naming the product be human-written or meaningfully rewritten by a human",
+        "evidence": "Slot 3 allows company product content on the org with only a review gate. It does not require human writing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that DEV's AI guidelines exempt a company-blog backlink only when the post is published under the company's DEV organization",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that an organization byline does not make AI-assisted product promotion acceptable",
+        "evidence": "It does the opposite: \"Put the company-drafted, promotional-leaning posts there\" (the org).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the Terms rule against content designed primarily for promotion or backlinks",
+        "evidence": "Not cited.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends moving the posts to an organization byline",
+        "evidence": "\"Create a dev.to Organization for Ratchet.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that undisclosed AI or synthetic firsthand claims risk suspension",
+        "evidence": "\"Unflagged AI posts risk being unpublished or the account being restricted.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Mentions that readers can choose to reduce AI-labelled posts in their feed, lowering reach",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Questions the 3-posts-a-week volume against the team's capacity to answer comments",
+        "evidence": "Questions review capacity (\"If reviewers can't keep up, drop to 2 posts a week\"), not comment-answering capacity.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,56 @@
+import type { OutputSink, SystemDeps } from "../system";
+
+export async function detectOnPath(system: SystemDeps, binary: string): Promise<boolean> {
+  const locator = system.platform === "win32" ? "where" : "which";
+  return (await system.run(`${locator} ${binary}`)).ok;
+}
+
+// Runs a mutating command (install, update, remove, cleanup), throwing on a
+// non-zero exit so callers can treat failure as an exception. Streams its output
+// to `output` when given. Only the sink is forwarded when present, so
+// non-streaming callers (and tests) still see a single-argument call.
+export async function runCommand(
+  system: SystemDeps,
+  command: string,
+  output?: OutputSink,
+): Promise<void> {
+  const result = output ? await system.run(command, output) : await system.run(command);
+
+  if (result.ok) {
+    return;
+  }
+
+  throw new Error(result.stderr || result.message || `Command failed: ${command}`);
+}
+
+// OAuth commands get a real terminal while the installer captures their output.
+export async function runLoginCommand(
+  system: SystemDeps,
+  command: string,
+  output?: OutputSink,
+): Promise<void> {
+  const result = await system.runInteractive(command, output);
+
+  if (result.ok) {
+    return;
+  }
+
+  throw new Error(result.stderr || result.message || `Command failed: ${command}`);
+}
+
+// Run a command expected to emit JSON and return the parsed value. Returns null
+// when the command fails or its output is not valid JSON, so a missing or broken
+// listing reads as "nothing installed" rather than crashing the installer.
+export async function runJson<T>(system: SystemDeps, command: string): Promise<T | null> {
+  const result = await system.run(command);
+
+  if (!result.ok || !result.stdout) {
+    return null;
+  }
+
+  try {
+    return JSON.parse(result.stdout) as T;
+  } catch {
+    return null;
+  }
+}

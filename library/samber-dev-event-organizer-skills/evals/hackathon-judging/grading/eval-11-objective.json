@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Does not choose between expo tables and stage pitches",
+        "evidence": "\"Stage pitch fails across your whole range\" and \"Expo tables fit\" effectively picks expo.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the demo and judging structure decision to samber/dev-event-organizer-skills@event-format-selection",
+        "evidence": "\"normally belongs to `event-format-selection`\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the chosen format's per-team judge-contact time as a fixed input rather than a decision made here",
+        "evidence": "\"this skill treats it as a fixed input. I'm not re-deciding it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that judge count is the last input the arithmetic needs, not the first",
+        "evidence": "Computes k from 22 judges first; never says judge count comes last.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks for the team count, the per-team contact time and the window before using the 22-judge figure",
+        "evidence": "Uses 22 judges with assumed W and N ranges before asking.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks for the judging window in minutes rather than accepting 'the whole afternoon'",
+        "evidence": "\"Please give a number, such as 13:30 to 16:45 = 195 minutes.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks interview questions one at a time rather than as a single block",
+        "evidence": "Asks a single question now: \"After that I'll ask one at a time\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines to compute an allocation band without a settled team count",
+        "evidence": "Computes k tables for 40 to 140 teams.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the allocation band is computed before the rubric",
+        "evidence": "Not stated explicitly.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that reopening the demo format later invalidates the allocation already computed",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks which evaluation categories the published brief already names, to weight rather than replace them",
+        "evidence": "\"Which evaluation categories does the published brief already name?\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks what the published rules already promised about criteria, tie-breaking and disputes",
+        "evidence": "\"What did the published rules promise about tie-breaks and disputes?\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Does not choose between expo tables and stage pitches",
+        "evidence": "'Recommendation: use expo tables for round 1 and a stage for finalists only. Don't run a stage-only format.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the demo and judging structure decision to samber/dev-event-organizer-skills@event-format-selection",
+        "evidence": "Not routed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats the chosen format's per-team judge-contact time as a fixed input rather than a decision made here",
+        "evidence": "It decides slot lengths itself in a table.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that judge count is the last input the arithmetic needs, not the first",
+        "evidence": "The formula starts from '22 judges \u00d7 (expo minutes \u00f7 slot)'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks for the team count, the per-team contact time and the window before using the 22-judge figure",
+        "evidence": "It uses 22 immediately and asks for the team count only at the end.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks for the judging window in minutes rather than accepting 'the whole afternoon'",
+        "evidence": "It assumes 'Expo round: 120 minutes' and asks for 'real clock times'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks interview questions one at a time rather than as a single block",
+        "evidence": "It lists five questions in one block.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines to compute an allocation band without a settled team count",
+        "evidence": "It computes slots and visits for a range of team counts.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the allocation band is computed before the rubric",
+        "evidence": "Its steps put 'Write the rubric' third and the assignment sheet fourth.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that reopening the demo format later invalidates the allocation already computed",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks which evaluation categories the published brief already names, to weight rather than replace them",
+        "evidence": "It says 'Write the rubric: 4 criteria' without asking about the published brief.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks what the published rules already promised about criteria, tie-breaking and disputes",
+        "evidence": "Not asked.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

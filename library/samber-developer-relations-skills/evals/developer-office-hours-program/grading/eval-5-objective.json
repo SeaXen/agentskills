@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to record the booked 30-minute slots; internal notes only",
+        "evidence": "\"Booked 1:1 slots | Never recorded. Internal notes only.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the livestream recorded and captioned, with destination and retention announced and a camera-off, chat-only and anonymised-reading path offered",
+        "evidence": "\"Record and publish with captions. State the destination and retention. Offer camera-off, chat-only and anonymised reading.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects 'hope that's cool!' as consent assumed with nothing said about where the recording goes",
+        "evidence": "\"consent is assumed and nothing is said about where the recording goes.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes a notice stating where the recording is published, within how many days, how long it is kept and the no-record path, and says it before recording starts and again when it begins",
+        "evidence": "\"Say it before recording starts, and again when the recording begins\"; opener names [3] days, [12 months], camera-off.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that no program publishes a GDPR recording notice template and that legal review owns the notice and retention wording for EU attendees",
+        "evidence": "\"There isn't one... Legal owns the final text, the lawful basis and the retention period.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Tells them to revoke the API key shown on the published stream, citing the token-revocation guidance for demo environments",
+        "evidence": "\"Revoke the API key\" first; \"Revoke any token shown in a demo environment, as GitLab's token guidance recommends.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a pre-publication review of every screen-share segment for tokens, keys, internal hostnames and customer names, cut or blurred",
+        "evidence": "\"Watch every screen-share segment for keys, tokens, internal hostnames and customer names. Cut or blur.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prints the per-format recording policy on the scope card",
+        "evidence": "\"Recording policy (print this on the scope card)\" table by format.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the compliance-cost ordering with the livestream panel highest and booked slots second",
+        "evidence": "No compliance-cost ordering is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps booked slots as the right format for partners whose questions need their own code on screen",
+        "evidence": "\"Partners and plugin authors need their own code on screen. That is the case where the skill promotes booked slots first.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns from the discontinued Kubernetes 1:1 Hour that pairs spent the hour choosing tools, and requires a script and a ready environment sent before each booked slot",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Honours every 'don't read my name' request from the intake form",
+        "evidence": "\"Honour every 'don't read my name' answer.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats async text as its own record and says so on the scope card",
+        "evidence": "\"Async thread | The text is the record.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes the raw session log once the write-up is published, after copying consented handles onto logged feature requests",
+        "evidence": "No mention of deleting the raw log or copying consented handles.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to record the booked 30-minute slots; internal notes only",
+        "evidence": "Allows recording with consent: \"Default to internal-only. Publish a 1:1 only after review\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the livestream recorded and captioned, with destination and retention announced and a camera-off, chat-only and anonymised-reading path offered",
+        "evidence": "Banner and viewers muted by default, but no captions or retention announcement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects 'hope that's cool!' as consent assumed with nothing said about where the recording goes",
+        "evidence": "\"Not informed. It names no controller, purpose, audience, retention period\"; \"Silence isn't consent.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes a notice stating where the recording is published, within how many days, how long it is kept and the no-record path, and says it before recording starts and again when it begins",
+        "evidence": "Opener and banner lack a publication-within-days figure or retention.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that no program publishes a GDPR recording notice template and that legal review owns the notice and retention wording for EU attendees",
+        "evidence": "\"No standard notice exists... Have your DPO or counsel review it before use.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Tells them to revoke the API key shown on the published stream, citing the token-revocation guidance for demo environments",
+        "evidence": "\"Revoke and rotate the key now. Treat it as compromised\" (no guidance citation).",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a pre-publication review of every screen-share segment for tokens, keys, internal hostnames and customer names, cut or blurred",
+        "evidence": "\"A human reviews every recording before it's published.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prints the per-format recording policy on the scope card",
+        "evidence": "No scope card.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the compliance-cost ordering with the livestream panel highest and booked slots second",
+        "evidence": "No ordering given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps booked slots as the right format for partners whose questions need their own code on screen",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns from the discontinued Kubernetes 1:1 Hour that pairs spent the hour choosing tools, and requires a script and a ready environment sent before each booked slot",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Honours every 'don't read my name' request from the intake form",
+        "evidence": "No intake form discussed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats async text as its own record and says so on the scope card",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes the raw session log once the write-up is published, after copying consented handles onto logged feature requests",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

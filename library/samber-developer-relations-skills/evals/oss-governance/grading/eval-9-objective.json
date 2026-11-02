@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Applies the clause test explicitly: every clause must describe something the project has done or will plausibly do this year.",
+        "evidence": "No explicit statement of this test appears anywhere in Section 9; omissions are justified individually (\"inventing one to fill the template would be fiction\") but the general test is never named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Follows the template section order for the sections it keeps, and skips the ones the project does not need rather than reordering.",
+        "evidence": "Document proceeds Scope\u2192Roles\u2192Decisions\u2192Reduced availability\u2192Adding a maintainer\u2192Stepping back\u2192Changing this document, a sensible unreordered progression, with omissions explained in \"What's left out, and why\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists merge rights separately from privileged credentials such as signing, publishing and organization ownership in the roles section.",
+        "evidence": "\"Maintainers: Samuel, Nadia. Merge, release, and decide direction.\" vs. separate \"Release keys: both hold npm publish rights and GitHub org admin.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes an aging-approval or single-approver rule so that routine changes can still land while one of the two maintainers is away.",
+        "evidence": "\"If only one maintainer is reachable, a pending change may merge after 7 days with no objection.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes a scope sentence stating what the project refuses to become, so that features can be declined impersonally.",
+        "evidence": "\"It stays a date-formatting library; new scope (i18n backends, a CLI, a plugin system) is out unless both agree.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes an inactivity definition in months and an emeritus clause with rights removed, credit retained, and reinstatement stated.",
+        "evidence": "\"they move to emeritus\" and \"keeps credit in MAINTAINERS.md; their credentials are rotated\" are present, but no reinstatement process is stated anywhere in the document.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes a named end state: a successor named, or an archive announced publicly, rather than the project going silent.",
+        "evidence": "\"If both step back with no successor, we archive the repository publicly rather than leave it silently unmaintained.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that an archive announcement marks the repository read-only, states the last supported version and the security policy, and points at a successor fork if one exists.",
+        "evidence": "The archive clause only says \"we archive the repository publicly\" with no detail on read-only status, last supported version, security policy, or successor fork.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says explicitly that the project holds no meetings, rather than inventing a meeting cadence.",
+        "evidence": "\"No meetings section \u2014 you don't have standing meetings; inventing one to fill the template would be fiction the first time it's skipped.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Links the neighbouring files (contribution mechanics, code of conduct, people file, security policy) rather than absorbing their content, so that a process tweak is not a governance amendment.",
+        "evidence": "Only MAINTAINERS.md is referenced; no CONTRIBUTING.md, CODE_OF_CONDUCT.md, or SECURITY.md links appear anywhere in the document.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes an amendments clause with a threshold and a window, plus a line stating that changing the document is expected rather than a crisis.",
+        "evidence": "\"Both maintainers agree, in a pull request open at least 7 days\" has threshold/window but no line stating amendment is normal/expected rather than a crisis.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends publishing the reduced-availability period, and treats a stated weekly time budget as a legitimate governance clause rather than something to keep quiet about.",
+        "evidence": "The transcript explicitly advises the opposite: \"Track the real dates privately (shared calendar, not the repo)\" and there is no stated weekly-hours clause anywhere in the document.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Applies the clause test explicitly: every clause must describe something the project has done or will plausibly do this year.",
+        "evidence": "The filtering principle given is problem-relevance ('You don't have those problems yet; don't write rules for them'), not an explicit 'plausibly do this year' test applied clause by clause.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Follows the template section order for the sections it keeps, and skips the ones the project does not need rather than reordering.",
+        "evidence": "No reference to a specific template or its section order is made to verify compliance; the chosen order (Maintainers, Decisions, Availability, Security, Adding a maintainer, What's not covered) is not shown to derive from or match any stated template.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Lists merge rights separately from privileged credentials such as signing, publishing and organization ownership in the roles section.",
+        "evidence": "The Maintainers section lumps 'npm publish, GitHub admin' together per person without separately calling out ordinary merge/commit rights as distinct from these privileged credentials.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes an aging-approval or single-approver rule so that routine changes can still land while one of the two maintainers is away.",
+        "evidence": "'Default: lazy consensus. Either maintainer can merge bug fixes, docs, deps, and anything that doesn't change public API behavior. No sign-off required.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes a scope sentence stating what the project refuses to become, so that features can be declined impersonally.",
+        "evidence": "No scope/refusal statement about what the project will not become appears in the document.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes an inactivity definition in months and an emeritus clause with rights removed, credit retained, and reinstatement stated.",
+        "evidence": "No inactivity definition or emeritus clause appears anywhere in the document.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes a named end state: a successor named, or an archive announced publicly, rather than the project going silent.",
+        "evidence": "No succession or archive/end-state clause appears in the document.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that an archive announcement marks the repository read-only, states the last supported version and the security policy, and points at a successor fork if one exists.",
+        "evidence": "No archive-announcement content appears anywhere in the document.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says explicitly that the project holds no meetings, rather than inventing a meeting cadence.",
+        "evidence": "The accompanying advice explicitly states to 'Leave out: ... meeting cadence' rather than inventing one, and the shipped document contains no meeting-cadence clause.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Links the neighbouring files (contribution mechanics, code of conduct, people file, security policy) rather than absorbing their content, so that a process tweak is not a governance amendment.",
+        "evidence": "'Code style, PR process, release steps \u2014 those live in CONTRIBUTING.md, not here. This file is about who can act, and what happens when one of us can't.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes an amendments clause with a threshold and a window, plus a line stating that changing the document is expected rather than a crisis.",
+        "evidence": "No amendments section or clause appears anywhere in the document.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends publishing the reduced-availability period, and treats a stated weekly time budget as a legitimate governance clause rather than something to keep quiet about.",
+        "evidence": "'Nadia is on parental leave [Jan\u2013May 2027]. During this window, treat her as unreachable \u2014 don't wait on her for anything, including breaking changes.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

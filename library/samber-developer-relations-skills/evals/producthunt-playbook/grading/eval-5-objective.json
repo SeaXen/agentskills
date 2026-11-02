@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Recommends posting threads in the product's own Product Hunt forum",
+        "evidence": "Rank 1 row: \"Product forum thread (`/p/<slug>`) | 60 min\" and \"Forum changelog (60 min) Post once a month.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a thread in the product forum notifies all of the product's followers",
+        "evidence": "\"Every thread notifies all product followers, and titles are searchable [PH].\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Advises writing forum thread titles the way people search",
+        "evidence": "It says \"titles are searchable [PH]\" and gives title patterns like \"What we shipped in Querybook AI in <Month>: <headline feature>\". It never tells the reader to write titles the way people search.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Suggests a recurring changelog or 'what we shipped' forum thread",
+        "evidence": "\"Forum changelog (60 min) Post once a month. Use the Self-Promotion topic for what you shipped.\" The title pattern is \"What we shipped in Querybook AI in <Month>\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends asking real users for reviews and states this is allowed, unlike asking for upvotes",
+        "evidence": "\"Review requests are different. Asking real users to review is invited [PH].\" It sits next to the upvote-request ban.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends the maker byline so the product link appears under the maker's comments",
+        "evidence": "\"The maker byline carries Querybook AI.\" and \"Don't mention Querybook AI in the comment text. The byline does that [PH].\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Mentions that reviews feed Product Hunt's quarterly Orbit Awards",
+        "evidence": "\"They compound and feed the quarterly Orbit Awards per category [PH].\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that Kitty Points or reputation do not affect ranking or featuring",
+        "evidence": "Kitty Points and reputation are never mentioned anywhere in the plan.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that promoting your own product inside comments on others' launches gets the comment removed, with the maker byline as the allowed carrier",
+        "evidence": "\"Self-promotion inside a comment is removed [PH].\" The table row reads \"No self-promotion inside comments | removed by moderators\". The byline is named as the carrier.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names at least one metric to track, such as followers gained or forum replies",
+        "evidence": "\"Product followers gained and the forum thread reply count per month.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Recommends posting threads in the product's own Product Hunt forum",
+        "evidence": "The forum is never mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a thread in the product forum notifies all of the product's followers",
+        "evidence": "Not mentioned. It only says \"Product followers get notified on your next launch.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Advises writing forum thread titles the way people search",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Suggests a recurring changelog or 'what we shipped' forum thread",
+        "evidence": "Not mentioned. It only suggests adding a follow link to the changelog.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends asking real users for reviews and states this is allowed, unlike asking for upvotes",
+        "evidence": "Recommends \"Ask 5 to 10 happy active users per month for an honest review\" but never contrasts it with asking for upvotes.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends the maker byline so the product link appears under the maker's comments",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Mentions that reviews feed Product Hunt's quarterly Orbit Awards",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that Kitty Points or reputation do not affect ranking or featuring",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that promoting your own product inside comments on others' launches gets the comment removed, with the maker byline as the allowed carrier",
+        "evidence": "It suggests commenting usefully on 5 launches but gives no warning about promotion or removal.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names at least one metric to track, such as followers gained or forum replies",
+        "evidence": "\"Track the follower count monthly\" and \"check Product Hunt referrals, signups and activation from the source, and the follower count.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

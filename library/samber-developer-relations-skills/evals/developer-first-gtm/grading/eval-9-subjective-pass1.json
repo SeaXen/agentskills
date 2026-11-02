@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Replaces them with a leading-indicator set of five or fewer numbers, all of which move before revenue.",
+        "evidence": "The transcript names the gap ('Your standing set is signups, MAU, ARR, NPS. None of those move *before* revenue') but never replaces that set. It proposes *adding* exactly two metrics \u2014 'net revenue retention and share of revenue from expansion' ('Add both now') \u2014 and both are revenue-derived lagging measures, not indicators that move before revenue, despite the text asserting otherwise. The only genuinely leading number surfaced anywhere is active seats, and it appears in a separate section as a board-reporting hygiene fix ('report active seats alongside (or instead of) provisioned seats next",
+        "score": 1,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Replaces them with a leading-indicator set of five or fewer numbers, all of which move before revenue.",
+        "evidence": "The transcript critiques the standing board metrics ('ARR: aggregate, lagging', 'MAU: usage, not paying-seat health', 'NPS: attitudinal...weak tie to actual renewal behavior', 'Signups: top-of-funnel') and proposes a short replacement set \u2014 'Missing: NRR, GRR, logo churn rate, quick ratio' plus 'current active/paid seats'. That satisfies the count constraint (~4-5 numbers) but not the substance: every proposed metric is a revenue-derived, backward-looking measure. NRR, GRR, logo churn, and quick ratio are all computed *from* realized revenue movements, so they move with or after revenue, not b",
+        "score": 1,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

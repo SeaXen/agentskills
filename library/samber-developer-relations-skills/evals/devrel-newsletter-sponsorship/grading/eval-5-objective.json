@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that a paid partner placement is still an ad and needs the ad label",
+        "evidence": "\"Once Nimbit pays for the placement, it is advertising... Payment triggers the label in the US, UK, EU and Germany.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines a dedicated send to the main newsletter list",
+        "evidence": "\"Decline the dedicated send to all 26,000.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that a dedicated send for a sponsor is commercial email under US rules",
+        "evidence": "\"In the US, CAN-SPAM applies instead of a ban\"; \"US: CAN-SPAM duties.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that EU or UK consent to the newsletter does not cover third-party marketing",
+        "evidence": "\"In the EU and UK that consent doesn't cover a paid send for a third party.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the UK soft opt-in never covers third-party marketing",
+        "evidence": "\"the UK soft opt-in never does.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Offers a labelled slot inside a normal issue as the alternative",
+        "evidence": "\"A labelled primary slot in a normal issue of Corvane Builders.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Offers a separate opt-in list for partner offers as the route to dedicated sends",
+        "evidence": "\"or a separate partner-offers opt-in list\"; \"Promote it only if you build a separate opt-in list for partner offers\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines sharing the list of companies whose readers clicked",
+        "evidence": "\"Decline the CSV of clicking companies.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Offers aggregate counts only, with company names excluded",
+        "evidence": "\"Aggregate counts only... Never company names.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Raises the competitor or overlap question for the partner under a written acceptance policy",
+        "evidence": "\"Nimbit passes only if it doesn't overlap with your gateway. Confirm that.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "If a dedicated send happens later, says its subject line must name the sponsor and its advertising nature",
+        "evidence": "No rule on a dedicated-send subject line is given. The only subject advice is to keep Nimbit out of the normal issue's subject.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Mentions deliverability or complaint risk from dedicated sends",
+        "evidence": "\"agree a complaint threshold with whoever owns deliverability.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Adds 'Anzeige' or 'Werbung' to the label because readers are in Germany",
+        "evidence": "\"AD \u00b7 ANZEIGE \u00b7 Nimbit: ...\"; \"'Anzeige' is needed for your German readers.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that a paid partner placement is still an ad and needs the ad label",
+        "evidence": "\"Nimbit paying to reach your list makes it a paid promotion either way\" and \"Put a visible label in the header, for example 'Sponsored by Nimbit'\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines a dedicated send to the main newsletter list",
+        "evidence": "\"Send the email: yes, with conditions.\" It approves the dedicated send to segments of the list.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that a dedicated send for a sponsor is commercial email under US rules",
+        "evidence": "\"The US (CAN-SPAM) needs no consent, but requires honest sender identity, an unsubscribe, and a postal address. Paid placements should also be disclosed.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that EU or UK consent to the newsletter does not cover third-party marketing",
+        "evidence": "It says the list was collected for the newsletter and that click data shared with a third party is a different purpose. It never says newsletter consent fails to cover a sponsor send. It proposes sending to Germany with documented marketing opt-in.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the UK soft opt-in never covers third-party marketing",
+        "evidence": "Soft opt-in is never mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Offers a labelled slot inside a normal issue as the alternative",
+        "evidence": "No in-issue sponsor slot is offered. The alternative is an opt-in landing page.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Offers a separate opt-in list for partner offers as the route to dedicated sends",
+        "evidence": "Only \"Consider a 'partner announcements' option in your preference center\", as a side note. The opt-in route offered is a landing-page consent box for lead handoff.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines sharing the list of companies whose readers clicked",
+        "evidence": "\"Hand over the CSV of clicking companies: not as asked.\" It does allow a gray-zone company-level fallback (option C).",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Offers aggregate counts only, with company names excluded",
+        "evidence": "\"A. Aggregate report ... no names. Safe. Offer it as the default.\" Options B and C still share some identifying data.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Raises the competitor or overlap question for the partner under a written acceptance policy",
+        "evidence": "No competitor or overlap question appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "If a dedicated send happens later, says its subject line must name the sponsor and its advertising nature",
+        "evidence": "It says only \"The subject line must not mislead.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Mentions deliverability or complaint risk from dedicated sends",
+        "evidence": "\"A cold dedicated send to 26,000 people risks spam complaints and domain reputation.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Adds 'Anzeige' or 'Werbung' to the label because readers are in Germany",
+        "evidence": "The label examples are English only. German law is discussed, but no German label word is given.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

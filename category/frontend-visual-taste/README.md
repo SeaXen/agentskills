@@ -1,7 +1,7 @@
 # 👁️ Visual Taste, Critique & Typography
 
 > **Category**: `frontend-visual-taste`  
-> **Total Curated Skills**: 158 skills  
+> **Total Curated Skills**: 173 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -25,10 +25,13 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`agency-grid-layout-minimal`](../../library/mengto-skills/skills/agency-grid-layout-minimal) | ⚪ Reserve | `mengto-skills` | Create a minimal agency design system with a disciplined editorial grid, oversized typography, ... |
 | [`amazon-product-api-skill`](../../library/browser-act-skills/skills/amazon-product-api-skill) | ⚪ Reserve | `browser-act-skills` | This skill helps users extract structured product listings from Amazon, including titles, ASINs... |
 | [`amazon-variation-strategy`](../../library/nexscope-ai-amazon-skills/skills/amazon-variation-strategy) | ⚪ Reserve | `nexscope-ai-amazon-skills` | Parent-child variation planning — when to merge/split, color/size variations, ranking benefits |
+| [`analog-found-footage-horror`](../../library/arjun988-blender-skills/skills/analog-found-footage-horror) | ⚪ Reserve | `arjun988-blender-skills` | Analog, VHS, CRT, and found-footage horror aesthetics for Blender shots including camera imperf... |
+| [`anime-style`](../../library/arjun988-blender-skills/skills/anime-style) | ⚪ Reserve | `arjun988-blender-skills` | Anime and cel-shaded art direction for Blender with hard color breaks, toon shaders, clean silh... |
 | [`anti-slop`](../../library/miqdadbadjuber-anti-slop/skills/anti-slop) | ⚪ Reserve | `miqdadbadjuber-anti-slop` | A collection of filters for AI agents to remove generic comments, refine prose, and enforce hig... |
 | [`anti-slop-design`](../../library/sickn33-agentic-awesome-skills/skills/anti-slop-design) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Autonomous Principal Design Technologist. Cures vibe-coded software from AI frontend slop using... |
 | [`appllama-app-design-skill`](../../library/appllama-appllama-skills/skills/appllama-app-design-skill) | ⚪ Reserve | `appllama-appllama-skills` | Build native-feeling, benchmark-quality mobile app screens (Expo / React Native). Use when desi... |
 | [`artistic`](../../library/bergside-awesome-design-skills/skills/artistic) | ⚪ Reserve | `bergside-awesome-design-skills` | High-contrast, expressive style with creative typography and bold color choices for visually st... |
+| [`audit`](../../library/pbakaus-impeccable/skills/audit) | ⚪ Reserve | `pbakaus-impeccable` | a user-authored audit skill |
 | [`audit-ai-design-slop`](../../library/mengto-skills/skills/audit-ai-design-slop) | ⚪ Reserve | `mengto-skills` | Audit websites, apps, screenshots, mockups, and design code for harmful AI-design clichés, gene... |
 | [`awesome-design-md-jp`](../../library/reason-machines-trending-skills/skills/awesome-design-md-jp) | ⚪ Reserve | `reason-machines-trending-skills` | Create accurate Japanese UI DESIGN.md files for AI agents with proper CJK typography, font stac... |
 | [`baoyu-cover-image`](../../library/jimliu-baoyu-skills/skills/baoyu-cover-image) | ⚪ Reserve | `jimliu-baoyu-skills` | Generates article cover images with 5 dimensions (type, palette, rendering, text, mood) combini... |
@@ -56,6 +59,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`color-accessibility-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/color-accessibility-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Colorblind-friendly palettes and accessible visualization design |
 | [`color-font-skill`](../../library/minimax-ai-skills/skills/color-font-skill) | ⚪ Reserve | `minimax-ai-skills` | Choose presentation-ready color palettes and font pairings for PPT/design tasks. Use when users... |
 | [`colorful`](../../library/bergside-awesome-design-skills/skills/colorful) | ⚪ Reserve | `bergside-awesome-design-skills` | Vibrant, high-contrast palettes and gradients for engaging, memorable, and modern user experien... |
+| [`compositing`](../../library/arjun988-blender-skills/skills/compositing) | ⚪ Reserve | `arjun988-blender-skills` | Blender compositor workflows for beauty stacks, render passes, color grade, glare, and delivery... |
 | [`cosmic`](../../library/bergside-awesome-design-skills/skills/cosmic) | ⚪ Reserve | `bergside-awesome-design-skills` | Futuristic sci-fi aesthetic with dark themes, vibrant neon accents, and immersive spatial eleme... |
 | [`create-website`](../../library/wondelai-skills/skills/create-website) | ⚪ Reserve | `wondelai-skills` | Guided journey from a blank page to a live, high-converting website, built message-first, then ... |
 | [`creative`](../../library/bergside-awesome-design-skills/skills/creative) | ⚪ Reserve | `bergside-awesome-design-skills` | Playful, character-driven design with expressive typography and bold graphics for landing pages... |
@@ -93,6 +97,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`friendly`](../../library/bergside-awesome-design-skills/skills/friendly) | ⚪ Reserve | `bergside-awesome-design-skills` | Approachable, intuitive design with rounded elements, ample whitespace, and soft pastel color p... |
 | [`frontend-design-deslop`](../../library/samber-cc-skills/skills/frontend-design-deslop) | ⚪ Reserve | `samber-cc-skills` | Designs distinctive, non-generic UI — typography, OKLCH color, design tokens (DESIGN.md), layou... |
 | [`futuristic`](../../library/bergside-awesome-design-skills/skills/futuristic) | ⚪ Reserve | `bergside-awesome-design-skills` | Forward-looking design with tech-inspired typography, modern layouts, and a sleek, innovation-d... |
+| [`g-assist-mcp-skill`](../../library/nvidia-skills/skills/g-assist-mcp-skill) | ⚪ Reserve | `nvidia-skills` | Use this skill to check or change this machine's NVIDIA display and GPU settings, such as resol... |
 | [`gathered-scenes-zine`](../../library/zeejay0-gathered-scenes-zine-skill/skills/gathered-scenes-zine) | ⚪ Reserve | `zeejay0-gathered-scenes-zine-skill` | A tool for turning personal photos into Morandi-style cinematic posters using professional typo... |
 | [`geometric`](../../library/bergside-awesome-design-skills/skills/geometric) | ⚪ Reserve | `bergside-awesome-design-skills` | Geometric, structured design with clean typography, neutral colors, precise shapes, and intuiti... |
 | [`gpt-image-2`](../../library/gencraft-labs-skills/skills/gpt-image-2) | ⚪ Reserve | `gencraft-labs-skills` | Generate and edit images with OpenAI GPT Image 2 (ChatGPT Images 2.0) on RunComfy. Documents GP... |
@@ -107,6 +112,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`illustrated-explainer-spec`](../../library/reason-machines-trending-skills/skills/illustrated-explainer-spec) | ⚪ Reserve | `reason-machines-trending-skills` | Spec for building an infinite drill-down AI illustrated explainer web app where users type a to... |
 | [`impeccable`](../../skills/impeccable) | 🟢 Active | `active` | Use when the user wants to design, redesign, shape, critique, audit, polish, simplify, harden, ... |
 | [`improve-website`](../../library/wondelai-skills/skills/improve-website) | ⚪ Reserve | `wondelai-skills` | Guided journey from a live website that underperforms to a prioritized, evidence-backed backlog... |
+| [`indie-horror-aesthetics`](../../library/arjun988-blender-skills/skills/indie-horror-aesthetics) | ⚪ Reserve | `arjun988-blender-skills` | Indie horror aesthetic pack for Blender covering Silent Hill, Fear to Fathom, Puppet Combo, cor... |
 | [`industrial-brutalist-ui`](../../library/sickn33-agentic-awesome-skills/skills/industrial-brutalist-ui) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Use when creating raw industrial or tactical telemetry UIs with rigid grids, stark typography, ... |
 | [`install-anti-slop`](../../library/dmmulroy-anti-slop/skills/install-anti-slop) | ⚪ Reserve | `dmmulroy-anti-slop` | Install, configure, update, or upgrade vendored anti-slop Oxlint plugins. Use when adding anti-... |
 | [`ios-design`](../../library/pbakaus-impeccable/skills/ios-design) | ⚪ Reserve | `pbakaus-impeccable` | Design and review iOS UI/UX for iPhone apps in SwiftUI, UIKit, or React Native. Use for mobile ... |
@@ -125,26 +131,34 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`mono`](../../library/bergside-awesome-design-skills/skills/mono) | ⚪ Reserve | `bergside-awesome-design-skills` | Monospace-driven, matrix-inspired design with high-contrast elements, compact density, and a ha... |
 | [`neobrutalism`](../../library/bergside-awesome-design-skills/skills/neobrutalism) | ⚪ Reserve | `bergside-awesome-design-skills` | Modern take on brutalism with bold borders, vivid accent colors, and raw, high-contrast layouts... |
 | [`no-ai-design-slop`](../../library/mengto-skills/skills/no-ai-design-slop) | ⚪ Reserve | `mengto-skills` | Prevent and remove generic AI-generated design defaults, incoherent visual choices, and establi... |
+| [`noir-style`](../../library/arjun988-blender-skills/skills/noir-style) | ⚪ Reserve | `arjun988-blender-skills` | Noir art direction for Blender with high-contrast lighting, wet streets, silhouettes, and monoc... |
 | [`optimize-text-mesh-pro`](../../library/unity-technologies-skills/skills/optimize-text-mesh-pro) | ⚪ Reserve | `unity-technologies-skills` | Optimizes TextMeshPro rendering, memory, and font setup, including font asset stacks, fallback ... |
 | [`pacman`](../../library/bergside-awesome-design-skills/skills/pacman) | ⚪ Reserve | `bergside-awesome-design-skills` | Retro arcade-inspired design with pixel fonts, dotted borders, playful high-contrast colors, an... |
+| [`painterly-style`](../../library/arjun988-blender-skills/skills/painterly-style) | ⚪ Reserve | `arjun988-blender-skills` | Painterly art direction spanning watercolor and oil-painting looks for Blender using soft edges... |
 | [`paper`](../../library/bergside-awesome-design-skills/skills/paper) | ⚪ Reserve | `bergside-awesome-design-skills` | Paper-textured, print-inspired design with minimal colors, clean serif/sans typography, and tac... |
 | [`pixijs-blend-modes`](../../library/pixijs-pixijs-skills/skills/pixijs-blend-modes) | ⚪ Reserve | `pixijs-pixijs-skills` | Use this skill when compositing display objects with blend modes in PixiJS v8. Covers standard ... |
 | [`plotnine`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/plotnine) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | plotnine static visualization (ggplot2 syntax for Python). Geoms, aesthetics, scales, coordinat... |
 | [`power`](../../library/bergside-awesome-design-skills/skills/power) | ⚪ Reserve | `bergside-awesome-design-skills` | High-end dark aesthetic with bold headings, monochromatic palette, and premium feel for premium... |
 | [`ppt-orchestra-skill`](../../library/minimax-ai-skills/skills/ppt-orchestra-skill) | ⚪ Reserve | `minimax-ai-skills` | Plan and orchestrate multi-slide PowerPoint creation from scratch. Use before generating a full... |
 | [`pptx-posters`](../../library/davila7-claude-code-templates/skills/pptx-posters) | ⚪ Reserve | `davila7-claude-code-templates` | Create professional research posters in LaTeX using beamerposter, tikzposter, or baposter. Supp... |
+| [`pptx-reference-deck-analysis`](../../library/wshobson-agents/skills/pptx-reference-deck-analysis) | ⚪ Reserve | `wshobson-agents` | Use when analyzing a reference PPTX for read-only structure, theme, typography, layout rhythm, ... |
 | [`premium`](../../library/bergside-awesome-design-skills/skills/premium) | ⚪ Reserve | `bergside-awesome-design-skills` | Apple-inspired premium aesthetic with precise spacing, modern typography, and a refined, polish... |
 | [`product-taste`](../../library/refoundai-lenny-skills/skills/product-taste) | ⚪ Reserve | `refoundai-lenny-skills` | Help users build a professional eye for quality, articulate the reasoning behind successful pro... |
 | [`professional`](../../library/bergside-awesome-design-skills/skills/professional) | ⚪ Reserve | `bergside-awesome-design-skills` | Polished, business-ready design with modern typography, structured layouts, and a trustworthy v... |
+| [`psx-horror-style`](../../library/arjun988-blender-skills/skills/psx-horror-style) | ⚪ Reserve | `arjun988-blender-skills` | PS1/PSX-era horror art direction combining low-poly affine textures, limited color depth, fog, ... |
 | [`readable-measure`](../../library/owl-listener-designer-skills/skills/readable-measure) | ⚪ Reserve | `owl-listener-designer-skills` | Set line length and measure for comfortable reading across type sizes and breakpoints. Use when... |
 | [`redesign`](../../library/plugin87-ux-ui-agent-skills/skills/redesign) | ⚪ Reserve | `plugin87-ux-ui-agent-skills` | Upgrade an existing website or app to premium quality without breaking functionality. Audit the... |
 | [`refined`](../../library/bergside-awesome-design-skills/skills/refined) | ⚪ Reserve | `bergside-awesome-design-skills` | Carefully curated, modern minimal style with elegant serif typography and understated, sophisti... |
 | [`relight`](../../library/gencraft-labs-skills/skills/relight) | ⚪ Reserve | `gencraft-labs-skills` | Relight a still image — change the lighting setup, color temperature, direction, or mood — on R... |
+| [`rendering`](../../library/arjun988-blender-skills/skills/rendering) | ⚪ Reserve | `arjun988-blender-skills` | Blender rendering with Cycles and Eevee including sampling, denoising, camera setup, render pas... |
 | [`research-setup`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/research-setup) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Interactive setup wizard that configures a new project for the social-science-research plugin. ... |
+| [`retro-16bit-style`](../../library/arjun988-blender-skills/skills/retro-16bit-style) | ⚪ Reserve | `arjun988-blender-skills` | Retro 16-bit art direction for Blender-assisted SNES/Genesis-era color richness, dither cues, a... |
+| [`retro-8bit-style`](../../library/arjun988-blender-skills/skills/retro-8bit-style) | ⚪ Reserve | `arjun988-blender-skills` | Retro 8-bit art direction for Blender-assisted pixel/low-res aesthetics inspired by NES-era con... |
 | [`reveal-hover-effect`](../../library/mengto-skills/skills/reveal-hover-effect) | ⚪ Reserve | `mengto-skills` | Build cursor-following spotlight reveals that expose a second aligned image through a soft radi... |
 | [`riso`](../../library/bergside-awesome-design-skills/skills/riso) | ⚪ Reserve | `bergside-awesome-design-skills` | A playful, joyful, two-color risograph print aesthetic built on a single warm off-white paper s... |
 | [`roku`](../../library/bergside-awesome-design-skills/skills/roku) | ⚪ Reserve | `bergside-awesome-design-skills` | App dashboard with purple-themed aesthetic, top-bar navigation, card-based layouts, and develop... |
 | [`s1dashu-ip-as-logo`](../../library/s1dashu-ip-as-logo-skill/skills/s1dashu-ip-as-logo) | ⚪ Reserve | `s1dashu-ip-as-logo-skill` | Generate extremely simple, cute, personified square character images with rounded heavy forms, ... |
+| [`s1dashu-ip-as-logo-skill`](../../library/s1dashu-ip-as-logo-skill/skills/s1dashu-ip-as-logo-skill) | ⚪ Reserve | `s1dashu-ip-as-logo-skill` | Generate extremely simple, cute, personified square character images with rounded heavy forms, ... |
 | [`site-specification`](../../library/cline-skills/skills/site-specification) | ⚪ Reserve | `cline-skills` | Extract comprehensive site specifications from simple descriptions. Use when analyzing a user's... |
 | [`sleek`](../../library/bergside-awesome-design-skills/skills/sleek) | ⚪ Reserve | `bergside-awesome-design-skills` | Modern minimalist aesthetic with clean lines, intentional color palette, subtle interactions, a... |
 | [`split-layout-technical`](../../library/mengto-skills/skills/split-layout-technical) | ⚪ Reserve | `mengto-skills` | Create a technical split-screen design system with dual panels, fine frame lines, mono metadata... |
@@ -171,6 +185,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`vibrant`](../../library/bergside-awesome-design-skills/skills/vibrant) | ⚪ Reserve | `bergside-awesome-design-skills` | Lively, colorful design with bold playful typography, warm accents, and dynamic visual energy. |
 | [`vintage`](../../library/bergside-awesome-design-skills/skills/vintage) | ⚪ Reserve | `bergside-awesome-design-skills` | 1950s-1990s nostalgia with skeuomorphic touches, grainy textures, retro color palettes, and pix... |
 | [`visual-audit`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/visual-audit) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Perform adversarial visual audit of Quarto or Beamer slides checking for overflow, font consist... |
+| [`visual-design-foundations`](../../library/wshobson-agents/skills/visual-design-foundations) | ⚪ Reserve | `wshobson-agents` | Apply typography, color theory, spacing systems, and iconography principles to create cohesive ... |
 | [`visual-emotion-engineer`](../../library/sickn33-agentic-awesome-skills/skills/visual-emotion-engineer) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Create a visual direction brief for color, typography, imagery, and hierarchy when design must ... |
 | [`walmart-product-detail`](../../library/browser-act-skills/skills/walmart-product-detail) | ⚪ Reserve | `browser-act-skills` | Walmart product detail page extractor: given a walmart.com product URL (walmart.com/ip/...), ex... |
 | [`walmart-product-reviews`](../../library/browser-act-skills/skills/walmart-product-reviews) | ⚪ Reserve | `browser-act-skills` | Walmart product reviews scraper: given a walmart.com product item ID, navigate to the reviews p... |

@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The response recommends live text instead of an image of code.",
+        "evidence": "'My recommendation is the 5-line live-text excerpt plus a link to the full file.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response names at least two concrete costs of an image of code among: images blocked by default, unreadable to screen readers, no copy-paste, dark-mode contrast.",
+        "evidence": "Lists images blocked by default, readers can't copy it, and screen readers can't read it.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response states that if the image is kept, it needs alt text describing what the code does and a link to the code as text.",
+        "evidence": "'Alt text that describes what the code does... A text link to the code directly beneath it'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response does not write a full new webhook signature verification implementation of its own.",
+        "evidence": "'I haven't written the verification code'; the draft has only placeholders.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response asks for the team's own tested verification code, or points to linking the existing docs page, instead of authoring it.",
+        "evidence": "'Please paste one of these: 1. The tested Python from your docs... 2. The docs page that already holds it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response proposes showing a short excerpt (5 lines or fewer) and linking to the full file, gist or docs page.",
+        "evidence": "'Excerpt: up to 5 lines... Full verification... pointing to your hosted file.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response asks where the full file will be hosted, or tells the user to host it before send.",
+        "evidence": "Pre-send table: 'Full file hosted (GitHub, gist or docs) | Blocked. Needed for the link.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Any HTML code block given uses inline style attributes for font, background and colour rather than relying only on a <style> block or CSS class.",
+        "evidence": "The `<pre>` and `<td>` carry inline style with background-color, color and font-family.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Any code block font declaration uses a system monospace stack and no web font loaded via @font-face or Google Fonts.",
+        "evidence": "font-family:Consolas,Menlo,Monaco,'Courier New',monospace",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response warns that a dark highlighting theme such as Dracula can invert or lose contrast in dark-mode or light-mode clients.",
+        "evidence": "'The Dracula background is dark, so dark-mode inversion can change its contrast.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response sets a maximum code line length of 45 characters or fewer, citing phone screen width.",
+        "evidence": "'excerpt, lines of 40 characters or fewer' appears only as a placeholder note. Phone width is cited for the image shrinking, not as the reason for the limit.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response mentions the plain-text part, with the code indented or the full URL spelled out.",
+        "evidence": "The plain-text part gives '[FULL_CODE_URL]' on its own line.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The response recommends live text instead of an image of code.",
+        "evidence": "It builds the Carbon PNG workflow: 'Paste this into Carbon as is.' Live text is never recommended.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response names at least two concrete costs of an image of code among: images blocked by default, unreadable to screen readers, no copy-paste, dark-mode contrast.",
+        "evidence": "'many clients block images by default' and 'readers can't copy code from an image.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response states that if the image is kept, it needs alt text describing what the code does and a link to the code as text.",
+        "evidence": "The alt text describes what the function does. The notes say 'Put the code in a gist or your docs and point DOCS_URL at it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response does not write a full new webhook signature verification implementation of its own.",
+        "evidence": "It writes a full 29-line verify_webhook function using HMAC-SHA256.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response asks for the team's own tested verification code, or points to linking the existing docs page, instead of authoring it.",
+        "evidence": "It says 'I don't have Harrowgate's real signing spec, so this uses the common scheme' and authors the code itself.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response proposes showing a short excerpt (5 lines or fewer) and linking to the full file, gist or docs page.",
+        "evidence": "It shows the full 29-line code as an image.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response asks where the full file will be hosted, or tells the user to host it before send.",
+        "evidence": "'Put the code in a gist or your docs and point DOCS_URL at it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Any HTML code block given uses inline style attributes for font, background and colour rather than relying only on a <style> block or CSS class.",
+        "evidence": "Every td, p and img carries a style=\"...\" attribute, with no <style> block.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Any code block font declaration uses a system monospace stack and no web font loaded via @font-face or Google Fonts.",
+        "evidence": "The HTML has no monospace font declaration. The <code> tags carry no font-family.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response warns that a dark highlighting theme such as Dracula can invert or lose contrast in dark-mode or light-mode clients.",
+        "evidence": "It says the opposite: 'Dracula's dark background looks fine in both modes.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response sets a maximum code line length of 45 characters or fewer, citing phone screen width.",
+        "evidence": "There is no line-length limit. The code has lines of 80 or more characters, and the Carbon width is about 700 px.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response mentions the plain-text part, with the code indented or the full URL spelled out.",
+        "evidence": "The plain-text version of the email is never mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

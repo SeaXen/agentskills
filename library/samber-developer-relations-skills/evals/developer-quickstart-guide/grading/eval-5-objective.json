@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Removes the `$` shell prompt from the install command.",
+        "evidence": "Fixed block reads plainly '    npm install @quillpost/client@2' with no leading `$`, after flagging '`$` prompt left in' as a defect.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the package explicitly instead of a bare `npm install`, and pins a version.",
+        "evidence": "'npm install @quillpost/client@2' \u2014 explicit package name and pinned major version.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes the line numbers from the code block.",
+        "evidence": "The corrected code block 'const qp = new Quillpost(\"<YOUR_API_KEY>\");' has no line numbers, correcting the flagged defect 'line numbers in code block'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces `qp_live_9fT2xA` with an unmistakable placeholder such as `<YOUR_API_KEY>`, and states that a plausible-looking fake value gets pasted verbatim.",
+        "evidence": "Defect list: 'key shown is live-mode (`qp_live_`) and looks like a real paste-able value' and fix uses 'const qp = new Quillpost(\"<YOUR_API_KEY>\");'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the `live` scope of the key specifically and recommends a test-scoped key, so a copy-paste mistake cannot send real email or cost money.",
+        "evidence": "'If Quillpost has a sandbox/test-mode key (like `qp_test_...`), use that here instead of a live key \u2014 removes the \"pasted a real key into a doc\" risk entirely.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Moves the `// your key is in Settings > API` commentary out of the copy-pasteable block, placing it immediately before or after.",
+        "evidence": "'Create `send.js` and add your key (find it under **Settings \u2192 API**, or [create one directly](<QUILLPOST_KEYS_URL>)):' now precedes the code block instead of being a comment inside it.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces the 'Settings > API' wording with a direct one-click link to the credential page.",
+        "evidence": "The fix keeps 'Settings \u2192 API' as plain bold text and only adds a separate link phrase 'create one directly' alongside it, rather than replacing the wording itself with a link.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the complete runnable file including its `import` statement, rather than the fragment shown.",
+        "evidence": "The fixed snippet is a single line, 'const qp = new Quillpost(\"<YOUR_API_KEY>\");', with no import/require statement or complete file.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rewrites each heading as a verb-led statement of the whole outcome and removes the `-ing` form.",
+        "evidence": "Headings become '## 1. Install the client library' and '## 2. Configure your API key', replacing the flagged gerund headings.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Adds an expected-output block to each step, in a separate block from the command so the output cannot be copied along with it.",
+        "evidence": "Neither step 1 nor step 2 in the fixed markdown has a 'You should see' output block.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds a one-line fail branch to each step, tied to its most likely error.",
+        "evidence": "Step 1 has no fail branch at all; step 2 only has an explanatory note ('a bad key surfaces as an auth error on send, not here') rather than an actionable fail branch.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cuts the closing list to at most three next steps.",
+        "evidence": "'Not touched, since out of scope... the closing line lists 6 next steps (template caps at 3) \u2014 happy to fix both if wanted.'",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Removes the `$` shell prompt from the install command.",
+        "evidence": "The final command \"npm install quillpost\" has no `$`, but the \"what I fixed\" notes never mention removing a shell prompt as one of the identified issues, so there is no clear evidence this was an addressed defect.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the package explicitly instead of a bare `npm install`, and pins a version.",
+        "evidence": "\"`npm install` was missing the package name... Added `quillpost`\" \u2014 package is named, but no version is pinned anywhere (e.g. no `@x.y.z`).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Removes the line numbers from the code block.",
+        "evidence": "\"Dropped the inline `1  2` line-number artifacts from the code block (they'd get copy-pasted verbatim if left in)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces `qp_live_9fT2xA` with an unmistakable placeholder such as `<YOUR_API_KEY>`, and states that a plausible-looking fake value gets pasted verbatim.",
+        "evidence": "The replacement is `\"qp_live_xxxxxxxxxx\"`, which keeps the real key-shaped `qp_live_` prefix rather than an unmistakable non-key placeholder like `<YOUR_API_KEY>`.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the `live` scope of the key specifically and recommends a test-scoped key, so a copy-paste mistake cannot send real email or cost money.",
+        "evidence": "The explanation only discusses hardcoding vs. environment variables (\"Docs that show a real key shape invite readers to copy-paste a real secret\") and never addresses the live-vs-test scope distinction or recommends a test key.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Moves the `// your key is in Settings > API` commentary out of the copy-pasteable block, placing it immediately before or after.",
+        "evidence": "\"turned the 'your key is in Settings > API' comment into prose above the snippet, so the code block itself is clean and runnable as-is\"; the final page has \"Grab your API key from **Settings > API**...\" as prose immediately before the code block.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces the 'Settings > API' wording with a direct one-click link to the credential page.",
+        "evidence": "The final text still reads \"Grab your API key from **Settings > API**\" as plain bolded text, not a hyperlink.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the complete runnable file including its `import` statement, rather than the fragment shown.",
+        "evidence": "The JS snippet is only `const qp = new Quillpost(process.env.QUILLPOST_API_KEY);` with no import/require statement \u2014 still a fragment.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rewrites each heading as a verb-led statement of the whole outcome and removes the `-ing` form.",
+        "evidence": "Headings remain \"## Installing the client\" and \"## Configuring your credentials\" \u2014 both still gerund (-ing) form.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds an expected-output block to each step, in a separate block from the command so the output cannot be copied along with it.",
+        "evidence": "Neither the install step nor the credentials step includes any expected-output block.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds a one-line fail branch to each step, tied to its most likely error.",
+        "evidence": "No troubleshooting or fail-branch line is included for either step.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cuts the closing list to at most three next steps.",
+        "evidence": "The six-link run-on sentence is only flagged as an optional future fix (\"worth breaking into a short bulleted 'Next steps' list if you want that section tidied off, just say the word\"), not actually cut.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

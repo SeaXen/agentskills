@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The draft does not use the words 'generated' or 'revenue' for the $380k; it calls it pipeline influenced",
+        "evidence": "Draft: \"DevRel influenced $380k of pipeline (180-day rule, shared with sales)\"; 'generated' only appears in the pre-draft explanation.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The $380k line states that the credit is shared with sales",
+        "evidence": "Label column: \"influenced, shared with sales\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The $380k line names the 180-day touch rule",
+        "evidence": "\"pipeline influenced, 180-day touch rule | $380k\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The draft contains no ROI multiple such as '5x' or '1.8x'",
+        "evidence": "The draft gives only \"$210k / 52\" cost per DQL; 5x and 1.8x appear only in the preface.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response explains to the user why the requested headline was not used (double counting with sales or discounting of the whole report)",
+        "evidence": "\"The $380k is shared pipeline... first time someone spots the double count, every other number on the page gets discounted.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Every number in the goal ledger carries a claim label such as measured or influenced",
+        "evidence": "Rows labelled \"measured (product analytics)\", \"influenced, shared with sales\", \"measured\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The first-success rate appears with its prior value 29% or its 31-35% band",
+        "evidence": "\"29% (Q2) / 31-35% band\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "GitHub stars and the 6 talks appear only in an appendix or activity line, not in the headline or goal ledger",
+        "evidence": "\"Activity: 6 conference talks, GitHub stars +2,100\" in the appendix.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The draft ends with or contains a 'decision asked' that names a decision and a date or deadline",
+        "evidence": "\"Needed by 2026-11-03.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The cost line states that the $210k includes salaries",
+        "evidence": "\"Program cost $210k this quarter (salaries in, two salaries included).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The draft offers a cost-per-outcome figure instead of an ROI multiple",
+        "evidence": "\"Cost per DQL routed: about $4.0k ($210k / 52, measured count...)\".",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The draft does not use the words 'generated' or 'revenue' for the $380k; it calls it pipeline influenced",
+        "evidence": "Headline: 'DevRel influenced $380k of pipeline'; 'Pipeline is not revenue.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The $380k line states that the credit is shared with sales",
+        "evidence": "'Sales also counts these deals, so this is shared credit'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The $380k line names the 180-day touch rule",
+        "evidence": "'180-day touch rule.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The draft contains no ROI multiple such as '5x' or '1.8x'",
+        "evidence": "'Pipeline per $1 of cost | $1.81' and 'The return is about 1.8x pipeline-to-cost.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response explains to the user why the requested headline was not used (double counting with sales or discounting of the whole report)",
+        "evidence": "'Why I didn't use your headline' section",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Every number in the goal ledger carries a claim label such as measured or influenced",
+        "evidence": "Only the $380k carries a label ('influenced'); DQLs, cost and first-success have none.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The first-success rate appears with its prior value 29% or its 31-35% band",
+        "evidence": "'Q2 29% | Q3 34% | Target band 31\u201335%'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "GitHub stars and the 6 talks appear only in an appendix or activity line, not in the headline or goal ledger",
+        "evidence": "'Reach (context, not the case for the budget)'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The draft ends with or contains a 'decision asked' that names a decision and a date or deadline",
+        "evidence": "'Asks and next steps' has no decision with a deadline; 'next quarter' is vague.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The cost line states that the $210k includes salaries",
+        "evidence": "'Fully loaded, includes two salaries.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The draft offers a cost-per-outcome figure instead of an ROI multiple",
+        "evidence": "'Cost per DQL | ~$4,040'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

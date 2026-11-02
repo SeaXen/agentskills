@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Asks whether the ambassador role is paid or unpaid before accepting the copied requirement list",
+        "evidence": "\"Assuming unpaid-or-stipend model here, standard for this role type \u2014 confirm if wrong, changes everything below.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that foundation ambassador programs are frequently unpaid and gated on measurable contribution rather than communication polish",
+        "evidence": "\"screen on contribution evidence (PRs, talks given, forum/issue triage history, a DevStats-style score), not years\" combined with \"Assuming unpaid-or-stipend model here, standard for this role type\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to carry the salaried Developer Advocate requirement list into an unpaid ambassador program",
+        "evidence": "\"those 4 lines are a salaried Developer Advocate JD, not an ambassador program\" followed by a full rewrite of the requirements.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the weekly reporting line and the 24-hour response obligation as employment-shaped obligations inappropriate for an unpaid program",
+        "evidence": "\"Weekly 1:1, reports to you \u2014 biggest issue ... Some jurisdictions read sustained one-on-one control over unpaid people as an employment-classification risk.\" and \"Respond within 24h \u2014 no SLA on volunteers.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites a foundation ambassador program that is explicitly not a paid position and selects on a minimum contribution score, such as the CNCF Ambassador program",
+        "evidence": "\"Vendor-neutral foundation ambassadors (CNCF pattern, same shape as your six-member setup) screen on contribution history ... Assuming unpaid-or-stipend model here, standard for this role type\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats a salaried vendor-neutral foundation advocate posting and an unpaid ambassador program as two different postings, never one template",
+        "evidence": "\"Root problem: those 4 lines are a salaried Developer Advocate JD, not an ambassador program.\" \u2014 rewrites entirely as a distinct format.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that generic job boards such as LinkedIn and Indeed underperform here, because the pool that both codes credibly and communicates publicly is small and already visible through other channels",
+        "evidence": "The stated reasoning is different: \"Wrong pool: job-board traffic applies to titles, not projects. Wrong signal too: a paid-boosted ad for an unpaid role reads as bait\" \u2014 not the small-overlapping-pool rationale required.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends scouting already-engaged contributors inside the project's own community venues and approaching them directly",
+        "evidence": "\"Your project's own Slack/Discord/mailing list/forum \u2014 the most active members already there are your best candidates, ask directly.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that technology-specific Slack and Discord communities generally forbid unsolicited direct messages, so a post in a dedicated jobs channel respects each community's own rules",
+        "evidence": "No mention of community DM etiquette or dedicated jobs channels appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names niche DevRel job boards as preferable to generic boards because their listings are pre-filtered to companies already running a DevRel function",
+        "evidence": "No niche DevRel job boards are mentioned; the five recommended channels are community venues, GitHub, meetup organizers, member-org nominations, and peer foundations.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Asks whether the ambassador role is paid or unpaid before accepting the copied requirement list",
+        "evidence": "\"If ambassadors are unpaid or stipend-only, this combination is real exposure\" is conditional phrasing, not a direct question to the user to confirm status.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that foundation ambassador programs are frequently unpaid and gated on measurable contribution rather than communication polish",
+        "evidence": "No general statement that such programs are 'frequently unpaid'; only conditional language ('if ambassadors are unpaid') is used.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to carry the salaried Developer Advocate requirement list into an unpaid ambassador program",
+        "evidence": "\"is a salaried Developer Advocate job description with the salary removed... Fix: strip directive language before it goes anywhere.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the weekly reporting line and the 24-hour response obligation as employment-shaped obligations inappropriate for an unpaid program",
+        "evidence": "\"A mandatory 24-hour SLA plus a weekly 1:1 to you personally reads as supervision, not community participation.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites a foundation ambassador program that is explicitly not a paid position and selects on a minimum contribution score, such as the CNCF Ambassador program",
+        "evidence": "CNCF Ambassadors is cited only as a candidate source (\"people who already know how to do this role\"), not described as unpaid/contribution-gated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats a salaried vendor-neutral foundation advocate posting and an unpaid ambassador program as two different postings, never one template",
+        "evidence": "The entire fix section rewrites salaried-style bullets into distinct volunteer language (e.g., \"'Respond within 24 hours' \u2192 'actively engaged in community discussions'\") rather than reusing one template.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that generic job boards such as LinkedIn and Indeed underperform here, because the pool that both codes credibly and communicates publicly is small and already visible through other channels",
+        "evidence": "\"You don't have a reach problem \u2014 this developer niche is small and findable \u2014 you have a signal problem.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends scouting already-engaged contributors inside the project's own community venues and approaching them directly",
+        "evidence": "\"Your own community first \u2014 project Slack/Discord, forum, GitHub Discussions. Pull people already answering others' questions or organizing local meetups.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that technology-specific Slack and Discord communities generally forbid unsolicited direct messages, so a post in a dedicated jobs channel respects each community's own rules",
+        "evidence": "No mention of DM norms or jobs-channel etiquette anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names niche DevRel job boards as preferable to generic boards because their listings are pre-filtered to companies already running a DevRel function",
+        "evidence": "No job board, niche or generic, is recommended; direct sourcing is favored throughout instead.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

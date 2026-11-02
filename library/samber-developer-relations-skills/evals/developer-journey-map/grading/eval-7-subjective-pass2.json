@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Writes the developer's job in the developer's own words rather than vendor funnel language.",
+        "evidence": "The journey table carries a dedicated \"Developer's job\" column, and all five entries are first-person, quoted, practitioner-voiced statements of intent rather than funnel stages: \"find a way to see what's happening inside our self-hosted infra without shipping telemetry to a third party\"; \"prove the agent actually collects real data from one of our hosts before I invest more time\"; \"wire it into what we already run \u2014 our Prometheus/Grafana/OTel stack, our alerting, our RBAC \u2014 without breaking staging\"; \"trust this enough to put it on call for a real workload\"; \"tell other teams or the outside ",
+        "score": 5,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Writes the developer's job in the developer's own words rather than vendor funnel language.",
+        "evidence": "The Customer Goal column is genuinely written from the practitioner's side and in operator language: \"Pin down why current visibility failed and whether fixing it is worth a project,\" \"Prove it works in their environment, at their scale, with no surprises, before it touches anything real,\" \"Get sign-off, cut over to production without an incident, and be able to defend the choice in six months,\" and \"stop being the single point of failure for it.\" Pain points echo real platform-engineer phrasing too \u2014 \"bill shock,\" \"alert fatigue,\" \"'self-hosted' fatigue,\" \"pager duty for life with no bus fact",
+        "score": 3,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

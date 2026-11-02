@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The response does not recommend a specific hosted docs product",
+        "evidence": "\"I'm not naming a hosted product\"; the product names appear only as the skill's examples.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response identifies the zero-result queries as possible missing pages or a content gap to check, not a platform problem",
+        "evidence": "\"The page doesn't exist... Write the page.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response flags that some answers may exist but be misplaced (for example inside the Billing FAQ) as an information architecture problem",
+        "evidence": "\"The content is in the Billing FAQ under a different phrasing\"; \"Answers filed by who owns them\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response routes the findability problem to samber/developer-relations-skills@developer-docs-structure-audit",
+        "evidence": "\"Structure audit (`developer-docs-structure-audit`)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response states that moving platforms would carry the same content and structure problems over",
+        "evidence": "\"A new platform would carry that problem over unchanged.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response recommends staying on the current platform (stay and fix) as the outcome",
+        "evidence": "\"Fix findability on MkDocs first\"; \"Stay and fix (recommended)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response states that no knockout requirement fails on the current platform, or that no platform pain was reported",
+        "evidence": "\"Nothing you described fails a knockout today.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response treats AI search as unable to answer from pages that do not exist",
+        "evidence": "\"A platform's AI search answers only from existing pages, so it can't fix this.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response names at least one cheaper search improvement on the current platform or says search can be improved without moving",
+        "evidence": "\"Add search synonyms and aliases, for example pooler/PgBouncer\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response names a condition or revisit trigger under which a platform switch would be reconsidered",
+        "evidence": "Section 7: \"After Phase 1, the zero-result rate or the NPS theme stays flat.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The response does not recommend a specific hosted docs product",
+        "evidence": "\"If leadership still wants to move after that, choose **Mintlify**.\" and \"If you move anyway: Mintlify\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response identifies the zero-result queries as possible missing pages or a content gap to check, not a platform problem",
+        "evidence": "\"Page missing, or documented as 'vector search'\"; \"The three zero-result queries point at content and search configuration\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response flags that some answers may exist but be misplaced (for example inside the Billing FAQ) as an information architecture problem",
+        "evidence": "\"The limits sit inside the Billing FAQ... This is an information architecture problem.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response routes the findability problem to samber/developer-relations-skills@developer-docs-structure-audit",
+        "evidence": "The skill is not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response states that moving platforms would carry the same content and structure problems over",
+        "evidence": "\"Migrating first fixes nothing. Convert the content, and the Billing FAQ is still one giant page.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response recommends staying on the current platform (stay and fix) as the outcome",
+        "evidence": "\"Don't pick a hosted platform yet. Fix findability on MkDocs first, then decide.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response states that no knockout requirement fails on the current platform, or that no platform pain was reported",
+        "evidence": "It says only \"Nothing in your data shows that the platform is the cause.\" It never frames this as no knockout requirement failing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response treats AI search as unable to answer from pages that do not exist",
+        "evidence": "It says \"Missing content stays missing\" about a new platform, not about AI search specifically.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response names at least one cheaper search improvement on the current platform or says search can be improved without moving",
+        "evidence": "\"Add synonyms and keywords\"; \"Algolia DocSearch... Pagefind... plug into MkDocs\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response names a condition or revisit trigger under which a platform switch would be reconsidered",
+        "evidence": "\"Move to Mintlify only if the gate fails or the Material timeline forces a move.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

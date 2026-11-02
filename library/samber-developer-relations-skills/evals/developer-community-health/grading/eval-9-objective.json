@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Cuts the sheet to at most 8 metrics",
+        "evidence": "\"The 8 that survive, one line each so a reader sees the whole sheet at once\" \u2014 exactly 8 rows",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires each surviving metric to pass a \"so what\" test: if the number moved about 20% next month, someone would do something differently",
+        "evidence": "\"Cutting rule (from the skill): keep a metric only if it passes the 'so what' test \u2014 if it moved 20% next month, would anyone with a name do something differently?\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires each surviving metric to carry all five parts - a plain-language definition, a data source the team can access today, a baseline or an explicit \"baselining\" mark, a threshold, and a named action with a named owner",
+        "evidence": "The '8 that survive' table only has columns Metric/Pillar/Definition/Source/Owner/Action \u2014 no Baseline or Threshold column; the later report template shows Baseline as \"baselining\" but Threshold as bare \"\u2014\" with no label for every row",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names an owner for the review itself and states that an unowned dashboard stops being refreshed",
+        "evidence": "\"'If nobody is named for the review, it stops being refreshed by month three.'\" and \"Assign real names to the four owner slots above.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the fix for an unread dashboard is fewer metrics, not more automation",
+        "evidence": "\"19 metrics also blows the skill's own ceiling of 8 by more than double \u2014 a sheet that size is why nobody can hold the whole thing in their head\" with Fix 2 entirely about cutting count, never proposing automation",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires thresholds to be re-derived from the trailing baseline at each review rather than set once and left alone",
+        "evidence": "\"Recompute the band every review. This is what stops a threshold from calcifying a second time.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Uses the 14 periods of history to replace fixed cutoffs with a deviation band, defined as a stated percentage band or a spread of standard deviations around the rolling mean",
+        "evidence": "\"14 months = roughly enough history to skip straight to the mature mechanism... set a deviation band \u2014 flag a reading that leaves its trailing rolling mean \u00b1 a stated band (pick a % or a spread of standard deviations...)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the chosen band definition to be written into the sheet",
+        "evidence": "\"write the choice on the sheet\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Resolves the duplicate \"active members\" definition by publishing the formula beside the number and settling on a single definition",
+        "evidence": "The transcript explicitly rejects settling on one definition: \"Neither is 'the' active-members number. Publish both, side by side, formula printed next to each, every month.\" \u2014 it keeps two permanent metrics rather than a single definition",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps at least one metric per pillar across responsiveness, contributor funnel, activity and sentiment",
+        "evidence": "\"All four pillars covered. 3 responsiveness / 2 funnel / 2 activity / 1 sentiment\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels each retained threshold's origin as published, self-set convention, or unsourced folklore",
+        "evidence": "The instruction to \"Label every threshold's origin on the sheet itself (published / self-set / folklore)\" is stated generically, but neither the '8 that survive' table nor the report template actually shows an origin label per metric \u2014 the template's Threshold column is just \"\u2014\" for every row",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cuts any metric that cannot be tied to a named action rather than keeping it as context",
+        "evidence": "The \"so what\" cutting rule (\"would anyone with a name do something differently?\") is exactly this criterion, applied to justify \"Near-certain cuts\" like total member count and raw message volume",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Cuts the sheet to at most 8 metrics",
+        "evidence": "The transcript keeps all 19 metrics on the dashboard, only splitting them into tiers: 'Act tier ... Expect this to be a small subset \u2014 5-8 metrics, not 19.' and 'Watch tier (context, not alarm): metrics worth tracking for trend but with no single actionable response.' The full sheet is never cut to 8; Watch-tier metrics (potentially 11+) remain on the dashboard indefinitely.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires each surviving metric to pass a \"so what\" test: if the number moved about 20% next month, someone would do something differently",
+        "evidence": "No such test is described. The closest proxy is runbook-writability ('If you can't write the runbook, you likely can't act on the metric either \u2014 that's a sign it's a \"watch\" metric') but this is never framed as a quantified 'would the number moving X% change a decision' test, and it's used to demote metrics to Watch rather than exclude them.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires each surviving metric to carry all five parts - a plain-language definition, a data source the team can access today, a baseline or an explicit \"baselining\" mark, a threshold, and a named action with a named owner",
+        "evidence": "The worksheet fields are: 'Metric name / Current definition (exact formula) / Tier / Definition owner / Response owner / Baseline: rolling 6-mo band / hard floor + justification sentence / Runbook (Act tier only) / Last time this metric changed a decision' \u2014 there is no 'data source' field, and no explicit separate 'threshold' field distinct from the baseline band.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names an owner for the review itself and states that an unowned dashboard stops being refreshed",
+        "evidence": "Ownership is assigned per-metric ('Definition owner' and 'Response owner' columns) and a 'metrics steward' is named only for the active-members pair, but no single owner is named for the dashboard/review process as a whole, and the transcript never states that an unowned dashboard stops being refreshed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the fix for an unread dashboard is fewer metrics, not more automation",
+        "evidence": "The transcript never frames the fix this way; instead it proposes additional automation such as 'add an automated consistency check that pages the data team' and 'Baseline window rolls forward automatically every month,' while retaining all 19 metrics split across two tiers rather than reducing the total count.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires thresholds to be re-derived from the trailing baseline at each review rather than set once and left alone",
+        "evidence": "'Recalibration cadence | Baseline window rolls forward automatically every month. A human only re-examines the hard floor (not the statistical band) once a quarter' \u2014 thresholds are explicitly tied to a rolling, recomputed baseline rather than a one-time setting.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Uses the 14 periods of history to replace fixed cutoffs with a deviation band, defined as a stated percentage band or a spread of standard deviations around the rolling mean",
+        "evidence": "The transcript defines a deviation band ('Green = within 1 std-dev (or \u00b120% if the series is too short/noisy for std-dev) of the baseline mean. Yellow = 1\u20132 std-dev. Red = beyond 2 std-dev'), but it derives this from a 'Baseline window | Trailing 6 months of actual data' rather than the 14 months/periods of existing history referenced elsewhere in the scenario ('Thresholds are stale, not wrong... They were right 14 months ago').",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the chosen band definition to be written into the sheet",
+        "evidence": "The worksheet template includes the field: 'Baseline: rolling 6-mo band / hard floor + justification sentence' \u2014 the band choice is a required entry in the per-metric worksheet.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Resolves the duplicate \"active members\" definition by publishing the formula beside the number and settling on a single definition",
+        "evidence": "The transcript explicitly rejects settling on one definition: 'Averaging or picking a winner between the two teams' numbers keeps the argument alive forever... Instead, name them as what they actually are and retire \"active members\" as a term entirely' and 'Both metrics live on the dashboard side by side, permanently, never merged into one tile.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps at least one metric per pillar across responsiveness, contributor funnel, activity and sentiment",
+        "evidence": "The transcript contains no discussion of specific metrics or pillars such as responsiveness, contributor funnel, activity, or sentiment \u2014 it only provides a generic worksheet template ('Metric name: / Current definition (exact formula): / Tier: Act / Watch / ...') with no real metrics filled in or pillar coverage requirement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels each retained threshold's origin as published, self-set convention, or unsourced folklore",
+        "evidence": "The transcript only requires a 'hard floor' to have 'a justification sentence in the metric's definition doc (\"red below X because Y\")' \u2014 there is no categorization scheme of published/self-set-convention/unsourced-folklore anywhere in the text.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cuts any metric that cannot be tied to a named action rather than keeping it as context",
+        "evidence": "The transcript does the opposite \u2014 it keeps actionless metrics as context: 'Watch tier (context, not alarm): metrics worth tracking for trend but with no single actionable response \u2014 vanity/health-context numbers like total star count or forum post volume. These render in a muted, non-red-capable style.'",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

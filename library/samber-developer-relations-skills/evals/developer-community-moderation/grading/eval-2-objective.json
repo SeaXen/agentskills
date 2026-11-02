@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Declines to simply polish or warm up the draft, and states that it is not yet a decision",
+        "evidence": "\"Tightening the prose would just make them read smoother \u2014 it wouldn't fix any of it. So instead of a polish pass, here's what actually needs to go out right now, plus what comes after.\" and step 1 is explicitly labeled \"(acknowledgment, not a decision)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the requested apology as a banned response and explains it destroys the only useful signal, whether the person would have apologised unprompted",
+        "evidence": "\"'posting a quick apology' \u2192 a requested/compelled apology destroys the one useful signal (whether he'd apologize unprompted) \u2014 this is a named anti-pattern, not a stylistic quibble.\" listed among the skill's documented 'responses that make things worse'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags that naming Priya in the notice identifies the reporter",
+        "evidence": "\"Never name Priya as the reporter in that message, even if she's also the person he was speaking to \u2014 state the behavior, not who told you.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the proposed call to \"clear the air\" as mediation offered in place of a decision",
+        "evidence": "\"'the three of us could jump on a call to clear the air' \u2192 mediation offered in place of a decision, before anyone has consented, reframing a conduct issue as 'those two don't get along.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that facilitated communication is permissible only as an add-on after the team has made and recorded its own decision, and only with everyone's informed consent",
+        "evidence": "The transcript only criticizes the call as 'mediation offered in place of a decision, before anyone has consented' \u2014 it never states the affirmative rule that facilitated communication is permissible as an add-on after a recorded decision with informed consent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags \"give Priya some space\" as a stay-away condition standing in for a decision, and gives the either-or reasoning: either the person is not a threat and the condition is unnecessary, or they are and the community is not safe",
+        "evidence": "\"'just give Priya some space' \u2192 an informal stay-away condition standing in for an actual decision about whether Teo is a risk.\" \u2014 the stay-away framing is flagged, but no either-or reasoning ('either not a threat and unnecessary, or a threat and unsafe') is given anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags \"I'm sure you didn't mean anything by it\" as prejudging intent and moving the discussion onto the reported person's feelings",
+        "evidence": "\"'I'm sure you didn't mean anything by it... probably just a misunderstanding' \u2192 prejudges intent before any investigation, and makes the message about Teo's feelings instead of what happened.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that the draft states no consequence, no effective date, and no route to contest the facts",
+        "evidence": "The transcript says only \"No stated behavior, impact, or consequence \u2192 nothing is actually decided, dated, or recorded\" \u2014 it never explicitly flags the original draft's lack of a route to contest the facts.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Supplies a rewritten notice with four parts in this order: behaviour, impact, expected change, consequence",
+        "evidence": "\"Teo \u2014 on [date] in #reviews, you [specific behavior...]. [Effect on Priya / the thread / the room]. ... Going forward: [specific, observable change expected]. ... This is a [rung...] under the code of conduct, effective [date].\" \u2014 order is behavior, impact, expected change, consequence",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The rewritten notice names the rung, an effective date, and either an end date or \"permanent\"",
+        "evidence": "\"This is a [rung \u2014 e.g. formal warning] under the code of conduct, effective [date]. [If time-boxed: ending date.]\" \u2014 rung and effective date are present, but the alternative of stating \"permanent\" when not time-boxed is never mentioned anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The rewritten notice gives a contact and a window for contesting the facts, and states the sanction stands while any review happens",
+        "evidence": "\"If you think the facts above are wrong, reply to [contact] by [date] and we'll review \u2014 the [rung] stands while we do.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The rewritten notice does not name the reporter",
+        "evidence": "The template never inserts Priya's name as literal notice text, and the transcript separately instructs: \"Never name Priya as the reporter in that message... state the behavior, not who told you.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the harmed person should be shown the proposed response before it is enacted, to catch a missed fact or a retaliation risk, and not to seek approval or let them pick the consequence",
+        "evidence": "No mention anywhere in the transcript of showing the proposed response to Priya before it is sent/enacted.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Declines to simply polish or warm up the draft, and states that it is not yet a decision",
+        "evidence": "\"I tightened the wording and kept it warm, but restructured it so you talk to Teo first and decide on an apology/call after, not before.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the requested apology as a banned response and explains it destroys the only useful signal, whether the person would have apologised unprompted",
+        "evidence": "No such explanation is given; the assistant only flags pre-judgment fairness, not a signal-destruction rationale for banning the apology request.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags that naming Priya in the notice identifies the reporter",
+        "evidence": "Not addressed; both versions explicitly name \"Priya\" in the message to Teo with no flag about reporter identification.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the proposed call to \"clear the air\" as mediation offered in place of a decision",
+        "evidence": "The alternate draft keeps \"a call with the three of us after to clear the air\" without any flag calling this out as improper mediation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that facilitated communication is permissible only as an add-on after the team has made and recorded its own decision, and only with everyone's informed consent",
+        "evidence": "No such principle is stated anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags \"give Priya some space\" as a stay-away condition standing in for a decision, and gives the either-or reasoning: either the person is not a threat and the condition is unnecessary, or they are and the community is not safe",
+        "evidence": "This phrase and reasoning do not appear in the transcript at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags \"I'm sure you didn't mean anything by it\" as prejudging intent and moving the discussion onto the reported person's feelings",
+        "evidence": "\"'I'm sure you didn't mean anything' and asking for an apology before hearing Teo's side pre-judges the complaint \u2014 unfair to Priya if it's serious, unfair to Teo if it's not.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that the draft states no consequence, no effective date, and no route to contest the facts",
+        "evidence": "No such critique appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Supplies a rewritten notice with four parts in this order: behaviour, impact, expected change, consequence",
+        "evidence": "The rewritten notice is an investigatory outreach (\"could we grab a short call this week so I can hear your side?\") with no behaviour/impact/expected-change/consequence structure.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The rewritten notice names the rung, an effective date, and either an end date or \"permanent\"",
+        "evidence": "No rung, date, or duration appears in either drafted message.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The rewritten notice gives a contact and a window for contesting the facts, and states the sanction stands while any review happens",
+        "evidence": "Not present in either version.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The rewritten notice does not name the reporter",
+        "evidence": "Both drafts explicitly say \"your exchange with Priya\", naming the reporter directly.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the harmed person should be shown the proposed response before it is enacted, to catch a missed fact or a retaliation risk, and not to seek approval or let them pick the consequence",
+        "evidence": "Not addressed anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The meal order is based on the 480 expected-show-up figure, not the 650 registration count.",
+        "evidence": "\"Meals to tell the caterer: 567 per lunch\" built from \"Ticket holders, expected to show up | 480\"; \"Don't send 650.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The 170-person gap between registrations and expected show-up is named separately as a buffer, not silently folded into the order or dropped.",
+        "evidence": "\"The 170-ticket gap (650 minus 480) is buffer, and it stays out of the order.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response does not derive its own attendance or no-show estimate; it takes the projected 480 as the number to feed.",
+        "evidence": "\"480 is your registrations person's projection, not mine... I did not derive a number of my own.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The dietary counts are flagged as incomplete because they were collected only from ticket holders.",
+        "evidence": "\"The 59 do not cover everyone fed. The form only reached ticket holders.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Volunteers, organizers, speakers and sponsor booth staff are named as populations whose dietary needs must be collected before the order is placed.",
+        "evidence": "\"Ask the volunteer and organizer leads, the speakers and the sponsor staff directly\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Dietary count collection is sequenced before the service style is finalized or the order placed.",
+        "evidence": "The format is decided first. Collection is only an 'ask' with no stated ordering before the order. The only deadline is \"Find it before you commit\", which refers to the headcount guarantee date.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Family-style shared platters are removed from consideration entirely because of the chafing-dish and open-flame ban, not merely ranked lower.",
+        "evidence": "\"No chafing dishes or open flame deletes family-style outright.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Plated per-guest service is ruled out on the grounds that the room has no seated capacity for the whole population.",
+        "evidence": "\"Standing room only deletes plated service, which needs a seat for everyone.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Individually packaged labelled meals are recommended as the service style.",
+        "evidence": "\"Format: individually packaged, labelled, name-matched meals.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Any buffet option discussed is conditioned on posted allergen labelling; an unlabelled buffet is never offered as a cheaper variant.",
+        "evidence": "\"An unlabelled buffet is not an option here.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "No per-head food cost, per-person quantity ratio, or invented price figure appears in the answer.",
+        "evidence": "Only headcounts and dietary counts appear; no price or per-person ratio.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The needed service window is handed to whoever owns the schedule as a requirement; the 60-minute lunch slot is not moved or lengthened.",
+        "evidence": "\"a service-window requirement, not a grid change. The 60-minute gap stays as is.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response asks for or defers to the event's committed dietary-category list instead of treating the four registration-form categories as the complete commitment.",
+        "evidence": "\"I haven't confirmed which dietary categories PratoConf has committed to. That list belongs to event-accessibility-inclusion.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The meal order is based on the 480 expected-show-up figure, not the 650 registration count.",
+        "evidence": "Attendees: 480 projected show-ups; the 650 ceiling is mentioned only as the worst case.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The 170-person gap between registrations and expected show-up is named separately as a buffer, not silently folded into the order or dropped.",
+        "evidence": "The buffer is 'about 6% (33 meals)'. The 170-person gap is never named as a buffer.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response does not derive its own attendance or no-show estimate; it takes the projected 480 as the number to feed.",
+        "evidence": "It takes 'Attendees: 480 projected show-ups' as given.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The dietary counts are flagged as incomplete because they were collected only from ticket holders.",
+        "evidence": "'The form only covered ticket holders.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Volunteers, organizers, speakers and sponsor booth staff are named as populations whose dietary needs must be collected before the order is placed.",
+        "evidence": "'Email speakers, volunteers, and booth staff for their dietary needs'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Dietary count collection is sequenced before the service style is finalized or the order placed.",
+        "evidence": "The order is already placed ('I ordered the full registered counts'); collection is listed under 'Open points'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Family-style shared platters are removed from consideration entirely because of the chafing-dish and open-flame ban, not merely ranked lower.",
+        "evidence": "It skips 'hot buffets' because chafing dishes are banned, but family-style platters are never discussed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Plated per-guest service is ruled out on the grounds that the room has no seated capacity for the whole population.",
+        "evidence": "'Skip plated food... The hall is standing room only.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Individually packaged labelled meals are recommended as the service style.",
+        "evidence": "'600 individually boxed grab-and-go lunches... labeled dietary boxes'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Any buffet option discussed is conditioned on posted allergen labelling; an unlabelled buffet is never offered as a cheaper variant.",
+        "evidence": "No buffet is offered, and the dietary boxes are labelled.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "No per-head food cost, per-person quantity ratio, or invented price figure appears in the answer.",
+        "evidence": "No prices or per-person food quantities appear; only throughput figures.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The needed service window is handed to whoever owns the schedule as a requirement; the 60-minute lunch slot is not moved or lengthened.",
+        "evidence": "The 60 minutes is just assumed ('leaves most of the 60 minutes'); nothing is handed to a schedule owner.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response asks for or defers to the event's committed dietary-category list instead of treating the four registration-form categories as the complete commitment.",
+        "evidence": "It builds the split on the form's four categories and only mentions halal and kosher as missing.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

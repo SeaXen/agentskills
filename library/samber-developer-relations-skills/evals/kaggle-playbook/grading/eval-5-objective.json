@@ -1,0 +1,58 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Applies an explicit fit test about whether the product runs inside a notebook or a data/ML workflow",
+        "evidence": "'The playbook asks whether a stranger can fork a notebook and run your product in it with internet off.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives a Skip (or do-not-invest) verdict for a CI/CD security scanner on Kaggle",
+        "evidence": "'Verdict: Skip.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Suggests redirecting the effort to channels where CI/CD or security developers already are",
+        "evidence": "'Spend the 4 hours a week on channels where people who own CI/CD pipelines already are.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that Kaggle's account count is mostly data scientists and ML practitioners, not CI/CD or security engineers",
+        "evidence": "'It's a count of Kaggle accounts, which are mostly students and data scientists.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Applies an explicit fit test about whether the product runs inside a notebook or a data/ML workflow",
+        "evidence": "Argues audience mismatch ('Kaggle's audience is ML practitioners') but does not test whether the scanner runs inside a notebook or data workflow; instead repositions it as ML-pipeline security.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives a Skip (or do-not-invest) verdict for a CI/CD security scanner on Kaggle",
+        "evidence": "Recommends a capped 8-week test plus dataset and notebooks.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Suggests redirecting the effort to channels where CI/CD or security developers already are",
+        "evidence": "Only says 'back to core channels' without naming them.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that Kaggle's account count is mostly data scientists and ML practitioners, not CI/CD or security engineers",
+        "evidence": "'\"20M users\" counts registered accounts. They are mostly data scientists and students, not people who buy CI/CD security tools.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

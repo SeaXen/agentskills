@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "PR #4471 (replication slots UI) is held, not included, because it is merged but not yet released by the send date.",
+        "evidence": "\"hold | Public gate: merged but unreleased on the send date.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The held #4471 item carries an expiry or revisit point tied to its 2026-07-22 release or the next issue.",
+        "evidence": "\"Expires when the August window closes.\" and \"Source from the 2026-07-22 release notes.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The auth-bypass fix (#4480) is not included in the 2026-07-16 issue.",
+        "evidence": "\"#4 stays out of this issue in any form.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output states that a security fix is included only after its advisory is public.",
+        "evidence": "\"The public advisory page, only after 2026-07-24.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output says that once public, the security item should link the advisory page rather than the fix PR or commit.",
+        "evidence": "\"In August this is rung 1. Link the advisory page, not the fix.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The Q4 branching roadmap teaser is cut as unannounced or off-limits.",
+        "evidence": "The teaser is held, not cut: \"hold | Public gate: not announced, so it is off-limits.\" The header counts \"5 / 2 / 3 / 0\", so 0 cut.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The pg 13 deprecation is kept as an action-required item.",
+        "evidence": "\"1 action required | keep (first)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The pg 13 deprecation entry states the removal date 2026-10-01.",
+        "evidence": "\"Deprecate pg 13 images (#4455), removal 2026-10-01\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The free-tier connection limit change is kept.",
+        "evidence": "Row 2: \"Free-tier connection limit raised from 20 to 60 (#4402) ... keep (second)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output recommends linking public release notes or changelog entries for the kept items rather than the merged PR pages.",
+        "evidence": "\"Link the release notes, changelog or docs page, not the merged PR.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output places the action-required items (deprecation, limit change) above other items in the ranking.",
+        "evidence": "Both are rung 1, ordered first and second; the other three are held.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output flags kept time-bound items (releases, the deprecation) to be re-checked before the send.",
+        "evidence": "\"Send-day re-open (2026-07-16): open #1 and #2 again. Confirm the 2026-10-01 date hasn't moved and that neither release was yanked.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "PR #4471 (replication slots UI) is held, not included, because it is merged but not yet released by the send date.",
+        "evidence": "It is included: \"(a) Include, as a teaser... 'arrives July 22'\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The held #4471 item carries an expiry or revisit point tied to its 2026-07-22 release or the next issue.",
+        "evidence": "The item is included, not held, and no revisit point is set.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The auth-bypass fix (#4480) is not included in the 2026-07-16 issue.",
+        "evidence": "\"(b) Omit it entirely.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output states that a security fix is included only after its advisory is public.",
+        "evidence": "\"Then the August issue can carry it with a link to the published advisory.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output says that once public, the security item should link the advisory page rather than the fix PR or commit.",
+        "evidence": "\"with a link to the published advisory\"; \"Don't link the PR\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The Q4 branching roadmap teaser is cut as unannounced or off-limits.",
+        "evidence": "\"Leave out unless the PM gets sign-off\"; \"My recommendation is to say no.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The pg 13 deprecation is kept as an action-required item.",
+        "evidence": "\"Include it, because readers have to act.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The pg 13 deprecation entry states the removal date 2026-10-01.",
+        "evidence": "\"Removal is on 2026-10-01.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The free-tier connection limit change is kept.",
+        "evidence": "\"(c) Free-tier limit 20 \u2192 60 | Include, lead item\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output recommends linking public release notes or changelog entries for the kept items rather than the merged PR pages.",
+        "evidence": "\"Docs limits page or changelog entry\"; \"Don't link the PR\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output places the action-required items (deprecation, limit change) above other items in the ranking.",
+        "evidence": "Order is limit change, deprecation, then the teaser.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output flags kept time-bound items (releases, the deprecation) to be re-checked before the send.",
+        "evidence": "Only the docs page is flagged to confirm it is live. The release and the deprecation are not flagged for re-check.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

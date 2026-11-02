@@ -1,0 +1,474 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "hybrid-event-design",
+  "scenarios": 10,
+  "expectations_total": 124,
+  "expectations_subjective": 0,
+  "expectations_objective": 124,
+  "pass_rate_with_skill_pct": 84.7,
+  "pass_rate_without_skill_pct": 29.0,
+  "delta_pp": 55.7,
+  "uplift_multiplier": 2.92,
+  "trigger_accuracy_pct": 76.3,
+  "trigger_queries": 118,
+  "trigger_positive_fire_rate": 0.831,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": null,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Presents the plan section by section for validation rather than as one finished document"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Routes post-event publication of recordings to a separate content-repurposing scope"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Gives the reason that constraining which rooms speakers may opt into stops it being an opt-in"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes that speaker opt-in stays usable where the consent record is already per-speaker and opt-out is genuinely offered"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that if opt-in is used, the resulting holes must be made legible rather than presented as a programme"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that the unread channel still carries a conduct or moderation duty with no responder"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that under feed only the speaker is deliberately not told the remote audience is watching"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that the off-floor watcher costs less than an in-room advocate and catches feed failures better"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Identifies service inside a session - relaying a question, acknowledging remote, telling the speaker remote is there - as the only axis on which the in-room advocate beats the off-floor watcher"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes that an advocate needs a session-by-session briefing on the programme while a watcher needs only the output"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that nobody standing in one room can see another room's output, given three rooms carry feeds"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Explains that two documents drift and that the drift is invisible until the day"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Explains that a remote attendee cannot distinguish a scheduled break from a dead feed"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Hands the column to the run-of-show scope as an addition to its existing artifact"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Offers instead the gate that every remote-eligible session has a named person on the remote side, or its return path is explicitly closed"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Offers the gate that every cue row changing what the room sees also says what the stream shows"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Offers the gate that the disruption priority order states in writing what happens when a remote-side failure and an in-room failure compete"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends recording the chosen metrics, and the change each would trigger, before the event rather than after"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Routes the consent record itself to the speaker-experience scope rather than building a second record"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Does not recommend, name or compare any specific capture or encoding equipment such as cameras, encoders, capture cards, switchers, uplinks or return-audio hardware"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Does not produce a streaming-platform comparison or recommend a specific streaming platform product"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that the eligible-session list and the required return path are handed to a separate production scope, which chooses the equipment"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Asks what the remote audience was actually promised, and to whom, before recommending an eligibility rung"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Asks how many of the rooms running at once can physically carry a feed"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Records the promise as a single written sentence that every later choice is measured against"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Covers all four of: which sessions the remote audience gets, how far a remote attendee's voice reaches the stage, the cue track the stream needs, and who staffs the remote side"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends one designated streamed room as the default eligibility rung, or justifies moving off it against the promise"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Reports the staffing consequence for the budget, noting the feed itself survives a lean tier while the return path and the people watching it are cut first"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Presents the plan section by section for validation rather than as one finished document"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that this must be settled before the session grid is published"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names post-event publication as a different delivery mode - in-person with record and post - that this event has already decided against"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Routes post-event publication of recordings to a separate content-repurposing scope"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that a curated remote programme costs less effort than per-session speaker opt-in, contradicting the premise in the prompt"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Gives the reason that an opt-in can land in any room, so every room has to be instrumented"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Gives the reason that constraining which rooms speakers may opt into stops it being an opt-in"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that curation and opt-in tie on how much of the programme a remote attendee can watch, because neither delivers a predictable share"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Concludes that the curated remote programme is the better of the two options offered"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes that speaker opt-in stays usable where the consent record is already per-speaker and opt-out is genuinely offered"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that if opt-in is used, the resulting holes must be made legible rather than presented as a programme"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Rejects an open remote question channel with nobody reading it during the session, rather than suggesting improvements to it"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that such a channel is worse than giving the remote audience no return path at all"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Explains that it invites a question inside the session and drops it inside the same session, in front of the person who asked"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that the unread channel still carries a conduct or moderation duty with no responder"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that where no person can be named for a session, the correct answer is feed only rather than an unattended channel"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Specifies that feed only requires publishing one line in advance, where remote attendees already look, saying questions are not taken live"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that under feed only the speaker is deliberately not told the remote audience is watching"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Requires the remote-side person to be identified by name per streamed session rather than by function"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Distinguishes a legitimate asynchronous written return path from the rejected channel by its stated answerer, its stated deadline and the stated place the answer appears"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that a person standing beside the stage is the last to notice the stream has died"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that the off-floor watcher costs less than an in-room advocate and catches feed failures better"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Identifies service inside a session - relaying a question, acknowledging remote, telling the speaker remote is there - as the only axis on which the in-room advocate beats the off-floor watcher"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes that one watcher covers however many rooms exist while advocates scale with the number of streamed rooms"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes that an advocate needs a session-by-session briefing on the programme while a watcher needs only the output"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that nobody standing in one room can see another room's output, given three rooms carry feeds"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Assigns the remote side by name per streamed session rather than by function"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that any session left without a named remote-side person has its return path closed explicitly"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Adds a column to the existing run of show rather than authoring a second, parallel document"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Explains that two documents drift and that the drift is invisible until the day"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States the synchronization rule that the room's transition and the stream's transition are the same row"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Specifies that each row's stream entry names who owns that decision, as a person rather than a function"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Specifies that each row's stream entry says what the remote audience is being told"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Keeps equipment detail out of the stream column"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Explains that a remote attendee cannot distinguish a scheduled break from a dead feed"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends a holding card naming what is happening and when the next session starts as the cheapest fix for a gap"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Flags rows where the room is told something out loud that was never typed anywhere, such as a room change, a delay or a swapped speaker"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Identifies rows that exist in only one column as the ones to re-read at the briefing"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Hands the column to the run-of-show scope as an addition to its existing artifact"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States the documented default that the room keeps going and a dead feed is fixed in parallel, rather than pausing on reflex"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States the documented default that the authority to give up on a feed sits inside the technical chain, escalated to a senior organizer"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that this call is never left with a volunteer alone"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States the documented default that the remote side gets a named live-chat contact rather than an intermittently checked inbox"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names the contested-technician question - who wins when the remote-side person and the room lead need the same technician at once - as having no documented answer"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names whether a session moved to fix an in-room problem takes the remote programme with it as having no documented answer"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Requires both open questions to be decided in advance and written into the day-of document"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Requires recording who decided them"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that neither may be presented as inherited or standard practice"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Declines to state a share of Q&A owed to the remote audience as a standard"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Declines to state a remote-to-in-room or per-viewer staffing ratio"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Declines to state a tolerable or target stream latency"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Declines to forecast remote attendance from a published benchmark or a ratio to in-person headcount"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that academic conferencing turnout data transfers poorly to technology events"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Offers instead the gate that every remote-eligible session has a named person on the remote side, or its return path is explicitly closed"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Offers the gate that every cue row changing what the room sees also says what the stream shows"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Offers the gate that the disruption priority order states in writing what happens when a remote-side failure and an in-room failure compete"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Proposes remote questions that reached a stage against remote questions asked, labelled as a self-set metric"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Proposes announcements made in the room that never reached the remote channel, labelled as a self-set metric"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Labels every proposed metric as one this event sets rather than an industry standard"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends recording the chosen metrics, and the change each would trigger, before the event rather than after"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Requires a decision on where the feed cuts at the end of a session - at the last word, or carrying the room emptying"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Raises what happens if a speaker withdraws consent on the day, and who holds the authority to cut the feed"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that the same-day withdrawal question has no standard answer and must be decided in advance with a named person holding the authority"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Requires the consent question settled before the eligibility column is marked, not after"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Routes the consent record itself to the speaker-experience scope rather than building a second record"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Explains that a proportion fails silently when Q&A is cut short while a sequence rule survives being cut short"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Requires the relay person to tell the speaker before the session that remote is watching and that questions will arrive through them"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Requires the relay person to name who is asking and where they are from before reading the question"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Requires the relay person to confirm in the channel afterwards that the question was asked"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Puts the reserved-time rule on the cue sheet row rather than only in a briefing document"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Does not invent a figure for how much Q&A time the remote audience should receive"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires consent and instrumentation settled before the grid is marked"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Specifies that the column holds eligible or not eligible as a binary, not a plan"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Specifies that the column holds the named remote-side person for that session, or an explicit closed where nobody is available"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Explains that an explicit closed separates a deliberate decision from a row nobody has looked at"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Recommends an asynchronous written return path for the dense workshop block rather than live relay"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires that path to state who answers, by when, and where the answer appears"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that without those three commitments the asynchronous path is the rejected unread channel wearing a promise"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Presents the plan in the order promise, eligibility, parity, staffing, cue track"
+      }
+    ]
+  }
+}

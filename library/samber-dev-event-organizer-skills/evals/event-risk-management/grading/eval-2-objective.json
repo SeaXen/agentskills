@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that this is not legal or insurance advice before giving any coverage recommendation.",
+        "evidence": "The bold \"It is not legal or insurance advice\" appears before the short answer and the coverage list.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the event as the community-run pole and says the recommendation assumes that pole.",
+        "evidence": "\"You run at the **community-run** pole.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says a cancellation policy protects nothing here because there is no non-recoverable committed spend to protect.",
+        "evidence": "\"There is no non-recoverable committed spend, so there is nothing to insure.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend buying event cancellation insurance for this meetup.",
+        "evidence": "\"Event cancellation | \u274c Decline\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes the higher coverage rungs from this plan rather than listing them as lower-priority, demoted, or \"consider later\".",
+        "evidence": "\"nearly every insurance rung gets deleted from your plan, not demoted\"; non-appearance, weather, participant accident are marked \"Delete\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Checks whether the host company's own policy already covers the room, rather than assuming the organizers need their own cover.",
+        "evidence": "Section 1 asks Brambling: \"Does your liability policy cover events held in the room by outside community groups?\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names general liability, or the venue-required rung, as the ceiling for an event at this pole.",
+        "evidence": "\"The one rung worth pursuing is the liability cover a venue requires.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Raises a venue-side tenant/user liability program (TULIP-type) bought through the facility's master policy as a possible answer that collapses the whole ladder to one rung, or as a question to put to the host.",
+        "evidence": "The questions to Brambling ask whether their policy covers outside groups, their guests and volunteers. Their answer \"our policy covers the room and events in it\" ends the process.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States explicitly that general liability does not cover cancellation, lost revenue, or any of the organizer's own financial loss.",
+        "evidence": "No statement that liability cover excludes the organizer's own financial loss.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names key-organizer loss - the one person holding a critical function becoming unavailable - as a risk that actually bites at this pole.",
+        "evidence": "Row 13: \"Key-organizer loss: you hold everything\", Orange.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names payment-processing or money-handling capability (no bank account, cannot invoice or collect) as a real register row.",
+        "evidence": "Row 8: \"Organizer financial capability: no entity, no account\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Frames the main exposure at this pole as organizational rather than financial.",
+        "evidence": "\"it is an organizational gap, not a missing cancellation policy.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that this is not legal or insurance advice before giving any coverage recommendation.",
+        "evidence": "Opens with 'buy nothing yet'. 'I'm not a lawyer' comes afterwards and says nothing about insurance advice.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the event as the community-run pole and says the recommendation assumes that pole.",
+        "evidence": "No pole framing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says a cancellation policy protects nothing here because there is no non-recoverable committed spend to protect.",
+        "evidence": "Cancellation cover is never discussed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend buying event cancellation insurance for this meetup.",
+        "evidence": "Only liability cover is recommended; cancellation cover is never suggested.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes the higher coverage rungs from this plan rather than listing them as lower-priority, demoted, or \"consider later\".",
+        "evidence": "'Don't buy: Directors' and officers' cover, cyber, equipment cover or professional indemnity.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Checks whether the host company's own policy already covers the room, rather than assuming the organizers need their own cover.",
+        "evidence": "'Ask Brambling in writing... Does your public liability insurance cover third-party events in the space'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names general liability, or the venue-required rung, as the ceiling for an event at this pole.",
+        "evidence": "Step 3 buys only 'general liability' and only if step 1 fails; everything else is under 'Don't buy'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Raises a venue-side tenant/user liability program (TULIP-type) bought through the facility's master policy as a possible answer that collapses the whole ladder to one rung, or as a question to put to the host.",
+        "evidence": "'A sentence like \"our policy covers events hosted in our premises\" settles most of your exposure.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States explicitly that general liability does not cover cancellation, lost revenue, or any of the organizer's own financial loss.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names key-organizer loss - the one person holding a critical function becoming unavailable - as a risk that actually bites at this pole.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names payment-processing or money-handling capability (no bank account, cannot invoice or collect) as a real register row.",
+        "evidence": "'The bigger gap: no bank account and no legal entity... Sponsor money... lands in an organizer's personal account.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Frames the main exposure at this pole as organizational rather than financial.",
+        "evidence": "Calls the missing entity and bank account 'the bigger gap' but never frames the main exposure as organizational.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

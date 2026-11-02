@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Promotes the hosted offering above the paid add-on, naming the condition that did it: two maintainers with one (Dario) wanting to run production, on a server people struggle to self-host.",
+        "evidence": "moves it up when two or more people work on the project, one of them wants to run production, and the server is hard to self-host",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that this condition is the only rule that moves the hosted offering up the default order, and that it otherwise sits near the bottom as the option the efficiency order starves.",
+        "evidence": "The skill ranks it near last by default, but moves it up when...",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports the shape gate as passed for hosting with the stated evidence: Postgres state, migrations every release and a worker fleet.",
+        "evidence": "Self-hosted server with Postgres, migrations every release and a worker fleet.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports the buyer gate as passed on the six or seven companies asking to pay for hosting, and does not count the 40 Docker Hub pulls an hour as demand.",
+        "evidence": "The 40 Docker pulls an hour are not buyer evidence.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the switch to AGPL next week: a license change must be announced three to six months ahead and land on a new major, with old releases untouched.",
+        "evidence": "Announce 3\u20136 months ahead... Apply it to a new major only. Keep MIT on the old major",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that relicensing the current version ranks last in the default order, with unproven revenue and a likely fork of the last free version.",
+        "evidence": "'Relicensing the current version, which ranks last' is stated, but unproven revenue and fork risk are not given as reasons.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies trademark registration and name separation, not the license, as the lever against the reseller's use of the Lanternbrook name and logo, and sends the enforcement question to counsel.",
+        "evidence": "Trademark | Biggest lever against the reseller... Counsel decides.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites Plausible Analytics renaming its self-hosted edition because resellers used its name and logo.",
+        "evidence": "resellers still used its name and logo until it renamed its self-hosted edition in 2024",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the hosted offering means on-call every week and is a business, not a side line, and assigns that standing load to Dario explicitly in the hours section.",
+        "evidence": "The hours table lists 24/7 on-call without assigning it to Dario or saying it is a business, not a side line.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the data-processing terms the hosted offering adds on the compliance axis, beyond the end-user license an add-on needs.",
+        "evidence": "get a data-processing agreement ready.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes a continuity clause for buyers: deployed self-hosted versions keep working, and source access or escrow if the maintainers stop.",
+        "evidence": "deployed versions keep working, with source access or escrow on exit.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the EU Cyber Resilience Act manufacturer role test via samber/developer-relations-skills@oss-security-disclosure before launch.",
+        "evidence": "Run the role test in oss-security-disclosure before launch.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes a fork forecast for any eventual license change: who would maintain the fork and whether the reseller would fund it.",
+        "evidence": "Only 'They can also keep running the last MIT release forever, or fork it.' No maintainer or funding forecast.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Promotes the hosted offering above the paid add-on, naming the condition that did it: two maintainers with one (Dario) wanting to run production, on a server people struggle to self-host.",
+        "evidence": "'The primary model is managed hosting... Dario runs the hosted service.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that this condition is the only rule that moves the hosted offering up the default order, and that it otherwise sits near the bottom as the option the efficiency order starves.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reports the shape gate as passed for hosting with the stated evidence: Postgres state, migrations every release and a worker fleet.",
+        "evidence": "'your pain point (Postgres, migrations, a worker fleet) is what customers would pay to avoid.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports the buyer gate as passed on the six or seven companies asking to pay for hosting, and does not count the 40 Docker Hub pulls an hour as demand.",
+        "evidence": "It treats the 6 or 7 companies as hosting demand. '40 pulls an hour is not 40 users.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the switch to AGPL next week: a license change must be announced three to six months ahead and land on a new major, with old releases untouched.",
+        "evidence": "It rejects the switch on effectiveness grounds and never mentions notice or a new major.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that relicensing the current version ranks last in the default order, with unproven revenue and a likely fork of the last free version.",
+        "evidence": "'I'd rank licensing third.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies trademark registration and name separation, not the license, as the lever against the reseller's use of the Lanternbrook name and logo, and sends the enforcement question to counsel.",
+        "evidence": "'The tool that works against them is trademark'; 'ask a trademark lawyer'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites Plausible Analytics renaming its self-hosted edition because resellers used its name and logo.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the hosted offering means on-call every week and is a business, not a side line, and assigns that standing load to Dario explicitly in the hours section.",
+        "evidence": "'Dario runs the hosted service. He owns uptime, support and billing operations.' Risk: 'Dario's SRE load grows'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the data-processing terms the hosted offering adds on the compliance axis, beyond the end-user license an add-on needs.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes a continuity clause for buyers: deployed self-hosted versions keep working, and source access or escrow if the maintainers stop.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the EU Cyber Resilience Act manufacturer role test via samber/developer-relations-skills@oss-security-disclosure before launch.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes a fork forecast for any eventual license change: who would maintain the fork and whether the reseller would fund it.",
+        "evidence": "It says only 'They can fork your last MIT version'. It does not say who would maintain it or whether the reseller would fund it.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

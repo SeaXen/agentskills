@@ -7,29 +7,28 @@ hooks:
   UserPromptSubmit:
     - hooks:
         - type: command
-          command: "SH=\"${CLAUDE_SKILL_DIR}/scripts/skill-hook.sh\"; [ -f \"$SH\" ] || SH=$(ls \"$HOME/.claude/skills/planning-with-files/scripts/skill-hook.sh\" \"$HOME/.claude/plugins/marketplaces/planning-with-files/scripts/skill-hook.sh\" 2>/dev/null | head -1); [ -n \"$SH\" ] && [ -f \"$SH\" ] && sh \"$SH\" --event=userprompt; exit 0"
+          command: "[ -n \"${CLAUDE_PLUGIN_ROOT:-}\" ] && exit 0; SH=\"${CLAUDE_SKILL_DIR}/scripts/skill-hook.sh\"; [ -f \"$SH\" ] || SH=$(ls \"$HOME/.claude/skills/planning-with-files/scripts/skill-hook.sh\" \"$HOME/.claude/plugins/marketplaces/planning-with-files/scripts/skill-hook.sh\" 2>/dev/null | head -1); [ -n \"$SH\" ] && [ -f \"$SH\" ] && sh \"$SH\" --event=userprompt; exit 0"
   PreToolUse:
     - matcher: "Write|Edit|Bash|Read|Glob|Grep"
       hooks:
         - type: command
-          command: "SH=\"${CLAUDE_SKILL_DIR}/scripts/skill-hook.sh\"; [ -f \"$SH\" ] || SH=$(ls \"$HOME/.claude/skills/planning-with-files/scripts/skill-hook.sh\" \"$HOME/.claude/plugins/marketplaces/planning-with-files/scripts/skill-hook.sh\" 2>/dev/null | head -1); [ -n \"$SH\" ] && [ -f \"$SH\" ] && sh \"$SH\" --event=pretool; exit 0"
+          command: "[ -n \"${CLAUDE_PLUGIN_ROOT:-}\" ] && exit 0; SH=\"${CLAUDE_SKILL_DIR}/scripts/skill-hook.sh\"; [ -f \"$SH\" ] || SH=$(ls \"$HOME/.claude/skills/planning-with-files/scripts/skill-hook.sh\" \"$HOME/.claude/plugins/marketplaces/planning-with-files/scripts/skill-hook.sh\" 2>/dev/null | head -1); [ -n \"$SH\" ] && [ -f \"$SH\" ] && sh \"$SH\" --event=pretool; exit 0"
   PostToolUse:
     - matcher: "Write|Edit"
       hooks:
         - type: command
-          command: "SH=\"${CLAUDE_SKILL_DIR}/scripts/skill-hook.sh\"; [ -f \"$SH\" ] || SH=$(ls \"$HOME/.claude/skills/planning-with-files/scripts/skill-hook.sh\" \"$HOME/.claude/plugins/marketplaces/planning-with-files/scripts/skill-hook.sh\" 2>/dev/null | head -1); [ -n \"$SH\" ] && [ -f \"$SH\" ] && sh \"$SH\" --event=posttool; exit 0"
+          command: "[ -n \"${CLAUDE_PLUGIN_ROOT:-}\" ] && exit 0; SH=\"${CLAUDE_SKILL_DIR}/scripts/skill-hook.sh\"; [ -f \"$SH\" ] || SH=$(ls \"$HOME/.claude/skills/planning-with-files/scripts/skill-hook.sh\" \"$HOME/.claude/plugins/marketplaces/planning-with-files/scripts/skill-hook.sh\" 2>/dev/null | head -1); [ -n \"$SH\" ] && [ -f \"$SH\" ] && sh \"$SH\" --event=posttool; exit 0"
   Stop:
     - hooks:
         - type: command
-          command: "SH=\"${CLAUDE_SKILL_DIR}/scripts/skill-hook.sh\"; [ -f \"$SH\" ] || SH=$(ls \"$HOME/.claude/skills/planning-with-files/scripts/skill-hook.sh\" \"$HOME/.claude/plugins/marketplaces/planning-with-files/scripts/skill-hook.sh\" 2>/dev/null | head -1); [ -n \"$SH\" ] && [ -f \"$SH\" ] && sh \"$SH\" --event=stop; exit 0"
+          command: "[ -n \"${CLAUDE_PLUGIN_ROOT:-}\" ] && exit 0; SH=\"${CLAUDE_SKILL_DIR}/scripts/skill-hook.sh\"; [ -f \"$SH\" ] || SH=$(ls \"$HOME/.claude/skills/planning-with-files/scripts/skill-hook.sh\" \"$HOME/.claude/plugins/marketplaces/planning-with-files/scripts/skill-hook.sh\" 2>/dev/null | head -1); [ -n \"$SH\" ] && [ -f \"$SH\" ] && sh \"$SH\" --event=stop; exit 0"
   PreCompact:
     - matcher: "*"
       hooks:
         - type: command
-          command: "SH=\"${CLAUDE_SKILL_DIR}/scripts/skill-hook.sh\"; [ -f \"$SH\" ] || SH=$(ls \"$HOME/.claude/skills/planning-with-files/scripts/skill-hook.sh\" \"$HOME/.claude/plugins/marketplaces/planning-with-files/scripts/skill-hook.sh\" 2>/dev/null | head -1); [ -n \"$SH\" ] && [ -f \"$SH\" ] && sh \"$SH\" --event=precompact; exit 0"
+          command: "[ -n \"${CLAUDE_PLUGIN_ROOT:-}\" ] && exit 0; SH=\"${CLAUDE_SKILL_DIR}/scripts/skill-hook.sh\"; [ -f \"$SH\" ] || SH=$(ls \"$HOME/.claude/skills/planning-with-files/scripts/skill-hook.sh\" \"$HOME/.claude/plugins/marketplaces/planning-with-files/scripts/skill-hook.sh\" 2>/dev/null | head -1); [ -n \"$SH\" ] && [ -f \"$SH\" ] && sh \"$SH\" --event=precompact; exit 0"
 metadata:
-  version: "3.25.2"
-category: terminal-system-tools
+  version: "3.27.0"
 ---
 
 # Planning with Files
@@ -139,6 +138,8 @@ After completing any phase:
 - Log any errors encountered
 - Note files created/modified
 
+Whenever a phase status changes, also refresh `## Next Step` in `task_plan.md` so it names the single next action.
+
 ### 5. Log ALL Errors
 Every error goes in the plan file. This builds knowledge and prevents repetition.
 
@@ -209,6 +210,7 @@ If you can answer these, your context management is solid:
 | What's the goal? | Goal statement in plan |
 | What have I learned? | findings.md |
 | What have I done? | progress.md |
+| What am I about to do? | Next Step in task_plan.md |
 
 ## When to Use This Pattern
 
@@ -237,7 +239,7 @@ Copy these templates to start:
 Helper scripts for automation:
 
 - `scripts/init-session.sh` — Initialize planning files. With a name arg, creates an isolated plan under `.planning/YYYY-MM-DD-<slug>/` for parallel task workflows. Without args, writes `task_plan.md` at project root (legacy mode, backward-compatible).
-- `scripts/set-active-plan.sh` — Switch the active plan pointer (`.planning/.active_plan`). Run with a plan ID to switch; run without args to show which plan is current.
+- `scripts/set-active-plan.sh` — Switch or inspect the active plan pointer (`.planning/.active_plan`). Run with `--list` to show named plans and phase counts, with a plan ID to switch, or without args to show which plan is current.
 - `scripts/resolve-plan-dir.sh` — Resolve the active plan directory. A set `$PLAN_ID` is a binding: it resolves or resolution stops, never another plan (issue #237). With no `$PLAN_ID`, multiple named plans refuse selection. A single named plan may use `.planning/.active_plan` or discovery by mtime; otherwise resolution falls back to the project root (legacy). Used internally by hooks.
 - `scripts/check-complete.sh` — Verify all phases in the active plan are complete.
 - `scripts/session-catchup.py`: Explicit same-project session-record aggregation or bounded replay (`--metadata` / `--replay`); bare invocation does not access host history.
@@ -245,6 +247,8 @@ Helper scripts for automation:
 - `scripts/plan-doctor.sh` — One-pass self-check for the mechanisms that fail silently (v3.6.0): plan resolution, hook injection, canonicalizer path shape, attestation state, install surfaces, per-fire hook latency. Run it whenever hooks seem quiet or after installing on a new machine. See `/plan-doctor` command.
 
 ### List saved plans
+
+For agent-readable paths and state, add `--json` (PowerShell: `-Json`) to the listing command. This optional read-only mode includes root files, selection uncertainty and bounded paging. See [the inventory schema and worker handoff](plan-inventory.md). It never runs during ordinary activation.
 
 To find a task before resuming it, run `sh "<skill-dir>/scripts/set-active-plan.sh" --list` or, in Windows PowerShell, `& "<skill-dir>/scripts/set-active-plan.ps1" -List`. Replace `<skill-dir>` with this installed skill directory and keep your current directory at the project root.
 
@@ -300,11 +304,11 @@ Not every install path ships every surface in this section. Two distinct install
 | `/plugin marketplace add OthmanAdi/planning-with-files` then `/plugin install` | SKILL.md, scripts, templates, **plus `commands/` folder** | Yes, as `/plan-goal` and `/plan-loop` |
 | `npx skills add OthmanAdi/planning-with-files` (or ClawHub) | SKILL.md, scripts, templates only | No, follow the manual fallback below |
 
-The PreCompact hook is registered in the SKILL.md frontmatter and works for both routes. The `/plan-goal` and `/plan-loop` slash commands live in `commands/` at the repo root, which only the plugin route copies into `~/.claude/plugins/marketplaces/`. Skill-only installs land at `~/.claude/skills/planning-with-files/` and do not see `commands/`.
+Plugin installs register six lifecycle events from `hooks/hooks.json`, including quiet `SessionStart` recovery. Standalone skill installs register the five hooks in this SKILL.md frontmatter only after the skill is invoked for that session, so they have no startup recovery. The `/plan-goal` and `/plan-loop` slash commands live in `commands/` at the repository root and are available from the versioned plugin cache. Skill-only installs land at `~/.claude/skills/planning-with-files/` and do not include `commands/`.
 
 The standalone `scripts/skill-hook.sh` reads the host's JSON session identity. UserPromptSubmit emits plain context; PreToolUse and PostToolUse emit the event's `additionalContext` JSON. The progress reminder fires at most once per turn when a usable session identity and private cache are available, and repeats when those are unavailable. All five events follow the same plan selection and opt-out checks.
 
-Both slash commands also carry `disable-model-invocation: true`, which means the model will not auto-trigger them. You type them. Per known Claude Code behavior (anthropics/claude-code issues #26251, #41417), some sessions interpret `disable-model-invocation: true` as "I cannot use the Skill tool for this entry at all" and refuse to fire even when you type the slash. If that happens, the manual fallback below produces the same effect.
+Both slash commands carry `disable-model-invocation: true`, so invoke them explicitly. If a command is unavailable on a skill-only install, the manual fallback below produces the same planning-file result.
 
 ### PreCompact hook (auto)
 
@@ -405,6 +409,20 @@ Recovery and compaction events reset this state. Missing session identity, an un
 Autonomous mode omits PreToolUse plan context, including changes to the view during a turn. Turn-start injection remains in every mode so the agent can recover the selected plan from disk.
 
 Gated mode adds the completion gate on top of autonomous behavior. The gate is the termination oracle: it judges the plan artifact on disk, not the conversation transcript, which is why it beats a transcript-bound evaluator that can be hallucinated.
+
+### Structure-aware injection (v3.8.0, opt-in)
+
+The default injection is `head -50` (turn start) and `head -30` (per tool call), which is position-blind: late in a long plan the in_progress phase, the Decisions journal, and the Errors table all sit past the injected window, so every injection pays the token cost while the window no longer carries the active phase. Opt in with `PWF_INJECT=smart` in the environment, or an `inject-smart` token in the plan's `.mode` file, and the injection instead emits: the plan title, the Goal / Next Step / Current Phase sections, a phase count, the full first in_progress phase section, and the last 3 rows of Decisions Made. Plans without `### Phase` headings fall back to the plain head. `inject-smart` alone does not activate any other v3 behavior; it composes with autonomous and gated modes (`init-session` mode tokens are space-separated in `.mode`). With neither the env var nor the token present, output is byte-identical to the legacy shape.
+
+### Parallel-write guard (v3.10.0, on by default)
+
+Two sessions sharing one plan directory can both write `task_plan.md` from the same read. The later write silently discards the earlier one's work, and nothing notices: injection, `plan-doctor` and the Stop gate all read the clobbered file as an ordinary edit. Attestation does not cover this. It compares against a baseline a human approved once, it reports a collaborator's edit with the same `[PLAN TAMPERED]` wording as a hostile rewrite, and it is a read-side gate that cannot stop the stale write from landing.
+
+The guard compares progress between turn-start fires rather than hashes. Checked items and completed phases only go up during normal work, so a DECREASE means work that was on disk is gone. Forward motion stays silent, which is what keeps the signal worth reading, and both markers are language-neutral because every translated template keeps the literal English `**Status:** complete` token. On a decrease it prints one advisory line naming how much was lost and pointing at `git diff`, then injects normally. It never blocks: this hook always exits 0 and this guard does not intercept writes. Archiving completed phases also trips it. Turn it off with `PWF_PLAN_GUARD=0` or a `plan-guard-off` token in `.mode`.
+
+This is an advisory check after a write, not a lock or merge mechanism. It does not detect overwritten `progress.md` or `findings.md`, or plan changes that preserve the completion counts. Keep a single writer for shared summaries and separate files for workers.
+
+Known ceiling: the marker is keyed on the plan path, not the session, so the warning reaches whichever session fires next rather than specifically the one holding the stale copy. Per-session keying needs `PWF_SESSION_ID`, which most hosts never set.
 
 ### Gate decision table
 

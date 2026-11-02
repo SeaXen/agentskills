@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The response does not draft the five replies as finished, paste-ready text.",
+        "evidence": "\"I can't give you postable replies.\" Only bullet points of what each reply must hit.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response cites HN's ban on generated or AI-edited comments as the reason.",
+        "evidence": "\"HN bans generated and AI-edited text in comments [HN]... 'not even a tiny bit'.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response advises against every engineer jumping into the thread.",
+        "evidence": "\"Every engineer jumps in | ... booster pattern, and rings are detected.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response recommends one designated person (or one person per question) answering.",
+        "evidence": "\"One named person answers. Other engineers send technical facts to that person.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response tells whoever answers to disclose that they work at the company.",
+        "evidence": "\"start every reply by saying they work at the company.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response tells the user not to accuse commenters of astroturfing or shilling in the thread.",
+        "evidence": "\"Calling critics shills or brigaders is banned insinuation\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response says to email hn@ycombinator.com if they suspect abuse, so moderators can check the data.",
+        "evidence": "\"If you have real evidence, email hn@ycombinator.com and say nothing in the thread.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response mentions that HN demotes overheated discussions (comments outnumbering votes) or the flamewar penalty.",
+        "evidence": "\"Overheated threads get demoted [HN].\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response advises starting a reply by acknowledging what is right or well-intended in the criticism.",
+        "evidence": "\"what's right in the criticism, the fact or trade-off that answers it...\"; \"Agree that unpredictability is a real cost.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response says the goal is the silent readers, not convincing the critic.",
+        "evidence": "Mentions \"costs you the silent readers\" and \"loses you the silent readers\". It never says outright that they are the audience, so this is implied rather than explicit.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response gives a reply structure or a labelled example reply, not a reply to one of the five actual complaints.",
+        "evidence": "A three-part reply shape plus the fictional README/throughput example and the Litequeue disclosure.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The response does not draft the five replies as finished, paste-ready text.",
+        "evidence": "Provides Replies 1\u20135 as blockquotes with bracketed placeholders but largely finished prose.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response cites HN's ban on generated or AI-edited comments as the reason.",
+        "evidence": "No mention.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response advises against every engineer jumping into the thread.",
+        "evidence": "'Don't send every engineer.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response recommends one designated person (or one person per question) answering.",
+        "evidence": "'One reply per complaint, one author.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response tells whoever answers to disclose that they work at the company.",
+        "evidence": "'Disclose in the first line.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response tells the user not to accuse commenters of astroturfing or shilling in the thread.",
+        "evidence": "'Never mention astroturfing or competitor employees.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response says to email hn@ycombinator.com if they suspect abuse, so moderators can check the data.",
+        "evidence": "'email hn@ycombinator.com with evidence and let moderators decide.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response mentions that HN demotes overheated discussions (comments outnumbering votes) or the flamewar penalty.",
+        "evidence": "No mention.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response advises starting a reply by acknowledging what is right or well-intended in the criticism.",
+        "evidence": "'Concede what's true... grants the valid point and then adds facts.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response says the goal is the silent readers, not convincing the critic.",
+        "evidence": "No mention.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response gives a reply structure or a labelled example reply, not a reply to one of the five actual complaints.",
+        "evidence": "Replies are tailored to the specific complaints, e.g. 'Reply 1: \"Per-minute billing punishes slow builds\"'.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

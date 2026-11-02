@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects SDR calls to every attendee",
+        "evidence": "'SDRs call all 22 this week | \u274c Decline'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects putting all attendees into the generic nurture sequence by default",
+        "evidence": "'Marketing: all 22 into the 6-email nurture | \u274c Decline'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says attendees get technical help and a take-home lab path rather than sales contact",
+        "evidence": "'Send all 22 attendees one technical message: the take-home lab path with its cleanup steps, plus the help channel. Nothing else.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says the AE works the champion and decision maker rather than individual attendees",
+        "evidence": "'The AE talks to the champion and the decision maker.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces the deck with a champion recap sent within about one business day",
+        "evidence": "'The champion gets a results recap within one business day, not a deck.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Puts checkpoint results per module (for example 15 of 22 through lab 2) in the recap",
+        "evidence": "Recap template: 'Module 1: <x of 22>... Module 2: <15 of 22> reached checkpoint 6'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes the success criterion outcome and the agreed next step with a date and owners in the recap",
+        "evidence": "'Success criterion ... met / not met; Next step as agreed: <step> on <date>, owners <names>'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks whether a next-step agreement exists and, if not, makes agreeing one the first action",
+        "evidence": "'Check for a next-step agreement today. If none exists, the AE agrees one... This comes first.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires lab environments to be torn down with cleanup steps on the take-home path",
+        "evidence": "'the take-home lab path with its cleanup steps, plus the help channel'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Tracks attendee activity in their own accounts at 30 and 60 days",
+        "evidence": "'L3: how many attendees are active in their own trial or production account at 30 and 60 days.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Measures whether the agreed next step executes within about 30 days",
+        "evidence": "'L4: whether the agreed next step was executed within 30 days.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects SDR calls to every attendee",
+        "evidence": "'No calls to the 22 developers this week.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects putting all attendees into the generic nurture sequence by default",
+        "evidence": "'Replace the generic 6-email sequence with 3 touches triggered by behavior.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says attendees get technical help and a take-home lab path rather than sales contact",
+        "evidence": "Thank-you with lab repo, solutions, docs and a sandbox; 'Reply if you got stuck'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says the AE works the champion and decision maker rather than individual attendees",
+        "evidence": "'AE and champion, one document'; asks who else must say yes.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces the deck with a champion recap sent within about one business day",
+        "evidence": "Recap is scheduled for 'Day 2\u20133'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Puts checkpoint results per module (for example 15 of 22 through lab 2) in the recap",
+        "evidence": "'22 attended, 15 completed, what they built'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes the success criterion outcome and the agreed next step with a date and owners in the recap",
+        "evidence": "Next step is 'small and concrete' but has no date, owners or success criterion.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks whether a next-step agreement exists and, if not, makes agreeing one the first action",
+        "evidence": "No question about an existing agreement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires lab environments to be torn down with cleanup steps on the take-home path",
+        "evidence": "Sandbox 'stays active'; no teardown.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Tracks attendee activity in their own accounts at 30 and 60 days",
+        "evidence": "Tracks day 14 and day 30 only.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Measures whether the agreed next step executes within about 30 days",
+        "evidence": "Measures review/pilot started, but with no agreed next step or 30-day execution measure.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

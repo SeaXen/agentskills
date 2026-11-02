@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Sends German scans one confirmation email free of promotion and enrols them only on the click (double opt-in)",
+        "evidence": "\"Germany, Brazil, Japan scans | Double opt-in confirmation, enrolled only on click.\"; the draft has \"no promotion\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Allows the launch email to US scans because the purpose line covered updates, with an opt-out and postal address",
+        "evidence": "\"US... Yes. One product-update email within the purpose. CAN-SPAM needs accurate headers, a postal address, and an opt-out\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats Brazil and Japan as prior-consent until the privacy owner names the local rule",
+        "evidence": "\"Hold. Not in the skill's table, so treat as prior-consent until the privacy owner names the local rule.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats UK gmail addresses as individual subscribers needing consent or soft opt-in",
+        "evidence": "\"UK, gmail or other personal address... Treat as an individual subscriber, who needs consent or soft opt-in.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Mails EU and UK attendees on the organizer list only where their consent named the company, not generic sponsors or partners wording",
+        "evidence": "\"EU and UK contacts: no, unless the consent named Acme. Wording like 'sponsors' or 'partners' is not valid consent.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Loads the records into the CRM as non-marketing contacts and enrols only those the gate allows",
+        "evidence": "\"Load these records into the CRM as non-marketing contacts... Don't enroll them in a marketing flow\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets a per-batch complaint stop rule before sending",
+        "evidence": "\"Stop the batch on the second spam complaint.\"; waves, safest segment first.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that one mass send from the main domain puts its reputation at risk for later campaigns",
+        "evidence": "\"Sending one blast to all ~3,500 contacts is what puts your main domain's reputation at risk\"; \"the domain pays for every event after this one.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Defines an event cohort tag and activation readings at 30, 60 and 90 days",
+        "evidence": "Cohort tag `evt-reinvent-2026`; \"Activated at day 30 / 60 / 90 | per grade, beside a non-event baseline\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gates the organizer list as a separate source with its own row, apart from the 520 scans",
+        "evidence": "Gate table row \"Organizer list | Unknown | Mixed | ... No send\", plus section 2a.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Sends German scans one confirmation email free of promotion and enrols them only on the click (double opt-in)",
+        "evidence": "\"Put no launch content in it. Send the launch only to people who click.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Allows the launch email to US scans because the purpose line covered updates, with an opt-out and postal address",
+        "evidence": "\"Send. Include a physical address, a working unsubscribe link\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats Brazil and Japan as prior-consent until the privacy owner names the local rule",
+        "evidence": "Brazil: \"The scan consent is specific and purpose-bound, so send.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats UK gmail addresses as individual subscribers needing consent or soft opt-in",
+        "evidence": "\"These count as individuals (UK PECR), so consent is required.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Mails EU and UK attendees on the organizer list only where their consent named the company, not generic sponsors or partners wording",
+        "evidence": "Checks whether sponsors may email, but never distinguishes company-named consent from generic sponsor wording.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Loads the records into the CRM as non-marketing contacts and enrols only those the gate allows",
+        "evidence": "\"Keep the list out of your main marketing database.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets a per-batch complaint stop rule before sending",
+        "evidence": "\"Pause the send if you cross 0.1%.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that one mass send from the main domain puts its reputation at risk for later campaigns",
+        "evidence": "\"One spam wave hurts the main domain.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Defines an event cohort tag and activation readings at 30, 60 and 90 days",
+        "evidence": "No cohort tag or activation readings.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gates the organizer list as a separate source with its own row, apart from the 520 scans",
+        "evidence": "\"Segment B: 3,000 organizer list\" apart from \"Segment A: 520 scans\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

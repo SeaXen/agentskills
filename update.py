@@ -2,7 +2,7 @@
 """
 Antigravity Agent Skills Vault - Unified Upstream Sync & Maintenance Engine
 Automates:
-  1. Multi-repository remote upstream sync across all 224 libraries
+  1. Multi-repository remote upstream sync across all library repositories
   2. Automatic detection and ingestion of NEW skills added to upstream repos
   3. Full repository file retention (keep all upstream files, docs, and assets intact; zero auto-deletion)
   4. Active skills synchronization (.agents/skills)
@@ -176,7 +176,7 @@ def clean_nested():
 
 # 1. Multi-repository remote upstream sync
 def sync_all_upstreams(force=False):
-    print("\n[1/6] Checking for upstream updates across all 224 repositories...", flush=True)
+    print("\n[1/6] Checking for upstream updates across all active repository upstreams...", flush=True)
     if not os.path.exists(upstreams_file):
         print("⚠️ upstreams.json not found, skipping multi-repo upstream sync.", flush=True)
         return
@@ -223,7 +223,7 @@ def sync_all_upstreams(force=False):
 
     to_update = [r for r in checked_repos if r[4]]
     if not to_update:
-        print("✓ All 224 repository upstreams are already up to date with remote HEAD.", flush=True)
+        print(f"✓ All {len(check_list)} repository upstreams are already up to date with remote HEAD.", flush=True)
         return
 
     print(f"⬇️  Updating {len(to_update)} repositories with fresh upstream commits...", flush=True)

@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects 'the developer has made their first API call' as the success moment because it names a step the reader performs rather than something the product visibly does.",
+        "evidence": "The transcript states the success moment directly ('the sandbox response includes latitude, longitude, and confidence for the address the reader posted') without ever naming or rejecting a 'developer made the API call' framing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Replaces it with an observable result, such as the response carrying coordinates for the address the reader just submitted.",
+        "evidence": "'Success moment: the sandbox response includes `latitude`, `longitude`, and `confidence` for the address the reader posted.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Commits to a time budget of 5 minutes for this hosted-API quickstart.",
+        "evidence": "'Time budget: 5 minutes, page load to response \u2014 the hosted-API baseline holds because the sandbox deletes install and signup entirely.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a plain documentation page as the container instead of the embedded sandbox.",
+        "evidence": "The whole response builds and ships an embedded StackBlitz sandbox ('<iframe src=\"https://stackblitz.com/edit/reticule-geocode-quickstart...') rather than a plain page.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the embedded sandbox as the lowest-efficiency container: the most friction removed, but the highest build-and-upkeep effort.",
+        "evidence": "It only notes 'StackBlitz WebContainers ... is the cheapest sandbox option that exists' among sandbox choices, with no ranking against other container types by friction-removed vs. build/upkeep cost.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes the embedded sandbox from the shortlist entirely rather than ranking it last, because the team named no owner to keep it working.",
+        "evidence": "Instead of deleting it, the transcript assigns an owner: 'Owner: rotate among the four backend engineers \u2014 name one before the next entry, not at launch week.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the sales-inbox key provisioning as the dominant friction and asks for a higher access rung - no account at all, a temporary development key, or an instant self-serve key - before any signup step is written.",
+        "evidence": "'Access is the real bottleneck, not the code. ... Fix below: a shared, rate-limited demo key baked into the sandbox \u2014 no signup, no wait, real response.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Presents the access mechanisms as a ranked ladder in which the sales-gated sandbox ranks last.",
+        "evidence": "No explicit ranked ladder of access mechanisms appears anywhere in the transcript; only the demo-key vs. production-key contrast is discussed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the auth-model and rate-limit-tier explanation out of the quickstart, routing it to explanation or reference documentation.",
+        "evidence": "The page itself includes '## Your access' with 'The `Authorization: Bearer <key>` header is how every Reticule request authenticates' and a tier table inline, only the 'Full limits and overage behavior' link is routed away.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Specifies each step as a verb-led heading naming the whole outcome, exactly one copy-pasteable block, the expected output, and a one-line fail branch.",
+        "evidence": "Step 1 ('Open the sandbox') and Step 3 ('Read the response') have no 'You should see' output block and no fail branch; only Step 2 has an output block and fail branch, and it contains two code blocks, not one.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Delivers a cold-run verification plan naming the environment and who executes it, rather than a page with no verification attached.",
+        "evidence": "'Open the page in a private browser window... Run it twice: once by a Reticule engineer, once by an outside developer with zero context.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects 'the developer has made their first API call' as the success moment because it names a step the reader performs rather than something the product visibly does.",
+        "evidence": "The transcript contains no discussion of rejecting an 'API call made' framing; there is no meta-commentary on defining the success moment at all, only the page content itself.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Replaces it with an observable result, such as the response carrying coordinates for the address the reader just submitted.",
+        "evidence": "\"You should see a JSON response with `latitude`, `longitude`, and `confidence`, plus a small map with a pin at the result. That's the whole API \u2014 one endpoint, one job.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Commits to a time budget of 5 minutes for this hosted-API quickstart.",
+        "evidence": "The page states \"Make your first geocoding call in under 2 minutes, then learn how auth and rate limits work before you integrate\" \u2014 2 minutes, not 5.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends a plain documentation page as the container instead of the embedded sandbox.",
+        "evidence": "The entire deliverable builds and embeds a StackBlitz sandbox iframe as the container; no plain-page alternative is recommended.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the embedded sandbox as the lowest-efficiency container: the most friction removed, but the highest build-and-upkeep effort.",
+        "evidence": "No container-efficiency comparison or ranking appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes the embedded sandbox from the shortlist entirely rather than ranking it last, because the team named no owner to keep it working.",
+        "evidence": "The transcript builds the sandbox as the primary recommended solution; it is not deleted or flagged for lack of an owner.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the sales-inbox key provisioning as the dominant friction and asks for a higher access rung - no account at all, a temporary development key, or an instant self-serve key - before any signup step is written.",
+        "evidence": "\"Right now, keys take a day via email, which kills the 'click and see it work' moment... Fix: ship one shared, heavily-throttled demo key baked into the sandbox, separate from real provisioned keys.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Presents the access mechanisms as a ranked ladder in which the sales-gated sandbox ranks last.",
+        "evidence": "No ranked ladder of access mechanisms is presented; only a demo key vs. an emailed real key are described sequentially, not ranked.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the auth-model and rate-limit-tier explanation out of the quickstart, routing it to explanation or reference documentation.",
+        "evidence": "Full \"How authentication works\" and \"Rate limits\" sections with a tier table are included directly in this same Getting Started page.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Specifies each step as a verb-led heading naming the whole outcome, exactly one copy-pasteable block, the expected output, and a one-line fail branch.",
+        "evidence": "\"Make the call yourself\" shows three parallel code blocks (curl, Node.js, Python) for one step, violating 'exactly one copy-pasteable block'; other sections like 'Get your own API key' have no code block, output, or fail branch.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Delivers a cold-run verification plan naming the environment and who executes it, rather than a page with no verification attached.",
+        "evidence": "The opening bullets only ask the reader to fill in placeholders and 'confirm the response shape matches your actual API' \u2014 no cold-run plan naming an environment or executor is given.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

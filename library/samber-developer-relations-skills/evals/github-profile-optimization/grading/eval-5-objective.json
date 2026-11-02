@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Caps decoration at three visual elements",
+        "evidence": "'Decoration cap is 3, you're at 6.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects adding the now-playing widget and rejects the swap-for-a-better-looking-card framing",
+        "evidence": "'**Reject both.** Streak card upgrade and Spotify widget both fail before they start'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that each third-party card is an external dependency that can go down, rate-limit or freeze",
+        "evidence": "Only says 'A Spotify widget adds a fourth-plus dependency with zero relevance' \u2014 never mentions it can go down, rate-limit, or freeze.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that images are rewritten through an anonymizing proxy that honours upstream cache headers, so a generated image served without no-cache can be served stale indefinitely",
+        "evidence": "No mention of an anonymizing proxy or cache headers anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names a PURGE request against the proxied image URL as the escape hatch for a frozen image",
+        "evidence": "Not mentioned anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the visitor counter is not evidence because it increments on every image load including bots and repeat loads, and public scripts inflate it",
+        "evidence": "The visitor badge is only listed to be cut ('Cut typing SVG, stats card, streak card, trophy row, language donut, visitor counter') with no explanation of why it's invalid evidence.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the audience mismatch: these widgets read as engagement to an early-career peer group and as noise to the senior technical reviewer being targeted",
+        "evidence": "Only the noise side is stated ('Your target \u2014 platform/infra teams at mid-size companies \u2014 reads streak cards and trophy rows as noise, not signal'); no mention of an early-career peer audience reading them as engagement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the widgets cannot see private work at all",
+        "evidence": "Not mentioned anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Prescribes the fix as pinned original repositories with descriptions and outcome lines plus the anonymized private-contribution toggle, not merely fewer widgets",
+        "evidence": "'3. Reset the 6 pins... each with an outcome line... 4. Contribution signal... enable the anonymized private-contribution toggle if most of your real work is at a job'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags 'Full-stack developer passionate about clean code' as absent or vague positioning",
+        "evidence": "'Your positioning line \u2014 \"Full-stack developer passionate about clean code\" \u2014 is this skill's own catalogued weak example, near word-for-word: unfalsifiable, describes half of GitHub'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires one sentence of prose above every image, badge and widget",
+        "evidence": "Not stated as a rule in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires alt text on every retained visual element, no meaning encoded in colour alone, and readability in a plain markdown viewer",
+        "evidence": "Not mentioned anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Caps decoration at three visual elements",
+        "evidence": "No explicit numeric cap is stated; the text says to drop trophy row and visitor counter and move stats/streak/languages below the fold without naming a 'three' limit.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects adding the now-playing widget and rejects the swap-for-a-better-looking-card framing",
+        "evidence": "'Verdict on your friend's suggestion: skip both \u2014 Swapping the streak card for a \"better-looking\" one fixes styling, not the actual problem... Adding a Spotify now-playing widget actively works against your stated target.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that each third-party card is an external dependency that can go down, rate-limit or freeze",
+        "evidence": "No discussion of external-dependency downtime, rate-limiting, or freezing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that images are rewritten through an anonymizing proxy that honours upstream cache headers, so a generated image served without no-cache can be served stale indefinitely",
+        "evidence": "No mention of an image proxy or cache-header behavior.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names a PURGE request against the proxied image URL as the escape hatch for a frozen image",
+        "evidence": "No mention of PURGE requests or any escape hatch for frozen images.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the visitor counter is not evidence because it increments on every image load including bots and repeat loads, and public scripts inflate it",
+        "evidence": "The transcript only says 'Visitor counter badges carry zero information (nobody infers competence from a view count)' without explaining the bot/repeat-load/script mechanism.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the audience mismatch: these widgets read as engagement to an early-career peer group and as noise to the senior technical reviewer being targeted",
+        "evidence": "'a vibe aimed at other hobbyist profile-browsers, not senior engineers' and 'It's a personal-brand/content-creator signal, not an infra-credibility signal.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the widgets cannot see private work at all",
+        "evidence": "No mention of widgets being blind to private repos/work.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Prescribes the fix as pinned original repositories with descriptions and outcome lines plus the anonymized private-contribution toggle, not merely fewer widgets",
+        "evidence": "The fix recommends pinned repos with 'why this matters' lines, but never mentions the private-contribution toggle.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags 'Full-stack developer passionate about clean code' as absent or vague positioning",
+        "evidence": "'\"Full-stack developer passionate about clean code\" is both last and a clich\u00e9 \u2014 it reads as junior boilerplate and says nothing about platform/infra.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires one sentence of prose above every image, badge and widget",
+        "evidence": "No such formatting rule is stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires alt text on every retained visual element, no meaning encoded in colour alone, and readability in a plain markdown viewer",
+        "evidence": "No mention of alt text, colour-only meaning, or plain-viewer readability.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

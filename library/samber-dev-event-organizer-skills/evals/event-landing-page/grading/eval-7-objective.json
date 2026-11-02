@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the 96/100 automated score as evidence of conformance, stating automated tools catch only a minority of failures.",
+        "evidence": "\"Automated tools catch a minority of failures... A perfect score is not conformance\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a keyboard-only pass through the whole registration flow, end to end, including the seat-selection widget, any date picker and the payment step.",
+        "evidence": "\"Tab through the real ticketing flow... seat map, discount field, payment\"; gate 4 \"including the payment step\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires that pass on the real ticketing platform, not a mock or staging stand-in.",
+        "evidence": "\"Tab through the real ticketing flow, not a mock.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Answers no to launching while the checkout cannot be operated by keyboard, treating it as a binary gate rather than a risk to accept.",
+        "evidence": "\"No. \u274c The page fails gate check 4\"; \"Check 4 is enough to block the launch\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the 'that's the vendor's checkout' argument: the linked-out flow's accessibility is inherited by the event and in scope.",
+        "evidence": "\"Wrong scope... You inherit the vendor's accessibility without controlling it, so you own the response.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prescribes the escalation order for the vendor failure: raise it with the provider, publish an alternative route to register staffed by a named person, and report it to the group that owns the accessibility commitment.",
+        "evidence": "Raise with vendor; publish staffed email/phone route; \"Tell the working group now.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to re-scope the target down to WCAG 2.1 level A; the target was set by the accessibility working group and is not renegotiated because a deadline is close.",
+        "evidence": "\"A contractor can't lower it... documented decision by the group that owns it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes the website's conformance from the event's accessibility, stating a conformant site is not an accessible conference and a passing page audit must not be presented as accessibility coverage.",
+        "evidence": "\"A conformant website is not an accessible conference.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Uses the automated tool's output only to localise failures to specific elements before the keyboard pass.",
+        "evidence": "\"Keep running the tool to localise failures to specific elements, but report it as a debugging aid\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names at least one failure class automated checkers miss, such as a focus-trapping modal, an error conveyed only by colour, or a technically-labelled but incomprehensible form.",
+        "evidence": "\"focus traps, unreachable controls, and errors shown only by colour\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rules the 3.9:1 body text a failure against the 4.5:1 requirement for normal text at level AA, not close enough.",
+        "evidence": "\"AA requires 4.5:1 for normal text... 'Close' is a fail.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects shipping tonight with accessibility fixes deferred to after launch.",
+        "evidence": "\"Launch only when all four pass\"; written exception required otherwise.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the 96/100 automated score as evidence of conformance, stating automated tools catch only a minority of failures.",
+        "evidence": "'Automated checkers catch roughly 30\u201340% of WCAG issues.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a keyboard-only pass through the whole registration flow, end to end, including the seat-selection widget, any date picker and the payment step.",
+        "evidence": "'Tab through every step with no mouse' on the whole registration path.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires that pass on the real ticketing platform, not a mock or staging stand-in.",
+        "evidence": "Not specified.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Answers no to launching while the checkout cannot be operated by keyboard, treating it as a binary gate rather than a risk to accept.",
+        "evidence": "'no-go tonight on the registration path'; 'If not, hold registration.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the 'that's the vendor's checkout' argument: the linked-out flow's accessibility is inherited by the event and in scope.",
+        "evidence": "'An embedded third-party widget counts. You chose it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prescribes the escalation order for the vendor failure: raise it with the provider, publish an alternative route to register staffed by a named person, and report it to the group that owns the accessibility commitment.",
+        "evidence": "Vendor fix; fallback with 'Name a contact who responds'; working group informed.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to re-scope the target down to WCAG 2.1 level A; the target was set by the accessibility working group and is not renegotiated because a deadline is close.",
+        "evidence": "'Do not quietly re-scope to WCAG 2.1 A.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes the website's conformance from the event's accessibility, stating a conformant site is not an accessible conference and a passing page audit must not be presented as accessibility coverage.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Uses the automated tool's output only to localise failures to specific elements before the keyboard pass.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names at least one failure class automated checkers miss, such as a focus-trapping modal, an error conveyed only by colour, or a technically-labelled but incomprehensible form.",
+        "evidence": "Mentions only the tester's keyboard failure, with no named class such as traps or colour-only errors.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rules the 3.9:1 body text a failure against the 4.5:1 requirement for normal text at level AA, not close enough.",
+        "evidence": "'Normal text needs 4.5:1, so 3.9:1 fails.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects shipping tonight with accessibility fixes deferred to after launch.",
+        "evidence": "Registration is blocked, and marketing pages ship only 'after the contrast fix'.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

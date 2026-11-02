@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Checks the surface count against team capacity before proposing any new parent or shape.",
+        "evidence": "The 'Work inventory (before any chart)' section, which precedes 'Reporting line' and 'Shape', computes '12 named surfaces \u00f7 5 people... That's 24 ownership slots against 5 people, or under 5 slots each' before any parent/shape recommendation is made.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a program missing its goals has usually funded too many surfaces rather than chosen the wrong parent.",
+        "evidence": "\"a program missing its goals has usually funded too many surfaces, not chosen the wrong parent.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the split-by-focus shape at five people.",
+        "evidence": "\"Candidate 3 (VP Product's proposal): Split by focus \u2014 content pod + community pod, separate leads, under marketing.\\n- Rejected.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the split-by-focus staffing floor of roughly eight, because each half needs a viable team.",
+        "evidence": "\"Split-by-focus has a staffing floor of roughly eight people (this skill's baseline), because each half needs to be a viable team and the coordination between them is permanent, not one-time setup.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the shared-voice problem a split creates: two teams, one audience, two calendars, two metric sets.",
+        "evidence": "The transcript only mentions 'one calendar, one voice' as a benefit of the centralized Candidate 1; it never frames the split's cost as 'two teams, one audience, two calendars, two metric sets' anywhere in the Candidate 3 rejection.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that unwinding a split needs two leaders to agree to give up a team, and that its coordination cost is permanent rather than setup.",
+        "evidence": "\"Least reversible option on the table \u2014 once two people are hired/leveled as pod leads, undoing the split needs both to agree to give up a team\" and \"the coordination between them is permanent, not one-time setup.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the one-re-org-per-new-leader pattern and prices each redraw at roughly a quarter of rebuilding interlocks.",
+        "evidence": "The transcript only says a new leader arriving is 'a classic condition for \"reorganize\" to substitute for \"diagnose\"' \u2014 it never prices a redraw at roughly a quarter of rebuilding interlocks anywhere in the document.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Proposes moving, refusing or staffing specific named surfaces from the list as the remedy.",
+        "evidence": "\"Concrete candidates to re-scope or refuse before the next goal-setting cycle:\\n- SDK maintenance depth (move to engineering-owned, DevRel-serviced, as above).\\n- Conference track...\\n- Developer education...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a refused surface must be refused in writing.",
+        "evidence": "\"Resolve every gap one of four ways: hire, re-scope onto an existing owner, refuse in writing, or contract out.\" and \"either staff it deliberately or refuse it in writing\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires planned work to fit inside 70% of stated capacity and says that ceiling is a chosen baseline.",
+        "evidence": "No mention of a 70% capacity ceiling anywhere in the transcript; capacity is discussed only via the 12-surfaces/5-people ratio and 'slots each', with no percentage ceiling stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces a re-org trigger list written as observable conditions rather than calendar dates, and does not propose an annual review as the mechanism.",
+        "evidence": "The 'Re-org triggers' section lists conditions like 'A second team starts doing content or community work without a declared interlock' and 'The team declines the same category of request three times for lack of coverage' \u2014 no annual-review mechanism is proposed anywhere.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The trigger list includes a change in the funded driver or the departure of the sponsor who owns it.",
+        "evidence": "Re-org triggers include \"The funded driver assumption above turns out wrong once confirmed.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The trigger list includes a surface sitting at a bus factor of one for a quarter.",
+        "evidence": "\"Any surface stays at bus factor one for a full quarter after the re-scoping above.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Checks the surface count against team capacity before proposing any new parent or shape.",
+        "evidence": "\"Five people run twelve programs (API docs, 2 blogs, Discord, webinar, 3 SDKs, sample apps, champions, conference track, YouTube, changelog, Stack Overflow). That's already thin coverage per person.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a program missing its goals has usually funded too many surfaces rather than chosen the wrong parent.",
+        "evidence": "Presented only as one of two open diagnostic options (a)/(b) to ask the VP, not stated as the usual cause.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the split-by-focus shape at five people.",
+        "evidence": "The transcript implements the two-pod split at 5 people (with player-coach caveats) rather than rejecting it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the split-by-focus staffing floor of roughly eight, because each half needs a viable team.",
+        "evidence": "The number 8 appears only as a threshold for adding a second full management layer (\"until the team grows past ~8\"), not as a floor for the split itself, which is already implemented at 5.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the shared-voice problem a split creates: two teams, one audience, two calendars, two metric sets.",
+        "evidence": "Separate metrics per pod are defined but never flagged as a shared-audience/shared-voice problem.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that unwinding a split needs two leaders to agree to give up a team, and that its coordination cost is permanent rather than setup.",
+        "evidence": "Not stated anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the one-re-org-per-new-leader pattern and prices each redraw at roughly a quarter of rebuilding interlocks.",
+        "evidence": "Not present in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Proposes moving, refusing or staffing specific named surfaces from the list as the remedy.",
+        "evidence": "\"Candidates to cut or pause, in order: Product blog... Conference track... Stack Overflow presence.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a refused surface must be refused in writing.",
+        "evidence": "No requirement to put refusals in writing is stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires planned work to fit inside 70% of stated capacity and says that ceiling is a chosen baseline.",
+        "evidence": "No 70% capacity ceiling appears anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces a re-org trigger list written as observable conditions rather than calendar dates, and does not propose an annual review as the mechanism.",
+        "evidence": "The 'Sequencing' section is a one-time 5-step rollout plan, not a future re-org trigger list.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The trigger list includes a change in the funded driver or the departure of the sponsor who owns it.",
+        "evidence": "No trigger list exists in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The trigger list includes a surface sitting at a bus factor of one for a quarter.",
+        "evidence": "No trigger list or bus-factor language exists in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

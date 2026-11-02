@@ -1,7 +1,6 @@
 ---
 name: reverse-engineering
 description: Read how a game actually works so a mod can hook it. Decompile .NET/Mono (ILSpy), IL2CPP (Cpp2IL, Il2CppDumper), Java (Vineflower) and native code (Ghidra, IDA, via MCP servers); dump data and asset formats; reverse-engineer a binary file format and prove it with a round trip; read live memory (Cheat Engine, Frida, x64dbg); find render passes (RenderDoc). Use when a mod needs game internals, e.g. "how does the boss AI work", "find the damage function", "what format is this .sld/.pak/.dat", "where is the player position in memory".
-category: programming-languages-core
 ---
 
 # Reverse engineering for mods
@@ -14,6 +13,11 @@ publish them. Single-player, offline or servers the user runs. Never attach debu
 with anti-cheat (see `skills/mod-any-game/references/safety.md`).
 
 ## Pick the tool by what the code is (`um scan` tells you)
+
+If [REA](https://github.com/morluto/rea) (Reverse Engineer Anything, `npx rea-agents setup`) is connected as an MCP
+server, start there: one server covers native binaries (through an existing Ghidra, IDA or Hopper install), .NET
+assemblies and JavaScript/Electron apps, and its answers come with the evidence behind them. The tools below are
+the fallback, and the way to go deeper.
 
 **Managed .NET** (XNA/FNA, Unity Mono, most indie C#)
 - `dotnet tool install -g ilspycmd`, then `ilspycmd -p -o ~/<game>-decomp <Game>.exe` (or
@@ -30,6 +34,10 @@ with anti-cheat (see `skills/mod-any-game/references/safety.md`).
 
 **Java** (Minecraft, Slay the Spire...)
 Vineflower / CFR / Recaf. For Minecraft, use Loom `genSources` with Mojang mappings.
+
+**Blitz3D** (`.bb` games; SCP: Containment Breach's source is public): the game is a module inside the exe
+that Ghidra can't see. Use the **blitz3d-decomp** skill (B3DDecomp, runtime behaviour for ports, animated
+`.b3d` models).
 
 **Native C/C++** (custom engines, Unreal game code, console recomps)
 - Ghidra (free) or IDA, driven through MCP so the agent can decompile, rename, retype and follow

@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to move the build-history view from free to paid, and states that retroactive gating is the move that produces forks and front-page threads",
+        "evidence": "The refusal is present (\"never move an existing capability from free to paid\") but no phrase about producing \"forks and front-page threads\" appears anywhere in the section",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to reverse the public 2024 commitment that the free tier would always include 10 GB",
+        "evidence": "\"Stays 10 GB, indefinitely \u2014 this is the grandfathering, not 'until next renewal'\" and \"Your free tier keeps its 10 GB of cache storage for as long as you keep the account\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites Unity's September 2023 Runtime Fee as the sourced case for reversing a public pricing commitment",
+        "evidence": "\"the specific detail that made Unity's 2023 Runtime Fee unsurvivable was reversing a stated 2019 promise, not the fee itself\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the reversal of Unity's explicit 2019 promise to charge \"a flat fee per-seat, not a royalty on all of your revenue\" - rather than the fee itself - as what made the change unsurvivable",
+        "evidence": "Only says \"reversing a stated 2019 promise, not the fee itself\" without quoting or specifying what the 2019 promise actually said",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that Unity walked the change back under an organised threat of engine migration",
+        "evidence": "No mention of an organised migration threat or the walk-back circumstances",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Applies any free-tier reduction to new accounts only, and says plainly that this is what is being done",
+        "evidence": "\"Accounts created on/after 2026-10-14 | 2 GB\" and \"New-accounts-only is the sanctioned way to shrink a free tier (step 6.6)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names every affected cohort separately: existing paying customers, free users, self-hosted or open-source users, and anyone under contract",
+        "evidence": "Cohort table splits into \"Accounts existing before 2026-10-14\" and \"Accounts created on/after 2026-10-14\" \u2014 no self-hosted/OSS or under-contract cohort exists in this product to name",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Makes the grandfathering decision explicit - indefinite, or a stated window with an end date - and puts it in the announcement",
+        "evidence": "\"Your free tier keeps its 10 GB of cache storage for as long as you keep the account\" and \"Permanent, tied to your account\" in the FAQ",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects 'existing customers move at their next renewal' as an implicit grandfathering decision with no end date and no cohort named",
+        "evidence": "Quotes the skill's negative example verbatim (\"existing customers move on their next renewal\") and calls it \"the failure pattern to avoid\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the announcement to precede shipping rather than landing the same day, with more notice where annual budgets are involved",
+        "evidence": "\"zero notice between announcement and effect (rule 3: announce before shipping)\" fixed to \"Announce today, effective 2026-10-14... moved from same-day to real notice\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that nobody should learn about a price change from an invoice",
+        "evidence": "No such statement appears anywhere in the section",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Pairs any increase with delivered value, and warns that a rise with nothing new attached is read as extraction",
+        "evidence": "No use of \"extraction\" language or explicit pairing-with-delivered-value framing in this section",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Assigns a named owner to the public thread in advance, with the tone and a pre-approved concession decided before the announcement",
+        "evidence": "\"Name an owner for the public thread before this goes out, with one pre-approved concession (typically: extending the grandfather window for anyone who asks).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Proposes introducing a new paid capability instead of taking back an existing one",
+        "evidence": "\"ship something genuinely new at $49 (longer retention, export, alerting on build-history)... That's a legitimate upsell instead of a retroactive gate.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to move the build-history view from free to paid, and states that retroactive gating is the move that produces forks and front-page threads",
+        "evidence": "The draft implements exactly this move: \"Build history is moving from Free to the $49/mo plan.\" No refusal is stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to reverse the public 2024 commitment that the free tier would always include 10 GB",
+        "evidence": "The announcement proceeds to reverse it: \"'Always' was the wrong word to use in a pricing post, and we're sorry\" \u2014 flags risk but does not refuse.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites Unity's September 2023 Runtime Fee as the sourced case for reversing a public pricing commitment",
+        "evidence": "Not mentioned anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the reversal of Unity's explicit 2019 promise to charge \"a flat fee per-seat, not a royalty on all of your revenue\" - rather than the fee itself - as what made the change unsurvivable",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that Unity walked the change back under an organised threat of engine migration",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Applies any free-tier reduction to new accounts only, and says plainly that this is what is being done",
+        "evidence": "Applies to all: \"Starting October 14, 2026, we're making two changes to the Free plan\" \u2014 not limited to new signups.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names every affected cohort separately: existing paying customers, free users, self-hosted or open-source users, and anyone under contract",
+        "evidence": "Only Free plan and Paid plan cohorts are named; no self-hosted/OSS or contract cohort discussed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Makes the grandfathering decision explicit - indefinite, or a stated window with an end date - and puts it in the announcement",
+        "evidence": "Uses variable 'next renewal date' mechanism rather than a fixed window or explicit indefinite statement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects 'existing customers move at their next renewal' as an implicit grandfathering decision with no end date and no cohort named",
+        "evidence": "The draft adopts exactly this approach rather than rejecting it: \"you keep your current build-history access... until your next renewal date on or after October 14, 2026\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the announcement to precede shipping rather than landing the same day, with more notice where annual budgets are involved",
+        "evidence": "\"Three weeks, same-day flip, for a limit cut is thin by the standard playbook\" plus paid accounts deferred to \"next renewal date\", giving annual customers more lead time.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that nobody should learn about a price change from an invoice",
+        "evidence": "No such statement appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Pairs any increase with delivered value, and warns that a rise with nothing new attached is read as extraction",
+        "evidence": "No new value is offered alongside the cuts; text admits \"a smaller free tier is a downgrade, not an improvement\" with no compensating value framing requirement stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Assigns a named owner to the public thread in advance, with the tone and a pre-approved concession decided before the announcement",
+        "evidence": "Not mentioned anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Proposes introducing a new paid capability instead of taking back an existing one",
+        "evidence": "The plan takes back existing free capability rather than adding new value: \"we're right-sizing the Free plan and moving build history... into the plan built for that use case.\"",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

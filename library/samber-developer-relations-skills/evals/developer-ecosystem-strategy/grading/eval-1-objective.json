@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Reports counted demand as a fail, noting that three complements from effectively one customer falls short of the five-complements-from-named-customers pass condition.",
+        "evidence": "\"G1 \u2014 Counted demand | **Fail** | Needs 5+ complements from named customers, 2+ requested by more than one customer. You have 3, from effectively 1 customer, zero overlap.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports externalizable interfaces as a fail or unknown, naming the internal Go package as the reason the migration capability is not publishable today.",
+        "evidence": "\"G2 \u2014 Externalizable interfaces | **Fail for anything touching the migration engine...** | The migration engine ... is reachable only through an internal Go package.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports identified builders as a fail or unknown, because no organization with a reason of its own to build has been named or spoken to.",
+        "evidence": "\"G3 \u2014 Identified builders | **Fail** | Zero named organizations with a reason of their own to build against you.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States explicitly that an unknown gate does not count as a pass, and attaches a resolver and an elapsed time or date to each unknown it reports.",
+        "evidence": "G6 is marked Unknown with \"Resolver: name the 2\u20133 competitors... Do this before investing further, regardless of rung \u2014 2 weeks,\" and the memo treats it as failing to clear the bar: \"Three hard fails and one unresolved gate is a clean 'no'.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes installable third-party apps and the runtime platform from the options because there is no security review function, rather than listing them as a later phase.",
+        "evidence": "\"Deleted, not parked: - **Rung 6 (runtime platform), Rung 5 (installable apps)** \u2014 no security review function, no standing team. G5's own rule: this alone deletes both.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a ruled-out rung is deleted rather than parked at the bottom as a 'phase two', because a parked rung reappears as scope.",
+        "evidence": "Section heading explicitly labeled \"Deleted, not parked:\" for rungs 6/5/4/3, with separate dated \"Reopen conditions\" rather than a default future phase.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends vendor-built integrations or a documented public API and webhooks rather than an app marketplace.",
+        "evidence": "\"Recommended: Rung 2 (vendor-built) for the Terraform provider, Rung 1 (documented API + a narrow webhook) for migration events \u2014 nothing higher.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Presents two or three candidate rungs rather than a single recommendation.",
+        "evidence": "The memo gives one direct recommendation (\"Recommended: Rung 2... Rung 1...\") and lists others as \"Deleted\" rejections rather than weighing multiple candidates side by side.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces no marketplace listing design, no app review workflow, no revenue-share scheme and no partner contract terms.",
+        "evidence": "No listing design, review workflow, revenue-share, or contract terms appear anywhere; the memo explicitly states \"There's no complementor to price out yet \u2014 both things above are vendor-built.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ranks the evidence for counted demand, placing unsupported glue customers already built above requests that were refused, above feature requests or sales anecdotes.",
+        "evidence": "\"The third is the weakest evidence tier this framework recognizes \u2014 a sales anecdote...\" and \"No unsupported glue, scrapers, or wrapper scripts from customers are mentioned, which is usually the strongest signal of real latent demand.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Returns a written decision carrying reopen conditions and a named owner rather than an open-ended 'revisit later'.",
+        "evidence": "\"## Reopen conditions for an actual marketplace... Owner: you. Review date: pick a date after the Terraform-usage check above lands, not before.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the Q3 commitment already made to the board as a constraint to be restated or renegotiated, not as a date to design toward.",
+        "evidence": "\"The credible move is to go back now, not in ten days, with: 'We looked at what a marketplace would actually cost to run responsibly...'\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Reports counted demand as a fail, noting that three complements from effectively one customer falls short of the five-complements-from-named-customers pass condition.",
+        "evidence": "The transcript says 'Three integration requests, one paying customer plus one lost deal, against 210 accounts... You have two requesters' but never frames this against a specific 'five-complements' threshold.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reports externalizable interfaces as a fail or unknown, naming the internal Go package as the reason the migration capability is not publishable today.",
+        "evidence": "'No extensibility surface exists. Your engine talks to the rest of the product through an internal Go package. Partners can't build \"on\" something that isn't exposed.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports identified builders as a fail or unknown, because no organization with a reason of its own to build has been named or spoken to.",
+        "evidence": "The transcript discusses lack of an internal 'owner' ('No owner. A marketplace needs someone triaging submissions...') but never frames absence of a third-party builder organization as its own gate.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States explicitly that an unknown gate does not count as a pass, and attaches a resolver and an elapsed time or date to each unknown it reports.",
+        "evidence": "No language distinguishing 'unknown' from 'pass/fail' gates appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes installable third-party apps and the runtime platform from the options because there is no security review function, rather than listing them as a later phase.",
+        "evidence": "'High blast radius, zero review capacity... Don't create a queue you can't safely clear' and 'No public plugin/extension model into the migration engine itself... not a marketplace feature' under 'What not to build, explicitly.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a ruled-out rung is deleted rather than parked at the bottom as a 'phase two', because a parked rung reappears as scope.",
+        "evidence": "No statement explains the deletion using 'parked rung reappears as scope' style reasoning; the plugin model is simply excluded without this justification.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends vendor-built integrations or a documented public API and webhooks rather than an app marketplace.",
+        "evidence": "'Outbound webhooks / events API... Terraform provider... Jira sync' are recommended 'instead' of a marketplace.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Presents two or three candidate rungs rather than a single recommendation.",
+        "evidence": "The document gives one unified recommendation ('Recommend killing the word \"marketplace\"... replacing it with \"Integrations\"') executed via a sequenced plan, not competing candidate options.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces no marketplace listing design, no app review workflow, no revenue-share scheme and no partner contract terms.",
+        "evidence": "'No open submission queue, no partner developer portal, no revenue share or billing split, no verified-badge/discovery system.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ranks the evidence for counted demand, placing unsupported glue customers already built above requests that were refused, above feature requests or sales anecdotes.",
+        "evidence": "The transcript lists 'three integration requests' without ranking evidence types like self-built glue vs. refused requests vs. anecdotes.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Returns a written decision carrying reopen conditions and a named owner rather than an open-ended 'revisit later'.",
+        "evidence": "'Revisit only if integration requests start coming from double-digit distinct accounts per quarter, or \"no marketplace\" becomes a recurring, named reason in lost-deal reviews' plus 'Three first-party integrations, owned by whoever already owns your public API.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the Q3 commitment already made to the board as a constraint to be restated or renegotiated, not as a date to design toward.",
+        "evidence": "'Tell the board that now, not after the deadline passes quietly \u2014 a scoped, delivered \"Integrations\" launch beats a missed \"Marketplace\" promise, and resets what you're actually accountable for going forward.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

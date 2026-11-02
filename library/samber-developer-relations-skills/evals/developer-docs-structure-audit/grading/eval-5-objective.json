@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Declines to report the single explanatory sentence in reference/api/transactions.md as a finding",
+        "evidence": "'Not a finding.' after discussing the one-sentence immutability explanation.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the mixing threshold: flag only when the second mode occupies roughly a fifth of the page, or contains something the reader must act on",
+        "evidence": "Only the size criterion is stated ('flag only when the second mode is \"roughly a fifth\" of the page'); no 'something the reader must act on' clause appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats the ADR directory as already correctly typed and declines to flag it for not fitting the four modes",
+        "evidence": "\"'An ADR directory... is already correctly typed. Do not flag it for not fitting the four-quadrant split.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies release-notes/2026-q2.md as reference",
+        "evidence": "\"'Release notes / changelog: reference...' File as reference.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies guides/upgrading-to-v4.md as a how-to guide",
+        "evidence": "\"'Migration guides that walk through upgrading are how-to guides.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the FAQ as a symptom rather than a mode, and files each answer into its real mode",
+        "evidence": "\"'FAQ: usually a symptom, not a mode \u2014 each entry belongs to a real mode.'\" and 'extract the 6-step cert rotation into guides/rotate-a-certificate.md'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Allows the FAQ to remain as an index if site search is weak",
+        "evidence": "\"'Keep the FAQ as an index if search is weak, and file the answers properly.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Splits troubleshooting/errors.md: reference for the enumerated error codes, how-to for the 12 entries that prescribe a fix",
+        "evidence": "'keep all 60 codes in the reference table; move the 12 fix procedures into how-to pages'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies reference/glossary.md as reference",
+        "evidence": "\"'Glossary: reference.' File as reference.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a landing page is not a mode, and judges docs/index.md on whether it routes to all four",
+        "evidence": "\"'Landing / index pages: not a mode \u2014 judge them on whether they route to all four.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags 190 findings on a 340-page set as over-flagging, and cuts to pages where a reader's need actually fails",
+        "evidence": "'190 findings at partway through a 340-page inventory is heading toward the failure mode... \"Report only the pages where a reader's need actually fails.\"'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not phrase any finding as a violation of Diataxis",
+        "evidence": "All findings are written in Now/Reader impact/Next action reader-centric language, with no 'violates Di\u00e1taxis' phrasing anywhere.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends recording a confidence level on borderline pages and moving on rather than debating the call",
+        "evidence": "No recommendation to record a confidence level appears; the closing advice is to re-check other calls against worked examples, not to log confidence and move on.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Declines to report the single explanatory sentence in reference/api/transactions.md as a finding",
+        "evidence": "'transactions.md \u2014 File: Reference. Finding: No. One sentence of immutability rationale is normal reference-page framing, not a separate Explanation section.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the mixing threshold: flag only when the second mode occupies roughly a fifth of the page, or contains something the reader must act on",
+        "evidence": "The stated rule instead is: 'Real procedure \u2014 3+ ordered steps... Buried where no one would look to maintain it' \u2014 no 'roughly a fifth' percentage threshold is given as the rule.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats the ADR directory as already correctly typed and declines to flag it for not fitting the four modes",
+        "evidence": "'ADR 0007\u20130031 \u2014 File: Decision record, own bucket... Finding: No. Never-edited-after-acceptance is the ADR contract, not a defect.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies release-notes/2026-q2.md as reference",
+        "evidence": "It is classified as 'Changelog, own bucket,' explicitly separate from Reference.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Classifies guides/upgrading-to-v4.md as a how-to guide",
+        "evidence": "'guides/upgrading-to-v4.md \u2014 File: How-to/Tutorial. Finding: No.' \u2014 How-to is explicitly included in the classification.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the FAQ as a symptom rather than a mode, and files each answer into its real mode",
+        "evidence": "The FAQ is treated as 'own bucket' (a legitimate type) with only the cert-rotation answer extracted, not every answer filed into its real mode.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Allows the FAQ to remain as an index if site search is weak",
+        "evidence": "No discussion of site search quality or FAQ-as-index rationale appears anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Splits troubleshooting/errors.md: reference for the enumerated error codes, how-to for the 12 entries that prescribe a fix",
+        "evidence": "'File whole page: Reference (lookup table). Finding: Yes. 12 of 60 rows... carry embedded multi-step fix procedures... Recommend: extract each procedure to a linked how-to page, row keeps a pointer only.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies reference/glossary.md as reference",
+        "evidence": "'reference/glossary.md \u2014 File: Reference. Finding: No.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a landing page is not a mode, and judges docs/index.md on whether it routes to all four",
+        "evidence": "It is labeled 'outside the Reference/How-to/Explanation split' (matching 'not a mode') but no reasoning about routing to all four modes is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags 190 findings on a 340-page set as over-flagging, and cuts to pages where a reader's need actually fails",
+        "evidence": "The 190 count is only referenced in a closing question about counting convention ('One thing that changes your 190 count...'), never characterized as over-flagging.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not phrase any finding as a violation of Diataxis",
+        "evidence": "Findings are phrased in reader-utility terms (e.g., 'no dedicated owner, no direct link, easy to miss') with no mention of Diataxis by name.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends recording a confidence level on borderline pages and moving on rather than debating the call",
+        "evidence": "No confidence-level recording mechanism is proposed; instead the transcript ends by asking the user a clarifying question about counting convention.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

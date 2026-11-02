@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Does not present the migration decision as objectively correct independent of Halcyon's constraints",
+        "evidence": "The transcript never calls the Ruby\u2192Go move objectively right. It marks 'Go caused the gains' as Unsupported and attaches a confound note: the gain may come from rewriting the code a second time rather than from Go. It asks which alternatives were considered (optimising the Ruby, a different Ruby runtime, Java, Rust). It requires a 'Where this doesn't apply' section, for example 'If yours waits on the database, the win will be smaller', and a conditional 'Would we do it again? Under what conditions, and under what conditions not', labelled as first-person opinion. It cuts 'The team knew what t",
+        "score": 4,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Does not present the migration decision as objectively correct independent of Halcyon's constraints",
+        "evidence": "The draft limits the claim to Halcyon's own case several times. It calls the result 'one data point from one service. Read it that way.' and says 'We did not move it because of anything wrong with Ruby in general.' A full 'When we wouldn't do this' section lists conditions tied to Halcyon's situation: the service isn't a bottleneck, the team has no Go experience, latency is I/O-bound, or the logic changes constantly. It names the rewrite-vs-language confound, saying 'some of the gain would have been available without leaving Ruby'. It lists 'What we haven't tested', including an optimized Ruby",
+        "score": 5,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

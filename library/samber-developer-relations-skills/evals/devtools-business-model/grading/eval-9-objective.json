@@ -1,0 +1,118 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Requires the marginal cost of one free user to be computed in currency rather than described as generous",
+        "evidence": "\"Marginal cost per free account/month = (avg GB stored \u00d7 your storage cost per GB-month) + (avg GB egressed \u00d7 your bandwidth cost per GB) + (support/infra overhead allocated per account)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a free tier described in adjectives rather than numbers is an untested model",
+        "evidence": "\"'Pretty generous' is the tell... names this exact failure mode: free tiers priced in adjectives. 'Generous' is not a number\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies unlimited bandwidth and 50 GB of stored data as infrastructure-heavy free surface that makes growth actively expensive",
+        "evidence": "\"'Unlimited bandwidth' with no cap is the dangerous phrase in the whole pitch. You don't have a number for what a free account can cost you in the worst case.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that heavy per-user infrastructure cost rules out generous free tiers of any kind",
+        "evidence": "\"heavy per-user infrastructure cost eliminates uncapped free tiers, full stop \u2014 it favors 'hosted models with caps' instead\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends caps, quotas or metering on the infrastructure-heavy dimensions",
+        "evidence": "\"'unlimited' needs a fair-use ceiling... Reframe internally... as 'unlimited for normal mobile-app sync usage, with fair-use limits that stop a single account from costing more than a paying customer.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Also asks what one paying customer costs to serve, not only the free user",
+        "evidence": "The entire cost-to-serve analysis (formulas, worst-case, fair-use fix) addresses only free-account cost; no comparable question about a paying customer's cost-to-serve appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats a model failing the cost-to-serve check as having the wrong value metric rather than needing more discipline",
+        "evidence": "\"Storage volume is the wrong trigger for a mobile sync backend... the boundary needs to move off storage volume and onto something organizational.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the free-versus-paid line to be defensible on organization-only grounds rather than on volume alone",
+        "evidence": "\"Candidates that pass the organization-only test, none of which a solo developer building nights-and-weekends needs: Multiple developers/seats... An SLA... Audit logs...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports the cost-to-serve result inside an explicit threshold check rather than as a passing remark",
+        "evidence": "Five-gate table: \"Cost-to-serve covered | \u274c unquantified | ...\" followed by \"Two failing gates is the actual reason the room felt uneasy.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Requires the marginal cost of one free user to be computed in currency rather than described as generous",
+        "evidence": "'Cost per GB stored/month (infra bill \u00f7 GB stored). Cost per GB transferred (bandwidth $ \u00f7 GB moved)... Median free-user storage usage.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a free tier described in adjectives rather than numbers is an untested model",
+        "evidence": "'One real number here (even rough) beats any amount of verbal defense... Say this explicitly; don't just call it \"generous.\"'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies unlimited bandwidth and 50 GB of stored data as infrastructure-heavy free surface that makes growth actively expensive",
+        "evidence": "The response instead defends both as low-risk: 'Unlimited devices = near-zero marginal cost' and bandwidth 'scale with same 50GB ceiling in practice' \u2014 it does not flag them as making growth expensive.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that heavy per-user infrastructure cost rules out generous free tiers of any kind",
+        "evidence": "The response argues the opposite \u2014 that the current generous limits are defensible ('No investor should want you to cap a free feature that costs nothing').",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends caps, quotas or metering on the infrastructure-heavy dimensions",
+        "evidence": "The response explicitly argues against capping devices ('Capping it adds friction, kills exact hook driving signups') and only proposes a narrow 'soft fair-use throttle' for abuse, not general caps.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Also asks what one paying customer costs to serve, not only the free user",
+        "evidence": "The only paying-customer figure requested is '5. LTV of $99/mo customer vs. cost to carry one free signup' \u2014 an LTV-vs-free-cost comparison, not a cost-to-serve-the-paying-customer figure.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats a model failing the cost-to-serve check as having the wrong value metric rather than needing more discipline",
+        "evidence": "No failing cost-to-serve check is identified; the response validates the existing model rather than diagnosing a wrong value metric.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the free-versus-paid line to be defensible on organization-only grounds rather than on volume alone",
+        "evidence": "The defense of the storage cap rests on cost/growth reasoning ('natural upgrade trigger, tied to customer's own growth'), not an organization-vs-individual distinction.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reports the cost-to-serve result inside an explicit threshold check rather than as a passing remark",
+        "evidence": "No threshold is set; the numbers are only requested to 'pull before next conversation', with no completed check against a stated threshold.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

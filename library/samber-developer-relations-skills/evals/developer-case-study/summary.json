@@ -1,0 +1,646 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "developer-case-study",
+  "scenarios": 13,
+  "expectations_total": 145,
+  "expectations_subjective": 2,
+  "expectations_objective": 143,
+  "pass_rate_with_skill_pct": 67.6,
+  "pass_rate_without_skill_pct": 29.0,
+  "delta_pp": 38.6,
+  "uplift_multiplier": 2.33,
+  "trigger_accuracy_pct": 59.4,
+  "trigger_queries": 128,
+  "trigger_positive_fire_rate": 0.438,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.274 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 2,
+        "expectation": "Warns that every number coming from your own dashboards with nothing the customer can confirm is a disqualifying signal."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that if the full story is refused, the clause still leaves a lighter artefact available, such as the logo wall or the fact of being a customer."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes that the bottom rung, a composite or pattern write-up with no attributed quote, is no longer a case study and must be published and labelled as an engineering-pattern post."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Asks Meridian for the migration effort in engineer-weeks."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Asks about the dual-running period."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Asks what broke during rollout."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Asks what the team had to retrain on."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Asks which workloads they deliberately did not move."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Asks what still does not work."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires the section to state who should not copy this architecture."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes that if the customer strikes the limitations section entirely the study is weaker but still shippable, while striking limitations and alternatives together makes it an advertisement that must be framed as one to the owner."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States the default ranking axis as published proof per hour of chasing, and gives the order startup or scale-up, then individual developer or OSS maintainer, then consumer-product engineering team, then enterprise."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Treats Anvil Group's never-approved posture as grounds for deletion from the candidate list unless a rung of the anonymization ladder still clears the qualification gates, rather than parking them at the bottom."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes that an anonymised Anvil study loses the named-peer property the stalled deal actually needs, rather than treating anonymisation as a free substitute."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Warns against inflating a solo maintainer's personal-scale figures (build minutes, a hosting bill, a weekend of work) into enterprise language."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "For Kaleido, pushes harder on architecture and scale mechanics and drops buyer-facing business framing, since the audience is peer engineers and the adopter's own users never read it."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Flags 'over 70% faster builds' as a figure computed rather than confirmed by the customer, and requires it be put back to them before it ships."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Expresses the CI bill change as a ratio, for example cutting CI spend by roughly half, instead of publishing the absolute dollar figures, noting absolute infrastructure costs are predictably struck in review."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that two well-sourced numbers beat six loose ones."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes cycle-time figures travel further to a reader than raw volume or absolute spend, because they can be compared without knowing the customer's scale."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Every published number carries a value before, a value after, the instrument that produced it, and the measurement window."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Recommends splitting the call: the implementing engineers for about an hour, the VP separately for about twenty minutes."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Gives the reason for the split: in a joint call the hands-on voice defers, and the hands-on voice is the one readers trust."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Rejects writing up from notes and requires a recording, with consent asked at the start of the call and confirmed on the recording itself."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States the transcript is kept until publication alongside the approval file, because verbatim quotes are the backbone and paraphrase drifts into vendor register."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Rejects 'would you recommend us to a peer' as an opinion or hypothetical question that invites a compliment rather than producing a publishable fact."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Instructs sending an agenda beforehand asking them to bring the before and after dashboard numbers, because an engineer who has not looked at the old dashboard cannot produce a baseline from memory."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Notes the publishable quote usually appears at the advice-to-a-peer rung, when the engineer stops reporting and starts explaining."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Instructs reading numbers back with their instrument and confirming them on the recording, and confirming name spelling and exact job title during the call."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Fails the unsupported-superlatives check and removes or backs with a number every instance of 'seamless', 'game-changing', 'effortless', 'transformative' and 'faster than ever before'."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Places the humanizer pass before the publication gate rather than in place of it."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States the humanizer pass must preserve every quote, every number, version strings, component names and the architecture description exactly as written, because a humanised quote is a fabricated quote."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Requires two human reads before publishing: the interviewed engineer confirming technical accuracy, and someone outside the account checking it is comprehensible without insider vocabulary."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Skips the sales one-pager rather than ranking it, because there is no sales motion at this company."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that the one-pager is the highest value of the set wherever a sales motion exists at all, and worthless where none does."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Notes the engineer's own post under their own name travels further than anything published under yours."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Advises asking for the derivative permissions while the reviewer is still engaged, ideally before approval rather than after."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Recommends filing the study's atoms, each metric, each quote and the architecture diagram, into a proof library with a public or private flag."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Gives the reason for the proof library: nobody re-reads a full-length study to find one number."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Distinguishes both from an ongoing progress-as-it-happens story, which routes to samber/developer-relations-skills@build-in-public."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that eighteen months is a working convention rather than a measured shelf life, and should be shortened for adopters who ship fast or churn."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Recommends unpublishing rather than leaving the study up if the customer has in fact churned."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Recommends dating every study at publication and setting its re-verification date then, rather than discovering staleness at reuse time."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Rejects traffic as the measure of a study, in favour of whether it moved evaluations forward."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Proposes coverage of the story bank, noting one credible study per major use case and adopter size beats five for the same profile."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "States these are signals to weigh rather than targets to hit."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "States that no published metric isolates case studies aimed specifically at developers as their own category."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Produces a verdict line stating whether the story is publishable, and in what form, before any draft prose appears."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Produces the evidence ledger before the draft, not after it."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The ledger carries one row per claim the study will make."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Each ledger row states the claim, its evidence class, the instrument behind it, the measurement window, and who can re-derive it."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Delivers the parts in the order verdict, evidence ledger, draft, approval package, gate report, derivatives."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The draft spine includes a section on alternatives weighed and rejected, a results section carrying measurement method, and a limitations section, rather than only challenge, solution and results."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Flags that no alternatives-considered material exists in the supplied evidence and names it as something to go back to Dana for, rather than inventing rejected options."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that the other gates (production not pilot, a named human who will talk, a decision a reader can reuse, a plausible path to approval) are satisfied, rather than treating the story as dead."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes the 99.97% delivery figure comes from vendor-side telemetry and needs someone at Helio to confirm and vouch for it."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Warns that every number coming from your own dashboards with nothing the customer can confirm is a disqualifying signal."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Keeps the architecture and rejected-alternatives sections load-bearing, since the results section cannot carry a delta."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names identifying who on Helio's side can confirm the published numbers as part of the plan."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States the clause does not cover a narrative about how the customer runs their systems."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names four separate permissions still required: the engineer's consent to be quoted, their manager's consent to spend team credibility, communications sign-off on company name and published wording, and security or legal review of the technical detail."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes those permissions are often held by four different people and that you ask who holds each at first contact."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that if the full story is refused, the clause still leaves a lighter artefact available, such as the logo wall or the fact of being a customer."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Addresses that keeping Ines Duarte's name on the quotes re-identifies her employer, and attributes the quote by role and team instead."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names the credibility cost of the descent rather than presenting the lower rung as an equivalent or neutral option."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Warns against sharpening the descriptor until the company becomes identifiable while the study still claims anonymity."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Assesses the proposed descriptor 'a large European payments company' against re-identification risk rather than accepting it unexamined."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that at this rung the numbers now carry the whole study."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Confirms whether the story still clears the qualification gates at that rung, or names which gate it would fail."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes that the bottom rung, a composite or pattern write-up with no attributed quote, is no longer a case study and must be published and labelled as an engineering-pattern post."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Identifies all three supplied items as roadmap statements rather than limitations."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States the distinguishing rule: a limitation is a cost the reader would inherit, not a plan."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Refuses to publish the section as supplied, or marks the limitations check as failing."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Asks Meridian for the migration effort in engineer-weeks."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Asks about the dual-running period."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Asks what broke during rollout."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Asks what the team had to retrain on."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Asks which workloads they deliberately did not move."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Asks what still does not work."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires the section to state who should not copy this architecture."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Converts item (1) from a plan into a present cost, for example that the orchestration layer sits in a different language from the rest of the team's work so every change routes through the few people who know both, rather than simply deleting the item."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes that if the customer strikes the limitations section entirely the study is weaker but still shippable, while striking limitations and alternatives together makes it an advertisement that must be framed as one to the owner."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States the default ranking axis as published proof per hour of chasing, and gives the order startup or scale-up, then individual developer or OSS maintainer, then consumer-product engineering team, then enterprise."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that three startup studies do not add up to one enterprise reference at that size."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Treats Anvil Group's never-approved posture as grounds for deletion from the candidate list unless a rung of the anonymization ladder still clears the qualification gates, rather than parking them at the bottom."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes that an anonymised Anvil study loses the named-peer property the stalled deal actually needs, rather than treating anonymisation as a free substitute."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Warns against inflating a solo maintainer's personal-scale figures (build minutes, a hosting bill, a weekend of work) into enterprise language."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "For Kaleido, pushes harder on architecture and scale mechanics and drops buyer-facing business framing, since the audience is peer engineers and the adopter's own users never read it."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Warns that Brightloom's numbers need verifying yourself, because at that size nobody else checks them."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States the ranking is a default that shifts with context and with who chases the story, not a law."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Refuses the '$102,000 saved annually' headline because annualising a one-month result is not permitted."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Flags 'over 70% faster builds' as a figure computed rather than confirmed by the customer, and requires it be put back to them before it ships."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Expresses the CI bill change as a ratio, for example cutting CI spend by roughly half, instead of publishing the absolute dollar figures, noting absolute infrastructure costs are predictably struck in review."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Places each number's instrument and window next to the number rather than in a footnote."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that two well-sourced numbers beat six loose ones."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes cycle-time figures travel further to a reader than raw volume or absolute spend, because they can be compared without knowing the customer's scale."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Every published number carries a value before, a value after, the instrument that produced it, and the measurement window."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Recommends splitting the call: the implementing engineers for about an hour, the VP separately for about twenty minutes."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Gives the reason for the split: in a joint call the hands-on voice defers, and the hands-on voice is the one readers trust."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Rejects writing up from notes and requires a recording, with consent asked at the start of the call and confirmed on the recording itself."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States the transcript is kept until publication alongside the approval file, because verbatim quotes are the backbone and paraphrase drifts into vendor register."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Rewrites 'are you happy with the performance' into a question about what a named dashboard read before cutover and what it reads now."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Rejects 'would you recommend us to a peer' as an opinion or hypothetical question that invites a compliment rather than producing a publishable fact."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names the questioning rule being applied: ask about specifics that already happened, never about opinions or hypotheticals."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Instructs sending an agenda beforehand asking them to bring the before and after dashboard numbers, because an engineer who has not looked at the old dashboard cannot produce a baseline from memory."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Orders the questions as a ladder where each rung needs the previous one concrete, covering system context, before-state, cost of the before-state, trigger, alternatives, implementation, numbers, what it cost, what is still unsolved, and advice to a peer."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Includes an alternatives rung that asks what each rejected option did better, not only why each was rejected."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Includes a rung covering what they deliberately did not move, what still does not work, and who should not copy this setup."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Notes the publishable quote usually appears at the advice-to-a-peer rung, when the engineer stops reporting and starts explaining."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Instructs reading numbers back with their instrument and confirming them on the recording, and confirming name spelling and exact job title during the call."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Reports each of the seven publication-gate checks individually as pass or fail, rather than returning a single overall verdict."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Fails the instrument-and-window check, stating that 'in our internal deck' does not satisfy it and each number needs its instrument and window stated or one click away."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Fails the limitations check: no limitation is published that is specific enough for a reader to decide against you on it."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Fails the alternatives check: no rejected alternative is named."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Fails the approval-evidence check: nothing is on file for company name, logo, quotes or security review."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Places the humanizer pass before the publication gate rather than in place of it."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States the humanizer pass must preserve every quote, every number, version strings, component names and the architecture description exactly as written, because a humanised quote is a fabricated quote."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Requires two human reads before publishing: the interviewed engineer confirming technical accuracy, and someone outside the account checking it is comprehensible without insider vocabulary."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Ranks the derivative versions by reuse per hour and states the ranking out loud."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Skips the sales one-pager rather than ranking it, because there is no sales motion at this company."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that the one-pager is the highest value of the set wherever a sales motion exists at all, and worthless where none does."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Gives orders of magnitude rather than precise estimates: near-zero for the docs link, about an hour for the community post, about a day for conference material."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Notes the engineer's own post under their own name travels further than anything published under yours."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Notes only that engineer can authorise the community post."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Notes conference material depends on a slot existing and pays nothing until the talk is accepted, while the before-and-after architecture is already a slide so the marginal cost is low."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Checks whether the existing approval covers each new surface and flags that it does not, since permission was signed for the blog post only."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Advises asking for the derivative permissions while the reviewer is still engaged, ideally before approval rather than after."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Recommends filing the study's atoms, each metric, each quote and the architecture diagram, into a proof library with a public or private flag."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Gives the reason for the proof library: nobody re-reads a full-length study to find one number."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Declines to treat the internal Kafka to Redpanda rebuild as a developer case study, because no external adopter is involved."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Routes the internal rebuild to samber/developer-relations-skills@engineering-blog-post by name."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Identifies the teammate's promo-packet piece as a personal case study whose hero is the author."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States explicitly that this skill inverts that framing, because a developer case study's hero is the adopter and not the author."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Does not silently apply the customer case study spine to either piece."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Distinguishes both from an ongoing progress-as-it-happens story, which routes to samber/developer-relations-skills@build-in-public."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Says the routing out loud rather than producing the requested artefacts anyway."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Notes the 40% cost drop still needs an instrument and a measurement window wherever it is published."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that eighteen months is a working convention rather than a measured shelf life, and should be shortened for adopters who ship fast or churn."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Recommends unpublishing rather than leaving the study up if the customer has in fact churned."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Treats the homepage carousel as a separate surface that may need its own permission too."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Recommends dating every study at publication and setting its re-verification date then, rather than discovering staleness at reuse time."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Gives the reason: overclaiming attribution is the same credibility failure the artefact exists to avoid."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Rejects traffic as the measure of a study, in favour of whether it moved evaluations forward."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Proposes read-through rate and clicks through to the artefacts the study links, such as docs, repository or architecture page."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Proposes inbound reference requests, meaning prospects asking to talk to that customer."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Proposes whether the adopter's own engineers amplify the study themselves."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Proposes coverage of the story bank, noting one credible study per major use case and adopter size beats five for the same profile."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "States these are signals to weigh rather than targets to hit."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "States that no published metric isolates case studies aimed specifically at developers as their own category."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Notes the general B2B technology-buyer research places vendor-produced case studies well behind product demos, free trials and prior experience with the product for buying-decision impact."
+      }
+    ]
+  }
+}

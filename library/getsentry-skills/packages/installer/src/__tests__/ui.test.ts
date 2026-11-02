@@ -1,0 +1,219 @@
+import { describe, expect, it, vi } from "vitest";
+import { getStartedPrompt, runInstaller, runRemover } from "../ui";
+import { fakeHarness } from "./fake-harness";
+
+describe("getStartedPrompt", () => {
+  it("uses the default prompt when no instruction is provided", () => {
+    expect(getStartedPrompt()).toBe("Use the `sentry-get-started` skill for this project.");
+  });
+
+  it("builds a prompt from the install instruction", () => {
+    expect(getStartedPrompt("Setup logging")).toBe(
+      "The Sentry plugin has just been installed. Setup logging",
+    );
+  });
+
+  it.each(["abcde12345", "Lg1iSt2qeQ"])("builds the onboarding prompt for code %s", (code) => {
+    expect(getStartedPrompt(`  acme-widgets#${code}  `)).toBe(
+      `Please help me get started with sentry.\n\norg slug: acme-widgets\nrun code: ${code}`,
+    );
+  });
+
+  it.each([
+    "acme-widgets#abcde1234",
+    "acme-widgets#abcde123456",
+    "acme-widgets#abcde1234!",
+    "#abcde12345",
+    "acme-widgets#abcde12345#extra",
+    "Setup logging #abcde12345",
+  ])("preserves custom instructions that do not match onboarding: %s", (instruction) => {
+    expect(getStartedPrompt(instruction)).toBe(
+      `The Sentry plugin has just been installed. ${instruction}`,
+    );
+  });
+
+  it("trims the instruction and ignores whitespace-only input", () => {
+    expect(getStartedPrompt("  Setup tracing.  ")).toBe(
+      "The Sentry plugin has just been installed. Setup tracing.",
+    );
+    expect(getStartedPrompt("   ")).toBe("Use the `sentry-get-started` skill for this project.");
+  });
+});
+
+// These cover the non-interactive path, which skips the prompt and installs
+// every detected agent. The interactive selector is exercised manually.
+describe("runInstaller (non-interactive)", () => {
+  it("installs every detected agent and leaves the rest alone", async () => {
+    const claude = fakeHarness({ id: "claude", detected: true });
+    const codex = fakeHarness({ id: "codex", detected: false });
+    const grok = fakeHarness({ id: "grok", detected: true });
+
+    const ok = await runInstaller([claude, codex, grok], { interactive: false });
+
+    expect(ok).toBe(true);
+    expect(claude.install).toHaveBeenCalledOnce();
+    expect(grok.install).toHaveBeenCalledOnce();
+    expect(codex.install).not.toHaveBeenCalled();
+  });
+
+  it("runs cleanup before installing a detected agent", async () => {
+    const codex = fakeHarness({
+      id: "codex",
+      detected: true,
+      cleaned: "Removed conflicting plugin sentry@openai-curated",
+    });
+
+    const ok = await runInstaller([codex], { interactive: false });
+
+    expect(ok).toBe(true);
+    expect(codex.cleanup).toHaveBeenCalledOnce();
+    expect(codex.install).toHaveBeenCalledOnce();
+  });
+
+  it("closes by naming the agents to restart", async () => {
+    const log = vi.spyOn(console, "log").mockImplementation(() => {});
+    const claude = fakeHarness({ id: "claude", name: "Claude Code", detected: true });
+    const grok = fakeHarness({ id: "grok", name: "Grok", detected: true });
+
+    await runInstaller([claude, grok], { interactive: false });
+
+    expect(log).toHaveBeenCalledWith(expect.stringContaining("Restart Claude Code and Grok. "));
+    expect(log).toHaveBeenCalledWith(expect.stringContaining("Your agents now speak Sentry."));
+    log.mockRestore();
+  });
+
+  it("omits the restart hint when nothing was installed", async () => {
+    const log = vi.spyOn(console, "log").mockImplementation(() => {});
+    const claude = fakeHarness({ id: "claude", detected: false });
+
+    await runInstaller([claude], { interactive: false });
+
+    expect(log).not.toHaveBeenCalledWith(expect.stringContaining("Restart"));
+    log.mockRestore();
+  });
+
+  it("returns false when an install fails but still installs the others", async () => {
+    const claude = fakeHarness({ id: "claude", detected: true, error: new Error("boom") });
+    const codex = fakeHarness({ id: "codex", detected: true });
+
+    const ok = await runInstaller([claude, codex], { interactive: false });
+
+    expect(ok).toBe(false);
+    expect(codex.install).toHaveBeenCalledOnce();
+  });
+
+  it("returns false when a prerequisite blocks an install", async () => {
+    const cursor = fakeHarness({
+      id: "cursor",
+      detected: true,
+      readiness: { ok: false, reason: "git is required" },
+    });
+    const codex = fakeHarness({ id: "codex", detected: true });
+
+    const ok = await runInstaller([cursor, codex], { interactive: false });
+
+    expect(ok).toBe(false);
+    expect(cursor.install).not.toHaveBeenCalled();
+    expect(codex.install).toHaveBeenCalledOnce();
+  });
+
+  it("succeeds without installing anything when nothing is detected", async () => {
+    const claude = fakeHarness({ id: "claude", detected: false });
+
+    const ok = await runInstaller([claude], { interactive: false });
+
+    expect(ok).toBe(true);
+    expect(claude.install).not.toHaveBeenCalled();
+  });
+
+  it("runs installs concurrently rather than one after another", async () => {
+    let active = 0;
+    let peak = 0;
+    const slowInstall = vi.fn(async () => {
+      active += 1;
+      peak = Math.max(peak, active);
+      await new Promise((resolve) => setTimeout(resolve, 10));
+      active -= 1;
+      return { kind: "done" as const, command: "ok" };
+    });
+
+    const harnesses = ["a", "b", "c"].map((id) => {
+      const harness = fakeHarness({ id, detected: true });
+      harness.install = slowInstall;
+      return harness;
+    });
+
+    const ok = await runInstaller(harnesses, { interactive: false });
+
+    expect(ok).toBe(true);
+    expect(peak).toBeGreaterThan(1);
+  });
+
+  it("does not authenticate during a non-interactive install", async () => {
+    const claude = fakeHarness({ id: "claude", detected: true, authenticates: true });
+
+    const ok = await runInstaller([claude], { interactive: false });
+
+    expect(ok).toBe(true);
+    expect(claude.authenticate).not.toHaveBeenCalled();
+  });
+});
+
+describe("runRemover (non-interactive)", () => {
+  it("removes only detected agents that have the plugin installed", async () => {
+    const claude = fakeHarness({ id: "claude", detected: true, installed: true });
+    const codex = fakeHarness({ id: "codex", detected: true, installed: false });
+    const grok = fakeHarness({ id: "grok", detected: false });
+
+    const ok = await runRemover([claude, codex, grok], { interactive: false });
+
+    expect(ok).toBe(true);
+    expect(claude.remove).toHaveBeenCalledOnce();
+    expect(codex.remove).not.toHaveBeenCalled();
+    expect(grok.remove).not.toHaveBeenCalled();
+  });
+
+  it("closes with the neuralyzer line naming the agents to restart", async () => {
+    const log = vi.spyOn(console, "log").mockImplementation(() => {});
+    const claude = fakeHarness({
+      id: "claude",
+      name: "Claude Code",
+      detected: true,
+      installed: true,
+    });
+    const grok = fakeHarness({ id: "grok", name: "Grok", detected: true, installed: true });
+
+    await runRemover([claude, grok], { interactive: false });
+
+    expect(log).toHaveBeenCalledWith(expect.stringContaining("Restart Claude Code and Grok. "));
+    expect(log).toHaveBeenCalledWith(expect.stringContaining("They won't remember a thing."));
+    log.mockRestore();
+  });
+
+  it("omits the restart hint when nothing was installed to remove", async () => {
+    const log = vi.spyOn(console, "log").mockImplementation(() => {});
+    const claude = fakeHarness({ id: "claude", detected: true, installed: false });
+
+    const ok = await runRemover([claude], { interactive: false });
+
+    expect(ok).toBe(true);
+    expect(claude.remove).not.toHaveBeenCalled();
+    expect(log).not.toHaveBeenCalledWith(expect.stringContaining("Restart"));
+    log.mockRestore();
+  });
+
+  it("returns false when a remove fails but still removes the others", async () => {
+    const claude = fakeHarness({
+      id: "claude",
+      detected: true,
+      installed: true,
+      error: new Error("boom"),
+    });
+    const codex = fakeHarness({ id: "codex", detected: true, installed: true });
+
+    const ok = await runRemover([claude, codex], { interactive: false });
+
+    expect(ok).toBe(false);
+    expect(codex.remove).toHaveBeenCalledOnce();
+  });
+});

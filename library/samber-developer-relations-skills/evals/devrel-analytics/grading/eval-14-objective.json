@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects sending the full command line and the working directory path.",
+        "evidence": "\"Full command line | \\\"Never send code, paths, or arguments\\\" | Breaks the floor\" and \"Working directory path | \\\"Never send code, paths, or arguments\\\" | Breaks the floor\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the rule that code, paths and arguments are never sent.",
+        "evidence": "\"Never send code, paths, or arguments\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the documented floor of what may be collected, such as the command invoked, the tool or framework version, the OS, plugins, and build duration or size.",
+        "evidence": "Proposed schema: \"command: enum ... cli_version: semver string; os: enum (linux/macos/windows)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a visible first-run notice rather than a mention in release notes.",
+        "evidence": "\"1. First-run notice, not release notes. Release notes are read by a fraction of your install base; a first-run notice is read by all of them.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires opt-out at minimum, with a documented environment variable or command that disables collection.",
+        "evidence": "\"Disable anytime with BRIGHTMOOR_TELEMETRY=0 or brightmoor telemetry disable\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires documenting exactly what is sent.",
+        "evidence": "\"A docs page that says exactly what is and isn't sent \u2014 the property registry above, verbatim, as a table.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that hashing is not consent.",
+        "evidence": "\"Keep PII out of properties (hashing is not consent)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a telemetry surprise costs more community trust than the data returns.",
+        "evidence": "\"a telemetry surprise costs more community trust than the data is worth\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places CLI or SDK telemetry last in the build order on value per hour, and notes that its cost is paid in community trust rather than in hours.",
+        "evidence": "This transcript contains no build-order ranking against other instrumentation rungs; it is a standalone critique of the CLI telemetry design.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the stricter opt-in model, where uploadable counters are approved through a public proposal process and results are published back openly, as an option that trades reach for trust and carries real governance overhead.",
+        "evidence": "\"Go's own toolchain telemetry (golang.org/x/telemetry) is opt-in with publicly reviewed counters \u2014 worth citing as the ceiling you could grow into, not the floor you're shipping now.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Checks the proposal against the decision list, naming the decision the telemetry would change or cutting it.",
+        "evidence": "\"Re-derive this from what leadership actually needs, per the skill's decision-first rule ... Decision: 'which kinds of projects use Brightmoor'\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects sending the full command line and the working directory path.",
+        "evidence": "\"Full command line, verbatim...Raw working-directory path.\" both flagged as problems, with fix: \"Never transmit raw argv or raw cwd.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the rule that code, paths and arguments are never sent.",
+        "evidence": "\"What we will never collect: the literal command line you typed, file paths, file contents, environment variables, or anything that could contain a secret\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the documented floor of what may be collected, such as the command invoked, the tool or framework version, the OS, plugins, and build duration or size.",
+        "evidence": "Only \"allow-listed subcommand name and flag names\" plus a coarse language/framework signal are named \u2014 no mention of OS, plugins, or build duration/size, nor reference to any documented industry floor.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a visible first-run notice rather than a mention in release notes.",
+        "evidence": "\"Opt-in on upgrade, not opt-out. First run after upgrade shows a one-time interactive notice\" with a full \"First-run CLI notice\" block provided.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires opt-out at minimum, with a documented environment variable or command that disables collection.",
+        "evidence": "\"One-flag, one-env-var opt-out, both documented in `--help`: `--no-telemetry` / `BRIGHTMOOR_TELEMETRY=0`.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires documenting exactly what is sent.",
+        "evidence": "\"Publish the exact schema (a `TELEMETRY.md` with the literal JSON shape sent) and ship `brightmoor telemetry show-payload`\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that hashing is not consent.",
+        "evidence": "The transcript argues hashing \u2260 anonymous (\"'Hashed machine ID' \u2260 anonymous...you've built a pseudonymous profile\"), a claim about anonymity, not about hashing failing to constitute consent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a telemetry surprise costs more community trust than the data returns.",
+        "evidence": "\"that's worth surfacing as an explicit tradeoff conversation (trust/goodwill vs. data volume), not something to resolve by writing better copy around an opt-out default.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places CLI or SDK telemetry last in the build order on value per hour, and notes that its cost is paid in community trust rather than in hours.",
+        "evidence": "This section is a standalone response to a telemetry proposal, not part of a ranked build-order plan; no such ordering is discussed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the stricter opt-in model, where uploadable counters are approved through a public proposal process and results are published back openly, as an option that trades reach for trust and carries real governance overhead.",
+        "evidence": "No public-proposal-process opt-in model is discussed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Checks the proposal against the decision list, naming the decision the telemetry would change or cutting it.",
+        "evidence": "No 'decision list' framework is referenced or applied to the telemetry proposal.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

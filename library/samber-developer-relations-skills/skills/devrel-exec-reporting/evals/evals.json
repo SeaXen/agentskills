@@ -1,0 +1,439 @@
+{
+  "skill_name": "devrel-exec-reporting",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "QBR with our CMO next Tuesday. Here's what I have from our metrics sheet for Q3: first-success rate 34% (was 29% in Q2, threshold band 31-35%), pipeline influenced under our 180-day touch rule $380k (sales also counts these deals), DQLs routed 52, GitHub stars +2,100, 6 conference talks. Program cost $210k for the quarter including two salaries. My boss said the CMO only cares about revenue, so I want the headline to be 'DevRel generated $380k in revenue this quarter, a 5x return'. Can you draft the one-pager?",
+      "expected_output": "A one-page exec draft whose headline speaks to the CMO's goal without claiming generated revenue: the $380k is presented as influenced pipeline, shared with sales, under the 180-day rule; no ROI multiple; first-success rate shown as measured against its band; stars and talks pushed to an appendix activity line; a decision asked; salaries stated as included.",
+      "files": [],
+      "expectations": [
+        "The draft does not use the words 'generated' or 'revenue' for the $380k; it calls it pipeline influenced",
+        "The $380k line states that the credit is shared with sales",
+        "The $380k line names the 180-day touch rule",
+        "The draft contains no ROI multiple such as '5x' or '1.8x'",
+        "The response explains to the user why the requested headline was not used (double counting with sales or discounting of the whole report)",
+        "Every number in the goal ledger carries a claim label such as measured or influenced",
+        "The first-success rate appears with its prior value 29% or its 31-35% band",
+        "GitHub stars and the 6 talks appear only in an appendix or activity line, not in the headline or goal ledger",
+        "The draft ends with or contains a 'decision asked' that names a decision and a date or deadline",
+        "The cost line states that the $210k includes salaries",
+        "The draft offers a cost-per-outcome figure instead of an ROI multiple"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Monthly exec update for our VP Product, due tomorrow. Last month's update showed tickets per 100 signups at 8.2 and 'docs search success' at 61%. This month tickets went to 10.9 (our threshold says under 9) and docs search success went UP to 66%. Honestly I'd rather just not show tickets this month, it'll come back down after the migration guide ships. Can you write it with search success, quickstart completion (41%, up from 37%) and the new tutorial series?",
+      "expected_output": "A short monthly update that keeps the tickets metric with a 'what did not work' row (10.9 vs threshold under 9, likely cause the migration, the change and next read), explains that dropping it would read as cherry-picking against last month's report, and leads with the outcome rather than the tutorial series.",
+      "files": [],
+      "expectations": [
+        "The update includes tickets per 100 signups with the 10.9 value",
+        "The update contains a section titled or functioning as 'What did not work' (misses)",
+        "The tickets row in the misses section gives a likely cause, a change, and a next read date or period",
+        "The tickets metric is marked with a non-green status (yellow, red, amber or missed)",
+        "The response tells the user why omitting tickets is a problem (it was in last month's report, so its absence reads as cherry-picking)",
+        "The response does not remove tickets under a kill rule, or if it mentions a kill rule it notes the rule's criteria are not met",
+        "The headline states an outcome (for example the quickstart completion or search success movement) rather than the tutorial series launch",
+        "The tutorial series appears only as an activity item or appendix line, not as the headline",
+        "The update does not credit DevRel with causing the search-success rise unless the user's data attributes it; it uses co-movement wording such as rose or while",
+        "Each number carries a claim label such as measured",
+        "The update includes a decision asked or explicitly states that no decision is needed this month"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Our CFO just proposed cutting DevRel 40% in next year's plan. Plan lock is in 10 days. Program costs $540k/yr all-in (salaries included). From our budget allocation work we have a ranked cut list: 1) two tier-2 conference sponsorships ($70k), 2) swag and travel ($35k), 3) the paid community platform ($24k), 4) the contract video producer ($60k), 5) the community manager role ($110k). Support leans on our forum answers a ton - I'm sure the support team would drown without us, I'll just say that. Help me build the case to the CFO. Industry surveys show companies our size spend way more on devrel, can we use that too?",
+      "expected_output": "A defense case with a goal ledger, tiered cut scenarios built from the given cut list (what roughly 20% and 40% stop and which metrics drop), cost per outcome for a CFO, a refusal to include the support dependency unless the support lead confirms it in writing, a refusal to use industry budget benchmarks as justification, no causal-evidence study given the 10-day deadline, and one decision asked by the plan-lock date.",
+      "files": [],
+      "expectations": [
+        "The case contains tiered cut scenarios with at least two cut levels",
+        "The cut scenarios are built from the user's ranked cut list items (for example conferences, swag and travel, community platform)",
+        "Each cut tier names what stops and which metric or outcome is expected to drop",
+        "The 40% tier is shown to require cutting deep into the list (for example the community manager role), with its consequence named",
+        "The response requires written confirmation from the support team before claiming the forum dependency, or excludes the claim until confirmed",
+        "The response declines to use industry or other companies' budget benchmarks as justification and explains why",
+        "The case includes a cost-per-outcome line, appropriate for a CFO reader",
+        "The case includes a goal ledger or equivalent mapping results to company goals",
+        "The response does not propose running a new pre/post or holdout study before the 10-day plan lock",
+        "The case ends with one decision asked with options and the plan-lock date or a deadline",
+        "The case does not argue that DevRel value cannot be measured",
+        "The case states salaries are included in the $540k",
+        "Each cut tier states whether the cut is reversible (for example contracts versus re-hiring a role)",
+        "The response flags that the community platform (item 3) and the community manager role (item 5) depend on each other and either bundles them in one tier or sends the list back for re-ranking",
+        "Cut tiers are cumulative sums of the ranked list items rather than round percentages detached from the list"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "I need a board slide on DevRel by Monday (board meets Thursday). We've never agreed on official metrics, it's just me. Numbers I can pull: GitHub stars 14.2k total, Discord members 6,800 total, npm 410k + PyPI 290k downloads last month which I was going to add up as '700k developers using us', 9 meetups, and our signup form question 'how did you hear about us' which says 18% of 1,150 signups came from talks/blog/community. Can you make it look solid?",
+      "expected_output": "A provisional board slide: header marks it provisional with no agreed metric framework, at most three numbers with labels, no '700k developers' (registry downloads are requests not people, never summed into users), totals presented as period changes or flagged as monotonic, the self-reported 18% labelled with n, attribution stated as none claimed beyond self-report, and the decision asked is approving a metric framework; routes to devrel-metrics.",
+      "files": [],
+      "expectations": [
+        "The slide or its header says it is provisional or that no agreed metric framework exists",
+        "The response does not present '700k developers' or sums npm and PyPI downloads into a user count",
+        "The slide shows at most three headline numbers",
+        "The 18% figure is labelled self-reported and shows the sample size of 1,150 or n=1,150",
+        "Total stars or total Discord members are not presented as headline growth evidence without a period delta or a caveat",
+        "Every number on the slide carries a claim label",
+        "The decision asked includes approving or building a metric framework",
+        "The response points to samber/developer-relations-skills@devrel-metrics or names building a metrics framework as the next step",
+        "The response does not invent an attribution rule or influenced-pipeline figure",
+        "The 9 meetups appear only as activity, not as an outcome headline"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Our CEO asked in staff meeting why devrel hasn't produced any enterprise revenue after two quarters. We sell to platform teams at banks, deals usually take 9-12 months. What we have: DQLs routed to sales were 31 in Q1 and 44 in Q2; of Q1's 31, 5 are now open opportunities; enterprise trial workspaces created by developers who touched our workshops: 12 in Q2 (no earlier data). I want to tell him we'll show closed revenue next quarter so he backs off. Write me the update for him.",
+      "expected_output": "An update to the CEO that pairs the lagging enterprise revenue outcome with leading indicators: DQLs with pull-through (5 of Q1's 31 now opportunities), trial workspaces marked 'link unproven, first read <date>' because there is no history, the expected lag stated from the 9-12 month cycle, no promise of closed revenue next quarter, labels on every number, a decision asked.",
+      "files": [],
+      "expectations": [
+        "The update does not promise closed revenue next quarter",
+        "The response explains to the user why promising next-quarter revenue is risky (the lag creates a debt that comes due)",
+        "The update contains a table or list pairing a lagging outcome with a leading indicator",
+        "The DQL row shows pull-through using 5 of Q1's 31 (or about 16%)",
+        "The trial-workspace indicator is marked as an unproven link or as having no history, with a first or next read date",
+        "The expected lag is stated, consistent with the 9-12 month sales cycle (for example 3-4 quarters)",
+        "The leading indicators are not presented as revenue or as the outcome itself",
+        "Pipeline or opportunity figures use the word influenced or note shared credit with sales",
+        "The headline is one or two sentences and speaks to the CEO's enterprise revenue question",
+        "The update contains a decision asked or a next read date the CEO can hold the team to",
+        "Every number carries a claim label"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Quarterly report for our CTO (DevRel reports into engineering here). Framework metrics we agreed in January: time to first successful API call (median 14 min, was 22), SDK issues answered within 2 business days (78%, threshold 80%), feature requests from community that shipped (6), influenced pipeline ($260k). The page feels thin, so I'd like to add a 'community sentiment score' I came up with this morning (I'd average the emoji reactions in Discord) and also put in our blog pageviews since they're big (180k). Draft it.",
+      "expected_output": "A CTO-tailored quarterly report using only the agreed framework metrics: time to first call, SDK response rate (missed, in a misses row), shipped feature requests leading; pipeline de-emphasised or appendix; no invented sentiment score (routed to devrel-metrics); blog pageviews not added as a metric; labels; decision asked.",
+      "files": [],
+      "expectations": [
+        "The report does not include the new 'community sentiment score'",
+        "The response routes the sentiment score idea to samber/developer-relations-skills@devrel-metrics or to a framework change, rather than adding it",
+        "Blog pageviews (180k) are not added to the goal ledger as a metric",
+        "The headline or first section leads with an enablement or product-feedback result (time to first call or shipped feature requests)",
+        "The response checks whether another change (for example an SDK or product release) could explain the time-to-first-call drop, or phrases it as co-movement rather than DevRel causing it",
+        "The SDK response metric at 78% appears in a misses or 'what did not work' row against its 80% threshold",
+        "The influenced pipeline figure is either placed after enablement results or in the appendix, not in the headline",
+        "If the $260k appears, it is labelled influenced",
+        "Every number carries a claim label",
+        "The report contains a decision asked with a date or deadline",
+        "The report fits one page plus an optional appendix"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "Can you write our Q4 devrel exec report for the head of marketing? Here's last quarter's report for reference (attached as text below). Last quarter: 'Program health: GREEN. Highlights: 12 talks, 40 blog posts, 3 hackathons, 2.1k new Discord members, 5.4M impressions.' This quarter: 10 talks, 31 posts, 1.6k new Discord members, 4.8M impressions, and our framework's primary metric (activated workspaces from devrel-touched signups) went from 210 to 188 against a threshold of 230. Keep it green so marketing doesn't panic, and keep the same highlights format they're used to.",
+      "expected_output": "A report that replaces the activity-highlights format with an outcome-first page: the primary metric 188 vs 210 and threshold 230 shown honestly with a non-green status and a misses row; activity counts moved to one appendix line; a status set from the threshold not from the reader's mood; and a decision asked.",
+      "files": [],
+      "expectations": [
+        "The report status for the primary metric is not green",
+        "The primary metric appears with 188, 210 and the 230 threshold",
+        "The report contains a misses or 'what did not work' row for the primary metric with a cause and a change",
+        "The response explains why keeping it green is a problem (status read as judgment, late red costs more trust)",
+        "Talks, posts, hackathons, Discord members and impressions appear only in an appendix or single activity line",
+        "The headline is about the primary metric outcome, not the talk or post counts",
+        "The response explains why the highlights format is replaced (activity log answers 'were you busy', not 'what did it move')",
+        "The report contains a decision asked",
+        "Every number in the results table carries a claim label"
+      ]
+    },
+    {
+      "id": 8,
+      "prompt": "Need a half-year exec update for our COO. Since we started the developer advocacy program in March, company-wide developers making their first successful API call went from 900/month to 1,400/month. DevRel cost $180k this half, salaries not included. In April we also shipped the new v3 SDK. I want the headline: 'DevRel drove a 55% increase in activation at $60 per activated developer, vs $95 for paid ads' (the $95 is the growth team's number and it includes their salaries). Write it.",
+      "expected_output": "A COO update that refuses the causal headline: company-wide first calls are reported as co-movement ('rose from 900 to 1,400 a month while...'), the v3 SDK release named as a confound, cost per outcome either restricted to outcomes the attribution rule credits to DevRel or labelled 'all outcomes, not attributed', the salary-basis mismatch with the $95 paid-ads figure stated or fixed, labels on every number, a decision asked.",
+      "files": [],
+      "expectations": [
+        "The headline does not say DevRel drove or caused the activation increase",
+        "The 900 to 1,400 movement is phrased as co-movement or credited only under a stated attribution rule",
+        "The response names the April v3 SDK release as another possible cause of the increase",
+        "The response does not present $60 per activated developer as DevRel's cost per outcome without labelling it as all outcomes, not attributed",
+        "The response points out that the $95 paid-ads figure includes salaries while the $180k excludes them, or puts both on the same basis",
+        "The draft contains no ROI multiple",
+        "The response explains to the user why the requested headline was changed",
+        "Every number carries a claim label",
+        "The cost line states that salaries are excluded",
+        "The draft contains a decision asked with a date or deadline"
+      ]
+    }
+  ],
+  "trigger_queries": [
+    {
+      "query": "the CFO wants a written case for adding a second developer advocate next year, with what it should buy and when we'd know",
+      "should_trigger": true
+    },
+    {
+      "query": "We already have our devrel metric sheet with baselines; now I need to turn it into the quarterly report the CEO reads",
+      "should_trigger": true
+    },
+    {
+      "query": "Our devrel influenced pipeline doubled but sales says it's theirs - how do I write that up for the exec team?",
+      "should_trigger": true
+    },
+    {
+      "query": "my VP of marketing wants a one-page devrel update before the QBR next week, can you help me write it from our metrics sheet",
+      "should_trigger": true
+    },
+    {
+      "query": "Draft a quarterly developer relations report for our CFO that explains what we got for the $400k",
+      "should_trigger": true
+    },
+    {
+      "query": "the board meets thursday and i need one slide on what devrel achieved this year",
+      "should_trigger": true
+    },
+    {
+      "query": "Finance proposed cutting our DevRel program by a third. Help me write the case for keeping it.",
+      "should_trigger": true
+    },
+    {
+      "query": "how do I explain to our CEO what the developer advocacy team actually delivers? he keeps asking in staff meetings",
+      "should_trigger": true
+    },
+    {
+      "query": "write the monthly exec update for devrel - here are this month's numbers vs last month",
+      "should_trigger": true
+    },
+    {
+      "query": "Our enterprise deals take a year to close; how do I report devrel progress to leadership in the meantime without promising revenue?",
+      "should_trigger": true
+    },
+    {
+      "query": "turn this devrel metrics framework into the report our CTO will read each quarter",
+      "should_trigger": true
+    },
+    {
+      "query": "help me defend the developer relations budget in annual planning, we're on the chopping block",
+      "should_trigger": true
+    },
+    {
+      "query": "We need a devrel QBR deck for the CMO. Pipeline influenced is $1.2M, how should I present it?",
+      "should_trigger": true
+    },
+    {
+      "query": "my boss wants me to say devrel generated $500k revenue in the exec update, is that ok and how should I phrase it",
+      "should_trigger": true
+    },
+    {
+      "query": "Write a budget review memo for our developer relations team with options if the budget is cut 20% or 50%",
+      "should_trigger": true
+    },
+    {
+      "query": "Our devrel numbers dropped this quarter and I have to present to the exec team. How do I show it without losing the room?",
+      "should_trigger": true
+    },
+    {
+      "query": "can you rewrite our devrel monthly report? it's just a list of talks and blog posts and leadership says it tells them nothing",
+      "should_trigger": true
+    },
+    {
+      "query": "Prepare a one-pager for the COO justifying our developer advocate headcount",
+      "should_trigger": true
+    },
+    {
+      "query": "what should go on the devrel slide in the company all-hands board update",
+      "should_trigger": true
+    },
+    {
+      "query": "We're being asked 'what is devrel for' by the new CRO. Draft the written answer with our numbers.",
+      "should_trigger": true
+    },
+    {
+      "query": "help me write the 'value of developer relations' memo for our CEO, here is our metric sheet",
+      "should_trigger": true
+    },
+    {
+      "query": "devrel annual review for leadership - can you structure it around company OKRs?",
+      "should_trigger": true
+    },
+    {
+      "query": "How do I present leading indicators like DQLs to execs while we wait for pipeline to show up?",
+      "should_trigger": true
+    },
+    {
+      "query": "The CFO wants cost per outcome for our dev community program before approving next year. Help me write it up.",
+      "should_trigger": true
+    },
+    {
+      "query": "make an exec summary of our developer program results for the quarterly business review",
+      "should_trigger": true
+    },
+    {
+      "query": "Our head of product (DevRel reports to her) wants a report on what the advocates did for adoption this half. Draft it.",
+      "should_trigger": true
+    },
+    {
+      "query": "We were told devrel will be cut 40% unless we show impact in 2 weeks. What do I put in front of the CEO?",
+      "should_trigger": true
+    },
+    {
+      "query": "write a board-ready summary of our open source program's impact for the company's investors meeting",
+      "should_trigger": true
+    },
+    {
+      "query": "i report devrel to the CEO monthly and he skims it. how should the page be structured",
+      "should_trigger": true
+    },
+    {
+      "query": "Draft the devrel section of the quarterly leadership review: we hit 2 of 3 targets",
+      "should_trigger": true
+    },
+    {
+      "query": "help me present the devrel scorecard to our exec staff meeting, the stars went up but activation went down",
+      "should_trigger": true
+    },
+    {
+      "query": "Write a status update on developer relations for the SVP Engineering with a clear ask for one more headcount",
+      "should_trigger": true
+    },
+    {
+      "query": "how to report devrel influenced pipeline to the CMO without sales getting angry about double counting",
+      "should_trigger": true
+    },
+    {
+      "query": "budget defense for developer relations team - what are my strongest arguments and how to lay them out",
+      "should_trigger": true
+    },
+    {
+      "query": "Our marketing VP wants a dashboard-style devrel report with 30 metrics. Can you turn it into something execs will read?",
+      "should_trigger": true
+    },
+    {
+      "query": "Which numbers should go in our quarterly devrel report going forward? We have no agreed KPIs yet.",
+      "should_trigger": false
+    },
+    {
+      "query": "Help me rebuild our devrel budget line items and the ranked cut list for annual planning",
+      "should_trigger": false
+    },
+    {
+      "query": "my VP wants an update on the docs site migration project by Friday, can you write a quick RAG status",
+      "should_trigger": false
+    },
+    {
+      "query": "Which KPIs should our devrel team track? We only report stars and event counts today.",
+      "should_trigger": false
+    },
+    {
+      "query": "help me define an attribution rule for devrel influenced pipeline with our sales ops team",
+      "should_trigger": false
+    },
+    {
+      "query": "Set up UTM tagging and an event taxonomy so our docs and blog traffic joins to signups",
+      "should_trigger": false
+    },
+    {
+      "query": "How should we split our $600k devrel budget between events, content and community next year?",
+      "should_trigger": false
+    },
+    {
+      "query": "Build a ranked cut list of our devrel line items in case the budget shrinks",
+      "should_trigger": false
+    },
+    {
+      "query": "Is our Discord community healthy? Which community health metrics should we look at?",
+      "should_trigger": false
+    },
+    {
+      "query": "Was sponsoring KubeCon worth it? Calculate the ROI of that one event.",
+      "should_trigger": false
+    },
+    {
+      "query": "Write a technical case study about how Acme migrated to our API",
+      "should_trigger": false
+    },
+    {
+      "query": "Design our developer relations strategy from scratch: driver, goals, pillar mix",
+      "should_trigger": false
+    },
+    {
+      "query": "Should devrel report to marketing or product? We're restructuring the org.",
+      "should_trigger": false
+    },
+    {
+      "query": "Benchmark our competitor's devrel program from their public signals",
+      "should_trigger": false
+    },
+    {
+      "query": "Design a State of Developers survey we can publish",
+      "should_trigger": false
+    },
+    {
+      "query": "Write the post-event report we send to the sponsors of our conference",
+      "should_trigger": false
+    },
+    {
+      "query": "write a weekly status report for my engineering project with RAG status for the steering committee",
+      "should_trigger": false
+    },
+    {
+      "query": "Draft our startup's monthly investor update with MRR, burn and runway",
+      "should_trigger": false
+    },
+    {
+      "query": "Create a marketing performance report for our paid search campaign last month",
+      "should_trigger": false
+    },
+    {
+      "query": "Prepare a customer QBR deck for our biggest enterprise account's renewal",
+      "should_trigger": false
+    },
+    {
+      "query": "Write the quarterly business review for our reseller partner program",
+      "should_trigger": false
+    },
+    {
+      "query": "help me write a company-wide all-hands newsletter for internal comms",
+      "should_trigger": false
+    },
+    {
+      "query": "Which open source projects should our company sponsor and how do we prove it worked?",
+      "should_trigger": false
+    },
+    {
+      "query": "Write our developer newsletter issue for this week",
+      "should_trigger": false
+    },
+    {
+      "query": "Plan our developer content calendar for Q1",
+      "should_trigger": false
+    },
+    {
+      "query": "What should our devrel hiring scorecard look like for a senior advocate?",
+      "should_trigger": false
+    },
+    {
+      "query": "Prepare me for a podcast interview about developer relations",
+      "should_trigger": false
+    },
+    {
+      "query": "Create the sponsor prospectus for the developer conference we organize",
+      "should_trigger": false
+    },
+    {
+      "query": "Our docs analytics show 240k sessions but product says 30k signups - why do the numbers disagree?",
+      "should_trigger": false
+    },
+    {
+      "query": "Write a press release announcing our 2.0 launch",
+      "should_trigger": false
+    },
+    {
+      "query": "Make a pitch deck for our seed round",
+      "should_trigger": false
+    },
+    {
+      "query": "help me write my own devrel performance self-review for my manager",
+      "should_trigger": false
+    },
+    {
+      "query": "Draft OKRs for the developer relations team for next quarter",
+      "should_trigger": false
+    },
+    {
+      "query": "Map the developer journey and find where people drop between trial and production",
+      "should_trigger": false
+    },
+    {
+      "query": "Write a sales enablement one-pager on our API for account executives",
+      "should_trigger": false
+    }
+  ]
+}

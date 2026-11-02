@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that repository traffic endpoints retain only 14 days of data.",
+        "evidence": "\"GitHub's Traffic API retains 14 days only (per the skill's own sourced limit) \u2014 there is no way to backfill a trailing 12 months today.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes those endpoints require write access to the repository.",
+        "evidence": "No mention anywhere in the transcript of any access/permission requirement for the GitHub Traffic API endpoints.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that expired repository traffic data cannot be backfilled, so a 12-month view is not available.",
+        "evidence": "\"Discover/Evaluate 12-month view: not obtainable retroactively. GitHub's Traffic API retains 14 days only ... there is no way to backfill a trailing 12 months today.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Instructs snapshotting any signal drawn from an expiring source into the team's own store from the day the signal is defined.",
+        "evidence": "\"Start a daily cron that snapshots `traffic/views` and `traffic/clones` into your own store now; in three months you'll have a real quarter, in twelve a real year.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States npm download data retains 18 months.",
+        "evidence": "Ecosystem split table: \"npm (JS companion) | weekly downloads, npm registry API | 18 months\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States PyPI time series retain 180 days.",
+        "evidence": "Ecosystem split table: \"PyPI (`orrery`) | monthly downloads, `pypistats` | 180 days\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States npm counts HTTP 200 responses for tarballs, including build servers and mirrors, making it a request count rather than a person count.",
+        "evidence": "\"npm counts HTTP 200 tarball responses, including CI runners and mirrors \u2014 a request count, not an install or person count.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States PyPI excludes known mirrors by default.",
+        "evidence": "\"PyPI's `pypistats` excludes known mirrors.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Concludes npm and PyPI download counts are not comparable to each other, and that neither is a user count.",
+        "evidence": "\"Reading \\\"npm grew faster than PyPI\\\" off raw magnitudes compares two differently-biased counters, not two ecosystems\" combined with \"npm counts HTTP 200 tarball responses ... a request count, not an install or person count\" and the Gaps entry: \"npm vs. PyPI 'which ecosystem is winning': not a comparable question as posed ... the two counters have different, uncorrectable biases.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines to present the requested year-over-year repository traffic comparison as achievable from existing data.",
+        "evidence": "\"Discover/Evaluate 12-month view: not obtainable retroactively. ... Until then, the '12-month' ask can only be answered from the day forward.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the 4.1M all-time download counter as a signal because it is monotonic and cannot fall when the journey breaks.",
+        "evidence": "\"Pushback #1 \u2014 the 4.1M all-time download counter is not going in this map as a signal.' The skill's signal-hygiene rule rejects monotonic counters outright: 'total stars, cumulative signups and all-time downloads only go up and cannot fall when the journey breaks.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Proposes a rate or a period delta in place of the all-time counter.",
+        "evidence": "\"I've kept it here in Scope as context and replaced it in the Try row below with the metric that actually moves: monthly install rate, by ecosystem.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places the missing historical baseline in the map's Gaps section.",
+        "evidence": "Gaps section: \"Discover/Evaluate 12-month view: not obtainable retroactively.\" and \"All-time downloads (4.1M): excluded as a map signal by design, not by oversight\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that repository traffic endpoints retain only 14 days of data.",
+        "evidence": "'GitHub's Traffic Insights API and UI only retain a rolling 14-day window'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes those endpoints require write access to the repository.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that expired repository traffic data cannot be backfilled, so a 12-month view is not available.",
+        "evidence": "'everything before \"today minus however long you've been collecting\" has to be reconstructed from whatever manual exports you already have, or left blank rather than guessed.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Instructs snapshotting any signal drawn from an expiring source into the team's own store from the day the signal is defined.",
+        "evidence": "'A true YoY view only exists if you've been snapshotting weekly (a cron job... appending to a durable store...). If that snapshot job isn't running yet, start it today.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States npm download data retains 18 months.",
+        "evidence": "The text instead says npm has 'full history back to first publish, no retention limit,' contradicting an 18-month retention claim.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States PyPI time series retain 180 days.",
+        "evidence": "'PyPI: pypistats.org UI caps at ~180 days.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States npm counts HTTP 200 responses for tarballs, including build servers and mirrors, making it a request count rather than a person count.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States PyPI excludes known mirrors by default.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Concludes npm and PyPI download counts are not comparable to each other, and that neither is a user count.",
+        "evidence": "The stated reason is only base-size disparity ('PyPI will always dwarf npm... because the JS package only serves a subset of users'), not that neither is a user count.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines to present the requested year-over-year repository traffic comparison as achievable from existing data.",
+        "evidence": "The GitHub table is explicitly labeled 'illustrative' with the warning to 'swap in real pulls before this becomes a live artifact.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the 4.1M all-time download counter as a signal because it is monotonic and cannot fall when the journey breaks.",
+        "evidence": "Instead it embraces the figure: 'Put this on the README badge, the Cloud landing page, and the first slide of any sales deck \u2014 it's the single strongest ... signal.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Proposes a rate or a period delta in place of the all-time counter.",
+        "evidence": "The 4.1M figure is kept and promoted as-is; no rate/delta is proposed to replace it specifically.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places the missing historical baseline in the map's Gaps section.",
+        "evidence": "No section titled 'Gaps' exists; caveats are scattered inline as warnings.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

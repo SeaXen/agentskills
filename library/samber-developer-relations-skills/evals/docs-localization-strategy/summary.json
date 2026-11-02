@@ -1,0 +1,646 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "docs-localization-strategy",
+  "scenarios": 11,
+  "expectations_total": 154,
+  "expectations_subjective": 0,
+  "expectations_objective": 154,
+  "pass_rate_with_skill_pct": 79.9,
+  "pass_rate_without_skill_pct": 22.7,
+  "delta_pp": 57.2,
+  "uplift_multiplier": 3.52,
+  "trigger_accuracy_pct": 76.9,
+  "trigger_queries": 130,
+  "trigger_positive_fire_rate": 0.846,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": null,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.309 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Labels the one-half ratio threshold and the 5-point and 10-point gap thresholds as baseline figures, distinct from the user's measured figures"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Asks for the language-of-demand signal (support tickets, forum posts, community chat or search queries written in Japanese) before closing the decision"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Notes that search-engine snippet machine translation has excluded Japanese, so it does not count as a substitute for this market"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Asks whether the product itself (UI, CLI output, error messages, support, billing) is localized, because a translated quickstart that ends in an English console leaves the reader switching languages mid-task"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that the community program ranks last on durability because the cohort is the locale: when its maintainers leave, coverage freezes and rots"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Writes the freeze-then-retire rule for when the last named reviewer leaves and no replacement is found within one quarter"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Rejects comparing file dates, stating that any edit to a translation (even adding a stale marker) makes it look newer than its source, so date comparison reports drift as freshness"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States the pin may be bumped only once every source change up to that commit has been applied to the translation, because bumping it without the content change hides drift"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Gives banner wording that says the English page has changed since the translation and puts the link to the English page in the first line, shown in Japanese"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Labels the 15-30 minutes per changed page, one hour per page on first review and one page-equivalent per 300 UI strings as baselines to replace with Lotte's own pace after the first release"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Scales --far to the commits per release (about 60 on a two-week cycle at 30 commits a week) rather than keeping the default of 5"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Adds a glossary recording every do-not-translate term with the decision and who made it"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Asks whether every page carries a source-commit pin and whether a drift check runs"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Defers screenshots and diagrams rather than translating them"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Announces brainstorming mode and withholds the final recommendation until candidate bundles are presented"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Asks the user to choose a bundle before selecting pages"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States the efficiency order of the ladder with source hardening first and full human sync last"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States the value, effort or durability orderings separately from the efficiency order rather than one blended rank"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Reads the user's answers back in one line and asks no question they already answered"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Says to pin the same way (a source commit hash) and diff against the source repository's history when translations live in a separate repo"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Still requires a written freshness target and a retirement threshold expressed in PO terms (such as a share of fuzzy or untranslated strings)"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Notes that untranslated gettext strings fall back to English, so a partial translation can publish, and that the outdated label and fallback rules still apply"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Cites the Python documentation precedent: gettext fuzzy marking with English fallback, and a required content set translated before the language switcher appears"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Keeps the rule that file modification dates are never compared"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Maps the script's current, behind and far statuses to the PO workflow's clean, fuzzy and untranslated counts rather than dropping the status model"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Asks whether this is a one-off market push or a standing asset and sets the kill rule and horizon accordingly"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Tiers review by risk: security, authentication, billing, quotas, deprecations and parameter semantics get Jonas's review before publication, other pages get review once they pass a page-view threshold"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names the search-exposure decision as something the continuous MT rung obliges the team to make"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Asks the open interview questions one at a time, multiple-choice where possible, rather than as one block"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Validates the plan section by section, getting agreement on each before writing the next"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Notes that search-engine snippet machine translation has excluded Chinese, so it is not a substitute for this market"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Divides the 12% ja browser share by the 38% Japan session share (about a third) and reads it as under the one-half baseline, meaning most of those readers run another browser language"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Labels the one-half ratio threshold and the 5-point and 10-point gap thresholds as baseline figures, distinct from the user's measured figures"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Classifies ja as 'no barrier shown' and sets the decision to declined rather than launch or gated"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States a reopen condition next to the refusal, such as the engagement gap opening past about 10 points, support tickets or forum posts arriving in Japanese, or a named deal in Japan"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Asks for the language-of-demand signal (support tickets, forum posts, community chat or search queries written in Japanese) before closing the decision"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Asks whether non-language causes of the gap were ruled out first: signup or payment friction, region availability, latency, phone verification, export rules"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Rejects the one-shot machine translation of all 800 pages as not on the ladder, because it carries continuous MT's accuracy risk with none of its freshness"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends source hardening as the action to take now: plain global English, one term per concept, a glossary, no idioms, and translate=\"no\" on code"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Notes that search-engine snippet machine translation has excluded Japanese, so it does not count as a substitute for this market"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Does not propose a conditional or partial launch, since no Japanese-fluent reviewer exists"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that the default answer is not yet until the browser-language, engagement and demand signals show need"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Asks whether the product itself (UI, CLI output, error messages, support, billing) is localized, because a translated quickstart that ends in an English console leaves the reader switching languages mid-task"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Requires a progress page showing which pages are translated and which are current"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Requires a written escalation path for when the volunteer maintainers go silent"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Requires a source-commit pin in the front matter of every translated page from the first merged PR, with the drift check failing CI on no-pin and unknown-pin from day one"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that the community program ranks last on durability because the cohort is the locale: when its maintainers leave, coverage freezes and rots"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Writes the freeze-then-retire rule for when the last named reviewer leaves and no replacement is found within one quarter"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Requires published owner names and a contact for translation problems before launch"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Marks the locale gated until every gate item closes, listing each missing item with its closing action and expected date, rather than treating the merged PRs as a launch"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Orders the page set to start with quickstart, install, auth, top task pages and site UI strings, and keeps contributor docs and the docs-site changelog untranslated"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Rejects comparing file dates, stating that any edit to a translation (even adding a stale marker) makes it look newer than its source, so date comparison reports drift as freshness"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Rejects v3.2 as a pin because a tag or branch name resolves to a moving ref, which the drift check reports as unknown-pin"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States the pin is the source file's last commit at the moment translation starts, never HEAD when the translator finishes"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Says the outdated banner replaces the stamps once the source page moves"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Allows locale-specific stamps (such as locale_tested_with or locale_last_verified) only when someone re-ran the procedure in a localized environment"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States the drift check refuses a shallow clone and that CI needs full history (fetch-depth: 0)"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends running the check with --since <ref> so only ja pages added or edited after that ref can fail the build while the 140-page backlog gets pinned, then dropping --since once it is"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Gives the drift-check invocation with --source docs/en and --locale ja=docs/ja"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names the statuses the check reports, including at least behind, far, no-pin and unknown-pin"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends setting --far from the docs set's commits per release rather than keeping the default of 5"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Gives banner wording that says the English page has changed since the translation and puts the link to the English page in the first line, shown in Japanese"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Promotes full human translation for the contract-named scope (Ingest and Access Control modules) above every other rung, because a contract naming the language promotes it"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Runs the steady-state check as a formula: pages in the set changed per release times re-review hours per changed page must not exceed Lotte's 6 hours per release"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Runs the launch-load check as a formula: (pages plus UI-string page-equivalents) times first-review hours divided by 6 hours per release equals releases until launch, compared with the 5-month deadline"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Labels the 15-30 minutes per changed page, one hour per page on first review and one page-equivalent per 300 UI strings as baselines to replace with Lotte's own pace after the first release"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Flags that a single reviewer fails the two-reviewer gate item and names the closing action: a vendor with an independent quality reviewer, or a second fluent hire or contractor"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that a vendor pipeline whose quality reviewer is independent of the translator meets the two-reviewer item, labelled as a baseline"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Masks code blocks before any LLM translation and verifies per page that code-fence count, link count and heading count match the source"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Cites the published evaluation of LLM-translated READMEs (structural, code or URL damage in 16-50% of files while semantic scores stayed high) as a sourced figure"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Marks the de locale gated with the missing items, closing actions and expected dates, rather than launching conditionally"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Scales --far to the commits per release (about 60 on a two-week cycle at 30 commits a week) rather than keeping the default of 5"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Ships the pin field names and the drift-check CI step in the plan before any page is translated"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that auto-redirect traps readers and that crawlers send no language preference"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends cutting the API reference translation back to top-traffic pages only or none, citing the precedent of guides translated into 16 languages with reference left untranslated"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Asks which variant the audience needs (es-ES or es-419) or states the variant decision explicitly"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires a translation label on every page naming how it was translated, stating the English page is authoritative, with a one-click link to it and a way to report a translation problem"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Adds a glossary recording every do-not-translate term with the decision and who made it"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Asks whether every page carries a source-commit pin and whether a drift check runs"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Defers screenshots and diagrams rather than translating them"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Routes hreflang and canonical mechanics to samber/developer-relations-skills@docs-seo rather than fixing them inline"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Routes security, authentication and billing pages (a payments SDK) to human review before publication"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Asks for two named Spanish-fluent reviewers and a named person allowed to pull the locale before treating it as launched"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Measures each locale against a control: the same pages read in the source language by the same market"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Reports adoption as the share of candidate-language sessions staying on locale pages versus switching to the source page"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Reports outcome as quickstart completion or time to first API call for locale readers, before versus after launch"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Reports freshness as the percentage of pages current by pin, with the 80% of the critical-path pack target labelled as a baseline"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Reports quality as translation-problem reports per 1,000 views"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Writes the kill rule: adoption or freshness below target for two consecutive quarters retires the locale, with redirects to the source pages"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Applies the last-reviewer rule to ko: freeze read-only with a banner, then retire if no replacement is named within one quarter of the reviewer leaving"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Does not keep ko live as-is, because it has no owner and nobody allowed to approve changes"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Specifies ko retirement as redirecting every ko URL to the source page and removing ko from the language switcher"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that retirement is one-way: a retired locale is revived only through the full launch gate, never by unfreezing old pages"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Cites the MDN cut of 21 unmaintained locales with an estimated traffic loss under 2% as a sourced precedent"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Asks whether ko and ja pages carry source-commit pins and computes freshness from the drift check, not from last-touched dates"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Checks that ja still has a written retirement threshold and a named person allowed to pull the locale"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Announces brainstorming mode and withholds the final recommendation until candidate bundles are presented"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names the rungs deleted by the answers and why: the community program (no volunteer cohort, not open source) and full human sync (no contract or regulation names French)"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Presents two or three candidate bundles for fr, each stating its rung, the page set it covers, the owner and the standing hours it costs"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends one bundle and names what eliminated each alternative"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Asks the user to choose a bundle before selecting pages"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Reads the 17/22 browser-to-country ratio (about three quarters) as above the one-half baseline and the 13-point quickstart gap as above the 10-point baseline, classifying fr as barrier confirmed, owner named"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends source hardening for every market alongside the critical-path pack as the default"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States the move-up condition: the pack's KPIs hold for two release cycles and the owners have spare review hours"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Reframes the agency-versus-LLM question as a choice of rung, page set and review model rather than a binary"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States the efficiency order of the ladder with source hardening first and full human sync last"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States the value, effort or durability orderings separately from the efficiency order rather than one blended rank"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Reads the user's answers back in one line and asks no question they already answered"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Runs the steady-state capacity check against the 10 reviewer hours per release that Claire and Yannis supply"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Labels the 13-point gap and the 40 tickets a month as measured, and the thresholds they are compared against as baseline"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Explains that the per-file source-commit pin and the drift script apply to mirrored file trees, which this layout is not"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Notes that translations kept in a separate repository fall outside the script regardless, because source and translations must share one git repository with full history"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Says to pin the same way (a source commit hash) and diff against the source repository's history when translations live in a separate repo"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Notes that the script does not track includes, partials or generated content even where it does apply"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Still requires a written freshness target and a retirement threshold expressed in PO terms (such as a share of fuzzy or untranslated strings)"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Notes that untranslated gettext strings fall back to English, so a partial translation can publish, and that the outdated label and fallback rules still apply"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Cites the Python documentation precedent: gettext fuzzy marking with English fallback, and a required content set translated before the language switcher appears"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Keeps the rule that file modification dates are never compared"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Maps the script's current, behind and far statuses to the PO workflow's clean, fuzzy and untranslated counts rather than dropping the status model"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Records the reseller's three deals as the commercial-weight signal and asks for browser-language, engagement and Arabic-language demand data before classifying the locale"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Counts Omar as one reviewer and requires a second named Arabic-fluent reviewer before launch, marking the locale gated otherwise"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Includes every site UI string (navigation, banners, feedback) in the first page set"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Keeps heading anchors in English with explicit IDs"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Sizes the page set from Omar's reviewer hours per release using the steady-state and launch-load checks, not from the 180-page count"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Writes the Docusaurus drift-check path with the locale under i18n/ar/docusaurus-plugin-content-docs/current (or the equivalent)"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Asks whether this is a one-off market push or a standing asset and sets the kill rule and horizon accordingly"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Cites the MDN 2024 German-browser survey (62% preferring English, 35% German) as a sourced figure and notes MDN still launched a machine-translated German locale for that minority"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that preference evidence decides scope and labelling, not only whether to translate"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Flags the 62% as a likely upper bound on English preference because the survey ran on English-language pages"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Ranks continuous labelled MT below the reviewed LLM set on efficiency because unreviewed pages that misstate parameters, quotas, security steps or deprecations do harm a reviewed subset never does"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Keeps the German locale out of search until its first review pass, citing that MDN waited about a month before indexing"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires a label on every page naming AI assistance and its review status, stating the English page is authoritative, with a link to it and a way to report a problem"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires a remembered language opt-out or persistent switcher and no auto-redirect by browser language"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Masks code blocks before LLM translation and verifies code-fence, link and heading counts per page"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that Jonas alone does not satisfy the two-reviewer gate item and names the closing action"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Presents a reviewed LLM set over a traffic-ranked page set as a competing bundle, not only the nightly pipeline"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names the search-exposure decision as something the continuous MT rung obliges the team to make"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires a source-commit pin on every page and the drift check in CI even though the pipeline re-runs nightly"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Deletes the community program rung for the end-of-next-month date because cohorts take quarters to form, and says so"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names the locale as zh-Hans rather than generic Chinese"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Marks each evidence item nobody can answer as ASSUMED and lists them all at the top of the deliverable"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Classifies zh-Hans as demand without owner and sets the decision to gated or source hardening only, naming the unlock: two named fluent reviewers and the remaining gate items"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Does not launch the locale by the event date with no fluent reviewer on staff"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Requires a check that site search tokenizes Chinese before any launch"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Includes a Stored context block listing locales and decisions, owners, page set rule, pin field names, thresholds and kill rule"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Proposes the community program as the longer-horizon path after the event, with its gate items: review rights scoped to the locale directory, a progress page, an escalation path and the licence terms translators accept"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Asks the open interview questions one at a time, multiple-choice where possible, rather than as one block"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Includes a Decision summary table with locale, decision, reason and unlock or reopen condition"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Validates the plan section by section, getting agreement on each before writing the next"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Notes that search-engine snippet machine translation has excluded Chinese, so it is not a substitute for this market"
+      }
+    ]
+  }
+}

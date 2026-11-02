@@ -1,0 +1,714 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "oss-distribution-strategy",
+  "scenarios": 12,
+  "expectations_total": 150,
+  "expectations_subjective": 2,
+  "expectations_objective": 148,
+  "pass_rate_with_skill_pct": 62.7,
+  "pass_rate_without_skill_pct": 26.0,
+  "delta_pp": 36.7,
+  "uplift_multiplier": 2.41,
+  "trigger_accuracy_pct": 53.6,
+  "trigger_queries": 140,
+  "trigger_positive_fire_rate": 0.157,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.267 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Predicts the audit will surface a half-configured foundation channel (empty keyword slots, missing links, or a description predating the current positioning) plus two or three listings that are simply wrong."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States the audit fixes amount to roughly an hour of work in total and must be done before any new channel is added."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Explicitly declines to rank those audit fixes against each other, on the grounds that ordering one hour of mandatory work is false precision rather than a plan."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Tells the maintainer to snapshot the current baseline numbers with their date and source before changing anything."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Justifies the snapshot by noting repository traffic panels retain only a short rolling window, so an uncaptured baseline is unrecoverable."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Notes that npm search ranks on title, description, readme and keywords only, with no popularity or quality signal, so the wording is the whole lever."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Checks whether every keyword slot is filled and whether the documentation, repository, funding and issue-tracker link fields are present."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Separates coverage metrics (facts auditable today) from arrival metrics (behaviour read as a quarterly trend) when defining what to measure."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Withholds a final channel plan until the audit findings and the adopter-type answer are in hand."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Deletes downstream packaging from the ranking entirely rather than parking it at the bottom of a priority list."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Explains that a channel parked last gets re-litigated every quarter while a named refusal does not."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Warns against treating a third-party package as owned, since the maintainer does not control it."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Recommends checking a cross-repository tracker such as Repology for packages that already exist without the maintainers knowing."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Points the maintainers at higher-efficiency families first (registry metadata and the release stream) and states the efficiency ordering out loud rather than implying it by list order."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes Open VSX is CI-publishable and carries a 256 MB binary limit."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes VS Code Marketplace ranking runs on installs, ratings and categories, and is criticized for not being install-weighted."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Classifies extension marketplaces as harmful decay: an extension incompatible with the host's current version reads as broken."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Places extension marketplaces and connector hubs at the same rank on the efficiency order, and justifies the tie by their shared cost shape - vendor review gate, per-release compatibility tax, identical harmful decay - with audience the only difference."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Runs the adoption test on the Open VSX entry: recurring cost, decay behaviour, observable signal, kill date."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes that Sigstore's published totals have no control group, and that maturity and funding confound any apparent correlation."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes download counts are gameable, making them a weak outcome measure for this work."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Points out that the stated audience of banks and insurers is a company-adoption path where trust signals rank near the top of value, even though they rank low on efficiency for individual adoption."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Warns that publishing a disclosure path means owing a disclosure SLA, an ongoing obligation rather than a one-time cost."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names downloads, dependents, unique cloners and issues from strangers as the measures of distribution."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Cites that roughly three out of four developers consider a project's star count before using or contributing, and that 36.7% starred a repository because they were already using it."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that GitHub trending has no published specification and that the star-velocity explanation is folklore."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Does not recommend adding badges as a growth lever, or states that a first badge produces only a small, non-sustained bump."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Lists at least three of the parties a release actually broadcasts to: dependency-update bots, packagers' pipelines, feed-harvesting newsletters, watchers, and evaluators reading the registry's last-published field."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Confirms the long silence does fail the liveness proxy evaluators read, even on a finished project."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Treats cadence as a distribution decision and the changelog as a distribution asset."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Drops creator and newsletter seeding, naming its recurring relationship cost and the fact that its payoff stops the month the pitching stops."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Labels that 60% ceiling as a self-set baseline rather than an industry standard."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Warns that capacity shrinks when a project succeeds, because support load grows first, so the plan must fit the worst realistic month."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Presents two or three candidate mixes rather than a single plan."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Defines legibility as an approver being able to verify the license, versioning promise, security contact, release rhythm and artifact signatures without asking anyone."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that one named company adopter beats a thousand anonymous downloads on this path."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Recommends the downstream-first mix, or otherwise ranks families using the company-adoption value ordering rather than the efficiency ordering."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names the March 2027 decision as a hard date that promotes fast-acting families and demotes anything needing a full release cycle to reach an install path."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Cites the dependency-selection figures as stated preference rather than proven adoption drivers: maturity/stability 62%, usability 55%, documentation 51%, license 45%, active maintenance 44%."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Treats artifact and connector hubs as a family distinct from editor and plugin marketplaces, because the host is a data or infrastructure platform and the reviewer is the platform vendor."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Notes that the repository description becomes the module's short description on the Terraform Registry."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Explains that the model hub counts every GET or HEAD on a per-library set of query files, so a clone inflates the number while a cached run does not appear at all."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Identifies the recurring cost as a per-release compatibility tax against the host's version, with harmful decay when the host moves."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Runs the adoption test on each proposed hub entry: recurring cost, decay behaviour, observable signal, kill date."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Notes the awesome-list convention that a project be at least 30 days old before being submitted upward."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States the bar is explicitly 'the best, not everything', excluding unmaintained, archived or thinly documented projects by policy."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires any stale listing already out there to be fixed or removed before a new channel is added, noting curated lists and distribution repositories drop projects that read as unmaintained by published policy."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that GitHub topics and collections are community-curated through pull requests to the github/explore repository."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Notes that merges go live on a delay."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Notes GitHub's public events firehose stopped emitting most star, pull-request and issue events, which broke third-party star-based rankings."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Ranks code-host discovery surfaces below registry metadata, the release stream and dependency position on efficiency, and states the ordering out loud."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Gives each mix a cost in hours per month, the adopter type it serves, and what it gives up."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States the family efficiency ordering out loud rather than implying it through list order."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Sequences the plan in three stages: foundation in weeks 1-4, passive discovery over months 1-3, active seeding ongoing."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Places active seeding last and gates it on stages 1 and 2 holding first."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Presents the sections one at a time for agreement rather than delivering the whole plan in a single pass."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Runs a coverage audit of the distribution surfaces already in place before proposing any new channel."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Predicts the audit will surface a half-configured foundation channel (empty keyword slots, missing links, or a description predating the current positioning) plus two or three listings that are simply wrong."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States the audit fixes amount to roughly an hour of work in total and must be done before any new channel is added."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Explicitly declines to rank those audit fixes against each other, on the grounds that ordering one hour of mandatory work is false precision rather than a plan."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Tells the maintainer to snapshot the current baseline numbers with their date and source before changing anything."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Justifies the snapshot by noting repository traffic panels retain only a short rolling window, so an uncaptured baseline is unrecoverable."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Notes that npm search ranks on title, description, readme and keywords only, with no popularity or quality signal, so the wording is the whole lever."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Checks whether every keyword slot is filled and whether the documentation, repository, funding and issue-tracker link fields are present."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Separates coverage metrics (facts auditable today) from arrival metrics (behaviour read as a quarterly trend) when defining what to measure."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Warns that stars moving without downloads or cloners means an announcement travelled, not that distribution improved."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Declines the 15-20 directory submissions as proposed, naming either the recurring sweep cost or the damage done by stale listings."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Asks whether adopters are individual developers choosing for themselves or engineers who must get approval inside a company, before committing to a channel mix."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Withholds a final channel plan until the audit findings and the adopter-type answer are in hand."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names all four conditions that would promote downstream packaging: company adoption as the declared goal, a standalone binary or container image install unit, release hygiene good enough for a third-party packager to hold it, and maintainer acceptance of the irreversibility."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that downstream packaging is irreversible - a shipped distribution package cannot be recalled."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Deletes downstream packaging from the ranking entirely rather than parking it at the bottom of a priority list."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Explains that a channel parked last gets re-litigated every quarter while a named refusal does not."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Classifies downstream packaging as a harmful-decay family: a stale package keeps shipping an old version to evaluators rather than going quiet."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Warns against treating a third-party package as owned, since the maintainer does not control it."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Recommends checking a cross-repository tracker such as Repology for packages that already exist without the maintainers knowing."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Points the maintainers at higher-efficiency families first (registry metadata and the release stream) and states the efficiency ordering out loud rather than implying it by list order."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes the VS Code Marketplace provides no first-party install-statistics dashboard."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes Open VSX is CI-publishable and carries a 256 MB binary limit."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes VS Code Marketplace ranking runs on installs, ratings and categories, and is criticized for not being install-weighted."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Classifies extension marketplaces as harmful decay: an extension incompatible with the host's current version reads as broken."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Identifies the recurring cost as a per-release compatibility tax against a host version the maintainer does not control."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Places extension marketplaces and connector hubs at the same rank on the efficiency order, and justifies the tie by their shared cost shape - vendor review gate, per-release compatibility tax, identical harmful decay - with audience the only difference."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Runs the adoption test on the Open VSX entry: recurring cost, decay behaviour, observable signal, kill date."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes that Sigstore's published totals have no control group, and that maturity and funding confound any apparent correlation."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes download counts are gameable, making them a weak outcome measure for this work."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Labels the 'Scorecard above 7' target as an adopted bar for enterprise review rather than a published standard, and says so when reporting it."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names 'pitching trust work as growth' as a failure mode that sets up a failure the next security ask will pay for."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Points out that the stated audience of banks and insurers is a company-adoption path where trust signals rank near the top of value, even though they rank low on efficiency for individual adoption."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Warns that publishing a disclosure path means owing a disclosure SLA, an ongoing obligation rather than a one-time cost."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes trust signals carry a concentrated entry cost and a low recurring cost, and states which of the two it means when quoting a cost."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends moving budget to documentation rather than adding another awareness channel."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names downloads, dependents, unique cloners and issues from strangers as the measures of distribution."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Cites that roughly three out of four developers consider a project's star count before using or contributing, and that 36.7% starred a repository because they were already using it."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes the same evidence shows promotion drives star growth, so a star count measures reach as much as merit."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that GitHub trending has no published specification and that the star-velocity explanation is folklore."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes GitHub's public events firehose stopped emitting most star events, which broke third-party star-based rankings, and treats external trending tools as unreliable."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends committing to a predictable maximum interval instead, phrased as a promise that a fix lands within N weeks."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Explains that an empty calendar release becomes a noise pull request in every downstream repository."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Explains that noise releases train downstream maintainers to auto-merge or ignore the one channel that reaches existing users directly."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Lists at least three of the parties a release actually broadcasts to: dependency-update bots, packagers' pipelines, feed-harvesting newsletters, watchers, and evaluators reading the registry's last-published field."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that security fixes ship out of band and fast, outside the cadence commitment."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that small changes get batched into one readable release."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Treats cadence as a distribution decision and the changelog as a distribution asset."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Reserves named milestones - a 1.0, a rewrite, a rename - as the legitimate reason to return to awareness channels after the launch window."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Proposes a foundation-only mix and refuses the test ring out loud."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Drops creator and newsletter seeding, naming its recurring relationship cost and the fact that its payoff stops the month the pitching stops."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Keeps the set-once families: registry metadata, machine-readable surfaces, and dependency position once earned."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Applies the ceiling that total recurring cost must stay at or below 60% of declared monthly capacity, and gives the resulting figure against the 3-hour budget."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Labels that 60% ceiling as a self-set baseline rather than an industry standard."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Warns that capacity shrinks when a project succeeds, because support load grows first, so the plan must fit the worst realistic month."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Presents two or three candidate mixes rather than a single plan."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Writes each refused channel with its reason and the condition that would reopen it."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Ships the trust posture inside the first four weeks alongside the foundation ring, rather than placing it later in the sequence."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Lists the minimum trust posture concretely, covering at least four of: signed releases, build provenance, a published SBOM, a SECURITY.md with a disclosure path, and an automated supply-chain score in CI."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Defines legibility as an approver being able to verify the license, versioning promise, security contact, release rhythm and artifact signatures without asking anyone."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Applies the reference catch-22 named by Crossing the Chasm: pragmatic buyers want references from peers in their own segment, and none exist until someone adopts first."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Recommends a visible wall of named adopters in the target segment, and treats making existing usage visible as a distribution move rather than a vanity one."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that one named company adopter beats a thousand anonymous downloads on this path."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Recommends the downstream-first mix, or otherwise ranks families using the company-adoption value ordering rather than the efficiency ordering."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names the March 2027 decision as a hard date that promotes fast-acting families and demotes anything needing a full release cycle to reach an install path."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Cites the dependency-selection figures as stated preference rather than proven adoption drivers: maturity/stability 62%, usability 55%, documentation 51%, license 45%, active maintenance 44%."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Treats artifact and connector hubs as a family distinct from editor and plugin marketplaces, because the host is a data or infrastructure platform and the reviewer is the platform vendor."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Notes that inclusion is usually a pull request against the vendor's index repository, or a naming convention its crawler matches, rather than a store upload."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Warns that the evaluator sees a support tier next to the entry, which no editor store shows."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Warns that a community-built connector lands in a marketplace tier labelled as not maintained by the vendor with no support SLA, and that the label is part of what the evaluator reads."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Flags that entering a hub whose support tier advertises the project as unsupported works against a company-adoption goal."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States the Terraform Registry requires a public repository named terraform-<PROVIDER>-<NAME> with a standard module structure and semver tags."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Notes that the repository description becomes the module's short description on the Terraform Registry."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Warns that renaming the repository after listing silently breaks a naming-convention hub."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Explains that the model hub counts every GET or HEAD on a per-library set of query files, so a clone inflates the number while a cached run does not appear at all."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Notes that deduplicated request-level data is a paid publisher-analytics feature on that hub."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Runs the adoption test on each proposed hub entry: recurring cost, decay behaviour, observable signal, kill date."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Declines the 25-submission sprint as proposed."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names spray-and-pray listings as a failure mode: twenty submissions in a weekend, all stale a year later."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that three maintained surfaces outperform twenty and cost less."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names reusing one description verbatim everywhere as a trap rather than a consistency win."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Applies a selection test to each candidate list, covering at least three of: do target developers browse it, is the link dofollow on a domain with real authority, was the list touched recently, are comparable projects listed, can arrivals be measured."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Notes the awesome-list convention that a project be at least 30 days old before being submitted upward."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States the bar is explicitly 'the best, not everything', excluding unmaintained, archived or thinly documented projects by policy."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Recommends contributing to the list first - dead-link fixes, other projects, section improvements - before self-submitting."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Prices the recurring cost at roughly 30-60 minutes per submission plus a sweep every quarter."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Classifies curated lists as actively harmful decay: dead links, old screenshots, superseded names."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires any stale listing already out there to be fixed or removed before a new channel is added, noting curated lists and distribution repositories drop projects that read as unmaintained by published policy."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Explains that tagging a repository with a topic does not surface it until the topic itself is curated."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that GitHub topics and collections are community-curated through pull requests to the github/explore repository."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that self-promotion is explicitly disallowed there: the submission requires attesting the submitter is neither the sole author of the entry nor an employee of the company behind it."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Routes the submission through a community ally rather than a self-submission."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names the required artifacts for a collection entry: a folder named for the URL slug, an index.md, and where applicable a 288x288 PNG under 75KB."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Refuses to give a star-velocity target for trending."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Notes GitHub's public events firehose stopped emitting most star, pull-request and issue events, which broke third-party star-based rankings."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Notes at least one third-party analytics provider withdrew its trending feature rather than publish numbers it could no longer trust."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Ranks code-host discovery surfaces below registry metadata, the release stream and dependency position on efficiency, and states the ordering out loud."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Presents two or three candidate mixes rather than a single plan, and recommends one with a stated reason."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Gives each mix a cost in hours per month, the adopter type it serves, and what it gives up."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Ranks the mixes out loud on efficiency, effort, and value for individual and company adoption separately, rather than letting presentation order imply a ranking."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States the family efficiency ordering out loud rather than implying it through list order."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Sequences the plan in three stages: foundation in weeks 1-4, passive discovery over months 1-3, active seeding ongoing."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Places active seeding last and gates it on stages 1 and 2 holding first."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Drops or demotes creator and newsletter seeding on the stated compounding mandate, because its payoff stops when the pitching stops."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Notes the open horizon with no hard date favours compounding families over fast-acting ones, and names which interview answer moved which family."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Checks the two unresolved downstream-packaging conditions - release hygiene sufficient for a third-party packager, and maintainer acceptance of irreversibility - before promoting that family, given the standalone-binary install unit and the company-adoption goal."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Runs the adoption test on every candidate channel: recurring cost, decay behaviour, observable signal, kill date."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Ships the trust posture inside stage 1 because company adoption is a declared goal, rather than adding it later in the sequence."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Produces the plan under the named section headings: Position today, Adopter, Foundation ring, Sequence, Test ring, Core channel, Refused, Release rhythm, Review, Threshold check."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Presents the sections one at a time for agreement rather than delivering the whole plan in a single pass."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Reports the threshold check explicitly, keeping total recurring cost at or below 60% of the 12-hour capacity and labelling the self-set thresholds as adopted bars rather than industry standards."
+      }
+    ]
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Classifies devrelx.com as dead or resold and instructs the user never to link it, because the destination is an unrelated business even though the URL resolves.",
+        "evidence": "'Bin \u274c (dead)... Remove it and don't link it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States explicitly that a resolving URL is not evidence the entity behind it is intact, and that the destination's content must be confirmed rather than only that the URL loads.",
+        "evidence": "'A resolving URL is not a live source.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies Karl Hughes as unverified rather than inactive, on the ground that a parked personal domain is evidence about the domain, not about the person.",
+        "evidence": "'he is unverified through that URL, not inactive.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Points at the person's company surface, draft.dev, as where to track him instead of the parked personal domain.",
+        "evidence": "'Replace it with draft.dev (marketing pillar).'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the devrelfoundation.org DNS failure as evidence about the guessed domain, not about the organisation.",
+        "evidence": "'a DNS failure is evidence about the guess.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the Developer Relations Foundation as alive at dev-rel.org and hosted by the Linux Foundation.",
+        "evidence": "'lives at dev-rel.org... a Linux Foundation project'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Describes finding an organisation through its code-host organisation page - its declared website field, its repositories sorted by last push, and its repository descriptions - instead of guessing another domain.",
+        "evidence": "'search the code host for the organisation name and read its declared website field instead of guessing domains.' It covers the main point but not the sorted repositories or descriptions.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies the DeveloperWeek 403 as unverified and explicitly not dead, recording the bot-block as the reason.",
+        "evidence": "'A 403 is a bot block, not a death certificate.' Verdict: 'Keep, as unverified \u26a0\ufe0f'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies the Scaling DevTools 403 as unverified for the homepage while naming the podcast feed as the surface that does carry dates.",
+        "evidence": "It names the feed, but the verdict is 'Keep \u2705 (verified-active per the audit)', not unverified for the homepage.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that podcast feeds beat marketing homepages for establishing dates.",
+        "evidence": "'The site blocks fetchers, but the feed is the datable surface.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports none of the five as verified-active without a dated item actually observed.",
+        "evidence": "Scaling DevTools is marked 'verified-active per the audit' on the basis of Ep 197 on 20 Aug 2026, which was not observed today.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Assigns each of the five an explicit verdict from the active / stale / dead / unverified classification rather than a narrative judgement.",
+        "evidence": "The verdicts are 'Bin the URL, keep the person', 'Bin the URL, keep the organisation' and 'Keep \u2705'. These are narrative and keep/bin labels, not the four-way classification.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Records a reason alongside every unverified verdict.",
+        "evidence": "DeveloperWeek: 403 is a bot block. Karl Hughes: a parked domain says nothing about the person.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Classifies devrelx.com as dead or resold and instructs the user never to link it, because the destination is an unrelated business even though the URL resolves.",
+        "evidence": "'The site loads but now belongs to an unrelated brewing company... Don't subscribe or link to it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States explicitly that a resolving URL is not evidence the entity behind it is intact, and that the destination's content must be confirmed rather than only that the URL loads.",
+        "evidence": "Only says this one site was repurposed; no general statement that content must be confirmed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Classifies Karl Hughes as unverified rather than inactive, on the ground that a parked personal domain is evidence about the domain, not about the person.",
+        "evidence": "'The domain is parked and for sale, so the site is gone... Replace or bin.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Points at the person's company surface, draft.dev, as where to track him instead of the parked personal domain.",
+        "evidence": "Suggests LinkedIn, X, Substack, 'the company they founded' without naming draft.dev.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats the devrelfoundation.org DNS failure as evidence about the guessed domain, not about the organisation.",
+        "evidence": "'Bin it. A DNS error means the domain no longer resolves, so it has most likely lapsed or been abandoned.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the Developer Relations Foundation as alive at dev-rel.org and hosted by the Linux Foundation.",
+        "evidence": "Neither dev-rel.org nor the Linux Foundation is mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Describes finding an organisation through its code-host organisation page - its declared website field, its repositories sorted by last push, and its repository descriptions - instead of guessing another domain.",
+        "evidence": "No mention of a code-host organisation page, website field or repositories.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Classifies the DeveloperWeek 403 as unverified and explicitly not dead, recording the bot-block as the reason.",
+        "evidence": "'A 403 means a server answered and refused you, so the site is alive. It is probably a bot or region block.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies the Scaling DevTools 403 as unverified for the homepage while naming the podcast feed as the surface that does carry dates.",
+        "evidence": "Mentions RSS only as a way to subscribe; does not say the feed carries dates.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that podcast feeds beat marketing homepages for establishing dates.",
+        "evidence": "No such statement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reports none of the five as verified-active without a dated item actually observed.",
+        "evidence": "'This verdict rests only on what you saw in your browser'; none called active.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Assigns each of the five an explicit verdict from the active / stale / dead / unverified classification rather than a narrative judgement.",
+        "evidence": "Uses Keep/Bin/Replace instead of the four classifications.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Records a reason alongside every unverified verdict.",
+        "evidence": "No unverified verdicts are issued.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

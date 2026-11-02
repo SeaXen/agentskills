@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Moves basic SSO with a common identity provider down to the team rung",
+        "evidence": "\"Fix: move basic SSO (common IdPs \u2014 Google, Okta, Azure AD via SAML/OIDC) to the Team rung ($240/mo).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps only enterprise identity work - custom IdPs, SCIM, directory sync, session policy - at the enterprise rung",
+        "evidence": "\"Keep at Enterprise only: custom IdPs, SCIM provisioning, directory sync, session policy, audit-log-tied identity controls.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects moving data export and the CSV download behind a paid tier",
+        "evidence": "\"\u274c Fails the never-paywall list, likely retroactive\" and \"don't gate export itself\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that data export and portability sit on the never-paywall list because withholding them blocks migration in both directions and reads as a trap",
+        "evidence": "\"never-paywall list includes 'Data export and portability'; gate table says 'Usage visibility and data export \u2192 free \u2192 withholding either reads as a trap and blocks migration in both directions.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the 30-day embargo on security patches for the community edition, and places security patches at every rung always",
+        "evidence": "\"Fix: ship security patches simultaneously to every edition, always.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names visibility into the customer's own usage and bill as something never to paywall",
+        "evidence": "\"gate table says 'Usage visibility and data export \u2192 free...'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names anything the community contributed as something never to paywall",
+        "evidence": "No mention of community contributions anywhere in the section",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites the sso.tax catalogue's own inclusion bar - roughly a 10% price hike - as the design threshold for any SSO surcharge",
+        "evidence": "\"sso.tax's own inclusion bar: 'if your SSO support is a 10% price hike, you're not on this list.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that the original sso.tax repository is dormant and the catalogue is maintained in a successor fork",
+        "evidence": "No mention of the repository's maintenance status anywhere in the section",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the failure prospects raise unprompted is a roughly 3x-base-price identity tier rather than a modest surcharge",
+        "evidence": "\"a textbook 3x-plus identity tax, not a 10% surcharge\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the current $240 to $28k jump as exactly that identity-tier failure",
+        "evidence": "\"Weatherline going from $240/mo Team straight to 'starts at $28k' Enterprise for basic SAML/OIDC is a textbook 3x-plus identity tax\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Mentions the CISA Secure by Design pledge naming SSO at no extra cost as a goal with 200+ signatories, while noting the pledge is voluntary rather than binding",
+        "evidence": "\"CISA Secure by Design pledge (200+ signatories, sourced, voluntary \u2014 not binding) names SSO at no extra cost as a goal.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Applies the gate test: a capability belongs above a rung only when an organization needs it and a solo developer does not, the crossing is observable, and the cost to serve is covered",
+        "evidence": "Only states \"gate on what an organization needs that a solo developer doesn't\" \u2014 no mention of observable crossing or cost-to-serve coverage as part of the test",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Moves basic SSO with a common identity provider down to the team rung",
+        "evidence": "Proposes a new intermediate \"Business\" tier, not moving SSO down to the existing Team ($240/mo) rung: \"Consider a mid-tier ('Business,' ballpark $500\u20131,000/mo) that includes SSO\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps only enterprise identity work - custom IdPs, SCIM, directory sync, session policy - at the enterprise rung",
+        "evidence": "Not addressed at this granularity anywhere in the text.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects moving data export and the CSV download behind a paid tier",
+        "evidence": "\"the principle is fine, 'block entirely' is the wrong lever\" \u2014 endorses gating with caps rather than rejecting paywalling export.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that data export and portability sit on the never-paywall list because withholding them blocks migration in both directions and reads as a trap",
+        "evidence": "Text explicitly treats export as a legitimate gate: \"Egress cost is a legitimate thing to gate on.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the 30-day embargo on security patches for the community edition, and places security patches at every rung always",
+        "evidence": "\"drop this one, full stop\" ... \"Patch everyone simultaneously, always.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names visibility into the customer's own usage and bill as something never to paywall",
+        "evidence": "Not mentioned anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names anything the community contributed as something never to paywall",
+        "evidence": "Not mentioned anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites the sso.tax catalogue's own inclusion bar - roughly a 10% price hike - as the design threshold for any SSO surcharge",
+        "evidence": "Only says \"sso.tax has a long list of companies doing exactly this\" \u2014 no 10% threshold cited.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that the original sso.tax repository is dormant and the catalogue is maintained in a successor fork",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the failure prospects raise unprompted is a roughly 3x-base-price identity tier rather than a modest surcharge",
+        "evidence": "Transcript instead frames it as \"roughly a 10x jump\", not a 3x pattern.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the current $240 to $28k jump as exactly that identity-tier failure",
+        "evidence": "Jump is identified as a problem (\"that cliff is exactly where mid-market prospects... balk\") but not tied to any '3x identity-tier' pattern.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Mentions the CISA Secure by Design pledge naming SSO at no extra cost as a goal with 200+ signatories, while noting the pledge is voluntary rather than binding",
+        "evidence": "Not mentioned anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Applies the gate test: a capability belongs above a rung only when an organization needs it and a solo developer does not, the crossing is observable, and the cost to serve is covered",
+        "evidence": "No such explicit three-part test is applied in writing.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -92,7 +92,7 @@
     "name": "baoyu-diagram",
     "category": "diagrams-technical-visuals",
     "repository": "jimliu-baoyu-skills",
-    "description": "Create professional, dark-themed SVG diagrams of any type \u2014 architecture diagrams, flowcharts, sequence diagrams, structural diagrams, mind maps, timelines, illustrative/conceptual diagrams, and more. Use this skill whenever the user asks for any kind of technical or conceptual diagram, visualization of a system, process flow, data flow, component relationship, network topology, decision tree, org chart, state machine, or any visual representation of structure/logic/process. Also trigger when the user says \"\u753b\u4e2a\u56fe\" \"\u753b\u4e00\u4e2a\u67b6\u6784\u56fe\" \"diagram\" \"flowchart\" \"sequence diagram\" \"draw me a ...\" or uploads content and asks to visualize it. Output is always a standalone .svg file.",
+    "description": "Create professional diagrams with configurable dark/light theme via CSS custom properties. Use this skill whenever the user asks for any kind of technical or conceptual diagram, visualization of a system, process flow, data flow, component relationship, network topology, decision tree, org chart, state machine, or any visual representation of structure/logic/process. Also trigger when the user says \"\u753b\u4e2a\u56fe\" \"\u753b\u4e00\u4e2a\u67b6\u6784\u56fe\" \"diagram\" \"flowchart\" \"sequence diagram\" \"draw me a ...\" or uploads content and asks to visualize it. Outputs a dark-theme SVG, a light-theme SVG, and a @2x PNG of each.",
     "path": "category/diagrams-technical-visuals/baoyu-diagram"
   },
   {
@@ -192,6 +192,14 @@
     "path": "category/diagrams-technical-visuals/chartmogul"
   },
   {
+    "id": "chibi-style",
+    "name": "chibi-style",
+    "category": "diagrams-technical-visuals",
+    "repository": "arjun988-blender-skills",
+    "description": "Chibi and SD proportion art direction for Blender characters with oversized heads, simplified anatomy, and cute silhouette rules.",
+    "path": "category/diagrams-technical-visuals/chibi-style"
+  },
+  {
     "id": "claude-d3js-skill",
     "name": "claude-d3js-skill",
     "category": "diagrams-technical-visuals",
@@ -270,6 +278,14 @@
     "repository": "amplitude-mcp-marketplace",
     "description": "Creates Amplitude charts from natural language descriptions, handling event selection, filters, groupings, and visualization choices. Use when you know what you want to measure but prefer not to build the chart manually.",
     "path": "category/diagrams-technical-visuals/create-chart"
+  },
+  {
+    "id": "create-graph",
+    "name": "create-graph",
+    "category": "diagrams-technical-visuals",
+    "repository": "launchdarkly-ai-tooling",
+    "description": "Creates observability dashboards and graphs from logs, traces, errors, sessions, metrics, and events data by previewing charts inline and saving them to a dashboard.",
+    "path": "category/diagrams-technical-visuals/create-graph"
   },
   {
     "id": "create-viz",
@@ -424,6 +440,22 @@
     "path": "category/diagrams-technical-visuals/extract-tikz"
   },
   {
+    "id": "figma-generate-diagram",
+    "name": "figma-generate-diagram",
+    "category": "diagrams-technical-visuals",
+    "repository": "figma-mcp-server-guide",
+    "description": "MANDATORY prerequisite \u2014 load this skill BEFORE every `generate_diagram` tool call. NEVER call `generate_diagram` directly without loading this skill first. Trigger whenever the user asks to create, generate, draw, render, sketch, or build a diagram \u2014 flowchart, architecture diagram, sequence diagram, ERD or entity-relationship diagram, state diagram or state machine, gantt chart, or timeline. Also trigger when the user mentions Mermaid syntax or wants a system architecture, decision tree, dependency graph, API call flow, auth handshake, schema, or pipeline visualized in FigJam. Routes to type-specific guidance, sets universal Mermaid constraints, and tells you when to use a different diagram type or skip the tool entirely (mindmaps, pie charts, class diagrams, etc.).",
+    "path": "category/diagrams-technical-visuals/figma-generate-diagram"
+  },
+  {
+    "id": "figure-spec",
+    "name": "figure-spec",
+    "category": "diagrams-technical-visuals",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Generate deterministic publication-quality architecture, workflow, and pipeline diagrams from structured JSON (FigureSpec) into editable SVG. Use when user says \\\"\u67b6\u6784\u56fe\\\", \\\"workflow \u56fe\\\", \\\"pipeline \u56fe\\\", \\\"\u786e\u5b9a\u6027\u77e2\u91cf\u56fe\\\", \\\"figure spec\\\", \\\"draw architecture\\\", or needs precise, editable, publication-ready vector diagrams. Preferred over AI illustration for formal architecture/workflow figures.",
+    "path": "category/diagrams-technical-visuals/figure-spec"
+  },
+  {
     "id": "firecrawl-dashboard-reporting",
     "name": "firecrawl-dashboard-reporting",
     "category": "diagrams-technical-visuals",
@@ -448,6 +480,14 @@
     "path": "category/diagrams-technical-visuals/generate-image"
   },
   {
+    "id": "generate-project-plan",
+    "name": "generate-project-plan",
+    "category": "diagrams-technical-visuals",
+    "repository": "figma-mcp-server-guide",
+    "description": "Generate a FigJam project plan board from a PRD plus codebase context. Interactive flow: research \u2192 propose sections \u2192 per-section deep research \u2192 per-section content + block-shape proposal \u2192 create FigJam \u2192 skeleton \u2192 fill \u2192 diagrams \u2192 wrap. Each content block (section, nested section, intro callout, table, multi-column text, sticky column, diagram section, metadata strip) has its own subskill reference file. Use when the user asks for 'project plan in FigJam', 'interactive project plan', '/generate-project-plan', or provides a PRD and wants per-section confirmation on content + rendering.",
+    "path": "category/diagrams-technical-visuals/generate-project-plan"
+  },
+  {
     "id": "generative-ui",
     "name": "generative-ui",
     "category": "diagrams-technical-visuals",
@@ -462,6 +502,14 @@
     "repository": "ericosiu-ai-marketing-skills",
     "description": "Select and create Growth Signal chart posts for Instagram, X, and LinkedIn from original content, measured post performance, and primary data. Use the approved Desk Edition style with chart-level sources and PNG/PDF exports. Use for this series or an explicit request for its house style.",
     "path": "category/diagrams-technical-visuals/growth-signal-charts"
+  },
+  {
+    "id": "huawei-cloud-network-topology-audit",
+    "name": "huawei-cloud-network-topology-audit",
+    "category": "diagrams-technical-visuals",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Orchestrator skill that audits Huawei Cloud network topology for security and configuration risks. Given a user-described access path (e.g., \"ELB web-elb \u2192 CCE prod-cce \u2192 RDS prod-db\"), it resolves the real topology, expands to the full VPC network surface, evaluates risks against an extensible rule directory, and produces a Markdown audit report with a Mermaid topology diagram. Triggers include: \"\u7ec4\u7f51\u5ba1\u8ba1\", \"\u7f51\u7edc\u62d3\u6251\u5ba1\u8ba1\", \"\u5b89\u5168\u7ec4\u5ba1\u8ba1\", \"\u7f51\u7edc\u5408\u7406\u6027\u68c0\u67e5\", \"\u7f51\u7edc\u98ce\u9669\u5ba1\u8ba1\", \"network audit\", \"topology audit\", \"security group audit\", \"network risk check\", \"\u7ec4\u7f51\u8bc4\u4f30\".",
+    "path": "category/diagrams-technical-visuals/huawei-cloud-network-topology-audit"
   },
   {
     "id": "hunt-xxe",
@@ -560,6 +608,14 @@
     "path": "category/diagrams-technical-visuals/iso-figure"
   },
   {
+    "id": "isometric-style",
+    "name": "isometric-style",
+    "category": "diagrams-technical-visuals",
+    "repository": "arjun988-blender-skills",
+    "description": "Isometric and strategy-game art direction for Blender including diorama framing, true-iso camera setup, readable silhouettes, and tile asset rules.",
+    "path": "category/diagrams-technical-visuals/isometric-style"
+  },
+  {
     "id": "journey-map",
     "name": "journey-map",
     "category": "diagrams-technical-visuals",
@@ -656,6 +712,14 @@
     "path": "category/diagrams-technical-visuals/mermaid-expert"
   },
   {
+    "id": "mermaid-to-proverif",
+    "name": "mermaid-to-proverif",
+    "category": "diagrams-technical-visuals",
+    "repository": "trailofbits-skills",
+    "description": "Translates Mermaid sequenceDiagrams describing cryptographic protocols into ProVerif formal verification models (.pv files). Use when generating a ProVerif model, formally verifying a protocol, converting a Mermaid diagram to ProVerif, verifying protocol security properties (secrecy, authentication, forward secrecy), checking for replay attacks, or producing a .pv file from a sequence diagram.",
+    "path": "category/diagrams-technical-visuals/mermaid-to-proverif"
+  },
+  {
     "id": "mermaid-visualizer",
     "name": "mermaid-visualizer",
     "category": "diagrams-technical-visuals",
@@ -728,6 +792,14 @@
     "path": "category/diagrams-technical-visuals/platform-role-hierarchy-apply"
   },
   {
+    "id": "pptx-visual-assets",
+    "name": "pptx-visual-assets",
+    "category": "diagrams-technical-visuals",
+    "repository": "wshobson-agents",
+    "description": "Use when selecting and placing approved supporting icons, images, SVGs, diagrams, or infographics in an editable PPTX deck.",
+    "path": "category/diagrams-technical-visuals/pptx-visual-assets"
+  },
+  {
     "id": "pr-lens",
     "name": "pr-lens",
     "category": "diagrams-technical-visuals",
@@ -774,6 +846,14 @@
     "repository": "cline-skills",
     "description": "Add visual filters (chart-based) to SAP Fiori Elements filter bar/value help using CAP or ABAP RAP.",
     "path": "category/diagrams-technical-visuals/sap-fiori-add-visual-filter"
+  },
+  {
+    "id": "sap-fiori-analytical-chart",
+    "name": "sap-fiori-analytical-chart",
+    "category": "diagrams-technical-visuals",
+    "repository": "sap-open-ux-tools",
+    "description": "Add analytical chart (chart + table hybrid) to SAP Fiori Elements List Report using aggregated data. Supports CAP and ABAP RAP (OData V4). Use when asked to add a chart section, aggregated data visualization, or Analytical List Page chart to a List Report.",
+    "path": "category/diagrams-technical-visuals/sap-fiori-analytical-chart"
   },
   {
     "id": "star-history-chart",

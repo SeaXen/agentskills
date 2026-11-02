@@ -1,0 +1,494 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "build-in-public",
+  "scenarios": 12,
+  "expectations_total": 130,
+  "expectations_subjective": 0,
+  "expectations_objective": 130,
+  "pass_rate_with_skill_pct": 79.2,
+  "pass_rate_without_skill_pct": 34.6,
+  "delta_pp": 44.6,
+  "uplift_multiplier": 2.29,
+  "trigger_accuracy_pct": 54.2,
+  "trigger_queries": 120,
+  "trigger_positive_fire_rate": 0.3,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": null,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.274 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "States that a published salary structure requires the consent of the people it covers, and that an open-salary model is a formula applied to roles with everyone's consent rather than a license to disclose facts about identifiable individuals"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States the rule that a metric should only be published if the company is willing to keep publishing it while it declines"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Budgets the reply load separately from the writing time, and notes that answering a thread usually costs more than producing the post"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Applies a ceiling of roughly a tenth of available project time to the whole practice"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Advises reducing frequency before reducing depth, for example one substantial monthly post over four thin weekly ones"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Classifies roadmap dates as a grey zone requiring a decision recorded in the charter rather than a reflex"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Warns that a roadmap detailed enough to be useful can read as competitor intelligence"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Distinguishes describing what you built (safe) from describing precisely how it wins (handing over a plan)"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Places the recommendation on the disclosure ladder explicitly, at operational metrics rather than financials"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that published financials cannot be unpublished and that the company would be measured against that baseline permanently"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names what is identical regardless of which reader it is: the security boundary, the consent rules and the cadence math"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Requires a stop condition written before the first publication, including what stays published if the revenue number is later withdrawn"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Distinguishes the three practices conflated under the same name: build in public, 'release early, release often', and 'learning in public'"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Attributes learning in public to Shawn Wang (2018)"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Attributes 'release early, release often' to Eric Raymond (1997) and describes it as an engineering practice aimed at code quality and contributor recruitment, needing a release process rather than a content cadence"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Advises keeping the project's numbers out of the personal practice"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Confirms which practice is wanted before designing any cadence, disclosure rung or platform mix"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Diagnoses a large audience that does not convert as missing channel-offer fit rather than insufficient effort, attributed to Jason Leow"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Gives the reallocation rule: if engagement-to-signup conversion stays near zero across two to three months, treat the practice as a community and accountability tool and reallocate the time"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Gives both failure branches in the right order - cadence met but nothing moved for two consecutive quarters means change the rung or the surface rather than posting more; cadence missed means cut the cadence before changing anything else"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires any later correction to be published at the same prominence as the original claim, never as a reply to a stale post"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Distinguishes live-incident status updates, which belong on a status page, from analysis, which belongs in a postmortem once causes are confirmed"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Warns that Hacker News and Reddit actively punish marketing language, hype and unverifiable metrics"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Advises using only channels the founder actually reads and where this audience already evaluates tools"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Notes that no single post carries a funnel because of the short half-life of a social post, so cadence and repurposing do the work"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Requires a published customer count to come from a source the reader can verify rather than an unverifiable screenshot"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Frames the practice as a budget rather than a growth channel, because the attention it buys arrives as issues, questions and opinions in the same place the maintainer ships from"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Identifies that a venture-funded company generally cannot publish revenue because standard investor rights agreements impose confidentiality on company financials"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Removes the open-startup dashboard / financial disclosure from the option set entirely rather than ranking it last or listing it as a lower-priority option"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Says explicitly which option was removed and why, instead of silently omitting it"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Proposes what a funded company can publish instead, naming at least two of: culture, hiring, engineering process, fundraise news"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that a published salary structure requires the consent of the people it covers, and that an open-salary model is a formula applied to roles with everyone's consent rather than a license to disclose facts about identifiable individuals"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Describes the dashboard as a standing obligation rather than a project: a permanent comparison baseline, publication through bad quarters, and legal review before the first post"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States the rule that a metric should only be published if the company is willing to keep publishing it while it declines"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Does not offer a rounded band, a reporting delay, an aggregate or a disclaimer as a workaround for the confidentiality constraint"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Produces or offers a written charter with named sections (goal, context, audience, rung, stop condition, boundaries, cadence, surfaces, measurement, pause rule) rather than a list of post ideas"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States the efficiency ordering of the three practices explicitly in words - shipping log ahead of decisions-and-failures essays ahead of open-startup dashboard - rather than implying it by list order"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Separates at least two axes that disagree, for example naming decisions-and-failures essays as the highest-value practice while the shipping log leads on efficiency"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Recommends the release-anchored shipping log and justifies it by the artefact already existing: the effort is a link and a paragraph, not a new piece of work"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Ties the recommendation to the 14 March deadline, on the grounds that a near date promotes the practice that publishes from work already done"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Sizes the cadence against the worst month rather than the current one"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Budgets the reply load separately from the writing time, and notes that answering a thread usually costs more than producing the post"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Applies a ceiling of roughly a tenth of available project time to the whole practice"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Advises reducing frequency before reducing depth, for example one substantial monthly post over four thin weekly ones"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Writes the pause rule into the plan now - the trigger, plus the sentence that announces the drop - rather than leaving it until something goes wrong"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Warns that publishing a solo maintainer's sponsorship income invites entitlement from unpaid users alongside any funding upside"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names one anchor surface the project owns and treats any social channel as an amplifier pointing back to it"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names coordinated disclosure as the governing norm: the report stays private and details are published only once a fixed version exists"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names the Osborne effect as the specific risk of announcing an unshipped successor while still selling the current version"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Explains the mechanism: buyers defer or cancel purchases of the shipping product once its successor is announced"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Cites the Osborne Computer Corporation 1983 precedent - prototype successors announced, dealers cancelled orders for the shipping machine, sales collapsed"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "If a roadmap is published anyway, requires explicit non-commitment language modelled on GitHub's public roadmap: subject to change, not a commitment guarantee obligation or promise, and not to be relied on for purchasing decisions"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Classifies roadmap dates as a grey zone requiring a decision recorded in the charter rather than a reflex"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Presents the disagreement as currently open and does not declare either side to have won"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Gives Arvid Kahl's 2026 reassessment, attributed and dated: agentic coding tools turn a publicly described architecture and feature set into a working competitor in days"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States Kahl's specific claim that the old safety threshold of $20-30K MRR has collapsed to zero"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Gives the counter-position that the barrier to a clone was always getting strangers to trust it, so distribution and trust remain the moat"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States the working rule: share the journey and the reasoning, and keep the operational playbook, the exact architecture and the specific growth levers out of public writing"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Distinguishes describing what you built (safe) from describing precisely how it wins (handing over a plan)"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes that the working rule holds under either reading of the disagreement"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Points at the four documented stop conditions (belittling by larger companies, copy and clone risk, the number reading as bragging past some size, the number no longer being a personal milestone once others are on the team)"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Treats stopping as a pre-commitment written down in advance rather than a reaction to the current month"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Warns that withdrawing a published number is itself a second public event, read defensively regardless of the real reason, not a neutral reset"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires deciding now what stays published if the revenue chart is retired, rather than letting the chart go silently stale"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Warns that revenue disclosure can backfire here: a small honest number next to an incumbent invites a vendor-risk or vendor-viability objection during procurement"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends operational evidence over financial disclosure for this audience, naming release cadence, response times, security handling and maintenance capacity"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Places the recommendation on the disclosure ladder explicitly, at operational metrics rather than financials"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that published financials cannot be unpublished and that the company would be measured against that baseline permanently"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States the rule that a metric should only be published if the company will keep publishing it while it declines"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names what is identical regardless of which reader it is: the security boundary, the consent rules and the cadence math"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Does not propose publishing ARR with added context, framing or a growth-rate emphasis as a way to neutralize the vendor-risk objection"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Asks whose consent is required before publishing company numbers - co-founders, investors, customers - rather than assuming the founder can decide alone"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Requires a stop condition written before the first publication, including what stays published if the revenue number is later withdrawn"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Distinguishes the three practices conflated under the same name: build in public, 'release early, release often', and 'learning in public'"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Identifies what this user described as learning in public - a career practice about an individual developer's skill and reputation"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Attributes learning in public to Shawn Wang (2018)"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Attributes 'release early, release often' to Eric Raymond (1997) and describes it as an engineering practice aimed at code quality and contributor recruitment, needing a release process rather than a content cadence"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Describes build in public itself as a marketing practice aimed at building an audience that becomes users, contributors or sponsors"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Directs the user toward a personal-brand practice rather than designing a project practice around the Terraform linter"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Advises keeping the project's numbers out of the personal practice"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Confirms which practice is wanted before designing any cadence, disclosure rung or platform mix"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Recommends a release-anchored cadence given the roughly thirty merged pull requests, because the material already exists"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Backs that honesty with the documented case of Alex Turnbull, whose Groove transparency blog is a canonical success story and who later admitted he never looked at a metric for three years"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Judges the practice against the primary outcome chosen at the start rather than a generic engagement dashboard"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Pairs each outcome with a signal to ignore - stars, followers, impressions or reach - not only with a signal that counts"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Diagnoses a large audience that does not convert as missing channel-offer fit rather than insufficient effort, attributed to Jason Leow"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Gives the reallocation rule: if engagement-to-signup conversion stays near zero across two to three months, treat the practice as a community and accountability tool and reallocate the time"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States the pass condition as self-set rather than an industry benchmark, and notes that no public dataset gives realistic build-in-public conversion rates"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Gives the three-part quarterly pass condition: at least one named outcome moved, the cadence was met, and no boundary rule was breached"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Gives both failure branches in the right order - cadence met but nothing moved for two consecutive quarters means change the rung or the surface rather than posting more; cadence missed means cut the cadence before changing anything else"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Recommends publishing it publicly and first, on the company's own terms, rather than emailing affected accounts only"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Specifies the order: impact on the reader first, then cause, then what changes systemically, and explicitly rejects the reverse order"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires saying what is not yet known and when the next update lands, then meeting that date"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Publishes once, in full, in one place, with replies linking back to it rather than relitigating the same point across threads"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Instructs to answer the strongest objection once, in public, and never to argue the same point across many threads"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires any later correction to be published at the same prominence as the original claim, never as a reply to a stale post"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Distinguishes live-incident status updates, which belong on a status page, from analysis, which belongs in a postmortem once causes are confirmed"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that different post types are different genres rather than one asset reshaped for each platform"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Gives the reason owned surfaces matter: the archive survives a platform decaying or an account being lost"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Flags living entirely on one social platform as a failure mode: no archive, no search surface, and one account suspension away from losing the whole practice"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Warns that LinkedIn punishes casual indie tone and naked metric-flexing"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Advises using only channels the founder actually reads and where this audience already evaluates tools"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Notes that no single post carries a funnel because of the short half-life of a social post, so cadence and repurposing do the work"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Requires a published customer count to come from a source the reader can verify rather than an unverifiable screenshot"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Requires public posts to link back to the owned artifact rather than duplicating it, so a correction has one place to be made"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Flags the roadmap living as a pinned social thread as a problem separate from the cross-posting question"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Reads issue volume growing faster than contributor count as the named signal to pause posting and fix an artifact instead of publishing more"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Connects the published sponsorship income directly to the entitlement the user is experiencing: published maintainer income invites entitlement from unpaid users"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Treats stars as proving nothing about adoption and pairs or replaces them with contributor, download or retention movement"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Does not recommend posting more, or asking the audience for contributors, as the primary fix for the support load"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Frames the practice as a budget rather than a growth channel, because the attention it buys arrives as issues, questions and opinions in the same place the maintainer ships from"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Offers a cadence reduction or pause that is announced in a sentence rather than a silent fade-out"
+      }
+    ]
+  }
+}

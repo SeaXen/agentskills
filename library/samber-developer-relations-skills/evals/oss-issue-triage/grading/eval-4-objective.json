@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that no reliable technical indicator for machine-generated submissions exists and declines to build or recommend one as the control",
+        "evidence": "'There is no reliable technical indicator for \"this report was AI-generated.\"... Don't build it'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gates on reputation and submission volume rather than on whether the content looks machine-generated",
+        "evidence": "'Gate on reputation and volume, never on \"does this look machine-written\"'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that accusing a contributor of machine generation without proof creates a conduct incident on top of the original problem",
+        "evidence": "'that's a false accusation with no proof behind it \u2014 a conduct problem stacked on top of the triage problem'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Subtracts the hours consumed by never-actionable submissions before comparing capacity against inflow",
+        "evidence": "'at just 8 junk reports in a week, junk alone consumes your entire team's capacity \u2014 before anyone looks at the one real finding'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Carries the prompt's own figures through the arithmetic, using six people at four hours each and 90 minutes with two people per junk report",
+        "evidence": "'6 people \u00d7 4 hours = 24 person-hours/week... 90 minutes \u00d7 2 reviewers = 3 person-hours per junk report'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States plainly that no published response target survives the current valid share",
+        "evidence": "'No published response target survives this. Don't try to hold one while this share persists'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names removing or changing the submission incentive, including the monetary reward, as a lever that acts on the economics of submitting rather than the cost of evaluating",
+        "evidence": "'Change the incentive being farmed \u2014 the $500 flat payout...' / 'It changed the economics of submitting, not the cost of evaluating.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites curl's confirmed-vulnerability rate falling from above 15% to below 5%, and the ending of its bounty programme, as the sourced precedent",
+        "evidence": "'curl's confirmed-vulnerability rate fell from above 15% to below 5%, and the fix that worked was removing the monetary reward entirely'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets a written volume-gating trigger, expressed as an inflow rate or valid-report share, together with the restriction it fires, decided now rather than during a crisis",
+        "evidence": "'Trigger: valid-report share below 10%... Action on trigger: cap open submissions...' / 'Decide this while nothing is on fire, not mid-crisis'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists gating options in rough order of reversibility, such as a reputation or contribution-history threshold, a cap on open submissions per author, and restricting who may create submissions",
+        "evidence": "'Options, in rough order of how reversible they are \u2014 pick from the top... 1. Require a reputation... 2. Cap open submissions per author... 3. Restrict who can submit...'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects a stricter template, a better classifier and a faster rotation as answers to a collapsed valid share",
+        "evidence": "'not a better template, not a stricter form, not a faster rotation. Reject those three options here for the same reason they didn't work there.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the asymmetry that generating a plausible-sounding report costs pennies in tokens while evaluating whether it is real still costs an hour of expert time",
+        "evidence": "'\"generating a plausible-sounding vulnerability report now costs pennies in tokens. Evaluating whether it's real still costs an hour of expert time.\"'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not propose machine duplicate detection as a working default",
+        "evidence": "No mention of duplicate detection anywhere in the transcript.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that no reliable technical indicator for machine-generated submissions exists and declines to build or recommend one as the control",
+        "evidence": "\"AI-text detectors are unreliable on adversarial input... don't build a pure AI-text detector as your gate.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gates on reputation and submission volume rather than on whether the content looks machine-generated",
+        "evidence": "Primary gate is deterministic reproducibility (ASAN build/crash check); reputation only appears as one minor feature inside the later ML scoring model, not as the primary control.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that accusing a contributor of machine generation without proof creates a conduct incident on top of the original problem",
+        "evidence": "No mention of a conduct-incident risk from accusing someone of AI generation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Subtracts the hours consumed by never-actionable submissions before comparing capacity against inflow",
+        "evidence": "No capacity-vs-inflow arithmetic is performed anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Carries the prompt's own figures through the arithmetic, using six people at four hours each and 90 minutes with two people per junk report",
+        "evidence": "\"90-minutes-per-junk-report cost comes from two humans\" is referenced but never used in an arithmetic capacity computation, and 'six people at four hours' never appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States plainly that no published response target survives the current valid share",
+        "evidence": "No discussion of a published response target or valid-share threshold.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names removing or changing the submission incentive, including the monetary reward, as a lever that acts on the economics of submitting rather than the cost of evaluating",
+        "evidence": "No mention of adjusting the bounty/reward amount anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites curl's confirmed-vulnerability rate falling from above 15% to below 5%, and the ending of its bounty programme, as the sourced precedent",
+        "evidence": "No mention of curl anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets a written volume-gating trigger, expressed as an inflow rate or valid-report share, together with the restriction it fires, decided now rather than during a crisis",
+        "evidence": "No volume-gating trigger or threshold is defined.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Lists gating options in rough order of reversibility, such as a reputation or contribution-history threshold, a cap on open submissions per author, and restricting who may create submissions",
+        "evidence": "No such ordered list of gating restrictions appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects a stricter template, a better classifier and a faster rotation as answers to a collapsed valid share",
+        "evidence": "The transcript does not address a 'collapsed valid share' scenario at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the asymmetry that generating a plausible-sounding report costs pennies in tokens while evaluating whether it is real still costs an hour of expert time",
+        "evidence": "The 90-minute review cost is mentioned but never contrasted explicitly with a token/cost-to-generate asymmetry.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not propose machine duplicate detection as a working default",
+        "evidence": "The proposed features (reproducibility gate, citation-resolution check, template-similarity-to-known-junk) never include duplicate detection against existing reports.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

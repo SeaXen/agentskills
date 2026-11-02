@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Reorders so the usage example appears above the install section for this library",
+        "evidence": "New skeleton: \"5. Quick Start... 6. Install...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Justifies usage-above-install by the reader who dislikes the API shape not caring how to install it",
+        "evidence": "\"usage should sit *above* install \u2014 a reader who dislikes the API shape doesn't care how to install it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes the hand-written table of contents and states that code hosts generate an outline from headings",
+        "evidence": "\"**Delete** | GitHub renders an outline from headings automatically.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Moves the contributing content to CONTRIBUTING.md and leaves a one-line pointer behind",
+        "evidence": "\"**Move to `CONTRIBUTING.md`** | One-line pointer in the README: `Contributing: see CONTRIBUTING.md`.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Moves the code of conduct to CODE_OF_CONDUCT.md and leaves a one-line pointer behind",
+        "evidence": "\"**Move to `CODE_OF_CONDUCT.md`, delete from README** | No pointer needed beyond what the Contributing link already implies\" \u2014 explicitly no pointer left.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Moves the security policy to SECURITY.md and leaves a one-line pointer behind",
+        "evidence": "\"**Move to `SECURITY.md`** | ... Skip a README pointer unless you have enterprise/procurement readers... not indicated for this project.\" \u2014 pointer explicitly skipped.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Moves the release history to CHANGELOG.md and leaves a one-line pointer behind",
+        "evidence": "\"**Move to `CHANGELOG.md`** | One-line pointer: `Changelog: CHANGELOG.md`.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Moves the full API reference and the 40-row configuration table to a documentation site or generated reference",
+        "evidence": "\"**Move to Javadoc / docs site**\" for the API reference and \"**Move, keep a stub**\" for the config table.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that overflow is relocated, never deleted",
+        "evidence": "\"Nothing is deleted outright except the hand-written TOC and the inline Code of Conduct text (both have zero destination value...)\" \u2014 explicitly admits two items are deleted, not relocated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the licence file inside the repository even while the other community health files move out",
+        "evidence": "\"12 | License | **Keep** | Name + link, stays near the bottom\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the median of 7 sections and the 5-to-12 band as the size signal this file misses",
+        "evidence": "\"median README is 7 sections, half sit between 5 and 12. You're at 12 sections and 1,400 lines\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Adds a differentiation section, noting that only 25.7% of READMEs carry any why-over-the-alternatives content",
+        "evidence": "\"This is the scarcest, highest-leverage category (25.7% of READMEs have it)\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Reorders so the usage example appears above the install section for this library",
+        "evidence": "The new README order is \"## Why Parsely?\" then \"## Installation\" then \"## Quick Start\" \u2014 usage (Quick Start) comes after Installation, not above it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Justifies usage-above-install by the reader who dislikes the API shape not caring how to install it",
+        "evidence": "No such justification appears, and the ordering itself doesn't place usage above install.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes the hand-written table of contents and states that code hosts generate an outline from headings",
+        "evidence": "\"Table of Contents (22 hand-written entries) | Deleted | GitHub renders an auto-outline (\u22ee\u2261 button, top-left of any rendered `.md`) from headings \u2014 a hand-maintained TOC is redundant and drifts.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Moves the contributing content to CONTRIBUTING.md and leaves a one-line pointer behind",
+        "evidence": "\"## Contributing\\n\\nBug reports and PRs welcome. See [CONTRIBUTING.md](CONTRIBUTING.md) for dev-environment setup, build commands, and the PR checklist.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Moves the code of conduct to CODE_OF_CONDUCT.md and leaves a one-line pointer behind",
+        "evidence": "\"## Community\\n\\nGoverned by our [Code of Conduct](CODE_OF_CONDUCT.md) (Contributor Covenant).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Moves the security policy to SECURITY.md and leaves a one-line pointer behind",
+        "evidence": "\"## Security\\n\\nFound a vulnerability? See [SECURITY.md](SECURITY.md) to report it privately \u2014 please don't open a public issue.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Moves the release history to CHANGELOG.md and leaves a one-line pointer behind",
+        "evidence": "\"## Changelog\\n\\nSee [CHANGELOG.md](CHANGELOG.md) for release history since 2021.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Moves the full API reference and the 40-row configuration table to a documentation site or generated reference",
+        "evidence": "\"Full API Reference (61 methods) | Javadoc (javadoc.io) + docs/api.md on the docs site\" and \"Configuration table (40 rows) | docs/configuration.md\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that overflow is relocated, never deleted",
+        "evidence": "The TOC row is explicitly marked \"Deleted\" in the relocation table, and no general principle of \"relocated, never deleted\" is stated anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the licence file inside the repository even while the other community health files move out",
+        "evidence": "No explicit statement contrasts the License section's treatment with the other relocated files; the README simply retains \"## License\\n\\n[Apache 2.0](LICENSE)\" without discussion.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the median of 7 sections and the 5-to-12 band as the size signal this file misses",
+        "evidence": "No such statistic appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds a differentiation section, noting that only 25.7% of READMEs carry any why-over-the-alternatives content",
+        "evidence": "The \"Why Parsely?\" section lists features but no 25.7% statistic or explicit alternatives-comparison content is added or cited.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Identifies the top two rungs (named company with named engineer, and named company with unnamed engineer) as both unavailable, since each names the company.",
+        "evidence": "'Named-engineer-plus-anonymized-company isn't one of the five rungs for a reason... the ladder assumes company and human identifiability move together' combined with jumping straight to 'Rung 3' given comms' 'full stop' on naming.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends the rung of an unnamed company carrying an identifying descriptor, with the metrics left intact.",
+        "evidence": "'Rung 3 \u2014 unnamed company, identifying descriptor, metrics intact \u2014 is the right target given what's cleared.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Addresses that keeping Ines Duarte's name on the quotes re-identifies her employer, and attributes the quote by role and team instead.",
+        "evidence": "'A named, real, searchable engineer *is* the company appearing, just one hop removed.' / 'Engineer: role only \u2014 \"a staff engineer on the payments team\" \u2014 not \"Ines Duarte.\"'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the credibility cost of the descent rather than presenting the lower rung as an equivalent or neutral option.",
+        "evidence": "'gate 3 (\"a named human who will talk\") softens rather than fails... the numbers now carry more of the study's credibility than the byline does.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Instructs descending one rung at a time rather than dropping straight to a category descriptor or a pattern write-up.",
+        "evidence": "Recommendation stops at Rung 3, not Rung 4/5: 'Rung 3 \u2014 unnamed company, identifying descriptor, metrics intact \u2014 is the right target.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns against sharpening the descriptor until the company becomes identifiable while the study still claims anonymity.",
+        "evidence": "'This is exactly the failure the anonymization ladder warns about: sharpening a descriptor... until the company is identifiable while still claiming anonymity.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Assesses the proposed descriptor 'a large European payments company' against re-identification risk rather than accepting it unexamined.",
+        "evidence": "'Count how many companies plausibly fit \"large + European + payments\" at the disclosed scale before locking the wording.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not present the rungs as a menu to pick from by effort, cost or convenience.",
+        "evidence": "The rung choice is driven strictly by comms' constraint, not convenience \u2014 no cost/effort comparison offered as a selection criterion.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that at this rung the numbers now carry the whole study.",
+        "evidence": "'the numbers now carry more of the study's credibility than the byline does.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Confirms whether the story still clears the qualification gates at that rung, or names which gate it would fail.",
+        "evidence": "'gate 3 (\"a named human who will talk\") softens rather than fails.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that the bottom rung, a composite or pattern write-up with no attributed quote, is no longer a case study and must be published and labelled as an engineering-pattern post.",
+        "evidence": "The transcript never discusses the bottom rung or pattern-post relabeling at all; it only addresses Rung 3.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Identifies the top two rungs (named company with named engineer, and named company with unnamed engineer) as both unavailable, since each names the company.",
+        "evidence": "\"Comms didn't say 'don't use our name in the company-name field' \u2014 they said the company never appears in vendor marketing, full stop.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends the rung of an unnamed company carrying an identifying descriptor, with the metrics left intact.",
+        "evidence": "\"Ship the safe version now: keep the company anonymized, keep every metric and architecture detail security already cleared, but genericize the attribution.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Addresses that keeping Ines Duarte's name on the quotes re-identifies her employer, and attributes the quote by role and team instead.",
+        "evidence": "The fix is \"Change the pull-quote byline from 'Ines Duarte, Staff Engineer at Vantage Payments' to 'a staff engineer at the company'\" \u2014 this attributes by role only, with no team-level descriptor.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the credibility cost of the descent rather than presenting the lower rung as an equivalent or neutral option.",
+        "evidence": "\"Same words, same credibility signal (verbatim technical quote reads as authentic either way), zero re-identification path\" explicitly frames the descent as costless, not as carrying a credibility cost.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Instructs descending one rung at a time rather than dropping straight to a category descriptor or a pattern write-up.",
+        "evidence": "The recommendation moves only from named-engineer attribution to a generic-role attribution ('a staff engineer at the company'), not to a fully generic pattern write-up.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns against sharpening the descriptor until the company becomes identifiable while the study still claims anonymity.",
+        "evidence": "The uniqueness warning given is scoped to the metrics/architecture section ('34% drop in fraud false-positives...'), not to the company descriptor itself.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Assesses the proposed descriptor 'a large European payments company' against re-identification risk rather than accepting it unexamined.",
+        "evidence": "The descriptor 'a large European payments company' is used as given context in the draft email without any assessment of its own re-identification risk.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not present the rungs as a menu to pick from by effort, cost or convenience.",
+        "evidence": "The options are structured as a sequential decision ('The move: 1... 2... 3. Default to publishing option 1 on your current timeline if comms doesn't respond fast enough'), not a convenience menu.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that at this rung the numbers now carry the whole study.",
+        "evidence": "No statement addresses the numbers becoming the primary carrier of credibility at the generic-attribution rung.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Confirms whether the story still clears the qualification gates at that rung, or names which gate it would fail.",
+        "evidence": "No qualification-gate framework or gate-pass/fail assessment is referenced anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that the bottom rung, a composite or pattern write-up with no attributed quote, is no longer a case study and must be published and labelled as an engineering-pattern post.",
+        "evidence": "No composite/pattern write-up option or its labelling requirement is discussed.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

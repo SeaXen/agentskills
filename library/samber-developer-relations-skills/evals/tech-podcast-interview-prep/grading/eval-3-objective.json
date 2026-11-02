@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Response names the user's paragraph as an and-and-and (AAA) construction with no tension.",
+        "evidence": "\"your paragraph itself is AAA-shaped \u2014 Rust, and mTLS, and Apache 2.0, and stars, and 'teams love it' \u2014 a pile of facts with no tension\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response rewrites it as one And-But-Therefore sentence containing an explicit \"but\" turn and a \"therefore\".",
+        "evidence": "\"...but Corvid Mesh's Rust core issues and rotates certs itself with zero config, therefore a platform engineer gets mTLS across the fleet without a quarter-long PKI project.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response attributes And-But-Therefore to Randy Olson rather than presenting it as generic storytelling advice.",
+        "evidence": "No mention of Randy Olson or any attribution for the ABT structure appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response fixes two messages, not five, because the episode runs under 30 minutes.",
+        "evidence": "\"Microservice Minutes is 25 minutes, video, two co-hosts. That's under 30 minutes, which caps you at two messages, not five\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response explicitly refuses the request for five messages and gives a reason tied to listener retention or to a fourth message stealing airtime from the first three.",
+        "evidence": "\"a third steals airtime from the first two, and retention on video is worst in the opening minutes, so every message has to earn its seconds.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Each message is written as claim, evidence, so-what.",
+        "evidence": "\"**Claim:** Turning on mutual TLS... **Evidence:** [gap \u2014 needs a real number...] **So-what:** A platform engineer can put mTLS on this sprint...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Each claim is one falsifiable sentence with no adjectives.",
+        "evidence": "\"Turning on mutual TLS between services is normally a PKI project, not a config flag.\" and \"Most service-mesh sidecar overhead is a memory/GC tax, not fundamental complexity.\" \u2014 both plain, adjective-free claims.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response rejects \"teams love it\" and the bare 4,200 star count as evidence, or converts a figure into a number paired with a comparison.",
+        "evidence": "\"'Teams love it' | Cut | Unfalsifiable, no number, fails the so-what test outright\" and stars moved to the liftable sound bite instead of being used as evidence.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response does not write messages that are product features.",
+        "evidence": "\"'Five, one per feature' is the exact anti-pattern in its bad-brief checklist\" and Rust is explicitly 'Folded into message 2 as the reason for the low-overhead claim, not a standalone message'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response asks the user to say each claim out loud, noting that a claim which is hard to say will not land under pressure.",
+        "evidence": "No instruction to say the claims aloud or note about pressure/landing appears in this transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Response names the user's paragraph as an and-and-and (AAA) construction with no tension.",
+        "evidence": "No reference to the user's original paragraph or its construction exists; the response jumps directly into 'Five messages, ordered for a 25-minute two-host conversation.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response rewrites it as one And-But-Therefore sentence containing an explicit \"but\" turn and a \"therefore\".",
+        "evidence": "No ABT rewrite appears anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response attributes And-But-Therefore to Randy Olson rather than presenting it as generic storytelling advice.",
+        "evidence": "No mention of Randy Olson or ABT terminology.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response fixes two messages, not five, because the episode runs under 30 minutes.",
+        "evidence": "The response delivers exactly 'Five messages' as headed, not two.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response explicitly refuses the request for five messages and gives a reason tied to listener retention or to a fourth message stealing airtime from the first three.",
+        "evidence": "The response fully complies, producing all five requested messages with no refusal.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Each message is written as claim, evidence, so-what.",
+        "evidence": "Message 3 (Apache 2.0) has only a quote and a 'Why platform engineers care' line with no distinct evidence/proof-point bullet, unlike the inconsistent structure across all five.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Each claim is one falsifiable sentence with no adjectives.",
+        "evidence": "Quotes are multi-sentence, e.g. message 2: 'A service mesh sidecar sits in the hot path of every single request in your cluster. A GC pause there isn't an inconvenience, it's a latency spike across your whole fleet. That's why it's Rust...'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response rejects \"teams love it\" and the bare 4,200 star count as evidence, or converts a figure into a number paired with a comparison.",
+        "evidence": "'Stars alone are a vanity metric to this audience' and '\"teams love it\" is filler \u2014 it answers nothing and invites a skeptical follow-up.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response does not write messages that are product features.",
+        "evidence": "Message 1 is explicitly headed 'The pain-killer: zero-config mTLS,' a product feature.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response asks the user to say each claim out loud, noting that a claim which is hard to say will not land under pressure.",
+        "evidence": "No instruction to rehearse claims aloud appears.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

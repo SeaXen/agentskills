@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects hub-and-spoke at this headcount rather than shrinking it to fit.",
+        "evidence": "The transcript instead builds 'Candidate 3 \u2014 Right-sized hub-and-spoke (recommended)' which shrinks spoke 4 to ~0.5 FTE and adds a floating seat, explicitly keeping the hub-and-spoke shape: 'This keeps the shape you want to present \u2014 a hub owning craft and standards, one spoke per product line \u2014 but makes the backup problem a named seat instead of a silent gap.' It is recommended despite acknowledging the org is understaffed for it, i.e., shrunk to fit rather than rejected.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the hub-and-spoke staffing floor: a hub of two to three plus at least two spokes, a management layer and a standing forum.",
+        "evidence": "No general staffing-floor formula is stated anywhere. The closest text is 'The headcount math doesn't cleanly fit \"hub of 2 + spoke per line\"' which references the user's specific ask, not a general floor of 'hub of two to three plus at least two spokes, a management layer and a standing forum.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes hub-and-spoke takes about a quarter to stand up and a quarter to unwind.",
+        "evidence": "No mention of stand-up or unwind timelines anywhere in the transcript; the Transition section only lists Week 1/Month 1/Quarter 1 activities for this specific rollout, not a general claim about quarter-to-stand-up/quarter-to-unwind.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Points out four spokes cannot be staffed from five full-time people.",
+        "evidence": "'Candidate 2 \u2014 Textbook hub-and-spoke (2 hub + 1 spoke \u00d7 4 lines), no reserved backup... Staffing it eats all 5 full-timers (2 hub + 3 spokes) plus one of the two split people as the 4th spoke \u2014 leaving the second split person unassigned, and every single seat at bus factor one.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends centralized as the only candidate shape under roughly ten full-time people.",
+        "evidence": "The brief explicitly recommends Candidate 3 (hub-and-spoke variant), not centralized, even while noting the org is below the ~10-person threshold: 'Proceeding at 7 is defensible only because of the floating-backup seat above; without it, the honest recommendation would be to stay centralized...' \u2014 centralized is only a hypothetical fallback, not the actual recommendation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels the ten-person threshold as this skill's own chosen baseline, not a published finding.",
+        "evidence": "The ten-person figure is attributed to 'the field's own centralized-only rule of thumb (roughly ten full-time people is where shapes other than centralized become affordable without straining)' \u2014 framed as a field-wide rule of thumb, not explicitly labeled as the skill's own chosen baseline distinct from a published finding (contrast with the 70% figure, which IS explicitly labeled 'baseline, not a benchmark').",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites that around 69% of surveyed teams are under ten people, with the year attached.",
+        "evidence": "No such statistic appears anywhere in the transcript; the only cited survey statistic is the reporting-line spread ('marketing 33.1%, product 21.7%, CEO 20.3%, engineering 19.9%, sales 3.2% \u2014 State of Developer Relations 2024, DevRel.Agency, 310 respondents').",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes the ruled-out shapes explicitly and names which ones were deleted, rather than parking them at the bottom of a list as later options.",
+        "evidence": "Candidate 1 is explicitly closed out with 'Rejected: with four product lines already competing for attention...' and Candidate 2 is explicitly closed out with 'Not recommended as-is, but it's the story a board slide modeled on Stripe or Twilio implicitly promises...' \u2014 both named and explicitly ruled out with reasons rather than left as ambiguous later options.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that copying a larger company's shape presupposes spokes this company cannot staff.",
+        "evidence": "'This is close to a named failure mode in the underlying skill \u2014 copying a large company's shape when you can't staff the spokes it presupposes.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Applies the scaling test: further investment must increase output more than it increases input.",
+        "evidence": "No such scaling test or framing (output growth vs. input growth) appears anywhere in the transcript's capacity or shape analysis.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that a hub that approves work rather than enables it becomes a bottleneck wearing a standards label.",
+        "evidence": "The hub's role is described only positively ('Standards, tooling, cross-product consistency, shared calendar'); there is no warning anywhere about the hub becoming an approval bottleneck or 'a bottleneck wearing a standards label.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the near board date pushes the choice toward centralized, which is reversible in about a week and adds near-zero coordination.",
+        "evidence": "The five-week board timeline is mentioned only as context ('Board review in five weeks (~2026-10-28) is the trigger'), and reversibility is mentioned only generically for Candidate 1 ('Cheapest, most reversible, buys one voice') \u2014 there is no claim tying the near board date to a centralized recommendation, nor any 'about a week' or 'near-zero coordination' language.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects hub-and-spoke at this headcount rather than shrinking it to fit.",
+        "evidence": "The transcript instead fits hub-and-spoke to 6.0 FTE: \"That's not a coincidence you need to force; it's a clean fit if you treat the two 0.5-FTE people as jointly filling one seat.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the hub-and-spoke staffing floor: a hub of two to three plus at least two spokes, a management layer and a standing forum.",
+        "evidence": "No staffing-floor threshold is stated; the plan just allocates the existing 7 people.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes hub-and-spoke takes about a quarter to stand up and a quarter to unwind.",
+        "evidence": "The rollout given is a 5-week plan with no mention of quarter-long stand-up/unwind costs.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Points out four spokes cannot be staffed from five full-time people.",
+        "evidence": "The transcript instead engineers a fit using paired 0.5 FTEs: \"Put the pair in a spoke... A paired spoke only constrains one product line's coverage.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends centralized as the only candidate shape under roughly ten full-time people.",
+        "evidence": "Hub-and-spoke, not centralized, is recommended at 7 people (6.0 FTE).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels the ten-person threshold as this skill's own chosen baseline, not a published finding.",
+        "evidence": "No ten-person threshold appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites that around 69% of surveyed teams are under ten people, with the year attached.",
+        "evidence": "No such statistic or survey citation appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes the ruled-out shapes explicitly and names which ones were deleted, rather than parking them at the bottom of a list as later options.",
+        "evidence": "\"Pure-centralized DevRel becomes a single bottleneck with no product depth. Pure-embedded DevRel (no hub) fragments brand voice and duplicates tooling four times over.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that copying a larger company's shape presupposes spokes this company cannot staff.",
+        "evidence": "The transcript instead endorses copying larger companies: \"Hub-and-spoke is the model the larger API-first companies converge on for exactly this trade-off.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Applies the scaling test: further investment must increase output more than it increases input.",
+        "evidence": "No such scaling test or framing appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that a hub that approves work rather than enables it becomes a bottleneck wearing a standards label.",
+        "evidence": "\"If every spoke publish waits on hub sign-off, the hub becomes the bottleneck the structure was meant to avoid.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the near board date pushes the choice toward centralized, which is reversible in about a week and adds near-zero coordination.",
+        "evidence": "The board-date rollout builds toward hub-and-spoke, not centralized: \"Present the structure as committed for at least one full quarter before the next iteration.\"",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

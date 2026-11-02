@@ -1,0 +1,190 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States a goal sentence in the form `<reader> wants to <end state> on <their setup>` and keeps it off the page (no such sentence appears under the title).",
+        "evidence": "No internal goal sentence of that form is stated. Each page opens with an on-page line: 'Rotate the secret that signs your Lanternbay webhooks when it has leaked...'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reorders the procedure so the new secret is created and deployed before the old one is retired (add before remove, verify before revoke), rejecting the revoke-first order.",
+        "evidence": "Changes table: 'Create the new secret, deploy it, confirm, then revoke the old one'. Steps 3 to 8 follow that order.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places the warning at the top of the retire/revoke step, immediately before its first action, stating the consequence and its scope; no warning box at the top of the page.",
+        "evidence": "Step 8 opens with '> **Warning:** Revocation is immediate and cannot be undone. Any service or host still verifying with the old secret rejects every webhook'. The table says no top box.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Inserts a reversible soft step (disable or suspend the old secret) as a sub-step before the revoke, and keeps that safeguard outside the numbered step count.",
+        "evidence": "Open question 3 assumes no disable state exists. Product gaps: 'No disable or suspend state for a secret'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Inserts a checkpoint before the revoke that reads which secret the services are using through an independent read (for example the last-used column of `lanternbay webhooks secrets list`), not the create command's own response.",
+        "evidence": "Step 7 checks 'your own signature-verification log or metric for a delivery received after step 6' and requires 2xx. The create output is not used.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes `--yes` from the revoke command and states that confirmation-bypass flags are banned on destructive commands.",
+        "evidence": "'`revoke` without `--yes`... The skill bans confirmation-bypass flags on destructive commands.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces `export LB_WEBHOOK_SECRET=whsec_...` with a no-echo load (`read -rs`), the tool's credential prompt or a secret-manager CLI, and gives the reason (shell history, scrollback, screen shares).",
+        "evidence": "'`read -rs`... An exported secret lands in shell history, scrollback and the process environment.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes the Kubernetes versus systemd restart as an inline conditional imperative (\"If you run on Kubernetes, ...\") inside one recommended path, not as tabs or a second page.",
+        "evidence": "'One page for Kubernetes and VMs | Two pages'. Page 1 and Page 2 are separate.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Uses `whsec_test_` test-mode secrets in every example and marks the steps that require live mode.",
+        "evidence": "Test mode appears only as a prerequisite bullet. The examples use sec_OLD... and NEW_SECRET, with no whsec_test_ values or live-mode markers.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes every placeholder inside commands as a bare UPPER_SNAKE name or a shell variable set once early, never `<NAME>`.",
+        "evidence": "'NAMESPACE=my-namespace DEPLOYMENT=... SECRET_NAME=...' set once in step 1. No angle brackets.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Marks the revoke step \"Do not re-run; check state with `lanternbay webhooks secrets list` first\" and marks idempotent steps \"Safe to re-run.\"",
+        "evidence": "'Do not re-run this step: check state with `lanternbay webhooks secrets list` first.' Other steps say 'Safe to re-run.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Adds a Roll back section after the verification step that opens with the signal meaning \"roll back now\" (signature-verification failures or 401s) and rolls back through the still-active old secret.",
+        "evidence": "'Roll back if signature verification fails or your endpoint returns non-2xx after step 6. This works only before step 8, because the old secret is still active.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Closes with a verification step giving a command, its expected output, and one line naming what failure looks like and where to go next.",
+        "evidence": "The `secrets list` command is followed by an expected output block, then 'If deliveries fail verification, see [Webhook signature verification fails]'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Stamps front matter with `content_type: how-to`, an `owner` team, `tested_with` and `last_verified`, and hands over a run list because no cold run has happened.",
+        "evidence": "Front matter has content_type: how-to, owner, tested_with and last_verified (all UNVERIFIED). A Run list is in the Hand-over.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not chain the revoke onto any other command with `&&`.",
+        "evidence": "The revoke command is alone in its own block.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States a goal sentence in the form `<reader> wants to <end state> on <their setup>` and keeps it off the page (no such sentence appears under the title).",
+        "evidence": "No '<reader> wants to ...' goal sentence is stated anywhere in the page or the notes.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reorders the procedure so the new secret is created and deployed before the old one is retired (add before remove, verify before revoke), rejecting the revoke-first order.",
+        "evidence": "The notes say 'The page runs create, deploy with overlap, verify, revoke', and they reject the revoke-first order.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places the warning at the top of the retire/revoke step, immediately before its first action, stating the consequence and its scope; no warning box at the top of the page.",
+        "evidence": "The page opens with a '> [!CAUTION]' box under the title.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Inserts a reversible soft step (disable or suspend the old secret) as a sub-step before the revoke, and keeps that safeguard outside the numbered step count.",
+        "evidence": "There is no disable or suspend step before 'revoke'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Inserts a checkpoint before the revoke that reads which secret the services are using through an independent read (for example the last-used column of `lanternbay webhooks secrets list`), not the create command's own response.",
+        "evidence": "Step 4 reads the 'last used' time from `lanternbay webhooks secrets list`.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes `--yes` from the revoke command and states that confirmation-bypass flags are banned on destructive commands.",
+        "evidence": "Step 5 still shows `lanternbay webhooks secrets revoke SECRET_ID --yes`.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Replaces `export LB_WEBHOOK_SECRET=whsec_...` with a no-echo load (`read -rs`), the tool's credential prompt or a secret-manager CLI, and gives the reason (shell history, scrollback, screen shares).",
+        "evidence": "There is no `read -rs`. Secrets go in through `$NEW_SECRET`, and `export` is only restricted to local development.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes the Kubernetes versus systemd restart as an inline conditional imperative (\"If you run on Kubernetes, ...\") inside one recommended path, not as tabs or a second page.",
+        "evidence": "The page uses '### Kubernetes' and '### VMs under systemd' subheadings.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Uses `whsec_test_` test-mode secrets in every example and marks the steps that require live mode.",
+        "evidence": "Examples use `whsec_...`, and test mode is only a rehearsal section.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes every placeholder inside commands as a bare UPPER_SNAKE name or a shell variable set once early, never `<NAME>`.",
+        "evidence": "Commands use `deployment/<your-webhook-consumer>`.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Marks the revoke step \"Do not re-run; check state with `lanternbay webhooks secrets list` first\" and marks idempotent steps \"Safe to re-run.\"",
+        "evidence": "Step 5 only says 'Revoking is permanent.' and has no re-run markings.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds a Roll back section after the verification step that opens with the signal meaning \"roll back now\" (signature-verification failures or 401s) and rolls back through the still-active old secret.",
+        "evidence": "No Roll back section exists.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Closes with a verification step giving a command, its expected output, and one line naming what failure looks like and where to go next.",
+        "evidence": "Step 6 says 'Check that your endpoint returns 2xx', with no expected output block and no failure-to-next line.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Stamps front matter with `content_type: how-to`, an `owner` team, `tested_with` and `last_verified`, and hands over a run list because no cold run has happened.",
+        "evidence": "The page has no front matter and no run list.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not chain the revoke onto any other command with `&&`.",
+        "evidence": "The revoke command is standalone.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

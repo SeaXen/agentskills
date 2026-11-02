@@ -168,6 +168,14 @@
     "path": "category/web3-smart-contracts/award-application"
   },
   {
+    "id": "aws-resilience-lifecycle",
+    "name": "aws-resilience-lifecycle",
+    "category": "web3-smart-contracts",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Guides the end-to-end AWS resilience lifecycle integrating Resilience Hub v2, Fault Injection Service, and Application Recovery Controller. Covers the Define \u2192 Test \u2192 Operate workflow: from policy creation through failure mode assessment, to FIS experiment validation, to ARC operational controls. Applicable when the user wants a complete resilience strategy, needs to connect findings to experiments to controls, or is planning a resilience program. Also applicable for the meta question of whether marking NGRH findings as resolved is enough, whether they are \"done\" after resolving findings, or how to validate findings before resolving them. Not applicable for resolving or remediating a specific individual finding (see resilience-hub-failure-mode-assessment), or when a single service is explicitly named (e.g. \"what FIS experiment should I run\").",
+    "path": "category/web3-smart-contracts/aws-resilience-lifecycle"
+  },
+  {
     "id": "bankr-partner",
     "name": "bankr-partner",
     "category": "web3-smart-contracts",
@@ -400,12 +408,28 @@
     "path": "category/web3-smart-contracts/constant-time-analysis"
   },
   {
+    "id": "constant-time-testing",
+    "name": "constant-time-testing",
+    "category": "web3-smart-contracts",
+    "repository": "trailofbits-skills",
+    "description": "Measures timing side channels in cryptographic implementations by running them, using dudect for statistical analysis and Timecop over Valgrind for dynamic tracing. Covers the formal, symbolic, dynamic, and statistical tool categories and how to read a result. Use when testing whether a running implementation is constant-time, measuring timing variance on a compiled binary, or investigating a suspected timing attack. Not for statically inspecting compiler output \u2014 the constant-time-analysis plugin covers that.",
+    "path": "category/web3-smart-contracts/constant-time-testing"
+  },
+  {
     "id": "contract-auditor",
     "name": "contract-auditor",
     "category": "web3-smart-contracts",
     "repository": "buzzbysolcex-buzz-bd-agent",
     "description": "Solidity/EVM smart contract security analyzer for Buzz BD Agent at SolCex Exchange. Performs fast, pattern-based contract safety analysis on token prospects BEFORE scoring. Triggers automatically when: a token prospect has a verified contract address, any user submits a contract for listing review, `/score-token` is called with a verifiable contract, or Buzz's safety sub-agent is invoked. Inspects contract source (via Etherscan/Sourcify), flags critical vulnerabilities, and enriches the BD pipeline with an audit summary. NOT a substitute for a formal audit \u2014 the pre-check Buzz should never skip.",
     "path": "category/web3-smart-contracts/contract-auditor"
+  },
+  {
+    "id": "cosmos-vulnerability-scanner",
+    "name": "cosmos-vulnerability-scanner",
+    "category": "web3-smart-contracts",
+    "repository": "trailofbits-skills",
+    "description": "Scans Cosmos SDK blockchain modules and CosmWasm contracts for consensus-critical vulnerabilities \u2014 chain halts, fund loss, state divergence. 25 core + 16 IBC + 10 EVM + 3 CosmWasm patterns. Use when auditing custom x/ modules, reviewing IBC integrations, or assessing pre-launch chain security. Updated for SDK v0.53.x.",
+    "path": "category/web3-smart-contracts/cosmos-vulnerability-scanner"
   },
   {
     "id": "critique-typography",
@@ -430,6 +454,14 @@
     "repository": "binance-binance-skills-hub",
     "description": "Crypto market leaderboards \u2014 ranked aggregate feeds across the whole market: social-hype/sentiment rank, trending / top-search / Binance Alpha / tokenized-stocks rank, smart-money net-inflow rank (which tokens received the most inflow), top meme tokens by breakout score on Pulse launchpad, top trader PnL leaderboard (ALL / KOL). Use whenever the user wants a ranked list of tokens or addresses by some metric \u2014 phrases like \"trending tokens\", \"top N by hype\", \"leaderboard\", \"rank by X\", \"biggest inflows\", \"top traders this week\".",
     "path": "category/web3-smart-contracts/crypto-market-rank"
+  },
+  {
+    "id": "crypto-protocol-diagram",
+    "name": "crypto-protocol-diagram",
+    "category": "web3-smart-contracts",
+    "repository": "trailofbits-skills",
+    "description": "Extracts protocol message flow from source code, RFCs, academic papers, pseudocode, informal prose, ProVerif (.pv), or Tamarin (.spthy) models and generates Mermaid sequenceDiagrams with cryptographic annotations. Use when diagramming a crypto protocol, visualizing a handshake or key exchange flow, extracting message flow from a spec or RFC, diagramming a ProVerif or Tamarin model, or drawing sequence diagrams for TLS, Noise, Signal, X3DH, Double Ratchet, FROST, DH, or ECDH protocols.",
+    "path": "category/web3-smart-contracts/crypto-protocol-diagram"
   },
   {
     "id": "crypto-report",
@@ -478,6 +510,14 @@
     "repository": "ljagiello-ctf-skills",
     "description": "Generates a single standardized submission-style CTF writeup for competition handoff and organizer review. Use after solving a CTF challenge to document the solution steps, tools used, and lessons learned in a structured format.",
     "path": "category/web3-smart-contracts/ctf-writeup"
+  },
+  {
+    "id": "custom-metrics",
+    "name": "custom-metrics",
+    "category": "web3-smart-contracts",
+    "repository": "launchdarkly-ai-tooling",
+    "description": "Create, track, retrieve, update, and delete custom business metrics for configs. Covers full lifecycle: define metrics with the LaunchDarkly MCP server, emit events via SDK, and query results.",
+    "path": "category/web3-smart-contracts/custom-metrics"
   },
   {
     "id": "debank",
@@ -592,12 +632,28 @@
     "path": "category/web3-smart-contracts/design-token"
   },
   {
+    "id": "devrel-exec-reporting",
+    "name": "devrel-exec-reporting",
+    "category": "web3-smart-contracts",
+    "repository": "samber-developer-relations-skills",
+    "description": "Writes the executive-facing developer relations report: a one-page value story for a CEO, CFO, CMO, CTO or board, leading indicators carrying long-lag outcomes, every claim labelled by evidence strength, and the budget-defense case when the program faces a review or a cut. Use whenever someone needs a devrel QBR, monthly exec update, board slide or budget-review memo, must explain what the devrel team delivers to leadership, or must defend the devrel budget - even if they only say 'my VP wants a devrel update by Friday'. Never redefines metrics. Do NOT use for choosing KPIs or the attribution rule - use samber/developer-relations-skills@devrel-metrics. Do NOT use for splitting the budget or building the cut list - use samber/developer-relations-skills@devrel-budget-allocation.",
+    "path": "category/web3-smart-contracts/devrel-exec-reporting"
+  },
+  {
     "id": "dflow-phantom-connect",
     "name": "dflow-phantom-connect",
     "category": "web3-smart-contracts",
     "repository": "internet-court-internet-court-skill",
     "description": "Build Solana wallet-connected apps with Phantom Connect SDKs and DFlow spot trading. Use when user asks to connect a Phantom wallet, integrate Phantom in React, React Native, or vanilla JS, sign messages or transactions, build token-gated pages, mint NFTs, accept crypto payments, or swap/stream tokens with DFlow. Covers @phantom/react-sdk, @phantom/react-native-sdk, @phantom/browser-sdk, and DFlow spot trading and market-data streaming. Do NOT use for Ethereum or EVM wallet integrations, or non-DFlow DEX routing.",
     "path": "category/web3-smart-contracts/dflow-phantom-connect"
+  },
+  {
+    "id": "dimensional-analysis",
+    "name": "dimensional-analysis",
+    "category": "web3-smart-contracts",
+    "repository": "trailofbits-skills",
+    "description": "Audits code for unit and decimal-scaling bugs and annotates it with dimensional comments recording the units of each value. Use when someone asks to audit or review code for unit confusion, decimals or scaling mismatches, WAD/RAY scale errors, or the wrong token's decimals; to annotate units in a codebase; or to perform a dimensional analysis of a DeFi protocol, offchain code, or other arithmetic-heavy codebase. Catches formulas that combine values carrying different units or scales.",
+    "path": "category/web3-smart-contracts/dimensional-analysis"
   },
   {
     "id": "discord-reader",
@@ -856,6 +912,14 @@
     "path": "category/web3-smart-contracts/gmgn-wallet-score"
   },
   {
+    "id": "gtm-strategy",
+    "name": "gtm-strategy",
+    "category": "web3-smart-contracts",
+    "repository": "phuryn-pm-skills",
+    "description": "Create a go-to-market strategy covering marketing channels, messaging, success metrics, and launch timeline. Use when planning a product launch, creating a GTM plan from scratch, or defining a launch strategy for a new market.",
+    "path": "category/web3-smart-contracts/gtm-strategy"
+  },
+  {
     "id": "helium-mcp",
     "name": "helium-mcp",
     "category": "web3-smart-contracts",
@@ -1080,6 +1144,14 @@
     "path": "category/web3-smart-contracts/meme-scout"
   },
   {
+    "id": "metrics-dashboard",
+    "name": "metrics-dashboard",
+    "category": "web3-smart-contracts",
+    "repository": "phuryn-pm-skills",
+    "description": "Define and design a product metrics dashboard with key metrics, data sources, visualization types, and alert thresholds. Use when creating a metrics dashboard, defining KPIs, setting up product analytics, or building a data monitoring plan.",
+    "path": "category/web3-smart-contracts/metrics-dashboard"
+  },
+  {
     "id": "metrics-definition",
     "name": "metrics-definition",
     "category": "web3-smart-contracts",
@@ -1166,6 +1238,14 @@
     "repository": "internet-court-internet-court-skill",
     "description": "TypeScript library for NEAR Protocol blockchain interaction. Use this skill when writing code that interacts with NEAR Protocol, including viewing contract data, calling contract methods, sending NEAR tokens, building transactions, creating type-safe contract wrappers, integrating wallets (Wallet Selector, HOT Connect), React hooks and providers (@near-kit/react), managing keys, testing with sandbox, meta-transactions (NEP-366), and message signing (NEP-413).",
     "path": "category/web3-smart-contracts/near-kit"
+  },
+  {
+    "id": "north-star-metric",
+    "name": "north-star-metric",
+    "category": "web3-smart-contracts",
+    "repository": "phuryn-pm-skills",
+    "description": "Define a North Star Metric and 3-5 supporting input metrics that form a metrics constellation. Classify the business game (Attention, Transaction, Productivity) and validate against 7 criteria for an effective North Star. Use when choosing a North Star Metric, setting up a metrics framework, learning about the North Star Framework, or deciding what to measure.",
+    "path": "category/web3-smart-contracts/north-star-metric"
   },
   {
     "id": "observability-monitoring-slo-implement",
@@ -1384,20 +1464,20 @@
     "path": "category/web3-smart-contracts/product-analytics"
   },
   {
-    "id": "product-vision",
-    "name": "product-vision",
-    "category": "web3-smart-contracts",
-    "repository": "refoundai-lenny-skills",
-    "description": "Help users define a compelling, qualitative description of a future state that aligns decentralized teams and motivates long-term innovation.",
-    "path": "category/web3-smart-contracts/product-vision"
-  },
-  {
     "id": "pyth",
     "name": "pyth",
     "category": "web3-smart-contracts",
     "repository": "internet-court-internet-court-skill",
     "description": "Complete guide for Pyth Network - decentralized oracle providing real-time price feeds for DeFi. Covers price feed integration, confidence intervals, EMA prices, on-chain CPI, off-chain fetching, and streaming updates for Solana applications.",
     "path": "category/web3-smart-contracts/pyth"
+  },
+  {
+    "id": "python-type-safety",
+    "name": "python-type-safety",
+    "category": "web3-smart-contracts",
+    "repository": "wshobson-agents",
+    "description": "Python type safety with type hints, generics, protocols, and strict type checking. Use when adding type annotations, implementing generic classes, defining structural interfaces, or configuring mypy/pyright.",
+    "path": "category/web3-smart-contracts/python-type-safety"
   },
   {
     "id": "query-address-info",
@@ -1430,6 +1510,14 @@
     "repository": "mukul975-anthropic-cybersecurity-skills",
     "description": "Reverse engineer ransomware encryption routines to identify cryptographic",
     "path": "category/web3-smart-contracts/reverse-engineering-ransomware-encryption-routine"
+  },
+  {
+    "id": "review-agent-setup",
+    "name": "review-agent-setup",
+    "category": "web3-smart-contracts",
+    "repository": "wshobson-agents",
+    "description": "Configure human-in-the-loop gating for AI agent review actions in Claude Code. Use when setting up a project where an agent may post PR reviews, comments, merges, or edit CI configuration, and you want a cryptographically auditable approval trail with Cedar-enforced gates.",
+    "path": "category/web3-smart-contracts/review-agent-setup"
   },
   {
     "id": "rootdata",
@@ -1484,7 +1572,7 @@
     "name": "solidity-security",
     "category": "web3-smart-contracts",
     "repository": "active",
-    "description": "Master smart contract security best practices to prevent common vulnerabilities and implement secure Solidity patterns. Use when writing smart contracts, auditing existing contracts, or implementin...",
+    "description": "Master smart contract security best practices to prevent common vulnerabilities and implement secure Solidity patterns. Use when writing smart contracts, auditing existing contracts, or implementing security measures for blockchain applications.",
     "path": "category/web3-smart-contracts/solidity-security"
   },
   {
@@ -1742,6 +1830,14 @@
     "repository": "buzzbysolcex-buzz-bd-agent",
     "description": "Web3 / Crypto Business Development & ecosystem partnership intelligence",
     "path": "category/web3-smart-contracts/twitter-poster"
+  },
+  {
+    "id": "user-stories",
+    "name": "user-stories",
+    "category": "web3-smart-contracts",
+    "repository": "phuryn-pm-skills",
+    "description": "Create user stories following the 3 C's (Card, Conversation, Confirmation) and INVEST criteria with descriptions, design links, and acceptance criteria. Use when writing user stories, breaking down features into backlog items, or defining acceptance criteria.",
+    "path": "category/web3-smart-contracts/user-stories"
   },
   {
     "id": "user-story-writing",

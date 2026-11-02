@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Keeps the objective, the ladder and the checkpoint structure identical to any other tutorial, changing only what the audience context requires.",
+        "evidence": "The answer applies the same generic tutorial machinery rather than inventing an onboarding-specific format: the universal Good Docs limits (7 primary steps, 60 minutes) are enforced unchanged; the split yields two single-objective artifacts with plain objective-shaped titles ('Get Grellan access' as a checklist/how-to, 'Deploy a service with Grellan' as the tutorial, 'likely \u22647 steps once access-setup is removed'); the standard 'Before you begin' prerequisites section is reused for VPN/SSO/namespace and the registry health check; and the checkpoint apparatus is retained with only its artifact ",
+        "score": 4,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Keeps the objective, the ladder and the checkpoint structure identical to any other tutorial, changing only what the audience context requires.",
+        "evidence": "Partial. The checkpoint element is explicitly preserved and strengthened in standard form \u2014 item 5 adds \"a checkpoint every 3\u20134 steps ('service responds at `https://...`, expect `200`'), not just at the end\" \u2014 and two other generic tutorial components survive intact: a prerequisites section (item 2: \"Tutorial's prerequisites section states expected wait time and links the checklist\") and a troubleshooting section with literal error text (item 7). The audience-driven deltas are mostly defensible as context-only adjustments (VPN/SSO/namespace latency moved to prerequisites with an SLA; preflight",
+        "score": 2,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

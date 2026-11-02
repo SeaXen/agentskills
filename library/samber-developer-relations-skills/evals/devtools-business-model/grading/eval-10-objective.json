@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects monthly recurring revenue as a leading indicator because revenue is the outcome rather than something upstream of it",
+        "evidence": "\"MRR \u2014 this is the outcome the model produces. It confirms the model worked; it never warns you it's about to fail.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects GitHub stars because they measure attention that no model converts",
+        "evidence": "\"GitHub stars \u2014 measures attention, not the operational pain the paid boundary is priced against. No model here converts stars directly.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces them with self-host-to-cloud conversion, or another indicator that sits upstream of the money and is readable on a stated cadence",
+        "evidence": "\"Primary: self-host-to-cloud conversion rate, read monthly, among the cohort of self-hosted deployments that hit an operational pain signal in the last 90 days\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names gross margin per workload as the guardrail tracked beside it for a hosted open-source model",
+        "evidence": "\"Guardrail, tracked alongside it: gross margin per workload, floor \u26a0\ufe0f team to set\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Attaches a target and a date to the leading indicator",
+        "evidence": "\"Target: \u26a0\ufe0f team to set, with a date.\" \u2014 explicitly leaves the target and date unfilled, and the threshold check confirms: \"target/date pending team input.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects competition, execution and market timing as risks because none of them carries an observable signal",
+        "evidence": "The transcript keeps all three as risks and gives each a signal (e.g. \"Signal: a public announcement of a competing managed offering...\") rather than rejecting them for lacking one.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives each risk a named signal with a threshold and the place it is read",
+        "evidence": "\"Signal: median time-to-first-response on GitHub issues doubling from the pre-hosting baseline... Read: monthly, alongside gross margin.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Produces the memo with its named sections: constraints, rejected models, primary model, paid boundary, value metric, go-to-market consequence, leading indicator, risks, revisit triggers",
+        "evidence": "Headers present in order: Constraints, Rejected models, Primary model, Paid boundary, Value metric, GTM consequence, Leading indicator, Risks, Revisit triggers",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes at least three revisit triggers, at least one of which is a failure condition",
+        "evidence": "\"Gross margin per workload stays below the floor for two consecutive quarters \u2014 failure condition.\" among four listed triggers",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Presents the memo section by section and seeks agreement before continuing, instead of delivering all nine sections at once",
+        "evidence": "\"This memo is executable as written... Nothing above requires me in the room to resolve \u2014 they're data-entry, not decisions.\" \u2014 delivered as one complete document with no pause for agreement.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects monthly recurring revenue as a leading indicator because revenue is the outcome rather than something upstream of it",
+        "evidence": "MRR is instead endorsed as the primary metric: 'The only metric that proves the model is working \u2014 treat it as primary.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects GitHub stars because they measure attention that no model converts",
+        "evidence": "Stars are kept in the metrics table (labeled a 'Vanity signal' but still tracked 'as a trendline'), not removed from the plan.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Replaces them with self-host-to-cloud conversion, or another indicator that sits upstream of the money and is readable on a stated cadence",
+        "evidence": "The metrics table contains only MRR and GitHub stars; no upstream conversion indicator is introduced.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names gross margin per workload as the guardrail tracked beside it for a hosted open-source model",
+        "evidence": "Gross margin per workload is never mentioned anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Attaches a target and a date to the leading indicator",
+        "evidence": "The Metrics table gives no numeric target or date for MRR or stars.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects competition, execution and market timing as risks because none of them carries an observable signal",
+        "evidence": "All three are kept as the Risks section with mitigations, e.g. 'Execution... Mitigation: treat SLA and support-response metrics as launch-blocking' \u2014 not rejected for lacking signals.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives each risk a named signal with a threshold and the place it is read",
+        "evidence": "Mitigations reference signals loosely ('flag to [Owner] immediately if a cloud provider announces a competing hosted offering') but no numeric threshold is set for any of the three risks.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces the memo with its named sections: constraints, rejected models, primary model, paid boundary, value metric, go-to-market consequence, leading indicator, risks, revisit triggers",
+        "evidence": "The actual sections are 'The Model', 'Why This Model', 'Scope: Free vs. Paid', 'What Each Function Does Differently', 'Metrics We Track', 'Risks', 'Cadence' \u2014 missing 'constraints', 'rejected models', and 'revisit triggers' as named sections.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes at least three revisit triggers, at least one of which is a failure condition",
+        "evidence": "Only one conditional trigger appears ('flag to [Owner] immediately if a cloud provider announces a competing hosted offering'); no set of three distinct revisit triggers is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Presents the memo section by section and seeks agreement before continuing, instead of delivering all nine sections at once",
+        "evidence": "The entire one-pager, including Model, Scope, Metrics, Risks, and Cadence, is delivered in a single pass with no interim checkpoints.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

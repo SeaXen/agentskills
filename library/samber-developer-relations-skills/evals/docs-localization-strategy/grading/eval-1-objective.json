@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Does not recommend translating the docs on the strength of the 38% Japan session share, and states that country share says where readers are, not that they need a translation",
+        "evidence": "\"Country share is not need. 38% says where readers sit, not that they need a translation.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Divides the 12% ja browser share by the 38% Japan session share (about a third) and reads it as under the one-half baseline, meaning most of those readers run another browser language",
+        "evidence": "\"12 \u00f7 38 = 0.32\"; \"under the one-half baseline\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reads the 3-point quickstart completion gap (41% vs 44%) as under the 5-point baseline, so no comprehension barrier is shown",
+        "evidence": "\"3 points is under the 5-point baseline... no comprehension barrier.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the one-half ratio threshold and the 5-point and 10-point gap thresholds as baseline figures, distinct from the user's measured figures",
+        "evidence": "The one-half and 5-point thresholds are labelled baseline. The 10-point threshold never appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Classifies ja as 'no barrier shown' and sets the decision to declined rather than launch or gated",
+        "evidence": "\"Class: **no barrier shown**\"; Decision declined",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States a reopen condition next to the refusal, such as the engagement gap opening past about 10 points, support tickets or forum posts arriving in Japanese, or a named deal in Japan",
+        "evidence": "\"Reopen ja when any one of these holds\" with gap, tickets, named deal",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks for the language-of-demand signal (support tickets, forum posts, community chat or search queries written in Japanese) before closing the decision",
+        "evidence": "Demand is \"ASSUMED none\" and the decision is closed as declined. Counting tickets only appears as a week-1 task.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks whether non-language causes of the gap were ruled out first: signup or payment friction, region availability, latency, phone verification, export rules",
+        "evidence": "\"rule out signup, payment and latency causes first\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the one-shot machine translation of all 800 pages as not on the ladder, because it carries continuous MT's accuracy risk with none of its freshness",
+        "evidence": "\"Off the ladder. A one-shot machine-translated dump has continuous MT's accuracy risk and none of its freshness.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends source hardening as the action to take now: plain global English, one term per concept, a glossary, no idioms, and translate=\"no\" on code",
+        "evidence": "Source hardening section: glossary, plain English, no idioms, translate=\"no\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that search-engine snippet machine translation has excluded Japanese, so it does not count as a substitute for this market",
+        "evidence": "Snippet translation is not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not propose a conditional or partial launch, since no Japanese-fluent reviewer exists",
+        "evidence": "Bundle C eliminated; \"launch needs two fluent reviewers first\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the default answer is not yet until the browser-language, engagement and demand signals show need",
+        "evidence": "\"no to Japanese docs now... Reopen ja when...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks whether the product itself (UI, CLI output, error messages, support, billing) is localized, because a translated quickstart that ends in an English console leaves the reader switching languages mid-task",
+        "evidence": "Only \"ASSUMED: the product (console, CLI output, errors) is English-only.\" It is never asked.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Does not recommend translating the docs on the strength of the 38% Japan session share, and states that country share says where readers are, not that they need a translation",
+        "evidence": "\"Most Japan traffic doesn't want Japanese\" and \"The 38% may not mean demand\"; rejects the 800-page plan.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Divides the 12% ja browser share by the 38% Japan session share (about a third) and reads it as under the one-half baseline, meaning most of those readers run another browser language",
+        "evidence": "Says \"about two thirds of Japan sessions read English by choice\" but never names the one-half baseline.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reads the 3-point quickstart completion gap (41% vs 44%) as under the 5-point baseline, so no comprehension barrier is shown",
+        "evidence": "\"a 3-point gap. Translation can't recover much from a gap that small\"; stop rule uses ~5 points.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the one-half ratio threshold and the 5-point and 10-point gap thresholds as baseline figures, distinct from the user's measured figures",
+        "evidence": "Stop rule thresholds are \"about 5 points\" and \"about 10%\" with no baseline labelling.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Classifies ja as 'no barrier shown' and sets the decision to declined rather than launch or gated",
+        "evidence": "\"Yes to a 6-week pilot\" - a gated/partial launch, not declined.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States a reopen condition next to the refusal, such as the engagement gap opening past about 10 points, support tickets or forum posts arriving in Japanese, or a named deal in Japan",
+        "evidence": "Only \"Revisit in two quarters\"; no engagement-gap, Japanese tickets or named-deal condition.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks for the language-of-demand signal (support tickets, forum posts, community chat or search queries written in Japanese) before closing the decision",
+        "evidence": "Only \"Search-console ... split by query language if possible\"; no tickets or forum posts.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks whether non-language causes of the gap were ruled out first: signup or payment friction, region availability, latency, phone verification, export rules",
+        "evidence": "No mention of signup/payment friction, region, latency, verification.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the one-shot machine translation of all 800 pages as not on the ladder, because it carries continuous MT's accuracy risk with none of its freshness",
+        "evidence": "Rejects it for lack of review and drift, but not framed against the ladder or continuous MT.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends source hardening as the action to take now: plain global English, one term per concept, a glossary, no idioms, and translate=\"no\" on code",
+        "evidence": "No glossary-for-English, plain English or translate=no recommendation for source.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that search-engine snippet machine translation has excluded Japanese, so it does not count as a substitute for this market",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not propose a conditional or partial launch, since no Japanese-fluent reviewer exists",
+        "evidence": "Proposes a 15-page pilot published under /ja/ with a paid reviewer.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the default answer is not yet until the browser-language, engagement and demand signals show need",
+        "evidence": "Answer is \"No to the plan... Yes to a 6-week pilot\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks whether the product itself (UI, CLI output, error messages, support, billing) is localized, because a translated quickstart that ends in an English console leaves the reader switching languages mid-task",
+        "evidence": "Not asked.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

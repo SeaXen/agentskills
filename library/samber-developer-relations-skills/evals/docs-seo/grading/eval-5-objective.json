@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Flags eng as invalid and states the value must be an ISO 639-1 language code, giving en",
+        "evidence": "\"eng | ISO 639-2, not 639-1 | en\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags jp as invalid for Japanese and gives ja",
+        "evidence": "\"jp | ISO 3166-1 country code used as a language | ja (or ja-JP if you deliberately want the region qualifier)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags en-uk as invalid and gives en-GB as the correct ISO 3166-1 Alpha 2 region",
+        "evidence": "\"en-uk | uk isn't an ISO 3166-1 Alpha-2 region | en-GB\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags EU as an invalid region value",
+        "evidence": "\"EU | region with no language prefix, and not a valid target region either way | delete \u2014 see below\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags es-LA as invalid",
+        "evidence": "\"es-LA | \\\"Latin America\\\" has no ISO 3166-1 code | bare es if the content is one shared Spanish variant, or real per-country codes\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a region code with no language prefix is invalid",
+        "evidence": "\"an hreflang value is ISO 639-1 language, optionally + ISO 3166-1 Alpha-2 region. A region with no language, or a code from the wrong standard, is invalid\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that zh is valid but ambiguous and recommends an ISO 15924 script subtag such as zh-Hans or zh-Hant",
+        "evidence": "\"zh | valid but ambiguous (Simplified vs Traditional) | prefer zh-Hans / zh-Hant\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the claim that Google recommends HTTP headers for large sites",
+        "evidence": "\"'Google recommends HTTP headers over sitemap entries once you're past a few thousand pages' isn't something Google states.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that HTML tags, HTTP headers and sitemap entries are equivalent delivery methods with no stated Google preference, large site or not",
+        "evidence": "\"Google's own position: HTML <link> tags, HTTP headers, and sitemap entries are equivalent delivery methods, with no stated preference tied to site size.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "If it still recommends sitemap delivery, justifies it on operational grounds such as head weight on a locale by version tree, not on ranking or on a Google preference",
+        "evidence": "\"HTML <head> tags become an operational problem first (hundreds of tags per page)... Headers are the worse choice here operationally too: [hand-maintained header-rules file / not visible in page source / stale header invisible until probed]\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Instructs emitting the hreflang set for canonical versions only, and removing it from the archived v2",
+        "evidence": "\"The skill's rule: emit the set for canonical versions only... If v2 isn't self-canonical, strip hreflang from it entirely \u2014 don't just reuse the v3 template.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that annotating archived versions creates set members that are themselves canonicalized away",
+        "evidence": "\"annotating archived versions creates members that are themselves canonicalized away\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Flags eng as invalid and states the value must be an ISO 639-1 language code, giving en",
+        "evidence": "'eng | Not ISO 639-1... | en'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags jp as invalid for Japanese and gives ja",
+        "evidence": "'jp isn't a language code at all... ja'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags en-uk as invalid and gives en-GB as the correct ISO 3166-1 Alpha 2 region",
+        "evidence": "'UK isn't a registered ISO 3166-1 region subtag... en-GB'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags EU as an invalid region value",
+        "evidence": "'no continent/supranational targets exist'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags es-LA as invalid",
+        "evidence": "'LA isn't an ISO 3166-1 country code'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a region code with no language prefix is invalid",
+        "evidence": "Not stated explicitly; EU is rejected as a supranational target, not for lacking a language prefix.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that zh is valid but ambiguous and recommends an ISO 15924 script subtag such as zh-Hans or zh-Hant",
+        "evidence": "Notes ambiguity but says only 'confirm that's intentional'; zh-Hans and zh-Hant are not recommended.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the claim that Google recommends HTTP headers for large sites",
+        "evidence": "'This reverses Google's own documented guidance, not confirms it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that HTML tags, HTTP headers and sitemap entries are equivalent delivery methods with no stated Google preference, large site or not",
+        "evidence": "Claims 'Google recommends sitemaps at high page counts'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "If it still recommends sitemap delivery, justifies it on operational grounds such as head weight on a locale by version tree, not on ranking or on a Google preference",
+        "evidence": "Justifies sitemaps by Google's recommendation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Instructs emitting the hreflang set for canonical versions only, and removing it from the archived v2",
+        "evidence": "'Archived and out of the index \u2192 canonicalize/noindex it and drop its hreflang entirely.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that annotating archived versions creates set members that are themselves canonicalized away",
+        "evidence": "'tags on a non-canonical page are superseded... competing language graphs'.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

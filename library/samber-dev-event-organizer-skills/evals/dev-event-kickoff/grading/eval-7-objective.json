@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "No more than 4 routines are proposed.",
+        "evidence": "Three routines plus one held ticket-pace check.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response declines the 'as many as it takes' framing and caps the set, stating that excess routines fire into the void and bury the ones that matter.",
+        "evidence": "'Routines that fire with nothing to decide get silenced, and then the go/no-go alert gets buried'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Each proposed routine is shown as a dry-run for approval before anything is created.",
+        "evidence": "'Dry-runs (approve, edit or drop each)'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Each proposed routine names an explicit output channel.",
+        "evidence": "The held ticket-pace check lists Runs, Trigger, Needs and Stops but no output channel.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Each proposed routine names a stop condition.",
+        "evidence": "Each block has a 'Stops:' line.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The go/no-go review is among the proposals and is explicitly promoted, tied to the signed venue contract and its cancellation-fee curve.",
+        "evidence": "'Signed venue contract: moves the go/no-go review to rung 1'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Go/no-go firings are anchored a step ahead of each cancellation-fee rung (120/90/45 days), never on the rung dates themselves.",
+        "evidence": "'placed ahead of the rung and never on it'; D-141 and D-127 for the D-120 rung.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "A ticket-pace check is proposed, justified by the ticketing source existing, and anchored to the on-sale period or pricing-tier boundaries.",
+        "evidence": "'No ticketing source detected... deletes the ticket-pace check for now', so it is held rather than proposed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routine triggers are anchored to the event's own calendar dates (CFP close, on-sale, fee rungs, doors) rather than arbitrary monthly dates.",
+        "evidence": "Triggers use fee rungs, CFP close and D-minus checkpoints.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The previous edition's still-configured reminder jobs are explicitly retired before new routines are installed.",
+        "evidence": "'Retire old jobs before installing new ones.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The cleanup is stated out loud, naming that routines carried from a past edition without re-anchoring are noise that fires at nothing.",
+        "evidence": "'Any job not re-anchored to edition 3's dates fires at nothing, so retire it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Each routine names the skill it runs in owner/repo@skill form.",
+        "evidence": "Routine 3 says 'this skill, dev-event-kickoff' and the held routine says 'event-market-fit', both bare.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "A work-back checkpoint routine tied to the plan's own replanning checkpoints is among the proposals, tied to the fixed doors date.",
+        "evidence": "Routine 2, and 'Fixed doors date (Q6a): installs the work-back checkpoint early'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response states which detected or stated fact moved which routine off its default place.",
+        "evidence": "The 'Re-ranking, and which answer moved what' section.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "No more than 4 routines are proposed.",
+        "evidence": "'I'd cap this at about 10'; the table has 10 check-ins.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response declines the 'as many as it takes' framing and caps the set, stating that excess routines fire into the void and bury the ones that matter.",
+        "evidence": "'I'd cap this at about 10, tiered. At 30 alerts, the one that matters gets ignored.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Each proposed routine is shown as a dry-run for approval before anything is created.",
+        "evidence": "'I haven't created any check-ins yet'; the proposals are tabled and 'I'll generate the 10 jobs' follows approval.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Each proposed routine names an explicit output channel.",
+        "evidence": "The channel is asked about generally ('email, Slack, calendar, or all three') but not named per routine.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Each proposed routine names a stop condition.",
+        "evidence": "No stop conditions in the table.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The go/no-go review is among the proposals and is explicitly promoted, tied to the signed venue contract and its cancellation-fee curve.",
+        "evidence": "'Is the go/no-go made? What do we owe if we cancel tomorrow?'; 'Pull the fee dates from the signed contract'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Go/no-go firings are anchored a step ahead of each cancellation-fee rung (120/90/45 days), never on the rung dates themselves.",
+        "evidence": "'Fee step T-120 fires T-150, T-135, T-121' and similarly for T-90 and T-45.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "A ticket-pace check is proposed, justified by the ticketing source existing, and anchored to the on-sale period or pricing-tier boundaries.",
+        "evidence": "'Ticket sales: Weekly now, daily in the last 3 weeks before each fee step' is anchored to fee steps, not on-sale or pricing tiers.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routine triggers are anchored to the event's own calendar dates (CFP close, on-sale, fee rungs, doors) rather than arbitrary monthly dates.",
+        "evidence": "Fee steps, CFP close and the doors announce date are all event-anchored.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The previous edition's still-configured reminder jobs are explicitly retired before new routines are installed.",
+        "evidence": "'Don't delete them blindly... decide per job: retarget, then delete the rest.' It does not retire them before installing new ones.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The cleanup is stated out loud, naming that routines carried from a past edition without re-anchoring are noise that fires at nothing.",
+        "evidence": "'A job that still points at edition 2 dates... is worse than none, because it sends false alarms.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Each routine names the skill it runs in owner/repo@skill form.",
+        "evidence": "No skills are named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "A work-back checkpoint routine tied to the plan's own replanning checkpoints is among the proposals, tied to the fixed doors date.",
+        "evidence": "Not proposed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response states which detected or stated fact moved which routine off its default place.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

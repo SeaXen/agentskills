@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects 2026.04 because Cargo rejects padded segments, rather than merely advising against it",
+        "evidence": "\"April is `4`, never `04`. Cargo and crates.io reject leading zeros\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that under Cargo a year-based major means every yearly rollover is a breaking major, so two majors in one dependency tree produce duplicate crates whose types do not match",
+        "evidence": "Duplicate crates is cited only against lockstep SemVer, not yearly CalVer majors.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ranks SemVer, either 1.x+ or 0.x with a written breaking-digit rule, above CalVer for the three library crates because their readers are Cargo resolvers",
+        "evidence": "Says SemVer ranks above, but then \"Recommended, and written below: lockstep CalVer\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Uses the package-manager line for the workspace and does not let the binary crate's human-readable preference decide the library crates' scheme",
+        "evidence": "Recommends CalVer for all four crates based on the user's date request.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Presents lockstep versus independent numbering as the decision, naming that lockstep gives one support table but releases unchanged crates, and independent needs per-package tags such as hollowmere-core@1.2.3 and one support row per crate",
+        "evidence": "Independent numbering with per-package tags and support rows is not discussed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that Cargo treats the left-most non-zero digit as the breaking digit, so 0.14 to 0.15 is breaking for core and 0.6 to 0.7 for async",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names rust-version in Cargo.toml as the metadata field declaring the MSRV floor",
+        "evidence": "\"declared as `rust-version` in `[workspace.package]`\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that Cargo falls back on rust-version only with the MSRV-aware resolver and older toolchains do not, so the MSRV drop rule must be written explicitly",
+        "evidence": "\"Cargo falls back to an older hollowmere only with the MSRV-aware resolver... Older toolchains fail on `cargo update`\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces 'bump MSRV whenever we feel like it' with a written rule stating when an MSRV bump ships and with what notice",
+        "evidence": "\"only in a month's `.0` release... the release before... announces\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes the experimental APIs as opt-in unstable behind unstable-* Cargo features, says how they are marked, and places them outside the promise",
+        "evidence": "\"APIs behind a Cargo feature named `unstable-<name>`... never in `default`\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends batching breaks and shipping them behind an opt-in first, with the Cargo book's SemVer compatibility chapter as the reference for doubtful cases",
+        "evidence": "Cargo book referenced and breaks batched to January, but no opt-in-first rule.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the already-shipped SemVer numbers have paid their switching cost and that changing scheme needs a reason a dependent would accept",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that crates.io refuses two versions differing only by build metadata and that a bad release is withdrawn with yank",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects 2026.04 because Cargo rejects padded segments, rather than merely advising against it",
+        "evidence": "\"2026.04 is not a valid Cargo version. Cargo needs MAJOR.MINOR.PATCH and rejects leading zeros.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that under Cargo a year-based major means every yearly rollover is a breaking major, so two majors in one dependency tree produce duplicate crates whose types do not match",
+        "evidence": "Says breaking changes ship at year change, but never mentions duplicate crates or mismatched types.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ranks SemVer, either 1.x+ or 0.x with a written breaking-digit rule, above CalVer for the three library crates because their readers are Cargo resolvers",
+        "evidence": "Adopts YYYY.M.P CalVer for all crates.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Uses the package-manager line for the workspace and does not let the binary crate's human-readable preference decide the library crates' scheme",
+        "evidence": "One calendar scheme is applied to all four crates.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Presents lockstep versus independent numbering as the decision, naming that lockstep gives one support table but releases unchanged crates, and independent needs per-package tags such as hollowmere-core@1.2.3 and one support row per crate",
+        "evidence": "Lockstep is asserted: \"All four crates share one version.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that Cargo treats the left-most non-zero digit as the breaking digit, so 0.14 to 0.15 is breaking for core and 0.6 to 0.7 for async",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names rust-version in Cargo.toml as the metadata field declaring the MSRV floor",
+        "evidence": "\"MSRV is declared in `rust-version` in all four crates\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that Cargo falls back on rust-version only with the MSRV-aware resolver and older toolchains do not, so the MSRV drop rule must be written explicitly",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Replaces 'bump MSRV whenever we feel like it' with a written rule stating when an MSRV bump ships and with what notice",
+        "evidence": "\"MSRV may rise only in a YYYY.M.0 release, never in a patch\"; the rule is the 6-month window, stated in release notes.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes the experimental APIs as opt-in unstable behind unstable-* Cargo features, says how they are marked, and places them outside the promise",
+        "evidence": "Explicitly rejects Cargo features in favour of a cfg flag.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends batching breaks and shipping them behind an opt-in first, with the Cargo book's SemVer compatibility chapter as the reference for doubtful cases",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the already-shipped SemVer numbers have paid their switching cost and that changing scheme needs a reason a dependent would accept",
+        "evidence": "Not mentioned; migrates to calendar numbers.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that crates.io refuses two versions differing only by build metadata and that a bad release is withdrawn with yank",
+        "evidence": "Yank is mentioned for soundness fixes only; build metadata is not mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

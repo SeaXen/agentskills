@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The blanket 85% is rejected; attendance is computed per ticket type as registrations times that type's show rate",
+        "evidence": "'85% across the board | \u274c'; table per type",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The 60% rate for last-two-weeks buyers is rejected; late registrants are not discounted, with the reason that within one event the early-versus-late attendance gap is under one point",
+        "evidence": "'late registrants show up at practically the same rate as early ones'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The 10% walk-in addition is rejected; walk-ins are forecast only from the organizer's own prior count and otherwise stated as unknown",
+        "evidence": "'Walk-ins can be forecast only from your own prior count'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Day-two attendance is stated as unknown because no day-two check-ins exist; day one is not copied to day two, and a later day-two guarantee or counting day-one check-ins first is proposed",
+        "evidence": "'If it locks after day one, set it from the day-one scan'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Last edition's own show rate is computed on the same basis as the registrations: (455 minus 52) over 505, about 80%, with comps removed from the attended side",
+        "evidence": "'455 scanned \u2212 52 comps = 403, and 403 / 505 = 79.8%'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The sponsor-staff show rate is built from claimed and collected passes (31 of 60 allotted, or 31 of 44 claimed) and labelled own-data; the 60 allotment is not treated as 60 attending",
+        "evidence": "'31 of those 44 badges were collected... I used 31'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Group and employer-bought tickets are treated at the paid rate until measured, with the label hypothesis",
+        "evidence": "'Group tickets: treated as paid, which is a hypothesis'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Every rate in the types table carries a label: sourced, own-data, self-set or hypothesis",
+        "evidence": "Table labels own-data, self-set, hypothesis",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Speaker and volunteer rates are labelled self-set, with the note that no published rate exists for them",
+        "evidence": "'no published rate exists for either type'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The types file uses share basis for sold types (shares summing to 1) and count basis for speakers, sponsor staff and volunteers",
+        "evidence": "No types file; script not run",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The day-one catering number is delivered as a low / mid / high attendance range, not a single number and not a registration count",
+        "evidence": "431 / 479 / 543",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Day-one attendance is handed to event-attendee-experience for registration-desk sizing",
+        "evidence": "'Hand the day-one attendance to event-attendee-experience'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends measuring each self-set type at this edition's check-in so next edition carries own-data rates",
+        "evidence": "Only suggests scanning day two and measuring walk-ins",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The script's --types file is produced, or its command shown, rather than the per-type arithmetic being done by hand",
+        "evidence": "'I did not run the script'; no command shown",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The blanket 85% is rejected; attendance is computed per ticket type as registrations times that type's show rate",
+        "evidence": "Rejects 85% but \"I did not apply different rates by ticket type\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The 60% rate for last-two-weeks buyers is rejected; late registrants are not discounted, with the reason that within one event the early-versus-late attendance gap is under one point",
+        "evidence": "Rejects for no evidence; the under-one-point reason is missing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The 10% walk-in addition is rejected; walk-ins are forecast only from the organizer's own prior count and otherwise stated as unknown",
+        "evidence": "\"We have no walk-in data. Without it, a flat 10% is a guess on top of a guess.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Day-two attendance is stated as unknown because no day-two check-ins exist; day one is not copied to day two, and a later day-two guarantee or counting day-one check-ins first is proposed",
+        "evidence": "Applies \"90% of day-1 paid attendees (assumption)\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Last edition's own show rate is computed on the same basis as the registrations: (455 minus 52) over 505, about 80%, with comps removed from the attended side",
+        "evidence": "\"403 / 505 registrations = 79.8%.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The sponsor-staff show rate is built from claimed and collected passes (31 of 60 allotted, or 31 of 44 claimed) and labelled own-data; the 60 allotment is not treated as 60 attending",
+        "evidence": "Uses 31 collected of 60 but no own-data label.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Group and employer-bought tickets are treated at the paid rate until measured, with the label hypothesis",
+        "evidence": "No type-level label.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Every rate in the types table carries a label: sourced, own-data, self-set or hypothesis",
+        "evidence": "No labels.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Speaker and volunteer rates are labelled self-set, with the note that no published rate exists for them",
+        "evidence": "Fed at 100% without label.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The types file uses share basis for sold types (shares summing to 1) and count basis for speakers, sponsor staff and volunteers",
+        "evidence": "No types file.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The day-one catering number is delivered as a low / mid / high attendance range, not a single number and not a registration count",
+        "evidence": "Band 436 / 484 / 548 for day 1.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Day-one attendance is handed to event-attendee-experience for registration-desk sizing",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends measuring each self-set type at this edition's check-in so next edition carries own-data rates",
+        "evidence": "Only day-2 scanning is suggested.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The script's --types file is produced, or its command shown, rather than the per-type arithmetic being done by hand",
+        "evidence": "Arithmetic by hand.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

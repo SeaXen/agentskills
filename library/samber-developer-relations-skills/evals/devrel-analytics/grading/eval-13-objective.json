@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Identifies free-mail domains as the cause of the 4,100-person account, and instructs excluding free-mail-class domains from account matching.",
+        "evidence": "\"The 4,100-person account is a free-mail domain caught by naive domain matching.\" and \"exclude every one of those domains from account resolution\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that free-mail domains identify no company, so matching on them collapses strangers into one account.",
+        "evidence": "\"Free-mail domains identify no company and must never enter account matching.\" / \"Domain-based rollup with no exclusion list collapses every stranger sharing a public webmail domain into one 'account.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Diagnoses the one-person accounts as signup domains that never resolved to a company, and recommends enrichment or manual matching as the fallback.",
+        "evidence": "\"add an enrichment step (Clearbit-class or manual) to catch the subsidiary/regional-TLD cases\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires reporting what share of the population actually resolved to an account.",
+        "evidence": "\"publish the resolved share (e.g., \\\"68% of paid-tier accounts resolved to a verified company; 32% are single-domain matches, unverified\\\")\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Forbids presenting an account-level rate computed from a partially resolved population without stating that share.",
+        "evidence": "\"Never publish Y% alone \u2014 an account-level rate computed over a partially resolved population, presented without the resolution share, is exactly the number that gets someone burned in the next board deck.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that in a company-buying motion every event must carry account_id alongside user_id.",
+        "evidence": "No explicit general rule stating every event must carry account_id alongside user_id appears; the transcript only describes account_id resolution and touch-event non-null filtering.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies this as the both-at-once motion, instrumenting person-level everywhere and rolling up to account only where an org object genuinely exists.",
+        "evidence": "\"Arbordyne's motion is 'both at once' ... person-level and account-level tracking both have to exist and get joined only where a real company resolves\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the influenced-pipeline report depends on the CRM being able to carry an account-level touch record, and that a lead source field alone cannot honestly support it.",
+        "evidence": "\"Why the lead-source field can't answer sales' question ... Push these into the CRM as a related-list/activity object on the Account, not a single field\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Settles that dependency before the report is promised to sales, rather than after.",
+        "evidence": "\"Don't ship the report before step 3 lands. A version built on the current lead-source field will look plausible and be wrong in a way nobody downstream can detect\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Resolves account_id from the signup domain or the product's own org object, not from a person-level identifier.",
+        "evidence": "\"account_id: resolved from the signup domain after the free-mail exclusion above.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Identifies free-mail domains as the cause of the 4,100-person account, and instructs excluding free-mail-class domains from account matching.",
+        "evidence": "\"A consumer/free domain is being treated as a company domain (gmail.com, outlook.com...)...Fix: Exclude free/consumer domains from auto-rollup entirely.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that free-mail domains identify no company, so matching on them collapses strangers into one account.",
+        "evidence": "\"this isn't one account, it's thousands of unrelated people who happen to share an email provider.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Diagnoses the one-person accounts as signup domains that never resolved to a company, and recommends enrichment or manual matching as the fallback.",
+        "evidence": "\"real companies fragmented across domain variants...that literal string-match on the sending domain never merges...Replace literal domain-string matching with a firmographic identity-resolution provider (Clearbit, ZoomInfo, 6sense)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires reporting what share of the population actually resolved to an account.",
+        "evidence": "No requirement to report the resolved-population share appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Forbids presenting an account-level rate computed from a partially resolved population without stating that share.",
+        "evidence": "No such prohibition or requirement is stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that in a company-buying motion every event must carry account_id alongside user_id.",
+        "evidence": "The touch log is described as \"keyed on person, not into a single overwritable CRM field... Person rolls up to the corrected account\" \u2014 close in spirit but never states the explicit rule that every event must carry account_id alongside user_id.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies this as the both-at-once motion, instrumenting person-level everywhere and rolling up to account only where an org object genuinely exists.",
+        "evidence": "Person-level touch log rolling up to the corrected account model (which explicitly excludes free-mail/unresolved domains from rollup) matches this description substantively.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the influenced-pipeline report depends on the CRM being able to carry an account-level touch record, and that a lead source field alone cannot honestly support it.",
+        "evidence": "\"it can't be built on a lead source field, full stop, regardless of how the field is populated...It's person-level. The report needs account-level\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Settles that dependency before the report is promised to sales, rather than after.",
+        "evidence": "\"Until step 2 is done, the report sales wants does not exist in any form \u2014 the data was never collected. Say that plainly rather than shipping a report built on lead source\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Resolves account_id from the signup domain or the product's own org object, not from a person-level identifier.",
+        "evidence": "The fix maps \"domain \u2192 canonical parent company\" via a firmographic resolution provider, i.e., account identity resolved from signup domain.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

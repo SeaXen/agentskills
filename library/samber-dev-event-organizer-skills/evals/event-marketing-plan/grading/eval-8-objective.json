@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The two spines are not blended or averaged into a hybrid target.",
+        "evidence": "\"Why Spine A\"; Spine B explicitly rejected; \"Use neither extreme\" resolves to sales-percent only with no over-booking multiple.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The spine is picked by the failure that would actually hurt this event - empty seats versus unsold seats - reasoning from the nominal fee and the hard capacity cap.",
+        "evidence": "\"With zero spend, the risk you can't buy your way out of is under-selling.\" Uses 12 EUR fee and 150 cap.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Exactly one spine is run as the plan's only target line.",
+        "evidence": "\"run it as the only target line\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The other spine's checkpoint is used only as a secondary sanity check that never enters a target or a go/no-go decision.",
+        "evidence": "\"Use the MLH figure only as a side check... don't switch spines.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The two denominators are named as different things: an attendance goal versus expected sales net of comps.",
+        "evidence": "Only says \"The cap sets the denominator at 150 minus comps\"; never contrasts attendance goal versus expected sales.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "With zero cash, the three spending postures are deleted from the menu rather than parked at the bottom.",
+        "evidence": "\"Paid ads: deleted\"; \"Barter-only. The SaaS-derived percentage table doesn't apply.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Barter-only is presented as the entire posture menu for this event.",
+        "evidence": "\"Channels (barter-only, which is the whole menu)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The ad-buy fallback is refused: a rung nobody can fund does not reappear as a plan B the first time a checkpoint misses.",
+        "evidence": "\"The fallback is not a small ad buy.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "A halfway miss is answered with diagnosis (reach versus conversion signals) and re-weighting of owned and barter channels, not with spending.",
+        "evidence": "Fallback section: weak reach \u2192 re-weight to free fast rungs; don't buy reach",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The free-event figures (200% over-registration, 30-50% drop-off) are not carried as-is onto this nominal-fee event; its no-show rate is treated as its own, smaller, self-set figure.",
+        "evidence": "\"your no-show rate is unmeasured. Never carry MLH's multiple onto a paid ticket.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Checkpoint miss responses are decided before launch, not improvised at the halfway point.",
+        "evidence": "\"Decide this before launch.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The two spines are not blended or averaged into a hybrid target.",
+        "evidence": "\"do neither\"; counts and pace.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The spine is picked by the failure that would actually hurt this event - empty seats versus unsold seats - reasoning from the nominal fee and the hard capacity cap.",
+        "evidence": "It rejects both spines.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Exactly one spine is run as the plan's only target line.",
+        "evidence": "\"do neither\"; a straight-line count to 150 is used instead.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The other spine's checkpoint is used only as a secondary sanity check that never enters a target or a go/no-go decision.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The two denominators are named as different things: an attendance goal versus expected sales net of comps.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "With zero cash, the three spending postures are deleted from the menu rather than parked at the bottom.",
+        "evidence": "\"zero-budget plan has no money for an ad buy.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Barter-only is presented as the entire posture menu for this event.",
+        "evidence": "The fallback is a free-channels ladder.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The ad-buy fallback is refused: a rung nobody can fund does not reappear as a plan B the first time a checkpoint misses.",
+        "evidence": "\"A small ad buy is out unless you reverse that decision.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "A halfway miss is answered with diagnosis (reach versus conversion signals) and re-weighting of owned and barter channels, not with spending.",
+        "evidence": "Goes straight to the free ladder with no reach-vs-conversion diagnosis.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The free-event figures (200% over-registration, 30-50% drop-off) are not carried as-is onto this nominal-fee event; its no-show rate is treated as its own, smaller, self-set figure.",
+        "evidence": "CNCF 30% \"doesn't describe a 12 EUR ticket\"; margin set from own door data.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Checkpoint miss responses are decided before launch, not improvised at the halfway point.",
+        "evidence": "\"Write the trigger now.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,190 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Explains that corporate security gateways or link scanners fetch URLs on arrival and thereby trigger the GET unsubscribe",
+        "evidence": "\"Microsoft Safe Links, Proofpoint, Mimecast and Barracuda fetch every URL in a message when it arrives.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains the click-rate jump as scanner or bot clicks rather than real engagement",
+        "evidence": "\"The jump is machine traffic, not readers liking the issue more.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends making the unsubscribe act only on POST, with GET showing a confirmation page",
+        "evidence": "Fix 1: \"Make unsubscribe POST-only. GET shows a confirm page with a button.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives a test order: GET the URL, confirm the seed is still subscribed, then POST, then confirm it is unsubscribed",
+        "evidence": "\"A GET on a seed address leaves it subscribed. A POST unsubscribes it with a 2xx and no redirect.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that the confirmation page must not auto-submit with JavaScript because some scanners execute it",
+        "evidence": "\"No JavaScript auto-submit.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags that a base64-encoded email in the URL lets anyone unsubscribe anyone, and recommends an opaque token checked server-side",
+        "evidence": "\"Anyone can unsubscribe anyone by encoding an email address\"; \"opaque random token looked up server-side\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends List-Unsubscribe with an HTTPS URI plus List-Unsubscribe-Post: List-Unsubscribe=One-Click",
+        "evidence": "Fix 2: \"HTTPS `List-Unsubscribe`, `List-Unsubscribe-Post: List-Unsubscribe=One-Click`\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the List-Unsubscribe headers must be covered by the DKIM signature (h= tag)",
+        "evidence": "\"both listed in the DKIM `h=` tag.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says the unsubscribe endpoint must not return a redirect to the POST",
+        "evidence": "\"A POST unsubscribes it with a 2xx and no redirect.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says the 18% open rate is not evidence of Gmail spam placement",
+        "evidence": "\"The 18% Gmail open rate does **not** show you're in spam.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends filtering scanner clicks (seconds after delivery, cloud IPs, every link clicked) before reporting clicks or applying an inactivity rule",
+        "evidence": "Fix 5: \"Drop clicks within seconds of delivery, from cloud IPs, or on every link of one copy... Use it for any inactivity rule.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says not to silently re-subscribe the readers removed by scanners, and to tell them how to resubscribe or restore only those who ask",
+        "evidence": "Fix 4: \"Don't re-add them silently. Send a short note on how to resubscribe, and restore anyone who asks.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Puts fixing the unsubscribe endpoint first in the fix plan",
+        "evidence": "Fix 1 is the POST-only unsubscribe.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Suggests verifying the scanner hypothesis by comparing unsubscribe or click timestamps with delivery time",
+        "evidence": "Fix 3: \"Flag unsubscribes with no prior click, within seconds of delivery, from cloud IP ranges\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Mentions that sharing fernhill.dev with password resets is a later separation step (dedicated newsletter subdomain)",
+        "evidence": "Fix 11: move digest to `news.fernhill.dev`, \"Password resets stay on the root domain\", Next quarter.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Explains that corporate security gateways or link scanners fetch URLs on arrival and thereby trigger the GET unsubscribe",
+        "evidence": "\"Gateways like Microsoft Defender Safe Links, Proofpoint... fetch every URL... The scanner fetches it and the reader is unsubscribed.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains the click-rate jump as scanner or bot clicks rather than real engagement",
+        "evidence": "\"The extra clicks are machines.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends making the unsubscribe act only on POST, with GET showing a confirmation page",
+        "evidence": "\"GET shows a page with a confirm button, and the unsubscribe happens on POST.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives a test order: GET the URL, confirm the seed is still subscribed, then POST, then confirm it is unsubscribed",
+        "evidence": "No test sequence given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that the confirmation page must not auto-submit with JavaScript because some scanners execute it",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags that a base64-encoded email in the URL lets anyone unsubscribe anyone, and recommends an opaque token checked server-side",
+        "evidence": "\"Replace the unsigned token with a per-subscriber random ID or an HMAC-signed value.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends List-Unsubscribe with an HTTPS URI plus List-Unsubscribe-Post: List-Unsubscribe=One-Click",
+        "evidence": "\"List-Unsubscribe-Post: List-Unsubscribe=One-Click, handled on POST\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the List-Unsubscribe headers must be covered by the DKIM signature (h= tag)",
+        "evidence": "\"DKIM-sign both headers.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says the unsubscribe endpoint must not return a redirect to the POST",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says the 18% open rate is not evidence of Gmail spam placement",
+        "evidence": "\"An open rate of 18% doesn't show spam placement.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends filtering scanner clicks (seconds after delivery, cloud IPs, every link clicked) before reporting clicks or applying an inactivity rule",
+        "evidence": "\"Exclude clicks within a few seconds of delivery, and clicks that hit several links at once.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says not to silently re-subscribe the readers removed by scanners, and to tell them how to resubscribe or restore only those who ask",
+        "evidence": "\"Restore the unsubscribes that match the bot signature\" is proposed, with only the consent call deferred to whoever owns GDPR.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Puts fixing the unsubscribe endpoint first in the fix plan",
+        "evidence": "Fix order item 1: \"Make unsubscribe safe on GET.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Suggests verifying the scanner hypothesis by comparing unsubscribe or click timestamps with delivery time",
+        "evidence": "\"Seconds since the campaign was delivered to that address. Scanner hits land within seconds.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Mentions that sharing fernhill.dev with password resets is a later separation step (dedicated newsletter subdomain)",
+        "evidence": "\"Put the digest on its own subdomain... Keep password resets on a different subdomain.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

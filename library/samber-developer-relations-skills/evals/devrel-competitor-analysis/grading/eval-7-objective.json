@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to state Beacontree's devrel budget as a known number.",
+        "evidence": "\"DevRel budget (annual) | ~$1.0M\u2013$1.5M | Low \u2014 built on one hard data point\" with \"This is three assumptions stacked on one real number \u2014 fine for a slide nobody audits, not something to defend line-by-line\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to state their monthly docs traffic as a known number.",
+        "evidence": "\"Monthly docs traffic | ~15K\u201340K visits/mo | Very low \u2014 placeholder, no signal collected\" and \"treat it as a filler number, not a finding.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to state their paying-developer count as a known number.",
+        "evidence": "\"Paying developers | Not put on the slide \u2014 see note | None \u2014 no defensible anchor exists\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes \"not observable from outside\" for any field with no defensible proxy.",
+        "evidence": "The paying-developers field is instead phrased \"Not put on the slide\" / \"no defensible chain\" \u2014 the literal phrase \"not observable from outside\" is never used in this section.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Uses the sponsor tiers as a floor on event spend only, and labels the cell that way.",
+        "evidence": "\"$45K sponsor tier \u00d7 2 conferences = **$90K floor**, and it's a floor *on event spend only*\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Uses the five named humans as the team-size proxy and labels it a likely undercount of counted named individuals.",
+        "evidence": "\"the skill I'm following labels it explicitly as 'counted named individuals, likely an undercount'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Offers ranking presence on real ecosystem query patterns as the docs-traffic proxy, labelled as search visibility rather than traffic.",
+        "evidence": "\"The correct proxy per the method (*'search visibility, not traffic'*) requires an actual query-ranking sample, which wasn't run.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Never converts a proxy into the private number it stands for.",
+        "evidence": "All figures remain explicit ranges with confidence caveats (e.g. \"The 5 is observed; the 8 is a guess\") rather than being asserted as the actual private figure.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels each proxy in its own cell rather than only in a footnote to the deck.",
+        "evidence": "Each metric has its own \"Confidence\" cell plus a dedicated explanatory subsection (\"Team size \u2014 ~5\u20138 people\", \"Budget \u2014 ~$1.0M\u2013$1.5M/year\"...), in addition to the one-line footnote at the end.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a blank is itself a finding about what the competitor hides, rather than a gap to fill with an estimate.",
+        "evidence": "No such framing appears; the reasoning given for leaving it blank is risk of being \"individually wrong and individually memorable if challenged,\" not that the blank itself reveals something the competitor hides.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to state Beacontree's devrel budget as a known number.",
+        "evidence": "\"DevRel budget | ~$1.3M/year (range $1.1M\u2013$1.5M)\" is stated as a specific figure for the slide.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to state their monthly docs traffic as a known number.",
+        "evidence": "\"Monthly docs traffic | ~100K uniques/month (range 80K\u2013150K)\" is stated as a specific figure.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to state their paying-developer count as a known number.",
+        "evidence": "\"Paying developers | ~20,000 (range 15K\u201325K)\" is stated as a specific figure.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes \"not observable from outside\" for any field with no defensible proxy.",
+        "evidence": "Every one of the four rows is filled with a concrete numeric estimate; none are left as unobservable.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Uses the sponsor tiers as a floor on event spend only, and labels the cell that way.",
+        "evidence": "Sponsorship spend is extrapolated far beyond event spend into full program budget and headcount cost: \"$90K sponsorship spend ... \u2192 ~$450K program spend. Add 5 FTEs \u00d7 ~$180K ... Total \u2248 $1.3M.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Uses the five named humans as the team-size proxy and labels it a likely undercount of counted named individuals.",
+        "evidence": "The caveat given points the other direction: \"a couple are likely part-time or borrowed from eng\" \u2014 flagging possible overcount, not undercount.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Offers ranking presence on real ecosystem query patterns as the docs-traffic proxy, labelled as search visibility rather than traffic.",
+        "evidence": "Traffic is instead derived from a generic size-of-program benchmark: \"this is the profile of a Series B/C dev-tools shop\", with no mention of search/query ranking.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Never converts a proxy into the private number it stands for.",
+        "evidence": "Every proxy chain is explicitly converted into a dollar or traffic figure (e.g. sponsorship spend converted into '~$1.3M/year' total budget).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels each proxy in its own cell rather than only in a footnote to the deck.",
+        "evidence": "The explicit epistemic caveat ('not sourced from Beacontree financials') appears only in the \"Footnote (small text)\" at the bottom, not in the headline Estimate cells.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a blank is itself a finding about what the competitor hides, rather than a gap to fill with an estimate.",
+        "evidence": "No field is left blank; every metric is filled with a fabricated point estimate instead.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

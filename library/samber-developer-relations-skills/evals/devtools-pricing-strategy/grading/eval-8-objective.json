@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Ranks the team's own usage-value correlation and win/loss data first on both efficiency and evidence strength",
+        "evidence": "\"Research methods rank, by evidence strength: own usage-value correlation and win/loss data > Gabor-Granger > Van Westendorp > competitor prices... By cost/effort, the same data is also the cheapest\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the efficiency ordering and the evidence-strength ordering separately, and notes that they disagree",
+        "evidence": "The text states both orderings put own data first (\"backwards on both axes at once\") but never notes a point of disagreement between the efficiency and evidence-strength orderings",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places competitor price scraping second on efficiency and last on evidence strength",
+        "evidence": "\"this is legitimately cheap (trivial cost per the method table)... ranks last on evidence strength\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that competitor prices may be used to bound a number but never to justify one",
+        "evidence": "Guardrails table: competitor scrape \"Never use it to: Justify a chosen number \u2014 it's someone else's guess\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Describes a competitor's published price as evidence of what someone else guessed",
+        "evidence": "\"Reading a competitor's page is evidence of what someone else guessed, and ranks last on evidence strength.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ranks Gabor-Granger above Van Westendorp on evidence strength",
+        "evidence": "\"Gabor-Granger outranks Van Westendorp on evidence strength for near-zero extra fielding cost\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that Van Westendorp needs roughly 100+ respondents per segment, and checks the 300-person panel against the four segments",
+        "evidence": "\"Van Westendorp needs roughly 100+ respondents per segment... 300 people across 4 segments is 75/segment on average \u2014 under that floor\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that stated willingness to pay on a described product is weaker evidence than observed behaviour on a live one",
+        "evidence": "Evidence-strength ranking places \"own usage-value correlation and win/loss data\" above Gabor-Granger/Van Westendorp, and Van Westendorp is called \"the weakest-evidence, widest-range method in this set\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prioritises reading the existing usage and churn data, which costs about a day, ahead of fielding a survey that costs weeks and a respondent panel",
+        "evidence": "\"reading instrumentation you already collect costs a day; a fielded panel costs weeks and a respondent budget\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends win/loss and churn interviews as the only source of real price objections with the alternative named",
+        "evidence": "\"this is the only source in the whole plan that captures real objections rather than stated preference\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Excludes MaxDiff or feature-ranking research from the price decision and assigns it to packaging instead",
+        "evidence": "MaxDiff or feature-ranking research is never mentioned anywhere in the section",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the usage threshold at which customers call the product load-bearing as an output of the usage-value correlation work",
+        "evidence": "\"You're looking for the threshold where the product becomes 'load-bearing' \u2014 the usage level past which an account essentially never churns.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Ranks the team's own usage-value correlation and win/loss data first on both efficiency and evidence strength",
+        "evidence": "\"Behavioral data from real payers beats stated-preference data... every time they conflict. Mine what you have first\" and \"this is your highest-confidence data\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the efficiency ordering and the evidence-strength ordering separately, and notes that they disagree",
+        "evidence": "Only a single combined revised order is given, no separate efficiency vs evidence-strength rankings contrasted.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places competitor price scraping second on efficiency and last on evidence strength",
+        "evidence": "Competitor teardown is placed third/parallel (Phase 4, weeks 3-6), not distinctly 'second' or explicitly ranked last.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that competitor prices may be used to bound a number but never to justify one",
+        "evidence": "\"Treat any competitor number as a directional anchor for the 'next best alternative' floor, never as a target\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Describes a competitor's published price as evidence of what someone else guessed",
+        "evidence": "Not framed this way; described instead as list price diverging from negotiated street price.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ranks Gabor-Granger above Van Westendorp on evidence strength",
+        "evidence": "Gabor-Granger is proposed as a supplement for packaging/tiers, not ranked above Van Westendorp on evidence strength.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that Van Westendorp needs roughly 100+ respondents per segment, and checks the 300-person panel against the four segments",
+        "evidence": "Only says \"2 weeks in field is enough at n=300 across 4 segments\" without flagging a 100+ per-segment requirement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that stated willingness to pay on a described product is weaker evidence than observed behaviour on a live one",
+        "evidence": "\"Behavioral data from real payers beats stated-preference data from a rented panel every time they conflict.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prioritises reading the existing usage and churn data, which costs about a day, ahead of fielding a survey that costs weeks and a respondent panel",
+        "evidence": "Internal-data phase spans \"Weeks 1\u20133\", not framed as costing about a day.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends win/loss and churn interviews as the only source of real price objections with the alternative named",
+        "evidence": "Interviews are emphasized heavily but not stated as the exclusive source of real price objections.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Excludes MaxDiff or feature-ranking research from the price decision and assigns it to packaging instead",
+        "evidence": "\"a simple MaxDiff on features to learn what to gate at which tier\" \u2014 assigned to tier/packaging, not price-point decision.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the usage threshold at which customers call the product load-bearing as an output of the usage-value correlation work",
+        "evidence": "No 'load-bearing' threshold concept appears anywhere.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

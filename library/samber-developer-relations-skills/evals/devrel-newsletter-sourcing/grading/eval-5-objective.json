@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The output does not present any constructed or guessed URL as a final link.",
+        "evidence": "\"I won't guess links\"; the Primary link column says \"none\" for every item.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Every item without a link opened during the run is marked unverified (or equivalent).",
+        "evidence": "Every item's verdict is \"hold, unverified\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Unverified items are placed on a hold list or explicitly kept out of the final list.",
+        "evidence": "\"Hold list: all 5 items.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output asks the user to confirm or paste the pages for items it could not open.",
+        "evidence": "\"paste the 5 URLs, or approve web access\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The empty forum export is reported as an empty channel or intake gap.",
+        "evidence": "\"The community forum export came back empty. That is a finding about the intake\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output does not replace the empty forum channel with invented community items.",
+        "evidence": "Only the 5 pasted items appear; \"Community forum export | 0\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The devcompare comparison post is subject to a check (primary source, authenticity, or vendor bias) before inclusion.",
+        "evidence": "\"hold, unverified, authenticity gate ... I need the author's history, the stated method, and any stake\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output asks for, or uses, the last issue's contents to rule out duplicates.",
+        "evidence": "\"When did the last issue's sourcing close, and what did it contain? I need this to run the duplicate gate.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output lists each candidate with a verdict (keep, hold or cut) rather than a bare paste-ready list.",
+        "evidence": "The table has a verdict column, \"hold, unverified\" on every row.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output gives each candidate a YYYY-MM-DD date or marks the date as unknown pending verification.",
+        "evidence": "Date column: \"unknown\" for all items.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The output does not present any constructed or guessed URL as a final link.",
+        "evidence": "\"I won't guess URLs.\" Every item reads \"URL missing\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Every item without a link opened during the run is marked unverified (or equivalent).",
+        "evidence": "\"I checked nothing\"; all five marked \"URL missing\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Unverified items are placed on a hold list or explicitly kept out of the final list.",
+        "evidence": "\"I can't give you a final list.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output asks the user to confirm or paste the pages for items it could not open.",
+        "evidence": "\"paste the SDK's docs or blog root URL\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The empty forum export is reported as an empty channel or intake gap.",
+        "evidence": "\"Skipped as you asked: the forum top posts.\" It never says the export was empty.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The output does not replace the empty forum channel with invented community items.",
+        "evidence": "No community items were added.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The devcompare comparison post is subject to a check (primary source, authenticity, or vendor bias) before inclusion.",
+        "evidence": "Only \"Item 5 needs the exact title.\" There is no vendor-bias or authenticity check.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The output asks for, or uses, the last issue's contents to rule out duplicates.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The output lists each candidate with a verdict (keep, hold or cut) rather than a bare paste-ready list.",
+        "evidence": "Items are listed with \"URL missing\" and no verdicts.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The output gives each candidate a YYYY-MM-DD date or marks the date as unknown pending verification.",
+        "evidence": "Only the send date is given; no item dates.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

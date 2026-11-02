@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Recommends the staged path: ship 4.8 as an interim release whose changes are deprecation warnings for everything 5.0 breaks",
+        "evidence": "\"## 3. Recommended path shape: **Staged**\" ... \"Ship 4.8 as a warnings-only release: every one of the 11 changes above gets a deprecation warning in 4.8\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Justifies the staged default by the fact that a 4.8 release can still ship from the N-1 line",
+        "evidence": "\"4.8 can still ship before the 4.x branch freezes \u2014 that's the condition that makes staged free, per the default ranking (staged wins whenever N-1 can still ship).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the reader's own build output on the interim release becomes their personal inventory of affected call sites",
+        "evidence": "\"so each reader's own build output becomes their personal inventory\" and in the guide: \"your own warning output becomes your work list for this guide.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the chosen path shape at the top of the guide, before the breaking-change entries",
+        "evidence": "The \"## Before you start\" section states the staged/single-hop choice (\"If you are on 4.6 or earlier: upgrade to 4.8 first...\") and appears before the \"## Breaking changes\" section in the guide.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explicitly tells readers on 4.6 to skip it and go to 4.7 or later, and gives the connection-pool leak as the reason",
+        "evidence": "\"If you are on 4.6 or earlier: upgrade to 4.8 first, regardless of your 5.0 timeline. 4.6 has a connection-pool exhaustion leak, fixed in 4.7 and carried forward into 4.8.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places the Node and TypeScript floors before any code example or breaking-change entry",
+        "evidence": "\"## Requirements\\n- Node >= 22.11\\n- TypeScript >= 5.7\" appears before \"## Install\", \"## Automated migration\", and \"## Breaking changes\" (which contains the first ts code blocks).",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the floors as machine-checkable comparisons such as Node >= 22.11 and TypeScript >= 5.7 rather than prose like a recent Node version",
+        "evidence": "\"- Node >= 22.11\\n- TypeScript >= 5.7\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says out loud that the ordering is by blast radius and names the evidence source behind the ranking",
+        "evidence": "Inventory table column \"Blast radius (estimate)\" with \"Evidence\" column reading \"maintainer estimate\" for every row; \"Re-rank rows 1\u201311 against real telemetry or a dependent-repo search before publishing \u2014 this order is a judgment call, not a measurement.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks whether usage telemetry on the affected APIs exists, or records its absence explicitly",
+        "evidence": "\"No usage telemetry on the deprecated APIs (Q7 unanswered) \u2192 blast-radius ranking below is a maintainer-judgment estimate, not a measurement. Say so in the published guide too.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not bake a moving patch version such as 5.0.3 into the guide's prose, pinning the version pair instead",
+        "evidence": "Guide uses \"tarn-sdk 4.6/4.7 \u2192 5.0\" and \"npm install tarn-sdk@^5.0.0\" \u2014 no specific moving patch version like 5.0.3 is baked into the prose.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not offer sequential per-minor bridges as a candidate path shape, since no version-skew policy applies here",
+        "evidence": "The only path offered is 4.6/4.7 \u2192 4.8 \u2192 5.0 (staged) or 4.7 \u2192 5.0 directly (single hop); no sequential per-minor bridging chain (e.g., 4.6\u21924.7\u21924.8\u21924.9\u21925.0) is proposed.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Recommends the staged path: ship 4.8 as an interim release whose changes are deprecation warnings for everything 5.0 breaks",
+        "evidence": "'4.8 adds a runtime deprecation warning for every API that 5.0 changes or removes \u2014 same behavior as 4.7, but it tells you at startup and on first use exactly which calls in your codebase need to change.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Justifies the staged default by the fact that a 4.8 release can still ship from the N-1 line",
+        "evidence": "The guide only says 4.8 is 'a bridge release on the 4.x line, before we freeze that branch' and 'the last feature release on 4.x' \u2014 it never explicitly justifies the staging strategy by framing it as 'an N-1 release can still ship.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the reader's own build output on the interim release becomes their personal inventory of affected call sites",
+        "evidence": "'Run your app on 4.8 for a few days, clear the warnings one at a time' and '4.8's deprecation warnings will list every call site if you upgrade there first.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the chosen path shape at the top of the guide, before the breaking-change entries",
+        "evidence": "The 'Before you start: get onto 4.7 or 4.8 first' section with the recommended path diagram is the very first section, preceding '## Breaking changes'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explicitly tells readers on 4.6 to skip it and go to 4.7 or later, and gives the connection-pool leak as the reason",
+        "evidence": "'If you're running 4.6, upgrade to 4.7 before you do anything else... 4.6 has a connection-pool leak that 4.7 fixes.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places the Node and TypeScript floors before any code example or breaking-change entry",
+        "evidence": "The '## Requirements' section with Node 22.11+ and TypeScript 5.7+ floors appears before '## Breaking changes', which contains the first before/after code examples.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the floors as machine-checkable comparisons such as Node >= 22.11 and TypeScript >= 5.7 rather than prose like a recent Node version",
+        "evidence": "'node --version   # must be >= 22.11.0' and 'npx tsc --version  # must be >= 5.7.0'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says out loud that the ordering is by blast radius and names the evidence source behind the ranking",
+        "evidence": "No statement anywhere explains the ordering rationale of the 11 breaking-change entries or cites any evidence source for a ranking.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks whether usage telemetry on the affected APIs exists, or records its absence explicitly",
+        "evidence": "Telemetry is never mentioned; the guide relies only on 4.8's runtime deprecation warnings, with no discussion of usage telemetry.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not bake a moving patch version such as 5.0.3 into the guide's prose, pinning the version pair instead",
+        "evidence": "Throughout the guide only major/minor labels are used ('4.6 \u2192 4.7 \u2192 4.8 \u2192 5.0'), never a specific patch version like 5.0.3.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not offer sequential per-minor bridges as a candidate path shape, since no version-skew policy applies here",
+        "evidence": "The guide's entire recommended path IS a sequential bridge: '4.6 \u2192 4.7 (mandatory: pool leak fix) / 4.7 \u2192 4.8 (recommended...) / 4.8 \u2192 5.0'.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

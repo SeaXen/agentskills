@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses the upstream redirect, because the project ships yamlette inside its own wheel, so users cannot fix it themselves and the project must release and advise as its own",
+        "evidence": "\"yamlette ships inside your wheel... release and advise as your own.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rules the report in scope because the README's claim that graph files are safe to load from untrusted sources is the safety claim that governs over the docstring",
+        "evidence": "\"the README wins and the report is in scope.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to change the README wording today in public, stating that withdrawing a safety claim before the release tells attackers where to look, and ships the docs change with the fixed release",
+        "evidence": "\"Ship the README change with the patched release.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats withdrawing the safety claim as a valid fix that must be disclosed in the advisory like a code fix, if that route is chosen",
+        "evidence": "\"you disclose it in the advisory like a code fix.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets the verdict to vulnerability, or pending with a resolve-by date until reproduced, rather than bug-not-vulnerability or out of scope",
+        "evidence": "\"Verdict: pending until <reproduction date> - leaning vulnerability\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Scores the reasonable worst-case integration (an application loading untrusted graph files) with a full CVSS 3.1 base vector and Attack Complexity Low, and does not downgrade the vector because the docstring asks callers to validate",
+        "evidence": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H; PR:N because README says untrusted safe.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Specifies the fix as updating the vendored copy to yamlette 0.9.0 or later (or an equivalent bound enforced in the project's own code) with an in-process regression test that triggers the memory growth",
+        "evidence": "\"bump the vendored copy to \u22650.9.0... minimal in-process memory-bound test\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists `load_graph` and any other entry points reaching the vendored parser in the advisory's affected-functions field",
+        "evidence": "\"load_graph as the affected function\"; check other load_graph entry points.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requests the project's own identifier on acceptance and does not rely on any yamlette identifier to cover the bundled copy",
+        "evidence": "\"check whether yamlette already has a CVE... If so, reuse it and request no duplicate.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Drafts a reporter acknowledgement with a dated triage decision and release estimate, not the upstream-redirect template",
+        "evidence": "Reply says triage decision by <date>, release around <date, time, TZ>.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes for PyPI that yanking hides affected versions from resolution but exact pins still install them, so yanking is not a removal",
+        "evidence": "\"Yanking doesn't remove pinned installs\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Marks earlier versions that were not checked as unknown rather than safe, and adds a vendored-dependency policy to the retrospective",
+        "evidence": "\"Unchecked lines = unknown, not safe\"; \"Add a CI check on the vendored copy's version.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses the upstream redirect, because the project ships yamlette inside its own wheel, so users cannot fix it themselves and the project must release and advise as its own",
+        "evidence": "\"You ship the bug. `yamlette` is vendored inside your wheel.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rules the report in scope because the README's claim that graph files are safe to load from untrusted sources is the safety claim that governs over the docstring",
+        "evidence": "\"'By design' contradicts your own README.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to change the README wording today in public, stating that withdrawing a safety claim before the release tells attackers where to look, and ships the docs change with the fixed release",
+        "evidence": "Step 6 says fix the README with the patch, but gives no reason about alerting attackers.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats withdrawing the safety claim as a valid fix that must be disclosed in the advisory like a code fix, if that route is chosen",
+        "evidence": "Not addressed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets the verdict to vulnerability, or pending with a resolve-by date until reproduced, rather than bug-not-vulnerability or out of scope",
+        "evidence": "\"Reproduce\" first; no date.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Scores the reasonable worst-case integration (an application loading untrusted graph files) with a full CVSS 3.1 base vector and Attack Complexity Low, and does not downgrade the vector because the docstring asks callers to validate",
+        "evidence": "No score or vector.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Specifies the fix as updating the vendored copy to yamlette 0.9.0 or later (or an equivalent bound enforced in the project's own code) with an in-process regression test that triggers the memory growth",
+        "evidence": "\"Bump the vendored copy to at least 0.9.0. Add the reporter's document as a regression test.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists `load_graph` and any other entry points reaching the vendored parser in the advisory's affected-functions field",
+        "evidence": "`load_graph()` is mentioned, but no affected-functions field in an advisory.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requests the project's own identifier on acceptance and does not rely on any yamlette identifier to cover the bundled copy",
+        "evidence": "Says \"request a CVE\" without saying a yamlette identifier doesn't cover the bundled copy.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Drafts a reporter acknowledgement with a dated triage decision and release estimate, not the upstream-redirect template",
+        "evidence": "The reply has no dates.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes for PyPI that yanking hides affected versions from resolution but exact pins still install them, so yanking is not a removal",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Marks earlier versions that were not checked as unknown rather than safe, and adds a vendored-dependency policy to the retrospective",
+        "evidence": "Has a CI check for vendored pins, but never marks unchecked earlier versions as unknown.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

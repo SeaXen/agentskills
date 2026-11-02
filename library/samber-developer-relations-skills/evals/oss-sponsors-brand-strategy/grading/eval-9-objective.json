@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Names the FOSS Contributor Fund as the published method and attributes it to Duane O'Brien and Mandy Grover, Investing in Open Source: The FOSS Contributor Fund, O'Reilly, 2021",
+        "evidence": "\"the reference model for this kind of fund (the FOSS Contributor Fund, O'Brien & Grover, O'Reilly 2021 \u2014 Ambrose's \\\"$8,000/month, one project a month\\\" design is a close variant of that model's own $10,000/month reference implementation)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Opens nominations to everyone with no prerequisite",
+        "evidence": "\"**Anyone can nominate**, no prerequisite. Restricting nominations to people with linked accounts measurably suppresses turnout \u2014 don't do it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Restricts voting to employees who made an open-source contribution during that voting cycle, and explains the franchise is earned by contributing",
+        "evidence": "The actual rule adopted is \"One Slack poll, single-select, one vote per person... Restrict it to real employee accounts (exclude guests/bots)\" \u2014 open to all employees. The contribution-gated franchise is only floated as a hypothetical future change: \"If that matters later, the fix is cheap: gate voting to anyone who logged one qualifying contribution that cycle, nothing more.\" It is not the adopted policy.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the whole-company Slack poll as the voting rule",
+        "evidence": "Section 5 explicitly adopts it: \"**One Slack poll, single-select, one vote per person.**\" The doc even labels this choice \"a legitimate choice,\" not a rejected one: \"Whole-company voting is a legitimate choice; just know it trades away that incentive effect...\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Applies four eligibility filters before the ballot: in use by the company, OSI-approved license, has a mechanism to receive funds, and not maintained by an employee",
+        "evidence": "\"We actually use it... It carries an OSI-approved license... It has a working mechanism to *receive a sponsorship or donation*... It is **not maintained by a current employee.**\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Excludes ferrite-queue under the employee-maintained rule, or requires an explicit published conflict-of-interest exception for it",
+        "evidence": "\"**ferrite-queue is disqualified.** It fails the fourth filter, and that filter isn't optional colour on top of the model...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Excludes the subscription-only candidate because the budget pays one-off amounts",
+        "evidence": "The transcript excludes it via the donation-mechanism filter and service-vs-sponsorship distinction, not payment cadence: \"The support-subscription-only candidate is disqualified, on the third filter. A paid support contract is a commercial services purchase with deliverables attached... not a sponsorship.\" The fund itself is also explicitly recurring, not one-off: \"Recurring by default: a project that wins isn't a one-off gesture...\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Runs the eligibility check before the ballot rather than after it",
+        "evidence": "\"What we fund \u2014 eligibility (checked before a project reaches the ballot, never after)\" and \"Run the eligibility filters (\u00a72) on every nomination before it's added to the ballot.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that the vote drifts toward projects that already have money, and requires seeding each ballot with underserved candidates drawn from the dependency graph",
+        "evidence": "\"open voting drifts toward whatever's already well-funded, and a famous framework with a foundation behind it needs your $8,000 far less...\" followed by \"Add at least 2\u20133 candidates sourced from the dependency graph itself, favoring ones with thin maintainer counts or no existing sponsor\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reuses the nomination list internally as an onboarding menu for employees who want somewhere to start contributing",
+        "evidence": "\"Reuse the ballot as a standing menu: post it somewhere permanent so employees who want to start contributing know where to look.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the fixed per-cycle amount to be paid promptly, because a fund that pays late loses its internal credibility first",
+        "evidence": "No statement anywhere in the transcript ties payment promptness to program credibility; Section 9 (\"Payment path\") only covers invoiced billing setup and fiscal-host routing, with no mention of payment timeliness or credibility risk.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a published eligibility and conflict-of-interest rule plus employee disclosure before the first cycle",
+        "evidence": "\"The rules below build the fixes in as standing policy, not one-time exceptions, and are meant to be published internally before the first ballot opens,\" covering eligibility (\u00a72), conflicts of interest (\u00a77), and disclosure (\u00a78).",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks who administers the cycle and for how many hours a month, treating the fund as a standing job",
+        "evidence": "Section 12 only names an owner: \"Name one owner (not \\\"OSPO\\\" or \\\"the fund\\\") who runs the monthly cycle, checks eligibility before each ballot, and answers questions...\" \u2014 there is no mention of an hours-per-month time commitment anywhere in the document.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Names the FOSS Contributor Fund as the published method and attributes it to Duane O'Brien and Mandy Grover, Investing in Open Source: The FOSS Contributor Fund, O'Reilly, 2021",
+        "evidence": "No such attribution or named source appears anywhere in the document.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Opens nominations to everyone with no prerequisite",
+        "evidence": "\"Later months: open a standing nomination channel (Slack form or similar). Any employee can nominate; the program admin runs the eligibility screen before adding it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Restricts voting to employees who made an open-source contribution during that voting cycle, and explains the franchise is earned by contributing",
+        "evidence": "Voting is instead open to all: \"Poll runs in a company-wide Slack channel, open to every employee, one vote per person\" \u2014 no contribution-based voting restriction.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the whole-company Slack poll as the voting rule",
+        "evidence": "The document explicitly adopts it: \"Poll runs in a company-wide Slack channel, open to every employee, one vote per person.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Applies four eligibility filters before the ballot: in use by the company, OSI-approved license, has a mechanism to receive funds, and not maintained by an employee",
+        "evidence": "The screen (\u00a72) uses OSI-approved license and a real donation channel, but employee-maintained projects like ferrite-queue \"stay eligible\" under conditions rather than being excluded, and \"in use by the company\" is only a half-of-ballot balance rule, not a strict per-candidate filter.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Excludes ferrite-queue under the employee-maintained rule, or requires an explicit published conflict-of-interest exception for it",
+        "evidence": "\"Any candidate maintained, founded, or meaningfully monetized by a current employee (this includes ferrite-queue) stays eligible, but only under these conditions: 1. Flag it on the ballot itself...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Excludes the subscription-only candidate because the budget pays one-off amounts",
+        "evidence": "The stated reason is different: \"it is procurement, not a donation, and must go through normal vendor approval\" \u2014 not that the fund only pays one-off amounts (the fund is in fact a recurring $8,000/month payment).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Runs the eligibility check before the ballot rather than after it",
+        "evidence": "\"Every candidate \u2014 seed-ballot or later nomination \u2014 passes this screen before a vote, not after.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that the vote drifts toward projects that already have money, and requires seeding each ballot with underserved candidates drawn from the dependency graph",
+        "evidence": "\"A mega-project with existing corporate sponsorship from ten other companies needs your $8,000 less than a two-maintainer library... If more than half are 'big frameworks everyone has heard of,' pull in survey runner-up candidates so the dependency/need balance in \u00a72.4 is actually met.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reuses the nomination list internally as an onboarding menu for employees who want somewhere to start contributing",
+        "evidence": "No such reuse of the nomination list is mentioned anywhere in the document.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the fixed per-cycle amount to be paid promptly, because a fund that pays late loses its internal credibility first",
+        "evidence": "No statement about payment promptness or credibility risk from late payment appears in the document.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a published eligibility and conflict-of-interest rule plus employee disclosure before the first cycle",
+        "evidence": "The document itself establishes \u00a72 eligibility screening and \u00a73 disclosure rules applying starting with \"Seed ballot (month 1)\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks who administers the cycle and for how many hours a month, treating the fund as a standing job",
+        "evidence": "Only flags an admin needs naming (\"operationally run by [designate a program admin \u2014 do not leave this unowned]\") but never asks about hours per month or frames it as a standing job.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Does not configure a rolling stale bot to close items waiting on the maintainer; replaces it with a one-time, announced backlog reset.",
+        "evidence": "Config 1 is workflow_dispatch only. Config 2 touches only needs-info items. 'Never add a rule that closes items waiting on you.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Posts the reset announcement about a week ahead, pinned, stating the date, the age and inactivity cut-offs, the label, and the reopen rule (comment with a current reproduction).",
+        "evidence": "The pinned text gives labelling on 2026-10-25, closing on 2026-10-31, the 90-day cut-off, the `backlog-reset` label, and 'comment with a current reproduction'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels first and closes second, with the same short comment on every closed item, using a dedicated label such as backlog-reset.",
+        "evidence": "'Run 1 labels. Run 2, a week later, closes' with a single close-issue-message and the `backlog-reset` label.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps confirmed bugs open or moves them to a pinned known-issues list rather than closing them in the sweep.",
+        "evidence": "'exempt-issue-labels: confirmed,keep-open...' and 'Confirmed bugs stay open.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns the user to expect a notification wave and some angry replies, and to answer none individually beyond the reopen rule.",
+        "evidence": "No such warning appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reserves automated staleness for items waiting on the reporter only, and hands that rule to samber/developer-relations-skills@oss-issue-triage.",
+        "evidence": "The needs-info sweep is limited to reporter-waiting items. The rule is not handed to oss-issue-triage, which is never named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Corrects the quoted statistic: no Tidelift report says 59% experienced burnout and 35% harassment; the published figure is 58-60% quit or considered quitting a project, read as directional.",
+        "evidence": "'Tidelift's 58\u201360% is maintainers who quit or considered quitting, not \"experience burnout.\"... drop the 35%'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Promotes moderation of the hostile and entitled comments, routed to samber/developer-relations-skills@developer-community-moderation, above the backlog reset because hostile comments are the named top drain.",
+        "evidence": "'This is your top drain, so it comes before the sweep. Details belong to `developer-community-moderation`'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Publishes the contract before the sweep: README status block with about 4 hours a week, a window derived from that budget, and scope.",
+        "evidence": "Sequence step 1 commits the README status block, with 4 hours and a 30-day window.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Derives the window from 4 hours a week (about 8 first replies a week, about 33 a month under the self-set defaults) rather than quoting a norm.",
+        "evidence": "'4 h \u00d7 60 \u00d7 half on the tracker \u00f7 15 min per reply = 8 first replies a week, about 32 a month'. The defaults are 'not measured'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Builds the backlog split (waiting-on-reporter, waiting-on-maintainer, confirmed bugs, feature requests) before deciding which items the sweep touches.",
+        "evidence": "It hand-labels `confirmed` items. It never builds the four-way split (reporter, maintainer, confirmed, features).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Presents issue forms, the status line and the sweep as mechanisms rather than measured hour savings, since no published study quantifies them.",
+        "evidence": "No statement that no study quantifies the hour savings.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not offer a self-care listicle as the plan.",
+        "evidence": "The response is a concrete plan with configs.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Does not configure a rolling stale bot to close items waiting on the maintainer; replaces it with a one-time, announced backlog reset.",
+        "evidence": "Phase 1 is manual workflow_dispatch; Phase 2 only touches needs-info.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Posts the reset announcement about a week ahead, pinned, stating the date, the age and inactivity cut-offs, the label, and the reopen rule (comment with a current reproduction).",
+        "evidence": "Pinned today for a weekend start (about 4 days). No specific date is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels first and closes second, with the same short comment on every closed item, using a dedicated label such as backlog-reset.",
+        "evidence": "Sunday labels `stale` and warns; close comes 21 days later with a single close-issue-message. The label is stale rather than backlog-reset.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps confirmed bugs open or moves them to a pinned known-issues list rather than closing them in the sweep.",
+        "evidence": "exempt-issue-labels includes confirmed-bug and security.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns the user to expect a notification wave and some angry replies, and to answer none individually beyond the reopen rule.",
+        "evidence": "Says only not to answer individual comments about 'abandoned'. No notification wave warning.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reserves automated staleness for items waiting on the reporter only, and hands that rule to samber/developer-relations-skills@oss-issue-triage.",
+        "evidence": "The reporter-only rule is there but there is no handoff.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Corrects the quoted statistic: no Tidelift report says 59% experienced burnout and 35% harassment; the published figure is 58-60% quit or considered quitting a project, read as directional.",
+        "evidence": "Says only \"I haven't verified the 59% and 35% figures\". No correction.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Promotes moderation of the hostile and entitled comments, routed to samber/developer-relations-skills@developer-community-moderation, above the backlog reset because hostile comments are the named top drain.",
+        "evidence": "Moderation comes after the reset and is not routed to developer-community-moderation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Publishes the contract before the sweep: README status block with about 4 hours a week, a window derived from that budget, and scope.",
+        "evidence": "The announcement has hours and a 7-day reply, but no scope or out-of-scope lines, and no README status block before the sweep.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Derives the window from 4 hours a week (about 8 first replies a week, about 33 a month under the self-set defaults) rather than quoting a norm.",
+        "evidence": "Uses a 3-minute placeholder and about 80 items a week. It does not give the 8 or 33 figures.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Builds the backlog split (waiting-on-reporter, waiting-on-maintainer, confirmed bugs, feature requests) before deciding which items the sweep touches.",
+        "evidence": "No split.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Presents issue forms, the status line and the sweep as mechanisms rather than measured hour savings, since no published study quantifies them.",
+        "evidence": "Not framed that way.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not offer a self-care listicle as the plan.",
+        "evidence": "None.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,2739 @@
+"""Bridge between the web API and kb_pipeline. Stateless: settings are
+re-loaded per call so enrollment changes take effect without restarts."""
+
+from __future__ import annotations
+
+from kb_pipeline.chunking.context import payload_text
+
+import json
+import os
+import re
+import statistics
+import subprocess
+import threading
+import time
+from pathlib import Path
+from typing import Any
+from urllib.parse import urlsplit
+
+import requests
+
+from kb_pipeline import db, discovery, search_fts
+from kb_pipeline.llm_compat import CompatibleRequest, endpoint_url, generation_parameters
+from kb_pipeline.progress import job_view, read_progress
+from kb_pipeline.config import (
+    Settings, load_settings, parse_interval_days, parse_new_chunk_count, parse_ratio,
+)
+from kb_pipeline.localfs import scanner
+from kb_pipeline.limits import (
+    chunk_limits,
+    validate_chunk_config,
+    validate_graph_schema_config,
+    validate_graph_tune_config,
+    validate_graph_unit_config,
+)
+from kb_pipeline.pipeline.scheduler import (
+    requeue_kb_files,
+    requeue_single_file,
+    schedule_deletes_for_source,
+)
+from kb_pipeline.graph.lock import build_lock_held, build_lock_path
+from kb_pipeline.vector.qdrant import client as qdrant_client
+from kb_pipeline.vector.qdrant import ensure_collection
+
+_last_kick: dict[str, float] = {}
+
+
+def settings() -> Settings:
+    return load_settings()
+
+
+# ── service control ─────────────────────────────────────────────────────
+
+def _env_file_keys(env_file: str | Path) -> set[str]:
+    """Variable names defined in the env file (same parsing rules as utils.load_env_file)."""
+    keys: set[str] = set()
+    try:
+        lines = Path(env_file).read_text(encoding="utf-8", errors="ignore").splitlines()
+    except OSError:
+        return keys
+    for raw in lines:
+        line = raw.strip()
+        if line and not line.startswith("#") and "=" in line:
+            keys.add(line.split("=", 1)[0].strip())
+    return keys
+
+
+def _child_env(env_file: str, base_dir: Path) -> dict[str, str]:
+    """Environment for the child processes the web process spawns (graph builds, fallback scripts): drop the
+    variables the web process snapshotted from the env file at startup so the child re-reads the current file
+    itself; every other variable (PATH, XDG_RUNTIME_DIR, the DBUS address etc., which systemd-run needs) is
+    inherited as usual.
+    Seen on the real box 2026-09-12: the file said KB_GRAPH_LLM_CONCURRENCY=16 when web started and was later
+    changed to 128, yet every graph build child spawned by web still ran with 16 -- load_env_file uses
+    setdefault, so a value already present in the child's environment is never overridden by the file;
+    editing the file changed nothing, only a web restart would have applied it."""
+    keys = _env_file_keys(env_file)
+    env = {k: v for k, v in os.environ.items() if k not in keys}
+    env["KB_ENV_FILE"] = str(env_file)
+    env["KB_LOCAL_BASE_DIR"] = str(base_dir)
+    return env
+
+
+def kick(unit: str, fallback_script: str | None = None, *, min_interval: float = 10.0) -> str:
+    """Start a oneshot systemd unit now (instead of waiting for its timer).
+    Falls back to launching the underlying script directly when systemd is
+    unavailable. Rate-limited so the poller can call it opportunistically."""
+    now = time.time()
+    if now - _last_kick.get(unit, 0.0) < min_interval:
+        return "recently-kicked"
+    _last_kick[unit] = now
+    try:
+        proc = subprocess.run(
+            ["systemctl", "--user", "start", "--no-block", unit],
+            capture_output=True, text=True, timeout=10,
+        )
+        if proc.returncode == 0:
+            return "systemd"
+    except Exception:
+        pass
+    if fallback_script:
+        cfg = settings()
+        base_dir = cfg.state_db.parent.parent.parent  # <base>/runtime/state/db
+        script = base_dir / "scripts" / fallback_script
+        if script.exists():
+            log_dir = cfg.log_dir
+            log_dir.mkdir(parents=True, exist_ok=True)
+            with (log_dir / f"web-kick-{fallback_script}.log").open("ab") as log:
+                subprocess.Popen(
+                    ["/bin/bash", str(script)],
+                    stdout=log, stderr=log, start_new_session=True,
+                    env=_child_env(str(cfg.env_file), base_dir),
+                )
+            return "script"
+    return "unavailable"
+
+
+def kick_scan() -> str:
+    cfg = settings()
+    flag = cfg.runtime_dir / "state" / "mirror_changed.flag"
+    try:
+        flag.parent.mkdir(parents=True, exist_ok=True)
+        flag.touch()  # the scan script skips without the mirror flag
+    except OSError:
+        pass
+    return kick("carrel-scan.service", "kb-pipeline-scan.sh")
+
+
+def kick_worker() -> str:
+    return kick("carrel-worker.service", "kb-pipeline-worker-once.sh")
+
+
+# ── overview / progress ─────────────────────────────────────────────────
+
+_dir_count_cache: dict[str, tuple[float, int]] = {}
+# Knowledge bases this process is permanently deleting right now. The deletion runs synchronously in the
+# request thread and takes minutes for a large one: overview reports "deleting" from this set, so it shows
+# after a page reload or in another browser as well
+_KB_DELETING: set[str] = set()
+_rebuild_check_cache: dict[str, tuple[float, dict[str, Any]]] = {}
+REBUILD_CHECK_TTL = 60.0
+
+
+def rebuild_check_cached(cfg, kb_id: str, *, now: float | None = None) -> dict[str, Any] | None:
+    """Current progress against the auto-rebuild conditions (days since the last full rebuild / threshold, new
+    chunks / threshold): the very check the timer runs every two hours (evaluate_rebuild), drawn by the
+    console as one line under the policy row. One evaluation compares the chunk ledger of the whole knowledge
+    base while polling runs every 2.5 s, so the result is cached per knowledge base for 60 seconds;
+    unenrolled knowledge bases and those without the graph turned on are skipped (2026-09-23: the user asked
+    to show only the progress)."""
+    sources = getattr(cfg, "sources", None) or {}
+    source = sources.get(kb_id)
+    if source is None or not getattr(source, "graph_enabled", False):
+        return None
+    ts = time.time() if now is None else float(now)
+    hit = _rebuild_check_cache.get(kb_id)
+    if hit is not None and ts - hit[0] < REBUILD_CHECK_TTL:
+        return hit[1]
+    from kb_pipeline.graph.build import evaluate_rebuild
+
+    try:
+        result = evaluate_rebuild(cfg, source_key=kb_id, source=source)
+    except Exception as exc:
+        result = {"source": kb_id, "due": False, "reason": "check_failed", "error": repr(exc)}
+    keep = {k: result.get(k) for k in ("due", "reason", "skipped_reason", "operator", "appends_since_full",
+                                       "baseline_graph_version", "conditions") if k in result}
+    _rebuild_check_cache[kb_id] = (ts, keep)
+    return keep
+
+
+def _dir_file_count(mirror_root: Path, name: str, *, ttl: float = 30.0) -> int | None:
+    """Pipeline-eligible file count of one top-level directory, walked from
+    the filesystem so unenrolled dirs get a number too (the state DB only
+    knows enrolled KBs). Same skip rules and extension whitelist as the
+    scanner, so the count matches files_total once the KB is enrolled.
+    Cached briefly -- the console polls every few seconds."""
+    now = time.time()
+    hit = _dir_count_cache.get(name)
+    if hit and now - hit[0] < ttl:
+        return hit[1]
+    count = 0
+    try:
+        boundary = (mirror_root / name).resolve()
+        for path in (mirror_root / name).rglob("*"):
+            try:
+                if not path.is_file() or scanner.should_skip(path, mirror_root / name):
+                    continue
+            except OSError:
+                continue
+            if scanner.inside_boundary(path, boundary) and scanner.is_ingestible_path(path):
+                count += 1
+    except OSError:
+        return hit[1] if hit else None
+    _dir_count_cache[name] = (now, count)
+    return count
+
+
+def _graph_status(con, kb_id: str, dir_name: str, config: dict[str, Any]) -> str:
+    """Graph build status, using the same vocabulary as the parse status dot: disabled (graph build not
+    turned on) / pending (turned on, not built yet) / running (build in progress) / ok (built) /
+    failed (last build failed) / stopped (interrupted, cache still there)."""
+    effective = dict(discovery.DEFAULTS)
+    effective.update(discovery.DIR_DEFAULTS.get(dir_name, {}))
+    effective.update(config)
+    if not effective.get("graph_enabled"):
+        return "disabled"
+    row = con.execute(
+        "SELECT status FROM graph_builds WHERE kb_id=? AND status != 'rolled_back' ORDER BY started_at DESC LIMIT 1",
+        (kb_id,),
+    ).fetchone()
+    if row is None:
+        return "pending"
+    status = str(row["status"])
+    if status == "done":
+        return "ok"
+    if status == "failed":
+        return "failed"
+    if status == "cancelled":
+        # A build interrupted by "Turn off knowledge graph" or by an operator stopping the service. The
+        # artifacts are incomplete but the LLM cache is kept, so the next build hits the cache and resumes
+        # from where it stopped -- so this is not a failure, it is "to be continued".
+        return "stopped"
+    return "running"
+
+
+def _graph_artifacts_exist(con, kb_id: str) -> bool:
+    """Whether this knowledge base still has graph artifacts (build records). graph_enabled only expresses
+    the user's intent; whether artifacts exist is a separate matter -- keeping the two apart is what stops
+    the delete entry point from being locked by the switch state."""
+    row = con.execute("SELECT 1 FROM graph_builds WHERE kb_id=? LIMIT 1", (kb_id,)).fetchone()
+    return row is not None
+
+
+def _paused_cache_reuse(con, kb_id: str, row) -> dict[str, Any]:
+    """Whether the cache of the paused build can still be resumed now.
+
+    "Resume build" is a promise about cost: LLM calls that already completed come back instantly. But the
+    cache key is the hash of a single call's input_args, which includes both model and messages -- switch
+    the build model, extract labels again or change the chunking parameters and the old cache is missed
+    entirely. Clicking "Resume build" would then really be a full re-run of several hours, while the button
+    says "Resume".
+
+    So two things are compared: the config fingerprint recorded when the build started, and the corpus
+    fingerprint recorded when it finished. If either does not match, the console switches the button back
+    to "Build now / again" and says which one changed.
+    """
+    from kb_pipeline.graph.build import graph_cache_fingerprint, source_snapshot_hash
+
+    cfg = settings()
+    try:
+        kb_row = con.execute(
+            "SELECT source_root, collection FROM kb_sources WHERE kb_id=?", (kb_id,)).fetchone()
+        source = discovery.build_source(
+            cfg.mirror_root, str(kb_row["source_root"]), discovery.get_config(con, kb_id),
+            kb_id=kb_id, collection=str(kb_row["collection"]))
+        now_fp = graph_cache_fingerprint(cfg, source)
+    except Exception:
+        # No model selected, knowledge base deleted, config unreadable -- none of these can promise "Resume"
+        return {"cache_reusable": False, "cache_stale": "Config unreadable, cannot tell whether the cache can be reused"}
+
+    stale: list[str] = []
+    stored_fp = str(row["cache_fingerprint"] or "")
+    if not stored_fp:
+        # This column was added later. Old records have no fingerprint, so the config at the time is
+        # unknown and nothing is promised.
+        stale.append("this build predates the fingerprint record")
+    elif stored_fp != now_fp:
+        stale.append("labels / predicates / model / unit settings changed")
+    stored_corpus = str(row["source_content_hash"] or "")
+    if stored_corpus and source_snapshot_hash(
+            db.active_chunk_refs(con, source.collection)) != stored_corpus:
+        stale.append("corpus changed")
+    return {"cache_reusable": not stale, "cache_stale": " · ".join(stale)}
+
+
+def _graph_build_info(con, kb_id: str, collection: str = "") -> dict[str, Any] | None:
+    """Details of the most recent graph build (phase check-ins / timestamps / error), for the
+    "Graph build status" panel."""
+    row = con.execute(
+        "SELECT graph_build_id, graph_version, status, stage, started_at, finished_at, error, "
+        "cache_fingerprint, source_content_hash, build_kind, progress_json, manifest_json, worker_host, worker_pid FROM graph_builds "
+        "WHERE kb_id=? AND status != 'rolled_back' ORDER BY started_at DESC LIMIT 1",
+        (kb_id,),
+    ).fetchone()
+    if row is None:
+        return None
+    info = dict(row)
+    info["progress"] = read_progress(info.pop("progress_json", None))
+    worker_host, worker_pid = info.pop("worker_host", None), info.pop("worker_pid", None)
+    info["cleanup_running"] = None
+    if info["status"] == "done" and info["progress"].get("phase") == "cleanup":
+        # A published version remains usable if its cleanup process has stopped.
+        import socket
+        from kb_pipeline.graph.lock import build_lock_holder
+
+        if worker_host == socket.gethostname() and worker_pid:
+            try:
+                lock = build_lock_path(settings())
+                info["cleanup_running"] = bool(build_lock_held(lock) and build_lock_holder(lock).get("pid") == worker_pid)
+            except (OSError, ValueError, TypeError):
+                pass
+    manifest = read_progress(info.pop("manifest_json", None))
+    info["models"] = manifest.get("model_ids") or manifest.get("models") or {}
+    info["schema_version"] = manifest.get("schema_version_id") or (manifest.get("schema") or {}).get("version_id")
+    info["resumed"] = bool(manifest.get("resumed_phases"))
+    info["resumed_phases"] = manifest.get("resumed_phases") or []
+    info["post_publish_error"] = manifest.get("graph_gc_error") or manifest.get("post_publish_error") or manifest.get("comparison_write_error")
+    info["phase_history"] = [dict(r) for r in con.execute(
+        "SELECT phase, started_at, done_at AS finished_at FROM graph_build_phases "
+        "WHERE graph_build_id=? ORDER BY done_at, rowid", (row["graph_build_id"],))]
+    # How many appends have landed since the last full-build version: the status card explains
+    # "this graph = full build + N appends"
+    full = con.execute(
+        "SELECT COALESCE(finished_at, started_at) AS ts FROM graph_builds WHERE kb_id=? AND status='done' "
+        "AND build_kind='full' ORDER BY finished_at DESC, started_at DESC LIMIT 1", (kb_id,)).fetchone()
+    info["appends_since_full"] = db.count_graph_builds_since(
+        con, kb_id, kind="append", since_ts=int(full["ts"] or 0)) if full is not None else 0
+    # Only count cache entries and completed phases once the build has stopped (paused or failed): it tells
+    # the user how much "Resume" gets for free. Polling runs every 2.5 s and should not walk a directory of
+    # thousands of files for a number that is only shown while stopped.
+    if collection and str(info.get("status")) in ("cancelled", "failed"):
+        from kb_pipeline.graph.build import GRAPH_PHASE_LABELS
+
+        labels = dict(GRAPH_PHASE_LABELS)
+        info["cache_entries"] = graph_cache_entries(settings(), collection)
+        info["extraction_entries"] = db.graph_extraction_count(con, kb_id)
+        info.update(_paused_cache_reuse(con, kb_id, row))
+        info["phases_done"] = [labels.get(p, p) for p in db.graph_phases_done(con, str(row["graph_build_id"]))
+                               if p in labels]
+    # Since the build history table was removed (2026-09-06), size and resolution numbers live on the status
+    # card: take the manifest of the most recent successful version
+    done_row = con.execute(
+        "SELECT * FROM graph_builds WHERE kb_id=? AND status='done' ORDER BY finished_at DESC, started_at DESC LIMIT 1",
+        (kb_id,)).fetchone()
+    info["active_graph_version"] = None
+    if done_row is not None:
+        try:
+            summary = _graph_build_summary(dict(done_row), [], {})
+            info["counts"] = summary.get("counts")
+            info["resolution"] = summary.get("resolution")
+            info["counts_at"] = done_row["finished_at"] or done_row["started_at"]
+            # Units / documents whose extraction failed: at <=5% the build still completes, but it has to be
+            # visible on the status card (health check R3)
+            extract = ((summary.get("stats") or {}).get("extract") or {})
+            info["extract_failed_units"] = extract.get("failed_units")
+            info["extract_failed_documents"] = extract.get("failed_documents") or []
+            facts_stats = ((summary.get("stats") or {}).get("facts") or {})
+            info["facts_partial_units"] = int(facts_stats.get("partial_units_total") if facts_stats.get("partial_units_total") is not None
+                                              else len(facts_stats.get("partial_units") or []))
+            info["evidence_conflict_facts"] = facts_stats.get("evidence_conflict_facts")
+        except Exception:
+            info["counts"] = None
+        # The graph preview draws this version (the most recently completed one that is not a trial build),
+        # kept apart from the new version number of a build in progress: the frontend uses it to decide
+        # "does the preview need re-fetching", so a running build no longer redraws on every poll
+        # (health check B3)
+        active = db.latest_successful_graph_build(con, str(done_row["source_key"]))
+        info["active_graph_version"] = str(active["graph_version"]) if active is not None else None
+    # Verdict of the most recent scheduled check (health check D7) and the actual per-phase durations of the
+    # last completed build -- the progress bar weights (health check D8)
+    info["last_check"] = db.latest_graph_check(con, kb_id)
+    info["stage_weights"] = {}
+    if done_row is not None:
+        from kb_pipeline.graph.build import stage_weights_from_phases
+
+        from kb_pipeline.graph.build import merge_stage_weights
+
+        # Take the per-phase maximum across the last few completed versions: an append or a cache-hit
+        # extraction takes only seconds, and weighting from that one alone would flatten the progress bar of
+        # the next from-scratch extraction
+        recent = con.execute(
+            "SELECT graph_build_id, started_at FROM graph_builds WHERE kb_id=? AND status='done' "
+            "ORDER BY finished_at DESC, started_at DESC LIMIT 5", (kb_id,)).fetchall()
+        info["stage_weights"] = merge_stage_weights([
+            stage_weights_from_phases(int(r["started_at"] or 0), db.graph_phase_timestamps(con, str(r["graph_build_id"])))
+            for r in recent])
+    # The fingerprints are of no use to the frontend; keep them out of the 2.5-second polling response
+    info.pop("cache_fingerprint", None)
+    info.pop("source_content_hash", None)
+    # A pause is persistent and the panel has to say so -- otherwise "paused" and "auto-rebuild may resume
+    # it any moment" look exactly the same in the UI.
+    info["paused"] = bool(discovery.get_config(con, kb_id).get("graph_paused"))
+    return info
+
+
+def _schema_suggest_info(con, kb_id: str) -> dict[str, Any] | None:
+    """The "extraction in progress" mark schema_flow writes to app_config during label extraction; a stale
+    one (left behind by a killed process) does not count."""
+    from kb_pipeline.graph.schema_flow import SUGGEST_MARK_FRESH_SECONDS, SUGGEST_MARK_PREFIX
+
+    mark = db.get_app_config(con, SUGGEST_MARK_PREFIX + kb_id)
+    if not isinstance(mark, dict):
+        return None
+    started = int(mark.get("started_at") or 0)
+    if time.time() - started > SUGGEST_MARK_FRESH_SECONDS:
+        return None
+    created = int(mark.get("created_at") or started)
+    return {"origin": mark.get("origin"), "started_at": created, "seconds": max(0, int(time.time() - created)),
+            "sampled": mark.get("sampled"), "phase": mark.get("phase"), "task_id": mark.get("token"),
+            "model_id": mark.get("model_id"), "progress_at": mark.get("progress_at")}
+
+
+def _delete_state(row) -> str | None:
+    """A permanent delete in progress -> deleting; one that did not finish (a storage layer failed to delete, or
+    the process died halfway) -> delete_failed; neither -> None."""
+    if str(row["kb_id"]) in _KB_DELETING:
+        return "deleting"
+    reason = row["inactive_reason"] if "inactive_reason" in row.keys() else None
+    if str(row["status"]) != "active" and str(reason or "") in discovery.DELETE_PENDING_REASONS:
+        return "delete_failed"
+    return None
+
+
+def overview() -> dict[str, Any]:
+    cfg = settings()
+    dirs = discovery.discover_directories(cfg.mirror_root)
+    # The schema was created once in init_state() during lifespan; the 2.5-second poll need not re-run
+    # CREATE IF NOT EXISTS plus twenty-odd trial ALTER TABLEs every time (health check D3)
+    kbs: list[dict[str, Any]] = []
+    parsing_active = False
+    with db.connect(cfg.state_db) as con:
+        # When a graph build child died but left a running row behind, mark it failed here -- otherwise the
+        # console shows "building" forever and build now / delete graph are refused forever.
+        recovered = db.reconcile_stale_graph_builds(con)
+        if recovered:
+            print(f"[web] recovered stale graph builds: {','.join(recovered)}", flush=True)
+        rows = {str(r["source_root"]): r for r in discovery.known_sources(con)}
+        for name in dirs:
+            row = rows.pop(name, None)
+            # Only unenrolled directories need a filesystem walk for their count; enrolled knowledge bases use
+            # files_total from the DB (a more accurate figure too), sparing the rglob+stat over a large
+            # directory every 30 seconds.
+            entry: dict[str, Any] = {"dir": name}
+            if row is None or str(row["status"]) != "active":
+                entry["dir_files"] = _dir_file_count(cfg.mirror_root, name)
+            if row is None:
+                # ids are allocated at enrollment; an unenrolled dir has none.
+                # dir_defaults prefill the console's draft config form.
+                entry["state"] = "unenrolled"
+                entry["dir_defaults"] = discovery.DIR_DEFAULTS.get(name, {})
+                kbs.append(entry)
+                continue
+            entry["kb_id"] = str(row["kb_id"])
+            entry["collection"] = str(row["collection"])
+            deleting = _delete_state(row)
+            if deleting is not None:
+                # Not the inactive retention period: no countdown, cannot be re-enabled, and every maintenance
+                # run carries on deleting it
+                entry["state"] = deleting
+            elif str(row["status"]) == "active":
+                entry["state"] = "active"
+                stats = _kb_stats(con, entry["kb_id"])
+                entry.update(stats)
+                entry["parse_paused"] = db.parse_is_paused(con, entry["kb_id"])
+                entry["parse_pausing"] = entry["parse_paused"] and stats["jobs_active"] > 0
+                if stats["files_total"] == 0:
+                    # Just enabled and the scan has not enrolled the files yet: the sidebar shows the count
+                    # from disk for now (marked "waiting for the scan to enroll"), otherwise the moment of
+                    # enabling jumps from "N files" to "0 files" and back once the scan finishes (2026-09-08)
+                    entry["dir_files"] = _dir_file_count(cfg.mirror_root, name)
+                if stats["jobs_active"] > 0:
+                    parsing_active = True
+                    # Phase weights for the parse progress bar: the actual per-phase durations (seconds) of
+                    # this knowledge base's most recent parses
+                    entry["parse_stage_weights"] = _parse_stage_weights_cached(con, entry["kb_id"])
+                try:
+                    kb_config = discovery.get_config(con, entry["kb_id"])
+                except KeyError:
+                    kb_config = {}
+                # The whole config (including the long vlm_prompt text) is no longer returned with every
+                # 2.5-second poll: the frontend only reads config via /kbs/{id}/config, so here it was pure
+                # bandwidth waste.
+                entry["graph_status"] = _graph_status(con, entry["kb_id"], name, kb_config)
+                entry["graph_build"] = _graph_build_info(
+                    con, entry["kb_id"], str(row["collection"]))
+                entry["rebuild_check"] = rebuild_check_cached(cfg, entry["kb_id"])
+                # Once the switch is off graph_status becomes disabled, but artifacts may still exist (turned
+                # off mid-build, or the last delete failed). The frontend uses this to decide whether
+                # "Delete knowledge graph" is clickable, so an existing graph never becomes an orphan that
+                # cannot be cleaned up.
+                entry["graph_artifacts"] = _graph_artifacts_exist(con, entry["kb_id"])
+                # Whether a label extraction is running for this knowledge base (started from the console or
+                # automatically before a build): the console shows the "Extract labels" button as extracting,
+                # stays truthful across switching KBs / tabs / reloads, and re-fetches the config once it is
+                # done so the new version appears
+                entry["schema_suggest"] = _schema_suggest_info(con, entry["kb_id"])
+                from .schema_tasks import summary as schema_task_summary
+                entry["schema_task"] = schema_task_summary(con, entry["kb_id"])
+            else:
+                entry["state"] = "inactive"
+                try:
+                    inactive_cfg = json.loads(row["config_json"] or "{}")
+                except Exception:
+                    inactive_cfg = {}
+                entry["graph_status"] = _graph_status(con, entry["kb_id"], name, inactive_cfg)
+                entry["graph_build"] = _graph_build_info(
+                    con, entry["kb_id"], str(row["collection"]))
+                entry["graph_artifacts"] = _graph_artifacts_exist(con, entry["kb_id"])
+                entry["inactive_reason"] = row["inactive_reason"] if "inactive_reason" in row.keys() else None
+                inactive_at = int(row["inactive_at"] or 0)
+                retention = cfg.qdrant_inactive_retention_days * 86400
+                # Reaching this branch means the directory **is on disk** (the outer loop walks existing
+                # directories). kb_sources_gc exempts knowledge bases deactivated because their directory
+                # vanished: once the directory is back it is skipped and never hard-deleted. This code used
+                # to emit a countdown anyway, so it reached 0 and stayed there -- "permanently deleted in
+                # 0 days" was shown forever while nothing would ever be deleted. Unenrolling from the console
+                # (unenrolled) gets no such exemption, so that countdown is real.
+                gc_exempt = str(entry["inactive_reason"] or "") != "unenrolled"
+                entry["gc_exempt"] = gc_exempt
+                entry["gc_in_seconds"] = (
+                    None if gc_exempt or not inactive_at
+                    else max(0, inactive_at + retention - int(time.time()))
+                )
+            kbs.append(entry)
+        # rows whose directory vanished entirely (still registered)
+        for name, row in rows.items():
+            still_active = str(row["status"]) == "active"
+            linked = still_active and discovery.directory_admitted(cfg.mirror_root, name) == (False, "linked")
+            deleting = _delete_state(row)
+            entry = {
+                "dir": name, "kb_id": str(row["kb_id"]), "collection": str(row["collection"]),
+                "state": deleting or (("directory_linked" if linked else "directory_missing") if still_active else "inactive"),
+                "inactive_reason": row["inactive_reason"] if "inactive_reason" in row.keys() else None,
+            }
+            if not still_active and deleting is None:
+                # Directory really gone + deactivated = the retention period is genuinely running, and GC will
+                # hard-delete the collection, graph and index together when it expires. This is exactly the
+                # branch the countdown used to miss: it was shown on the branch where the directory still
+                # exists and nothing is ever deleted -- the two were reversed.
+                inactive_at = int(row["inactive_at"] or 0)
+                entry["gc_exempt"] = False
+                entry["gc_in_seconds"] = (
+                    max(0, inactive_at + cfg.qdrant_inactive_retention_days * 86400 - int(time.time()))
+                    if inactive_at else None
+                )
+            kbs.append(entry)
+        active_jobs = con.execute(
+            "SELECT j.job_id, j.kb_id, j.status, j.stage, j.updated_at, j.started_at, j.progress_json, "
+            "j.error, j.next_attempt_at, j.cancel_requested, f.rel_path, f.filename "
+            "FROM jobs j LEFT JOIN files f ON f.file_id = j.file_id "
+            "WHERE j.job_type = 'parse' AND j.status IN ('running', 'queued', 'retry') "
+            "ORDER BY CASE j.status WHEN 'running' THEN 0 WHEN 'queued' THEN 1 ELSE 2 END, j.updated_at DESC LIMIT 30"
+        ).fetchall()
+        jobs_out: list[dict[str, Any]] = []
+        now_ts = int(time.time())
+        for r in active_jobs:
+            item = dict(r)
+            item["progress"] = job_view(item, now_ts)
+            item.pop("progress_json", None)
+            item.pop("error", None)
+            if item.get("status") == "running":
+                # Seconds elapsed in the current phase, computed server-side for the frontend: the progress bar
+                # interpolates within the phase from it, immune to clock skew between the two machines
+                item["stage_elapsed"] = stage_elapsed(con, str(item["job_id"]), now_ts)
+            jobs_out.append(item)
+    if parsing_active:
+        # opportunistic: make sure a worker run is actually consuming the queue
+        kick_worker()
+    return {
+        "kbs": kbs,
+        "parsing_active": parsing_active,
+        "active_jobs": jobs_out,
+        "parse_enabled": cfg.parse_enabled,
+        "retention_days": cfg.qdrant_inactive_retention_days,
+    }
+
+
+# "Occupying the pipeline" = running, or a queued / retry job whose claim time has arrived. A retry job
+# still in its backoff wait (next_attempt_at in the future) cannot be claimed by the worker at all and must
+# not count as busy: otherwise one failed file makes the console pretend it is parsing, kicks the worker
+# for nothing every 10 seconds and blocks graph operations for up to an hour (the backoff cap).
+# The criterion itself lives in db.CLAIMABLE_JOB_SQL -- the automatic graph rebuild (cli) uses the same one;
+# two separate copies would drift sooner or later: manual builds allowed while automatic ones yield, or
+# the other way round.
+_CLAIMABLE_SQL = db.CLAIMABLE_JOB_SQL
+_WAITING_SQL = "(status IN ('queued','retry') AND next_attempt_at > ?)"
+
+
+def _stage_head(stage: str | None) -> str:
+    return str(stage or "").split("(", 1)[0].strip()
+
+
+def parse_stage_weights(con, kb_id: str, *, limit: int = 8) -> dict[str, float]:
+    """Median actual duration (seconds) of each phase over this knowledge base's most recent parses,
+    aggregated by phase head (the part before the parenthesis), reading only jobs / job_events. The parse
+    progress bar uses it to size each phase's span and interpolates within a phase by elapsed time: the
+    MinerU step reports no sub-progress, and with fixed weights the bar sat motionless at 9% for over a
+    hundred seconds and then jumped to 70% (2026-09-08). Lives in the console layer, does not touch
+    pipeline code."""
+    rows = con.execute(
+        """
+        SELECT e.job_id, e.ts, e.text, j.finished_at
+        FROM job_events e
+        JOIN (SELECT job_id, finished_at FROM jobs WHERE kb_id = ? AND job_type = 'parse' AND status = 'done'
+              ORDER BY finished_at DESC LIMIT ?) j ON j.job_id = e.job_id
+        WHERE e.kind = 'stage'
+        ORDER BY e.job_id, e.ts, e.rowid
+        """,
+        (kb_id, limit),
+    ).fetchall()
+    by_job: dict[str, list] = {}
+    for r in rows:
+        by_job.setdefault(str(r["job_id"]), []).append(r)
+    samples: dict[str, list[float]] = {}
+    for events in by_job.values():
+        for i, e in enumerate(events):
+            head = _stage_head(e["text"])
+            if not head or head == "Done":
+                continue
+            end = int(events[i + 1]["ts"]) if i + 1 < len(events) else int(e["finished_at"] or e["ts"])
+            samples.setdefault(head, []).append(float(max(0, end - int(e["ts"]))))
+    return {head: float(statistics.median(v)) for head, v in samples.items() if v}
+
+
+def stage_elapsed(con, job_id: str, now: int | None = None) -> int | None:
+    """Seconds a running job has spent in its current phase (measured from the latest phase event); None when
+    there is no phase event."""
+    row = con.execute("SELECT MAX(ts) AS ts FROM job_events WHERE job_id = ? AND kind = 'stage'", (job_id,)).fetchone()
+    if row is None or row["ts"] is None:
+        return None
+    return max(0, int(now if now is not None else time.time()) - int(row["ts"]))
+
+
+_stage_weight_cache: dict[str, tuple[float, dict[str, float]]] = {}
+
+
+def _parse_stage_weights_cached(con, kb_id: str, *, ttl: float = 30.0) -> dict[str, float]:
+    """parse_stage_weights with a 30-second cache: polling runs every 2.5 s, while the weights can only change
+    every few minutes."""
+    now = time.time()
+    hit = _stage_weight_cache.get(kb_id)
+    if hit and now - hit[0] < ttl:
+        return dict(hit[1])
+    weights = parse_stage_weights(con, kb_id)
+    _stage_weight_cache[kb_id] = (now, weights)
+    return dict(weights)
+
+
+def _kb_stats(con, kb_id: str) -> dict[str, int]:
+    def one(sql: str, *params) -> int:
+        row = con.execute(sql, params).fetchone()
+        return int(row[0] if row else 0)
+
+    total = one("SELECT COUNT(*) FROM files WHERE kb_id=? AND status NOT IN ('deleted','skipped')", kb_id)
+    indexed = one(
+        "SELECT COUNT(*) FROM files WHERE kb_id=? AND status NOT IN ('deleted','skipped') AND COALESCE(indexed_version,'') = content_version",
+        kb_id,
+    )
+    failed = one(
+        "SELECT COUNT(*) FROM files f WHERE f.kb_id=? AND f.status NOT IN ('deleted','skipped') "
+        "AND COALESCE(f.indexed_version,'') != f.content_version "
+        "AND EXISTS (SELECT 1 FROM jobs j WHERE j.file_id=f.file_id AND j.job_type='parse' AND j.status='failed') "
+        "AND NOT EXISTS (SELECT 1 FROM jobs j2 WHERE j2.file_id=f.file_id AND j2.job_type='parse' AND j2.status IN ('queued','retry','running'))",
+        kb_id,
+    )
+    now_ts = int(time.time())
+    jobs_active = one(
+        f"SELECT COUNT(*) FROM jobs WHERE kb_id=? AND job_type='parse' AND {_CLAIMABLE_SQL}",
+        kb_id, now_ts,
+    )
+    jobs_waiting = one(
+        f"SELECT COUNT(*) FROM jobs WHERE kb_id=? AND job_type='parse' AND {_WAITING_SQL}",
+        kb_id, now_ts,
+    )
+    # A full re-parse overwrites in place: files stay indexed throughout. The progress bar has to subtract
+    # the "indexed but being re-parsed" files from the completed count, otherwise a re-parse shows 100%
+    # from the very start.
+    reparsing = one(
+        "SELECT COUNT(*) FROM files f WHERE f.kb_id=? AND f.status NOT IN ('deleted','skipped') "
+        "AND COALESCE(f.indexed_version,'') = f.content_version "
+        "AND EXISTS (SELECT 1 FROM jobs j WHERE j.file_id=f.file_id AND j.job_type='parse' "
+        "AND j.status IN ('queued','retry','running'))",
+        kb_id,
+    )
+    if db.parse_is_paused(con, kb_id):
+        jobs_active = one("SELECT COUNT(*) FROM jobs WHERE kb_id=? AND job_type='parse' AND status='running'", kb_id)
+        jobs_waiting = 0
+    pending = max(0, total - indexed - failed)
+    return {"files_total": total, "files_indexed": indexed, "files_failed": failed,
+            "files_pending": pending, "jobs_active": jobs_active,
+            "jobs_waiting": jobs_waiting, "files_reparsing": reparsing}
+
+
+def kb_files(kb_id: str) -> list[dict[str, Any]]:
+    """File table: besides the status dot it also gives chunk count, indexed time and parser profile -- the
+    console sorts and filters on these, so nobody has to open files one by one to learn how many chunks a
+    file produced or which parser version indexed it."""
+    cfg = settings()
+    with db.connect(cfg.state_db) as con:
+        parse_paused = db.parse_is_paused(con, kb_id)
+        rows = con.execute(
+            "SELECT file_id, rel_path, filename, size, mtime, status, content_version, indexed_version, "
+            "indexed_parser_profile, last_seen_at, chunk_diag_json FROM files "
+            "WHERE kb_id=? AND status NOT IN ('deleted','skipped') ORDER BY rel_path", (kb_id,)
+        ).fetchall()
+        jobs = con.execute(
+            "SELECT job_id, file_id, status, stage, error, updated_at, progress_json, "
+            "next_attempt_at, cancel_requested FROM jobs "
+            "WHERE kb_id=? AND job_type='parse' ORDER BY created_at, rowid", (kb_id,)
+        ).fetchall()
+        chunk_counts = {str(r["file_id"]): int(r["n"]) for r in con.execute(
+            "SELECT c.file_id, COUNT(*) AS n FROM chunks c JOIN files f ON f.file_id = c.file_id "
+            "WHERE f.kb_id=? AND c.status='active' GROUP BY c.file_id", (kb_id,))}
+        indexed_at = {str(r["file_id"]): int(r["t"]) for r in con.execute(
+            "SELECT file_id, MAX(finished_at) AS t FROM jobs WHERE kb_id=? AND job_type='parse' "
+            "AND status='done' AND finished_at IS NOT NULL GROUP BY file_id", (kb_id,))}
+    latest: dict[str, Any] = {}
+    for j in jobs:
+        latest[str(j["file_id"])] = j  # created_at ascending: last wins
+    out = []
+    for r in rows:
+        file_id = str(r["file_id"])
+        job = latest.get(file_id)
+        job_status = str(job["status"]) if job else None
+        if str(r["content_version"]) == str(r["indexed_version"] or ""):
+            dot = "green"
+        elif job_status in {"queued", "retry", "running"}:
+            dot = "yellow"
+        elif job_status == "failed":
+            dot = "red"
+        else:
+            dot = "yellow"
+        out.append({
+            "file_id": file_id,
+            "rel_path": str(r["rel_path"]),
+            "size": int(r["size"]),
+            "mtime": int(r["mtime"] or 0),
+            "dot": dot,
+            "job_status": job_status,
+            "parse_paused": parse_paused,
+            "job_id": (str(job["job_id"]) if job else None),
+            "progress": job_view(job, int(time.time())) if job else {},
+            "stage": (str(job["stage"]) if job and job["stage"] else None),
+            "error": (str(job["error"])[:400] if job and job["error"] and job_status in {"failed", "retry"} else None),
+            "chunk_diag": _chunk_diag_brief(r["chunk_diag_json"]) if dot == "green" else None,
+            "chunks": chunk_counts.get(file_id) if dot == "green" else None,
+            "indexed_profile": (str(r["indexed_parser_profile"]) if dot == "green" and r["indexed_parser_profile"] else None),
+            "indexed_at": indexed_at.get(file_id) if dot == "green" else None,
+        })
+    return out
+
+
+def _col(row, name: str, default=None):
+    """Works on sqlite3.Row and dict alike; a missing column (old records, hand-made rows in tests) yields
+    the default."""
+    try:
+        return row[name] if name in row.keys() else default
+    except (AttributeError, TypeError):
+        return default
+
+
+def _graph_build_summary(row, phases: list[dict[str, Any]], labels: dict[str, str]) -> dict[str, Any]:
+    """Readable summary of one graph build record: kind, size, resolution effect, completed phases. All
+    numbers come from the manifest (the one persisted when the build finished); a step that never ran has
+    none, and the UI leaves it blank rather than guessing."""
+    try:
+        manifest = json.loads(row["manifest_json"] or "{}")
+    except (TypeError, ValueError):
+        manifest = {}
+    build_kind = str(manifest.get("build_kind") or _col(row, "build_kind") or "full")
+    # How much an incremental append reused: vectors summed per collection (manifest.enrich), the resolution
+    # replay is in resolution
+    reuse = None
+    collections = ((manifest.get("enrich") or {}).get("collections") or {}) if isinstance(manifest.get("enrich"), dict) else {}
+    if any("reused" in (c or {}) for c in collections.values()):
+        reuse = {"vectors_reused": sum(int((c or {}).get("reused") or 0) for c in collections.values()),
+                 "vectors_embedded": sum(int((c or {}).get("embedded") or 0) for c in collections.values())}
+    # The summary-tree (raptor) mode was removed on 2026-09-05; old records remain, and only a few numbers
+    # are read from their old manifests for the history table
+    mode = "raptor" if (manifest.get("mode") == "raptor" or "raptor" in manifest) else "entity_graph"
+    counts: dict[str, Any] | None = None
+    resolution = None
+    if mode == "raptor":
+        stats = manifest.get("raptor") or {}
+        if stats:
+            counts = {k: stats.get(k) for k in ("nodes", "documents", "llm_calls", "cache_hits", "degraded")}
+    else:
+        graph = manifest.get("graph") or {}
+        expected = (manifest.get("neo4j_import") or {}).get("expected_counts") or {}
+        if graph or expected:
+            counts = {
+                "entities": graph.get("entities", expected.get("entities")),
+                "relations": graph.get("relations", expected.get("relations")),
+                "text_units": graph.get("units", expected.get("text_units")),
+                "documents": (manifest.get("input") or {}).get("documents", expected.get("documents")),
+                "mentions": graph.get("mentions"),
+            }
+        res = graph.get("resolution") if isinstance(graph, dict) else None
+        if isinstance(res, dict):
+            resolution = res
+        merge_stats = graph.get("merge") if isinstance(graph, dict) else None
+        if isinstance(merge_stats, dict) and counts is not None:
+            counts["type_violations"] = merge_stats.get("type_violations")
+            counts["schema_drift_types"] = merge_stats.get("schema_drift_types")
+            counts["schema_drift_predicates"] = merge_stats.get("schema_drift_predicates")
+            counts["negated_dropped"] = merge_stats.get("negated_dropped")
+            counts["orphan_dropped"] = merge_stats.get("orphan_dropped")
+            # Noise-reduction stats (2026-09-04): boilerplate / listing units, boilerplate-only relations,
+            # value folding, reference entities, demoted types
+            for key in ("boilerplate_units", "listing_units", "boilerplate_relations", "boilerplate_entities",
+                        "value_entities_dropped", "value_relations_folded", "reference_entities", "demoted_types"):
+                counts[key] = merge_stats.get(key)
+            counts["demoted_type_names"] = merge_stats.get("demoted_type_names") or []
+            counts["noisy_type_names"] = merge_stats.get("noisy_type_names") or []
+            counts["scoped_entities"] = merge_stats.get("scoped_entities")
+            counts["derived_variant_edges"] = merge_stats.get("derived_variant_edges")
+        facts_block = manifest.get("facts") or {}
+        if counts is not None and facts_block and not facts_block.get("skipped"):
+            counts["specs"] = facts_block.get("facts")
+            counts["spec_units"] = facts_block.get("units")
+            counts["specs_linked"] = facts_block.get("subjects_linked")
+    input_docs = (manifest.get("input") or {}).get("documents")
+    # The three stat blocks for the build record details: corpus figures (chunks per unit, average tokens,
+    # gleaning rounds), the extraction phase (units / cache / calls / failures / parse quality) and the
+    # summary phase. All picked verbatim from the manifest; a step that never ran is None and the UI leaves
+    # it blank.
+    input_block = manifest.get("input") or {}
+    extract_block = manifest.get("extract") or {}
+    graph_block = manifest.get("graph") or {}
+    stats = {
+        "input": {**{k: input_block.get(k) for k in
+                     ("units", "unit_chunks", "avg_unit_chunks", "avg_unit_tokens", "max_unit_tokens", "max_gleanings",
+                      "units_by_kind")}}
+        if input_block else None,
+        "extract": {
+            **{k: extract_block.get(k) for k in ("units", "extracted", "cached", "failed_units", "failed_documents", "entities_total")},
+            "llm": extract_block.get("llm"),
+            "parse": extract_block.get("parse"),
+        } if extract_block else None,
+        "summaries": graph_block.get("summaries") if isinstance(graph_block, dict) else None,
+        "llm": graph_block.get("llm") if isinstance(graph_block, dict) else None,
+        "facts": manifest.get("facts") if isinstance(manifest.get("facts"), dict) else None,
+        "predicate_health": (graph_block.get("merge") or {}).get("predicate_health") if isinstance(graph_block, dict) else None,
+        "reuse": reuse,
+    }
+    return {
+        "graph_build_id": str(row["graph_build_id"]),
+        "graph_version": str(row["graph_version"]),
+        "status": str(row["status"]),
+        "stage": row["stage"],
+        "started_at": row["started_at"],
+        "finished_at": row["finished_at"],
+        "mode": mode,
+        "build_kind": build_kind,
+        "base_version": manifest.get("base_version"),
+        "delta": manifest.get("delta") if isinstance(manifest.get("delta"), dict) else None,
+        "input_rows": int(input_docs if isinstance(input_docs, int) else (row["input_rows"] or 0)),
+        "active_chunk_count": int(row["active_chunk_count"] or 0),
+        "counts": counts,
+        "resolution": resolution,
+        "stats": stats,
+        "phases": [{"phase": p["phase"], "label": labels.get(p["phase"], p["phase"]), "done_at": p["done_at"]}
+                   for p in phases],
+        "resumed_phases": [labels.get(p, p) for p in manifest.get("resumed_phases") or []],
+        "steps": list(manifest.get("steps") or []),
+        "error": (str(row["error"])[:600] if row["error"] else None),
+    }
+
+
+def _chunk_diag_brief(raw) -> dict[str, Any] | None:
+    """The file list only needs the verdict: chunk count, mean length, whether acceptance passed and, if
+    not, why."""
+    if not raw:
+        return None
+    try:
+        diag = json.loads(raw)
+    except (TypeError, ValueError):
+        return None
+    stats = diag.get("stats") or {}
+    return {
+        "ok": bool(diag.get("ok")),
+        "chunks": int(stats.get("chunks") or 0),
+        "tokens_mean": stats.get("tokens_mean"),
+        "reasons": [str(r.get("message") or r.get("key")) for r in diag.get("reasons") or []],
+        "reason_details": list(diag.get("reasons") or []),
+    }
+
+
+# ── enrollment ──────────────────────────────────────────────────────────
+
+def enroll(dir_name: str, config: dict[str, Any] | None = None) -> dict[str, Any]:
+    """Enroll a directory, optionally with the config the user drafted in the
+    console. The draft is validated BEFORE enrollment (a bad draft leaves
+    nothing enrolled) and written before the scan kick, so the very first
+    parse already runs with the user's strategy. A new library is committed
+    only after any previous owner's correction file has been isolated."""
+    from kb_pipeline.graph.corrections import ensure_corrections_file
+
+    cfg = settings()
+    db.init_db(cfg.state_db)
+    config = strip_retired_config(config) if config else config
+    with db.connect(cfg.state_db) as con:
+        if config:
+            limits = chunk_limits(cfg.embedding_base_url)
+            effective = dict(discovery.DEFAULTS)
+            effective.update(discovery.DIR_DEFAULTS.get(dir_name, {}))
+            effective.update({k: v for k, v in config.items() if v is not None})
+            errors = _validate_config(con, effective, normalize_graph_updates(config), limits)
+            if errors:
+                raise ValueError("; ".join(errors))
+        # Serialize identity allocation and file preparation. Until commit,
+        # readers must not see a new active library with its predecessor's rules.
+        # Keep model/network validation above this short write transaction.
+        con.execute("BEGIN IMMEDIATE")
+        source, outcome = discovery.enroll(con, cfg.mirror_root, dir_name)
+        if config:
+            # Write the draft when re-enabling a deactivated knowledge base too: the console's semantics are
+            # "save = persist". It used to be written only on first enrollment, so a user editing the config
+            # of a deactivated KB and clicking save saw a success message, yet a reload brought the old
+            # values back. Saving only updates the strategy; it has no side effect on indexed content.
+            discovery.set_config(con, source.kb_id, config)
+        try:
+            ensure_corrections_file(cfg, source.kb_id, folder=dir_name, fresh=outcome == "new")
+        except OSError as exc:
+            # Roll back registration/config and the sequence on failure. Files
+            # already isolated stay in orphaned/; a retry prepares a new template.
+            raise ValueError("Could not prepare correction rules; this operation was not saved. Check directory permissions and free disk space, then retry.") from exc
+    # 外部资源在事务之外创建:失败时库已经是 active 了。与其抛裸 500(前端只
+    # 显示 Internal Server Error,轮询却显示已开启),不如带着告警正常返回——
+    # 主库 collection 由首个解析任务懒建,能自愈。
+    warnings: list[str] = []
+    created: Any = None
+    q = qdrant_client(cfg.qdrant_url, cfg.qdrant_api_key)
+    try:
+        created = ensure_collection(q, source.collection, cfg.vector_layout)
+    except Exception as exc:
+        warnings.append(f"Vector collection creation failed ({exc.__class__.__name__}); it is recreated automatically at the first parse")
+    try:
+        search_fts.ensure_indices(cfg.opensearch_url, [source.collection])
+    except Exception as exc:
+        warnings.append(f"Keyword index creation failed ({exc.__class__.__name__}); it is retried when parse results are written")
+    kick_scan()
+    kick_worker()
+    return {"kb_id": source.kb_id, "collection": source.collection, "outcome": outcome,
+            "qdrant": created, "warnings": warnings}
+
+
+def delete_kb(kb_id: str) -> dict[str, Any]:
+    """Permanent deletion: immediately clears the vector store, the graph stores (Qdrant graph collection +
+    Neo4j projection), the graph build cache, the keyword index, the parse cache and all state; it goes
+    through the same _hard_delete_kb as the retention-expiry GC, so the cleanup scope is strictly
+    identical."""
+    from kb_pipeline.maintenance import PartialDeleteError, delete_kb_now
+
+    if kb_id in _KB_DELETING:
+        raise ValueError("This knowledge base is already being deleted; wait for it to finish")
+    _KB_DELETING.add(kb_id)
+    try:
+        _forget_graph_json(kb_id)
+        return delete_kb_now(settings(), kb_id=kb_id)
+    except PartialDeleteError as exc:
+        # Some storage layers were not deleted: the registry row is kept as delete_failed for the next GC
+        # round to retry; report that truthfully to the console instead of letting it show "permanently
+        # deleted".
+        raise ValueError(
+            "Deletion incomplete, these parts failed (it continues at the next maintenance run, "
+            'or click "Delete knowledge base" again): '
+            + "; ".join(exc.errors)
+        )
+    finally:
+        _KB_DELETING.discard(kb_id)
+
+
+def adopt_kb(kb_id: str, dir_name: str) -> dict[str, Any]:
+    """Console action "this directory is knowledge base X renamed": adopt the id and all data, only pointing
+    the knowledge base at the new directory; then kick one scan so files with unchanged content refresh
+    their path through metadata_update instead of being re-parsed. The similarity is returned as well, so a
+    wrong match is visible."""
+    cfg = settings()
+    name = str(dir_name or "").strip()
+    if not name:
+        raise ValueError("Missing directory name")
+    # Check the directory name before building the match report: the report joins this name into a path, walks
+    # the whole tree and computes checksums, so a name like ".." or an absolute path would first walk outside
+    # the mirror and only then be refused
+    if name not in discovery.discover_directories(cfg.mirror_root):
+        raise ValueError(f"directory {name!r} does not exist under the mirror root")
+    with db.connect(cfg.state_db) as con:
+        report = discovery.directory_match_report(con, cfg.mirror_root, kb_id, name)
+        source = discovery.adopt_directory(con, cfg.mirror_root, kb_id, name)
+        con.commit()
+    print(f"[web] kb adopted: {discovery.kb_label(kb_id, name)} matched {report['matched']}/{report['total']}", flush=True)
+    kick_scan()
+    kick_worker()
+    return {"kb_id": source.kb_id, "dir": name, "matched": report["matched"], "total": report["total"],
+            "verified": report["verified"], "looks_like_rename": discovery.looks_like_rename(report)}
+
+
+def unenroll(kb_id: str) -> dict[str, Any]:
+    cfg = settings()
+    with db.connect(cfg.state_db) as con:
+        row = con.execute("SELECT * FROM kb_sources WHERE kb_id=?", (kb_id,)).fetchone()
+        if row is None:
+            raise KeyError(kb_id)
+        if str(row["status"]) != "active":
+            # Idempotent: calling this again on an already closed knowledge base used to schedule another
+            # round of delete jobs and create another ingest_run (the points are already inactive, pure
+            # busywork)
+            return {"kb_id": kb_id, "files_delete_queued": 0, "delete_jobs": 0,
+                    "already_inactive": True,
+                    "retention_days": cfg.qdrant_inactive_retention_days}
+        discovery.mark_inactive(con, kb_id, reason="unenrolled")
+        run_id = db.begin_run(con, "web-unenroll", note=f"unenroll {row['source_root']}")
+        con.commit()
+    # Closing = stopping work, not deleting data: queued jobs are voided, and the running one exits on its
+    # own at the next phase boundary once it sees the cancel flag. Indexed content merely enters the
+    # deactivated retention period and revives as-is on re-enabling; files that were not fully parsed are
+    # re-queued by the next scan -- i.e. parsing continues from where it stopped.
+    from kb_pipeline.maintenance import stop_graph_build_now, stop_kb_parse_jobs
+
+    from .schema_tasks import cancel, summary
+    with db.connect(cfg.state_db) as con:
+        task = summary(con, kb_id)
+    if task and task.get("status") == "running":
+        cancel(cfg, kb_id, task["task_id"])
+    stopped = stop_kb_parse_jobs(cfg, kb_id=kb_id, reason="cancelled because the knowledge base was closed")
+    # Closing the knowledge base also stops its graph build (final review F02): cooperative SIGTERM, cache
+    # and artifacts kept for the retention period, resumed after re-enabling; a build that cannot be stopped
+    # is only recorded in the result and does not block the close itself (the build re-checks that the KB
+    # is still enabled before publishing)
+    try:
+        graph_stopped = stop_graph_build_now(cfg, kb_id=kb_id, reason="cancelled because the knowledge base was closed")
+    except Exception as exc:
+        graph_stopped = {"stopped": False, "error": repr(exc)}
+    with db.connect(cfg.state_db) as con:
+        deleted, jobs = schedule_deletes_for_source(
+            con,
+            ingest_run_id=run_id,
+            kb_id=kb_id,
+            collection=str(row["collection"]),
+            seen_file_keys=set(),
+        )
+        db.finish_run(con, run_id, added_count=0, updated_count=0, moved_count=0,
+                      deleted_count=deleted, failed_count=0)
+    kick_worker()
+    return {"kb_id": kb_id, "files_delete_queued": deleted, "delete_jobs": jobs,
+            "stopped_jobs": stopped, "stopped_graph": graph_stopped,
+            "retention_days": cfg.qdrant_inactive_retention_days}
+
+
+# ── per-KB config ───────────────────────────────────────────────────────
+
+def _dir_defaults(con, kb_id: str) -> dict[str, Any]:
+    """The directory-name-keyed presets this KB inherits at runtime
+    (build_source layers them between DEFAULTS and config_json)."""
+    row = con.execute("SELECT source_root FROM kb_sources WHERE kb_id=?", (kb_id,)).fetchone()
+    if row is None:
+        return {}
+    return discovery.DIR_DEFAULTS.get(str(row["source_root"]), {})
+
+
+def _validate_rebuild_policy(effective: dict[str, Any]) -> list[str]:
+    errors: list[str] = []
+    try:
+        parse_interval_days(effective.get("graph_rebuild_interval"))
+    except ValueError:
+        errors.append("Invalid auto-rebuild interval: use 7d / 2w / 1m or a plain number of days; empty means no time condition")
+    try:
+        parse_ratio(effective.get("graph_rebuild_new_chunk_pct"))
+    except ValueError:
+        errors.append("Invalid auto-rebuild new-content percentage: use 20% or 0.2; empty means no delta condition")
+    try:
+        parse_new_chunk_count(effective.get("graph_rebuild_new_chunk_count"))
+    except ValueError:
+        errors.append("Invalid auto-rebuild new chunk count: it must be an integer of at least 1; empty means no delta condition")
+    # The two measures are two expressions of the same condition; with both in effect the operator's meaning
+    # becomes unclear (under "or", whichever is met first? under "and", both required?). The console
+    # dropdown is already an either/or choice; this blocks direct API calls that bypass the UI.
+    if (effective.get("graph_rebuild_new_chunk_pct")
+            and effective.get("graph_rebuild_new_chunk_count")):
+        errors.append("The auto-rebuild new-content condition must be either a percentage or a chunk count, not both")
+    op = str(effective.get("graph_rebuild_operator") or "or").strip().lower()
+    if op not in {"or", "and"}:
+        errors.append("The auto-rebuild condition operator must be or / and")
+    return errors
+
+
+def normalize_graph_updates(updates: dict[str, Any]) -> dict[str, Any]:
+    """Normalize the graph fields about to be written into config_json (in place).
+
+    Only one rule so far: a new-content percentage above 100% is clamped to 100%. "Rebuild once it grew by
+    150%" and "rebuild once it doubled" are exactly equivalent in the check (the denominator is the number
+    of still-alive baseline chunks); keeping the larger number only makes the threshold look stricter than it
+    is. Clamping here rather than only on the read side means the console shows 100% after a reload --
+    otherwise the UI would say 150 while the behaviour follows 100, and the two would not match.
+    """
+    raw = updates.get("graph_rebuild_new_chunk_pct")
+    if raw in (None, ""):
+        return updates
+    try:
+        ratio = parse_ratio(raw)
+    except ValueError:
+        return updates          # an invalid format is left for _validate_config to report, not our job here
+    if ratio is not None and ratio > 1:
+        updates["graph_rebuild_new_chunk_pct"] = "100%"
+    return updates
+
+
+def _validate_config(con, effective: dict[str, Any], updates: dict[str, Any], limits: dict[str, Any]) -> list[str]:
+    """Shared by update_kb_config and enroll-with-config: chunk sizes against
+    live limits, rebuild policy formats, graph_llm references."""
+    errors = validate_chunk_config(effective.get("max_tokens"), effective.get("overlap_tokens"), limits)
+    errors.extend(validate_graph_unit_config(
+        effective.get("graph_unit_chunks"), effective.get("graph_max_gleanings")))
+    errors.extend(validate_graph_schema_config(
+        effective.get("graph_predicates"), effective.get("graph_parent_types")))
+    errors.extend(_validate_rebuild_policy(effective))
+    errors.extend(validate_graph_tune_config(
+        effective.get("graph_entity_types"), effective.get("graph_tune_sample_size")))
+    name = str(effective.get("vlm_model") or "")
+    # The parse and graph sections save independently. A graph-only update
+    # must not require changing the parsing model.
+    if not name.strip() and {"vlm_model", "vlm_prompt", "max_tokens", "overlap_tokens"}.intersection(updates):
+        errors.append("Select a multimodal model")
+    if name:
+        model = db.get_llm(con, str(name))
+        if model is None:
+            errors.append(f"Multimodal model {name!r} is not in the registry")
+        elif str(model["protocol"] or "openai") != "openai":
+            errors.append("Multimodal models require the OpenAI-compatible protocol")
+    graph_llm = updates.get("graph_llm")
+    if isinstance(graph_llm, dict):
+        from kb_pipeline.graph.build import GRAPH_LLM_STEPS, GRAPH_TUNE_STEP
+
+        for step, name in graph_llm.items():
+            if step not in GRAPH_LLM_STEPS and step != GRAPH_TUNE_STEP:
+                errors.append(f"Unknown graph step: {step}")
+            elif name and db.get_llm(con, str(name)) is None:
+                errors.append(f"Graph step {step} references model {name!r}, which is not in the registry")
+    return errors
+
+
+# 版本条目里给控制台看的元信息(LinkML 本体不进视图:体积大,下载走单独的接口)
+_VERSION_META_FIELDS = ("id", "created_at", "model", "sample_size", "sampled", "chunks_total", "documents", "domain",
+                        "origin", "prior_id", "guard", "example_stats", "observed", "upload")
+
+
+def schema_version_summary(entry: dict[str, Any]) -> dict[str, Any]:
+    """一条模式版本 → 控制台的展示形状:元信息 + 从 LinkML 展开的类型(上层类、父类、作用域)、关系(两端、单值)、画像。"""
+    from kb_pipeline.ontology import entry_model, model_summary
+
+    out = {k: entry.get(k) for k in _VERSION_META_FIELDS if k in entry}
+    model = entry_model(entry)
+    if model is None:
+        out.update({"broken": True, "language": "", "types": [], "predicates": [], "profile": {}})
+    else:
+        out.update(model_summary(model))
+    out["has_examples"] = bool(str(entry.get("examples") or "").strip())
+    return out
+
+
+def schema_versions_view(effective: dict[str, Any]) -> dict[str, Any]:
+    """控制台用的模式版本视图:版本列表(最新在前)+ 当前生效的 id(没有就是空串)。"""
+    versions = [schema_version_summary(dict(v)) for v in (effective.get("graph_schema_versions") or [])]
+    active = str(effective.get("graph_schema_active") or "")
+    if active not in {str(v.get("id")) for v in versions}:
+        active = ""
+    return {"versions": versions, "active": active}
+
+
+def graph_schema_linkml(kb_id: str, version_id: str) -> dict[str, Any]:
+    """下载一版模式的 LinkML(YAML)。version_id 写 active 就是现行版本。"""
+    from kb_pipeline.ontology import dump_linkml
+
+    cfg = settings()
+    with db.connect(cfg.state_db) as con:
+        row = con.execute("SELECT kb_id FROM kb_sources WHERE kb_id=?", (kb_id,)).fetchone()
+        if row is None:
+            raise KeyError(kb_id)
+        config = discovery.get_config(con, kb_id)
+    wanted = str(version_id or "").strip()
+    if wanted in ("", "active"):
+        wanted = str(config.get("graph_schema_active") or "")
+        if not wanted:
+            raise ValueError("This knowledge base has no schema version in effect yet")
+    entry = next((dict(v) for v in (config.get("graph_schema_versions") or []) if str(v.get("id")) == wanted), None)
+    if entry is None or not isinstance(entry.get("linkml"), dict):
+        raise ValueError("The schema version does not exist or has been rotated out")
+    return {"filename": f"{kb_id}-{wanted}.linkml.yaml", "text": dump_linkml(entry["linkml"])}
+
+
+def upload_graph_schema(kb_id: str, text: str | bytes, *, adopt: bool = False) -> dict[str, Any]:
+    """上传 LinkML 模式(插件审定的本体、手写的模式)入环;adopt=True 直接生效(下一次建图按它)。
+    校验不过的返回 422 并带全部错误;读取时丢掉的部分作为 warnings 返回。"""
+    from kb_pipeline.graph.schema_flow import register_uploaded_schema
+
+    cfg = settings()
+    size = len(text) if isinstance(text, (bytes, bytearray)) else len(str(text or "").encode("utf-8"))
+    if size > _SCHEMA_UPLOAD_MAX_BYTES:
+        raise ValueError(f"Schema file too large (limit {_SCHEMA_UPLOAD_MAX_BYTES // 1024} KB)")
+    if not size:
+        raise ValueError("The schema file is empty")
+    with db.connect(cfg.state_db) as con:
+        row = con.execute("SELECT * FROM kb_sources WHERE kb_id=?", (kb_id,)).fetchone()
+        if row is None:
+            raise KeyError(kb_id)
+        if str(row["status"]) != "active":
+            raise ValueError("The knowledge base is not enabled")
+        config = discovery.get_config(con, kb_id)
+    source = discovery.build_source(cfg.mirror_root, str(row["source_root"]), config,
+                                    kb_id=kb_id, collection=str(row["collection"]))
+    result = register_uploaded_schema(cfg, source, text, adopt=adopt)
+    with db.connect(cfg.state_db) as con:
+        merged = dict(discovery.DEFAULTS)
+        merged.update(_dir_defaults(con, kb_id))
+        merged.update(discovery.get_config(con, kb_id))
+    result["schema"] = schema_versions_view(merged)
+    if not adopt:
+        result["schema"]["active"] = result["version_id"]     # 和抽取一样:下拉框指到刚上传的这一版,保存才生效
+    return result
+
+
+_SCHEMA_UPLOAD_MAX_BYTES = 512 * 1024
+
+
+def _apply_schema_version(current: dict[str, Any], updates: dict[str, Any]) -> None:
+    """See kb_pipeline.limits.apply_schema_version (moved there 2026-09-08: the pipeline itself also has to
+    put a version into effect)."""
+    from kb_pipeline.limits import apply_schema_version
+
+    apply_schema_version(current, updates)
+
+
+def get_kb_config(kb_id: str) -> dict[str, Any]:
+    cfg = settings()
+    with db.connect(cfg.state_db) as con:
+        config = discovery.get_config(con, kb_id)
+        merged = dict(discovery.DEFAULTS)
+        merged.update(_dir_defaults(con, kb_id))
+        merged.update(config)
+    return {
+        "config": config,
+        "effective": merged,
+        "schema": schema_versions_view(merged),
+        "limits": chunk_limits(cfg.embedding_base_url),
+    }
+
+
+def delete_graph_schema_version(kb_id: str, version_id: str) -> dict[str, Any]:
+    """删掉版本环里的一条。
+
+    走服务端而不是让控制台直接写 graph_schema_versions,理由和「抽取时入环」是同
+    一条:放开给客户端写,「这一版是何时、用哪个模型、按多少采样抽出来的」就变成
+    可以随手编的东西,而回退版本的全部价值都建立在这份记录可信上。
+
+    唯一挡住的是**正在生效的那一版**。生效的模式字段是从它展开出来的,已经建成的图
+    也是按它建的;删掉之后下拉框会静默回落到最新那一版,于是界面显示 A 的模式、
+    建图用的是 B 的模式 —— 这种不一致没人看得出来。push_schema_version 淘汰旧版时
+    同样跳过它,是一条规则的两个出口。
+    """
+    cfg = settings()
+    wanted = str(version_id or "").strip()
+    if not wanted:
+        raise ValueError("Missing label version id")
+    with db.connect(cfg.state_db) as con:
+        row = con.execute("SELECT kb_id FROM kb_sources WHERE kb_id=?", (kb_id,)).fetchone()
+        if row is None:
+            raise KeyError(kb_id)
+        current = discovery.get_config(con, kb_id)
+        versions = [dict(v) for v in (current.get("graph_schema_versions") or [])]
+        if not any(str(v.get("id")) == wanted for v in versions):
+            raise ValueError("The label version does not exist or has been rotated out")
+        from kb_pipeline.graph.schema_flow import protected_schema_ids
+        if wanted == str(current.get("graph_schema_active") or "") or wanted in protected_schema_ids(con, kb_id):
+            raise ValueError("The version in effect cannot be deleted: the graph was built with it and it could never be selected again")
+        kept = [v for v in versions if str(v.get("id")) != wanted]
+        # An empty list has to be written as None: set_config uses None to mean "remove this key", whereas []
+        # would leave an empty array in config_json, which is not the same state as "never extracted".
+        discovery.set_config(con, kb_id, {"graph_schema_versions": kept or None})
+        con.commit()
+        merged = dict(discovery.DEFAULTS)
+        merged.update(_dir_defaults(con, kb_id))
+        merged.update(discovery.get_config(con, kb_id))
+    return {"deleted": wanted, "schema": schema_versions_view(merged)}
+
+
+# Config keys of the old pipeline. Forms from before the console redesign still send
+# them; the server drops them silently instead of raising, and old values already in config_json are
+# ignored by build_source.
+RETIRED_CONFIG_KEYS = {
+    "graph_chunk_size", "graph_chunk_overlap", "graph_encoding_model",
+    "graph_max_cluster_size", "graph_use_lcc", "graph_unit_tokens",
+    "graph_mode",          # 2026-09-05: summary-tree (raptor) mode removed, only the entity graph remains
+}
+RETIRED_LLM_STEPS = {"community"}
+
+
+def strip_retired_config(updates: dict[str, Any]) -> dict[str, Any]:
+    cleaned = {k: v for k, v in (updates or {}).items() if k not in RETIRED_CONFIG_KEYS}
+    llm = cleaned.get("graph_llm")
+    if isinstance(llm, dict):
+        cleaned["graph_llm"] = {k: v for k, v in llm.items() if k not in RETIRED_LLM_STEPS}
+    return cleaned
+
+
+def _graph_llm_choice(value: Any) -> dict[str, str]:
+    """The model chosen for each build step, without the empty slots: used to tell whether a save really
+    changes a model."""
+    if not isinstance(value, dict):
+        return {}
+    return {str(step): str(name).strip() for step, name in value.items() if str(name or "").strip()}
+
+
+def update_kb_config(kb_id: str, updates: dict[str, Any]) -> dict[str, Any]:
+    cfg = settings()
+    limits = chunk_limits(cfg.embedding_base_url)
+    updates = strip_retired_config(updates)
+    with db.connect(cfg.state_db) as con:
+        current = discovery.get_config(con, kb_id)
+        normalize_graph_updates(updates)
+        # 「选一个模式版本并保存」= 把那一版的 LinkML 展开成生效的模式字段(limits.apply_schema_version)
+        _apply_schema_version(current, updates)
+        # Mirror the post-save runtime view: a None update clears the key, so
+        # validation and warnings run against what build_source will see.
+        merged_cfg = dict(current)
+        for key, value in updates.items():
+            if value is None:
+                merged_cfg.pop(key, None)
+            else:
+                merged_cfg[key] = value
+        effective = dict(discovery.DEFAULTS)
+        effective.update(_dir_defaults(con, kb_id))
+        effective.update(merged_cfg)
+        errors = _validate_config(con, effective, updates, limits)
+        if errors:
+            raise ValueError("; ".join(errors))
+        # Changing the graph switch / models during a build causes a state mismatch: the build finishes as
+        # usual and leaves artifacts, but graph_status has already become disabled, "Delete knowledge graph"
+        # greys out with it, and the artifacts have no entry point left for cleanup. Parse-related fields are
+        # unaffected and can be changed as usual.
+        # The form sends graph_enabled and graph_llm with every save: what counts is whether the values changed,
+        # not whether the keys are present. Judged by the keys, any change of a graph policy was refused while
+        # a build ran (an automatic append every 2 hours, a full build for many hours), and saving any setting
+        # after a pause cleared the pause (2026-09-29 audit).
+        before = dict(discovery.DEFAULTS)
+        before.update(_dir_defaults(con, kb_id))
+        before.update(current)
+        was_enabled = bool(before.get("graph_enabled"))
+        closing = updates.get("graph_enabled") is False and was_enabled
+        changing_llm = "graph_llm" in updates and _graph_llm_choice(updates.get("graph_llm")) != _graph_llm_choice(current.get("graph_llm"))
+        stop_build = False
+        if closing or changing_llm:
+            db.reconcile_stale_graph_builds(con)
+            latest = con.execute(
+                "SELECT status FROM graph_builds WHERE kb_id=? ORDER BY started_at DESC LIMIT 1", (kb_id,)
+            ).fetchone()
+            if latest is not None and str(latest["status"]) == "running":
+                # Turning the switch off = an explicit request to stop work, so allow it and terminate the
+                # build along the way; changing a model is merely a config change, and switching mid-way would
+                # build the two halves with different models, so that is still refused.
+                if closing:
+                    stop_build = True
+                else:
+                    raise ValueError("A graph build is running; step models cannot be changed now. Wait for it to finish or turn the knowledge graph off first")
+        # "Turn on knowledge graph" is an explicit intent that overrides the earlier pause -- only when the
+        # switch really goes from off to on. Turning it off needs no clearing: while off, evaluate_rebuild
+        # already returns at the graph_enabled gate.
+        if updates.get("graph_enabled") is True and not was_enabled and current.get("graph_paused"):
+            updates = dict(updates)
+            updates["graph_paused"] = None
+        saved = discovery.set_config(con, kb_id, updates)
+        if updates.get("graph_schema_active"):
+            from kb_pipeline.graph.schema_flow import SUGGEST_TASK_PREFIX
+            task = db.get_app_config(con, SUGGEST_TASK_PREFIX + kb_id)
+            if isinstance(task, dict) and task.get("status") == "completed":
+                task["acknowledged"] = True
+                db.set_app_config(con, SUGGEST_TASK_PREFIX + kb_id, task)
+    if updates.get("graph_enabled") is False:
+        from .schema_tasks import cancel, summary
+        with db.connect(cfg.state_db) as con:
+            task = summary(con, kb_id)
+        if task and task.get("status") == "running":
+            cancel(cfg, kb_id, task["task_id"])
+    if stop_build:
+        # Only the process is stopped; artifacts and the LLM cache are all kept: a build after re-enabling
+        # hits the cache and resumes.
+        from kb_pipeline.maintenance import stop_graph_build_now
+
+        stop_graph_build_now(cfg, kb_id=kb_id, reason="Build stopped by “Turn off knowledge graph”")
+    # This used to generate "no model selected / no rebuild condition" reminders; removed at the user's
+    # request -- a missing model is caught by the "Build now / again" validation and the failed build
+    # status, no more nagging.
+    return {"config": saved, "warnings": []}
+
+
+def pause_parsing(kb_id: str) -> dict[str, Any]:
+    cfg = settings()
+    with db.connect(cfg.state_db) as con:
+        con.execute("BEGIN IMMEDIATE")
+        row = con.execute("SELECT status FROM kb_sources WHERE kb_id=?", (kb_id,)).fetchone()
+        if row is None:
+            raise KeyError(kb_id)
+        if str(row["status"]) != "active":
+            raise ValueError("The knowledge base is not enabled")
+        discovery.set_config(con, kb_id, {"parse_paused": True})
+        running = con.execute("SELECT COUNT(*) FROM jobs WHERE kb_id=? AND job_type='parse' AND status='running'", (kb_id,)).fetchone()[0]
+    return {"paused": True, "pausing": bool(running)}
+
+
+def parse_now(kb_id: str) -> dict[str, Any]:
+    """The "Parse now" action: an empty knowledge base = initial full load, existing content = process the
+    incremental files; in essence it kicks one scan + worker round right away, exactly the same path as the
+    automatic scan every minute."""
+    cfg = settings()
+    with db.connect(cfg.state_db) as con:
+        con.execute("BEGIN IMMEDIATE")
+        row = con.execute("SELECT status FROM kb_sources WHERE kb_id=?", (kb_id,)).fetchone()
+        if row is None:
+            raise KeyError(kb_id)
+        if str(row["status"]) != "active":
+            raise ValueError("The knowledge base is not enabled")
+        resumed = db.parse_is_paused(con, kb_id)
+        discovery.set_config(con, kb_id, {"parse_paused": None})
+    scan_kick, worker_kick = kick_scan(), kick_worker()
+    if "unavailable" in (scan_kick, worker_kick):
+        # When both systemd and the script fallback failed, this used to return kicked=true anyway and the
+        # user believed parsing had started
+        raise RuntimeError(f"Could not trigger the scan / worker (scan={scan_kick}, worker={worker_kick}); check the background services")
+    return {"kicked": True, "scan": scan_kick, "worker": worker_kick, **({"resumed": True} if resumed else {})}
+
+
+def delete_graph(kb_id: str) -> dict[str, Any]:
+    """The "Delete knowledge graph" action: deletes only the graph data, leaves the knowledge base alone; the
+    switch goes back to grey afterwards."""
+    from kb_pipeline.maintenance import delete_graph_now
+
+    _forget_graph_json(kb_id)
+    result = delete_graph_now(settings(), kb_id=kb_id)
+    if result.get("errors"):
+        raise ValueError(
+            "Graph deletion incomplete, these parts failed (the switch stays on so it can be retried): "
+            + "; ".join(str(e) for e in result["errors"])
+        )
+    return result
+
+
+# The console unit lowers its own oom_score_adj to the floor a user unit may set (100), and child processes
+# inherit it. A graph build is batch work and should be killed before the resident console and search services
+# when memory runs short, so it is raised to the batch units' 200 before starting (raising needs no privilege)
+# and then replaced in place by the build process.
+BATCH_OOM_SCORE = ["/bin/sh", "-c", '{ echo 200 > /proc/self/oom_score_adj; } 2>/dev/null; exec "$@"', "sh"]
+
+
+def _spawn_graph_build(cfg: Settings, kb_id: str, *, graph_version: str | None = None,
+                       append: bool = False, force: bool = False) -> dict[str, Any]:
+    base_dir = cfg.state_db.parent.parent.parent
+    py = base_dir / "app" / ".venv" / "bin" / "python"
+    env_file = os.environ.get("KB_ENV_FILE") or str(base_dir / "config" / "knowledge-base.env")
+    cfg.log_dir.mkdir(parents=True, exist_ok=True)
+    log_path = cfg.log_dir / f"web-graph-build-{kb_id}.log"
+    verb = "append" if append else "build"
+    build_cmd = [str(py), "-m", "kb_pipeline", "--env-file", env_file, "graph", verb, "--source", kb_id]
+    if graph_version and not append:
+        # Resume last time's version: phases already completed are skipped per graph_build_phases
+        build_cmd += ["--graph-version", graph_version, "--allow-existing-graph-version"]
+    if append and force:
+        build_cmd += ["--force"]          # carrying on an append that stopped midway: append even without new changes
+    # A graph build easily runs for hours. A child spawned by a plain Popen stays in carrel-web's cgroup,
+    # and with systemd's default KillMode=control-group every web restart (deploy, config change) would
+    # take the running build down with it. So first try systemd-run to start it in a separate transient
+    # scope detached from web's lifecycle; fall back to Popen when systemd-run is unavailable.
+    # Fallback wall-clock cap. The circuit breaker covers "the provider is down as a whole", not "everything
+    # works but it is just slow"; without this line a console-started build has RuntimeMaxUSec=infinity and
+    # a genuinely stuck one never ends. The value must be far above one normal build (a full rebuild of the
+    # largest knowledge base measured 2-3 hours, several times that with lower concurrency); default 48 hours.
+    # On timeout systemd sends SIGTERM, which takes the existing signal wind-down: write cancelled, keep the
+    # cache.
+    max_hours = os.environ.get("KB_GRAPH_BUILD_MAX_HOURS", "48")
+    scope = ["systemd-run", "--user", "--scope", "--collect",
+             f"--unit=kb-graph-build-{kb_id}-{int(time.time())}", "--quiet",
+             f"--property=RuntimeMaxSec={int(float(max_hours) * 3600)}"]
+    with log_path.open("ab") as log:
+        try:
+            proc = subprocess.Popen(
+                scope + BATCH_OOM_SCORE + build_cmd,
+                cwd=str(base_dir), stdout=log, stderr=subprocess.STDOUT, start_new_session=True,
+                env=_child_env(env_file, base_dir),
+            )
+            detached = "systemd-scope"
+        except (FileNotFoundError, OSError):
+            proc = subprocess.Popen(
+                BATCH_OOM_SCORE + build_cmd,
+                cwd=str(base_dir), stdout=log, stderr=subprocess.STDOUT, start_new_session=True,
+                env=_child_env(env_file, base_dir),
+            )
+            detached = "popen"
+    return {"started": True, "pid": proc.pid, "log": str(log_path), "detached": detached,
+            "resumed": graph_version, "append": append}
+
+
+def pause_graph_build(kb_id: str) -> dict[str, Any]:
+    """The "Pause build" action: terminate the process, touch no artifacts, and leave graph_enabled alone.
+
+    Shares the mechanism of "Turn off knowledge graph" (stop_graph_build_now); the only difference is the
+    switch: turning off means "no more automatic rebuilds from now on", pausing means "stop for now, carry
+    on in a while".
+
+    Why stopping and starting over is still worthwhile: extraction results are stored per unit in
+    graph_extractions and LLM responses are cached by call content in the per-KB SQLite (neither keyed by
+    version), so on the next build every unit and call that already completed comes back instantly. The
+    condition is not to change models, labels, predicates, output language or unit parameters while paused:
+    all of those go into the fingerprint, one change voids the whole cache, and the resume becomes a re-run.
+    """
+    from kb_pipeline.maintenance import stop_graph_build_now
+
+    cfg = settings()
+    with db.connect(cfg.state_db) as con:
+        db.reconcile_stale_graph_builds(con)
+        row = con.execute("SELECT * FROM kb_sources WHERE kb_id=?", (kb_id,)).fetchone()
+        if row is None:
+            raise KeyError(kb_id)
+        latest = con.execute(
+            "SELECT status FROM graph_builds WHERE kb_id=? AND status != 'rolled_back' ORDER BY started_at DESC LIMIT 1",
+            (kb_id,),
+        ).fetchone()
+    if latest is None or str(latest["status"]) != "running":
+        raise ValueError("No graph build is running")
+    result = stop_graph_build_now(cfg, kb_id=kb_id, reason="Build stopped by “Pause build”")
+    if not result.get("stopped"):
+        raise ValueError("The graph build process could not be terminated; try again later")
+    if not result.get("running") or result.get("status") == "done":
+        # The request met the end of the build: this version is built and there is nothing to pause. Writing
+        # the pause mark anyway would stop automatic appends and rebuilds of a finished base for good, with
+        # nothing to see in the console (2026-09-29 audit)
+        raise ValueError("The build has already finished; there is nothing to pause")
+    # Stopping the process is not enough: a pause leaves cancelled rather than a successful build, and
+    # evaluate_rebuild only accepts successful builds as the baseline -- so for a KB that never built
+    # successfully, due stays true after a pause and the 00:00 run that night resumes it. Persist the intent
+    # so the auto-rebuild side honours it first.
+    with db.connect(cfg.state_db) as con:
+        discovery.set_config(con, kb_id, {"graph_paused": True})
+    result["cache_entries"] = graph_cache_entries(cfg, str(row["collection"]))
+    return result
+
+
+def graph_cache_entries(cfg, collection: str) -> int:
+    """Number of cached LLM responses this knowledge base has accumulated -- a direct measure of how much a
+    resume gets for free. Only computed once the build has stopped (see _graph_build_info)."""
+    from kb_pipeline.graph.build import graph_cache_entries as _entries
+
+    return _entries(cfg, collection)
+
+
+def _graph_action_gate(con, cfg: Settings, kb_id: str):
+    """Preconditions shared by "Build now / again" and "Append new content": the KB is enabled, the directory
+    exists, this KB is not being parsed, the graph is on, the models are all set and no build is running.
+    Returns (kb_sources row, config, most recent build record)."""
+    db.reconcile_stale_graph_builds(con)   # a dead record must not block rebuilding forever
+    row = con.execute("SELECT * FROM kb_sources WHERE kb_id=?", (kb_id,)).fetchone()
+    if row is None:
+        raise KeyError(kb_id)
+    if str(row["status"]) != "active":
+        raise ValueError("The knowledge base is not enabled, so no graph can be built")
+    if not (cfg.mirror_root / str(row["source_root"])).is_dir():
+        # When the directory vanished but the scan has not yet marked the KB deactivated, the build child
+        # exits with "unknown source", and that error only shows up in the background log; the console sees
+        # nothing.
+        raise ValueError("The knowledge base directory does not exist right now, so no graph can be built")
+    if db.kb_parse_busy(con, kb_id):
+        raise ValueError("This knowledge base is being parsed; graph operations are unavailable until it finishes.")
+    config = discovery.get_config(con, kb_id)
+    effective = dict(discovery.DEFAULTS)
+    effective.update(_dir_defaults(con, kb_id))
+    effective.update(config)
+    if not effective.get("graph_enabled"):
+        raise ValueError("The knowledge graph is not turned on")
+    from kb_pipeline.graph.build import GRAPH_LLM_STEPS, default_graph_llm
+
+    chosen = config.get("graph_llm") or {}
+    missing = [s for s in GRAPH_LLM_STEPS if not str(chosen.get(s) or "").strip()]
+    if missing and default_graph_llm(con) is None:
+        # Unselected slots follow default_graph_llm (the default name, or the only model in the registry);
+        # only block when even that fallback is missing
+        raise ValueError(f"No model selected for graph steps: {', '.join(missing)}")
+    latest = con.execute(
+        "SELECT * FROM graph_builds WHERE kb_id=? ORDER BY started_at DESC LIMIT 1", (kb_id,)
+    ).fetchone()
+    if latest is not None and str(latest["status"]) == "running":
+        raise ValueError("A graph build is already running")
+    # The build lock is global: while another KB is building, the child fails to take the lock before writing
+    # its build record and exits quietly, yet the console has already answered "started"
+    # (Codex 2026-09-13 F04). Check the lock here first and say so plainly when it is held.
+    try:
+        lock_dir = build_lock_path(cfg)
+    except Exception:
+        lock_dir = None
+    if lock_dir is not None and build_lock_held(lock_dir):
+        if _KB_DELETING:
+            # A permanent delete holds the build lock the whole time and takes minutes for a large knowledge
+            # base: it is the delete holding the lock, not some build
+            raise ValueError("Another knowledge base is being permanently deleted; build the graph when that finishes")
+        raise ValueError("Another knowledge base is building its graph (only one build runs at a time); try again when it finishes")
+    return row, config, latest
+
+
+APPEND_SKIP = {
+    "source_unchanged": "No documents were added, changed or removed relative to the current graph; nothing to append",
+    "no_successful_build": "No graph has been built yet; run a full build first",
+    "config_changed_needs_full_rebuild": "Model / labels / predicates / unit settings changed; the previous extraction and merge cannot be reused, run a full rebuild",
+    "llm_not_configured": "No model selected for the graph build steps",
+    "paused_by_operator": "The build is paused; use “Resume build” first",
+    "no_active_content": "This knowledge base has no active chunks yet; finish parsing first",
+}
+
+
+def trigger_graph_append(kb_id: str) -> dict[str, Any]:
+    """The "Append new content" action: same preconditions as "Build now / again", plus a completed graph,
+    an unchanged config and document-level corpus changes relative to the current version; when they hold,
+    an incremental append (graph append) runs as a background process."""
+    from kb_pipeline.graph.build import evaluate_append
+
+    cfg = settings()
+    with db.connect(cfg.state_db) as con:
+        row, config, _latest = _graph_action_gate(con, cfg, kb_id)
+    source = discovery.build_source(
+        cfg.mirror_root, str(row["source_root"]), config, kb_id=kb_id, collection=str(row["collection"]))
+    decision = evaluate_append(cfg, source_key=kb_id, source=source, ignore_auto_flag=True)
+    if not decision.get("due"):
+        reason = str(decision.get("reason") or "")
+        raise ValueError(APPEND_SKIP.get(reason, f"Cannot append right now ({reason})"))
+    spawned = _spawn_graph_build(cfg, kb_id, append=True)
+    return {**spawned, "base_version": decision.get("base_version"), "delta": decision.get("delta")}
+
+
+def trigger_graph_build(kb_id: str) -> dict[str, Any]:
+    """The "Save and build now" action: after validation, start one graph build for this knowledge base as a
+    background process; progress checks in through graph_builds.stage and is visible live on the
+    "Graph build status" panel."""
+    cfg = settings()
+    with db.connect(cfg.state_db) as con:
+        _row, _config, latest = _graph_action_gate(con, cfg, kb_id)
+        # Last build stopped midway (paused / failed), config and corpus unchanged, and some phases really
+        # completed: resume the same version and skip the completed phases. Otherwise start a new version
+        # from scratch.
+        resume_version = None
+        resume_append = False
+        if latest is not None and str(latest["status"]) in ("cancelled", "failed"):
+            kind = str(latest["build_kind"] or "full") if "build_kind" in latest.keys() else "full"
+            if kind == "append" and db.latest_successful_graph_build(con, kb_id) is not None:
+                # What stopped midway was an append: carrying on means appending once more. Resuming the same
+                # version would run a full build, without replaying merge decisions or reusing vectors; an
+                # append of a few minutes turned into a full rebuild and became the new rebuild baseline
+                # (2026-09-29 audit)
+                resume_append = True
+            elif (_paused_cache_reuse(con, kb_id, latest)["cache_reusable"]
+                    and db.graph_phases_done(con, str(latest["graph_build_id"]))):
+                resume_version = str(latest["graph_version"])
+        # "Resume build / Rebuild now" is an explicit intent to resume, so clear the pause mark along the way
+        # -- otherwise once this run finishes, the auto-rebuild side still treats the KB as paused.
+        if discovery.get_config(con, kb_id).get("graph_paused"):
+            discovery.set_config(con, kb_id, {"graph_paused": None})
+    if resume_append:
+        return _spawn_graph_build(cfg, kb_id, append=True, force=True)
+    return _spawn_graph_build(cfg, kb_id, graph_version=resume_version)
+
+
+def graph_corpus_stats(kb_id: str) -> dict[str, Any]:
+    """Size of this knowledge base's graph corpus: active documents, active chunks, and the estimated number of
+    units at the current unit size. The hint under "Sample size" in the console needs it -- only when the
+    total chunk count is known does sampling N chunks read as a proportion. All from the state database,
+    Qdrant is not touched."""
+    cfg = settings()
+    with db.connect(cfg.state_db) as con:
+        row = con.execute("SELECT * FROM kb_sources WHERE kb_id=?", (kb_id,)).fetchone()
+        if row is None:
+            raise KeyError(kb_id)
+        config = discovery.get_config(con, kb_id)
+        stats = con.execute(
+            """
+            SELECT COUNT(*) AS chunks, COUNT(DISTINCT c.file_id) AS documents
+            FROM chunks c WHERE c.collection = ? AND c.status = 'active'
+            """,
+            (str(row["collection"]),),
+        ).fetchone()
+    source = discovery.build_source(
+        cfg.mirror_root, str(row["source_root"]), config,
+        kb_id=kb_id, collection=str(row["collection"]),
+    )
+    chunks = int(stats["chunks"] or 0)
+    documents = int(stats["documents"] or 0)
+    per_unit = max(1, int(source.graph_unit_chunks))
+    return {
+        "kb_id": kb_id, "documents": documents, "chunks": chunks,
+        "units_estimate": (chunks + per_unit - 1) // per_unit if chunks else 0,
+        "unit_chunks": int(source.graph_unit_chunks),
+    }
+
+
+def _prepare_graph_schema(kb_id: str):
+    from kb_pipeline.graph import build as graph_build
+
+    cfg = settings()
+    with db.connect(cfg.state_db) as con:
+        row = con.execute("SELECT * FROM kb_sources WHERE kb_id=?", (kb_id,)).fetchone()
+        if row is None:
+            raise KeyError(kb_id)
+        if str(row["status"]) != "active":
+            raise ValueError("The knowledge base is not enabled")
+        config = discovery.get_config(con, kb_id)
+        effective = dict(discovery.DEFAULTS)
+        effective.update(_dir_defaults(con, kb_id))
+        effective.update(config)
+        if not effective.get("graph_enabled"):
+            raise ValueError("The knowledge graph is not turned on")
+        # While parsing is in progress chunks are still arriving; sampling now sees half a corpus and the
+        # inferred type table would be skewed. Same gate as the graph build.
+        if db.kb_parse_busy(con, kb_id):
+            raise ValueError("This knowledge base is being parsed; label extraction is unavailable until it finishes.")
+    with db.connect(cfg.state_db) as con:
+        ledger = db.active_chunk_refs(con, str(row["collection"]))
+    if not ledger:
+        raise ValueError("This knowledge base has no active chunks yet; finish parsing before extracting labels")
+
+    source = discovery.build_source(
+        cfg.mirror_root, str(row["source_root"]), config,
+        kb_id=kb_id, collection=str(row["collection"]),
+    )
+    try:
+        spec = graph_build.tune_llm_spec(cfg, source)
+    except RuntimeError as exc:
+        # "No model selected" is a config problem the user can fix, not a service fault: _wrap only turns
+        # ValueError into a 422 with the original text for the console, while a RuntimeError becomes an
+        # uninformative 500.
+        raise ValueError(str(exc)) from exc
+    return cfg, source, spec
+
+
+def start_graph_schema(kb_id: str) -> dict[str, Any]:
+    from . import schema_tasks
+    return schema_tasks.start(*_prepare_graph_schema(kb_id))
+
+
+def graph_schema_task(kb_id: str) -> dict[str, Any]:
+    from . import schema_tasks
+    return schema_tasks.status(settings(), kb_id)
+
+
+def cancel_graph_schema(kb_id: str, task_id: str) -> dict[str, Any]:
+    from . import schema_tasks
+    return schema_tasks.cancel(settings(), kb_id, task_id)
+
+
+def suggest_graph_schema(kb_id: str) -> dict[str, Any]:
+    """Synchronous internal compatibility path; the console uses start_graph_schema."""
+    from kb_pipeline.graph.schema_flow import ORIGIN_MANUAL, suggest_schema_version
+    cfg, source, spec = _prepare_graph_schema(kb_id)
+    started = time.time()
+    try:
+        result = suggest_schema_version(cfg, source, origin=ORIGIN_MANUAL, adopt=False, use_prior=True, spec=spec)
+    except ValueError:
+        raise
+    except Exception as exc:
+        raise ValueError(f"Extraction failed ({exc.__class__.__name__}): {str(exc)[:300]}") from exc
+    if time.time() - started > 600:
+        print(f"[web] suggest_graph_schema took {time.time() - started:.0f}s for {kb_id}", flush=True)
+    with db.connect(cfg.state_db) as con:
+        merged = dict(discovery.DEFAULTS)
+        merged.update(_dir_defaults(con, kb_id))
+        merged.update(discovery.get_config(con, kb_id))
+    result["schema"] = schema_versions_view(merged)
+    # active in the view is still the old version; tell the frontend to point the dropdown at the version
+    # just extracted
+    result["schema"]["active"] = result["version_id"]
+    return result
+
+
+PREVIEW_CHUNK_LIMIT = 400
+
+
+def file_chunks(kb_id: str, file_id: str, limit: int = PREVIEW_CHUNK_LIMIT) -> dict[str, Any]:
+    """The chunks an indexed file currently has in the store (by chunk_index), together with the chunking
+    diagnostics recorded at indexing time. No re-chunking: the chunk ledger is in the state database and
+    text plus payload are fetched from Qdrant by point; to see the effect of new rules / parameters use
+    "Re-parse"."""
+    cfg = settings()
+    source = next((s for s in cfg.sources.values() if s.kb_id == kb_id), None)
+    with db.connect(cfg.state_db) as con:
+        row = db.get_file_by_id(con, file_id)
+        if row is None or str(row["kb_id"]) != kb_id:
+            raise KeyError(file_id)
+        refs = con.execute(
+            "SELECT chunk_uid, chunk_index, point_id FROM chunks WHERE file_id = ? AND status = 'active' ORDER BY chunk_index",
+            (file_id,)).fetchall()
+    keys = row.keys()
+    diag = json.loads(row["chunk_diag_json"]) if ("chunk_diag_json" in keys and row["chunk_diag_json"]) else None
+    total = len(refs)
+    refs = refs[:limit]
+    items: list[dict[str, Any]] = []
+    if refs:
+        q = qdrant_client(cfg.qdrant_url, cfg.qdrant_api_key)
+        collection = str(row["collection"])
+        payloads: dict[str, dict[str, Any]] = {}
+        ids = [str(r["point_id"]) for r in refs]
+        for i in range(0, len(ids), 200):
+            for p in q.retrieve(collection_name=collection, ids=ids[i:i + 200], with_payload=True, with_vectors=False):
+                payloads[str(p.id)] = dict(p.payload or {})
+        for r in refs:
+            pl = payloads.get(str(r["point_id"]), {})
+            items.append({
+                "chunk_index": int(r["chunk_index"]), "chunk_uid": str(r["chunk_uid"]),
+                "tokens": int(pl.get("token_count") or 0),
+                "block_id": str(pl.get("block_id") or ""), "block_type": str(pl.get("block_type") or ""),
+                "page_idx": pl.get("page_idx"), "page_end": pl.get("page_end", pl.get("page_idx")),
+                "section_path": [str(x) for x in (pl.get("section_path") or [])],
+                "title": pl.get("title"), "caption": pl.get("caption"),
+                "embedding_context": pl.get("embedding_context"),
+                "table_flags": pl.get("table_flags") or None, "table_repair": pl.get("table_repair") or None,
+                "text": payload_text(pl),
+                "code_context_sources": pl.get("code_context_sources"),
+                "source_regions": pl.get("source_regions"),
+            })
+    profile = str(row["parser_profile"]) if ("parser_profile" in keys and row["parser_profile"]) else None
+    return {
+        "file": {"file_id": file_id, "rel_path": str(row["rel_path"]), "parser_profile": profile, "chunks_total": total},
+        "max_tokens": int(source.max_tokens) if source is not None else None,
+        "overlap_tokens": int(source.overlap_tokens) if source is not None else None,
+        "diagnostics": diag,
+        "chunks": items,
+        "truncated": total > limit,
+    }
+
+
+# ── graph preview: a subset of the current version's graph.json entities / relations for the console to draw ──
+# graph.json grows with the size of the knowledge base; a large one is several hundred MB. The preview and the
+# merge drawer only use a small part of it: a few fields of entities and relations, the document axis and the
+# merge log. Reading the whole file into a string and parsing it in one go takes several times the file size in
+# transient memory, and the whole web process stops responding while it parses. So it is read item by item,
+# dropping what is not needed as it goes, and the result is cached per knowledge base.
+_GRAPH_ENTITY_FIELDS = ("key", "title", "type", "upper", "parent_type", "frequency", "doc_ids", "description",
+                        "boilerplate", "scope", "aliases")
+_GRAPH_RELATION_FIELDS = ("source_key", "target_key", "predicate", "strength_sum", "description",
+                          "polarity", "target_polarity", "modality", "conditions", "type_violation")
+_GRAPH_DOCUMENT_FIELDS = ("rel_path", "date", "version")
+_GRAPH_READ_CHARS = 1 << 20
+# The graph.json sizes of all cached knowledge bases add up to no more than this (what is kept takes memory of
+# the same order as the file size); beyond it the least recently viewed goes first
+_GRAPH_CACHE_MAX_BYTES = 1 << 30
+_GRAPH_JSON_CACHE: dict[str, tuple[str, float, int, dict[str, Any]]] = {}     # kb_id -> (path, mtime, file size, graph), in order of last use
+_GRAPH_JSON_LOCK = threading.Lock()
+
+
+def _iter_graph_json(path: Path):
+    """Read the contents of graph.json's top-level object item by item without holding the whole file in memory:
+    a value that is a list is yielded one element at a time as (key, element, True), any other value whole as
+    (key, value, False)."""
+    decoder = json.JSONDecoder()
+    with path.open(encoding="utf-8") as fh:
+        buf, pos, eof = "", 0, False
+
+        def more(chars: int) -> None:
+            nonlocal buf, pos, eof
+            chunk = fh.read(chars)
+            eof = not chunk
+            buf = buf[pos:] + chunk
+            pos = 0
+
+        def peek() -> str:
+            """Skip whitespace and return the next character (without consuming it); an empty string at the end."""
+            nonlocal pos
+            while True:
+                while pos < len(buf) and buf[pos] in " \t\r\n":
+                    pos += 1
+                if pos < len(buf):
+                    return buf[pos]
+                if eof:
+                    return ""
+                more(_GRAPH_READ_CHARS)
+
+        def value() -> Any:
+            nonlocal pos
+            peek()
+            while True:
+                try:
+                    obj, end = decoder.raw_decode(buf, pos)
+                except json.JSONDecodeError:
+                    if eof:
+                        raise
+                else:
+                    # Complete only when a delimiter follows: when the buffer breaks in the middle of a number, the
+                    # first half (the 1 of 1e-7) parses as a number on its own
+                    if eof or (end < len(buf) and buf[end] in " \t\r\n,:]}"):
+                        pos = end
+                        return obj
+                more(max(_GRAPH_READ_CHARS, len(buf) - pos))      # a value larger than the buffer: double the read each time instead of re-parsing from the start over and over
+
+        def take(expected: str) -> str:
+            nonlocal pos
+            ch = peek()
+            if not ch or ch not in expected:
+                raise json.JSONDecodeError(f"Expecting one of {expected!r}", buf, pos)
+            pos += 1
+            return ch
+
+        take("{")
+        if peek() == "}":
+            return
+        while True:
+            key = value()
+            take(":")
+            if peek() == "[":
+                pos += 1
+                if peek() == "]":
+                    pos += 1
+                else:
+                    while True:
+                        yield key, value(), True
+                        if take(",]") == "]":
+                            break
+            else:
+                yield key, value(), False
+            if take(",}") == "}":
+                return
+
+
+def _read_graph_json(path: Path) -> dict[str, Any]:
+    """The parts of graph.json the preview and the merge drawer use; same shape as the original file, and
+    graph_preview_pick accepts either."""
+    graph: dict[str, Any] = {"entities": [], "relations": [], "documents": {}, "resolution_log": [],
+                             "resolution_rejected": [], "stats": {}}
+    for key, value, is_item in _iter_graph_json(path):
+        if is_item and key == "entities" and isinstance(value, dict):
+            row = {k: value[k] for k in _GRAPH_ENTITY_FIELDS if k in value}
+            row["description"] = str(row.get("description") or "")[:240]
+            graph["entities"].append(row)
+        elif is_item and key == "relations" and isinstance(value, dict):
+            row = {k: value[k] for k in _GRAPH_RELATION_FIELDS if k in value}
+            row["description"] = str(row.get("description") or "")[:160]
+            graph["relations"].append(row)
+        elif is_item and key in ("resolution_log", "resolution_rejected"):
+            graph[key].append(value)
+        elif not is_item and key == "documents" and isinstance(value, dict):
+            graph["documents"] = {doc: {k: meta.get(k) for k in _GRAPH_DOCUMENT_FIELDS}
+                                  for doc, meta in value.items() if isinstance(meta, dict)}
+        elif not is_item and key == "stats" and isinstance(value, dict):
+            graph["stats"] = {"resolution": value.get("resolution")}
+    return graph
+
+
+def _load_graph_json(kb_id: str, path: Path) -> dict[str, Any]:
+    """The current version's graph of this knowledge base (slimmed down), cached per knowledge base: when the
+    version changed (path or mtime differ) the old copy is dropped before the new one is read.
+    One read at a time: when several identical requests arrive together, the later ones wait for the first to
+    finish reading and use its result instead of each reading the file again."""
+    stat = path.stat()
+    with _GRAPH_JSON_LOCK:
+        hit = _GRAPH_JSON_CACHE.pop(kb_id, None)
+        if hit is not None and hit[:2] == (str(path), stat.st_mtime):
+            _GRAPH_JSON_CACHE[kb_id] = hit
+            return hit[3]
+        hit = None          # let go of the old version first, so it does not sit in memory next to the new one
+        while _GRAPH_JSON_CACHE and sum(e[2] for e in _GRAPH_JSON_CACHE.values()) + stat.st_size > _GRAPH_CACHE_MAX_BYTES:
+            del _GRAPH_JSON_CACHE[next(iter(_GRAPH_JSON_CACHE))]
+        graph = _read_graph_json(path)
+        _GRAPH_JSON_CACHE[kb_id] = (str(path), stat.st_mtime, stat.st_size, graph)
+        return graph
+
+
+def _forget_graph_json(kb_id: str) -> None:
+    """When the graph or the knowledge base is deleted, its cached copy goes too."""
+    with _GRAPH_JSON_LOCK:
+        _GRAPH_JSON_CACHE.pop(kb_id, None)
+
+
+def _entity_upper(e: dict[str, Any]) -> str:
+    return str(e.get("upper") or e.get("parent_type") or e.get("type") or "")
+
+
+def graph_preview_pick(graph: dict[str, Any], *, limit: int = 60, q: str = "", upper: str = "", key: str = "") -> dict[str, Any]:
+    """Pick the part of one graph version to draw: by default the top `limit` entities by degree (relation
+    count) + frequency, boilerplate entities excluded; limit <= 0 means no cap ("whole graph": every entity
+    and relation of the version, boilerplate included, drawn faded by the frontend). With key, that entity
+    is the focus; with q, the best-matching entity is the focus, and the focus plus its one-hop neighbours
+    are taken; with upper, only entities of that upper ontology class are picked. Only edges whose both
+    ends were picked are kept."""
+    from collections import Counter
+
+    entities = [e for e in (graph.get("entities") or []) if e.get("key")]
+    relations = [r for r in (graph.get("relations") or []) if r.get("source_key") and r.get("target_key")]
+    degree: Counter = Counter()
+    for r in relations:
+        degree[str(r["source_key"])] += 1
+        degree[str(r["target_key"])] += 1
+    by_key = {str(e["key"]): e for e in entities}
+    upper_counts = Counter(_entity_upper(e) for e in entities if not e.get("boilerplate"))
+    type_counts = Counter(str(e.get("type") or "") for e in entities if not e.get("boilerplate"))
+
+    def score(e: dict[str, Any]) -> tuple[int, int]:
+        return (degree.get(str(e["key"]), 0), int(e.get("frequency") or 0))
+
+    focus = by_key.get(str(key or "").strip()) if key else None
+    ql = str(q or "").strip().lower()
+    if focus is None and ql:
+        cands = [e for e in entities if ql in str(e.get("title") or "").lower()
+                 or any(ql in str(a).lower() for a in (e.get("aliases") or []))]
+        if cands:
+            focus = max(cands, key=score)
+    if focus is not None:
+        fk = str(focus["key"])
+        neigh: set[str] = set()
+        for r in relations:
+            if str(r["source_key"]) == fk:
+                neigh.add(str(r["target_key"]))
+            elif str(r["target_key"]) == fk:
+                neigh.add(str(r["source_key"]))
+        pool = sorted((by_key[k] for k in neigh if k in by_key and k != fk), key=score, reverse=True)
+        chosen = [focus] + (pool if limit <= 0 else pool[: max(0, limit - 1)])
+    else:
+        pool = [e for e in entities if (limit <= 0 or not e.get("boilerplate")) and (not upper or _entity_upper(e) == upper)]
+        ranked = sorted(pool, key=score, reverse=True)
+        chosen = ranked if limit <= 0 else ranked[:limit]
+    keys = {str(e["key"]) for e in chosen}
+    edges = [r for r in relations if str(r["source_key"]) in keys and str(r["target_key"]) in keys]
+    # Document-scoped entities (part / property / process are scoped to their document) carry a short label
+    # of the document they came from: date / version / file name. Three annual reports each have an
+    # "Overview"; unlabelled, they are three identical dots on the graph.
+    docs_meta = graph.get("documents") or {}
+    docs_meta = docs_meta if isinstance(docs_meta, dict) else {}
+
+    def doc_label(e: dict[str, Any]) -> str | None:
+        scope = str(e.get("scope") or "")
+        if not scope:
+            return None
+        meta = docs_meta.get(scope) or {}
+        rel = str(meta.get("rel_path") or "")
+        return (str(meta.get("date") or "") or str(meta.get("version") or "")
+                or (rel.rsplit("/", 1)[-1].rsplit(".", 1)[0] if rel else scope.rsplit(":", 1)[-1][-6:]))
+
+    nodes = [{
+        "key": str(e["key"]), "title": str(e.get("title") or ""), "type": str(e.get("type") or ""),
+        "upper": _entity_upper(e), "degree": degree.get(str(e["key"]), 0),
+        "frequency": int(e.get("frequency") or 0), "docs": len(e.get("doc_ids") or []),
+        "description": str(e.get("description") or "")[:240], "boilerplate": bool(e.get("boilerplate")),
+        "scope": str(e.get("scope") or "") or None, "doc": doc_label(e),
+    } for e in chosen]
+    return {
+        "nodes": nodes,
+        "edges": [{"source": str(r["source_key"]), "target": str(r["target_key"]), "predicate": str(r.get("predicate") or ""),
+                   "strength": r.get("strength_sum"), "description": str(r.get("description") or "")[:160],
+                   **{k: r[k] for k in ("polarity", "target_polarity", "modality", "conditions", "type_violation") if k in r}} for r in edges],
+        "totals": {"entities": len(entities), "relations": len(relations),
+                   "boilerplate": sum(1 for e in entities if e.get("boilerplate"))},
+        "upper_counts": dict(upper_counts.most_common()),
+        "type_counts": dict(type_counts.most_common(40)),
+        "focus": str(focus["key"]) if focus is not None else None,
+    }
+
+
+def graph_merges(kb_id: str, limit: int = 2000) -> dict[str, Any]:
+    """Entity resolution log of the current version: every merged pair (merged into whom, source, evidence
+    category) and every rejected pair (reason), read from resolution_log / resolution_rejected in the
+    graph.json build artifact, for the "Merges" drawer of the graph preview."""
+    from kb_pipeline.graph.build import graph_paths
+
+    cfg = settings()
+    found = next(((k, s) for k, s in cfg.sources.items() if s.kb_id == kb_id), None)
+    if found is None:
+        raise KeyError(kb_id)
+    source_key, source = found
+    with db.connect(cfg.state_db) as con:
+        latest = db.latest_successful_graph_build(con, source_key)
+    if latest is None:
+        return {"version": None, "merges": [], "rejected": [], "stats": {}}
+    version = str(latest["graph_version"])
+    graph_file = graph_paths(cfg, source, version).graph_file
+    if not graph_file.exists():
+        raise ValueError(f"The graph artifacts of the current version {version} are not on disk ({graph_file.name}); rebuild the graph and try again")
+    graph = _load_graph_json(kb_id, graph_file)
+    limit = max(1, min(int(limit or 2000), 5000))
+    merges = list(graph.get("resolution_log") or [])[:limit]
+    rejected = list(graph.get("resolution_rejected") or [])[:limit]
+    res = dict(((graph.get("stats") or {}).get("resolution") or {}))
+    stats = {k: res.get(k) for k in ("candidates", "auto_pairs", "embedding_candidates", "yes", "vetoed", "rechecked", "recheck_dropped",
+                                     "entities_before", "entities_after", "yes_by_category") if k in res}
+    return {"version": version, "merges": merges, "rejected": rejected, "stats": stats,
+            "totals": {"merges": len(graph.get("resolution_log") or []), "rejected": len(graph.get("resolution_rejected") or [])}}
+
+
+def graph_preview(kb_id: str, limit: int = 60, q: str = "", upper: str = "", key: str = "") -> dict[str, Any]:
+    """Graph preview of the current version: read from the graph.json build artifact, Neo4j is not touched.
+    Returns empty when no graph has been built. limit is clamped to 10 ~ 3000 (2026-09-12, user decision:
+    presets 100 ~ 3000, the console no longer has a "whole graph" button); passing 0 still returns the whole
+    version, the interface is kept."""
+    from kb_pipeline.graph.build import graph_paths
+
+    cfg = settings()
+    found = next(((k, s) for k, s in cfg.sources.items() if s.kb_id == kb_id), None)
+    if found is None:
+        raise KeyError(kb_id)
+    source_key, source = found
+    with db.connect(cfg.state_db) as con:
+        latest = db.latest_successful_graph_build(con, source_key)
+    if latest is None:
+        return {"version": None, "nodes": [], "edges": [], "totals": {"entities": 0, "relations": 0},
+                "upper_counts": {}, "type_counts": {}, "focus": None}
+    version = str(latest["graph_version"])
+    graph_file = graph_paths(cfg, source, version).graph_file
+    if not graph_file.exists():
+        raise ValueError(f"The graph artifacts of the current version {version} are not on disk ({graph_file.name}); rebuild the graph and try again")
+    limit = int(limit if limit is not None else 60)
+    limit = 0 if limit <= 0 else max(10, min(limit, 3000))
+    out = graph_preview_pick(_load_graph_json(kb_id, graph_file), limit=limit, q=q, upper=upper, key=key)
+    out["version"] = version
+    out["build_kind"] = str(latest["build_kind"] or "full") if "build_kind" in latest.keys() else "full"
+    return out
+
+
+def reparse_kb(kb_id: str, reason: str = "web console reparse") -> dict[str, Any]:
+    cfg = settings()
+    with db.connect(cfg.state_db) as con:
+        row = con.execute("SELECT status FROM kb_sources WHERE kb_id=?", (kb_id,)).fetchone()
+        if row is None:
+            raise KeyError(kb_id)          # used to return 200 {"requeued": 0} for a non-existent KB
+        if str(row["status"]) != "active":
+            raise ValueError("The knowledge base is not enabled, so it cannot be re-parsed")
+        run_id = db.begin_run(con, "web-reparse", note=f"{kb_id}: {reason}")
+        count = requeue_kb_files(con, ingest_run_id=run_id, kb_id=kb_id, reason=reason)
+        db.finish_run(con, run_id, added_count=0, updated_count=count, moved_count=0,
+                      deleted_count=0, failed_count=0)
+    kick_worker()
+    return {"requeued": count}
+
+
+# ── job details ─────────────────────────────────────────────
+
+_JOB_FIELDS = ("job_id", "kb_id", "file_id", "job_type", "status", "stage", "parser_profile", "retry_count",
+               "next_attempt_at", "started_at", "finished_at", "created_at", "updated_at", "error",
+               "cancel_requested", "locked_by")
+
+
+def job_detail(job_id: str) -> dict[str, Any]:
+    """Metadata + timeline (phase switches, milestones, errors) of one parse job, for the console dialog."""
+    cfg = settings()
+    with db.connect(cfg.state_db) as con:
+        row = con.execute("SELECT * FROM jobs WHERE job_id=?", (job_id,)).fetchone()
+        if row is None:
+            raise KeyError(job_id)
+        job = {k: row[k] for k in _JOB_FIELDS if k in row.keys()}
+        job["progress"] = job_view(row, int(time.time()))
+        job["parse_paused"] = (row["job_type"] == "parse" and row["status"] in ("queued", "retry", "running")
+                               and db.parse_is_paused(con, str(row["kb_id"])))
+        file_row = db.get_file_by_id(con, str(row["file_id"])) if row["file_id"] else None
+        events = db.job_events(con, job_id)
+        # Show the compensation task belonging to this parse, including its eventual completion.
+        followups = con.execute(
+            "SELECT job_id, job_type, status, stage, error, next_attempt_at FROM jobs "
+            "WHERE file_id=? AND job_type='fts_sync' AND created_at>=? AND created_at<=? "
+            "ORDER BY created_at DESC LIMIT 1",
+            (row["file_id"], row["started_at"] or row["created_at"], row["finished_at"] or int(time.time())),
+        ).fetchall() if row["job_type"] == "parse" else []
+    file_info = None
+    if file_row is not None:
+        file_info = {k: file_row[k] for k in ("file_id", "rel_path", "filename", "size", "mime_type",
+                                              "content_version", "indexed_version", "status")}
+    synthesized = False
+    if not events:
+        # The timeline table was added later; earlier jobs (and those whose events were pruned) have no event
+        # rows. Synthesize an outline from the job's own timestamps and say so explicitly -- it does not pose
+        # as a real record.
+        events = _synthesize_job_events(job)
+        synthesized = bool(events)
+    return {"job": job, "file": file_info, "events": events, "synthesized": synthesized,
+            "followups": [dict(r) for r in followups]}
+
+
+def _synthesize_job_events(job: dict[str, Any]) -> list[dict[str, Any]]:
+    out: list[dict[str, Any]] = []
+
+    def add(ts, kind: str, text: str) -> None:
+        if ts:
+            out.append({"ts": int(ts), "kind": kind, "text": text, "synthesized": True})
+
+    add(job.get("created_at"), "info", "Queued")
+    add(job.get("started_at"), "stage", str(job.get("stage") or "Started"))
+    status = str(job.get("status") or "")
+    if status == "done":
+        add(job.get("finished_at"), "done", "Done")
+    elif status == "failed":
+        add(job.get("finished_at") or job.get("updated_at"), "error", str(job.get("error") or "Failed")[:300])
+    elif status == "cancelled":
+        add(job.get("finished_at") or job.get("updated_at"), "cancelled", "Cancelled")
+    elif status == "skipped":
+        add(job.get("finished_at") or job.get("updated_at"), "skipped", str(job.get("error") or "Skipped")[:300])
+    elif status == "retry":
+        add(job.get("updated_at"), "retry", str(job.get("error") or "Waiting to retry")[:300])
+    out.sort(key=lambda e: e["ts"])
+    return out
+
+
+def cancel_job(job_id: str) -> dict[str, Any]:
+    cfg = settings()
+    with db.connect(cfg.state_db) as con:
+        outcome = db.request_job_cancel(con, job_id, "Cancelled from the console")
+    return {"job_id": job_id, "outcome": outcome}
+
+
+def retry_file(file_id: str) -> dict[str, Any]:
+    cfg = settings()
+    with db.connect(cfg.state_db) as con:
+        row = db.get_file_by_id(con, file_id)
+        if row is None:
+            raise KeyError(file_id)
+        if str(row["status"]) == "deleted":
+            raise ValueError("This file has been removed from the source and cannot be re-parsed")
+        run_id = db.begin_run(con, "web-retry", note=str(row["source_path"]))
+        job_id = requeue_single_file(con, ingest_run_id=run_id, file_row=row, refresh_cache=True)
+        db.finish_run(con, run_id, added_count=0, updated_count=1 if job_id else 0,
+                      moved_count=0, deleted_count=0, failed_count=0)
+    kick_worker()
+    return {"job_id": job_id, "already_active": job_id is None}
+
+
+# ── LLM registry ────────────────────────────────────────────────────────
+
+def _mask(row) -> dict[str, Any]:
+    return {
+        "name": str(row["name"]),
+        "base_url": str(row["base_url"]),
+        "model_id": str(row["model_id"]),
+        "max_input_tokens": row["max_input_tokens"] if "max_input_tokens" in row.keys() else None,
+        "has_api_key": bool(str(row["api_key"] or "")),
+        "protocol": str(row["protocol"] if "protocol" in row.keys() else "openai") or "openai",
+    }
+
+
+def _llm_usage(con) -> dict[str, list[dict[str, Any]]]:
+    """Model name -> which steps of which knowledge bases reference it.
+
+    For **information** only; it no longer blocks deletion: deleting and being in use are decoupled (see
+    remove_llm). The console uses it in the confirmation dialog to spell out "which fields go empty after
+    deleting".
+    """
+    from kb_pipeline.graph.build import GRAPH_STEP_LABELS
+
+    usage: dict[str, list[dict[str, Any]]] = {}
+    for row in discovery.known_sources(con):
+        try:
+            config = json.loads(row["config_json"] or "{}")
+            kb_llm = config.get("graph_llm") or {}
+        except Exception:
+            continue
+        by_model: dict[str, list[str]] = {}
+        if config.get("vlm_model"):
+            by_model.setdefault(str(config["vlm_model"]), []).append("Multimodal model")
+        for step, name in kb_llm.items():
+            if name:
+                by_model.setdefault(str(name), []).append(
+                    GRAPH_STEP_LABELS.get(step, step))
+        for name, labels in by_model.items():
+            usage.setdefault(name, []).append({
+                "kb_id": str(row["kb_id"]),
+                "source_root": str(row["source_root"]),
+                "steps": labels,
+            })
+    return usage
+
+
+def list_llms() -> list[dict[str, Any]]:
+    cfg = settings()
+    db.init_db(cfg.state_db)
+    with db.connect(cfg.state_db) as con:
+        usage = _llm_usage(con)
+        out = []
+        for r in db.list_llms(con):
+            item = _mask(r)
+            item["used_by"] = usage.get(str(item.get("name")), [])
+            out.append(item)
+        return out
+
+
+def _endpoint_id(url: str) -> tuple[str, str, int | None]:
+    """(scheme, host, port): used to tell "is it still the same service"; the path does not count."""
+    try:
+        parts = urlsplit(url.strip())
+        return (parts.scheme.lower(), (parts.hostname or "").lower(), parts.port)
+    except ValueError:
+        return ("", url.strip(), None)
+
+
+def _probe_llm(base_url: str, api_key: str, model_id: str, protocol: str = "openai") -> None:
+    """Connectivity test before saving: ask the model to reply with OK only; a reply containing ok
+    (case-insensitive) passes; any network / protocol / content problem raises ValueError and the save is
+    refused."""
+    base = base_url.rstrip("/")
+    headers = {"Content-Type": "application/json"}
+    body: dict[str, Any] = {
+        "model": model_id,
+        "messages": [{"role": "user", "content": "Connectivity test: reply with OK only"}],
+        # Reasoning tokens may share this budget; the probe still asks for only OK.
+        **generation_parameters(model_id, protocol=protocol, base_url=base, max_tokens=4096),
+    }
+    url = endpoint_url(base, protocol)
+    if protocol == "anthropic":
+        headers["anthropic-version"] = "2023-06-01"
+        if api_key:
+            headers["x-api-key"] = api_key
+    else:
+        if api_key:
+            headers["Authorization"] = f"Bearer {api_key}"
+    request = CompatibleRequest(base, model_id, protocol, body)
+    try:
+        # No redirects: following one to another host with the key attached hands the key to that host
+        while True:
+            resp = requests.post(url, headers=headers, json=request.body, timeout=30, allow_redirects=False)
+            if not request.adapt(resp.status_code, resp.text):
+                break
+    except requests.RequestException as exc:
+        raise ValueError(f"Connectivity test failed: cannot reach {url} ({exc.__class__.__name__})")
+    if 300 <= resp.status_code < 400:
+        raise ValueError(f"Connectivity test failed: the service redirected ({resp.status_code} → {str(resp.headers.get('location') or '')[:120]}); enter the final address directly")
+    if resp.status_code != 200:
+        raise ValueError(f"Connectivity test failed: HTTP {resp.status_code} {resp.text[:120]}")
+    try:
+        if protocol == "anthropic":
+            data = resp.json()
+            blocks = data["content"]
+            content = "".join(str(b.get("text") or "") for b in blocks if b.get("type") == "text")
+            finish = data.get("stop_reason")
+        else:
+            choice = resp.json()["choices"][0]
+            content = str(choice["message"]["content"] or "")
+            finish = choice.get("finish_reason")
+    except Exception:
+        raise ValueError("Connectivity test failed: the response is not a valid chat format for the selected protocol")
+    if not re.search(r"\bok\b", content, re.IGNORECASE):
+        raise ValueError(f"Connectivity test did not pass: the model replied “{content.strip()[:60]}”, which does not contain OK")
+    if finish in ("length", "max_tokens", "content_filter", "insufficient_system_resource", "aborted"):
+        raise ValueError(f"Connectivity test did not pass: the response did not complete ({finish})")
+    request.accept()
+
+
+def save_llm(payload: dict[str, Any]) -> dict[str, Any]:
+    name = str(payload.get("name") or "").strip()
+    base_url = str(payload.get("base_url") or "").strip()
+    model_id = str(payload.get("model_id") or "").strip()
+    protocol = str(payload.get("protocol") or "openai").strip().lower()
+    if not name or not base_url or not model_id:
+        raise ValueError("name, base_url and model_id are all required")
+    # The name goes into a URL path (DELETE /llms/{name}); a name containing / can be saved but never deleted
+    if not re.fullmatch(r"[\w.\- ]{1,64}", name, re.UNICODE):
+        raise ValueError("Model names may only contain letters, CJK characters, digits, spaces, dots, underscores and hyphens (64 characters at most)")
+    if protocol not in ("openai", "anthropic"):
+        raise ValueError("protocol must be 'openai' or 'anthropic'")
+    cfg = settings()
+    clear_key = bool(payload.get("clear_api_key"))
+    api_key = "" if clear_key else str(payload.get("api_key") or "")
+    with db.connect(cfg.state_db) as con:
+        existing = db.get_llm(con, name)
+    stored_key = str(existing["api_key"] or "") if existing is not None else ""
+    # Old API clients may omit the new field. Preserve it only for the same
+    # model/endpoint; a capacity belonging to another model must not follow it.
+    max_input = payload.get("max_input_tokens")
+    if "max_input_tokens" not in payload and existing is not None:
+        if (str(existing["model_id"]) == model_id and str(existing["base_url"]).rstrip("/") == base_url.rstrip("/")
+                and str(existing["protocol"] or "openai") == protocol):
+            max_input = existing["max_input_tokens"] if "max_input_tokens" in existing.keys() else None
+    if max_input is not None:
+        if isinstance(max_input, bool) or not re.fullmatch(r"[0-9]+", str(max_input)):
+            raise ValueError("Max Input must be a positive integer (tokens)")
+        max_input = int(max_input)
+        if not 1 <= max_input <= 2_147_483_647:
+            raise ValueError("Max Input must be a positive integer (tokens), no greater than 2147483647")
+    # 编辑时留空 Key = 沿用已存 Key;显式传 clear_api_key 才清空(本机 vLLM
+    # 之类不需要 Key 的端点过去无法把误填的 Key 去掉)。沿用只限同一个端点:
+    # 地址的 scheme / host / port 或协议变了,旧 Key 不能跟去新地址,必须重新填。
+    if (api_key == "" and stored_key and not clear_key
+            and (_endpoint_id(str(existing["base_url"] or "")) != _endpoint_id(base_url)
+                 or str(existing["protocol"] or "openai").lower() != protocol)):
+        raise ValueError("The endpoint or protocol changed; enter the API key again, or tick \"clear key\" for endpoints that need none")
+    # The probe waits for the other end to answer, up to tens of seconds: it runs outside the write transaction
+    # so it does not hold the state database's write lock while parse and graph build writes wait
+    _probe_llm(base_url, "" if clear_key else (api_key or stored_key), model_id, protocol)
+    with db.connect(cfg.state_db) as con:
+        if protocol != "openai":
+            for row in discovery.known_sources(con):
+                if discovery.get_config(con, str(row["kb_id"])).get("vlm_model") == name:
+                    raise ValueError("Multimodal models require the OpenAI-compatible protocol")
+        db.upsert_llm(
+            con,
+            name=name,
+            base_url=base_url,
+            api_key=api_key,
+            model_id=model_id,
+            protocol=protocol,
+            max_input_tokens=max_input,
+        )
+        if clear_key:
+            con.execute("UPDATE llm_registry SET api_key='' WHERE name=?", (name,))
+        return _mask(db.get_llm(con, name))
+
+
+def remove_llm(name: str) -> dict[str, Any]:
+    """Delete one model registration. **No longer refused because "a knowledge base is using it".**
+
+    It used to be a hard block: as soon as the name appeared in any KB's graph_llm it could not be deleted.
+    But being referenced is not being in use -- once the knowledge graph is turned off, the whole
+    graph-fields block (the three model slots and the label extraction button) is disabled; none of those
+    names can run then, yet they still locked the model registry.
+
+    Now decoupled: the deletion just happens, and every KB referencing the model gets that slot cleared
+    (instead of keeping a dangling name pointing at a deleted model -- which would make the build report
+    "not in the registry" when the truth is "you have not selected one yet"). The console lists the
+    affected KBs and slots in the confirmation dialog first, so this is not silent.
+
+    Returns the cleared references so the console can report them truthfully.
+    """
+    cfg = settings()
+    with db.connect(cfg.state_db) as con:
+        affected = _llm_usage(con).get(name, [])
+        for row in discovery.known_sources(con):
+            try:
+                config = json.loads(row["config_json"] or "{}")
+                kb_llm = dict(config.get("graph_llm") or {})
+            except Exception:
+                continue
+            if config.get("vlm_model") == name:
+                discovery.set_config(con, str(row["kb_id"]), {"vlm_model": None})
+            pruned = {k: v for k, v in kb_llm.items() if v != name}
+            if pruned != kb_llm:
+                discovery.set_config(con, str(row["kb_id"]), {"graph_llm": pruned or None})
+        if not db.delete_llm(con, name):
+            raise KeyError(name)
+        con.commit()
+    return {"deleted": name, "cleared": affected}
+
+
+def init_state() -> None:
+    from .schema_tasks import recover_interrupted
+    cfg = settings()
+    db.init_db(cfg.state_db)
+    recover_interrupted(cfg)
+
+
+# ── service restarts ────────────────────────────────────────────────────
+
+# Console row -> docker containers of the compose stack (deployment/compose).
+# The compose restart policies own the lifecycle; the button just bounces the
+# container(s).
+SERVICE_CONTAINERS: dict[str, list[str]] = {
+    # The "Database services" row covers three stores: vector store, keyword index, graph store
+    "database": ["carrel-qdrant", "carrel-opensearch", "carrel-neo4j"],
+    "mineru": ["carrel-mineru"],
+    "embedding": ["carrel-embedding"],
+    "visual_embedding": ["carrel-vl-embedding"],
+    # The "Reranker service" row covers two rerank models: text rerank + cross-modal rerank. The parse /
+    # graph build pipelines do not use them (they only serve retrieval); they are managed here so that
+    # "Stop all" really stops everything on the GPU.
+    "reranker": ["carrel-reranker", "carrel-vl-reranker"],
+}
+
+# Database and parse rows are always shown. Model endpoints can be remote;
+# only containers listed in KB_CONSOLE_SERVICES have local restart controls.
+ALWAYS_SHOWN_SERVICES: tuple[str, ...] = ("database", "mineru")
+
+# Services the pipeline does not depend on: restarting one on its own interrupts no parse / graph build job,
+# so it skips the busy check (restart all / stop all are still checked, since they take the stores down too).
+_PIPELINE_INDEPENDENT: frozenset[str] = frozenset({"reranker"})
+
+
+def managed_services() -> tuple[str, ...]:
+    """Local containers managed by the console: only these get restart buttons and are included in
+    restart all / stop all. Endpoint health is checked separately. When the settings object lacks the field (old
+    test stubs), the default two rows apply."""
+    from kb_pipeline.config import CONSOLE_SERVICES_DEFAULT
+
+    keys = getattr(settings(), "console_services", None)
+    if keys is None:
+        keys = CONSOLE_SERVICES_DEFAULT
+    return tuple(key for key in keys if key in SERVICE_CONTAINERS)
+
+
+def _refuse_if_busy(action: str, force: bool) -> None:
+    """Restarting / stopping Qdrant, OpenSearch or MinerU makes a running parse fail (it retries) or throws
+    away a graph build's progress (the whole round restarts). Without force, refuse while the system is
+    busy; the frontend shows the reason and asks the user to confirm a second time."""
+    if force:
+        return
+    from kb_pipeline.maintenance import service_busy
+
+    busy, reasons = service_busy(settings())
+    if busy:
+        raise ValueError(
+            f"The system is busy; a {action} would interrupt running work: " + "; ".join(reasons[:3])
+            + f". Click again to force the {action}."
+        )
+
+
+def _docker_control(command: str, containers: list[str]) -> None:
+    """Send docker restart / stop to a group of containers. Fire and forget: docker restart blocks until the
+    stop grace period ends, and the health probe is the honest "it is back" signal. Output goes to a log
+    instead of DEVNULL: a renamed / missing container used to fail completely silently, with the console
+    only showing "command sent"."""
+    log_dir = settings().log_dir
+    log_dir.mkdir(parents=True, exist_ok=True)
+    with (log_dir / "web-docker-restart.log").open("ab") as log:
+        for name in containers:
+            subprocess.Popen(
+                ["docker", command, name],
+                stdout=log, stderr=log, start_new_session=True,
+            )
+
+
+def _all_service_containers() -> list[str]:
+    """Targets of restart all / stop all: the managed rows' containers, deduplicated in row order."""
+    out: list[str] = []
+    for key in managed_services():
+        for name in SERVICE_CONTAINERS[key]:
+            if name not in out:
+                out.append(name)
+    return out
+
+
+def restart_service(key: str, force: bool = False) -> dict[str, Any]:
+    containers = SERVICE_CONTAINERS.get(key)
+    if not containers or key not in managed_services():
+        raise KeyError(key)
+    if key not in _PIPELINE_INDEPENDENT:
+        _refuse_if_busy("restart", force)
+    _docker_control("restart", containers)
+    return {"restarting": containers}
+
+
+def restart_all_services(force: bool = False) -> dict[str, Any]:
+    """The "Restart all" action: every system service container listed in the console. docker restart brings
+    a stopped container straight up."""
+    containers = _all_service_containers()
+    _refuse_if_busy("restart", force)
+    _docker_control("restart", containers)
+    return {"restarting": containers}
+
+
+def stop_all_services(force: bool = False) -> dict[str, Any]:
+    """The "Stop all" action: stop every system service container. The parse queue yields because Qdrant is
+    unreachable (the queue is kept); use "Restart all" to bring everything back."""
+    containers = _all_service_containers()
+    _refuse_if_busy("shutdown", force)
+    _docker_control("stop", containers)
+    return {"stopping": containers}
+
+
+# ── health ──────────────────────────────────────────────────────────────
+
+_health_cache: dict[str, Any] = {"at": 0.0, "value": None}
+
+
+# The six timer jobs (unit names without suffix) and each one's yield-count file name under
+# runtime/state/maintenance (see scripts/lib/kb-maint-defer.sh: graph-rebuild, cleanup-<subcommand>).
+# Scan and parse have no yield count.
+_TIMER_UNITS: tuple[tuple[str, str, str, str | None], ...] = (
+    ("scan", "Mirror scan", "carrel-scan", None),
+    ("worker", "Parse queue", "carrel-worker", None),
+    ("graph", "Graph maintenance check", "carrel-graph-rebuild", "graph-rebuild"),
+    ("gc", "Inactive point / parse asset GC", "carrel-qdrant-gc", "cleanup-parse-assets-gc"),
+    ("cache", "Weekly cache cleanup", "carrel-cache-weekly", "cleanup-weekly"),
+    ("logs", "Monthly log rotation", "carrel-logs-monthly", "cleanup-monthly"),
+)
+_SYSTEMD_TS_RE = re.compile(r"(\d{4})-(\d{2})-(\d{2}) (\d{2}):(\d{2}):\d{2}")
+
+
+def parse_systemctl_show(output: str) -> dict[str, dict[str, str]]:
+    """Split the output of `systemctl show -p A,B unit1 unit2` into dicts keyed by Id; empty output / systemd
+    not installed -> {}."""
+    blocks: dict[str, dict[str, str]] = {}
+    for chunk in str(output or "").strip().split("\n\n"):
+        kv = dict(line.split("=", 1) for line in chunk.splitlines() if "=" in line)
+        if kv.get("Id"):
+            blocks[kv["Id"]] = kv
+    return blocks
+
+
+def _systemctl_show(units: list[str], props: list[str]) -> dict[str, dict[str, str]]:
+    try:
+        out = subprocess.run(["systemctl", "--user", "show", f"--property={','.join(props)}", *units],
+                             capture_output=True, text=True, timeout=5).stdout
+    except Exception:
+        return {}
+    return parse_systemctl_show(out)
+
+
+def _systemctl_list_timers() -> dict[str, int]:
+    """`systemctl --user list-timers --all --output=json` -> {unit: next trigger in wall-clock microseconds}.
+    Relative-time timers (OnActiveSec / OnUnitActiveSec) have no NextElapseUSecRealtime in `systemctl show`,
+    only a monotonic-clock value; list-timers converts it to a wall-clock instant for us (since the timers
+    were switched to relative time on 2026-09-09). Returns {} when unavailable."""
+    try:
+        out = subprocess.run(["systemctl", "--user", "list-timers", "--all", "--output=json"],
+                             capture_output=True, text=True, timeout=5).stdout
+        rows = json.loads(out or "[]")
+    except Exception:
+        return {}
+    result: dict[str, int] = {}
+    for row in rows if isinstance(rows, list) else []:
+        unit, nxt = str(row.get("unit") or ""), row.get("next")
+        if unit and isinstance(nxt, (int, float)) and nxt > 0:
+            result[unit] = int(nxt)
+    return result
+
+
+def merge_timer_next(timers: dict[str, dict[str, str]], next_usec: dict[str, int]) -> dict[str, dict[str, str]]:
+    """For timers whose show output lacks NextElapseUSecRealtime, fill it from the list-timers wall-clock
+    microseconds (formatted like a systemd timestamp, parsed uniformly later)."""
+    for unit, tm in timers.items():
+        if tm.get("NextElapseUSecRealtime"):
+            continue
+        usec = next_usec.get(unit)
+        if usec:
+            tm["NextElapseUSecRealtime"] = time.strftime("%a %Y-%m-%d %H:%M:%S %Z", time.localtime(usec / 1_000_000))
+    return timers
+
+
+def _short_systemd_ts(value: str | None) -> str | None:
+    m = _SYSTEMD_TS_RE.search(str(value or ""))
+    return f"{m.group(2)}-{m.group(3)} {m.group(4)}:{m.group(5)}" if m else None
+
+
+def _maintenance_defers(folder: Path) -> dict[str, int]:
+    out: dict[str, int] = {}
+    try:
+        for f in folder.glob("*.defers"):
+            try:
+                out[f.stem] = int(f.read_text(encoding="utf-8").strip() or "0")
+            except (ValueError, OSError):
+                out[f.stem] = 0
+    except OSError:
+        pass
+    return out
+
+
+def timer_health(services: dict[str, dict[str, str]], timers: dict[str, dict[str, str]],
+                 defers: dict[str, int]) -> list[dict[str, Any]]:
+    """Status rows of the timer jobs (health check R6): last result, whether running, next trigger, how many
+    consecutive rounds yielded. ok=False only when the last run failed; a unit systemd cannot find -> None
+    (unknown, not broken)."""
+    rows: list[dict[str, Any]] = []
+    for key, label, unit, defer_name in _TIMER_UNITS:
+        svc = services.get(f"{unit}.service") or {}
+        tm = timers.get(f"{unit}.timer") or {}
+        state = svc.get("ActiveState")
+        result = svc.get("Result")
+        running = state in ("active", "activating")
+        failed = bool(svc) and (state == "failed" or (result not in (None, "", "success") and not running))
+        rows.append({
+            "key": key, "label": label, "unit": unit,
+            "ok": (not failed) if svc else None,
+            "running": running, "state": state, "result": result,
+            "timer_active": (tm.get("ActiveState") == "active") if tm else None,
+            "last": _short_systemd_ts(tm.get("LastTriggerUSec")),
+            "next": _short_systemd_ts(tm.get("NextElapseUSecRealtime")),
+            "defers": int(defers.get(defer_name or "", 0) or 0),
+        })
+    return rows
+
+
+def _probe_neo4j(uri: str, user: str, password: str | None) -> bool:
+    """Graph store health probe: open one connection over bolt (HTTP 7474 is not necessarily exposed).
+    Unreachable and authentication failure both count as unhealthy."""
+    if not uri:
+        return False
+    try:
+        from neo4j import GraphDatabase
+
+        driver = GraphDatabase.driver(uri, auth=(user, password or ""), connection_timeout=4)
+        try:
+            driver.verify_connectivity()
+            return True
+        finally:
+            driver.close()
+    except Exception:
+        return False
+
+
+def health() -> dict[str, Any]:
+    cfg = settings()
+    # With the panel open this is polled every 5 seconds, while probing 5-6 services serially with a 4-second
+    # timeout each means 20 seconds per call when several are down at once -- requests pile up and
+    # out-of-order responses make the status flip back and forth. Probe concurrently and cache for 3 seconds.
+    now = time.time()
+    if _health_cache["value"] is not None and now - float(_health_cache["at"]) < 3.0:
+        return dict(_health_cache["value"])
+
+    def probe(url: str) -> bool:
+        try:
+            return requests.get(url, timeout=4).status_code == 200
+        except Exception:
+            return False
+
+    def vllm(base: str) -> bool:
+        root = base.rstrip("/")
+        if root.endswith("/v1"):
+            root = root[: -len("/v1")]
+        return probe(f"{root}/health")
+
+    neo4j_uri = str(getattr(cfg, "neo4j_uri", "") or "")
+    managed = managed_services()
+    checks = {
+        "qdrant": lambda: probe(f"{cfg.qdrant_url.rstrip('/')}/healthz"),
+        "opensearch": lambda: probe(f"{cfg.opensearch_url.rstrip('/')}/_cluster/health"),
+        "neo4j": lambda: _probe_neo4j(neo4j_uri, getattr(cfg, "neo4j_user", "neo4j"), getattr(cfg, "neo4j_password", None)),
+        "mineru": lambda: probe(f"{cfg.mineru_url.rstrip('/')}/health"),
+    }
+    # Only probe the managed model service rows: an unmanaged address may be a public endpoint, and probing
+    # vLLM's /health there would just stay red.
+    if "embedding" in managed:
+        checks["embedding"] = lambda: vllm(cfg.embedding_base_url)
+    if "visual_embedding" in managed and cfg.visual_embedding_enabled:
+        checks["visual_embedding"] = lambda: vllm(cfg.visual_embedding_base_url)
+    # Rerank: text / cross-modal are probed separately and the frontend merges them into one "Reranker
+    # service" row; an empty address = not deployed, give None so the row is hidden
+    reranker_url = str(getattr(cfg, "reranker_base_url", "") or "")
+    visual_reranker_url = str(getattr(cfg, "visual_reranker_base_url", "") or "")
+    if "reranker" in managed and reranker_url:
+        checks["reranker"] = lambda: vllm(reranker_url)
+    if "reranker" in managed and visual_reranker_url:
+        checks["visual_reranker"] = lambda: vllm(visual_reranker_url)
+
+    from concurrent.futures import ThreadPoolExecutor
+
+    with ThreadPoolExecutor(max_workers=len(checks)) as pool:
+        futures = {name: pool.submit(fn) for name, fn in checks.items()}
+        result: dict[str, Any] = {name: future.result() for name, future in futures.items()}
+    for name in ("embedding", "visual_embedding", "reranker", "visual_reranker"):
+        result.setdefault(name, None)
+    if not neo4j_uri:
+        result["neo4j"] = None          # no graph store: "Database services" checks only Qdrant / OpenSearch
+    result["managed"] = list(managed)
+    # Parse backend: chosen by the container itself from the hardware (MINERU_BACKEND=auto) or fixed in the
+    # config; shown on the parse service row
+    from kb_pipeline.parsers.mineru_backend import resolve_backend
+
+    result["mineru_backend"], result["mineru_backend_source"] = resolve_backend(getattr(cfg, "runtime_dir", None))
+    result["parse_enabled"] = cfg.parse_enabled
+    units = [u for _, _, u, _ in _TIMER_UNITS]
+    result["timers"] = timer_health(
+        _systemctl_show([f"{u}.service" for u in units], ["Id", "ActiveState", "SubState", "Result"]),
+        merge_timer_next(_systemctl_show([f"{u}.timer" for u in units], ["Id", "ActiveState", "NextElapseUSecRealtime", "LastTriggerUSec"]),
+                         _systemctl_list_timers()),
+        _maintenance_defers(Path(cfg.state_db).parent / "maintenance"),
+    )
+    _health_cache["at"] = time.time()
+    _health_cache["value"] = result
+    return dict(result)

@@ -1,0 +1,3 @@
+**Opening answer (~30 seconds, self-contained so it survives being clipped for shorts):**
+
+"I'm Marguerite. I lead the storage team at Halcyon Grid, and the problem I'm obsessed with is simple to state and brutal to solve: never lose a byte, even while the hardware under it is failing. I got here by way of a payments startup, where losing a transaction was never an option, and before that, distributed systems at a telco, which taught me how creatively things break at scale. Storage is where those two lessons collide, and that's what I'm building now."

@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that average position is returned as a metric and cannot be applied as a server-side filter",
+        "evidence": "\"Position comes back as a metric, never a filter \u2014 there is no server-side way to ask for 'position 5-20 only.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the dimensions that are actually filterable (country, device, page, query, searchAppearance, date, hour) or states explicitly that position is not among them",
+        "evidence": "\"Position comes back as a metric, never a filter\" explicitly states position is not filterable.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the row limit accepts 1 to 25,000 rows and returns 1,000 by default",
+        "evidence": "\"rowLimit maxes at 25,000, defaults to 1,000.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Instructs raising the row limit to its maximum for the pull",
+        "evidence": "\"Set it explicitly \u2014 the default silently truncates.\" with the request body showing \"rowLimit\": 25000.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cuts the 5-20 average-position window client-side, after the export, rather than requesting it",
+        "evidence": "\"Pull wide, cut client-side (below).\" and step 2: \"Keep rows where 5 <= position <= 20.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes the report comes back sorted by clicks, so the window can only be cut after a wide pull",
+        "evidence": "No statement anywhere in the transcript about the report being sorted by clicks.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reports that the API does not guarantee returning all data rows, only top ones",
+        "evidence": "\"The API's own reference is explicit that it 'does not guarantee to return all data rows but rather top ones'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that rare queries are withheld for privacy, so the visible tail is a floor and not a total",
+        "evidence": "\"GSC withholds low-volume/rare queries from the query-dimension report for privacy. That's not a rounding effect, it's rows that never appear at all.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to sum query-level rows into a site total, and says so about the 412,000 figure specifically",
+        "evidence": "\"Don't refresh it 'the same way' \u2014 the method itself is the defect... Any total built by summing the query dimension is therefore a floor on real impressions, not the real number\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Joins each surviving query to its landing page",
+        "evidence": "\"Pull queries joined to pages, not queries alone\"; dimensions: [\"query\", \"page\"].",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the join is what exposes two of their own pages splitting one query",
+        "evidence": "\"Join check first. Group by query; flag any query with more than one distinct landing page. That's two of your own pages splitting one search intent\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Attributes the 5-20 window as a reused convention rather than a measured cut-off",
+        "evidence": "\"That's the striking-distance convention this skill uses \u2014 proven demand, unwon ranking. It's a convention, not a measured cutoff\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that average position is returned as a metric and cannot be applied as a server-side filter",
+        "evidence": "'`position` is not filterable server-side... `position`, `clicks`, `impressions`, `ctr` are metrics, not filterable dimensions.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the dimensions that are actually filterable (country, device, page, query, searchAppearance, date, hour) or states explicitly that position is not among them",
+        "evidence": "'`dimensionFilterGroups` only accepts `query`, `page`, `country`, `device`, `searchAppearance`'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the row limit accepts 1 to 25,000 rows and returns 1,000 by default",
+        "evidence": "It mentions only 'rowLimit caps at 25,000 per call', with no range and no 1,000 default.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Instructs raising the row limit to its maximum for the pull",
+        "evidence": "'\"rowLimit\": 25000' and 'const PAGE_SIZE = 25000'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cuts the 5-20 average-position window client-side, after the export, rather than requesting it",
+        "evidence": "'const pageTwo = rows.filter((r) => r.position >= 5 && r.position <= 20)'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes the report comes back sorted by clicks, so the window can only be cut after a wide pull",
+        "evidence": "It never mentions click-sorted output.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reports that the API does not guarantee returning all data rows, only top ones",
+        "evidence": "It treats the paginated pull as complete ('Loop on startRow until a page comes back short') and gives no completeness caveat.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that rare queries are withheld for privacy, so the visible tail is a floor and not a total",
+        "evidence": "'Google excludes rare and potentially-identifying queries... a query-row sum is structurally a floor, not the true figure.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to sum query-level rows into a site total, and says so about the 412,000 figure specifically",
+        "evidence": "It says 'Report that number as the like-for-like refresh' and gives the reduce-sum code. It caveats the sum and adds an aggregate call, but does not refuse.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Joins each surviving query to its landing page",
+        "evidence": "'dimensions: [\"page\", \"query\"]... You need the page+query pair to act on the right URL.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the join is what exposes two of their own pages splitting one query",
+        "evidence": "'flag any query with more than one distinct page in the pageTwo set \u2014 that's two docs pages competing for the same query'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Attributes the 5-20 window as a reused convention rather than a measured cut-off",
+        "evidence": "It only says 'If 5\u201320 was chosen deliberately... keep it' and notes that strict page 2 is 11\u201320. It does not call the window a reused convention.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

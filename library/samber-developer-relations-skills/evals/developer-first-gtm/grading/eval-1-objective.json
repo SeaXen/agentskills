@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that developer-focused companies show a median free-to-paid conversion of roughly 5%, about half the median of non-developer-focused companies, and attributes it to the Lenny's Newsletter free-to-paid conversion survey.",
+        "evidence": "\"Developer-focused products convert at roughly half the rate of non-developer products \u2014 published median is ~5% for dev tools specifically, against a blended figure closer to double that... (Sourced, same study.)\" tied to \"(Sourced: measurement definition \u2014 Lenny's Newsletter, \\\"What is good free-to-paid conversion.\\\")\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the 3-5% figure as the freemium pure-self-serve band and notes it assumes a different measurement from the one the user ran.",
+        "evidence": "\"'3-5% is normal' is the generic B2B SaaS freemium band\" combined with \"you're already comparing to the wrong population before you even get to the cohort-vs-lifetime issue\" ties the benchmark to the correct (cohort) measurement basis.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the user's lifetime all-signups-ever ratio as the wrong measurement, and states that a lifetime ratio flatters or distorts any product whose signups grew.",
+        "evidence": "\"A meaningful chunk of your 8,412 have not been alive long enough to convert yet, but they're sitting in the denominator dragging the number down regardless.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the measurement definition the published bands assume: accounts that begin paying within their first six months divided by accounts created in the measurement window.",
+        "evidence": "\"Free-to-paid = accounts that began paying within their first 6 months \u00f7 accounts created in that same window, by cohort, at account level.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the recomputation to be done by cohort.",
+        "evidence": "\"by cohort, at account level\" and \"for each cohort ask 'what fraction paid within 6 months of joining.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the recomputation to be done at account level rather than per individual user.",
+        "evidence": "\"...\u00f7 accounts created in that same window, by cohort, at account level.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the 74% single-developer figure as a spread problem rather than a conversion problem.",
+        "evidence": "\"you have a structural **spread gate failure**: single-seat accounts that were never going to expand into something a credit card converts\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Runs or asks for the three friction gates by name - entry, value and spread - instead of moving straight to onboarding work.",
+        "evidence": "Only \"entry gate\" and \"spread gate failure\" are explicitly named; value is only referenced as \"already got value,\" never labeled a gate, and the four checklist items never test a value gate by name.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines to endorse the onboarding rebuild as the first action on the evidence given.",
+        "evidence": "\"Don't approve \\\"rebuild onboarding\\\" as scoped.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels each number it uses as either sourced, with its source and measurement definition, or self-set.",
+        "evidence": "The 3-5% freemium band, the derived 20x/26% figures, and the corrected estimate are used without individual sourced/self-set tags; only the 6-month definition and the 5% dev-tool figure carry explicit source labels.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not assert that a 0.23% conversion rate proves the funnel is broken.",
+        "evidence": "\"I'd bet the corrected number is meaningfully higher than 0.23%... 'twenty times off' is very likely an artifact of the math, not the product.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that developer-focused companies show a median free-to-paid conversion of roughly 5%, about half the median of non-developer-focused companies, and attributes it to the Lenny's Newsletter free-to-paid conversion survey.",
+        "evidence": "Transcript only says '3-5% figure in those benchmark posts' and 'consumer/prosumer PLG tools' \u2014 no mention of a 5% median, no half-of-non-developer comparison, and no attribution to Lenny's Newsletter.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the 3-5% figure as the freemium pure-self-serve band and notes it assumes a different measurement from the one the user ran.",
+        "evidence": "\"it's not comparable to the 3-5% figure in those benchmark posts \u2014 which is almost always a cohort metric (e.g., \\\"% of trials that convert within 30/60/90 days of signup\\\")\" \u2014 contrasted with the user's cumulative all-time ratio.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the user's lifetime all-signups-ever ratio as the wrong measurement, and states that a lifetime ratio flatters or distorts any product whose signups grew.",
+        "evidence": "\"You're dividing all-time payers by all-time signups. That's a cumulative rate, not a conversion rate\" and \"Every month, brand-new cohorts get added to the denominator at 0% by definition, which mechanically drags the lifetime average down forever\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the measurement definition the published bands assume: accounts that begin paying within their first six months divided by accounts created in the measurement window.",
+        "evidence": "The transcript only proposes a generic cohort formula ('signups from month M, converted within N days') without ever specifying a six-month window as the standard definition.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the recomputation to be done by cohort.",
+        "evidence": "\"Fix: recompute conversion as a cohort rate (signups from month M, converted within N days), using only cohorts old enough for that window to have closed.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the recomputation to be done at account level rather than per individual user.",
+        "evidence": "No statement anywhere distinguishes account-level from per-user computation of the conversion metric.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the 74% single-developer figure as a spread problem rather than a conversion problem.",
+        "evidence": "\"the account never expands into a real team purchase. That's an adoption/expansion problem\" \u2014 framed explicitly as distinct from the onboarding/conversion issue.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Runs or asks for the three friction gates by name - entry, value and spread - instead of moving straight to onboarding work.",
+        "evidence": "The transcript never uses or references 'entry gate', 'value gate', or 'spread gate' terminology anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines to endorse the onboarding rebuild as the first action on the evidence given.",
+        "evidence": "\"don't greenlight the onboarding rebuild yet\" stated as the bottom-line opener.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels each number it uses as either sourced, with its source and measurement definition, or self-set.",
+        "evidence": "Numbers like '0.87%' or 'under 10%'-style figures are presented without labeling as sourced-with-definition or self-set; e.g. the 3-5% figure is only vaguely called 'benchmark posts' with no explicit sourced/self-set tagging.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not assert that a 0.23% conversion rate proves the funnel is broken.",
+        "evidence": "The whole first section argues the 0.23% number is 'measuring the wrong thing' rather than proof of a broken funnel.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

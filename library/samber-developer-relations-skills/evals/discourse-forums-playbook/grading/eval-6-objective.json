@@ -1,0 +1,118 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Says bumping mainly moves a topic on Latest and does little for Hot or Top",
+        "evidence": "'A bump moves a topic up Latest and does almost nothing for Hot or Top.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains Hot as driven by likes and the number of distinct people liking or posting, decayed by topic age, over recently active topics (about the last 7 days)",
+        "evidence": "'Likes, plus distinct likers, plus distinct posters, in the last 7 days. The score decays with topic age (gravity 1.2).'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains Top as weighting views, first-post likes and likes per post, with a boost for longer discussions (around 10+ posts)",
+        "evidence": "'log(views), first-post likes, likes per post (capped)... bonus once a topic reaches 10 posts.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says staff-only or announcement topics with few member likes or replies score low",
+        "evidence": "'Replies from a handful of staff don't move it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a separate Announcements category for release posts",
+        "evidence": "Only mentions excluding 'Announcements' from digest and leaving Solved off it; never recommends creating or keeping a separate category.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says Announcements can be excluded from the summary email with its suppress-categories setting",
+        "evidence": "'Exclude Announcements, or noisy tags, with the digest suppress settings.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a member-participation surface such as a weekly ritual topic instead of more announcements",
+        "evidence": "'Add a weekly ritual topic such as \"what are you building?\"'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the ranking explanation as coming from Discourse's own code or docs, not guesswork",
+        "evidence": "'which labels them as taken from Discourse's source'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends reducing self-bumping",
+        "evidence": "'Stop bumping.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Says bumping mainly moves a topic on Latest and does little for Hot or Top",
+        "evidence": "\"Bumping doesn't help. It moves a topic up Latest but adds no likes, no distinct posters and no views.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains Hot as driven by likes and the number of distinct people liking or posting, decayed by topic age, over recently active topics (about the last 7 days)",
+        "evidence": "\"driven by engagement... likes, and the number of distinct posters and likers. It is divided by an age-decay term\"; \"Only topics with enough recent activity are eligible.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains Top as weighting views, first-post likes and likes per post, with a boost for longer discussions (around 10+ posts)",
+        "evidence": "\"combines views on a log scale, likes (the first post's likes are weighted separately), and post/reply counts.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says staff-only or announcement topics with few member likes or replies score low",
+        "evidence": "\"Release announcements attract few reactions... they get views but few likes or replies.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a separate Announcements category for release posts",
+        "evidence": "It only suggests checking whether the existing Announcements category is excluded; it does not recommend a separate category.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says Announcements can be excluded from the summary email with its suppress-categories setting",
+        "evidence": "It says \"I'm not sure of the exact setting names\" and does not name the suppress-categories setting.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends a member-participation surface such as a weekly ritual topic instead of more announcements",
+        "evidence": "\"Replace four posts a week with one weekly 'What shipped' topic... End each announcement with one specific question.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the ranking explanation as coming from Discourse's own code or docs, not guesswork",
+        "evidence": "It marks provenance explicitly: \"wrote what follows from memory... The ones I'm unsure of are marked \u26a0\ufe0f\", and the comment in `topic_hot_score.rb` is flagged as differing from the SQL.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends reducing self-bumping",
+        "evidence": "\"Stop bumping. Remove the practice.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

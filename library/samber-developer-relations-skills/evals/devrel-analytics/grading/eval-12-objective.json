@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the 58% rate because it is computed on fewer than roughly 30 events.",
+        "evidence": "\"Below the small-N floor. Even with the right denominator, 19 and 11 both sit well under this skill's ~30-event floor for reporting a rate at all.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Instructs publishing the raw list with dates instead of a percentage at that volume.",
+        "evidence": "\"report \\\"19 talks given; 11 named people we can point to who later signed up\\\" as a dated list, unlabeled as a rate.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that DevRel counts such as talks, enterprise conversations and external pull requests are naturally small, so this is the normal case rather than an exception.",
+        "evidence": "The transcript addresses only this specific talk-to-signup metric's small N; it never generalizes that DevRel counts (talks, enterprise conversations, external PRs) are naturally small as a normal-case rule.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags that the talk-to-signup link needs a stated evidence basis, since off-web appearances cannot be tagged.",
+        "evidence": "\"Talks are an off-web surface with zero automatic collection ... this 11 is anecdotal, not journey_linked or even self_reported evidence\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the substitutes for off-web attribution: a short speakable vanity path per talk, a QR code per event resolving to a tagged URL, or a self-reported source field at signup.",
+        "evidence": "\"plant a vanity URL or QR code per talk and add a stable self-reported source option (\\\"met you at a conference/talk\\\") at signup\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that those substitutes read as a floor on the surface's contribution, never as a total.",
+        "evidence": "No statement frames the vanity-URL/QR/self-reported substitutes as a floor rather than a total in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses the public per-member leaderboard without consent from the members it would name.",
+        "evidence": "\"Get explicit opt-in per person before naming them on any public board\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Pairs the four-posts-per-month target with a quality counter-metric, and explains that an incentivised volume metric gets gamed once it becomes a target.",
+        "evidence": "\"It's an incentivized volume metric with no counter-metric attached.\" / \"pair it with a quality counter-metric\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Attributes the gaming dynamic to the published measure-becomes-a-target principle rather than presenting it as an original observation.",
+        "evidence": "\"a metric picked because it's flattering is the first one Goodhart's law comes for.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires person-level community data to be aggregated before anything is published.",
+        "evidence": "\"aggregate (\\\"42 members answered 300+ questions this month\\\") with no names\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the self-reported source field's answer list short and stable across quarters so periods stay comparable.",
+        "evidence": "No statement in this transcript specifies that the self-reported field's answer list should stay short and stable across quarters.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the 58% rate because it is computed on fewer than roughly 30 events.",
+        "evidence": "The rejection reasoning is about wrong units/denominator mismatch (\"dividing people by events\"), not small sample size below ~30.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Instructs publishing the raw list with dates instead of a percentage at that volume.",
+        "evidence": "No instruction to publish a raw list with dates instead of a percentage.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that DevRel counts such as talks, enterprise conversations and external pull requests are naturally small, so this is the normal case rather than an exception.",
+        "evidence": "No such framing appears; the critique focuses on unit mismatch and causality, not on small-N being the normal DevRel case.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags that the talk-to-signup link needs a stated evidence basis, since off-web appearances cannot be tagged.",
+        "evidence": "The causality gap is flagged (\"'Later opened an account' isn't attribution\") but not explicitly tied to talks being untaggable off-web appearances.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the substitutes for off-web attribution: a short speakable vanity path per talk, a QR code per event resolving to a tagged URL, or a self-reported source field at signup.",
+        "evidence": "\"capture a source field at signup ('How did you hear about us?') and tag CRM leads at first touch, then compare self-reported vs. tracked attribution\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that those substitutes read as a floor on the surface's contribution, never as a total.",
+        "evidence": "No floor-vs-total framing is given for the self-reported field.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses the public per-member leaderboard without consent from the members it would name.",
+        "evidence": "\"No consent. Publishing individual handles tied to counts is publishing personal engagement data...Get opt-in (or at minimum clear opt-out) before anyone's name goes on a public board\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Pairs the four-posts-per-month target with a quality counter-metric, and explains that an incentivised volume metric gets gamed once it becomes a target.",
+        "evidence": "The quota fix offered is \"Set it as a flexible team-level target, or tie it to outcomes\" \u2014 no quality counter-metric is paired with the quota specifically.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Attributes the gaming dynamic to the published measure-becomes-a-target principle rather than presenting it as an original observation.",
+        "evidence": "The gaming risk (\"you'll train the community to spam\") is stated as the assistant's own analysis, with no reference to a named principle like Goodhart's Law.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires person-level community data to be aggregated before anything is published.",
+        "evidence": "The fix is to limit exposure (\"Spotlight the top 3\u20135...keep the rest as an internal-only metric\"), not to aggregate person-level data before publishing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the self-reported source field's answer list short and stable across quarters so periods stay comparable.",
+        "evidence": "No discussion of keeping a stable, short answer list for the self-reported field across quarters.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

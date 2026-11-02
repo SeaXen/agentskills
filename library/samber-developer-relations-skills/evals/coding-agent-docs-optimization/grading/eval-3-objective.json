@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects 95% first-attempt unattended as a target and says so directly",
+        "evidence": "\"The 95% number: drop it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites the published benchmark bands: backend-only roughly 73-85%, full-stack roughly 77-92%, depth-of-feature roughly 61-73%",
+        "evidence": "\"Results: backend-only 73-85%, full-stack 77-92%, feature-depth ('Gym') 61-73%.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States those published figures were scored best-of-three rather than first-attempt, so they are not directly comparable to an unattended single-attempt target",
+        "evidence": "\"Best-of-3 per task, not first-attempt.\"; \"'First try' is stricter than the benchmark's best-of-3.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Presents 80% first-attempt as a stretch goal rather than a floor or minimum acceptable standard",
+        "evidence": "\"'80% first-attempt, unattended, is a stretch goal, not a floor.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns explicitly against letting a stakeholder hear the stretch goal as a minimum",
+        "evidence": "no sentence in section 3 warns against the VP or stakeholder misreading 80% as a minimum; closest text only discusses not blending scores",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires scoring by category rather than reporting one blended average across the 9 tasks",
+        "evidence": "\"Put a lower number in, split by category, not one blended figure.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that depth-of-feature tasks land roughly 15-25 points below breadth tasks for every model",
+        "evidence": "\"6 of 9 tasks sit in the category that scores 15-25 points below breadth for every model tested.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Concludes that Corvid Data's 6-deep / 3-basic mix scores lower by construction and that this is not a regression",
+        "evidence": "\"First baseline on an unaudited corpus lands well under these figures \u2014 that's expected, not a failure.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that Corvid Data's own first baseline run is the only baseline that means anything, with iteration-over-iteration delta on a frozen set as the comparison that survives",
+        "evidence": "\"use the baseline score plus a stated improvement delta ('baseline + 20pts'), not an absolute ceiling picked before any measurement exists\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to present the 66% agent-traffic figure as an industry or population statistic",
+        "evidence": "\"The 66% traffic stat: doesn't hold up as an industry fact.\"; \"Don't state it as 'AI agents are now 66% of documentation web traffic' \u2014 that phrasing claims a population-wide fact it isn't.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies that figure as self-reported by a single docs-platform vendor and measured across sites that had already invested in agent surfaces",
+        "evidence": "\"self-reported, one vendor, sampled only from sites that already invested in agent-facing docs surfaces\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Permits using it as motivation while stating it is not evidence",
+        "evidence": "\"If you want to use it: attribute it correctly... and frame it as a directional trend, not Corvid's own number.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires recording the model identifier and the date alongside any score, since a score is comparable only within one generation of agents",
+        "evidence": "no mention of recording model identifier or date anywhere in section 3",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects 95% first-attempt unattended as a target and says so directly",
+        "evidence": "'Don't put 95% in the doc \u2014 the task mix makes that number nearly meaningless, not just optimistic.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites the published benchmark bands: backend-only roughly 73-85%, full-stack roughly 77-92%, depth-of-feature roughly 61-73%",
+        "evidence": "No published benchmark figures are cited at all; only self-derived ranges (80-95% CRUD, 15-45% deep) appear.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States those published figures were scored best-of-three rather than first-attempt, so they are not directly comparable to an unattended single-attempt target",
+        "evidence": "No published figures are cited, so no best-of-three/first-attempt comparability discussion exists.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Presents 80% first-attempt as a stretch goal rather than a floor or minimum acceptable standard",
+        "evidence": "The transcript never proposes 80%; its numbers are 90%/40% split KRs or a 55% blended stretch figure instead.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns explicitly against letting a stakeholder hear the stretch goal as a minimum",
+        "evidence": "'Put 55% in the doc as the Q1 target if you want one blended number \u2014 it's a stretch goal, not a floor, and it's defensible if challenged.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires scoring by category rather than reporting one blended average across the 9 tasks",
+        "evidence": "'Better than one blended number: split it into two KRs... KR1: \u226590%... KR2: \u226540%...'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that depth-of-feature tasks land roughly 15-25 points below breadth tasks for every model",
+        "evidence": "No such figure is stated; the transcript's own gap estimate (80-95% vs 15-45%) is much larger and not framed as a fixed 15-25 point universal gap.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Concludes that Corvid Data's 6-deep / 3-basic mix scores lower by construction and that this is not a regression",
+        "evidence": "The transcript explains the blended score is lower due to task mix but never frames this as 'not a regression' against any prior baseline.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that Corvid Data's own first baseline run is the only baseline that means anything, with iteration-over-iteration delta on a frozen set as the comparison that survives",
+        "evidence": "'run the eval now, not guess it... count first-try passes, and use that as the baseline instead of a benchmark-derived estimate.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to present the 66% agent-traffic figure as an industry or population statistic",
+        "evidence": "'Even a real industry number isn't your number. Aggregate web stats mix news sites, blogs, e-commerce, and docs together.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies that figure as self-reported by a single docs-platform vendor and measured across sites that had already invested in agent surfaces",
+        "evidence": "The transcript states it cannot even source the figure: 'I don't recognize \"66% of documentation traffic is AI agents\" as a specific, sourced figure from memory' \u2014 no vendor or selection-bias identification is made.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Permits using it as motivation while stating it is not evidence",
+        "evidence": "The transcript fully withholds the figure ('Do not put it on the budget slide until you've pulled it from a named, citable source') rather than permitting it as unsourced motivation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires recording the model identifier and the date alongside any score, since a score is comparable only within one generation of agents",
+        "evidence": "No mention of recording model identifier or date alongside any score.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

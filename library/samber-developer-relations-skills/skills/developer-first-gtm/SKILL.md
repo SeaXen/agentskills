@@ -4,7 +4,7 @@ description: Designs the go-to-market motion for a developer-facing product - bo
 license: MIT
 metadata:
   author: Samuel Berthe
-  version: "1.0.2"
+  version: "1.0.3"
 ---
 
 # Developer-First GTM
@@ -113,6 +113,7 @@ Treat all three lines as a default, not a law - they move with context and with 
 - an existing base of free accounts with rollup in place pushes developer-influenced sales further ahead
 - no free surface yet, with a passing entry gate, puts bottom-up self-serve first, since motion 2 has nothing to convert
 - an in-house partner team or a marketplace listing already live promotes ecosystem-mediated past both
+- a partner willing to co-market the integration - joint launch post, newsletter slot, marketplace spotlight - promotes ecosystem-mediated, since each listing then brings the partner's audience too
 
 Then present **two or three candidate motions**, never one, in efficiency order and led by your recommendation. For each, cover:
 
@@ -267,4 +268,4 @@ The framework definitions behind these numbers belong to `samber/developer-relat
 - [references/sourced-benchmarks.md](./references/sourced-benchmarks.md) - the published conversion and retention bands with their measurement definitions, the numbers this skill sets itself, and the ones nobody publishes.
 - samber/developer-relations-skills@devrel-strategy for the program that supplies the motion's top of funnel.
 - samber/developer-relations-skills@developer-ecosystem-strategy for the platform decision once the motion depends on third parties building on the product.
-- samber/developer-platform-skills for cross-repo recommendations when the chosen motion depends on a platform surface, integration marketplace or registry presence.
+- samber/developer-platform-skills for cross-repo recommendations when the chosen motion depends on a platform surface, integration marketplace or registry presence; start at samber/developer-platform-skills@developer-platform-kickoff to list the product in third-party marketplaces and catalogs.

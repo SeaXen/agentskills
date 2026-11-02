@@ -1,0 +1,190 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects page views as the headline KPI, stating it measures demand, not quality.",
+        "evidence": "'Views measure demand, not quality.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the 70% helpful target because it comes from a vendor blog, and sets targets from each page's own baseline.",
+        "evidence": "'A docs-tooling vendor's blog isn't your baseline... set per-page targets from it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats \"was this helpful\" votes as triage only, because votes are not validated against task success.",
+        "evidence": "'Votes are triage only. They aren't validated against whether the reader finished the task.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends executable steps passing in CI against the released product as the first signal, with a wiring cost of about half a day then near-zero, as the use of the platform engineer's day.",
+        "evidence": "'Add this first... Setup is about half a day, then near zero upkeep.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends tickets and issues that cite a page or its task as the second signal (near-zero to collect, a standing job to read), each pointing at a wrong or ambiguous step or a missing variant.",
+        "evidence": "'It costs almost nothing to collect, and each ticket points at a wrong, ambiguous or missing step.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the efficiency ordering out loud: CI pass > cited tickets > search refinements > helpful votes > task test > page views.",
+        "evidence": "The full efficiency ordering is not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the value ordering out loud: task test > CI pass > cited tickets > search refinements > helpful votes > page views.",
+        "evidence": "The full value ordering is not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects quarterly moderated task tests on all 40 pages and promotes the task test only for the three top-traffic pages.",
+        "evidence": "'Run the moderated task test on the top three pages'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the restore page's ticket drop with no other change as a reason to promote a task test, because silence can also mean readers gave up, rather than as proof the page is fine.",
+        "evidence": "'silence can also mean readers gave up'. Restore 'goes first in the task-test rotation'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the wiring costs as estimates, not measurements.",
+        "evidence": "'Its wiring costs are estimates, not measurements.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prescribes per-page drift metadata: `owner` as a team, `tested_with` as the API version or run date for the unversioned product, and `last_verified`.",
+        "evidence": "Stamp all 40 pages with owner (a team), tested_with (a run date) and last_verified.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets the stale-page job to flag `last_verified` older than one quarter for the unversioned hosted product and labels that threshold a baseline to tune to the release cadence.",
+        "evidence": "'older than one quarter' is given, but it is not labelled a baseline to tune to cadence.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the CI job to assert the documented output, not just the exit code, and to run on a schedule as well as on docs commits.",
+        "evidence": "'Assert the documented output, not just the exit code... Run it on a schedule, not only on docs commits.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Adds a path-based code-owner rule so changes to CLI flags, API schemas or config keys request a docs review.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends a periodic cull of pages with neither traffic nor an owner.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects page views as the headline KPI, stating it measures demand, not quality.",
+        "evidence": "'A view isn't a success... Views can't show whether a page worked.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the 70% helpful target because it comes from a vendor blog, and sets targets from each page's own baseline.",
+        "evidence": "'keep the widget, drop the target'; 'target as improvement on your own baseline'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats \"was this helpful\" votes as triage only, because votes are not validated against task success.",
+        "evidence": "'Thumbs measure sentiment, not task success'; the reason picker turns it into 'a work queue'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends executable steps passing in CI against the released product as the first signal, with a wiring cost of about half a day then near-zero, as the use of the platform engineer's day.",
+        "evidence": "The engineer's day goes to a test environment and a views-to-completion query, not CI.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends tickets and issues that cite a page or its task as the second signal (near-zero to collect, a standing job to read), each pointing at a wrong or ambiguous step or a missing variant.",
+        "evidence": "Tickets per 1,000 views are made the headline, not framed as a cheap second signal pointing at wrong steps.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the efficiency ordering out loud: CI pass > cited tickets > search refinements > helpful votes > task test > page views.",
+        "evidence": "It is not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the value ordering out loud: task test > CI pass > cited tickets > search refinements > helpful votes > page views.",
+        "evidence": "It is not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects quarterly moderated task tests on all 40 pages and promotes the task test only for the three top-traffic pages.",
+        "evidence": "'Top 3 pages: run a moderated test each quarter'; the all-40 plan is rejected.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the restore page's ticket drop with no other change as a reason to promote a task test, because silence can also mean readers gave up, rather than as proof the page is fine.",
+        "evidence": "'Users stopped asking'; 'It stays in the top-3 test rotation either way.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the wiring costs as estimates, not measurements.",
+        "evidence": "No wiring-cost estimates are labeled.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Prescribes per-page drift metadata: `owner` as a team, `tested_with` as the API version or run date for the unversioned product, and `last_verified`.",
+        "evidence": "Only a 'last verified' date is mentioned, with no owner or tested_with.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets the stale-page job to flag `last_verified` older than one quarter for the unversioned hosted product and labels that threshold a baseline to tune to the release cadence.",
+        "evidence": "The trigger is event-driven and has no one-quarter threshold.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the CI job to assert the documented output, not just the exit code, and to run on a schedule as well as on docs commits.",
+        "evidence": "There is no CI job.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds a path-based code-owner rule so changes to CLI flags, API schemas or config keys request a docs review.",
+        "evidence": "It is not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends a periodic cull of pages with neither traffic nor an owner.",
+        "evidence": "It is not mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

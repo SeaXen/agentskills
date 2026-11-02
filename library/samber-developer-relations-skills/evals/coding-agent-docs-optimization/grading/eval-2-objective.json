@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States plainly that publishing the index file alone changes nothing measurable until the surfaces it points at exist",
+        "evidence": "\"Shipping llms.txt alone changes nothing measurable this week.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not stop at emitting the file: performs or specifies a surface inventory first",
+        "evidence": "\"## 2. Surface inventory\" table listing crawler access, index, markdown endpoints, spec, operationId, version labels, SDK comments, full-corpus bundle",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ranks markdown endpoints and annotated spec files above the index file on efficiency, and says the ranking out loud",
+        "evidence": "\"the OpenAPI file \u2014 the surface with the highest value-per-hour on the skill's own ranking\"; \"Ship the file... it's the cheapest surface, not the one that moves the score. The two fixes below it are what actually reduces invented calls.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies that index entries pointing at HTML-only pages is the defect, since entries should point at markdown URLs so following a link needs no HTML stripping",
+        "evidence": "\"until \u00a75's markdown work ships, every link above 404s or resolves only as HTML... an agent pays the stripping cost the skill's page rules exist to avoid\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the index be generated from the navigation source at build time rather than hand-maintained",
+        "evidence": "\"Generate llms.txt from the Next.js nav source, not by hand.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a hand-maintained index rots within about two releases",
+        "evidence": "\"A hand-maintained index rots within two releases.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Specifies the index structure: a single H1 project name, a blockquote summary of what the project is, then H2 sections whose items are links optionally followed by a routing note",
+        "evidence": "draft shows \"# Brightloom\", \"> Product-analytics SDK...\", then \"## Getting started\" / \"## Core concepts\" / \"## Reference\" / \"## Optional\" with bullet links each followed by a colon description",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that an H2 section literally titled \"Optional\" is reserved for links an agent may skip when working in a shorter context",
+        "evidence": "the draft includes a \"## Optional\" heading but no accompanying text explains its purpose for shorter-context skipping",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Orders index sections by task frequency rather than by site hierarchy",
+        "evidence": "no statement about section ordering rationale; sections read as a logical hierarchy (Getting started \u2192 Core concepts \u2192 Reference \u2192 Optional), not explicitly task-frequency ordered",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires advertising the index in at least three places: the repository README, the docs navigation, and response headers or link relations",
+        "evidence": "\"README: one line...\"; \"Docs nav: a visible link...\"; \"Response headers, via next.config.js headers() or middleware: Link: </llms.txt>; rel=\\\"describedby\\\"\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the empty description fields in /openapi.json as a finding, since an empty description is where invented parameters come from",
+        "evidence": "\"has empty description fields on roughly half its operations. An agent that follows the index straight to the spec still invents parameters once it's there.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the hand-written spec as needing generation from the implementation rather than hand-editing",
+        "evidence": "table only notes \"hand-written 2 years ago (drifted from implementation)\"; fix plan calls for manual annotation, not converting to generation from implementation",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States plainly that publishing the index file alone changes nothing measurable until the surfaces it points at exist",
+        "evidence": "'If any are disallowed, an llms.txt is decorative \u2014 those crawlers can read the index but can't follow through to the pages it points at.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not stop at emitting the file: performs or specifies a surface inventory first",
+        "evidence": "'pull the sitemap.xml, filter to the ~30-40 pages that map to the sections above... and skip the long tail' specifies an inventory step beyond the draft file.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ranks markdown endpoints and annotated spec files above the index file on efficiency, and says the ranking out loud",
+        "evidence": "No explicit efficiency ranking is stated; markdown is discussed only as an optional 'upgrade later,' not ranked above the index.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies that index entries pointing at HTML-only pages is the defect, since entries should point at markdown URLs so following a link needs no HTML stripping",
+        "evidence": "States the opposite: '\"No markdown versions\" doesn't block this... most LLM clients can fetch and parse HTML directly. Don't burn this week's timeline converting 340 pages to markdown.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the index be generated from the navigation source at build time rather than hand-maintained",
+        "evidence": "No mention of build-time generation from nav source; the deliverable is a hand-authored markdown draft.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a hand-maintained index rots within about two releases",
+        "evidence": "No such statement appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Specifies the index structure: a single H1 project name, a blockquote summary of what the project is, then H2 sections whose items are links optionally followed by a routing note",
+        "evidence": "Draft begins '# Brightloom' then '> Brightloom is a product-analytics SDK...' followed by '## Getting Started' and further H2 sections of bullet links with short descriptions.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that an H2 section literally titled \"Optional\" is reserved for links an agent may skip when working in a shorter context",
+        "evidence": "The draft has a '## Optional' section but no prose anywhere explains its purpose for shorter-context skipping.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Orders index sections by task frequency rather than by site hierarchy",
+        "evidence": "Sections run Getting Started \u2192 SDKs \u2192 Core Concepts \u2192 Guides \u2192 API Reference \u2192 Optional, a standard hierarchical order, with no stated task-frequency rationale.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires advertising the index in at least three places: the repository README, the docs navigation, and response headers or link relations",
+        "evidence": "No mention of README, docs navigation, or response headers/link relations as advertising channels.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the empty description fields in /openapi.json as a finding, since an empty description is where invented parameters come from",
+        "evidence": "'Note: some operation descriptions are currently empty \u2014 see caveat below' and 'backfill descriptions for whichever 10-15 endpoints get hit hardest... that's where a tool-calling agent choosing between your endpoints actually needs the description to disambiguate.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the hand-written spec as needing generation from the implementation rather than hand-editing",
+        "evidence": "No discussion of generating the OpenAPI spec from implementation code versus hand-editing it.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

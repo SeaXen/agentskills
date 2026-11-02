@@ -1,0 +1,109 @@
+import type { MatcherIgnore } from '@sap-ux/jest-file-matchers';
+import {
+    APPGEN_INFO_DATE_REGEX,
+    APPGEN_INFO_GEN_VERSION,
+    APPGEN_INFO_PLATFORM_REGEX,
+    MANIFEST_SOURCE_TEMPLATE_ID_REGEX,
+    MANIFEST_SOURCE_TEMPLATE_TOOLSID_REGEX,
+    MANIFEST_SOURCE_TEMPLATE_VERSION_REGEX,
+    README_GENERATION_PLATFORM_REGEX,
+    README_GENERATOR_REGEX,
+    YAML_VERSION_REGEX
+} from '@sap-ux/jest-file-matchers';
+import { readFileSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { rimraf } from 'rimraf';
+import yeomanTest from 'yeoman-test';
+import type { FioriAppGeneratorOptions } from '../../../src/fiori-app-generator/fioriAppGeneratorOptions.js';
+import type { State } from '../../../src/types/index.js';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const testOutputFolder = './test-output/';
+const testDir: string = join(__dirname, '../', testOutputFolder);
+export const originalCwd: string = process.cwd(); // Generation changes the cwd, this breaks sonar report so we restore later
+
+export function cleanTestDir(path: string): void {
+    console.log('Test path clean', path);
+    rimraf.rimrafSync(path);
+}
+/**
+ * Gets the specified service test data
+ *
+ * @param pathToFixtures
+ * @param serviceName
+ * @param fileType
+ * @returns
+ */
+export const getTestData = (pathToFixtures: string, serviceName: string, fileType: 'metadata' | 'annotations') => {
+    const sampleDataPath = join(pathToFixtures, serviceName, `${fileType}.xml`);
+    return readFileSync(sampleDataPath, 'utf-8');
+};
+
+export const ignoreMatcherOpts: MatcherIgnore = {
+    groups: [
+        {
+            filenames: ['manifest.json'],
+            ignore: [
+                MANIFEST_SOURCE_TEMPLATE_ID_REGEX,
+                MANIFEST_SOURCE_TEMPLATE_VERSION_REGEX,
+                MANIFEST_SOURCE_TEMPLATE_TOOLSID_REGEX
+            ]
+        },
+        {
+            filenames: ['README.md'],
+            ignore: [README_GENERATOR_REGEX, README_GENERATION_PLATFORM_REGEX]
+        },
+        {
+            filenames: ['ui5-local.yaml'],
+            ignore: [YAML_VERSION_REGEX]
+        },
+        {
+            filenames: ['.appGenInfo.json'],
+            ignore: [APPGEN_INFO_DATE_REGEX, APPGEN_INFO_GEN_VERSION, APPGEN_INFO_PLATFORM_REGEX]
+        }
+    ]
+};
+
+/**
+ * Sets the output test directory path appending the specified path if provided.
+ * If this function is not called the default test directoty will be used.
+ *
+ * @param testGroup - subfolder to enable parallel test execution so output are not overwritten or deleted
+ * @returns the path to the test directory
+ */
+export function getTestDir(testGroup = ''): string {
+    return join(testDir, testGroup);
+}
+
+export async function runWritingPhaseGen(
+    state: Partial<State>,
+    options?: Partial<FioriAppGeneratorOptions>
+): Promise<any> {
+    const { TestWritingGenerator } = await import('./testGeneratorWriting.js');
+    const mergedOptions = {
+        state,
+        skipInstall: true,
+        ...options
+    };
+    return yeomanTest.create(TestWritingGenerator, {}, {}).withOptions(mergedOptions).run();
+}
+
+/**
+ * Runs the writing phase generator using dynamically imported classes.
+ * Use this in test files that mock modules with jest.unstable_mockModule
+ * to ensure the mocks are applied before the generator classes are loaded.
+ */
+export async function runWritingPhaseGenDynamic(
+    state: Partial<State>,
+    options?: Partial<FioriAppGeneratorOptions>
+): Promise<any> {
+    const { createTestWritingGeneratorClass } = await import('./testGeneratorWriting.js');
+    const GeneratorClass = await createTestWritingGeneratorClass();
+    const mergedOptions = {
+        state,
+        skipInstall: true,
+        ...options
+    };
+    return yeomanTest.create(GeneratorClass, {}, {}).withOptions(mergedOptions).run();
+}

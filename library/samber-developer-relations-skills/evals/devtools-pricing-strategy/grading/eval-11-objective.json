@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Cuts the free surface to one or two headline limits rather than the six currently listed",
+        "evidence": "\"Only compute-hours and storage should appear on the pricing page... that satisfies 'one or two headline numbers' even though six caps technically exist.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets the headline free limit on the same axis as the paid value metric - compute-hours - so hitting the limit is the same event as needing to pay",
+        "evidence": "\"Compute-hours/mo (headline #1, same axis as paid)... it's the unit paid customers already pay on, so hitting it is the upgrade moment.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that five or more interacting limits cannot be evaluated without a spreadsheet",
+        "evidence": "No mention of a spreadsheet anywhere in the section",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the 90-day inactivity expiry as a time bomb on the free tier",
+        "evidence": "\"\u274c Reject as written | ... 'No time bomb: no expiry, no \\\"free tier ends after 90 days of inactivity\\\"...'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects deleting data on dormant free projects, and states that data must never be deleted as enforcement",
+        "evidence": "\"Deleting user data with no warning and no export path is worse than a price increase\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires warnings at 70%, 85% and 95% of a limit, followed by a stated behaviour - throttle, queue, pause, or bill overage",
+        "evidence": "\"Checklist requirement: warnings at 70/85/95%, then throttle/queue/pause/bill overage \u2014 never delete as enforcement.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the 70/85/95 warning thresholds as this skill's own baseline rather than an industry standard",
+        "evidence": "No bracketed or explicit sourcing label is used anywhere near the 70/85/95 figures in this section",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Expresses the $31k per month free-surface cost as a share of paid gross profit, with a ceiling the team agrees to",
+        "evidence": "\"free-tier COGS trend, target expressed as a share of paid gross profit (needs your paid gross-profit number \u2014 set the ceiling once you have it...)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Applies the reduced limits to new accounts only, and says plainly that this is what is being done",
+        "evidence": "Change plan table shows existing accounts also bind to new limits after a grace period (\"New caps bind at the same grace-period date\"), not new-accounts-only",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a written abuse policy with rate ceilings, covering mining, spam and multi-account farming, instead of a smaller limit for every honest user",
+        "evidence": "No abuse policy covering mining, spam, or multi-account farming is discussed",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the free surface to run a real side project comfortably while failing a small company's production workload",
+        "evidence": "Only states \"a real side project, permanently, no card\" \u2014 no statement about failing a small company's production workload",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects replacing the permanent free surface with a time-boxed trial, noting evaluation in this market takes weeks of unpaid tinkering and internal advocacy",
+        "evidence": "No discussion of a trial-vs-permanent-free-tier tradeoff appears anywhere in the section",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects describing the free tier in adjectives such as 'generous' instead of numbers",
+        "evidence": "The section itself uses \"generously\" (\"set generously enough that a real side project rarely touches them\") without critiquing vague adjective framing",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the marginal cost of a single free account to be computed, not only the $31k aggregate",
+        "evidence": "Only calls for a resource/cohort breakdown of the $31k aggregate (\"split by resource... and by cohort\"), not a computed per-account marginal cost figure",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Cuts the free surface to one or two headline limits rather than the six currently listed",
+        "evidence": "All six limits are kept and individually halved: \"Branches... Storage 5\u21922.5GB... Compute-hours 100\u219250... Projects 3\u21921/2... Egress 10\u21925GB... PITR 7\u21923 days\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets the headline free limit on the same axis as the paid value metric - compute-hours - so hitting the limit is the same event as needing to pay",
+        "evidence": "No such single-axis alignment is proposed; six separate limits remain.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that five or more interacting limits cannot be evaluated without a spreadsheet",
+        "evidence": "Not stated anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the 90-day inactivity expiry as a time bomb on the free tier",
+        "evidence": "The plan builds and endorses a full 90-day expiry state machine: \"active \u2192 warned (day 60)... suspended (day 90...) \u2192 deleted\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects deleting data on dormant free projects, and states that data must never be deleted as enforcement",
+        "evidence": "Deletion is explicitly planned: \"pending-deletion (day 90+14 grace) \u2192 deleted\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires warnings at 70%, 85% and 95% of a limit, followed by a stated behaviour - throttle, queue, pause, or bill overage",
+        "evidence": "Warnings are time-based (day 60/75/89), not usage-percentage-based (70/85/95%).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels the 70/85/95 warning thresholds as this skill's own baseline rather than an industry standard",
+        "evidence": "Not applicable \u2014 different mechanism used.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Expresses the $31k per month free-surface cost as a share of paid gross profit, with a ceiling the team agrees to",
+        "evidence": "Treated as an absolute target (\"target trajectory toward well under $31k\"), not a % of gross profit.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Applies the reduced limits to new accounts only, and says plainly that this is what is being done",
+        "evidence": "Existing accounts also eventually get new limits: \"Halved limits for existing accounts \u2014 highest backlash risk, needs grandfathering... Do this last\" \u2014 not new-accounts-only.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a written abuse policy with rate ceilings, covering mining, spam and multi-account farming, instead of a smaller limit for every honest user",
+        "evidence": "Plan instead halves limits for all honest users; no targeted abuse policy proposed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the free surface to run a real side project comfortably while failing a small company's production workload",
+        "evidence": "Not discussed in these terms.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects replacing the permanent free surface with a time-boxed trial, noting evaluation in this market takes weeks of unpaid tinkering and internal advocacy",
+        "evidence": "Not discussed \u2014 no trial-vs-permanent debate appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects describing the free tier in adjectives such as 'generous' instead of numbers",
+        "evidence": "Blog post is framed with the adjective-laden phrase \"keeping the free tier free, permanently\" without addressing this concern.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the marginal cost of a single free account to be computed, not only the $31k aggregate",
+        "evidence": "\"Tag compute-hours, storage, egress, and branch count per free project.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,262 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "dailydev-playbook",
+  "scenarios": 7,
+  "expectations_total": 65,
+  "expectations_subjective": 0,
+  "expectations_objective": 65,
+  "pass_rate_with_skill_pct": 89.2,
+  "pass_rate_without_skill_pct": 27.7,
+  "delta_pp": 61.5,
+  "uplift_multiplier": 3.22,
+  "trigger_accuracy_pct": 88.0,
+  "trigger_queries": 50,
+  "trigger_positive_fire_rate": 0.96,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": null,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.309 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Recommends an earn-first period of substantive comments before the launch post"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Mentions that a comment upvote is worth +50 reputation (more than a post upvote)"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that articles an indexed publication was paid to run are ineligible on daily.dev, labelled or not"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that dofollow links exist only on a paid Verified Company Squad (website plus up to 10 links)"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States Squad Boost requires a public Squad with a description, profile image and cover image"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes that downvotes are private but lower a post's ranking"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes that a regular Squad must build activity before daily.dev shows it widely, unlike a Verified Company Squad"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "States that company blogs are not eligible as daily.dev sources"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that a single post can target at most 3 Squads"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that upvotes from accounts under 250 reputation do not change the author's reputation"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Notes that a new account starts at 10 reputation and that higher reputation raises post visibility"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends an earn-first period of substantive comments before the launch post"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Mentions that a comment upvote is worth +50 reputation (more than a post upvote)"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that paying people (including agencies or influencers) to post or upvote content is banned on daily.dev"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that paying a Squad admin or moderator to pin, approve or publish a post is banned"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that affiliate or referral links are banned on daily.dev even when disclosed"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names Boost, Sponsored Content or daily.dev Ads as the only permitted paid distribution routes"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that agencies placing posts or votes for a client are banned, and ties any agency admin or moderator seat to a daily.dev Ads plan"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that articles an indexed publication was paid to run are ineligible on daily.dev, labelled or not"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Gives Post Boost limits in Cores (5,000-100,000 per day, 1-30 days) or says the budget is set in Cores per day"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that daily.dev rejects AI-generated content or content with AI-generated characteristics"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that content made primarily for SEO, backlinks or AI citation (AEO/GEO) is rejected"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that links inside daily.dev posts are nofollow, so they pass no backlink value"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that a removed post costs the author 100 reputation or that reputation loss reduces future visibility"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Says daily.dev publishes no best posting time or ranking formula, instead of inventing one"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends far fewer posts written by a human engineer with real technical substance"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that dofollow links exist only on a paid Verified Company Squad (website plus up to 10 links)"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Explains that tags act as targeting because feeds match readers' followed tags"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that daily.dev Ads is sold as a managed monthly plan quoted per company, not a self-serve CPM buy"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Says daily.dev itself describes a one-week test as the wrong shape for its plans"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States daily.dev publishes no rate card, so pricing must come from a written per-company quote rather than CPM figures in blog or resource posts"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes daily.dev describes teams with little or no technical content as a poor fit, suggesting a single Sponsored Content post or building content first"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends boosting a post that already earns organic upvotes rather than a weak one"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States Squad Boost requires a public Squad with a description, profile image and cover image"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States an Ads plan commits to a first quarter and renews quarterly, so a one-week plan test is the wrong shape; a single campaign must be requested separately"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends earning reputation through substantive comments toward 250"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Identifies the clickbait titles as a problem, noting clickbait is demoted or rewritten for Plus readers"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Warns that teammates upvoting each other's comments to reach 250 counts as reputation farming"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes that downvotes are private but lower a post's ranking"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Explains author claiming with the twitter:creator meta tag plus the matching handle in daily.dev account settings"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Lists post analytics metrics to read (impressions, unique reach, upvotes, comments or clicks)"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Sets a hygiene metric for declined or removed posts or reputation drops"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends choosing a directory category (Languages, Open Source or similar) at setup"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends routing Squad comments to an owner (for example the Squad's Slack integration) so replies land within a day"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Mentions up to 10 custom Squad rules"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes that a private Squad cannot be boosted"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes that a regular Squad must build activity before daily.dev shows it widely, unlike a Verified Company Squad"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Mentions advocacy@daily.dev or the featured-Squad criteria (quality posts, engagement, growth, compliance)"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that personal blogs are not eligible as daily.dev sources"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Suggests cross-posting to DEV (dev.to) or another indexed platform, which daily.dev indexes as a source"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Says being picked up by daily.dev does not guarantee traffic or a high feed position"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Explains author claiming with the twitter:creator meta tag"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends commenting to build reputation, which raises the visibility of later posts"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes that suggesting a source requires 250 reputation or that review takes up to 30 days"
+      }
+    ]
+  }
+}

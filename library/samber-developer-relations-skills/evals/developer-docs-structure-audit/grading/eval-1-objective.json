@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States the site-wide restructure should be cancelled rather than executed, despite the budget already being approved",
+        "evidence": "'Cancel the restructure; spend the budget on gap-filling and freshness instead' and 'Spending a quarter of writer time re-architecting a tree that already tests well is the exact waste the skill calls out'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the threshold of roughly 80% task success and 60% direct-path rate as the line above which structure is not the bottleneck",
+        "evidence": "Table row: '>80% success and >60% direct-path across core tasks | Structure is not the bottleneck'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Compares both reported figures (84% success, 67% direct path) against that threshold explicitly",
+        "evidence": "'Your numbers: 84% success, 67% direct-path. You clear both bars.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Redirects the approved writer budget to gap-filling and content freshness instead of a new tree",
+        "evidence": "'the rest of the quarter redirected to gap-filling, freshness, and governance'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the 80%/60% reading as a practitioner heuristic rather than an authoritative standard",
+        "evidence": "'one load-bearing row, sourced from published tree-test interpretation heuristics'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that a borderline number would be a prompt to talk to the team, not a verdict",
+        "evidence": "No statement anywhere in the transcript addresses what a borderline aggregate score would imply; the closest text (task-level 90%/30% vs 52% distinction) is about interpretation of a single task, not about treating borderline results as a discussion prompt.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the 52% webhook-retry task as below the roughly 60% task-success line and restructures that branch only",
+        "evidence": "'webhook retry policy at 52% sits below the 60% line \u2014 \"structure fails on that task \u2192 restructure that branch.\"' and the entire 'Start here' section scopes fixes to only that branch.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes page moves from the remediation queue on the grounds that the tree test already passes",
+        "evidence": "The only treatment of moves is 'moves/renames last and only if redirects are viable' \u2014 deprioritized due to redirect viability, not removed because the tree test passed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Removes section renames from the remediation queue on the same grounds",
+        "evidence": "No statement removes renames from the queue on the grounds the tree test passes; renames are only deprioritized pending redirect viability.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States explicitly which action types were deleted from the queue rather than silently omitting them",
+        "evidence": "There is no 'deleted' list in this transcript (unlike other sections' 'Deleted, not deferred' framing); only a 'What not to do' list about not rebuilding the whole tree.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that a restructure a tree test says is unnecessary breaks inbound links for no gain",
+        "evidence": "\"'a restructure that a tree test says is unnecessary costs a quarter of writing time and breaks every inbound link for nothing.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not propose a re-platforming or a full docs rewrite",
+        "evidence": "The transcript explicitly opposes a rebuild: '\u274c Don't design a new top-level tree for 210 pages...' and never proposes a rewrite.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps every structural recommendation scoped to a single branch or page rather than the whole tree",
+        "evidence": "'That's real, but it's a branch-level finding, not a site-level one' and the only structural fix is the webhooks branch; rest of work is gap-filling/governance.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States the site-wide restructure should be cancelled rather than executed, despite the budget already being approved",
+        "evidence": "The document lays out a full 13-week execution plan ('Quarter plan (13 weeks)') including card sorts, tree tests, and full rebuild \u2014 it never cancels the restructure.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the threshold of roughly 80% task success and 60% direct-path rate as the line above which structure is not the bottleneck",
+        "evidence": "No such threshold is mentioned anywhere in the document.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Compares both reported figures (84% success, 67% direct path) against that threshold explicitly",
+        "evidence": "The 84%/67% figures are discussed only as a 'labeling problem,' with no comparison to any 80%/60% threshold.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Redirects the approved writer budget to gap-filling and content freshness instead of a new tree",
+        "evidence": "The plan directs 'Weeks 8\u201313' writer effort toward 'Writers execute: rewrite/merge/split pages, build redirect map, restructure Docusaurus sidebars.js' \u2014 a full new tree, not gap-filling.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels the 80%/60% reading as a practitioner heuristic rather than an authoritative standard",
+        "evidence": "No 80%/60% heuristic is referenced at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that a borderline number would be a prompt to talk to the team, not a verdict",
+        "evidence": "Not present; the 52% figure instead triggers a first-click data pull and a structured diagnostic plan, not a team conversation framed as inconclusive.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the 52% webhook-retry task as below the roughly 60% task-success line and restructures that branch only",
+        "evidence": "No 60% line is named, and the plan restructures the entire 210-page IA, not just the Webhooks branch, e.g. the full starting-point tree spans Get Started through Support.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Removes page moves from the remediation queue on the grounds that the tree test already passes",
+        "evidence": "Page moves are central to the plan: 'Writers execute: rewrite/merge/split pages... restructure Docusaurus sidebars.js.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Removes section renames from the remediation queue on the same grounds",
+        "evidence": "Section renames are part of the plan (new top-level sections like 'Reliability & Errors' are created), never removed on grounds of a passing test.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States explicitly which action types were deleted from the queue rather than silently omitting them",
+        "evidence": "No deletions from the queue are stated; the queue is comprehensive, not pruned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that a restructure a tree test says is unnecessary breaks inbound links for no gain",
+        "evidence": "The redirect concern is framed as a mechanical requirement ('Full 301 redirect map, old \u2192 new') not as a warning against unnecessary restructuring.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not propose a re-platforming or a full docs rewrite",
+        "evidence": "The plan keeps Docusaurus and works via 'rewrite/merge/split pages' selectively based on audit findings, rather than proposing a platform change or wholesale rewrite of all 210 pages.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps every structural recommendation scoped to a single branch or page rather than the whole tree",
+        "evidence": "The starting-point tree restructures the entire site including Get Started, Core Concepts, Guides, Webhooks, Reliability, API Reference, SDKs, Security, Changelog, and Support.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

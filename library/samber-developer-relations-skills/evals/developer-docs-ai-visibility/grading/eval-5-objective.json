@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Splits the plan into two tracks: a deadline track shipping before the 18th and a standing-mandate track started now on the SDK cycle",
+        "evidence": "\"Track one: ships before 18 Nov\" and \"Track two: standing practice, start now\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Puts version identity in page text and owned stale copies in the deadline track as the top two levers",
+        "evidence": "Verdict: \"First two levers: (1) version identity... (2) clean owned stale copies\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Promotes the old-to-new symbol map into the deadline track at once, because users arrive with `run_sync()` in their prompts",
+        "evidence": "\"Add the symbol map at once, because users arrive with old symbols in their prompts.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Specifies the symbol-map row shape: the exact old spelling `Flow.run_sync()` in code formatting beside `Flow.run()`, one row per removed symbol",
+        "evidence": "\"Symbol map: `Flow.run_sync()` \u2192 `Flow.run()`, plus the rest from the API diff.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes runtime deprecation warnings and the final patch of the deprecated package from the plan outright because there is no SDK release access, and says so rather than parking them at the bottom",
+        "evidence": "\"No SDK release access (Q10): runtime deprecation warnings and the final-patch README... are out this quarter.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the standing-mandate track's levers (runtime warnings, agent-delivered docs) as work to start now for the next available SDK cycle",
+        "evidence": "Evidence pack for a warning slot next quarter; agent docs routed to coding-agent-docs-optimization.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects noindex on the v1 tree because 30% of workspaces still run it, prescribing a banner and replacement link only",
+        "evidence": "\"30% of workspaces still on v1: no noindex on v1. Banner and replacement link only.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a date three and a half weeks out can show shipped page changes but no citation outcome, which stays pending until the re-run",
+        "evidence": "\"Report on 18 Nov: shipped page changes... Citation and ranking outcomes stay pending.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States explicitly which interview answer moved which lever (deadline, standing mandate, SDK access, writer time)",
+        "evidence": "\"Deleted, by interview answer\" section and \"No SDK release access (Q10)\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Puts a two-row old-to-new map into the superseded page's opener until the full migration-guide map exists",
+        "evidence": "\"Put the two-row version in the opener until the full map exists.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Specifies the old-version page opener as server-rendered first text in the main content, above any code, naming `Flow.run()` as the replacement",
+        "evidence": "\"The banner must be server-rendered and the first text in the main content\"; opener names `Flow.run()`.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sizes the baseline panel to one writer-day per week and sets the re-run date counted from the day the last change goes live",
+        "evidence": "\"~1 writer-day\" baseline; \"Re-run... 4 weeks after the last change goes live.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes assistant feedback reports in the deadline track as a minutes-of-effort lever with an unverified payoff, and logs the filing date",
+        "evidence": "\"Feedback reports in Google, OpenAI and Perplexity... Log dates.\" ~1 hour.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Splits the plan into two tracks: a deadline track shipping before the 18th and a standing-mandate track started now on the SDK cycle",
+        "evidence": "Single ranked lever list; standing practice folded into lever 1.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Puts version identity in page text and owned stale copies in the deadline track as the top two levers",
+        "evidence": "Top levers are removed-symbols file and Discord bot.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Promotes the old-to-new symbol map into the deadline track at once, because users arrive with `run_sync()` in their prompts",
+        "evidence": "Lever 1 starts with 'Flow.run_sync() \u2192 Flow.run()' and 'Do first'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Specifies the symbol-map row shape: the exact old spelling `Flow.run_sync()` in code formatting beside `Flow.run()`, one row per removed symbol",
+        "evidence": "'Start with Flow.run_sync() \u2192 Flow.run()'; each entry has symbol, replacement, error text.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes runtime deprecation warnings and the final patch of the deprecated package from the plan outright because there is no SDK release access, and says so rather than parking them at the bottom",
+        "evidence": "'no interim warnings release, no codemod and no SDK-side deprecation.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the standing-mandate track's levers (runtime warnings, agent-delivered docs) as work to start now for the next available SDK cycle",
+        "evidence": "Standing practice is release-checklist rows; no runtime warnings/agent docs for next cycle.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects noindex on the v1 tree because 30% of workspaces still run it, prescribing a banner and replacement link only",
+        "evidence": "Banner proposed; noindex not discussed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a date three and a half weeks out can show shipped page changes but no citation outcome, which stays pending until the re-run",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States explicitly which interview answer moved which lever (deadline, standing mandate, SDK access, writer time)",
+        "evidence": "Only a general constraints list.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Puts a two-row old-to-new map into the superseded page's opener until the full migration-guide map exists",
+        "evidence": "Banner only.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Specifies the old-version page opener as server-rendered first text in the main content, above any code, naming `Flow.run()` as the replacement",
+        "evidence": "Not specified.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sizes the baseline panel to one writer-day per week and sets the re-run date counted from the day the last change goes live",
+        "evidence": "No panel.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes assistant feedback reports in the deadline track as a minutes-of-effort lever with an unverified payoff, and logs the filing date",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

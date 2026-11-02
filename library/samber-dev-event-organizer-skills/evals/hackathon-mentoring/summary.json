@@ -1,0 +1,486 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "hackathon-mentoring",
+  "scenarios": 11,
+  "expectations_total": 125,
+  "expectations_subjective": 1,
+  "expectations_objective": 124,
+  "pass_rate_with_skill_pct": 83.2,
+  "pass_rate_without_skill_pct": 28.8,
+  "delta_pp": 54.4,
+  "uplift_multiplier": 2.89,
+  "trigger_accuracy_pct": 69.0,
+  "trigger_queries": 116,
+  "trigger_positive_fire_rate": 0.655,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 4,
+        "expectation": "Names all four coverage-depth rungs"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States rostered mentor shifts as the default rung"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Identifies on-call from organizers as second cheapest to set up and the single most expensive rung to live through"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Distinguishes the organizer-attention-during-the-window axis from inverse pre-event effort, noting the top two rungs swap places between the two orderings"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes that the identifiable-mentors advantage collapses only at an event small enough that every participant already knows every mentor by face, and treats that as a re-rank hook rather than an exception written into the plan"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Argues that the written rule strictly dominates the bare mixed pool: equal expertise coverage, strictly higher participant trust, equal effort, strictly lower compliance cost"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States the rule changes what a sponsor representative may say, never what they know, so the pool's expertise coverage is unchanged by it"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Sizes the rule's effort as roughly one paragraph inside the mentor briefing plus one line handed to the sponsorship agreement"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States the compliance exposure as a disclosure problem that surfaces after the event, when the only remedies left are an apology and a sponsorship conversation"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names identifiable mentors as the default and the cheapest real intervention, meaning a marker visible across a room plus a named role in the event's channels"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the request channel with organizer routing tops both value axes and the effort axis, because the routing is a standing job worked for the whole window"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Warns against changing the request mechanic mid-event, since half the field never learns the replacement"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names all four mentor-briefing-depth rungs"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Deletes the no-briefing rung, keyed to prizes carrying cash value and a sponsor funding one"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Promotes boundary plus scenario walkthrough above the default, keyed to most mentors never having mentored and to the event recurring"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States the walkthrough is written once and reused across editions rather than paid for again each year"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Identifies 'boundary stated explicitly' as the default rung and the lowest compliance cost of the four"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Notes that 'none' is cheapest on effort yet second highest on compliance cost, so the cheapest rung is not the default"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Places presentation or submission-facing help in the final stretch"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names the failure signature explicitly: several mentors with overlapping expertise visiting the same team inside one short window while another team goes untouched for hours"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names any sponsor technology by product name as its own tag, separate from the general skill it sits inside"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "States that no published mentor-to-participant ratio exists and declines to invent one"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Does not output a mentor headcount derived from the 340 participants"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Sizes coverage as units listed from the published brief rather than from the size of the room"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names the general stack every team touches - version control, deployment, the dominant language - as a coverage unit in its own right"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names exactly three commitment levels per unit: unstaffed and published as such, available, and guaranteed"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names all four coverage-depth rungs: no mentor programme, on-call from organizers, rostered mentor shifts, expertise-matched roster"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Treats 'no mentor programme' as a legitimate rankable option for this open-theme event with no named sponsor technology, rather than dismissing it as a strawman"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Does not promote the expertise-matched roster, since neither a sponsor technology at required-for-one-track depth nor a themed single-domain event applies here"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Raises the overnight hours as a decision to make and publish explicitly - staffed, thinly staffed, or published as unstaffed"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States no unblock-latency target and no figure linking mentor availability to project completion or participant satisfaction"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Argues from the mechanism that a blocked team with no route to help abandons the build, rather than from a staffing figure"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Rejects converting the one-expert-per-four figure into a mentor headcount requirement"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States the figure counts non-expert participants specifically, not attendees, registrations or teams"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States the figure scopes to themed hackathons only, where projects are confined to one problem domain"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States the unit counted is a subject matter expert paired with a workable project - a participant occupied inside one project - not a floating or roving mentor"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States the figure's purpose is project supply, preventing participants from having nothing relevant to work on, rather than mentor staffing"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States the figure does not transfer to this open-ended event"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Does not substitute a different mentor-to-participant or mentor-to-team ratio in its place"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Redirects sizing to coverage units against the brief and the hours those units are worked"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Does not recommend cancelling the event or capping registration on the basis of the figure"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Uses the figure only as evidence that expertise rather than headcount is the scarce quantity"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Routes the recusal mechanics to the hackathon judging skill rather than deriving a competing recusal ladder or conflict-of-interest process here"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Does not invent a scoring-normalization or score-reweighting procedure to compensate for the overlap"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Keeps the log as the input data this plan owns, rather than claiming ownership of the conflict-of-interest rule itself"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Uses the term 'mentor briefing' for the mentor-facing document, distinct from a jury or judge briefing"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names all four coverage-depth rungs"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States rostered mentor shifts as the default rung"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Identifies on-call from organizers as second cheapest to set up and the single most expensive rung to live through"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Distinguishes the organizer-attention-during-the-window axis from inverse pre-event effort, noting the top two rungs swap places between the two orderings"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Keeps 'no mentor programme' on the menu as a rankable option rather than deleting it, since no sponsor technology is named"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends identifiable mentors - a marker plus a named role in the event's channels - as the request-mechanic floor"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes that the identifiable-mentors advantage collapses only at an event small enough that every participant already knows every mentor by face, and treats that as a re-rank hook rather than an exception written into the plan"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Distinguishes guaranteed from available, where available means only that somebody on the roster holds the tag and is reachable through the request mechanic"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Deletes 'no mentor programme' from the coverage menu and from its axis lines, rather than ranking it last"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Flags that the brief's fallback promise to teams assumes the platform actually gets support, and that an unstaffed guarantee breaks that promise quietly"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Routes the sponsor's mentor commitment into the sponsorship agreement rather than a briefing email"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Specifies the agreement carries named people or a named count plus the technology covered, the committed hours matched against when that track is worked, and the engagement rule"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that a sponsor mentor who does not appear is a fulfilment failure against a commitment, not a volunteer no-show handled with a backfill"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Promotes a mixed pool over community-and-alumni-only, since a community mentor cannot be assumed to know the sponsor platform"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Does not state a mentor-to-team or mentor-to-participant ratio"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes that participants read a mentor's employer badge as a sales conversation"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Argues that the written rule strictly dominates the bare mixed pool: equal expertise coverage, strictly higher participant trust, equal effort, strictly lower compliance cost"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States the rule changes what a sponsor representative may say, never what they know, so the pool's expertise coverage is unchanged by it"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Sizes the rule's effort as roughly one paragraph inside the mentor briefing plus one line handed to the sponsorship agreement"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Supplies engagement-rule content banning pitching, recruiting and product demos while mentoring, redirecting such questions to the sponsor's booth or channel"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States the compliance exposure as a disclosure problem that surfaces after the event, when the only remedies left are an apology and a sponsorship conversation"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names community members and alumni as the additional recruitment channel, opened as a warm-list ask rather than an open call"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that any routing rung needs at least two people who can work it, or an unrouted fallback participants already know about"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Retains office hours as a supplement, noting they carry excellent expertise match and the worst latency of any rung"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names all five request-mechanic rungs"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names identifiable mentors as the default and the cheapest real intervention, meaning a marker visible across a room plus a named role in the event's channels"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the request channel with organizer routing tops both value axes and the effort axis, because the routing is a standing job worked for the whole window"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Specifies the mechanic is published where the brief is published, before the hacking window opens"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States the four things participants must be told: how to recognise a mentor, how to ask, what to expect, and what happens when nobody covers their need"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Warns against changing the request mechanic mid-event, since half the field never learns the replacement"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names all four mentor-briefing-depth rungs"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Deletes the no-briefing rung, keyed to prizes carrying cash value and a sponsor funding one"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States the walkthrough is written once and reused across editions rather than paid for again each year"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Identifies 'boundary stated explicitly' as the default rung and the lowest compliance cost of the four"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Notes that 'none' is cheapest on effort yet second highest on compliance cost, so the cheapest rung is not the default"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Includes the clause that where a mentor has already committed to a team's repository, the team declares it in the submission"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Includes power-dynamics guidance covering asking before touching a laptop, keyboard or repository; leaving the project unevaluated; and naming the limit of your own knowledge out loud"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Does not re-derive shift length, arrival buffers, sign-up confirmation or no-show backfill, and hands those to the volunteers skill that already owns them"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Hands over exactly one constraint: which expertise must be present in which hours"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Expresses that constraint as a tag, present, for stated hours, rather than as a headcount on the floor"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Places early-stage or validation expertise soonest and technical or debugging expertise later, following the tracks' own build sequencing"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Places presentation or submission-facing help in the final stretch"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Takes the slot from the mentor at sign-up"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Resolves the assigned-slot versus be-around-anyway tension inside the grid: a slot is a commitment, presence beyond it is a courtesy, and only the commitment can be scheduled against"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Sets a minimum check-in cadence per assigned team, labelled as a number this event sets for itself rather than an industry standard"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Stops scheduled visits ahead of the final stretch so teams get an uninterrupted run-in"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Makes the overnight hours an explicit decision that is published either way: staffed, thinly staffed, or published as unstaffed"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Publishes the escalation route for a skill no rostered mentor covers, in advance rather than improvised during the window"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Recommends a per-visit time cap with a timer the team can see"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States the per-visit cap is relaxed only for genuinely hands-on work that cannot be boxed"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Recommends a 'do not disturb' signal the team controls itself, visible from across the room"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Recommends publishing a list of what each present mentor actually knows, so a team reaches the right person by name"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names the failure signature explicitly: several mentors with overlapping expertise visiting the same team inside one short window while another team goes untouched for hours"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names any sponsor technology by product name as its own tag, separate from the general skill it sits inside"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Records depth in exactly two levels: has built with it, or has read the docs"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Asks depth at sign-up rather than inferring it from a job title"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that a roster full of has-read-the-docs mentors reads as covered and is not"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Keeps the tag list short enough for a coordinator to hold in their head at three in the morning"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Specifies a published escalation route for the uncovered Rust skill, decided before the window opens rather than improvised during it"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Escalation step: check the roster's second level first, with that person telling the team plainly which level of help it is getting"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Escalation step: ask the room, kept as a request rather than an assignment, with no obligation attached"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Escalation step: tell the team plainly that no help exists for this, early enough for them to change approach"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Records the shortfall as a coverage gap against a track, for next edition's plan to inherit"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States the structural pass threshold: the expertise tags mapped onto tracks, the coverage commitment per track, the request mechanic as teams will read it, the mentor briefing including the boundary sentence, and the escalation route - all five existing in writing with zero blanks before the window opens"
+      }
+    ]
+  }
+}

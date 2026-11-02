@@ -1,0 +1,250 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "cross-event-promotion",
+  "scenarios": 7,
+  "expectations_total": 61,
+  "expectations_subjective": 2,
+  "expectations_objective": 59,
+  "pass_rate_with_skill_pct": 80.3,
+  "pass_rate_without_skill_pct": 36.1,
+  "delta_pp": 44.2,
+  "uplift_multiplier": 2.22,
+  "trigger_accuracy_pct": 71.7,
+  "trigger_queries": 60,
+  "trigger_positive_fire_rate": 0.633,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "The booth or flyer exchange is removed from the plan entirely because one event has no physical edition, not ranked lower or deferred to later."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The ruled-out booth exchange does not reappear anywhere in the response as a bottom-ranked, future, or 'maybe later' option."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The email closes with a single ask answerable with yes or no."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The email is written peer-to-peer as a fellow organizer referencing the partner event's actual content, not as a vendor-to-prospect pitch."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The response recommends checking for a warm organizer connection or shared community space before sending the cold email."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "It declines to propose any swap (mentions, codes, joint push) with the substitute, treating it as a competitor rather than a swap partner."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "It points to complementary events - including local events outside the Rust niche sharing a city or window - as the right co-location or piggyback candidates."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "It notes the no-deal route earns no reciprocity from the anchor - permissionless but one-sided."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "First-swap success is framed modestly - both sides delivered what was agreed and the measured record becomes the baseline for the next edition - with relationship durability weighted over single-edition yield."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The debrief ends with a recur, renegotiate, or drop decision that is communicated to the partner."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Engagement quality is escalated to a hard gate for this expensive format: real numbers such as open rates and past swap results are requested during the deal conversation."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Companion forms are proposed: cross-announcing each other's CFP windows and/or directly recommending proven speakers."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "The booth or flyer exchange is removed from the plan entirely because one event has no physical edition, not ranked lower or deferred to later."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The ruled-out booth exchange does not reappear anywhere in the response as a bottom-ranked, future, or 'maybe later' option."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Calendar cross-listing is included as a near-free baseline action that needs no partner consent and is done regardless of the deal."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Any recommended discount depth (such as a 15-25% range) is presented as a self-set choice, not as an industry standard."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Co-location or a shared conference week is excluded for this edition because venue and dates lock 9-12 months out, far beyond the 7-week window."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "No invented redemption or referral benchmark figures appear; any numeric target is labeled self-set."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The response flags that one mention each is a bad trade for the much larger side given the roughly 30x newsletter size gap."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The email opens with a one-line description of who the sender is and cites a specific observed audience overlap, not a generic compliment."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The email contains exactly one concrete swap proposal, with no vague partnership language such as exploring synergies."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The email closes with a single ask answerable with yes or no."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The email is written peer-to-peer as a fellow organizer referencing the partner event's actual content, not as a vendor-to-prospect pitch."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The response recommends checking for a warm organizer connection or shared community space before sending the cold email."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "It declines to propose any swap (mentions, codes, joint push) with the substitute, treating it as a competitor rather than a swap partner."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "It points to complementary events - including local events outside the Rust niche sharing a city or window - as the right co-location or piggyback candidates."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Audience fit is presented as the screen that can single-handedly disqualify a candidate, applied before any outreach."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "It notes a co-location decision is locked to the edition cycle roughly 9-12 months out, not decided in a marketing sprint."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The response states that scheduling the day before the anchor in the same city needs no permission from the anchor and is an established organizer practice, since traveling attendees justify one trip for both events."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "It allows a factual date reference in positioning (such as 'the day before OrbitalCon, same city') without any agreement."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "It notes the no-deal route earns no reciprocity from the anchor - permissionless but one-sided."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Any figure cited for a paid co-location slot (such as a documented add-on package at one large ecosystem program) is treated as one confirmed model, not a universal rate."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "It confirms the anchor is a complement whose attendees would attend both events before committing to the shared week."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The debrief does not attribute any registration count to the partnership and produces no estimated figure for the unattributed channels."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The claimed 5-10% industry figure is rejected, on the grounds that no industry-wide measured referral value for event-to-event swaps has been published."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Deliverables with no attributable result are recorded explicitly as unmeasured, never as estimated numbers."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The debrief includes a per-partner delivery ledger covering both directions, with dates and evidence links for each deliverable."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The debrief asks the two relationship questions: was the collaboration easy, and do both sides want to recur."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "First-swap success is framed modestly - both sides delivered what was agreed and the measured record becomes the baseline for the next edition - with relationship durability weighted over single-edition yield."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The debrief ends with a recur, renegotiate, or drop decision that is communicated to the partner."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The timeline is set to the slower company-side approval chain, anticipating brand approval and a legal pass."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The agreement includes an exit clause letting either side withdraw promotion, with takedown of scheduled mentions, on cancellation, material change, or a conduct incident."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The agreement names any costs explicitly, such as shipping or booth furniture, so the free swap doesn't silently accrete costs."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The agreement covers logo, event-name, and copy approvals."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The agreement covers attribution handling and commits both sides to sharing resulting numbers after the edition."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Engagement quality is escalated to a hard gate for this expensive format: real numbers such as open rates and past swap results are requested during the deal conversation."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The response declines to set a registration target for speaker-pipeline sharing: its value lands in program quality and speaker-community goodwill, not attributable registrations, and the debrief should say so instead of forcing a number."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Speaker-pipeline sharing is framed as a compounding, edition-over-edition play suited to a recurring relationship."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Companion forms are proposed: cross-announcing each other's CFP windows and/or directly recommending proven speakers."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "No invented registration or conversion figure appears anywhere in the response."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Deliveries are tracked in the per-partner ledger with the result recorded as unmeasured rather than estimated."
+      }
+    ]
+  }
+}

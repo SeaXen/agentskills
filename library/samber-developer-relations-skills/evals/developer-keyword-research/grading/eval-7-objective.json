@@ -1,0 +1,118 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Decides each pair on the shared top-ten result count, not on how similar the two phrasings read",
+        "evidence": "Pair C: \"2 shared \u2192 SEPARATE CLUSTERS, CROSS-LINK... Low overlap despite reading like paraphrases of each other\" \u2014 decision follows the count, not the wording similarity.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Calls pair A (8 shared) one page, with the other phrasing kept as a variant",
+        "evidence": "\"8 shared \u2192 ONE PAGE... Keep 'socket disconnects randomly' as a variant phrasing on that page, not a second URL\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Calls pair B (5 shared) one cluster with separate pages",
+        "evidence": "\"5 shared \u2192 ONE CLUSTER, SEPARATE PAGES.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Calls pair C (2 shared) separate clusters that cross-link",
+        "evidence": "\"2 shared \u2192 SEPARATE CLUSTERS, CROSS-LINK.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Calls pair D (1 shared) unrelated and does not group them",
+        "evidence": "\"1 shared \u2192 UNRELATED, DO NOT GROUP.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Attributes the shared-result thresholds as a reused convention rather than a measured standard",
+        "evidence": "\"Using the skill's shared-result bands (top-10 organic overlap):\" \u2014 presented as the skill's existing bands, not a newly measured standard.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that comparing every pair is quadratic and does not propose an all-pairs comparison of the 60 remaining candidates",
+        "evidence": "\"comparing every pair is quadratic (60 candidates \u2192 1,770 possible pairs), and the skill flags this explicitly as the trap to avoid.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Pre-groups the remaining candidates by query family and tests only the pairs sitting on a boundary",
+        "evidence": "\"Pre-group by family/topic first, no SERP pulls yet...\" and \"Only pull SERPs for boundary candidates.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that phrasings that read alike can draw disjoint result sets, and phrasings that read differently can draw the same one",
+        "evidence": "Only one direction is explicitly stated: \"a real example of the skill's warning that similar-looking wording can draw disjoint result sets\" \u2014 the reverse case is not explicitly called out.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Decides each pair on the shared top-ten result count, not on how similar the two phrasings read",
+        "evidence": "Table uses 8/10, 5/10, 2/10, 1/10 with thresholds.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Calls pair A (8 shared) one page, with the other phrasing kept as a variant",
+        "evidence": "'Merge \u2014 one page... fold the other in as a synonym/H2 variant.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Calls pair B (5 shared) one cluster with separate pages",
+        "evidence": "'Merge, but structure it... One page, with exponential backoff as a clearly-anchored H2'. That is one page, not separate pages.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Calls pair C (2 shared) separate clusters that cross-link",
+        "evidence": "'Keep separate... Interlink them, don't merge them.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Calls pair D (1 shared) unrelated and does not group them",
+        "evidence": "'Keep separate \u2014 not even close... Unrelated'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Attributes the shared-result thresholds as a reused convention rather than a measured standard",
+        "evidence": "It presents 'The standard industry heuristic (Ryan Jones' SERP-overlap clustering method...)' and calls 30% 'the defensible industry default'. It does not say it is unmeasured.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that comparing every pair is quadratic and does not propose an all-pairs comparison of the 60 remaining candidates",
+        "evidence": "It proposes 'Pull all 60 SERPs in one batch' with one row per candidate pair and never notes the quadratic cost.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Pre-groups the remaining candidates by query family and tests only the pairs sitting on a boundary",
+        "evidence": "No family pre-grouping. It computes overlap for every pair and hand-reviews only the yellow band.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that phrasings that read alike can draw disjoint result sets, and phrasings that read differently can draw the same one",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

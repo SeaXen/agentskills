@@ -1,0 +1,618 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "developer-troubleshooting-docs",
+  "scenarios": 13,
+  "expectations_total": 165,
+  "expectations_subjective": 0,
+  "expectations_objective": 165,
+  "pass_rate_with_skill_pct": 75.8,
+  "pass_rate_without_skill_pct": 37.6,
+  "delta_pp": 38.2,
+  "uplift_multiplier": 2.02,
+  "trigger_accuracy_pct": 50.0,
+  "trigger_queries": 156,
+  "trigger_positive_fire_rate": 0.0,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": null,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.274 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Declines to draft the 15 pages from general knowledge of CI or Docker failures"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Proposes revisiting after a cycle of capture rather than delivering before the 30th"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Does not promise that the 4.0 launch date will be met with published troubleshooting pages"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends at least one unreported source such as telemetry, search logs, or an unanswered-query log alongside any reported source, rather than reported sources only"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Promotes the 22-ticket signup-time branch-creation hang above at least one higher-count cluster because it blocks first use"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that a reader who abandons on the first-use path never files the ticket that would have ranked the cluster"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Removes the 9-ticket account-suspension cluster from the queue because the reader cannot act on the answer, rather than ranking it last"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that such clusters are deleted rather than demoted, because a demoted cluster silently returns as scope"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Presents the ranked queue for the user's agreement before any entry is written"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Routes cluster A to a product-side error-message rewrite, stating that a docs page cannot be pasted into the reader's terminal"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that rewriting the emitted string is a product change owned by an engineer, not a docs task"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that documenting cluster D would document a bug into permanence"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names an owner for each cluster routed away from docs"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The 3-minute plan-limit check is ordered ahead of the instant `TESSELLATE_MAX_OBJECT` check"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Reframes the objective as raising the share of contacts resolved without a ticket, stated as a number agreed with the user"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that per-error deflection is measurable while a site-wide deflection rate is not"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Recommends diffing the documented wiki table against the codes the product can actually emit, and using the size of that diff as the business case"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Recommends that the source file carry, per code, a description, an erroneous example, an explanation and a fix"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Attributes that four-field schema to Rust RFC 1567"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Recommends carrying a documentation URL or deep link from the emitted error itself, in the payload or via an explain command"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Requires capturing the post-fix signal from that run as the confirmation line"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that publishing a full token teaches readers to paste their own into public issues or tickets"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Requires each command to state its prerequisites and what to do when that command itself fails"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that all six entry parts must be present and that five out of six is a draft rather than a publishable entry"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names the three re-embedding triggers: the embedding model meaningfully improving, roughly 10-15% of the content changing, and the domain shifting"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Assigns the re-index the same owner as the docs release, as a booked maintenance trigger"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires each cause-remedy pair to stand alone so it survives chunking, rather than depending on the paragraph above it"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires explicit field headings such as message, applies-to, cause, fix and confirmation as retrieval anchors"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Requires the 40 support macros to be reconciled with the public entries rather than left untouched, so the two never disagree"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that where both exist, one is either a link to the other or a superset of it"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Anticipates environment-specific causes typical of enterprise deployments, naming at least two of proxies, SSO, air-gapped installs or IP allowlists"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Requires those environment facts to be carried in the entry's applies-to or conditions block"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Requires genericizing captured content: customer identifiers stripped, environment facts that determine applicability kept"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that entries reconstructed from memory are the ones that turn out wrong"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "States that a known-issues list that only grows becomes a graveyard nobody reads"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Names a watched channel and the attachments to include as the replacement escape hatch"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Recommends stamping each page with a last-verified date and an owner so staleness is visible without reading the page"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Names entries touched since the last release as a staleness metric, and notes that publishing volume without it is vanity"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Recommends archiving an entry whose cluster disappears from the mining pass for two cycles"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Recommends persisting the durable decisions, such as signal sources and export paths, the agreed cluster ranking, the negotiated coverage target, and the clusters routed away from docs with their reasons, so the next pass is a diff rather than a re-derivation"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Declines to draft the 15 pages from general knowledge of CI or Docker failures"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that writing troubleshooting pages without a failure signal produces entries for failures that do not happen while the real ones stay undocumented"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Produces no troubleshooting entry for an invented error string"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Proposes a standing capture habit as the next step rather than a one-off writing pass"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names KCS or Knowledge-Centered Service explicitly"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Describes capture happening during resolution rather than reconstructed from memory afterwards"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Proposes revisiting after a cycle of capture rather than delivering before the 30th"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends at least one unreported source such as telemetry, search logs, or an unanswered-query log alongside any reported source, rather than reported sources only"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States the ranking criterion as reader-hours unblocked per hour of writing and verification rather than raw ticket frequency"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Promotes the 22-ticket signup-time branch-creation hang above at least one higher-count cluster because it blocks first use"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that a reader who abandons on the first-use path never files the ticket that would have ranked the cluster"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Removes the 9-ticket account-suspension cluster from the queue because the reader cannot act on the answer, rather than ranking it last"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that such clusters are deleted rather than demoted, because a demoted cluster silently returns as scope"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Presents the ranked queue for the user's agreement before any entry is written"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Does not produce five troubleshooting pages"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Routes cluster A to a product-side error-message rewrite, stating that a docs page cannot be pasted into the reader's terminal"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that rewriting the emitted string is a product change owned by an engineer, not a docs task"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Routes cluster B to a product or DX change, or to a single command that performs the steps, rather than documenting a three-file ordered edit as the permanent answer"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Identifies cluster D as a regression introduced by 5.2 and says to file it rather than document it"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that documenting cluster D would document a bug into permanence"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States out loud that any interim page for cluster E is an admission that a defect is being tolerated"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that deciding not to document an error is a legitimate output, referencing that not all diagnostics warrant a durable explanation"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names Google SRE postmortem practice, or its rule that action items must be preventative rather than merely mitigative, as the basis for the escalation gate"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The entry carries all six parts: message, applies-to, cause, fix, confirmation, escape hatch"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The six parts appear in that order"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The 3-minute plan-limit check is ordered ahead of the instant `TESSELLATE_MAX_OBJECT` check"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The ordering rationale is stated as how often that check is the actual cause per minute of the reader's time, explicitly not cheapest-check-first"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The confirmation part names a specific observable output or state rather than the absence of the error"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The escape hatch names the specific artifacts to attach and a place to report, rather than a bare 'contact support'"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Rejects the single-page structure holding all 28 errors"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Rejects the topic-based titles and requires the emitted error string verbatim in the title and first heading"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names the ARID principle, Accept (some) Repetition In Documentation, as the basis for that repetition"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that the string match matters more than the duplication"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires the message, cause and first fix to appear in the first screen before any feature preamble"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that a block depending on the paragraph above it retrieves as a fragment when chunked into a search or assistant index"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes that anchors on a mega page get lost in caches, or that such a page becomes unmaintainable"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends against adding FAQPage structured data to the troubleshooting entries"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that the FAQ rich result no longer appears in search results, so the markup buys nothing"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Does not present FAQPage markup as a low-cost hedge worth doing anyway"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Rejects question-shaped headings in favour of the emitted error string"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that readers arrive by pasting an exact string rather than by browsing or asking a question"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Requires the error string verbatim in the title, the first heading and the body"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Declines the site-wide crawl, canonical and internal-linking work as outside this job"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Routes the site-wide SEO work to a documentation SEO skill rather than performing it"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Does not claim that FAQ markup improves AI assistant or LLM citation odds as a substitute justification"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names at least one product-side wiring that outperforms the markup, such as shipping a documentation URL in the error payload or an explain path in the CLI"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Refuses to use the $15-$50 or $28 per-ticket cost figure"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the per-ticket cost figure circulates without traceable methodology"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Refuses the 60-70% deflection figure on the same grounds"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Instructs the user to substitute Verdant's own finance figures for ticket cost, or to state plainly that the number is unknown"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Rejects 'drive tickets to zero' as a defensible objective"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Cites the finding that only 14% of customer service issues are fully resolved in self-service"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Cites the 36% figure for issues customers rated 'very simple'"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Attributes those figures to a Gartner survey of 5,728 customers"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Reframes the objective as raising the share of contacts resolved without a ticket, stated as a number agreed with the user"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Offers the Dixon, Freeman and Toman loyalty research as the sourced argument, including the 96% versus 9% high-effort versus low-effort disloyalty contrast"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that per-error deflection is measurable while a site-wide deflection rate is not"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends resolution rate and cost per resolution over deflection rate, because repeat contacts hide inside deflection"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Recommends diffing the documented wiki table against the codes the product can actually emit, and using the size of that diff as the business case"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Cites at least one published implementation by name, such as PostgreSQL's errcodes file, Rust's rustc_error_codes, Twilio's error dictionary, or Stripe's error-code catalog"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Recommends that the source file carry, per code, a description, an erroneous example, an explanation and a fix"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Attributes that four-field schema to Rust RFC 1567"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names identifying the owning engineering team as a prerequisite to proposing it"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Recommends carrying a documentation URL or deep link from the emitted error itself, in the payload or via an explain command"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Requires each fix to be executed as written before publication, not inferred from resolution notes"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Requires running the fix from the reader's starting state rather than from an already-configured machine"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Requires capturing the post-fix signal from that run as the confirmation line"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Requires a reviewer who did not write the entry to follow it cold"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that the cold reader's first hesitation marks a step carrying an unstated assumption"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that incorrect documentation is worse than missing documentation"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that publishing a full token teaches readers to paste their own into public issues or tickets"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Requires each command to state its prerequisites and what to do when that command itself fails"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that all six entry parts must be present and that five out of six is a draft rather than a publishable entry"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names the three re-embedding triggers: the embedding model meaningfully improving, roughly 10-15% of the content changing, and the domain shifting"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Labels the 10-15% figure as practitioner guidance rather than a measured or standardized threshold"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Assigns the re-index the same owner as the docs release, as a booked maintenance trigger"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that an honest refusal costs less trust than an invented fix"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires each cause-remedy pair to stand alone so it survives chunking, rather than depending on the paragraph above it"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires explicit field headings such as message, applies-to, cause, fix and confirmation as retrieval anchors"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Recommends feeding the assistant's unanswered-query log back in as a signal source for the next clustering pass"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Requires the 40 support macros to be reconciled with the public entries rather than left untouched, so the two never disagree"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that where both exist, one is either a link to the other or a superset of it"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Anticipates environment-specific causes typical of enterprise deployments, naming at least two of proxies, SSO, air-gapped installs or IP allowlists"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Requires those environment facts to be carried in the entry's applies-to or conditions block"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Names KCS or Knowledge-Centered Service as the operating model"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Attributes KCS to the Consortium for Service Innovation"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that entries reconstructed from memory are the ones that turn out wrong"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Recommends a structured template field in the ticket tool capturing error text, environment, cause and resolution"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Recommends a recurring pass that promotes repeat resolutions into entries"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Assigns editing, standardization and information architecture to the technical writer, and the error string itself to engineers"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Corrects the Zendesk assumption: it creates an article from the ticket being worked but does not pre-populate the draft, so transcription time must be budgeted"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Warns that skipping clustering produces a page restating one customer's ticket instead of covering the failure"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Gives a coach-to-knowledge-worker ratio as a staffing input, roughly 1:5 to 1:8 at start-up moving toward about 1:50 at maturity"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Requires re-running the clustering pass and comparing it against the pre-publication pass"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Reads the 190 zero-result searches for covered strings as evidence that the error string is not verbatim on the page"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "States that zero-result searches for covered strings should reach zero"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "States that a known-issues list that only grows becomes a graveyard nobody reads"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Names a watched channel and the attachments to include as the replacement escape hatch"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "States that a dead escape hatch converts a helped reader into an angry one"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Recommends stamping each page with a last-verified date and an owner so staleness is visible without reading the page"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Names entries touched since the last release as a staleness metric, and notes that publishing volume without it is vanity"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Recommends archiving an entry whose cluster disappears from the mining pass for two cycles"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Recommends persisting the durable decisions, such as signal sources and export paths, the agreed cluster ranking, the negotiated coverage target, and the clusters routed away from docs with their reasons, so the next pass is a diff rather than a re-derivation"
+      }
+    ]
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Uses only the four Common Changelog categories: Changed, Added, Removed and Fixed",
+        "evidence": "Headers used are \"### Changed\", \"### Added\", \"### Fixed\" only \u2014 no invented Security or Deprecated headings.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Emits no Deprecated heading",
+        "evidence": "The setMaxIdle() deprecation is filed under \"### Changed\", not under a \"### Deprecated\" heading.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Emits no Security heading",
+        "evidence": "The CVE fix is filed under \"### Fixed\" with a \"**Security:**\" inline label, not under a \"### Security\" heading.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places the deprecation of setMaxIdle() under Changed",
+        "evidence": "\"### Changed ... - Deprecate `setMaxIdle()` in favor of `configure({ maxIdle })`...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names both the replacement and the removal version 5.0 inside the deprecation entry text",
+        "evidence": "\"`setMaxIdle()` keeps working through the 4.x line and is removed in 5.0.0 ([#504]...)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places the CVE fix under Fixed",
+        "evidence": "\"### Fixed - **Security:** stop writing the DSN password to logs...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names CVE-2026-3311 or the GHSA advisory identifier inside the entry text itself",
+        "evidence": "\"(CVE-2026-3311) ([#507](../../pull/507))\" inside the entry text.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Orders the categories Changed, Added, Removed, Fixed",
+        "evidence": "Document order is \"### Changed\" then \"### Added\" then \"### Fixed\" (Removed absent but order otherwise consistent).",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes every entry with a present-tense imperative verb rather than past tense",
+        "evidence": "\"drop Node.js 18 support\", \"Deprecate `setMaxIdle()`\", \"Add `poolStats()`\", \"stop writing the DSN password to logs\" \u2014 all imperative present-tense.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Attaches a pull-request or commit reference to every entry",
+        "evidence": "Every bullet ends with a PR link, e.g. \"([#509](../../pull/509))\", \"([#504](../../pull/504))\", \"([#501](../../pull/501))\", \"([#507](../../pull/507))\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Marks the Node 18 drop as breaking and prefixes that entry with a Breaking label",
+        "evidence": "\"- **Breaking:** drop Node.js 18 support.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places breaking items first inside their category",
+        "evidence": "Under \"### Changed\", the Breaking Node 18 entry precedes the setMaxIdle() deprecation entry.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Questions the 4.3.0 minor version given the Node 18 drop, or recommends a major bump instead",
+        "evidence": "\"One conflict to resolve before you ship this as 4.3.0: dropping Node 18 support is a breaking change... Either cut this as `5.0.0` instead...\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Uses only the four Common Changelog categories: Changed, Added, Removed and Fixed",
+        "evidence": "Transcript emits headings '### Changed', '### Added', '### Deprecated', '### Fixed' \u2014 a 'Deprecated' heading is present (not one of the four allowed) and 'Removed' never appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Emits no Deprecated heading",
+        "evidence": "Transcript contains '### Deprecated' as its own heading, under which the setMaxIdle() entry is placed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Emits no Security heading",
+        "evidence": "No '### Security' heading appears anywhere; the text explicitly notes 'no separate \"Security\" heading \u2014 the CVE fix lives under Fixed with its advisory linked inline.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places the deprecation of setMaxIdle() under Changed",
+        "evidence": "The setMaxIdle() entry appears under '### Deprecated', not under '### Changed', which only contains the Node.js 18 breaking entry.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names both the replacement and the removal version 5.0 inside the deprecation entry text",
+        "evidence": "Entry reads: 'Deprecate `setMaxIdle()` in favor of `configure({ maxIdle })`; `setMaxIdle()` will be removed in v5.0'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places the CVE fix under Fixed",
+        "evidence": "The CVE entry 'Fix a malformed DSN leaking the password into logs (CVE-2026-3311, ...)' is listed under the '### Fixed' heading.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names CVE-2026-3311 or the GHSA advisory identifier inside the entry text itself",
+        "evidence": "Entry text includes '(CVE-2026-3311, [GHSA-xxxx-yyyy-zzzz](https://github.com/samber/pgfleet/security/advisories/GHSA-xxxx-yyyy-zzzz), [#507]...)'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Orders the categories Changed, Added, Removed, Fixed",
+        "evidence": "Actual heading order is Changed, Added, Deprecated, Fixed \u2014 'Removed' is absent entirely and 'Deprecated' occupies a position not matching the requested Changed/Added/Removed/Fixed sequence.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes every entry with a present-tense imperative verb rather than past tense",
+        "evidence": "Entries start with 'Drop support for Node.js 18', 'Add `poolStats()` method', 'Deprecate `setMaxIdle()`...', 'Fix a malformed DSN...' \u2014 all imperative present tense.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Attaches a pull-request or commit reference to every entry",
+        "evidence": "Each entry ends with a PR link: [#509], [#501], [#504], and [#507] respectively.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Marks the Node 18 drop as breaking and prefixes that entry with a Breaking label",
+        "evidence": "Entry reads '**Breaking:** Drop support for Node.js 18 ([#509]...)'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places breaking items first inside their category",
+        "evidence": "The '### Changed' section contains only the single breaking entry '**Breaking:** Drop support for Node.js 18', so it is trivially first (and only) in its category.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Questions the 4.3.0 minor version given the Node 18 drop, or recommends a major bump instead",
+        "evidence": "The transcript presents the entry as '## [4.3.0](...) (2026-09-18)' with no commentary questioning the minor bump or suggesting a major version instead; the only caveats given are about swapping in the GHSA slug and repo path.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

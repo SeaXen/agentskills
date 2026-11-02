@@ -1,0 +1,190 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects 'Presented by Quillstack' as the only label on the sponsor unit",
+        "evidence": "\"'Presented by Quillstack' ... can't be the label\"; refused-asks table replaces it with `AD \u00b7 ANZEIGE`.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Uses 'Ad' or 'Advertisement' as the label word, not 'Sponsored' alone",
+        "evidence": "Label is \"AD \u00b7 ANZEIGE\" in all three formats.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Adds 'Anzeige' or 'Werbung' because of the German readership",
+        "evidence": "\"About 40% of your readers are in Germany, where 'Anzeige' is the expected word.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places the label before the sponsor copy, on the unit itself",
+        "evidence": "\"Label first, in all three formats.\" The HTML table has the label row above the logo and copy.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says the 'Thanks to our friends at' line may stay only next to the label, not instead of it",
+        "evidence": "\"The line is fine beside the label, never in place of it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the label must also appear in the plain-text part",
+        "evidence": "Plain-text block starts with \"AD \u00b7 ANZEIGE\"; \"The label still comes before any copy.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the label must also appear in the web archive version",
+        "evidence": "\"Keep the label in the archive page itself, not only in an image.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends marking the sponsor link in the web archive with rel=\"sponsored\"",
+        "evidence": "\"the link carries `rel=\"sponsored\"`\" with an example anchor.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines putting the sponsor name in the regular issue's subject line",
+        "evidence": "\"Subject: a normal editorial subject ... No Quillstack name.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that a promotional subject line can make the whole issue count as commercial email",
+        "evidence": "\"A sponsor name in a normal issue's subject can turn the whole issue into commercial email (US).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the basis for rejecting 'Presented by' as regulator guidance or German case law rather than calling it a criminal offence or a fine",
+        "evidence": "\"Regulator guidance (US, UK) and German case law: it reads as funding, not advertising.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Mentions the German court practice that 'sponsored by'-style wording does not replace 'Anzeige'",
+        "evidence": "Cites \"German case law\" and says \"Anzeige\" is the expected word, though only briefly.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Delivers an actual rewritten sponsor block, not only advice",
+        "evidence": "Full HTML, plain-text and archive blocks are provided.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not claim to give legal advice and points real exposure to counsel",
+        "evidence": "\"Its references say this is not legal advice. Send anything you are unsure about to counsel.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not offer 'Sponsored' alone as the fix, noting UK guidance advises against it",
+        "evidence": "It never offers 'Sponsored' alone. It also never notes that UK guidance advises against 'Sponsored'. It only discusses 'Presented by' and 'Thanks to'.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects 'Presented by Quillstack' as the only label on the sponsor unit",
+        "evidence": "Replaces it with 'Sponsored by Quillstack' plus a 'Sponsored / Anzeige' tag; says 'Presented by' can read as co-producing.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Uses 'Ad' or 'Advertisement' as the label word, not 'Sponsored' alone",
+        "evidence": "The label is 'SPONSORED \u00b7 ANZEIGE' and 'Sponsored by Quillstack'; the English label word is 'Sponsored', never 'Ad' or 'Advertisement'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds 'Anzeige' or 'Werbung' because of the German readership",
+        "evidence": "'The German tag covers your ~40% German readers... expects \"Anzeige\" or \"Werbung\".'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places the label before the sponsor copy, on the unit itself",
+        "evidence": "'[small grey tag, above the logo] SPONSORED \u00b7 ANZEIGE'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says the 'Thanks to our friends at' line may stay only next to the label, not instead of it",
+        "evidence": "The 'friends' line is replaced ('\"Friends\" hides a paid relationship'), not kept next to the label.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the label must also appear in the plain-text part",
+        "evidence": "Plain-text version begins 'SPONSORED \u00b7 ANZEIGE'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the label must also appear in the web archive version",
+        "evidence": "Table: tag 'Same, above the logo' in the web archive; 'Keep the archive's wording identical'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends marking the sponsor link in the web archive with rel=\"sponsored\"",
+        "evidence": "'Add rel=\"sponsored\" to every Quillstack link'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines putting the sponsor name in the regular issue's subject line",
+        "evidence": "Uses 'Pulse Weekly #[N]: [topic] (sponsored by Quillstack)' in the subject.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that a promotional subject line can make the whole issue count as commercial email",
+        "evidence": "Only says a subject that hides sponsorship is risky; makes no claim that the whole issue becomes commercial email.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the basis for rejecting 'Presented by' as regulator guidance or German case law rather than calling it a criminal offence or a fine",
+        "evidence": "Cites 'US FTC, the UK ASA and the German UWG all expect a clear disclosure'; no criminal or fine claim.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Mentions the German court practice that 'sponsored by'-style wording does not replace 'Anzeige'",
+        "evidence": "No mention of German court practice.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Delivers an actual rewritten sponsor block, not only advice",
+        "evidence": "'Final sponsor block (HTML email)' and a plain-text version are provided.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not claim to give legal advice and points real exposure to counsel",
+        "evidence": "'I'm not a lawyer... worth a quick check with one'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not offer 'Sponsored' alone as the fix, noting UK guidance advises against it",
+        "evidence": "Uses 'Sponsored' as the English word and never notes UK guidance advising against it.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

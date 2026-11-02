@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Deletes the visitor-counter badge from the measurement plan rather than ranking it last",
+        "evidence": "'Short answer: No \u2014 drop both numbers... Drop the visitor badge from the README itself while you're in there'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that the counter increments on every image load through an anonymizing proxy, counting bots and repeat loads, and that public scripts inflate it",
+        "evidence": "'It counts image *requests* through an anonymizing proxy \u2014 every page load, every bot crawl, every repeat visit from the same person, and public scripts exist specifically to inflate it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes star growth from the measurement plan rather than ranking it last",
+        "evidence": "The final 'What to actually tell the VP' list omits star count entirely, listing only ship date, tagged tracking, pinned-repo traffic, and qualified inbound.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that star growth after a profile change is unattributable and that stars follow promotion rather than the page",
+        "evidence": "'Stars are known to move with *promotion*... not with page quality... Nothing ties the +240 stars to the profile specifically \u2014 no confounder control'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines to credit the move from 2,810 to 3,050 stars to the profile rewrite",
+        "evidence": "'don't put this in front of your VP as caused-by-the-rewrite'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names tagged click-through to an owner-controlled destination as the first thing to build, costing roughly an hour, with the destination's analytics belonging to the owner",
+        "evidence": "'1. **Tagged click-through \u2014 set this up now.**... This is an hour of work, the destination's analytics belong to you, not a proxy'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names pinned-repository traffic second and states it is limited to a trailing 14-day window",
+        "evidence": "'2. **Pinned-repository traffic \u2014 pull it as supporting context, not a headline.**... GitHub only exposes a trailing 14-day window'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that pinned-repository traffic requires push access to that specific repository",
+        "evidence": "'and only for repos you can push to.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names qualified inbound as what the efficiency order starves, and promotes it here because the account is an organization",
+        "evidence": "'3. **Qualified inbound**... For an organization, this is the only signal that actually shows the page changed someone's behavior'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Defines qualified inbound for an organization as a prospect who already knows what the company builds instead of asking",
+        "evidence": "'a prospect who arrives already knowing what you build, instead of asking'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that no host offers profile-level analytics, and that the ship date must be written down with confounders annotated",
+        "evidence": "'no host gives you profile-level analytics' is stated, but there is no instruction to write the ship date down with confounders annotated.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Deletes the visitor-counter badge from the measurement plan rather than ranking it last",
+        "evidence": "'Drop it.' is the explicit instruction regarding the visitor-counter badge.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that the counter increments on every image load through an anonymizing proxy, counting bots and repeat loads, and that public scripts inflate it",
+        "evidence": "'GitHub's camo image proxy re-fetching on cache expiry... CI bots, dependency scanners, and any tool that renders the README... Every page load, not unique visitors \u2014 one person refreshing 10x is +10.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes star growth from the measurement plan rather than ranking it last",
+        "evidence": "Star growth is kept in the recommended before/after table ('Stars [baseline growth] +240...'), only downgraded to a supporting line, not deleted.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that star growth after a profile change is unattributable and that stars follow promotion rather than the page",
+        "evidence": "'Anything else happen in September \u2014 HN/Reddit post, a release, a dependency update, someone else's blog post? Stars spike from any of those regardless of the org profile.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines to credit the move from 2,810 to 3,050 stars to the profile rewrite",
+        "evidence": "'2,810 \u2192 3,050 (+240, +8.5%) is real and directionally fine, but three gaps: No baseline... No confound check... Stars are the weakest signal you have.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names tagged click-through to an owner-controlled destination as the first thing to build, costing roughly an hour, with the destination's analytics belonging to the owner",
+        "evidence": "No mention of building tagged/UTM click-through tracking to an owner-controlled destination.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names pinned-repository traffic second and states it is limited to a trailing 14-day window",
+        "evidence": "Repo Traffic data is mentioned with '14-day rolling' language, but it's presented as a table row, not ranked explicitly 'second' in an ordered list.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that pinned-repository traffic requires push access to that specific repository",
+        "evidence": "No mention of access requirements for viewing Traffic data.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names qualified inbound as what the efficiency order starves, and promotes it here because the account is an organization",
+        "evidence": "No discussion of 'qualified inbound' anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Defines qualified inbound for an organization as a prospect who already knows what the company builds instead of asking",
+        "evidence": "No such definition appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that no host offers profile-level analytics, and that the ship date must be written down with confounders annotated",
+        "evidence": "The transcript works around lack of profile-level data via repo Insights but never explicitly states 'no host offers profile-level analytics' or instructs annotating confounders against a written ship date.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Declines to draft the 15 pages from general knowledge of CI or Docker failures",
+        "evidence": "The transcript proceeds to fully draft all 15 pages ('## 2. The 15 pages') using general Docker/git/OpenSSH knowledge, stating 'The 15 topics below are the well-documented, industry-wide failure modes for *any* Docker-backed self-hosted CI runner... These strings are real and stable... so they're a legitimate starting draft.' It does not decline to draft them; it drafts them with caveats instead.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that writing troubleshooting pages without a failure signal produces entries for failures that do not happen while the real ones stay undocumented",
+        "evidence": "'Re-run this exercise in 4\u20136 weeks with real inbox tallies instead of industry base rates. Expect some of these 15 to be wrong priority (something you didn't predict floods the inbox, something here never comes up) \u2014 that's the correction, and it's a diff against this list, not a rewrite of it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Produces no troubleshooting entry for an invented error string",
+        "evidence": "All 15 entries use documented, real error strings attributed to Docker Engine, git, or OpenSSL (e.g. 'Cannot connect to the Docker daemon at unix:///var/run/docker.sock', 'toomanyrequests: You have reached your pull rate limit'), and the transcript explicitly notes 'These strings are real and stable \u2014 they come from Docker Engine, git, and OpenSSH, not from guesswork.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names at least one reachable signal source despite the absence of a ticket system, such as shared-inbox threads, the issue tracker, community threads, error telemetry, docs search logs, or an assistant's unanswered-query log",
+        "evidence": "'What I do have: the shared inbox is a real reported source even though nobody tags it \u2014 it's just unmined, not absent. It's worth a one-hour hand-pass before launch... If Halyard has a public issue tracker or a Discord/Slack, that's a second free source...'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Proposes a standing capture habit as the next step rather than a one-off writing pass",
+        "evidence": "Section 4 lays out an ongoing mechanism: 'Subject-line convention for the shared inbox, starting now'; 'Weekly 30-minute pass: whoever reads the shared inbox tallies subject-line prefixes...'; 'Capture at resolution, not from memory'; 'Re-run this exercise in 4\u20136 weeks with real inbox tallies'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names KCS or Knowledge-Centered Service explicitly",
+        "evidence": "'Running this through the troubleshooting-docs skill (KCS capture model, DITA `<troubleshooting>` topic type...)' and later 'This is the KCS solve-loop, and it's the same effort as replying anyway.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Describes capture happening during resolution rather than reconstructed from memory afterwards",
+        "evidence": "'Capture at resolution, not from memory: whoever answers an inbox thread that isn't yet covered writes down the error text, cause, and fix *in that reply*, before closing the thread \u2014 that reply is the first draft of the next page.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Proposes revisiting after a cycle of capture rather than delivering before the 30th",
+        "evidence": "The transcript explicitly commits to publishing before/by the 30th instead of withholding: 'Ship these now if the 30th is fixed... If the 30th arrives before that pass happens, ship with the footers as-is rather than deleting them \u2014 \"reported, not reproduced\" published beats a silent gap.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not promise that the 4.0 launch date will be met with published troubleshooting pages",
+        "evidence": "'If the 30th arrives before that pass happens, ship with the footers as-is rather than deleting them' commits to having the pages published in time for the 30th regardless of verification status, effectively promising the launch date will be met with published pages.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends at least one unreported source such as telemetry, search logs, or an unanswered-query log alongside any reported source, rather than reported sources only",
+        "evidence": "The only sources proposed throughout (shared inbox, issue tracker, Discord/Slack, weekly inbox tallies, 'Inbox thread count per subject-line prefix') are all reported/user-initiated channels; telemetry and search logs are mentioned only as things that are absent ('no tickets, no telemetry, no search logs'), never recommended as a source to add.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not propose deriving the page list from a competitor's documentation or from general web search results",
+        "evidence": "The list is derived from stated general/industry knowledge of Docker-backed CI runner failures ('the well-documented, industry-wide failure modes for *any* Docker-backed self-hosted CI runner'), with no mention of consulting competitor docs or running web searches to build the list.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Declines to draft the 15 pages from general knowledge of CI or Docker failures",
+        "evidence": "The transcript delivers all 14 full pages (e.g. '## 1. Runner won't register or shows offline' through '## 14. Runner/agent version mismatch'), not a refusal to draft them.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that writing troubleshooting pages without a failure signal produces entries for failures that do not happen while the real ones stay undocumented",
+        "evidence": "Only says content is 'built entirely from general knowledge... not from Halyard ticket data, since none exists yet' \u2014 never states the consequence of documenting non-occurring failures while real ones go undocumented.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces no troubleshooting entry for an invented error string",
+        "evidence": "Contains many invented literal strings, e.g. 'level=error msg=\"failed to register runner\" err=\"dial tcp: lookup halyard.example.com: no such host\"'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names at least one reachable signal source despite the absence of a ticket system, such as shared-inbox threads, the issue tracker, community threads, error telemetry, docs search logs, or an assistant's unanswered-query log",
+        "evidence": "\"that's a faster and more reliable pass than trying to reconstruct them from a shared support inbox after the fact\" names the shared support inbox as an existing source.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Proposes a standing capture habit as the next step rather than a one-off writing pass",
+        "evidence": "Only proposes a future one-time revisit: 'Once telemetry or a ticket tagging system exists, revisit this section using actual frequency data' \u2014 no standing habit described.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names KCS or Knowledge-Centered Service explicitly",
+        "evidence": "No mention of KCS or Knowledge-Centered Service anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Describes capture happening during resolution rather than reconstructed from memory afterwards",
+        "evidence": "No discussion of capture timing relative to resolution appears anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Proposes revisiting after a cycle of capture rather than delivering before the 30th",
+        "evidence": "No mention of a 30th deadline or a capture cycle; only 'revisit this section using actual frequency data' once telemetry exists.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not promise that the 4.0 launch date will be met with published troubleshooting pages",
+        "evidence": "The transcript never claims these pages will be ready/published in time for a 4.0 launch; it only says to verify against 'a live 4.0 runner' before publishing.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends at least one unreported source such as telemetry, search logs, or an unanswered-query log alongside any reported source, rather than reported sources only",
+        "evidence": "Telemetry is mentioned only as a future possibility ('Once telemetry or a ticket tagging system exists'), not recommended now alongside the reported shared-inbox source.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not propose deriving the page list from a competitor's documentation or from general web search results",
+        "evidence": "States the section is 'built entirely from general knowledge of self-hosted CI runners and Docker' \u2014 no proposal to mine competitor docs or web search results.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

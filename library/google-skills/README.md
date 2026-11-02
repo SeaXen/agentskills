@@ -79,6 +79,7 @@ This command gives you an option to also remove obsolete skills.
   - [**Cloud Network Insights**](./skills/cloud/cloud-network-insights)
   - [**Cloud Storage Basics**](./skills/cloud/google-cloud-storage-basics)
   - [**Cloud Storage Bucket Architect**](./skills/cloud/google-cloud-storage-bucket-architect)
+  - [**Cloud Storage Diagnostic**](./skills/cloud/google-cloud-storage-diagnostic)
   - [**Cloud Storage FUSE**](./skills/cloud/google-cloud-storage-fuse)
   - [**Designing and Deploying GCP Infrastructure with Application Design Center**](./skills/cloud/application-design-center-design-deploy)
   - [**Filestore Auditing Skill**](./skills/cloud/google-cloud-filestore-auditing)
@@ -140,6 +141,7 @@ This command gives you an option to also remove obsolete skills.
   - [**Spanner Basics**](./skills/cloud/spanner-basics)
 - **Developer tools**
   - [**Cloud Build Basics**](./skills/cloud/cloud-build-basics)
+  - [**Cloud Operator**](./skills/cloud/cloud-operator)
   - [**Developer Device Platform**](./skills/cloud/developer-device-platform-basics)
   - [**gcloud CLI Skill for AI Agents**](./skills/cloud/gcloud)
   - [**Google Agents CLI Onboarding**](./skills/cloud/google-agents-cli-onboarding)
@@ -177,6 +179,7 @@ This command gives you an option to also remove obsolete skills.
   - [**Google Cloud Well-Architected Framework skill for the Sustainability pillar**](./skills/cloud/google-cloud-waf-sustainability)
 - **Security and identity**
   - [**API Gateway Backend Security and Rate Limiting**](./skills/cloud/api-gateway-backend-security-and-rate-limiting)
+  - [**Cloud Armor OWASP Rule Upgrader (CRS 3.0/3.3 -> 4.22)**](./skills/cloud/cloud-armor-crs-rule-upgrader)
   - [**Compliance Environment Assessor Skill**](./skills/cloud/assuredworkloads-environment-assessor)
   - [**Custom Resource Authoring & Synthesis Skill (`assuredworkloads-frameworks-author`)**](./skills/cloud/assuredworkloads-frameworks-author)
   - [**Data Boundary Framework Navigator (`assuredworkloads-frameworks-navigator`)**](./skills/cloud/assuredworkloads-frameworks-navigator)
@@ -184,6 +187,7 @@ This command gives you an option to also remove obsolete skills.
   - [**GKE Platform Security**](./skills/cloud/gke-platform-security)
   - [**GKE Workload Identity Federation Troubleshooting Skill**](./skills/cloud/gke-workload-identity)
   - [**GKE Workload Security**](./skills/cloud/gke-workload-security)
+  - [**Google Cloud Assured Workloads Basics (V1 GA)**](./skills/cloud/assured-workloads-basics)
   - [**Google Cloud Security Command Center Remediation**](./skills/cloud/google-cloud-scc-remediation)
   - [**Google SecOps Case Management Skill for AI Agents**](./skills/cloud/secops-cases)
   - [**Google SecOps Detection Engineering Skill**](./skills/cloud/secops-detection-engineering)

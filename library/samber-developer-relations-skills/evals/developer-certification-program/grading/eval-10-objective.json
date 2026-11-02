@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the feature-list blueprint and derives domains from a job task analysis: practitioner interviews, escalated support tickets, implementation reviews.",
+        "evidence": "'A blueprint comes from a job task analysis, not the feature list'; interviews and support tickets.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Weights domains by task frequency and the cost of doing the task wrong, not equal 12.5% shares.",
+        "evidence": "'frequency (1\u20135) \u00d7 cost of a mistake (1\u20135)'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires publishing the domains and weights so candidates can hold the program to them.",
+        "evidence": "'Publish domains and weights.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the pilot despite only eleven candidates, using it for task clarity and checker correctness and deferring item statistics until live volume accrues.",
+        "evidence": "It keeps the pilot ('Eleven devs is the right size') but does not scope it to clarity and checkers or defer item statistics.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that no task is scored before it has been piloted.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sizes the build against the 120-hour ceiling and, where it does not fit, cuts variants or domains, never the pilot or the review.",
+        "evidence": "'Total 113'; 'Per the skill, cut variants, domains, or the tier. Never cut the pilot or the review.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Adds review hours (technical accuracy by a second expert plus a bias and clarity review) and flags 'no reviewers' as a gap in the plan.",
+        "evidence": "'No reviewers means no second-expert check and no panel'; 'Reviewers needed (minimum 2)'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces the 75% cut score with panel-written minimum end-state checks that the checker enforces, rather than a percentage.",
+        "evidence": "'The panel reviews pilot solutions and writes each task's minimum end-state checks.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats accommodation documentation as health data: only the reviewer sees it, a retention period is set, and it stays out of the candidate record.",
+        "evidence": "'Treat them as health data. Only the reviewer sees them... delete 12 months after the decision'; 'Do not put requests or reasons in the candidate record.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets a stated processing time for accommodation requests and an appeal path for denials.",
+        "evidence": "'self-set at 10 business days'; 'Appeal path for denials.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Advises against 'Certified Engineer' for Quebec and Ontario candidates because 'engineer' is a regulated title in Canadian provinces.",
+        "evidence": "'\"Engineer\" is a regulated title... Your candidates are in Ontario and Quebec, so ask counsel'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels every hour estimate in the build plan as self-set.",
+        "evidence": "'Build plan (self-set, against 120h)'; 'Self-set: everything else. That covers all hours'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Versions each checker, tests it in CI against each product release, and keeps a reference solution that must pass.",
+        "evidence": "Checkers run in CI against every release, but checker versioning and a reference solution that must pass are not required.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the feature-list blueprint and derives domains from a job task analysis: practitioner interviews, escalated support tickets, implementation reviews.",
+        "evidence": "'Equal weights mirror your product's feature list'; ground weights in dev ratings and support tickets.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Weights domains by task frequency and the cost of doing the task wrong, not equal 12.5% shares.",
+        "evidence": "'rate each feature on frequency and damage-if-wrong'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires publishing the domains and weights so candidates can hold the program to them.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the pilot despite only eleven candidates, using it for task clarity and checker correctness and deferring item statistics until live volume accrues.",
+        "evidence": "'11 people is plenty for that.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that no task is scored before it has been piloted.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sizes the build against the 120-hour ceiling and, where it does not fit, cuts variants or domains, never the pilot or the review.",
+        "evidence": "'cut to 2 variants per feature before you cut the pilot.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Adds review hours (technical accuracy by a second expert plus a bias and clarity review) and flags 'no reviewers' as a gap in the plan.",
+        "evidence": "'Ask one Sindral engineer for 3 h'; 'You are author, grader designer, and reviewer.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces the 75% cut score with panel-written minimum end-state checks that the checker enforces, rather than a percentage.",
+        "evidence": "It uses weighted cut plus critical checks plus feature floor, with contrasting groups.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats accommodation documentation as health data: only the reviewer sees it, a retention period is set, and it stays out of the candidate record.",
+        "evidence": "'health-related, sensitive data'; separate restricted store; retention limit.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets a stated processing time for accommodation requests and an appeal path for denials.",
+        "evidence": "It has '5 business days' but no appeal for denials.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Advises against 'Certified Engineer' for Quebec and Ontario candidates because 'engineer' is a regulated title in Canadian provinces.",
+        "evidence": "'\"Engineer\" is a regulated title in Canada.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels every hour estimate in the build plan as self-set.",
+        "evidence": "Not labelled.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Versions each checker, tests it in CI against each product release, and keeps a reference solution that must pass.",
+        "evidence": "It has reference solutions, but no checker versioning or CI per release.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

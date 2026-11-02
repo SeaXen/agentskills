@@ -1,0 +1,406 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-budget",
+  "scenarios": 9,
+  "expectations_total": 118,
+  "expectations_subjective": 1,
+  "expectations_objective": 117,
+  "pass_rate_with_skill_pct": 90.7,
+  "pass_rate_without_skill_pct": 33.1,
+  "delta_pp": 57.6,
+  "uplift_multiplier": 2.74,
+  "trigger_accuracy_pct": 78.9,
+  "trigger_queries": 114,
+  "trigger_positive_fire_rate": 0.965,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Three scope tiers (Good/Better/Best or equivalent) are each fully costed with a separate break-even"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "A total cost per head figure is computed from the fixed/per-head cut"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Contingency drawn against contingency held across editions is proposed as the calibration read (never drawn suggests the floor is oversized; fully drawn suggests the pad is undersized)"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that once a lock date passes, the corresponding cut rung is gone"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends re-reading the lowest cash point whenever a payment term changes, not only when a price changes"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Shirt and swag quantities are driven by expected turnout rather than the 600 registration count"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The three revenue postures are presented: sponsor-led, registration-led, sponsorship-by-construction"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Sponsor-led is named the default for a community conference, with sponsorship carrying the bulk and registrations covering per-attendee cost"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Sponsor-led is credited with decoupling the decision to run from the ticket curve, which makes the downgrade ladder workable"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes that any non-zero ticket price pulls in accounting and tax handling that a free event does not carry"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Recommends invoicing terms that land sponsor cash earlier, tied to the dates the cash-flow model needs money in the account"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "The first line of the model names the format as ticketed and states the revenue posture assumed"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Per-head quantities are computed from the expected show-up figure (about 390), never from the 500 registrations"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Speaker expenses are carried under a per-speaker driver, named as distinct from both fixed lines and per-attendee lines"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The venue line carries the dated October 14 quote"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Catering, AV, badges and swag are carried as explicit 'no quote yet' placeholders or ranges - no invented market prices despite the request to fill them in"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The fiscal sponsor's 8% share and card processing fees are deducted off the top, applied to both the ticket rail and the sponsor rail, before any cost line is funded"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "No ticket price is set; instead a ticket revenue target (expenses minus the sponsorship share) plus paid capacity after comps is defined for handoff to ticket pricing"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Sponsorship is set as a share target for handoff to sponsor pricing; no tier split is produced here"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Three scope tiers (Good/Better/Best or equivalent) are each fully costed with a separate break-even"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "A dated cash-flow schedule appears with its lowest cash point identified"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The response warns against announcing the date before a working way to process money exists, given the account is not live"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "A total cost per head figure is computed from the fixed/per-head cut"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The tax and jurisdiction question is written as an open question routed to the fiscal sponsor or an accountant, not answered with a rate or rule"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Presents three contingency tools: an absolute floor, a pad on estimates, and a downgrade ladder"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The three tools are presented as composing together in one budget, with no ranking among them"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The floor is described as an absolute minimum cash reserve held regardless of budget size, not a percentage of budget"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The pad is explicitly labelled as coming from startup financial modelling rather than event practice"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The pad is described as protecting against line-item underestimation, distinguished from revenue shortfall"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The downgrade ladder is identified as the only tool that absorbs a whole-event revenue shortfall rather than a line-item miss"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The ladder is described as the scope tiers with dated checkpoints driven by revenue actually received"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The response notes that a recurring event with prior costed tiers can reuse them, making the ladder cheap this edition"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The final contingency figure is labelled self-set rather than published or standard"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Contingency drawn against contingency held across editions is proposed as the calibration read (never drawn suggests the floor is oversized; fully drawn suggests the pad is undersized)"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Discretionary extras - the afterparty and the swag upgrade - are cut first"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Fixed structural lines, the venue above all, come last in the sequence"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Does not assume the venue minimum can be renegotiated; committed minimums are treated as firm"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The cut sequence is anchored to dates from the cash-flow schedule, not stated in the abstract"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The 30% ticket price bump is refused as a pricing decision this analysis does not own; the ticket target is changed and handed to the pricing decision instead"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The cut order is framed as the content of the pre-priced scope-tier ladder, not invented as a fresh menu"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that once a lock date passes, the corresponding cut rung is gone"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "No new revenue line is invented to balance the model"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Builds a dated schedule with each outflow on the date it leaves and each inflow on the date it lands"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Identifies the lowest cash point and places it in the window before sponsor money arrives mid-May"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Ticket revenue is flagged as the latest-arriving line and the one that can miss"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends the latest-safe-date posture: identify, per commitment, the last date it can be made without losing the thing, and hold until then"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Raises fund-access timing: how long money takes to become spendable once it lands in the account"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Checkpoint dates for tracking revenue against the plan are produced"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends re-reading the lowest cash point whenever a payment term changes, not only when a price changes"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The first line names the model as free-by-construction, with break-even collapsing to a fundraising target rather than an attendee count"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Ticket-line revenue postures are not ranked or offered for this event; sponsorship-by-construction is the named posture"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Total spend per head is identified as the main controllable lever"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Sunday breakfast is treated as the lowest-claim meal, on the order of a third of registrations rather than nearly all"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Web hosting and internal tooling is surfaced as a commonly overlooked cost line, with student events able to source much of it free through education programs"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The contingency includes a flat floor amount scaled to event size, presented as one organization's recommendation rather than an industry convention"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Each scope tier is expressed as a fundraising target"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "A prizes line appears in the taxonomy, with a steer toward learning-value prizes over pure cash or its sizing routed to the prize-structuring decision"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The communication platform line is budgeted at zero or upgrade-only, reflecting a free base tier"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that published revenue splits disagree almost completely and bound the range of real postures, never a norm to hit"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The three revenue postures are presented: sponsor-led, registration-led, sponsorship-by-construction"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Sponsor-led is named the default for a community conference, with sponsorship carrying the bulk and registrations covering per-attendee cost"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names what the default ordering starves - registration-led - and that following the default indefinitely makes the sponsor pool the event's ceiling"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The chosen share is framed as a lever the team sets, with the sponsorship target handed onward for tier-splitting rather than split here"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Registration-led is characterized as topping effort with its money landing latest"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Sponsor-led is credited with decoupling the decision to run from the ticket curve, which makes the downgrade ladder workable"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The 5%/8% fee assumption is flagged as a legacy structure that has been superseded, with instruction to verify the platform's current terms before budgeting on it"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The deduction is situated against the typical published fiscal-sponsor range of roughly 7-14%"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Host share and payment processing fees are deducted off the top, on both the ticket rail and the sponsor rail, before any cost line is funded"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "No VAT rate, threshold, form name or registration rule is stated as though general"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The tax question is written as a named open question with an owner and a date, routed to the fiscal host, a local accountant, or counsel"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Tax handling is carried as a named budget line"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes that any non-zero ticket price pulls in accounting and tax handling that a free event does not carry"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Fund-release timing from the fiscal sponsor is raised: how fast money can actually be spent once it lands"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "No invented tax answer for Germany, Japan or the US appears anywhere in the response"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The small-deposit-then-balance-at-30-days structure is flagged as a generic fallback pattern, not a verified market standard"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that real published sponsor payment terms skew heavily upfront, with 50-100% due at signing or application"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Recommends invoicing terms that land sponsor cash earlier, tied to the dates the cash-flow model needs money in the account"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Drafting the interest clause is routed to the sponsor agreement work rather than done here"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "A sponsor signing and then paying late is framed as moving the inflow date the cash-flow model rests on"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Locking all 60 rooms now is rejected: the block should start very small, on the order of five rooms, and grow as it fills"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The block is scoped to the nights genuinely needed, explicitly dropping the night after the closing day"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The group-rate code expiry, roughly a month before the event, is carried as a date in the plan"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The asymmetry is stated: adding rooms later is cheap and usually allowed, while unwinding a committed block is expensive or impossible"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Any large-conference aid figure is treated as an order-of-magnitude sanity check (a low single-digit share of capacity), never an allocation rule"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "The lowest projected cash point is compared against the lowest actual cash point from last edition"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "The diagnosis is split correctly: an actual trough far below projection means the inflow dates were optimistic, a different fix from the costs being wrong"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Per-head consumable lines rewritten from actual usage carry their calibration basis: the headcount and staff/volunteer/speaker composition they were priced against"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Contingency drawn against contingency held is read across editions as a calibration signal"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Which tier the event actually ran at versus which was planned is tracked as an observable"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Every line carried into edition two still requires a current dated quote or an explicit 'no quote yet' label; last year's prices are not silently treated as this year's quotes"
+      }
+    ]
+  }
+}

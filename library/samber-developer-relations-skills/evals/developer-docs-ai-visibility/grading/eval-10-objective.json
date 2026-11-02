@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Classifies the failure as search-grounded retrieval with page ambiguity (two version twins share title and H1), with a fix lag of re-crawl and re-index measured in days to weeks",
+        "evidence": "\"search-grounded retrieval... v2 and v3 share a title and H1\"; \"Re-crawl and re-index take days to weeks.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the version in the title but orders the searched term first and the version after it, e.g. 'Retry backoff (Halvern v3) | Halvern Docs', rather than version-first",
+        "evidence": "\"Retry backoff (Halvern v3) | Halvern Docs\"; \"Keep the term first and the version after it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the version in the first heading and the opening line of body text as well, applied as one template edit across every page",
+        "evidence": "\"Add `Applies to Halvern v3.x` as the first body line\"; \"one template edit covers all v2 pages\"; \"across all versions\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the JavaScript-injected banner because fetchers that do not run scripts never see it, and requires a server-rendered banner as the first text in the main content, above any code",
+        "evidence": "\"Many AI fetchers don't run JavaScript\"; \"Ship this opener on v2 above any code\"; server-render as first text.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the v2 opener to name the replacement page link and the replacement symbol, not only 'this is an old version'",
+        "evidence": "Opener has link to /v3/guides/retries and `OLD_SYMBOL`/`NEW_SYMBOL`.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the 301 redirect of the v2 page because v2 still serves 30% of installs, who would lose their page",
+        "evidence": "\"About 30% of installs still run v2. A 301 sends them to v3 code that doesn't work.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects noindex on v2 for the same reason and limits the v2 posture to a banner and replacement link",
+        "evidence": "\"Don't `noindex` v2 either, for the same reason.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Hands the canonical and index posture of the v2 tree to the docs-seo skill rather than specifying canonicals",
+        "evidence": "\"route that to the docs-seo skill\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Runs the index check (search the engine behind the assistant for the v2 URL) and the log check as diagnostic tests",
+        "evidence": "Diagnostic tests 4 and 5: log check and index check.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Scores the existing check as version-correct against an answer key per client, with separate Ruby and Node rows",
+        "evidence": "\"Use one row per client, Ruby and Node\"; answer key per prompt.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets the re-run at four to eight weeks from the day the last change goes live, using prompts whose owning page was not touched as the control for the page-level opener change",
+        "evidence": "Re-run 4-8 weeks given, but no untouched-owning-page prompts control for the page-level opener.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Prescribes a staged rollout or a logged baseline voided by a model release for the title change, since it touches every page",
+        "evidence": "\"Roll it out to one section first... Otherwise compare against the baseline, log the model names and dates, and void... model release.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Classifies the failure as search-grounded retrieval with page ambiguity (two version twins share title and H1), with a fix lag of re-crawl and re-index measured in days to weeks",
+        "evidence": "Identical titles/H1s diagnosis; 'Recrawl lag varies by engine'; re-check 2-4 weeks.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the version in the title but orders the searched term first and the version after it, e.g. 'Retry backoff (Halvern v3) | Halvern Docs', rather than version-first",
+        "evidence": "'Retry backoff (v3, current) | Halvern Docs'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the version in the first heading and the opening line of body text as well, applied as one template edit across every page",
+        "evidence": "'Change the H1s as well'; 'This page covers Halvern v3...' first paragraph.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the JavaScript-injected banner because fetchers that do not run scripts never see it, and requires a server-rendered banner as the first text in the main content, above any code",
+        "evidence": "'Render the banner server-side... plain HTML at the top of <main>.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the v2 opener to name the replacement page link and the replacement symbol, not only 'this is an old version'",
+        "evidence": "Links to v3 page; no replacement symbol.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the 301 redirect of the v2 page because v2 still serves 30% of installs, who would lose their page",
+        "evidence": "'301 the v2 retries page: don't, unless v2 is end-of-life.' 30% on v2.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects noindex on v2 for the same reason and limits the v2 posture to a banner and replacement link",
+        "evidence": "'Don't add noindex to v2.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Hands the canonical and index posture of the v2 tree to the docs-seo skill rather than specifying canonicals",
+        "evidence": "Specifies canonical itself.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Runs the index check (search the engine behind the assistant for the v2 URL) and the log check as diagnostic tests",
+        "evidence": "Curl and robots checks only.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Scores the existing check as version-correct against an answer key per client, with separate Ruby and Node rows",
+        "evidence": "No Ruby/Node rows or key.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets the re-run at four to eight weeks from the day the last change goes live, using prompts whose owning page was not touched as the control for the page-level opener change",
+        "evidence": "Weekly for four to six weeks; no control prompts.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Prescribes a staged rollout or a logged baseline voided by a model release for the title change, since it touches every page",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

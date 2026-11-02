@@ -1,0 +1,454 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-team-structure",
+  "scenarios": 9,
+  "expectations_total": 104,
+  "expectations_subjective": 2,
+  "expectations_objective": 102,
+  "pass_rate_with_skill_pct": 76.9,
+  "pass_rate_without_skill_pct": 25.0,
+  "delta_pp": 51.9,
+  "uplift_multiplier": 3.08,
+  "trigger_accuracy_pct": 50.0,
+  "trigger_queries": 96,
+  "trigger_positive_fire_rate": 0.312,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 2,
+        "expectation": "Declines to design the annual full-team rotation as requested."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Removes rotation from the recommended option set entirely rather than ranking it last or keeping it as a later possibility."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names the documented failure pattern of full-team rotation without a standing layer: recurring host-recruitment failure, one team stuck running consecutive editions, and knowledge-transfer patches bolted on afterwards."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Explains that an option parked at the bottom of a list on fairness grounds gets adopted anyway, which is why it is deleted rather than demoted."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Addresses burnout through structure - backups, written role boundaries, a workload budget - rather than accepting rotation as the burnout remedy."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Does not accept fairness between organizers as a sufficient reason to adopt rotation."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Treats any first paid role as an internal headcount request rather than running the volunteer-versus-paid hiring gate."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Produces a bus-factor map naming, for each role, who could run that area next edition."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Includes the person asking in the bus-factor map rather than mapping only the other five."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Sets the target that every named role, lead included, has a bus factor of at least 2 or a named active mechanism closing the gap, with an owner."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Does not treat a shared password manager or single sign-on tool as sufficient on its own to close the bus-factor gap."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Declines to present any figure as an industry standard or benchmark."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Gives observed standing-team shapes by scale instead of a ratio - for example 15-20 named chair roles beneath a small standing board at roughly 300 attendees, and foundation staff plus a volunteer program committee plus a few rotating co-chairs at 12,000-plus."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Offers roughly 5-8 direct functional leads per coordinating layer as a sanity check, explicitly labelled as borrowed from general organizational design rather than event-industry fact."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that this check exists to notice strain, never to enforce a headcount."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Redirects the sizing question to the role taxonomy: which functions need a named lead - program, sponsorship, finance, logistics and venue, marketing, volunteers - plus a code-of-conduct team."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Does not invent a ratio, multiplier, or per-thousand-attendee staffing rule of its own."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Acknowledges that the consensus shape wins on efficiency and is still the wrong call here, rather than selecting it because it costs least to run."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that the own-entity option loses the efficiency comparison and is recommended anyway on value, naming the condition that promotes it."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names a financial-continuity benchmark for a standing entity: a reserve sized to survive losing one full edition's budget."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Writes explicit boundaries into the sponsorship and A/V role charters stating what each role will not absorb."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Applies a per-organizer workload budget and treats a role over that budget as a role to split."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Requires a backup for both at-risk roles, on the grounds that working alone is a burnout cause by construction."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Recommends deliberately surfacing positive attendee feedback, because silent satisfied attendees alongside loud complainers skew every organizer's felt impact."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Rejects hiring a community manager as the first paid role, or states plainly that no documented first hire in this field was a community manager."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends an event coordinator or event manager - an operations role - as the first paid hire instead."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States the paid-hire threshold as roughly low-thousands of attendees and/or a six-figure budget, combined with organizing having become a year-round burden."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Confirms that 2,800 attendees and a GBP 310,000 budget clear that threshold."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that program and community leadership stays volunteer even after the first paid hire."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Presents outsourcing to professional event-management vendors as a distinct option between staying volunteer and employing someone, and names when it wins: when the pain is execution capacity rather than institutional continuity."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Raises a part-time first hire as a documented option rather than assuming a full-time role."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that the paid-hire gate is re-run every edition rather than decided once."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Declines to write the job description, scorecard, or interview loop, and routes that work to samber/dev-event-organizer-skills@dev-event-hiring."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Applies the shape test: roles carrying cross-edition institutional knowledge - sponsor relationships, financial continuity, credential custody - are what degrade when left unpaid and precarious, while short-term specialized work stays volunteer or goes to a vendor."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Pairs the hiring verdict with structural guardrails for the four exhausted organizers - at minimum a backup per named role and written role boundaries - rather than treating the hire as the whole answer."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Declines to design the annual full-team rotation as requested."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that planned leadership rotation requires a standing continuity layer - a board, paid staff, or a fiscal sponsor holding institutional knowledge - which PyCoast does not have."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Removes rotation from the recommended option set entirely rather than ranking it last or keeping it as a later possibility."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names the documented failure pattern of full-team rotation without a standing layer: recurring host-recruitment failure, one team stuck running consecutive editions, and knowledge-transfer patches bolted on afterwards."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Contrasts it with rotation that does work over a continuity layer, such as compensated co-chairs rotating each edition above permanent foundation staff."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Explains that an option parked at the bottom of a list on fairness grounds gets adopted anyway, which is why it is deleted rather than demoted."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Recommends the two-deep rule - every named role lists a backup who could run that area next edition - as the immediate, near-zero-effort move."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Recommends a written charter plus moving every account, domain, and social off personal ownership with at least one backup admin."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Recommends a groomed handover across a named window in the 6-12-month range for any lead who genuinely leaves."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Flags the personally signed venue contract as personal exposure and names the first signed contract as the trigger to move up the entity ladder."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Addresses burnout through structure - backups, written role boundaries, a workload budget - rather than accepting rotation as the burnout remedy."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Does not accept fairness between organizers as a sufficient reason to adopt rotation."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Drops the legal-entity option set - no entity, fiscal sponsorship, own non-profit - rather than ranking a non-profit against staying in-house."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Explains that ranking entity alternatives against a company that already is one invites a volunteer-shaped structure to appear beside the legal one that already exists."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Still applies the standing role taxonomy, with a written one-paragraph scope per role stating explicitly what that role will not absorb."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Still applies succession and burnout guardrails to the internal team rather than treating them as community-only concerns."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Treats any first paid role as an internal headcount request rather than running the volunteer-versus-paid hiring gate."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Routes goal definition, budget ownership, and success metrics to samber/dev-event-organizer-skills@corporate-event-strategy."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Produces a bus-factor map across the named roles, including the DevRel lead's own."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States explicitly that restructuring is the whole available option set at zero budget."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Explains that a hiring or vendor option parked at the bottom returns later as an unscoped fundraising project while the load stays exactly where it is."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Sets a per-organizer workload budget and cites roughly 4-8 hours a month as the published estimate at meetup scale."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Treats a role that structurally exceeds its workload budget as a role to split, not a person to push harder."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Applies the two-deep rule so no named role, the lead's included, is held by a single person."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Cites that roughly a third of meetup groups run on a single organizer, making a bus factor of 1 the normal case at this scale rather than an anomaly."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends a groomed handover in the 6-12-month range and notes the figure comes from meetup-organizer practice, where it is close to mandatory at this scale."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Writes role boundaries stating what each role will not absorb, naming over-acceptance - doing the job of multiple people - as the pattern to catch."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Keeps the no-entity posture as acceptable only while there are no contracts and near-zero money, and names the first signed contract as the trigger to move up."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Installs a recurring per-person check on whether organizing is still pleasant, with a structural response to a no rather than encouragement."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Identifies the single shared address carrying all three events' mail as the same bus-factor-1 exposure, just moved into the inbox."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends a two-tier address split: one standing address for the organization's own ongoing affairs and shared tools, plus a separate address per event for that event's own outreach."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Produces a bus-factor map naming, for each role, who could run that area next edition."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Includes the person asking in the bus-factor map rather than mapping only the other five."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Sets the target that every named role, lead included, has a bus factor of at least 2 or a named active mechanism closing the gap, with an owner."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Places the credential change inside a written charter rung that also records roles, scopes, join-paths, and decision rights."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes that leadership visibility matters because an opaque organizing team reads as a clique to a technical audience, and that public join-paths in the charter are the cheap fix."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Does not treat a shared password manager or single sign-on tool as sufficient on its own to close the bus-factor gap."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Offers the observed real example instead: roughly 6 core organizers for a ~1,600-attendee conference, about one core organizer per ~270 attendees."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Labels that example as a single documented case, not a formula to apply."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes that the team behind that figure concluded it had exceeded what its volunteer team could responsibly handle, so the number is not a target to copy."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Gives observed standing-team shapes by scale instead of a ratio - for example 15-20 named chair roles beneath a small standing board at roughly 300 attendees, and foundation staff plus a volunteer program committee plus a few rotating co-chairs at 12,000-plus."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Offers roughly 5-8 direct functional leads per coordinating layer as a sanity check, explicitly labelled as borrowed from general organizational design rather than event-industry fact."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that this check exists to notice strain, never to enforce a headcount."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Redirects the sizing question to the role taxonomy: which functions need a named lead - program, sponsorship, finance, logistics and venue, marketing, volunteers - plus a code-of-conduct team."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Requires a backup per named role, so headcount follows from roles times the two-deep rule rather than from attendance."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Asks what the current team and its named roles actually look like before producing any number."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Does not invent a ratio, multiplier, or per-thousand-attendee staffing rule of its own."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends the board-plus-organizers split as the primary shape, on the grounds that the event already holds money and signs contracts."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the condition promoting the split is already met here, rather than deferring it because a consensus committee is cheaper to run."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Rules out keeping the nine-person consensus committee, naming its ceiling: nobody holds contracts and every decision costs the whole group's attention."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Acknowledges that the consensus shape wins on efficiency and is still the wrong call here, rather than selecting it because it costs least to run."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes that the board-plus-organizers split is the shape large, durable events converge on across independent organizations."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names the documented parallel: a conference where a new host team bids each edition suffers recurring host-recruitment failures and teams stuck running consecutive editions, while its sibling conference under the same parent kept a standing entity and survived chair rotation."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Identifies one bid from the team that already hosted as the fragility pattern itself, not an unlucky year."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Presents the own-entity option as promoted by a multi-year institutional mandate, while naming its cost: bylaws, board fiduciary duties, annual filings, and a structure that is hard to unwind."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that the own-entity option loses the efficiency comparison and is recommended anyway on value, naming the condition that promotes it."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Recommends a contributor-to-decision-maker pipeline, where active contributors earn standing decision rights year over year, as the succession mechanism that manufactures future hosts."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Cites the precedent of a European conference society that built exactly that voting-rights pipeline after losing institutional knowledge each time the location changed."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Notes that support patches bolted onto a rotating-host model - a working group of previous organizers, a foundation events-support function - only partially offset the fragility."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names a financial-continuity benchmark for a standing entity: a reserve sized to survive losing one full edition's budget."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Assigns a named owner to each response rather than leaving them as loose recommendations."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Rejects encouragement, time off, or self-care advice as a substitute for the structural change."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Writes explicit boundaries into the sponsorship and A/V role charters stating what each role will not absorb."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Applies a per-organizer workload budget and treats a role over that budget as a role to split."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Requires a backup for both at-risk roles, on the grounds that working alone is a burnout cause by construction."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Notes that events have ended over exactly this, citing at least one conference that closed with its team itemising what a small volunteer core could no longer responsibly carry."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Recommends deliberately surfacing positive attendee feedback, because silent satisfied attendees alongside loud complainers skew every organizer's felt impact."
+      }
+    ]
+  }
+}

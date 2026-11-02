@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Identifies total GitHub stars (11,400) as a monotonic metric that cannot fall, and refuses it as a primary metric",
+        "evidence": "\"Nothing here is a cumulative total: stars, follower count and cumulative npm downloads are gone as goals (see below).\" combined with \"because a number that can't fall can't tell you anything moved.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Applies the same monotonic objection to cumulative npm downloads (2.1M) and to the Twitter follower count (8,900)",
+        "evidence": "Same sentence covers all three: \"stars, follower count and cumulative npm downloads are gone as goals ... because a number that can't fall can't tell you anything moved.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the conference-attendance count (9) as a record of effort rather than an outcome",
+        "evidence": "The only conference reference is about future policy (\"A conference producing zero logged conversations twice running is cut from next year's list\"), not naming a conference-attendance count as an effort metric being cut.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The resulting metric sheet holds between five and eight metrics",
+        "evidence": "Metric sheet contains 7 numbered rows (1 through 7).",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "At least one metric in the sheet sits in the product-impact or business-impact tier",
+        "evidence": "Row 4 is tier \"Product impact\" (30-day retention) and Row 6 is tier \"Business impact\" (DevRel Qualified Leads routed).",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Every metric row carries all six fields: definition, source, baseline, threshold, owner and action",
+        "evidence": "Table columns are \"Metric | Tier | Definition | Source | Baseline | Threshold | Owner | Action if breached\" and all 7 rows have content in each column.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that npm download counts are HTTP request counts including CI and mirror traffic, not people",
+        "evidence": "Row 2 action: \"Cross-check against dependents count before reacting \u2014 npm counts HTTP 200s, CI and mirrors included, not people.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Produces a written attribution rule as a section distinct from the metric sheet",
+        "evidence": "A separate \"## Attribution rule\" heading follows the \"## Metric sheet\" section.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes a non-empty known-blind-spots section",
+        "evidence": "\"## Known blind spots\" lists three bullets including \"No activation/retention data exists yet\" and \"No CRM cooperation confirmed\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States a kill rule removing any metric that has not changed a decision in two consecutive review cycles",
+        "evidence": "\"Kill-rule status: every row is cycle 0 \u2014 none has had the chance to earn or fail the 'hasn't changed a decision in two cycles' test yet.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not deliver tracking instrumentation, an event taxonomy or analytics code as the answer",
+        "evidence": "Deliverable is a measurement framework document and metric sheet; instrumentation is delegated (\"+ 1 eng day from platform team\") rather than built.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels each threshold with where it came from, using sourced, baseline or hypothesis",
+        "evidence": "Rows 4, 5 and 6 have Threshold cells (\"Set at first real reading\"; \"Below-30/period: report the raw list...\"; \"No volume target in period 1...\") with no sourced/baseline/hypothesis tag, despite the self-check claiming full compliance.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not compare the 11,400 stars against another company's star count as a benchmark",
+        "evidence": "No comparison to another company's stars appears anywhere in the transcript.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Identifies total GitHub stars (11,400) as a monotonic metric that cannot fall, and refuses it as a primary metric",
+        "evidence": "The table only says stars are 'A bookmark' that 'Says nothing about whether anyone cloned or ran it this month' \u2014 it never states stars are monotonic/cannot fall; only npm downloads gets that explicit treatment.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Applies the same monotonic objection to cumulative npm downloads (2.1M) and to the Twitter follower count (8,900)",
+        "evidence": "npm downloads get 'Cumulative metrics only go up' but Twitter followers get a different objection: 'Inflates with any follow-back; measures popularity, not influence' \u2014 not a monotonic/cumulative claim.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the conference-attendance count (9) as a record of effort rather than an outcome",
+        "evidence": "'9 conferences | A cost | An input reported as if it were a result'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The resulting metric sheet holds between five and eight metrics",
+        "evidence": "The email HEADLINE lists six numbers: WAD, activated developers, orgs with active devs, PQLs, community answers, product feedback \u2014 matching '\u00a76: One page: six numbers, three insights, asks.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "At least one metric in the sheet sits in the product-impact or business-impact tier",
+        "evidence": "'DevRel-attributed PQLs: [n]' and 'Product feedback: [n] items logged, [n] accepted into roadmap' are business/product-impact metrics.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Every metric row carries all six fields: definition, source, baseline, threshold, owner and action",
+        "evidence": "The metric table only has columns 'Question | Metrics | Notes' \u2014 no source/baseline/threshold/owner/action fields per row.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that npm download counts are HTTP request counts including CI and mirror traffic, not people",
+        "evidence": "Only 'Cumulative metrics only go up \u2014 zero signal about this month; CI jobs pollute it' is stated; no mention of HTTP request counts or mirror traffic.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces a written attribution rule as a section distinct from the metric sheet",
+        "evidence": "The email's 'Definitions' block states: 'Attribution = self-reported \"how did you hear\" + last-touch tracked links \u2014 directional, not exact,' separate from the metric table.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes a non-empty known-blind-spots section",
+        "evidence": "No section titled or functioning as known blind spots/limitations appears anywhere in the report.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States a kill rule removing any metric that has not changed a decision in two consecutive review cycles",
+        "evidence": "No kill-rule language appears; rules section 6 covers cumulative bans, attribution honesty, one-page cap, but no two-cycle kill rule.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not deliver tracking instrumentation, an event taxonomy or analytics code as the answer",
+        "evidence": "Section 5 'Instrument this before the send' delivers instrumentation steps: 'Define the activation event with engineering and emit it', 'Tag everything: UTM convention...', etc.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels each threshold with where it came from, using sourced, baseline or hypothesis",
+        "evidence": "No such labeling scheme appears anywhere in the report.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not compare the 11,400 stars against another company's star count as a benchmark",
+        "evidence": "No competitor star comparison appears anywhere in the transcript.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

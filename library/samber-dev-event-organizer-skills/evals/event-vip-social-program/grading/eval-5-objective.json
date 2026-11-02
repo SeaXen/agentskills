@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Deletes the separate-evening-at-a-separate-venue option because the named owner is also running the main event that day.",
+        "evidence": "\"The skill deletes 'a separate evening at a separate venue' when the named owner is also running the main event that day.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that deletion as a second venue with transport and a fixed headcount being a job, which with no free owner lands on the organizer on the day.",
+        "evidence": "\"A second venue with fixed headcount and transport becomes your job on top of running the event.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects scheduling the private room against the community party, at any venue.",
+        "evidence": "The wine bar \"still must not overlap the party\"; the 20:00 drift-out is called the first failure mode.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the failure as the general evening becoming the consolation room, a tier arrived at by calendar.",
+        "evidence": "\"the party becomes the consolation room... reads as a tier.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that where both the private room and the general evening exist, they do not overlap.",
+        "evidence": "\"ending before the party opens\"; \"it still must not overlap the party.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Offers a slot inside an existing break or meal slot, in a side room, as the default placement.",
+        "evidence": "The transcript recommends after the last session and says \"Break slots are too short.\" It never offers the existing-slot side room as the default.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Promotes the placement to after the last session, in a room at the main venue, on the ground that the purpose is a conversation among a named set of people rather than a greeting.",
+        "evidence": "\"after the last session, in a room at the main venue... A break holds a greeting, not a conversation.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Hands the chosen slot to samber/dev-event-organizer-skills@event-run-of-show and any grid clash to samber/dev-event-organizer-skills@event-schedule-design.",
+        "evidence": "\"Hand the slot to `event-run-of-show` and the grid clash to `event-schedule-design`.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to move a public session to make room for the private one.",
+        "evidence": "\"Never move a public session to make room.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Invents no seat count, cap or headcount for the room.",
+        "evidence": "The only count is the user's eight; no cap is invented.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Deletes the separate-evening-at-a-separate-venue option because the named owner is also running the main event that day.",
+        "evidence": "Not addressed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that deletion as a second venue with transport and a fixed headcount being a job, which with no free owner lands on the organizer on the day.",
+        "evidence": "Only notes the \"single point of failure\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects scheduling the private room against the community party, at any venue.",
+        "evidence": "Option 2 keeps the party evening dinner.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the failure as the general evening becoming the consolation room, a tier arrived at by calendar.",
+        "evidence": "Not present.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that where both the private room and the general evening exist, they do not overlap.",
+        "evidence": "Allows overlap in the fallback.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Offers a slot inside an existing break or meal slot, in a side room, as the default placement.",
+        "evidence": "Not present.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Promotes the placement to after the last session, in a room at the main venue, on the ground that the purpose is a conversation among a named set of people rather than a greeting.",
+        "evidence": "Not present.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Hands the chosen slot to samber/dev-event-organizer-skills@event-run-of-show and any grid clash to samber/dev-event-organizer-skills@event-schedule-design.",
+        "evidence": "No routing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to move a public session to make room for the private one.",
+        "evidence": "Not addressed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Invents no seat count, cap or headcount for the room.",
+        "evidence": "Uses the user's \"eight\" and asks to confirm whether the organizer is a ninth.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

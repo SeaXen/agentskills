@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Moves the licence statement near the top of the README rather than leaving it at the bottom",
+        "evidence": "\"3. **Licensing \u2014 read before you deploy** *(moved up from the bottom)*\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Justifies the move by how fast a non-permissive licence disqualifies a reader, not by convention or by tradition",
+        "evidence": "\"a non-permissive license buried at the bottom is the fastest possible disqualifier for a reader deciding whether to deploy something, so it belongs near the top, not the end.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names cognitive funneling as the ordering principle and attributes it to Kira / Art of README",
+        "evidence": "No mention of 'cognitive funneling', 'Kira', or 'Art of README' anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the principle as widest and most disqualifying information first, narrowing to detail only a committed reader reaches",
+        "evidence": "Only the specific license case is argued; no general 'widest, most disqualifying first, narrowing' principle is stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats a reader deciding not to use the project as a correct outcome rather than a conversion to optimize away",
+        "evidence": "The closest text only discusses the fix's limits ('this reduces the pattern, it doesn't eliminate it'), not framing disqualification as a correct/desirable outcome.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Scores the current state as an A5 failure and notes it fails harder because the licence is non-permissive and buried",
+        "evidence": "Text explicitly says the current section \"passes the minimum bar (named, linked to the file)\" \u2014 not scored as an A5 failure.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites that 64% of respondents to GitHub's 2017 Open Source Survey called the licence very important in deciding whether to use a project",
+        "evidence": "\"64% of respondents to GitHub's 2017 Open Source Survey rated the license as very important to their adoption decision\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the licence file to ship inside the repository, noting an organization-level default is not enough",
+        "evidence": "No mention of organization-level license defaults anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Surfaces the commercial exception and its email step in the README rather than leaving it to be discovered later",
+        "evidence": "\"we sell a commercial license that removes that requirement. Email <licensing@fenwick-analytics.example> before you deploy, not after\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ties the three-weeks-in licensing issues to a specific scorecard check as evidence the page wastes readers' time",
+        "evidence": "The 'three weeks in' issue is tied to the general diagnosis, not to a named scorecard check ID.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Selects the application or self-hosted product skeleton rather than the library ordering, because the reader is deciding whether to run infrastructure",
+        "evidence": "\"This is a self-hosted service, so the section order should follow that shape \u2014 but with licensing pulled forward\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Moves the licence statement near the top of the README rather than leaving it at the bottom",
+        "evidence": "\"1. Add a callout right under your badges/tagline, before Installation\" followed by the AGPL licensing callout block.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Justifies the move by how fast a non-permissive licence disqualifies a reader, not by convention or by tradition",
+        "evidence": "The justification given is about avoiding a delayed business collision (\"that collision happens three weeks in, as a support request instead of a pre-deploy decision\"), not framed around how quickly a disqualified reader should be able to bail.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names cognitive funneling as the ordering principle and attributes it to Kira / Art of README",
+        "evidence": "No mention of \"cognitive funneling\", \"Kira\", or \"Art of README\" appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the principle as widest and most disqualifying information first, narrowing to detail only a committed reader reaches",
+        "evidence": "No such general ordering principle is stated in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats a reader deciding not to use the project as a correct outcome rather than a conversion to optimize away",
+        "evidence": "No statement frames a reader's decision to not use the project as a correct/desirable outcome.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Scores the current state as an A5 failure and notes it fails harder because the licence is non-permissive and buried",
+        "evidence": "No scorecard, \"A5\", or such scoring terminology appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites that 64% of respondents to GitHub's 2017 Open Source Survey called the licence very important in deciding whether to use a project",
+        "evidence": "No such statistic or survey citation appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the licence file to ship inside the repository, noting an organization-level default is not enough",
+        "evidence": "No discussion of organization-level license defaults vs. repo-level license files appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Surfaces the commercial exception and its email step in the README rather than leaving it to be discovered later",
+        "evidence": "\"Need to avoid that? See [Licensing](#license) or email licensing@fenwick-analytics.<tld>.\" placed directly in the top callout.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ties the three-weeks-in licensing issues to a specific scorecard check as evidence the page wastes readers' time",
+        "evidence": "The \"three weeks in\" framing is given but is never tied to any specific scorecard check ID.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Selects the application or self-hosted product skeleton rather than the library ordering, because the reader is deciding whether to run infrastructure",
+        "evidence": "No discussion of selecting an application/self-hosted-product skeleton versus a library skeleton appears in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

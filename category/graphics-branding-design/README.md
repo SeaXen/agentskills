@@ -1,7 +1,7 @@
 # 🎨 Visual Design, Branding & Graphics
 
 > **Category**: `graphics-branding-design`  
-> **Total Curated Skills**: 119 skills  
+> **Total Curated Skills**: 129 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -27,6 +27,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`ai-social-media-content`](../../library/101-skills-superpowers/skills/ai-social-media-content) | ⚪ Reserve | `101-skills-superpowers` | Create AI-powered social media content for TikTok, Instagram, YouTube, Twitter/X. Generate: ima... |
 | [`amazon-private-label`](../../library/nexscope-ai-amazon-skills/skills/amazon-private-label) | ⚪ Reserve | `nexscope-ai-amazon-skills` | Private label launch playbook — product selection, branding, supplier management, differentiati... |
 | [`audience-belief-mapper`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/audience-belief-mapper) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "map what our buyers believe", "capture the objections we keep hearin... |
+| [`aws-sms-voice`](../../library/aws-agent-toolkit-for-aws/skills/aws-sms-voice) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Onboards RCS Business Messaging and Notify OTP via the pinpoint-sms-voice-v2 AWS CLI. Covers cr... |
 | [`axton-obsidian-visual`](../../library/axtonliu-axton-obsidian-visual-skills/skills/axton-obsidian-visual) | ⚪ Reserve | `axtonliu-axton-obsidian-visual-skills` | Generates Excalidraw, Mermaid, and Obsidian Canvas diagrams from text, supporting animations, m... |
 | [`bannerbear`](../../library/membranedev-application-skills/skills/bannerbear) | ⚪ Reserve | `membranedev-application-skills` | Bannerbear integration. Manage data, records, and automate workflows. Use when the user wants t... |
 | [`blue-ocean-strategy`](../../library/wondelai-skills/skills/blue-ocean-strategy) | ⚪ Reserve | `wondelai-skills` | Create uncontested market space using value innovation instead of competing head-to-head. Use w... |
@@ -34,6 +35,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`brand-growth-system-builder`](../../library/sickn33-agentic-awesome-skills/skills/brand-growth-system-builder) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Route requests across 13 brand and growth modules. Use when an SME needs help choosing branding... |
 | [`browser-fingerprint-audit`](../../library/liarjsdev-liarjs-skills/skills/browser-fingerprint-audit) | ⚪ Reserve | `liarjsdev-liarjs-skills` | Audit a browser fingerprint for internal contradictions with the liarjs CLI - canvas, WebGL, We... |
 | [`build-design`](../../library/jakubkrehel-skills/skills/build-design) | ⚪ Reserve | `jakubkrehel-skills` | Builds UI from a Figma file or a design image so it matches the design, using the project's exi... |
+| [`business-model`](../../library/phuryn-pm-skills/skills/business-model) | ⚪ Reserve | `phuryn-pm-skills` | Generate a Business Model Canvas with all 9 building blocks. Use when creating a business model... |
 | [`canva`](../../library/membranedev-application-skills/skills/canva) | ⚪ Reserve | `membranedev-application-skills` | Canva integration. Manage data, records, and automate workflows. Use when the user wants to int... |
 | [`canva-automation`](../../library/antigravity-awesome-skills/skills/canva-automation) | ⚪ Reserve | `antigravity-awesome-skills` | Automate Canva tasks via Rube MCP (Composio): designs, exports, folders, brand templates, autof... |
 | [`canva-creator`](../../library/anthropics-knowledge-work/skills/canva-creator) | ⚪ Reserve | `anthropics-knowledge-work` | Takes an approved content brief and executes a campaign end-to-end: builds the posting calendar... |
@@ -70,11 +72,15 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`figma-automation`](../../library/antigravity-awesome-skills/skills/figma-automation) | ⚪ Reserve | `antigravity-awesome-skills` | Automate Figma tasks via Rube MCP (Composio): files, components, design tokens, comments, expor... |
 | [`figma-code-connect-components`](../../library/figma-mcp-server-guide/skills/figma-code-connect-components) | ⚪ Reserve | `figma-mcp-server-guide` | Connects Figma design components to code components using Code Connect mapping tools. Use when ... |
 | [`figma-create-design-system-rules`](../../library/figma-mcp-server-guide/skills/figma-create-design-system-rules) | ⚪ Reserve | `figma-mcp-server-guide` | Generates custom design system rules for the user's codebase. Use when user says "create design... |
-| [`figma-create-new-file`](../../library/figma-mcp-server-guide/skills/figma-create-new-file) | ⚪ Reserve | `figma-mcp-server-guide` | Create a new blank Figma file. Use when the user wants to create a new Figma design or FigJam f... |
-| [`figma-generate-design`](../../library/figma-mcp-server-guide/skills/figma-generate-design) | ⚪ Reserve | `figma-mcp-server-guide` | Use this skill alongside figma-use when the task involves translating an application page, view... |
+| [`figma-create-new-file`](../../library/figma-mcp-server-guide/skills/figma-create-new-file) | ⚪ Reserve | `figma-mcp-server-guide` | Always use this skill when the user wants to create a new Figma Design, FigJam, or Slides file.... |
+| [`figma-design-to-code`](../../library/figma-mcp-server-guide/skills/figma-design-to-code) | ⚪ Reserve | `figma-mcp-server-guide` | **MANDATORY prerequisite** — you MUST invoke this skill BEFORE calling the `get_design_context`... |
+| [`figma-generative-plugins`](../../library/figma-mcp-server-guide/skills/figma-generative-plugins) | ⚪ Reserve | `figma-mcp-server-guide` | **MANDATORY prerequisite** — load this skill before calling `create_generative_plugin` or `upda... |
 | [`figma-implement-design`](../../library/davila7-claude-code-templates/skills/figma-implement-design) | ⚪ Reserve | `davila7-claude-code-templates` | Translate Figma nodes into production-ready code with 1:1 visual fidelity using the Figma MCP w... |
 | [`figma-integration`](../../library/mindrally-skills/skills/figma-integration) | ⚪ Reserve | `mindrally-skills` | Guidelines for integrating Figma designs with development workflows using MCP servers and best ... |
+| [`figma-shaders`](../../library/figma-mcp-server-guide/skills/figma-shaders) | ⚪ Reserve | `figma-mcp-server-guide` | **MANDATORY prerequisite** — load this skill before calling `create_shader` or `update_shader`.... |
 | [`figma-use`](../../library/figma-mcp-server-guide/skills/figma-use) | ⚪ Reserve | `figma-mcp-server-guide` | **MANDATORY prerequisite** — you MUST invoke this skill BEFORE every `use_figma` tool call. NEV... |
+| [`figma-use-figjam`](../../library/figma-mcp-server-guide/skills/figma-use-figjam) | ⚪ Reserve | `figma-mcp-server-guide` | This skill helps agents use Figma's use_figma MCP tool in the FigJam context. Can be used along... |
+| [`figma-use-slides`](../../library/figma-mcp-server-guide/skills/figma-use-slides) | ⚪ Reserve | `figma-mcp-server-guide` | This skill helps agents use Figma's use_figma MCP tool in the Slides context. Can be used along... |
 | [`firecrawl-website-design-clone`](../../library/firecrawl-firecrawl-workflows/skills/firecrawl-website-design-clone) | ⚪ Reserve | `firecrawl-firecrawl-workflows` | Extract an existing website's visual system into DESIGN.md, or collect its existing logo, color... |
 | [`flippingbook`](../../library/membranedev-application-skills/skills/flippingbook) | ⚪ Reserve | `membranedev-application-skills` | FlippingBook integration. Manage FlippingBooks, Users, Groups, Brandings. Use when the user wan... |
 | [`founder-brand`](../../library/jakeschincariol-founder-skill/skills/founder-brand) | ⚪ Reserve | `jakeschincariol-founder-skill` | Your brand designer. Names the business (with the trademark, domain and handle checks to run be... |
@@ -88,6 +94,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`immersive`](../../library/bergside-awesome-design-skills/skills/immersive) | ⚪ Reserve | `bergside-awesome-design-skills` | An immersive, interactive, exhibit-style interface that blends storytelling, animation, and gam... |
 | [`json-canvas`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/json-canvas) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Create and edit JSON Canvas files (.canvas) with nodes, edges, groups, and connections. Use whe... |
 | [`launch-asset-packager`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/launch-asset-packager) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "package the launch assets", "build a press kit", or "prep the store ... |
+| [`lean-canvas`](../../library/phuryn-pm-skills/skills/lean-canvas) | ⚪ Reserve | `phuryn-pm-skills` | Generate a Lean Canvas with problem, solution, metrics, cost structure, UVP, unfair advantage, ... |
 | [`lean-ux-canvas`](../../library/deanpeters-product-manager-skills/skills/lean-ux-canvas) | ⚪ Reserve | `deanpeters-product-manager-skills` | Guide teams through Lean UX Canvas v2. Use when framing a business problem, surfacing assumptio... |
 | [`library-curator`](../../library/nexu-io-open-design/skills/library-curator) | ⚪ Reserve | `nexu-io-open-design` | Search the OD Library (the global asset registry) and apply matching assets into the current pr... |
 | [`linkedin-profile`](../../library/alirezarezvani-claude-skills/skills/linkedin-profile) | ⚪ Reserve | `alirezarezvani-claude-skills` | Use when someone wants their LinkedIn profile audited or rewritten — headline, About section, e... |
@@ -120,7 +127,9 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`popup-cro`](../../library/alirezarezvani-claude-skills/skills/popup-cro) | ⚪ Reserve | `alirezarezvani-claude-skills` | When the user wants to create or optimize popups, modals, overlays, slide-ins, or banners for c... |
 | [`positioning-mapper`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/positioning-mapper) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "map our positioning", "name our competitive alternatives", or "pick ... |
 | [`positioning-truth-tracer`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/positioning-truth-tracer) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "check our positioning against what we can actually ship", "trace whi... |
+| [`prioritize-assumptions`](../../library/phuryn-pm-skills/skills/prioritize-assumptions) | ⚪ Reserve | `phuryn-pm-skills` | Prioritize assumptions using an Impact × Risk matrix and suggest experiments for each. Use when... |
 | [`problem-framing-canvas`](../../library/deanpeters-product-manager-skills/skills/problem-framing-canvas) | ⚪ Reserve | `deanpeters-product-manager-skills` | Guide teams through MITRE's Problem Framing Canvas. Use when you need a clearer problem stateme... |
+| [`product-strategy`](../../library/phuryn-pm-skills/skills/product-strategy) | ⚪ Reserve | `phuryn-pm-skills` | Create a comprehensive product strategy using the 9-section Product Strategy Canvas — vision, s... |
 | [`profile-optimizer`](../../library/charlie947-social-media-skills/skills/profile-optimizer) | ⚪ Reserve | `charlie947-social-media-skills` | Rebuild a LinkedIn profile for maximum conversions. Produces new headline options, about sectio... |
 | [`project-estimation`](../../library/aj-geddes-useful-ai-prompts/skills/project-estimation) | ⚪ Reserve | `aj-geddes-useful-ai-prompts` | Estimate project scope, timeline, and resource requirements using multiple estimation technique... |
 | [`qa-test-planner`](../../library/davila7-claude-code-templates/skills/qa-test-planner) | ⚪ Reserve | `davila7-claude-code-templates` | Generate comprehensive test plans, manual test cases, regression test suites, and bug reports f... |
@@ -129,6 +138,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`replica-brand`](../../library/jakeschincariol-replica-skill/skills/replica-brand) | ⚪ Reserve | `jakeschincariol-replica-skill` | Names and rebrands an app clone so it is the user's own: name candidates with the trademark, do... |
 | [`scroll-scrubbed-visual-sequence`](../../library/mengto-skills/skills/scroll-scrubbed-visual-sequence) | ⚪ Reserve | `mengto-skills` | Build reversible scroll-controlled visual transformations with a pinned or sticky stage, normal... |
 | [`service-concierge-portal-generate`](../../library/forcedotcom-sf-skills/skills/service-concierge-portal-generate) | ⚪ Reserve | `forcedotcom-sf-skills` | Deploys an Agentforce Concierge portal on an LWR Experience Cloud site: provisions the site, co... |
+| [`startup-canvas`](../../library/phuryn-pm-skills/skills/startup-canvas) | ⚪ Reserve | `phuryn-pm-skills` | Generate a Startup Canvas combining Product Strategy (9 sections) and Business Model (costs + r... |
 | [`tech-employer-branding`](../../library/samber-developer-relations-skills/skills/tech-employer-branding) | ⚪ Reserve | `samber-developer-relations-skills` | Designs an employer-brand strategy for attracting software engineers - the engineering EVP, the... |
 | [`thinking-orbs`](../../library/mengto-skills/skills/thinking-orbs) | ⚪ Reserve | `mengto-skills` | Add accessible animated AI loading and agent-status indicators with the React thinking-orbs lib... |
 | [`tiktok-shop-branding`](../../library/nexscope-ai-ecommerce-skills/skills/tiktok-shop-branding) | ⚪ Reserve | `nexscope-ai-ecommerce-skills` | Brand building and positioning on TikTok Shop. Brand identity development, content pillars, com... |

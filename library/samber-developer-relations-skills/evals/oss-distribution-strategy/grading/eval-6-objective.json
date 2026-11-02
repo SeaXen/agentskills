@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects a mandatory minimum release cadence.",
+        "evidence": "'Refuse fixed biweekly cadence. Bad rule dressed as visibility hack.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends committing to a predictable maximum interval instead, phrased as a promise that a fix lands within N weeks.",
+        "evidence": "'commit to a **max** interval (\"fix lands within N weeks\"), never a mandatory minimum.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the proposed fortnightly dependency-bump releases as cadence theater.",
+        "evidence": "\"Skill catalog names this exact trap: 'cadence theater \u2014 dependency bumps announced as features.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that an empty calendar release becomes a noise pull request in every downstream repository.",
+        "evidence": "'Empty release becomes noise PR in every downstream repo'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that noise releases train downstream maintainers to auto-merge or ignore the one channel that reaches existing users directly.",
+        "evidence": "'trains people to auto-merge or ignore your release feed \u2014 the one channel that reaches existing users direct.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists at least three of the parties a release actually broadcasts to: dependency-update bots, packagers' pipelines, feed-harvesting newsletters, watchers, and evaluators reading the registry's last-published field.",
+        "evidence": "No explicit list of dependency bots, packagers, newsletters, watchers, evaluators is given; only a single generic mention of 'downstream repo'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Confirms the long silence does fail the liveness proxy evaluators read, even on a finished project.",
+        "evidence": "The transcript addresses the opposite concern (too-frequent releases), not the silence/liveness-proxy failure mode.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends the cheap correction: an explicit 'stable, maintained, low change rate' statement in the README.",
+        "evidence": "'Put one line in README today: \"Status: stable, maintained, low change rate.\" Costs 5 minutes.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that security fixes ship out of band and fast, outside the cadence commitment.",
+        "evidence": "'Security fixes: out of band, fast, always. Never batched.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that small changes get batched into one readable release.",
+        "evidence": "'Batch dep bumps. Ship them together when they've piled up or a CVE forces it \u2014 not on a calendar.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats cadence as a distribution decision and the changelog as a distribution asset.",
+        "evidence": "No explicit statement framing the changelog itself as a distribution asset appears in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reserves named milestones - a 1.0, a rewrite, a rename - as the legitimate reason to return to awareness channels after the launch window.",
+        "evidence": "'Save an actual cadence return for a real milestone \u2014 breaking change, 1.0, rewrite. That's the one thing worth spending awareness-channel hours on.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects a mandatory minimum release cadence.",
+        "evidence": "'Skip the biweekly cadence.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends committing to a predictable maximum interval instead, phrased as a promise that a fix lands within N weeks.",
+        "evidence": "No maximum-interval commitment or 'fix lands within N weeks' promise is proposed anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the proposed fortnightly dependency-bump releases as cadence theater.",
+        "evidence": "'26 releases/year is real overhead spent manufacturing signal rather than fixing anything' \u2014 equivalent framing of empty cadence as manufactured signal.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that an empty calendar release becomes a noise pull request in every downstream repository.",
+        "evidence": "Downstream dependency-bump PR noise is never mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that noise releases train downstream maintainers to auto-merge or ignore the one channel that reaches existing users directly.",
+        "evidence": "Not discussed in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Lists at least three of the parties a release actually broadcasts to: dependency-update bots, packagers' pipelines, feed-harvesting newsletters, watchers, and evaluators reading the registry's last-published field.",
+        "evidence": "No such list of broadcast recipients (bots, packagers, newsletters, watchers, evaluators) appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Confirms the long silence does fail the liveness proxy evaluators read, even on a finished project.",
+        "evidence": "'The actual risk \u2014 a repo looking abandoned \u2014 is cheaper to fix directly' \u2014 confirms the abandonment-read risk is real even for a stable project.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends the cheap correction: an explicit 'stable, maintained, low change rate' statement in the README.",
+        "evidence": "'a one-line \"Status: stable, feature-complete, low-maintenance\" note in the README.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that security fixes ship out of band and fast, outside the cadence commitment.",
+        "evidence": "The transcript says a release should fire 'only when there's a real reason (security advisory...)' but never establishes a cadence commitment for security fixes to sit 'outside of,' nor states they ship fast.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that small changes get batched into one readable release.",
+        "evidence": "Batching of small changes into a single release is never discussed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats cadence as a distribution decision and the changelog as a distribution asset.",
+        "evidence": "No changelog is mentioned anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reserves named milestones - a 1.0, a rewrite, a rename - as the legitimate reason to return to awareness channels after the launch window.",
+        "evidence": "No mention of 1.0/rewrite/rename milestones as awareness triggers.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

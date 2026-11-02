@@ -1,0 +1,278 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-official-social-program",
+  "scenarios": 7,
+  "expectations_total": 57,
+  "expectations_subjective": 0,
+  "expectations_objective": 57,
+  "pass_rate_with_skill_pct": 77.2,
+  "pass_rate_without_skill_pct": 21.1,
+  "delta_pp": 56.1,
+  "uplift_multiplier": 3.66,
+  "trigger_accuracy_pct": 64.0,
+  "trigger_queries": 50,
+  "trigger_positive_fire_rate": 0.6,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": null,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Identifies concurrency as what created the failure, noting a slate whose occasions never share an hour cannot fail this floor on choice"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Identifies the same person owning both occasions as no owner for the second, because ownership is answered per occasion and never for the slate as a whole"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that the deletion applies to the effort, value, compliance-cost and efficiency orderings too, not only to the list of options"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Hands the confirmed slate to side-event coordination as the calendar those third-party events are deconflicted against"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes that a published track is expensive to withdraw once people have planned around it"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Declines to rank the mixer, the sit-down dinner and the brewery trip itself, routing that ranking to the hospitality decision that owns the format menu"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that it produces no second, differently worded ranking of those same formats"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Refuses to give the dinner and the mixer different alcohol postures"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that the floor of the slate menu is one occasion"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Rejects the more-choice-is-more-inclusive reasoning, stating the choice is fake for exactly the people the floor exists for"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Requires the slate to be presented for approval before any further venue is held"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Tells the user to pick one measure and write down before the event what it would change next edition"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the shared-moment property orders the options single occasion > two occasions on separate slots > themed track, and that this ordering is rank-identical to inverse effort"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Offers the three fixes for the failing slot: add a clearing option to that slot, move one activity out of it, or narrow the slate"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Refuses to note the gap and publish the programme anyway"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Requires the published slate itself to state which option clears the floor, rather than a separate page a reader finds afterwards"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Hands the finished per-slot check and any uncovered slot back to the accessibility work that owns the commitments, without setting a new bar of its own"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Identifies concurrency as what created the failure, noting a slate whose occasions never share an hour cannot fail this floor on choice"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names both conditions for moving up one rung - somebody actually asked for a second occasion, and a named owner exists for it - and evaluates them separately"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that either condition failing keeps the plan at one occasion"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Identifies the same person owning both occasions as no owner for the second, because ownership is answered per occasion and never for the slate as a whole"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Deletes the two-occasion and themed-track options from the menu rather than ranking them last or parking them as future options"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that the deletion applies to the effort, value, compliance-cost and efficiency orderings too, not only to the list of options"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Routes both third-party events to side-event coordination, including the logo usage on the user group's page"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Hands the confirmed slate to side-event coordination as the calendar those third-party events are deconflicted against"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Classifies the invitation-only speakers-and-advisors dinner as outside the open slate and routes it to the invite-only or named-guest gathering work"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Declines to publish times for the occasions and states a non-overlap requirement for the schedule to place instead"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that placing or moving a slot belongs to the schedule, never to this decision"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Hands the count and the places to the code of conduct so its scope clause reaches every occasion rather than only the one everybody remembered"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Declines to green-light the four-activity track as currently staffed"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names all three conditions the track requires - an access set no single format can carry at once, an owner per activity, and a recurring edition - and evaluates each separately"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Identifies the diverse published access commitments and the recurring edition as the two conditions that are satisfied"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Identifies one person owning all four activities as the failing condition, because the requirement is an owner per activity rather than one owner for the whole track"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that any one condition failing leaves the plan below the track"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Describes a track held by a single owner as a sequence rather than a genuine track"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes that the track's compliance cost rises with concurrency across more than one building, multiplying the access confirmation and the licensing question per place"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes that a published track is expensive to withdraw once people have planned around it"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Declines to rank the mixer, the sit-down dinner and the brewery trip itself, routing that ranking to the hospitality decision that owns the format menu"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that it produces no second, differently worded ranking of those same formats"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that the occasion format and the alcohol posture must already be decided before any slate depth is ranked"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Refuses to give the dinner and the mixer different alcohol postures"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States the alcohol posture is set once for the whole event, so a slate does not get a posture per activity"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Routes the do-nothing option to the hospitality decision rather than treating it as a rung of the slate menu"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that the floor of the slate menu is one occasion"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes that an absence still has to be published either way, because an unannounced absence sends people to an unhosted bar"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Refuses to produce the announcement copy as described"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Identifies a slate published as a list of options with no statement of which one clears the access floor as a deleted option, not a lower-ranked one"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Rejects the more-choice-is-more-inclusive reasoning, stating the choice is fake for exactly the people the floor exists for"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that a slate is not an access provision because it is long"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Rejects publishing the slate before the access statement, because people plan around the slate the moment it appears"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes that an access statement arriving later reaches only whoever is still deciding, which is not the population it was written for"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Rejects quietly dropping activities after publication, stating that a published slate later shortened reads as a cancellation"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Requires the slate to be presented for approval before any further venue is held"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names slot floor coverage as the only gate, with the number being zero uncovered slots and no threshold applied"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Tells the user to pick one measure and write down before the event what it would change next edition"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Confirms the co-organiser's shared-moment argument names a real property of a slate, while stating the menu deliberately does not rank it"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the shared-moment property orders the options single occasion > two occasions on separate slots > themed track, and that this ordering is rank-identical to inverse effort"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Says the co-organiser should argue for the shared moment directly rather than expecting the ranking to carry it"
+      }
+    ]
+  }
+}

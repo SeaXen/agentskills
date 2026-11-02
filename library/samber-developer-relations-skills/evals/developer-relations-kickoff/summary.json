@@ -1,0 +1,638 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "developer-relations-kickoff",
+  "scenarios": 14,
+  "expectations_total": 166,
+  "expectations_subjective": 1,
+  "expectations_objective": 165,
+  "pass_rate_with_skill_pct": 79.5,
+  "pass_rate_without_skill_pct": 31.3,
+  "delta_pp": 48.2,
+  "uplift_multiplier": 2.54,
+  "trigger_accuracy_pct": 50.0,
+  "trigger_queries": 152,
+  "trigger_positive_fire_rate": 0.013,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.274 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Presents the chain in dependency order and states that it is not ranked by efficiency or value"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Every chain link states what it hands to the next link"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends no skill name outside the collection's own routing tables"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "If the 2027 user conference is raised, flags it as organizer-side work belonging to `samber/dev-event-organizer-skills` rather than to a skill in this collection"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Explains that a quickstart serves a reader who has never run the thing, which this reader has"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that conflating a tutorial with a how-to guide fails both readers"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Writes or updates `devrel-context.md` with a session-log line recording the gap"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes that the fixed June date promotes event-related work for that season"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Keeps the documentation work inside this collection"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Writes or updates `devrel-context.md` with a session-log line"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Attributes the day-90 gate to `samber/developer-relations-skills@developer-community-launch`'s own working convention"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes that moderation rules are written before the first incident rather than after it"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Does not invent community health benchmark numbers for a five-week-old Discord"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Keeps the community skills in timeline order - launch, then moderation, then health, then champions - rather than jumping to the measurement end"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Writes or updates `devrel-context.md` with a session-log line"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that `samber/developer-relations-skills@devrel-career` is the candidate side of the same role knowledge"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that `samber/developer-relations-skills@tech-employer-branding` covers the engineering employer brand, not one role's interview loop"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Does not offer to build the slide deck, which the collection also does not cover"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Writes or updates `devrel-context.md` with a session-log line"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that the artifact stays the source of truth because memory is invisible and unreviewable to teammates"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Creates or names an index file listing each memory entry with a one-line hook"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Points at diagnosis before any build work because of that stall"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Notes that `mkdocs.yml` means a docs site already exists, and does not ask whether one does"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Notes that `AGENTS.md` is an agent-instruction file already present, and offers to patch it with the project's invariants rather than asking whether one exists"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "States that the structure audit operates on the whole docs set, never on one page"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Explains that conflating them fails both readers: the learner gets an unexplained recipe, the working developer gets a lecture"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Does not write the replacement page itself in place of routing"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Writes or updates `devrel-context.md` with a session-log line"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Cuts the short-list to exactly two entries"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Draws both entries from the diagnosis class or the first-run surfaces class"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Names both the bottleneck attacked and the cost on each of the two entries"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Proposes exactly one routine"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "That routine is the periodic re-invocation of this kickoff"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Writes `devrel-context.md` with a session-log line rather than scaffolding a larger working tree"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Promotes the program and company foundations class to the first rung of the short-list instead of opening the short-list at the diagnosis class"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names `samber/developer-relations-skills@devrel-strategy` as the route for the immediate task or as the first link of the chain"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States out loud which interview answer moved which class off its default position"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Delivers an ordered chain rather than a single route, given that nothing formal exists yet"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Presents the chain in dependency order and states that it is not ranked by efficiency or value"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Every chain link states what it hands to the next link"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The short-list holds between 5 and 8 entries"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Every short-list entry names both the bottleneck it attacks and what the session costs"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Writes or updates `devrel-context.md`, including a session-log line, before the session ends"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Produces a state summary of exactly 5 lines"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The state summary covers product and audience motion, funded driver and pillar mix, program stage and team shape, in-flight work, and the active constraint"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Asks only the session-goal question and asks no other interview question"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Routes the immediate task to `samber/developer-relations-skills@changelog-writing` and/or `samber/developer-relations-skills@version-migration-guide`, and says which of the two applies and why"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Treats the certification decision as settled rather than as a live option"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Removes `samber/developer-relations-skills@developer-education-strategy` from the short-list rather than ranking it last"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Appends a new dated session-log line to the artifact"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Patches only the artifact fields that changed rather than rebuilding the file"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "If the 2027 user conference is raised, flags it as organizer-side work belonging to `samber/dev-event-organizer-skills` rather than to a skill in this collection"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States plainly that the collection has no skill for task-oriented how-to guides"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names the how-to guide gap explicitly rather than routing to the nearest neighbour"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Explains that a quickstart serves a reader who has never run the thing, which this reader has"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Explains that a tutorial teaches a concept by building something, which this reader did not ask for"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that conflating a tutorial with a how-to guide fails both readers"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Writes or updates `devrel-context.md` with a session-log line recording the gap"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Splits the request into two parts and routes them differently rather than answering both with one skill"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends installing `samber/dev-event-organizer-skills` for the Lisbon conference work"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Routes the autumn sponsorship buying to `samber/developer-relations-skills@developer-event-sponsorship`"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States the events boundary as who is paying: this collection covers the speaker and the sponsor, the sibling collection covers the organizer"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Presents the sibling collection as a recommendation, never as a dependency this collection needs to function"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Does not improvise organizer-side advice on venue, ticketing or prospectus pricing"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes that the fixed June date promotes event-related work for that season"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Writes or updates `devrel-context.md` with a session-log line"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends installing `samber/developer-platform-skills` for the rate limits, error shape, idempotency and webhook design"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Keeps the documentation work inside this collection"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Routes the agent-readable documentation work to `samber/developer-relations-skills@coding-agent-docs-optimization`"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States the platform boundary as who builds the surface: this collection documents and evangelizes it, the sibling collection designs it"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Presents `samber/developer-platform-skills` as a recommendation rather than a dependency"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Does not improvise the rate-limit, idempotency or webhook design itself"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Routes exactly one skill for the immediate task rather than listing every documentation skill as equally applicable"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Writes or updates `devrel-context.md` with a session-log line"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Routes the immediate task to `samber/developer-relations-skills@devrel-analytics`"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Identifies the identity spine and event taxonomy as what the routed skill supplies"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Places `samber/developer-relations-skills@devrel-metrics` later rather than dropping it from the output"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "If a chain is offered, states what each link hands to the next"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Does not attempt to reconcile the 4,100 / 190 / 96 figures itself or invent an attribution number"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Writes or updates `devrel-context.md` with a session-log line recording the measurement blind spot"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Declines to run `samber/developer-relations-skills@developer-community-health` now"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Moves it to a \"not now\" list with an explicit unblocking condition rather than onto the short-list"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States the unblocking condition as a baseline that does not exist until roughly 90 days of activity"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Attributes the day-90 gate to `samber/developer-relations-skills@developer-community-launch`'s own working convention"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Does not drop the health skill from the output entirely, since it has a stated unblocking condition"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Routes today's work to a skill that is actionable at five weeks, such as `samber/developer-relations-skills@developer-community-launch` or `samber/developer-relations-skills@developer-community-moderation`"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes that moderation rules are written before the first incident rather than after it"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Does not invent community health benchmark numbers for a five-week-old Discord"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Does not propose a periodic measurement routine, since no baseline exists to trend against"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Keeps the community skills in timeline order - launch, then moderation, then health, then champions - rather than jumping to the measurement end"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Writes or updates `devrel-context.md` with a session-log line"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Routes the immediate task to `samber/developer-relations-skills@oss-sponsors-brand-strategy`"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States the disambiguation as who is paying whom, read from the subject of the question"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Identifies \"which tier should we pick on this maintainer's page\" as company-side work despite the maintainer's page being named"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Moves `samber/developer-relations-skills@oss-sponsors-fundraising` to the \"not now\" list rather than onto the short-list"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Gives that not-now entry an explicit unblocking condition"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Does not invent per-project funding amounts"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Treats the board-proof requirement as inside the routed skill's scope rather than as a separate skill"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Writes or updates `devrel-context.md` with a session-log line"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Routes the hiring ask to `samber/developer-relations-skills@devrel-hiring`"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that `samber/developer-relations-skills@devrel-career` is the candidate side of the same role knowledge"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that `samber/developer-relations-skills@tech-employer-branding` covers the engineering employer brand, not one role's interview loop"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States plainly that the collection has no skill for the exec-facing DevRel report narrative and budget defense"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names the exec-report gap in the output's gap section rather than only in passing"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Does not offer to build the slide deck, which the collection also does not cover"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Writes or updates `devrel-context.md` with a session-log line"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Shows every proposed routine as a dry-run before creating anything"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States the routine ranking out loud as value per unit of standing effort"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Includes a periodic re-invocation of this kickoff among the proposed routines"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Promotes the CFP deadline sweep for the season because CFP season opens in three weeks"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Withholds or demotes the issue and pull-request queue review because nobody owns the follow-through it generates"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Lists routines already installed and retires obsolete ones before adding new ones"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names the skill each routine runs in `owner/repo@skill` form"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Writes the durable facts into `devrel-context.md` first and derives the memory entry from the artifact, never the reverse"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that the artifact stays the source of truth because memory is invisible and unreviewable to teammates"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Excludes the moderation case and the banned member's handle from memory"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Excludes the unannounced Q1 pricing from memory"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Excludes the NDA-bound DevConf sponsorship rate from memory"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Excludes the uncleared Northwind Freight customer name from memory"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States the exclusion list at the moment it first writes memory"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Shows the diff and asks for approval before committing anything to the repository"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names where memory may live: local to the user's environment, a team knowledge base, or a `memories/` directory in a git repository"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Creates or names an index file listing each memory entry with a one-line hook"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Does not refuse the whole request outright - persists the permitted facts while excluding the banned categories"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Treats the absence of a CONTRIBUTING file as a routing signal in its own right"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Promotes `samber/developer-relations-skills@oss-contributor-onboarding` inside the first-run surfaces class because CONTRIBUTING is missing"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Reads 7 commits in six months with the last dated 2026-06-30 as a stalled project"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Points at diagnosis before any build work because of that stall"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Notes that `mkdocs.yml` means a docs site already exists, and does not ask whether one does"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Notes that `AGENTS.md` is an agent-instruction file already present, and offers to patch it with the project's invariants rather than asking whether one exists"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Skips interview questions the file inventory already answered and says which ones it skipped"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Creates `devrel-context.md` with a session-log line without scaffolding directories the project has not earned"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Routes the ten-minute, verified-success reader to `samber/developer-relations-skills@developer-quickstart-guide`"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Routes the concept-learning reader to `samber/developer-relations-skills@developer-tutorial`"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "States that the structure audit operates on the whole docs set, never on one page"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Does not write the replacement page itself in place of routing"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Writes or updates `devrel-context.md` with a session-log line"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Deletes `samber/developer-relations-skills@devtools-pricing-strategy` from the short-list entirely"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Deletes `samber/developer-relations-skills@devtools-business-model` from the short-list entirely"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Deletes `samber/developer-relations-skills@developer-first-gtm` from the short-list entirely"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Does not park any of those three at the bottom of the short-list as a demoted option"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Cuts the short-list to exactly two entries"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Draws both entries from the diagnosis class or the first-run surfaces class"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Names both the bottleneck attacked and the cost on each of the two entries"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Proposes exactly one routine"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "That routine is the periodic re-invocation of this kickoff"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Does not propose the issue and pull-request queue review as a routine"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Writes `devrel-context.md` with a session-log line rather than scaffolding a larger working tree"
+      }
+    ]
+  }
+}

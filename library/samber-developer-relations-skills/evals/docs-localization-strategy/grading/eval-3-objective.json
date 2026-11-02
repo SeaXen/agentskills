@@ -1,0 +1,190 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects comparing file dates, stating that any edit to a translation (even adding a stale marker) makes it look newer than its source, so date comparison reports drift as freshness",
+        "evidence": "Rejects dates as the wrong signal but never makes the argument that any edit to the translation makes it look newer than its source.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Replaces the date comparison with a per-page pin to the source commit hash and a check of source history after that pin",
+        "evidence": "\"Use a commit hash instead. Add `source_commit`\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects v3.2 as a pin because a tag or branch name resolves to a moving ref, which the drift check reports as unknown-pin",
+        "evidence": "\"A tag name in the pin field gives `unknown-pin`\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the pin is the source file's last commit at the moment translation starts, never HEAD when the translator finishes",
+        "evidence": "\"Pin the en file's last commit when translation starts.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the pin may be bumped only once every source change up to that commit has been applied to the translation, because bumping it without the content change hides drift",
+        "evidence": "Mentions bumping the date hiding drift, but never states the rule for bumping the pin.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects copying last_verified into the ja pages because the translation would claim a test run nobody did in Japanese",
+        "evidence": "\"A copy claims a test nobody ran.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says to render the source page's tested-version stamps with wording that attributes them to the source page, only while the drift check reports the page current",
+        "evidence": "\"Show 'verified on the source page: 2026-09-12 (English)'\" when status is current",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says the outdated banner replaces the stamps once the source page moves",
+        "evidence": "\"When the page is `behind` or `far`, show the outdated banner instead of the stamp.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Allows locale-specific stamps (such as locale_tested_with or locale_last_verified) only when someone re-ran the procedure in a localized environment",
+        "evidence": "\"Add `locale_last_verified` only if someone re-ran the procedure in a Japanese environment.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the drift check refuses a shallow clone and that CI needs full history (fetch-depth: 0)",
+        "evidence": "\"The script refuses shallow clones... Fix: `fetch-depth: 0`\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends running the check with --since <ref> so only ja pages added or edited after that ref can fail the build while the 140-page backlog gets pinned, then dropping --since once it is",
+        "evidence": "\"Use `--since <ref>`... Drop `--since` once the backlog is pinned.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the drift-check invocation with --source docs/en and --locale ja=docs/ja",
+        "evidence": "CI command block",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the statuses the check reports, including at least behind, far, no-pin and unknown-pin",
+        "evidence": "Names `no-pin`, `unknown-pin`, `behind`, `far`, `moved`, `current`",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends setting --far from the docs set's commits per release rather than keeping the default of 5",
+        "evidence": "\"Pass `--far`. Scale it to your commits per release.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives banner wording that says the English page has changed since the translation and puts the link to the English page in the first line, shown in Japanese",
+        "evidence": "No banner wording is given.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects comparing file dates, stating that any edit to a translation (even adding a stale marker) makes it look newer than its source, so date comparison reports drift as freshness",
+        "evidence": "Rejects date compare for false positives and ties, not because editing the translation makes it look newer.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Replaces the date comparison with a per-page pin to the source commit hash and a check of source history after that pin",
+        "evidence": "\"add source_commit... run git diff <sha> HEAD -- docs/en/x.md\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects v3.2 as a pin because a tag or branch name resolves to a moving ref, which the drift check reports as unknown-pin",
+        "evidence": "Rejects it as \"too coarse\", not as a moving ref.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the pin is the source file's last commit at the moment translation starts, never HEAD when the translator finishes",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the pin may be bumped only once every source change up to that commit has been applied to the translation, because bumping it without the content change hides drift",
+        "evidence": "\"a PR that changes source_hash should also change the ja body, or carry an explicit 'no translation change needed' label.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects copying last_verified into the ja pages because the translation would claim a test run nobody did in Japanese",
+        "evidence": "\"On a ja page it says the Japanese text was verified, which is false\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says to render the source page's tested-version stamps with wording that attributes them to the source page, only while the drift check reports the page current",
+        "evidence": "Template renders \"English version verified 2026-09-12...\" and a banner on mismatch.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says the outdated banner replaces the stamps once the source page moves",
+        "evidence": "Banner is added; not said to replace the stamps.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Allows locale-specific stamps (such as locale_tested_with or locale_last_verified) only when someone re-ran the procedure in a localized environment",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the drift check refuses a shallow clone and that CI needs full history (fetch-depth: 0)",
+        "evidence": "States the opposite: \"works on fetch-depth: 1\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends running the check with --since <ref> so only ja pages added or edited after that ref can fail the build while the 140-page backlog gets pinned, then dropping --since once it is",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the drift-check invocation with --source docs/en and --locale ja=docs/ja",
+        "evidence": "No invocation given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the statuses the check reports, including at least behind, far, no-pin and unknown-pin",
+        "evidence": "No statuses.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends setting --far from the docs set's commits per release rather than keeping the default of 5",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives banner wording that says the English page has changed since the translation and puts the link to the English page in the first line, shown in Japanese",
+        "evidence": "Banner text given only in English, not Japanese.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

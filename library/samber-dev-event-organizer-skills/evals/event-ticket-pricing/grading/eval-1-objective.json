@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that the ticket revenue target must come from the event budget - total expenses minus the sponsorship share - and does not produce a final price from comparable prices alone.",
+        "evidence": "\"tickets must raise total expenses minus the sponsorship share\"; prices called provisional because no budget figure exists",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Directs the user to build or complete the budget first when no expense total and sponsorship share is on hand.",
+        "evidence": "Only asks for \"the total expense figure and I'll check these prices\"; never says to build or complete the budget first",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Subtracts committed comps from the 300-seat venue capacity before pricing, explicitly naming sponsor allotments, speakers, organizers and volunteers.",
+        "evidence": "Table lists gold sponsors, speakers, organizers, volunteers against 300 seats",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Carries the comp arithmetic through with the figures given: 24 sponsor passes plus 14 speakers plus 9 organizers plus 22 volunteers, leaving roughly 231 paid seats.",
+        "evidence": "24+14+9+22 = 69; \"Paid seats (300 \u2212 69) | 231\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to set comps as a percentage of capacity and states that the count comes from the agreements already held.",
+        "evidence": "Never rejects a percentage rule; only notes sponsor passes come from signed contracts",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends a nominal-fee posture and identifies it as the efficiency-leading option rather than the highest-value one.",
+        "evidence": "Recommends nominal fee but never frames it as the efficiency leader versus highest-value option",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the nominal-fee band as roughly 10-20% of what a commercial tech conference charges in the same region, and applies it to the 9,500 SEK reference.",
+        "evidence": "\"10-20% of a typical commercial ticket... Against 9,500 SEK, that is 950-1,900 SEK\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the nominal fee's job is spreading financial risk and converting an unpaid RSVP into a headcount catering can be committed against, not funding the event.",
+        "evidence": "\"Your pain is headcount certainty, not funding. A paid registration turns an unpaid RSVP into a headcount\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that charging any non-zero price pulls in accounting and tax obligations, and that this compliance cost is the same for a token price as for a commercial one.",
+        "evidence": "\"any price above zero brings accounting and tax handling, and the amount doesn't change that\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a published price cannot be withdrawn mid-sale without refunding whoever already paid, so the priced posture is less reversible than staying free.",
+        "evidence": "No statement about irreversibility versus staying free",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not claim the fee eliminates no-shows, and routes the no-show exposure to the no-show management skill.",
+        "evidence": "\"a paid ticket reduces the exposure but doesn't remove it... belongs to event-no-show-management\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Presents the structure section by section for validation rather than returning a single final number.",
+        "evidence": "Delivers a full structure with a headline number set; no invitation to validate section by section",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that the ticket revenue target must come from the event budget - total expenses minus the sponsorship share - and does not produce a final price from comparable prices alone.",
+        "evidence": "Prices from benchmarks and capacity; never says the target comes from expenses minus sponsorship.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Directs the user to build or complete the budget first when no expense total and sponsorship share is on hand.",
+        "evidence": "Open items ask for catering cost per head, VAT and payment fees, not a budget.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Subtracts committed comps from the 300-seat venue capacity before pricing, explicitly naming sponsor allotments, speakers, organizers and volunteers.",
+        "evidence": "Seat table: sponsor passes (4 \u00d7 6) \u221224, speakers \u221214, organizers \u22129, volunteers \u221222.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Carries the comp arithmetic through with the figures given: 24 sponsor passes plus 14 speakers plus 9 organizers plus 22 volunteers, leaving roughly 231 paid seats.",
+        "evidence": "Seats for sale 231.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to set comps as a percentage of capacity and states that the count comes from the agreements already held.",
+        "evidence": "No statement about percentage of capacity.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends a nominal-fee posture and identifies it as the efficiency-leading option rather than the highest-value one.",
+        "evidence": "Recommends fees but never frames posture as efficiency-leading vs highest-value.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the nominal-fee band as roughly 10-20% of what a commercial tech conference charges in the same region, and applies it to the 9,500 SEK reference.",
+        "evidence": "States 5\u201315% of 9,500, not 10-20%.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the nominal fee's job is spreading financial risk and converting an unpaid RSVP into a headcount catering can be committed against, not funding the event.",
+        "evidence": "The ticket's main job is commitment, not revenue ... fixes your catering problem.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that charging any non-zero price pulls in accounting and tax obligations, and that this compliance cost is the same for a token price as for a commercial one.",
+        "evidence": "Only says check VAT treatment; no warning that compliance cost is the same for token price.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a published price cannot be withdrawn mid-sale without refunding whoever already paid, so the priced posture is less reversible than staying free.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not claim the fee eliminates no-shows, and routes the no-show exposure to the no-show management skill.",
+        "evidence": "Claims cut to 10\u201320% and does not route to a no-show skill.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Presents the structure section by section for validation rather than returning a single final number.",
+        "evidence": "Returns a final answer of 495/1,500/150.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

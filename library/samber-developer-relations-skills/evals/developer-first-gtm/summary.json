@@ -1,0 +1,590 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "developer-first-gtm",
+  "scenarios": 12,
+  "expectations_total": 147,
+  "expectations_subjective": 4,
+  "expectations_objective": 143,
+  "pass_rate_with_skill_pct": 71.4,
+  "pass_rate_without_skill_pct": 36.1,
+  "delta_pp": 35.3,
+  "uplift_multiplier": 1.98,
+  "trigger_accuracy_pct": 50.0,
+  "trigger_queries": 134,
+  "trigger_positive_fire_rate": 0.0,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Runs or asks for the three friction gates by name - entry, value and spread - instead of moving straight to onboarding work."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Labels each number it uses as either sourced, with its source and measurement definition, or self-set."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Holds the opposite risk in view rather than only arguing against sales: names that waiting too long lets sales-assisted competitors firewall a self-serve-only product out of enterprise segments."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Cites Dropbox as the named casualty of adding sales too late."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Quotes or paraphrases Pete Kazanjy's warning never to mistake lead generation for the business, and attributes it to him."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes that self-serve at roughly $19-29 a month is lead generation while the business is the far larger contract."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names Datadog and New Relic as developer companies that nonetheless run sales organizations."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes the statistic is usually cited to a vendor blog rather than to the underlying study."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Labels the hours-not-days window as this skill's own baseline with no study behind it, not as an industry standard."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends having a human read raw new signups in an internal channel for a few weeks before building any scoring system, or cites Zapier's four sales-assist qualification signals as a published cross-check."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that developer-influenced sales has nothing to convert here because no base of free accounts exists yet."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Surfaces that the stated constraints eliminate every available motion, and names which constraint must be relaxed rather than silently picking one anyway."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Explains that two primaries mean the team will argue about which funnel every account belongs to."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names the four motions it works from: bottom-up self-serve, developer-influenced sales, top-down with developer proof, and ecosystem-mediated."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that this four-motion taxonomy is the skill's own synthesis and not a published framework."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Gives the published vocabulary underneath as two independent axes - product-led versus sales-led, and top-down versus bottom-up - plus sales assist, attributed to the Lenny's Newsletter study of GTM motions across 30 B2B SaaS companies."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Requires the memo section to name the money path and the prerequisite that must be true for the chosen motion."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Attributes the term to the Lenny's Newsletter study of GTM motions across 30 B2B SaaS companies."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes that a team can run bottom-up lead gen for years while believing it runs product-led growth."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires an explicit decision to either keep the motion and staff it honestly, or convert it, rather than continuing to optimize an unnamed one."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Labels every number it introduces as either sourced with its source, or self-set."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that expansion produced by price changes or by usage the customer did not choose is deferred churn, not expansion."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names the standardization decision by a platform or architecture group as the gate on continued growth in a large account."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that the champion enablement pack has to survive an architecture review rather than a hallway conversation."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Treats the departed champion as simultaneously a risk in this account and a warm entry at their new employer."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Requires that paperwork be prepared before the expansion conversation rather than during it."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Replaces them with a leading-indicator set of five or fewer numbers, all of which move before revenue."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Labels the five-or-fewer cap as this skill's own self-set baseline rather than a published rule."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Gives each proposed indicator a target and a date."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that a bad entry turns handed-a-tool developers into internal opponents."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires pricing detail and limits to be permanently ungated."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Rejects a demo-only enterprise path with no self-serve floor, naming that it leaves the long tail unservable."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Requires the chosen value to produce a queue the responder can actually clear."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names the specific weaknesses of email domain: free-mail addresses and contractors leak, and subsidiaries fragment."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names at least two further rollup sources - organization or workspace object, license or API key, self-reported company at signup, or enrichment - and advises combining at least two."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names the role who acts on a qualified account and a response window measured in hours."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Names what is identical for both: first value must be reachable by one developer working alone."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that in individual adoption the user and the payer are the same person, or no purchase exists at all."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that for the individual-adoption path a human in the loop costs more than the contract."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that company adoption requires account rollup, a champion enablement pack and procurement paperwork."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Rejects the single blended conversion number and requires conversion to be reported per audience as well as blended."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Notes that larger target customers correlate with lower conversion, so blending the two hides both."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "States that developer-focused companies show a median free-to-paid conversion of roughly 5%, about half the median of non-developer-focused companies, and attributes it to the Lenny's Newsletter free-to-paid conversion survey."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Gives the measurement definition the published bands assume: accounts that begin paying within their first six months divided by accounts created in the measurement window."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Requires the recomputation to be done at account level rather than per individual user."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Runs or asks for the three friction gates by name - entry, value and spread - instead of moving straight to onboarding work."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Requires each gate to be answered with evidence such as a cold run of the company's own onboarding, not with an opinion or belief."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Labels each number it uses as either sourced, with its source and measurement definition, or self-set."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Applies an explicit sales-economics test requiring a salesperson added to a self-serve motion to return roughly 4x their fully loaded cost in incremental revenue, and attributes it to The Transition (Lenny's Newsletter)."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States the resulting bar as roughly $840,000 of incremental revenue per rep per year against the $210,000 fully loaded cost given."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Tests the bar by multiplying a qualified-account volume by a realistic deal size, rather than arguing the motion philosophically."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that account rollup must exist before any motion with a human in the loop is available."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Holds the opposite risk in view rather than only arguing against sales: names that waiting too long lets sales-assisted competitors firewall a self-serve-only product out of enterprise segments."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Cites Dropbox as the named casualty of adding sales too late."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Quotes or paraphrases Pete Kazanjy's warning never to mistake lead generation for the business, and attributes it to him."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes that self-serve at roughly $19-29 a month is lead generation while the business is the far larger contract."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names Datadog and New Relic as developer companies that nonetheless run sales organizations."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Frames the decision as when a human enters the loop, not whether one ever does."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Warns that reps hired against a majority single-developer account base will find nothing to work and start contacting signups, damaging the free surface."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Refuses to build same-minute or signup-triggered human outreach."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes the statistic is usually cited to a vendor blog rather than to the underlying study."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that importing that statistic into a developer motion amounts to contacting on signup."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names contacting on signup as the behaviour this audience punishes hardest, or as teaching developers that the free tier is bait."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Moves qualification to account level rather than per individual signup."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Proposes a written qualification threshold expressed as a single sentence the team can apply without interpretation."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Sets the response window for qualified accounts in hours rather than in days or in minutes."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Labels the hours-not-days window as this skill's own baseline with no study behind it, not as an industry standard."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Requires an explicit written do-not-contact line covering accounts below the threshold."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names the scoring model as the MQL construction rather than a genuine product-qualified-lead model."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Advises combining at least two rollup sources rather than relying on a single one."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Introduces the three signal families by name: depth, spread and boundary contact."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Orders the three families by increasing intent, with boundary contact the strongest."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Justifies boundary contact as strongest because it maps directly onto the paid boundary the business model defined."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Gives concrete boundary-contact examples such as SSO/SAML, RBAC, audit log, repeated rate or seat limit hits, a security questionnaire, SOC 2 report, DPA, or billing and procurement pages."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Distinguishes depth without spread, which usually means a solo power user, from spread without depth, which usually means an evaluation that has not committed."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends having a human read raw new signups in an internal channel for a few weeks before building any scoring system, or cites Zapier's four sales-assist qualification signals as a published cross-check."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Deletes top-down with developer proof on the no-new-headcount constraint."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that developer-influenced sales has nothing to convert here because no base of free accounts exists yet."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Surfaces that the stated constraints eliminate every available motion, and names which constraint must be relaxed rather than silently picking one anyway."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Presents two or three candidate motions rather than a single recommendation."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States the rule of exactly one primary motion and at most one secondary motion that stacks on it."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Explains that two primaries mean the team will argue about which funnel every account belongs to."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Requires a 'Rejected motions' section naming each rejected motion and the constraint that ruled it out."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Distinguishes a motion blocked only for now, which belongs in the memo's revisit triggers, from one rejected outright."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names the four motions it works from: bottom-up self-serve, developer-influenced sales, top-down with developer proof, and ecosystem-mediated."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that this four-motion taxonomy is the skill's own synthesis and not a published framework."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Gives the published vocabulary underneath as two independent axes - product-led versus sales-led, and top-down versus bottom-up - plus sales assist, attributed to the Lenny's Newsletter study of GTM motions across 30 B2B SaaS companies."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Requires the memo section to name the money path and the prerequisite that must be true for the chosen motion."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Attributes the term to the Lenny's Newsletter study of GTM motions across 30 B2B SaaS companies."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes that a team can run bottom-up lead gen for years while believing it runs product-led growth."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires an explicit decision to either keep the motion and staff it honestly, or convert it, rather than continuing to optimize an unnamed one."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Flags contacting the whole free base as burning the free surface's reputation with a developer audience."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires a written do-not-contact line for accounts below a threshold."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires the qualification threshold to be written as one sentence naming an owner and a response window."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires account-level rollup rather than treating each free signup as an individual lead."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Labels every number it introduces as either sourced with its source, or self-set."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that expansion produced by price changes or by usage the customer did not choose is deferred churn, not expansion."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Assigns that vector both a firing trigger and a named owner."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names at least one further expansion vector from the set: more developers on the same team, more workload per user, more product surface."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names the standardization decision by a platform or architecture group as the gate on continued growth in a large account."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that the champion enablement pack has to survive an architecture review rather than a hallway conversation."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Applies the multi-threading rule of a second technical advocate plus one manager-level contact."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that both multi-threaded contacts must have seen value with their own eyes."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Treats the departed champion as simultaneously a risk in this account and a warm entry at their new employer."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Warns about procurement re-entry: the second, larger purchase can trigger the security review, legal pass and vendor onboarding that the original credit-card purchase skipped."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Requires that paperwork be prepared before the expansion conversation rather than during it."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that the published 12-month band for a bottom-up product puts 'good' near 100% and 'great' near 120%."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Contrasts that with the enterprise SaaS band of roughly 110% good and 130% great."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Attributes the retention bands to the Lenny's Newsletter retention benchmark post."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Gives the definition of net revenue retention as a cohort's MRR today divided by that same cohort's MRR twelve months ago."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that dormant seats predict contraction at renewal."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Replaces them with a leading-indicator set of five or fewer numbers, all of which move before revenue."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Labels the five-or-fewer cap as this skill's own self-set baseline rather than a published rule."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Gives each proposed indicator a target and a date."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that a bad entry turns handed-a-tool developers into internal opponents."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires pricing detail and limits to be permanently ungated."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that gating those surfaces loses technical evaluations silently, because developers evaluate before they will talk to anyone."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names post-purchase developer activation as this motion's leading indicator - the share of licensed developers actually using the product within a defined window such as 90 days."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Rejects a demo-only enterprise path with no self-serve floor, naming that it leaves the long tail unservable."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names a concrete first-value moment as an observable event rather than calling it 'activation'."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Requires the chosen value to produce a queue the responder can actually clear."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that account rollup does not exist here, and makes building it a line item of the plan rather than a footnote."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names the specific weaknesses of email domain: free-mail addresses and contractors leak, and subsidiaries fragment."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names at least two further rollup sources - organization or workspace object, license or API key, self-reported company at signup, or enrichment - and advises combining at least two."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Includes an active-developer count condition in that sentence."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Includes boundary contact as an alternative qualifying trigger in that sentence."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names the role who acts on a qualified account and a response window measured in hours."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States explicitly that accounts below the threshold are not contacted by a human."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Labels the numbers in the rule as self-set or derived from the company's own data, and notes that how many active developers an account needs before it converts is not published anywhere."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Refuses to design one entry serving both audiences, stating that an entry built for a hobbyist and an enterprise platform team at once serves neither."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Requires the two paths to be ranked explicitly, with one named primary."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Names that documentation, limits and pricing detail stay open for both audiences."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that in individual adoption the user and the payer are the same person, or no purchase exists at all."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that for the individual-adoption path a human in the loop costs more than the contract."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that company adoption requires account rollup, a champion enablement pack and procurement paperwork."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Requires conversion to be measured at account level and by cohort."
+      }
+    ]
+  }
+}

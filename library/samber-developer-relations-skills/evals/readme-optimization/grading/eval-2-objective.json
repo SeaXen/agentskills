@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Uses the given figures to state the clone-to-visitor ratio (3 of 34 unique visitors)",
+        "evidence": "\"The clone-to-visitor ratio (3/34 \u2248 8.8%) sits in the ambiguous middle\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies too few visitors, not weak prose, as the diagnosis - a distribution problem rather than a README problem",
+        "evidence": "\"At ~2-3 visitors/day, this looks closer to the second case [distribution problem].\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines to make the full rewrite the main recommendation for this repository",
+        "evidence": "\"I'd frame it to your co-founder as 'doing both, in this order' rather than 'the README explains it.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the user toward launch or distribution work, naming samber/developer-relations-skills@oss-launch or samber/developer-relations-skills@oss-distribution-strategy",
+        "evidence": "Only generic suggestions given: \"the week is better spent on PyPI presence, a Show HN/relevant-subreddit post...\" \u2014 no named skill.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the few-percent clone-to-visitor boundary is a working heuristic rather than a benchmark",
+        "evidence": "\"sits in the ambiguous middle this skill's heuristic can't rule on by itself.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends looking at referrers rather than ruling on a borderline number",
+        "evidence": "\"open Insights \u2192 Traffic \u2192 **referring sites**. If traffic is near-zero and undifferentiated...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Checks whether the README is the bottleneck before scoring or rewriting it",
+        "evidence": "The diagnosis section ('Before the rewrite: check the co-founder's theory') precedes the rewrite section.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not promise a traffic or adoption increase from rewriting the page",
+        "evidence": "No specific traffic/adoption increase percentage is promised anywhere.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes the code host's traffic data is a short rolling window of roughly two weeks and should be snapshotted rather than relied on retroactively",
+        "evidence": "Only mentions '14 days' as the given data window and a future re-measurement window; no mention of snapshotting before the rolling window slides.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Still offers the repository furniture fixes - description, topics, website link, social preview - as the text that search listings and link unfurls actually carry",
+        "evidence": "No mention of repo description, topics, website field, or social preview anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Uses the given figures to state the clone-to-visitor ratio (3 of 34 unique visitors)",
+        "evidence": "The transcript mentions only \"34 unique visitors in 14 days\" and never states a clone count or a 3/34 ratio.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies too few visitors, not weak prose, as the diagnosis - a distribution problem rather than a README problem",
+        "evidence": "\"34 unique visitors in 14 days means almost nobody is landing on the page in the first place \u2014 that's a *discovery* problem, not a *conversion* problem.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines to make the full rewrite the main recommendation for this repository",
+        "evidence": "Despite the diagnostic caveat, the bulk of the response is the complete README rewrite delivered as the deliverable (\"I've written the rewrite against the description you gave... everything else is ready to use as-is\").",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the user toward launch or distribution work, naming samber/developer-relations-skills@oss-launch or samber/developer-relations-skills@oss-distribution-strategy",
+        "evidence": "The text suggests generic distribution ideas (\"a proper Show HN / r/Python or r/dataengineering post... PyPI SEO\") but never names any samber/developer-relations-skills path.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the few-percent clone-to-visitor boundary is a working heuristic rather than a benchmark",
+        "evidence": "No clone-to-visitor ratio or heuristic is discussed anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends looking at referrers rather than ruling on a borderline number",
+        "evidence": "Referrers are mentioned only as an optional future tracking hedge (\"Traffic referrers (optional hedge)\"), not in response to any borderline-ratio judgment call.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Checks whether the README is the bottleneck before scoring or rewriting it",
+        "evidence": "\"A README rewrite improves what happens to the ~2-3 people a day who already found the repo; it does nothing for the other few thousand who never see it... if you ship this and views are still ~60/14 days next month, the README wasn't the bottleneck\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not promise a traffic or adoption increase from rewriting the page",
+        "evidence": "\"if you ship this and views are still ~60/14 days next month, the README wasn't the bottleneck, and the fix is distribution... not another docs pass\" \u2014 no increase is promised.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes the code host's traffic data is a short rolling window of roughly two weeks and should be snapshotted rather than relied on retroactively",
+        "evidence": "\"Repo \u2192 Insights \u2192 Traffic (14-day window, resets weekly \u2014 pull it *now*)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Still offers the repository furniture fixes - description, topics, website link, social preview - as the text that search listings and link unfurls actually carry",
+        "evidence": "No mention of repo description, topics, website field, or social preview appears anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

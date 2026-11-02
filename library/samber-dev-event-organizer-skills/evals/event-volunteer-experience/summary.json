@@ -1,0 +1,354 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-volunteer-experience",
+  "scenarios": 7,
+  "expectations_total": 85,
+  "expectations_subjective": 0,
+  "expectations_objective": 85,
+  "pass_rate_with_skill_pct": 87.1,
+  "pass_rate_without_skill_pct": 22.4,
+  "delta_pp": 64.7,
+  "uplift_multiplier": 3.89,
+  "trigger_accuracy_pct": 64.5,
+  "trigger_queries": 76,
+  "trigger_positive_fire_rate": 0.842,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": null,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Names an off-duty pointer - a short live note telling off-duty volunteers what is running now and where there is room - as the default rung."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Ranks the off-duty pointer ahead of a published off-duty entitlement on efficiency."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States the efficiency ordering off-duty catering access > volunteer rest space > volunteer social meal > attendee parity only, or explicitly re-ranks it against the answers given."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Keeps the 'what would you change about your shift' ask to a single question inside the thank-you, and routes any fuller volunteer question set to the participant-feedback skill."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States the efficiency ordering retained past-volunteer list > public thank-you > nomination path > standing alumni channel > returning-volunteer marker, or explicitly re-ranks it against the answers given."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Routes the between-editions community work to the community-building skill rather than standing up a second space."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Deletes the ruled-out options from the plan rather than parking them at the bottom of a list."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Does not propose guardrails, caps or conditions that would keep a cash-value reward on the menu."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Makes clear that the near-zero budget is not the reason for the refusal, and that the refusal holds even where the money exists."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Produces a candidate flag instead, carrying her name, what she did, and who noticed, and nothing more."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes that the nomination route should be designed to fit this event's own standing team rather than copied from a template."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Names an off-duty pointer - a short live note telling off-duty volunteers what is running now and where there is room - as the default rung."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Ranks the off-duty pointer ahead of a published off-duty entitlement on efficiency."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Justifies the pointer by observing that 3-hour shifts inside a 10-hour day already leave most volunteers off-duty time, so what they lack is knowing what is worth walking into."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States the efficiency ordering off-duty pointer > named personal-attendance blocks > published off-duty entitlement > nothing designed, or explicitly re-ranks it against the answers given."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Promotes named personal-attendance blocks on the combined grounds that volunteers gave up tickets they would otherwise have used and that the edition recurs annually."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Does not edit, resize or redraw the 34-volunteer shift grid."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Frames the off-duty result as a requirement handed upstream to the volunteer recruitment and shift-planning skill, not as a change made here."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Refers the roster-sizing consequence of any entitlement to that upstream owner rather than computing a new roster."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Restates that nobody leaves a post without confirmation of a replacement."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Warns that an off-duty promise the roster cannot fund is worse than no promise, because the volunteer plans their day around it."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names a gate of 100% of volunteers holding at least one continuous block off post, read off the published grid rather than reported afterwards."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names off-duty catering access as the default rung of the hospitality menu."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Prescribes a queue rule so a short break is not spent standing in line."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States the efficiency ordering off-duty catering access > volunteer rest space > volunteer social meal > attendee parity only, or explicitly re-ranks it against the answers given."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Promotes the volunteer rest space above the default on the strength of the 12-hour day and a room that is genuinely available."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Specifies the rest space contents: seating, water, self-serve snacks, and stated permission to be there while off post."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Does not re-decide the event's dietary or allergen policy, leaving the vegan and coeliac provision to the general standard already set elsewhere."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Writes the volunteer provision as a delta against that general standard rather than as a fresh catering plan."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Either asks whether the edition recurs or states that a volunteer social meal is promoted only when it does."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Budgets the volunteer top-up as its own line rather than spending the quiet room's, the sponsors' or the speakers' allocation."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Does not re-decide food delivered to volunteers at their post, leaving shift-linked food with the volunteer recruitment and shift-planning skill."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Blocks publishing the 28 names until each person has consented to being named."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that consent cannot be inferred from someone having volunteered, from their name appearing on a public schedule, or from them not replying."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Rejects the claim that the crew leads' end-of-shift thanks covers the published post, treating the spoken in-the-moment thanks and the publication as separate acts with separate consent status."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Removes the special call-out of Marta and Kwesi, or rewrites the post so no subset of a group who all did the work is singled out."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Gives the reason: singling two people out makes the rest of the list feel counted rather than thanked."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Lists the consented names in one flat list, in no rank order."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Adds a line saying more people helped than are named, so the ones who declined are not read as absent."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Adds a route back: that a volunteer call opens for the next edition, and how to be on it."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Rejects the single email addressed to all 28 at once and requires one message per volunteer."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Gives the address-leak reason: a copied thread exposes each volunteer's contact address to every other volunteer."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Holds the public post until the consent answers are in, even at the cost of a few days."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Keeps the 'what would you change about your shift' ask to a single question inside the thank-you, and routes any fuller volunteer question set to the participant-feedback skill."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States the efficiency ordering retained past-volunteer list > public thank-you > nomination path > standing alumni channel > returning-volunteer marker, or explicitly re-ranks it against the answers given."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Routes the between-editions community work to the community-building skill rather than standing up a second space."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Rules the 'veteran crew' marker out on the stated ground that returning volunteers do the same work as first-timers."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Explains that the marker cannot exist without the retained list and spends recognition on people whose return is no longer in question."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Deletes the ruled-out options from the plan rather than parking them at the bottom of a list."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Assigns the list a named person as owner, not 'the organizers'."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Sets an actual deletion date on the day the list is created, typically tied to the next edition's recruitment close."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Keeps name, the sign-up contact address, which posts they staffed and how many shifts, their recorded answer on being contacted, their recorded answer on being named, and one coordinator free-text line."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Adds a renewal ask as the deletion date approaches, rather than letting the date lapse into permanence."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names who receives the list for next edition's recruitment and when, with the owner and the deletion date travelling with the file."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Refuses all three options as rewards for a shift rather than choosing among them."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that a reward with real cash value makes the arrangement read as wages rather than volunteering."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that the volunteering-versus-wages question is not reversible once the first reward is handed out."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Identifies the stated 8-hour minimum as the element that makes the ticket read as payment for the shift."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes that no convention ties a comped ticket to the same event's next edition, and that the named programs that exist run cross-event inside one organizer's portfolio."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Distinguishes a comped ticket offered as an invitation from one offered as payment."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires the event to say in writing which of the two it is offering."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Does not propose guardrails, caps or conditions that would keep a cash-value reward on the menu."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Routes the board back to the closure rungs that do apply: the retained past-volunteer list and the public thank-you."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Makes clear that the near-zero budget is not the reason for the refusal, and that the refusal holds even where the money exists."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Refuses to draft the Head of Volunteer Ops role description."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Refuses to send Aoife an offer before the standing team has agreed the role exists."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Produces a candidate flag instead, carrying her name, what she did, and who noticed, and nothing more."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Hands the flag to the team-structure skill, which owns the role taxonomy and everything that follows the flag."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Applies the vouching questions: whether the team has a real opening, whether the candidate carries the skill that opening needs, whether someone already on the team trusts her enough to answer for her, and whether she will hold up doing the same repetitive work reliably for days in a row."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes that the nomination route should be designed to fit this event's own standing team rather than copied from a template."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Routes the minors question to a review with counsel and the insurer."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Routes the sponsor-employment arrangement to that same review rather than to a judgment made here."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Promotes a published off-duty entitlement above the off-duty pointer because the grid leaves no continuous block off post."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States the reason for the flip: a pointer aimed at a volunteer with no free time points at nothing."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Hands the entitlement upstream as a roster-sizing requirement against the 9-volunteer roster rather than rewriting the grid here."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names the gate of 100% of volunteers holding at least one continuous block off post, read off the published grid rather than reported afterwards."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that no published benchmark exists for these shares, so each one means something only against this event's own previous edition."
+      }
+    ]
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to interpret the employment contract's invention clause and routes it to the employer's legal team or outside counsel",
+        "evidence": "\"Have your actual inventions clause read by someone qualified \u2014 an employment lawyer... I'm not going to guess what it says\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that code written on an employer's time usually belongs to the employer",
+        "evidence": "\"Many invention-assignment clauses key off *time and equipment*, not just subject matter\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Raises ownership as a step 1 constraint to resolve before any license preference is discussed",
+        "evidence": "The document discusses '## The license: MIT is the right call' first, and only afterward addresses '## \"Am I clear to do it\"' ownership question.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats employer ownership as a gate that deletes options rather than an option ranked low",
+        "evidence": "\"Don't publish before that \u2014 a public release is the one step here you can't undo\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not settle on a license while the ownership question is unresolved",
+        "evidence": "The document explicitly settles on MIT regardless: \"MIT is the right call, and it's the easy part\" and \"Bottom line: MIT, yes.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the moments that need counsel, such as a patent portfolio, an acquisition, a contested contribution, or a live dispute",
+        "evidence": "No such general list of counsel-triggering moments appears; the discussion is scoped only to this specific ownership question.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks whether the employer has a written open-source policy or an approval process, and treats a manager's Slack message as insufficient",
+        "evidence": "\"A manager's informal okay to *build* something is not the same as an authorized person releasing the *company's* IP rights... an OSS-approval process if one exists\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines to assert what a court would decide",
+        "evidence": "\"I'm not going to guess what it says or how a court would read it\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the work-hours portion as the part that may need rewriting, removal, or an explicit release from the employer",
+        "evidence": "No suggestion to rewrite or remove the work-hours-written code specifically; only written release or legal review of the clause are proposed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains what each licensing instrument obliges rather than asserting a legal outcome",
+        "evidence": "MIT's mechanics are only described generically (\"Shortest, most recognized permissive license, zero friction\") without detailing its actual obligations.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a public repository with no LICENSE file is legally unlicensed",
+        "evidence": "Not mentioned anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Avoids jurisdiction-specific claims about employee-invention statutes or moral rights",
+        "evidence": "\"some jurisdictions' statutory carve-outs for personal inventions (where they exist)\" \u2014 kept general, no specific jurisdiction named.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to interpret the employment contract's invention clause and routes it to the employer's legal team or outside counsel",
+        "evidence": "\"Get the actual clause read properly. Paste the paragraph to an employment lawyer rather than trying to parse it yourself \u2014 this is exactly the kind of ambiguous legal language that reads differently to a non-lawyer than to someone who knows the local case law.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that code written on an employer's time usually belongs to the employer",
+        "evidence": "The transcript only states conditional statutory logic (\"'Mostly weekends, but a decent chunk on the work laptop during work hours' fails the 'entirely' test outright... your contract's literal text governs\") rather than a direct assertion that employer-time code is usually employer-owned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Raises ownership as a step 1 constraint to resolve before any license preference is discussed",
+        "evidence": "\"Clearance: not yet... This needs actual resolution before you publish, not just before this month ends.\" followed by \"On the license itself... it was never the blocking question.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats employer ownership as a gate that deletes options rather than an option ranked low",
+        "evidence": "\"A rushed publish now, walked back after legal flags it, is a much worse outcome than a publish that slips six weeks.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not settle on a license while the ownership question is unresolved",
+        "evidence": "\"License: MIT is fine \u2014 that's not actually the hard part.\" is stated at the very top, unconditionally, before ownership is resolved.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the moments that need counsel, such as a patent portfolio, an acquisition, a contested contribution, or a live dispute",
+        "evidence": "The transcript only says to get \"15 minutes with actual employment counsel before you push publish\" for this situation; it never lists other counsel-triggering moments like a patent portfolio, acquisition, contested contribution, or dispute.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks whether the employer has a written open-source policy or an approval process, and treats a manager's Slack message as insufficient",
+        "evidence": "The transcript asserts \"A manager's Slack DM is not a release of IP rights\" (satisfying the second half) but never asks the user whether the employer has a written open-source policy or approval process \u2014 it only prescribes what to request from HR/legal.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines to assert what a court would decide",
+        "evidence": "\"(I'm not a lawyer \u2014 treat this as engineering-brain risk triage, not legal advice.)\" combined with hedged phrasing like \"plausibly reaches this\" and \"likely meant\" rather than predicting a court ruling.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the work-hours portion as the part that may need rewriting, removal, or an explicit release from the employer",
+        "evidence": "\"Work-laptop / work-hours time is the biggest problem\" combined with the recommended ask: \"Can the company confirm in writing it has no ownership claim over sleetline and I'm free to publish it under MIT on my personal GitHub?\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains what each licensing instrument obliges rather than asserting a legal outcome",
+        "evidence": "\"No reason here to reach for Apache 2.0 (patent grant) or a copyleft license (GPL/AGPL) unless you specifically want to block someone wrapping it as a SaaS\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a public repository with no LICENSE file is legally unlicensed",
+        "evidence": "The transcript never discusses the no-LICENSE-file scenario at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Avoids jurisdiction-specific claims about employee-invention statutes or moral rights",
+        "evidence": "\"Most invention-assignment carve-out statutes... only protect an invention if it was made *entirely* on your own time... (CA Labor Code \u00a72870, and similar laws in WA, IL, MN, DE, KS, NC, UT)\" names specific statutes and jurisdictions.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

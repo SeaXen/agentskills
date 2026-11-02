@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to draft the email threatening escalation to the reporter's employer or calling publication irresponsible, stating the maintainers have no leverage and such a message becomes the public story",
+        "evidence": "\"You have no leverage, and each of those lines becomes the public story.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Chooses the ship-faster option because the roughly 7-hour estimate fits within about half of the 20 available hours, and says the remaining hours are kept for surprises",
+        "evidence": "\"roughly half, which is the skill's threshold for 'ship faster'\"; \"about 6h of slack\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that 14 days sits at the short end of published practice but inside it, and that a small library fix like this is usually meetable without negotiation",
+        "evidence": "\"14 days is inside published practice... there is nothing to negotiate.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the claim that 90 days is an industry standard, attributing each quoted default to its owner (Google Project Zero 90 plus 30, CERT/CC 45 days, OpenSSF 45 to 90 days) and stating none is a standard",
+        "evidence": "CERT/CC 45, Openwall 14, Project Zero 90; \"'Everyone uses 90' is therefore wrong\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces the 90-day plan with a dated plan inside the 14-day window, giving a specific release date, time and time zone",
+        "evidence": "\"Tue 2026-11-03, 10:00 Europe/Paris\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requests the CVE through the code-host CNA now, on acceptance, and states the release does not wait for it",
+        "evidence": "CVE requested at gate through GitHub's CNA, but nowhere says the release does not wait for it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets a decision gate on the triage-decision date with the ship-faster versus counter-offer rule written down",
+        "evidence": "\"Decision gate (Tue 10-27)... Less than about 14h left... switch to the counter-offer\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes a fix-review step that sends the fix to Oskar for confirmation before release, including on the 3.x line",
+        "evidence": "Fix for 4.x and 3.x shared by Fri 10-30; reply by Mon 11-02.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prepares the 3.x backport before release day so both lines publish in the same window",
+        "evidence": "Fri 10-30: 3.x backport and 3.x suite; release Tue 11-03.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks Oskar whether anyone else was told, whether he or his employer already holds a CVE, how he wants to be credited, and his time zone",
+        "evidence": "Questions in reply to Oskar cover all four.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names `npm view <package>@<version>` as the registry confirmation step before publishing the advisory, and `npm deprecate` on vulnerable versions as an option",
+        "evidence": "\"npm view tollwarden@<4.x fixed>... Consider npm deprecate\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Produces the incident record block with the Disclosure, Reporter deadline and Agreed fields filled",
+        "evidence": "No incident record block produced.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to draft the email threatening escalation to the reporter's employer or calling publication irresponsible, stating the maintainers have no leverage and such a message becomes the public story",
+        "evidence": "\"Contacting his employer is a threat... I'd drop that line entirely.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Chooses the ship-faster option because the roughly 7-hour estimate fits within about half of the 20 available hours, and says the remaining hours are kept for surprises",
+        "evidence": "\"The work fits in his window. Fix, test, backport and release come to 7 hours. You have 20.\" and the plan keeps buffer.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that 14 days sits at the short end of published practice but inside it, and that a small library fix like this is usually meetable without negotiation",
+        "evidence": "Says only \"14 days is feasible\"; no comparison to published practice.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the claim that 90 days is an industry standard, attributing each quoted default to its owner (Google Project Zero 90 plus 30, CERT/CC 45 days, OpenSSF 45 to 90 days) and stating none is a standard",
+        "evidence": "\"90 days is a convention... Project Zero popularized it\"; CERT/CC and OpenSSF are not cited.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Replaces the 90-day plan with a dated plan inside the 14-day window, giving a specific release date, time and time zone",
+        "evidence": "\"Release of both lines and public advisory (with CVE) on Nov 4\" \u2014 no time or zone.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requests the CVE through the code-host CNA now, on acceptance, and states the release does not wait for it",
+        "evidence": "The plan says \"request a CVE\" but never says the release does not wait for it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets a decision gate on the triage-decision date with the ship-faster versus counter-offer rule written down",
+        "evidence": "No gate; only \"ask for a short extension\" if a snag appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes a fix-review step that sends the fix to Oskar for confirmation before release, including on the 3.x line",
+        "evidence": "\"Patch build shared with you for verification by Nov 2\", after the 3.x backport on Oct 30.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prepares the 3.x backport before release day so both lines publish in the same window",
+        "evidence": "\"3.x backport by Oct 30\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks Oskar whether anyone else was told, whether he or his employer already holds a CVE, how he wants to be credited, and his time zone",
+        "evidence": "Asks only about credit and his own write-up; not prior disclosure, CVE or time zone.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names `npm view <package>@<version>` as the registry confirmation step before publishing the advisory, and `npm deprecate` on vulnerable versions as an option",
+        "evidence": "\"deprecate vulnerable versions if appropriate\" appears, but there is no `npm view`.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces the incident record block with the Disclosure, Reporter deadline and Agreed fields filled",
+        "evidence": "None.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

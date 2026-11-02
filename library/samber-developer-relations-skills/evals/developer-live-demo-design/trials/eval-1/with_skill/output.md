@@ -1,0 +1,1 @@
+Memory saved and indexed. The runbook above is the complete deliverable — next action is measuring segment 3's real duration on the actual stage laptop, since that number determines whether the rest of the plan holds.

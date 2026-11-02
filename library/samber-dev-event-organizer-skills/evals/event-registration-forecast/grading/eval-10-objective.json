@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The October-1-to-October-1 comparison is rejected; readings are converted to days before doors, with the one-week move of the event date named",
+        "evidence": "'Oct 1 this year is 70 days out. Oct 1 last year was 63 days out'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The gross-versus-net mismatch is flagged, and one basis (gross or net of refunds) is held across both editions before any comparison",
+        "evidence": "Cleans this year to net; 'Leave last year's series alone, since it is already net'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The 28 speaker and sponsor codes are removed from this year's counts before projection",
+        "evidence": "'Subtract the 28 codes in the week each was issued'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The holiday week is annotated on the curve by name, not silently adjusted in the numbers",
+        "evidence": "'Annotate the holiday week as a holiday lull'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Every reading is annotated with what happened that week (holiday, announcement, early-bird, push) where known",
+        "evidence": "Only the holiday week is annotated",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The 161-to-158 fall is explained as inconsistent refund netting and fixed in the readings, citing that the script refuses a falling cumulative",
+        "evidence": "Explained as refunds; script refusal not cited",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Date-based CSVs are run with --event-date so the script converts dates to days-out",
+        "evidence": "Command has no --event-date",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The 12%-behind claim is replaced by a pace index computed at matching days-out",
+        "evidence": "Not computed; 'Pending'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Last edition and the pooled generic curve are both run as references",
+        "evidence": "last-year and pooled curve",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The band is reported net of comps",
+        "evidence": "'Band... Pending'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The forecast sheet follows the seven-section shape: readings, references and methods, band, lock-date table, milestone table, capacity read, attendance by type",
+        "evidence": "Sections 1\u20137 follow readings, references, band, lock, milestone, capacity, attendance",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The projection is produced by running the script rather than by hand arithmetic",
+        "evidence": "'I did not run the script'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Comps are recorded once in the --types file for the attendance step",
+        "evidence": "'The 28 codes go into the types file as a count row'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The October-1-to-October-1 comparison is rejected; readings are converted to days before doors, with the one-week move of the event date named",
+        "evidence": "\"October 1 is 70 days out... last year... 63 days out.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The gross-versus-net mismatch is flagged, and one basis (gross or net of refunds) is held across both editions before any comparison",
+        "evidence": "\"This year's numbers are gross, last year's are net.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The 28 speaker and sponsor codes are removed from this year's counts before projection",
+        "evidence": "\"Speaker and sponsor codes | \u221228\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The holiday week is annotated on the curve by name, not silently adjusted in the numbers",
+        "evidence": "Mentioned only as a data point, not annotated on the curve.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Every reading is annotated with what happened that week (holiday, announcement, early-bird, push) where known",
+        "evidence": "No annotations.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The 161-to-158 fall is explained as inconsistent refund netting and fixed in the readings, citing that the script refuses a falling cumulative",
+        "evidence": "Treats it as refunds already netted; no script.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Date-based CSVs are run with --event-date so the script converts dates to days-out",
+        "evidence": "No script.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The 12%-behind claim is replaced by a pace index computed at matching days-out",
+        "evidence": "Uses a gap % formula.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Last edition and the pooled generic curve are both run as references",
+        "evidence": "No pooled curve.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The band is reported net of comps",
+        "evidence": "No band.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The forecast sheet follows the seven-section shape: readings, references and methods, band, lock-date table, milestone table, capacity read, attendance by type",
+        "evidence": "Not followed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The projection is produced by running the script rather than by hand arithmetic",
+        "evidence": "Hand arithmetic.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Comps are recorded once in the --types file for the attendance step",
+        "evidence": "No types file.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Declines to run `samber/developer-relations-skills@developer-community-health` now",
+        "evidence": "\"Straight answer is \\\"not now, ask again on day 90.\\\"\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Moves it to a \"not now\" list with an explicit unblocking condition rather than onto the short-list",
+        "evidence": "\"Community is 35 days old. `developer-community-health`'s own rule: no health baseline before day 90.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the unblocking condition as a baseline that does not exist until roughly 90 days of activity",
+        "evidence": "\"no health baseline before day 90\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Attributes the day-90 gate to `samber/developer-relations-skills@developer-community-launch`'s own working convention",
+        "evidence": "The gate itself is attributed to \"`developer-community-health`'s own rule: no health baseline before day 90\", not to developer-community-launch (which is only credited for a borrowed leading-indicator framework)",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not drop the health skill from the output entirely, since it has a stated unblocking condition",
+        "evidence": "Mentioned in Route and again in \"Day 90: real health read... that's when `developer-community-health`'s full framework applies\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes today's work to a skill that is actionable at five weeks, such as `samber/developer-relations-skills@developer-community-launch` or `samber/developer-relations-skills@developer-community-moderation`",
+        "evidence": "\"this dashboard borrows `developer-community-launch`'s day-30/day-90 leading-indicator framework\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that moderation rules are written before the first incident rather than after it",
+        "evidence": "No mention of moderation or developer-community-moderation anywhere in the transcript",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not invent community health benchmark numbers for a five-week-old Discord",
+        "evidence": "\"Pass >50%, warn 30\u201350%, fail <30% (adapted practitioner baseline, self-set cutoffs \u2014 not CHAOSS-published)\" \u2014 specific invented thresholds are presented despite the disclaimer",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not propose a periodic measurement routine, since no baseline exists to trend against",
+        "evidence": "No \"Routines\" section proposing recurring measurement appears anywhere in the transcript",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the community skills in timeline order - launch, then moderation, then health, then champions - rather than jumping to the measurement end",
+        "evidence": "Only developer-community-launch and developer-community-health are mentioned; moderation and champions never appear",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes or updates `devrel-context.md` with a session-log line",
+        "evidence": "devrel-context.md is never mentioned anywhere in this transcript",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Declines to run `samber/developer-relations-skills@developer-community-health` now",
+        "evidence": "The transcript fully builds the health dashboard immediately, including a baseline snapshot, RAG table, and tracking template.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Moves it to a \"not now\" list with an explicit unblocking condition rather than onto the short-list",
+        "evidence": "No such list exists; the dashboard is delivered directly.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the unblocking condition as a baseline that does not exist until roughly 90 days of activity",
+        "evidence": "\"90 days\" appears only as a slide-presentation caveat (\"communities typically inflect at 90 days\"), not as a condition gating the work.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Attributes the day-90 gate to `samber/developer-relations-skills@developer-community-launch`'s own working convention",
+        "evidence": "No skill name is mentioned anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not drop the health skill from the output entirely, since it has a stated unblocking condition",
+        "evidence": "No skill name (health or otherwise) is ever mentioned \u2014 it is dropped entirely from any explicit routing discussion.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes today's work to a skill that is actionable at five weeks, such as `samber/developer-relations-skills@developer-community-launch` or `samber/developer-relations-skills@developer-community-moderation`",
+        "evidence": "No skill routing occurs at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that moderation rules are written before the first incident rather than after it",
+        "evidence": "Moderation timing is never discussed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not invent community health benchmark numbers for a five-week-old Discord",
+        "evidence": "\"Monthly active ratio (target >20%)\" and \"Under the 30% warning line\" are asserted as thresholds without sourcing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not propose a periodic measurement routine, since no baseline exists to trend against",
+        "evidence": "\"Weekly tracking table \u2014 reuse this every reporting cycle\" explicitly proposes a recurring measurement routine.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the community skills in timeline order - launch, then moderation, then health, then champions - rather than jumping to the measurement end",
+        "evidence": "The response jumps straight to a full health-measurement dashboard at week 5 with no launch/moderation sequencing shown.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes or updates `devrel-context.md` with a session-log line",
+        "evidence": "No file-write action is shown.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

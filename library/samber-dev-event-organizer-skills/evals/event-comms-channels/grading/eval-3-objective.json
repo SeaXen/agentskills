@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the per-audience-segment channel architecture as proposed.",
+        "evidence": "\"Per-segment is the lowest-ranked routing option... \u26a0\ufe0f Six per-audience channels\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the operability reason: segment membership is a fresh judgement call on every message, and writers resolve it by cross-posting, which rebuilds the noise the segments were meant to remove.",
+        "evidence": "\"resolves it by cross-posting, which recreates the noise the segments were meant to remove.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends the two-channel split - one broadcast channel the event posts on, one open channel where attendees talk - as the default for this shape.",
+        "evidence": "Roster: broadcast channel (post-only) and open channel.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States per-segment channels are legitimate only when segments are genuinely disjoint and stable for the whole event.",
+        "evidence": "\"#remote... The one segment that is plausibly disjoint and stable.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names writer operability as the deciding axis: a volunteer must route a message correctly on the first try with nobody to ask.",
+        "evidence": "No statement that a volunteer must route correctly first try with nobody to ask.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Removes direct messages as a routing tier, because a DM leaves no record for the next shift, cannot be escalated, and makes the sender the channel.",
+        "evidence": "\"delete, never demote... No record for the next shift. Can't escalate. The sender becomes the channel.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the mirrored Telegram group outright rather than keeping it as a secondary channel: a second chat platform running the same job doubles moderation and halves each announcement's audience.",
+        "evidence": "\"If Telegram has a post-only mode, that is the nearest acceptable form of a mirror... I'd only allow it if...\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes speaker-facing communication out of the attendee roster to the event's speaker-management function rather than keeping a #speakers channel here.",
+        "evidence": "\"Speaker channel: goes through event-speaker-experience.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Handles sponsor messaging as its own message class - batched on email or a dedicated sponsor channel - and never one message per sponsor on the broadcast channel.",
+        "evidence": "\"Sponsor and partner | Email, batched | ... Never: Broadcast, one message per sponsor\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Suggests checking whether the chat platform offers a post-only or broadcast mode, which implements the two-channel split at no extra channel cost.",
+        "evidence": "\"Chat: broadcast channel (post-only)\"; Telegram post-only mention.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places the routing rule where the writers are, not in a document opened once.",
+        "evidence": "No statement about placing the rule where writers work.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives each surviving channel one stated job and one named owner.",
+        "evidence": "Roster table with Job and Owner columns.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not promote the full routing matrix with escalation tiers, since nothing in the brief says the edition is recorded or livestreamed.",
+        "evidence": "Section 3 gives a full matrix and Tier 1-3 escalation despite no recording/livestream stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Removes the rejected options from the plan entirely rather than demoting them to a lower priority or a backup role.",
+        "evidence": "Keeps `#remote` conditionally and allows a post-only Telegram as fallback.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the per-audience-segment channel architecture as proposed.",
+        "evidence": "\"Channels split by audience type, but messages depend on what people attend\" is listed as a blocker.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the operability reason: segment membership is a fresh judgement call on every message, and writers resolve it by cross-posting, which rebuilds the noise the segments were meant to remove.",
+        "evidence": "The reason given is overlapping groups, not writers judging segment membership per message.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends the two-channel split - one broadcast channel the event posts on, one open channel where attendees talk - as the default for this shape.",
+        "evidence": "It proposes about 10 channels, including four track channels.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States per-segment channels are legitimate only when segments are genuinely disjoint and stable for the whole event.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names writer operability as the deciding axis: a volunteer must route a message correctly on the first try with nobody to ask.",
+        "evidence": "Not framed that way.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Removes direct messages as a routing tier, because a DM leaves no record for the next shift, cannot be escalated, and makes the sender the channel.",
+        "evidence": "\"Individual cases: DM only for a handful of people\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the mirrored Telegram group outright rather than keeping it as a secondary channel: a second chat platform running the same job doubles moderation and halves each announcement's audience.",
+        "evidence": "It keeps a Telegram broadcast channel mirroring announcements.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes speaker-facing communication out of the attendee roster to the event's speaker-management function rather than keeping a #speakers channel here.",
+        "evidence": "It keeps private `#speakers`.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Handles sponsor messaging as its own message class - batched on email or a dedicated sponsor channel - and never one message per sponsor on the broadcast channel.",
+        "evidence": "It keeps a private `#sponsors` channel and does not treat sponsor messaging as a class.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Suggests checking whether the chat platform offers a post-only or broadcast mode, which implements the two-channel split at no extra channel cost.",
+        "evidence": "It suggests a read-only `#announcements` channel but does not frame it as a platform mode replacing a channel split.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places the routing rule where the writers are, not in a document opened once.",
+        "evidence": "It offers templates and a duty rota only.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives each surviving channel one stated job and one named owner.",
+        "evidence": "Channels are listed without named owners.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not promote the full routing matrix with escalation tiers, since nothing in the brief says the edition is recorded or livestreamed.",
+        "evidence": "It proposes a tiered urgent path and a two-person approval rule.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Removes the rejected options from the plan entirely rather than demoting them to a lower priority or a backup role.",
+        "evidence": "It keeps DMs, the Telegram mirror and the private channels.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

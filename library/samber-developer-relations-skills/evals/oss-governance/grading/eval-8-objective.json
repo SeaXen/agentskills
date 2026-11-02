@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Sides with the contributor and names the specific defects: 'significant' undefined, 'consensus' with no test, no clock, and nobody named as decider.",
+        "evidence": "\"'Significant' is undefined, 'consensus' has no test, there is no clock, nobody is named. It cannot be violated, so it cannot be relied on.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a rule that cannot be violated cannot be relied on.",
+        "evidence": "\"It cannot be violated, so it cannot be relied on.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rewrites the clause into a bounded, testable, escalatable form carrying a named decider, a threshold, a stated window and an escalation path.",
+        "evidence": "Replacement \"## Decisions\" section names decider, 7-day window, technical-reason requirement, and escalation outcome.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names a specific escalation body or tiebreaker, since a two-person project cannot reach a majority.",
+        "evidence": "\"[name a named external fallback here \u2014 e.g. a trusted former contributor, or the largest downstream user] breaks a deadlock on this one class of decision only.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires any blocking objection to carry a technical justification, so that a veto is an argument rather than a mood.",
+        "evidence": "\"An objection must state a technical reason.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Puts a timer on every decision path, naming the unbounded thread as the failure mode of consensus-seeking.",
+        "evidence": "7-day windows on breaking changes and nominations; original critique flags \"there is no clock\" as the defect being fixed.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States what happens when the timer expires: the proposal is explicitly declined or held, or defaults to the status quo, rather than the issue staying open forever.",
+        "evidence": "\"If disagreement survives that window, the change is not made, and the issue records why.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces the promotion sentence with self-assessable criteria combining a time period, a count of non-trivial merged contributions, and a count of substantive reviews.",
+        "evidence": "Text gives \"[N] months of sustained review activity and [N] non-trivial merged pull requests\" \u2014 review activity is described qualitatively, not as a separate quantified review count.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that the original promotion wording leaves a contributor nothing to act on, so nobody applies and the maintainer pool never grows.",
+        "evidence": "\"A contributor cannot act on this, so nobody applies and the pool never grows.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Enumerates the decision classes the section is missing, at minimum routine change, breaking change, new maintainer, removal, scope change, release, security response and amendment.",
+        "evidence": "Only deadlock/breaking, removal/inactivity/emeritus, promotion, and amendment gaps are named; release and security response are never mentioned as missing classes.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Specifies quorum, minimum open period, and whether abstentions count in the denominator for any vote it defines.",
+        "evidence": "7-day windows are given, but no clause anywhere addresses whether abstentions count toward any threshold.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names lazy consensus as the default for routine work, and excludes it from irreversible actions such as a release, a key rotation or a removal.",
+        "evidence": "The term \"lazy consensus\" never appears, and no release/key-rotation clause exists to exclude it from.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels any threshold it proposes as a self-set baseline the project may move, rather than as a standard.",
+        "evidence": "No 'self-set baseline' or equivalent labeling language appears anywhere in Section 8; thresholds are left as bracketed [N] placeholders without this framing.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Sides with the contributor and names the specific defects: 'significant' undefined, 'consensus' with no test, no clock, and nobody named as decider.",
+        "evidence": "The transcript sides with the contributor and cites the consensus/maintainer-fiat contradiction and 'no answer' for maintainer disagreement, but never mentions 'significant' being undefined or a 'no clock' defect specifically.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a rule that cannot be violated cannot be relied on.",
+        "evidence": "No such statement appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rewrites the clause into a bounded, testable, escalatable form carrying a named decider, a threshold, a stated window and an escalation path.",
+        "evidence": "The fix list only sketches three brief suggestions (collapse contradiction, add a tie-breaker default, replace vague criteria) rather than producing a full rewritten clause with a named decider, threshold, window, and escalation path.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names a specific escalation body or tiebreaker, since a two-person project cannot reach a majority.",
+        "evidence": "'Add a tie-breaker for maintainer-vs-maintainer disagreement (e.g., default to status quo if no agreement within N days, or split final say by domain, or alternate).'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires any blocking objection to carry a technical justification, so that a veto is an argument rather than a mood.",
+        "evidence": "No such requirement is stated anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Puts a timer on every decision path, naming the unbounded thread as the failure mode of consensus-seeking.",
+        "evidence": "A timer (N days) is proposed only for the maintainer tie-breaker, not generalized to every decision path, and the 'unbounded thread' framing is not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States what happens when the timer expires: the proposal is explicitly declined or held, or defaults to the status quo, rather than the issue staying open forever.",
+        "evidence": "'default to status quo if no agreement within N days.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces the promotion sentence with self-assessable criteria combining a time period, a count of non-trivial merged contributions, and a count of substantive reviews.",
+        "evidence": "The proposed replacement is only 'sustained contribution over N months; proposed by one maintainer, no objection from the other within N days' \u2014 a time period and a proposal window, not a count of merged contributions plus a count of reviews.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that the original promotion wording leaves a contributor nothing to act on, so nobody applies and the maintainer pool never grows.",
+        "evidence": "The transcript says the wording gives 'nothing a contributor could point to and say \"I meet the bar\"' but never connects this to the maintainer pool never growing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Enumerates the decision classes the section is missing, at minimum routine change, breaking change, new maintainer, removal, scope change, release, security response and amendment.",
+        "evidence": "No such enumeration of decision classes appears; only three illustrative cases (split proposal, maintainer disagreement, promotion) are analyzed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Specifies quorum, minimum open period, and whether abstentions count in the denominator for any vote it defines.",
+        "evidence": "No quorum or abstention rules are discussed anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names lazy consensus as the default for routine work, and excludes it from irreversible actions such as a release, a key rotation or a removal.",
+        "evidence": "Lazy consensus is never mentioned in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels any threshold it proposes as a self-set baseline the project may move, rather than as a standard.",
+        "evidence": "The proposed 'N days'/'N months' windows are left as placeholders with no framing as self-set baselines versus standards.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

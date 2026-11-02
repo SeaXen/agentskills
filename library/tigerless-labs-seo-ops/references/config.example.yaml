@@ -1,0 +1,102 @@
+# seo-ops tunables — copy to <config_dir>/config.yaml, then change what you need.
+#   default location: ${XDG_CONFIG_HOME:-~/.config}/seo-ops/config.yaml
+#   mkdir -p ~/.config/seo-ops && cp references/config.example.yaml ~/.config/seo-ops/config.yaml
+#
+# Every line below is the **current default**; left as-is it equals no config at all.
+# Change only the lines you need — keep or delete the rest, unset keys use the defaults.
+#
+# No secrets in this file: CRUX_API_KEY / INDEXNOW_KEYS live in .env in the same directory.
+# Unregistered keys are rejected (a typoed key name won't be silently ignored).
+
+# User-Agent for fetching (a real browser UA; Cloudflare blocks fake crawler UAs)
+UA: "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0 Safari/537.36"
+
+# per-request timeout (seconds)
+REQUEST_TIMEOUT: 20
+
+# interval between two requests of a single worker (seconds); overall QPS ≈ workers / interval
+FETCH_SLEEP: 1.0
+
+# concurrent fetch threads; 1 = sequential. Redo the concurrency output-diff before enabling
+FETCH_CONCURRENCY: 1
+
+# page-level check coverage: 0 = the full sitemap, >0 = sample cap
+PAGE_SAMPLE_SIZE: 0
+
+# retries per request on 429/503 (exponential backoff)
+THROTTLE_RETRIES: 3
+
+# first backoff in seconds, doubles afterwards
+THROTTLE_BACKOFF: 2.0
+
+# cap on the adaptive extra added to each request interval (seconds)
+THROTTLE_MAX_SLEEP: 4.0
+
+# consecutive successes before stepping down a notch (AIMD's additive recovery)
+THROTTLE_RECOVER_AFTER: 20
+
+# C2: newest site-wide lastmod older than this = sitemap unmaintained
+SITEMAP_NEWEST_LASTMOD_MAX_AGE_DAYS: 30
+
+# C2: entries sampled for reachability
+SITEMAP_URL_SAMPLE_SIZE: 20
+
+# C2: single-day lastmod cluster over this ratio on the run date = suspected build timestamp
+SITEMAP_LASTMOD_CLUSTER_RATIO: 0.2
+
+# C26: pages sampled for auto language redirects
+LANG_REDIRECT_SAMPLE_SIZE: 5
+
+# C6: crawl cap (a runaway guard); hitting it = incomplete coverage, recorded N.A.
+CRAWL_MAX_PAGES: 5000
+
+# C6: distinct external link targets probed per run (only a conclusive 404/410 counts red)
+EXTERNAL_LINK_SAMPLE: 30
+
+# C9: no-JS text / rendered text lower bound (enabled once headless lands)
+SSR_TEXT_RATIO: 0.9
+
+# C9: no-JS body text below this = likely CSR shell
+SSR_MIN_TEXT_CHARS: 500
+
+# C10: pages sampled for the same-URL double-fetch diff
+CACHE_DIFF_SAMPLE_SIZE: 10
+
+# C11: title length cap
+TITLE_MAX_CHARS: 70
+
+# C11: description length cap
+DESC_MAX_CHARS: 160
+
+# C13: body text lower bound (thin content)
+MIN_CONTENT_CHARS: 400
+
+# C13: body word-count lower bound (thin content; CJK counts one char as one word)
+MIN_CONTENT_WORDS: 200
+
+# C18: per-file image weight budget in KB (sampled via HEAD Content-Length)
+IMG_MAX_KB: 100
+
+# C18: distinct image URLs probed per run
+IMG_WEIGHT_SAMPLE: 20
+
+# C22: distinct hreflang target URLs probed per run
+HREFLANG_TARGET_SAMPLE: 30
+
+# C20: retired URLs sampled
+RETIRED_SAMPLE_SIZE: 10
+
+# C19: recommended og:image width
+OG_IMAGE_WIDTH: 1200
+
+# C19: recommended og:image height
+OG_IMAGE_HEIGHT: 630
+
+# C3: canonicalization hop cap (only a single hop preserves the weight)
+MAX_REDIRECT_HOPS: 1
+
+# base URL for the report's Docs column; swap main for a commit SHA to pin a version
+DOC_BASE_URL: "https://github.com/tigerless-labs/seo-ops/blob/main/references/checklist/references"
+
+# display-width cap for the table's evidence summary; full evidence in the report's closing evidence section, untruncated
+EVIDENCE_SUMMARY_WIDTH: 20

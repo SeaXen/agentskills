@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that the Following feed is chronological and Discover is personalized per user, so there is no single algorithm to tune posting time against.",
+        "evidence": "\"The Following feed is chronological, and Discover is personalized per reader. There is no shared ranking window to aim at\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not present a table or list of best posting hours as the primary growth lever.",
+        "evidence": "\"I can't give you best hours, and I won't invent a table.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names community starter packs as a route to reach.",
+        "evidence": "\"inclusion in community starter packs\" ranked second; Week 3 pack-curator ask",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names existing developer custom feeds as a route to reach, entered through the keyword, hashtag or emoji the feed matches.",
+        "evidence": "\"posting into existing dev feeds\"; \"Add the one tag a relevant dev feed actually matches\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends against the unattended automatic X-to-Bluesky mirror.",
+        "evidence": "\"Buffer mirrors every X post and thread | \u274c Refuse | Unattended mirrors read as 'nobody home'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says replies and posts that only make sense on X should not be cross-posted.",
+        "evidence": "\"Never cross-post replies or quote-tweets.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says cross-posted posts must fit 300 characters, carry alt text and drop x.com links.",
+        "evidence": "\"rewritten under 300 characters, with alt text and without x.com links\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends that named people (engineers, advocates) post from their own accounts, with the brand account as a hub.",
+        "evidence": "\"People first. Advocates and engineers post under their own names. The brand account is a hub\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a domain handle such as tessellateci.com instead of the .bsky.social handle.",
+        "evidence": "\"Use a domain handle on a domain you control.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels at least one claim as Bluesky-published versus practitioner.",
+        "evidence": "Uses **[Bluesky]**, **[practitioner]**, **[research]** tags throughout",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Revises the one-or-zero hashtag rule: a feed's matching tag or keyword is how a post enters that feed.",
+        "evidence": "\"Add the one tag a relevant dev feed actually matches, on posts that belong there.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Assigns a named person to read and answer Bluesky replies if any cross-posting continues.",
+        "evidence": "\"A person must read Bluesky replies daily. If nobody does, stop the mirror.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that the Following feed is chronological and Discover is personalized per user, so there is no single algorithm to tune posting time against.",
+        "evidence": "Says \"The Following feed is chronological\" and \"Algorithmic feeds like Discover care less about the clock\", but never says Discover is personalized per user or that no single algorithm exists.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not present a table or list of best posting hours as the primary growth lever.",
+        "evidence": "Has a \"Best posting times\" section with a table of slots A/B/C and a 3-week test; the times are labeled a test schedule, but the table is still a headline element.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names community starter packs as a route to reach.",
+        "evidence": "\"Join or build a starter pack for CI/DevOps.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names existing developer custom feeds as a route to reach, entered through the keyword, hashtag or emoji the feed matches.",
+        "evidence": "Custom feeds are never mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends against the unattended automatic X-to-Bluesky mirror.",
+        "evidence": "The table marks auto-mirroring \"\u274c Change\"; \"write once, then adapt per channel.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says replies and posts that only make sense on X should not be cross-posted.",
+        "evidence": "Lists X-only features (polls, quote posts, \"RT if\u2026\") and says \"Mirror only the content that works on both\". Replies are not named explicitly.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says cross-posted posts must fit 300 characters, carry alt text and drop x.com links.",
+        "evidence": "\"Bluesky posts are capped at 300 characters\"; \"write alt text\"; \"X-hosted links read badly or break on Bluesky\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends that named people (engineers, advocates) post from their own accounts, with the brand account as a hub.",
+        "evidence": "No recommendation for personal accounts.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends a domain handle such as tessellateci.com instead of the .bsky.social handle.",
+        "evidence": "\"Put a domain handle on the account... instead of @tessellateci.bsky.social.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels at least one claim as Bluesky-published versus practitioner.",
+        "evidence": "No source labeling anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Revises the one-or-zero hashtag rule: a feed's matching tag or keyword is how a post enters that feed.",
+        "evidence": "Keeps the rule: \"\u2705 Keep... Zero is fine.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Assigns a named person to read and answer Bluesky replies if any cross-posting continues.",
+        "evidence": "Only \"15 minutes of replies per day\", with no owner named.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

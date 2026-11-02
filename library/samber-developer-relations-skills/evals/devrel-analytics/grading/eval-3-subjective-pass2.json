@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Proposes a defensible alternative number grounded in a first-party signal instead of accepting a registry figure as the adoption claim.",
+        "evidence": "The transcript correctly dismantles the 500K claim (downloads \u2260 users; can't sum npm + PyPI), but its actual recommendation is to keep the same registry figure with a corrected label: \"change the slide to '500K package downloads/month' (or split npm/PyPI with their own labels)\" and \"half a million monthly installs is real signal of adoption, it's just not 'developers.'\" No alternative adoption number is proposed. First-party signals are named only as future work and explicitly ruled out as usable now \u2014 \"authenticated calls to a hosted backend/API ... or opt-out CLI/install telemetry ... both a",
+        "score": 1,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Proposes a defensible alternative number grounded in a first-party signal instead of accepting a registry figure as the adoption claim.",
+        "evidence": "The response explicitly rejects the registry sum as an adoption claim ('the unit is wrong... developers are humans') and ranks replacements in \u00a71.5 with first-party telemetry first: 'Unique active accounts/API keys (telemetry) \u2014 best if it exists... If you don't have this, start now; it's the number your Series A will require.' The email draft offers '[X] unique authenticated accounts/API keys active in the last 30 days \u2014 our real usage number', the permanent slide fix in \u00a71.6 puts '[X] monthly active API keys' alongside the correctly-labeled download count, and \u00a72.3 step 5 plus the closing pa",
+        "score": 4,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

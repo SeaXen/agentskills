@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Declines to produce the revision plan from reading alone, and requires cold runs before any rewrite.",
+        "evidence": "Track B is explicitly offered as rewrites the writer can do \"today, no cold run needed\", including splitting step 4 \"regardless of Track A's result\" \u2014 rewrites proceed without waiting for the cold run.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Specifies runners who match the tutorial's declared audience level, and excludes the author and ideally the author's team.",
+        "evidence": "\"Pull one backend engineer who has **not** seen this tutorial and matches its audience (used the product, never done webhooks with it).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Specifies the audit deliverable as a table rather than prose.",
+        "evidence": "No table is presented as the cold-run findings/audit deliverable; the Track B table (\"# | Check | Why it matters | Action\") is a pre-run structural checklist, not the cold-run audit output.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Defines the table columns as step number, what breaks, the event kind, and the fix.",
+        "evidence": "The only table present uses columns \"# | Check | Why it matters | Action\", not step number/what breaks/event kind/fix.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names all four event kinds: defect, hidden prerequisite, concept gap, friction.",
+        "evidence": "\"Log every event as one of: **defect**... **hidden prerequisite**... **concept gap**... **friction**\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Orders the rows by how many learners each step blocks, not by page order.",
+        "evidence": "No findings table with rows ordered by blocking frequency exists anywhere in section 6.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels \"step 4 is probably where people get lost\" as a guess from reading rather than an observation.",
+        "evidence": "\"'Probably where people get lost' is a guess from reading, not an observation.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects \"add more explanation\" at step 4 as the fix, on the grounds that explanation is what blocks learning in a tutorial.",
+        "evidence": "The step 4 fix is to split into 4a/4b (\"content otherwise fine\"), but no statement explains rejecting \"more explanation\" on the grounds that explanation blocks learning.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats the screenshots and tone notes as cosmetics to confirm against observed hesitation rather than rewrite on assumption.",
+        "evidence": "\"Screenshots | Flagged... as a common false lead \u2014 neither test runner... hesitated for lack of one. Add them only if Track A's runner actually pauses looking for a visual reference.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that anything a runner \"figured out\" is logged as a defect, not a success.",
+        "evidence": "\"Anything they 'figured out' counts as a defect, not a win.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Specifies that the observer stays silent during the run and does not answer the runner's questions.",
+        "evidence": "\"They narrate; you stay silent and take notes \u2014 don't answer questions, that erases the data point.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sends the revision through one more cold run before publishing.",
+        "evidence": "Friday's plan is \"If Track A flagged a second blocked point, patch it. Ship.\" with no second cold-run verification pass before shipping.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends per-checkpoint instrumentation so the 11% figure localises to a step instead of a page.",
+        "evidence": "\"This alone turns '89% don't finish' into '62% drop between step 3 and step 4,' which is the number that would have skipped this whole discussion.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Declines to produce the revision plan from reading alone, and requires cold runs before any rewrite.",
+        "evidence": "The plan states: 'Timebox: one week, no user testing \u2014 working from traffic data (4,000 visits/mo) and a structured author read-through.' It produces the full revision plan from reading/analytics alone; cold runs are only proposed as a future addition ('Cheap substitute for user testing... next month's data'), not required before this rewrite.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Specifies runners who match the tutorial's declared audience level, and excludes the author and ideally the author's team.",
+        "evidence": "No runners or testers are specified anywhere in the plan; diagnosis is based on 'traffic data' and a 'structured author read-through' only.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Specifies the audit deliverable as a table rather than prose.",
+        "evidence": "The entire document is organized as prose headers and bullet lists (e.g. 'Diagnosis', '1. Step 4: Signature Verification'); no table appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Defines the table columns as step number, what breaks, the event kind, and the fix.",
+        "evidence": "No table exists in the transcript, so no such columns are defined.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names all four event kinds: defect, hidden prerequisite, concept gap, friction.",
+        "evidence": "None of these terms ('defect', 'hidden prerequisite', 'concept gap', 'friction') appear anywhere in the plan.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Orders the rows by how many learners each step blocks, not by page order.",
+        "evidence": "There are no rows/table; the closest analog is the 'Priority order' list, which is explicitly ranked by 'highest hypothesized impact' from the author's reading, not by a measured count of blocked learners.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels \"step 4 is probably where people get lost\" as a guess from reading rather than an observation.",
+        "evidence": "'Three independent signals point at Step 4 (signature verification) as the main leak... Treat this as a hypothesis, not a confirmed cause (see \"Cheap substitute for testing\" below to start closing that gap for next cycle).'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects \"add more explanation\" at step 4 as the fix, on the grounds that explanation is what blocks learning in a tutorial.",
+        "evidence": "The plan does the opposite: 'Missing \"why.\" Readers who don't understand *why* they're hashing a secret against a payload will copy-paste blind and give up at the first error. Add 2-3 sentences before the code: what a forged webhook looks like, why HMAC stops it.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats the screenshots and tone notes as cosmetics to confirm against observed hesitation rather than rewrite on assumption.",
+        "evidence": "Screenshots and tone changes are prescribed directly as fixes to implement (e.g. 'Minimum: one screenshot per major checkpoint...', 'Fix pattern: Before/After...') with no step calling for confirming them against observed reader hesitation before shipping.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that anything a runner \"figured out\" is logged as a defect, not a success.",
+        "evidence": "No runners or run sessions are part of this plan at all, so no such logging rule is stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Specifies that the observer stays silent during the run and does not answer the runner's questions.",
+        "evidence": "No observed run session, observer, or runner is described anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sends the revision through one more cold run before publishing.",
+        "evidence": "Day 5 is 'Final read-aloud QA + ship the thumbs-up/down widget if time allows' and the closing line pulls 'the completion-rate number 30 days post-publish' \u2014 no cold run is scheduled before publishing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends per-checkpoint instrumentation so the 11% figure localises to a step instead of a page.",
+        "evidence": "'If analytics allow it, add scroll-depth or per-heading tracking so next month's data shows *which* step readers stall on instead of inferring it from a read-through,' plus the per-step 'Was this step clear?' thumbs up/down widget 'gives step-level signal instead of only page-level.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

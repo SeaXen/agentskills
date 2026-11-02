@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects line-for-line transliteration as the definition of parity",
+        "evidence": "\"A transliteration fails idiomaticity even when the diff is clean.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the ranked sample principles in the order clarity, idiomaticity, consistency, simplicity, portability, maintainability, with the higher principle winning a collision",
+        "evidence": "\"clarity, idiomaticity, consistency, simplicity, portability, maintainability, and the higher principle wins.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that idiomaticity outranks consistency, so a transliterated sample fails even when it is byte-consistent with its siblings",
+        "evidence": "\"Idiomaticity outranks consistency.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Defines parity as an identical sample identifier, an identical scenario and step order, and an identical testing approach across languages",
+        "evidence": "\"the sample identifier, the scenario and step order, and the testing approach.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that everything else - variable names, helper structure, style - may legitimately differ between languages",
+        "evidence": "\"Variable names and helper structure are free to differ.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Computes parity coverage as tested cells divided by (scenarios multiplied by tier-1 languages)",
+        "evidence": "\"17 \u00f7 (6 scenarios \u00d7 4 languages) = 17/24\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Excludes Ruby from the denominator because it is a community language rather than tier 1",
+        "evidence": "\"Ruby: it sits outside the denominator. It is community, unowned.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports parity coverage of 17 divided by 24, approximately 71%",
+        "evidence": "\"= 70.8%\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Compares that figure against the 90% parity target and labels the target as a baseline this policy sets rather than a published industry standard",
+        "evidence": "\"The baseline gate is \u226590%... This is a skill baseline, not an industry standard.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Uses the matrix cell vocabulary T for tested, P for present but untested, M for missing and S for stale",
+        "evidence": "\"Mark each non-`T` cell as `P` or `M` (and `S` if stale).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reads the matrix by row and by column, stating that a sparse row is a scenario supported in only one language and a sparse column is a language tiered above what the team actually staffs",
+        "evidence": "Only the sparse column (Java) is discussed. Sparse rows are not.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends either funding Java properly or demoting it, rather than leaving the column sparse under a tier-1 commitment",
+        "evidence": "\"The skill says to fund it or demote it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that language tiers should be chosen from download or telemetry share and support-ticket volume rather than from team preference",
+        "evidence": "Q4 asks only whether Java usage is large enough. Download share and ticket volume are not named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the tiers to be published, including Ruby's community status and its untested label",
+        "evidence": "\"Label Ruby community, untested and unowned on the page.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects line-for-line transliteration as the definition of parity",
+        "evidence": "'keep your goal, but define parity structurally instead of line by line.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the ranked sample principles in the order clarity, idiomaticity, consistency, simplicity, portability, maintainability, with the higher principle winning a collision",
+        "evidence": "The six ranked principles are not named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that idiomaticity outranks consistency, so a transliterated sample fails even when it is byte-consistent with its siblings",
+        "evidence": "It argues literal translation is unidiomatic but states no ranking.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Defines parity as an identical sample identifier, an identical scenario and step order, and an identical testing approach across languages",
+        "evidence": "It specifies scenario names, step order and helper names, but nothing about a common testing approach.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that everything else - variable names, helper structure, style - may legitimately differ between languages",
+        "evidence": "It requires the same helper names and variable meanings, so it does not let style and helpers vary.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Computes parity coverage as tested cells divided by (scenarios multiplied by tier-1 languages)",
+        "evidence": "'Four committed languages times six scenarios gives 24 cells.' with '17/24 (71%)'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Excludes Ruby from the denominator because it is a community language rather than tier 1",
+        "evidence": "Ruby is listed as 'not committed' and left out of the 'Committed total'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports parity coverage of 17 divided by 24, approximately 71%",
+        "evidence": "'Committed total | 17/24 (71%)'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Compares that figure against the 90% parity target and labels the target as a baseline this policy sets rather than a published industry standard",
+        "evidence": "No 90% target appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Uses the matrix cell vocabulary T for tested, P for present but untested, M for missing and S for stale",
+        "evidence": "It uses 'exists, runs in CI, or is absent' instead.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reads the matrix by row and by column, stating that a sparse row is a scenario supported in only one language and a sparse column is a language tiered above what the team actually staffs",
+        "evidence": "No row and column interpretation is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends either funding Java properly or demoting it, rather than leaving the column sparse under a tier-1 commitment",
+        "evidence": "No demotion option is raised for Java.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that language tiers should be chosen from download or telemetry share and support-ticket volume rather than from team preference",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the tiers to be published, including Ruby's community status and its untested label",
+        "evidence": "It suggests labelling Ruby as community-maintained, but never requires publishing language tiers.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

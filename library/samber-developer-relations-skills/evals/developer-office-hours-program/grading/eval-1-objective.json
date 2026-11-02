@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the 15:00 Lisbon slot because it lands at 07:00 for US West users, outside their 09:00-18:00 working window",
+        "evidence": "\"15:00 Lisbon is 07:00 PT... a slot outside their 09:00-18:00 day.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Computes the Lisbon-to-US-East gap as 5 hours from Lisbon's own UTC offset rather than reusing the 6-hour Paris figure",
+        "evidence": "12:00 ET = 17:00 Lisbon, and \"15:00 Lisbon becomes 11:00 in New York\" in the offset weeks, which implies a 5-hour gap from Lisbon's own offset.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the US as the single largest region and anchors the slot in US Eastern time with both coasts inside 09:00-18:00, for example 12:00 ET / 09:00 PT",
+        "evidence": "\"Slot A: Wednesday 12:00 ET, which is 17:00 Lisbon. In the invite, anchor it to US Eastern time.\" 09:00 PT.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the anchored slot lands at 17:00 Lisbon, inside the hosts' working day, so no late day is needed",
+        "evidence": "\"Both US coasts and both hosts fit, with no late day for you.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes the chosen slot's local time for every region in the split: US East, US West, Europe and India",
+        "evidence": "Table covers US East 12:00, US West 09:00, Europe 17:00/18:00, India 21:30/22:30.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names India and the 6% elsewhere as the audience outside its working window at that slot and gives them the async intake as a named path rather than the recording alone",
+        "evidence": "\"India, the rest of the world and anyone who misses a session use the async intake... a pinned thread\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Publishes the slot in US Eastern with a calendar link, and gives a UTC time only next to a specific date",
+        "evidence": "\"Publish: 'Wednesdays 12:00 ET / 09:00 PT' plus a calendar link... Give UTC only next to a date.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the '15:00 Lisbon time / 14:00 UTC' wording as a slot anchored in host time",
+        "evidence": "\"'14:00 UTC' is wrong after 25 Oct 2026\"; \"Do not publish '17:00 Lisbon'\"; Lisbon-anchored label shifts.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the daylight-saving dates: EU on the last Sundays of March and October, US on the second Sunday of March and the first Sunday of November",
+        "evidence": "Only gives specific clock-change dates (25 Oct, 1 Nov, 17 and 24 Mar); never states the last-Sunday and second-Sunday/first-Sunday rules.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that between those dates the Europe-to-US gap shrinks by one hour for two to three weeks in spring and about a week in autumn",
+        "evidence": "Says only \"a few weeks a year\" and lists three affected Wednesdays; no one-hour spring/autumn durations.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Tells them to anchor the slot in the audience time zone and let the hosts' local time move",
+        "evidence": "\"Publish in the largest region's time zone... Clock-change weeks, where the Lisbon time moves, not the users' time.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses the alternate-week European slot now because Europe at 22% sits under the second-slot trigger of 25% of active users, and labels 25% as a baseline",
+        "evidence": "Notes \"Europe alone is 22%, under the 25% trigger\" but then proposes a conditional Slot B and never labels 25% as a baseline.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends one slot plus async intake as the default coverage pattern and states the efficiency ordering with it first",
+        "evidence": "No efficiency ordering appears; only a recommendation of Slot A plus async intake.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says to poll the audience before fixing the slot and to re-run the regional split after the pilot before adding any second slot",
+        "evidence": "Poll is recommended, but there is no explicit instruction to re-run the regional split after the pilot.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the 15:00 Lisbon slot because it lands at 07:00 for US West users, outside their 09:00-18:00 working window",
+        "evidence": "\"US West | ~31% | 07:00 (poor)\"; \"The 15:00 slot does not work for the US West\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Computes the Lisbon-to-US-East gap as 5 hours from Lisbon's own UTC offset rather than reusing the 6-hour Paris figure",
+        "evidence": "\"15:00 Lisbon is 10:00 New York (5 hours behind)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the US as the single largest region and anchors the slot in US Eastern time with both coasts inside 09:00-18:00, for example 12:00 ET / 09:00 PT",
+        "evidence": "Anchors on Lisbon: \"Publish one anchor: 'Wednesdays, 17:00 Lisbon time'\"; US times are only derived.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the anchored slot lands at 17:00 Lisbon, inside the hosts' working day, so no late day is needed",
+        "evidence": "Gives 17:00 Lisbon but never says it falls inside the hosts' working day.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes the chosen slot's local time for every region in the split: US East, US West, Europe and India",
+        "evidence": "Table: US East 12:00, US West 09:00, Europe 18:00 CET, India 21:30/22:30 IST",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names India and the 6% elsewhere as the audience outside its working window at that slot and gives them the async intake as a named path rather than the recording alone",
+        "evidence": "India is covered by a second live slot; there is no async intake path.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Publishes the slot in US Eastern with a calendar link, and gives a UTC time only next to a specific date",
+        "evidence": "Publishes \"Wednesdays 17:00 Lisbon time (12:00 New York / 09:00 San Francisco)\" and says \"No UTC figure.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the '15:00 Lisbon time / 14:00 UTC' wording as a slot anchored in host time",
+        "evidence": "Rejects it only as internally inconsistent across DST, then re-anchors in Lisbon time.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the daylight-saving dates: EU on the last Sundays of March and October, US on the second Sunday of March and the first Sunday of November",
+        "evidence": "Gives 25 Oct, 14 Mar and 28 Mar but omits the US November change.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that between those dates the Europe-to-US gap shrinks by one hour for two to three weeks in spring and about a week in autumn",
+        "evidence": "Lists affected Wednesdays but never states these durations.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Tells them to anchor the slot in the audience time zone and let the hosts' local time move",
+        "evidence": "Anchors in Lisbon host time: \"If you anchor on Lisbon time, US attendees see a one-hour shift\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses the alternate-week European slot now because Europe at 22% sits under the second-slot trigger of 25% of active users, and labels 25% as a baseline",
+        "evidence": "Defers the second slot for load reasons; no 25% trigger is mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends one slot plus async intake as the default coverage pattern and states the efficiency ordering with it first",
+        "evidence": "Recommends one slot first but no async intake and no efficiency ordering.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says to poll the audience before fixing the slot and to re-run the regional split after the pilot before adding any second slot",
+        "evidence": "Only suggests checking how the 63% is measured and a survey; no poll-before-slot or re-run-after-pilot rule.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

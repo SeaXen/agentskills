@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Flags the body text as Blocking: #777777 on white is about 4.48:1, below the 4.5:1 minimum of WCAG 2.2 SC 1.4.3, and states it is not rounded up to a pass",
+        "evidence": "\"#777777 on white, which is 4.48:1. The minimum is 4.5:1\" under Blocking.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not block the 28pt headings in the same grey, because large text (18pt, or 14pt bold) needs only 3:1, which 4.48:1 clears",
+        "evidence": "\"The 28pt grey headings need only 3:1, so they pass.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the red/green-only diff on slide 6 as Blocking under meaning carried by colour alone (WCAG 2.2 SC 1.4.1) and suggests a label, symbol or pattern in addition to colour",
+        "evidence": "Slide 6 Blocking; \"Add a `-` or `+`... or a 'Before' / 'After' label.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the strobing GIF on slide 9 as Blocking under the no-more-than-three-flashes-per-second rule (WCAG 2.2 SC 2.3.1)",
+        "evidence": "Slide 9: \"The limit is three flashes in any one second\" under Blocking.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies the 11pt whole-file code as a Change, not Blocking, states that no authoritative minimum font size exists, and prescribes the back-row or projector test plus showing only the lines discussed",
+        "evidence": "Only parked: \"Slides 11 to 13: 11pt code showing whole files.\" No classification or no-minimum statement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Classifies the QR-only link and the missing slide titles below Blocking, as Change or Optional items",
+        "evidence": "Listed as parked \"real but not in this email\", with the summary slide optional.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the round to three changes including the three Blocking items, and parks the font size, QR and title notes for review 2 or lists them under Optional, never as a fourth Change",
+        "evidence": "\"The cap is three changes per round, and the three blockers use all of it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Uses the written review template: Keep, Blocking, Change, Optional, with a header stating 20 minutes talk time, 5 minutes Q&A, review 1 of 2, and the abstract's promise",
+        "evidence": "Header present but no Keep, Change or Optional sections in the email.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not invent a Keep from the description; leaves the Keep slot for the reviewer to fill with a specific slide, or asks for the deck",
+        "evidence": "\"No 'Keep' line... any keep would be invented.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Carries the abstract's promise (migration path, three traps) into the review and asks whether the deck delivers the three traps rather than ignoring the abstract",
+        "evidence": "\"No comment on whether the deck delivers the abstract's promise.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not require a summary slide; treats it as Optional at most, since the talk is coached against its own promise and not a house style",
+        "evidence": "\"The summary slide would be an optional line or get dropped.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that Blocking notes go to Tomas first, and escalation to the program chair happens only if he declines or cannot fix them by 2 March, with Tomas told before any escalation",
+        "evidence": "No escalation path stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the next milestone with its date: review 2 of 2 before the 2 March slide deadline",
+        "evidence": "\"Around 9 Feb: review 2 of the deck.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Suggests moves Tomas makes himself (recolour, add markers, replace or slow the GIF) and never that the reviewer edits the deck",
+        "evidence": "\"Darken the body text... Replace the GIF... Add a - or +\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Flags the body text as Blocking: #777777 on white is about 4.48:1, below the 4.5:1 minimum of WCAG 2.2 SC 1.4.3, and states it is not rounded up to a pass",
+        "evidence": "'Must fix... fails WCAG AA for body-size text'; notes: 'computed #777777 on white at about 4.48:1'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not block the 28pt headings in the same grey, because large text (18pt, or 14pt bold) needs only 3:1, which 4.48:1 clears",
+        "evidence": "'At 28pt they pass the large-text threshold, but they should match.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the red/green-only diff on slide 6 as Blocking under meaning carried by colour alone (WCAG 2.2 SC 1.4.1) and suggests a label, symbol or pattern in addition to colour",
+        "evidence": "Must fix #3: 'Add a + or - at the start of each line.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the strobing GIF on slide 9 as Blocking under the no-more-than-three-flashes-per-second rule (WCAG 2.2 SC 2.3.1)",
+        "evidence": "Under 'Should fix', and it adds 'unlikely to be a seizure risk'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Classifies the 11pt whole-file code as a Change, not Blocking, states that no authoritative minimum font size exists, and prescribes the back-row or projector test plus showing only the lines discussed",
+        "evidence": "Under 'Must fix' with a prescribed 'Set the code at 24pt or larger'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Classifies the QR-only link and the missing slide titles below Blocking, as Change or Optional items",
+        "evidence": "Both are under 'Should fix' (#6, #7).",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the round to three changes including the three Blocking items, and parks the font size, QR and title notes for review 2 or lists them under Optional, never as a fourth Change",
+        "evidence": "Seven numbered items, four of them under Must fix.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Uses the written review template: Keep, Blocking, Change, Optional, with a header stating 20 minutes talk time, 5 minutes Q&A, review 1 of 2, and the abstract's promise",
+        "evidence": "Uses 'Must fix / Should fix / Timing / Abstract check'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not invent a Keep from the description; leaves the Keep slot for the reviewer to fill with a specific slide, or asks for the deck",
+        "evidence": "There is no Keep section.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Carries the abstract's promise (migration path, three traps) into the review and asks whether the deck delivers the three traps rather than ignoring the abstract",
+        "evidence": "'Abstract check... Name the three traps explicitly, so the audience can count them.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not require a summary slide; treats it as Optional at most, since the talk is coached against its own promise and not a house style",
+        "evidence": "Must fix #4: 'No closing summary. Add a final slide'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that Blocking notes go to Tomas first, and escalation to the program chair happens only if he declines or cannot fix them by 2 March, with Tomas told before any escalation",
+        "evidence": "No escalation path stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the next milestone with its date: review 2 of 2 before the 2 March slide deadline",
+        "evidence": "'send the revised deck for review 2' with no date; the notes say 'Add the review 2 date if you have one.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Suggests moves Tomas makes himself (recolour, add markers, replace or slow the GIF) and never that the reviewer edits the deck",
+        "evidence": "'Change body text to #333333', 'Add a + or -', 'Replace it with a static screenshot'.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

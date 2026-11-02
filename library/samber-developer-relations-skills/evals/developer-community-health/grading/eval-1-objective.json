@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Excludes bot accounts from the time-to-first-response metric and states that the 9-second median is an artifact of the welcome bot rather than human responsiveness",
+        "evidence": "\"Your 9-second response time is measuring the bot, not your community... A templated auto-reply that fires in every #help thread within 5 seconds is exactly the trap...\" and the sheet row \"First reply from a non-bot account, per thread | Discord export, bot IDs excluded\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Defines time to first response as the time until the first response from a human, with bots filtered at query time",
+        "evidence": "\"Median time to first human response in #help | Responsiveness | First reply from a non-bot account, per thread | Discord export, bot IDs excluded\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends keeping an explicit bot list or bot account flag used when querying",
+        "evidence": "\"Build a bot-exclusion ID list and re-pull #help response times against it\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the 24-hour response time, the 20% monthly active ratio and the 30% staff-share figures explicitly as unsourced folklore rather than industry standards",
+        "evidence": "\"All four \u2014 24h response, 20% monthly-active ratio, 30% staff-share, and (implicitly) 40% 7-day retention \u2014 are the exact set of numbers that circulate in community-management content with no published source behind them.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that those folklore figures may be quoted only as starting hypotheses and must be replaced by Tessellate's own trailing median after at least three periods",
+        "evidence": "\"Treat the four numbers you were handed as unsourced hypotheses to test against\" and \"Re-derive real thresholds from this community's own trailing median starting with the 3rd monthly read\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to use total member count (4,213, or the growth from 3,050) as a headline health metric and explains that total membership only ever goes up",
+        "evidence": "\"Member count is 4,213 (Jan: 3,050, +38%) \u2014 reported here for context only, per the skill's own warning that member count 'only ever goes up and says nothing about health'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Proposes active participants, defined as distinct non-bot people posting in the period, in place of total membership",
+        "evidence": "\"Active participants / month | Activity | Distinct non-bot accounts posting or reacting, per month\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Limits the metric sheet to at most 8 metrics",
+        "evidence": "\"7 metrics, all 4 pillars covered, under the 8-metric ceiling.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Covers all four pillars - responsiveness, contributor funnel, activity and sentiment - with at least one metric each",
+        "evidence": "Sheet includes responsiveness (time-to-first-response, zero-reply rate), activity (active participants, non-staff share), contributor funnel (absence factor, second-contribution rate), sentiment (recommendability)",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes each metric's formula beside its name in the sheet itself",
+        "evidence": "Each row has a 'Definition / formula' column, e.g. \"Smallest number of people producing 50% of commits\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Attaches a named owner and a named action to every threshold breach",
+        "evidence": "Every row has 'Owner' and 'Action if breached' columns filled, e.g. \"Community lead | Recruit answerers in the timezone gap...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the origin of every number in the sheet as published and attributable, a self-set working convention, or unsourced folklore",
+        "evidence": "The contributor absence factor row's threshold reads only \"1 = single point of failure | Maintainer lead\" with no origin label (unlike other rows which say \"folklore, unsourced\" or \"self-set\"), and the active participants row (\"< prior 3-month trailing median once it exists\") also carries no explicit origin tag.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Excludes bot accounts from the time-to-first-response metric and states that the 9-second median is an artifact of the welcome bot rather than human responsiveness",
+        "evidence": "\"The '9-second median first response' is almost certainly measuring your welcome bot's auto-ack, not a human helping anyone... a 9-second median first-response time is exactly what you'd expect from that bot alone\"; code filters `if (msg.author.bot) { botMessages++; continue; }` before tracking `firstHumanReplyAt`.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Defines time to first response as the time until the first response from a human, with bots filtered at query time",
+        "evidence": "Table row: \"Time to first human response | Timestamp of first non-bot reply \u2212 thread creation | Unmeasured. This is the real <24h metric\"; script computes `firstHumanReplyDeltas` only from non-bot messages.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends keeping an explicit bot list or bot account flag used when querying",
+        "evidence": "Section 4 specifies logging every message with an `is_bot` field, and the sample script queries `msg.author.bot` and filters `members.filter(m => !m.user.bot)` when computing counts.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the 24-hour response time, the 20% monthly active ratio and the 30% staff-share figures explicitly as unsourced folklore rather than industry standards",
+        "evidence": "The benchmarks are treated as given targets from leadership (\"the three benchmarks leadership actually asked about\") throughout the scorecard and template; no language anywhere calls them 'folklore' or unsourced, nor questions their provenance.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that those folklore figures may be quoted only as starting hypotheses and must be replaced by Tessellate's own trailing median after at least three periods",
+        "evidence": "No mention of replacing the 24h/20%/30% figures with a self-derived trailing median or any 'after N periods' provision anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to use total member count (4,213, or the growth from 3,050) as a headline health metric and explains that total membership only ever goes up",
+        "evidence": "Member growth is downgraded to \"context, not a pass/fail benchmark\" and flagged as top-of-funnel only, but it still appears as a row ('Total members | 4,213 | ... | \ud83d\udfe2 growth') in the monthly reporting template in \u00a75, and the transcript never explains that total membership is a monotonically increasing/never-decreasing count.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Proposes active participants, defined as distinct non-bot people posting in the period, in place of total membership",
+        "evidence": "\"MAU ratio = unique human accounts who sent \u22651 message in the last 30 days / total members\" with explicit instruction to \"Exclude bots from both sides of the ratio\", presented as the metric that should stand in for headline health where growth alone 'says nothing about whether those 4,213 people are active or helped'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Limits the metric sheet to at most 8 metrics",
+        "evidence": "The \u00a75 template table has exactly 8 metric rows: Total members, MAU ratio, Time to first human response, Time to resolution, Staff+bot share, Human-staff-only share, Threads with zero human reply, New members who post within 7 days.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Covers all four pillars - responsiveness, contributor funnel, activity and sentiment - with at least one metric each",
+        "evidence": "The template covers responsiveness (time to first human response, time to resolution), activity (MAU ratio), and a funnel-ish signal (\"New members who post within 7 days\"), but no sentiment metric (e.g. satisfaction, reactions, CSAT) appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes each metric's formula beside its name in the sheet itself",
+        "evidence": "Only one row in the \u00a75 sheet includes a formula next to its name (\"MAU ratio (unique human senders / members)\"); the other rows (e.g. \"Staff+bot share of #help messages\", \"Time to first human response (median)\") give no inline formula, with formulas instead scattered in prose/code in earlier sections.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Attaches a named owner and a named action to every threshold breach",
+        "evidence": "The closing \"Priority order for next 30 days\" lists three actions (split tracking, ship logging, decide bot policy) but assigns no named individual/owner to any of them or to any row in the scorecard.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels the origin of every number in the sheet as published and attributable, a self-set working convention, or unsourced folklore",
+        "evidence": "No provenance labeling scheme is used anywhere in the transcript; numbers and targets are presented without any tagging of their source category.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

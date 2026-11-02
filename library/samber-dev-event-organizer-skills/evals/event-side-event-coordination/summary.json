@@ -1,0 +1,458 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-side-event-coordination",
+  "scenarios": 10,
+  "expectations_total": 117,
+  "expectations_subjective": 1,
+  "expectations_objective": 116,
+  "pass_rate_with_skill_pct": 76.1,
+  "pass_rate_without_skill_pct": 35.9,
+  "delta_pp": 40.2,
+  "uplift_multiplier": 2.12,
+  "trigger_accuracy_pct": 62.3,
+  "trigger_queries": 106,
+  "trigger_positive_fire_rate": 0.66,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Declines to produce the application form or the criteria set as this situation's deliverable"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States no monetary figure anywhere in the answer"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Lists the specific words that are out, such as \"official\" and \"part of\", rather than describing a spirit to follow"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Explains that a bare factual reference leaves a reader concluding a connection that is wrong, with nothing on the page to correct them"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Records the decision and the criterion behind it whether the answer is yes or no"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that the published grid was laid against constraints this decision does not outrank"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that a stale calendar is worse than no calendar because it sends people to an event that moved or was cancelled"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Explains that a window statement prevents a collision while a calendar only records one"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Does not promise that the six fringe organizers will move, and notes the window statement addresses organizers rather than attendees"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Publishes the posture rather than leaving it unstated"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that the exclusivity clauses live in the signed sponsor agreement and must be checked before approving, not just before publishing"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that a list published without that framing is worse than publishing no list at all"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes that an open list with no gate is a worse trade than a vetted application despite costing less, because it hands the organizer an endorsement never examined"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Presents the page and the posture for validation before publication, noting that publication is the point of no return"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Deconflicts the Thursday evening slot against the published grid's own protected hours"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends an open self-registration listing over a vetted application process, and ties that choice to Joris being unable to refuse a request without it being personal"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that a gate that never says no is a worse arrangement than an open list carrying a non-endorsement line"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Does not propose a review committee, a scoring rubric or extra reviewers as the fix for Joris"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends a shared public calendar only because both a named maintainer (Anouk) and enough satellites exist, not because either alone is satisfied"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the liability position is deliberately not ranked against effort or value"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Records the posture and its reason so the next edition starts from a decided rule rather than an argument"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names personal data collected by the satellite organizer and routes it to whoever holds the organization's privacy obligations"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that the liability position is deliberately not ranked"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Offers to carry a chosen category as a scored risk-register row, separately from any disclaimer wording"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Records the decision and the criterion behind it"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that each added field costs submissions, and that what is lost is how many satellites the organizer learns about at all"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that the criteria are published while individual decisions and refusals are not"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Keeps the refusal in the internal decision record alongside approvals"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Recommends approving nothing, listing nothing and saying nothing as the posture, instead of delivering the requested form and criteria set"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names the fact that nobody has asked yet as the reason that posture wins"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Declines to produce the application form or the criteria set as this situation's deliverable"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States the absence of a posture should itself be published rather than left silent"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Rules out the printed fringe guide and ties the reason to the organizer's own stated constraints"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Rules out any signed partnership agreement because no legal entity exists that could be a counterparty"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Declines to set protected windows because the schedule is not published yet"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names the specific conditions that would change the recommendation, including a request actually arriving or a third party using the event's name in published materials"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Labels any threshold it does give as one the organizer sets rather than an industry benchmark"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Removes doing nothing from the available options because the event's name is already in published third-party use"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names no legal instrument as the recommended action"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States no legal threshold and no jurisdiction-specific rule, and says the specific rule is jurisdiction-specific"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that granting any licence to use the name is the foundation's to make rather than the organizing team's"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names apparent endorsement as a separate exposure that listing or promoting the party would create"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "That sentence names who runs the party and states that the summit does not"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "That sentence sends complaints to the party organizer's own contact rather than to the summit"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes that disclaimer wording is contested rather than a reliable cure for reader confusion"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Lists the specific words that are out, such as \"official\" and \"part of\", rather than describing a spirit to follow"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Confirms that stating the dates, the city, or that the meetup runs during the conference is factual and allowed"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Explains that a bare factual reference leaves a reader concluding a connection that is wrong, with nothing on the page to correct them"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "That sentence names who is responsible for the meetup and states who is not"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Records the decision and the criterion behind it whether the answer is yes or no"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends publishing protected windows as the deconfliction depth"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Rules out a shared public calendar because nobody is available to keep it current through the week"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Rules out an actively deconflicted fringe guide for the same maintenance reason"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that a stale calendar is worse than no calendar because it sends people to an event that moved or was cancelled"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Explains that a window statement prevents a collision while a calendar only records one"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Does not promise that the six fringe organizers will move, and notes the window statement addresses organizers rather than attendees"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Publishes the posture rather than leaving it unstated"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Labels the choice of protected hours as one the organizer sets rather than a benchmark"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names collisions against the protected windows as something to record after the edition"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Supplies framing that asks attendees to support these independently-run events, rather than presenting them as programme"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that a list published without that framing is worse than publishing no list at all"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes that an open list with no gate is a worse trade than a vetted application despite costing less, because it hands the organizer an endorsement never examined"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names apparent endorsement as an exposure the page creates and routes it to counsel"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Presents the page and the posture for validation before publication, noting that publication is the point of no return"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Applies the same criteria set and approval decision to the paid slot as to any unpaid satellite"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Gives the reason: the organizer wants this event read as connected, which is what breaks the usual case against granting a licence"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States what withdrawal means in practice, including that materials already printed are the sponsor's problem"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Imposes adoption of a code of conduct and a named contact as a condition"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Deconflicts the Thursday evening slot against the published grid's own protected hours"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends an open self-registration listing over a vetted application process, and ties that choice to Joris being unable to refuse a request without it being personal"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that a gate that never says no is a worse arrangement than an open list carrying a non-endorsement line"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Does not propose a review committee, a scoring rubric or extra reviewers as the fix for Joris"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires a non-endorsement line on the listing"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Uses support framing rather than presenting the listed events as programme"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends a shared public calendar only because both a named maintainer (Anouk) and enough satellites exist, not because either alone is satisfied"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Still sets a naming rung and supplies the exact sentence satellite organizers must carry"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Still names the liability exposure categories and routes each one"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the liability position is deliberately not ranked against effort or value"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Records the posture and its reason so the next edition starts from a decided rule rather than an argument"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Declines to state whether the organizer is liable"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States no monetary figure for insurance cover or for anything else"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names no legal instrument as the answer"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States no Irish or other jurisdiction-specific rule, threshold or statute"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States explicitly that the specific rule is jurisdiction-specific"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names the exposure categories at stake instead of answering the question asked"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Routes what happens to a person at a third party's venue to counsel"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Routes alcohol served by somebody else to counsel"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names personal data collected by the satellite organizer and routes it to whoever holds the organization's privacy obligations"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that the liability position is deliberately not ranked"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Offers to carry a chosen category as a scored risk-register row, separately from any disclaimer wording"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that the promotion swap involves no hosting and no approval by either side, and routes it away from the satellite approval machinery"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Checks the workshop's timing against the published grid's protected hours"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Imposes code-of-conduct adoption and a named on-the-day contact on the workshop only"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Asks Tilda to separate exactly what she is requesting: a listing, a mention, permission to use the name, floor space, or nothing"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States no monetary figure and names no legal instrument"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Records the decision and the criterion behind it"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that each added field costs submissions, and that what is lost is how many satellites the organizer learns about at all"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Keeps a named human plus a way to reach them during the event, and rejects a brand or shared alias in that field"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Adds what the applicant intends to call the event and every place the event's name or logo would appear"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Adds what the applicant is actually asking for, separated into listing, mention, permission to use the name, floor space, or nothing"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Adds one-line accessibility and alcohol answers"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that the criteria are published while individual decisions and refusals are not"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Keeps the refusal in the internal decision record alongside approvals"
+      }
+    ]
+  }
+}

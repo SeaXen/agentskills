@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Produces a verdict line stating whether the story is publishable, and in what form, before any draft prose appears.",
+        "evidence": "'## 1. Verdict line \u2014 **Qualifies, but not yet publishable as a full case study.**' appears first, before '## 3. The draft'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Produces the evidence ledger before the draft, not after it.",
+        "evidence": "'## 2. Evidence ledger' precedes '## 3. The draft' in document order.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The ledger carries one row per claim the study will make.",
+        "evidence": "Table rows cover pipeline move, p95 latency, on-call load, telemetry, screenshot, alternatives, migration effort, and sign-off \u2014 one row per claim/gap.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Each ledger row states the claim, its evidence class, the instrument behind it, the measurement window, and who can re-derive it.",
+        "evidence": "Table header: 'Claim | Class | Instrument | Window | Who can re-derive it' with all cells filled.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies the p95 dispatch latency change (8.4 minutes to 95 seconds) as measured, naming the Grafana board as the instrument and the four weeks either side of cutover as the window.",
+        "evidence": "'p95 dispatch latency: 8.4 min \u2192 95 sec | **Measured** | Kestrel's Grafana dispatch-latency board | 4 weeks before cutover vs. 4 weeks after'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies the halved on-call load as reported rather than measured, and attributes it to the team (for example 'the team estimates') instead of stating it flatly.",
+        "evidence": "'On-call load down \"about half\" | Reported (engineer's estimate, self-flagged as untracked)'; draft says 'Okafor estimates on-call load has roughly halved'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Delivers the parts in the order verdict, evidence ledger, draft, approval package, gate report, derivatives.",
+        "evidence": "Headings run 1. Verdict line, 2. Evidence ledger, 3. The draft, 4. Approval package, 5. Gate report, 6. Derivatives.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not treat the approval package as optional or as something handled after publication.",
+        "evidence": "Approval package framed as required before shipping, with a deadline default: 'If we don't hear back by <date>, we publish the shorter version.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The draft spine includes a section on alternatives weighed and rejected, a results section carrying measurement method, and a limitations section, rather than only challenge, solution and results.",
+        "evidence": "Sections '4. Why this technology', '6. Results' (with instrument/window), and '7. What it cost and what is unsolved' are all present.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags that no alternatives-considered material exists in the supplied evidence and names it as something to go back to Dana for, rather than inventing rejected options.",
+        "evidence": "'[MISSING \u2014 nothing in hand states what else Kestrel evaluated... Ask Dana rung 5 directly...]'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Uses quotes only as verbatim material attributable to the recording, and invents no quote.",
+        "evidence": "'[QUOTE PENDING \u2014 no verbatim line has reached me... an invented one is a fabricated quote.]'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Produces a verdict line stating whether the story is publishable, and in what form, before any draft prose appears.",
+        "evidence": "The transcript opens directly with the title 'Kestrel Freight cuts p95 dispatch latency...' and a Snapshot section \u2014 no verdict line precedes the draft.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces the evidence ledger before the draft, not after it.",
+        "evidence": "No evidence ledger appears anywhere in the transcript, before or after the draft.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The ledger carries one row per claim the study will make.",
+        "evidence": "No ledger exists in the transcript at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Each ledger row states the claim, its evidence class, the instrument behind it, the measurement window, and who can re-derive it.",
+        "evidence": "No ledger of any kind is present.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Classifies the p95 dispatch latency change (8.4 minutes to 95 seconds) as measured, naming the Grafana board as the instrument and the four weeks either side of cutover as the window.",
+        "evidence": "\"Kestrel Freight tracks dispatch latency on a Grafana board. Comparing the four weeks before cutover to the four weeks after: p95 dispatch latency: 8.4 minutes \u2192 95 seconds\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies the halved on-call load as reported rather than measured, and attributes it to the team (for example 'the team estimates') instead of stating it flatly.",
+        "evidence": "\"Dana Okafor...also described a drop in on-call load since the cutover \u2014 by her estimate, roughly half. Kestrel Freight hasn't instrumented on-call volume, so this is Dana's read from living with the system day to day, not a measured figure.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Delivers the parts in the order verdict, evidence ledger, draft, approval package, gate report, derivatives.",
+        "evidence": "The transcript contains only a draft plus a short closing checklist; there is no verdict, ledger, gate report, or derivatives section in any order.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not treat the approval package as optional or as something handled after publication.",
+        "evidence": "\"Before this goes on the blog, three things to close out: ... Customer sign-off. Standard practice before publishing any case study naming a customer...: confirm Kestrel Freight...has approved this text, the numbers, and the use of the Grafana screenshot.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The draft spine includes a section on alternatives weighed and rejected, a results section carrying measurement method, and a limitations section, rather than only challenge, solution and results.",
+        "evidence": "The draft's sections are Snapshot, 'The problem', 'The change', 'The result', 'Why it worked' \u2014 no alternatives-weighed or limitations section appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags that no alternatives-considered material exists in the supplied evidence and names it as something to go back to Dana for, rather than inventing rejected options.",
+        "evidence": "Nothing in the transcript mentions alternatives considered or flags this as missing evidence to seek from Dana.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Uses quotes only as verbatim material attributable to the recording, and invents no quote.",
+        "evidence": "\"[Insert a direct quote from Dana here \u2014 pull it from the call recording rather than paraphrasing it as a quote. Nothing in the brief for this post included exact wording, so nothing here is presented as verbatim.]\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

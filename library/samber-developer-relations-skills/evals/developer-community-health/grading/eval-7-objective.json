@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Recommends against the community data platform because Fernwood has no budget and no named owner for the pipeline",
+        "evidence": "The transcript states the owner condition IS met: \"a named pipeline owner (yes, you)\" \u2014 the reasons given against buying are budget and unexhausted free rungs, not lack of an owner",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes the community-data-platform rung from the plan entirely rather than listing it as future work, and explains that a parked rung comes back as scope at the next review",
+        "evidence": "The transcript instead keeps a conditional revisit path: \"When to actually revisit this: after 2\u20133 quarters of manual tracking, if a specific decision keeps stalling... or budget appears from elsewhere\" \u2014 this parks it as future work rather than deleting it",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that Fernwood has no forge or git rung available because there is no public repository, which makes the venue analytics panel the primary source",
+        "evidence": "\"CHAOSS definition; the repo script doesn't apply \u2014 no git history here, compute by hand from the ranking\" with all sources being Discord Server Insights / Discourse Admin",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Promotes the activity pillar because a chat-only community has no cheap responsiveness pull from a forge",
+        "evidence": "Fernwood is not chat-only (it has Discourse), and the sheet includes a cheap responsiveness metric via Discourse: \"Zero-reply rate, forum (7-day window)... Discourse Admin topic list, sort by reply count (built-in, no plugin needed)\" \u2014 no stated reasoning promoting activity due to forge absence",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the Discourse free tier's 90-day retention limit as a hard constraint on what can be computed for past periods",
+        "evidence": "\"it's the 90-day Discourse window. That's a real, board-relevant risk ('Retention windows' trap: rented venues cap history, and backfill is often impossible)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires snapshotting the numbers monthly into Fernwood's own store starting immediately, and states that backfill beyond the retention window is often impossible",
+        "evidence": "\"a recurring calendar reminder to export Discourse's admin CSVs monthly into your own spreadsheet, forever, starting this month\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not propose metrics requiring forge API data such as change request closure ratio, time to merge, release frequency or commit-based contributor counts",
+        "evidence": "No such forge-based metrics appear anywhere in the sheet; all sources are Discord/Discourse",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a hand-maintained identity mapping across Discord and Discourse handles rather than buying tooling for it",
+        "evidence": "\"Cross-platform identity for ~150\u2013200 people is a spreadsheet with two columns (Discord handle, Discourse handle), not a $10.8k/yr pipeline.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a staff or employee account flag so non-staff share of activity can be computed",
+        "evidence": "The metric uses \"messages not written by you \u00f7 total\" (single-person framing), with no explicit staff/employee account flag list mentioned anywhere",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends checking the venues' terms before bulk-exporting message content",
+        "evidence": "No mention of checking Discord or Discourse terms of service before bulk export appears anywhere in this section",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Recommends against the community data platform because Fernwood has no budget and no named owner for the pipeline",
+        "evidence": "The transcript states \"Zero budget = hard no already\" but never mentions 'Fernwood' or a lack of a named owner for the pipeline; the closest is '1,800 members, one product, one operator' which is not framed as a pipeline-ownership gap.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes the community-data-platform rung from the plan entirely rather than listing it as future work, and explains that a parked rung comes back as scope at the next review",
+        "evidence": "The transcript does the opposite \u2014 it lists explicit future conditions under 'Revisit vendor decision when any true:' (e.g. 'Community goes from support-cost-center to growth-lever...', 'You get either real budget or part-time help...'), i.e. it parks the decision as future work rather than deleting it, and there is no 'rung'/plan terminology or explanation of it returning as scope at next review.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that Fernwood has no forge or git rung available because there is no public repository, which makes the venue analytics panel the primary source",
+        "evidence": "No mention of 'Fernwood', 'forge', 'git', or 'public repository' anywhere in the transcript; the discussion is limited to Discord and Discourse.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Promotes the activity pillar because a chat-only community has no cheap responsiveness pull from a forge",
+        "evidence": "The transcript never uses 'activity pillar' or 'responsiveness pull from a forge' framing; its metrics (support response time, % unanswered after 48h) are not tied to any such pillar/forge reasoning.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the Discourse free tier's 90-day retention limit as a hard constraint on what can be computed for past periods",
+        "evidence": "\"Discourse free tier hold 90 days history. Cohort retention need long window to mean anything. Tool's core promise broken by your own stack before it start.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires snapshotting the numbers monthly into Fernwood's own store starting immediately, and states that backfill beyond the retention window is often impossible",
+        "evidence": "The transcript does recommend monthly logging ('Once monthly (~30 min): log 5 numbers in spreadsheet' and 'turn on Discord Server Insights and Discourse admin reports today') but never states that backfill beyond the retention window is often impossible, and never mentions 'Fernwood'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not propose metrics requiring forge API data such as change request closure ratio, time to merge, release frequency or commit-based contributor counts",
+        "evidence": "The proposed metrics are limited to 'New members that month', '% active in first 7 days', 'Support response time median', '% questions unanswered after 48h', and 'Top 10 helpers by name' \u2014 none require forge/git API data.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a hand-maintained identity mapping across Discord and Discourse handles rather than buying tooling for it",
+        "evidence": "\"If Discord member ask to link forum + Discord identity themselves (pinned post, self-report), that's free version of vendor's core feature \u2014 good enough at this scale.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a staff or employee account flag so non-staff share of activity can be computed",
+        "evidence": "No mention of staff/employee flags or non-staff activity share anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends checking the venues' terms before bulk-exporting message content",
+        "evidence": "No mention of checking terms of service or bulk-exporting message content anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

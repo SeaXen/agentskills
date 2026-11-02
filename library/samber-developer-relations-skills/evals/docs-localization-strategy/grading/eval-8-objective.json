@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that gettext PO workflows are out of the script's scope and uses the PO files' fuzzy and untranslated counts as the freshness measure instead",
+        "evidence": "\"The script's docstring puts gettext out of scope\"; fuzzy and untranslated counts used",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that the per-file source-commit pin and the drift script apply to mirrored file trees, which this layout is not",
+        "evidence": "\"per-file pin only apply to mirrored file trees\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that translations kept in a separate repository fall outside the script regardless, because source and translations must share one git repository with full history",
+        "evidence": "\"translations kept in a separate repository fall outside the script\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says to pin the same way (a source commit hash) and diff against the source repository's history when translations live in a separate repo",
+        "evidence": "It switches to a string-level report and never recommends commit-hash pinning for the separate repo.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags that a changed .. include:: snippet changes every page that renders it, so those shared sources must be pinned and checked too",
+        "evidence": "\"any change to the snippet turns those strings fuzzy... in every affected page\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that the script does not track includes, partials or generated content even where it does apply",
+        "evidence": "\"The script doesn't track includes.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not give a --locale ja=locale/ja/LC_MESSAGES invocation as the wiring",
+        "evidence": "The script is explicitly not wired in.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Still requires a written freshness target and a retirement threshold expressed in PO terms (such as a share of fuzzy or untranslated strings)",
+        "evidence": "Gives an 80% target but no retirement threshold in PO terms; the retirement threshold is only noted as not enforced.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that untranslated gettext strings fall back to English, so a partial translation can publish, and that the outdated label and fallback rules still apply",
+        "evidence": "Only notes that banners and fallback are not covered; no explanation of English fallback for untranslated strings.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites the Python documentation precedent: gettext fuzzy marking with English fallback, and a required content set translated before the language switcher appears",
+        "evidence": "Not cited.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the rule that file modification dates are never compared",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Maps the script's current, behind and far statuses to the PO workflow's clean, fuzzy and untranslated counts rather than dropping the status model",
+        "evidence": "Only maps current and behind; far is dropped.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that gettext PO workflows are out of the script's scope and uses the PO files' fuzzy and untranslated counts as the freshness measure instead",
+        "evidence": "\"Count the entries that are untranslated, fuzzy, or obsolete\"; says script is not available.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that the per-file source-commit pin and the drift script apply to mirrored file trees, which this layout is not",
+        "evidence": "Not explained.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that translations kept in a separate repository fall outside the script regardless, because source and translations must share one git repository with full history",
+        "evidence": "Handles second checkout but not this point.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says to pin the same way (a source commit hash) and diff against the source repository's history when translations live in a separate repo",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags that a changed .. include:: snippet changes every page that renders it, so those shared sources must be pinned and checked too",
+        "evidence": "\"A single untranslated snippet string makes every including page look behind.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that the script does not track includes, partials or generated content even where it does apply",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not give a --locale ja=locale/ja/LC_MESSAGES invocation as the wiring",
+        "evidence": "Provides its own script and an unrelated invocation.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Still requires a written freshness target and a retirement threshold expressed in PO terms (such as a share of fuzzy or untranslated strings)",
+        "evidence": "Report-only; \"Fail only if you later add an explicit threshold.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that untranslated gettext strings fall back to English, so a partial translation can publish, and that the outdated label and fallback rules still apply",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites the Python documentation precedent: gettext fuzzy marking with English fallback, and a required content set translated before the language switcher appears",
+        "evidence": "Not cited.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the rule that file modification dates are never compared",
+        "evidence": "Says \"Compare against the POT, not git history\" but no rule on dates.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Maps the script's current, behind and far statuses to the PO workflow's clean, fuzzy and untranslated counts rather than dropping the status model",
+        "evidence": "No status mapping.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

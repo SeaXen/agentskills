@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Treats artifact and connector hubs as a family distinct from editor and plugin marketplaces, because the host is a data or infrastructure platform and the reviewer is the platform vendor.",
+        "evidence": "The transcript names 'artifact/connector hubs' as the shared family for the two proposals but never contrasts this against editor/plugin marketplace families based on host type.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that inclusion is usually a pull request against the vendor's index repository, or a naming convention its crawler matches, rather than a store upload.",
+        "evidence": "'Terraform Registry listings are naming-convention-gated (`terraform-<PROVIDER>-<NAME>`, public repo, semver tags)' describes crawler-matched inclusion rather than a store upload.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that the evaluator sees a support tier next to the entry, which no editor store shows.",
+        "evidence": "'Confirm which support tier a community-submitted connector lands in and what label it carries.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that a community-built connector lands in a marketplace tier labelled as not maintained by the vendor with no support SLA, and that the label is part of what the evaluator reads.",
+        "evidence": "'a listing marked \"not officially supported\" in front of the exact enterprise buyer you want is worse than no listing.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags that entering a hub whose support tier advertises the project as unsupported works against a company-adoption goal.",
+        "evidence": "\"a listing marked 'not officially supported' in front of the exact enterprise buyer you want is worse than no listing if you haven't set expectations with partnerships first.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the Terraform Registry requires a public repository named terraform-<PROVIDER>-<NAME> with a standard module structure and semver tags.",
+        "evidence": "'Terraform Registry listings are naming-convention-gated (`terraform-<PROVIDER>-<NAME>`, public repo, semver tags).'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that the repository description becomes the module's short description on the Terraform Registry.",
+        "evidence": "No such statement about the repository description appears in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that renaming the repository after listing silently breaks a naming-convention hub.",
+        "evidence": "'Renaming it later silently breaks the listing.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the comparison between the model hub's download number and the npm download number.",
+        "evidence": "'14k Hugging Face downloads vs. npm downloads: stop comparing them, they're not the same unit.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that the model hub counts every GET or HEAD on a per-library set of query files, so a clone inflates the number while a cached run does not appear at all.",
+        "evidence": "Only over-counting via clone/CI/mirror is explained; no scenario of a cached run failing to register is discussed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that deduplicated request-level data is a paid publisher-analytics feature on that hub.",
+        "evidence": "'Deduplicated request-level counts exist only as a paid publisher-analytics feature on that hub.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the recurring cost as a per-release compatibility tax against the host's version, with harmful decay when the host moves.",
+        "evidence": "No explicit 'per-release compatibility tax against host version, harmful decay' framing appears for the connector hub or Terraform module.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Runs the adoption test on each proposed hub entry: recurring cost, decay behaviour, observable signal, kill date.",
+        "evidence": "T1 (marketplace) gets a signal and kill/promote date but no explicit recurring-cost or decay-behaviour statement tied specifically to it.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Treats artifact and connector hubs as a family distinct from editor and plugin marketplaces, because the host is a data or infrastructure platform and the reviewer is the platform vendor.",
+        "evidence": "No comparison to editor/plugin marketplaces exists anywhere in this transcript to establish such a distinction.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that inclusion is usually a pull request against the vendor's index repository, or a naming convention its crawler matches, rather than a store upload.",
+        "evidence": "The vendor marketplace section instead describes a heavier process: 'security review, technical certification against their SDK, and... an ongoing maintenance SLA' \u2014 not a PR/naming-convention mechanism.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that the evaluator sees a support tier next to the entry, which no editor store shows.",
+        "evidence": "Not mentioned anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that a community-built connector lands in a marketplace tier labelled as not maintained by the vendor with no support SLA, and that the label is part of what the evaluator reads.",
+        "evidence": "Not discussed; the transcript talks about certification/SLA ownership but not a 'community tier' label evaluators read.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags that entering a hub whose support tier advertises the project as unsupported works against a company-adoption goal.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the Terraform Registry requires a public repository named terraform-<PROVIDER>-<NAME> with a standard module structure and semver tags.",
+        "evidence": "Naming ('terraform-<PROVIDER>-<NAME>') and structure ('main.tf, variables.tf, outputs.tf, examples/') are given, but semver tags are never mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that the repository description becomes the module's short description on the Terraform Registry.",
+        "evidence": "Not mentioned anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that renaming the repository after listing silently breaks a naming-convention hub.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the comparison between the model hub's download number and the npm download number.",
+        "evidence": "'Stop comparing model-hub downloads to npm downloads \u2014 the numbers aren't measuring the same thing.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that the model hub counts every GET or HEAD on a per-library set of query files, so a clone inflates the number while a cached run does not appear at all.",
+        "evidence": "The transcript's mechanism is different: 'inflated heavily by CI pipelines re-fetching the model on every test run, inference-serving cold starts re-pulling... and mirror/scanner bots' \u2014 not the GET/HEAD-on-query-files mechanism.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that deduplicated request-level data is a paid publisher-analytics feature on that hub.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the recurring cost as a per-release compatibility tax against the host's version, with harmful decay when the host moves.",
+        "evidence": "'an ongoing maintenance SLA tied to their platform's own API changes. Someone has to own re-certification every time the vendor ships a breaking change.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Runs the adoption test on each proposed hub entry: recurring cost, decay behaviour, observable signal, kill date.",
+        "evidence": "No four-part structured test is applied to the marketplace or Terraform entries.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

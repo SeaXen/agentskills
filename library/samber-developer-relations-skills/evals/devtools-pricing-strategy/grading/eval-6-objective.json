@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Offers both cap styles rather than mandating one: a hard cap where the service pauses, and a soft cap where service continues and an alert fires",
+        "evidence": "\"hard cap for free/hobby/dev accounts, soft cap (service continues, alerts fire, overage is billed or credited per policy) for production\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets the hard cap as the sane default for hobby and development accounts and the soft cap as the sane default for production accounts, and states the default plainly",
+        "evidence": "\"stated plainly as the default, with the option to opt into a hard cap for customers who explicitly want cost certainty over uptime\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects removing the free tier as the fix for bill shock",
+        "evidence": "\"Why killing the free tier is the wrong fix\" heading with explicit reasoning against it",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reasons from Netlify's February 2024 $104K bandwidth bill, caused by 190TB of traffic against a 3MB file on a free-tier site, as the documented case",
+        "evidence": "\"Your incident is Netlify's, almost exactly: 190TB against a 3MB file on a free-tier site, a $104K bill, forgiven\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that Netlify forgave the bill and published a standing policy",
+        "evidence": "\"a $104K bill, forgiven, followed by a standing policy of not killing free sites during spikes and forgiving bills from legitimate mistakes\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a goodwill credit is a patch on a design defect, not a substitute for the cap, the alert and the anomaly detection that would have prevented it",
+        "evidence": "\"the response you already gave \u2014 forgive the bill \u2014 is the first half of the right move. The second half you haven't done yet: turn it into a written policy... and put the cap/alert machinery in the one place it was actually missing\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the credit is always cheaper than the story about the bill",
+        "evidence": "No such phrase appears in the section",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires an anomaly alert triggered by a sudden multiple of the normal rate, in addition to alerts at fixed thresholds",
+        "evidence": "\"An anomaly alert for a sudden multiple of the normal rate\" plus \"Warnings at 70/85/95% of the limit before enforcement\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires live usage against the limit, a projection to period end, and the same data available through an API",
+        "evidence": "No mention of a live usage dashboard, period-end projection, or usage API anywhere in the section",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a public price page with real numbers plus a calculator for any metered component",
+        "evidence": "No mention of a price page or calculator anywhere in the section",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires itemized invoices showing quantity, unit rate, subtotal, plan fee and credits separately",
+        "evidence": "No mention of invoice itemization anywhere in the section",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a written policy on what happens at the limit, plus a pre-approved credit for runaway usage caused by an obvious defect or an attack, written before it is needed",
+        "evidence": "\"A standing, pre-approved credit policy for overages caused by an obvious defect or an attack, so the next one is a policy lookup, not a $9,400 discretionary refund decision.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats predictability as a pricing feature rather than a documentation problem",
+        "evidence": "No such framing appears in the section",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends a hard cap or a flat price for individual developers on a personal card, because an unbounded downside suppresses adoption regardless of how fair the rate is",
+        "evidence": "The section discusses free/hobby vs production tiers, not a specific personal-card individual-developer recommendation with this reasoning",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Offers both cap styles rather than mandating one: a hard cap where the service pauses, and a soft cap where service continues and an alert fires",
+        "evidence": "\"Free tier: hard ceiling, mandatory... requests get a 429\" vs \"Paid/production: soft caps by default, hard cap opt-in. Alert at 70/85/95%\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets the hard cap as the sane default for hobby and development accounts and the soft cap as the sane default for production accounts, and states the default plainly",
+        "evidence": "\"Free tier: hard ceiling, mandatory, zero billing path\" ... \"Paid/production: soft caps by default, hard cap opt-in\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects removing the free tier as the fix for bill shock",
+        "evidence": "\"On killing the free tier: Reject this too, as a category error.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reasons from Netlify's February 2024 $104K bandwidth bill, caused by 190TB of traffic against a 3MB file on a free-tier site, as the documented case",
+        "evidence": "Not mentioned anywhere; the transcript only discusses the Spindrift scraping incident.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that Netlify forgave the bill and published a standing policy",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a goodwill credit is a patch on a design defect, not a substitute for the cap, the alert and the anomaly detection that would have prevented it",
+        "evidence": "No mention of a goodwill credit concept anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the credit is always cheaper than the story about the bill",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires an anomaly alert triggered by a sudden multiple of the normal rate, in addition to alerts at fixed thresholds",
+        "evidence": "\"a spike detector that auto-throttles on a sudden multiple of baseline traffic\" plus \"Alert at 70/85/95% of expected spend\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires live usage against the limit, a projection to period end, and the same data available through an API",
+        "evidence": "Not discussed anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a public price page with real numbers plus a calculator for any metered component",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires itemized invoices showing quantity, unit rate, subtotal, plan fee and credits separately",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a written policy on what happens at the limit, plus a pre-approved credit for runaway usage caused by an obvious defect or an attack, written before it is needed",
+        "evidence": "Discusses technical controls only; no written policy document or pre-approved credit concept.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats predictability as a pricing feature rather than a documentation problem",
+        "evidence": "Not framed this way; focus is on technical rate-limiting/cap mechanisms.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends a hard cap or a flat price for individual developers on a personal card, because an unbounded downside suppresses adoption regardless of how fair the rate is",
+        "evidence": "Free-tier hard cap reasoning given is billing-impossibility (\"structurally impossible\"), not adoption-suppression framing.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

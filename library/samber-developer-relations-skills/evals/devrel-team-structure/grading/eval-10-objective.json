@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Questions both proposed spans - the two-report lead and the six-report manager - rather than approving the layer as drawn.",
+        "evidence": "'Do not ship the layer as drawn.' Also 'A lead who only manages two people adds coordination and no output' and 'Check B's six-report lead against this'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the span-of-control check comes from general management practice, not from developer-relations data.",
+        "evidence": "'The general-management sanity check is 5 to 8. That figure is convention, not DevRel data.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that no developer-relations-specific span-of-control data exists.",
+        "evidence": "'That figure is convention, not DevRel data' and 'General-management practice says 5 to 8'. This says the figure is not DevRel data, which is close to but not exactly a statement that none exists.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Marks all six functions - advocacy, community management, technical writing, developer marketing, developer education, developer-experience engineering - with one of the five coverage states.",
+        "evidence": "The coverage table gives states such as 'owned by this team, staff first', 'shared with platform engineering', 'owned, small' and 'deliberately refused this year'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Leaves no function blank on the coverage map.",
+        "evidence": "All six rows (technical writing, DX engineering, advocacy, community, developer marketing, developer education) carry a state.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats an unowned function as a recorded decision rather than hiding it as an embarrassment.",
+        "evidence": "'Developer education: deliberately refused this year... No academy or certification.' It appears again under 'Unchanged: refused education scope'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites the survey coverage shares with the year attached (advocacy around 82%, community around 53%, technical writing around 43%, developer marketing around 38%, developer education around 36%, developer-experience engineering around 27%).",
+        "evidence": "'82.2% of teams (2024)', '52.7% (2024)', '42.7% of teams (2024)', '37.7% (2024)', '35.6% (2024)', '27.4% of teams (2024)'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Weights the mix toward enablement, developer-experience engineering and technical writing because the approver is an enterprise buyer.",
+        "evidence": "'Technical writing: staff first'. 'DX engineering: staff 1 if possible'. 'six heads [on events] is the most likely over-allocation'. 'move any surplus to documentation and DX engineering'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the artefacts an approver reads are documents rather than talks.",
+        "evidence": "'Your approver reads documents, not talks' and 'Approvers read documents.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ranks the individual-developer and enterprise audiences for this horizon instead of splitting effort evenly between them.",
+        "evidence": "It assumes enterprise adoption as the funded driver ('\u26a0\ufe0f assumed') but never ranks individual-developer against enterprise audiences for the horizon.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that consumer-marketing org patterns do not transfer, because a developer audience evaluates the artefact rather than the campaign.",
+        "evidence": "No statement about consumer-marketing patterns not transferring. The Conway's Law point is about channel splits, not consumer marketing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Applies the awareness / enablement / engagement split across advocates, developer experience and community management, attributed to Mary Thengvall.",
+        "evidence": "There is no mention of Thengvall or of an awareness/enablement/engagement split. The only reference is a passing 'awareness-to-enablement handoff'.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Questions both proposed spans - the two-report lead and the six-report manager - rather than approving the layer as drawn.",
+        "evidence": "'A lead with two reports is mostly a working IC with a title. A lead with six is a real manager, but of the wrong function.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the span-of-control check comes from general management practice, not from developer-relations data.",
+        "evidence": "The span argument is made with no statement about its source.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that no developer-relations-specific span-of-control data exists.",
+        "evidence": "There is no such statement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Marks all six functions - advocacy, community management, technical writing, developer marketing, developer education, developer-experience engineering - with one of the five coverage states.",
+        "evidence": "The table assigns seat counts and ranks, not coverage states such as owned or partial.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Leaves no function blank on the coverage map.",
+        "evidence": "There is no coverage map with states. The seat table does list all six functions, but not as a coverage map.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats an unowned function as a recorded decision rather than hiding it as an embarrassment.",
+        "evidence": "'Not in devrel | Developer marketing | 0 | Keep it in product marketing, with devrel supplying technical review.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites the survey coverage shares with the year attached (advocacy around 82%, community around 53%, technical writing around 43%, developer marketing around 38%, developer education around 36%, developer-experience engineering around 27%).",
+        "evidence": "Only DX engineering (27.4%) and developer marketing (37.7%) are cited. Advocacy, community, writing and education shares are missing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Weights the mix toward enablement, developer-experience engineering and technical writing because the approver is an enterprise buyer.",
+        "evidence": "'This puts about five of nine on artifacts and engineering', with writing and DX ranked 1 and 2.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the artefacts an approver reads are documents rather than talks.",
+        "evidence": "'The VP of Operations and security evaluate documents... Neither reads a booth.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ranks the individual-developer and enterprise audiences for this horizon instead of splitting effort evenly between them.",
+        "evidence": "Both audiences are served in parallel and no audience ranking is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that consumer-marketing org patterns do not transfer, because a developer audience evaluates the artefact rather than the campaign.",
+        "evidence": "There is no such statement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Applies the awareness / enablement / engagement split across advocates, developer experience and community management, attributed to Mary Thengvall.",
+        "evidence": "Thengvall and the three-way split are not mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

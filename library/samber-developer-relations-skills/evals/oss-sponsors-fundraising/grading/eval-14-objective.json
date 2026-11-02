@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the draft outright rather than editing it, identifying that it asks for charity, addresses nobody in particular, names no dependence, and offers nothing a budget owner can justify.",
+        "evidence": "\"Your draft is the exact pattern the sponsorship playbook flags as **weak \u2014 do not send**: it asks for charity, addresses nobody, names no dependence, and gives no number an approver can act on.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the specific evidence of dependence in the rewritten email: the two services visible in public repos and the engineer's six filed issues.",
+        "evidence": "\"Your [service A] and [service B] depend on it \u2014 visible in your public repos \u2014 and [engineer's name] has filed six issues against it this year\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Addresses a named person with a budget and an exposure - platform lead, staff engineer, head of security - rather than a generic address.",
+        "evidence": "\"[contact name \u2014 a platform lead, staff engineer, or head of security, not a generic alias]\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Frames the ask against a budget line that already exists: supply-chain security, marketing reach, or engineering support.",
+        "evidence": "\"If sponsorship is the wrong budget line, is security or platform engineering the better door?\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sells named commitments with numbers - a security-report acknowledgement window, a published release cadence, named major-version upgrade support - rather than goodwill.",
+        "evidence": "\"security reports acknowledged within 48 hours, a published release cadence, and named support for major-version upgrades\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States a price in the email rather than asking for 'any amount'.",
+        "evidence": "\"$500/month, invoiced annually\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Offers a route when the first budget line is wrong, such as asking whether security or platform engineering is the better door.",
+        "evidence": "\"is security or platform engineering the better door?\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Confirms the payable prerequisites before sending: entity or contractor arrangement, tax form, numbered invoice, bank details.",
+        "evidence": "Mentions \"a legal entity or contractor setup that can issue a numbered invoice and take bank transfer\" but never mentions a tax form, so the full checklist isn't covered.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies that outreach only wins the judgement-based strategic sponsorship mechanism, and that dependency-share, employee-nominated funds and foundation or pledge membership are won differently.",
+        "evidence": "Not addressed anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that Open Source Pledge members commit more than $2,000 per employed developer per year, so budget already exists looking for legible recipients.",
+        "evidence": "Not mentioned anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Offers a one-page prospectus rather than a slide deck, including the section on what sponsorship does not buy.",
+        "evidence": "\"I can send a one-page summary\" is mentioned, but no content requirement that it include a \"what sponsorship doesn't buy\" section is stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Plans the renewal: logs the budget month and sends a short proof-of-value note each quarter.",
+        "evidence": "Not addressed anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the draft outright rather than editing it, identifying that it asks for charity, addresses nobody in particular, names no dependence, and offers nothing a budget owner can justify.",
+        "evidence": "The response frames itself as an edit, not a rejection: \"Why this version's tighter than the draft:\" followed by bullet-point revisions to the existing draft.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the specific evidence of dependence in the rewritten email: the two services visible in public repos and the engineer's six filed issues.",
+        "evidence": "\"I noticed Brightmoor's running langfold in [service A] and [service B] \u2014 and you've personally filed six issues against it this year\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Addresses a named person with a budget and an exposure - platform lead, staff engineer, head of security - rather than a generic address.",
+        "evidence": "The email targets the issue-filing engineer, explicitly not a budget holder: \"Send it to the engineer who filed the issues, not a generic contact \u2014 they can vouch for it internally better than you can from outside.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Frames the ask against a budget line that already exists: supply-chain security, marketing reach, or engineering support.",
+        "evidence": "No specific existing budget line is named; the ask is generic (\"a bit of budget\").",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sells named commitments with numbers - a security-report acknowledgement window, a published release cadence, named major-version upgrade support - rather than goodwill.",
+        "evidence": "The email remains goodwill-framed: \"Sponsorship through GitHub Sponsors is what lets me keep fixing things like the issues you've reported.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States a price in the email rather than asking for 'any amount'.",
+        "evidence": "The email only says \"If Brightmoor can put a bit of budget behind it, here's the link\" with no stated price.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Offers a route when the first budget line is wrong, such as asking whether security or platform engineering is the better door.",
+        "evidence": "No alternative routing question is offered.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Confirms the payable prerequisites before sending: entity or contractor arrangement, tax form, numbered invoice, bank details.",
+        "evidence": "No payable prerequisites are discussed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies that outreach only wins the judgement-based strategic sponsorship mechanism, and that dependency-share, employee-nominated funds and foundation or pledge membership are won differently.",
+        "evidence": "No discussion of different sponsorship mechanisms beyond direct outreach.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that Open Source Pledge members commit more than $2,000 per employed developer per year, so budget already exists looking for legible recipients.",
+        "evidence": "Open Source Pledge is never mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Offers a one-page prospectus rather than a slide deck, including the section on what sponsorship does not buy.",
+        "evidence": "No prospectus or 'what sponsorship does not buy' section is offered.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Plans the renewal: logs the budget month and sends a short proof-of-value note each quarter.",
+        "evidence": "No renewal plan is discussed.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

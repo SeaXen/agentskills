@@ -1,0 +1,134 @@
+import type { Logger } from '@sap-ux/logger';
+import type { Editor } from 'mem-fs-editor';
+import os from 'node:os';
+import { join } from 'node:path';
+import { coerce, minor } from 'semver';
+import { getWebappPath } from '@sap-ux/project-access';
+import { getTemplatePath } from '../templates.js';
+import type { FileContentPosition, Manifest, ManifestData } from './types.js';
+import { copyTpl } from './file.js';
+import { DOMParser } from '@xmldom/xmldom';
+import { getDOMParserOptions } from '../building-block/prompts/utils/xml.js';
+
+/**
+ * Method inserts passed text into content by char index position.
+ * In case if position is out of range, then whitespaces would be created.
+ * Negative positions are not supported.
+ *
+ * @param {string} text - text to insert
+ * @param {string} content - target content for update
+ * @param {number} position - Char index position to insert in
+ * @returns new content with inserted text
+ */
+export function insertTextAtAbsolutePosition(text: string, content: string, position: number): string {
+    if (position < 0) {
+        return content;
+    }
+    // Check if char position exist and create missing chars
+    const prepareCharIndex = Math.max(position - 1, 0);
+    while (prepareCharIndex > 0 && content[prepareCharIndex] === undefined) {
+        content += ' ';
+    }
+    return `${content.slice(0, position)}${text}${content.slice(position)}`;
+}
+
+/**
+ * Method inserts passed text into content by line and char position.
+ * In case if position is out of range, then whitespaces would be created.
+ * Negative positions are not supported.
+ *
+ * @param {string} text - text to insert
+ * @param {string} content - target content for update
+ * @param {FileContentPosition} position - Line and char position to insert in
+ * @returns new content with inserted text
+ */
+export function insertTextAtPosition(text: string, content: string, position: FileContentPosition): string {
+    if (position.line < 0 || position.character < 0) {
+        return content;
+    }
+    const lines = content.split(/\r\n|\n/);
+    let targetLine = lines[position.line];
+    // Check if line position exist and create missing lines
+    while (targetLine === undefined) {
+        lines.push('');
+        targetLine = lines[position.line];
+    }
+    // Update line with inserting passed text
+    lines[position.line] = insertTextAtAbsolutePosition(text, lines[position.line], position.character);
+    return lines.join(os.EOL);
+}
+
+/**
+ * Adds type extensions for sap.fe types if an older version is used.
+ * The types were fixed in 1.108 and downported to 1.102.
+ *
+ * @param basePath - the base path
+ * @param minUI5Version - minimal required UI5 version
+ * @param fs - the memfs editor instance
+ */
+export function addExtensionTypes(basePath: string, minUI5Version: string | undefined, fs: Editor) {
+    const version = minor(coerce(minUI5Version) ?? '1.108.0');
+    const path = join(basePath, '/webapp/ext/sap.fe.d.ts');
+    if (version < 108 && version !== 102 && !fs.exists(path)) {
+        copyTpl(fs, getTemplatePath('common/sap.fe.d.ts'), path, { version });
+    }
+}
+
+/**
+ * Gets manifest path.
+ *
+ * @param {string} basePath the base path
+ * @param {Editor} fs the memfs editor instance
+ * @returns {Manifest | undefined} path to manifest file
+ */
+export async function getManifestPath(basePath: string, fs: Editor): Promise<string> {
+    return join(await getWebappPath(basePath, fs), 'manifest.json');
+}
+
+/**
+ * Gets content and path of the manifest.
+ *
+ * @param {string} basePath the base path
+ * @param {Editor} fs the memfs editor instance
+ * @param {boolean} [validate] validate if 'manifest.json' file exists - throw error if file does not exist
+ * @returns {Manifest | undefined} The content and path of the manifest
+ */
+export async function getManifest(basePath: string, fs: Editor, validate = true): Promise<ManifestData> {
+    const path = await getManifestPath(basePath, fs);
+    if (validate && !fs.exists(path)) {
+        throw new Error(`Invalid project folder. Cannot find required file ${path}`);
+    }
+    return {
+        path,
+        content: fs.readJSON(path) as Manifest
+    };
+}
+
+/**
+ * Validates if the given id is not already used in the specified XML view or fragment file.
+ * If the file cannot be parsed, falls back to a regex search on the raw content.
+ *
+ * @param fs - the file system object for reading files
+ * @param viewOrFragmentPath - path to fragment or view file
+ * @param id - id to check/validate
+ * @param logger - optional logger for parse errors
+ * @returns true if the id is available, false if it is already in use.
+ */
+export function isElementIdAvailable(fs: Editor, viewOrFragmentPath: string, id: string, logger?: Logger): boolean {
+    const xmlContent = fs.read(viewOrFragmentPath).toString();
+    try {
+        const xmlDocument = new DOMParser(getDOMParserOptions(undefined, () => {})).parseFromString(
+            xmlContent,
+            'text/xml'
+        );
+        return xmlDocument.documentElement ? !xmlDocument.getElementById(id) : true;
+    } catch (e) {
+        // xmldom 0.9+ throws ParseError for malformed XML — fall back to a regex search on the raw content
+        logger?.warn(
+            `isElementIdAvailable: failed to parse "${viewOrFragmentPath}", falling back to text search: ${e instanceof Error ? e.message : String(e)}`
+        );
+        return !new RegExp(
+            String.raw`(?<![a-zA-Z0-9_-])id\s*=\s*["']${id.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}["']`
+        ).test(xmlContent);
+    }
+}

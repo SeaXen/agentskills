@@ -1,0 +1,106 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Routes the date decision out to the date-selection skill and states that a work-back plan has no anchor until the date is locked",
+        "evidence": "\"Picking the date itself belongs to `event-date-selection`\"; \"the real risk is that the date isn't locked, which delays every foundational step.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to reuse the 9-month conference runway for a 48-hour hackathon",
+        "evidence": "\"Don't compress the 9-month conference timeline... borrowing another format's runway as a failure mode.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason as conference-length and hackathon-length runways differing for structural reasons, not as the hackathon simply being smaller or shorter",
+        "evidence": "\"differ for structural reasons... a CFP-to-program pipeline of about 4 months and venues that book a year out.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the question of how long this format's runway actually is to the first-edition skill rather than answering it from the conference runway",
+        "evidence": "It answers from the MLH runway (\"4\u20139 months\") and never names a first-edition skill.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines to average or interpolate between the two formats' runways",
+        "evidence": "It uses the hackathon runway and rejects the conference one; no blending.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies this as a first edition and routes the launch gates and first-edition-specific risks accordingly, while still supplying the scheduling mechanics itself",
+        "evidence": "It assumes \"one-off\" and does not identify a first edition or route to a first-edition skill.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not hand back dated milestones anchored to a date the user has not chosen",
+        "evidence": "The work-back table uses \"S\u22124 mo\" style offsets; no calendar milestone dates.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks its clarifying questions one at a time rather than presenting the whole interview at once",
+        "evidence": "\"I can't ask these one at a time here\" and then lists six questions.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Routes the date decision out to the date-selection skill and states that a work-back plan has no anchor until the date is locked",
+        "evidence": "It does not route to a skill. It sets T-0 to the earliest candidate weekend.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to reuse the 9-month conference runway for a 48-hour hackathon",
+        "evidence": "\"A 9-month plan is about 39 weeks, so you're cutting 10\u201320%\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason as conference-length and hackathon-length runways differing for structural reasons, not as the hackathon simply being smaller or shorter",
+        "evidence": "There is no such reason.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the question of how long this format's runway actually is to the first-edition skill rather than answering it from the conference runway",
+        "evidence": "It answers the runway question itself.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines to average or interpolate between the two formats' runways",
+        "evidence": "It scales the conference plan down (\"cutting 10\u201320%\").",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies this as a first edition and routes the launch gates and first-edition-specific risks accordingly, while still supplying the scheduling mechanics itself",
+        "evidence": "It never identifies this as a first edition or routes anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not hand back dated milestones anchored to a date the user has not chosen",
+        "evidence": "It builds a 16-row table anchored to T-0 at the earliest candidate weekend, a date the user has not chosen.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks its clarifying questions one at a time rather than presenting the whole interview at once",
+        "evidence": "\"Two questions for you\" are presented together.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

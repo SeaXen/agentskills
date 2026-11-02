@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to mark the setup blocking check as passed by inspection",
+        "evidence": "\"Do not mark [setup] passed by inspection.\" I'm holding that line.\" and B2 is scored FAIL with runtime outcome \"unconfirmed\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says plainly that it cannot execute commands in this environment",
+        "evidence": "\"I can't verify this passes, and the two documents you gave me are themselves evidence that it probably doesn't \u2014 for reasons that don't require running anything to see.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks the maintainer to run the sequence and paste the full output, including the failures",
+        "evidence": "\"have someone run the sequence on a genuinely clean machine or fresh container... and paste the full output, failures included.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Specifies a clean start: a fresh container, a new user account, or a machine that has never built this project, with no warm caches, global config, or forgotten credentials",
+        "evidence": "Only mentions \"a genuinely clean machine or fresh container \u2014 not a maintainer's laptop with GDAL already on it\"; no mention of new user account, warm caches, global config, or forgotten credentials.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Restricts the cold-run reader to the README and the CONTRIBUTING file only, with no repository knowledge already held",
+        "evidence": "No explicit instruction restricting the runner to reading only README/CONTRIBUTING.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks for wall-clock time to the first passing test run",
+        "evidence": "\"Wall-clock time to first passing test \u2014 not stated anywhere, and the protocol requires recording it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks for every undocumented requirement to be logged: system package, environment variable, running service, credential, minimum resource, platform assumption",
+        "evidence": "Only mentions \"Any platform assumption (Linux-only apt packages... Homebrew-only paths, etc.)\" without the fuller enumerated list.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the whole sequence to be re-run from clean after the documentation is fixed, repeated until nothing new is discovered",
+        "evidence": "Not present in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requests a friction log with a timestamped entry per moment of confusion, each carrying a traffic-light severity, what was expected, what happened, and what had to be known that was not written down",
+        "evidence": "No friction log format is requested.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Instructs the runner not to fix anything mid-run, because fixing hides the size of the problem",
+        "evidence": "Not present in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Specifies a second, task-path cold run: whether a stranger can pick an issue, understand what is asked, and locate the file to change in under 15 minutes without asking a question",
+        "evidence": "Not present in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the conflict between the README's build sequence and the CONTRIBUTING file's `./tools/dev-setup.sh` as an ordering a stranger must currently guess",
+        "evidence": "\"Your CONTRIBUTING file says to run ./tools/dev-setup.sh \\\"first\\\" \u2014 but doesn't restate the README's steps, doesn't say first relative to what... That split is a defect on its own\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to mark the setup blocking check as passed by inspection",
+        "evidence": "\"I can't confirm this against the actual script or CMake output since I don't have the repo and can't execute anything here\" \u2014 gives a 3/10 with explicit best-case/worst-case uncertainty rather than declaring it passed.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says plainly that it cannot execute commands in this environment",
+        "evidence": "\"I can't confirm this against the actual script or CMake output since I don't have the repo and can't execute anything here.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks the maintainer to run the sequence and paste the full output, including the failures",
+        "evidence": "It only suggests \"it's a five-minute check (read `dev-setup.sh`, or just try the README's three commands on a clean machine)\" without asking for the output to be pasted back.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Specifies a clean start: a fresh container, a new user account, or a machine that has never built this project, with no warm caches, global config, or forgotten credentials",
+        "evidence": "Only the generic phrase \"a clean machine\" is used, with none of the specific clean-start conditions listed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Restricts the cold-run reader to the README and the CONTRIBUTING file only, with no repository knowledge already held",
+        "evidence": "No such restriction is stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks for wall-clock time to the first passing test run",
+        "evidence": "Not requested anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks for every undocumented requirement to be logged: system package, environment variable, running service, credential, minimum resource, platform assumption",
+        "evidence": "The transcript speculates about likely dependencies (GDAL, PROJ, GEOS, Boost) itself but never asks the maintainer to log undocumented requirements systematically.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the whole sequence to be re-run from clean after the documentation is fixed, repeated until nothing new is discovered",
+        "evidence": "Not present.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requests a friction log with a timestamped entry per moment of confusion, each carrying a traffic-light severity, what was expected, what happened, and what had to be known that was not written down",
+        "evidence": "No friction log is requested.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Instructs the runner not to fix anything mid-run, because fixing hides the size of the problem",
+        "evidence": "Not present.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Specifies a second, task-path cold run: whether a stranger can pick an issue, understand what is asked, and locate the file to change in under 15 minutes without asking a question",
+        "evidence": "Not present.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the conflict between the README's build sequence and the CONTRIBUTING file's `./tools/dev-setup.sh` as an ordering a stranger must currently guess",
+        "evidence": "\"You've split one required setup sequence across two documents that don't reference each other, and put the missing half in the doc fewer people open.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

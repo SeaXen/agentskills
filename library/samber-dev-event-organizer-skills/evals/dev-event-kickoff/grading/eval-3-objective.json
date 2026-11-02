@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The response routes to samber/dev-event-organizer-skills@event-format-selection as the single route for this session.",
+        "evidence": "'Run event-format-selection first' and '1. Route'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response does not provide hybrid streaming or production design guidance and does not route to hybrid-event-design.",
+        "evidence": "hybrid-event-design is listed only as gated and not routed to.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response states that hybrid-event-design and virtual-event-production sit downstream of the format decision and must never be used to make it.",
+        "evidence": "hybrid-event-design is described as opening after the format decision. virtual-event-production is never mentioned and the 'never used to decide' point is absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response does not route to event-venue-sourcing or begin shortlisting venues, because the delivery mode is unfixed and no room is confirmed to exist.",
+        "evidence": "'event-venue-sourcing opens only once a physical room exists.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response does not give hackathon prize or cash-prize guidance while the hackathon shape is undecided.",
+        "evidence": "Prizes are only gated: 'open only if the format includes a hackathon'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response explicitly names which skill groups are suspended (the hackathon lane, the delivery-mode skills, the conference-scale rows) rather than silently omitting them.",
+        "evidence": "The Not now section names hybrid/production, venue, the hackathon lane and the conference-scale skills.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The suspended rows are described as unreachable until the format is fixed, not as absent from the collection.",
+        "evidence": "'gates that stay shut until that decision exists'; each Not now row gives an 'after ...' condition.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response does not guess or assume a shape (for example proceeding 'assuming a conference') in order to give gated advice.",
+        "evidence": "'Shape: not fixed (conference vs hackathon undecided).'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "No short-list drawn from gated rows is offered.",
+        "evidence": "'Every entry is ungated.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response commits to recording the format decision in the context artifact once it is made, so the next session reads the gate instead of re-asking.",
+        "evidence": "Only a draft with the format 'not fixed' is given. There is no commitment to record the decision once made.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The route is named in owner/repo@skill form.",
+        "evidence": "`samber/dev-event-organizer-skills@event-format-selection`.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response does not itself decide between conference, hackathon, or hybrid in this session; it routes the decision.",
+        "evidence": "The decision is routed to event-format-selection.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The response routes to samber/dev-event-organizer-skills@event-format-selection as the single route for this session.",
+        "evidence": "No skill is routed to. The response gives a full plan.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response does not provide hybrid streaming or production design guidance and does not route to hybrid-event-design.",
+        "evidence": "'## 1. Hybrid streaming design (Level A)' gives roles, a signal chain and a platform.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response states that hybrid-event-design and virtual-event-production sit downstream of the format decision and must never be used to make it.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response does not route to event-venue-sourcing or begin shortlisting venues, because the delivery mode is unfixed and no room is confirmed to exist.",
+        "evidence": "'## 2. Venue shortlist for about 400 people' with a scoring sheet and process.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response does not give hackathon prize or cash-prize guidance while the hackathon shape is undecided.",
+        "evidence": "'## 3. Hackathon prizes' with prize structure and 1,000/500/300 cash.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response explicitly names which skill groups are suspended (the hackathon lane, the delivery-mode skills, the conference-scale rows) rather than silently omitting them.",
+        "evidence": "No suspended groups are named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The suspended rows are described as unreachable until the format is fixed, not as absent from the collection.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response does not guess or assume a shape (for example proceeding 'assuming a conference') in order to give gated advice.",
+        "evidence": "'Recommendation: a 2-day event with a conference day and a hackathon day.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "No short-list drawn from gated rows is offered.",
+        "evidence": "Venue, streaming and prize guidance are all offered.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response commits to recording the format decision in the context artifact once it is made, so the next session reads the gate instead of re-asking.",
+        "evidence": "No artifact is mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The route is named in owner/repo@skill form.",
+        "evidence": "No route is named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response does not itself decide between conference, hackathon, or hybrid in this session; it routes the decision.",
+        "evidence": "'Recommendation: a 2-day event' and 'Level A... recommended for year one'.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

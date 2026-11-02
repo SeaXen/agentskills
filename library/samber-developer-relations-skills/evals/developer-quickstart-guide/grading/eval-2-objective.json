@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Cold-runs the existing page before rewriting anything, and states that rewriting from reading alone is not acceptable.",
+        "evidence": "'I don't have the live page or a real terminal to cold-run against, so this table is a structural diagnosis... not a verified cold run.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Returns a defect table whose rows carry the step number, what the page says, what actually happened, and the elapsed time at that point.",
+        "evidence": "The table's columns are 'Step (as described) | Suspected defect | Cost' \u2014 no step numbers, no 'what actually happened' (impossible without a run), and no elapsed time, only estimated cost.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Orders the defect table by minutes lost.",
+        "evidence": "'Ordered by estimated minutes/attrition lost:'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Leads with the defects and places the rewritten page after them, presenting the rewrite as the fix rather than the finding.",
+        "evidence": "Document order is '## 2. Defect table' followed by '## 3. The quickstart page'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the cold run to happen on a clean environment with a fresh account, no cached credentials and no pre-installed dependencies.",
+        "evidence": "'Clean container or VM, no cached `halyard` binary, no dotfiles, no existing Halyard account. Fresh GitHub-linked Halyard account created as part of the run, not beforehand.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Starts the timer at page load, not at the first command.",
+        "evidence": "'Timer starts at page load, not at the first command.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats any command the runner had to adjust to make work as a defect, rather than silently fixing it.",
+        "evidence": "'Run every block verbatim. Any command you have to silently correct is a defect \u2014 log it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats an output that differs from the documented output as a defect even when the command still succeeded.",
+        "evidence": "'Log a defect table per run: step, elapsed, command ran verbatim (y/n), output matched (y/n), defect.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a second run by a reader profile new to the ecosystem, distinct from one fluent in it, because the authors' own runs under-catch assumed knowledge.",
+        "evidence": "'Two reader profiles, run separately: (a) someone fluent with Postgres and CLI tools generally but who has never touched Halyard, (b) someone newer to CLI-driven infra tools. Profile (b) is the one that catches assumed knowledge...'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps a friction log beside the defect table, tagging each entry green for delight, yellow for friction, red for blocking.",
+        "evidence": "'Keep a friction log alongside it \u2014 green/yellow/red per Hammerly's convention. Three yellows in one step means split the step.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Commits to a 10-minute budget for this database/data-platform product class.",
+        "evidence": "'Time budget: 5 minutes, page-load to that query returning rows. (Baseline for this product class is 10 min; committing to 5 because...)' \u2014 it commits to 5, not 10, minutes.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Cold-runs the existing page before rewriting anything, and states that rewriting from reading alone is not acceptable.",
+        "evidence": "The diagnosis is explicitly inferential: \"Four things are almost certainly compounding\" \u2014 hedged reasoning about probabilities, not a stated empirical run of the existing page.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Returns a defect table whose rows carry the step number, what the page says, what actually happened, and the elapsed time at that point.",
+        "evidence": "No table appears anywhere in the transcript; the diagnosis is presented as a numbered prose list of hypotheses.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Orders the defect table by minutes lost.",
+        "evidence": "No defect table exists to order.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Leads with the defects and places the rewritten page after them, presenting the rewrite as the fix rather than the finding.",
+        "evidence": "What leads is speculative structural analysis (\"almost certainly compounding\"), not empirically-found defects; no defect-finding process is shown at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the cold run to happen on a clean environment with a fresh account, no cached credentials and no pre-installed dependencies.",
+        "evidence": "No cold-run methodology of any kind is described.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Starts the timer at page load, not at the first command.",
+        "evidence": "No timer or run is described in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats any command the runner had to adjust to make work as a defect, rather than silently fixing it.",
+        "evidence": "No run was performed, so no adjusted commands are discussed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats an output that differs from the documented output as a defect even when the command still succeeded.",
+        "evidence": "No actual run or output comparison is described.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a second run by a reader profile new to the ecosystem, distinct from one fluent in it, because the authors' own runs under-catch assumed knowledge.",
+        "evidence": "Not mentioned; the reasoning about 'you structurally don't experience it' is about the page authors' blind spot, not a proposal for a second reader-profile run.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps a friction log beside the defect table, tagging each entry green for delight, yellow for friction, red for blocking.",
+        "evidence": "No friction log or tagging scheme appears anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Commits to a 10-minute budget for this database/data-platform product class.",
+        "evidence": "The rewritten page states \"# Create your first Postgres branch in under 5 minutes\" and \"**Time:** ~5 minutes\" \u2014 5 minutes, not 10.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,418 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-positioning",
+  "scenarios": 8,
+  "expectations_total": 93,
+  "expectations_subjective": 1,
+  "expectations_objective": 92,
+  "pass_rate_with_skill_pct": 83.9,
+  "pass_rate_without_skill_pct": 16.1,
+  "delta_pp": 67.8,
+  "uplift_multiplier": 5.21,
+  "trigger_accuracy_pct": 70.2,
+  "trigger_queries": 84,
+  "trigger_positive_fire_rate": 0.619,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Offers exactly two remedies for the neutrality claim: rebalance the CFP so single-vendor content falls under the line, or drop the claim"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Specifies interviewing the happiest repeat attendees and sponsors rather than prospects"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Runs the do-nothing diagnostic when do-nothing dominates, mapping causes such as acute-trigger gap, risk perception and inertia to different positioning answers"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that efficiency never selects the new category, because it is simultaneously highest effort and highest value"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names the education tax concretely, including slower ticket and sponsor cycles because nothing maps to a known budget line, copy that must explain the concept itself, marketing spend at multiples of a known category's, and multiple editions before awareness exists"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Asks about the publication deadline, one-off versus compounding mandate, and the effort ceiling before committing to a ranking"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Classifies PlatformScale by ownership and money flow rather than accepting 'sales pitch' tone as the classification"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends publishing the contrast sentence together with a public rationale for the event's structural choice, as the default pair"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that the two cheap levers tie on effort because the real cost is the decision behind each, not the writing"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States a rename cannot be quietly walked back the way a published sentence can"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes the format can remain genuinely competitive underneath while the positioning does not lead with prizes"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States lineup-as-brand is the starved option under a pure efficiency ranking: top on value but second on effort"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names the effort lineup-as-brand costs as a season of curation and invitations"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Ranks the positioning-lever menu on separate axes including effort, value, efficiency and compliance cost, rather than one blended order"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States rebrand is the only lever carrying compliance cost, and that the other levers tie at no review triggered and no reversibility spent"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Places QuaylightCon at the vendor-owned end of the governance spectrum, justified by ownership and where surplus money goes rather than by the event's tone"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names the threshold explicitly as roughly 30-40% single-vendor program content"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Rejects the warm Slack, the 'family' language and the self-funded travel as evidence of community governance"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that warm or belonging language is available at every point on the governance spectrum and is deliberately borrowed by vendor events"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Produces a positioning statement in the shape 'For [best-fit attendee], [event] is the [event category] that [unique value theme]'"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Does not deliver a finished tagline or hero copy before audience, alternatives and category are settled"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Adds a recurring neutrality audit measuring single-vendor share of program content against the same threshold"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Maps alternatives across all five types: direct rivals, adjacent events repurposed for the same job, doing the job without any event, sending a delegate instead, and doing nothing at all"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names doing nothing as frequently the largest true competitor rather than a marginal case"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Includes a concrete eventless alternative such as watching the talks on video afterwards or living in the topic's Slack or Discord community"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Includes sending one delegate to report back to the team as its own distinct alternative type"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Rejects the four organizers' own guesses as a basis for differentiation and requires real interview answers first"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Specifies interviewing roughly 15-20 people"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Specifies interviewing the happiest repeat attendees and sponsors rather than prospects"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Keeps separate alternative lists per segment instead of one blended ranking across attendees and sponsors"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that the sponsor's primary alternative typically differs from an individual attendee's, for example a rival vendor summit or running their own private event versus doing nothing or watching videos"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Classifies Pipeline North and DataHaus by ownership and money flow rather than by their tone or marketing language"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Runs the do-nothing diagnostic when do-nothing dominates, mapping causes such as acute-trigger gap, risk perception and inertia to different positioning answers"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Does not produce a finished differentiation claim or sponsor-deck copy before the alternatives research exists"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Ranks the market-category menu on separate axes for effort, value and efficiency rather than one blended order"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that efficiency never selects the new category, because it is simultaneously highest effort and highest value"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names the subcategory of an existing category as the default rung"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Refuses the new category here, citing the unmet promotion condition: no multi-edition runway, no existing sponsor relationships, no established brand"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names the education tax concretely, including slower ticket and sponsor cycles because nothing maps to a known budget line, copy that must explain the concept itself, marketing spend at multiples of a known category's, and multiple editions before awareness exists"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that a first edition already carries unproven-event risk and a new category compounds it with the attendee not knowing how to judge the event"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends starting as a subcategory and evolving toward the new category once traction exists"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Proposes at least one concrete subcategory name following a naming pattern such as [topic] for [vertical], format-modified [topic] conference, or [audience]-first [topic] event"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Explains that a subcategory inherits the parent category's existing sponsor budget lines and audience understanding"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Deletes 'for anyone who cares about docs' or any everyone-audience framing rather than listing it as a weaker option"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Asks about the publication deadline, one-off versus compounding mandate, and the effort ceiling before committing to a ranking"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Refuses to name PlatformScale or any specific rival event in the anti-positioning line"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Produces a contrast sentence that names an archetype instead of a competitor"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Uses the shape 'There are many [archetype] events. This is not one of them.'"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Gives both reasons an archetype contrast is required: it does not age out when the rival changes strategy, and it cannot be read as an attack inviting public rebuttal"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Classifies PlatformScale by ownership and money flow rather than accepting 'sales pitch' tone as the classification"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Identifies four organizers giving four different answers as a positioning-alignment finding in its own right, not a communications or training problem"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Scores the current state against the 0-10 alignment rubric and places it in the band where organizers describe the event differently from each other"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that 7 or above is the pass threshold and treats anything below it as unfinished work to iterate on"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends publishing the contrast sentence together with a public rationale for the event's structural choice, as the default pair"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that the two cheap levers tie on effort because the real cost is the decision behind each, not the writing"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Runs the rebrand gate before drafting anything, asking whether the audience or content scope has already moved beyond what the current name promises"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Concludes the gate fails, because the program is still roughly 85% JVM content"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States the rename is off the table, not postponed"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Directs the team to settle program scope first: either broaden the program deliberately, or narrow back to what the existing name promises and keep it"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States the order is substance first and name second, and that a rename promising change rather than recording one reads as churn"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Declines to produce the rename launch announcement copy"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes that a justified rename must map old scope to new scope explicitly in the announcement itself"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Flags rebrand as the only positioning lever carrying compliance exposure, naming trademark and domain clearance plus renaming the event across signed sponsor agreements, venue contracts and listings"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States a rename cannot be quietly walked back the way a published sentence can"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends a cheaper lever instead, such as the contrast sentence or a public rationale for the event's structure"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Rejects prize-led positioning as the lead and names it as a known failure mode rather than a stylistic preference"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends leading instead with learning, building, sharing, and explicit beginner inclusion"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that leading with prize size cedes ground and attracts the wrong room"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes the format can remain genuinely competitive underneath while the positioning does not lead with prizes"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that positioning must be settled before the tagline and hero copy, and that deciding messaging first is the most common ordering error"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Refuses to treat the already-drafted tagline and hero image as fixed inputs the positioning must serve"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Keeps the 40,000 euro prize pool available as a proof point or supporting detail rather than the positioning itself"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Chooses a best-fit attendee segment narrower than 'students' and does not position for everyone"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States explicitly that first-time or non-programmer participants are welcome as part of the positioning"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Presents 2-3 candidate positionings with trade-offs and one recommendation rather than executing the sponsor's brief directly"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Refuses to use the '30% lift in early registrations' headliner claim, identifying it as speaker-bureau or PR advocacy rather than verified data"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends removing that claim from the sponsor deck rather than restating or softening it"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States lineup-as-brand is the starved option under a pure efficiency ranking: top on value but second on effort"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names the effort lineup-as-brand costs as a season of curation and invitations"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Ranks the positioning-lever menu on separate axes including effort, value, efficiency and compliance cost, rather than one blended order"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States rebrand is the only lever carrying compliance cost, and that the other levers tie at no review triggered and no reversibility spent"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Applies the lineup benchmark question: can attendees say why these specific speakers are together"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Treats a shrug on that benchmark as the lever not yet working, not as an individual speaker-quality problem"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends publishing the single-track choice as an explicit public identity claim rather than leaving the event undeclared in the middle"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Distinguishes booking individually famous keynotes from lineup-as-brand, which turns on the coherence of the set"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Offers the 0-10 alignment rubric with a pass threshold of 7 or above as the judged measure instead"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Identifies both reported symptoms as misdescription-watch triggers: sponsors consistently describing the event wrongly to colleagues, and a sponsor cycle far longer than category peers'"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Recommends re-running the market-category step at the next edition on the strength of those triggers"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Rejects repositioning every edition, giving the reason that returning attendees and sponsors are the asset"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that messaging may be adjusted more often than positioning, which is committed across multiple editions"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Requires deciding in advance which proxy triggers which revision and writing both down before publishing"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names at least two further triggers from the misdescription watch list, such as arrivals expecting things the event does not deliver, or CFP submissions assuming capabilities the event lacks"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Treats 'recruiting fair' as evidence the sponsor-side best-fit segment or value theme is wrong, rather than as a copy problem"
+      }
+    ]
+  }
+}

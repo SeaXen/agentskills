@@ -1,0 +1,118 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Declines to bump the version or cut the tag, routing that to release-automation tooling",
+        "evidence": "\"Both are explicitly out of scope for `changelog-writing` and `version-migration-guide` ('release-automation tooling, not this skill'). No `pyproject.toml` exists anywhere in this workspace, so nothing was changed.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the before/after code, codemods and deprecation timeline to a separate migration guide rather than into the release notes",
+        "evidence": "\"`changelog-writing`'s scope check explicitly routes 'before/after code, a deprecation timeline, and codemods' to `version-migration-guide`... So below I ran the six breaking-change entries through `version-migration-guide`'s six-part anatomy\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names samber/developer-relations-skills@version-migration-guide as the destination for the migration guide",
+        "evidence": "Only \"`version-migration-guide`\" is named; the full identifier \"samber/developer-relations-skills@version-migration-guide\" does not appear anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Still writes the release notes, with each breaking entry linking out to the migration guide",
+        "evidence": "\"**[Removed]** `Model.save()` no longer auto-commits \u2014 [#removed-model-save-autocommit](#removed-model-save-autocommit)\" links each CHANGELOG bullet to the migration guide anchor.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives each of the six breaking entries what breaks, who it hits, and what to do",
+        "evidence": "Each migration-guide entry has \"**Affected if:**\", \"**What changed and why:**\", before/after code, \"**Fix:**\", and \"**Escape hatch:**\" sections.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the affected subset per breaking entry rather than saying everyone",
+        "evidence": "\"**Affected if:** grep for `\\.save\\(\\)` with no `session.commit()` in the same request/handler.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places breaking entries first, ahead of Added and Fixed",
+        "evidence": "CHANGELOG.md lists \"### \u26a0 Breaking Changes\" before \"### Added\" and \"### Fixed\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Confirms that 4.0.0 is the correct bump for a release containing breaking changes",
+        "evidence": "The document titles itself \"# Ferrymill 4.0.0\" and uses that version throughout, but no explicit SemVer reasoning confirming 4.0.0 as the correct bump for these breaking changes is stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "References, from each removal entry, the earlier release that announced the deprecation",
+        "evidence": "The \"### Deprecation timeline\" table lists \"First warned\" versions (3.5.0, 3.6.0, 3.7.0, etc.) for all six changes, and the Python floor entry states inline \"printed a `PendingDeprecationWarning` at interpreter startup starting in 3.6.0\".",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Declines to bump the version or cut the tag, routing that to release-automation tooling",
+        "evidence": "The transcript instead says it will do the bump itself later: \"and do the version bump + tag once I can see the actual file.\" It never routes this to release-automation tooling.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the before/after code, codemods and deprecation timeline to a separate migration guide rather than into the release notes",
+        "evidence": "No release notes or migration guide are produced at all; the transcript only lists what it needs before it can write anything.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names samber/developer-relations-skills@version-migration-guide as the destination for the migration guide",
+        "evidence": "No such repository or destination is mentioned anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Still writes the release notes, with each breaking entry linking out to the migration guide",
+        "evidence": "The transcript contains no release notes content; it ends with \"Send me those and I'll write the full 4.0.0 notes in one pass\" \u2014 i.e., notes are deferred, not written.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives each of the six breaking entries what breaks, who it hits, and what to do",
+        "evidence": "The six breaking changes are explicitly described as unknown: \"I don't know what the six breaking changes actually are... I could invent six plausible-sounding ORM breaking changes, but then... would all be fiction.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the affected subset per breaking entry rather than saying everyone",
+        "evidence": "No breaking entries are written, so no affected subset is named for any of them.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places breaking entries first, ahead of Added and Fixed",
+        "evidence": "No content ordering exists since no release notes were drafted; the transcript only asks for \"Anything you want called out under Added / Fixed since the last release\" as an input request.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Confirms that 4.0.0 is the correct bump for a release containing breaking changes",
+        "evidence": "The transcript asks the user for \"The current version in pyproject.toml (to confirm the 3.x \u2192 4.0.0 bump)\" rather than confirming it itself.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "References, from each removal entry, the earlier release that announced the deprecation",
+        "evidence": "No removal entries were written; the transcript only requests \"When each one was first flagged as deprecated (version + rough date)\" as information it still needs.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

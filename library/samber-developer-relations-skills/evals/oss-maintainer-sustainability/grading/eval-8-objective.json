@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Promotes recruiting a co-maintainer to the first move because the destination is 'shared' and the user enjoys mentoring, and says which interview answers moved it.",
+        "evidence": "The contract is move 1 and the invitations are move 2. It does not say which interview answers moved the order.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Drops the restrict-pull-requests-to-collaborators move, stating that it closes the pipeline recruitment draws from.",
+        "evidence": "'Skip for now | It closes the pipeline you want to recruit from.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names Ifeoma and Dusan as the first candidates because reviews given and answers rank above merged PRs as evidence of judgement.",
+        "evidence": "'Vet Ifeoma and Dusan once: reviews given (not just PRs merged)'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks Saltmarsh Freight for a named engineer and a weekly hour count rather than a donation.",
+        "evidence": "'Ask for a named engineer and hours, not money.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes the invitation with the role spelled out: what they would do, hours a week, starting with triage rights, merge after a couple of release cycles together, release rights later, and that it is fine to say no or try it for a month.",
+        "evidence": "The invitation covers 'triage and review rights', merge after a release or two, later release rights, and 'It's fine to say no or to try it for a month.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States inside the invitation that the staged pace is policy, not distrust.",
+        "evidence": "'The pace is policy for everyone, not distrust.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not grant full write access or organization ownership on day one; organization ownership comes last, after a supervised release, never in the same act as merge.",
+        "evidence": "Stage table: org owner is stage 4, 'Last'; publishing comes only after a supervised release.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats anyone answering a public 'seeking maintainers' banner as a candidate for triage rights only.",
+        "evidence": "'Treat anyone who answers it as a candidate for triage rights only.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Still publishes the contract (README status, hours, window, scope) so the co-maintainers inherit a written contract rather than the user's implicit one.",
+        "evidence": "A README status block 'ready to commit' with hours, window and scope.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists in the ledger who can merge and who owns the repository namespace or vanity import path, and plans two holders per right.",
+        "evidence": "The ledger says 'Publish rights: you alone (to verify)'. It names no merge rights or namespace/import-path ownership. Two holders appear only as a health check.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Hands the full trust ladder and credential inventory to samber/developer-relations-skills@oss-governance.",
+        "evidence": "'Use `oss-governance` for the full credential inventory and the ladder wording in GOVERNANCE.md.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that recruiting is net negative for the first months (mentoring before any saving) and budgets those transition hours with an end date.",
+        "evidence": "It says to 'Budget a dated bridge above your steady-state hours' but gives no end date. It never says recruiting is net negative at first.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Promotes recruiting a co-maintainer to the first move because the destination is 'shared' and the user enjoys mentoring, and says which interview answers moved it.",
+        "evidence": "Leads with asking Ifeoma and Dusan, but never cites interview answers.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Drops the restrict-pull-requests-to-collaborators move, stating that it closes the pipeline recruitment draws from.",
+        "evidence": "\"Collaborator-only PRs make 'become a maintainer' the only path... closes the door.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names Ifeoma and Dusan as the first candidates because reviews given and answers rank above merged PRs as evidence of judgement.",
+        "evidence": "\"They have already reviewed PRs and answered Discussions.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks Saltmarsh Freight for a named engineer and a weekly hour count rather than a donation.",
+        "evidence": "Offers a menu with money first; engineer hours are one option with no hour count.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes the invitation with the role spelled out: what they would do, hours a week, starting with triage rights, merge after a couple of release cycles together, release rights later, and that it is fine to say no or try it for a month.",
+        "evidence": "The invitation is only \"Would you take merge rights, and how many hours a month could you give?\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States inside the invitation that the staged pace is policy, not distrust.",
+        "evidence": "The line is advice to the user, not text in the invitation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not grant full write access or organization ownership on day one; organization ownership comes last, after a supervised release, never in the same act as merge.",
+        "evidence": "\"Hold the keys for a few months... Make it Ifeoma or Dusan after about 3 months.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats anyone answering a public 'seeking maintainers' banner as a candidate for triage rights only.",
+        "evidence": "Only \"run it on the ladder below\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Still publishes the contract (README status, hours, window, scope) so the co-maintainers inherit a written contract rather than the user's implicit one.",
+        "evidence": "No README status, hours or scope.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Lists in the ledger who can merge and who owns the repository namespace or vanity import path, and plans two holders per right.",
+        "evidence": "Open questions ask who holds owner, publish and domain, but there is no ledger. Two holders only for release credentials.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Hands the full trust ladder and credential inventory to samber/developer-relations-skills@oss-governance.",
+        "evidence": "Writes GOVERNANCE.md inline.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that recruiting is net negative for the first months (mentoring before any saving) and budgets those transition hours with an end date.",
+        "evidence": "The timeline gives task times only.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

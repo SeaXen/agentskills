@@ -1,0 +1,378 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "devrel-newsletter-program",
+  "scenarios": 9,
+  "expectations_total": 102,
+  "expectations_subjective": 1,
+  "expectations_objective": 101,
+  "pass_rate_with_skill_pct": 83.3,
+  "pass_rate_without_skill_pct": 35.3,
+  "delta_pp": 48.0,
+  "uplift_multiplier": 2.36,
+  "trigger_accuracy_pct": 51.2,
+  "trigger_queries": 84,
+  "trigger_positive_fire_rate": 0.238,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Asks for clicks per delivered email, unique clickers, unsubscribes, complaints and replies for the last six issues before judging reader demand"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Begins with the existing list's numbers and consent provenance, not with the redesign or the 'we're back' issue"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Presents the five shapes in efficiency order, feed only, own-surface digest, curated ecosystem, community-edited, personal letter, and states the ranking explicitly"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Deletes the curated ecosystem, community-edited and personal-letter shapes on the one-hour-a-month effort ceiling, and names the deletions"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that feed only needs a public changelog with an RSS or Atom feed, which the project lacks, so building it comes first"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Routes the changelog build to samber/developer-relations-skills@changelog-writing"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Treats the Discord and the changelog feed under the 'need moved' trigger and prescribes closing with a final issue that points readers to the replacement"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Promotes the community-edited shape on the two stated conditions: contributors already submit content, and a weekly governance cycle exists"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Mirrors the section template on the governance cycle and names section editors as the ownership model"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Specifies submissions by pull request or form as the intake"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Does not pick a shape before the mode, the last-three-months supply counts and the owner hours are known"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Asks one question per message"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Offers multiple-choice answers where possible"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Asks who owns it, hours per issue, who backs up, who reviews, and who holds the sending account, list export and domain"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Asks for the landing date, whether it is a one-off win or a compounding asset, and the effort ceiling in hours per month"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States why it will not pick yet: a cadence chosen before supply and owner hours are known is a guess the team will miss"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Stores interview answers in devrel-context.md when file-based memory is in use, or in the harness memory otherwise"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Shows that the counted rate cannot fill a weekly issue and derives the supported cadence from that rate and the 3 hours per issue, keeping monthly or slower"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Asks for clicks per delivered email, unique clickers, unsubscribes, complaints and replies for the last six issues before judging reader demand"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Marks the gate's demand condition unproven for lack of click data, with a pre-agreed threshold for the next issue, rather than passing or failing it"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Flags that no backup is named and treats the missing backup as an unmet gate condition, carried as a named open question rather than an invented name"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Deletes the curated ecosystem and personal-letter shapes because no backup exists, and says which shapes were deleted"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends the own-surface digest at monthly cadence as the shape"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States the slow-down and speed-up rule: slow after two consecutive thin issues, speed up only after three consecutive full ones"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Begins with the existing list's numbers and consent provenance, not with the redesign or the 'we're back' issue"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Computes the gate's demand condition on the lawful segment, not on the whole 14,000"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Requires the sending account, list export, sending subdomain and archive to move from Dario's personal login and card to an organisation account before the restart"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Counts the 15 forum answers as external supply because community members wrote them, even on the company's own forum"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Derives a monthly cadence from about 4 time-bound items per month (6 releases, 3 posts, 3 recordings per quarter) and rejects biweekly on supply"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Specifies that the restart issue states what changed: the new cadence, who writes it now, and how to unsubscribe"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names a backup and a reviewer as gate conditions, marking the owner condition blocked with the missing name, its owner and a dated re-check if none is supplied"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Opens with a direct answer to 'should we do it': not an email newsletter now, feed first"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Presents the five shapes in efficiency order, feed only, own-surface digest, curated ecosystem, community-edited, personal letter, and states the ranking explicitly"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Deletes the curated ecosystem, community-edited and personal-letter shapes on the one-hour-a-month effort ceiling, and names the deletions"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends feed only as the shape"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that feed only needs a public changelog with an RSS or Atom feed, which the project lacks, so building it comes first"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Routes the changelog build to samber/developer-relations-skills@changelog-writing"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Treats advisors saying 'you need a newsletter' as not evidence of reader demand, and names explicit reader requests or users who never see the changelog as the evidence that would count"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States the condition under which an editor and email get added later: the demand condition holding with evidence"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Does not propose a signup form, list-growth tactics, or sending-platform selection"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Writes the gate result naming which condition failed or is unproven, rather than a blanket 'not now'"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Fires the list-silent-more-than-six-months trigger and prescribes a re-permission issue first, suppressing non-responders"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Presents the roughly 1% software-sender median click rate as context, never as a target"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names the owner condition as the gate condition that fails, since no owner or backup exists"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Treats the Discord and the changelog feed under the 'need moved' trigger and prescribes closing with a final issue that points readers to the replacement"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that a downgrade to feed only means one final issue pointing at the feed, then no further sends"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States who holds the sending account, list export and archive after closure, assigning them to the organisation"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Carries named customers, competitor comparisons and the unannounced feature into the exclusion list"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires sponsored items to meet the same inclusion criteria as editorial items"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Prescribes three monthly digests each carrying one trial external section whose items drew clicks before moving to the curated ecosystem shape"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Excludes gated content and links that capture email addresses from external items"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Sets clicks per delivered email, unique clickers across the last N issues, unsubscribes and complaints, and replies as the primary signals"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Requires the report to state which bot-click filter was used"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Explains the rise from 0.1% to 0.25% unsubscribes as consistent with one-click unsubscribe under the 2024 bulk-sender rules, so not alone a content signal"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Labels every threshold set as a house rule"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Replaces 'reach' with unique clickers across the last N issues rather than an open-based multi-issue reach figure"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Promotes the community-edited shape on the two stated conditions: contributors already submit content, and a weekly governance cycle exists"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Deletes the curated ecosystem and personal-letter shapes because no backup exists, and says so"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the compounding mandate does not revive a shape the backup answer deleted"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Marks the owner-and-backup gate condition blocked, names the missing backup as the fact, assigns it to the maintainer, and sets a dated re-check"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Anchors the cadence to the Tuesday triage cycle"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Mirrors the section template on the governance cycle and names section editors as the ownership model"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Specifies submissions by pull request or form as the intake"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Counts the Discussions thread items as external supply because community members wrote them"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Picks submissions per issue as the outcome signal for the contributor-view funding reason"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Keeps a feed-only fallback if no backup exists by the re-check date"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Cuts the template to five to seven sections in a fixed order"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Gives every section a source, an owner, an item range and an empty-section rule"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Rejects 'the devrel team' as an owner and requires a named owner, a named backup and a reviewer, each with hours per issue"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Cites that a message mixing commercial and transactional content counts as commercial when the transactional part does not come first or the subject line reads as commercial"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Decides whether each issue gets a public URL and names where the archive lives"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names the running cost and the budget line that pays it"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names where the runbook lives and includes a handoff checklist"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Produces the template as a table with the columns Section, Source, Owner, Items, When empty"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Does not pick a shape before the mode, the last-three-months supply counts and the owner hours are known"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Asks one question per message"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Offers multiple-choice answers where possible"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Asks for counts of what shipped in the last three months, not adjectives"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Asks who owns it, hours per issue, who backs up, who reviews, and who holds the sending account, list export and domain"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Asks for the landing date, whether it is a one-off win or a compounding asset, and the effort ceiling in hours per month"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States why it will not pick yet: a cadence chosen before supply and owner hours are known is a guess the team will miss"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Offers to carry any partial answer as a named open question rather than refusing to proceed"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Stores interview answers in devrel-context.md when file-based memory is in use, or in the harness memory otherwise"
+      }
+    ]
+  }
+}

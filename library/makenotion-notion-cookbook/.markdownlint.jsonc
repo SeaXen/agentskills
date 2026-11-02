@@ -1,0 +1,54 @@
+{
+  "default": true,
+
+  // MD013/line-length - Line length
+  // Disabled: Code examples and URLs often exceed 80 characters
+  "MD013": false,
+
+  // MD033/no-inline-html - Inline HTML
+  // Disabled: Notion-flavored markdown uses HTML for mentions, spans, underlines
+  "MD033": false,
+
+  // MD010/no-hard-tabs - Hard tabs
+  // Disabled: Notion-flavored markdown nests child blocks (columns, toggles) with tabs
+  "MD010": false,
+
+  // MD041/first-line-heading - First line in file should be a top level heading
+  // Disabled: Some files start with metadata or front matter
+  "MD041": false,
+
+  // MD012/no-multiple-blanks - Multiple consecutive blank lines
+  // Disabled: Claude skills use spacing for readability in structured content
+  "MD012": false,
+
+  // MD022/blanks-around-headings - Headings should be surrounded by blank lines
+  // Disabled: Tightly packed content in skills and examples for conciseness
+  "MD022": false,
+
+  // MD024/no-duplicate-heading - Multiple headings with the same content
+  // Relaxed to siblings only: reference docs repeat the same subsection names
+  // under each pattern they document, which is not ambiguous across parents
+  "MD024": { "siblings_only": true },
+
+
+  // MD031/blanks-around-fences - Fenced code blocks should be surrounded by blank lines
+  // Disabled: Skills documentation uses inline code blocks in workflows
+  "MD031": false,
+
+  // MD032/blanks-around-lists - Lists should be surrounded by blank lines
+  // Disabled: Compact list formatting in skills and reference documentation
+  "MD032": false,
+
+  // MD034/no-bare-urls - Bare URL used
+  // Disabled: Examples and skills contain placeholder URLs and references
+  "MD034": false,
+
+  // MD036/no-emphasis-as-heading - Emphasis used instead of a heading
+  // Disabled: Skills use bold text for labels and inline emphasis
+  "MD036": false,
+
+  // MD040/fenced-code-language - Fenced code blocks should have a language specified
+  // Disabled: Many code blocks are pseudo-code or generic examples without specific language
+  "MD040": false
+}
+

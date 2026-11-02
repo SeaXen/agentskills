@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects 'we have fast fibre WiFi throughout, no problem' as an answer and requires a written answer to specific questions.",
+        "evidence": "\"is a bandwidth claim. It says nothing about device count, blocked protocols... not the written answer the skill requires.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks the venue how many simultaneous devices the room's access point holds and what happens at that limit.",
+        "evidence": "\"How many simultaneous devices does this room's access point hold, and what happens at the limit?\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks the venue which protocols and ports are blocked, and whether they can be opened for the day.",
+        "evidence": "Question 3 in the email.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks the venue whether unusual device classes are blocked by default and who can grant an exception on the day.",
+        "evidence": "\"who can grant an exception on the day?\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies policy rather than bandwidth as the likelier cause of the failure.",
+        "evidence": "\"The published failure causes are mostly policy, not bandwidth\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names specific policy causes: a blocked protocol such as RDP, a blocked device class, a participant's own VPN, and an ad blocker.",
+        "evidence": "Lists blocked RDP, blocked device class, participant VPN and ad-blocker.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats a room of simultaneous cold installs or downloads as a load case and asks participants to pre-download beforehand.",
+        "evidence": "\"Do the pre-download... removes the install burst from the room's network.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes 'assume the network holds' from consideration rather than ranking it last.",
+        "evidence": "Never explicitly removes it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Promotes removing the live dependency on the strength of the prior edition's failure at the same venue.",
+        "evidence": "\"A network failure at a previous edition is a named promotion condition for the demo path.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that if the venue will not answer in writing, the hands-on option is struck and the session runs as a demonstration with the material published.",
+        "evidence": "\"full hands-on is struck... Run a demonstration... and publish the lab material.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the venue failing to answer is itself the evidence, not a missing input to keep waiting on.",
+        "evidence": "\"Treat a non-answer as evidence.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declares the dependency in the published prerequisites and names a participant-side fallback such as tethering to their own data.",
+        "evidence": "\"tether your phone or use your own data.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the live, mid-session response to a network failure to the event's run of show rather than improvising a protocol here.",
+        "evidence": "\"The skill leaves the live response to event-run-of-show\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects 'we have fast fibre WiFi throughout, no problem' as an answer and requires a written answer to specific questions.",
+        "evidence": "Rejects 'Fast fibre WiFi' and asks specific questions, but never requires them in writing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks the venue how many simultaneous devices the room's access point holds and what happens at that limit.",
+        "evidence": "'Which APs cover the hands-on room, and how many clients can each handle?' It also lists the AP client limit as a likely cause.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks the venue which protocols and ports are blocked, and whether they can be opened for the day.",
+        "evidence": "'Are outbound TCP 3389 and HTTPS to your jump host and console allowed?'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks the venue whether unusual device classes are blocked by default and who can grant an exception on the day.",
+        "evidence": "Not asked.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies policy rather than bandwidth as the likelier cause of the failure.",
+        "evidence": "Lists many causes, including AP limits, DHCP and uplink, without ranking policy as likelier.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names specific policy causes: a blocked protocol such as RDP, a blocked device class, a participant's own VPN, and an ad blocker.",
+        "evidence": "Names the RDP block only.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats a room of simultaneous cold installs or downloads as a load case and asks participants to pre-download beforehand.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Removes 'assume the network holds' from consideration rather than ranking it last.",
+        "evidence": "It plans a test and a fallback but does not remove the assumption.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Promotes removing the live dependency on the strength of the prior edition's failure at the same venue.",
+        "evidence": "Keeps the live RDP dependency and adds a better network.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that if the venue will not answer in writing, the hands-on option is struck and the session runs as a demonstration with the material published.",
+        "evidence": "Says to bring your own network, not to run a demonstration.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the venue failing to answer is itself the evidence, not a missing input to keep waiting on.",
+        "evidence": "Treats a non-answer as a 'no' that triggers bringing your own network, not as evidence for removing the dependency.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declares the dependency in the published prerequisites and names a participant-side fallback such as tethering to their own data.",
+        "evidence": "Only adds a 'Bring' line and says not to promise the network.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the live, mid-session response to a network failure to the event's run of show rather than improvising a protocol here.",
+        "evidence": "Not routed.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

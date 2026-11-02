@@ -1,0 +1,70 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Recommends syndicate-only or skip rather than a 3-posts-per-week program",
+        "evidence": "\"Fit verdict: syndicate only, not invest\" and \"3 posts a week doesn't fit this skill.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that dev.to readers are mostly individual developers who cannot try a product without a free or self-serve tier",
+        "evidence": "\"No try-alone product. Vaultline has no developer free tier, so there's nothing for a developer to try.\" and \"Wrong audience. Your buyers are bank CISOs and data architects.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags that one content marketer cannot also answer comments and do earn-first engagement",
+        "evidence": "The comment-capacity point is about answering comments after 3 posts a week. The plan assigns the one marketer both earn-first comments and replies (about 17 hours over 8 weeks) and never flags that as a conflict.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "If syndication is kept, recommends canonical URLs pointing to Vaultline's own site",
+        "evidence": "\"canonical_url: https://vaultline.com/blog/lineage-batch-estate\" and \"tick 'Mark the RSS source as canonical URL'\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not produce a full 3-posts-a-week calendar",
+        "evidence": "The 8-week calendar has 3 posts in total (weeks 3, 5 and 7).",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Recommends syndicate-only or skip rather than a 3-posts-per-week program",
+        "evidence": "Recommends a 10-week pilot of original posts at 1 post/week, not syndicate-only or skip.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that dev.to readers are mostly individual developers who cannot try a product without a free or self-serve tier",
+        "evidence": "\"Dev.to readers are developers\" and \"they probably have a free tier... Dev.to posts there end with 'try it'. Yours cannot.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags that one content marketer cannot also answer comments and do earn-first engagement",
+        "evidence": "Says one marketer cannot write 3 posts a week and delegates comment answers to the SME. It does not flag the comment and earn-first load.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "If syndication is kept, recommends canonical URLs pointing to Vaultline's own site",
+        "evidence": "\"Canonical URL on your own blog (set `canonical_url` in dev.to front matter)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not produce a full 3-posts-a-week calendar",
+        "evidence": "The calendar is 1 post per week, with 10 slots.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

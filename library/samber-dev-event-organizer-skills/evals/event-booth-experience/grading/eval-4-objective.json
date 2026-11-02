@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to derive per-booth allocations from the aggregate attendee ratios",
+        "evidence": "I can't give you a per-booth number from those two ratios.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States why: attendee-density ratios and exhibitor load are different units with no formula bridging them, so any presented conversion is invented",
+        "evidence": "Both ratios describe a room full of attendee laptops and phones, not exhibitor load",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces the number with a process starting from asking the venue what a booth drop is, what it costs, and by when it must be requested",
+        "evidence": "What is a booth drop... cost... By what date must it be requested?",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the venue conversation through the organizers, who set expectations with venue staff",
+        "evidence": "Says ask the venue contact; never says organizers own the venue conversation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Publishes per tier what is included versus what must be requested",
+        "evidence": "Tier table: Gold one drop; Other tiers none, drop only on request",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the power request deadline as a published schedule row, not a sentence in an email",
+        "evidence": "request deadline as a schedule row",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Counts booths that actually need a drop instead of provisioning all 14, distinguishing a laptop-and-banner table from a demo rig",
+        "evidence": "Count booths that need a drop, not booths... laptop and banner needs a socket",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the WiFi inclusion as a commercial statement about billing, not a capacity or throughput promise",
+        "evidence": "'Included at no extra cost' is a billing statement.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Tells the cloud-gaming demo sponsor to bring their own connectivity fallback rather than relying on venue WiFi",
+        "evidence": "Bring a fallback... their own connection",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks or states whether wired connectivity is available at all as part of the per-tier network spec",
+        "evidence": "Is wired available at booths at all?",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Raises electrical safety sign-off: what supervision the venue requires and who is permitted to run a drop",
+        "evidence": "who may run it, and does it need electrical sign-off?",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not state a universal amperage, wattage or bandwidth threshold as if one existed",
+        "evidence": "No amperage or bandwidth thresholds stated; two-week figure marked illustrative.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to derive per-booth allocations from the aggregate attendee ratios",
+        "evidence": "Derives 14 booth outlets and 13 devices per booth from the ratios",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States why: attendee-density ratios and exhibitor load are different units with no formula bridging them, so any presented conversion is invented",
+        "evidence": "Not stated",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Replaces the number with a process starting from asking the venue what a booth drop is, what it costs, and by when it must be requested",
+        "evidence": "Asks only about additional drops, uplink, amperage; no cost or deadline",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the venue conversation through the organizers, who set expectations with venue staff",
+        "evidence": "Not mentioned",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Publishes per tier what is included versus what must be requested",
+        "evidence": "Only Gold vs non-Gold power",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the power request deadline as a published schedule row, not a sentence in an email",
+        "evidence": "No deadline",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Counts booths that actually need a drop instead of provisioning all 14, distinguishing a laptop-and-banner table from a demo rig",
+        "evidence": "'Every booth, baseline (14 \u00d7 1)'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats the WiFi inclusion as a commercial statement about billing, not a capacity or throughput promise",
+        "evidence": "Treated as capacity/throughput",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Tells the cloud-gaming demo sponsor to bring their own connectivity fallback rather than relying on venue WiFi",
+        "evidence": "'do not run it on shared venue WiFi'; 'Sponsor's own uplink (bonded 5G...)'; pre-recorded fallback",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks or states whether wired connectivity is available at all as part of the per-tier network spec",
+        "evidence": "'Wired Ethernet drop... Ask the venue for this.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Raises electrical safety sign-off: what supervision the venue requires and who is permitted to run a drop",
+        "evidence": "Not raised",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not state a universal amperage, wattage or bandwidth threshold as if one existed",
+        "evidence": "'a stream needs about 15\u201345 Mbps'; 'under about 40 ms'; '50+ Mbps reservation'",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

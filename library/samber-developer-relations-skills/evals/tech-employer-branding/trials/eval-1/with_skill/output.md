@@ -1,0 +1,12 @@
+Killed 3 of 4 stats — fabricated or misattributed (skill names them by name as refused). Vendor "55%" also refused: unanchored case-study number, no disclosed method. Rebuilt with sourced replacements, same punch, board-defensible.
+
+**Revised slide**
+
+- **Reviews decide the funnel before you ever see a resume.** 86% of engineers research a company's reviews before applying, forming an opinion within about six of them — and a half-star rating increase alone drives 20% more job clicks and 16% more apply-starts. *(Glassdoor site survey / Glassdoor Economic Research)*
+- **Candidates trust engineers over the careers page.** Job seekers trust a company's own employees roughly 3x more than its official messaging — and companies with a strong engineering talent brand see 2.5x more applicants per posting. *(LinkedIn Talent Solutions / Talent Brand Index)*
+- **Retention follows through on the promise.** Gartner's own research finds organizations that deliver effectively on their employee value proposition can cut annual turnover by just under 70% *(Gartner, directional finding from advisory research — not an independently controlled study, cited as such)*.
+- **The interview loop is already costing you candidates.** In Stack Overflow's 2022 survey of 83,000+ developers, a disorganized process and poor employer reviews each caused 24% of candidates to abandon an application — before any new content spend, fixing this is free. *(Stack Overflow Developer Survey 2022)*
+
+Dropped: "72% check blog/GitHub" (no publisher stands behind it — traced to a distorted daily.dev guide, not a survey) and "LinkedIn 50% more qualified applicants" (not a LinkedIn figure — garbled mashup of two unrelated stats). Flagged: the vendor "55% cost-per-hire" claim — no methodology disclosed, reads as marketing to any exec who checks it, replace or ask the vendor for the underlying study before it goes on a slide.
+
+One addition worth pitching alongside the budget ask, not as a bullet: commit to tracking source-of-hire and offer-acceptance rate against a 70% floor, and report both back at the next board update. Turns the $180K into a measured bet instead of a one-time spend — exactly the distinction a board pushes on.

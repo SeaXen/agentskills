@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to describe SSPL-licensed software as open source, and corrects the draft's '100% open source' claim",
+        "evidence": "\"'100% open source and always will be' next to an SSPL announcement is a checkable-in-seconds contradiction... Fix the copy, don't polish the claim.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that SSPL is not OSI-approved",
+        "evidence": "\"SSPL is not OSI-approved open source \u2014 OSI reviewed and never approved it\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Quotes or closely paraphrases the OSI board's wording that the hallmark of a fauxpen source license is claiming the product remains 'open' while the new license has taken away user rights",
+        "evidence": "No such quote or paraphrase appears anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the objection is to restricting deployment as a cloud service, against clause 6 of the Open Source Definition",
+        "evidence": "Clause 6 / Open Source Definition is never mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Attributes the position to the OSI Board of Directors, January 2021",
+        "evidence": "No such attribution or date appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Prescribes the replacement vocabulary: source-available, fair source, or delayed open source publication",
+        "evidence": "Only \"source-available\" is used; 'fair source' and 'delayed open source publication' are never mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the claim is checkable in seconds and the correction arrives publicly",
+        "evidence": "\"a checkable-in-seconds contradiction. It will get called out publicly (Hacker News, Reddit, your own users) within hours\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that calling it open source fails procurement filters that check OSI approval directly",
+        "evidence": "\"Never say 'open source'... Procurement teams and package registries filter on OSI approval directly.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rewrites the announcement to cover what changes, what does not change, who is affected with an example, who is not affected, why, contributors, and alternatives",
+        "evidence": "The rewritten announcement covers what changes/doesn't change/why but includes no contributors section and no mention of forking/the last old-license commit as an alternative.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Replaces the 'sustainability' framing with the concrete commercial situation, named",
+        "evidence": "\"We're making this change because [name the specific competitor/hyperscaler] resells Quillstone as a managed service without contributing anything back.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes pointing readers at the last commit under the old license and the availability of a fork",
+        "evidence": "No pointer to a last commit or fork availability appears in the rewritten announcement; only an internal checklist item to 'expect a fork.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that Redis's own CEO acknowledged SSPL is not OSI-approved and that the change hurt the relationship with the community",
+        "evidence": "No CEO quote or acknowledgment is mentioned; only that Redis 'got forked' is stated.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to describe SSPL-licensed software as open source, and corrects the draft's '100% open source' claim",
+        "evidence": "'SSPL is not an OSI-approved open source license... I'd drop the open-source claim rather than tighten it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that SSPL is not OSI-approved",
+        "evidence": "'SSPL is not an OSI-approved open source license'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Quotes or closely paraphrases the OSI board's wording that the hallmark of a fauxpen source license is claiming the product remains 'open' while the new license has taken away user rights",
+        "evidence": "No fauxpen language appears anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the objection is to restricting deployment as a cloud service, against clause 6 of the Open Source Definition",
+        "evidence": "Mentions only the 'no discrimination against fields of endeavor' clause, with no clause number. It does not tie the objection to restricting cloud deployment. It also states OSI 'rejected it in 2018'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Attributes the position to the OSI Board of Directors, January 2021",
+        "evidence": "No such attribution.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Prescribes the replacement vocabulary: source-available, fair source, or delayed open source publication",
+        "evidence": "None of those terms is offered. It only says 'the source is open'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the claim is checkable in seconds and the correction arrives publicly",
+        "evidence": "'HN and Reddit threads correcting the claim became the story' and 'the first person who quotes the OSI definition at you in the replies'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that calling it open source fails procurement filters that check OSI approval directly",
+        "evidence": "No mention of procurement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rewrites the announcement to cover what changes, what does not change, who is affected with an example, who is not affected, why, contributors, and alternatives",
+        "evidence": "The rewrite omits an affected-party example, contributors, and alternatives.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Replaces the 'sustainability' framing with the concrete commercial situation, named",
+        "evidence": "The rewrite leans on 'keep Quillstone sustainable' and 'funds the people who build the thing'. It names no concrete commercial situation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes pointing readers at the last commit under the old license and the availability of a fork",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that Redis's own CEO acknowledged SSPL is not OSI-approved and that the change hurt the relationship with the community",
+        "evidence": "Redis appears only as an example of a project that made the change. The CEO acknowledgment is absent.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

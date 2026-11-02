@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Declines the whimsical register for this project rather than complying with the request",
+        "evidence": "The release body still delivers a haiku (\"Two ledgers argue,...\") and a playful sign-off (\"Balanced to the last cent. \u2014 Wexley\"), showing partial compliance rather than a decline.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the editorial register requires a consumer surface, a single locale or a translation budget, and a product voice that already exists, and that all three must hold together",
+        "evidence": "Only two conditions (integrating audience, 7 locales) are discussed; no mention of \"a product voice that already exists\" or an explicit three-part conjunctive test.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies that this project fails at least the consumer-surface and single-locale conditions",
+        "evidence": "\"your readers are integrating against Wexley, not casually receiving it, and the notes go into 7 locales, where \\\"no idioms, no wordplay\\\" is the standing rule\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that whimsy multiplies translation cost and defect rate across every locale",
+        "evidence": "\"the notes go into 7 locales, where 'no idioms, no wordplay' is the standing rule (wordplay doesn't survive translation and just adds defect risk)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends the technical-writing school as the default register",
+        "evidence": "The response explicitly splits register (\"the personality lives in the release-body summary and sign-off\") rather than adopting a technical-writing-school default throughout.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that funny or friendly notes run long, obscure the message, and cost non-native readers extra work",
+        "evidence": "No statement about length, obscured messaging, or extra work for non-native readers appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Resolves whether the reader is integrating against the change or receiving it",
+        "evidence": "\"your readers are integrating against Wexley, not casually receiving it\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Delivers entries that state the observable effect before any mechanism",
+        "evidence": "\"Add batch mode to `reconcile()` \u2014 pass a list of transactions in one call instead of invoking it once per record (#___)\" states the capability directly with no internal mechanism preceding it.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Claims no performance figure for the faster CSV parsing, since none was supplied",
+        "evidence": "\"CSV parsing number. Left unquantified \u2014 if you have a real benchmark, give me the number and I'll add it; otherwise it stays qualitative\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Uses no marketing adjectives such as revolutionary, blazing, or completely rebuilt",
+        "evidence": "Entries use plain phrasing like \"Speed up CSV parsing for large reconciliation files\" with no marketing adjectives anywhere.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Declines the whimsical register for this project rather than complying with the request",
+        "evidence": "The transcript fully embraces a whimsical register throughout \u2014 it opens with a haiku ('Two ledgers, one truth\u2014 / reconcile() finds every gap. / Sleep well tonight, ops.') and builds an entire running motif around 'the Ghost Cent' ('We call it the Ghost Cent \u2014 it shows up in every currency, every timezone, every bank's nightly batch, and it has personally ruined more Friday evenings than any outage'), showing compliance rather than any decline.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the editorial register requires a consumer surface, a single locale or a translation budget, and a product voice that already exists, and that all three must hold together",
+        "evidence": "No such statement appears anywhere in the transcript; it contains only the release notes themselves with no meta-commentary on editorial register requirements.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies that this project fails at least the consumer-surface and single-locale conditions",
+        "evidence": "The transcript never discusses consumer-surface or locale conditions at all \u2014 it only notes at the end that 'This note ships in 7 languages,' with no analysis of whether that condition is met or failed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that whimsy multiplies translation cost and defect rate across every locale",
+        "evidence": "The closing note instead celebrates multi-locale whimsy positively: 'This note ships in 7 languages, so the Ghost Cent now haunts your ops team in Japanese and Portuguese too \u2014 global consistency, at last.' There is no mention of translation cost or defect rate.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends the technical-writing school as the default register",
+        "evidence": "No recommendation for a plain technical-writing register exists; the entire document (haiku, 'Ghost Cent' motif, jokes about Tokyo and S\u00e3o Paulo engineers) exemplifies the opposite of a technical-writing default.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that funny or friendly notes run long, obscure the message, and cost non-native readers extra work",
+        "evidence": "No such caveat is present; the document contains no commentary about length, clarity, or non-native-reader cost of the whimsical style it uses.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Resolves whether the reader is integrating against the change or receiving it",
+        "evidence": "The document mixes a code-integration audience (Java snippets like `BatchReconciliationRequest.builder()...`) with a broad narrative/marketing audience ('Apologies to every engineer in Tokyo who has stared at a \u00a51,000,000 \"discrepancy\"') without ever explicitly resolving which reader it is written for.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Delivers entries that state the observable effect before any mechanism",
+        "evidence": "The CSV entry leads with mechanism, not effect: 'The CSV reader was rewritten around a streaming tokenizer instead of loading rows into intermediate String[] buffers before mapping them,' with the effect ('parse time dropped roughly 3x') only following afterward. Similarly the JPY fix entry states 'were being divided by 100 during matching' (mechanism) before the effect ('mismatch ... off by a factor of 100').",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Claims no performance figure for the faster CSV parsing, since none was supplied",
+        "evidence": "The transcript explicitly supplies a fabricated-looking figure: 'parse time dropped roughly 3x and peak heap usage dropped with it,' directly contradicting a claim of no performance figure.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Uses no marketing adjectives such as revolutionary, blazing, or completely rebuilt",
+        "evidence": "Scanning the full text, no instances of 'revolutionary,' 'blazing,' 'completely rebuilt,' or similar hype adjectives appear; phrasing stays in a whimsical-narrative register ('quietly losing the argument,' 'small mercies') rather than marketing-adjective language.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Identifies the seat-collapse pattern, citing the flat 5.4 seats per account against the 40M to 380M evaluation growth as the diagnostic evidence",
+        "evidence": "\"210 accounts \u00d7 5.4 seats \u00d7 $19 = $21,547 MRR... flat for 14 months while evaluations grew 40M \u2192 380M/month (9.5x)\" and \"flat 14 months while usage rose 9.5x; evaluations run from application code, not from console logins \u2014 fails test 1 (moves with value) and test 5 (cost correlation)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes consumption from the candidate list outright rather than ranking it last, on the grounds that nothing is meterable today and no billing engineering is funded",
+        "evidence": "\"Consumption (evaluations) | deleted for FY... unmeterable today without the unfunded quarter \u2014 'no funded billing engineering deletes consumption outright'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Promotes capacity or entitlement - environments, projects or concurrency - as the near-term metric because it bills off account state the product already stores",
+        "evidence": "\"Capacity/entitlement (environments, projects) | selected for FY | trivially meterable off account records today\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the metric repair as additive: keeps a seat component for the human console surface and adds a second layer for the automated load",
+        "evidence": "\"Chosen architecture: seats (small, kept) + capacity (environments, projects) now, metered evaluation overage layered in once funded.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that a wholesale metric swap re-prices every existing account at once and turns a metric fix into a churn event",
+        "evidence": "\"Don't do a wholesale metric swap either way \u2014 it re-prices all 210 accounts at once and turns a metric fix into a churn event.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States explicitly that it is entering brainstorming mode before widening the candidate list",
+        "evidence": "\"Brainstorming mode, six families:\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists candidates from every metric family - seats, consumption, business outcome, capacity or entitlement, percentage of a flow, flat per unit of software - and marks each plausible, unmeterable today, or misaligned with the reason",
+        "evidence": "Table covering Seats, Consumption, Business outcome, Capacity/entitlement, Percentage of a flow, Flat per unit of software, each with verdict and reason",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Puts surviving candidates through five tests in writing: moves with value, already counted by the customer, forecastable before the invoice, not gameable or perverse, and correlated with cost to serve",
+        "evidence": "Only seats is scored against \"test 1\" and \"test 5\" briefly; no full 1-5 written test sequence appears for the selected capacity metric, despite the Threshold check claiming \"five tests answered in writing above\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the efficiency ranking of the metric families out loud rather than leaving it implied by the order of the list",
+        "evidence": "No explicit statement ordering the six families by cost/effort or efficiency appears anywhere in the document",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Presents two or three candidate pricing architectures, never a single one, and recommends among them",
+        "evidence": "\"Two alternatives considered and rejected: Raise seat price, change nothing else... Ship rough usage-based billing now anyway\" alongside the chosen hybrid",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "For each candidate architecture, gives the unit, what a typical customer's bill looks like, what it gives up, and how it behaves when the customer succeeds",
+        "evidence": "The two alternatives are described only by effort/tradeoff (\"cheapest, zero engineering, but doesn't touch...\"), with no unit or sample-bill figure given for either",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats a hybrid - platform fee, included allowance, metered overage, optional committed spend - as a first-class candidate rather than a compromise",
+        "evidence": "\"'a hybrid is not a compromise... it is also how a starved consumption layer gets bought in stages, under a metric that already works' [self-set, SKILL.md step 2]\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that changing a live value metric rewrites every contract, every forecast and the metering pipeline underneath, unlike packaging or price points which can be re-cut in a quarter",
+        "evidence": "Only the churn-event/re-pricing risk is discussed; no statement about rewriting contracts, forecasts, and metering pipelines versus quarter-recuttable packaging/price points",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend moving all 210 existing accounts onto a new metric on a single date",
+        "evidence": "\"Grandfather the current $19/seat rate for existing accounts for a stated window (e.g., 12 months); apply the new capacity fee to new signups immediately.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Identifies the seat-collapse pattern, citing the flat 5.4 seats per account against the 40M to 380M evaluation growth as the diagnostic evidence",
+        "evidence": "\"Seats flat 14 months, evals up 9.5x (40M\u2192380M).\" ... \"19 \u00d7 5.4 seats \u00d7 210 accounts\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes consumption from the candidate list outright rather than ranking it last, on the grounds that nothing is meterable today and no billing engineering is funded",
+        "evidence": "Consumption is deferred not deleted: \"Phase 3 \u2014 real-time billing-grade metering. Next budget cycle, conditional.\" Reasoning given is market-validation sequencing, not 'nothing meterable / no engineering funded'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Promotes capacity or entitlement - environments, projects or concurrency - as the near-term metric because it bills off account state the product already stores",
+        "evidence": "\"Phase 1 \u2014 repackage now, current data, no new engineering (days): 1. Pull projects + environments per account...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the metric repair as additive: keeps a seat component for the human console surface and adds a second layer for the automated load",
+        "evidence": "\"Build 3 tiers gated on projects + environments (seats stay, low weight)\" plus Phase 2 usage band.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that a wholesale metric swap re-prices every existing account at once and turns a metric fix into a churn event",
+        "evidence": "No explicit warning stated; only an action plan (\"New pricing on new signups first\") without narrating the wholesale-swap risk explicitly.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States explicitly that it is entering brainstorming mode before widening the candidate list",
+        "evidence": "No mention of 'brainstorming' anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Lists candidates from every metric family - seats, consumption, business outcome, capacity or entitlement, percentage of a flow, flat per unit of software - and marks each plausible, unmeterable today, or misaligned with the reason",
+        "evidence": "Only seats, consumption, and capacity/entitlement are discussed; no business-outcome, percentage-of-flow, or flat-per-unit candidates listed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Puts surviving candidates through five tests in writing: moves with value, already counted by the customer, forecastable before the invoice, not gameable or perverse, and correlated with cost to serve",
+        "evidence": "No five-test framework appears anywhere in the text.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the efficiency ranking of the metric families out loud rather than leaving it implied by the order of the list",
+        "evidence": "No explicit statement of family-level efficiency ranking; only a phased plan is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Presents two or three candidate pricing architectures, never a single one, and recommends among them",
+        "evidence": "Only a single hybrid plan (Phase 1/2/3) is presented, not multiple candidate architectures to choose between.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "For each candidate architecture, gives the unit, what a typical customer's bill looks like, what it gives up, and how it behaves when the customer succeeds",
+        "evidence": "Not present \u2014 no side-by-side architecture comparisons exist.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats a hybrid - platform fee, included allowance, metered overage, optional committed spend - as a first-class candidate rather than a compromise",
+        "evidence": "\"switch value metric to what you already read (projects + environments), add a cheap monthly usage band on top\" \u2014 presented as the primary recommendation, not a fallback.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that changing a live value metric rewrites every contract, every forecast and the metering pipeline underneath, unlike packaging or price points which can be re-cut in a quarter",
+        "evidence": "No such explicit statement; only notes Phase 1 repackaging needs 'no new engineering (days)' without contrasting metric-change cost explicitly.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend moving all 210 existing accounts onto a new metric on a single date",
+        "evidence": "\"New pricing on new signups first... Grandfather current accounts ~2 renewal cycles (6 months)\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

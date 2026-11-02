@@ -1,0 +1,318 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-hospitality",
+  "scenarios": 8,
+  "expectations_total": 97,
+  "expectations_subjective": 2,
+  "expectations_objective": 95,
+  "pass_rate_with_skill_pct": 91.8,
+  "pass_rate_without_skill_pct": 38.1,
+  "delta_pp": 53.7,
+  "uplift_multiplier": 2.41,
+  "trigger_accuracy_pct": 53.3,
+  "trigger_queries": 92,
+  "trigger_positive_fire_rate": 0.739,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Dietary count collection is sequenced before the service style is finalized or the order placed."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The alcohol-free provision keeps running after the cap is reached, and this is announced in advance so the cap does not read as the event closing."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Running the evening half-heartedly is warned against as the same drift with the event's name attached."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The response declines to supply a litres-per-attendee coffee ratio and states that no standard figure is given."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recording this edition's actual consumption and leftovers is recommended so the next edition orders against its own record."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The one-off addition is preferred because the affected people still eat with everybody else."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The plan refuses to stretch lunch to 75 minutes or push the afternoon talks back."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "No per-head cost or invented quantity figure appears in the plan."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "The 170-person gap between registrations and expected show-up is named separately as a buffer, not silently folded into the order or dropped."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Dietary count collection is sequenced before the service style is finalized or the order placed."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Family-style shared platters are removed from consideration entirely because of the chafing-dish and open-flame ban, not merely ranked lower."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The needed service window is handed to whoever owns the schedule as a requirement; the 60-minute lunch slot is not moved or lengthened."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The response asks for or defers to the event's committed dietary-category list instead of treating the four registration-form categories as the complete commitment."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The treasurer's claim is corrected: the cash bar is identified as carrying the highest compliance cost of the alcohol postures, not the lowest."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The response notes that a cash bar hands the service terms and the stopping rule to whoever holds the till."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The cash bar's social cost is named: it filters who joins the evening by who can spend on it."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The refusal reasons that the cap is what the risk register, insurer and code of conduct rely on - an uncapped bar is bounded service with that removed."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "A named cap holder is required who is not hosting, not speaking and not drinking, and who has authority to stop service."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The alcohol-free provision is given equal prominence at the same table or bar, not a separate corner."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The alcohol-free provision keeps running after the cap is reached, and this is announced in advance so the cap does not read as the event closing."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The alcohol decision is urged before the evening venue is booked, because the posture is cheaper to set before a contract than after."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The posture is routed as an input to the insurance or risk review and to the code-of-conduct scope, with neither decided in this response."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The halved drinks budget is rejected: removing alcohol shifts what people drink, not how much they drink."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Under-forecasting the soft-drink and energy-drink line while over-ordering coffee is called out as the specific modelling error."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The alcohol-free offer is designed as something made and comparable, served from the main serving point at the same moment as everything else."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The design makes not drinking unremarkable: nobody has to explain or disclose a reason such as recovery, medical, religious or pregnancy to be served."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Serving no alcohol is affirmed as a legitimate posture rather than an omission or a downgrade."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The known cost of the dry posture is named: drinking can relocate to an unhosted venue where conduct-policy coverage is weakest."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The absence of a named evening owner is identified as decisive: with nobody free to own it, every organised-evening option is off the table."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The recommendation is 'no organised programme' published as the decision, or any organised option is made conditional on first naming an owner with real capacity."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The excursion is stated to earn its place only when it is the event's signature moment and the whole audience fits it - neither true here."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The pub-drift option is rejected: it looks like a free mixer but is the version with nobody responsible."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The drift's specific risk is named: conduct-policy scope is weakest exactly where the unhosted evening happens."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The absence is published: the schedule states the day ends at the last session, early enough for attendees to plan their own evening."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "A distinction is drawn between a published absence, which is legitimate, and silence, which is the failure people fill themselves."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Running the evening half-heartedly is warned against as the same drift with the event's name attached."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The venue-based mixer is identified as the default evening format if an owner ever exists: the event's own space, right after the last session, with no travel or cost to attend."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The evening decision is handed to the conduct-policy owner for the scope question rather than settled here."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The rejection reasons that an empty station mid-morning reads as broken provision, because only refilled provision reads as provision."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Break content is decided per break rather than settled once for the whole day."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The response declines to supply a litres-per-attendee coffee ratio and states that no standard figure is given."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The venue's position on outside food and drink entering the building is checked before organizer-bought supplies are planned."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Plated service is challenged because the 180-seat hall cannot seat the 350-person population at once, making it an exclusion mechanism."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The plated plan's hidden effort is named: cutlery and crockery create a dishwashing bottleneck that a tray-served or packaged style never creates."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The style recommendation is drawn from what the mandated caterer can offer, checked against collected dietary counts."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The caterer's contract, exclusivity and delivery terms are routed to the vendor-sourcing function rather than decided in this plan."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The response questions where the 350 figure comes from and requires an expected-show-up number rather than ordering for 350 unexamined."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The equipment and service questions are asked before ranking styles: open flame, who may serve, and what returns to the supplier and when."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The remaining decisions are enumerated positively: break contents, dietary count collection, the alcohol posture within house-bar terms, and the evening decision."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The failure is located at the delivery handover: nobody was assigned to capture and carry the allergen detail from delivery through to plating."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The fix assigns a person to that handover step so the declaration survives from delivery to the serving line."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The first fallback offered is a one-off addition to the caterer's standing order for the three kosher meals."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The one-off addition is preferred because the affected people still eat with everybody else."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The dietary-fulfilment gate is stated with a zero-miss threshold: every declared restriction met at every meal across every population fed."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The declaration-completeness gate is stated: every allergen-carrying item carries a readable declaration before it is taken."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recording which restrictions the supplier could not cover and which fallback was used is recommended for the next edition's record."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The speakers' dinner is excluded from the shared hospitality plan as a named population's top-up, routed to whoever owns speaker care."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The hotel room block is refused as a hospitality item and identified as a venue-contract term for the venue negotiation to carry."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "No general-attendee lodging or travel standard is invented; the refusal is stated as a decision rather than skipped silently."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Meal-line placement and queue signage are routed to the on-site experience owner rather than designed in this plan."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The plan refuses to stretch lunch to 75 minutes or push the afternoon talks back."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The needed service window is instead handed to the schedule owner as a requirement."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The lunch format is chosen to fit the fixed 45-minute gap, weighing a buffet queue's length against that gap."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Dietary counts from every population fed and an expected-show-up figure are required as inputs before the format and order are fixed."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The plan carries the alcohol posture and the evening decision as sections, with the evening published even if the answer is nothing organised."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Each excluded item appears as an explicit ask routed to its owner, not silently dropped."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "No per-head cost or invented quantity figure appears in the plan."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The plan is presented section by section for approval before anything is ordered."
+      }
+    ]
+  }
+}

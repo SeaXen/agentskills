@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Warns that a metric which becomes a target changes behaviour, and names premature or low-quality closes as the specific behaviour the 90%-in-7-days target encourages",
+        "evidence": "\"creates direct pressure to close fast: premature 'wontfix' on real bugs, rushed merges on a service that gates production rollouts... This is the skill's named failure mode verbatim: 'rewarding closed issues produces premature closes.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the closure target to be paired with a quality counter-metric, such as reopen rate or time to a real resolution, if it is kept at all",
+        "evidence": "\"Pair the closure metric with a quality counter-metric so 'fast' can't silently mean 'sloppy': reopened-issue rate, or post-merge revert rate on PRs.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that rewarding answer counts produces volume and chatter rather than better answers, and requires a quality counter-metric for the leaderboard too",
+        "evidence": "\"'rewarding message counts produces chatter... pair any incentivised metric with a quality counter-metric.'\" and fix: \"rank on a quality-adjusted score, not raw count \u2014 e.g. accepted-answer rate\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the public per-member leaderboard as privacy exposure and states that person-level data should be aggregated rather than published",
+        "evidence": "\"this skill's own privacy gate says 'avoid public per-member leaderboards without consent'\" and \"Report the underlying metric... internally in the monthly health report instead\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that publishing per-member recognition requires the member's consent",
+        "evidence": "\"If a leaderboard ships anyway, make it opt-in (answerer consents to appear)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that publishing per-member activity changes behaviour in ways the team did not intend",
+        "evidence": "\"A public count-based badge invites fast, low-effort, first-to-reply answers over correct ones \u2014 worse for a feature-flag product where a wrong answer... has real blast radius\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Proposes a recognition mechanism that does not publish a ranked per-member table, such as private thanks or promotion to an answerer or reviewer role",
+        "evidence": "\"Badge yes, ranking no. Award a badge to top answerers... without a public numeric leaderboard ranking one person against another.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires any closure threshold to be derived from Ridgeline's own trailing baseline rather than set at a round number like 90%",
+        "evidence": "\"Pull 3 months of trailing history first, set the threshold from that trailing median \u2014 not an imported number \u2014 before publishing any target externally.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that no published target exists for the change request closure ratio",
+        "evidence": "\"No published source sets '90%' or '7 days' for closure. The one numeric guideline that exists anywhere in the field... is about first response within two business days \u2014 not closure.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a closure ratio persistently below 1 means the backlog outruns the team, and marks that as an interpretation rather than published guidance",
+        "evidence": "This framing does not appear in section 8; the transcript only says closure ratio should be \"read as a trend against your own baseline \u2014 not a fixed % target\" without the specific \"below 1 = backlog outrunning team\" interpretation found in other sections",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Excludes bots from the responsiveness and closure numbers",
+        "evidence": "\"time-to-first-human-response (target: fast, days not weeks, bot-excluded)\" and \"Exclude bot-driven auto-close (stale-bot closures) from the count\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Warns that a metric which becomes a target changes behaviour, and names premature or low-quality closes as the specific behaviour the 90%-in-7-days target encourages",
+        "evidence": "\"'Closed' \u2260 'resolved.' The metric is satisfied identically by a real fix, a drive-by 'works for me' close, or a stale-bot auto-close.\" and \"The target then rewards premature 'needs more info' / 'can't reproduce' closes over real diagnosis.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the closure target to be paired with a quality counter-metric, such as reopen rate or time to a real resolution, if it is kept at all",
+        "evidence": "\"Time-to-resolution / backlog age distribution: report as an *observed* trend in the health report (median, p90, \"issues open >90 days\"), not as a target. Trends catch drift without creating close-for-the-number pressure.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that rewarding answer counts produces volume and chatter rather than better answers, and requires a quality counter-metric for the leaderboard too",
+        "evidence": "\"Raw count rewards volume, not help.\" and fix: \"Score on **accepted answers + net upvotes**, not raw count. If you don't have an accept/upvote mechanism yet, build that before the leaderboard\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the public per-member leaderboard as privacy exposure and states that person-level data should be aggregated rather than published",
+        "evidence": "The transcript flags privacy only via consent (\"Public handles + public ranking = privacy/consent question\" and \"Get opt-in consent before publishing a handle publicly\"), but never proposes aggregating person-level data instead of publishing it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that publishing per-member recognition requires the member's consent",
+        "evidence": "\"Get opt-in consent before publishing a handle publicly; let people decline the badge without losing the recognition internally.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that publishing per-member activity changes behaviour in ways the team did not intend",
+        "evidence": "\"External incentive crowds out intrinsic motivation (over-justification effect) \u2014 people start answering *for the badge*, not to help.\" combined with \"Farming: fast, low-effort, or duplicate answers to rack up count; racing to answer first instead of answering well.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Proposes a recognition mechanism that does not publish a ranked per-member table, such as private thanks or promotion to an answerer or reviewer role",
+        "evidence": "The fix list only modifies the existing ranked leaderboard (change scoring, reset cadence, add a newcomer category, require consent, decide what the badge unlocks) \u2014 it never proposes dropping the ranked table for a non-ranked mechanism like private thanks or a reviewer role.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires any closure threshold to be derived from Ridgeline's own trailing baseline rather than set at a round number like 90%",
+        "evidence": "No mention of a trailing baseline or 'Ridgeline' anywhere; the transcript only says the 90%/7-day target is 'worth putting' on time-to-first-response, without discussing deriving thresholds from historical data.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that no published target exists for the change request closure ratio",
+        "evidence": "No statement in the transcript addresses whether a target is currently published or not for the closure ratio.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a closure ratio persistently below 1 means the backlog outruns the team, and marks that as an interpretation rather than published guidance",
+        "evidence": "No mention of a closure ratio below 1 or backlog-outrunning-team interpretation anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Excludes bots from the responsiveness and closure numbers",
+        "evidence": "Only closure is addressed: \"If a stale-bot auto-close is part of the flow, exclude those from any 'resolved' count and report them as their own line\" \u2014 no mention of excluding bots from the time-to-first-response (responsiveness) metric.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

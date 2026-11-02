@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Deletes the workload cut from the candidate set and says so explicitly, on the grounds that the research ceiling is hours rather than weeks.",
+        "evidence": "'Rejected \u2014 workload/job-to-be-done cut... it requires ticket coding or interviews you don't have and can't get in 9 days. Deleted outright, not demoted' \u2014 contrasted against the '~1-2 hrs' afternoon runbook that is 'the whole research budget.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a near decision date deletes any cut whose evidence the team does not already hold.",
+        "evidence": "'it requires ticket coding or interviews you don't have and can't get in 9 days. Deleted outright, not demoted' ties the near 9-day deadline directly to deleting a cut lacking held evidence.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not propose user interviews or support-ticket coding as a prerequisite for the recommended cut.",
+        "evidence": "The 2-afternoon runbook relies only on 'last 24 months of signups' and 'sales notes' sampling \u2014 no interviews or ticket coding proposed for the chosen ecosystem/buying-mode cut.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the ecosystem cut available because language and runtime already sit on every signup row.",
+        "evidence": "'Dimensions: primary client language \u00d7 deployment runtime (both technographic \u2014 signup data already carries both, no new instrumentation needed).'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the buying-mode cut available because the sales-call notes already record who signed.",
+        "evidence": "'Sample ~30-40 of the 200 notes... For each note, tag three things: who first evaluated, who else had to say yes, self-serve or contract' \u2014 the existing notes are used as the evidence source for who signed.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the ruled-out cut is deleted rather than parked at the bottom of the list, and gives the reason a parked cut gets re-proposed later.",
+        "evidence": "'Deleted outright, not demoted \u2014 don't let it get re-proposed next quarter as if it were free.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names which supplied constraint moved which candidate cut.",
+        "evidence": "9-day deadline + no ticket/interview data deletes workload; 'signup data already carries both' keeps ecosystem; '200 notes, unclustered, not designed for this question' demotes buying-mode to a folded-in axis.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Estimates the ecosystem cut's effort as roughly an hour, given that language and runtime are already collected.",
+        "evidence": "'Afternoon 1 \u2014 size the grid (signup data, ~1-2 hrs)'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Estimates the buying-mode cut's effort as roughly an hour or two of reading sales notes and existing accounts.",
+        "evidence": "'Afternoon 2 \u2014 decision unit per cell (sales notes, ~1-2 hrs)'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends exactly one cut for this horizon.",
+        "evidence": "The single 'Cut' section names one chosen dimension pair ('primary client language \u00d7 deployment runtime'), with buying-mode explicitly folded in rather than a second cut.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not present the default candidate ordering as a fixed rule.",
+        "evidence": "No text in this transcript discusses a 'default ordering' of cuts at all (unlike Section 3's explicit 'Default ranking... is inverted here'), so there is no clear evidence either confirming or addressing this point.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Deletes the workload cut from the candidate set and says so explicitly, on the grounds that the research ceiling is hours rather than weeks.",
+        "evidence": "No mention of a 'workload cut' anywhere in the transcript; only breadth (language/runtime) and depth (capabilities) axes are discussed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a near decision date deletes any cut whose evidence the team does not already hold.",
+        "evidence": "The 'day 9' reference concerns a parallel PMF question, not an explicit statement that a near decision date deletes other unheld-evidence cuts.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not propose user interviews or support-ticket coding as a prerequisite for the recommended cut.",
+        "evidence": "'You don't need a survey to answer either \u2014 you need to mine what you already have correctly,' and the interview-like PMF question is proposed to run 'in parallel with this decision,' not as a prerequisite.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the ecosystem cut available because language and runtime already sit on every signup row.",
+        "evidence": "'Share + trend, split: language/runtime share of signups' \u2014 pulled directly from existing signup data.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the buying-mode cut available because the sales-call notes already record who signed.",
+        "evidence": "'Deal outcome (won/lost/stalled) attached to each note' shows sales notes already record purchase outcomes.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the ruled-out cut is deleted rather than parked at the bottom of the list, and gives the reason a parked cut gets re-proposed later.",
+        "evidence": "No candidate cut is explicitly named as deleted-not-parked, with a reason a parked cut resurfaces.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names which supplied constraint moved which candidate cut.",
+        "evidence": "No sentence ties a specific supplied constraint to the removal of a specific named cut.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Estimates the ecosystem cut's effort as roughly an hour, given that language and runtime are already collected.",
+        "evidence": "Ecosystem analysis is scoped to 'Afternoon 1' with three separate data pulls, not 'roughly an hour.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Estimates the buying-mode cut's effort as roughly an hour or two of reading sales notes and existing accounts.",
+        "evidence": "Sales-note mining is scoped to 'Afternoon 2 \u2014 200 sales-call notes,' not 'an hour or two.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends exactly one cut for this horizon.",
+        "evidence": "'Primary audience: [cohort from the joint-winner rule] \u2014 build/harden this SDK first' recommends a single cohort.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not present the default candidate ordering as a fixed rule.",
+        "evidence": "'If nothing clears both bars, default to the signup winner... One judgment call I can't make for you... get that weighting confirmed' frames the rule as conditional, not fixed.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

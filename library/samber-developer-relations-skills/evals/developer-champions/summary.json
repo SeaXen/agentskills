@@ -1,0 +1,642 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "developer-champions",
+  "scenarios": 12,
+  "expectations_total": 133,
+  "expectations_subjective": 0,
+  "expectations_objective": 133,
+  "pass_rate_with_skill_pct": 68.4,
+  "pass_rate_without_skill_pct": 19.5,
+  "delta_pp": 48.9,
+  "uplift_multiplier": 3.51,
+  "trigger_accuracy_pct": 54.1,
+  "trigger_queries": 122,
+  "trigger_positive_fire_rate": 0.197,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": null,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.274 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "States that 6 nameable qualifying people is below the roughly 10-candidate readiness floor and recommends against launching a public program now"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends growing the community and recognising these individuals informally in the meantime"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Explains that a public program with a handful of members reads as a failed program and that the failure stays visible"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Labels the roughly 10-candidate floor as a self-set default rather than an industry standard or benchmark"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Notes that general-marketing playbooks recommending revenue share for ambassadors are written for consumer brand ambassadors, instead of asserting that the field agrees"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States the efficiency ordering explicitly as invite-only circle > award > application cohort > points ledger"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States at least one further axis ordering (value, effort or compliance cost) separately rather than collapsing everything into one blended rank"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Gives a value ordering in which the application cohort ranks first"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes that the points ledger is the least reversible of the four shapes because members accrue points against a promised redemption"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that an application cohort's published criteria become a public commitment the program can be held to in later cycles"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Warns that the archetype ordering is a default to re-rank against context, not a law"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States the perk efficiency ordering as access > platform > skill-building > funding > status objects"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that access is the only rung where a single beat serves the whole cohort at once"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends shorter terms and expects higher churn for a hobbyist and student audience"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Cites a published program requiring two or more of five criteria as the sourced anchor for that pattern"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires a written conflict-of-interest rule for competitor employment and for consultancies whose pipeline would lean on the title, instead of case-by-case judgement"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Specifies that rejected candidates get a reply naming the specific gap and what to build before the next window"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Adds a recurring access beat plus a feedback digest showing what advocate input actually changed"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Rejects the lifetime title and requires an end date fixed on day one"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Sets a notice period before the term ends, describing a quarter as generous and a month as the floor"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that if the program ever ends it is announced with a full term of notice, promised perks are honoured, and the roster page stays online"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes that high-value perks may be taxable to the member"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Notes the source describes a consumer-adjacent product at extreme scale, making it a north star rather than a target"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Identifies the other public outcome number - roughly +13% participants and +38% contributions at a search-infrastructure vendor - as first-party reporting from the team that ran the program, with no baseline comparison"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Requires kill criteria to be written before launch, naming the activity or renewal rate at which the program shrinks or stops"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that champion programs keep their internal scoring private, which is why no published distribution exists to calibrate against"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Recommends recalibrating the weights to the program's stated purpose and writing that change into the charter rather than applying it silently"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Flags the ledger's extra compliance load: published member activity records and redeemable value pull in gift limits, member tax exposure and a data review before launch"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that the ledger measures in order to award recognition and never functions as a quota whose miss triggers punishment"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Refuses to hand back a perk list or landing page with no term, exit and bar attached"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Produces the charter first and the public page second, in that order"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Works through the 12 charter questions, covering at minimum purpose, archetype, criteria, obligations, perks, term, exit, compliance, operations and bar"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Marks every number in the charter as sourced or self-set"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Validates each section with the user before moving to the next rather than delivering the whole document in one pass"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Keeps the candidate pipeline list, individual scores, budget per member, kill criteria and raw scorecard numbers internal"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that a charter with no named owner or budgeted monthly hours fails the readiness check, and says so instead of polishing the document"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Does not treat the three named perks as a sufficient program design"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Recommends an invite-only circle as the default starting shape"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that for an open-source project with no vendor budget the currency is standing and responsibility, not swag"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Connects the champion tier to the project's existing contributor ladder so recognition ladders into review rights and maintainership rather than sitting beside it"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Keeps the emeritus or alumni exit that the contributor ladder already defines"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Explains that a champion title grants implied authority, so granting it with no enforcement path is how a bad actor becomes an official one"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "States that 6 nameable qualifying people is below the roughly 10-candidate readiness floor and recommends against launching a public program now"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends growing the community and recognising these individuals informally in the meantime"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Explains that a public program with a handful of members reads as a failed program and that the failure stays visible"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Labels the roughly 10-candidate floor as a self-set default rather than an industry standard or benchmark"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Refuses the 15% recurring referral commission as a champion perk"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Gives the reason that a commission or affiliate cut reads as multi-level marketing and destroys the member's credibility with their own audience"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that a genuinely paid motion must run as a separate program with its own contract, never bolted onto a recognition title"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Notes that general-marketing playbooks recommending revenue share for ambassadors are written for consumer brand ambassadors, instead of asserting that the field agrees"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Refuses the one-blog-post-per-month requirement as a content quota"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Ties the quota refusal to employment-classification exposure created by assigned tasks, deadlines and quotas, not only to community dynamics"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Frames obligations as behaviour - following the code of conduct, being constructive with newcomers, giving honest feedback including criticism, respecting embargoes - rather than output volume"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Does not deliver a finished public ambassador page and perk list for the six people as the requested deliverable"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Presents the archetype choice as a shortlist of two or three of the four shapes with a stated recommendation, rather than one prescribed answer"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States the efficiency ordering explicitly as invite-only circle > award > application cohort > points ledger"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States at least one further axis ordering (value, effort or compliance cost) separately rather than collapsing everything into one blended rank"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Gives a value ordering in which the application cohort ranks first"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names the locked six-week date as the answer that promotes the invite-only circle"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names the intent to run the program every year as the answer that promotes the application cohort"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Identifies the tension between the fixed near date and the compounding mandate instead of silently honouring only one of them"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Proposes a first cohort deliverable within six weeks, with published-criteria open intake deferred to a later cycle"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes that the points ledger is the least reversible of the four shapes because members accrue points against a promised redemption"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that an application cohort's published criteria become a public commitment the program can be held to in later cycles"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Warns that the archetype ordering is a default to re-rank against context, not a law"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Checks 8 hours a month against cohort size using a figure of roughly 1-2 hours per champion per month, and labels that figure self-set"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States the perk efficiency ordering as access > platform > skill-building > funding > status objects"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Classifies the hoodie, sticker pack and Discord badge as status objects and places them last on that ordering"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Explains that status objects rank last despite costing almost nothing, because cheap and efficient are different orderings"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Adds at least one access perk - roadmap review, release briefing, private channel with engineers, executive time, or being consulted before decisions land"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that access is the only rung where a single beat serves the whole cohort at once"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that funding is the rung the efficiency ordering otherwise starves"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Directs the $2,500 toward travel, tickets, credits, certification or training vouchers rather than more merchandise"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that funding carries the highest effort of the five rungs: a budget line, a signature per member, and a gift-limit and tax check"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends shorter terms and expects higher churn for a hobbyist and student audience"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Rejects the single mandatory criterion and applies a two-or-more pattern: four to six qualifying activities with any two required"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Cites a published program requiring two or more of five criteria as the sourced anchor for that pattern"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Separates a published gate from an internal rank: the qualifying criteria are published, the scoring rubric is not"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that a candidate who fails the gate is not scored at all"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Weights answering other people's questions highest among the selection signals"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Gives the reason that reach can be granted later by the program's own platform perks while depth of engagement cannot be granted at all"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Publishes anti-signals alongside the criteria, naming at least reach without product depth and activity that begins the week applications open"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires a written conflict-of-interest rule for competitor employment and for consultancies whose pipeline would lean on the title, instead of case-by-case judgement"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Specifies that rejected candidates get a reply naming the specific gap and what to build before the next window"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Computes the quarterly active share at roughly 13% and states it sits far below a 60% starting bar"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Introduces dated terms at the next cycle as the primary structural fix"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Keeps alumni titles dated and truthful, in the form \"Advocate, <start year>-<end year>\" or equivalent"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Gives alumni a role such as nominating, mentoring the next cohort, or reviewing applications"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Diagnoses front-loaded status objects with no recurring access as the likely cause of members going quiet"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Adds a recurring access beat plus a feedback digest showing what advocate input actually changed"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Rejects the lifetime title and requires an end date fixed on day one"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Explains that without a dated term the only exit is removal, which nobody executes, so the roster fills with inactive names"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends a term length and labels it self-set, distinguishing a vendor-scale default of about 12 months from a foundation-scale default of about 24"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Cites published practice - dated cohorts running about two years at a foundation, an annually rebuilt roster at a vendor - as the sourced anchor for term length"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Judges renewal against the published criteria over the last term only, not against past reputation"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Sets a notice period before the term ends, describing a quarter as generous and a month as the floor"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Sends the activity record being judged along with the renewal notice so renewal is never a surprise"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Offers a pause for parental leave, illness, a job change or burnout, without treating it as failure to perform"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Routes conduct removal through the moderation process rather than the program owner alone"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that if the program ever ends it is announced with a full term of notice, promised perks are honoured, and the roster page stays online"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Lets any member decline any perk without penalty"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Asks about employer approval and competitor employment at intake, before acceptance rather than after"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Narrows the NDA to the pre-release builds actually shared and refuses the blanket company-wide NDA"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Explains that a blanket NDA suppresses the public advocacy the program exists to create"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires an endorsement disclosure on public posts, identifying free product, swag, tickets, early access and credits as the material connection that triggers it"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names the US FTC endorsement guides at 16 CFR Part 255 and notes comparable regimes exist in the UK and EU"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Supplies the disclosure wording and the expectation rather than leaving each member to guess it"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes that high-value perks may be taxable to the member"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States a may-not list including that a champion may not speak for the company or promise roadmap items"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Gates jurisdiction-specific points on current local rules and on counsel rather than asserting a legal conclusion"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Identifies the roughly 25% figure as second-hand, reported in a book rather than by the company itself, and never confirmed by that company"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Notes the source describes a consumer-adjacent product at extreme scale, making it a north star rather than a target"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Identifies the other public outcome number - roughly +13% participants and +38% contributions at a search-infrastructure vendor - as first-party reporting from the team that ran the program, with no baseline comparison"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names deflected support questions, content the company did not commission, and adoption in places with no company presence as the honest impact surface, none of it cleanly attributable"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Proposes a quarterly scorecard whose every threshold is labelled self-set rather than benchmarked"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Includes quarterly active share with a starting bar of at least 60%"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Includes renewal acceptance with a starting bar of at least 70%"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Includes a candidate-pipeline bar of at least half the cohort size and a median response time to a champion of no more than 5 business days"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Requires kill criteria to be written before launch, naming the activity or renewal rate at which the program shrinks or stops"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names the disagreement explicitly as whether the program is buying reach or buying depth"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Points out that the quoted scale contains no tenure or sustained-activity line"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Points out that the quoted scale contains no coverage-gap line for region, language, vertical or ecosystem"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Adds sustained tenure, mentoring and coverage gap as weighted signals in the alternative"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Labels every weight it offers as self-set rather than an observed distribution"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that champion programs keep their internal scoring private, which is why no published distribution exists to calibrate against"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Recommends recalibrating the weights to the program's stated purpose and writing that change into the charter rather than applying it silently"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Calibrates point values per region rather than using one global table"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Gives the reason that contribution culture differs by market, so a single global table systematically under-recognises some regions"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Weights contributions by effort and current strategic need, treating the weighting as a steering wheel that over-rewards under-served areas until the imbalance closes"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Revisits the weights every cycle and announces the change to members"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Counts contribution types wider than code, naming at least talks, event organizing, content or forum answers"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that the ledger measures in order to award recognition and never functions as a quota whose miss triggers punishment"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Refuses to hand back a perk list or landing page with no term, exit and bar attached"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Produces the charter first and the public page second, in that order"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Works through the 12 charter questions, covering at minimum purpose, archetype, criteria, obligations, perks, term, exit, compliance, operations and bar"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Marks every number in the charter as sourced or self-set"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Validates each section with the user before moving to the next rather than delivering the whole document in one pass"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Limits the public page to purpose, criteria and anti-signals, obligations and the may-not list, perks, term dates with renewal and inactivity rules, alumni status, the disclosure expectation, and how to apply or be nominated"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Keeps the candidate pipeline list, individual scores, budget per member, kill criteria and raw scorecard numbers internal"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that a charter with no named owner or budgeted monthly hours fails the readiness check, and says so instead of polishing the document"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Does not treat the three named perks as a sufficient program design"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Checks 25 champions against 3 hours a month using a figure of roughly 1-2 hours per champion per month and concludes the cohort far exceeds what those hours support"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Labels the hours-per-champion figure as self-set, to be derived from the operating beats actually chosen"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that for an open-source project with no vendor budget the currency is standing and responsibility, not swag"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Connects the champion tier to the project's existing contributor ladder so recognition ladders into review rights and maintainership rather than sitting beside it"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Keeps the emeritus or alumni exit that the contributor ladder already defines"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Requires a code of conduct and a working moderation path to exist before the title is granted"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Explains that a champion title grants implied authority, so granting it with no enforcement path is how a bad actor becomes an official one"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Requires a named person who will actually receive and answer what champions raise, rather than a feedback obligation with no listener"
+      }
+    ]
+  }
+}

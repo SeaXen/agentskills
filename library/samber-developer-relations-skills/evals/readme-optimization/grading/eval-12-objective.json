@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Drafts three candidate one-liners rather than a single phrasing",
+        "evidence": "Only one rewritten opening is given under 'Here's the rewritten top, keeping the punch:'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Builds the three candidates on the three named axes: what it does mechanically, what problem it removes, and what it lets you stop using",
+        "evidence": "No axis-based candidates are presented; only a single combined rewrite is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Presents each candidate's trade-off alongside a recommendation and leaves the final choice to the user",
+        "evidence": "No multiple candidates or trade-off comparison is presented.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses 'production ready' and 'battle-tested' as fabricated status that one glance at the commit history disproves",
+        "evidence": "\"'Production ready' and 'battle-tested' are on the skill's explicit fabrication blacklist \u2014 they're claims a reader disproves with one glance at the commit history\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses 'blazing fast' and 'developer-friendly' as unfalsifiable, replacing them with something checkable - a number, a dependency count, a supported-platform list, or a named trade-off",
+        "evidence": "\"'Blazing-fast' and 'developer-friendly' are flagged too, as the canonical example of unfalsifiable adjectives to replace with something checkable.\" replaced with \"four months\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Proposes an honest status statement matching four months of internal use rather than a maturity claim",
+        "evidence": "\"we've been running it in production internally for four months.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that the one-liner propagates into the repository description, the registry page, and every link unfurl",
+        "evidence": "No mention of propagation to repo description, registry page, or link unfurls anywhere in section 12.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the technology, the job and the runtime or platform constraint inside the opening sentences",
+        "evidence": "\"Prismstore is an embedded key-value store for Zig, built on an LSM tree. No server, no ops layer \u2014 it's a library you compile straight into your binary\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that superlatives without evidence lower trust with a developer audience",
+        "evidence": "\"unlike a real status statement they cost more trust than they buy.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gets agreement on this section before moving on to any other",
+        "evidence": "No request for confirmation before proceeding; instead offers to 'push further' on the same line if the user wants.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Drafts three candidate one-liners rather than a single phrasing",
+        "evidence": "The transcript contains a single one-liner sentence with no alternative candidates offered.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Builds the three candidates on the three named axes: what it does mechanically, what problem it removes, and what it lets you stop using",
+        "evidence": "There are no multiple candidates or axes discussed at all \u2014 just the one raw sentence.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Presents each candidate's trade-off alongside a recommendation and leaves the final choice to the user",
+        "evidence": "No trade-off discussion, recommendation, or choice is presented; the transcript is only the draft text itself.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses 'production ready' and 'battle-tested' as fabricated status that one glance at the commit history disproves",
+        "evidence": "The transcript itself uses \"Production ready and battle-tested\" without any refusal or critique.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses 'blazing fast' and 'developer-friendly' as unfalsifiable, replacing them with something checkable - a number, a dependency count, a supported-platform list, or a named trade-off",
+        "evidence": "The transcript itself uses \"blazing-fast, developer-friendly\" verbatim with no refusal or replacement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Proposes an honest status statement matching four months of internal use rather than a maturity claim",
+        "evidence": "The transcript instead makes the maturity claim (\"Production ready and battle-tested\") rather than proposing a more honest alternative.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that the one-liner propagates into the repository description, the registry page, and every link unfurl",
+        "evidence": "No such propagation note appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the technology, the job and the runtime or platform constraint inside the opening sentences",
+        "evidence": "\"embedded key-value store for Zig, built on a log-structured merge tree\" names the technology (Zig) and the job (embedded key-value store).",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that superlatives without evidence lower trust with a developer audience",
+        "evidence": "No such statement appears; the transcript is the unrevised superlative-laden draft itself.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gets agreement on this section before moving on to any other",
+        "evidence": "There is no request for agreement or any interactive check-in in the transcript \u2014 it is simply the output text.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

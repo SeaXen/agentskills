@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Opens with a verdict of roughly three sentences covering the shape of the problem, its single biggest cost, and the size of the fix",
+        "evidence": "'Three separate failures... The single biggest cost sits on the Node adoption path... Three small, independent edits close the highest-confidence gaps; Reference needs no work at all.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes each finding in the Now / Reader impact / Next action format, with a severity tag and the page path",
+        "evidence": "Each finding uses '- Now:', '- Reader impact:', '- Next action:' with a '[must fix]' tag and a page path like `concepts/access-control.md`.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Assigns severities from the three tiers: must fix, should fix, worth noting",
+        "evidence": "Only the '[must fix]' tag is used across all three findings; 'should fix' and 'worth noting' never appear anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rates concepts/access-control.md and the missing Node quickstart as must fix, since both sit on a common reader's path",
+        "evidence": "Both are tagged '[must fix]', with reasoning like 'the group with the lowest tolerance for friction' and 'the #2 search landing page on the site'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives each finding exactly one next action, doable in one sitting",
+        "evidence": "Each finding has a single 'Next action:' line (split, write quickstart, regroup links) rather than multiple disconnected actions.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Carries the user's own figures into the findings: 41 links, 71% exit rate, 9 steps, 30-row table, 260 zero-result queries",
+        "evidence": "'41 ungrouped links', '71% exit rate', '9 numbered steps', '30-row permission table', '260 zero-result queries/90d' all appear in the findings.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Phrases every finding as a reader failing to get something, never as a framework violation",
+        "evidence": "e.g. 'someone mid-incident adding a service account scrolls past a diagram and a 30-row table to find their 9 steps' \u2014 reader-centric throughout, no 'violates Di\u00e1taxis' phrasing.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends extracting the 9 service-account steps into their own how-to, with the concept page linking to it, rather than restructuring the concepts section",
+        "evidence": "'split into concepts/access-control.md (keep the diagram), guides/add-a-service-account.md (the 9 steps)... Concept page keeps links to both.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Fixes the Guides landing page by grouping its links on that page only, with no files moved",
+        "evidence": "'Regroup Guides landing page into Tasks / Concepts | guides/index.md | ... | 1h, no files move'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Moves the non-compiling Go samples out of scope, noting them separately with a named owner rather than as a structural finding",
+        "evidence": "'Go SDK code samples not compiling. This is an accuracy defect... route to whoever owns the Go SDK docs (engineering, most likely)'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives credit to the Reference section for already being clean",
+        "evidence": "'No finding \u2014 Reference: Credited as well-organized on the input given.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes a section for what the audit did not cover, and an inputs section stating what was inventoried, which signals were available and what was inferred",
+        "evidence": "'## Not covered by this audit' and '## Inputs' sections both present with detailed breakdowns.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Opens with a verdict of roughly three sentences covering the shape of the problem, its single biggest cost, and the size of the fix",
+        "evidence": "The 'Bottom line' opening runs to five sentences and lists three coequal symptoms (71% exit rate, high-traffic page, no SDK entry point) rather than singling out one 'single biggest cost.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes each finding in the Now / Reader impact / Next action format, with a severity tag and the page path",
+        "evidence": "Findings are written as free-form prose paragraphs under headers with emoji tags (e.g., '### \ud83d\udd34 1. Node SDK: no quickstart...'), with no Now/Reader impact/Next action labeled structure, and no consistent page path given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Assigns severities from the three tiers: must fix, should fix, worth noting",
+        "evidence": "Only two emoji tiers are used (\ud83d\udd34 and \ud83d\udfe0) in the Priority column, with no 'worth noting' tier and no literal tier names.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rates concepts/access-control.md and the missing Node quickstart as must fix, since both sit on a common reader's path",
+        "evidence": "Both Finding 1 (Node SDK quickstart) and Finding 2 (access-control.md) are tagged \ud83d\udd34, the highest severity used in the table.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives each finding exactly one next action, doable in one sitting",
+        "evidence": "E.g., Finding 1: 'One quickstart page \u2014 install, configure, first successful call, next steps \u2014 closes the gap.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Carries the user's own figures into the findings: 41 links, 71% exit rate, 9 steps, 30-row table, 260 zero-result queries",
+        "evidence": "'41 links, no grouping,' '71% of the time,' 'nine numbered steps,' '30-row permission table,' '260 zero-result \"node getting started\" searches.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Phrases every finding as a reader failing to get something, never as a framework violation",
+        "evidence": "Findings are framed in reader terms, e.g. 'someone checking a permission scope scrolls past setup steps to find the table,' with no mention of Diataxis or framework violations.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends extracting the 9 service-account steps into their own how-to, with the concept page linking to it, rather than restructuring the concepts section",
+        "evidence": "'Fix: split into three pages \u2014 concept, how-to, reference \u2014 cross-linked, matching the pattern the Reference section already uses successfully.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Fixes the Guides landing page by grouping its links on that page only, with no files moved",
+        "evidence": "The fix also proposes reclassifying links: 'consider whether some of the 14 conceptual links belong in Guides at all,' implying links may be moved, not just regrouped in place.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Moves the non-compiling Go samples out of scope, noting them separately with a named owner rather than as a structural finding",
+        "evidence": "Go samples remain Finding #4 in the main findings table and recommended sequence (step 2), not moved out of scope, and no named owner is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives credit to the Reference section for already being clean",
+        "evidence": "'The Reference section is genuinely well organized. Keep it as the internal template for the concept/how-to/reference split.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes a section for what the audit did not cover, and an inputs section stating what was inventoried, which signals were available and what was inferred",
+        "evidence": "No such 'not covered' or 'inputs' section appears anywhere in the document.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

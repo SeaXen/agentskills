@@ -1,0 +1,118 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Splits the environment setup onto its own page linked from step 1, rather than trimming it down inside the quickstart.",
+        "evidence": "'Split into a separate Environment setup page' and cut-list entry: 'Full manual-install path... \u2192 New Environment setup page, linked once from \"Before you start\".'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Justifies the split by noting readers need setup documentation long after they stop needing the quickstart.",
+        "evidence": "The justification given is only 'Where environment setup is large and durable, give it its own page linked from step 1' \u2014 no statement that readers need it long after they stop needing the quickstart.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places every remaining prerequisite before step 1, each with a one-line check command and an install pointer.",
+        "evidence": "'## Before you start - Docker: check with `docker --version` (https://docs.docker.com/get-docker/) - Nothing else.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that any prerequisite discovered after step 1 during a cold run counts as a defect.",
+        "evidence": "The verification plan lists output-mismatch and time-budget defects but never states that a prerequisite surfacing after step 1 itself counts as a defect.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recognises a chart, table or query result as the success moment that makes a notebook the fitting container.",
+        "evidence": "'Chart requires a rendering surface the plain page can't give it \u2192 pulls the whole page toward a heavier container' \u2014 explicitly connecting a chart success moment to needing a heavier (notebook-like) container.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Promotes the notebook above its default ranking specifically because the platform team already runs hosted notebook infrastructure, turning a standing job into near-free.",
+        "evidence": "The transcript explicitly rejects this: 'The JupyterHub reduces build cost for an internal notebook. It does nothing for the ownership question, and it may make the compliance question worse.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a notebook with no named owner would be deleted from the shortlist rather than ranked last.",
+        "evidence": "'\"Nobody has volunteered to maintain notebook infrastructure\" is exactly that answer to interview question 12. That alone drops the notebook off the list.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces the hosted public taxi dataset with rows the reader inserts during the quickstart and then queries, because a dataset the reader did not create weakens the proof.",
+        "evidence": "Step 2 has the reader run 'CREATE TABLE my_trips AS SELECT * FROM nyc_taxi_trips...' explicitly because 'a demo dataset the reader did not create weakens the proof... Have the reader materialize a small table from the public dataset themselves.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Commits to a 10-minute baseline budget for this database/data-platform quickstart.",
+        "evidence": "'Budget: 10 minutes (Database/data-platform baseline), title states it, cold run enforces it.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Splits the environment setup onto its own page linked from step 1, rather than trimming it down inside the quickstart.",
+        "evidence": "\"## Want to run this locally instead? \u2192 [Local setup guide] (the current 1,800-word section, moved, trimmed to a prerequisites table + copy-paste commands...)\" \u2014 moved to its own linked page early in the new page shape.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Justifies the split by noting readers need setup documentation long after they stop needing the quickstart.",
+        "evidence": "The justification given is generic quickstart pattern (\"get to the payoff fast, push the deep-dive to a linked page\"), not that setup docs are needed on a different, longer timeline than the quickstart.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places every remaining prerequisite before step 1, each with a one-line check command and an install pointer.",
+        "evidence": "No prerequisites-with-check-commands section appears before step 1 in the new page mockup.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that any prerequisite discovered after step 1 during a cold run counts as a defect.",
+        "evidence": "No cold-run methodology or defect criterion is discussed in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recognises a chart, table or query result as the success moment that makes a notebook the fitting container.",
+        "evidence": "\"Query 1M+ taxi trips and chart them by hour \u2014 no install required\" and \"## What you'll see [chart preview / GIF]\" as the payoff.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Promotes the notebook above its default ranking specifically because the platform team already runs hosted notebook infrastructure, turning a standing job into near-free.",
+        "evidence": "The transcript explicitly rejects reusing existing infra: \"Don't put this on the internal JupyterHub... Ask platform team for a separate... instance\" and instead prefers third-party hosting \"given nobody's volunteered to own this.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a notebook with no named owner would be deleted from the shortlist rather than ranked last.",
+        "evidence": "Ownership is raised as an open question (\"Who signs up to own the notebook image long-term... Get a name, not a team\") while the notebook recommendation is still made, not deleted from the plan.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Replaces the hosted public taxi dataset with rows the reader inserts during the quickstart and then queries, because a dataset the reader did not create weakens the proof.",
+        "evidence": "The taxi dataset is kept: \"Is the taxi dataset already public and stable enough to embed in a Binder image...\" \u2014 no proposal to switch to reader-inserted rows.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Commits to a 10-minute baseline budget for this database/data-platform quickstart.",
+        "evidence": "\"### New page shape (target: under 600 words, first result in under 5 minutes)\" \u2014 5 minutes, not 10.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

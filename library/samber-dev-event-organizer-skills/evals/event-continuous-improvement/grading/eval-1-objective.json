@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Groups the edition 2 badge-printer entry, the edition 3 queue and laptop entries, and the edition 4 check-in entry into one check-in theme instead of treating them as separate findings.",
+        "evidence": "\"Why these three entries are one theme\" lists the ed. 2 printer jam, the ed. 3 queue and laptops, and the ed. 4 queue spilling into the street.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Counts the check-in theme's recurrence as 3 editions and labels it a pattern.",
+        "evidence": "Table row: \"Check-in throughput | 2, 3, 4 | 3 of 4 | **Pattern**\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the Room B projector failure, seen in editions 3 and 4, a candidate, not a pattern or trend.",
+        "evidence": "\"Room B projector failure | 3, 4 | 2 of 4 | **Candidate**\"; \"don't present it as a trend\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Either holds the projector candidate for one more edition or justifies acting now only because the fix is cheap and reversible.",
+        "evidence": "\"acting on a candidate only if the fix is cheap, reversible, and worth doing even if the pattern is noise. A spare projector and a pre-event test meet all three tests.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Counts the three edition-4 catering complaints as one occurrence (one edition), not three, and does not present catering as a recurring trend.",
+        "evidence": "\"Three entries in one edition count as one occurrence\"; \"Catering is one occurrence, not three.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States a denominator with each recurrence count (e.g. '3 of 4 editions'), not a bare count.",
+        "evidence": "\"3 of 4\", \"2 of 4\", \"1 of 4\" throughout; \"Every count below is out of the editions you hold records for.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains the check-in grouping by shared underlying cause and fix (check-in capacity and fallbacks), not by similarity of wording or which workstream reported it.",
+        "evidence": "\"The skill clusters by what would have to change to prevent a failure, not by wording... check-in has a single path with no capacity margin and no offline fallback.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Proposes deliberate changes one at a time rather than bundling several simultaneous changes, or explicitly warns that bundled changes cannot be attributed next edition.",
+        "evidence": "\"one deliberate change per edition... A bundle can't be attributed at the closure pass.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes each proposed change with three parts: what changes, why the evidence justifies it, and how the team will know next edition whether it worked.",
+        "evidence": "CR-1 has Change, Because and Check fields (\"peak wait at the desk, observed at the door\").",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the check-in change's check an observable, numbered threshold (e.g. a stated peak queue-length figure), not a bare direction like 'shorter'.",
+        "evidence": "\"Threshold: peak wait under 10 minutes and nobody queued outside the building.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the accepted operational change onto next edition's plan as a real task for the planning-timeline owner, not left as free-floating advice.",
+        "evidence": "\"Routed to: event-planning-timeline, as a task on the edition 5 plan\"; the hand-off table names it \"as a real task\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not re-analyze or reconstruct any single edition's debrief; takes the four logs as given.",
+        "evidence": "On ed. 4: \"gives no cause. I have not reconstructed it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Presents the two-occurrence candidate / three-occurrence pattern bar as a convention the team adopts, not as established organizer practice.",
+        "evidence": "Under \"This skill's own judgment\": \"The two-occurrence candidate and three-occurrence pattern bars.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Groups the edition 2 badge-printer entry, the edition 3 queue and laptop entries, and the edition 4 check-in entry into one check-in theme instead of treating them as separate findings.",
+        "evidence": "Table of editions 2-4 followed by 'The causes differ each time, but the failure is the same.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Counts the check-in theme's recurrence as 3 editions and labels it a pattern.",
+        "evidence": "'Check-in has failed in 3 of 4 editions' under the 'Patterns' heading",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the Room B projector failure, seen in editions 3 and 4, a candidate, not a pattern or trend.",
+        "evidence": "'Projector in Room B has failed twice, and that's a process failure' is listed under Patterns; the word candidate is not used",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Either holds the projector candidate for one more edition or justifies acting now only because the fix is cheap and reversible.",
+        "evidence": "It prescribes acting now, e.g. 'Ask the venue to repair or replace the Room B projector, in writing', with no hold-or-cheap-and-reversible justification",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Counts the three edition-4 catering complaints as one occurrence (one edition), not three, and does not present catering as a recurring trend.",
+        "evidence": "It says 'Catering is probably not a pattern yet' but never counts the complaints as one edition's occurrence",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States a denominator with each recurrence count (e.g. '3 of 4 editions'), not a bare count.",
+        "evidence": "'3 of 4 editions'; the projector 'twice' has no denominator, but the main count has one",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains the check-in grouping by shared underlying cause and fix (check-in capacity and fallbacks), not by similarity of wording or which workstream reported it.",
+        "evidence": "'single point of failure on the critical path... no fallback exists for any of them'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Proposes deliberate changes one at a time rather than bundling several simultaneous changes, or explicitly warns that bundled changes cannot be attributed next edition.",
+        "evidence": "It lists 8 check-in changes plus AV, catering and process changes, all at once, with no attribution warning",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes each proposed change with three parts: what changes, why the evidence justifies it, and how the team will know next edition whether it worked.",
+        "evidence": "Changes are bare bullets; only the median-wait item has a check",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the check-in change's check an observable, numbered threshold (e.g. a stated peak queue-length figure), not a bare direction like 'shorter'.",
+        "evidence": "'median wait under 5 minutes'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the accepted operational change onto next edition's plan as a real task for the planning-timeline owner, not left as free-floating advice.",
+        "evidence": "The 'Six-week plan' and 'Name one owner for check-in' as the next action",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not re-analyze or reconstruct any single edition's debrief; takes the four logs as given.",
+        "evidence": "It builds capacity math and speculates 'If edition 4 ran 1 or 2 stations, the street queue is explained'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Presents the two-occurrence candidate / three-occurrence pattern bar as a convention the team adopts, not as established organizer practice.",
+        "evidence": "No candidate/pattern bar is mentioned",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

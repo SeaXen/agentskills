@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Cuts the ranked list to roughly what two pages per quarter covers over two quarters",
+        "evidence": "The map names capacity as the binding constraint (\"~2 pages/quarter, and zero budget for upkeep\") and ships a ranked table with exactly two rows (SDK init error 4013; Sampling rate default), both flagged P1 and explicitly sized to the quarter (\"this quarter's 2-page capacity is already spent on the two P1 clusters above\"). The other five observed queries are handled outside the ranked list: four in Do-not-target (each with the blocking constraint named plus a promotion condition) and one in Backlog (\"What is product analytics\", parked 2026-09-20 for a future page slot). The closing note reject",
+        "score": 4,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Cuts the ranked list to roughly what two pages per quarter covers over two quarters",
+        "evidence": "The 7 logged queries are reduced to a 4-page slate matching the 2-pages/quarter budget across two quarters: \"This quarter's 2 pages\" names exactly two (SDK initialization error reference, 310 searches; Sampling rate reference, 220 searches), and \"Backlog \u2014 next quarter, conditional\" names exactly two more (generic export/CDP page covering Segment+Snowflake, generic migration checklist), explicitly ranked against each other (\"Lower priority than the export page\"). The remaining three queries are removed from the build list rather than left in a ranked queue: Segment/Snowflake are folded into th",
+        "score": 5,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

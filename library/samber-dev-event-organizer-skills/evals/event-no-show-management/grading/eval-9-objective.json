@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Names FIFO drained on a fixed date as the default waitlist ordering rule.",
+        "evidence": "\"Use first-come-first-served, drained in one batch on a named date. It's the default\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the promotion conditions for proximity ordering: the effort ceiling covers someone ordering the list by hand, and registrations run far enough past the ceiling that promotion order changes who gets in rather than only who gets in first.",
+        "evidence": "\"when you can spare the hours to order the list by hand and the waitlist is far enough past the ceiling that order changes who gets in.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the proximity rule is given as a reason rather than a measurement, so the size of the gain is unquantified.",
+        "evidence": "\"gives a reason... and no measured gain. Treat the benefit as unquantified.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the contradiction between proximity ordering and the event's published four-country regional-draw positioning.",
+        "evidence": "\"The landing page sells a draw from four countries. A rule that visibly ranks Zurich locals first...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that proximity ordering is an allocation decision made on registrants' location data that must be stated publicly.",
+        "evidence": "\"It's an allocation decision made on registrants' location data. The rule has to be published\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the ordering rule cannot be changed quietly mid-window once people have registered against it.",
+        "evidence": "\"switching now reads as invented after the fact.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the ordering rule to be published at the moment the waitlist opens, not after someone asks why they were skipped.",
+        "evidence": "\"The rule has to be published when the waitlist opens.\"; \"Publish the rule now.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Fixes a named drain date, a claim window for a promoted seat, and who decides.",
+        "evidence": "\"State the order, the drain date, a claim deadline (24\u201348 hours...) and who decides.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the catering guarantee locking 21 days out sits before the week-of promotion date, so the waitlist stops being a budget lever.",
+        "evidence": "\"Catering locks 21 days out. A mailing in the week of the event lands about two weeks after the lock.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says explicitly which of the two the waitlist is buying, and names samber/dev-event-organizer-skills@event-budget as the sibling that was promised the other.",
+        "evidence": "It says the waitlist is \"a seat-filling tool only\" but never names event-budget as the sibling promised the budget side.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that 640 registrations sit exactly at the sourced double ceiling for 320 seats, and does not recommend raising the ceiling.",
+        "evidence": "\"You closed at exactly 640, which is the sourced ceiling.\"; \"640 + 40 = 680, over double.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Hands the promotion send to samber/dev-event-organizer-skills@event-attendee-email-sequences as a brief carrying trigger, audience and deadline, rather than drafting the copy.",
+        "evidence": "It only asks that skill to \"include a 'can't make it, release your seat' link\". It does not hand over a promotion brief.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Names FIFO drained on a fixed date as the default waitlist ordering rule.",
+        "evidence": "'Go in sign-up order... T-24 to T-21: release seats to the waitlist.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the promotion conditions for proximity ordering: the effort ceiling covers someone ordering the list by hand, and registrations run far enough past the ceiling that promotion order changes who gets in rather than only who gets in first.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the proximity rule is given as a reason rather than a measurement, so the size of the gain is unquantified.",
+        "evidence": "'\"Closest shows up most\" is plausible but unproven.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the contradiction between proximity ordering and the event's published four-country regional-draw positioning.",
+        "evidence": "'It contradicts your pitch. You sell \"German-speaking Go community from four countries.\"'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that proximity ordering is an allocation decision made on registrants' location data that must be stated publicly.",
+        "evidence": "Only 'Postcode is also personal data. Check that your privacy notice allows...'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the ordering rule cannot be changed quietly mid-window once people have registered against it.",
+        "evidence": "Says a hidden criterion is unfair, but never says the rule can't change mid-window.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the ordering rule to be published at the moment the waitlist opens, not after someone asks why they were skipped.",
+        "evidence": "'Publish the rule' appears only for the non-Swiss floor, not at waitlist opening.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Fixes a named drain date, a claim window for a promoted seat, and who decides.",
+        "evidence": "Has dates and a 48h window but no decider.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the catering guarantee locking 21 days out sits before the week-of promotion date, so the waitlist stops being a budget lever.",
+        "evidence": "Says additions after day 21 are outside the guarantee, but not that the waitlist stops being a budget lever.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says explicitly which of the two the waitlist is buying, and names samber/dev-event-organizer-skills@event-budget as the sibling that was promised the other.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that 640 registrations sit exactly at the sourced double ceiling for 320 seats, and does not recommend raising the ceiling.",
+        "evidence": "'640 registrations for 320 seats... you've already overbooked 2x on purpose.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Hands the promotion send to samber/dev-event-organizer-skills@event-attendee-email-sequences as a brief carrying trigger, audience and deadline, rather than drafting the copy.",
+        "evidence": "No routing.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

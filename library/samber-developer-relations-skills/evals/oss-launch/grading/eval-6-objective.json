@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Moves the public repository, release tag and registry package to before the anchor post, so every link resolves when the thread opens",
+        "evidence": "\"~12:55pm (just before HN) | Repo flips private \u2192 public, tag/registry live, re-verify every link resolves\" precedes \"1:00pm | Post Show HN\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects flipping the repository public at the same moment as the anchor post",
+        "evidence": "The transcript explicitly endorses this: \"Flipping the repo public 'right when the HN post goes up' is actually the one thing you have right ... That matches T-0 exactly.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places the maintainer's own first comment on the anchor thread within a minute or two of posting",
+        "evidence": "\"1:00pm (within a minute or two) | Your first comment on the thread\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Moves the maintainer's social accounts to roughly 30 to 90 minutes after the anchor post",
+        "evidence": "\"~1:30\u20132:30pm | Twitter thread + blog post go live\" (30-90 min after the 1:00pm post)",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Directs the social post to link to the discussion rather than duplicate the announcement",
+        "evidence": "\"linking to the *HN discussion* \u2014 not duplicating the announcement\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Staggers the secondary communities to roughly two to six hours after the anchor rather than firing them simultaneously",
+        "evidence": "\"~3:00\u20137:00pm | r/golang, then Gophers Slack, staggered (not simultaneous)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects pasting identical text into each community and requires the context rewritten for each one",
+        "evidence": "\"each with its own rewritten framing \u2014 lead with the problem/technical decision, link at the end\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that a pasted identical blurb reads as a bot and gets removed",
+        "evidence": "\"Never paste the same blurb twice; it reads as a bot and gets removed.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names a community's weekly showcase or self-promotion thread as the sanctioned path where one exists",
+        "evidence": "No mention of any weekly showcase or self-promotion thread anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes the firing clock, fixed by mechanics, from the efficiency ranking that decides which rows run at all",
+        "evidence": "The transcript addresses only chronological ordering corrections; it never discusses a separate efficiency ranking governing which channels run at all.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Moves the public repository, release tag and registry package to before the anchor post, so every link resolves when the thread opens",
+        "evidence": "'Fix: flip repo public at 8am, same moment as blog+tweet' and revised order item 1 puts 'flip public \u2192 publish blog' before the 1pm HN submission, 'so every link resolves.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects flipping the repository public at the same moment as the anchor post",
+        "evidence": "Repo goes public at 8am while HN post happens at 1pm \u2014 'No reason tied to HN timing' \u2014 explicitly decoupled from the anchor post's timing.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places the maintainer's own first comment on the anchor thread within a minute or two of posting",
+        "evidence": "'submit \"Show HN: [name] \u2013 [one-line description]\" + immediately post a first comment with backstory/technical context.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Moves the maintainer's social accounts to roughly 30 to 90 minutes after the anchor post",
+        "evidence": "Revised order posts Twitter at 8am, five hours before the 1pm HN submission, not 30-90 minutes after it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Directs the social post to link to the discussion rather than duplicate the announcement",
+        "evidence": "Twitter is posted at 8am before the HN thread exists (submitted at 1pm), so it cannot link to the discussion.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Staggers the secondary communities to roughly two to six hours after the anchor rather than firing them simultaneously",
+        "evidence": "'Same window, slight stagger: post tailored... text to r/golang, r/programming, Gophers Slack' \u2014 a slight stagger within the same window, not a 2-6 hour gap.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects pasting identical text into each community and requires the context rewritten for each one",
+        "evidence": "'Fix: tailor text per community, stagger slightly, prioritize HN for your attention in hour one.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that a pasted identical blurb reads as a bot and gets removed",
+        "evidence": "'Reddit's spam filter flags cross-posting identical content to multiple subs in a short window' and 'identical copy-paste reads as spam there, risks removal.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names a community's weekly showcase or self-promotion thread as the sanctioned path where one exists",
+        "evidence": "No mention of any subreddit's weekly showcase/self-promo thread.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes the firing clock, fixed by mechanics, from the efficiency ranking that decides which rows run at all",
+        "evidence": "No such distinction is drawn between mechanical timing constraints and an efficiency-based inclusion ranking.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

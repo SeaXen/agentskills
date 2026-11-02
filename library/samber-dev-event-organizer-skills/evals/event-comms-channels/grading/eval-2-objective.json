@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the operational/degraded/major severity taxonomy for the event's status page.",
+        "evidence": "\"Operational / degraded / major outage levels | \u274c Replace\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States why the taxonomy fails: an event's disruptions are discrete and human-scale, and classifying adds a step during the minutes with least to spare - message classes replace the tiers.",
+        "evidence": "\"Event disruptions are discrete and human-scale. Tiers also add a classification step in the minutes you have least of.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the subscribe-for-updates form as assuming a long service relationship nobody has with a two-day conference.",
+        "evidence": "\"Nobody subscribes to a two-day conference's status feed.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the public post-mortem and routes the written incident note to the internal debrief instead, because a public cause writeup is a liability when the cause is frequently a person or a supplier.",
+        "evidence": "\"Make it internal... cause is often a person or a supplier\"; \"full review as a note for event-debrief.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the status page itself, because the livestream and the shuttle are things an attendee cannot see the state of for themselves.",
+        "evidence": "\"\u2705 Keep... the livestream, the shuttle and the entrance.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the status page is never a push channel: nobody checks it unprompted, and it only works with a push on another channel pointing at it.",
+        "evidence": "\"The page is a destination that a push points at.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects posting daily logistics (lunch, badge desk hours) on the status page because non-incident content trains people to ignore the page.",
+        "evidence": "\"trains people to ignore the page.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes day logistics to an hours-scale surface such as the chat broadcast channel or on-site screens instead.",
+        "evidence": "\"Their first channel is the chat broadcast channel, with on-site screens as a second.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects hosting the page on the registration server: the page must survive the outage it reports and stay editable from a phone in under a minute.",
+        "evidence": "\"editable from a phone in under a minute\"; \"fails with it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps timestamped updates on a fixed interval, including explicit no-change updates, because silence during an outage reads as abandonment.",
+        "evidence": "Tier 2: \"even if nothing changed ('still working on it, next update by 11:30')\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps a written resolution stating when the incident ended and what actually happened.",
+        "evidence": "Resolution template: \"Resolved at [time]. [What happened...]\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Establishes the page as the single canonical surface that every other channel points at rather than restates.",
+        "evidence": "Says to point at the page from the list, but never states other channels point rather than restate.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Fixes the update interval before the event and writes it into the routing rule, because an interval chosen during an outage is chosen badly.",
+        "evidence": "\"Proposed starting intervals, to be fixed before the event\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not write the severity definitions the user asked for.",
+        "evidence": "Replaces with message classes; no severity definitions written.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the operational/degraded/major severity taxonomy for the event's status page.",
+        "evidence": "It endorses \"The three severity levels\" and builds them out.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States why the taxonomy fails: an event's disruptions are discrete and human-scale, and classifying adds a step during the minutes with least to spare - message classes replace the tiers.",
+        "evidence": "It never argues against classification.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the subscribe-for-updates form as assuming a long service relationship nobody has with a two-day conference.",
+        "evidence": "\"The three severity levels, the subscribe form and the public post-mortems are all good ideas.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the public post-mortem and routes the written incident note to the internal debrief instead, because a public cause writeup is a liability when the cause is frequently a person or a supplier.",
+        "evidence": "\"Public post-mortems. They're a good idea.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the status page itself, because the livestream and the shuttle are things an attendee cannot see the state of for themselves.",
+        "evidence": "It keeps the page and gives livestream viewers a link to it: \"Livestream viewers are remote and have no other way to hear from you\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the status page is never a push channel: nobody checks it unprompted, and it only works with a push on another channel pointing at it.",
+        "evidence": "It relies on subscriber email notifications from the page.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects posting daily logistics (lunch, badge desk hours) on the status page because non-incident content trains people to ignore the page.",
+        "evidence": "\"Daily logistics: keep them off the status page\"; alert fatigue and lost signal.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes day logistics to an hours-scale surface such as the chat broadcast channel or on-site screens instead.",
+        "evidence": "\"Run a separate 'Today at DataDays' page or feed... on the main conference site or in the event app.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects hosting the page on the registration server: the page must survive the outage it reports and stay editable from a phone in under a minute.",
+        "evidence": "\"don't host the status page on the registration server\"; \"test that they can post from a phone.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps timestamped updates on a fixed interval, including explicit no-change updates, because silence during an outage reads as abandonment.",
+        "evidence": "\"Every 15 min... even if just 'still investigating'\"; \"Next update: a clock time\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps a written resolution stating when the incident ended and what actually happened.",
+        "evidence": "\"Resolved post... with a short summary of what attendees should do next\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Establishes the page as the single canonical surface that every other channel points at rather than restates.",
+        "evidence": "It proposes mirroring notices to other channels. No canonical-surface rule is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Fixes the update interval before the event and writes it into the routing rule, because an interval chosen during an outage is chosen badly.",
+        "evidence": "The response targets table fixes update cadence in advance.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not write the severity definitions the user asked for.",
+        "evidence": "It contains a full \"Severity definitions\" section with Operational, Degraded and Major outage.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

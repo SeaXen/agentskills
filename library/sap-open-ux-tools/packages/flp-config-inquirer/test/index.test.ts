@@ -1,0 +1,93 @@
+import { jest } from '@jest/globals';
+
+// Pre-import real module before mocking to avoid missing export errors
+const realBtpUtils = await import('@sap-ux/btp-utils');
+
+const mockIsAppStudio = jest.fn<typeof realBtpUtils.isAppStudio>();
+
+jest.unstable_mockModule('@sap-ux/btp-utils', () => ({
+    ...realBtpUtils,
+    isAppStudio: mockIsAppStudio
+}));
+
+const { getPrompts, prompt } = await import('../src/index.js');
+import type { FLPConfigAnswers } from '../src/index.js';
+
+describe('index', () => {
+    describe('getPrompts', () => {
+        it('should return prompts from getPrompts without any arguments', async () => {
+            const prompts = await getPrompts();
+
+            expect(prompts).toBeDefined();
+            expect(prompts.length).toBe(10);
+        });
+
+        it('should return selected prompts from getPrompts prompt options', async () => {
+            const prompts = await getPrompts(undefined, {
+                inboundId: { hide: true },
+                icon: { hide: true },
+                existingFlpConfigInfo: { hide: true },
+                additionalParameters: { hide: true },
+                confirmReplace: { hide: true }
+            });
+
+            expect(prompts).toBeDefined();
+            expect(prompts.length).toBe(5);
+        });
+    });
+
+    describe('prompt', () => {
+        beforeEach(() => {
+            mockIsAppStudio.mockReturnValue(false);
+        });
+
+        it('should prompt with inquirer adapter', async () => {
+            const answers: FLPConfigAnswers = {
+                semanticObject: 'semanticObject',
+                action: 'action',
+                overwrite: false,
+                title: 'title',
+                subTitle: 'subTitle'
+            };
+
+            const adapter = {
+                prompt: jest.fn().mockResolvedValueOnce(answers)
+            };
+
+            expect(await prompt(adapter)).toStrictEqual({
+                action: 'action',
+                overwrite: false,
+                semanticObject: 'semanticObject',
+                subTitle: 'subTitle',
+                title: 'title'
+            });
+        });
+
+        it('should prompt and apply defaults when promptOptions are provided', async () => {
+            const answers: FLPConfigAnswers = {
+                semanticObject: 'semanticObject',
+                action: 'action',
+                overwrite: false
+            };
+
+            const adapter = {
+                prompt: jest.fn().mockResolvedValueOnce(answers)
+            };
+
+            const result = await prompt(adapter, undefined, {
+                overwrite: { hide: false },
+                // simulating behavior when default is a function
+                subTitle: { default: (() => 'defaultSubTitle') as unknown as string },
+                title: { default: 'defaultTitle' }
+            });
+
+            expect(result).toStrictEqual({
+                action: 'action',
+                overwrite: false,
+                semanticObject: 'semanticObject',
+                subTitle: 'defaultSubTitle',
+                title: 'defaultTitle'
+            });
+        });
+    });
+});

@@ -154,8 +154,8 @@ Enter through the red portal in Harrogath. The Rift has 100 levels, and the mons
 | Loot filter | From Nightmare on, the original loot filter switches on to hide clutter: light filtering in Nightmare, heavy in Hell |
 | Auto-pickup | Low runes and gems go straight into the Pouch; you pick up the high ones yourself |
 | Valuable drop alerts | High runes and Unique items raise a light beam and land with their own sound. The phone vibrates light, medium or heavy according to value |
-| Minimap guidance | Every map marks its Waypoint and exits, and every quest goal sits on the map. When a target is off screen, its name runs along the screen edge |
-| Chores removed | Free identification, free Town Portal with no scrolls, spawning beside the Waypoint, Quick Restart, refreshable vendor stock |
+| Minimap guidance | Every map marks its Waypoint and exits, labelled with the Waypoint and destination area names (iOS / Mac). Every quest goal sits on the map. When a target is off screen, its name runs along the screen edge |
+| Chores removed | Free identification, free Town Portal with no scrolls, spawning beside the Waypoint, Quick Restart, refreshable vendor stock, free and unlimited respecs at Akara |
 | Saves | The game saves the moment you switch apps, swipe the app away or quit. iCloud syncs your saves across devices (requires signing with a paid developer account) |
 | Entertainment mode (experimental) | Over-the-shoulder and first-person camera: drag the right half to look around, with arrows for off-screen monsters and a facing pointer on the map ([details](docs/over-the-shoulder-camera.md)) |
 
@@ -321,7 +321,7 @@ The interface is the original's gamepad interface. Keyboard: Space confirms, Esc
 
 ### Android
 
-Build the APK from source, then prepare your own game content on a computer. Import-pack generation has been verified on a Mac. The full steps, the tools to install and what to do when something goes wrong are in [docs/ANDROID.md](docs/ANDROID.md).
+Build the APK from source, then prepare your own game content on a computer. Import-pack generation has been verified on a Mac. For build steps, required tools and troubleshooting, see [docs/ANDROID.md](docs/ANDROID.md).
 
 1. Prepare your game files, the same as for Apple devices ([docs/GAME_FILES.md](docs/GAME_FILES.md)).
 2. Make the import pack on a computer:
@@ -333,7 +333,7 @@ Build the APK from source, then prepare your own game content on a computer. Imp
 3. Over USB, copy the `android` folder it made and the game resource folder `data` to `Download/S2X/D2R Mobile/` on the phone.
 4. Build and install the APK using the [Android build guide](dm/android/README.md), open it and allow "All files access". The app imports your pack and starts the game.
 
-Before starting the game, the Android startup screen can export saves to a ZIP or restore an exported backup. Restore keeps a local copy of the previous saves. See [save backups](dm/android/ANDROID_CUSTOMIZATIONS.md#startup-save-backups--启动页存档备份) for details; device validation is pending.
+Before starting the game, the Android startup screen can export saves to a ZIP or restore an exported backup. Restore keeps a local ZIP backup of the previous saves. See [save backups](dm/android/ANDROID_CUSTOMIZATIONS.md#startup-save-backups--启动页存档备份) for details; device validation is pending.
 
 The source must be from the same release as the APK; for a new release, replace both the APK and the import pack, and your saves stay. To build the APK yourself from source, see [dm/android/README.md](dm/android/README.md).
 

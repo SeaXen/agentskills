@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Ranks the derivative versions by reuse per hour and states the ranking out loud.",
+        "evidence": "'ranked by reuse-per-hour: docs link \u2192 one-pager \u2192 community post \u2192 conference material.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Puts the documentation cross-link first, at near-zero effort, sitting where an evaluator already reads.",
+        "evidence": "'1. Docs cross-link \u2014 today, ~20 minutes... Do this first because it's free.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Skips the sales one-pager rather than ranking it, because there is no sales motion at this company.",
+        "evidence": "The one-pager is not skipped; it is repurposed: 'So repoint it \u2014 same asset, aimed at your actual conversion moment... instead of a sales motion that doesn't exist.' Step 3 builds the PDF.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the one-pager is the highest value of the set wherever a sales motion exists at all, and worthless where none does.",
+        "evidence": "Transcript repurposes rather than declaring it worthless: 'Build the PDF... its job isn't a leave-behind for a rep; it's a downloadable trust asset.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives orders of magnitude rather than precise estimates: near-zero for the docs link, about an hour for the community post, about a day for conference material.",
+        "evidence": "Uses rounded figures throughout: '~20 minutes', '~1 hour', '~2 hours', '~1 day', 'days-weeks', 'weeks-months.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes the engineer's own post under their own name travels further than anything published under yours.",
+        "evidence": "No comparative statement about reach/credibility of the engineer's post versus vendor-authored content appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes only that engineer can authorise the community post.",
+        "evidence": "'it's their asset on their domain, and only they can authorize it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes conference material depends on a slot existing and pays nothing until the talk is accepted, while the before-and-after architecture is already a slide so the marginal cost is low.",
+        "evidence": "'Getting accepted is the real bottleneck \u2014 weeks to months, entirely outside your control... off the same atoms as the PDF.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Checks whether the existing approval covers each new surface and flags that it does not, since permission was signed for the blog post only.",
+        "evidence": "'Republishing approved content in a new format commonly needs its own sign-off even when nothing new is disclosed.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Advises asking for the derivative permissions while the reviewer is still engaged, ideally before approval rather than after.",
+        "evidence": "The ask happens now as a follow-up after the fact; no statement recommends bundling derivative permission requests into the original approval ask for future studies.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends filing the study's atoms, each metric, each quote and the architecture diagram, into a proof library with a public or private flag.",
+        "evidence": "'file the study's atoms (each metric, the quote, the architecture diagram) somewhere reusable' \u2014 no mention of a public/private flag.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason for the proof library: nobody re-reads a full-length study to find one number.",
+        "evidence": "No such justification is stated anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Ranks the derivative versions by reuse per hour and states the ranking out loud.",
+        "evidence": "The stated sequencing axis is \"how fast each one ships on its own, and how much of the timeline is someone else's calendar, not yours\" \u2014 not reuse-per-hour.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Puts the documentation cross-link first, at near-zero effort, sitting where an evaluator already reads.",
+        "evidence": "\"1. Docs link \u2014 same day, ~30 min... Zero dependencies, ships today.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Skips the sales one-pager rather than ranking it, because there is no sales motion at this company.",
+        "evidence": "The one-pager is included as item 3 and repurposed rather than skipped: \"CTA points at the hosted support signup page, not 'book a demo' \u2014 you have no sales team, so the one-pager's job is self-serve conversion.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the one-pager is the highest value of the set wherever a sales motion exists at all, and worthless where none does.",
+        "evidence": "The transcript instead repurposes the one-pager for self-serve conversion rather than declaring it worthless without a sales motion.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives orders of magnitude rather than precise estimates: near-zero for the docs link, about an hour for the community post, about a day for conference material.",
+        "evidence": "Estimates given are specific ('~30 min', '~15 min to send', '2-3 days', 'Day 3-5'), not order-of-magnitude buckets matching the rubric's near-zero/hour/day framing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes the engineer's own post under their own name travels further than anything published under yours.",
+        "evidence": "No explicit comparison of reach between the engineer's own post and vendor-published content is made.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes only that engineer can authorise the community post.",
+        "evidence": "No statement about who can authorize the community post is present.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes conference material depends on a slot existing and pays nothing until the talk is accepted, while the before-and-after architecture is already a slide so the marginal cost is low.",
+        "evidence": "The transcript notes 'submission is cheap, acceptance rates are low' but does not state that cost is zero until acceptance nor discuss slide reuse from existing architecture material.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Checks whether the existing approval covers each new surface and flags that it does not, since permission was signed for the blog post only.",
+        "evidence": "The transcript asserts the opposite: \"Repurpose the already-approved blog copy; nothing new needs sign-off since the same facts/quotes cleared review already.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Advises asking for the derivative permissions while the reviewer is still engaged, ideally before approval rather than after.",
+        "evidence": "No such advice appears; the transcript assumes existing approval already covers derivatives.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends filing the study's atoms, each metric, each quote and the architecture diagram, into a proof library with a public or private flag.",
+        "evidence": "No proof-library recommendation appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason for the proof library: nobody re-reads a full-length study to find one number.",
+        "evidence": "No such reasoning or proof-library concept is mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -4,7 +4,7 @@ description: "Runs a devtool vendor's, DevRel team's or open-source maintainer's
 license: MIT
 metadata:
   author: Samuel Berthe
-  version: "1.0.0"
+  version: "1.0.3"
 ---
 
 # dev.to Playbook
@@ -129,6 +129,9 @@ In order: fit verdict; setup (organization, members, CTA, RSS); ranked surfaces 
 - samber/developer-relations-skills@engineering-blog-post - writing the post this skill publishes.
 - samber/developer-relations-skills@oss-launch - the launch window a #showdev post belongs to.
 - samber/developer-relations-skills@hackernews-playbook - the other launch-day channel.
+- samber/developer-relations-skills@dailydev-playbook - daily.dev, which indexes DEV and picks up posts that gain traction there.
 - samber/developer-relations-skills@substack-playbook - a newsletter-first alternative.
+- samber/developer-relations-skills@medium-playbook - the other cross-posting channel.
 - samber/developer-relations-skills@devrel-content-calendar - fitting dev.to slots into the quarter.
 - samber/developer-relations-skills@devrel-analytics - attributing referral signups.
+- samber/developer-relations-skills@bluesky-dev-playbook - sharing the article on Bluesky through starter packs and dev feeds.

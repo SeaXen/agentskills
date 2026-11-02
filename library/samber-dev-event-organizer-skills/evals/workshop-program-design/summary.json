@@ -1,0 +1,582 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "workshop-program-design",
+  "scenarios": 11,
+  "expectations_total": 133,
+  "expectations_subjective": 0,
+  "expectations_objective": 133,
+  "pass_rate_with_skill_pct": 75.9,
+  "pass_rate_without_skill_pct": 23.3,
+  "delta_pp": 52.6,
+  "uplift_multiplier": 3.26,
+  "trigger_accuracy_pct": 50.8,
+  "trigger_queries": 122,
+  "trigger_positive_fire_rate": 0.131,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": null,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Describes the roaming person as someone who could deliver the session themselves, not a general-purpose volunteer."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that the roaming person's trigger is observing participants who are falling behind, not waiting for a raised hand."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names the failure where both members of a pair are stuck and produce no signal, and gives the fix of checking in with pairs on a regular cadence."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes that the throughput ceiling is the one invisible on the registration page until a participant is left without a device."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Hands the capacity figure onward as an input to scheduling rather than placing the session in the grid itself."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that no relationship between session length and capacity can be derived from the published record."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names the install route or links the tooling directly rather than leaving participants to find their own."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Publishes known failure modes participants can act on themselves, such as a corporate VPN or an ad blocker breaking the lab."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Argues for keeping the account list as short as the exercise allows, because an account the participant created persists under their name after the event and the organizer cannot delete it for them."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Does not present offering a local path alongside the provisioned one as free, and names that it creates two environments and two support surfaces."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Removes 'assume the network holds' from consideration rather than ranking it last."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Strikes the full hands-on option entirely rather than keeping it with a fallback attached."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends running the session as a demonstration with the material published."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Treats publishing the material with no live exercise as a legitimate outcome rather than a failure or a climbdown."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes that the no-live-exercise option wins on efficiency because nothing in it can fail on the day."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Asks what a participant must be able to do at the end that they cannot do now."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Treats the async material as a designed layer, pairing content types with formats: short video for skills demonstrations, a graphic-heavy document for procedures, and a repository for anything participants copy from."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Does not propose a mobile hotspot, a second connection or purchased bandwidth as a substitute for the missing written answer."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Emits a separate ordering line per axis - effort, value, efficiency - rather than one blended ranking."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names structured peer pairing as the efficiency leader."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Flags that ordering the options by how fast a stuck participant is reached is rank-identical to inverse effort and therefore discriminates nothing."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Argues the tie between the roaming option and the solo option on the growth axis rather than using the tie to avoid deciding."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that the ranking is a default rather than a law, and that it shifts with context and with who executes it."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Asks the delivery date, whether this is a one-off or a recurring curriculum, and the effort ceiling before presenting the ranking."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Refuses to supply target numbers to aim for, and presents no published confidence figure as a target to hit."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Notes that how long a raised hand waits is deliberately not the axis the facilitator choice rests on."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Produces a per-session delivery sheet for the parts it owns, covering the hands-on commitment, the capacity and which ceiling bound it, coverage with its sizing basis, prerequisites, the network posture, the materials and their window, and the revision trigger per choice."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Presents that output section by section for validation rather than as a single block."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Records for the next edition which ceiling bound capacity, the prerequisite sheet as shipped, what actually broke on the day, and the venue's written network answer."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States no participant count that defines when a room is small."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Prompts participants for active participation explicitly rather than assuming it happens."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Delivers a per-session sheet covering the hands-on commitment with its reason, the capacity and which ceiling bound it, coverage with its sizing basis, prerequisites split into prior knowledge, machine state and accounts, the network posture, the materials and their window, and the revision trigger for each choice."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "States explicitly that there is no facilitator-to-participant ratio to apply, and refuses to produce one."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Sizes coverage from the structure of the exercise - how many distinct steps it has and who can debug each - rather than from the headcount."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Marks the coverage figure as the organizer's own judgment rather than an external standard or published benchmark."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Excludes the two venue stewards from the coverage count on the grounds that they are competent in logistics but not in the material."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends a roaming troubleshooter as the default posture for this session."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Describes the roaming person as someone who could deliver the session themselves, not a general-purpose volunteer."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that the roaming person's trigger is observing participants who are falling behind, not waiting for a raised hand."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Does not recommend running the session solo, and states that the solo option is struck rather than ranked last because the session is genuinely hands-on."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Gives the promotion condition for posting helpers at fixed points - the exercise runs at physically or logically distinct steps - and notes this exercise's single linear path does not meet it."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "If structured pairing is proposed, it assigns a driver and a navigator and swaps the roles every five to ten minutes."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names the failure where both members of a pair are stuck and produce no signal, and gives the fix of checking in with pairs on a regular cadence."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Decides and briefs what a helper is permitted to do to a participant's machine rather than leaving it to the helper on the day."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Computes three separate ceilings - room, coverage, and exercise throughput - rather than producing a single capacity number directly."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Reduces the room ceiling below the venue's stated 30 seats because the benches are fixed, and treats power at the seats as a separate question from the seat count."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States the coverage ceiling with its sizing logic attached instead of a number looked up from a standard."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes that the throughput ceiling is the one invisible on the registration page until a participant is left without a device."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Hands the capacity figure onward as an input to scheduling rather than placing the session in the grid itself."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Rejects averaging published session lengths across different events."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that each event's published length reflects its own rooms, cohort and exercise."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Offers 45-minute granularity as the transferable pattern rather than any single borrowed number."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that published genuinely hands-on sessions cluster at 150-180 minutes, presented as an observation rather than a rule."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Schedules troubleshooting, breakout and question time explicitly inside the length rather than assuming it fits."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Hands the chosen length onward to scheduling as an input."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that no relationship between session length and capacity can be derived from the published record."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Presents every length figure it uses as an observed instance rather than as a standard or an average."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Rewrites the block into three labelled classes in this order: prior knowledge, machine state, accounts."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Includes an accounts class listing both the vendor account and the GitHub login."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Flags accounts as the highest-risk prerequisite class because signups, email confirmations and sometimes employer sign-on all land at minute zero, on the room's network, for everyone simultaneously."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Marks each prerequisite as a hard requirement or a comfort."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Replaces 'some familiarity with Python is helpful' with a hard capability statement, and states that the word 'helpful' drops the room's floor to zero and forces the instructor to address two audiences."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names the install route or links the tooling directly rather than leaving participants to find their own."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Publishes known failure modes participants can act on themselves, such as a corporate VPN or an ad blocker breaking the lab."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Publishes how long the materials stay reachable after the session, alongside a named follow-up channel."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Argues for keeping the account list as short as the exercise allows, because an account the participant created persists under their name after the event and the organizer cannot delete it for them."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Promotes provisioned-environment-only and states the promotion condition: participants are not permitted to install software on the machines they bring."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Refuses to treat the provisioned environment as the safe option, and names what it trades for: total dependence on the room's connection for the whole session."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names the review triggered by accepting a third-party platform's terms on behalf of a room of people who never read them."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Routes the participant-data posture to the event's accessibility and inclusion work rather than inventing one here."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States the reversibility asymmetry: an environment is torn down on the organizer's schedule, while an account a participant created persists afterwards."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires the environment's preinstalled toolchain versions to be published, so a participant can tell whether it matches a tutorial they follow later."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Publishes the window after the session during which the environment stays reachable."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Does not present offering a local path alongside the provisioned one as free, and names that it creates two environments and two support surfaces."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Still publishes a machine-state prerequisite, such as a specific modern browser, rather than stating that nothing is required of the laptop."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Rejects 'we have fast fibre WiFi throughout, no problem' as an answer and requires a written answer to specific questions."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Asks the venue whether unusual device classes are blocked by default and who can grant an exception on the day."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Identifies policy rather than bandwidth as the likelier cause of the failure."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names specific policy causes: a blocked protocol such as RDP, a blocked device class, a participant's own VPN, and an ad blocker."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Treats a room of simultaneous cold installs or downloads as a load case and asks participants to pre-download beforehand."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Removes 'assume the network holds' from consideration rather than ranking it last."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Promotes removing the live dependency on the strength of the prior edition's failure at the same venue."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that if the venue will not answer in writing, the hands-on option is struck and the session runs as a demonstration with the material published."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that the venue failing to answer is itself the evidence, not a missing input to keep waiting on."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Declares the dependency in the published prerequisites and names a participant-side fallback such as tethering to their own data."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Routes the live, mid-session response to a network failure to the event's run of show rather than improvising a protocol here."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Strikes the full hands-on option entirely rather than keeping it with a fallback attached."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that an option left ranked at the bottom reappears as scope on the day."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends running the session as a demonstration with the material published."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Treats publishing the material with no live exercise as a legitimate outcome rather than a failure or a climbdown."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes that the no-live-exercise option wins on efficiency because nothing in it can fail on the day."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names the condition that would have justified full hands-on: the capability cannot be acquired by reading the material."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Asks what a participant must be able to do at the end that they cannot do now."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Treats the async material as a designed layer, pairing content types with formats: short video for skills demonstrations, a graphic-heavy document for procedures, and a repository for anything participants copy from."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Publishes the material with a stated availability window."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Does not propose a mobile hotspot, a second connection or purchased bandwidth as a substitute for the missing written answer."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the venue's silence is the promotion condition for removing the live dependency."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Emits a separate ordering line per axis - effort, value, efficiency - rather than one blended ranking."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names structured peer pairing as the efficiency leader."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Justifies peer pairing's lead by the fact that its help capacity grows with the size of the room."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Flags that ordering the options by how fast a stuck participant is reached is rank-identical to inverse effort and therefore discriminates nothing."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Argues the tie between the roaming option and the solo option on the growth axis rather than using the tie to avoid deciding."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names what the efficiency ordering starves - the option high on value and high on effort - and states the condition that promotes it anyway."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that the ranking is a default rather than a law, and that it shifts with context and with who executes it."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Asks the delivery date, whether this is a one-off or a recurring curriculum, and the effort ceiling before presenting the ranking."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Re-ranks against the instructor who already runs this workshop commercially, and says which stated fact moved which option."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Recommends two or three metrics rather than a full dashboard."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Writes down for each metric, before the session runs, what result would change the next edition."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Labels which metrics are self-set and which carry a published precedent."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Proposes a confidence rating on the specific skill taught, asked before the session and again at the end, as the metric with a named precedent."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Refuses to supply target numbers to aim for, and presents no published confidence figure as a target to hit."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Caveats the confidence precedent: it comes from life-sciences and data-science training and measures self-reported confidence rather than observed task completion."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Includes the share of the room that arrived with the prerequisites already done, and states that the only way to get it is to ask at the door."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Includes how many participants reached the last exercise, and reads a wide gap in a full room as a coverage problem and in a small room as a prerequisites problem."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Notes that how long a raised hand waits is deliberately not the axis the facilitator choice rests on."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Includes use of the published material inside the announced window as the honest test of whether the room was needed at all."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Excludes sell-through of the separately ticketed training day and routes it to the format decision."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Separates the attendee-side network failure, which it owns, from the dropped camera feed, which it does not."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Routes the unusable recording to the event's production work."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Routes the two sessions ending 15 minutes apart to schedule design."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Routes the question of charging separately for the day to the format decision and does not re-argue it."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Asks what specifically broke on the network - sustained bandwidth, a blocked protocol, a blocked device class, or the venue never answering - before proposing a fix."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Treats that answer as the promotion condition for next edition's network posture rather than jumping straight to a remedy."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Does not propose more bandwidth as the fix without first establishing whether the cause was policy."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Produces a per-session delivery sheet for the parts it owns, covering the hands-on commitment, the capacity and which ceiling bound it, coverage with its sizing basis, prerequisites, the network posture, the materials and their window, and the revision trigger per choice."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Presents that output section by section for validation rather than as a single block."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Records for the next edition which ceiling bound capacity, the prerequisite sheet as shipped, what actually broke on the day, and the venue's written network answer."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Does not re-decide whether the workshop day should exist."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Recommends opening with an icebreaker, keyed to the small size of the room."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Puts an explicit sentence at the front of the session normalising being stuck - that anyone hitting an issue almost certainly is not alone in the room."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Closes the session deliberately and keeps the instructor available to attendees afterwards rather than leaving with their laptop."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Opens a follow-up channel for the topic and publishes how long it stays open."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Publishes how long the materials stay reachable."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Delivers a per-session sheet covering the hands-on commitment with its reason, the capacity and which ceiling bound it, coverage with its sizing basis, prerequisites split into prior knowledge, machine state and accounts, the network posture, the materials and their window, and the revision trigger for each choice."
+      }
+    ]
+  }
+}

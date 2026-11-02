@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Opens with a direct answer to the weekly question, declining the move to weekly, before any charter section",
+        "evidence": "\"Answer: don't go weekly. Weekly fails the supply gate and the backup gate. Keep monthly...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that cadence is never raised to fix engagement",
+        "evidence": "\"The skill's rule applies: never raise cadence to fix engagement.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Counts supply by source from the figures given, 4 releases, 2 posts and 1 webinar over three months, as roughly 2-3 time-bound items per month",
+        "evidence": "\"4 releases, 2 posts and 1 webinar. That is 7 own items, about 2.3 per month.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Shows that the counted rate cannot fill a weekly issue and derives the supported cadence from that rate and the 3 hours per issue, keeping monthly or slower",
+        "evidence": "\"needs about 21 items per month. That is roughly 9x current supply\"; \"3h per weekly issue is about 13h per month... Monthly costs 3h.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the open-rate slide from 38% to 29% as directional rather than a target, citing mail-privacy open inflation",
+        "evidence": "\"Opens are inflated by mail-privacy pre-fetching, so the number is directional only.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks for clicks per delivered email, unique clickers, unsubscribes, complaints and replies for the last six issues before judging reader demand",
+        "evidence": "The ask names only \"click, unsubscribe and reply numbers for the last 6 issues\"; unique clickers and complaints are not requested.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Marks the gate's demand condition unproven for lack of click data, with a pre-agreed threshold for the next issue, rather than passing or failing it",
+        "evidence": "\"Unproven\"; \"clicks per delivered email across the next 2 issues stay at or above the average of the last 6 issues. This is a house rule.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags that no backup is named and treats the missing backup as an unmet gate condition, carried as a named open question rather than an invented name",
+        "evidence": "\"Backup **blocked**\"; open question 1 \"Backup name and agreement | devrel lead | 2026-11-06\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes the curated ecosystem and personal-letter shapes because no backup exists, and says which shapes were deleted",
+        "evidence": "\"Deleted: curated ecosystem and personal letter. No backup exists...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends the own-surface digest at monthly cadence as the shape",
+        "evidence": "\"Recommended: own-surface digest, monthly, with one trial external section.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not propose subject-line tests, emojis, or resends to non-openers as the response to falling opens",
+        "evidence": "No such proposals appear; the response to falling opens is list hygiene and click data.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the slow-down and speed-up rule: slow after two consecutive thin issues, speed up only after three consecutive full ones",
+        "evidence": "\"Slow down after 2 consecutive thin issues. Speed up only after 3 consecutive full issues.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Opens with a direct answer to the weekly question, declining the move to weekly, before any charter section",
+        "evidence": "After the one-line next action, the first section is '## Verdict: Don't flip to weekly yet.' No charter section comes before it.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that cadence is never raised to fix engagement",
+        "evidence": "'Higher frequency also usually lowers per-issue open rate. It won't fix a slide that already exists. Find the cause first.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Counts supply by source from the figures given, 4 releases, 2 posts and 1 webinar over three months, as roughly 2-3 time-bound items per month",
+        "evidence": "'about 7 original items (4 releases, 2 posts, 1 webinar) across 13 weeks' and 'about 2.3 items a month for 4 lead slots'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Shows that the counted rate cannot fill a weekly issue and derives the supported cadence from that rate and the 3 hours per issue, keeping monthly or slower",
+        "evidence": "It shows the supply gap but then recommends a 6-issue weekly pilot ('Phase 2: weekly pilot'). It never derives a monthly-or-slower cadence.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats the open-rate slide from 38% to 29% as directional rather than a target, citing mail-privacy open inflation",
+        "evidence": "'Opens are a weak signal. Apple Mail Privacy Protection inflates them... Stop treating 38% opens as the target.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks for clicks per delivered email, unique clickers, unsubscribes, complaints and replies for the last six issues before judging reader demand",
+        "evidence": "It asks for the last 9 issues and for sends, opens, clicks, unsubscribes and bounces. Complaints and unique clickers are not requested.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Marks the gate's demand condition unproven for lack of click data, with a pre-agreed threshold for the next issue, rather than passing or failing it",
+        "evidence": "The gate uses 'click rate per issue is at or above the baseline' as a go condition. It never marks demand as unproven for now.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags that no backup is named and treats the missing backup as an unmet gate condition, carried as a named open question rather than an invented name",
+        "evidence": "It names a second reviewer as a pilot step and asks 'Who can be the second reviewer'. It is not framed as an unmet gate condition, and the gate only lists click rate, unsubscribes and buffer.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes the curated ecosystem and personal-letter shapes because no backup exists, and says which shapes were deleted",
+        "evidence": "No shapes are deleted. The template keeps '3 curated external links'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends the own-surface digest at monthly cadence as the shape",
+        "evidence": "It recommends a weekly pilot with a lighter format.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not propose subject-line tests, emojis, or resends to non-openers as the response to falling opens",
+        "evidence": "The only subject-line item is a diagnostic comparison of the best and worst 3 issues. No tests, emojis or resends are proposed.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the slow-down and speed-up rule: slow after two consecutive thin issues, speed up only after three consecutive full ones",
+        "evidence": "No such rule is stated. The gate uses click, unsubscribe and buffer thresholds instead.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

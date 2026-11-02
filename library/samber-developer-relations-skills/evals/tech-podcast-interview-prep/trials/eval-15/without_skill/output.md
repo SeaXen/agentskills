@@ -1,0 +1,9 @@
+Short answer: two of the three, no. Here's why, item by item.
+
+- **Disclosure timing** — don't save it for the end. Podcast opinions on API gateways read as endorsements; holding the affiliation back while you talk shop reframes the whole episode as a stealth pitch the moment it comes out, and it makes the reveal feel like a bigger deal than it is. Saying it upfront ("I'm on DevRel at Wrenfield, we build a gateway") is normal for an expert guest and actually reads as *less* salesy than a late reveal. Most hosts will state your company in the intro anyway, so you may not control the timing regardless.
+
+- **Competitor question** — "I don't like to talk about competitors" is evasive, not neutral, and it'll read that way to a technical audience that already knows (from your intro) which side you're on. A flat non-answer suggests you don't have a good one. Better: name Kong/Apigee plainly, give one honest, non-disparaging point of difference (approach/architecture/buyer, not feature bashing), and move on. That's more credible and just as safe.
+
+- **CTA to pricing page** — "where can people find you" is a personal/follow-up question, not a "where do I buy" question. Listeners expect LinkedIn/Twitter/blog. Routing straight to the demo-request page — right after finally admitting you work for Wrenfield — stacks on top of the other two and confirms the "this was a sales pitch wearing a podcast costume" read. Point people to you (social/blog); mention the product page only if it comes up naturally earlier, once your affiliation is already on the table.
+
+Bottom line: each choice alone is minor, but stacked together (hide → deflect → reveal-and-pitch) it's a pattern a sharp listener — and your host, when deciding whether to have you back — will clock. For six-figure procurement buyers, that trust hit costs more than the extra few seconds of upfront transparency. I'd flip disclosure to early, give a real competitor answer, and split the CTA.

@@ -159,17 +159,27 @@ This collection covers the full developer-platform surface.
 
 ### Integration partnerships
 
+- [`atlassian-marketplace-playbook`](./skills/atlassian-marketplace-playbook): Takes a vendor's Jira, Confluence or JSM app onto the Atlassian Marketplace on Forge: payment model, pricing and revenue share, approval prerequisites, versions and consent, Connect migration, and post-listing security rules.
+- [`github-marketplace-playbook`](./skills/github-marketplace-playbook): Takes a vendor's GitHub App or Action onto GitHub Marketplace: listing rung, publisher verification, paid plans and billing duties, enterprise buyers, badges, and delisting.
+- [`google-workspace-marketplace-playbook`](./skills/google-workspace-marketplace-playbook): Takes a vendor's Google Workspace integration through OAuth verification and onto the Workspace Marketplace: scope tiers, CASA assessment, listing review, and admin install.
 - [`integration-listing-optimization`](./skills/integration-listing-optimization): Optimizes a vendor's listing on a third-party app marketplace: funnel instrumentation, indexed keyword placement, media ordering, reviews, and badges.
 - [`integration-partnership-strategy`](./skills/integration-partnership-strategy): Decides which technology partners to integrate with and how deep each goes, using a demand-data scorecard, depth ladder, and pipeline attribution.
+- [`microsoft-appsource-playbook`](./skills/microsoft-appsource-playbook): Takes a vendor's SaaS onto Microsoft Marketplace and the Teams store: transactable offer, choices locked at publish, Teams validation and attestation, private offers, and co-sell or MACC eligibility.
 - [`partner-app-onboarding`](./skills/partner-app-onboarding): Designs the partner-developer journey from signup to first submitted app: entry gate, sandbox provisioning, education, support ladder, and funnel checkpoints.
 - [`salesforce-appexchange-playbook`](./skills/salesforce-appexchange-playbook): Takes a vendor's product onto Salesforce AppExchange as an ISV: listing type, irreversible 2GP choices, security review, PADA and payment path, and post-listing upkeep.
 - [`slack-app-directory-playbook`](./skills/slack-app-directory-playbook): Gets a vendor's Slack app approved for the Slack Marketplace and keeps it listed: install gate, scope justifications, submission packet, review timeline, and post-listing rules.
+- [`aws-marketplace-playbook`](./skills/aws-marketplace-playbook): Takes a vendor's SaaS onto AWS Marketplace as a seller: fit verdict, irreversible account and pricing choices, private offers, resellers, commit drawdown, and AWS co-sell.
+- [`shopify-app-store-playbook`](./skills/shopify-app-store-playbook): Gets a SaaS vendor's app approved and kept on the Shopify App Store: distribution lock, Shopify billing, submission packet, review rounds, Built for Shopify, and ranking.
+- [`hubspot-marketplace-playbook`](./skills/hubspot-marketplace-playbook): Gets a vendor's app listed on the HubSpot Marketplace and keeps it there: install gate, eligibility, submission packet, review timeline, deadlines, certification and partner tiers.
+- [`chrome-web-store-playbook`](./skills/chrome-web-store-playbook): Gets a vendor's companion Chrome extension through Chrome Web Store review and keeps it live: permission scoping, reviewer access, safe updates, account security, and enterprise distribution.
+- [`wordpress-plugin-directory-playbook`](./skills/wordpress-plugin-directory-playbook): Gets a vendor's connector plugin onto the WordPress.org plugin directory and keeps it there: paid-feature placement, account and slug, review rounds, SVN releases, and closures.
 - [`zapier-integration-playbook`](./skills/zapier-integration-playbook): Builds, publishes and maintains a vendor's Zapier integration: step design, Platform CLI code, review checks and beta, templates and embed, and versioning without breaking live Zaps.
 
 ### Publishing-platform playbooks
 
 - [`github-engagement-playbook`](./skills/github-engagement-playbook): Plans a repository's engagement on GitHub after launch: flat-star diagnosis, releases as feed events, Discussions, topics, and the limits on star tactics.
 - [`stackoverflow-playbook`](./skills/stackoverflow-playbook): Runs a vendor's Stack Overflow presence: product-tag ownership, disclosed staff answers, backlog triage by views, and canonical Q&A that ranks in search.
+- [`huggingface-playbook`](./skills/huggingface-playbook): Publishes a company's models, datasets and demo Spaces on the Hugging Face Hub: repo layout, cards, license and gating, Space plans, and honest Hub metrics.
 
 ### Connector marketplace
 

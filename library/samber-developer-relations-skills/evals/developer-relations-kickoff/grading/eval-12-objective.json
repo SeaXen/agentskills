@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Runs detection over the listed files and git output before asking any interview question",
+        "evidence": "\"## Detection (no interview run \u2014 single-shot ask, so defaults assumed, flagged below)\" lists repo tree and git log before any question",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not ask the user whether a README, LICENSE, changelog or code of conduct exists",
+        "evidence": "These are all determined from \"Repo has: ... README.md, LICENSE, CHANGELOG.md, CODE_OF_CONDUCT.md\" without asking",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the absence of a CONTRIBUTING file as a routing signal in its own right",
+        "evidence": "\"Missing file is itself a routing signal.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Promotes `samber/developer-relations-skills@oss-contributor-onboarding` inside the first-run surfaces class because CONTRIBUTING is missing",
+        "evidence": "\"**Do first: run `samber/developer-relations-skills@oss-contributor-onboarding` on Copperline.** No `CONTRIBUTING.md` in repo tree...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reads 7 commits in six months with the last dated 2026-06-30 as a stalled project",
+        "evidence": "\"Git log: 7 commits in 6 months, last commit 2026-06-30 (~2.5 months stale as of today). Stall pattern.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Points at diagnosis before any build work because of that stall",
+        "evidence": "Despite \"Stall in git log promotes diagnosis over build\", the headline \"Do first\" and \"Route\" both name `oss-contributor-onboarding` (a build/fix action) rather than the diagnosis skill `developer-journey-map`, which only appears second in a separate Chain section",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that `mkdocs.yml` means a docs site already exists, and does not ask whether one does",
+        "evidence": "mkdocs.yml is only listed in the file inventory with no interpretive statement about a docs site already existing",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that `AGENTS.md` is an agent-instruction file already present, and offers to patch it with the project's invariants rather than asking whether one exists",
+        "evidence": "AGENTS.md is only listed in the file inventory with no offer to patch it",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks at most 7 questions, one per message",
+        "evidence": "No interview questions asked at all (single-shot ask), within the cap",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Skips interview questions the file inventory already answered and says which ones it skipped",
+        "evidence": "\"Apache-2.0, non-commercial library, no buyer mentioned \u2192 assumed Q3=(d)\" and \"No team, no formal program mentioned \u2192 assumed Q5=(a)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not ask the user whether this is a cold or warm start - that is decided only by whether `devrel-context.md` exists",
+        "evidence": "\"No `devrel-context.md` \u2192 cold start.\" determined automatically, no question asked",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Creates `devrel-context.md` with a session-log line without scaffolding directories the project has not earned",
+        "evidence": "devrel-context.md content provided with a \"## Session log\" line dated 2026-09-19, no extra directory scaffolding",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Runs detection over the listed files and git output before asking any interview question",
+        "evidence": "\"I checked before answering, and the repository here doesn't match what you described\" followed by the full directory listing, before the single closing question.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not ask the user whether a README, LICENSE, changelog or code of conduct exists",
+        "evidence": "Existence is determined directly: \"There's no docs/, src/, LICENSE, CHANGELOG.md, CODE_OF_CONDUCT.md, mkdocs.yml, or AGENTS.md\" \u2014 no question asked.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the absence of a CONTRIBUTING file as a routing signal in its own right",
+        "evidence": "CONTRIBUTING is never mentioned in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Promotes `samber/developer-relations-skills@oss-contributor-onboarding` inside the first-run surfaces class because CONTRIBUTING is missing",
+        "evidence": "No skill name appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reads 7 commits in six months with the last dated 2026-06-30 as a stalled project",
+        "evidence": "Commit history/stall analysis is not discussed in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Points at diagnosis before any build work because of that stall",
+        "evidence": "Not discussed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that `mkdocs.yml` means a docs site already exists, and does not ask whether one does",
+        "evidence": "mkdocs.yml is noted as absent (\"no... mkdocs.yml\"), not present, so no such inference is made.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that `AGENTS.md` is an agent-instruction file already present, and offers to patch it with the project's invariants rather than asking whether one exists",
+        "evidence": "AGENTS.md is noted as absent; no patch offer is made.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks at most 7 questions, one per message",
+        "evidence": "Exactly one question is asked in one message: \"Can you confirm which one it is \u2014 and if it's (1), give me the actual path to the Copperline repo?\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Skips interview questions the file inventory already answered and says which ones it skipped",
+        "evidence": "No explicit statement of skipped questions appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not ask the user whether this is a cold or warm start - that is decided only by whether `devrel-context.md` exists",
+        "evidence": "No such question is asked anywhere in the transcript.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Creates `devrel-context.md` with a session-log line without scaffolding directories the project has not earned",
+        "evidence": "No file is created; the transcript pauses for user clarification instead.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

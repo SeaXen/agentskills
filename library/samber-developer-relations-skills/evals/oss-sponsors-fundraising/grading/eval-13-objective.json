@@ -1,0 +1,106 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Identifies that the user is on the company side of the table, deciding which projects to fund, not the maintainer side being funded.",
+        "evidence": "\"Primary mandate = **supply-chain assurance** (platform eng, 'projects we depend on' \u2014 no reach/marketing language used).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the user to the company-side sibling skill samber/developer-relations-skills@oss-sponsors-brand-strategy.",
+        "evidence": "No skill routing or reference to a sibling skill appears anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Stops rather than continuing into the maintainer workflow.",
+        "evidence": "The transcript does not stop; it produces a complete multi-section company-funding plan (budget, tiers, target selection, procurement, policy, measurement, renewal).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not run the maintainer interview questions about project role, goal amount or delivery capacity.",
+        "evidence": "\"Assumptions made, no interview run (deliverable was requested directly, not a back-and-forth)\" \u2014 assumptions are about company mandate/budget, not a maintainer's role/goal/capacity.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not design a sponsorship tier ladder for the user to publish.",
+        "evidence": "The \"Tiers\" table defines what Calderwood pays out to other projects (Breadth/Depth-Core/Depth-Strategic), not a ladder for Calderwood to publish for its own sponsors.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not produce the maintainer-side sponsorship program brief.",
+        "evidence": "The whole document is framed as \"Open-source sponsorship portfolio \u2014 Calderwood Analytics,\" a funder's spending plan, not a fundraising brief for Calderwood itself.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not ask the user to name three companies that depend on their project.",
+        "evidence": "Instead it asks the user to \"export SBOM/lockfiles across your services\" to find projects *they* depend on \u2014 the reverse direction.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not advise the user on setting up GitHub Sponsors, FUNDING.yml or a fiscal host as a recipient of funds.",
+        "evidence": "FUNDING.yml and GitHub Sponsors are discussed only as ways to find and pay *other* projects (\"Find + verify funding destinations... repo's .github/FUNDING.yml\"), never as Calderwood's own recipient setup.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Identifies that the user is on the company side of the table, deciding which projects to fund, not the maintainer side being funded.",
+        "evidence": "The entire response is built from the funder's perspective: \"OSS Sponsorship Program \u2014 Calderwood Analytics Platform Engineering... $180k/year, 240 engineers. Below is the selection method, the tier structure, and the governance process to run it every year.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the user to the company-side sibling skill samber/developer-relations-skills@oss-sponsors-brand-strategy.",
+        "evidence": "No reference to any sibling skill or handoff appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Stops rather than continuing into the maintainer workflow.",
+        "evidence": "The transcript does not stop; it produces a complete, detailed program design (candidate scoring, tiers, governance, payment mechanics) in full.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not run the maintainer interview questions about project role, goal amount or delivery capacity.",
+        "evidence": "No such interview questions appear; the response proceeds directly to designing the funder's program.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not design a sponsorship tier ladder for the user to publish.",
+        "evidence": "The tier structure (Foundational/Load-bearing/Long tail/Reserve) is for the company to fund others, not a ladder for the user's own project to publish.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not produce the maintainer-side sponsorship program brief.",
+        "evidence": "The entire brief is written for a funding committee, not a maintainer seeking sponsorship.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not ask the user to name three companies that depend on their project.",
+        "evidence": "No such question appears; instead the user is asked to generate an SBOM of dependencies they use.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not advise the user on setting up GitHub Sponsors, FUNDING.yml or a fiscal host as a recipient of funds.",
+        "evidence": "GitHub Sponsors/Open Collective are mentioned only as vehicles the company uses to pay maintainers (\"Tier 2: GitHub Sponsors org account or Open Collective\"), never as something the user sets up to receive funds.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

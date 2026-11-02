@@ -62,6 +62,8 @@ The difference is a question about the attendee's work asked before anything abo
 
 ## Follow-up sequences
 
+The outline below is the sponsor's minimum. The full post-event plan (who may be emailed under which purpose and jurisdiction, message templates, routing, stop rules, cohort measurement) lives in `samber/developer-relations-skills@developer-event-followup`.
+
 - **Within 48 hours** - personal message to every qualified conversation, referencing the specific problem discussed and delivering whatever was promised. No template, no batch.
 - **Winners and standout projects (hackathons)** - congratulations, an offer to feature the project with permission, extended access, and an introduction to whoever internally can actually help.
 - **Everyone who opted in** - one short message: thanks, the two or three resources most relevant to the event's theme, an invitation to the community. No hard sell, no automatic addition to a sales sequence.

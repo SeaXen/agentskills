@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to compute the runtime from a table value or an assumed words-per-minute figure.",
+        "evidence": "The transcript performs the exact computation using the assumed figure: '1,640 words \u00f7 150 wpm = 10:56' and 'Target is 9:00 \u2192 budget is 1,350 words at that rate. You're 290 words over' \u2014 it computes rather than refusing, only adding a caveat afterward that the number shouldn't be used to finalize cuts.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Instructs the user to measure the recorder's own speaking rate, for example by timing a read of a fixed passage.",
+        "evidence": "'Get the person who's recording to read two or three representative beats aloud, measure their real wpm, and rerun this division before you finalize cuts.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that estimated dead time must be added per beat on top of the narration time.",
+        "evidence": "'the skill's runtime formula is *narration \u00f7 rate + per-beat dead time*, not narration alone... Whatever your dead-time budget adds, it adds on top of an already-over number.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names concrete dead-time sources such as builds, installs, page loads and deliberate pauses.",
+        "evidence": "'before a single second of dead time (builds, installs, page loads, pauses) is added' and 'A Halyard CLI tutorial is going to have install steps, command output, page loads.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines to endorse speaking faster as a retention lever.",
+        "evidence": "'Should you talk faster? No.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that the published speaking-rate-to-engagement correlation is a surface proxy for enthusiasm rather than a lever to pull.",
+        "evidence": "'\"speaking rate is merely a surface feature that correlates with enthusiasm\u2026 our recommendation is not to force instructors to speak faster.\" Faster speakers scored better because they were more energized, not because raw words-per-minute is a retention lever.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Advises bringing energy instead of forcing speed.",
+        "evidence": "The transcript only explains the mechanism ('Forcing the number without the energy doesn't reproduce the effect') but never issues a direct recommendation to bring energy in place of forcing pace.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that cuts happen before recording, never in the edit.",
+        "evidence": "'The skill's rule is explicit: \"Compare against the target; cut before recording, never after.\"'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines to return a single confident runtime number, saying the measured rate and per-beat dead-time estimates are required first.",
+        "evidence": "The response opens by confidently stating the exact figure '1,640 words \u00f7 150 wpm = 10:56' and 'You're 290 words over' as the headline answer, rather than declining to give a number pending measured rate and dead-time data.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends splitting a 9-minute target into chaptered segments of roughly six minutes or less, citing the published median-engagement evidence rather than an invented benchmark.",
+        "evidence": "The transcript cites the 6\u201312 minute engagement dip only to argue against speeding up narration, and only suggests splitting an individual overloaded beat ('split into a segment of its own'), never recommends chaptering the whole 9-minute tutorial into ~6-minute segments.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to compute the runtime from a table value or an assumed words-per-minute figure.",
+        "evidence": "'1,640 words \u00f7 150 wpm = 10 minutes 56 seconds'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Instructs the user to measure the recorder's own speaking rate, for example by timing a read of a fixed passage.",
+        "evidence": "Absent. It uses 150 wpm as the standard.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that estimated dead time must be added per beat on top of the narration time.",
+        "evidence": "Dead time is never added to the estimate.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names concrete dead-time sources such as builds, installs, page loads and deliberate pauses.",
+        "evidence": "It mentions only 'dead air' to be cut, with no builds, installs or page loads.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines to endorse speaking faster as a retention lever.",
+        "evidence": "'No \u2014 that's the wrong lever here'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that the published speaking-rate-to-engagement correlation is a surface proxy for enthusiasm rather than a lever to pull.",
+        "evidence": "It reframes the research as being about dead air, not as an enthusiasm proxy.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Advises bringing energy instead of forcing speed.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that cuts happen before recording, never in the edit.",
+        "evidence": "It suggests 'tighten editing ... to claw back the last 10-20 seconds'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines to return a single confident runtime number, saying the measured rate and per-beat dead-time estimates are required first.",
+        "evidence": "It returns '10 minutes 56 seconds' confidently.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends splitting a 9-minute target into chaptered segments of roughly six minutes or less, citing the published median-engagement evidence rather than an invented benchmark.",
+        "evidence": "It says to let the video run 10:30-11:00 and never mentions segmenting.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

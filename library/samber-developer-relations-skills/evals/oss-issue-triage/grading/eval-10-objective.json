@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to create a usage-question issue form and states that usage questions should be routed rather than structured",
+        "evidence": "The transcript directly builds a five-field 'Support question' markdown template rather than refusing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes chooser routing from this pass because no off-tracker destination exists, rather than listing it as pending or future work",
+        "evidence": "No discussion of chooser/config.yml or an off-tracker destination appears anywhere in this section.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Promotes validated forms to the first intake change because bug reports dominate the inflow at 70%",
+        "evidence": "No mention of a 70% bug-share statistic or prioritization of validated forms in this section.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Replaces the markdown templates with validated forms, stating that markdown templates enforce nothing because the reporter can delete the whole body",
+        "evidence": "The deliverable stays markdown; switching to YAML forms is only floated conditionally: 'I'd only do it if the deletion rate is actually costing you round-trips, not on principle.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Makes the version field a dropdown rather than free text, because free-text versions arrive as \"latest\"",
+        "evidence": "Version field is plain markdown text with a comment ('\"Latest\" isn't answerable'), not an actual dropdown \u2014 this is a markdown template, not a validated form.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a minimal reproduction using the project's own APIs rather than a third-party wrapper",
+        "evidence": "Field only asks to 'Paste the actual pipeline/config code you're running' with no own-API-vs-wrapper requirement stated in this section.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires logs or output rendered as a code block rather than screenshots of text",
+        "evidence": "No logs/screenshot requirement appears in this support-question template.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes a search-first confirmation checkbox",
+        "evidence": "The template has a 'Docs already checked' field, not a searched-existing-issues checkbox.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Orders the feature-request fields as problem statement, then proposed solution, then alternatives",
+        "evidence": "This section is a support-question template; no feature-request field ordering is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Disables blank issues only once the forms cover the real categories",
+        "evidence": "No mention of blank_issues_enabled or category coverage in this section.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Auto-applies the type label from the form at submission",
+        "evidence": "'The front-matter `labels: [\"kind/question\"]` auto-applies the type label on submission'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Justifies each required field by the round-trip its absence forces, and drops fields that do not change the outcome",
+        "evidence": "'Each one earns its place because its absence forces a round-trip; nothing here is decorative.' / 'No environment/OS field \u2014 ...reproducibility rarely hinges on it'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the triage minutes each intake change is expected to save",
+        "evidence": "Only qualitative mention of 'no triage minutes spent classifying inflow' for the auto-label piece; no quantified savings per change.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to create a usage-question issue form and states that usage questions should be routed rather than structured",
+        "evidence": "The entire transcript is dedicated to building a \"Support question\" markdown issue template \u2014 the opposite of refusing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes chooser routing from this pass because no off-tracker destination exists, rather than listing it as pending or future work",
+        "evidence": "No chooser/config.yml or routing discussion appears in this transcript at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Promotes validated forms to the first intake change because bug reports dominate the inflow at 70%",
+        "evidence": "No mention of a 70% bug-report share, and no promotion of YAML forms as the first change.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Replaces the markdown templates with validated forms, stating that markdown templates enforce nothing because the reporter can delete the whole body",
+        "evidence": "The recommendation is to keep the markdown template now and only \"worth a second look\" at YAML forms later \u2014 explicitly not replacing now.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Makes the version field a dropdown rather than free text, because free-text versions arrive as \"latest\"",
+        "evidence": "\"quartzpipe version:\" is a free-text bullet field, not a dropdown.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a minimal reproduction using the project's own APIs rather than a third-party wrapper",
+        "evidence": "No such requirement or distinction is made; the template only asks 'What have you tried?'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires logs or output rendered as a code block rather than screenshots of text",
+        "evidence": "No explicit code-block formatting requirement or screenshot prohibition is stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes a search-first confirmation checkbox",
+        "evidence": "The search-first line is explicitly an HTML comment, not a checkbox: \"The search-first HTML comment is a maintainer-time investment, not a user-facing field.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Orders the feature-request fields as problem statement, then proposed solution, then alternatives",
+        "evidence": "This transcript covers only a support-question template; no feature-request fields appear.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Disables blank issues only once the forms cover the real categories",
+        "evidence": "No discussion of disabling blank issues anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Auto-applies the type label from the form at submission",
+        "evidence": "Frontmatter: `labels: question` auto-applies on submission.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Justifies each required field by the round-trip its absence forces, and drops fields that do not change the outcome",
+        "evidence": "\"What you've tried \u2014 the single highest-leverage field. Without a code/config snippet, every question becomes 'can you share your config?' as a first reply.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the triage minutes each intake change is expected to save",
+        "evidence": "Savings are described qualitatively (\"saves a full round-trip\") with no quantified minutes figure.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

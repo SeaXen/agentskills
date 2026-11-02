@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to give currency thresholds separating self-serve from inside sales from field sales, and says no defensible published bands exist",
+        "evidence": "\"No defensible published band separates self-serve from inside sales from field sales \u2014 that's folklore, not data.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Offers to derive the answer from the company's own cohort data instead of a published band",
+        "evidence": "\"Swap in your own CAC and close-rate data the moment you have a closed cohort and the number moves; don't treat $90k as gospel.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Models the sale with unit economics: estimated lifetime value against estimated acquisition cost, plus the months needed to earn the acquisition cost back",
+        "evidence": "\"CAC per deal: $140k \u00f7 25 \u2248 $5,600 / Required ACV for 6-month payback: $5,600 \u00f7 (0.8 \u00d7 0.5) \u2248 $14,000\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Quotes the lifetime-value-to-acquisition-cost guideline of higher than 3, and as high as 7 or 8 in the best businesses",
+        "evidence": "\"LTV:CAC > 3 (best-in-class 7-8x)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Quotes the guideline that acquisition cost is recovered in 5-7 months",
+        "evidence": "\"CAC payback in 5-7 months\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Attributes both reference points to David Skok's SaaS Metrics 2.0",
+        "evidence": "Only \"Using David Skok's SaaS-wide reference points [sourced, SaaS-general, not devtool-specific]\" \u2014 names David Skok but never cites the specific work \"SaaS Metrics 2.0\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels both reference points as describing SaaS generally rather than developer tools specifically",
+        "evidence": "\"[sourced, SaaS-general, not devtool-specific]\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the mismatch between a paid boundary that only triggers at enterprise governance needs and a self-serve credit-card motion",
+        "evidence": "\"Your paid boundary (multi-tenant RBAC, retention policies, SOC 2 compliance reporting) is an enterprise-shaped gate sitting behind a pure self-serve motion.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that the cost of a sale carrying security review, procurement and legal eats a per-seat contract of this size",
+        "evidence": "No language about sale cost 'eating' the contract value appears; the text states the mismatch (\"enterprise-shaped gate ... self-serve motion\") but never quantifies that the sale's cost outweighs the contract.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Offers both fixes: move the boundary down so a small team crosses it, or price and staff for the sale the boundary actually requires",
+        "evidence": "The transcript only offers a routing rule (\"Route on whichever fires first\"), not the two alternative structural fixes of lowering the boundary or pricing/staffing for the enterprise sale.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats a candidate that cannot plausibly reach those reference points as a motion problem to fix before committing, not as a revenue forecast",
+        "evidence": "\"the economics only clear 3x once you count ~2-3 years of retained seats. This motion depends on retention, not just the initial deal.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to give currency thresholds separating self-serve from inside sales from field sales, and says no defensible published bands exist",
+        "evidence": "The response leads with specific figures: '**Self-serve \u2192 inside sales: ~$8,000 ACV**' and '**Inside sales \u2192 field sales: ~$75,000-100,000 ACV**' rather than refusing to give thresholds.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Offers to derive the answer from the company's own cohort data instead of a published band",
+        "evidence": "'If you've got that data (e.g., where free-to-paid conversions currently plateau, or what seat count correlates with \"can we get on a call\" requests), it'll sharpen these numbers a lot \u2014 happy to redo the math against it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Models the sale with unit economics: estimated lifetime value against estimated acquisition cost, plus the months needed to earn the acquisition cost back",
+        "evidence": "The model only computes AE cost vs. quota coverage ('~$150K/year... ~4x quota coverage, so ~$600K in new ARR/year'); no LTV:CAC ratio or payback-period-in-months is calculated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Quotes the lifetime-value-to-acquisition-cost guideline of higher than 3, and as high as 7 or 8 in the best businesses",
+        "evidence": "No LTV:CAC ratio guideline of any kind is quoted anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Quotes the guideline that acquisition cost is recovered in 5-7 months",
+        "evidence": "No CAC payback period guideline is quoted anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Attributes both reference points to David Skok's SaaS Metrics 2.0",
+        "evidence": "David Skok and SaaS Metrics 2.0 are never mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels both reference points as describing SaaS generally rather than developer tools specifically",
+        "evidence": "Not applicable \u2014 no such reference points are given to label.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the mismatch between a paid boundary that only triggers at enterprise governance needs and a self-serve credit-card motion",
+        "evidence": "The transcript treats governance features (RBAC, SOC 2) as a natural late-stage field-sales trigger rather than flagging any inconsistency with an existing self-serve credit-card motion.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that the cost of a sale carrying security review, procurement and legal eats a per-seat contract of this size",
+        "evidence": "The text describes the sales cycle complexity ('a security questionnaire... a multi-threaded buying committee') but never states that this overhead erodes the economics of a contract at that size.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Offers both fixes: move the boundary down so a small team crosses it, or price and staff for the sale the boundary actually requires",
+        "evidence": "No such fixes are offered; the response only proposes hiring thresholds for reps, not packaging/pricing fixes.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats a candidate that cannot plausibly reach those reference points as a motion problem to fix before committing, not as a revenue forecast",
+        "evidence": "Not applicable \u2014 no reference points (LTV:CAC, payback months) are established to test candidates against.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

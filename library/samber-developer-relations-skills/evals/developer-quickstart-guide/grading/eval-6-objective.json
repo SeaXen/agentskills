@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses the eyeball-only verification and requires every tab to be cold-run independently.",
+        "evidence": "'\"SDK owner eyeballs it\" is not verification... each SDK owner still reviews for idiom and correctness, but they also run it, once, on a clean machine, against the real published package.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that each tab is its own quickstart sharing a layout, and that an unverified tab is worse than a missing one because the reader trusts it identically.",
+        "evidence": "'each is its own quickstart sharing a layout. An unverified tab is worse than a missing one, because the reader trusts it identically.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags six tabs as too many, naming two or three genuine first-class languages as the practical limit.",
+        "evidence": "The transcript builds full tabbed support for all six languages without ever objecting to the count or proposing a 2-3 language limit.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reads the demand for six tabs as a signal the page is serving audiences that want different success moments, and offers separate per-language pages as the alternative.",
+        "evidence": "No discussion of separate per-language pages as an alternative appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the tab groups on the page to be synchronized through a shared group identifier, so choosing a language once switches every remaining block and persists across visits.",
+        "evidence": "Every `<Tabs groupId=\"northgate-lang\">` block across prerequisites, install, and send-trace sections uses the same groupId to keep selection synchronized.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the recurring cost of tabs as re-running every tab each release, not the one-time wiring.",
+        "evidence": "'One CI job per language, on a schedule and on every SDK release, installing the published package... This is what stops the page from being correct on conference day and quietly wrong three months later.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes parallel language variants from real conditional branching such as a proxy or firewall path, and routes real branching to a how-to guide rather than a tab.",
+        "evidence": "No mention of proxy/firewall paths or a distinction between language variants and real conditional branching appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places language tabs in the middle of the container ranking and confirms the plain page remains the default.",
+        "evidence": "No container ranking discussion (plain page vs. tabs vs. other containers) appears anywhere in section 6.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks whether the page is a one-off launch asset or a compounding one, and ties the synchronized switcher and CI-run commands to the compounding answer.",
+        "evidence": "'This is a compounding asset (six SDKs, officially supported, used by every new reader for years), not a one-off \u2014 so the tab switcher and a CI regression job are in scope, not deferred.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Commits to a 10-minute baseline budget for this SDK/library quickstart.",
+        "evidence": "'Time budget: 10 minutes per language (SDK/library baseline from the skill's table).'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the same success moment, step shape and verification across every language variant.",
+        "evidence": "Every language tab follows the identical install/send/verify structure with the same `<id> <status>` output shape and identical 401 fail branch, and the ship gate requires 'all six tabs tier \"Run,\" none tier \"eyeballed.\"'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses the eyeball-only verification and requires every tab to be cold-run independently.",
+        "evidence": "The pipeline only LLM-generates translations and routes them through CODEOWNERS review via GitHub PR; no execution/testing of the actual code snippets is described anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that each tab is its own quickstart sharing a layout, and that an unverified tab is worse than a missing one because the reader trusts it identically.",
+        "evidence": "\"a language with no reviewed content yet renders 'coming soon' instead of breaking the build, and a language whose source changed since last approval renders a visible staleness banner instead of silently serving outdated instructions\" \u2014 unreviewed/stale content is deliberately never served as if verified.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags six tabs as too many, naming two or three genuine first-class languages as the practical limit.",
+        "evidence": "The transcript builds out all six language tabs without ever questioning whether six is too many.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reads the demand for six tabs as a signal the page is serving audiences that want different success moments, and offers separate per-language pages as the alternative.",
+        "evidence": "No such reasoning or alternative (separate per-language pages) appears; the six-tab structure is accepted and implemented as given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the tab groups on the page to be synchronized through a shared group identifier, so choosing a language once switches every remaining block and persists across visits.",
+        "evidence": "\"`groupId=\"sdk-language\"` is Docusaurus's built-in mechanism \u2014 a reader's language choice syncs across every page that uses the same groupId, via localStorage\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the recurring cost of tabs as re-running every tab each release, not the one-time wiring.",
+        "evidence": "The generate workflow triggers \"On push to main\" for template/values/api-ref changes, and the rollout table notes \"Review cycles, regenerate on every TS edit\" \u2014 the design centers on recurring per-change regeneration/review cost, not just initial setup.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes parallel language variants from real conditional branching such as a proxy or firewall path, and routes real branching to a how-to guide rather than a tab.",
+        "evidence": "No discussion of this distinction appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places language tabs in the middle of the container ranking and confirms the plain page remains the default.",
+        "evidence": "No container ranking or discussion of a plain-page default appears in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks whether the page is a one-off launch asset or a compounding one, and ties the synchronized switcher and CI-run commands to the compounding answer.",
+        "evidence": "No such question is posed; the rollout only mentions a conference deadline (\"Freeze TypeScript source before the conference\") without framing it as one-off vs. compounding.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Commits to a 10-minute baseline budget for this SDK/library quickstart.",
+        "evidence": "No time budget is stated anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the same success moment, step shape and verification across every language variant.",
+        "evidence": "The shared `template.mdx` skeleton (\"Install / Initialize the client / Send your first event / Verify it arrived / Next steps\") is identical across all six languages, with only the code snippet values varying.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the 1% download-to-paid conversion assumption, stating that no free-to-paid conversion rate has been published for a library and the plan must not rely on one.",
+        "evidence": "No conversion rate exists. Nobody has published a free-to-paid rate for a library",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that 420k downloads and 35k docs visitors are usage, not buyers, and that only a company asking to pay counts as demand.",
+        "evidence": "Downloads are not buyers... Only a company asking to pay counts as demand.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces the seat projection with the goal threshold formula: paying organizations needed = $8,000 / (monthly price per organization x (1 - payment fee rate)), on prices before sales tax, and shows the resulting number.",
+        "evidence": "$8,000 / $27.55 = about 291 seats... about 59 paying organizations",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the date the goal threshold implies at the current rate of new customers minus churn, or states that no such rate exists yet because nobody has paid.",
+        "evidence": "'Show the projected date' is a dashboard instruction; the plan never says no rate exists yet because nobody has paid.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets the leading indicator as companies asking to pay (invoice, quote or security-review requests) per month, measured before and after launch.",
+        "evidence": "Companies asking to pay per month. Count invoice, quote and security-review requests.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets the demand test at ten paying organizations within two quarters of launch, and states it proves demand rather than the goal.",
+        "evidence": "It proves demand, not the goal.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes revenue per maintainer hour, compared quarterly with an employment baseline.",
+        "evidence": "Revenue per maintainer hour... Compare quarterly against the employment baseline.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes the trust signals: outside pull requests per month and activity on any fork of the last free version.",
+        "evidence": "Outside PRs per month, plus activity on any fork of the free edition.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels every threshold as self-set rather than as an industry benchmark.",
+        "evidence": "Every baseline below is one you set yourself. Say so on the dashboard.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the cloud marketplace and GitHub Marketplace listings are a procurement channel, not a revenue model, and that no indie library has shown material revenue from them.",
+        "evidence": "They are a procurement channel, not a revenue source. No indie library has disclosed material marketplace revenue.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the vendor's acquire-and-sponsor offer as an exit that hands the trust decisions to the buyer, citing FluentAssertions' vendor partnership as the precedent, rather than a fallback revenue model.",
+        "evidence": "It is called an exit that hands trust decisions to the buyer, but FluentAssertions is not cited as precedent for it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Replaces $29 per developer per month with a per-organization unit, flat or banded by developer count.",
+        "evidence": "Add organization bands, bill annually",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes a kill or pivot condition tied to the demand test, such as revisiting the paid boundary before adding features if fewer than ten organizations pay within two quarters.",
+        "evidence": "if the demand test fails at two quarters, compare the acquisition offer and a job against your revenue per hour.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the 1% download-to-paid conversion assumption, stating that no free-to-paid conversion rate has been published for a library and the plan must not rely on one.",
+        "evidence": "It rejects 1% but substitutes a 0.02\u20130.05% band to plan on, and never says no published rate exists.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that 420k downloads and 35k docs visitors are usage, not buyers, and that only a company asking to pay counts as demand.",
+        "evidence": "'Downloads aren't developers.' It never says that only a company asking to pay counts as demand.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Replaces the seat projection with the goal threshold formula: paying organizations needed = $8,000 / (monthly price per organization x (1 - payment fee rate)), on prices before sales tax, and shows the resulting number.",
+        "evidence": "'$8,000 \u00f7 $29 = about 276 seats' and about 55 accounts. It is per-seat and has no payment fee.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the date the goal threshold implies at the current rate of new customers minus churn, or states that no such rate exists yet because nobody has paid.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets the leading indicator as companies asking to pay (invoice, quote or security-review requests) per month, measured before and after launch.",
+        "evidence": "The KPIs are paid seats, MRR and funnel conversion.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets the demand test at ten paying organizations within two quarters of launch, and states it proves demand rather than the goal.",
+        "evidence": "Not present.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes revenue per maintainer hour, compared quarterly with an employment baseline.",
+        "evidence": "There is a support-hours-per-account KPI but no employment comparison.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes the trust signals: outside pull requests per month and activity on any fork of the last free version.",
+        "evidence": "It has 'Forks or complaints about Pro/free boundary changes' but no outside PRs per month.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels every threshold as self-set rather than as an industry benchmark.",
+        "evidence": "'These are starting values to tune against your own numbers, not benchmarks.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the cloud marketplace and GitHub Marketplace listings are a procurement channel, not a revenue model, and that no indie library has shown material revenue from them.",
+        "evidence": "It says only to check fit and fees and not to count revenue until live.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the vendor's acquire-and-sponsor offer as an exit that hands the trust decisions to the buyer, citing FluentAssertions' vendor partnership as the precedent, rather than a fallback revenue model.",
+        "evidence": "It raises acquirer risks and a tripwire, with no precedent cited.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Replaces $29 per developer per month with a per-organization unit, flat or banded by developer count.",
+        "evidence": "It keeps $29 per seat.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes a kill or pivot condition tied to the demand test, such as revisiting the paid boundary before adding features if fewer than ten organizations pay within two quarters.",
+        "evidence": "The tripwires use seats and MRR, not a ten-org demand test.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,260 @@
+use eventsource_stream::Event;
+use mirrord_sessions_manager_protocol::{ControlPlaneEventName, ServiceScope};
+use url::Url;
+
+use super::event::ControlPlaneEvent;
+use crate::error::SessionsManagerClientError;
+
+#[derive(Clone, Copy, Debug, Default, PartialEq, Eq)]
+pub(crate) enum ApiVersion {
+    #[default]
+    V1,
+}
+
+impl ApiVersion {
+    const fn path_segment(self) -> &'static str {
+        match self {
+            Self::V1 => "v1",
+        }
+    }
+}
+
+/// Constructs versioned control-plane endpoints and decodes their SSE events.
+#[derive(Clone)]
+pub(crate) struct ControlPlaneApi {
+    base_url: Url,
+    version: ApiVersion,
+}
+
+pub(crate) enum ControlPlaneEndpoint<'a> {
+    Assignments { scope: &'a ServiceScope },
+}
+
+impl ControlPlaneApi {
+    pub(crate) fn new(base_url: Url) -> Self {
+        Self {
+            base_url,
+            version: ApiVersion::V1,
+        }
+    }
+
+    pub(crate) fn base_url(&self) -> &Url {
+        &self.base_url
+    }
+
+    pub(crate) fn endpoint(
+        &self,
+        endpoint: ControlPlaneEndpoint<'_>,
+    ) -> Result<Url, SessionsManagerClientError> {
+        let mut url = self.base_url.clone();
+        {
+            let mut segments = url
+                .path_segments_mut()
+                .map_err(|_| SessionsManagerClientError::InvalidBaseUrl)?;
+            segments.pop_if_empty();
+            segments.push(self.version.path_segment());
+
+            match endpoint {
+                ControlPlaneEndpoint::Assignments { scope } => {
+                    let environment = slug::slugify(&scope.environment);
+                    let service = slug::slugify(&scope.service);
+                    segments.extend(["env", &environment, "service", &service, "assignments"]);
+                }
+            }
+        }
+        Ok(url)
+    }
+
+    /// Decodes one SSE event. Standalone and operator-hosted sessions-managers both emit the v1
+    /// event format, so decoding doesn't depend on which endpoint the stream came from.
+    pub(crate) fn decode_event(
+        event: Event,
+    ) -> Result<Option<ControlPlaneEvent>, SessionsManagerClientError> {
+        match event.event.parse::<ControlPlaneEventName>() {
+            Ok(ControlPlaneEventName::Assignment) => Ok(Some(ControlPlaneEvent::Assignment(
+                serde_json::from_str(&event.data)?,
+            ))),
+            Ok(ControlPlaneEventName::Superseded) => Ok(Some(ControlPlaneEvent::Superseded)),
+            Err(_) => {
+                tracing::trace!(
+                    event_name = event.event,
+                    "ignoring unknown sessions-manager SSE event"
+                );
+                Ok(None)
+            }
+        }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use std::collections::HashMap;
+
+    use mirrord_sessions_manager_protocol::{
+        AgentIdentity, AssignmentSubscription, IntproxyIdentity, ServiceScope,
+    };
+    use uuid::Uuid;
+
+    use super::{ControlPlaneApi, ControlPlaneEndpoint};
+    use crate::control_plane::ControlPlaneEvent;
+
+    fn intproxy_identity() -> IntproxyIdentity {
+        IntproxyIdentity {
+            user_session_id: "session-a".to_owned(),
+            intproxy_connection_id: "connection-a".to_owned(),
+        }
+    }
+
+    fn assignments_endpoint(base_url: &str, environment: &str, service: &str) -> url::Url {
+        let scope = ServiceScope {
+            environment: environment.to_owned(),
+            service: service.to_owned(),
+        };
+        ControlPlaneApi::new(url::Url::parse(base_url).unwrap())
+            .endpoint(ControlPlaneEndpoint::Assignments { scope: &scope })
+            .unwrap()
+    }
+
+    fn query_pairs(subscription: AssignmentSubscription) -> HashMap<String, String> {
+        reqwest::Client::new()
+            .get("https://example.com")
+            .query(&subscription)
+            .build()
+            .unwrap()
+            .url()
+            .query_pairs()
+            .into_owned()
+            .collect()
+    }
+
+    fn event(event: &str, data: &str) -> eventsource_stream::Event {
+        eventsource_stream::Event {
+            event: event.to_owned(),
+            data: data.to_owned(),
+            ..Default::default()
+        }
+    }
+
+    #[test]
+    fn assignments_endpoint_includes_v1() {
+        assert_eq!(
+            assignments_endpoint("https://sessions.example.com", "staging", "api").as_str(),
+            "https://sessions.example.com/v1/env/staging/service/api/assignments"
+        );
+    }
+
+    #[test]
+    fn assignments_endpoint_preserves_base_path_prefix() {
+        assert_eq!(
+            assignments_endpoint("https://sessions.example.com/sm", "staging", "api").as_str(),
+            "https://sessions.example.com/sm/v1/env/staging/service/api/assignments"
+        );
+    }
+
+    #[test]
+    fn assignments_endpoint_ignores_base_url_trailing_slash() {
+        let without_trailing_slash =
+            assignments_endpoint("https://sessions.example.com/sm", "staging", "api");
+        let with_trailing_slash =
+            assignments_endpoint("https://sessions.example.com/sm/", "staging", "api");
+
+        assert_eq!(without_trailing_slash, with_trailing_slash);
+    }
+
+    #[test]
+    fn assignments_endpoint_slugifies_dynamic_segments() {
+        assert_eq!(
+            assignments_endpoint("https://sessions.example.com", "prod/eu", "API #1").as_str(),
+            "https://sessions.example.com/v1/env/prod-eu/service/api-1/assignments"
+        );
+    }
+
+    /// Scopes are identified by their slug, so case and punctuation variants of a name share an
+    /// endpoint with each other and with the operator-hosted deployment.
+    #[test]
+    fn assignments_endpoint_treats_case_variants_as_one_scope() {
+        assert_eq!(
+            assignments_endpoint("https://sessions.example.com", "staging", "API"),
+            assignments_endpoint("https://sessions.example.com", "staging", "api"),
+        );
+    }
+
+    #[test]
+    fn serializes_agent_subscription() {
+        assert_eq!(
+            query_pairs(AssignmentSubscription::Agent(AgentIdentity {
+                replica_id: "pod-a".to_owned().into(),
+                agent_instance_id: Uuid::nil(),
+            })),
+            HashMap::from([
+                ("role".to_owned(), "agent".to_owned()),
+                ("replica_id".to_owned(), "pod-a".to_owned()),
+                ("agent_instance_id".to_owned(), Uuid::nil().to_string()),
+            ])
+        );
+    }
+
+    #[test]
+    fn serializes_intproxy_subscription() {
+        assert_eq!(
+            query_pairs(AssignmentSubscription::Intproxy {
+                identity: intproxy_identity(),
+                agent_replica_filter: Some("pod-a".to_owned().into()),
+            }),
+            HashMap::from([
+                ("role".to_owned(), "intproxy".to_owned()),
+                ("user_session_id".to_owned(), "session-a".to_owned()),
+                (
+                    "intproxy_connection_id".to_owned(),
+                    "connection-a".to_owned()
+                ),
+                ("agent_replica_filter".to_owned(), "pod-a".to_owned()),
+            ])
+        );
+    }
+
+    #[test]
+    fn omits_missing_agent_replica_filter() {
+        assert_eq!(
+            query_pairs(AssignmentSubscription::Intproxy {
+                identity: intproxy_identity(),
+                agent_replica_filter: None,
+            }),
+            HashMap::from([
+                ("role".to_owned(), "intproxy".to_owned()),
+                ("user_session_id".to_owned(), "session-a".to_owned()),
+                (
+                    "intproxy_connection_id".to_owned(),
+                    "connection-a".to_owned()
+                ),
+            ])
+        );
+    }
+
+    #[test]
+    fn decodes_assignment_event() {
+        let event = event(
+            "assignment",
+            r#"{"assignment_id":"assignment-1","data_plane_endpoint":"/sm/ws/123","authorization":"Bearer secret"}"#,
+        );
+
+        assert!(matches!(
+            ControlPlaneApi::decode_event(event).unwrap(),
+            Some(ControlPlaneEvent::Assignment(_))
+        ));
+    }
+
+    #[test]
+    fn ignores_unknown_event() {
+        assert!(
+            ControlPlaneApi::decode_event(event("other", "{}"))
+                .unwrap()
+                .is_none()
+        );
+    }
+
+    #[test]
+    fn rejects_malformed_assignment_event() {
+        assert!(ControlPlaneApi::decode_event(event("assignment", "not json")).is_err());
+    }
+}

@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Requires the hero restored to the agreed positioning line and its contrast sentence verbatim, flagging the punched-up headline as a second, competing story about the event.",
+        "evidence": "\"Restore the agreed line verbatim, including 'There are many rockstar-speaker events...'\"; \"each change creates a second source of truth\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the price shown as \u20ac289, naming the \u20ac300 rounding as an error rather than a taste call.",
+        "evidence": "\"Show \u20ac289. Rounding a price is an override.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the early-bird deadline restored to August 22, with any change to it routed to whoever owns the pricing sheet.",
+        "evidence": "\"Show Aug 22... If the date really is wrong, event-ticket-pricing changes it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains the price and date edits as creating a second, contradictory source of truth that attendees will capture and circulate.",
+        "evidence": "\"Each change creates a second source of truth that attendees will screenshot.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the live Submit a Talk button two weeks after CFP close as a failure and has it removed.",
+        "evidence": "Item 4 \u274c \"Remove the button and the CFP section.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes the CFP section rather than marking it closed.",
+        "evidence": "\"Don't replace it with a 'submissions closed' notice, which is a placeholder in different words.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the JSON-LD corrected to October 8-9 so the structured data never contradicts the visible page, and validated.",
+        "evidence": "\"Set startDate to Oct 8 and endDate to Oct 9... Run a structured-data validator.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Fails the launch on the mouse-only date-of-birth widget: the registration flow must complete with the keyboard alone, end to end including payment, before going live.",
+        "evidence": "Item 6 \"Blocks launch\"; \"Registration must be completable with the keyboard alone, including any date picker and the payment step.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the fix-accessibility-after-launch plan, stating the retrofit does not get scheduled and a person who cannot complete the flow does not attend.",
+        "evidence": "\"Someone who can't get through checkout doesn't attend... Retrofits after launch rarely get scheduled.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "For the third-party checkout, prescribes raising it with the provider and/or publishing an alternative registration route staffed by a named person, and reporting it to whoever owns the accessibility commitment.",
+        "evidence": "Ask the provider; \"publish a named person with an email or phone route\"; \"tell the owner of event-accessibility-inclusion\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to endorse the 9% conversion target, stating the available benchmark figures describe other kinds of funnels rather than event pages, and substitutes no other number.",
+        "evidence": "\"Published figures come from SaaS and paid-traffic funnels, so 9% is false precision.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Runs a four-item binary pre-launch check: dated transitions that fired, the what/who/when/where/cost one-screen phone test, structured-data validity, and the keyboard-only pass.",
+        "evidence": "\"The four-check gate\" listing transitions, one-phone-screen, structured data, keyboard-only.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives a no-go verdict until the failing gate items are fixed, rather than recommending launch-and-iterate.",
+        "evidence": "\"\u274c NO-GO for Thursday as it stands\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Requires the hero restored to the agreed positioning line and its contrast sentence verbatim, flagging the punched-up headline as a second, competing story about the event.",
+        "evidence": "Restore 'A JavaScript conference for maintainers, not influencers. There are many rockstar-speaker events. This is not one of them.' 'The current line contradicts the positioning.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the price shown as \u20ac289, naming the \u20ac300 rounding as an error rather than a taste call.",
+        "evidence": "'Show \u20ac289. \"Looked odd\" is not a reason to change a price.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the early-bird deadline restored to August 22, with any change to it routed to whoever owns the pricing sheet.",
+        "evidence": "'Use the sheet's date, or have the owner confirm a new one.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains the price and date edits as creating a second, contradictory source of truth that attendees will capture and circulate.",
+        "evidence": "'Name one source of truth'; 'A page price that differs from checkout is a consumer-protection problem.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the live Submit a Talk button two weeks after CFP close as a failure and has it removed.",
+        "evidence": "Blocker #4: 'Remove it'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes the CFP section rather than marking it closed.",
+        "evidence": "'Remove it, or replace it with \"CFP closed, speakers announced\".'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the JSON-LD corrected to October 8-9 so the structured data never contradicts the visible page, and validated.",
+        "evidence": "Fix startDate/endDate and check fields, but no validation step.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Fails the launch on the mouse-only date-of-birth widget: the registration flow must complete with the keyboard alone, end to end including payment, before going live.",
+        "evidence": "'Needs your decision'; 'I would call this a go with the fallback in place.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the fix-accessibility-after-launch plan, stating the retrofit does not get scheduled and a person who cannot complete the flow does not attend.",
+        "evidence": "Calls it 'risky' for conversion and legal reasons, without the not-scheduled/non-attendance argument.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "For the third-party checkout, prescribes raising it with the provider and/or publishing an alternative registration route staffed by a named person, and reporting it to whoever owns the accessibility commitment.",
+        "evidence": "Provider ask and an 'email us' fallback, with no named person or reporting line.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to endorse the 9% conversion target, stating the available benchmark figures describe other kinds of funnels rather than event pages, and substitutes no other number.",
+        "evidence": "Compares to landing-page benchmarks and proposes 'a floor, an expected rate, and a stretch rate'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Runs a four-item binary pre-launch check: dated transitions that fired, the what/who/when/where/cost one-screen phone test, structured-data validity, and the keyboard-only pass.",
+        "evidence": "Not present.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives a no-go verdict until the failing gate items are fixed, rather than recommending launch-and-iterate.",
+        "evidence": "'Verdict: NO-GO as the page stands.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

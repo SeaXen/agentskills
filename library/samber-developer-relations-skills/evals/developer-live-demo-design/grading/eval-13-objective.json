@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Accepts that the tolerance for a rough demo is genuinely higher for an internal audience",
+        "evidence": "\"'Internal and rough' lowers the polish bar; it doesn't lower the data bar.\" \u2014 explicitly accepts the lowered polish bar.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects running against the staging environment holding a copy of production data",
+        "evidence": "\"Data: Staging seeded with a copy of last month's real production billing data. Nothing synthetic...\" \u2014 the plan accepts and works within this setup rather than rejecting it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires synthetic fixtures instead of copied production records",
+        "evidence": "The plan explicitly says \"Nothing synthetic \u2014 this is real customer data\" and never proposes switching to synthetic fixtures.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the data risk of an internal demo is not lower than that of a public one",
+        "evidence": "\"'Internal and rough' lowers the polish bar; it doesn't lower the data bar.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the internal recording as the durable channel through which anything on screen leaks",
+        "evidence": "\"the recording isn't just today's live session \u2014 it's a permanent internal-drive artifact showing a real copy of last month's production billing data... to the entire company.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags unreleased features, customer names and revenue figures as the specific categories that leak from internal demos",
+        "evidence": "Only \"real customer names, real amounts\" are flagged; unreleased/embargoed features are never mentioned as a leak category in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a pre-flight pass over every screen the demo will show, including error and empty states",
+        "evidence": "The pre-flight checklist covers tab/window hygiene (\"no other customer accounts, no internal chat, no unrelated dashboards\") but never mentions checking error or empty states.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires an application or window share on the video call rather than the whole screen",
+        "evidence": "\"[ ] Screen share set to application/window, not full desktop\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires notification sources such as chat, mail and calendar to be quit rather than muted",
+        "evidence": "\"[ ] Notifications off, chat/mail closed\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Still requires a written claim and a segmented structure at the lower reliability bar",
+        "evidence": "Runbook includes a \"Claim\" field and three segments each with precondition/expected/if-not and restore points.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not accept \"everyone knows it's rough\" as a reason to skip the data checks",
+        "evidence": "\"What I did not skip: the tab hygiene and record-selection items, because the data-exposure risk doesn't shrink just because the audience is internal.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Accepts that the tolerance for a rough demo is genuinely higher for an internal audience",
+        "evidence": "not discussed; the transcript is entirely about being unable to locate the billing reconciliation service",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects running against the staging environment holding a copy of production data",
+        "evidence": "not discussed",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires synthetic fixtures instead of copied production records",
+        "evidence": "not discussed",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the data risk of an internal demo is not lower than that of a public one",
+        "evidence": "not discussed",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the internal recording as the durable channel through which anything on screen leaks",
+        "evidence": "not discussed",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags unreleased features, customer names and revenue figures as the specific categories that leak from internal demos",
+        "evidence": "not discussed",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a pre-flight pass over every screen the demo will show, including error and empty states",
+        "evidence": "not discussed",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires an application or window share on the video call rather than the whole screen",
+        "evidence": "not discussed",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires notification sources such as chat, mail and calendar to be quit rather than muted",
+        "evidence": "not discussed",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Still requires a written claim and a segmented structure at the lower reliability bar",
+        "evidence": "the transcript never reaches demo-construction advice; it stops at requesting clarification",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not accept \"everyone knows it's rough\" as a reason to skip the data checks",
+        "evidence": "the transcript never engages with this trade-off at all, since it refuses to fabricate content for a service it cannot locate",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

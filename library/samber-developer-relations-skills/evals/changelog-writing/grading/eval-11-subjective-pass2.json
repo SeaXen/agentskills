@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Writes the LDAP fix in symptom phrasing an administrator can match to a support ticket",
+        "evidence": "\u00a74 contains no committed description of the LDAP change \u2014 the 'What changes' field is a `{{...}}` placeholder explicitly labelled 'Example shape only \u2014 replace with the real behaviour', as is 'Who is affected' and the backward-compatibility line. As published, an administrator reading the advisory would learn nothing matchable to a ticket. Partial credit is warranted because the illustrative example does model roughly the right register ('sync run aborts, last-known-good membership is retained ... instead of failing open ... with an empty group set') and the Required-action example makes the o",
+        "score": 2,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Writes the LDAP fix in symptom phrasing an administrator can match to a support ticket",
+        "evidence": "CHG-2 (\u00a75) is almost entirely unfilled placeholders, and the guidance it gives pushes toward mechanism/implementation phrasing rather than symptom phrasing: the Summary example is \"Ridgeway's LDAP sync now resolves nested group membership; it previously evaluated only direct membership\" (mechanism), and 'Previous behavior' instructs \"Describe precisely: which attribute/query was used, what was and wasn't evaluated\" \u2014 attribute-level detail, the opposite of a ticket-matchable symptom. Nowhere does the document frame the issue as the observable complaint an admin would have logged (e.g. \"a user ",
+        "score": 1,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

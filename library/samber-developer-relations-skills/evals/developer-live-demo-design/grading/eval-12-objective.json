@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Diagnoses the stale walkthrough as a missing owner and missing last-verified date, not as a one-off content error",
+        "evidence": "\"That's not bad luck \u2014 it's the predictable output of a runbook with no owner and no last-verified date, built by someone who's since left.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Assigns a named owner responsible for maintaining the runbook",
+        "evidence": "\"This week: assign an explicit owner for this runbook. This single field being empty is the root cause \u2014 don't ship the rest of this plan without it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Adds a last-verified date recorded against a specific product version",
+        "evidence": "\"Last verified: [DATE OF FIRST CLEAN REHEARSED RUN] on <product version/release tag>\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets re-verification triggers: before each use cycle, and whenever the demo path ships a change",
+        "evidence": "\"Re-verify: ...for a re-run sales kit, read that as: on every product release that touches a demoed screen, and on a fixed monthly cadence regardless\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a stale verification date is the signal to re-run the rehearsal protocol rather than trust the document",
+        "evidence": "\"Last-verified date on this runbook is within the re-verify cadence below \u2014 if not, stop and re-run the rehearsal protocol before the call, don't wing it a third time\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Instructs the rep to ask what the buyer came to see and open on that instead of the fixed sequence",
+        "evidence": "\"per the sales-call variant ('open on what they came to see instead of the fixed sequence; there's no slide deck to retreat to')\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that a customer call has no slide deck to retreat to, so a failed segment recovers into the next segment's claim",
+        "evidence": "\"Since there's no slide deck to retreat to on a sales call, the next segment is the retreat.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a sandbox tenant with read-only credentials rather than production",
+        "evidence": "\"Synthetic, domain-realistic seed data in the sandbox tenant only, read-only credentials\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that a customer call is the highest-stakes place for another customer's name to leak",
+        "evidence": "\"Real or stale customer-looking data shown to a buyer | Medium \u00d7 high (B2B/enterprise stakes) | Synthetic, domain-realistic seed data in the sandbox tenant only...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires each segment to be enterable from its own restore point so a rep can jump to whichever part the buyer asks about",
+        "evidence": "\"Every segment gets its own restore point \u2014 saved view, bookmark, or sandbox reset \u2014 independently enterable\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a dated clean cold run to be logged, not just an edit to the script",
+        "evidence": "\"Verified cold: [ ] not yet \u2014 this is the first gate to clear before any rep relies on this runbook again\" plus the Rehearsal log table.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not stop at rewriting the walkthrough script text",
+        "evidence": "The plan includes ownership assignment, sandbox tenant build, risk register, rehearsal protocol, and a 6-step rollout plan across weeks \u2014 far beyond script text edits.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Diagnoses the stale walkthrough as a missing owner and missing last-verified date, not as a one-off content error",
+        "evidence": "\"The deck failed because it had one owner and zero triggers...no owner to notice the drift.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Assigns a named owner responsible for maintaining the runbook",
+        "evidence": "\"Owner (DRI): One named person, not 'sales enablement' as a team. Their name is on the doc header.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Adds a last-verified date recorded against a specific product version",
+        "evidence": "the changelog records \"date, what changed, who changed it\" but never ties it to a specific product version",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets re-verification triggers: before each use cycle, and whenever the demo path ships a change",
+        "evidence": "triggers given are release-based and a monthly backstop, not a \"before each use\" trigger",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a stale verification date is the signal to re-run the rehearsal protocol rather than trust the document",
+        "evidence": "workflows are tagged \"green (verified this month) or yellow (unverified, narrate at a higher level, don't click live)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Instructs the rep to ask what the buyer came to see and open on that instead of the fixed sequence",
+        "evidence": "no instruction to open on what the buyer specifically came to see; only a discovery recap confirming which workflows to show",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that a customer call has no slide deck to retreat to, so a failed segment recovers into the next segment's claim",
+        "evidence": "not mentioned",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a sandbox tenant with read-only credentials rather than production",
+        "evidence": "not mentioned anywhere",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that a customer call is the highest-stakes place for another customer's name to leak",
+        "evidence": "not mentioned",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires each segment to be enterable from its own restore point so a rep can jump to whichever part the buyer asks about",
+        "evidence": "\"each workflow is a self-contained block a rep can execute independently, skip, or reorder live\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a dated clean cold run to be logged, not just an edit to the script",
+        "evidence": "\"Set recurring monthly 30-min dry-run on the calendar\" plus changelog \"date, what changed, who changed it\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not stop at rewriting the walkthrough script text",
+        "evidence": "includes governance model (DRI, triggers, cadence), recovery playbook, and rollout checklist beyond the script rewrite",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

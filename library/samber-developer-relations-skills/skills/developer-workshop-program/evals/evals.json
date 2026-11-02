@@ -1,0 +1,405 @@
+{
+  "skill_name": "developer-workshop-program",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I lead solutions engineering at Pelorus (we sell a managed Kafka-compatible streaming platform). Our VP of Sales just pinged me: Brightwell Logistics renews in 6 weeks, they're grumpy about two incidents last quarter, and he promised their CTO a full-day hands-on workshop at their office next Tuesday 'covering everything' for their whole platform team, about 25 people. There's no champion I know of, the CTO won't attend, and I have one SE free that day. Can you put together the agenda for the day?",
+      "expected_output": "No full-day agenda built; the request judged against a written grant rule and declined or reshaped; the goodwill rationalization named and refuted; the customer adoption criteria applied (named customer-side owner, targeted usage gap, usage-measured next step); 'everything' routed to paid training or services; the decline-with-alternative menu offered in efficiency order; staffing shortfall against a 1-per-10 helper ratio flagged; a reshaped option offered only with the missing conditions listed.",
+      "files": [],
+      "expectations": [
+        "Does not deliver a full-day agenda for the request as stated",
+        "States that the request fails the grant rule and names at least two missing conditions from: named champion or customer-side owner, a targeted use case or usage gap, a decision maker attending, a next step agreed before the date",
+        "Names the goodwill or renewal-rescue motive as a reason workshops fail, and says a bad workshop can leave attendees believing the product is hard",
+        "Treats Brightwell as an existing customer and applies adoption criteria: a named customer-side owner, a specific usage gap, and a next step measured in usage",
+        "Routes training 'on everything' to paid training or professional services rather than a free workshop",
+        "Offers the decline-with-alternative menu with the self-paced lab or tutorial path ranked first and an architecture or office-hours session second",
+        "States the alternatives ordering as an explicit efficiency ranking rather than an unordered list",
+        "Flags that one SE for about 25 attendees falls short of roughly one helper per 10 attendees beside the instructor",
+        "Flags that next Tuesday leaves no time for a logistics call, a dry run on their network, or lab provisioning lead time",
+        "Recommends the VP or AE agree the grant decision with a named sales owner under a written rule instead of an SE absorbing it",
+        "If it proposes a reshaped workshop, makes it conditional on the missing conditions being met and sizes it to half a day or less"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "We're Quarrystone, a vector database company. Our DevRel + SE team ran 31 'immersion days' at prospect sites last quarter, and only 2 of those accounts started a POC. AEs book them whenever a prospect asks, the agenda is our standard 2 hours of slides plus a lab, and we measure success with the end-of-day survey (avg 4.6/5). Leadership is asking whether to keep the program. I read that lab platforms say 40% of lab users start a trial, up from 14%, so I think our labs are the issue. Design the program properly.",
+      "expected_output": "A program redesign led by a grant rule with sales (qualified opportunity, champion, use case, decision maker at opening/readout, next-step agreement before the date); the 4.6 survey treated as level 1 only; Kirkpatrick levels 2-4 added with next-step execution; the 40% figure refused as a vendor testimonial; the 2-of-31 diagnosed as a qualification and next-step problem before the lab; agenda moved to hands-on majority with short lecture blocks; matched comparison group; quarterly pass threshold.",
+      "files": [],
+      "expectations": [
+        "Diagnoses booking on request without qualification as the first cause before blaming the labs",
+        "Writes a grant rule with an open qualified opportunity, a named champion, one discovery use case, and a decision maker at the opening or readout",
+        "Requires a next-step agreement, with a success criterion and an owner on each side, written before the workshop date is set",
+        "Has the grant rule signed with a named sales owner",
+        "Refuses the '40% start a trial, up from 14%' figure as a vendor-site testimonial with no sample or baseline",
+        "Treats the 4.6/5 survey as Kirkpatrick level 1 reaction only, not evidence of results",
+        "Adds level 2 checkpoint completion, level 3 attendee activity in their own account at 30 and 60 days, and level 4 next-step execution or POC start",
+        "Proposes comparing workshop accounts with declined or deferred qualified requests or matched opportunities without a workshop",
+        "States that workshop accounts are selected for momentum so raw influenced pipeline overstates the effect",
+        "Replaces two hours of slides with a hands-on majority and lecture blocks under about 15 minutes",
+        "Gives a quarterly continue rule tied to next-step execution rate rather than survey score",
+        "Labels thresholds it sets itself as baselines to replace with the program's own figures"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Next month I'm running a half-day hands-on workshop for Hollin & Rowe, a mid-size bank evaluating our observability SDK. 18 engineers confirmed. Plan: everyone brings their work laptop, installs our CLI and agent at the start, signs up for a free trial with their work email, and we instrument a sample app together. Their IT said everyone must stay on the corporate VPN even in the office. The lab touches our hosted collector and a cloud logging service that takes a day or two to be ready on a new account. Can you check the lab plan?",
+      "expected_output": "Laptop installs deleted for managed laptops behind a VPN; vendor-provisioned disposable environments recommended; trial sign-up kept only for take-home; provisioning scheduled from the slowest step (a day or two, so 48 h or more ahead); time-to-live longer than the session; automated checkpoint test within 24 h; dry run on the bank's network with an onsite attendee; written network checklist; sizing from confirmed attendees plus spares; least privilege, synthetic data, teardown with take-home cleanup.",
+      "files": [],
+      "expectations": [
+        "Rejects installing the CLI and agent on attendee work laptops given managed laptops and a mandatory VPN",
+        "Recommends vendor-provisioned disposable environments, one per attendee, as the default",
+        "Keeps trial sign-up for take-home continuation rather than minute zero of the workshop",
+        "Warns that the corporate VPN may block the hosted collector or trial services outright",
+        "Schedules provisioning from the slowest step, starting at least two days before the workshop",
+        "Requires environment time-to-live longer than the whole session including breaks",
+        "Requires an automated checkpoint test (check fails, solve, check passes) within about 24 hours before delivery",
+        "Requires a dry run on the bank's own network with at least one onsite attendee running the prerequisites",
+        "Lists written network questions for IT: outbound domains and ports, IP allow-lists, install rights, sign-up with corporate email",
+        "Sizes environments from the 18 confirmed attendees plus a small number of spares, not from an invitation list",
+        "Uses least-privilege lab credentials and synthetic data, with no customer data in vendor environments without written agreement",
+        "Requires teardown after the session and a take-home path with explicit cleanup steps"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "We're Tessaract (API security platform). Three SI partners in Germany and Brazil want to deliver our customer workshops so we can scale beyond our 4 SEs. My plan: a one-hour recorded enablement webinar, send them the deck and lab repo, and they're good to go. Partners will staff themselves, usually one consultant per workshop of 20-30 people. How should we set this up?",
+      "expected_output": "One-hour webinar rejected as enablement; a certification ladder (solo end-to-end run, help, co-deliver, lead observed, certified, re-run on major lab version) labelled as the skill's own construction; AWS partner gating borrowed (product certification, executive sponsorship, onboarding event); staffing at one instructor plus one helper per about 10; quality check per partner delivery; SE-led ranked above partner on efficiency with the reason; lab maintenance ownership kept with the vendor.",
+      "files": [],
+      "expectations": [
+        "Rejects a one-hour recorded webinar plus deck as sufficient to certify partner instructors",
+        "Gives a staged ladder that includes running every module alone, helping at a delivery, co-delivering, and leading while observed before certification",
+        "Labels the shadow-style ladder as constructed practice rather than a published vendor standard",
+        "Requires re-certification or a full re-run when the lab has a major version change",
+        "Cites the AWS partner Immersion Day gate (certification, executive sponsorship, onboarding event) as the precedent to borrow",
+        "Rejects one consultant for 20-30 attendees and requires an instructor plus roughly one helper per 10 attendees",
+        "Requires a quality check or scored observation on partner deliveries",
+        "Ranks delivery options by efficiency with solutions engineers above certified partners and gives the reason (account context versus ladder cost)",
+        "Keeps lab source and automated testing owned by a named maintainer on the vendor side",
+        "Requires partners to apply the same grant rule and next-step agreement as internal deliveries",
+        "Requires every instructor to rehearse on a tested lab before each delivery"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "I need a slide for our CRO justifying headcount for a 'field workshop team' at Driftmark (data pipeline SaaS). I want to open with the stat that people retain 75% of what they learn by doing vs 5% from lectures, then say Forrester found 244% ROI for hands-on labs, then show our own numbers: accounts that got a workshop this year closed $4.1M vs $1.9M for accounts that didn't. Can you write the slide copy?",
+      "expected_output": "The 75%/5% learning-pyramid stat refused with its origin; the 244% ROI figure identified as vendor-commissioned and about time savings; the $4.1M vs $1.9M comparison reframed as influenced pipeline with selection bias, needing a matched comparison; slide copy rebuilt on the program's own Kirkpatrick-level evidence and next-step execution; ATD evaluation-practice data optionally cited.",
+      "files": [],
+      "expectations": [
+        "Refuses the 75% by doing versus 5% lecture figure",
+        "Identifies the figure as the learning pyramid with no traceable original study",
+        "Identifies the 244% ROI study as commissioned by a lab-platform vendor",
+        "Says the 244% ROI models time savings rather than workshop conversion",
+        "States that workshop accounts were chosen because they already had momentum, so $4.1M versus $1.9M cannot be read as caused by workshops",
+        "Labels the pipeline number as influenced rather than sourced or caused",
+        "Proposes a matched comparison or declined-request comparison group before claiming lift",
+        "Rebuilds the slide on the program's own measures such as next-step execution rate, checkpoint completion or 30/60-day attendee activity",
+        "Does not include any of the refused figures in the final slide copy",
+        "Writes actual slide copy rather than only critique"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "I'm the new developer education lead at Fennick (feature-flag platform). Our SEs build a custom full-day deck for every prospect workshop: 3 hours of architecture and feature slides in the morning, then one big lab in the afternoon where attendees build a demo app from scratch. Each one takes an SE about a week to prepare. I want to standardise. What should the curriculum look like?",
+      "expected_output": "Backward design (use case, checkpoint evidence, then exercises); a reusable catalog of 60-90 minute modules picked per account from discovery; new modules only when two or more qualified accounts need the same use case; half-day guided lab default with short lecture blocks and a readout; script-verifiable checkpoints with shipped solution states; problem-titled modules; formats ranked by efficiency with the starved option named; full day only with an executive session reason.",
+      "files": [],
+      "expectations": [
+        "Orders curriculum design backward: use case to prove, then the checkpoint evidence, then exercises",
+        "Replaces per-prospect custom decks with a reusable catalog of modules selected from discovery notes",
+        "Sets a rule that a new module is built only when two or more qualified accounts need the same missing use case",
+        "Sizes modules at roughly 60-90 minutes each",
+        "Gives every exercise a script-verifiable checkpoint",
+        "Ships a solution state per checkpoint so a stuck attendee can skip forward",
+        "Titles modules by the developer's problem rather than product features, with a good/bad example",
+        "Defaults to a half-day guided lab rather than a full day",
+        "Caps lecture blocks at about 15 minutes with hands-on taking most of the time",
+        "Ranks workshop formats by efficiency and names build-on-your-use-case as the high-value, high-effort option the order starves, with a promotion condition",
+        "Keeps a closing readout slot with the decision maker"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "We just finished a half-day workshop at Calloway Health for our identity API, 22 developers attended, 15 got through the second lab. Their platform lead (our champion) is happy. Marketing wants to put all 22 into our 6-email nurture sequence and have SDRs call each of them this week. The AE wants to send the champion a deck. What should happen now?",
+      "expected_output": "Attendees get technical help and the take-home lab path, never SDR calls or a generic nurture; the AE works the champion and decision maker; a champion recap within one business day with checkpoint results, success criterion outcome and the agreed next step; the agreed next step executed and measured at 30 days; if no next step was agreed, set one now; environments torn down; 30/60-day attendee activity tracked; generic event follow-up routed to the sibling only for multi-account events.",
+      "files": [],
+      "expectations": [
+        "Rejects SDR calls to every attendee",
+        "Rejects putting all attendees into the generic nurture sequence by default",
+        "Says attendees get technical help and a take-home lab path rather than sales contact",
+        "Says the AE works the champion and decision maker rather than individual attendees",
+        "Replaces the deck with a champion recap sent within about one business day",
+        "Puts checkpoint results per module (for example 15 of 22 through lab 2) in the recap",
+        "Includes the success criterion outcome and the agreed next step with a date and owners in the recap",
+        "Asks whether a next-step agreement exists and, if not, makes agreeing one the first action",
+        "Requires lab environments to be torn down with cleanup steps on the take-home path",
+        "Tracks attendee activity in their own accounts at 30 and 60 days",
+        "Measures whether the agreed next step executes within about 30 days"
+      ]
+    }
+  ],
+  "trigger_queries": [
+    {
+      "query": "AE wants us to run a hands-on workshop at a prospect's office next week, how do I decide if it's worth it",
+      "should_trigger": true
+    },
+    {
+      "query": "we do immersion days for enterprise prospects but they rarely lead to a POC - help me fix the program",
+      "should_trigger": true
+    },
+    {
+      "query": "design a customer workshop program for our database: lab catalog, who delivers, how we measure",
+      "should_trigger": true
+    },
+    {
+      "query": "how should we certify our SI partners to deliver our technical workshops to customers",
+      "should_trigger": true
+    },
+    {
+      "query": "our on-site labs keep breaking because customers are on corporate VPNs, how do we set up lab environments for customer workshops",
+      "should_trigger": true
+    },
+    {
+      "query": "field enablement: we want SEs to run hands-on sessions for existing customers to drive adoption of our new features",
+      "should_trigger": true
+    },
+    {
+      "query": "what should the agenda look like for a half-day hands-on workshop we deliver to one enterprise account",
+      "should_trigger": true
+    },
+    {
+      "query": "how do we measure if our customer workshops actually move deals, beyond the survey",
+      "should_trigger": true
+    },
+    {
+      "query": "sales keeps promising free training days to unhappy customers, I need a rule for when we say yes",
+      "should_trigger": true
+    },
+    {
+      "query": "after a workshop at a prospect, what's the follow-up with the champion and the attendees",
+      "should_trigger": true
+    },
+    {
+      "query": "gameday-style challenge event for one of our biggest customers' platform team, worth doing?",
+      "should_trigger": true
+    },
+    {
+      "query": "private virtual hands-on lab for a prospect's dev team, how many helpers do we need and how do we provision",
+      "should_trigger": true
+    },
+    {
+      "query": "I'm organizing a conference and need to plan the workshop track: helpers per room, wifi, prerequisites",
+      "should_trigger": false
+    },
+    {
+      "query": "should we build a developer academy with learning paths and a certification exam",
+      "should_trigger": false
+    },
+    {
+      "query": "we want a monthly webinar series with follow-along labs for developers",
+      "should_trigger": false
+    },
+    {
+      "query": "write a step-by-step tutorial for deploying our SDK on Kubernetes",
+      "should_trigger": false
+    },
+    {
+      "query": "make our live demo at KubeCon survive bad wifi",
+      "should_trigger": false
+    },
+    {
+      "query": "follow up with the 300 badge scans from our booth last week",
+      "should_trigger": false
+    },
+    {
+      "query": "plan an invite-only dinner for CTOs during re:Invent",
+      "should_trigger": false
+    },
+    {
+      "query": "we're sponsoring a hackathon, which workshops should our team run there and what prizes",
+      "should_trigger": false
+    },
+    {
+      "query": "design a certification exam for our partners' consultants",
+      "should_trigger": false
+    },
+    {
+      "query": "write a demo script and pitch deck for our sales team",
+      "should_trigger": false
+    },
+    {
+      "query": "plan the workshop day at our meetup: one room, 40 people, bring your own laptop",
+      "should_trigger": false
+    },
+    {
+      "query": "run weekly office hours where developers bring their questions",
+      "should_trigger": false
+    },
+    {
+      "query": "our solutions engineers spend a week building a custom deck for every customer workshop, how do we standardise this",
+      "should_trigger": true
+    },
+    {
+      "query": "Customer wants 'training on everything' for 40 engineers before renewal. VP already said yes. what do I do",
+      "should_trigger": true
+    },
+    {
+      "query": "we're a data platform; how do we tie on-site hands-on workshops to a proof of concept",
+      "should_trigger": true
+    },
+    {
+      "query": "hands-on lab day for a bank prospect, their laptops are locked down, what lab setup should we use",
+      "should_trigger": true
+    },
+    {
+      "query": "how many SEs and helpers do I need for a 30-person workshop at a customer's office",
+      "should_trigger": true
+    },
+    {
+      "query": "what should an AE actually do during a technical workshop we run for their account",
+      "should_trigger": true
+    },
+    {
+      "query": "workshop request form and qualification criteria for our field team",
+      "should_trigger": true
+    },
+    {
+      "query": "we gave Acme a workshop, everyone loved it, and nothing happened after. how do we make sure there is a next step",
+      "should_trigger": true
+    },
+    {
+      "query": "onboarding workshops for existing enterprise customers to grow consumption of our API",
+      "should_trigger": true
+    },
+    {
+      "query": "build a catalog of reusable lab modules for our prospect workshops",
+      "should_trigger": true
+    },
+    {
+      "query": "Our partner consultants deliver our customer labs badly. need a quality bar and a way to certify instructors",
+      "should_trigger": true
+    },
+    {
+      "query": "lab sandboxes for a customer workshop: pre-provisioned accounts vs having attendees sign up for a trial",
+      "should_trigger": true
+    },
+    {
+      "query": "should we do workshops at the customer site or private virtual sessions for prospects",
+      "should_trigger": true
+    },
+    {
+      "query": "the CEO promised a customer a free day with our best engineer to smooth things over, how do I push back",
+      "should_trigger": true
+    },
+    {
+      "query": "what metrics should a customer workshop program report each quarter",
+      "should_trigger": true
+    },
+    {
+      "query": "tech workshop for a single prospect's dev team in 2 weeks - give me the plan, from the logistics call to the recap",
+      "should_trigger": true
+    },
+    {
+      "query": "how do I size sandbox environments for a private hands-on workshop with 18 confirmed attendees",
+      "should_trigger": true
+    },
+    {
+      "query": "immersion day agenda for a retail prospect evaluating our search API",
+      "should_trigger": true
+    },
+    {
+      "query": "write the lab instructions for a Terraform tutorial on our docs site",
+      "should_trigger": false
+    },
+    {
+      "query": "plan sessions and helper staffing for the tutorial day at PyCon",
+      "should_trigger": false
+    },
+    {
+      "query": "which conferences should we sponsor next year and at what tier",
+      "should_trigger": false
+    },
+    {
+      "query": "design onboarding emails for trial users",
+      "should_trigger": false
+    },
+    {
+      "query": "how do we structure our partner program tiers and rev share",
+      "should_trigger": false
+    },
+    {
+      "query": "script a 10 minute YouTube video walking through our quickstart",
+      "should_trigger": false
+    },
+    {
+      "query": "our docs quickstart has 40% drop-off, fix it",
+      "should_trigger": false
+    },
+    {
+      "query": "build a developer champions / ambassador program",
+      "should_trigger": false
+    },
+    {
+      "query": "design the internal sales kickoff training for our AEs",
+      "should_trigger": false
+    },
+    {
+      "query": "set up an onboarding program for new SE hires on our team",
+      "should_trigger": false
+    },
+    {
+      "query": "what should our booth at re:Invent look like",
+      "should_trigger": false
+    },
+    {
+      "query": "create a learning path and badges for our developer academy",
+      "should_trigger": false
+    },
+    {
+      "query": "how to run a design-thinking workshop with our product team",
+      "should_trigger": false
+    },
+    {
+      "query": "organize a hackathon for our community",
+      "should_trigger": false
+    },
+    {
+      "query": "student ambassador program for universities",
+      "should_trigger": false
+    },
+    {
+      "query": "devrel metrics framework for the board",
+      "should_trigger": false
+    },
+    {
+      "query": "plan a live-coding Twitch stream series",
+      "should_trigger": false
+    },
+    {
+      "query": "sales demo for a prospect call next Tuesday, make it land",
+      "should_trigger": false
+    },
+    {
+      "query": "should we keep our prospect workshop program? 31 last quarter, 2 POCs",
+      "should_trigger": true
+    },
+    {
+      "query": "how do we stop AEs from booking hands-on sessions for every prospect who asks",
+      "should_trigger": true
+    },
+    {
+      "query": "customer success wants adoption workshops for accounts with low feature usage, how do we decide which accounts get one",
+      "should_trigger": true
+    },
+    {
+      "query": "design a train-the-trainer program for our internal L&D courses on compliance",
+      "should_trigger": false
+    },
+    {
+      "query": "how many volunteers per room do we need for our conference tutorials",
+      "should_trigger": false
+    },
+    {
+      "query": "write the follow-up email sequence for webinar registrants",
+      "should_trigger": false
+    }
+  ]
+}

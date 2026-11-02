@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Identifies both surfaces as spaces the community does not own",
+        "evidence": "\"You don't own either primary venue. r/pinegrain sits inside Reddit... The Slack channel is the opposite: #pinegrain is one channel inside a foundation-run workspace you don't administer.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the host's rules outrank the community's code of conduct on those surfaces",
+        "evidence": "The document discusses capability limits ('you almost certainly cannot unilaterally ban anyone from that Slack') but never states that Reddit's or Slack's platform/host rules take precedence over or can override Pinegrain's own Code of Conduct.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the team cannot ban anyone on either surface",
+        "evidence": "\"subreddit moderators get real, unilateral tools there \u2014 content removal, AutoModerator, Crowd Control, and a genuine permanent subreddit ban\" \u2014 this explicitly grants the team a real ban capability on Reddit, contradicting a 'cannot ban on either surface' claim.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces a control sheet that reduces to essentially two rows: report to the host, and move the conversation to a surface the team controls",
+        "evidence": "Section 6 'Platform control sheet' contains multiple detailed subsections (raid-night rate limits table with 5 rows, trust levels, content actions with 4 steps, volume floods) rather than reducing to two rows.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes rate limits, trust levels and bans from the control sheet rather than listing them as future work",
+        "evidence": "Rate limits ('Crowd Control', 'Restricted posting', AutoModerator rules), trust levels ('grant \"Approved User\" / contributor flair', '@pinegrain-regulars Slack user group'), and bans ('Native permanent subreddit ban', 'Org-level block') are all actively listed and elaborated as usable controls, not deleted.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason for deleting rather than deferring: an option ruled out by the user's constraints reappears as scope when it is parked at the bottom",
+        "evidence": "Since rate limits, trust levels, and bans are not deleted but are instead fully specified as active mechanisms (e.g., 'Nomination: pulled from observed de-escalation behavior, approved by the Conduct Team'), no deletion reasoning is given anywhere in the document.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not publish ladder rungs the team has no way to execute on those surfaces",
+        "evidence": "Rung 4 of the published CoC ladder states: \"Permanent removal from public interaction in every Pinegrain-controlled space, and a formal request to [Foundation] for the same on Slack where we do not control that outcome directly\" \u2014 this publishes a Slack ban rung despite acknowledging no direct control over its execution.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends moving to an owned venue if durable enforcement is required, and does not present that move as free",
+        "evidence": "The document recommends standing up 'a Pinegrain-owned GitHub Discussions category (or a status page) now' calling it 'the single highest-leverage thing on this whole sheet,' but never discusses costs, effort, or downsides (e.g., audience migration, adoption friction) of making that move \u2014 it is framed as a simple, high-value action to take 'now'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps scope, reporting channels and case records in place, since those transfer across venue classes unchanged",
+        "evidence": "Section 1's Scope, Section 3's Reporting channels, and Section 5's runbook Records schema (case_code, report_date, surface, person_codes, etc.) are all defined once, uniformly, and applied across r/pinegrain, Slack, and GitHub without being altered per venue.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the publish-gate item requiring at least two people able to execute every action the ladder promises against these surfaces",
+        "evidence": "Publish gate item 11: \"At least two people can execute every action the ladder promises | **Fail on Slack specifically** \u2014 you need at least two people with a live escalation relationship to [Foundation]'s admins, not just two Reddit mods\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not invent moderator powers the venue class does not provide",
+        "evidence": "The document explicitly notes real platform limits rather than inventing powers, e.g. \"**No native slow-mode exists at the channel level.**\" for Slack, and hedges Slack removal with \"if a channel-manager role permits it; otherwise a formal, logged request to [Foundation]'s Slack admins.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Identifies both surfaces as spaces the community does not own",
+        "evidence": "Reddit is treated as essentially fully controlled: \"On r/pinegrain, mods hold full native tooling.\" Only Slack is flagged as not owned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the host's rules outrank the community's code of conduct on those surfaces",
+        "evidence": "No such statement appears anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the team cannot ban anyone on either surface",
+        "evidence": "The ladder explicitly grants Reddit ban power: \"Reddit: native temp ban, 7\u201330 days\" and \"Reddit: native permanent ban.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces a control sheet that reduces to essentially two rows: report to the host, and move the conversation to a surface the team controls",
+        "evidence": "The document instead produces an extensive multi-section system (ladder, raid rate limits, trust levels, logging, relationship-building).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes rate limits, trust levels and bans from the control sheet rather than listing them as future work",
+        "evidence": "All three are built out in full detail (\u00a72 raid rate limits, \u00a73 trust levels L0-L3, ladder bans).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason for deleting rather than deferring: an option ruled out by the user's constraints reappears as scope when it is parked at the bottom",
+        "evidence": "N/A \u2014 nothing is deleted or deferred; these are core, present features of the plan.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not publish ladder rungs the team has no way to execute on those surfaces",
+        "evidence": "A full 4-rung ladder is published for both Reddit and Slack, including permanent-ban actions on Slack that depend entirely on an external foundation contact.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends moving to an owned venue if durable enforcement is required, and does not present that move as free",
+        "evidence": "No recommendation to move to an owned venue appears anywhere; the plan works entirely within the existing Reddit/Slack surfaces.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps scope, reporting channels and case records in place, since those transfer across venue classes unchanged",
+        "evidence": "No discussion of transferring anything across venue classes; not addressed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the publish-gate item requiring at least two people able to execute every action the ladder promises against these surfaces",
+        "evidence": "No explicit 'publish gate' staffing check is made; co-sign rules exist for some rungs but this isn't framed as a gate verification.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not invent moderator powers the venue class does not provide",
+        "evidence": "\"Slack has no slow-mode and no per-channel ban. The only real levers:\" \u2014 the document is careful and accurate about what Slack actually permits, routing account-level actions to the foundation admin rather than inventing false capability.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

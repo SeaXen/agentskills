@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Advises against sending every post from everyone to the approval queue",
+        "evidence": "'Queueing every post from everyone makes answer time worse.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that answer time or reply speed is what an all-posts approval queue destroys",
+        "evidence": "'Answer time is the forum's product.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Advises against bulk-promoting the 2,000 imported accounts to trust level 3",
+        "evidence": "'Bulk-promoting to TL3 is on the playbook's refuse list.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that links from TL3 posts lose nofollow by default, so bulk TL3 rewards link spammers",
+        "evidence": "'TL3 links lose nofollow ... would pass link value.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites at least one concrete TL0 default limit (for example 3 topics and 10 replies on day one, 2 links, or no attachments)",
+        "evidence": "'3 topics and 10 replies on day one, 2 links, no attachments, and 30 seconds between posts.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places raising TL1 requirements after faster controls (spam detection, watched words, TL0-only queue), noting day-one spam posts as TL0",
+        "evidence": "'Raise TL1 requirements last... Day-one spam posts as TL0 whatever else you tune.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends capping new accounts per IP address (default 3)",
+        "evidence": "'Lower accounts per IP below the default 3'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends spam detection on new users' first posts (AI spam detection or equivalent)",
+        "evidence": "'Turn on AI spam detection... scans the first 3 posts of TL0 and TL1 users'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Limits approval queueing to TL0 or suspicious posts rather than all members' posts",
+        "evidence": "'queue TL0 posts only, and only while the wave lasts'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Allows at most TL1 for verified customers (for example through a group) and leaves higher levels to be earned or granted individually",
+        "evidence": "'put the 2,000 imported accounts in a verified-customer group and grant TL1. TL2 is the ceiling'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels platform defaults as Discourse defaults that the admin can change or should verify in settings",
+        "evidence": "'the numbers below are Discourse defaults'; 'Defaults are configurable.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends watched words or blocked email domains as a spam control",
+        "evidence": "'Add watched words... Block disposable email domains.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Advises against sending every post from everyone to the approval queue",
+        "evidence": "\"Why not (1) as written: queue everyone\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that answer time or reply speed is what an all-posts approval queue destroys",
+        "evidence": "\"Every legitimate reply waits for a moderator.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Advises against bulk-promoting the 2,000 imported accounts to trust level 3",
+        "evidence": "\"Why not (2) as written: bulk TL3\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that links from TL3 posts lose nofollow by default, so bulk TL3 rewards link spammers",
+        "evidence": "Nofollow is never mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites at least one concrete TL0 default limit (for example 3 topics and 10 replies on day one, 2 links, or no attachments)",
+        "evidence": "It only says \"Lower `newuser_max_links`\" and gives no concrete default limits such as topic/reply counts or link counts.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places raising TL1 requirements after faster controls (spam detection, watched words, TL0-only queue), noting day-one spam posts as TL0",
+        "evidence": "Raising TL1 requirements is not discussed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends capping new accounts per IP address (default 3)",
+        "evidence": "No per-IP account cap is mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends spam detection on new users' first posts (AI spam detection or equivalent)",
+        "evidence": "\"Add an Akismet plugin or Discourse AI spam detection.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Limits approval queueing to TL0 or suspicious posts rather than all members' posts",
+        "evidence": "\"Queue only unproven accounts... users below TL1 go to review\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Allows at most TL1 for verified customers (for example through a group) and leaves higher levels to be earned or granted individually",
+        "evidence": "\"Use TL2 for verified customers, TL1 for the rest.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels platform defaults as Discourse defaults that the admin can change or should verify in settings",
+        "evidence": "It only says setting names may differ by version. It does not label defaults as changeable or to be verified.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends watched words or blocked email domains as a spam control",
+        "evidence": "\"Block casino and SEO terms with watched words set to 'block'... block disposable email domains.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

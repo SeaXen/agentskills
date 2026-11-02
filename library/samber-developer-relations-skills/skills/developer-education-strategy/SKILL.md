@@ -4,7 +4,7 @@ description: Decides whether and how to invest in structured developer education
 license: MIT
 metadata:
   author: Samuel Berthe
-  version: "1.1.1"
+  version: "1.1.3"
 ---
 
 # Developer Education Strategy
@@ -22,6 +22,7 @@ Route elsewhere before starting:
 - Restructuring a docs site → `samber/developer-relations-skills@developer-docs-structure-audit`.
 - Designing the whole DevRel program → `samber/developer-relations-skills@devrel-strategy`.
 - Splitting spend across DevRel pillars → `samber/developer-relations-skills@devrel-budget-allocation`.
+- A hands-on workshop delivered to one customer or prospect account → `samber/developer-relations-skills@developer-workshop-program`.
 
 Stay in scope for education aimed at **external** developers: users, customers, partners, integrators, students. Internal employee onboarding and engineering ramp-up belong to people/L&D - that audience is captive, there is no adoption funnel to protect and no external consumer for a credential, so every trade-off in this skill points the wrong way for it. Say so and stop if that is the request.
 
@@ -143,7 +144,7 @@ The audience decides what the credential is _for_, and that moves the recommenda
 - **Enterprise customers.** The credential is procurement currency: buyers and partner contracts count certified heads, so formality, verifiability and expiry are what this audience pays for. Volume matters less here than in any other motion.
 - **Partner and SI ecosystems.** Education is delivery-quality control: a partner implementing your product badly fails your customer, and the partner contract is where you enforce the fix. Plan a train-the-trainer path and tie partner tiers to certified-staff counts.
 - **Individual bottom-up adoption.** The credential is a portfolio and job-market signal, so free, public, shareable and low-friction beats rigorous. A login wall suppresses the exact funnel this motion lives on.
-- **Students and hobbyists.** Optimize for reach and teachability, and never let this audience set the certification bar - it is the widest group and the one with no external credential consumer.
+- **Students and hobbyists.** Optimize for reach and teachability, and never let this audience set the certification bar - it is the widest group and the one with no external credential consumer. A whole student program (student offer, faculty classroom kit, campus champions) belongs to samber/developer-relations-skills@student-developer-programs.
 
 ## Sourced numbers vs. baselines you set
 

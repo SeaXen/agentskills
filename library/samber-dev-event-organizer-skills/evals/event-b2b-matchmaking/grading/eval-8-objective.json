@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects counting the 11 standby refills as held meetings, because a refill hides a no-show",
+        "evidence": "\"The 87% (183/210) adds the 11 standby refills to the 172 held meetings.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Corrects held-against-booked to 172 over 210, with the numerator as meetings both sides attended and the denominator as pairings accepted by both sides and placed in a slot",
+        "evidence": "\"Held against booked | 172 of 210 | Both sides present, over accepted and slotted pairings. Excludes refills.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes the trade-show industry benchmark comparison: these counts compare only against earlier editions of this same program",
+        "evidence": "\"The 61% trade-show benchmark: delete it... The only valid comparison is against your own earlier editions\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports quota delivery per supplier, never as a blended fulfillment figure across the five",
+        "evidence": "\"Report all five.\" and \"booked-against-promised per sponsor is the only number that says whether a commitment was met.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that an average conceals the one sponsor whose quota was missed, who is the only one who will raise it",
+        "evidence": "\"An overall figure hides the one supplier who missed, and that supplier is the one who will raise it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports empty slots as an absolute count of 27, not a rate",
+        "evidence": "\"The skill also reports this measure as an absolute count, not a rate.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason for the absolute count: a rate invites comparison against programs whose counting rules are unknown",
+        "evidence": "\"A rate invites comparison with programs whose counting rules you don't know.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the counting rule beside each reported number",
+        "evidence": "The table has a \"Counting rule\" column for each measure.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects building the per-sponsor dashboard with payment milestones inside this program, routing per-sponsor tracking and payment gating downstream",
+        "evidence": "\"don't build it in this program... event-sponsor-fulfillment's job.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Hands downstream one generic outcome record: one row per pairing carrying both-sides acceptance, whether held, whether refilled, and which criteria were checked",
+        "evidence": "\"one generic outcome record, one row per pairing: the two sides, whether both accepted, held, refilled, which criteria\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Excludes meeting content from any record: the program owns whether a meeting happened, never what was said",
+        "evidence": "\"The record has no meeting content\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "If a mutual-acceptance rate appears, it is labelled a proxy for relevance, since a polite population also produces a high rate",
+        "evidence": "The rate does not appear in this transcript, so the condition is not triggered.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sends the counting rules and the own-editions-only comparison note along with the record so the numbers are not misread downstream",
+        "evidence": "\"Hand it over with the counting rules attached.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects counting the 11 standby refills as held meetings, because a refill hides a no-show",
+        "evidence": "It keeps 87.1% as \"slot fill rate\" including refills and calls both numbers \"good numbers\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Corrects held-against-booked to 172 over 210, with the numerator as meetings both sides attended and the denominator as pairings accepted by both sides and placed in a slot",
+        "evidence": "\"Pairing fulfillment is 172/210 = 81.9%.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes the trade-show industry benchmark comparison: these counts compare only against earlier editions of this same program",
+        "evidence": "\"Replace it with your own history: editions 1 and 2, same definition.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports quota delivery per supplier, never as a blended fulfillment figure across the five",
+        "evidence": "\"Put a per-supplier table in the report.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that an average conceals the one sponsor whose quota was missed, who is the only one who will raise it",
+        "evidence": "\"An aggregate can hide a supplier at 60% behind another at 105%.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports empty slots as an absolute count of 27, not a rate",
+        "evidence": "\"27 slots (12.9%) went unfilled\"; the \"Empty-slot rate 12.9%\" is kept.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason for the absolute count: a rate invites comparison against programs whose counting rules are unknown",
+        "evidence": "This is not given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the counting rule beside each reported number",
+        "evidence": "Counting rules are not stated beside the figures.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects building the per-sponsor dashboard with payment milestones inside this program, routing per-sponsor tracking and payment gating downstream",
+        "evidence": "\"The idea is sound, but settle these before building it.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Hands downstream one generic outcome record: one row per pairing carrying both-sides acceptance, whether held, whether refilled, and which criteria were checked",
+        "evidence": "No per-pairing outcome record is proposed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Excludes meeting content from any record: the program owns whether a meeting happened, never what was said",
+        "evidence": "This is not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "If a mutual-acceptance rate appears, it is labelled a proxy for relevance, since a polite population also produces a high rate",
+        "evidence": "No mutual-acceptance rate appears and no proxy caveat is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sends the counting rules and the own-editions-only comparison note along with the record so the numbers are not misread downstream",
+        "evidence": "Nothing is handed downstream.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

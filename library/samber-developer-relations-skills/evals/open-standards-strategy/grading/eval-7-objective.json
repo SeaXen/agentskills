@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Works the four conformance decisions in efficiency order, starting with the versioned mark",
+        "evidence": "\"Step 5 says decide, in efficiency order: (1) versioned mark + expiry, (2) public registry, (3) who runs tests, (4) cost.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the mark to state which spec version it certifies and when it expires, decided before any implementation carries it",
+        "evidence": "\"Mark version: 'Vantefor Compatible \u2014 v1', stated expiry when v2 ships + 6-month grace.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the versioned mark and the public registry are the two decisions that cannot be retrofitted",
+        "evidence": "\"First two are cheap and unfixable later \u2014 'an unversioned mark ends up attached to implementations of a spec nobody uses any more.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects deferring the test suite to Q3 and requires it shipped with v1",
+        "evidence": "\"Suite written in Q3 = wrong order, backward...Reverse it.\" / \"Self-service conformance suite, free, live same week as v1 (not Q3).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the paper-standard failure mode: with no test suite every vendor claims support and buyers find the gaps in production",
+        "evidence": "\"'no test suite means every vendor claims support and buyers find the gaps in production; the name then carries no information.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Specifies one maintained public registry page of certified implementations, and notes that buyers consult the registry rather than the claim",
+        "evidence": "\"Public registry page, live day one \u2014 'buyers consult the registry, not the claim.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects witnessed testing for this market and deletes it rather than leaving it on the menu as an option",
+        "evidence": "\"If cost recovery still matters, charge the two funded OEMs on a separate paid/witnessed track\" \u2014 witnessed testing is kept on the menu for a segment, not deleted.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that self-service testing scales while witnessed testing is a standing job",
+        "evidence": "No statement compares self-service scaling versus witnessed testing being an ongoing staffing obligation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends free certification over the $5,000 fee, given the 20-implementation goal",
+        "evidence": "\"Self-service conformance suite, free, live same week as v1...Free maximizes implementer count\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the fee decision is made against the adoption goal, not against cost recovery",
+        "evidence": "\"'promote a fee only when your implementers are funded vendors...pick against the adoption goal, not against cost recovery.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that self-service and free tie on compliance cost, because neither obliges Vantefor to anything beyond publishing the result",
+        "evidence": "No such statement about self-service and free tying on compliance cost appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that gating the patent licence on conformance cannot be unwound once implementers hold licences under it",
+        "evidence": "Patent licensing is not discussed anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites the Khronos Adopters Program as the programme pairing a passed test with both name and logo rights and a licence to members' essential patents",
+        "evidence": "Khronos is not mentioned anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Works the four conformance decisions in efficiency order, starting with the versioned mark",
+        "evidence": "The fix list starts with 'Write a minimal conformance checklist alongside the spec', not a versioned mark, and no such ordered four-decision structure appears",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the mark to state which spec version it certifies and when it expires, decided before any implementation carries it",
+        "evidence": "No mention of version-stamping or expiration on the certification mark anywhere in the transcript",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the versioned mark and the public registry are the two decisions that cannot be retrofitted",
+        "evidence": "No mention of a public registry or of irretrofittable decisions in the transcript",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects deferring the test suite to Q3 and requires it shipped with v1",
+        "evidence": "The fix instead tiers the badge: 'Vantefor Compatible \u2014 only issued once the real (even lightweight) test suite exists' \u2014 the full suite is still deferred to Q3",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the paper-standard failure mode: with no test suite every vendor claims support and buyers find the gaps in production",
+        "evidence": "The closest text, 'If a certified device fails in the field, \"an SA watched it over Zoom\" is a much weaker answer,' frames this as reputational risk, not the general paper-standard failure mode",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Specifies one maintained public registry page of certified implementations, and notes that buyers consult the registry rather than the claim",
+        "evidence": "No mention of a public registry anywhere in the transcript",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects witnessed testing for this market and deletes it rather than leaving it on the menu as an option",
+        "evidence": "'Decouple the SA's time from the badge... the badge itself should come from a repeatable, logged pass/fail artifact anyone at Vantefor could reproduce, not one person's live judgment call'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that self-service testing scales while witnessed testing is a standing job",
+        "evidence": "Only the witnessed-testing bottleneck is stated explicitly ('It doesn't scale past ~20-30/year regardless of demand \u2014 SA calendar is the bottleneck'); self-service scaling is never explicitly asserted",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends free certification over the $5,000 fee, given the 20-implementation goal",
+        "evidence": "The fix recommends 'a sliding fee, not a flat $5,000: full price for the two funded OEMs, waived/discounted for small shops', not free certification overall",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the fee decision is made against the adoption goal, not against cost recovery",
+        "evidence": "This is left as an open question at the end: 'Is $5,000 priced to cover SA time, or to filter/monetize demand? Those imply different numbers,' not resolved in favor of the adoption goal",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that self-service and free tie on compliance cost, because neither obliges Vantefor to anything beyond publishing the result",
+        "evidence": "No such comparison appears in the transcript",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that gating the patent licence on conformance cannot be unwound once implementers hold licences under it",
+        "evidence": "No mention of patent licensing anywhere in the transcript",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites the Khronos Adopters Program as the programme pairing a passed test with both name and logo rights and a licence to members' essential patents",
+        "evidence": "No mention of Khronos or any comparable program in the transcript",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

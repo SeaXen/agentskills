@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Promotes the workload cut to first place and names the existing survey and clustering dataset as the reason its effort collapses to near zero.",
+        "evidence": "'Workload domain (chosen) | ... | Near-zero \u2014 the 4,100-response survey + clustering already exists, unopened, fully paid for | Normally the most expensive cut (weeks of ticket coding); the existing dataset collapses that cost, which is the single fact that reorders the default ranking'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Drops the ecosystem cut to last and states that a product running only inside one ecosystem makes an ecosystem cut non-discriminating.",
+        "evidence": "'Rejected \u2014 ecosystem/technographic. Sablefish \"only runs on Kubernetes...\" One ecosystem, one cell: the cut can't discriminate because there's no second side of the line' \u2014 ranked as 'Deleted outright' versus buying-mode being merely 'demoted.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the default candidate ordering is a default rather than a law, and that it moves with what the team already holds.",
+        "evidence": "'Default ranking (buying-mode cheapest \u2192 ecosystem \u2192 workload most expensive) is inverted here specifically because of the pre-paid survey \u2014 this is the exact condition the method calls out for promoting the workload cut to first.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names which piece of supplied context moved which candidate cut.",
+        "evidence": "Workload moved by 'the 4,100-response survey + clustering already exists...fully paid for'; ecosystem deleted because Sablefish 'only runs on Kubernetes'; buying-mode demoted because of '200 notes, unclustered' and unconfirmed CRM data.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that a compounding, multi-horizon mandate favours the workload cut because it pays back over several horizons.",
+        "evidence": "The only compounding language ('highest compounding (named production DB references are the highest-leverage proof for every other workload category later)') justifies the primary segment within the workload cut, not the cut-selection decision itself tied to the 2026H2\u20132028H2 multi-horizon mandate.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend commissioning research the team already owns.",
+        "evidence": "'hand the 4,100-response survey spreadsheet (or raw response export) to whoever can recode it by workload category' \u2014 recoding existing, already-paid data, not commissioning new research.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends using the existing clusters rather than inventing segment labels first.",
+        "evidence": "'Workload taxonomy (DB / streaming / cache-search / ML-infra) is my inference from \"stateful workloads,\" not your survey's actual cluster output' plus the recommendation to 'recode the existing 4,100-response survey's cluster output.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the order in which attributes are selected, then clustered, and only then profiled and named.",
+        "evidence": "No passage in the transcript states this select-then-cluster-then-profile-and-name sequence as a methodology step.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that a label invented first is usually a stereotype with no members behind it.",
+        "evidence": "No such 'stereotype with no members' warning appears anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends exactly one cut and leaves the final call to the accountable person before sizing.",
+        "evidence": "Despite stating assumptions upfront ('Confirm or correct them; everything else in the map holds either way'), the document proceeds to fully size, score, and rank segments rather than pausing for confirmation before sizing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends storing the chosen dimensions, segment set, sizes and anti-segment so the next version can be diffed against this one.",
+        "evidence": "No explicit recommendation to store this map for future diffing; the closest statement is 'Recode it, then re-run this map's sizing section only; nothing else here needs to change,' which does not mention storage or diffing.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Promotes the workload cut to first place and names the existing survey and clustering dataset as the reason its effort collapses to near zero.",
+        "evidence": "Workload is listed as 'Axis 2', with Role as 'Axis 1' \u2014 not promoted to first place.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Drops the ecosystem cut to last and states that a product running only inside one ecosystem makes an ecosystem cut non-discriminating.",
+        "evidence": "'For an infra tool that only runs on Kubernetes, one axis will always underfit' argues against any single axis in general, not specifically that an ecosystem cut is non-discriminating and dropped to last.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the default candidate ordering is a default rather than a law, and that it moves with what the team already holds.",
+        "evidence": "No statement that the axis ordering is a default rather than a law tied to what evidence the team holds.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names which piece of supplied context moved which candidate cut.",
+        "evidence": "'for a K8s-only operator, firmographics are a weak proxy for the workload/maturity reality that actually drives fit' ties the supplied context (K8s-only product) to rejecting company-size/industry as an axis.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that a compounding, multi-horizon mandate favours the workload cut because it pays back over several horizons.",
+        "evidence": "No mention of 'compounding' or a multi-horizon mandate anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend commissioning research the team already owns.",
+        "evidence": "'Don't wait for a full new survey before shipping v1 of the matrix \u2014 populate what the re-cut 4,100 responses support now.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends using the existing clusters rather than inventing segment labels first.",
+        "evidence": "The transcript explicitly rejects the agency's clusters: 'don't trust the delivered clusters, re-cut the raw data' \u2014 it does not recommend using the existing clusters.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the order in which attributes are selected, then clustered, and only then profiled and named.",
+        "evidence": "Axes (Role, Workload, Maturity) are defined first, raw data is re-cut against them second, and only then are cells profiled ('Job... Pains... Trigger...'), with naming explicitly deferred: 'Skip naming them cutely.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that a label invented first is usually a stereotype with no members behind it.",
+        "evidence": "No statement that an invented-first label is usually a stereotype with no members behind it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends exactly one cut and leaves the final call to the accountable person before sizing.",
+        "evidence": "The document explicitly argues for three axes, not one: 'Cut it three ways, not one... Stop looking for a single \"type of customer.\"'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends storing the chosen dimensions, segment set, sizes and anti-segment so the next version can be diffed against this one.",
+        "evidence": "The versioning recommendation covers dimensions, cells, and confidence but never mentions storing 'sizes' or an 'anti-segment' for diffing.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

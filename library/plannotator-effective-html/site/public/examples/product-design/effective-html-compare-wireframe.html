@@ -1,0 +1,235 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Effective HTML artifact comparison wireframe</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #171717;
+        --muted: #686868;
+        --line: #b8b8b8;
+        --soft-line: #d8d8d8;
+        --paper: #f6f6f3;
+        --surface: #ffffff;
+        --shade: #e8e8e4;
+        --focus: #2457d6;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      * { box-sizing: border-box; }
+      html { background: var(--paper); }
+      body { margin: 0; min-width: 320px; color: var(--ink); background: var(--paper); }
+      button, a { font: inherit; }
+      button { color: inherit; }
+      button:focus-visible, a:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+
+      .shell { min-height: 100vh; display: grid; grid-template-columns: minmax(0, 1fr); grid-template-rows: auto 1fr auto; }
+      .topbar {
+        min-height: 58px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+        padding: 12px clamp(18px, 3vw, 44px);
+        border-bottom: 1px solid var(--line);
+        background: var(--surface);
+      }
+      .brand { display: flex; align-items: center; gap: 10px; font-weight: 750; }
+      .mark { width: 18px; height: 18px; border: 1px solid var(--ink); display: grid; grid-template-columns: 1fr 1fr; gap: 2px; padding: 2px; }
+      .mark i { display: block; background: var(--ink); }
+      .mark i:last-child { background: var(--shade); }
+      .top-actions { display: flex; align-items: center; gap: 10px; }
+      .quiet-button, .solid-button {
+        min-height: 40px;
+        border: 1px solid var(--ink);
+        padding: 0 14px;
+        background: var(--surface);
+        cursor: pointer;
+      }
+      .solid-button { color: var(--surface); background: var(--ink); }
+
+      main { width: min(1380px, 100%); margin: 0 auto; padding: clamp(24px, 4vw, 56px); }
+      .intro { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: end; gap: 32px; margin-bottom: 28px; }
+      h1 { max-width: 720px; margin: 0; font-size: clamp(2.3rem, 5vw, 4.8rem); line-height: .92; letter-spacing: -.045em; text-wrap: balance; }
+      .intro p { max-width: 52ch; margin: 18px 0 0; color: var(--muted); font-size: 1rem; line-height: 1.55; }
+      .layout-switch { display: flex; border: 1px solid var(--ink); background: var(--surface); }
+      .layout-switch button { min-height: 42px; border: 0; border-right: 1px solid var(--ink); padding: 0 15px; background: transparent; cursor: pointer; }
+      .layout-switch button:last-child { border-right: 0; }
+      .layout-switch button[aria-pressed="true"] { color: var(--surface); background: var(--ink); }
+
+      .compare { min-height: 610px; border: 1px solid var(--ink); background: var(--surface); }
+      .compare-toolbar { min-height: 58px; display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 10px 14px; border-bottom: 1px solid var(--ink); }
+      .selection { display: flex; align-items: center; gap: 8px; min-width: 0; }
+      .selection strong { font-size: .9rem; }
+      .selection span { color: var(--muted); font-size: .82rem; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+      .viewport-tools { display: flex; gap: 6px; }
+      .viewport-tools button { width: 40px; height: 36px; border: 1px solid var(--line); background: var(--surface); cursor: pointer; }
+      .viewport-tools button[aria-pressed="true"] { border-color: var(--ink); background: var(--shade); }
+
+      .comparison-stage { display: grid; min-height: 550px; }
+      .artifact { min-width: 0; display: grid; grid-template-rows: auto 1fr auto; }
+      .artifact + .artifact { border-left: 1px solid var(--ink); }
+      .artifact-head { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; padding: 14px 16px; border-bottom: 1px solid var(--soft-line); }
+      .artifact-head h2 { margin: 0; font-size: 1rem; }
+      .artifact-head span { color: var(--muted); font-size: .72rem; }
+      .canvas { min-height: 390px; padding: clamp(18px, 3vw, 36px); background: var(--paper); }
+      .browser { height: 100%; min-height: 345px; display: grid; grid-template-rows: 28px 1fr; border: 1px solid var(--ink); background: var(--surface); }
+      .browser-bar { display: flex; align-items: center; gap: 5px; padding: 0 10px; border-bottom: 1px solid var(--line); }
+      .browser-bar i { width: 7px; height: 7px; border: 1px solid var(--ink); border-radius: 50%; }
+      .diagram { display: grid; grid-template-columns: 1fr .8fr; gap: 14px; padding: 18px; }
+      .diagram-main { display: grid; grid-template-rows: 20px 54px 1fr; gap: 12px; }
+      .line { height: 10px; background: var(--ink); }
+      .line.short { width: 54%; }
+      .line.thin { height: 5px; background: var(--line); }
+      .hero-block { border: 1px solid var(--ink); background: var(--shade); }
+      .cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+      .cards i { min-height: 66px; border: 1px solid var(--line); background: var(--surface); }
+      .diagram-side { display: grid; grid-template-rows: 1fr auto; gap: 10px; }
+      .diagram-side i { border: 1px solid var(--line); background: var(--shade); }
+      .diagram-side i:last-child { min-height: 42px; border-color: var(--ink); background: var(--ink); }
+      .artifact-foot { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--soft-line); }
+      .artifact-foot span { min-height: 54px; display: grid; place-items: center; border-right: 1px solid var(--soft-line); color: var(--muted); font-size: .75rem; }
+      .artifact-foot span:last-child { border-right: 0; }
+
+      .notes { display: none; border-left: 1px solid var(--ink); background: var(--surface); }
+      .notes h2 { margin: 0; padding: 15px; border-bottom: 1px solid var(--ink); font-size: 1rem; }
+      .note-list { display: grid; gap: 0; }
+      .note { padding: 16px; border-bottom: 1px solid var(--soft-line); }
+      .note strong { display: block; margin-bottom: 6px; font-size: .82rem; }
+      .note p { margin: 0; color: var(--muted); font-size: .78rem; line-height: 1.45; }
+      .note.active { background: var(--shade); }
+
+      body[data-layout="split"] .comparison-stage { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      body[data-layout="stack"] .comparison-stage { grid-template-columns: 1fr; }
+      body[data-layout="stack"] .artifact + .artifact { border-left: 0; border-top: 1px solid var(--ink); }
+      body[data-layout="stack"] .canvas { min-height: 320px; }
+      body[data-layout="stack"] .browser { min-height: 275px; }
+      body[data-layout="focus"] .compare { display: grid; grid-template-columns: minmax(0, 1fr) 260px; }
+      body[data-layout="focus"] .comparison-stage { grid-template-columns: 1fr; }
+      body[data-layout="focus"] .artifact + .artifact { display: none; }
+      body[data-layout="focus"] .notes { display: block; }
+      body[data-layout="focus"] .compare-toolbar { grid-column: 1 / -1; }
+
+      .review-question { margin: 22px 0 0; padding-left: 14px; border-left: 1px solid var(--ink); color: var(--muted); font-size: .9rem; line-height: 1.5; }
+      footer { padding: 16px clamp(18px, 3vw, 44px); border-top: 1px solid var(--line); color: var(--muted); font-size: .75rem; }
+
+      @media (max-width: 820px) {
+        .intro { grid-template-columns: 1fr; align-items: start; }
+        .layout-switch { width: 100%; }
+        .layout-switch button { flex: 1; padding-inline: 8px; }
+        body[data-layout="split"] .comparison-stage { grid-template-columns: 1fr; }
+        body[data-layout="split"] .artifact + .artifact { border-left: 0; border-top: 1px solid var(--ink); }
+        body[data-layout="focus"] .compare { grid-template-columns: 1fr; }
+        body[data-layout="focus"] .notes { border-top: 1px solid var(--ink); border-left: 0; }
+      }
+      @media (max-width: 560px) {
+        .top-actions .quiet-button { display: none; }
+        main { padding: 20px 14px 36px; }
+        .intro, .intro > div, .compare, .review-question { min-width: 0; max-width: 100%; }
+        .layout-switch { width: min(100%, 360px); min-width: 0; max-width: calc(100vw - 28px); }
+        .layout-switch button { flex: 1 1 0; width: 0; min-width: 0; padding-inline: 4px; font-size: .72rem; }
+        .compare-toolbar { align-items: flex-start; }
+        .selection { width: 0; flex: 1 1 0; flex-direction: column; align-items: flex-start; gap: 3px; }
+        .selection span { max-width: 100%; }
+        .viewport-tools button:nth-child(2) { display: none; }
+        .diagram { grid-template-columns: 1fr; }
+        .diagram-side { grid-template-columns: 1fr 80px; grid-template-rows: 76px; }
+      }
+    </style>
+  </head>
+  <body data-layout="split">
+    <!--
+      THESIS: Compare real artifacts without hiding them inside cards or prose.
+      OWN-WORLD: Deliberately plain grayscale wireframe with exact rules and realistic catalog content.
+      STORY: Choose a comparison structure, inspect two artifacts, and identify the layout worth refining.
+      FIRST VIEWPORT: A compact brief above a full-width comparison workspace with two equal live canvases.
+      FORM: Low-fidelity product wireframe with three structural directions; seed effective-html-compare-wireframe.
+      FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+    -->
+    <div class="shell">
+      <header class="topbar">
+        <div class="brand"><span class="mark" aria-hidden="true"><i></i><i></i></span>Effective HTML</div>
+        <div class="top-actions"><button class="quiet-button" type="button">Clear comparison</button><button class="solid-button" type="button">Share review</button></div>
+      </header>
+      <main>
+        <section class="intro" aria-labelledby="page-title">
+          <div>
+            <h1 id="page-title">Compare the artifacts, not the descriptions.</h1>
+            <p>Review the same decision in two HTML artifacts. The structure below is intentionally unfinished; this pass is about comparison, not styling.</p>
+          </div>
+          <div class="layout-switch" role="group" aria-label="Wireframe direction">
+            <button type="button" data-layout-choice="split" aria-pressed="true">Split</button>
+            <button type="button" data-layout-choice="stack" aria-pressed="false">Stack</button>
+            <button type="button" data-layout-choice="focus" aria-pressed="false">Focus + notes</button>
+          </div>
+        </section>
+
+        <section class="compare" aria-label="Artifact comparison wireframe">
+          <div class="compare-toolbar">
+            <div class="selection"><strong>2 selected</strong><span>Release readiness wireframe · Architecture request-path explorer</span></div>
+            <div class="viewport-tools" role="group" aria-label="Preview width">
+              <button type="button" aria-label="Desktop width" aria-pressed="true">▭</button>
+              <button type="button" aria-label="Tablet width" aria-pressed="false">□</button>
+              <button type="button" aria-label="Mobile width" aria-pressed="false">▯</button>
+            </div>
+          </div>
+          <div class="comparison-stage">
+            <article class="artifact">
+              <header class="artifact-head"><h2>Release readiness</h2><span>Wireframe · structure</span></header>
+              <div class="canvas">
+                <div class="browser" aria-label="Abstract release readiness wireframe">
+                  <div class="browser-bar"><i></i><i></i><i></i></div>
+                  <div class="diagram">
+                    <div class="diagram-main"><span class="line short"></span><span class="hero-block"></span><span class="cards"><i></i><i></i><i></i><i></i></span></div>
+                    <div class="diagram-side"><i></i><i></i></div>
+                  </div>
+                </div>
+              </div>
+              <footer class="artifact-foot"><span>Hierarchy</span><span>Responsive</span><span>3 directions</span></footer>
+            </article>
+            <article class="artifact">
+              <header class="artifact-head"><h2>Request paths</h2><span>Diagram · interaction</span></header>
+              <div class="canvas">
+                <div class="browser" aria-label="Abstract request path explorer">
+                  <div class="browser-bar"><i></i><i></i><i></i></div>
+                  <div class="diagram">
+                    <div class="diagram-main"><span class="line"></span><span class="hero-block"></span><span class="cards"><i></i><i></i><i></i><i></i></span></div>
+                    <div class="diagram-side"><i></i><i></i></div>
+                  </div>
+                </div>
+              </div>
+              <footer class="artifact-foot"><span>Sequence</span><span>6 paths</span><span>Interactive</span></footer>
+            </article>
+          </div>
+          <aside class="notes" aria-label="Review notes">
+            <h2>Review notes</h2>
+            <div class="note-list">
+              <div class="note active"><strong>Keep previews large</strong><p>The artifact should remain readable without opening another tab.</p></div>
+              <div class="note"><strong>Preserve source links</strong><p>HTML, SVG, and guide links need equal visibility.</p></div>
+              <div class="note"><strong>Mobile comparison</strong><p>Stack artifacts; do not shrink two canvases side by side.</p></div>
+            </div>
+          </aside>
+        </section>
+        <p class="review-question"><strong>Review question:</strong> Which structure makes differences easiest to inspect without losing the artifacts themselves?</p>
+      </main>
+      <footer>Wireframe · visual design and production behavior intentionally deferred</footer>
+    </div>
+    <script>
+      const body = document.body;
+      const layoutButtons = [...document.querySelectorAll("[data-layout-choice]")];
+      layoutButtons.forEach((button) => {
+        button.addEventListener("click", () => {
+          body.dataset.layout = button.dataset.layoutChoice;
+          layoutButtons.forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
+        });
+      });
+
+      const viewportButtons = [...document.querySelectorAll(".viewport-tools button")];
+      viewportButtons.forEach((button) => {
+        button.addEventListener("click", () => viewportButtons.forEach((item) => item.setAttribute("aria-pressed", String(item === button))));
+      });
+    </script>
+  </body>
+</html>

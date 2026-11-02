@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Flags the shadowed copy: only one README is rendered, and the other silently diverges",
+        "evidence": "\"GitHub's own precedence order is `.github` \u2192 root \u2192 `docs`... Yours has already diverged \u2014 you said so yourself.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the root README is what package registries and mirrors publish, so it is the copy to keep",
+        "evidence": "\"For a project with four PyPI packages, that has to be the root `README.md`, since that's the one your registry pages depend on.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends keeping exactly one rendered README rather than syncing the two files",
+        "evidence": "\"pick one canonical file... Don't maintain two hand-edited copies \u2014 that's the mechanism that got you here.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that relative image and link paths break on the PyPI page because the registry renders the README on its own domain",
+        "evidence": "Only states the empirical fact ('PyPI has no support for relative image paths at all') without explaining the own-domain rendering mechanism.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends converting relative paths to absolute URLs, for example raw.githubusercontent.com, at publish time",
+        "evidence": "\"point it at an absolute URL (`https://raw.githubusercontent.com/stagline/toolbelt/main/docs/img/arch.png`)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the raw HTML `<details>` block as registry-hostile, since the config table inside it disappears where HTML is stripped",
+        "evidence": "\"raw HTML, and registries are documented to strip raw HTML... the tags get stripped in a way that mangles or hides the table\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires auditing the registry render as a separate target, noting it often carries more traffic than the code host render",
+        "evidence": "No claim that registry traffic exceeds GitHub traffic appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires alt text on the architecture image",
+        "evidence": "Only flagged as \"likely no alt text, unconfirmed\" in the scorecard; not turned into an action item in the fix order.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that no instruction, command or decision-relevant fact may live only inside the GIF, because it is invisible in terminals, on registry pages, and to screen readers",
+        "evidence": "\"that's decision-relevant content invisible to a PyPI reader, a terminal, or a screen reader \u2014 none of them render animated GIFs.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the GIF's page weight as a real cost independent of any conversion argument",
+        "evidence": "\"the argument for moving the demo rests on page weight, funnel order, and content-trapped-in-image, all of which hold regardless of any conversion percentage.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Makes the monorepo root README a router to the per-package READMEs rather than covering all six inline",
+        "evidence": "\"the fix for items 1\u20133 above naturally produces the router shape: name, one-liner, a short table of the six packages with links to their own READMEs\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends generating the demo from a script - a diffable, re-renderable tape or cast file - rather than hand-recording it, so it survives output changes",
+        "evidence": "\"regenerated from a script \u2014 e.g. VHS or asciinema \u2014 so it doesn't go stale, rather than hand-recorded once and left to rot at 6 MB.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Flags the shadowed copy: only one README is rendered, and the other silently diverges",
+        "evidence": "\"Since you have both, .github/README.md renders nowhere... So the drift you're seeing isn't two files serving two audiences that quietly diverged \u2014 it's one live file and one dead file\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the root README is what package registries and mirrors publish, so it is the copy to keep",
+        "evidence": "The transcript instead says to check per-package: \"If any of the 4 PyPI packages point at .github/README.md rather than root, that's the file actually shipping to PyPI right now, regardless of which one 'looks great on GitHub.'\" \u2014 it does not assert root is definitively the registry copy.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends keeping exactly one rendered README rather than syncing the two files",
+        "evidence": "\"Decide which is canonical, delete the other (or generate one from the other in CI), and stop having two things to keep in sync at all.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that relative image and link paths break on the PyPI page because the registry renders the README on its own domain",
+        "evidence": "\"PyPI's long_description is rendered standalone with no git context \u2014 a repo-relative path resolves to nothing, so every PyPI project page that embeds this README shows a broken-image icon\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends converting relative paths to absolute URLs, for example raw.githubusercontent.com, at publish time",
+        "evidence": "\"Fix: point the image at an absolute, version-pinned URL \u2014 https://raw.githubusercontent.com/<org>/toolbelt/<tag>/docs/img/arch.png\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the raw HTML `<details>` block as registry-hostile, since the config table inside it disappears where HTML is stripped",
+        "evidence": "The transcript explicitly says the opposite outcome: \"if the installed readme_renderer version doesn't allow those tags... the config table won't disappear, it'll dump flat and unstyled into the page\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires auditing the registry render as a separate target, noting it often carries more traffic than the code host render",
+        "evidence": "The transcript emphasizes PyPI as a real consumer (\"it's your PyPI project pages\") but never claims it carries more traffic than the GitHub render.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires alt text on the architecture image",
+        "evidence": "No mention of alt text appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that no instruction, command or decision-relevant fact may live only inside the GIF, because it is invisible in terminals, on registry pages, and to screen readers",
+        "evidence": "The GIF discussion covers only broken-link and packaging-bloat risks, not any accessibility/terminal-invisibility principle about content living only in the GIF.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the GIF's page weight as a real cost independent of any conversion argument",
+        "evidence": "\"Packaging bloat if the GIF file itself lives in the repo and isn't excluded from the sdist... python -m build happily zips a 6MB binary into a source distribution meant to carry code.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Makes the monorepo root README a router to the per-package READMEs rather than covering all six inline",
+        "evidence": "\"package-level PyPI pages should carry package-level docs, with the root README doing the 'here's the whole toolbelt' tour on GitHub only.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends generating the demo from a script - a diffable, re-renderable tape or cast file - rather than hand-recording it, so it survives output changes",
+        "evidence": "No recommendation to generate the demo from a script/tape/cast file appears; the GIF fix discussed is only about hosting location, not regeneration method.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

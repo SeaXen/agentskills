@@ -1,0 +1,118 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Deletes the walk-in lane on the grounds that the access-controlled, pre-approved-list venue leaves no walk-up population.",
+        "evidence": "\"Walk-in lane: deleted. An unlisted person cannot pass the gatehouse, so there is no walk-up population.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends the waitlist-fed lane instead, and names both of its promotion conditions as met: no walk-up population, and a channel that reaches the waitlist within a day.",
+        "evidence": "\"The skill's conditions are met: access-controlled site and a channel that reaches the waitlist within a day.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the waitlist is told the night before that unclaimed seats open at a named time.",
+        "evidence": "\"The night before, tell standby people: 'Not confirmed. Do not travel unless you get a go message by [named time].'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that the 72-hour pre-approval deadline caps how late anyone can still be promoted onto the visitor list.",
+        "evidence": "The plan schedules the T-3d list submission and a T-4d standby ID deadline, but never states that the 72-hour cutoff caps the latest promotion date.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the catering guarantee locking 7 days out sits before the latest realistic promotion date, so the waitlist no longer changes the number catering is working from.",
+        "evidence": "The drain is set at T-5d, after a T-7 lock, but this is never said. The only lock remark is a caveat about \"7 days from today\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says explicitly which of the two the waitlist is buying here: chairs filled, not a changed budget number.",
+        "evidence": "There is no explicit chairs-versus-budget statement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend admitting unregistered arrivals with no form.",
+        "evidence": "\"Walk-in lane: deleted.\" Standby people \"are already on the approved list\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Hands the promotion send's trigger, audience and deadline to samber/dev-event-organizer-skills@event-attendee-email-sequences as a brief rather than drafting the message.",
+        "evidence": "\"I hand over briefs, not copy.\" It lists the waitlist promotion: T-5d, 24-hour claim.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Fixes a claim window after which an unclaimed promoted seat moves on to the next person.",
+        "evidence": "\"A promoted waitlister claims the seat by submitting ID details within 24 hours.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Deletes the walk-in lane on the grounds that the access-controlled, pre-approved-list venue leaves no walk-up population.",
+        "evidence": "Not addressed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends the waitlist-fed lane instead, and names both of its promotion conditions as met: no walk-up population, and a channel that reaches the waitlist within a day.",
+        "evidence": "It uses standby and promotion, but the two conditions are never named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the waitlist is told the night before that unclaimed seats open at a named time.",
+        "evidence": "Standby 'go' message is sent at 07:30 on event day, not the night before.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that the 72-hour pre-approval deadline caps how late anyone can still be promoted onto the visitor list.",
+        "evidence": "The timeline shows T-3 submission but never says it caps promotion.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the catering guarantee locking 7 days out sits before the latest realistic promotion date, so the waitlist no longer changes the number catering is working from.",
+        "evidence": "Shows 'Catering locks' at T-7 and promotion at T-5, but never says the waitlist no longer changes the number.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says explicitly which of the two the waitlist is buying here: chairs filled, not a changed budget number.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend admitting unregistered arrivals with no form.",
+        "evidence": "'Nobody can walk up and take an empty seat. Every swap has to be pre-approved.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Hands the promotion send's trigger, audience and deadline to samber/dev-event-organizer-skills@event-attendee-email-sequences as a brief rather than drafting the message.",
+        "evidence": "It drafts the reconfirm email itself and does not route to the skill.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Fixes a claim window after which an unclaimed promoted seat moves on to the next person.",
+        "evidence": "'Offer each a 24h answer window.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

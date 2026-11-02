@@ -1,0 +1,118 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The response says the team is not good to go and advises against signing the venue contract on Monday.",
+        "evidence": "\"Signing the venue on Monday is premature as things stand.\" \"Don't sign Monday as is.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The team gate is stated: at least three organizers from at least three different organizations before venue or date is locked.",
+        "evidence": "\"at least 3 organizers from at least 3 different organizations before venue or date is locked.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Two organizers from the same single company is explicitly identified as failing that gate.",
+        "evidence": "\"You have 2 organizers from 1 organization.\" Team row: \u274c Fail.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The gate's purpose is given: it blocks single-company vanity events and protects the cross-organization neutrality a community-run event's credibility rests on.",
+        "evidence": "\"cross-organization neutrality is the credibility source.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The inability to recruit outside co-organizers is read as an early demand or market warning signal, not merely a staffing inconvenience.",
+        "evidence": "\"a lead who can't recruit two outside co-organizers as having failed an early market test.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recruiting the missing organizers is sequenced before venue lock - the user's 'recruit after the venue is locked' order is reversed.",
+        "evidence": "\"'Recruit after the venue is locked' is backwards.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The stated intent that 'it's not a Hexlify event' is not accepted as a substitute for actual cross-organization team composition.",
+        "evidence": "\"attendees, sponsors and speakers will read it as one.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "A solo or two-person launch is not offered as an acceptable fallback.",
+        "evidence": "\"Make Hexlify the owner. If you do sign with only the two of you, say so in the brief and accept the company-run pole.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The 180 paid pre-registrations are acknowledged as strong validation evidence, while making clear that passing the validation gate does not waive the team gate.",
+        "evidence": "\"Validation \u2705 Pass... level 3\" while \"Team \u274c Fail.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The response says the team is not good to go and advises against signing the venue contract on Monday.",
+        "evidence": "'Verdict: not yet.' It makes signing conditional: 'If 1\u20134 come back clean, sign Monday.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The team gate is stated: at least three organizers from at least three different organizations before venue or date is locked.",
+        "evidence": "There is no three-organizer or three-organization rule. It only says to recruit 'one or two outside organizers'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Two organizers from the same single company is explicitly identified as failing that gate.",
+        "evidence": "It says 'will read as a Hexlify event' but frames this as a credibility risk, not as failing a gate.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The gate's purpose is given: it blocks single-company vanity events and protects the cross-organization neutrality a community-run event's credibility rests on.",
+        "evidence": "Credibility concerns are raised, but no gate purpose about single-company vanity events is stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The inability to recruit outside co-organizers is read as an early demand or market warning signal, not merely a staffing inconvenience.",
+        "evidence": "Recruiting is treated only as a staffing and credibility matter.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recruiting the missing organizers is sequenced before venue lock - the user's 'recruit after the venue is locked' order is reversed.",
+        "evidence": "'Locking the venue first is reasonable... Recruit in parallel'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The stated intent that 'it's not a Hexlify event' is not accepted as a substitute for actual cross-organization team composition.",
+        "evidence": "'Two organizers from one company will read as a Hexlify event, whatever you say.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "A solo or two-person launch is not offered as an acceptable fallback.",
+        "evidence": "The response never offers a two-person launch as acceptable. It recommends recruiting outside organizers.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The 180 paid pre-registrations are acknowledged as strong validation evidence, while making clear that passing the validation gate does not waive the team gate.",
+        "evidence": "'Venue and demand look fine' is said, but there is no statement that validation does not waive the team gate.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

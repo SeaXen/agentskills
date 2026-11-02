@@ -1,0 +1,38 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Reports the failures in damage order.",
+        "evidence": "The response opens with an explicit \"What's wrong, damage order\" section of five ranked items, each naming the violated threshold and its consequence: #1 \"Owner = 'content team' on every row... 'Content team' means nobody. Every piece stalls in review with no name to chase. Worst failure, cheapest fix\"; #2 \"13/13 weeks filled = 100% capacity committed... first slip... eats a slot and everything after slides\"; #3 the unsupported v6 GA anchor; #4 single surface; #5 missing evidence/shelf-life labels. The ordering is defensible (nobody owns it > no slack > anchor wasted > surface breadth > labeli",
+        "score": 4,
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Proposes the smallest set of changes that clears the failures.",
+        "evidence": "The \"Minimum changes, no re-planning\" section gives five edits explicitly scoped to the existing sheet (\"Whole edit \u2248 1 hour in spreadsheet\", \"~30 min\" for names), and each maps back to a listed failure, with two changes deliberately double-counted for economy: \"Repurpose W1 \u2192 v6 prep slot... Kills phantom 4.0, gives anchor its prep\" and \"Retitle W8 \u2192 v6 follow-up, docs surface... Gives anchor follow-up, adds second surface.\" It resists over-correction (no re-plan, no new content strategy) and adds a \"Validation after changes\" section checking each threshold against the edited plan, including ",
+        "score": 4,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Reports the failures in damage order.",
+        "evidence": "The findings are explicitly ranked (\"What's wrong, ranked\", numbered 1-5) with a severity tier break \u2014 items 1-4 carry \u26a0\ufe0f, item 5 is labeled \"Minor\" \u2014 and each carries its concrete consequence rather than just a description: W1/W7 version clash means \"two major versions in six weeks\" with a stale public number; W9 \"goes to the wider team Monday looking unfinished\"; mislabeled owners are \"exactly the rows that slip\"; zero buffer means \"W7-W13 all cascade with no slack\"; W13 lands at \"near-zero readership\". It also justifies which cell to fix by anchoring on the only locked date (\"Since v6 GA at",
+        "score": 4,
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Proposes the smallest set of changes that clears the failures.",
+        "evidence": "Minimality is the explicit organizing principle, not an afterthought: opens with \"About six cell edits fix it. No redo needed\", then gives a \"Minimum changes before Monday\" table with per-row cost accounting (\"1 cell\", \"1 cell\", \"4 cells\", \"0 content changes\"). The buffer fix avoids the obvious overreach of deleting or adding rows \u2014 it re-labels three existing evergreen weeks (W2/W4/W8) as shock absorbers, explicitly \"Costs nothing, changes no content\". It closes with a \"What's fine \u2014 don't touch it\" section defending the launch arc and the filled weeks, which fences the change set against sco",
+        "score": 5,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

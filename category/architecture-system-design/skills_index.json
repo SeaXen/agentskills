@@ -120,6 +120,14 @@
     "path": "category/architecture-system-design/aeon"
   },
   {
+    "id": "agent-advisor",
+    "name": "agent-advisor",
+    "category": "architecture-system-design",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Entry point for AI-agent work on AWS: pick a runtime, plan a migration for existing workloads, and build an executable POC \u2014 one phased flow. Triggers on: which runtime for my agent, AgentCore vs ECS vs EKS vs Lambda, AgentCore vs Lambda MicroVMs, deploy an AI agent on AWS, agent architecture on AWS, I have an agent idea what do I build, move/migrate my agents to AWS, agent migration plan, add AgentCore services (memory, gateway, identity, policy, observability) to an agent already on AWS, Temporal on AWS (migrate/run Temporal workers on AWS, a service orchestrated by Temporal, Temporal Cloud vs self-hosted). Temporal Workflow code is never rewritten into Step Functions. Requires at least one agentic component \u2014 a purely non-agent system (plain services, batch jobs, HTTP endpoints, non-agent Temporal Activities) is out of scope, redirected to gcp-to-aws / heroku-to-aws / llm-to-bedrock. Not for: compute/data migration with no AI agent; pure LLM SDK rewrite (use llm-to-bedrock); per-model pricing.",
+    "path": "category/architecture-system-design/agent-advisor"
+  },
+  {
     "id": "agent-architecture-audit",
     "name": "agent-architecture-audit",
     "category": "architecture-system-design",
@@ -256,6 +264,14 @@
     "path": "category/architecture-system-design/alphagenome"
   },
   {
+    "id": "amazon-eventbridge-event-bus",
+    "name": "amazon-eventbridge-event-bus",
+    "category": "architecture-system-design",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Builds, runs, debugs, and operates event-driven applications using EventBridge Event Bus - a managed, centrally governed publish/subscribe event bus that an organization can share across many teams and accounts. Applicable when workloads need event-driven architectures, decoupling, choreography, asynchronous integration, pub/sub, fan-out, event ordering, delivered in sequence, event router, event broker, event bus, event store, event retention, event replay, deduplication, avro, protobuf, cloudevents, uses events or messages. Designed as a centrally managed event bus platform allowing governance and control - such as subscriber control, revocation, per-account throttling - while giving application owners flexibility across an organization spanning multiple accounts, with end-to-end open-standards observability and cost allocation. Also helps reduce costs in high fan-out scenarios where multi-account forwarding adds cost. A serverless, managed alternative to self-managed event streaming platforms.",
+    "path": "category/architecture-system-design/amazon-eventbridge-event-bus"
+  },
+  {
     "id": "amazon-listing-competitor-analysis-skill",
     "name": "amazon-listing-competitor-analysis-skill",
     "category": "architecture-system-design",
@@ -270,6 +286,14 @@
     "repository": "nexscope-ai-amazon-skills",
     "description": "Trending products and rising categories discovery for Amazon sellers. Analyzes Best Seller Rank patterns, seasonal trends, new release momentum, and emerging niches. Identifies product opportunities before they peak. Use when the user asks about what's trending on Amazon, hot products, rising categories, seasonal opportunities, viral products, what to sell next, emerging niches, or early-mover opportunities. Also trigger for questions like 'what should I sell now?', 'what products are doing well?', 'find me trending niches', or 'what's hot on Amazon?'.",
     "path": "category/architecture-system-design/amazon-trending-products"
+  },
+  {
+    "id": "amc-run-sample-calibration",
+    "name": "amc-run-sample-calibration",
+    "category": "architecture-system-design",
+    "repository": "nvidia-skills",
+    "description": "Run end-to-end calibration on the shipped sample dataset (sdg_08_2_sample_data_010926.zip) against a running AMC microservice. Use when user says 'test sample dataset', 'run sample calibration', 'verify AMC install', or 'launch and test'.",
+    "path": "category/architecture-system-design/amc-run-sample-calibration"
   },
   {
     "id": "amee-joshi-data-engineering-portfolio",
@@ -302,6 +326,14 @@
     "repository": "aj-geddes-useful-ai-prompts",
     "description": "Identify unusual patterns, outliers, and anomalies in data using statistical methods, isolation forests, and autoencoders for fraud detection and quality monitoring",
     "path": "category/architecture-system-design/anomaly-detection"
+  },
+  {
+    "id": "answer-me-with-html",
+    "name": "answer-me-with-html",
+    "category": "architecture-system-design",
+    "repository": "qingyuna-answer-me-with-html",
+    "description": "Turns an answer into a one-page visual HTML explainer: the model writes a short Markdown draft and the bundled CLI builds one page. Use it proactively and liberally in replies to the user, without being asked, whenever a page would help the reader more than plain text, even if plain text would also work: any explanation of how something works or how parts relate (flow, request path, architecture, code or folder structure, state machine, lifecycle, history); any comparison, trade-off or decision with pros and cons; any diagnosis, review or investigation, especially with several causes or findings to rank; any answer with a table, a numbered or ranked list, steps, branches or several sections; or when the user says \"I don't get it / draw it / explain visually / \u8bb2\u8bb2\u539f\u7406 / \u6ca1\u770b\u61c2 / \u753b\u4e2a\u56fe\". When in doubt, use it: a page is quick and cheap to make. Also for explainer videos (\"make a video\", \"\u505a\u4e2a\u89c6\u9891\") and for changing its settings. Skip only for small talk, a trivial one-line answer, or when the user asks for plain text.",
+    "path": "category/architecture-system-design/answer-me-with-html"
   },
   {
     "id": "anti-sycophancy",
@@ -350,6 +382,14 @@
     "repository": "microsoft-azure-skills",
     "description": "Guidance for instrumenting webapps with Azure Application Insights. Provides telemetry patterns, SDK setup, and configuration references. WHEN: how to instrument app, App Insights SDK, telemetry patterns, what is App Insights, Application Insights guidance, instrumentation examples, APM best practices.",
     "path": "category/architecture-system-design/appinsights-instrumentation"
+  },
+  {
+    "id": "arc-region-switch",
+    "name": "arc-region-switch",
+    "category": "architecture-system-design",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Answers questions about Amazon Application Recovery Controller (ARC) Region switch including architecture, plans, execution blocks, workflows, triggers, active/active vs active/passive, cross-account support, recovery time, dashboards, and customer positioning. Applicable when users ask about ARC Region switch adoption, design, or troubleshooting.",
+    "path": "category/architecture-system-design/arc-region-switch"
   },
   {
     "id": "arch-check",
@@ -544,6 +584,22 @@
     "path": "category/architecture-system-design/avalonia-viewmodels-zafiro"
   },
   {
+    "id": "aws-blocks",
+    "name": "aws-blocks",
+    "category": "architecture-system-design",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Guides building full-stack applications with AWS Blocks \u2014 an Infrastructure-from-Code framework. Applies when creating APIs, selecting Building Blocks (KVStore, DistributedTable, Database, AuthBasic, AuthCognito, Realtime, AsyncJob, FileBucket, etc.), running local development, or deploying AWS Blocks applications. Also covers AWS Blocks topics with validated, version-specific patterns that prevent common mistakes. Triggers when user mentions AWS Blocks; project has aws-blocks/ directory; code imports @aws-blocks packages.",
+    "path": "category/architecture-system-design/aws-blocks"
+  },
+  {
+    "id": "aws-cdk",
+    "name": "aws-cdk",
+    "category": "architecture-system-design",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Authors, deploys, and troubleshoots AWS infrastructure using CDK with TypeScript or Python. Covers best practices, stack architecture, and construct patterns. Applies when writing CDK constructs, bootstrapping environments, running cdk deploy/synth/diff, fixing CDK or CloudFormation errors, planning stack structure, importing existing resources, resolving drift, or refactoring stacks without resource replacement.",
+    "path": "category/architecture-system-design/aws-cdk"
+  },
+  {
     "id": "aws-cloud-patterns",
     "name": "aws-cloud-patterns",
     "category": "architecture-system-design",
@@ -608,6 +664,22 @@
     "path": "category/architecture-system-design/aws-drawio-architecture-diagrams"
   },
   {
+    "id": "aws-lambda-durable-functions",
+    "name": "aws-lambda-durable-functions",
+    "category": "architecture-system-design",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Builds resilient, long-running, multi-step applications with AWS Lambda durable functions with automatic state persistence, retry logic, and orchestration for long-running executions. Covers the critical replay model, step operations, wait/callback patterns, error handling with saga pattern, testing with LocalDurableTestRunner. Triggers on phrases like lambda durable functions, durable execution, workflow orchestration, state machines, retry/checkpoint patterns, long-running stateful Lambda functions, saga pattern, human-in-the-loop callbacks, reliable serverless applications, context.step, context.wait, context.invoke, context.runInChildContext, withDurableExecution, DurableContext, UnrecoverableInvocationError, durable-execution-sdk, qualified ARN invocation, and durable handler replay.",
+    "path": "category/architecture-system-design/aws-lambda-durable-functions"
+  },
+  {
+    "id": "aws-sdk-python-usage",
+    "name": "aws-sdk-python-usage",
+    "category": "architecture-system-design",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "AWS SDK for Python (boto3/botocore) development patterns. You MUST use this skill when writing Python code that uses AWS services via boto3 or botocore. This includes creating service clients or resources, configuring sessions and credentials, handling errors with ClientError, using paginators and waiters, S3 file transfers and presigned URLs, DynamoDB table operations, and any boto3/botocore client configuration. Use this skill whenever Python code imports boto3 or botocore, or when the user asks about AWS operations in Python.",
+    "path": "category/architecture-system-design/aws-sdk-python-usage"
+  },
+  {
     "id": "aws-serverless-eda",
     "name": "aws-serverless-eda",
     "category": "architecture-system-design",
@@ -632,12 +704,28 @@
     "path": "category/architecture-system-design/aws-solution-architect"
   },
   {
+    "id": "aws-well-architected-review",
+    "name": "aws-well-architected-review",
+    "category": "architecture-system-design",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Performs a full AWS Well-Architected Framework review evaluating every framework question across all pillars discovered from the live AWS documentation by analyzing code, IaC, and configurations to produce evidence-backed findings with Eisenhower-prioritized remediation. Supports full reviews (every framework best practice with BP ID citations), quick reviews (question-level), pillar-scoped reviews, score-mode reviews (a maturity scorecard with per-pillar scores and filtered findings), and lens-specific reviews using lenses discovered from the live AWS documentation. Triggers on mentions of Well-Architected review, WA review, WAR, pillar assessment, architecture review across pillars, workload assessment, cloud readiness evaluation, or a Well-Architected score, grade, or scorecard request. Does not apply to single-pillar deep-dives, learning WA concepts, ADRs, or migration readiness assessments.",
+    "path": "category/architecture-system-design/aws-well-architected-review"
+  },
+  {
     "id": "azure-identity-java",
     "name": "azure-identity-java",
     "category": "architecture-system-design",
     "repository": "antigravity-awesome-skills",
     "description": "Azure Identity Java SDK for authentication with Azure services. Use when implementing DefaultAzureCredential, managed identity, service principal, or any Azure authentication pattern in Java applic...",
     "path": "category/architecture-system-design/azure-identity-java"
+  },
+  {
+    "id": "azure-kusto-graph",
+    "name": "azure-kusto-graph",
+    "category": "architecture-system-design",
+    "repository": "microsoft-azure-skills",
+    "description": "Build and query Kusto graphs from natural language. Covers transient graphs (make-graph), persistent graph models/snapshots, pattern matching (graph-match), shortest paths, connected components, and graph-to-table export. Generates the edges-first thinking: define edges, define node lookups, union, make-graph. WHEN: make-graph, graph-match, graph-shortest-paths, graph-to-table, graph-mark-components, persistent graph, graph model, graph snapshot, build a graph from data, find paths between nodes, pattern matching in graph, connected components, transient graph, Kusto graph, KQL graph.",
+    "path": "category/architecture-system-design/azure-kusto-graph"
   },
   {
     "id": "azure-mgmt-mongodbatlas-dotnet",
@@ -686,6 +774,22 @@
     "repository": "antigravity-awesome-skills",
     "description": "Master binary analysis patterns including disassembly, decompilation, control flow analysis, and code pattern recognition. Use when analyzing executables, understanding compiled code, or performing...",
     "path": "category/architecture-system-design/binary-analysis-patterns"
+  },
+  {
+    "id": "bionemo-kermt-pretrain-scratch",
+    "name": "bionemo-kermt-pretrain-scratch",
+    "category": "architecture-system-design",
+    "repository": "nvidia-skills",
+    "description": "Pretrain a fresh KERMT model from scratch on a user-provided corpus. Builds a new vocabulary from the corpus, instantiates the model architecture from defaults, and launches pretrain_ddp.py inside the kermt container (detached for long runs). Unlike kermt-continue-pretrain, no starting checkpoint is loaded \u2014 the model is randomly initialized.",
+    "path": "category/architecture-system-design/bionemo-kermt-pretrain-scratch"
+  },
+  {
+    "id": "bionemo-msa-structure-prediction-pipeline",
+    "name": "bionemo-msa-structure-prediction-pipeline",
+    "category": "architecture-system-design",
+    "repository": "nvidia-skills",
+    "description": "NOTE: your protein sequence and the retrieved MSA alignment are transmitted to external NVIDIA-hosted APIs (health.api.nvidia.com) on every call. Use local NIM containers for confidential or proprietary sequences. Run a complete protein structure prediction pipeline using NVIDIA BioNeMo NIMs: search for MSA alignments with MSA-Search (ColabFold), then predict the structure with OpenFold3 using the retrieved alignments. Use this skill whenever the user wants to predict a protein structure with maximum accuracy using MSA context, run the full AlphaFold3-style pipeline, generate MSA-informed structure predictions, or improve structure prediction accuracy by providing evolutionary information. Triggers on: MSA structure prediction pipeline, structure prediction pipeline, MSA-informed prediction, OpenFold3, ColabFold MSA, AlphaFold3 pipeline, protein structure, homology search, a3m alignment, UniRef30, NIM microservice. This pipeline chains MSA-Search and OpenFold3.",
+    "path": "category/architecture-system-design/bionemo-msa-structure-prediction-pipeline"
   },
   {
     "id": "bleu",
@@ -750,6 +854,14 @@
     "repository": "bergside-awesome-design-skills",
     "description": "Raw, anti-design aesthetic inspired by concrete architecture with unadorned elements, jarring layouts, and functional minimalism.",
     "path": "category/architecture-system-design/brutalism"
+  },
+  {
+    "id": "brutalist-mood",
+    "name": "brutalist-mood",
+    "category": "architecture-system-design",
+    "repository": "arjun988-blender-skills",
+    "description": "Brutalist and concrete-monument mood direction for Blender architecture and scenes with raw concrete, monumental scale, and austere composition.",
+    "path": "category/architecture-system-design/brutalist-mood"
   },
   {
     "id": "budget-scenario-planner",
@@ -926,6 +1038,14 @@
     "repository": "ruvnet-ruflo",
     "description": "Format chat messages in a local model's template (llama3, mistral, chatml, phi, gemma, or a model id) and route queries over a small WASM HNSW pattern index (about 11 patterns). Use when preparing prompts for local runtimes.",
     "path": "category/architecture-system-design/chat-format"
+  },
+  {
+    "id": "chatting-with-aws-devops-agent",
+    "name": "chatting-with-aws-devops-agent",
+    "category": "architecture-system-design",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Have a fast, conversational analysis with the AWS DevOps Agent. Use for cost optimization, architecture review, topology mapping, knowledge / runbook discovery, security audits, dependency questions, and quick diagnostics \u2014 anything that needs a 5-30 second answer rather than a 5-8 minute deep investigation. Trigger words include cost, optimize, review, architecture, topology, what runbooks, show me, compare, audit, what if.",
+    "path": "category/architecture-system-design/chatting-with-aws-devops-agent"
   },
   {
     "id": "chief-data-officer-advisor",
@@ -1512,6 +1632,14 @@
     "path": "category/architecture-system-design/design-system-creation"
   },
   {
+    "id": "design-system-patterns",
+    "name": "design-system-patterns",
+    "category": "architecture-system-design",
+    "repository": "wshobson-agents",
+    "description": "Build scalable design systems with design tokens, theming infrastructure, and component architecture patterns. Use when creating design tokens, implementing theme switching, building component libraries, or establishing design system foundations.",
+    "path": "category/architecture-system-design/design-system-patterns"
+  },
+  {
     "id": "design-system-starter",
     "name": "design-system-starter",
     "category": "architecture-system-design",
@@ -1628,7 +1756,7 @@
     "name": "dfm",
     "category": "architecture-system-design",
     "repository": "earthtojake-text-to-cad",
-    "description": "Design-for-manufacturing review of a part for sheet metal, CNC machining, or injection molding - bends, reliefs and flat patterns; machining access, internal corners, deep features and setups; draft, undercuts and projected area. Use when the user asks whether a part can be bent, machined or molded, asks about manufacturability or tooling, or asks for a DFM review or redesign.",
+    "description": "Design-for-manufacturing review of a part for sheet metal, CNC machining, or injection molding - bends, reliefs and flat patterns; machining access, internal corners, deep features and setups; draft, undercuts and projected area. Use when the user asks whether a part can be bent, machined or molded, asks about manufacturability or tooling, or asks for a DFM review or redesign. Not for additive manufacturing (3D printing) printability.",
     "path": "category/architecture-system-design/dfm"
   },
   {
@@ -1638,6 +1766,14 @@
     "repository": "k-dense-ai-scientific-agent-skills",
     "description": "Applies the DHDNA framework as an exploratory rubric for reasoning and writing patterns in supplied text. Used for explicit requests for DHDNA, cognitive-style reflection, a thinking-pattern profile, or comparisons of textual reasoning. Scores describe evidence in the sample, not validated psychological traits or personal identity.",
     "path": "category/architecture-system-design/dhdna-profiler"
+  },
+  {
+    "id": "diagramming-code",
+    "name": "diagramming-code",
+    "category": "architecture-system-design",
+    "repository": "trailofbits-skills",
+    "description": "Generates Mermaid diagrams from Trailmark code graphs. Produces call graphs, class hierarchies, module dependency maps, containment diagrams, complexity heatmaps, and attack surface data flow visualizations. Use when visualizing code architecture, drawing call graphs, generating class diagrams, creating dependency maps, producing complexity heatmaps, or visualizing data flow and attack surface paths as Mermaid diagrams.",
+    "path": "category/architecture-system-design/diagramming-code"
   },
   {
     "id": "distributed-systems-guide",
@@ -1678,6 +1814,14 @@
     "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "This skill should be used when the user asks to \"/do-agent\", asks for \"Execute complex tasks using multi-agent architecture with context protection\", or needs the workflow previously provided by the /do-agent slash command.",
     "path": "category/architecture-system-design/do-agent"
+  },
+  {
+    "id": "docs-site-platform-selection",
+    "name": "docs-site-platform-selection",
+    "category": "architecture-system-design",
+    "repository": "samber-developer-relations-skills",
+    "description": "Decides whether a developer documentation site should change platform, and which platform class and named product fit the team's authors, build owner, constraints, standing cost and exit cost. Use whenever someone asks which docs platform or docs static site generator to pick for developer docs, compares two docs platforms, is deciding whether or where to re-platform their docs, or weighs self-hosting docs against a hosted docs product - even if they only name two tools. Not for executing an already-decided migration or picking one component (search, API renderer, theme). Do NOT use for docs information architecture - use samber/developer-relations-skills@developer-docs-structure-audit; nor a developer portal console - use samber/developer-platform-skills@developer-portal-design.",
+    "path": "category/architecture-system-design/docs-site-platform-selection"
   },
   {
     "id": "doctor",
@@ -1732,7 +1876,7 @@
     "name": "domain-modeling",
     "category": "architecture-system-design",
     "repository": "active",
-    "description": "Build and sharpen a project's domain model. Use when discussing codebase terminology, writing or editing a GLOSSARY.md, or recording or editing an ADR.",
+    "description": "Build and sharpen a project's domain model. Use when the user wants to pin down domain terminology or a ubiquitous language, record an architectural decision, or when another skill needs to maintain the domain model.",
     "path": "category/architecture-system-design/domain-modeling"
   },
   {
@@ -1796,7 +1940,7 @@
     "name": "dxf",
     "category": "architecture-system-design",
     "repository": "earthtojake-text-to-cad",
-    "description": "Generates, regenerates and validates 2D DXF drawings from Python build123d models, exported by cadgen. Use for DXF files, `.py` drawing scripts, 2D profiles, outlines, templates, gaskets, panels, flat patterns, laser/plasma/waterjet cut layouts, and 2D drawing exports of CAD geometry. Opens and visually reviews existing DXF files in the CAD Viewer.",
+    "description": "Generates, regenerates and validates 2D DXF drawings from Python build123d models, exported by text-to-cad. Use for DXF files, `.py` drawing scripts, 2D profiles, outlines, templates, gaskets, panels, flat patterns, laser/plasma/waterjet cut layouts, and 2D drawing exports of CAD geometry. Opens and visually reviews existing DXF files in the CAD Viewer. Covers the 2D drawing, not the 3D part or assembly it derives from, and not a cutting service's order preflight.",
     "path": "category/architecture-system-design/dxf"
   },
   {
@@ -1888,12 +2032,28 @@
     "path": "category/architecture-system-design/engineering-blog-post"
   },
   {
+    "id": "engineering-drawing",
+    "name": "engineering-drawing",
+    "category": "architecture-system-design",
+    "repository": "earthtojake-text-to-cad",
+    "description": "Make an engineering drawing of a part as a PDF - orthographic views with hidden lines and centre marks, real dimensions, hole callouts, notes and a title block on ISO sheets, all projected from the part's geometry so the drawing follows the model. Use when the user asks for a drawing, a dimensioned sheet, shop or manufacturing drawings, a print, or \"2D views of this part\". Not for DXF cut layouts or flat patterns.",
+    "path": "category/architecture-system-design/engineering-drawing"
+  },
+  {
     "id": "engineering-skills",
     "name": "engineering-skills",
     "category": "architecture-system-design",
     "repository": "alirezarezvani-claude-skills",
     "description": "Index of the engineering-team skills bundle for Claude Code, Codex, Gemini CLI, Cursor, OpenClaw, and 6 more tools. Architecture, frontend, backend, QA, DevOps, security, AI/ML, data engineering, Playwright, Stripe, AWS, MS365 (stdlib-only Python tools). Use when browsing or choosing among engineering-team role skills \u2014 load only the one specialist SKILL.md you need, never bulk-load the bundle.",
     "path": "category/architecture-system-design/engineering-skills"
+  },
+  {
+    "id": "environment-artist",
+    "name": "environment-artist",
+    "category": "architecture-system-design",
+    "repository": "arjun988-blender-skills",
+    "description": "AAA environment art for modular kits, buildings, terrain, vegetation, architecture, and scene composition. Use for game-optimized environments, storytelling through space, and modular asset pipelines in Blender via MCP.",
+    "path": "category/architecture-system-design/environment-artist"
   },
   {
     "id": "eol-resistor-calculator",
@@ -2272,6 +2432,30 @@
     "path": "category/architecture-system-design/golang-dependency-injection"
   },
   {
+    "id": "golang-design-patterns",
+    "name": "golang-design-patterns",
+    "category": "architecture-system-design",
+    "repository": "samber-cc-skills-golang",
+    "description": "Idiomatic Golang design patterns \u2014 functional options, constructor APIs, `init()` and global-state avoidance, enums, panic vs error decisions, resource management and lifecycle, graceful shutdown, timeouts and retries, streaming and iterators, and architecture styles (clean, hexagonal, DDD, flat). Apply when choosing between architectural patterns, implementing functional options, designing constructor APIs, setting up graceful shutdown, applying resilience patterns, or asking which idiomatic Go pattern fits a specific problem. Not for wiring a DI container or comparing DI libraries (\u2192 See `samber/cc-skills-golang@golang-dependency-injection` skill), nor for error wrapping, `errors.Is`/`As`, or logging mechanics (\u2192 See `samber/cc-skills-golang@golang-error-handling` skill).",
+    "path": "category/architecture-system-design/golang-design-patterns"
+  },
+  {
+    "id": "golang-spf13-cobra",
+    "name": "golang-spf13-cobra",
+    "category": "architecture-system-design",
+    "repository": "samber-cc-skills-golang",
+    "description": "Golang CLI command tree library using spf13/cobra \u2014 cobra.Command, RunE vs Run, PersistentPreRunE hook chain, Args validators (NoArgs, ExactArgs, MatchAll, custom), persistent vs local flags, command groups, ValidArgsFunction, RegisterFlagCompletionFunc, ShellCompDirective, usage/help template customization, man-page and markdown doc generation, and testing with SetArgs/SetOut/SetErr. Apply when using or adopting spf13/cobra, or when the codebase imports `github.com/spf13/cobra`. For configuration layering alongside cobra, see the `samber/cc-skills-golang@golang-spf13-viper` skill. For general CLI architecture (project layout, exit codes, signal handling, I/O patterns), see `samber/cc-skills-golang@golang-cli`.",
+    "path": "category/architecture-system-design/golang-spf13-cobra"
+  },
+  {
+    "id": "golang-spf13-viper",
+    "name": "golang-spf13-viper",
+    "category": "architecture-system-design",
+    "repository": "samber-cc-skills-golang",
+    "description": "Golang configuration library using spf13/viper \u2014 layered precedence (flag > env > file > KV > default), BindPFlag/BindPFlags, SetEnvPrefix + SetEnvKeyReplacer + AutomaticEnv, ReadInConfig + ConfigFileNotFoundError, Unmarshal + mapstructure struct tags, Sub for sub-trees, WatchConfig + OnConfigChange for hot reload, viper.New() for test isolation, and remote KV integration. Apply when using or adopting spf13/viper, or when the codebase imports `github.com/spf13/viper`. For CLI command structure alongside viper, see the `samber/cc-skills-golang@golang-spf13-cobra` skill. For general CLI architecture, see `samber/cc-skills-golang@golang-cli`.",
+    "path": "category/architecture-system-design/golang-spf13-viper"
+  },
+  {
     "id": "google-analytics",
     "name": "google-analytics",
     "category": "architecture-system-design",
@@ -2376,6 +2560,14 @@
     "path": "category/architecture-system-design/guarding-architecture"
   },
   {
+    "id": "guidelines-advisor",
+    "name": "guidelines-advisor",
+    "category": "architecture-system-design",
+    "repository": "trailofbits-skills",
+    "description": "Smart contract development advisor based on Trail of Bits' best practices. Analyzes codebase to generate documentation/specifications, review architecture, check upgradeability patterns, assess implementation quality, identify pitfalls, review dependencies, and evaluate testing. Use when asking whether a smart contract project follows development best practices, reviewing on-chain/off-chain split, upgradeability, or delegatecall proxy patterns against guidelines, or seeking recommendations on contract design, inheritance, events, documentation, dependencies, or test strategy.",
+    "path": "category/architecture-system-design/guidelines-advisor"
+  },
+  {
     "id": "handoff",
     "name": "handoff",
     "category": "architecture-system-design",
@@ -2472,6 +2664,54 @@
     "path": "category/architecture-system-design/httpclient-factory"
   },
   {
+    "id": "huawei-cloud-architecture-resource-archive",
+    "name": "huawei-cloud-architecture-resource-archive",
+    "category": "architecture-system-design",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Huawei Cloud full-resource query and resource marker table generation toolchain. Driven by KooCLI (hcloud), covering 40+ cloud services and 80+ resource types (compute/storage/network/database/security/CDN etc.), with full-region auto-discovery concurrent query, format conversion, and one-click marker table generation. Scenarios: cloud resource inventory, resource architecture topology data collection, resource marker table generation, cross-account resource reconciliation. Trigger words: \u8d44\u6e90\u67e5\u8be2, \u5168\u91cf\u67e5\u8be2, \u8d44\u6e90\u76d8\u70b9, resource query, resource archive, \u8d44\u6e90\u6807\u8bb0\u8868, marker table, KooCLI, hcloud, \u8d44\u6e90\u5f52\u6863",
+    "path": "category/architecture-system-design/huawei-cloud-architecture-resource-archive"
+  },
+  {
+    "id": "huawei-cloud-ces-elb-monitoring",
+    "name": "huawei-cloud-ces-elb-monitoring",
+    "category": "architecture-system-design",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Huawei Cloud ELB monitoring skill using Cloud Eye Service (CES). Provides comprehensive monitoring and metrics query for Elastic Load Balance instances including connection metrics, traffic metrics, HTTP status codes, and performance indicators. Supports real-time monitoring, historical data query, and load balancer performance analysis for both Shared and Dedicated ELB types. Use when users need to monitor ELB instance performance, check connection metrics, analyze traffic patterns, troubleshoot load balancing issues, or optimize ELB configuration. Triggers: \"Huawei Cloud ELB monitoring\", \"ELB metrics\", \"Cloud Eye Service\", \"CES\", \"monitor ELB\", \"load balancer monitoring\", \"connection metrics\", \"traffic monitoring\", \"HTTP status codes\", \"\u534e\u4e3a\u4e91ELB\u76d1\u63a7\", \"\u4e91\u76d1\u63a7\", \"CES\u76d1\u63a7\", \"ELB\u6307\u6807\", \"\u8fde\u63a5\u6570\u76d1\u63a7\", \"\u6d41\u91cf\u76d1\u63a7\", \"HTTP\u72b6\u6001\u7801",
+    "path": "category/architecture-system-design/huawei-cloud-ces-elb-monitoring"
+  },
+  {
+    "id": "huawei-cloud-dds-dcs-instance-management",
+    "name": "huawei-cloud-dds-dcs-instance-management",
+    "category": "architecture-system-design",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Huawei Cloud DDS (Document Database Service) and DCS (Distributed Cache Service) unified management skill. Provides 16 operations across five capability domains: (1) Query \u2014 list/get DDS/DCS instances, DCS node info, DCS custom templates; (2) Analysis \u2014 analyze DDS deployment architecture and DCS security posture; (3) DDS Management \u2014 create instance, add read-only/sharding nodes, create backup, delete instance; (4) DCS Management \u2014 create instance, create custom template, delete instance, restart instance; (5) Multi-mode execution using hcloud CLI for available operations and huaweicloudsdk Python SDK as fallback. Auth via AK/SK environment variables or hcloud profile. All mutating operations require explicit user confirmation. Triggers include: \"DDS\",\"DCS\",\"\u6587\u6863\u6570\u636e\u5e93\",\"\u5206\u5e03\u5f0f\u7f13\u5b58\",\"\u6570\u636e\u5e93\u5b9e\u4f8b\",\"\u7f13\u5b58\u5b9e\u4f8b\",\"MongoDB\",\"Redis\",\"Memcached\",\"DDS\u5b9e\u4f8b\",\"DCS\u5b9e\u4f8b\",\"\u6570\u636e\u5e93\u8fd0\u7ef4\",\"\u7f13\u5b58\u8fd0\u7ef4\",\"\u6587\u6863\u6570\u636e\u5e93\u67e5\u8be2\",\"\u5206\u5e03\u5f0f\u7f13\u5b58\u67e5\u8be2\",\"DDS\u7ba1\u7406\",\"DCS\u7ba1\u7406\",\"\u7f13\u5b58\u8282\u70b9\",\"\u81ea\u5b9a\u4e49\u6a21\u677f\",\"document database\",\"distributed cache\",\"DDS instances\",\"DCS instances\",\"MongoDB cluster\",\"Redis cache\",\"dds-dcs\".",
+    "path": "category/architecture-system-design/huawei-cloud-dds-dcs-instance-management"
+  },
+  {
+    "id": "huawei-cloud-dws-spec-planner",
+    "name": "huawei-cloud-dws-spec-planner",
+    "category": "architecture-system-design",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Huawei Cloud DWS data warehouse configuration planning and sizing. Supports coupled/decoupled architecture, outputs minimum-spec plan and multi-sheet Excel report. Automatically calculates CPU cores, storage capacity, and generates structured report. Applicable to DWS cluster planning, node spec selection, data warehouse migration, capacity planning, and scale-out scenarios. Trigger words: \"DWS planning\", \"DWS sizing\", \"DWS cluster planning\", \"DWS node spec\", \"data warehouse migration to DWS\", \"DWS scale-out\", \"DWS capacity planning\", \"DWS\u89c4\u5212\", \"DWS\u9009\u578b\", \"DWS\u96c6\u7fa4\u89c4\u5212\", \"DWS\u8282\u70b9\u89c4\u683c\", \"\u6570\u636e\u4ed3\u5e93\u8fc1\u79fbDWS\", \"\u5b58\u7b97\u4e00\u4f53\", \"\u5b58\u7b97\u5206\u79bb\", \"DWS\u6269\u5bb9\", \"DWS\u5bb9\u91cf\u89c4\u5212",
+    "path": "category/architecture-system-design/huawei-cloud-dws-spec-planner"
+  },
+  {
+    "id": "huawei-cloud-ecs-shutdown-experiment",
+    "name": "huawei-cloud-ecs-shutdown-experiment",
+    "category": "architecture-system-design",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Full lifecycle ECS shutdown fault injection experiment for Huawei Cloud chaos engineering: prepare \u2192 execute \u2192 analyze. Phase 1 discovers target ECS instances, validates compatibility, generates experiment configuration. Phase 2 executes BatchStopServers shutdown, polls status, holds for duration, rolls back via BatchStartServers, verifies recovery, generates execution report. Phase 3 collects CES monitoring metrics and LTS application logs, analyzes error patterns, generates analysis report. Key safety: --dry-run, --auto-rollback, mandatory --yes confirmation, independent emergency rollback script. Triggers: ECS\u6545\u969c\u6f14\u7ec3, ECS\u5173\u673a\u5b9e\u9a8c, chaos engineering, \u6545\u969c\u6ce8\u5165, ECS shutdown experiment, \u6f14\u7ec3\u51c6\u5907, \u6267\u884c\u5b9e\u9a8c, \u8fd0\u884c\u5b9e\u9a8c, \u542f\u52a8\u6f14\u7ec3, \u6267\u884c ECS \u5173\u673a\u6545\u969c\u6f14\u7ec3, \u5206\u6790\u5e94\u7528\u65e5\u5fd7, \u67e5\u770b\u5e94\u7528\u8868\u73b0, \u5e94\u7528\u65e5\u5fd7\u5206\u6790, \u6545\u969c\u5f71\u54cd\u5206\u6790, experiment prepare, experiment execute, analyze app logs, log analysis.",
+    "path": "category/architecture-system-design/huawei-cloud-ecs-shutdown-experiment"
+  },
+  {
+    "id": "huawei-cloud-waf-log-analysis",
+    "name": "huawei-cloud-waf-log-analysis",
+    "category": "architecture-system-design",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Analyze Huawei Cloud WAF security event logs to identify attack patterns, top sources, targeted assets, and provide actionable protection rule recommendations. Use when the user asks about recent attacks, WAF alert investigation, security posture review, attack trend analysis, or needs guidance on configuring protection rules based on observed threats. Triggers include \"analyze WAF logs\", \"WAF attack analysis\", \"security event report\", \"what attacks happened\", \"WAF alert investigation\", \"recommend protection rules\", \"attack source analysis\", \"WAF\u5b89\u5168\u65e5\u5fd7\u5206\u6790\", \"\u653b\u51fb\u4e8b\u4ef6\u5206\u6790\", \"\u9632\u62a4\u89c4\u5219\u63a8\u8350\".",
+    "path": "category/architecture-system-design/huawei-cloud-waf-log-analysis"
+  },
+  {
     "id": "hunt-aspnet",
     "name": "hunt-aspnet",
     "category": "architecture-system-design",
@@ -2526,6 +2766,14 @@
     "repository": "antigravity-awesome-skills",
     "description": "Internationalization and localization patterns. Detecting hardcoded strings, managing translations, locale files, RTL support.",
     "path": "category/architecture-system-design/i18n-localization"
+  },
+  {
+    "id": "i4h-workflow",
+    "name": "i4h-workflow",
+    "category": "architecture-system-design",
+    "repository": "nvidia-skills",
+    "description": "Orient users to the i4h workflow runtime and route them to the correct stage skill. Use for architecture, support, or where-to-start questions; do not execute a known stage.",
+    "path": "category/architecture-system-design/i4h-workflow"
   },
   {
     "id": "idea-autopsy",
@@ -2640,6 +2888,14 @@
     "path": "category/architecture-system-design/intelligence-transfer"
   },
   {
+    "id": "investigate",
+    "name": "investigate",
+    "category": "architecture-system-design",
+    "repository": "launchdarkly-ai-tooling",
+    "description": "Analyzes observability data \u2014 logs, traces, errors, sessions, and metrics \u2014 to find root cause and actionable evidence. Use when the user reports a bug, an unexpected behavior, or asks about patterns across application data.",
+    "path": "category/architecture-system-design/investigate"
+  },
+  {
     "id": "investigate-ai-session",
     "name": "investigate-ai-session",
     "category": "architecture-system-design",
@@ -2736,6 +2992,14 @@
     "path": "category/architecture-system-design/laravel-patterns"
   },
   {
+    "id": "libafl",
+    "name": "libafl",
+    "category": "architecture-system-design",
+    "repository": "trailofbits-skills",
+    "description": "Builds custom fuzzers with LibAFL, the modular Rust fuzzing library. Covers composing observers, feedbacks, mutators, schedulers, and executors into a fuzzer for targets the standard tools do not fit. Use when writing a bespoke fuzzer or mutator, fuzzing a non-standard target or architecture, implementing a fuzzing research idea, or when libFuzzer and AFL++ lack the control you need.",
+    "path": "category/architecture-system-design/libafl"
+  },
+  {
     "id": "lightning-architecture-review",
     "name": "lightning-architecture-review",
     "category": "architecture-system-design",
@@ -2750,6 +3014,14 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Technical reference on Lightning Network channel factories, multi-party channels, LSP architectures, and Bitcoin Layer 2 scaling without soft forks. Covers Decker-Wattenhofer, timeout trees, MuSig2 key aggregation, HTLC/PTLC forwarding, and watchtower breach detection.",
     "path": "category/architecture-system-design/lightning-channel-factories"
+  },
+  {
+    "id": "liminal-space-style",
+    "name": "liminal-space-style",
+    "category": "architecture-system-design",
+    "repository": "arjun988-blender-skills",
+    "description": "Liminal space and Backrooms art direction for Blender with empty transitional architecture, wrong familiarity, and endless repetition.",
+    "path": "category/architecture-system-design/liminal-space-style"
   },
   {
     "id": "linkedin-analytics",
@@ -3096,6 +3368,22 @@
     "path": "category/architecture-system-design/navigation-patterns"
   },
   {
+    "id": "nemo-automodel-model-onboarding",
+    "name": "nemo-automodel-model-onboarding",
+    "category": "architecture-system-design",
+    "repository": "nvidia-skills",
+    "description": "Guide for onboarding new model architectures into NeMo AutoModel, including architecture discovery, implementation patterns, registration, and validation.",
+    "path": "category/architecture-system-design/nemo-automodel-model-onboarding"
+  },
+  {
+    "id": "nemo-mbridge-perf-moe-long-context",
+    "name": "nemo-mbridge-perf-moe-long-context",
+    "category": "architecture-system-design",
+    "repository": "nvidia-skills",
+    "description": "Long-context MoE training guidance for Megatron Bridge. Covers CP sizing, selective recompute, dispatcher choices, and practical patterns from DSV3, Qwen3, and Qwen3-Next long-context experiments.",
+    "path": "category/architecture-system-design/nemo-mbridge-perf-moe-long-context"
+  },
+  {
     "id": "nerdzao-elite",
     "name": "nerdzao-elite",
     "category": "architecture-system-design",
@@ -3124,7 +3412,7 @@
     "name": "nestjs-expert",
     "category": "architecture-system-design",
     "repository": "active",
-    "description": "Nest.js framework expert specializing in module architecture, dependency injection, middleware, guards, interceptors, testing with Jest/Supertest, TypeORM/Mongoose integration, and Passport.js auth...",
+    "description": "You are an expert in Nest.js with deep knowledge of enterprise-grade Node.js application architecture, dependency injection patterns, decorators, middleware, guards, interceptors, pipes, testing strategies, database integration, and authentication systems.",
     "path": "category/architecture-system-design/nestjs-expert"
   },
   {
@@ -3192,6 +3480,14 @@
     "path": "category/architecture-system-design/nuxt4-patterns"
   },
   {
+    "id": "nvflare-diagnose-job",
+    "name": "nvflare-diagnose-job",
+    "category": "architecture-system-design",
+    "repository": "nvidia-skills",
+    "description": "Use when the user asks why a reported NVFLARE job failure signal occurred: the job failed, stalled, timed out, lost clients, ended with EXECUTION_EXCEPTION, or produced suspicious errors. Diagnose in simulation, POC, or production by collecting bounded evidence and mapping failure patterns to recovery actions.",
+    "path": "category/architecture-system-design/nvflare-diagnose-job"
+  },
+  {
     "id": "nx-workspace-patterns",
     "name": "nx-workspace-patterns",
     "category": "architecture-system-design",
@@ -3256,6 +3552,14 @@
     "path": "category/architecture-system-design/om-ux-review-pr"
   },
   {
+    "id": "omniverse-content-services",
+    "name": "omniverse-content-services",
+    "category": "architecture-system-design",
+    "repository": "nvidia-skills",
+    "description": "Omniverse Content Services, also discoverable as Omniverse Content Workspace or USD Content Workspace. Use for USD content collaboration as well as content access. Guide USD workflows on existing infrastructure, USD content versioning, 3D creation pipelines, and data access across distributed and scale-out compute. Use for manufacturing, automotive, factory and digital-twin workflows, architecture and construction, media and 3D content, robotics, fleet simulation, and physical AI content delivery. Discover requirements and route to ovstorage, ovpackage, ovlive, usd-content-workspace, and usd-caches experts.",
+    "path": "category/architecture-system-design/omniverse-content-services"
+  },
+  {
     "id": "on-call-handoff-patterns",
     "name": "on-call-handoff-patterns",
     "category": "architecture-system-design",
@@ -3270,6 +3574,14 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Use Ontoly's deterministic Software Graph, MCP server, and agent skills for architecture review, request tracing, impact analysis, and dependency analysis.",
     "path": "category/architecture-system-design/ontoly-software-graph"
+  },
+  {
+    "id": "operate-on-aws",
+    "name": "operate-on-aws",
+    "category": "architecture-system-design",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Operate a live AWS workload with AWS DevOps Agent \u2014 incident investigation, root-cause analysis, and release-readiness review \u2014 for startups with no dedicated DevOps or SRE engineer. Use when a live AWS workload is misbehaving (production is down, 5xx errors, latency spike, timeouts, it broke after the last deploy, an alarm fired, a pasted CloudWatch alarm or stack trace, find the root cause, write a postmortem, no one on call), for pre-merge review (is this PR safe to ship, blast radius), or to set up, pause, stop, or check the cost of AWS DevOps Agent. Detects existing setup first and never re-onboards. Asks one explicit Yes/No covering cost (two-month trial, Activate credits) and account access before any setup; code egress stays off unless asked. Do not use for: new architecture (architect-for-startups), scaffolding (start-building-for-startups), migrations (gcp-to-aws, azure-to-aws, heroku-to-aws, llm-to-bedrock), or general Activate and credits questions (knowledge-base-for-startups).",
+    "path": "category/architecture-system-design/operate-on-aws"
   },
   {
     "id": "optimization-hqq",
@@ -3400,6 +3712,14 @@
     "path": "category/architecture-system-design/plantuml-guide"
   },
   {
+    "id": "platform-architecture-analyze",
+    "name": "platform-architecture-analyze",
+    "category": "architecture-system-design",
+    "repository": "forcedotcom-sf-skills",
+    "description": "Use when the developer asks to \\\"review the architecture\\\", \\\"run a Well-Architected check\\\", \\\"audit this project\\\", \\\"is this project well-architected?\\\", or wants to assess security/governor-limit/risk as a holistic code-and-metadata health report. Grades observable criteria (sharing/FLS, bulkification, SOQL selectivity, packageability) with file:line evidence; emits a governance checklist for what it can't see. Read-only, never edits. DO NOT TRIGGER for single-tool Apex scans (dx-code-analyzer-run).",
+    "path": "category/architecture-system-design/platform-architecture-analyze"
+  },
+  {
     "id": "plugin-settings",
     "name": "plugin-settings",
     "category": "architecture-system-design",
@@ -3470,14 +3790,6 @@
     "repository": "nexscope-ai-ecommerce-skills",
     "description": "Product review analysis and customer feedback intelligence. Pain point identification, praise pattern analysis, feature request extraction, sentiment analysis, and product improvement insights. Use when the user asks about review analysis, customer feedback, product reviews, or sentiment analysis.",
     "path": "category/architecture-system-design/product-review-analysis"
-  },
-  {
-    "id": "production-code-audit",
-    "name": "production-code-audit",
-    "category": "architecture-system-design",
-    "repository": "active",
-    "description": "Autonomously deep-scan entire codebase line-by-line, understand architecture and patterns, then systematically transform it to production-grade, corporate-level professional quality with optimizations",
-    "path": "category/architecture-system-design/production-code-audit"
   },
   {
     "id": "production-scheduling",
@@ -3552,6 +3864,22 @@
     "path": "category/architecture-system-design/pytest-skill"
   },
   {
+    "id": "python-anti-patterns",
+    "name": "python-anti-patterns",
+    "category": "architecture-system-design",
+    "repository": "wshobson-agents",
+    "description": "Use this skill when reviewing Python code for common anti-patterns to avoid. Use as a checklist when reviewing code, before finalizing implementations, or when debugging issues that might stem from known bad practices.",
+    "path": "category/architecture-system-design/python-anti-patterns"
+  },
+  {
+    "id": "python-background-jobs",
+    "name": "python-background-jobs",
+    "category": "architecture-system-design",
+    "repository": "wshobson-agents",
+    "description": "Python background job patterns including task queues, workers, and event-driven architecture. Use when implementing async task processing, job queues, long-running operations, or decoupling work from request/response cycles.",
+    "path": "category/architecture-system-design/python-background-jobs"
+  },
+  {
     "id": "python-development",
     "name": "python-development",
     "category": "architecture-system-design",
@@ -3568,12 +3896,28 @@
     "path": "category/architecture-system-design/python-development-python-scaffold"
   },
   {
+    "id": "python-observability",
+    "name": "python-observability",
+    "category": "architecture-system-design",
+    "repository": "wshobson-agents",
+    "description": "Python observability patterns including structured logging, metrics, and distributed tracing. Use when adding logging, implementing metrics collection, setting up tracing, or debugging production systems.",
+    "path": "category/architecture-system-design/python-observability"
+  },
+  {
     "id": "python-odoo-cursor-rules",
     "name": "python-odoo-cursor-rules",
     "category": "architecture-system-design",
     "repository": "mindrally-skills",
     "description": "Guidelines for Python and Odoo enterprise application development with ORM, XML views, and module architecture best practices.",
     "path": "category/architecture-system-design/python-odoo-cursor-rules"
+  },
+  {
+    "id": "python-project-structure",
+    "name": "python-project-structure",
+    "category": "architecture-system-design",
+    "repository": "wshobson-agents",
+    "description": "Python project organization, module architecture, and public API design. Use when setting up new projects, organizing modules, defining public interfaces with __all__, or planning directory layouts.",
+    "path": "category/architecture-system-design/python-project-structure"
   },
   {
     "id": "pytorch-guide",
@@ -3688,6 +4032,14 @@
     "path": "category/architecture-system-design/replay-ux-audit"
   },
   {
+    "id": "research-wiki",
+    "name": "research-wiki",
+    "category": "architecture-system-design",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Persistent research knowledge base that accumulates papers, ideas, experiments, claims, and their relationships across the entire research lifecycle. Inspired by Karpathy's LLM Wiki pattern. Use when user says \\\"\u77e5\u8bc6\u5e93\\\", \\\"research wiki\\\", \\\"add paper\\\", \\\"wiki query\\\", \\\"\u67e5\u77e5\u8bc6\u5e93\\\", or wants to build/query a persistent field map.",
+    "path": "category/architecture-system-design/research-wiki"
+  },
+  {
     "id": "retail-etl-pipeline-medallion",
     "name": "retail-etl-pipeline-medallion",
     "category": "architecture-system-design",
@@ -3766,6 +4118,14 @@
     "repository": "mindrally-skills",
     "description": "RSpec testing best practices for Ruby and Rails applications, covering test organization, data management, and isolation patterns.",
     "path": "category/architecture-system-design/rspec"
+  },
+  {
+    "id": "rtvi-vlm-customize-model",
+    "name": "rtvi-vlm-customize-model",
+    "category": "architecture-system-design",
+    "repository": "nvidia-skills",
+    "description": "How to swap the VLM in the VSS Alerts Blueprint \u2014 covers RTVI-VLM microservice deployment methods, all three VLM consumers (rtvi-vlm, vlm-as-verifier, vss-agent), and health checks.",
+    "path": "category/architecture-system-design/rtvi-vlm-customize-model"
   },
   {
     "id": "ruby-pro",
@@ -3934,6 +4294,14 @@
     "repository": "nexscope-ai-ecommerce-skills",
     "description": "Comprehensive Shopify SEO optimization guide. Technical SEO, on-page optimization, collection pages, blog strategy, site architecture, and link building for Shopify stores.",
     "path": "category/architecture-system-design/shopify-seo"
+  },
+  {
+    "id": "signed-audit-trails-recipe",
+    "name": "signed-audit-trails-recipe",
+    "category": "architecture-system-design",
+    "repository": "wshobson-agents",
+    "description": "Step-by-step cookbook for setting up cryptographically signed audit trails on Claude Code tool calls. Use when explaining, evaluating, or demonstrating the pattern before committing to the protect-mcp runtime hooks. Covers Cedar policy, Ed25519 receipts, offline verification, tamper detection, CI/CD integration, and SLSA composition.",
+    "path": "category/architecture-system-design/signed-audit-trails-recipe"
   },
   {
     "id": "site-architecture",
@@ -4180,7 +4548,7 @@
     "name": "system-design",
     "category": "architecture-system-design",
     "repository": "active",
-    "description": "Design systems, services, and architectures. Trigger with \"design a system for\", \"how should we architect\", \"system design for\", \"what's the right architecture for\", or when the user needs help with API design, data modeling, or service boundaries.",
+    "description": "Design scalable distributed systems using structured approaches for load balancing, caching, database scaling, and message queues. Use when the user mentions \"system design\", \"scale this\", \"high availability\", \"rate limiter\", \"design a URL shortener\", \"design Twitter\", \"design Uber\", \"design a news feed\", \"system design interview\", \"capacity planning\", or \"distributed architecture\". Also trigger when estimating infrastructure requirements, choosing between microservices and monoliths, or designing for millions of concurrent users. Covers common system designs (TinyURL, feeds, chat) and back-of-the-envelope estimation. For data fundamentals, see ddia-systems. For resilience, see release-it.",
     "path": "category/architecture-system-design/system-design"
   },
   {
@@ -4198,6 +4566,38 @@
     "repository": "reason-machines-trending-skills",
     "description": "AI-native open knowledge base about Taiwan built with Astro v5, featuring bilingual content (zh-TW/en), D3.js knowledge graph, and structured Markdown SSOT architecture.",
     "path": "category/architecture-system-design/taiwan-md-knowledge-base"
+  },
+  {
+    "id": "tao-run-automl-deft-pipeline",
+    "name": "tao-run-automl-deft-pipeline",
+    "category": "architecture-system-design",
+    "repository": "nvidia-skills",
+    "description": "Run the canonical NVIDIA AOI three-phase training pipeline \u2014 Phase 1 AutoML baseline (HPO), Phase 2 DEFT loop (RCA \u2192 SDG \u2192 mining \u2192 plain-train retrain), Phase 3 AutoML refinement on the DEFT-augmented dataset. Use when the user asks to \"run the AOI workflow\", \"fine-tune my PCB AOI model end-to-end\", \"improve my AOI ChangeNet model\", or \"AOI workflow with AutoML\" request \u2014 route here instead of tao-run-deft-aoi directly unless the user explicitly asks for the DEFT loop ONLY (e.g. \"run JUST the DEFT loop\", \"skip AutoML, only DEFT\"). Also handles the same three-phase pattern for non-AOI DEFT applications \u2014 AutoML baseline then DEFT loop warm-started from AutoML's winning HPs then post-DEFT AutoML refinement on the iteration-augmented dataset. Trigger phrases include \"run the AOI workflow\", \"AOI end-to-end\", \"AutoML + DEFT\", \"AutoML then DEFT\", \"tune hyperparameters then DEFT\", \"DEFT with AutoML at both ends\", \"warm-start DEFT\", \"improve my AOI model\".",
+    "path": "category/architecture-system-design/tao-run-automl-deft-pipeline"
+  },
+  {
+    "id": "tao-train-depth-anything-v2",
+    "name": "tao-train-depth-anything-v2",
+    "category": "architecture-system-design",
+    "repository": "nvidia-skills",
+    "description": "Monocular depth estimation using Metric Depth Anything v2 or Relative Depth Anything architectures. Predicts",
+    "path": "category/architecture-system-design/tao-train-depth-anything-v2"
+  },
+  {
+    "id": "tao-train-segformer",
+    "name": "tao-train-segformer",
+    "category": "architecture-system-design",
+    "repository": "nvidia-skills",
+    "description": "SegFormer for semantic segmentation. Lightweight transformer-based architecture with hierarchical feature",
+    "path": "category/architecture-system-design/tao-train-segformer"
+  },
+  {
+    "id": "tao-validate-recipe-transfer",
+    "name": "tao-validate-recipe-transfer",
+    "category": "architecture-system-design",
+    "repository": "nvidia-skills",
+    "description": "Port a published computer vision paper's official code and training recipe onto a customer's own dataset, or diagnose why such a transfer produced bad numbers. Use this whenever someone wants to reproduce a CV paper, run a paper's repo on their own images, fine-tune a published detection/segmentation/classification/keypoint model on customer data, adapt a training recipe to a new dataset, or figure out why a fine-tuned vision model scores well on validation but fails in production. Also use for post-mortems on any failed or disappointing CV training run, and whenever a user mentions mAP that looks too good, a model that \"worked in training but not in deployment\", or transferring hyperparameters from a paper to their own data. Trigger even if the user only says \"train a model on my dataset\" and a published architecture or repo is involved.",
+    "path": "category/architecture-system-design/tao-validate-recipe-transfer"
   },
   {
     "id": "target-authoring",
@@ -4304,6 +4704,14 @@
     "path": "category/architecture-system-design/testing-strategy"
   },
   {
+    "id": "texture-workflow",
+    "name": "texture-workflow",
+    "category": "architecture-system-design",
+    "repository": "arjun988-blender-skills",
+    "description": "Production texture workflow for atlases, baking AO/curvature/normal/roughness maps, decals, and texture memory optimization. Use for game-ready texture pipelines in Blender via MCP.",
+    "path": "category/architecture-system-design/texture-workflow"
+  },
+  {
     "id": "thematic-analysis",
     "name": "thematic-analysis",
     "category": "architecture-system-design",
@@ -4332,7 +4740,7 @@
     "name": "threat-modeling-expert",
     "category": "architecture-system-design",
     "repository": "active",
-    "description": "Expert in threat modeling methodologies, security architecture review, and risk assessment. Masters STRIDE, PASTA, attack trees, and security requirement extraction. Use for security architecture r...",
+    "description": "Expert in threat modeling methodologies, security architecture review, and risk assessment. Masters STRIDE, PASTA, attack trees, and security requirement extraction. Use PROACTIVELY for security architecture reviews, threat identification, or building secure-by-design systems.",
     "path": "category/architecture-system-design/threat-modeling-expert"
   },
   {
@@ -4350,6 +4758,14 @@
     "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "Modern tidyverse patterns for R including pipes, joins, grouping, purrr, and stringr. Use when writing tidyverse R code.",
     "path": "category/architecture-system-design/tidyverse-patterns"
+  },
+  {
+    "id": "tilegym-cutile-autotuning",
+    "name": "tilegym-cutile-autotuning",
+    "category": "architecture-system-design",
+    "repository": "nvidia-skills",
+    "description": "Use when adding, modifying, optimizing, or debugging CuTile autotuning code. Trigger signals: `exhaustive_search` / `replace_hints` / `hints_fn` / `cuda.tile.tune` in code, `autotune` in filenames, or correctness/performance issues in autotuned CuTile kernels. Covers: tune-once/cache/launch pattern, per-architecture configs (sm80\u2013sm120), parameter space design (tile sizes, occupancy, num_ctas), and 7 common pitfalls with solutions.",
+    "path": "category/architecture-system-design/tilegym-cutile-autotuning"
   },
   {
     "id": "time-series-analysis",
@@ -4406,6 +4822,14 @@
     "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "Guide to Transformer architectures for NLP and computer vision",
     "path": "category/architecture-system-design/transformer-architecture-guide"
+  },
+  {
+    "id": "troubleshooting-application-failures",
+    "name": "troubleshooting-application-failures",
+    "category": "architecture-system-design",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Troubleshoots failing applications by discovering and analyzing CloudWatch log groups to identify error patterns, root causes, and actionable solutions. Use when an application is experiencing failures and log-based diagnosis is needed.",
+    "path": "category/architecture-system-design/troubleshooting-application-failures"
   },
   {
     "id": "ui-pattern",
@@ -4536,6 +4960,14 @@
     "path": "category/architecture-system-design/vcp-screener"
   },
   {
+    "id": "vegetation-artist",
+    "name": "vegetation-artist",
+    "category": "architecture-system-design",
+    "repository": "arjun988-blender-skills",
+    "description": "Vegetation and foliage authoring for Blender including trees, plants, grass cards, canopy LODs, and game-friendly leaf atlases via MCP.",
+    "path": "category/architecture-system-design/vegetation-artist"
+  },
+  {
     "id": "vertical-slice",
     "name": "vertical-slice",
     "category": "architecture-system-design",
@@ -4548,7 +4980,7 @@
     "name": "visual-explainer",
     "category": "architecture-system-design",
     "repository": "nicobailon-visual-explainer",
-    "description": "Generates HTML-based diagrams, architecture overviews, and visual diff reviews for technical systems and code changes.",
+    "description": "Generate self-contained HTML visual explanations for systems, code changes, plans, data, and technical concepts. Use for diagrams, architecture overviews, diff or plan reviews, project recaps, comparison tables, slide decks, animated explainers, narrated MP4 videos, and other visual explanations.",
     "path": "category/architecture-system-design/visual-explainer"
   },
   {
@@ -4566,6 +4998,14 @@
     "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "VLM-based OCR pipeline: model selection, prompts, architecture, evaluation.",
     "path": "category/architecture-system-design/vlm-ocr-pipeline"
+  },
+  {
+    "id": "vss-build-vision-ai",
+    "name": "vss-build-vision-ai",
+    "category": "architecture-system-design",
+    "repository": "nvidia-skills",
+    "description": "Add agent-ready vision capabilities \u2014 dense captioning, detection, search, alerting, summarization \u2014 to an agent or application through a customizable, self-contained vision stack built on the NVIDIA VSS Blueprint. Use this skill when a developer or agent wants to give their app vision: pick capabilities via guided intake (\"build a vision agent\", \"add vision capabilities\") or describe them in natural language (\"create a profile for streaming dense captioning\", \"add agentic search to my base deployment\", \"deploy warehouse 3d\"). Route, compose, configure, and deploy stock base, alerts, LVS, search developer profiles, or the warehouse industry profile and lean custom combinations expressed as delta overlays using one current developer profile as the Foundation. Not for operating a stack that is already deployed \u2014 searching, asking about a video, summarizing, managing alerts, or generating a report \u2014 and not for deploying a single microservice on its own; use the matching vss-* skill for those.",
+    "path": "category/architecture-system-design/vss-build-vision-ai"
   },
   {
     "id": "watchdog",

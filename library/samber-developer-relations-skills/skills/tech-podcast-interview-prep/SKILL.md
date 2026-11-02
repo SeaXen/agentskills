@@ -4,7 +4,7 @@ description: Prepares a guest for someone else's technical podcast, YouTube inte
 license: MIT
 metadata:
   author: Samuel Berthe
-  version: "1.0.2"
+  version: "1.0.3"
 ---
 
 # Podcast Interview Prep
@@ -16,6 +16,7 @@ The booking exists before this skill starts. Route elsewhere instead of continui
 - Pitching hosts and building media relationships: samber/developer-relations-skills@tech-press-relations.
 - Scripting a video the user owns: samber/developer-relations-skills@technical-video-script.
 - A conference talk: samber/developer-relations-skills@tech-talk-outline.
+- Hosting your own recurring live show: samber/developer-relations-skills@devrel-live-streaming.
 - Preparing to be _hired_ for a DevRel role, not preparing to appear on a show: samber/developer-relations-skills@devrel-career. Say so, then route there.
 
 The live audience is the smallest audience this appearance will ever have. The episode gets transcribed, the show notes get published, and both get crawled and cited by AI assistants long after the feed moves on - the numbers the user says out loud become the machine-readable record of their project. Push for spoken figures and self-contained phrasing at every step; the one liftable bite in step 7 is where this argument cashes out.

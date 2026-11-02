@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Runs the core-module check, listing per question whether wording and position are unchanged between editions.",
+        "evidence": "Kubernetes and Go are each checked for wording, position and base.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the Kubernetes pair 'not comparable', naming the wording change, the position change and the new production screener as reasons.",
+        "evidence": "'Not comparable | Wording, position and base all changed'; Q5 vs Q12 screener explained.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses 'Kubernetes adoption up 8 points' and does not offer a softened version of the same trend claim.",
+        "evidence": "'\u274c \"Kubernetes adoption up 8 points\"'; footnote says the years are not comparable.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Runs the channel-mix check and names the docs banner and partner newsletter as a changed source mix that must be stated beside any trend.",
+        "evidence": "'This year adds a docs banner and a partner newsletter.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Allows the Go trend only in rung-1 form with both years' n (1,880 and 2,410), the unchanged wording, and the source-mix difference stated.",
+        "evidence": "The Go claim is held pending a check; the caption uses placeholders 'n = [2025] and [2026]' and the 2,410 figure is never used.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rewrites 'Go adoption up 5 points' into 'among respondents, X% reported ... up from Y%' form and does not use the word 'adoption' for the respondent share.",
+        "evidence": "'Among newsletter and Discord respondents, Go as primary language rose from X% to Y%.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Produces an explicit comparable list and a non-comparable list.",
+        "evidence": "Verdict table plus 'What marketing can say' with \u2705/\u274c lists.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports this year's Kubernetes figure as a standalone rung-1 number with its new wording and the screener base (asked of respondents who run Saltmarsh in production).",
+        "evidence": "'52% of respondents who run Saltmarsh in production run it on Kubernetes (n = [Q12 base]).'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends freezing the core-module wording and position from this edition forward and splitting a rotating module for yearly topics.",
+        "evidence": "It advises keeping the deployment question stable but never proposes a rotating module.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Stores the core-module wording, the channel list with source tags and this edition's funnel in `devrel-context.md` or the memory system in use.",
+        "evidence": "No storage step mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Carries 'multiple answers allowed' on the Kubernetes chart caption.",
+        "evidence": "Caption: '... multiple answers allowed \u00b7 Source: ...'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Runs the core-module check, listing per question whether wording and position are unchanged between editions.",
+        "evidence": "Only the Go and Kubernetes questions are checked, with no per-question wording/position list.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels the Kubernetes pair 'not comparable', naming the wording change, the position change and the new production screener as reasons.",
+        "evidence": "'compares two different measurements': different question, base, position.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses 'Kubernetes adoption up 8 points' and does not offer a softened version of the same trend claim.",
+        "evidence": "'Not safe: \"Kubernetes adoption up 8 points.\"'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Runs the channel-mix check and names the docs banner and partner newsletter as a changed source mix that must be stated beside any trend.",
+        "evidence": "'2026 adds two new recruitment channels (docs banner, partner newsletter).'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Allows the Go trend only in rung-1 form with both years' n (1,880 and 2,410), the unchanged wording, and the source-mix difference stated.",
+        "evidence": "The title is 'Go keeps growing as the primary language for Saltmarsh developers', a population-style claim.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rewrites 'Go adoption up 5 points' into 'among respondents, X% reported ... up from Y%' form and does not use the word 'adoption' for the respondent share.",
+        "evidence": "Keeps 'keep \"Go adoption up 5 points.\"' and 'Go up 5 points'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces an explicit comparable list and a non-comparable list.",
+        "evidence": "Only the narrative on Go and Kubernetes; no lists.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reports this year's Kubernetes figure as a standalone rung-1 number with its new wording and the screener base (asked of respondents who run Saltmarsh in production).",
+        "evidence": "'52% of Saltmarsh production users run it on Kubernetes' is a users claim, not respondents.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends freezing the core-module wording and position from this edition forward and splitting a rotating module for yearly topics.",
+        "evidence": "'Lock wording, order, and screener position' for trended questions, but no rotating module is proposed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Stores the core-module wording, the channel list with source tags and this edition's funnel in `devrel-context.md` or the memory system in use.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Carries 'multiple answers allowed' on the Kubernetes chart caption.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

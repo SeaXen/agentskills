@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to shorten the free support window from two majors to one in order to sell extended security support.",
+        "evidence": "Cutting free support to current-major-only is the one thing the skill says never to do.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps extended security support as a valid option only for versions past the published free support window, so 4.x security fixes stay free while 4.x sits inside the two-major window.",
+        "evidence": "ESS has nothing to sell yet for 4.x. While 4.x is inside the free window...",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to move the 4.x-to-5.x upgrade guide behind the paid tier, applying the rule that documentation needed to use the free edition is never paywalled.",
+        "evidence": "The list includes 'documentation needed to use the core'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the 'free forever, no enterprise edition' README line as a promise that must become the published always-free list, with its edit announced rather than made silently.",
+        "evidence": "the line must become a published always-free list, and the edit must be announced, never made silently.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a paid support line or extended security support withholds nothing users already had, so it keeps trust, while shortening the window would break the promise.",
+        "evidence": "ESS is a service and touches no promised code... Paid: response terms, backports past the window",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports the buyer gate as passed on the two insurers' paid-support-line requests.",
+        "evidence": "Buyer | Pass | Two insurers asked for paid support",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends capped support contracts with the two insurers as the first sale, with response terms stated and the free queue's terms unchanged.",
+        "evidence": "a written response window... a cap of three customers; Keep the free queue's terms unchanged.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Runs the capacity gate against 8 hours a week, estimating the standing hours of backports per old major plus hours per support customer, labelled as the advisor's own estimate.",
+        "evidence": "The estimate covers only 'Two contracts at about 4 h/month each'; no backport hours per old major.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Structures the announcement as what changes, what does not change, why, who pays, price, timeline and where to ask, and states that the free edition does not change.",
+        "evidence": "Only 'What changes', 'What never changes' and 'Date'; no why, who pays, price, where to ask.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Answers the FAQ questions 'will the free edition get fewer features from now on' with no and 'can I keep using the current version forever' with yes.",
+        "evidence": "No FAQ answers appear.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names trademark registration of the Hollowmere name as a step before selling anything.",
+        "evidence": "register the name before selling.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Delivers the plan with Gates, Chosen offer, Paid boundary and Announcement sections rather than as an unstructured answer.",
+        "evidence": "Gates, Chosen offer, Paid boundary and Announcement sections are present.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to shorten the free support window from two majors to one in order to sell extended security support.",
+        "evidence": "'Cut support to the current major only: don't do it now.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps extended security support as a valid option only for versions past the published free support window, so 4.x security fixes stay free while 4.x sits inside the two-major window.",
+        "evidence": "'Set a dated 4.x community EOL with at least 12 months' notice. ESS starts when that date passes.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to move the 4.x-to-5.x upgrade guide behind the paid tier, applying the rule that documentation needed to use the free edition is never paywalled.",
+        "evidence": "'Paywall the 4.x\u21925.x guide and the performance docs: don't.' The paid side excludes 'Docs'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the 'free forever, no enterprise edition' README line as a promise that must become the published always-free list, with its edit announced rather than made silently.",
+        "evidence": "It rewords the README and publishes a post. It never produces or requires a published always-free list.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a paid support line or extended security support withholds nothing users already had, so it keeps trust, while shortening the window would break the promise.",
+        "evidence": "Shortening 'makes the free tier worse... Users read that as coercion'. ESS is 'a service, not an edition'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports the buyer gate as passed on the two insurers' paid-support-line requests.",
+        "evidence": "'The insurers already asked, so demand exists.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends capped support contracts with the two insurers as the first sale, with response terms stated and the free queue's terms unchanged.",
+        "evidence": "There is a customer cap signal and a written response time, but no statement that the free queue stays unchanged.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Runs the capacity gate against 8 hours a week, estimating the standing hours of backports per old major plus hours per support customer, labelled as the advisor's own estimate.",
+        "evidence": "It sets a 3 h/week backport signal and an 8 h ceiling but gives no standing-hours estimate labelled as its own.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Structures the announcement as what changes, what does not change, why, who pays, price, timeline and where to ask, and states that the free edition does not change.",
+        "evidence": "It has a post but no changes/unchanged/why/who pays/price/timeline structure.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Answers the FAQ questions 'will the free edition get fewer features from now on' with no and 'can I keep using the current version forever' with yes.",
+        "evidence": "Not present.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names trademark registration of the Hollowmere name as a step before selling anything.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Delivers the plan with Gates, Chosen offer, Paid boundary and Announcement sections rather than as an unstructured answer.",
+        "evidence": "The headings are 'Verdict per piece', 'Sequence' and 'Risks'.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

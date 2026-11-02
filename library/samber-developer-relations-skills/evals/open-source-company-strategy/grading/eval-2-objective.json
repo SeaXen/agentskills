@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Diagnoses the underlying problem as a line drawn with no value-capture mechanism, rather than as the wrong license choice",
+        "evidence": "The brief's core diagnosis is a license-choice comparison ('Recommendation: BUSL-1.1 on the core, not AGPL') and treats BUSL's Additional Use Grant as itself the fix, rather than framing the root problem as an absent value-capture mechanism independent of licensing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States explicitly that no license retrofits a value-capture mechanism",
+        "evidence": "No such general statement appears; instead the text argues BUSL's Additional Use Grant 'is a field-of-use carve-out built for exactly that shape of problem,' presenting a license as the solution.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes an adversarial scenario naming the specific competitor, what they would run as a managed service, and what Corvid Metrics still holds",
+        "evidence": "The text only refers generically to 'a specific hyperscaler' and 'the hyperscaler in question' without naming one, and never lists what the company 'still holds' after such a scenario.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that if nothing is held, the correct response is to move the asset, not the license",
+        "evidence": "No statement of this kind appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names at least two concrete value-capture mechanisms from hosting and operations, proprietary data, network effects, trademark and brand, support and SLA, certification, a paid tier, or integration with a closed system",
+        "evidence": "Only one such mechanism appears ('you get our roadmap, support and SLA; a hosted clone doesn't'); no second mechanism (e.g., trademark, hosting, certification) is named anywhere in the text.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects 'the license' as a value-capture mechanism because it stops no competitor willing to comply",
+        "evidence": "\"A hyperscaler with the engineering resources to build a control plane on your codebase has the resources to comply with AGPL's network clause \u2014 publish the modified source \u2014 and keep running the exact same managed service. AGPL redirects competition into a compliance cost; it does not remove the competitor.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States a license cannot substitute for a trademark, and that the name and logo need their own registration and usage policy",
+        "evidence": "The word 'trademark' never appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refers to BUSL and similar instruments as 'source-available' and never as 'open source'",
+        "evidence": "The term 'source-available' never appears in the transcript; BUSL is only described by its mechanics (Change Date, Additional Use Grant, Change License), not categorized with that label.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that source-available instruments answer the competing-managed-service risk and only that risk",
+        "evidence": "No categorical statement about 'source-available instruments' and their limited scope appears; the closest is BUSL-specific framing ('built for exactly that shape of problem') without the generalizing claim or the term 'source-available.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the costs of going source-available: procurement allowlists, downstream distribution packaging, and contributors",
+        "evidence": "None of 'procurement allowlists' or 'downstream distribution packaging' are mentioned; only contributor-consent costs are discussed ('Contributor consent... the relicense can only bind future releases').",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Hands the actual license or instrument selection to samber/developer-relations-skills@oss-license-strategy rather than picking one",
+        "evidence": "The brief itself picks BUSL-1.1 with specific parameters ('Switch the tracing core to Business Source License 1.1 at the next release, converting to GPL-2.0-or-later after a 4-year Change Date') rather than deferring the choice.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that a relicensing is reversible but the fork it causes is not",
+        "evidence": "No statement contrasting reversibility of the license change itself against permanence of a resulting fork appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not claim that AGPL would have prevented a cloud provider from operating the software",
+        "evidence": "\"Neither AGPL then nor AGPL now 'prevents' what already happened... AGPL redirects competition into a compliance cost; it does not remove the competitor.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Diagnoses the underlying problem as a line drawn with no value-capture mechanism, rather than as the wrong license choice",
+        "evidence": "The core diagnosis is framed as a license-choice problem: \"BUSL, not AGPL\" and \"AGPL's network clause is weaker than your GC thinks here.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States explicitly that no license retrofits a value-capture mechanism",
+        "evidence": "Not stated; the piece instead argues BUSL's Additional Use Grant will block the harmful use going forward.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes an adversarial scenario naming the specific competitor, what they would run as a managed service, and what Corvid Metrics still holds",
+        "evidence": "Only a generic \"a hyperscaler running a *managed service* built on your code\" is described; no specific competitor is named and the company (\"Corvid Metrics\") is never mentioned by name in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that if nothing is held, the correct response is to move the asset, not the license",
+        "evidence": "No such statement appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names at least two concrete value-capture mechanisms from hosting and operations, proprietary data, network effects, trademark and brand, support and SLA, certification, a paid tier, or integration with a closed system",
+        "evidence": "\"ship the genuinely differentiated enterprise layer (multi-tenant control plane, RBAC/SSO, fleet management) under BUSL or fully proprietary\" (paid tier) and \"If brand/naming confusion is part of ... that's a trademark question\" (trademark).",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects 'the license' as a value-capture mechanism because it stops no competitor willing to comply",
+        "evidence": "The opposite is argued: \"That's exactly what BUSL's 'Additional Use Grant' is built to block\" \u2014 the license is presented as the effective mechanism.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States a license cannot substitute for a trademark, and that the name and logo need their own registration and usage policy",
+        "evidence": "Only says \"that's a trademark question, not a copyright-license question. Handle separately\" \u2014 does not discuss registration or a usage policy.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refers to BUSL and similar instruments as 'source-available' and never as 'open source'",
+        "evidence": "The term \"source-available\" never appears anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that source-available instruments answer the competing-managed-service risk and only that risk",
+        "evidence": "Not explicitly stated as a scope limitation; the closest is \"It stops the *next* fork. It does not claw back the one you already have,\" which is about timing, not risk scope.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the costs of going source-available: procurement allowlists, downstream distribution packaging, and contributors",
+        "evidence": "Only contributor/CLA cost is discussed (\"Check whether you have a CLA or DCO...\"); procurement allowlists and downstream distribution packaging are not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Hands the actual license or instrument selection to samber/developer-relations-skills@oss-license-strategy rather than picking one",
+        "evidence": "The transcript itself picks the license directly: \"**BUSL, not AGPL**\" \u2014 no hand-off to any skill/reference.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that a relicensing is reversible but the fork it causes is not",
+        "evidence": "The transcript discusses fork risk (\"reliably spawn a foundation-backed fork within weeks\") but never frames relicensing itself as reversible versus the fork being permanent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not claim that AGPL would have prevented a cloud provider from operating the software",
+        "evidence": "\"AGPL's network clause is weaker than your GC thinks here... AGPL didn't stop competition \u2014 it just changed its shape.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

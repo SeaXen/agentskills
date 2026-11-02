@@ -1,0 +1,398 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-accessibility-inclusion",
+  "scenarios": 9,
+  "expectations_total": 113,
+  "expectations_subjective": 1,
+  "expectations_objective": 112,
+  "pass_rate_with_skill_pct": 87.6,
+  "pass_rate_without_skill_pct": 34.5,
+  "delta_pp": 53.1,
+  "uplift_multiplier": 2.54,
+  "trigger_accuracy_pct": 73.6,
+  "trigger_queries": 110,
+  "trigger_positive_fire_rate": 0.745,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "The response does not deliver a finished accessibility page immediately; it asks clarifying interview questions before committing to provisions."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "It asks what access needs are already known or documented (previous edition requests, community reports, a declared speaker need) so provisioning happens against evidence before a template."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "It recommends the published page plus request channel as the default depth rung, characterized as roughly an afternoon of work plus a staffed inbox."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The proposed provision set is presented item by item with an owner and effort cost per provision, each labelled as sourced practice or a self-set decision."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "It states that shrinking the set of provisions needing a request at all is free and comes before any channel design decision."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "It explains the trade the registration-field route makes: it surfaces the most needs, which is exactly what generates months of triage - effort counted as triage generated, not setup minutes."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "It states that advancing funds instead would be a materially larger provision, and that doing so requires naming the control that replaces the receipt."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "It explains receipts plus in-person identity confirmation as the fraud control of the reimbursement model rather than dismissing the mechanism."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "It ties the program's viability to the legal entity able to disburse money, stating the program would be deleted outright without one."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The decline is specific - what cannot be done and why (the booking lead time) - not a generic apology."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "It anchors the target as WCAG 2.2 level AA on the event's own surfaces, structured by the four POUR categories (perceivable, operable, understandable, robust)."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "It re-ranks the defaults against the standing budget, promoting funded provisions (such as per-room live captioning or complimentary childcare) that a community event could not carry."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "It names the restriction categories to ask about: vegetarian, vegan, celiac and gluten-free, common allergies with lactose and peanut named, kosher, and halal."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "It presents this dietary practice as one organization's published practice, not an industry norm."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "The response does not deliver a finished accessibility page immediately; it asks clarifying interview questions before committing to provisions."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "It asks whether a legal entity exists that can sign vendor contracts, carry insurance, and disburse money before entertaining childcare, equipment rental, or grants."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "It asks what access needs are already known or documented (previous edition requests, community reports, a declared speaker need) so provisioning happens against evidence before a template."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "It asks whether anyone is available to staff a request channel from now through the event, and treats a no as deleting the request-channel options."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "It states that at a community budget every provision competes with catering for the same money, and uses that funding pole to bound the depth of the recommended set."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "It recommends the published page plus request channel as the default depth rung, characterized as roughly an afternoon of work plus a staffed inbox."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "It states that the funded-access set (childcare, equipment rental, grants) is dropped entirely, not merely deprioritized, if no legal entity can hold a contract."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "It presents its ranking as a default to re-rank against the user's answers, not as a fixed rule."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The proposed provision set is presented item by item with an owner and effort cost per provision, each labelled as sourced practice or a self-set decision."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "It recommends publishing that live captioning or interpretation is available on request with a stated lead time, booked when asked, as the default given no budget line."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "It names the on-request rung's failure mode: it only fires if someone discloses, and most people with the need do not."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "It states that the on-request route means holding a named individual's disability disclosure, and that refusing after receiving a request is where the exposure sits."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "If captioning scoped to some days or rooms is discussed, it requires the exact scope published in advance, naming the failure of a deaf attendee discovering the scope in the room."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "It identifies live captioning in every room as the high-value, high-effort option promoted only by an existing budget line or by on-request firing more than once, rather than dismissing it outright."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "It states that the threshold at which on-request provision stops being enough is self-set - no established attendance or evidence level fixes it - and states or asks for the level chosen."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "It hands captioning delivery (vendor choice, signal path, budget line ownership) to the production function rather than specifying the AV integration itself."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "It requires captions on the published recordings independently of whether the rooms were captioned live."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "It asks whether the event recurs and whether deaf or hard-of-hearing attendees are already known before finalizing the rung, instead of choosing purely on cost."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The response removes the quiet room, reserved seating, and all-gender restrooms from the booking form, stating these work walk-up and that requiring a request filters out the people least willing to disclose."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "It states that shrinking the set of provisions needing a request at all is free and comes before any channel design decision."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "It limits the request channel to provisions that must actually be booked, such as interpretation, childcare, a nursing room, equipment rental, or a grant."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "It rejects the required disclosure dropdown, replacing it with an optional open question about what the attendee needs to attend, never a mandatory disability selection."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "It warns that a registration-platform field deposits health and disability data into a third-party platform's records by default, where retention is the platform's choice, not the organizer's."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "It requires the data-handling posture decided before the channel opens, covering retention, who can access requests, and the reply turnaround as the published minimum."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The posture also covers where the data lives and who decides a decline with the reason written down."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "It states a published reply turnaround that applies to declines as well as acceptances."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "It explains the trade the registration-field route makes: it surfaces the most needs, which is exactly what generates months of triage - effort counted as triage generated, not setup minutes."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "It flags unanswered jurisdictional data rules as a question for counsel, and on that ground favors a channel the organizer controls over the platform field, rather than answering the legal question itself."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The response rejects the claim that charging a fee is cheaper to run than free childcare, stating the subsidized model carries more organizer effort (fee handling and administration), and wins only when the budget line rather than organizer hours is the binding constraint."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "It cites child-to-caregiver ratios by age band - 1:2 for 0-11 months, 1:3 for 1-3 years, 1:6 for 4-12 years - as questions to put to a vendor."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "It labels those ratios as one vendor's published standard to compare against, not a regulatory minimum, since jurisdictional requirements vary and belong with counsel."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "It states that placing minors in the event's care is the heaviest and least reversible review on any menu, since an incident cannot be undone."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "It states that if the vetting, insurance, or entity requirement cannot be met, the provision is unavailable and must be said so, never run in a reduced version."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "It recommends publishing the nursing room's existence unconditionally (location may be withheld until check-in) over hiding its existence behind a contact request, because the first reaches people who would never ask."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "If the subsidized route is kept, it carries the sourced cost pattern as a ratio - the published fee sits well below the real per-child-day cost, roughly a quarter of it - not as a currency figure to copy."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "It rejects branding the program solely as a diversity program, recommending several named goals (for example speakers and contributors who could not otherwise attend, diversity as one goal among several, and lower-income attendees generally) so it does not read as optics."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "It requires that limit published on the page rather than left for applicants to discover."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "It states that advancing funds instead would be a materially larger provision, and that doing so requires naming the control that replaces the receipt."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "It explains receipts plus in-person identity confirmation as the fraud control of the reimbursement model rather than dismissing the mechanism."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "It bundles the covered costs (travel, hotel, registration, and childcare if offered) into one grant and one application rather than making a low-income parent apply twice."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "It keeps discounted or free tickets out of this design, routing the need-gated ticket route to the ticket-pricing function instead of building a second application process here."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "It ties the program's viability to the legal entity able to disburse money, stating the program would be deleted outright without one."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "It identifies the grant as the top-value, top-effort option that the sponsor funding is what promotes, requiring a named owner for the standing application, review, and disbursement work."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The decline is specific - what cannot be done and why (the booking lead time) - not a generic apology."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "A named person decides the decline and the reason is written down, so the decline is a decision rather than a silence."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The reply states whether the answer changes for the next edition, and the case is committed to the debrief record."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "It applies data handling to Tomas's disclosure: shared only with the organizers arranging the request, kept until a stated date, then deleted."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "It carries the request forward: a need that recurs edition to edition becomes a planned provision next time rather than a repeat request."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The next-edition plan publishes the provision page before the travel-booking window, since a page published after attendees book reaches nobody it was for."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "It requires the registration and ticket flow exercised end to end by keyboard alone, including any date picker, dropdown, and the payment step."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "It identifies the registration flow as the highest-stakes path: a person who cannot complete it does not attend, and no on-site provision can rescue that."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "It anchors the target as WCAG 2.2 level AA on the event's own surfaces, structured by the four POUR categories (perceivable, operable, understandable, robust)."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "It requires the schedule checked at 200% zoom and on a narrow viewport."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "It checks the livestream player for keyboard-operable controls and a caption track, and requires captions on published recordings independently of live in-room captioning."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "It checks the accommodation-request field specifically: a text label rather than a placeholder only, programmatically associated help text, and errors described in words."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "It includes the accessibility page itself in the audit scope, since failing on that page undercuts the claim the page makes."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "It assigns the fixing work to whoever maintains the site while keeping the organizer's job as setting the target, the in-scope surfaces, and the statement of the result on the accessibility page - and refuses to treat the site work as closing the event-accessibility topic."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "It identifies the axis that does discriminate as who funds the provision line, and places this vendor-budget event on the funded side - which raises the expected provision depth rather than lowering it."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "It states that no established sizing rule exists for quiet spaces - no seats-per-attendee ratio and no noise or light criteria - instead of inventing one."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "It distinguishes the two quiet-room rationales - interaction and social load versus sensory input (noise and light) - and states that the choice changes which room to ask the venue for."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "If the interaction rationale is chosen, the room's rule is stated: a space where conversation and interaction are not allowed."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "It rebuts 'standard practice everywhere' by citing that at least one major conference publishes no quiet space at all and names a nearby public park as the alternative on its own page - a stated absence, not an omission."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "It requires the room's rationale and rules published on the page, plus a named day-of owner, so the provision is not announced-but-locked on the day."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "It states that the funding pole does not change the accommodation-data duty: once a disclosure arrives, this enterprise team holds the same duty of care, retention question, and named-owner obligation a two-person volunteer team would."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "It re-ranks the defaults against the standing budget, promoting funded provisions (such as per-room live captioning or complimentary childcare) that a community event could not carry."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "The dietary ask covers everyone who will be fed - participants, mentors, volunteers, and staff - not attendees alone."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "It names the restriction categories to ask about: vegetarian, vegan, celiac and gluten-free, common allergies with lactose and peanut named, kosher, and halal."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "It gives the two fallback paths when the supplier cannot cover a restriction: a one-off request to the existing supplier for a small number of prepared meals, or a delivery credit given to the attendee with advance notice so they can plan."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "It includes the distribution safeguard: restricted meals held at a separate table with names checked off a printed list as meals are handed out."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "It presents this dietary practice as one organization's published practice, not an industry norm."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "It states that red also signals not wanting to be photographed or filmed - one artifact carrying both a social boundary and a recording opt-out."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "It routes enforcement (someone photographing or recording a red-sticker wearer) to the code of conduct's incident process rather than drafting consequences itself."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "It requires the registration or help desk briefed on every provision, including any location deliberately kept off the website."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "It requires walk-up provisions physically signposted, because anything that requires asking a human filters out the people least willing to ask."
+      }
+    ]
+  }
+}

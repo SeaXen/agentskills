@@ -1,0 +1,642 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "developer-docs-structure-audit",
+  "scenarios": 13,
+  "expectations_total": 159,
+  "expectations_subjective": 1,
+  "expectations_objective": 158,
+  "pass_rate_with_skill_pct": 74.2,
+  "pass_rate_without_skill_pct": 32.1,
+  "delta_pp": 42.1,
+  "uplift_multiplier": 2.31,
+  "trigger_accuracy_pct": 52.1,
+  "trigger_queries": 144,
+  "trigger_positive_fire_rate": 0.375,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.274 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Notes that a borderline number would be a prompt to talk to the team, not a verdict"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Removes page moves from the remediation queue on the grounds that the tree test already passes"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Removes section renames from the remediation queue on the same grounds"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States explicitly which action types were deleted from the queue rather than silently omitting them"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names the conditions that would justify a switch: the declared taxonomy applied inconsistently, or leaving a whole reader need uncovered"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes that later DITA versions added topic types such as general-task, troubleshooting and glossentry"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Explains that split outranks merge on efficiency because a merge blocks on someone with authority deciding which text is true, and a split does not"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Deletes the 9 page moves from the queue entirely rather than demoting them, because the team cannot ship redirects"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Deletes the 3 section renames from the queue entirely for the same redirect reason"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Emits separate orderings for efficiency and value rather than one blended ranking"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Gives the reason that empty structures advertise the gaps and force readers to learn a vocabulary before they can navigate"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Proposes the small remediation loop: choose something, assess it, decide the single next action that produces an immediate improvement, do it, publish, repeat"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Points out that Diataxis itself rules out both the empty scaffolding and the teardown"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Starts from findings tied to specific pages rather than from a target structure"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States the mixing threshold: flag only when the second mode occupies roughly a fifth of the page, or contains something the reader must act on"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends recording a confidence level on borderline pages and moving on rather than debating the call"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Fixes the evidence scope before promising measures, stating that a live site yields the rendered navigation and the sitemap only"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Diffs sitemap.xml against the rendered navigation to produce orphan candidates"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names Mintlify's navigation source as the navigation key in docs.json, with mint.json on older projects"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Notes that anything unlisted in a Mintlify navigation is unreachable"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Drops the staleness measure from the scorecard rather than estimating it, because last-modified dates are not visible"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Drops the orphan measure from the scorecard as well, because drafts, hidden pages and front matter cannot be seen"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States in the report which measures were dropped and why"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Labels the inventory as nav-only"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Downgrades structural recommendations from validated to proposed, since no user testing is available"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Substitutes top 404s, zero-result site searches and high-exit landing pages as partial signals"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names the three failure modes of a solo generalist pass: treating it as a one-off friction log, optimising only the hero getting-started path, and skipping user validation"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Splits the deliverable into a report, an implementation plan and a set of tickets contributors can pick up"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Declines to classify any page before the gating questions are answered"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Asks where the docs live and whether the repository itself is readable"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Asks who reads the docs - self-serve individual developers, engineering teams behind a contract, or both - and which ecosystems or languages"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Asks what triggered the audit: a support pattern, a launch, a migration, a complaint, or a routine review"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Asks one question at a time rather than presenting the whole list at once"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Asks whether any part of the docs is out of scope, naming the auto-generated API reference as a candidate"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Asks about redirect and URL-stability constraints before classification, because they change which actions can enter the queue"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Asks what date the remediation has to show a result by, because it re-ranks the queue"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Builds the complete inventory before making any qualitative judgement, keeping inventory and audit as distinct passes"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Offers to run the bundled inventory script over the docs tree with the navigation config passed in"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Names Docusaurus's navigation sources as sidebars.js or sidebars.ts and _category_.json, and notes that autogenerated sidebars follow the folder tree and front-matter sidebar_position"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Names the triage rule for which pages to open in full: every page on the adoption path, every page above roughly 2,500 words, every page combining steps with an option table, plus a sample of the rest"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Assigns severities from the three tiers: must fix, should fix, worth noting"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "States the site-wide restructure should be cancelled rather than executed, despite the budget already being approved"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names the threshold of roughly 80% task success and 60% direct-path rate as the line above which structure is not the bottleneck"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Compares both reported figures (84% success, 67% direct path) against that threshold explicitly"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Redirects the approved writer budget to gap-filling and content freshness instead of a new tree"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Labels the 80%/60% reading as a practitioner heuristic rather than an authoritative standard"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Notes that a borderline number would be a prompt to talk to the team, not a verdict"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Identifies the 52% webhook-retry task as below the roughly 60% task-success line and restructures that branch only"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Removes page moves from the remediation queue on the grounds that the tree test already passes"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Removes section renames from the remediation queue on the same grounds"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States explicitly which action types were deleted from the queue rather than silently omitting them"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Warns that a restructure a tree test says is unnecessary breaks inbound links for no gain"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Keeps every structural recommendation scoped to a single branch or page rather than the whole tree"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Recommends auditing against the site's existing DITA taxonomy rather than converting it to Diataxis"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that consistency of application matters more than which framework supplies the taxonomy"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names the conditions that would justify a switch: the declared taxonomy applied inconsistently, or leaving a whole reader need uncovered"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes that later DITA versions added topic types such as general-task, troubleshooting and glossentry"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Cites the documented precedent of a team spending months debating a single new DITA topic type before dropping it entirely"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Says up front in the report which taxonomy the findings are stated against, so the VP can read them"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Rejects the full-year migration as the recommended action"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Orders the queue by reader need fixed per hour of effort rather than by cheapest action or by number of findings closed"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States the ordering explicitly rather than leaving it implied by row order"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Places splitting the 6 mixed pages ahead of merging the duplicate pair on the efficiency ordering"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Explains that split outranks merge on efficiency because a merge blocks on someone with authority deciding which text is true, and a split does not"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Deletes the 9 page moves from the queue entirely rather than demoting them, because the team cannot ship redirects"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Deletes the 3 section renames from the queue entirely for the same redirect reason"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names explicitly which actions were deleted and why, rather than silently dropping them"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that writing a missing page otherwise loses every round under an efficiency ordering, because it is high value and high effort"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Emits separate orderings for efficiency and value rather than one blended ranking"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Gives the reason that empty structures advertise the gaps and force readers to learn a vocabulary before they can navigate"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Rejects the Q3 teardown, stating that rewriting the docs site is an abdication rather than a recommendation"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Proposes the small remediation loop: choose something, assess it, decide the single next action that produces an immediate improvement, do it, publish, repeat"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Insists on a complete page inventory before any page is judged or moved"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Does not assume the four mode names should become the navigation labels"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Points out that Diataxis itself rules out both the empty scaffolding and the teardown"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Starts from findings tied to specific pages rather than from a target structure"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States the mixing threshold: flag only when the second mode occupies roughly a fifth of the page, or contains something the reader must act on"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Classifies release-notes/2026-q2.md as reference"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Treats the FAQ as a symptom rather than a mode, and files each answer into its real mode"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Allows the FAQ to remain as an index if site search is weak"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that a landing page is not a mode, and judges docs/index.md on whether it routes to all four"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Flags 190 findings on a 340-page set as over-flagging, and cuts to pages where a reader's need actually fails"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends recording a confidence level on borderline pages and moving on rather than debating the call"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Warns against letting evaluator content colonise the getting-started path"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends the CNCF TechDocs rubric for the rating that travels outside the docs team"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States the rubric's named 1-to-5 scale: 1 not present, 2 needs improvement, 3 meets standards, 4 meets or exceeds standards, 5 exemplary"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names the Project documentation criteria: information architecture, new user content, content maintainability, content creation processes, inclusive language"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Scores each top-level docs section rather than issuing a single overall number"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Challenges the straight 4s, stating that a first audit returning them usually means the rubric was applied too generously"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Gives the published calibration for a serious open-source project with no dedicated writer: mostly 1s and 2s on entry-point and process criteria, 3s where a maintainer culture already exists"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Adds a second, structural scorecard computed from the inventory, kept distinct from the rubric rating"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Labels the CNCF 1-5 scale as published and the structural scorecard's pass marks as a self-set baseline"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires agreeing the scorecard thresholds with the user before scoring rather than importing them silently"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names concrete scorecard measures with targets, such as mode purity at or above 90%, navigation depth of 3 or less, zero orphans, staleness at or below 10%"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Reports the ROT rate without grading it against a target"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States the audit is unfinished while any must-fix measure fails, and requires re-running the inventory and re-scoring after each remediation batch to report the delta"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Scores contributor documentation only if the user asks for it, rather than folding it into the headline number"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Fixes the evidence scope before promising measures, stating that a live site yields the rendered navigation and the sitemap only"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names Mintlify's navigation source as the navigation key in docs.json, with mint.json on older projects"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Notes that anything unlisted in a Mintlify navigation is unreachable"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Drops the staleness measure from the scorecard rather than estimating it, because last-modified dates are not visible"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Drops the orphan measure from the scorecard as well, because drafts, hidden pages and front matter cannot be seen"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States in the report which measures were dropped and why"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Labels the inventory as nav-only"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Downgrades structural recommendations from validated to proposed, since no user testing is available"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Substitutes top 404s, zero-result site searches and high-exit landing pages as partial signals"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Requires each candidate gap to be confirmed against a named demand signal before it enters the queue"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Puts any gap with no evidence on a list of questions for the team rather than into the work queue"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Attaches the supporting evidence to each gap that does enter the queue"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that a full grid is not the target, and that a minor surface may legitimately need only reference plus one how-to"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Ranks gaps by evidence volume against adoption impact rather than by how large the hole looks in the matrix"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Declines to treat the 78% exit rate on /api/fleet/overview as a gap on its own, noting a high-exit page can mean the reader found the answer and left"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Pairs the exit-rate reading with a support-ticket trend or a satisfaction prompt before logging it as a gap"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names repository issues labelled question, support or docs as public, quotable evidence for prioritization"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that one good tutorial per audience is usually enough, rather than one per surface"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Identifies an empty reference cell on a surface users configure as the most damaging gap type"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Applies a documentation maturity read and names Hackos's Information Process Maturity Model"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names its five levels: ad hoc, rudimentary, organized and repeatable, managed and sustainable, optimizing"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that a team at ad hoc or rudimentary has no repeatable process, so any structural fix decays"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Says this explicitly in the report, not only in the recommendations"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Recommends shipping page templates so contributors fill blanks instead of inventing structure"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Recommends prose and link checking in CI, naming tools such as Vale, markdownlint and lychee"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Recommends CODEOWNERS per subtree so each subtree has named reviewers"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Runs the audit and additionally tells the user that a free external analysis is available"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names the CNCF TechDocs assistance program as one source of that external analysis"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names Google Season of Docs as the other"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that either program delivers an analysis, an implementation plan and an issues backlog"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that either external program beats a solo generalist pass"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Frames this audit as the interim measure while the user applies"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Assigns structural ownership to maintainers through CODEOWNERS and pull-request review, since no writer exists"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names the three failure modes of a solo generalist pass: treating it as a one-off friction log, optimising only the hero getting-started path, and skipping user validation"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Declines to classify any page before the gating questions are answered"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Asks where the docs live and whether the repository itself is readable"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Asks who reads the docs - self-serve individual developers, engineering teams behind a contract, or both - and which ecosystems or languages"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Asks what triggered the audit: a support pattern, a launch, a migration, a complaint, or a routine review"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Asks one question at a time rather than presenting the whole list at once"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Asks whether any part of the docs is out of scope, naming the auto-generated API reference as a candidate"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Asks about redirect and URL-stability constraints before classification, because they change which actions can enter the queue"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Asks what date the remediation has to show a result by, because it re-ranks the queue"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Builds the complete inventory before making any qualitative judgement, keeping inventory and audit as distinct passes"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Offers to run the bundled inventory script over the docs tree with the navigation config passed in"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Names Docusaurus's navigation sources as sidebars.js or sidebars.ts and _category_.json, and notes that autogenerated sidebars follow the folder tree and front-matter sidebar_position"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Names the triage rule for which pages to open in full: every page on the adoption path, every page above roughly 2,500 words, every page combining steps with an option table, plus a sample of the rest"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Opens with a verdict of roughly three sentences covering the shape of the problem, its single biggest cost, and the size of the fix"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Writes each finding in the Now / Reader impact / Next action format, with a severity tag and the page path"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Assigns severities from the three tiers: must fix, should fix, worth noting"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Fixes the Guides landing page by grouping its links on that page only, with no files moved"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Moves the non-compiling Go samples out of scope, noting them separately with a named owner rather than as a structural finding"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Includes a section for what the audit did not cover, and an inputs section stating what was inventoried, which signals were available and what was inferred"
+      }
+    ]
+  }
+}

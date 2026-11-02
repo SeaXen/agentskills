@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Sorts the proposed metrics with Kirkpatrick's four levels and identifies completion rate, the thumbs widget and the NPS question as level 1 (reaction) only.",
+        "evidence": "\"All three legs sit at Kirkpatrick Level 1 (reaction). Nothing measures learning (Level 2) or behavior change (Level 3)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the documented trap: teams measure levels 1-2 and stop, so a tutorial with a strong completion rate and no behaviour change looks like a success for years.",
+        "evidence": "\"teams that stop at completion-rate-and-satisfaction can look successful for years while producing zero behavior change\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses the 40% external completion target, stating there is no trustworthy published completion benchmark for developer tutorials.",
+        "evidence": "\"No published completion-rate benchmark exists for developer tutorials. The 40% figure you keep seeing is almost certainly a self-reported activation/signup-funnel number\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prescribes comparing each figure against this tutorial's own previous version instead of an outside number.",
+        "evidence": "\"The only defensible comparison is this tutorial against its own next revision... this cohort *becomes* the baseline.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends the transfer-test pass rate from the cold runs and identifies it as level 2 (learning).",
+        "evidence": "\"it's the only in-tutorial evidence a skill actually formed: run one cold run of the tutorial against its pass criteria... and record whether they can repeat the task unaided\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the transfer-test pass rate costs near-zero to wire because the cold-run pass threshold already runs the test; only the result is recorded.",
+        "evidence": "\"That single pass/fail is cheap \u2014 you should be running it anyway to know the tutorial itself is sound\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends per-checkpoint drop-off, costing roughly an hour to wire, since the checkpoints already exist.",
+        "evidence": "\"Per-checkpoint drop-off events (reuses the completion event you were already going to build; ~an hour once checkpoints are defined).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that one dominant abandonment checkpoint marks a broken step rather than a hard concept, so that step gets fixed before the concept is rewritten around it.",
+        "evidence": "The text only says \"one dominant abandonment step points at a specific broken step you can fix\" without contrasting this against a \"hard concept\" alternative diagnosis.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Promotes the level-3 behaviour share (completers who perform the same task in the product within a week) above the rest, because the page is being asked to justify its own headcount.",
+        "evidence": "\"Your VP's ask \u2014 justify two headcount at a board review \u2014 is the specific trigger for promoting one metric above everything else: **share of tutorial-completers who perform the same task in the product within a week.**\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the identity plumbing joining the learning surface to the product must land before publishing, or the first cohort is unmeasurable.",
+        "evidence": "\"That plumbing has to exist *before* you can attribute anything, and nothing in your current plan builds it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that completion rate and median completion time tie on both value and wiring effort, because they are two readings of the same start-and-finish event pair.",
+        "evidence": "The text lists them together as both \"free\" but never states they tie on value or explains they are \"two readings of the same start-and-finish event pair.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the default order (instrument the first two, read the third) and says explicitly that the headcount question overrides it.",
+        "evidence": "No explicit \"default order\" of instrument-first-two-read-third is stated as being overridden; the priority list itself already reorders items without naming a prior default.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that completion rate says nothing about whether anyone learned.",
+        "evidence": "\"A strong completion rate with no downstream usage means the tutorial taught the tutorial, not the SDK\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Sorts the proposed metrics with Kirkpatrick's four levels and identifies completion rate, the thumbs widget and the NPS question as level 1 (reaction) only.",
+        "evidence": "The transcript never mentions Kirkpatrick or any level-based training-evaluation framework; it critiques the three metrics individually (folklore benchmark, self-selection bias, wrong cadence) without any 'level 1/reaction' classification.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the documented trap: teams measure levels 1-2 and stop, so a tutorial with a strong completion rate and no behaviour change looks like a success for years.",
+        "evidence": "No such trap or multi-year 'looks like success' framing appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses the 40% external completion target, stating there is no trustworthy published completion benchmark for developer tutorials.",
+        "evidence": "\"'Industry standard' for tutorial completion is folklore, not a citable benchmark. It's not published anywhere authoritative because 'completion' isn't standardized... If someone on the board asks '40% of what, sourced where?', you have no answer.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prescribes comparing each figure against this tutorial's own previous version instead of an outside number.",
+        "evidence": "The transcript only prescribes establishing this tutorial's own fresh baseline over time (\"measure your own baseline first, set an improvement target off *that*\"; \"Set targets only after you have two to four weeks of your own baseline\") since the tutorial 'shipped last month' \u2014 there is no comparison against a prior version of the tutorial.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends the transfer-test pass rate from the cold runs and identifies it as level 2 (learning).",
+        "evidence": "No mention of a 'transfer-test', 'cold runs', or a 'learning' level anywhere in the transcript; the closest analog offered is a telemetry event on 'first successful run of the tutorial's sample code'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the transfer-test pass rate costs near-zero to wire because the cold-run pass threshold already runs the test; only the result is recorded.",
+        "evidence": "This concept (transfer-test, cold-run threshold) is entirely absent from the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends per-checkpoint drop-off, costing roughly an hour to wire, since the checkpoints already exist.",
+        "evidence": "The transcript proposes adding 'an explicit checkpoint at the end of each major step' as new instrumentation to build (\"likely doable in the budget if any event pipeline already exists\"), not something that already exists, and gives no 'roughly an hour' cost figure.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that one dominant abandonment checkpoint marks a broken step rather than a hard concept, so that step gets fixed before the concept is rewritten around it.",
+        "evidence": "The transcript only vaguely mentions 'real drop-off points named' as evidence of analysis, with no statement distinguishing a broken step from a hard concept.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Promotes the level-3 behaviour share (completers who perform the same task in the product within a week) above the rest, because the page is being asked to justify its own headcount.",
+        "evidence": "The closest item, 'Faster activation \u2014 time-to-first-successful-API-call for developers who used the tutorial vs. those who didn't', is listed as one of three equal bullet options, not promoted above the others; the plan's top-ranked action is instead 'Instrument a real completion signal... This is the highest-value item'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the identity plumbing joining the learning surface to the product must land before publishing, or the first cohort is unmeasurable.",
+        "evidence": "No mention of identity plumbing, linking a learning surface to the product, or a publishing gate of this kind appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that completion rate and median completion time tie on both value and wiring effort, because they are two readings of the same start-and-finish event pair.",
+        "evidence": "Median completion time is never mentioned in the transcript, so no such tie is stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the default order (instrument the first two, read the third) and says explicitly that the headcount question overrides it.",
+        "evidence": "No such ordering framework or override statement appears; the transcript's ordering is a numbered 'Revised plan' (instrument completion signal, tag tickets, keep thumbs, drop NPS, set targets later) not framed as 'first two vs third' overridden by headcount.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that completion rate says nothing about whether anyone learned.",
+        "evidence": "The transcript states completion rate/thumbs-up are 'leading quality indicators for the docs team's own iteration. They are not the evidence a VP should walk into a board review with' \u2014 this addresses board-evidence value, not an explicit claim that completion rate says nothing about learning.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

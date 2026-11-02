@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Removes #team-formation and #carpool-search: they exist because hackathon attendees must organize each other before the event, and a conference attendee arrives with nothing to form.",
+        "evidence": "Carpool is \"\u26a0\ufe0f Fold in\" as a pinned thread in #hallway, not removed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Removes or reassigns #ask-mentors and #mentors-internal: they presuppose a mentor population, and the conference's equivalent population is speakers, whose communication belongs to the speaker-management function.",
+        "evidence": "\"Speaker comms belong to event-speaker-experience.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the transferable discipline: one stated job per channel and a minimum roster stated up front rather than grown organically.",
+        "evidence": "\"a channel with no stated job and no named owner doesn't get created.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the attendee-facing ask-organizers channel separate from organizer coordination, and moves #admin off the attendee-facing roster to the operations side.",
+        "evidence": "\"#admin... event-run-of-show owns it. Keep it private, off the attendee directory\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States staff coordination never routes onto an attendee channel.",
+        "evidence": "Only says keep #admin private/off directory; no explicit never-on-attendee-channel rule.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that a roster sized for a multi-day overnight event goes silent at a one-day conference, and a quiet channel later carries the one message that mattered.",
+        "evidence": "No such warning; only avoids moderation for an empty channel.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Lists the message classes the conference will actually send before finalizing the roster.",
+        "evidence": "Roster is section 1; message classes appear in routing section 2.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Challenges whether the chat space itself is warranted at a one-day single-track event, against its promotion conditions: overnight, multi-day, remote participation, or attendees needing to reach each other.",
+        "evidence": "Keeps three chat channels; only Q10 asks about existing community chat.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the chat space's real cost: moderation is a standing job for the whole lifecycle with a code-of-conduct duty identical to the one in the room, not an hour of setup.",
+        "evidence": "Not stated; only mentions weeks of moderation in opening-date advice.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the code of conduct to be stated at the join point of the chat space, not only on the event website.",
+        "evidence": "\"State the code of conduct at the join point (welcome screen, rules channel), not only on the website.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the new microsite channels page and extends the marketing lead's existing comms hub page instead of publishing a second, competing directory.",
+        "evidence": "\"don't build it on the microsite... extend it and don't publish a second competing directory.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Specifies the directory's content per channel: its name, one-line job, who answers on it, the hours it is watched, and what it is not for with a pointer to the channel that is.",
+        "evidence": "\"the name, the one-line job, who answers, the hours it's watched, and what it is not for\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes the what-it-is-not-for line is the one most directories omit and the one that routes awkward messages correctly.",
+        "evidence": "\"Most directories omit that last line, and it stops awkward messages landing...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Chooses the wind-down for every channel now, before the event, and publishes its date on the channels themselves.",
+        "evidence": "\"Wind-down: decide now, publish the date on the channels.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Removes #team-formation and #carpool-search: they exist because hackathon attendees must organize each other before the event, and a conference attendee arrives with nothing to form.",
+        "evidence": "It keeps carpool, renamed `#travel-and-carpool`.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Removes or reassigns #ask-mentors and #mentors-internal: they presuppose a mentor population, and the conference's equivalent population is speakers, whose communication belongs to the speaker-management function.",
+        "evidence": "It cuts the mentor channels but adds a private `#speakers` channel.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the transferable discipline: one stated job per channel and a minimum roster stated up front rather than grown organically.",
+        "evidence": "It fixes a roster of about 10 channels but does not state one job per channel.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the attendee-facing ask-organizers channel separate from organizer coordination, and moves #admin off the attendee-facing roster to the operations side.",
+        "evidence": "It keeps `#admin` and `#volunteers` on the server.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States staff coordination never routes onto an attendee channel.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that a roster sized for a multi-day overnight event goes silent at a one-day conference, and a quiet channel later carries the one message that mattered.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Lists the message classes the conference will actually send before finalizing the roster.",
+        "evidence": "The roster is proposed without a message-class list.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Challenges whether the chat space itself is warranted at a one-day single-track event, against its promotion conditions: overnight, multi-day, remote participation, or attendees needing to reach each other.",
+        "evidence": "It assumes Discord is built.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the chat space's real cost: moderation is a standing job for the whole lifecycle with a code-of-conduct duty identical to the one in the room, not an hour of setup.",
+        "evidence": "It recommends 2\u20133 volunteer mods but does not state the standing lifecycle cost.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the code of conduct to be stated at the join point of the chat space, not only on the event website.",
+        "evidence": "It only pins the code of conduct next to `#report-an-issue`.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the new microsite channels page and extends the marketing lead's existing comms hub page instead of publishing a second, competing directory.",
+        "evidence": "\"don't build a new microsite... Add a 'Discord channels' section there.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Specifies the directory's content per channel: its name, one-line job, who answers on it, the hours it is watched, and what it is not for with a pointer to the channel that is.",
+        "evidence": "Only \"Write each channel's purpose once\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes the what-it-is-not-for line is the one most directories omit and the one that routes awkward messages correctly.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Chooses the wind-down for every channel now, before the event, and publishes its date on the channels themselves.",
+        "evidence": "\"T+1 week: open #feedback, then archive or lock\"; no published date.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

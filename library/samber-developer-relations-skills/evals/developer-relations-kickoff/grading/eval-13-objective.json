@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to produce one page serving both readers",
+        "evidence": "\"Splitting is the fix, not better prose on the existing page.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the ten-minute, verified-success reader to `samber/developer-relations-skills@developer-quickstart-guide`",
+        "evidence": "\"# Page 2 \u2014 `/docs/getting-started/quickstart` (developer-quickstart-guide)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the concept-learning reader to `samber/developer-relations-skills@developer-tutorial`",
+        "evidence": "\"# Page 3 \u2014 `/docs/getting-started/how-replication-works` (developer-tutorial)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the fork as the reader's state rather than as what the page will be called",
+        "evidence": "Hub page forks on \"## I've run change data capture before\" vs \"## I'm new to change data capture\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not route to `samber/developer-relations-skills@developer-docs-structure-audit` for rewriting one page",
+        "evidence": "developer-docs-structure-audit is never mentioned in the transcript",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the structure audit operates on the whole docs set, never on one page",
+        "evidence": "developer-docs-structure-audit is never mentioned or discussed anywhere in the transcript",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not present the two routes as ranked against each other",
+        "evidence": "The two pages are presented as parallel forks by reader state, not ranked; only light guidance \"Not sure which one? Start with the sandbox\" is given",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that conflating them fails both readers: the learner gets an unexplained recipe, the working developer gets a lecture",
+        "evidence": "Only one direction of failure is stated (\"exactly the conflation both sibling skills warn against by name\"), with no explicit statement of the reverse failure mode",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not route to `samber/developer-relations-skills@readme-optimization`",
+        "evidence": "readme-optimization is never mentioned in the transcript",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not write the replacement page itself in place of routing",
+        "evidence": "Full content for all three pages (hub, quickstart, tutorial) is written out in the transcript, well beyond routing",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes or updates `devrel-context.md` with a session-log line",
+        "evidence": "devrel-context.md is never mentioned anywhere in this transcript",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to produce one page serving both readers",
+        "evidence": "\"The fix is a fork \u2014 a short landing page that splits immediately, feeding into two purpose-built pages that never make one audience wade through the other's content.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the ten-minute, verified-success reader to `samber/developer-relations-skills@developer-quickstart-guide`",
+        "evidence": "No skill name is used anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the concept-learning reader to `samber/developer-relations-skills@developer-tutorial`",
+        "evidence": "No skill name is used anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the fork as the reader's state rather than as what the page will be called",
+        "evidence": "\"### \u2192 I've never used CDC before\" / \"### \u2192 I already run CDC somewhere else\" \u2014 framed by reader state, not page labels.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not route to `samber/developer-relations-skills@developer-docs-structure-audit` for rewriting one page",
+        "evidence": "developer-docs-structure-audit is never named.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the structure audit operates on the whole docs set, never on one page",
+        "evidence": "No such statement appears; no skill discussion occurs at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not present the two routes as ranked against each other",
+        "evidence": "\"Not sure which one? Start with How Replication Works... nothing in it assumes you've read the concepts page first\" \u2014 offered as a neutral default, not a ranking.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that conflating them fails both readers: the learner gets an unexplained recipe, the working developer gets a lecture",
+        "evidence": "\"one page is trying to do 'teach a concept' and 'prove a result fast' at once, and neither reader gets what they came for\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not route to `samber/developer-relations-skills@readme-optimization`",
+        "evidence": "readme-optimization is never named.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not write the replacement page itself in place of routing",
+        "evidence": "\"Here's the full rewrite, ready to paste into the docs\" \u2014 full replacement pages are written directly.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes or updates `devrel-context.md` with a session-log line",
+        "evidence": "No file-write action is shown.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

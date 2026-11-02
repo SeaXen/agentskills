@@ -1,0 +1,406 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-no-show-management",
+  "scenarios": 11,
+  "expectations_total": 112,
+  "expectations_subjective": 1,
+  "expectations_objective": 111,
+  "pass_rate_with_skill_pct": 90.2,
+  "pass_rate_without_skill_pct": 29.5,
+  "delta_pp": 60.7,
+  "uplift_multiplier": 3.06,
+  "trigger_accuracy_pct": 69.2,
+  "trigger_queries": 104,
+  "trigger_positive_fire_rate": 0.635,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Notes that the current 341 registrations sit under the 360 ceiling, so the form does not have to close immediately."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names what skipping the full form costs: the head count, the code-of-conduct agreement, the dietary and accessibility data, and the emergency contact list."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Rejects promoting continuously, one seat at a time, on every cancellation, as a standing job whose gain the ceiling has already absorbed."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes that the 72-hour pre-approval deadline caps how late anyone can still be promoted onto the visitor list."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that the catering guarantee locking 7 days out sits before the latest realistic promotion date, so the waitlist no longer changes the number catering is working from."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Says explicitly which of the two the waitlist is buying here: chairs filled, not a changed budget number."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names all three promotion conditions as met: a recurring event, a prior registered-versus-attended count for the same event in the same format, and a committed cost locking against head count before doors open."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that the band describes a population rather than being a target to manage toward, so landing inside it is normal rather than proof of a failure."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Says explicitly which of the two the waitlist is buying, and names samber/dev-event-organizer-skills@event-budget as the sibling that was promised the other."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Hands the promotion send to samber/dev-event-organizer-skills@event-attendee-email-sequences as a brief carrying trigger, audience and deadline, rather than drafting the copy."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that the opposite assumption is equally unsupported: the seat may carry more commitment than a general free ticket, or none."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Names the single figure used for the multiplier - the roughly 50% show-up trendline stated as an operational instruction - rather than a blended rate."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States the scope of the figure it uses (free-registration events)."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Shows the ceiling arithmetic as explicit lines: hard capacity, aimed attendance, expected show-up rate, resulting registration ceiling."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States a registration ceiling of 360 registrations for the 180-seat room and does not exceed double the aimed attendance."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Notes that the current 341 registrations sit under the 360 ceiling, so the form does not have to close immediately."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Notes that 341 registrations imply roughly 170 expected show-ups, below the 180-seat capacity."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States the overbooking buffer separately as the gap between the registration ceiling and the expected show-up number."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names a specific person or role who closes the registration form when the ceiling is reached."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Recommends no overbooking and does not release the extra 60 tickets."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Quotes the paid-event band - roughly 90-97% of tickets converting to attendance, a 3-10% no-show rate - rather than a free-event rate."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that both overbooking ceilings are deleted from the menu on a paid or nominal-fee event."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names the asymmetry: an empty chair costs one cover, while turning away someone who paid costs a refund and the public account of it."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that the 3-10% no-show rate is a number to plan catering against, never a margin to sell into."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Treats the employer-funded or expensed-ticket argument as an untested hypothesis and refuses to use it as a lever."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that every show-up figure cited is measured against price posture, never against who actually paid for the ticket."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Plans against the paid price posture rather than the free band."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Leaves the ticket price itself to samber/dev-event-organizer-skills@event-ticket-pricing rather than proposing or changing a price."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names the 14-day catering lock as the date after which the head count stops being changeable."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Declines to design a refundable-deposit flow as a recommended attendance mechanic."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that no established practice exists behind deposits as a real-world attendance mechanic in developer-event organizing."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names the barrier that lands hardest on exactly the people a need-gated scholarship seat exists for as a cost the deposit carries."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Cites the Eventtia 2024 managed-conference data point - a 3 dollar refundable deposit taking a previously free event from a 38% to a 14% no-show rate - and labels it a general-conference result rather than a developer-event one."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Cites the 37signals/Basecamp Chicago breakfast data point - a 100 dollar deposit refunded at the door, 55 people paying it and 50 showing, a roughly 90% show rate."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that both deposit data points are single events rather than studies."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names the loss-aversion limit: an attendee reimbursed by an employer may not feel a deposit the way someone paying out of pocket does."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Routes the underlying concern to the nominal fee owned by samber/dev-event-organizer-skills@event-ticket-pricing as the lever with organizer practice behind it."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that the current turnout of roughly 45 of 90 sits inside the ordinary free-event band rather than treating it as an anomaly."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that a live, per-seat waitlist promotion during the event is untested, and declines to design it as the recommendation."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that the ticketing-platform waitlist automation runs before the event, against cancellations and expired holds, never during it."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Repeats the platform's own framing that the mechanism is a recovery mechanism for post-sale inventory gaps, not an in-event promotion strategy."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends the walk-in lane as the mechanic with practice behind it, filling the room from below rather than promoting a named person into a named empty seat."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that the walk-in lane uses a separate late-registration form."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that the walk-in lane opens only after the pre-registered check-in window has closed."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that everyone arriving through the walk-in lane still completes the full registration form."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names what skipping the full form costs: the head count, the code-of-conduct agreement, the dietary and accessibility data, and the emergency contact list."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Rejects promoting continuously, one seat at a time, on every cancellation, as a standing job whose gain the ceiling has already absorbed."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Hands the expected walk-in volume and the ratio behind it to samber/dev-event-organizer-skills@event-attendee-experience rather than specifying how the desk is staffed or queued."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Deletes the walk-in lane on the grounds that the access-controlled, pre-approved-list venue leaves no walk-up population."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends the waitlist-fed lane instead, and names both of its promotion conditions as met: no walk-up population, and a channel that reaches the waitlist within a day."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that the waitlist is told the night before that unclaimed seats open at a named time."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes that the 72-hour pre-approval deadline caps how late anyone can still be promoted onto the visitor list."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that the catering guarantee locking 7 days out sits before the latest realistic promotion date, so the waitlist no longer changes the number catering is working from."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Says explicitly which of the two the waitlist is buying here: chairs filled, not a changed budget number."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Hands the promotion send's trigger, audience and deadline to samber/dev-event-organizer-skills@event-attendee-email-sequences as a brief rather than drafting the message."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States the arrival assumption behind the expected-attendance number and what happens if it does not hold."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Refuses to accept registrations against standing room or overflow space without written approval from whoever the venue names."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that any such approval must be obtained before registrations are accepted against it, never on the day at the door."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Rejects the 700-registration proposal as going past double the aimed attendance."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Rejects leaving registration open with no ceiling at all, and states that it is the one posture the source explicitly forbids."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that where the ratio would put expected attendance over the limit, the ratio moves and the limit does not."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States a registration ceiling of 500 for the 250-seat hall, with the arithmetic shown."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names all three promotion conditions as met: a recurring event, a prior registered-versus-attended count for the same event in the same format, and a committed cost locking against head count before doors open."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States the buffer separately as the gap between the 600-registration ceiling and the roughly 300 expected show-ups."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Instructs recording this edition's realised registered-versus-attended count as the input for the next edition's ceiling."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that the band describes a population rather than being a target to manage toward, so landing inside it is normal rather than proof of a failure."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Declines to rewrite or draft the reminder email copy."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Routes the reminder sequence's design and copy to samber/dev-event-organizer-skills@event-attendee-email-sequences."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Refuses to read the low show-up rate as an operations failure on its own."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Routes the demand, price and audience reading of the number to samber/dev-event-organizer-skills@event-market-fit before acting on the capacity side."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Treats the realised registered-versus-attended count as this event's own input for the next edition's ceiling."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Computes a next-edition registration ceiling from the measured rate against the 300-seat room, in the region of 530-540 registrations, and notes it sits under the sourced double ceiling of 600."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names what to count on the day next time: registrations, attended, walk-ins, and waitlist promotions with how many of those arrived."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States the promotion conditions for proximity ordering: the effort ceiling covers someone ordering the list by hand, and registrations run far enough past the ceiling that promotion order changes who gets in rather than only who gets in first."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that proximity ordering is an allocation decision made on registrants' location data that must be stated publicly."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that the ordering rule cannot be changed quietly mid-window once people have registered against it."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Requires the ordering rule to be published at the moment the waitlist opens, not after someone asks why they were skipped."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Fixes a named drain date, a claim window for a promoted seat, and who decides."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that the catering guarantee locking 21 days out sits before the week-of promotion date, so the waitlist stops being a budget lever."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Says explicitly which of the two the waitlist is buying, and names samber/dev-event-organizer-skills@event-budget as the sibling that was promised the other."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Hands the promotion send to samber/dev-event-organizer-skills@event-attendee-email-sequences as a brief carrying trigger, audience and deadline, rather than drafting the copy."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that the opposite assumption is equally unsupported: the seat may carry more commitment than a general free ticket, or none."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Plans the 60 scholarship seats at the general free-seat rate rather than at a paid-guest rate."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Cites the sponsored-student data point: 47 student tickets funded for a 2024 conference, of which 22 attended, a 47% show rate."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that this data point sits inside the ordinary free-ticket band and settles nothing, being a single event with no comparison against that same event's non-sponsored attendees."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Does not plan catering for all 60 scholarship holders as guaranteed attendance."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that among paid events, no-show rates stay roughly flat at about 16-19% regardless of how easy or hard registration is."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names the confound: free events also tend to run the simplest registration forms, so controlling for the free-versus-paid split erases the apparent correlation."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that this curve is not an overbooking instruction, and routes it to samber/dev-event-organizer-skills@event-marketing-plan."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States a registration ceiling of 240 for the 120-seat workshop, derived from the free-event show-up rate."
+      }
+    ]
+  }
+}

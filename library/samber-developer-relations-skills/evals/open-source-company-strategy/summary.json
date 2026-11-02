@@ -1,0 +1,782 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "open-source-company-strategy",
+  "scenarios": 13,
+  "expectations_total": 165,
+  "expectations_subjective": 2,
+  "expectations_objective": 163,
+  "pass_rate_with_skill_pct": 60.6,
+  "pass_rate_without_skill_pct": 27.9,
+  "delta_pp": 32.7,
+  "uplift_multiplier": 2.17,
+  "trigger_accuracy_pct": 59.3,
+  "trigger_queries": 150,
+  "trigger_positive_fire_rate": 0.44,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.267 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Rejects 'the engine isn't really the core anymore' as a reason to open, noting not-core argues against keeping it closed, not for paying to run it in public"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Applies the talent motive's evidence test: the asset has to be work an engineer would want to be seen doing"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Diagnoses the underlying problem as a line drawn with no value-capture mechanism, rather than as the wrong license choice"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States explicitly that no license retrofits a value-capture mechanism"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Writes an adversarial scenario naming the specific competitor, what they would run as a managed service, and what Corvid Metrics still holds"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that if nothing is held, the correct response is to move the asset, not the license"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names at least two concrete value-capture mechanisms from hosting and operations, proprietary data, network effects, trademark and brand, support and SLA, certification, a paid tier, or integration with a closed system"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States a license cannot substitute for a trademark, and that the name and logo need their own registration and usage policy"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Refers to BUSL and similar instruments as 'source-available' and never as 'open source'"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that source-available instruments answer the competing-managed-service risk and only that risk"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names the costs of going source-available: procurement allowlists, downstream distribution packaging, and contributors"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Hands the actual license or instrument selection to samber/developer-relations-skills@oss-license-strategy rather than picking one"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes that a relicensing is reversible but the fork it causes is not"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Measures the talent motive on candidates citing the project, contributor-to-hire conversions and retention of the maintainers, not on stars or downloads"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States the success objective must be declared at decision time rather than retrofitted later"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that the open source program functions must be assigned even when one person carries them part time, rather than left unassigned"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that most decisions happen at that inner split rather than at the asset boundary"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Gives the reason: a competing open solution adopted outside the company's control erodes the differentiating edge and forces a costly redesign"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Cites Sony contributing multimedia frameworks while keeping camera-effect features such as smile recognition closed"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Applies a second read that assigns each asset a dominant objective, naming at least two of the strategic, platform or leverage, products or bottleneck, and standard positions"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Assigns a dominant objective per asset rather than a single objective covering the whole portfolio"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes that this classification does not capture how fast an artifact drifts from differentiating to commodity, and recommends re-running the evaluation each product planning cycle"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Cites the finding that customer demand pull is the initial trigger for selective revealing far more often than internal deliberation"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Distinguishes transparency, meaning visibility into what is happening, from accessibility, meaning the ability to participate"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Cites the finding that corporate-sponsored projects are far readier to offer transparency than accessibility"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that a public repository with no route to commit rights, no roadmap input and no answered pull requests fails the contribution-viability gate"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that code failing this gate is published rather than open source, and cannot claim the shared-maintenance return"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that this gate is a standing check rather than a one-time pass, and that contributors are lost when governance direction turns ambiguous"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes that external participants take on leadership roles only once a structured, collectively determined process replaces single-sponsor control"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Requires a named owner with hours per week and a stated issue-response commitment"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that most published repositories never receive an external contribution, so expecting free contributors is the motive that fails most often"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names the candidate lines as interface-open, infrastructure-only and buyer-tiered open core"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Enters an explicit brainstorming mode and says so before proposing any verdict"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that a one-off decision rather than an inherited policy removes the argument that would have promoted buyer-tiered"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Gives each surviving line what it opens, what captures value, its cost per year, the risk it accepts and the motive it serves"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that interface-open and infrastructure-only genuinely tie on irreversibility because neither publishes anything the company sells"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Raises the strongest argument against drawing a line at all, that the value sits in the totality of the product rather than a proprietary sliver, and answers what the closed part captures that the totality does not"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States a recommendation and lets the user choose before detailing the chosen line further"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Runs licensing, patent and privacy review as parallel approvers that can block only on those grounds"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Requires the decision to be recorded so it is auditable afterwards"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names the model in which large tiering decisions route through a published matrix with the CEO as final decider"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names the classification of contributions as trivial, medium or major, with trivial needing only the relevant business manager"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Recommends frame agreements pre-authorizing contribution to ecosystems already judged non-competitive so routine cases never reach the board"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Writes down who plays each part even where two parts are the same person"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that the open source program office should not make the strategy call at any company size"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that adding new features above the line is not the reputational event, distinguishing it from moving existing ones down"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Proposes a published non-reversal commitment including never moving an already-open feature into a paid tier"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names at least two further commitments from: no artificial limits on repositories, users, size or throughput; no re-licensing away from an OSI-approved license; shipping tests alongside open features; pre-announcing boundary changes"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Rejects a commitment phrased so loosely that nothing could violate it"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that fork speed is the real cost signal, with forks appearing within days in the documented reversal cases"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that no widely adopted framework exists for judging whether one specific open-sourcing decision succeeded"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Notes that community-health metric vocabularies measure health, not strategic return"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names maintainer time as the dominant cost line and the one usually left out of the budget"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Breaks maintainer time down into review, releases, issue and pull-request response, and security-report handling"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Makes upstream-first a stated engineering default with a documented exception path"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that skipping upstream-first invalidates the maintenance motive that justified the strategy"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Warns that rigid inbound policies get circumvented, and that circumvention is where the security exposure appears"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Presents one section at a time and seeks agreement before writing the next"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Gives the reason for validating section by section: a wrong motive propagates into every row below it and is cheaper to catch early"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Lists at least three such events from: a competitor's managed service, an acquisition, a funding round, a fork, the maintainer leaving"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Names supply-side reversal, where a contributor withdraws components they maintained, as a residual risk no boundary framework covers"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "States that durability per quarter of upkeep is the ranking axis because all three shapes cost about the same to adopt"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Notes that under the buyer-persona model every proprietary feature still has an individual contributor who wants it, just not enough to be the buyer"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Cites the published re-audit that moved eighteen features across seven lifecycle stages into the open tier as evidence the model is a live process rather than a manifesto"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Notes that the same published model carries acceptance criteria for the reverse case, a community contribution opening an existing paid feature"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "States that one primary motive must be named and ranked, not averaged across several co-equal motives"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names Sun's Java as the counter-example where a company commoditized the wrong complement, the hardware it sold"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States the evidence test for commoditize-your-complement: name the product whose demand rises and name the complement being opened"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Rejects 'two competitors did it' as a motive, on the ground that their line served a value capture Halyard cannot see"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Treats the engineers' desire to open source as retention pressure rather than strategy, and routes it into the talent motive or a sanctioned contribution policy"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Rejects 'the engine isn't really the core anymore' as a reason to open, noting not-core argues against keeping it closed, not for paying to run it in public"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Applies the talent motive's evidence test: the asset has to be work an engineer would want to be seen doing"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that the signal for a commoditization motive is growth in the paid product, not adoption of the opened component"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Does not recommend a specific open source license"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Diagnoses the underlying problem as a line drawn with no value-capture mechanism, rather than as the wrong license choice"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States explicitly that no license retrofits a value-capture mechanism"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Writes an adversarial scenario naming the specific competitor, what they would run as a managed service, and what Corvid Metrics still holds"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that if nothing is held, the correct response is to move the asset, not the license"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Rejects 'the license' as a value-capture mechanism because it stops no competitor willing to comply"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States a license cannot substitute for a trademark, and that the name and logo need their own registration and usage policy"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Refers to BUSL and similar instruments as 'source-available' and never as 'open source'"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that source-available instruments answer the competing-managed-service risk and only that risk"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names the costs of going source-available: procurement allowlists, downstream distribution packaging, and contributors"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Hands the actual license or instrument selection to samber/developer-relations-skills@oss-license-strategy rather than picking one"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes that a relicensing is reversible but the fork it causes is not"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Requires a named individual, an hours-per-week figure, a release rhythm and a stated issue-response commitment before the asset ships"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that ownership is a veto gate: failing it keeps the asset closed regardless of how well the other gates score"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Identifies Brantwell Foods as a non-software company and names its boundary primitive as enabler versus differentiator inside the product"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that decision authority at a non-software company sits with a governance board spanning engineering, business and legal, rather than with the CTO alone"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Applies the talent evidence test: the asset must be work an engineer would want to be seen doing"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names a backup maintainer or an explicit succession arrangement"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Splits each candidate asset into a differentiating layer and its enablers, and runs the differentiating-or-context gate on each separately"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that most decisions happen at that inner split rather than at the asset boundary"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends actively contributing to the enabling frameworks even while the differentiating layer stays closed"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Gives the reason: a competing open solution adopted outside the company's control erodes the differentiating edge and forces a costly redesign"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Cites Sony contributing multimedia frameworks while keeping camera-effect features such as smile recognition closed"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that failing the differentiating-or-context gate does not force a closed verdict, but usually means opening a smaller piece or opening later"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Distinguishes the differentiating-or-context gate from the veto gates of irreversibility, value capture and ownership"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Applies a second read that assigns each asset a dominant objective, naming at least two of the strategic, platform or leverage, products or bottleneck, and standard positions"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Assigns a dominant objective per asset rather than a single objective covering the whole portfolio"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes that this classification does not capture how fast an artifact drifts from differentiating to commodity, and recommends re-running the evaluation each product planning cycle"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Does not issue one verdict covering the whole perception stack at once"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that if refusal costs nothing, the real motive lies among the internally chosen motives rather than external demand pull"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Cites the finding that customer demand pull is the initial trigger for selective revealing far more often than internal deliberation"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names the specific failure mode: a repository opened to close a deal and then abandoned becomes the same customer's complaint months later"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Asks whether the other parties subject to the same requirement would co-maintain or carry a share of the maintenance"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names the party imposing the requirement and the stated consequence of refusal in writing"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Declares a success objective for the connector at decision time"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires a named maintainer with an hours-per-week figure if the connector is opened"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Does not answer with a license recommendation"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Distinguishes transparency, meaning visibility into what is happening, from accessibility, meaning the ability to participate"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Cites the finding that corporate-sponsored projects are far readier to offer transparency than accessibility"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that code failing this gate is published rather than open source, and cannot claim the shared-maintenance return"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that this gate is a standing check rather than a one-time pass, and that contributors are lost when governance direction turns ambiguous"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes that external participants take on leadership roles only once a structured, collectively determined process replaces single-sponsor control"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Requires a named owner with hours per week and a stated issue-response commitment"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that most published repositories never receive an external contribution, so expecting free contributors is the motive that fails most often"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Presents 2 or 3 candidate lines rather than a single recommendation"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Ranks the candidate lines explicitly rather than listing them flat"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names the candidate lines as interface-open, infrastructure-only and buyer-tiered open core"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Enters an explicit brainstorming mode and says so before proposing any verdict"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Deletes buyer-tiered open core outright because of the stated low appetite for irreversibility, rather than ranking it last"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States which interview answer moved which candidate line"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Promotes interface-open on the basis of the hard board date, because it is the line needing no tiering matrix and no executive sign-off"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that a one-off decision rather than an inherited policy removes the argument that would have promoted buyer-tiered"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Gives each surviving line what it opens, what captures value, its cost per year, the risk it accepts and the motive it serves"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that interface-open and infrastructure-only genuinely tie on irreversibility because neither publishes anything the company sells"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Raises the strongest argument against drawing a line at all, that the value sits in the totality of the product rather than a proprietary sliver, and answers what the closed part captures that the totality does not"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States a recommendation and lets the user choose before detailing the chosen line further"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Describes each line's effort as an order of magnitude, such as a week per repository or a standing job, rather than as a currency amount"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Separates the business-context call of whether to open something from the specialist review of whether it is compliant to open"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Assigns the business call to whoever owns the business case, such as the proposing team's manager or director, rather than to the open source program office"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Gives the stated reason that the open source program office frequently lacks the business context to make that call"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Runs licensing, patent and privacy review as parallel approvers that can block only on those grounds"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States the default posture is to approve unless there is a good reason not to"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names the model in which large tiering decisions route through a published matrix with the CEO as final decider"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names the classification of contributions as trivial, medium or major, with trivial needing only the relevant business manager"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Recommends frame agreements pre-authorizing contribution to ecosystems already judged non-competitive so routine cases never reach the board"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Writes down who plays each part even where two parts are the same person"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that the open source program office should not make the strategy call at any company size"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Rejects a decision-rights statement that has no split between business and compliance, no escalation path and no stated default posture"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Cites the 2017 rename of docker/docker to moby/moby as evidence that governance surprise is priced on its own"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Notes that in that case no license changed and no code was withdrawn, and the backlash was still severe"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Warns that the rename alone carries reversal cost even though nothing is being taken away"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Proposes a published non-reversal commitment including never moving an already-open feature into a paid tier"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names at least two further commitments from: no artificial limits on repositories, users, size or throughput; no re-licensing away from an OSI-approved license; shipping tests alongside open features; pre-announcing boundary changes"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Pairs each promise with the role that has standing to break it"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Rejects a commitment phrased so loosely that nothing could violate it"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names an exception path with a single named approver and a pre-release announcement"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that fork speed is the real cost signal, with forks appearing within days in the documented reversal cases"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States explicitly that this is a B2C case rather than leaving the buyer implicit"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that consumer companies open source, but almost never the consumer product itself"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names the B2C moat as data, network effects and brand, none of which the code carries"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Redirects to realistic consumer-company motives: talent, trust, and cost sharing on infrastructure the company already runs"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Rejects free contributors as a motive, noting most published repositories never receive an external contribution"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Recommends an infrastructure component the company already runs as a better candidate than the consumer-facing recommendation engine"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that no widely adopted framework exists for judging whether one specific open-sourcing decision succeeded"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Notes that community-health metric vocabularies measure health, not strategic return"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Breaks maintainer time down into review, releases, issue and pull-request response, and security-report handling"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Treats the published foundation-membership band of roughly $5,000 to $250,000 or more per year as an order of magnitude"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Directs the company to check the target foundation's current fee schedule before putting a number in the budget"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Does not state a single precise membership figure as though it were current and authoritative"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that skipping upstream-first invalidates the maintenance motive that justified the strategy"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Warns that rigid inbound policies get circumvented, and that circumvention is where the security exposure appears"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Ranks engagement depth by return per engineer-hour, leading with contributing fixes upstream, and does not count plain consumption as a rung"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that re-licensing later needs every copyright holder's consent for future code and cannot touch code already released"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Describes the practical outcome of a reversal as a fork of the last open version plus a public trust cost"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Gives the reconciliation engine a 'Not yet' verdict rather than Open or Closed, because the decision changes under permanence"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Names the specific event that would flip that 'Not yet' verdict"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Places every one of the six candidate assets exactly once across Open, Closed and Not yet"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Produces a brief whose sections cover what the company sells, the motive, open assets, closed assets, not-yet assets, the competitive case, decision rights, commitments, the operating model and measurement"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Presents one section at a time and seeks agreement before writing the next"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Gives the reason for validating section by section: a wrong motive propagates into every row below it and is cheaper to catch early"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Names a re-evaluation trigger consisting of the next planning cycle plus events forcing an early re-read"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Lists at least three such events from: a competitor's managed service, an acquisition, a funding round, a fork, the maintainer leaving"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Names supply-side reversal, where a contributor withdraws components they maintained, as a residual risk no boundary framework covers"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Ranks the boundary shapes with buyer-tiered ahead of scale-tiered ahead of feature-by-feature judgment"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "States that durability per quarter of upkeep is the ranking axis because all three shapes cost about the same to adopt"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Recommends a buyer-tiered rule and gives the reason that 'whose problem is this?' has a stable answer while 'how valuable is this?' does not"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Flags a 25-user cap on the open edition as an artificial limit the company should instead commit never to add"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Notes that under the buyer-persona model every proprietary feature still has an individual contributor who wants it, just not enough to be the buyer"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Requires publishing where the line sits"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Cites the published re-audit that moved eighteen features across seven lifecycle stages into the open tier as evidence the model is a live process rather than a manifesto"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Notes that the same published model carries acceptance criteria for the reverse case, a community contribution opening an existing paid feature"
+      }
+    ]
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Does not write entries from the commit subjects",
+        "evidence": "Entries use PR titles (\"Dark mode\", reconnect fix) rather than raw commit subjects like \"fix tests\" or \"wip\", which are explicitly folded out as carrying \"no separate information\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Works from the pull-request titles and bodies and from the diff",
+        "evidence": "\"No repository checkout was available for Brackenhall in this environment, so this was produced in pasted-log mode from the git log and the three PR titles you gave\" \u2014 explicitly no diff was used.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a history with no commit convention is the default case rather than the exception",
+        "evidence": "No such statement appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks the user to confirm whether #140 was user-visible or only logged, before writing an entry for it",
+        "evidence": "An entry (\"Fixed reconnecting after a session expired\") is already written and delivered; the follow-up question only asks for the specific symptom, not whether it was user-visible at all, and comes after publishing the entry.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks the user to confirm whether #147 has a behavioural side effect, rather than dropping it as a refactor by name",
+        "evidence": "\"Confirm whether \\\"Refactor submission handler\\\" changed anything a form author or respondent could notice (validation timing, error text, submission latency).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Produces no entries of their own for wip, more wip, address review, fix tests or final fix",
+        "evidence": "\"`wip`, `more wip`, `address review`, `fix tests`, `final fix` | Fixup/review-response commits folded into their parent PR's single entry above; carry no separate information.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names which access mode is in use, repository checkout versus pasted log, and ties verification strength to it",
+        "evidence": "\"this was produced in pasted-log mode from the git log and the three PR titles you gave. Confidence is lower on the two items flagged below\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not propose a commit convention as part of this deliverable",
+        "evidence": "No commit-convention proposal appears anywhere in the transcript.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Returns an exclusion list rather than silently dropping changes",
+        "evidence": "\"## 3. Excluded\" table lists #147 and the fixup commits with reasons.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes the dark-mode entry impact-first, naming what a user can now do",
+        "evidence": "\"Added a dark theme (#143)\" names the user-facing capability directly with no internal mechanism preceding it.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not exclude Update README.md on the basis of its filename without reading what it changed",
+        "evidence": "\"README update folds in as documentation of this feature, not a separate entry\" \u2014 folded into the dark-theme entry rather than excluded by filename.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Does not write entries from the commit subjects",
+        "evidence": "\"your merge/wip commit trail (`wip`, `more wip`, `address review`, `fix tests`, `final fix`, `Update README.md`, `Update handler.ts`) doesn't carry enough signal on its own to write honest notes, so this is built from the three PR titles as the source of truth\" \u2014 entries are sourced from PR titles, not commit subjects.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Works from the pull-request titles and bodies and from the diff",
+        "evidence": "The note says entries are \"built from the three PR titles as the source of truth\" only, with no mention of PR bodies, and explicitly admits no diff access: \"If you paste the actual diffs for #140 and #147 ... I can tighten the Fixed/Changed entries with real specifics instead of the current necessarily-generic phrasing.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a history with no commit convention is the default case rather than the exception",
+        "evidence": "The note only says the commit trail \"doesn't carry enough signal on its own to write honest notes\" \u2014 it never frames an unconventional/inconsistent commit history as the default/expected case rather than an outlier.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks the user to confirm whether #140 was user-visible or only logged, before writing an entry for it",
+        "evidence": "The Fixed section already states as fact: \"expired sessions are now detected and handled cleanly (e.g. prompting re-authentication instead of failing silently). (#140)\" \u2014 written outright, with no prior question to the user about visibility.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks the user to confirm whether #147 has a behavioural side effect, rather than dropping it as a refactor by name",
+        "evidence": "The Changed section states it as a refactor and only appends a passive caveat after the fact: \"No user-facing behavior change is expected, but flag it if you notice anything off with form submissions after upgrading. (#147)\" \u2014 this is not a confirmation question asked before writing the entry.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces no entries of their own for wip, more wip, address review, fix tests or final fix",
+        "evidence": "None of the three changelog entries (dark mode, session fix, handler refactor) originate from these commit subjects; they are explicitly listed only as excluded low-signal commits.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names which access mode is in use, repository checkout versus pasted log, and ties verification strength to it",
+        "evidence": "\"my sandbox can't browse outside this checked-out repo\" names the access mode, and verification strength is tied to it: \"If you paste the actual diffs for #140 and #147 ... I can tighten the Fixed/Changed entries with real specifics instead of the current necessarily-generic phrasing.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not propose a commit convention as part of this deliverable",
+        "evidence": "The note only explains the sourcing limitation and requests diffs/repo access; it never proposes adopting Conventional Commits or any commit message standard as part of the deliverable.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Returns an exclusion list rather than silently dropping changes",
+        "evidence": "\"your merge/wip commit trail (`wip`, `more wip`, `address review`, `fix tests`, `final fix`, `Update README.md`, `Update handler.ts`) doesn't carry enough signal on its own to write honest notes\" explicitly enumerates what was excluded.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes the dark-mode entry impact-first, naming what a user can now do",
+        "evidence": "\"**Dark mode** \u2014 a dark theme is now available across the app. (#143)\" leads with the user-facing benefit rather than implementation detail.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not exclude Update README.md on the basis of its filename without reading what it changed",
+        "evidence": "\"Update README.md\" is lumped into the dismissed \"merge/wip commit trail\" list with no indication its diff/content was read; the stated reason for exclusion is the trail's lack of signal \"on its own,\" i.e. judged by the commit message/filename, not by its actual changes.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

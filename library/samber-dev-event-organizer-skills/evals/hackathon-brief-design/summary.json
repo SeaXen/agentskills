@@ -1,0 +1,602 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "hackathon-brief-design",
+  "scenarios": 12,
+  "expectations_total": 145,
+  "expectations_subjective": 3,
+  "expectations_objective": 142,
+  "pass_rate_with_skill_pct": 84.1,
+  "pass_rate_without_skill_pct": 20.0,
+  "delta_pp": 64.1,
+  "uplift_multiplier": 4.21,
+  "trigger_accuracy_pct": 59.4,
+  "trigger_queries": 128,
+  "trigger_positive_fire_rate": 0.438,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Explains that teams optimize for whatever the brief names, as the reason the exclusion list exists"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names the marginal cost of an extra track as rules-consistency work rather than lost submissions"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that nobody on the organizing team having built something small end to end against the API blocks even the required-for-one-track rung"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Writes the track constraint as a capability the submission must demonstrate rather than as 'must use Meridian'"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Treats dependency risk as a separate finding from effort, and states that promotion never overrides the delete"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Treats 'participants keep their work' as an assumption to confirm rather than a fact to publish"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Replaces the judging-mode line with the structure actually chosen for this event"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Defines every eligibility word that could be argued and uses a numeric boundary where one exists"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Labels the 25% figure as one practitioner's observation rather than a measured rate"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Applies the twenty-minute onboarding test if any starter environment is provided"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States who qualifies as a beginner in words that could be argued only one way"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the carve-out wording must compose with the base rules without contradicting them"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes that the carve-out moves the rules rung from the adopted standard set to adopted plus carve-outs"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the brief publishes before registration closes and then freezes"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that the code of conduct is linked at every rung and is never traded against effort"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that the threshold is self-set rather than an industry standard"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that iteration continues until all seven items exist"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Deletes the open theme rung because a sponsor funds a prize"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Explains why: a team pitching a solution commits to an approach before anyone has tested whether the problem is real"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Publishes a stated minimum a team must reach before it may move to building"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Notes that leaving the in-scope question open generates clarification traffic the organizer answers during the event"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that open-sourcing a prior project for the sole purpose of reusing it during the event is not allowed"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that any post-deadline allowance must name where the line sits between small fixes and new features"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Names the evaluation categories without attaching any percentage, weight, point value or score total to any of them"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States no scoring scale (no 1-5, no 1-10, no 'out of 100') anywhere in the brief text produced"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States explicitly in the brief who weights the categories and when the weights will be published"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Routes criteria weights and the scoring scale to samber/dev-event-organizer-skills@hackathon-judging"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Notes that the technology/design/completion/learning set fits a learning-oriented event and must be adapted rather than copied"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Prints the elimination criteria next to the category names rather than inside a weighted rubric"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Publishes an exclusion list naming what is not judged, each exclusion carrying its reason"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Explains that teams optimize for whatever the brief names, as the reason the exclusion list exists"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Omits the 3,000 EUR and 1,000 EUR figures from the brief text, referring to a prize per place or per track instead"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Routes prize amounts and cash-versus-in-kind to samber/dev-event-organizer-skills@hackathon-cash-prize"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Avoids 'bonus points' phrasing or any other wording that leaks a weighting decision"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Flags requiring a demo video at an expo-table event as a mistake and removes it from the mandatory list"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that if a video is kept at all it is explicitly labelled optional in the brief"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Requires a publicly available code link, ideally a git repository"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that the code must remain public after the event to stay prize-eligible"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Requires API keys to be removed before the link is shared"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Requires libraries and frameworks used to be listed in a readme"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Requires AI-tool use to be disclosed in the submission, written as a disclosure requirement rather than a usage ban"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Requires a one-paragraph written description of what the project does and who it is for"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Replaces 'when hacking ends' with a wall-clock deadline time in a named time zone"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States what counts as submitted, including that an unreachable or private link is not a submission"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Rejects scaling the challenge-track count to participant headcount"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that no published ratio links track count to participant headcount"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Treats sponsor and judge headcount, not participant headcount, as the variable the ceiling tracks"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Cites the guidance to aim for about 3 tracks absent sponsor tracks and without an overall first/second/third placement"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that a track count of 20 or more is beyond any recommended ceiling"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Corrects the '50 people per track' assumption by stating a team submits one project that may enter several challenge tracks"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that adding a challenge track does not split the field or reduce submission density per track"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Requires publishing both halves of the cross-track rule: teams may not submit multiple projects, and may submit to multiple challenges"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names the marginal cost of an extra track as rules-consistency work rather than lost submissions"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Refuses to make the sponsor's API the event's sole substrate without written confirmation of a sandbox or offline fallback"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends the optional bonus challenge as the rung to publish pending those confirmations"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Writes a published fallback sentence stating that a team whose sponsor integration is unavailable through no fault of its own is judged on its design and integration plan rather than a working call"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that the fallback must be written before the event, because improvised during an outage it is a favour rather than a rule"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Writes the track constraint as a capability the submission must demonstrate rather than as 'must use Meridian'"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires rewriting the sponsor's marketing copy into a problem and having the sponsor confirm the rewrite"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States in the sponsor prompt that entering the sponsor track does not forfeit the general prize"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Treats dependency risk as a separate finding from effort, and states that promotion never overrides the delete"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Writes no intellectual-property or licence clause and recommends none"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that the adopted rule set carries no IP-ownership term, no ownership assignment and no originality warranty"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Routes the sponsor's licence request to counsel via samber/dev-event-organizer-skills@event-sponsor-agreement"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that who owns submitted work is a jurisdictional legal question, not something a brief template settles"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Treats 'participants keep their work' as an assumption to confirm rather than a fact to publish"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names hacking start and end times as a field the adopted set ships without"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Replaces the judging-mode line with the structure actually chosen for this event"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires a crossposting decision to be stated either way"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Points the code-of-conduct link at the organizer's own document and the disqualification-reporting channel at a person or address the organizer controls"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Treats the team-size number as a fixed input from samber/dev-event-organizer-skills@hackathon-team-formation and publishes it with the solo-entry answer"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Defines every eligibility word that could be argued and uses a numeric boundary where one exists"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends the structured statement as the default rung for this time box"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Declines the fully specified rung with starter repo and acceptance tests for a 30-hour event"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States the promotion condition for fully specified: a time box of a week or longer, or a sponsor whose own integration tests already exist and can be handed over as-is"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that below roughly a weekend the fully specified rung changes what the event is, turning a build into a graded exercise"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names all five parts of the structured statement: context, the challenge as a question, constraints, resources provided, and a minimum viable submission"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Phrases the drafted challenge as a question ending in a question mark"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Keeps the drafted constraints to things a judge could actually check"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names what is not provided alongside what is, in the resources part"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States a minimum viable submission in the drafted prompt, naming the smallest thing that counts as a real entry"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Cites the 25% observation as 25% of a team's own pre-hack estimate of its own scope"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that the 25% figure is not a completion rate and not a ratio against the organizer's prompt"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Labels the 25% figure as one practitioner's observation rather than a measured rate"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Applies the twenty-minute onboarding test if any starter environment is provided"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires the qualifying fraction of the team to be published before the event and before people choose teammates"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States who qualifies as a beginner in words that could be argued only one way"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States what happens to a team that becomes ineligible when a member joins or leaves"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Treats 'at least half the team' as one event's number rather than a standard to copy"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the carve-out wording must compose with the base rules without contradicting them"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes that the carve-out moves the rules rung from the adopted standard set to adopted plus carve-outs"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the brief publishes before registration closes and then freezes"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Promotes the adopted standard rule set over anything drafted, because the publication date is near"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Demotes the fully specified problem-statement rung, naming its starter repo and acceptance tests as the longest lead time on offer"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that having no counsel removes the route to full legal-grade text rather than merely demoting it"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Refuses to substitute self-written legal-sounding text and says so plainly rather than quietly drafting it"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Treats 16-year-olds attending as an obligation requiring review before publication, not a rung to trade against effort"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Treats personal data collected through the submission as a second obligation requiring the same pre-publication review"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names who performs that review: counsel, or whoever owns data protection for the organizing entity"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Deletes the minimal rules rung because the prizes carry cash value and sponsors fund them"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that a recurring edition promotes the rungs written once and reused, because their cost amortises across editions"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Keeps the 5,000 EUR figure out of the brief text and routes prize amounts to samber/dev-event-organizer-skills@hackathon-cash-prize"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that the code of conduct is linked at every rung and is never traded against effort"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Runs a structural pass threshold of seven items that must exist in writing with zero blanks"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that the threshold is self-set rather than an industry standard"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Flags that no minimum viable submission is stated for any track's problem statement"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Flags that there is no submission deadline and no late policy"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Flags that the submission checklist is not derived from the chosen demo format"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Runs the ambiguity gate by naming, for a rule, the reading a team arguing the opposite would point at"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that iteration continues until all seven items exist"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Attaches no weight, scale or total to Technology, Design and Completion"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Recommends presenting the brief section by section for validation rather than as one block"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Requires explicit approval before publishing, since publication is the point of no return"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Deletes the open theme rung because a sponsor funds a prize"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that a sponsor prize needs a published criterion to attach to, or it becomes an improvisation at the ceremony"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Keeps the pitch mechanic and states that publishing it, rather than publishing the problem, is the brief's job where participants bring their own problems"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires the pitch to state a problem rather than a solution"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Explains why: a team pitching a solution commits to an approach before anyone has tested whether the problem is real"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Publishes an evidence requirement for the pitch, such as interviews, numbers or a lived account"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Publishes a stated minimum a team must reach before it may move to building"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Hands the pitch mechanic content to samber/dev-event-organizer-skills@hackathon-team-formation"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Notes that leaving the in-scope question open generates clarification traffic the organizer answers during the event"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Refuses to add a new rule after teams have started building"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that a rule added mid-event re-scores teams that already finished, or applies to a competition nobody entered"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Offers a clarification of the existing text as the available move, distinct from a new rule"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States the idea/code split: a team may reuse an old idea but not old code"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that open-sourcing a prior project for the sole purpose of reusing it during the event is not allowed"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that any post-deadline allowance must name where the line sits between small fixes and new features"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Records the clarification question as a signal naming a sentence the next edition's brief needs"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that no platform or academic survey publishes an aggregate disqualification or rule-dispute rate for the field"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that every gate used here is self-set rather than an industry standard, and says so when presenting it"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Applies the ratio of one expert-plus-workable-project pairing per four non-expert participants"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that the ratio counts participants, not teams"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that the ratio counts expert-plus-project pairings, not challenge tracks"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Computes the required number of pairings from the 160 participants and names the shortfall against the 12 experts lined up"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Names the failure the ratio prevents: participants struggling to find something relevant to work on"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Requires each expert's domain problem to be translated into a workable project rather than published as-is"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Substitutes the structural pass threshold for a rate target as the thing to measure before publication"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Names the signals to record for the next edition: clarification questions asked, submissions rejected as invalid and why, and tracks that drew no entries"
+      }
+    ]
+  }
+}

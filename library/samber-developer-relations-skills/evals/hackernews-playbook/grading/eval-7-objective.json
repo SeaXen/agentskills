@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The response does not return a grammar-corrected version of the text.",
+        "evidence": "\"I can't fix the grammar of your text.\" Problems are listed without replacement sentences.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response states that HN bans AI-edited text, including light edits or grammar fixes.",
+        "evidence": "\"Fixing grammar and rewriting wording are the same act under that rule.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response says imperfect English is acceptable on HN or reads better than AI polish.",
+        "evidence": "\"Imperfect English reads better on HN than polished LLM text.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response suggests a human proofreader or writing it in the author's own words.",
+        "evidence": "\"A human proofreader is fine\" and \"Write it yourself, in your own English.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response says a new Show HN is only acceptable when the new version is significantly different.",
+        "evidence": "\"A new version qualifies only if it is significantly different\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response says repeat Show HNs should happen at most once or twice a year.",
+        "evidence": "\"at most once or twice a year\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response says a repeat Show HN should link to the previous Show HN thread.",
+        "evidence": "\"you link the old thread\"; item 9 \"link your v1 thread\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response concludes that v1.4 does not qualify for a new Show HN because it is an incremental release, not a significantly different version.",
+        "evidence": "It says only \"Eligibility is doubtful... reads like a minor release... I can't predict their call\", and then asks whether the change is significant.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response names problems in the draft (for example 'most fast' superlative, the feature list, the exclamation tone) without supplying replacement sentences.",
+        "evidence": "A table naming 'most fast', 'very happy to present' and the feature list, with no rewrites.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response suggests an alternative such as a regular submission of a substantive technical post about the encoder work.",
+        "evidence": "\"submit a regular post about how you made the encoder 2x faster, if it teaches something.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The response does not return a grammar-corrected version of the text.",
+        "evidence": "'Here is your text with only the grammar fixed:' followed by the corrected text.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response states that HN bans AI-edited text, including light edits or grammar fixes.",
+        "evidence": "No mention.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response says imperfect English is acceptable on HN or reads better than AI polish.",
+        "evidence": "No mention.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response suggests a human proofreader or writing it in the author's own words.",
+        "evidence": "No mention.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response says a new Show HN is only acceptable when the new version is significantly different.",
+        "evidence": "'a point release or minor update usually does not qualify.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response says repeat Show HNs should happen at most once or twice a year.",
+        "evidence": "No mention.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response says a repeat Show HN should link to the previous Show HN thread.",
+        "evidence": "No mention.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response concludes that v1.4 does not qualify for a new Show HN because it is an incremental release, not a significantly different version.",
+        "evidence": "Hedged: 'may be flagged or ignored.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response names problems in the draft (for example 'most fast' superlative, the feature list, the exclamation tone) without supplying replacement sentences.",
+        "evidence": "Supplies a full replacement text and replacement phrases.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response suggests an alternative such as a regular submission of a substantive technical post about the encoder work.",
+        "evidence": "'A normal link post to the release notes may work better.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Assigns a close, ignore or counter verdict to every one of the eight gaps, not only to three.",
+        "evidence": "All 8 rows in the Gap plan table carry a verdict, e.g. \"close,\" \"close, phased,\" \"ignore this quarter,\" \"counter.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Leaves no verdict blank.",
+        "evidence": "Every row of the 8-row Gap plan table has a populated Verdict cell.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sorts the table by impact per unit of cost.",
+        "evidence": "\"Sorted by impact per unit of cost, highest first \u2014 not by impact alone and not cheapest first.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that sort explicitly above the table.",
+        "evidence": "Same sentence appears directly above the Gap plan table.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not sort the table cheapest first.",
+        "evidence": "\"not by impact alone and not cheapest first\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Attaches a named owner and a date to every gap marked close.",
+        "evidence": "e.g. \"Credit card required before first API key ... **close**... | DX/Platform lead | 2026-10-15\" and similar owner/date pairs on all close rows.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes the reason next to every gap marked ignore.",
+        "evidence": "\"No community venue, 900 monthly active devs ... **ignore this quarter** \u2014 900 MAU is below the point where a venue reads as active rather than empty...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the strength leaned on instead for every gap marked counter.",
+        "evidence": "\"1 conference sponsored vs 14 at Beacontree ... **counter** ... Counter with 2-3 CFP speaking slots at higher-fit events instead of sponsor spend\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the high-impact, high-cost gaps that the ranking pushed to the bottom.",
+        "evidence": "\"Starved by the ranking: the 31%-outside-contribution gap and the no-community-venue gap are both real evidence to a sophisticated evaluator... the ratio sort pushes them down every quarter.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the condition that would promote each starved gap.",
+        "evidence": "\"outside contribution moves up if the company commits to an OSS-first motion or a lost evaluator names it as the reason; the community venue moves up once MAU clears the 2,000 threshold...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ranks on impact alone, and says so in the cell, any gap whose cost cannot be sized from outside.",
+        "evidence": "Every row in the gap plan has a definite Cost value (low/medium/high); no row states cost cannot be sized or is ranked on impact alone.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the recorded ignores are what stop the same gap being rediscovered next quarter.",
+        "evidence": "No such statement appears in this section; the \"starved\" framing discusses promotion conditions, not this rationale.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Assigns a close, ignore or counter verdict to every one of the eight gaps, not only to three.",
+        "evidence": "The scoring table gives a 'Verdict' to all 8 rows (a,b,g = 'Quick win'; d = 'Bundle in'; e = 'Park'; c,f = 'Roadmap item'; h = 'Not achievable this quarter').",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Leaves no verdict blank.",
+        "evidence": "Every row in the 'Scoring the full list' table has a non-empty Verdict cell.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sorts the table by impact per unit of cost.",
+        "evidence": "Rows are grouped by verdict category rather than a strict impact/cost ratio; e.g. (g) is High impact/Low effort but is listed third, after (a) and (b) which are Medium effort.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that sort explicitly above the table.",
+        "evidence": "No sentence describing a sort methodology appears before the table.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not sort the table cheapest first.",
+        "evidence": "The Effort column order (Medium, Medium, Low, Low, Low, High, High, High) is not a clean cheapest-first ordering.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Attaches a named owner and a date to every gap marked close.",
+        "evidence": "Owners are given (e.g. \"Owner: product + eng\", \"Owner: DevRel/docs\") but only relative durations ('~1 sprint', '1-2 weeks') are given, never a specific date.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes the reason next to every gap marked ignore.",
+        "evidence": "\"### Why not the others, briefly\" gives an explicit reason for each deferred gap (d, e, c, f, h).",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the strength leaned on instead for every gap marked counter.",
+        "evidence": "No 'counter' verdict category or substituted-strength framing is used anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the high-impact, high-cost gaps that the ranking pushed to the bottom.",
+        "evidence": "\"(c) Docs restructure, (f) contribution rate, (h) sponsorships \u2014 each real long-term... Put them on next quarter's roadmap instead of diluting focus now.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the condition that would promote each starved gap.",
+        "evidence": "An explicit promotion condition is given only for (e) ('adopt as a template now, measure next breaking release'); c, f, and h are only generically deferred to 'next quarter's roadmap.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ranks on impact alone, and says so in the cell, any gap whose cost cannot be sized from outside.",
+        "evidence": "Every gap has an Effort estimate in the table; none is flagged as unsizable and ranked on impact alone.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the recorded ignores are what stop the same gap being rediscovered next quarter.",
+        "evidence": "No such statement about preventing rediscovery appears.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

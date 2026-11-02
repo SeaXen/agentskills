@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Ranks the automation options by reader hours saved per engineering hour spent, and states the ranking explicitly rather than implying it by list order",
+        "evidence": "\"Rung ranking by reader hours saved per engineering hour: `search patterns + literal messages > deprecation warnings in N-1 > lint rule > codemod > compat build`\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places search patterns and literal messages per change at the top of the efficiency ranking",
+        "evidence": "They are the first rung in the ranking line.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that search patterns and literal messages cost near-zero because they are the affects-you-if line already written for each entry",
+        "evidence": "Only says they \"need no maintenance\"; never says the cost is near-zero because the line is already written.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends deleting the compat build from the plan because no owner is named after the release",
+        "evidence": "\"Compat shim: ... Nobody holds it after the rotation... Delete it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that an unmaintained compat build strands every project that adopted it half-migrated",
+        "evidence": "\"Every project that adopts it ends up half-migrated on an unmaintained path.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places the lint rule above the codemod on efficiency while acknowledging the codemod beats it on value",
+        "evidence": "Ranking places lint above codemod, but the transcript never acknowledges that the codemod beats it on value.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the lint rule's payoff as stopping new code reintroducing the old API after the guide stops being read",
+        "evidence": "No lint rule payoff is given in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends deprecation warnings in the N-1 release as the second rung, conditional on an N-1 release still being shippable",
+        "evidence": "Second rung; \"If a v5.x release cannot ship, use single hop\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names explicitly what this efficiency ordering starves rather than leaving it implied",
+        "evidence": "No statement of what the ordering starves.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the condition that would promote the codemod or compat build anyway, such as hundreds of call sites per consumer or consumers being large applications that cannot hold a long-lived migration branch",
+        "evidence": "\"Revisit the codemod only if... Telemetry shows hundreds of call sites per consumer.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires any recommended codemod to be validated against a corpus of example apps, internal consumers and public dependents rather than one repository",
+        "evidence": "\"scope it to the top mechanical renames, and run it across a corpus\"; mentions corpus validation, though the corpus is not itemised.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the codemod's coverage boundary, meaning what it does not cover, to be stated in the same place as the command itself",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not endorse spending the full 3 engineer-weeks on the codemod and compat shim as the team proposed",
+        "evidence": "\"do not build the codemod or the compat shim\"; the 3 weeks are allocated to inventory, warnings, guide and cold run.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Ranks the automation options by reader hours saved per engineering hour spent, and states the ranking explicitly rather than implying it by list order",
+        "evidence": "The plan table is ordered by schedule days ('Days | Item | Why it survives with no owner'). No ranking by efficiency is stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places search patterns and literal messages per change at the top of the efficiency ranking",
+        "evidence": "There is no efficiency ranking. 'Loud v6 errors and migration guide' is one table row, and search patterns are not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that search patterns and literal messages cost near-zero because they are the affects-you-if line already written for each entry",
+        "evidence": "The loud-errors row costs 4 days. Nothing says the cost is near zero.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends deleting the compat build from the plan because no owner is named after the release",
+        "evidence": "'don't spend the budget on a codemod plus a flag-based v5 shim'; 'Nobody owns it after the rotation, so it will go stale while users depend on it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that an unmaintained compat build strands every project that adopted it half-migrated",
+        "evidence": "It says the shim 'will go stale while users depend on it' and that the flag 'becomes permanent'. It never says adopters are stranded half-migrated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places the lint rule above the codemod on efficiency while acknowledging the codemod beats it on value",
+        "evidence": "A lint rule is never mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the lint rule's payoff as stopping new code reintroducing the old API after the guide stops being read",
+        "evidence": "There is no lint rule in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends deprecation warnings in the N-1 release as the second rung, conditional on an N-1 release still being shippable",
+        "evidence": "The plan has 'Final v5 release (v5.x) with DeprecationWarnings' as an unconditional row. It is not framed as a rung and not conditional.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names explicitly what this efficiency ordering starves rather than leaving it implied",
+        "evidence": "There is no efficiency ordering and nothing is named as starved.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the condition that would promote the codemod or compat build anyway, such as hundreds of call sites per consumer or consumers being large applications that cannot hold a long-lived migration branch",
+        "evidence": "'If A is under 8, shrink the codemod' goes the opposite way. 'If leadership insists on a shim' is a political condition, not call-site volume or large consumers.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires any recommended codemod to be validated against a corpus of example apps, internal consumers and public dependents rather than one repository",
+        "evidence": "'Validate on 3 real codebases. Use your own examples and 2 or 3 customers or OSS users.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the codemod's coverage boundary, meaning what it does not cover, to be stated in the same place as the command itself",
+        "evidence": "Coverage is recorded 'as a coverage table in the guide'. It is not tied to the command itself.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not endorse spending the full 3 engineer-weeks on the codemod and compat shim as the team proposed",
+        "evidence": "'It just shouldn't take all 15 days'; the codemod is scoped to category A at 4\u20135 days and the shim is rejected.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

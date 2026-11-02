@@ -1,0 +1,106 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Counts one occasion on the event's own slate, not four",
+        "evidence": "\"Not four... only one of those goes on the open social track.\"; \"The slate is one occasion.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies the sponsor afterparty and the user-group meetup as events the organiser permits rather than provides, keeping both off the slate",
+        "evidence": "\"The sponsor afterparty is permitted, not provided.\" \"The meetup is also permitted, not provided.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes both third-party events to side-event coordination, including the logo usage on the user group's page",
+        "evidence": "Table routes both to `event-side-event-coordination`; \"whether they use your logo or name, is for `event-side-event-coordination`.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Hands the confirmed slate to side-event coordination as the calendar those third-party events are deconflicted against",
+        "evidence": "No handoff sends the slate to side-event coordination as a calendar; it only routes the labelling question.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Classifies the invitation-only speakers-and-advisors dinner as outside the open slate and routes it to the invite-only or named-guest gathering work",
+        "evidence": "\"Not on the open slate | `event-vip-social-program`\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines to publish times for the occasions and states a non-overlap requirement for the schedule to place instead",
+        "evidence": "\"I can't give you publishable times... I won't invent them.\"; \"Non-overlap requirement for the schedule (to `event-schedule-design`)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that placing or moving a slot belongs to the schedule, never to this decision",
+        "evidence": "\"This is a deconfliction call, and I won't move either slot myself.\" with the requirement sent to `event-schedule-design`.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Hands the count and the places to the code of conduct so its scope clause reaches every occasion rather than only the one everybody remembered",
+        "evidence": "\"Send them the count and the places, not 'we're covered'\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Counts one occasion on the event's own slate, not four",
+        "evidence": "\"Official social track: the welcome mixer only.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies the sponsor afterparty and the user-group meetup as events the organiser permits rather than provides, keeping both off the slate",
+        "evidence": "\"Community & sponsor events (not run by Aldergate)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes both third-party events to side-event coordination, including the logo usage on the user group's page",
+        "evidence": "Only says to confirm the meetup is happy with the logo use. There is no routing to side-event coordination.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Hands the confirmed slate to side-event coordination as the calendar those third-party events are deconflicted against",
+        "evidence": "No such handoff appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Classifies the invitation-only speakers-and-advisors dinner as outside the open slate and routes it to the invite-only or named-guest gathering work",
+        "evidence": "The dinner is kept off the public track, but is not routed to any other work.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines to publish times for the occasions and states a non-overlap requirement for the schedule to place instead",
+        "evidence": "It declines to invent times (\"I won't invent them\") but states no non-overlap requirement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that placing or moving a slot belongs to the schedule, never to this decision",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Hands the count and the places to the code of conduct so its scope clause reaches every occasion rather than only the one everybody remembered",
+        "evidence": "Says the code of conduct covers only the mixer and the dinner, and that the other two are excluded.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

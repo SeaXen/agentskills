@@ -1,0 +1,446 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-social-media",
+  "scenarios": 10,
+  "expectations_total": 109,
+  "expectations_subjective": 1,
+  "expectations_objective": 108,
+  "pass_rate_with_skill_pct": 79.8,
+  "pass_rate_without_skill_pct": 28.4,
+  "delta_pp": 51.4,
+  "uplift_multiplier": 2.81,
+  "trigger_accuracy_pct": 60.2,
+  "trigger_queries": 98,
+  "trigger_positive_fire_rate": 0.388,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Every post in the plan is pinned to one of the dates supplied in the prompt (announcement week of 3 March, CFP window 10 March to 5 June, CFP close 5 June, speaker confirmations from 1 July, agenda release 20 August, early-bird close 5 September, doors 14 October)."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States no weekly or daily posting frequency anywhere in the plan: no 'post X times per week', no 'X times a day', no equivalent numeric cadence."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that a genuine reweighting case is routed back to the marketing-plan skill rather than settled inside the social plan."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names CFP close and speaker reveals as the two phases carrying most of this channel's value."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names the three governance poles - community-run, foundation-run, company/vendor-run - as the axis deciding what the account is allowed to post."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that a small community-run event has no sponsor-neutrality policy to enforce either, so the same rules would forbid perfectly normal posts there for no reason."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names three distinct purposes a tag can serve: campaign measurement, reach expansion through a broader topic, and categorisation of a post by subject."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Assigns each surviving tag one of the three named purposes."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Puts the hashtags in the shareable kit labelled by purpose, so nobody has to guess which one to use."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Gives the reason for deleting rather than demoting: a rung left at the bottom of a menu reappears as scope later in the campaign."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that a second account opened 'just in case' and then abandoned is worse than never opening it."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that the answer about where this audience actually gathers outranks any preset platform list."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Routes anything not on the home platform to a link on the event's comms hub rather than to a new account."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names the condition that would have promoted the two-natively-adapted rung: two platforms holding different audiences with different reasons to attend, not two flavours of the same audience."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States the ranking out loud rather than leaving it implied by the order options are listed in."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names the default amplification rung as the ready-made kit plus the per-speaker ask."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Offers exactly two resolutions - name a different person, or drop to the single-recap rung - rather than suggesting the organiser try to do both carefully."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names the single recap as the default live-coverage rung."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the roving-poster rung is promoted only once a volunteer can be named in the run of show, not hoped for on the morning."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names speaker reveals, alongside the CFP close, as one of the two phases carrying most of this channel's value."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Attaches a dedicated tracked link or discount code to the speaker-announcement posts."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that adapting for two flavours of the same audience would buy nothing."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "States no weekly or daily posting frequency anywhere in the plan: no 'post X times per week', no 'X times a day', no equivalent numeric cadence."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Justifies anchoring posts to dates instead of a frequency, on the grounds that a date is defensible to someone asking 'why this week?' and a frequency is not."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that a genuine reweighting case is routed back to the marketing-plan skill rather than settled inside the social plan."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names CFP close and speaker reveals as the two phases carrying most of this channel's value."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Includes a pre-announcement warm-up before 3 March so the announcement does not land on a dead profile."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that the announcement post carries the event's existing positioning sentence rather than a new angle written for the caption."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that the social register is read off the cultural-identity tone matrix rather than invented for this channel."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Specifies a distinct tracked link per platform, decided before the first post ships."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Inside any phase spanning more than one post, alternates one-to-one between a post that gives the reader something on its own and a plain informational or announcement post."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Tests the decision against three named conditions - positioning built on scarcity, curation or word of mouth; demand already exceeding capacity without promotion; organisers experiencing promotion as off-brand with the cultural register supporting them - and finds all three hold."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States plainly that declining to promote is the identity-consistent choice here, not an execution gap or a shortfall."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Recommends a minimal presence instead: a single announcement plus the practical details, and nothing else."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names the practical posts that still must ship: dates, location, link, CFP close, doors."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Gives the reason those still ship: the people already looking for the event have to be able to find them."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that 'no marketing' is not 'no information'."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Cites at least one real precedent of a long-running, oversubscribed conference that declined active promotion as a stated guiding principle."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Does not propose opening an Instagram or YouTube account for this event."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Proposes no posting cadence and no engagement target for this event."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that those rules exist specifically to enforce foundation neutrality and do not transpose downward to other governance poles."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names the three governance poles - community-run, foundation-run, company/vendor-run - as the axis deciding what the account is allowed to post."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that a small community-run event has no sponsor-neutrality policy to enforce either, so the same rules would forbid perfectly normal posts there for no reason."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Keeps the image-licensing rule and says it is the one part worth carrying at every pole, because reusing an unlicensed or uncredited photo is an exposure anywhere."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names what the vendor pole brings instead: brand review, a marketer who owns the account, and paid amplification the other two poles cannot reach."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Warns that community and foundation guidance does not speak to the vendor pole, so any rule borrowed from it should be treated as untested here."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Keeps one named account owner and one documented request path regardless of governance pole."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names three distinct purposes a tag can serve: campaign measurement, reach expansion through a broader topic, and categorisation of a post by subject."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Cuts the proposed list to roughly three tags in total."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Assigns each surviving tag one of the three named purposes."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that beyond roughly three, tags stop routing and start decorating."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires the campaign tag to be fixed before the first post ships."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that changing the campaign tag mid-campaign splits the archive permanently and cannot be merged afterwards."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Puts the hashtags in the shareable kit labelled by purpose, so nobody has to guess which one to use."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends the single home platform rung, with the Discord server as the home, justified by the stated concentration of the audience."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Deletes the other rungs from the menu rather than demoting them or parking them as later options."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Gives the reason for deleting rather than demoting: a rung left at the bottom of a menu reappears as scope later in the campaign."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that a second account opened 'just in case' and then abandoned is worse than never opening it."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that an account whose last post is months old subtracts credibility from the event rather than adding reach."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Declines the multi-platform campus-scale spread, and states that such a preset applies only where the audience genuinely lives across those platforms and no single home platform reaches even half of them."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that the answer about where this audience actually gathers outranks any preset platform list."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Routes anything not on the home platform to a link on the event's comms hub rather than to a new account."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names the condition that would have promoted the two-natively-adapted rung: two platforms holding different audiences with different reasons to attend, not two flavours of the same audience."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States the ranking out loud rather than leaving it implied by the order options are listed in."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Separates the contracted Gold-tier mentions from voluntary sponsor thank-yous and handles them differently."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Routes the contracted mentions to the sponsor-fulfilment skill as their owner."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that an uncontracted sponsor thank-you is a goodwill gesture, explicitly optional, and must not be presented as an obligatory deliverable."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Moves the speaker ask onto the confirmation email already being sent, instead of a separate direct message."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Requires an explicit opt-out in the speaker ask, stating that nothing changes if the speaker declines."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Lists the kit contents: speaker cards, a short copy block, the hashtags labelled by purpose, the tracked link, one or two horizontal images, and a line on what not to do."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Offers exactly two resolutions - name a different person, or drop to the single-recap rung - rather than suggesting the organiser try to do both carefully."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names the single recap as the default live-coverage rung."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the roving-poster rung is promoted only once a volunteer can be named in the run of show, not hoped for on the morning."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Writes the live-posting slot and its named person into the run of show rather than into a standalone document."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Declines the per-talk live thread, identifies it as the full-live-desk rung, and names the conditions that would promote it: a sponsor agreement that actually contracts live coverage, or a remote audience for whom the live posts are the event."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Caps a realistic day at roughly five to eight posts for one person who is also attending the event."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Ties the red-lanyard opt-out to the accessibility-and-inclusion skill that owns the badge artifact, and requires the photo rules to be settled before the day rather than on the morning."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Specifies what must not be posted: incidents of any kind, anything involving a code-of-conduct report, medical or safety situations, and empty rooms."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires one shared folder with files named per session, so the archive survives the day intact."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Substitutes four self-set measures: every dated post shipped on its date, a per-platform tracked link, amplification take-up, and the archive produced."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Flags 'every dated post shipped on its date' as binary, fully inside the organiser's control, and the measure that fails most often on volunteer teams."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that per-platform tracked links must be decided before launch because they cannot be added retroactively."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that reading the tracked links belongs to the marketing plan while creating them belongs to the social channel."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Presents any published event-account engagement figure it cites as descriptive of the accounts measured, never as a threshold to hit."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that established conference accounts accumulate followers across recurring editions while a campaign account starts near-cold each edition, so follower-based benchmarks do not transfer."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Rejects the single 14-name carousel."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Gives the reason: a batched carousel leaves no speaker a post of their own to share, so the borrowed reach through each speaker's audience is lost."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Recommends one card per speaker or per small batch, spread across the reveal window rather than concentrated in one day."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Requires each speaker to receive their card before it is posted, together with the ask."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Warns that revealing only a handful of speakers invites unwarranted assumptions about the event's demographics."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names speaker reveals, alongside the CFP close, as one of the two phases carrying most of this channel's value."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Attaches a dedicated tracked link or discount code to the speaker-announcement posts."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that ticket sales spike to roughly 10% of expected total sales at the lineup or agenda announcement."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Declines to plan the 30-clip series and the three write-up articles, identifying them as the content-repurposing skill's scope rather than this one's."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States what is handed over instead - the recordings, the photo archive and the quotable moments - and says the handover out loud rather than silently stopping."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that the post-event plan owned here stops at the recap rather than growing into a multi-week recap campaign the team cannot sustain against the next edition's workload."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Reduces posting to one named account owner, with nobody else holding the password."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Publishes one line on what does not get posted."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that adapting for two flavours of the same audience would buy nothing."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Keeps the sponsor thank-you framed as goodwill rather than a contracted deliverable, unless an agreement says otherwise."
+      }
+    ]
+  }
+}

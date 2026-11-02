@@ -1,0 +1,630 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "changelog-writing",
+  "scenarios": 14,
+  "expectations_total": 152,
+  "expectations_subjective": 1,
+  "expectations_objective": 151,
+  "pass_rate_with_skill_pct": 68.4,
+  "pass_rate_without_skill_pct": 35.5,
+  "delta_pp": 32.9,
+  "uplift_multiplier": 1.93,
+  "trigger_accuracy_pct": 50.0,
+  "trigger_queries": 138,
+  "trigger_positive_fire_rate": 0.072,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.274 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Writes the flush_interval entry impact-first, naming the observable effect before the internal mechanism"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Produces no entry for the retryOn option, because the flag defaults off and nothing is observable yet"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States explicitly that a change is never classified by its filename or directory"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Writes #325 impact-first, describing the failure a caller would observe rather than the lock"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that major means breaking, minor means additive, and patch means fixes"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Points out that neither removal was announced as a deprecation in an earlier release"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends announcing a deprecation in a release that removes nothing, naming the replacement and the earliest version that removes it"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that English typically needs roughly twice the characters of Korean or Japanese for the same meaning, so English breaks the Play cap first"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Gives an overflow procedure that drops the lowest-impact items first"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends enforcing the character count mechanically in CI rather than checking by eye"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Warns that Play's copy-from-previous-release action carries stale translations forward"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Front-loads the single highest-impact change in the first sentence, citing the roughly 170-character visible fold"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that store notes are locked at submission and cannot be corrected without a new version"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Declines the whimsical register for this project rather than complying with the request"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that the editorial register requires a consumer surface, a single locale or a translation budget, and a product voice that already exists, and that all three must hold together"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends the technical-writing school as the default register"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes that funny or friendly notes run long, obscure the message, and cost non-native readers extra work"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Refuses to rewrite the 43 historical releases"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Starts the new format at the next release and leaves past releases as shipped"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Provides the Keep a Changelog to Common Changelog category mapping for use going forward only"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Maps Deprecated to Changed with the replacement and removal version carried into the entry text"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Maps Security to Fixed with the advisory or CVE carried into the entry text"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes that Common Changelog has no Unreleased section"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes that Common Changelog requires a commit reference on every entry and recommends a pull-request reference too"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends stating the chosen specification at the top of the file"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Confirms that a library whose readers diff versions supports Common Changelog as the right choice"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Works from the pull-request titles and bodies and from the diff"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that a history with no commit convention is the default case rather than the exception"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Asks the user to confirm whether #140 was user-visible or only logged, before writing an entry for it"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that generated output is ordered by merge time, titled by whoever opened the pull request, and blind to what the changes mean"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Delivers a release body that opens with a summary paragraph"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Also delivers a traceability table mapping each entry to a pull request, despite the user asking only for the release body"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Also delivers an exclusion list covering the dependabot pull requests and anything else dropped"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Also delivers a list of open items needing a human"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Orders items inside each category by consumer impact, with breaking items first"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Mentions .github/release.yml label mapping, with exclude.labels or exclude.authors, as the durable fix for dependabot noise"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Recommends producing CHANGELOG.md alongside the release body, since they are the same text and one edit produces both"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Does not add a hosted page, email or in-product note to the plan given the two-hour deadline"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names the two-hour deadline as the reason surfaces requiring another team's review cycle are dropped"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Ranks click-through from a breaking entry to its migration guide above release-page views"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that time-to-upgrade needs roughly a quarter plus telemetry before it says anything"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Recommends stable identifiers per change that a customer can quote in a ticket"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that narrative or friendly voice has negative value for this reader"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Writes the LDAP fix in symptom phrasing an administrator can match to a support ticket"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Recommends a machine-consumable form of the security advisory for vulnerability-database ingestion"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Notes that readers arriving months later search by symptom or CVE, so the breaking set must be complete and pinned at the top"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Names samber/developer-relations-skills@version-migration-guide as the destination for the migration guide"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Confirms that 4.0.0 is the correct bump for a release containing breaking changes"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Limits the storage rewrite to the changelog and the release body only"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Grants the flush_interval change the changelog, release body, hosted page, email and in-product note"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends the in-app banner and the mailing list for the flush_interval change specifically because the change requires user action"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Writes the flush_interval entry impact-first, naming the observable effect before the internal mechanism"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Lists the missing benchmark for #310 as an open item needing a human rather than estimating or softening a number"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Collapses #313, #316 and #319 into at most one entry rather than three"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Produces no entry for the retryOn option, because the flag defaults off and nothing is observable yet"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States explicitly that a change is never classified by its filename or directory"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Returns an exclusion list naming every dropped change with its reason"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Returns a traceability table mapping each entry to its pull request"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Writes #325 impact-first, describing the failure a caller would observe rather than the lock"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that major means breaking, minor means additive, and patch means fixes"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Points out that neither removal was announced as a deprecation in an earlier release"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends announcing a deprecation in a release that removes nothing, naming the replacement and the earliest version that removes it"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Gives each removal a what-breaks, who-it-hits, what-to-do treatment rather than a bare bullet"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names the affected subset for each removal instead of saying it affects everyone"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Instructs writing the tightest-capped version first and expanding upward, rather than compressing a long version downward"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that English typically needs roughly twice the characters of Korean or Japanese for the same meaning, so English breaks the Play cap first"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Gives an overflow procedure that drops the lowest-impact items first"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends enforcing the character count mechanically in CI rather than checking by eye"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Warns that Play's copy-from-previous-release action carries stale translations forward"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Flags Apple's 4,000-character limit as reported rather than verified against Apple's own documentation"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Front-loads the single highest-impact change in the first sentence, citing the roughly 170-character visible fold"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that store notes are locked at submission and cannot be corrected without a new version"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends formal address as the default register for German, French, Spanish, Dutch and Italian"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Uses at most three coarse sections such as New, Improved and Fixed rather than a full specification category set"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Uses only the four Common Changelog categories: Changed, Added, Removed and Fixed"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Emits no Deprecated heading"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Places the deprecation of setMaxIdle() under Changed"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Orders the categories Changed, Added, Removed, Fixed"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Questions the 4.3.0 minor version given the Node 18 drop, or recommends a major bump instead"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Declines the whimsical register for this project rather than complying with the request"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that the editorial register requires a consumer surface, a single locale or a translation budget, and a product voice that already exists, and that all three must hold together"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Identifies that this project fails at least the consumer-surface and single-locale conditions"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that whimsy multiplies translation cost and defect rate across every locale"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends the technical-writing school as the default register"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes that funny or friendly notes run long, obscure the message, and cost non-native readers extra work"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Resolves whether the reader is integrating against the change or receiving it"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Delivers entries that state the observable effect before any mechanism"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Claims no performance figure for the faster CSV parsing, since none was supplied"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Refuses to rewrite the 43 historical releases"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that rewriting history breaks every deep link into the file"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Starts the new format at the next release and leaves past releases as shipped"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Provides the Keep a Changelog to Common Changelog category mapping for use going forward only"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Maps Deprecated to Changed with the replacement and removal version carried into the entry text"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Maps Security to Fixed with the advisory or CVE carried into the entry text"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes that Common Changelog has no Unreleased section"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes that Common Changelog requires a commit reference on every entry and recommends a pull-request reference too"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends stating the chosen specification at the top of the file"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Confirms that a library whose readers diff versions supports Common Changelog as the right choice"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Works from the pull-request titles and bodies and from the diff"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that a history with no commit convention is the default case rather than the exception"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Asks the user to confirm whether #140 was user-visible or only logged, before writing an entry for it"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Asks the user to confirm whether #147 has a behavioural side effect, rather than dropping it as a refactor by name"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Does not exclude Update README.md on the basis of its filename without reading what it changed"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that generated output is ordered by merge time, titled by whoever opened the pull request, and blind to what the changes mean"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Delivers a release body that opens with a summary paragraph"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Also delivers a traceability table mapping each entry to a pull request, despite the user asking only for the release body"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Also delivers an exclusion list covering the dependabot pull requests and anything else dropped"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Also delivers a list of open items needing a human"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Orders items inside each category by consumer impact, with breaking items first"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Mentions .github/release.yml label mapping, with exclude.labels or exclude.authors, as the durable fix for dependabot noise"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Recommends producing CHANGELOG.md alongside the release body, since they are the same text and one edit produces both"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Does not add a hosted page, email or in-product note to the plan given the two-hour deadline"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names the two-hour deadline as the reason surfaces requiring another team's review cycle are dropped"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that Linear's reported returns are first-party and unquantified"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Describes the app-store finding as correlational and confounded by release frequency and app maturity"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Offers measurable proxies instead, led by support and issue volume tagged to the release"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Ranks click-through from a breaking entry to its migration guide above release-page views"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that time-to-upgrade needs roughly a quarter plus telemetry before it says anything"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Recommends promoting time-to-upgrade when a breaking change is coming and the team needs to know who is still on the old version"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Offers the drafting cost, up to eight hours of an experienced developer per release-note document, instead of inventing an ROI figure"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Invents no percentage lift for retention or upgrade rate"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Writes the LDAP fix in symptom phrasing an administrator can match to a support ticket"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Structures the output as a versioned document with chapters such as new features, deprecated features and known issues"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Recommends a machine-consumable form of the security advisory for vulnerability-database ingestion"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Notes that readers arriving months later search by symptom or CVE, so the breaking set must be complete and pinned at the top"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Notes that AMO's release-notes default locale is pinned to en-US regardless of the add-on's own default locale"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Distinguishes notes for Mozilla reviewers from notes for users as separate artefacts"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Recommends keeping the canonical changelog outside the stores, in repository releases or an in-extension page"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Recommends an in-extension what's-new page opened on update"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Writes the sidebar-position change impact-first, since it is what users will notice"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Declines to bump the version or cut the tag, routing that to release-automation tooling"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Routes the before/after code, codemods and deprecation timeline to a separate migration guide rather than into the release notes"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Names samber/developer-relations-skills@version-migration-guide as the destination for the migration guide"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Still writes the release notes, with each breaking entry linking out to the migration guide"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Gives each of the six breaking entries what breaks, who it hits, and what to do"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Names the affected subset per breaking entry rather than saying everyone"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Places breaking entries first, ahead of Added and Fixed"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Confirms that 4.0.0 is the correct bump for a release containing breaking changes"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "References, from each removal entry, the earlier release that announced the deprecation"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Ranks surviving changes by consumer impact and sets an explicit cut line rather than trimming by feel"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "States the cut line to the user and lists what fell below it"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Deletes the email surface from the plan and says so, because the project has no email list"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Deletes the hosted page and in-product note from the plan and says so, given the one-day ceiling"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Recommends a note-fragment workflow, each entry written as its own file in the same patch as the code, and recommends it once rather than repeatedly"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Explains that entries written at release time reconstruct impact from memory weeks after the change"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Recommends splitting the catch-up across the versions actually released, or states plainly that one entry cannot carry 18 months honestly"
+      }
+    ]
+  }
+}

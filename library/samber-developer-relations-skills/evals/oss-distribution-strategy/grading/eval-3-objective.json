@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Recommends dual-publishing to Open VSX alongside the Microsoft marketplace.",
+        "evidence": "'Publish to Open VSX (Eclipse Foundation) via the same CI step that already builds the `.vsix`'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that Microsoft's marketplace terms restrict use to Microsoft in-scope products, so every VS Code fork is contractually barred from it.",
+        "evidence": "'Microsoft's Marketplace terms restrict use to Microsoft's own in-scope products \u2014 every VS Code fork is contractually barred from it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names at least two editors that default to Open VSX from among Cursor, Windsurf, VSCodium and Gitpod.",
+        "evidence": "'This unlocks Cursor, Windsurf, VSCodium and Gitpod, the exact audience already visible in your issue tracker.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the extension is currently invisible to the AI-first editor segment the issue tracker already shows demand from.",
+        "evidence": "'If probe-lens isn't on Open VSX, Cursor users cannot find or install it through their extensions UI at all.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes the VS Code Marketplace provides no first-party install-statistics dashboard.",
+        "evidence": "'The VS Code Marketplace has **no first-party install-stats dashboard** beyond the publisher page's cumulative count and a rough trend graph.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes Open VSX is CI-publishable and carries a 256 MB binary limit.",
+        "evidence": "CI publishing via 'ovsx publish' is mentioned, but no 256 MB binary limit is stated anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes VS Code Marketplace ranking runs on installs, ratings and categories, and is criticized for not being install-weighted.",
+        "evidence": "No such statement about the VS Code Marketplace's ranking algorithm appears in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Classifies extension marketplaces as harmful decay: an extension incompatible with the host's current version reads as broken.",
+        "evidence": "No statement that an incompatible extension 'reads as broken' appears in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the recurring cost as a per-release compatibility tax against a host version the maintainer does not control.",
+        "evidence": "'the honest ongoing cost is a second store's version-compatibility range to track (minutes per release unless the two stores' supported-engine ranges diverge)'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places extension marketplaces and connector hubs at the same rank on the efficiency order, and justifies the tie by their shared cost shape - vendor review gate, per-release compatibility tax, identical harmful decay - with audience the only difference.",
+        "evidence": "Connector hubs are never mentioned in this transcript, so no such tie is drawn.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Runs the adoption test on the Open VSX entry: recurring cost, decay behaviour, observable signal, kill date.",
+        "evidence": "T1 gives a signal ('Open VSX weekly downloads reach a self-set 15-20%...within 8 weeks') and cost ('covered by the foundation ring') but no explicit decay-behaviour statement tied to the Open VSX entry specifically.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns against assuming one store covers the audience.",
+        "evidence": "'Confirm before running: 1. Is probe-lens actually absent from Open VSX today?' combined with the whole Cursor-can't-find-it argument warns against single-store coverage assumptions.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Recommends dual-publishing to Open VSX alongside the Microsoft marketplace.",
+        "evidence": "'Add `ovsx publish` as a step in your existing release CI, alongside `vsce publish`, so every future release auto-dual-publishes.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that Microsoft's marketplace terms restrict use to Microsoft in-scope products, so every VS Code fork is contractually barred from it.",
+        "evidence": "'Microsoft's marketplace terms forbid other editors from using it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names at least two editors that default to Open VSX from among Cursor, Windsurf, VSCodium and Gitpod.",
+        "evidence": "'Cursor, Windsurf, VSCodium, Trae, Gitpod, code-server all pull extensions from Open VSX, not Microsoft's VS Code Marketplace.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the extension is currently invisible to the AI-first editor segment the issue tracker already shows demand from.",
+        "evidence": "'every Cursor user hits a wall: search finds nothing, install fails silently. That is near-certainly what those issue-tracker mentions are.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes the VS Code Marketplace provides no first-party install-statistics dashboard.",
+        "evidence": "The transcript only says Marketplace and Open VSX stats 'don't share a dashboard' \u2014 it never claims VS Code Marketplace itself lacks a first-party stats dashboard.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes Open VSX is CI-publishable and carries a 256 MB binary limit.",
+        "evidence": "CI publishing via `ovsx publish` is covered, but no mention anywhere of a 256 MB binary size limit.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes VS Code Marketplace ranking runs on installs, ratings and categories, and is criticized for not being install-weighted.",
+        "evidence": "The transcript only vaguely notes 'Ratings and search-relevance both weigh this' for listing polish \u2014 no discussion of the ranking algorithm or criticism of it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Classifies extension marketplaces as harmful decay: an extension incompatible with the host's current version reads as broken.",
+        "evidence": "No discussion of version-incompatibility decay in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the recurring cost as a per-release compatibility tax against a host version the maintainer does not control.",
+        "evidence": "The transcript frames the ongoing cost as a one-time CI step ('One-time cost, removes this forever'), not as a recurring host-version compatibility tax.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places extension marketplaces and connector hubs at the same rank on the efficiency order, and justifies the tie by their shared cost shape - vendor review gate, per-release compatibility tax, identical harmful decay - with audience the only difference.",
+        "evidence": "No connector-hub comparison exists in this single-topic transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Runs the adoption test on the Open VSX entry: recurring cost, decay behaviour, observable signal, kill date.",
+        "evidence": "No such four-part structured test is applied to the Open VSX recommendation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns against assuming one store covers the audience.",
+        "evidence": "The entire memo's thesis is that 'If probe-lens sits only on the VS Code Marketplace... every Cursor user hits a wall' \u2014 explicitly warning that one store does not cover the whole audience.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

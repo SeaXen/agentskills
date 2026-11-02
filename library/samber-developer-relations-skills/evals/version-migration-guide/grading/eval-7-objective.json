@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Produces a deprecation timeline table rather than a v5 migration guide",
+        "evidence": "\"You don't need a 5.0 migration guide yet... Publish a deprecation timeline\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The table carries columns for the deprecated API, its replacement, its warning level in the current major, and the version that removes it",
+        "evidence": "Table columns ID, Deprecated, Replacement, Warning level now, Planned warning level, Removed in.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Records Result.errCode with an explicit 'none' in the replacement column rather than leaving it blank",
+        "evidence": "\"**None.** No longer exposed\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States which warning level each of the four items needs in the 4.0 interim release",
+        "evidence": "\"Planned warning level\" column per item; errCode \"Warn on read only if still populated\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names a warning-level ladder with at least documentation-only, application-code-only, runtime-across-all-code and end-of-life rungs",
+        "evidence": "Mentions docs-only, runtime app code, runtime all code; no end-of-life rung.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends warning on application code only before escalating to warnings that also fire inside dependencies",
+        "evidence": "\"Runtime warnings, application code only\"; \"runtime, all code in the last 4.x\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason: a warning raised inside a dependency the reader cannot patch teaches them to ignore warnings altogether",
+        "evidence": "\"Warnings raised inside dependencies teach people to ignore all warnings.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Assigns each of the four deprecations a stable identifier that never changes once published",
+        "evidence": "OAK-DEP-0001 to 0004.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the identifier exists so lint rules, codemods and support replies can point at one deprecation rather than at a page",
+        "evidence": "IDs are justified for search and agent matching; the lint/support rationale is attached to anchors, not IDs.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Also produces or recommends a separate cumulative page organized by removal version, answering what disappears in 5.0",
+        "evidence": "\"The page 'What disappears in 5.0'\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that readers arrive with two different questions and a single ordering cannot serve both",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Expresses the deprecation window in releases rather than months for this open-source audience, referencing the deprecate-in-N, warn-in-N+1, remove-in-N+2 pattern as the reference point",
+        "evidence": "\"counted in releases, not dates\"; \"Django's rule (deprecated in N, warning in N+1, removed in N+2)\".",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Produces a deprecation timeline table rather than a v5 migration guide",
+        "evidence": "DEPRECATIONS.md table: Deprecated | Since | Removed in | Replacement, plus a Timeline section. It also has migration stubs.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The table carries columns for the deprecated API, its replacement, its warning level in the current major, and the version that removes it",
+        "evidence": "There is no warning-level column.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Records Result.errCode with an explicit 'none' in the replacement column rather than leaving it blank",
+        "evidence": "'| `Result.errCode` | 3.4 | 5.0 | None |'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States which warning level each of the four items needs in the 4.0 interim release",
+        "evidence": "It says only 'still present, still warns'. No per-item levels are given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names a warning-level ladder with at least documentation-only, application-code-only, runtime-across-all-code and end-of-life rungs",
+        "evidence": "There is no ladder.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends warning on application code only before escalating to warnings that also fire inside dependencies",
+        "evidence": "It recommends a runtime warning once per process for all four. There is no staging.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason: a warning raised inside a dependency the reader cannot patch teaches them to ignore warnings altogether",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Assigns each of the four deprecations a stable identifier that never changes once published",
+        "evidence": "There are no identifiers.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the identifier exists so lint rules, codemods and support replies can point at one deprecation rather than at a page",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Also produces or recommends a separate cumulative page organized by removal version, answering what disappears in 5.0",
+        "evidence": "There is a single DEPRECATIONS.md with no separate removal-version page.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that readers arrive with two different questions and a single ordering cannot serve both",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Expresses the deprecation window in releases rather than months for this open-source audience, referencing the deprecate-in-N, warn-in-N+1, remove-in-N+2 pattern as the reference point",
+        "evidence": "It uses versions and optional months ('no sooner than N months after 4.0'). The pattern is not referenced.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

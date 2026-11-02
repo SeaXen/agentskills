@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Does not re-derive shift length, arrival buffers, sign-up confirmation or no-show backfill, and hands those to the volunteers skill that already owns them",
+        "evidence": "\"Keep all of this unchanged for mentors: 4-hour shifts, 15-minute handover... backfill protocol.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Hands over exactly one constraint: which expertise must be present in which hours",
+        "evidence": "\"Lay them on by tag \u00d7 slot\": which expertise is present in which hours.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Expresses that constraint as a tag, present, for stated hours, rather than as a headcount on the floor",
+        "evidence": "Guaranteed means \"someone holding the tag is physically present for the stated hours.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Staggers specialty coverage against when each track needs it rather than rostering every specialty for uniform open-to-close hours",
+        "evidence": "\"Don't roster everyone from open to close.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places early-stage or validation expertise soonest and technical or debugging expertise later, following the tracks' own build sequencing",
+        "evidence": "\"early-stage mentors where a track is still defining its problem, and technical mentors where teams have a direction\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places presentation or submission-facing help in the final stretch",
+        "evidence": "No mention of presentation or submission help.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Takes the slot from the mentor at sign-up",
+        "evidence": "\"Take the slot from the mentor at sign-up.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Resolves the assigned-slot versus be-around-anyway tension inside the grid: a slot is a commitment, presence beyond it is a courtesy, and only the commitment can be scheduled against",
+        "evidence": "\"The slot is the commitment, and presence beyond it is a courtesy you can't schedule against.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets a minimum check-in cadence per assigned team, labelled as a number this event sets for itself rather than an industry standard",
+        "evidence": "\"set a minimum check-in number per assigned team. It's your own number\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Stops scheduled visits ahead of the final stretch so teams get an uninterrupted run-in",
+        "evidence": "\"Stop scheduled visits before the final stretch.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Makes the overnight hours an explicit decision that is published either way: staffed, thinly staffed, or published as unstaffed",
+        "evidence": "\"Staffed. Thinly staffed. Published as unstaffed.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Publishes the escalation route for a skill no rostered mentor covers, in advance rather than improvised during the window",
+        "evidence": "\"Publish this route before the window opens\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Does not re-derive shift length, arrival buffers, sign-up confirmation or no-show backfill, and hands those to the volunteers skill that already owns them",
+        "evidence": "Computes slots from \"3h45 (4h with a 15-minute overlap)\" and reworks the backfill list.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Hands over exactly one constraint: which expertise must be present in which hours",
+        "evidence": "Builds a full grid with many constraints.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Expresses that constraint as a tag, present, for stated hours, rather than as a headcount on the floor",
+        "evidence": "Per-cell depth counts, e.g. \"Hardware 2\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Staggers specialty coverage against when each track needs it rather than rostering every specialty for uniform open-to-close hours",
+        "evidence": "Deep-night rows: hardware 1, ML 0, A11y 0.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places early-stage or validation expertise soonest and technical or debugging expertise later, following the tracks' own build sequencing",
+        "evidence": "No sequencing by track.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places presentation or submission-facing help in the final stretch",
+        "evidence": "S8 is generic depth 2 for all tracks.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Takes the slot from the mentor at sign-up",
+        "evidence": "Mentor roster records availability. Slots are assigned by the organizer.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Resolves the assigned-slot versus be-around-anyway tension inside the grid: a slot is a commitment, presence beyond it is a courtesy, and only the commitment can be scheduled against",
+        "evidence": "Not addressed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets a minimum check-in cadence per assigned team, labelled as a number this event sets for itself rather than an industry standard",
+        "evidence": "No check-in cadence.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Stops scheduled visits ahead of the final stretch so teams get an uninterrupted run-in",
+        "evidence": "S8 has max depth.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Makes the overnight hours an explicit decision that is published either way: staffed, thinly staffed, or published as unstaffed",
+        "evidence": "Decided silently in the template. Not framed as a decision to publish.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Publishes the escalation route for a skill no rostered mentor covers, in advance rather than improvised during the window",
+        "evidence": "Failure rules cover dropped mentors only.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,68 @@
+import type { FioriRuleDefinition } from '../types.js';
+import { createFioriRule } from '../language/rule-factory.js';
+import { FLEX_ENABLED, type FlexEnabled } from '../language/diagnostics.js';
+import type { MemberNode } from '@humanwhocodes/momoa';
+import { isLowerThanMinimalUi5Version } from '../utils/version.js';
+import { createJsonFixer } from '../language/rule-fixer.js';
+import { FioriJSONSourceCode } from '../language/json/source-code.js';
+
+const rule: FioriRuleDefinition = createFioriRule({
+    ruleId: FLEX_ENABLED,
+    meta: {
+        type: 'suggestion',
+        docs: {
+            recommended: true,
+            description:
+                'The "flexEnabled" flag in the manifest.json file indicates that your application is enabled for UI adaptation.',
+            url: 'https://ui5.sap.com/sdk/#/topic/f1430c0337534d469da3a56307ff76af'
+        },
+        messages: {
+            [FLEX_ENABLED]: '`flexEnabled` must be set to `true` to enable UI adaptation features.'
+        },
+        fixable: 'code'
+    },
+    check(context) {
+        if (!(context.sourceCode instanceof FioriJSONSourceCode)) {
+            return [];
+        }
+        const problems: FlexEnabled[] = [];
+
+        for (const [, app] of Object.entries(context.sourceCode.projectContext.index.apps)) {
+            if (
+                !app.manifest.minUI5Version ||
+                isLowerThanMinimalUi5Version(app.manifest.minUI5Version, { major: 1, minor: 56 })
+            ) {
+                continue;
+            }
+            if (!app.manifest.flexEnabled) {
+                const node = context.sourceCode.getNode(context.sourceCode.ast.body, ['sap.ui5', 'flexEnabled']);
+                problems.push({
+                    type: FLEX_ENABLED,
+                    manifest: {
+                        uri: app.manifest.manifestUri,
+                        object: app.manifestObject,
+                        propertyPath: ['sap.ui5', 'flexEnabled'],
+                        loc: node.loc
+                    }
+                });
+            }
+        }
+
+        return problems;
+    },
+    createJsonVisitorHandler: (context, diagnostic, paths) =>
+        function report(node: MemberNode): void {
+            context.report({
+                node,
+                messageId: FLEX_ENABLED,
+                fix: createJsonFixer({
+                    value: true,
+                    context,
+                    deepestPathResult: paths,
+                    node
+                })
+            });
+        }
+});
+
+export default rule;

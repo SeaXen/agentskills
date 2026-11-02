@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Stops the design and says so rather than producing a label taxonomy",
+        "evidence": "Despite stating 'No label scheme fixes that', the response goes on to produce a full '3. Label change list' with 4 labels.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the honest deliverable as a reduced intake plus a published maintenance-mode statement for the project",
+        "evidence": "'Bottom line:... intake has to shrink hard, and the response promise has to be honest, not aspirational.' plus the published triage-policy markdown.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not produce a label taxonomy, priority scheme or triage rotation for this project",
+        "evidence": "Section 3 gives a 4-label state taxonomy and section 5 gives a solo 'duty and gate design' (monthly session, escalation) \u2014 both produced despite the framing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes adding triagers from the options entirely rather than listing it as a lower-ranked or future item, since nobody can be added",
+        "evidence": "'If you ever get one volunteer for label-only Triage role access \u2014 that's the only change that raises capacity' keeps it open as a contingent future option, not deleted.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to publish a first-response target that 20 minutes a month cannot support",
+        "evidence": "'No guaranteed first-response time. New issues are auto-labeled and reviewed in a monthly batch.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Shows the arithmetic that the stated capacity cannot cover the stated inflow of roughly 12 issues a week",
+        "evidence": "'Capacity:... ~7 items/month decided. Gap: capacity is ~13% of inflow. Net backlog growth ~45 items/month'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends narrowing intake, through disabling blank issues, restricting creation, or turning a submission type off, as the change that actually acts",
+        "evidence": "'4. Intake change list (the part that actually matters here \u2014 cutting intake is the only lever with real leverage)' incl. 'blank_issues_enabled: false'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends routing usage questions off the tracker where a destination exists, or states plainly that none does",
+        "evidence": "'No usage-question form. Chooser... points those to Discussions instead'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the maintenance-mode notice must be published where reporters see it before opening an item",
+        "evidence": "'publish this, next to CONTRIBUTING.md, link it from every issue form'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends the project state publicly what will and will not get a response rather than leaving the queue silently unanswered",
+        "evidence": "'This is not a support contract \u2014 treat replies as a courtesy, not a guarantee.' published in the triage-policy doc.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not propose a stale bot as a substitute for the intake decision",
+        "evidence": "Stale-sweep automation is listed under 'Later, once the above is live', after intake changes are called 'the part that actually matters'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not frame the situation as a failure of the maintainer's process discipline",
+        "evidence": "The framing throughout is a capacity/arithmetic mismatch, not a personal-discipline critique.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Stops the design and says so rather than producing a label taxonomy",
+        "evidence": "The transcript produces a full 24-label taxonomy with `gh label create` commands for type/priority/status/area/community axes.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the honest deliverable as a reduced intake plus a published maintenance-mode statement for the project",
+        "evidence": "The deliverable is a full 5-phase system (labels, automation, volunteer recruitment, backlog reset, monthly loop), not framed as merely 'reduced intake + maintenance-mode statement'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not produce a label taxonomy, priority scheme or triage rotation for this project",
+        "evidence": "24 labels including a 4-tier priority scheme (`priority:0-critical`...`priority:3-low`) and a volunteer 'on call' weekly rotation are both produced.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes adding triagers from the options entirely rather than listing it as a lower-ranked or future item, since nobody can be added",
+        "evidence": "Section 4, \"Recruit triage-only volunteers,\" is a core phase of the plan, not deleted.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to publish a first-response target that 20 minutes a month cannot support",
+        "evidence": "No explicit statement refusing to publish an unsustainable first-response target; the plan just avoids stating one without explaining why.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Shows the arithmetic that the stated capacity cannot cover the stated inflow of roughly 12 issues a week",
+        "evidence": "No capacity-vs-inflow arithmetic using a 12-issues/week figure appears anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends narrowing intake, through disabling blank issues, restricting creation, or turning a submission type off, as the change that actually acts",
+        "evidence": "`blank_issues_enabled: false` in `config.yml` disables blank issue creation.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends routing usage questions off the tracker where a destination exists, or states plainly that none does",
+        "evidence": "`config.yml` contact_links route \"Question / usage help\" to GitHub Discussions.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the maintenance-mode notice must be published where reporters see it before opening an item",
+        "evidence": "TRIAGE.md/CONTRIBUTING.md explain the policy but nothing requires the notice to appear before issue creation (e.g., in the issue form itself).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends the project state publicly what will and will not get a response rather than leaving the queue silently unanswered",
+        "evidence": "TRIAGE.md: \"Everything else stays open and labeled. That's a valid end state \u2014 it means 'seen, ranked, waiting for capacity,' not 'ignored.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not propose a stale bot as a substitute for the intake decision",
+        "evidence": "Section 3 (\"Automation\") centrally proposes a stale-bot workflow (`stale.yml`) as a core part of the solution alongside intake changes.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not frame the situation as a failure of the maintainer's process discipline",
+        "evidence": "\"Bottleneck: every issue needs your judgment right now. Fix: cut human decision points to two per month\" frames it as a systemic/process design issue, not personal failure.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

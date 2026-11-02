@@ -4,7 +4,7 @@ description: "Runs a developer-tools vendor's or open-source maintainer's presen
 license: MIT
 metadata:
   author: Samuel Berthe
-  version: "1.0.0"
+  version: "1.0.2"
 ---
 
 # Hacker News Playbook
@@ -138,6 +138,8 @@ For a full plan, deliver in order: refusals triggered; problems found in any dra
 ## References
 
 - samber/developer-relations-skills@devto-playbook - cross-posting the article behind a story.
+- samber/developer-relations-skills@dailydev-playbook - the personalized developer feed for the same article, ranked by reputation and tags instead of one front page.
 - samber/developer-relations-skills@tech-employer-branding - what the hiring post must be true to.
 - samber/developer-relations-skills@build-in-public - the ongoing narrative behind repeat Show HNs.
 - samber/developer-platform-skills@github-engagement-playbook - converting the star spike into watchers and contributors.
+- samber/developer-relations-skills@bluesky-dev-playbook - the standing social channel where a Show HN gets discussed afterwards.

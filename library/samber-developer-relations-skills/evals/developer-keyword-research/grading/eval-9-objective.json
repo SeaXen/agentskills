@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Declines to forecast the program in projected clicks alone",
+        "evidence": "\"Traffic and value are no longer the same axis for that half of the list \u2014 that's not a hedge, it's a documented shift\"; forecast paired with citation-rate and other metrics rather than clicks alone.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Scores each cluster on whether the page would be the source an assistant assembles its answer from",
+        "evidence": "\"The return on these 3 pages is whether Otterpost is *in* the answer when someone asks an assistant about DKIM in the context of transactional email, not whether they click through.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Forecasts the return in citations and arrivals rather than clicks",
+        "evidence": "\"Track that with citation monitoring, not sessions (reporting plan below).\" and the Arrival/Citation rate metrics table.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Discounts the clusters whose whole value is a one-line answer but keeps them on the map",
+        "evidence": "The three concept pages remain in the Ranked clusters table as P2, with \"forecast clicks near zero\" but not refused.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason for keeping them: the assistant still assembles its answer from what was published",
+        "evidence": "\"the assistant still has to assemble its answer from something.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites that 84% of surveyed developers use or plan to use AI tools, attributing the survey",
+        "evidence": "\"84% of developers in Stack Overflow's 2025 survey use or plan to use AI tools\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites that 66% name AI solutions that are 'almost right, but not quite' as their top frustration",
+        "evidence": "No mention of a 66% \"almost right, but not quite\" statistic anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites the fall in trust in AI answers from roughly 40% in 2023 to 29% in 2025",
+        "evidence": "No mention of a 40%-to-29% trust decline statistic anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses published-page count as the outcome metric, on the grounds it measures the writing team rather than the research",
+        "evidence": "\"'Pages published' is the wrong headline metric for the quarterly report. It tells the VP what the writing team did, not whether the budget worked.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Proposes coverage, movement and arrival as the metrics to track instead",
+        "evidence": "Metrics table lists \"Coverage,\" \"Movement,\" \"Arrival,\" and \"Citation rate\" as replacements.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Defines arrival as first-party query counts for the exact strings after each page ships",
+        "evidence": "\"Arrival | First-party query counts for the exact target strings, after each page ships | Search Console, joined to landing page\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Declines to forecast the program in projected clicks alone",
+        "evidence": "The forecast table reports 'roughly 5,400\u201319,400 organic sessions/year and 110\u2013980 signups/year' with a dedicated 'Signups/yr' column, and Section 3 adds a non-click return: 'citation is not traffic, and it isn't worthless... builds brand presence in answers your prospects see even when they never click through.' The program is not reduced to a single click/session number.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Scores each cluster on whether the page would be the source an assistant assembles its answer from",
+        "evidence": "The forecast table has an 'AI-Overview exposure' column scored per bucket: Bucket A 'Very High \u2014 classic \"what is X\" queries are Google's first AI-Overview target'; Bucket B 'High, but comparisons resist single-answer extraction; also the single highest AI-citation format (~33% of AI citations per GEO research)'; Bucket C 'Low-medium \u2014 AI answers can't substitute working code.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Forecasts the return in citations and arrivals rather than clicks",
+        "evidence": "The quantitative forecast in Section 2 is built entirely from 'Sessions/page/yr' and 'Signups/yr' (click/session-derived), summarized as '~5,400\u201319,400 sessions/yr' and '~110\u2013980 signups/yr.' Citation is discussed qualitatively in Section 3 and tracked only as a manual pass/fail check in Section 5, never forecast numerically in place of clicks.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Discounts the clusters whose whole value is a one-line answer but keeps them on the map",
+        "evidence": "Bucket A gets a CTR discount ('15\u201325% baseline cut 40\u201355%') but is explicitly not dropped: 'The reframe, not the conclusion \"kill these pages\"' and the recommendation is to 'Consolidate the 7 Bucket-A topics into 1\u20132 hub pages... instead of 7 standalone pages,' not eliminate them.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason for keeping them: the assistant still assembles its answer from what was published",
+        "evidence": "Section 3 states: 'even Bucket A content \u2014 if it's the kind an AI system extracts and cites \u2014 builds brand presence in answers your prospects see even when they never click through,' explicitly tying the value of keeping them to AI systems extracting/citing from the published page.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites that 84% of surveyed developers use or plan to use AI tools, attributing the survey",
+        "evidence": "No such statistic or survey appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites that 66% name AI solutions that are 'almost right, but not quite' as their top frustration",
+        "evidence": "No such statistic appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites the fall in trust in AI answers from roughly 40% in 2023 to 29% in 2025",
+        "evidence": "No such statistic appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses published-page count as the outcome metric, on the grounds it measures the writing team rather than the research",
+        "evidence": "The transcript pairs rather than refuses the metric: 'Give the VP the metric they asked for, but never let it stand alone \u2014 pair it with outcome metrics on the same table so \"pages published\" can't be read as the success signal by itself.' 'Pages published (count)' remains the first row of the reporting table, and no reasoning about it measuring 'the writing team rather than the research' is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Proposes coverage, movement and arrival as the metrics to track instead",
+        "evidence": "The reporting table proposes 'Organic sessions,' 'Keyword rankings gained (top 3 / top 10),' 'AI citation presence,' 'Signups/demo requests attributed to docs,' and 'Bucket mix published' \u2014 none framed under or labeled with the coverage/movement/arrival triad.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Defines arrival as first-party query counts for the exact strings after each page ships",
+        "evidence": "The closest metric, 'AI citation presence,' is defined as a manual check: 'DIY monthly check: run each page's target query through ChatGPT, Perplexity, Google, log in a sheet' \u2014 this is a third-party assistant-answer check, not first-party query-count data for exact strings.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

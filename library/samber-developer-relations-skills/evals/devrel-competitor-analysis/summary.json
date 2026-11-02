@@ -1,0 +1,658 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "devrel-competitor-analysis",
+  "scenarios": 14,
+  "expectations_total": 144,
+  "expectations_subjective": 1,
+  "expectations_objective": 143,
+  "pass_rate_with_skill_pct": 75.0,
+  "pass_rate_without_skill_pct": 20.1,
+  "delta_pp": 54.9,
+  "uplift_multiplier": 3.73,
+  "trigger_accuracy_pct": 50.0,
+  "trigger_queries": 130,
+  "trigger_positive_fire_rate": 0.154,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 0.2,
+  "subjective_pass_disagreements": [
+    {
+      "eval_id": 4,
+      "condition": "with_skill",
+      "expectation": "Reports a structural fact instead of a raw post count wherever no defensible divisor exists.",
+      "pass1": true,
+      "pass2": false
+    }
+  ],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.274 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Includes an adjacent-category outlier drawn from outside the feature-flag category."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Keeps all-time star totals out of the scorecard as a comparison row."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Keeps total follower counts out of the scorecard as a comparison row."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Keeps total community member counts out of the scorecard as a comparison row."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Proposes median time to first reply and staff share of replies in place of the member totals."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Proposes median time to first response on issues or pull requests in place of the star totals."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that a thirty-day window can report the opposite of the truth."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names the correction as a planned launch burst on top of a maintained baseline."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Treats a flat cadence with no burst at all as its own finding rather than as weakness."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Applies age as a normalization divisor, or compares equivalent age windows, instead of raw totals."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that Beacontree's volume is funded by distribution Windlass does not have."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that a competitor's choices transfer but their output level does not."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Labels the count of named DevRel humans as a proxy and a likely undercount."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Gives a reason beyond ethics: a finding obtained that way is unusable the moment anyone asks where it came from."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Offers a logged-out public substitute for community volume and labels it a proxy."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Cites GitHub's acceptable-use policy as restricting what information taken from the service may be used for."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes the policy enumerates only open-access research and archival, and that competitive intelligence is not among them."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes the same policy's definition of scraping does not cover collection through the API."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Records the observation with its source URL and its observation date."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Writes \"not observable from outside\" for any field with no defensible proxy."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that a blank is itself a finding about what the competitor hides, rather than a gap to fill with an estimate."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Records those deletions under a method-and-limits section of the report."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States the collection order is a default that shifts with context, not a law."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Distinguishes it from the contributor absence factor, which counts the smallest number of people producing fifty percent of contributions."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names Organizational Influence as the companion published CHAOSS metric."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Labels both metrics as published and attributes them to CHAOSS rather than to this analysis's own conventions."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Proposes the share of merged pull requests authored outside the company as a collectible row for that column."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Ranks on impact alone, and says so in the cell, any gap whose cost cannot be sized from outside."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that the recorded ignores are what stop the same gap being rediscovered next quarter."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that the pass earns its cost against a live decision: run it then, and stop."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Refuses a peer set of thirty and holds the three-to-five cap."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Labels the re-run cadence as this analysis's own working default rather than an industry standard."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Names quickstart time, free-tier reach, sample repositories and community answer speed as the individual-adopter evidence."
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Offers asking directly - the vendor, one of their users, or the user's own field team - as the cheapest correction available."
+      },
+      {
+        "eval_id": 14,
+        "expectation": "States the rule as copy the practice or nothing."
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Stops that timed run at the first paid step or required sales contact and records that as the result."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Caps the retained peer set at no more than five companies."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States the three-to-five peer cap is a convention this analysis sets rather than an industry standard."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Rejects funding rank as the criterion for choosing the peer set."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Gives the reason that a better-funded vendor's motion is sized for distribution Windlass does not have."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Assigns an explicit role to each retained peer instead of a single best-to-worst ranking."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Includes a category-leader role that sets the expectation an evaluator arrives with."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Includes a closest-direct-substitute role."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Includes an adjacent-category outlier drawn from outside the feature-flag category."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Asks what a developer would use if Windlass vanished, and adds that answer to the peer set even when it is not a funded vendor."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Excludes Greypine and Sablefin for having no public developer surface to observe, and records that exclusion in writing."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Keeps all-time star totals out of the scorecard as a comparison row."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Keeps total follower counts out of the scorecard as a comparison row."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Keeps total community member counts out of the scorecard as a comparison row."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Gives the reason that a number which can only rise carries no trend information."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Offers a period delta or a rate in place of each of those totals."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names fake-star campaigns as a distortion of the star signal."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Attributes the roughly six million suspected fake stars to the published study rather than presenting it as this analysis's own estimate."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Proposes median time to first reply and staff share of replies in place of the member totals."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Proposes median time to first response on issues or pull requests in place of the star totals."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Declines to declare an overall mindshare winner from the pasted totals."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Rejects the thirty-day sample as a basis for any cadence conclusion."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Requires a twelve-month sample before reporting content cadence."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Labels the twelve-month window as this analysis's own convention rather than an industry standard."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that a thirty-day window can report the opposite of the truth."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Requires every spike in the plotted series to be annotated with the launch or event behind it."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Refuses matching Beacontree's output volume as the plan."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Computes output per named DevRel human for both companies."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Concludes Windlass already out-produces Beacontree per head."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Routes the volume gap to a budget or headcount case rather than to a content plan."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Applies age as a normalization divisor, or compares equivalent age windows, instead of raw totals."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that Beacontree's volume is funded by distribution Windlass does not have."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that a competitor's choices transfer but their output level does not."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Labels the count of named DevRel humans as a proxy and a likely undercount."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Reports a structural fact instead of a raw post count wherever no defensible divisor exists."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Refuses joining the competitor's community under a concealed affiliation."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Gives a reason beyond ethics: a finding obtained that way is unusable the moment anyone asks where it came from."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Offers a logged-out public substitute for community volume and labels it a proxy."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Refuses the overnight crawl of the competitors' whole docs sites."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Cites GitHub's acceptable-use policy as restricting what information taken from the service may be used for."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes the policy enumerates only open-access research and archival, and that competitive intelligence is not among them."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes the same policy's definition of scraping does not cover collection through the API."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Refuses buying stars and states that doing so funds the abuse being measured."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends periodic, narrow collection rather than crawling a competitor's whole site, and says this is a self-imposed practitioner norm rather than a codified industry rule."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Records the observation with its source URL and its observation date."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Keeps a timed quickstart run as the way to settle onboarding speed."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Stops the timed run at the first paid step and records that stop as the result."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Refuses to state Beacontree's devrel budget as a known number."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Refuses to state their monthly docs traffic as a known number."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Refuses to state their paying-developer count as a known number."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Writes \"not observable from outside\" for any field with no defensible proxy."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Uses the sponsor tiers as a floor on event spend only, and labels the cell that way."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Uses the five named humans as the team-size proxy and labels it a likely undercount of counted named individuals."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Offers ranking presence on real ecosystem query patterns as the docs-traffic proxy, labelled as search visibility rather than traffic."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Never converts a proxy into the private number it stands for."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Labels each proxy in its own cell rather than only in a footnote to the deck."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that a blank is itself a finding about what the competitor hides, rather than a gap to fill with an estimate."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Includes Windlass's own column in the scorecard rather than skipping it."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Fills every cell with either a value or an explicit \"not observable\"."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Refuses to carry a richer profile for Larkspur than for the other companies."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that a thinner symmetrical table beats a richer asymmetric one."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Deletes any row that cannot reach symmetry across every company rather than leaving it ragged."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Requires a source URL on every quantitative cell."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Requires an observation date on every quantitative cell."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States symmetry and traceability as one-hundred-percent targets and labels them as this analysis's own bar."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Orders the surfaces by finding per analyst hour rather than by what is quickest to open."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Puts the timed quickstart first in the collection order."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Puts documentation mode coverage second."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Puts forge release and response metrics third."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Deletes community, events and hiring signals from this pass rather than demoting them to the bottom of the plan."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Records those deletions under a method-and-limits section of the report."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Gives the reason that a surface parked at the bottom of a plan reappears next quarter as unbudgeted scope."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States the collection order is a default that shifts with context, not a law."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names what the efficiency ordering starves and the condition that would promote it anyway."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Confirms the CHAOSS Starter Project Health model does refuse cross-project comparison."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Scopes that refusal to self-improvement decisions."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names the CHAOSS Practitioner Guide on assessing viability as the comparative model."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Places a competitor benchmark on the viability side because the decision is judging the credibility of their motion rather than scoring your own project."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Distinguishes it from the contributor absence factor, which counts the smallest number of people producing fifty percent of contributions."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Reads an elephant factor of 1 as a single-vendor surface presented as a community."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that this reading changes how every other number in that column is read."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names Organizational Influence as the companion published CHAOSS metric."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Labels both metrics as published and attributes them to CHAOSS rather than to this analysis's own conventions."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Proposes the share of merged pull requests authored outside the company as a collectible row for that column."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Sorts the table by impact per unit of cost."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that sort explicitly above the table."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Attaches a named owner and a date to every gap marked close."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names the strength leaned on instead for every gap marked counter."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States the condition that would promote each starved gap."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Ranks on impact alone, and says so in the cell, any gap whose cost cannot be sized from outside."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that the recorded ignores are what stop the same gap being rediscovered next quarter."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Pushes back on a standing competitive-intelligence effort with no live decision behind it."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that the pass earns its cost against a live decision: run it then, and stop."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Refuses a peer set of thirty and holds the three-to-five cap."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Prioritises event triggers over a fixed clock for re-runs."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Names losing an evaluator to a named rival as a re-run trigger."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Names a plan, budget or board moment as a re-run trigger."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Gives quarterly for docs, content cadence and releases, and twice a year for community, events and hiring signals."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Labels the re-run cadence as this analysis's own working default rather than an industry standard."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Keeps product feature parity out of the benchmark."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Keeps the pricing comparison out of the benchmark."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "States that features and pricing belong to the existing battlecard rather than to this analysis."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Names the developer's path to success as this benchmark's subject."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Refuses a peer set of one and proposes additional peers carrying roles."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Names quickstart time, free-tier reach, sample repositories and community answer speed as the individual-adopter evidence."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Names security and compliance pages, support-tier documentation, migration and versioning policy, and reference customers at scale as the organization-buyer evidence."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "States that docs structure, release cadence and repository health read the same for both lanes, in a single row rather than duplicated per lane."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Asks which decision the benchmark feeds before producing it."
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Requires validation against the user's own data before the sandbox goes on a roadmap."
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Offers asking directly - the vendor, one of their users, or the user's own field team - as the cheapest correction available."
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Refuses rebuilding the docs site they have as a roadmap item."
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Names the invisible practice behind the visible surface: content operations, a review rota, a publishing pipeline."
+      },
+      {
+        "eval_id": 14,
+        "expectation": "States the rule as copy the practice or nothing."
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Keeps visual design opinions out of the scorecard."
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Proposes a timed run of Beacontree's own quickstart as the comparable finding to collect instead."
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Stops that timed run at the first paid step or required sales contact and records that as the result."
+      }
+    ]
+  }
+}

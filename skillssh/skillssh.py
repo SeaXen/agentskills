@@ -133,20 +133,23 @@ def load_local_knowledge():
     return existing_folders, upstream_to_folder, upstreams
 
 def fetch_skills_sh_dataset(refresh=False):
-    if not refresh and os.path.exists(cache_file):
+    cached_repos = []
+    if os.path.exists(cache_file):
         try:
             with open(cache_file, 'r', encoding='utf-8') as f:
                 cached = json.load(f)
                 cached_time = cached.get('timestamp', 0)
-                if (datetime.now(timezone.utc).timestamp() - cached_time) < 86400:
-                    return cached.get('repositories', [])
+                cached_repos = cached.get('repositories', [])
+                if not refresh and (datetime.now(timezone.utc).timestamp() - cached_time) < (86400 * 7):
+                    if cached_repos:
+                        return cached_repos
         except Exception:
             pass
 
     print("🌐 Fetching skills.sh sitemap and live data...", flush=True)
     sitemap_urls = [
-        "https://www.skills.sh/sitemaps/sitemap-skills-1.xml",
-        "https://www.skills.sh/sitemap.xml"
+        "https://www.skills.sh/sitemap-skills-1.xml",
+        "https://www.skills.sh/sitemap-skills-2.xml"
     ]
     
     headers = {'User-Agent': 'AntigravityAgent/2.0 (skills.sh sync tool)'}
@@ -156,12 +159,13 @@ def fetch_skills_sh_dataset(refresh=False):
             req = urllib.request.Request(sm, headers=headers)
             with urllib.request.urlopen(req, timeout=15) as resp:
                 xml_content = resp.read().decode('utf-8', errors='ignore')
-                locs = re.findall(r'<loc>(https://www\.skills\.sh/([^/<]+)/([^/<]+))</loc>', xml_content)
-                for full_url, owner, name in locs:
+                locs = re.findall(r'<loc>https://www\.skills\.sh/([^/<]+)/([^/<]+)(?:/([^/<]+))?</loc>', xml_content)
+                for match in locs:
+                    owner, name = match[0], match[1]
                     if owner in ('sitemaps', 'api', '_next', 'static', 'categories'):
                         continue
                     repo_slug = f"{owner}/{name}"
-                    repo_urls.add((repo_slug, full_url))
+                    repo_urls.add((repo_slug, f"https://www.skills.sh/{owner}/{name}"))
         except Exception as e:
             print(f"⚠️ Notice fetching {sm}: {e}", file=sys.stderr)
 
@@ -213,20 +217,25 @@ def fetch_skills_sh_dataset(refresh=False):
             if res:
                 results.append(res)
 
+    if not results and cached_repos:
+        print(f"⚠️ Live scrape yielded 0 items, using cached dataset ({len(cached_repos)} repositories).", flush=True)
+        return cached_repos
+
     results.sort(key=lambda x: x['installs'], reverse=True)
 
-    try:
-        os.makedirs(os.path.dirname(cache_file), exist_ok=True)
-        with open(cache_file, 'w', encoding='utf-8') as f:
-            json.dump({
-                'timestamp': datetime.now(timezone.utc).timestamp(),
-                'updated_at': datetime.now(timezone.utc).isoformat(),
-                'repositories': results
-            }, f, indent=2)
-    except Exception:
-        pass
+    if results:
+        try:
+            os.makedirs(os.path.dirname(cache_file), exist_ok=True)
+            with open(cache_file, 'w', encoding='utf-8') as f:
+                json.dump({
+                    'timestamp': datetime.now(timezone.utc).timestamp(),
+                    'updated_at': datetime.now(timezone.utc).isoformat(),
+                    'repositories': results
+                }, f, indent=2)
+        except Exception:
+            pass
 
-    return results
+    return results if results else cached_repos
 
 def check_repositories(min_installs=100_000, max_installs=None, limit=None, refresh=False):
     all_repos = fetch_skills_sh_dataset(refresh=refresh)

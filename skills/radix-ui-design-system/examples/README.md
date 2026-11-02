@@ -18,7 +18,7 @@ Demonstrates Dialog (Modal) component patterns:
 
 ### `dropdown-example.tsx`
 
-Complete dropdown menu implementation:
+Dropdown behavior example with application callbacks:
 - **CompleteDropdown**: Full-featured menu with all Radix primitives
   - Regular items
   - Separators and labels
@@ -52,12 +52,12 @@ function App() {
 ## Styling
 
 These examples use CSS classes. You can:
-1. Copy the CSS from each file
+1. Supply your own CSS; CSS files are not bundled
 2. Replace with Tailwind classes
 3. Use CSS-in-JS (Stitches, Emotion, etc.)
 
 ## Learn More
 
 - [Main SKILL.md](../SKILL.md) - Complete guide
-- [Component Template](../templates/component-template.tsx) - Boilerplate
+- [Component Template](../templates/component-template.tsx.template) - Boilerplate
 - [Radix UI Docs](https://www.radix-ui.com/primitives)

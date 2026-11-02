@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Routes the triage rota and label taxonomy to samber/developer-relations-skills@oss-issue-triage instead of designing them",
+        "evidence": "Section A fully designs the label taxonomy table, rota structure, and PR gate order directly rather than routing to another skill.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the CLA-versus-DCO decision to samber/developer-relations-skills@oss-license-strategy instead of choosing",
+        "evidence": "\"Recommendation: switch to DCO, conditional on assumption #3 holding\" \u2014 the choice is made directly, not routed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the promotion ladder and voting rules to samber/developer-relations-skills@oss-governance instead of writing them",
+        "evidence": "Section C writes out the full ladder table and voting rules directly.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the first-contribution path in scope and works it",
+        "evidence": "Section D fully works the first-contribution fix with an 8-item action list and CONTRIBUTING.md draft.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the placement of the legal gate inside the CONTRIBUTING file in scope even while routing the choice itself away",
+        "evidence": "Since the CLA/DCO choice was not routed away (it was directly recommended in Section B), this compound behavior is not demonstrated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that the CNCF encourages projects to use a DCO as it is easier to set up and use, and attributes it as foundation policy rather than a measured friction study",
+        "evidence": "\"CNCF's own guidance: they \\\"encourage projects to use DCO as it's easier to setup and use.\\\"\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says a sign-off line such as `git commit -s` costs a contributor nothing while a signing workflow stops a typo fix",
+        "evidence": "\"one commit trailer (git commit -s)... costs a contributor nothing beyond a flag\" and \"someone who wants to fix a typo must first complete a signing workflow\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Links the governance document from the CONTRIBUTING file rather than reproducing the ladder inside it",
+        "evidence": "\"Publish this as GOVERNANCE.md, cross-linked from CONTRIBUTING rather than duplicated into it (see D).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns against copying a large project's process at this project's scale - take the shape, not the scale",
+        "evidence": "No explicit statement of this kind; closest is \"Node.js's own window \u2014 an example to borrow, not a standard\" which is a narrower, different point.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Starts the in-scope work from a baseline measurement rather than from proposals",
+        "evidence": "\"Run the audit script + gh issue list export this week \u2014 every number above is a placeholder until you do.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Routes the triage rota and label taxonomy to samber/developer-relations-skills@oss-issue-triage instead of designing them",
+        "evidence": "The transcript designs the full label taxonomy table and rota itself ('Six orthogonal axes...', 'Pool: every Reviewer and Maintainer...') with no reference to any external skill or routing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the CLA-versus-DCO decision to samber/developer-relations-skills@oss-license-strategy instead of choosing",
+        "evidence": "'Recommendation: switch to DCO.' \u2014 the transcript makes the decision directly rather than routing it anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the promotion ladder and voting rules to samber/developer-relations-skills@oss-governance instead of writing them",
+        "evidence": "The transcript writes out a full five-tier ladder table and detailed voting rules itself ('Five tiers, each with an explicit bar...'), with no routing to another skill.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the first-contribution path in scope and works it",
+        "evidence": "Section D, 'Fixing \"I don't know where to start\"', gives a full diagnosis and seven prioritized fixes (capping the backlog, requiring a fixed issue shape, a Start Here section, claim visibility, welcome-bot, measurement).",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the placement of the legal gate inside the CONTRIBUTING file in scope even while routing the choice itself away",
+        "evidence": "The CLA/DCO choice was not routed away (it was decided directly as 'Recommendation: switch to DCO'), so the premise of this item is not met by the transcript's actual approach.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that the CNCF encourages projects to use a DCO as it is easier to set up and use, and attributes it as foundation policy rather than a measured friction study",
+        "evidence": "The transcript only says corporate contributors 'already have DCO sign-off baked into their internal process if they've ever touched the Linux kernel, Kubernetes-adjacent CNCF projects...' \u2014 it never claims CNCF encourages DCO as foundation policy.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says a sign-off line such as `git commit -s` costs a contributor nothing while a signing workflow stops a typo fix",
+        "evidence": "'a CLA is one of the biggest silent killers of first-PR conversion (a legal doc gate in front of a one-line typo fix is a real reason contributors bounce), while DCO is a single `-s` flag on a commit you were already making.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Links the governance document from the CONTRIBUTING file rather than reproducing the ladder inside it",
+        "evidence": "The transcript says to 'Document this as GOVERNANCE.md ... and MAINTAINERS.md' but never states that CONTRIBUTING.md links to GOVERNANCE.md.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns against copying a large project's process at this project's scale - take the shape, not the scale",
+        "evidence": "The transcript notes sizing ('Sized for a small rotating triage pool (3-6 people), not a dedicated triage team') but never explicitly warns against copying a larger project's process wholesale.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Starts the in-scope work from a baseline measurement rather than from proposals",
+        "evidence": "Section D opens with 'Diagnosis: this almost never fails because...' \u2014 a qualitative diagnosis, not a stated baseline metric \u2014 before listing 'Fixes, in priority order'; the only measurement step ('Measure it') appears last, as item 7.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

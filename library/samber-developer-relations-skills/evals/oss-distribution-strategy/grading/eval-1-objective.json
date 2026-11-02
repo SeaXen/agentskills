@@ -1,0 +1,160 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Runs a coverage audit of the distribution surfaces already in place before proposing any new channel.",
+        "evidence": "'Unknown \u2014 run this before touching any new channel (30\u201360 min, do this first): npm page: is the description written in problem vocabulary...'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Predicts the audit will surface a half-configured foundation channel (empty keyword slots, missing links, or a description predating the current positioning) plus two or three listings that are simply wrong.",
+        "evidence": "Only states 'Expect the same finding this skill expects by default: a half-filled registry page, not a missing channel' \u2014 no prediction of a specific count of wrong listings.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the audit fixes amount to roughly an hour of work in total and must be done before any new channel is added.",
+        "evidence": "Audit itself is scoped '30\u201360 min' but the actual fixes are costed separately at 'Foundation ring (this month, ~2h, then minutes per release)' \u2014 not a unified ~1hr claim.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explicitly declines to rank those audit fixes against each other, on the grounds that ordering one hour of mandatory work is false precision rather than a plan.",
+        "evidence": "No such statement appears; Foundation ring items are simply listed in bullets with no discussion of ranking being false precision.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Tells the maintainer to snapshot the current baseline numbers with their date and source before changing anything.",
+        "evidence": "No baseline-snapshot instruction appears anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Justifies the snapshot by noting repository traffic panels retain only a short rolling window, so an uncaptured baseline is unrecoverable.",
+        "evidence": "No mention of a traffic panel or rolling window in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that npm search ranks on title, description, readme and keywords only, with no popularity or quality signal, so the wording is the whole lever.",
+        "evidence": "Transcript recommends filling keyword slots but never states the specific claim about npm's ranking algorithm having no popularity/quality signal.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Checks whether every keyword slot is filled and whether the documentation, repository, funding and issue-tracker link fields are present.",
+        "evidence": "'are docs/repo/funding links present' \u2014 omits issue-tracker link from the check.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Separates coverage metrics (facts auditable today) from arrival metrics (behaviour read as a quarterly trend) when defining what to measure.",
+        "evidence": "The unknowns list mixes metadata checks and 'Dependents count' without categorizing them as distinct 'coverage' vs 'arrival' metric types.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that stars moving without downloads or cloners means an announcement travelled, not that distribution improved.",
+        "evidence": "'Stars measure the spike travelling, not distribution (Borges & Valente 2018: stars correlate with promotion reach as much as merit).'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines the 15-20 directory submissions as proposed, naming either the recurring sweep cost or the damage done by stale listings.",
+        "evidence": "'Refused: 15\u201320 directory submissions... A quarterly sweep of 20 listings alone would burn most of a month's 5-hour budget, forever.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks whether adopters are individual developers choosing for themselves or engineers who must get approval inside a company, before committing to a channel mix.",
+        "evidence": "'If you know of company-owned repos depending on it, this shifts toward \"both\"... whether any of your 3,400 weekly downloads are coming from a company-owned repo you didn't know was depending on you \u2014 either finding would change the adopter-type assumption this whole plan rests on.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Withholds a final channel plan until the audit findings and the adopter-type answer are in hand.",
+        "evidence": "The transcript delivers a complete plan (Stage 1-3, Test ring, Core channel, Refused, Release rhythm, Review, Threshold check) immediately rather than withholding it pending confirmation.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Runs a coverage audit of the distribution surfaces already in place before proposing any new channel.",
+        "evidence": "Transcript opens with 'Next action: block 2 hours this week, write one dev.to post' \u2014 no audit of existing npm metadata, keywords, or listings is performed before recommending new channels.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Predicts the audit will surface a half-configured foundation channel (empty keyword slots, missing links, or a description predating the current positioning) plus two or three listings that are simply wrong.",
+        "evidence": "No audit is run, so no such prediction appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the audit fixes amount to roughly an hour of work in total and must be done before any new channel is added.",
+        "evidence": "No audit-hour estimate exists; the plan instead allocates '1h' to submitting 5 new directories, not to auditing existing ones.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explicitly declines to rank those audit fixes against each other, on the grounds that ordering one hour of mandatory work is false precision rather than a plan.",
+        "evidence": "No audit fixes are proposed at all, so no such declination appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Tells the maintainer to snapshot the current baseline numbers with their date and source before changing anything.",
+        "evidence": "The only measurement instruction is '(0.5h) Check GitHub Insights \u2192 Traffic \u2192 Referrers and npm download graph in 30 days' \u2014 a post-hoc check, not a pre-change dated baseline snapshot.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Justifies the snapshot by noting repository traffic panels retain only a short rolling window, so an uncaptured baseline is unrecoverable.",
+        "evidence": "No mention of GitHub Insights' rolling-window retention limitation anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that npm search ranks on title, description, readme and keywords only, with no popularity or quality signal, so the wording is the whole lever.",
+        "evidence": "npm search ranking mechanics are never discussed in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Checks whether every keyword slot is filled and whether the documentation, repository, funding and issue-tracker link fields are present.",
+        "evidence": "No mention of npm package.json keyword slots or metadata link fields.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Separates coverage metrics (facts auditable today) from arrival metrics (behaviour read as a quarterly trend) when defining what to measure.",
+        "evidence": "The transcript only proposes a single 30-day download/referrer check; no explicit coverage-vs-arrival metric framework is used.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that stars moving without downloads or cloners means an announcement travelled, not that distribution improved.",
+        "evidence": "This transcript never discusses a stars-vs-downloads divergence signal.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines the 15-20 directory submissions as proposed, naming either the recurring sweep cost or the damage done by stale listings.",
+        "evidence": "'Submit to 5 directories, not 20' is declined on audience-fit grounds ('would burn your hour on the wrong audience'), not on recurring sweep cost or stale-listing damage.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks whether adopters are individual developers choosing for themselves or engineers who must get approval inside a company, before committing to a channel mix.",
+        "evidence": "No such question is asked anywhere in the transcript; the plan is built without addressing individual-vs-company adoption path.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

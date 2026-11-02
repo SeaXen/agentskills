@@ -1,0 +1,118 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that undisclosed sponsored or commercial posts break Bluesky's Community Guidelines.",
+        "evidence": "\"Undisclosed sponsored or affiliate content is banned on Bluesky [Bluesky]\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the three developers to disclose the payment in the posts.",
+        "evidence": "\"Disclose, and keep the posts organic\"; disclosure part of the post",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Provides a ready-to-adapt disclosure line.",
+        "evidence": "\"Sponsored by Velarion; they paid for this post.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends the Bridgy Fed bridge over a copy script for Mastodon content.",
+        "evidence": "\"Recommendation: use Bridgy Fed, not a copy script.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains Bridgy Fed is opt-in by following the bridge account.",
+        "evidence": "\"follow `@bsky.brid.gy@bsky.brid.gy`. That opts in.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Mentions that some Mastodon instances block the bridge, so the setup needs checking.",
+        "evidence": "\"Test that the bridge works from your instance. Some instances block it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends that a person reads and answers Bluesky replies rather than leaving a mirror unattended.",
+        "evidence": "\"Someone must still read Bluesky directly\"; \"A named person reads Bluesky replies daily, or the mirror gets switched off.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a domain handle for the new Bluesky account.",
+        "evidence": "\"Brand: `velarion.com`, set with a DNS TXT record\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not write the copy script itself.",
+        "evidence": "Only a constrained spec bullet list; no code provided",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that undisclosed sponsored or commercial posts break Bluesky's Community Guidelines.",
+        "evidence": "Cites FTC, EU and French law only; no Bluesky guidelines.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the three developers to disclose the payment in the posts.",
+        "evidence": "\"Disclose plainly... Require the disclosure.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Provides a ready-to-adapt disclosure line.",
+        "evidence": "\"Velarion pays me to try their Go SDK. Honest notes below.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends the Bridgy Fed bridge over a copy script for Mastodon content.",
+        "evidence": "Offers Bridgy Fed as Option A but provides a custom script as Option B and puts it in detail.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains Bridgy Fed is opt-in by following the bridge account.",
+        "evidence": "\"You opt in by following its bridge account from Mastodon.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Mentions that some Mastodon instances block the bridge, so the setup needs checking.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends that a person reads and answers Bluesky replies rather than leaving a mirror unattended.",
+        "evidence": "Says \"One-way only: Bluesky replies never reach Mastodon\" and offers a two-way reply notice, but does not assign a person.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends a domain handle for the new Bluesky account.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not write the copy script itself.",
+        "evidence": "Provides a full Python mirror.py script.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects selecting the 24 most-reacted requests and requires the most recent requests per channel instead.",
+        "evidence": "\"You picked the most-reacted requests. The skill samples the most recent requests per channel\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason: memorable or popular requests are the ones that already got attention, so they overstate capture.",
+        "evidence": "\"Heavy reactions make a request likelier to be captured, so your 58% is probably flattering.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires at least three rows from sales calls even though that channel is low-volume.",
+        "evidence": "\"the skill wants at least 3 rows per channel so a quiet channel still shows.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Puts the four duplicate rows back into the sample, marked as duplicates, and states the duplicate rate is itself a finding.",
+        "evidence": "\"Keep duplicates in the sample and mark them. Four of 28 is 14% duplicates\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Excludes the Discord bot's acknowledgement from time to first staff reply.",
+        "evidence": "\"The Discord bot's acknowledgement is excluded.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Excludes community moderators' replies from first staff reply, counting only replies from staff.",
+        "evidence": "\"Mods are community members, so they are not staff either.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the 6-minute median as invalid and asks for staff-only timing.",
+        "evidence": "\"The 6-minute first response doesn't count... Add it as a column in the re-trace.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Computes the funnel ratios: captured 14 of 24, reached 13 of 14, decided 3 of 13, told 3 of 3.",
+        "evidence": "Table: 14 captured 58% of 24; 13 reached 93% of captured; 3 decided 23% of reached; 3 told 100%.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies capture (10 lost) and decision (10 lost) as losing about the same number of requests.",
+        "evidence": "\"Capture and decision each lose 10 requests, so the stages tie.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Resolves the tie toward the decision stage because the receiver is informal (Ruth reads DMs when pinged), so the contract with product comes first.",
+        "evidence": "\"Ruth is an informal receiver... the skill runs the contract first\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reads the 100% told rate as a symptom, not a strength: only requests with a built-in reply path reached a decision at all.",
+        "evidence": "\"The 100% 'told' rate is a symptom... a path with a built-in decision step.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not accept capture rules as the sole fix; capture rules are built alongside the contract, not instead of it.",
+        "evidence": "\"Capture rules still get built, in parallel with the contract\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reads the corrected result back to the user and asks for confirmation before proposing any tool, label set or process.",
+        "evidence": "It drafts the full working agreement and pitch in the same response; confirmation questions only come afterward.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not propose a new feedback tool.",
+        "evidence": "No tool is proposed; the record of truth is left to \"decide in intake spec\".",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects selecting the 24 most-reacted requests and requires the most recent requests per channel instead.",
+        "evidence": "It flags that the top-24 sample flatters capture, but only proposes a random sample of 24 for the re-run, not the most recent per channel.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason: memorable or popular requests are the ones that already got attention, so they overstate capture.",
+        "evidence": "\"Those are the requests most likely to get noticed, so 58% is probably an upper bound.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires at least three rows from sales calls even though that channel is low-volume.",
+        "evidence": "It notes that sales is missing and adds a shared form, but does not require sales rows in the sample.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Puts the four duplicate rows back into the sample, marked as duplicates, and states the duplicate rate is itself a finding.",
+        "evidence": "It says removing duplicates hid demand and asks whether those requesters were told, but does not restore the rows or call the duplicate rate a finding.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Excludes the Discord bot's acknowledgement from time to first staff reply.",
+        "evidence": "\"The 6-minute first response measures the bot... replace the metric with time to the first human reply.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Excludes community moderators' replies from first staff reply, counting only replies from staff.",
+        "evidence": "Moderators are not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats the 6-minute median as invalid and asks for staff-only timing.",
+        "evidence": "It says the 6-minute figure is the bot's acknowledgement and replaces it with time to first human reply.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Computes the funnel ratios: captured 14 of 24, reached 13 of 14, decided 3 of 13, told 3 of 3.",
+        "evidence": "The table shows 58%, 93%, 23% and 100% with the in and out counts.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies capture (10 lost) and decision (10 lost) as losing about the same number of requests.",
+        "evidence": "\"Capture and decision lose the same number of requests, 10 each.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Resolves the tie toward the decision stage because the receiver is informal (Ruth reads DMs when pinged), so the contract with product comes first.",
+        "evidence": "It picks decision, but on pass-rate and queue reasoning. Informal-receiver and contract logic are not the stated reason.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reads the 100% told rate as a symptom, not a strength: only requests with a built-in reply path reached a decision at all.",
+        "evidence": "It only says \"100% on close is n=3\" and that the other 10 hear nothing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not accept capture rules as the sole fix; capture rules are built alongside the contract, not instead of it.",
+        "evidence": "Decision fix first with a small capture patch alongside, and the full capture rewrite after a quarter.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reads the corrected result back to the user and asks for confirmation before proposing any tool, label set or process.",
+        "evidence": "It proposes a plan straight away and asks one question only at the end.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not propose a new feedback tool.",
+        "evidence": "It proposes one list with statuses and a shared form, not a tool.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

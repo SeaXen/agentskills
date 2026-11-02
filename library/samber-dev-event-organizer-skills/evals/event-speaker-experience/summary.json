@@ -1,0 +1,426 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-speaker-experience",
+  "scenarios": 9,
+  "expectations_total": 101,
+  "expectations_subjective": 3,
+  "expectations_objective": 98,
+  "pass_rate_with_skill_pct": 83.2,
+  "pass_rate_without_skill_pct": 24.8,
+  "delta_pp": 58.4,
+  "uplift_multiplier": 3.35,
+  "trigger_accuracy_pct": 81.5,
+  "trigger_queries": 92,
+  "trigger_positive_fire_rate": 0.891,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": 0.676,
+  "subjective_pass_disagreements": [
+    {
+      "eval_id": 7,
+      "condition": "without_skill",
+      "expectation": "Treats a speaker who has missed a deadline as stuck rather than uninterested",
+      "pass1": true,
+      "pass2": false
+    }
+  ],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Pins the headshot to programme or badge production and notes that print jobs need lead time"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names roughly five speakers, or any deadline that must land on a single day, as the threshold past which a lone contact stops scaling, and adjusts the plan for 11 speakers on that basis"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Requires any format offering no opt-out to say so plainly and in advance, before submission rather than after acceptance"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that a camera in the room is not agreement and that speaker silence is not consent"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Explains the licence in plain words above the legal ones, including that a non-exclusive licence leaves the speaker free to publish the talk themselves"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States a policy for what happens to a recording of a talk that went badly, in either direction, rather than leaving it undecided"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that travel and lodging concierge tops both effort and compliance cost, so an efficiency ranking on its own never selects it"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Routes anything beyond expense reimbursement, such as direct payments, taxes or contracts, through whoever handles the event's money rather than handling it inside speaker care"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Does not route her to a speaker mentorship programme, and states that mentorship programmes work on proposal drafts and close before acceptance decisions are made"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Hands the speakers' timing needs to the day-of run-of-show document rather than writing a minute-by-minute event schedule here"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that speakers should have been told before the videos went live, not after, and that hearing about it from a colleague undermines the consent they gave"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Says where else the recording lives, and gives the speaker what they need to share it themselves, including that the non-exclusive licence already permits it"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that publication slipping past a promised date should have been communicated before that date passed rather than met with silence"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends the default cadence of packet at acceptance, a reminder at the materials deadline, and a logistics note 48 hours out"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Tracks returning and referring speakers, and notes this is meaningful only because the edition recurs"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that failing material completeness at the deadline means the deadline ladder is wrong rather than the speakers"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Promotes the speakers' dinner and appreciation gifts on the grounds that the edition recurs and the return lands after this edition is over"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Produces a dated collection ladder with a separate date per material item, not one blanket deadline covering all materials"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Pins the headshot to programme or badge production and notes that print jobs need lead time"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that the A/V requirements deadline is the venue's own equipment ordering deadline, and instructs asking the venue for that date rather than choosing one"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Replaces the three organizers answering from personal accounts with one named point of contact (a person or a pair), one address, and a stated response window"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Specifies the speaker packet as one document or link covering at minimum slot, room, format and length, the deadlines, the recording policy, travel and reimbursement mechanics, arrival instructions, and the contact"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Treats accessibility and dietary needs as a dated collection item pinned to when catering and venue changes lock, not as optional extra information"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States a consequence for missing the slide deadline, or states honestly that there is none"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends per-speaker threads or a mailing tool rather than one thread with all 11 speakers addressed together"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names roughly five speakers, or any deadline that must land on a single day, as the threshold past which a lone contact stops scaling, and adjusts the plan for 11 speakers on that basis"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Flags that the two invited keynote speakers never filled in the CFP form, so the bundled checkbox does not cover them, and requires the terms be presented and the answer recorded at acceptance instead"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Separates recording, live streaming, and publication or channels into distinct consent questions rather than one combined yes/no"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes that a lightning talk recorded inside one continuous block cannot practically be cut out of the stream, and treats a no-opt-out policy for that format as a legitimate choice rather than an oversight"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Requires any format offering no opt-out to say so plainly and in advance, before submission rather than after acceptance"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Rejects collecting signed releases on the morning of the event as the primary mechanism, and names the cost it carries on the busiest day"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that a camera in the room is not agreement and that speaker silence is not consent"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Specifies a consent record carrying at least speaker and session, session format, where the terms were shown, date of the answer, recording yes/no, live stream yes/no, publication and channels, and any condition the speaker attached"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Requires checking the consent record against the published-video list before anything goes public"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Recommends granular per-format consent given that employer-restricted material is in play, and names that condition as the reason"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Explains the licence in plain words above the legal ones, including that a non-exclusive licence leaves the speaker free to publish the talk themselves"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States a policy for what happens to a recording of a talk that went badly, in either direction, rather than leaving it undecided"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Raises visa letters for the non-EU speakers, asks early whether one is needed and who signs it, and states no specific processing lead time as fact"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States a claim deadline and a payment turnaround and commits to honouring both"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names a deletion date for passport or ID details, ticket numbers and bank details, decided at collection time and written into the packet"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that travel and lodging concierge tops both effort and compliance cost, so an efficiency ranking on its own never selects it"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Collects arrival and departure times as a dated material item rather than discovering them on the day"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Does not silently downgrade the promised 'travel and two nights' hotel' term to fit the 9,000 EUR budget, and escalates any shortfall to whoever made the promise"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Does not route her to a speaker mentorship programme, and states that mentorship programmes work on proposal drafts and close before acceptance decisions are made"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Offers a rehearsal slot at a specific named time with a named person listening, rather than an open 'let us know if you want to practise'"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that an open offer to practise is declined by exactly the people who most need it"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Limits the organizer's role to booking the room, providing a listener and coordinating the timing, and leaves what goes in the talk to her"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Points her at talk-preparation and rehearsal material for the content side rather than coaching the talk's content here"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends asking every speaker whether this is their first talk at this size, with the stated reason that it changes what is offered and not how the talk is judged, rather than inferring it from seniority"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Promotes a per-speaker check-in call for her specifically rather than raising the cadence for the whole roster"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Adds a live briefing, a short call or a session on arrival, on top of the written packet"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Labels the first-time-speaker measures as defaults worth trying rather than as established conference practice"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Lists tech-check steps including connecting the speaker's own machine to the real projector and confirming resolution and aspect ratio, testing the microphone the speaker will actually use at speaking volume with the room's own gain, and playing any talk audio through the room system"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Runs only the demo's riskiest moment, such as the network call, the SSH session or the hardware, rather than the whole demo"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Agrees in advance what happens if a demo fails live: skip to a slide, show a recording, or talk through it"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Sets a stated norm about who else may enter the green room, and puts that norm in the speaker packet"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Lists green room contents including power, wifi and a table, water and something to eat that does not require leaving, a clock showing the real time with the current schedule, and somebody who knows what is happening"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names a single on-site host, a person or a pair, who meets each speaker, walks them to the speaker room rather than pointing, and is findable in the twenty minutes before each slot"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Answers each speaker's A/V request back with what the venue can actually provide, including explicitly where the answer is no"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Hands the speakers' timing needs to the day-of run-of-show document rather than writing a minute-by-minute event schedule here"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Splits the single combined email into separate messages rather than one send"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Requires the thank-you to be individual, from the named contact, and to name one specific thing about that speaker's talk"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that feedback and a request must never travel in the same message"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Passes anonymous written comments on in full, minus abuse, rather than filtering out the negative ones"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that a speaker will assume comments were filtered if they are"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Includes the organizer's own read of the room alongside the numbers"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that speakers should have been told before the videos went live, not after, and that hearing about it from a colleague undermines the consent they gave"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Says where else the recording lives, and gives the speaker what they need to share it themselves, including that the non-exclusive licence already permits it"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that publication slipping past a promised date should have been communicated before that date passed rather than met with silence"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Separates the returning-speaker ask into a later, separate message, asked once and with the answer recorded"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Includes a retention pass deleting travel documents, ID scans and payment details still held from the event"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that one thread addressing every speaker at once leaks each speaker's address to the others and reads as somebody else's problem"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Offers to renegotiate: invites the speaker to say today if the date does not work, and to be told what is still possible"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Prescribes for next edition a first reminder at roughly half the remaining time and a second at the deadline, rather than four"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends the default cadence of packet at acceptance, a reminder at the materials deadline, and a logistics note 48 hours out"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends recording which materials arrived late and after which reminder, so next edition's ladder is built from this edition's record"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that a term quietly downgraded between acceptance and arrival is the failure a speaker tells other speakers about"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Rejects the agency's position and states that the packet and the named contact matter more at a vendor or user conference, not less, because bigger machinery hides the speaker's own experience more easily"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Labels the recommendation as assuming the vendor or user-conference pole wherever that differs from a community-run event"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Does not treat the promised perks as negotiable by this role, and delivers whatever was promised rather than re-opening the terms"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Ships a speaker packet covering slot, room, format, length and how strictly the length is enforced, alongside whatever the agency provides"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names who introduces each speaker and what they will say, and asks for name pronunciation and pronouns"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Adds a live briefing for the three external speakers given the changed session length, rather than relying on the written packet alone"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Treats the vendor-pole adjustments as judged rather than as established practice"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Sets material completeness at the deadline as a hard gate: every accepted speaker has bio, headshot, final title, A/V requirements and travel details recorded by the date each becomes unusable"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Sets consent-record completeness as a hard gate: every published recording has a record naming session format, licence and opt-out answer, with no exceptions"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Instructs setting the video publication target yourself, publishing it in the speaker packet, and being measured against that stated promise"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Labels which metrics are gates and which are self-set"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Counts A/V surprises discovered on stage, targets zero, and tracks which category recurs"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Tracks returning and referring speakers, and notes this is meaningful only because the edition recurs"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Instructs picking two metrics, writing down what each would change next edition, and recording both before the event rather than after"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that failing material completeness at the deadline means the deadline ladder is wrong rather than the speakers"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Promotes the speakers' dinner and appreciation gifts on the grounds that the edition recurs and the return lands after this edition is over"
+      }
+    ]
+  }
+}

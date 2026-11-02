@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to produce the lightning version by proportionally compressing the three existing sections",
+        "evidence": "\"**Don't shrink the three sections proportionally.** A lightning slot carries 'one point, or one demo \u2014 never both'...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Re-derives the 10-minute version from the arrow rather than from the 30-minute outline",
+        "evidence": "\"Using the tech-talk-outline skill's re-derivation method... re-derive from the arrow\" and \"the arrow doesn't get re-derived per slot, only what supports it does\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a lightning slot holds one movement, not a compressed three",
+        "evidence": "\"a lightning slot holds one movement, not a compressed three\" (quoted directly from the skill reference).",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a 5-10 minute slot carries one point or one demo, never both",
+        "evidence": "\"A lightning slot carries 'one point, or one demo \u2014 never both' (this skill's slot table).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Forces an explicit choice between the single surviving point and the benchmark demo for the lightning slot",
+        "evidence": "The default recommended outline keeps both: 'Pillar (one)... Evidence: the benchmark, run live or shown as a screencast' plus a scheduled '0:03-0:07 the demo' block \u2014 the fallback to 'one point, no demo' is only conditional on A/V uncertainty, not a forced choice for the talk itself.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that the lightning slot rules out the sparkline arc",
+        "evidence": "The word 'sparkline' does not appear anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that the lightning slot rules out the progressive-construction arc",
+        "evidence": "No mention of 'progressive construction' appears anywhere in the transcript; the arc discussion only covers arc 1 stripped to 'Insight \u2192 proof only'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats the four-event re-give as a reason to promote a more expensive arc, because the preparation amortizes across every later slot instead of being paid once",
+        "evidence": "The 'Carrying this to the other three dates' section discusses reusing the same arc/pillars across slot lengths, but never promotes a more expensive arc because of the re-give; only the demo recording decision is tied to amortization.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends recording the benchmark demo once, on the grounds that a recorded demo amortizes across the four slots the same way",
+        "evidence": "\"Since you're re-giving this talk three more times, the screencast is a cost paid once and reused at the conference and both customer sessions \u2014 recorded/reusable assets amortize across a re-give...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says explicitly that the re-give answer is what moved those rankings",
+        "evidence": "\"Since you're re-giving this talk three more times, the screencast is a cost paid once... per this skill's ranking of arc and demo choices for talks given more than once.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends storing the arrow, the chosen arc, the pillars and the cut list so the later slots are re-derived from the same decisions instead of re-invented into a different talk",
+        "evidence": "\"Store the arrow, the arc choice, all three pillars, and the cut order from tonight's accordion run \u2014 the 30-minute conference version and the two 40-minute customer sessions aren't separate derivations, they're this same material re-expanded to different slot lengths.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to produce the lightning version by proportionally compressing the three existing sections",
+        "evidence": "\"The instinct is to speed-run all three sections + demo at 3x speed. That's the standard lightning-talk failure mode \u2014 nobody retains a rushed tour of three ideas... So: pick the single section with the best hook-to-payoff ratio... and cut the other two sections outright. Don't shrink them to bullet points as a 'quick mention' \u2014 a mentioned-but-unexplained idea wastes seconds and lands nowhere.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Re-derives the 10-minute version from the arrow rather than from the 30-minute outline",
+        "evidence": "The transcript never mentions an 'arrow' concept; instead it works directly from the existing 30-minute structure: \"pick the single section with the best hook-to-payoff ratio (usually 'why naive json.Unmarshal allocates and what that costs you'...) and cut the other two sections outright\" \u2014 this derives the lightning version by trimming the 30-minute outline, not from an independent 'arrow'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a lightning slot holds one movement, not a compressed three",
+        "evidence": "\"At 8 minutes you get one idea, well told, not three ideas badly told.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a 5-10 minute slot carries one point or one demo, never both",
+        "evidence": "No such general statement appears. The suggested shape actually retains both a point and a demo remnant: \"2. The one technique (5-6 min)... 3. The number (30-45s) \u2014 static benchmark slide, no demo.\" The transcript frames this as trimming the demo to a slide, not as an explicit 'point or demo, never both' rule.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Forces an explicit choice between the single surviving point and the benchmark demo for the lightning slot",
+        "evidence": "The transcript does not frame this as a binary choice between the point and the demo; it keeps both elements in the shape (\"2. The one technique\" and \"3. The number\") while only cutting the live-execution aspect: \"Kill the live demo, keep the number... Replace the demo with one static slide.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that the lightning slot rules out the sparkline arc",
+        "evidence": "The term 'sparkline arc' does not appear anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that the lightning slot rules out the progressive-construction arc",
+        "evidence": "The term 'progressive-construction arc' does not appear anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats the four-event re-give as a reason to promote a more expensive arc, because the preparation amortizes across every later slot instead of being paid once",
+        "evidence": "The four-event re-give is only used to justify deck-maintenance tooling (\"Since this is the same talk shown four times, don't maintain four decks \u2014 you'll drift and forget which one has the fixed typo\"), not to justify choosing a more expensive narrative arc.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends recording the benchmark demo once, on the grounds that a recorded demo amortizes across the four slots the same way",
+        "evidence": "The transcript recommends killing the demo entirely and replacing it with a static slide (\"Kill the live demo, keep the number... Replace the demo with one static slide\"), with no mention of recording it for reuse.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says explicitly that the re-give answer is what moved those rankings",
+        "evidence": "No mention of 'rankings' or any statement attributing a ranking change to the re-give answer appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends storing the arrow, the chosen arc, the pillars and the cut list so the later slots are re-derived from the same decisions instead of re-invented into a different talk",
+        "evidence": "The transcript only recommends a master-deck-with-hidden-sections workflow (\"Keep one master deck, organize slides into named sections... Build each event's version by hiding sections, not deleting or rewriting slides\") without using or matching the specific concepts 'arrow', 'arc', or 'pillars'.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

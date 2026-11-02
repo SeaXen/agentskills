@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Gives a per-request version pinning mechanism with a complete example request that includes the version header",
+        "evidence": "curl with `-H \"Brightmoor-Version: 2026-11-02\"`.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States which mechanism wins when an account default and a per-request pin are both present",
+        "evidence": "\"Precedence: a per-request pin wins over the account default.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Tells integrators to pin explicitly in code rather than inheriting the account default, and gives the reason that the next cutover would otherwise change behaviour in an application nobody touched",
+        "evidence": "\"Always pin in code. An inherited default turns the next cutover into an incident.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes a surface matrix covering the Node SDK, Python SDK, browser bundle, iOS SDK and webhooks, stating how each versions and whether it moves with the API version",
+        "evidence": "\"Surfaces and versions\" table.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that webhooks cannot be version-pinned per request because the consumer does not make the request",
+        "evidence": "\"You can't pin an inbound request.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives webhook payload changes their own section rather than folding them into the ordinary breaking-change entries",
+        "evidence": "\"## Webhook payload changes\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Covers the window during which both the old and the new webhook payload shapes can arrive",
+        "evidence": "\"Assume either shape can arrive until your last pre-flip event stops retrying.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes a data-layer impact section covering the 18-to-26 character identifier length change and its effect on stored columns",
+        "evidence": "\"Data-layer impact\": \"ID width: columns, indexes, foreign keys...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Covers the persisted pending_review to in_review enum rename as a data-layer consequence for values already written to consumer databases",
+        "evidence": "\"Persisted enum values: rows holding `pending_review`\"; backfill step.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Covers the integer-cents to decimal-string money change as a data-layer consequence rather than only as a wire change",
+        "evidence": "\"Mixed money shapes in stored raw payloads\" and \"Warehouse schemas\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States, in order, who flips the account default and on what date, what the customer must complete beforehand, how to roll back and for how long, and how long the old version stays available",
+        "evidence": "\"Cutover and rollback\" items 1-5.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the rollback procedure rather than omitting it on the grounds that the cutover is expected to succeed",
+        "evidence": "\"Roll back by pinning requests to {{CURRENT_VERSION}}\" with a list of what rollback does not undo.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Publishes the exhaustive list of change types considered backward-compatible so integrators know which defensive coding is actually required",
+        "evidence": "\"Compatibility contract\" list of six non-breaking change types.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Gives a per-request version pinning mechanism with a complete example request that includes the version header",
+        "evidence": "curl with '-H \"Brightmoor-Version: 2026-11-02\"'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States which mechanism wins when an account default and a per-request pin are both present",
+        "evidence": "It says only 'Send 2026-11-02 on individual requests while your account default stays unchanged'. Precedence is not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Tells integrators to pin explicitly in code rather than inheriting the account default, and gives the reason that the next cutover would otherwise change behaviour in an application nobody touched",
+        "evidence": "It tells readers to remove per-request pins afterwards. It never advises pinning in code to avoid later silent change.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes a surface matrix covering the Node SDK, Python SDK, browser bundle, iOS SDK and webhooks, stating how each versions and whether it moves with the API version",
+        "evidence": "Table rows for Node SDK, Python SDK, browser.js, iOS SDK and Webhooks with a 'How it gets the version' column. Most cells are CONFIRM placeholders.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that webhooks cannot be version-pinned per request because the consumer does not make the request",
+        "evidence": "It says only 'Endpoint-level setting'. The reason is not given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives webhook payload changes their own section rather than folding them into the ordinary breaking-change entries",
+        "evidence": "'## Webhooks {#webhooks}'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Covers the window during which both the old and the new webhook payload shapes can arrive",
+        "evidence": "'Both appear while versions are mixed'; retries of pre-flip events 'Handle both'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes a data-layer impact section covering the 18-to-26 character identifier length change and its effect on stored columns",
+        "evidence": "'Widen your database columns first' with a VARCHAR(18) to VARCHAR(64) SQL example. It sits in the entry rather than a separate section.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Covers the persisted pending_review to in_review enum rename as a data-layer consequence for values already written to consumer databases",
+        "evidence": "Only 'Update database enums, analytics dimensions...' and 'Accept both'. There is no step for migrating values already stored.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Covers the integer-cents to decimal-string money change as a data-layer consequence rather than only as a wire change",
+        "evidence": "'Check every stored amount. If you store cents as integers in your own database, convert at the API boundary only.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States, in order, who flips the account default and on what date, what the customer must complete beforehand, how to roll back and for how long, and how long the old version stays available",
+        "evidence": "The Cutover section is mostly [CONFIRM: N days] placeholders. It gives no date, no old-version availability, and no ordered sequence.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the rollback procedure rather than omitting it on the grounds that the cutover is expected to succeed",
+        "evidence": "Rollback is a placeholder ('[CONFIRM: you can revert your default ... for N days]'). No procedure is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Publishes the exhaustive list of change types considered backward-compatible so integrators know which defensive coding is actually required",
+        "evidence": "There is no such list.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

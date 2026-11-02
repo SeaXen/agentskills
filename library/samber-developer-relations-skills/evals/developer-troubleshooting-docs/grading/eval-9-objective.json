@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Requires each fix to be executed as written before publication, not inferred from resolution notes",
+        "evidence": "Quotes the verification protocol: \"Publish nothing that has not been run... from the state the reader is in, not from your already-configured machine\" and rejects the manager's premise that a resolved ticket (resolution notes) is sufficient: \"'A fix that worked for a real customer is verified by definition' isn't what any of the four frameworks this skill runs on call verification.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the claim that a fix which worked in a support case is verified for publication",
+        "evidence": "\"Your manager's verification bar is wrong \u2014 say so, with the skill's actual bar... 'A fix that worked for a real customer is verified by definition' isn't what any of the four frameworks this skill runs on call verification. A resolved ticket confirms the fix worked *once, for that customer's specific environment*...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires running the fix from the reader's starting state rather than from an already-configured machine",
+        "evidence": "\"verification protocol point 1-2: *\"Publish nothing that has not been run... from the state the reader is in, not from your already-configured machine\"*\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires capturing the post-fix signal from that run as the confirmation line",
+        "evidence": "No mention of capturing a post-fix signal/output as a confirmation line anywhere in the transcript; the closest content is about scoping 'Applies to' ranges and reproducing behavior, not documenting a captured signal.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires checking the oldest supported version, 3.0, as well as the current 3.4",
+        "evidence": "\"point 4: *\"Check applicability at both edges: the oldest supported version and the current one\"*) \u2014 you support 3.0-3.4, you tested 3.4\" and the disposition table instructs to \"spin up a 3.0 instance today and confirm behavior/error text is identical\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a reviewer who did not write the entry to follow it cold",
+        "evidence": "\"Verification protocol point 5, unmet for all 9 so far: *\"Have someone who did not write the entry follow it cold.\"* You wrote all 9 from the ticket notes yourself. Get one teammate to run the fix steps on #1-6 verbatim before Monday\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the cold reader's first hesitation marks a step carrying an unstated assumption",
+        "evidence": "\"their first hesitation is the step with an unstated assumption baked in from your already-configured machine.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Permits the three unreproduced entries to ship only with an explicit note that they are reported under stated conditions and not reproduced",
+        "evidence": "\"Publish with **\"Reported under these conditions, not reproduced here\"** stated in the Cause section, not buried in a footnote\" (item 7), and \"this gets the 'not reproduced here' note like #7/#8\" (item 9), with disposition table entries reading 'Yes, with the explicit caveat' for all three.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not treat withholding all three unreproduced entries as the only available option",
+        "evidence": "\"This doesn't mean delay to Monday \u2014 it means **label honestly**, which the skill explicitly allows as a shipping path\"; disposition table marks all three as \"Ships Monday? Yes...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that incorrect documentation is worse than missing documentation",
+        "evidence": "\"this skill's own citation for why is Write the Docs' rule \u2014 'consider incorrect documentation to be worse than missing documentation.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the bearer token and the customer org ID to be removed from the curl example",
+        "evidence": "\"Redact both from the drafted page: `Authorization: Bearer <TOKEN>`, `orgId=<ORG_ID>`. Copy the *shape* of the call from the ticket, never the literal values\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that publishing a full token teaches readers to paste their own into public issues or tickets",
+        "evidence": "No such claim appears; the transcript's rationale for redaction is credential-exposure/rotation risk (\"A live bearer token that's been copy-pasted into a drafting artifact is a credential-exposure question\"), not that it models bad behavior for readers to imitate.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires each command to state its prerequisites and what to do when that command itself fails",
+        "evidence": "No mention anywhere in the transcript of command prerequisites or fallback/failure handling for individual commands.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that all six entry parts must be present and that five out of six is a draft rather than a publishable entry",
+        "evidence": "The transcript never references 'six entry parts' or any count-based completeness rule for entries; no such statement exists in the text.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Requires each fix to be executed as written before publication, not inferred from resolution notes",
+        "evidence": "Allows the 3 unreproduced entries to ship with a caveat instead of requiring execution: \"Publish, but caveat: 'Reported to resolve this issue... not independently reproduced in-house.'\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the claim that a fix which worked in a support case is verified for publication",
+        "evidence": "\"'A fix that worked for a real customer is verified by definition' collapses two different claims\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires running the fix from the reader's starting state rather than from an already-configured machine",
+        "evidence": "No discussion of testing methodology (reader's starting state vs. pre-configured machine) appears anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires capturing the post-fix signal from that run as the confirmation line",
+        "evidence": "No requirement to capture a specific post-fix signal as a confirmation line is stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires checking the oldest supported version, 3.0, as well as the current 3.4",
+        "evidence": "\"Before labeling any of them as applying to the full 3.0\u20133.4 range, check whether the underlying code path is actually shared across those versions... 'Applicability to 3.0\u20133.3 unverified.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a reviewer who did not write the entry to follow it cold",
+        "evidence": "No mention of an independent cold-reader review process.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the cold reader's first hesitation marks a step carrying an unstated assumption",
+        "evidence": "No such statement appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Permits the three unreproduced entries to ship only with an explicit note that they are reported under stated conditions and not reproduced",
+        "evidence": "\"'Reported to resolve this issue in air-gapped installs; not independently reproduced in-house.'\" applied to each of the 3 unreproduced entries.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not treat withholding all three unreproduced entries as the only available option",
+        "evidence": "Two of the three get caveated publication; only the intermittent one is recommended to be held: \"Recommend holding this one out of Monday's batch, or if it must ship, caveat hardest.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that incorrect documentation is worse than missing documentation",
+        "evidence": "Closest statement is about cost trade-offs ('trades a one-day schedule slip for a KB that sends the next customer down a wrong path'), not an explicit 'incorrect worse than missing' claim.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the bearer token and the customer org ID to be removed from the curl example",
+        "evidence": "\"Redact now: replace the token with Authorization: Bearer <TOKEN> and the org ID with <ORG_ID>\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that publishing a full token teaches readers to paste their own into public issues or tickets",
+        "evidence": "No such statement; the concern raised is treated purely as a credential-exposure/security-incident issue.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires each command to state its prerequisites and what to do when that command itself fails",
+        "evidence": "No such requirement about command prerequisites or failure handling appears anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that all six entry parts must be present and that five out of six is a draft rather than a publishable entry",
+        "evidence": "No six-part entry schema or such a rule is discussed anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States an hours envelope alongside the cash envelope, totalled from the three named people at 25, 30 and 6 hours per week.",
+        "evidence": "\"you 25 h/wk, writer 30 h/wk, designer 6 h/wk, over 46 working weeks/year ... Nominal 2,806 h/year \u2192 2,105 h/year planned-against\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Applies a deduction of between 20% and 30% to the hours envelope before planning against it, and gives the reason (support load, launches, incidents).",
+        "evidence": "\"a 25% deduction (self-set, mid of the skill's 20\u201330% band) for meetings, launches and incidents on top of the support rotation\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sorts the money into committed, discretionary, borrowed and in-kind rather than treating all 180,000 EUR as allocatable.",
+        "evidence": "\"Committed: 0 confirmed ... Discretionary: 180,000 ... Borrowed: ~207 h/year of designer time ... In-kind: none stated.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States explicitly that the 180,000 EUR excludes staff salaries, and notes that this changes any comparison with other programs.",
+        "evidence": "\"Salaries excluded \u2014 3 headcount (you, writer, designer) sit on the VP Marketing headcount line, separate from this number.\" \u2014 exclusion is stated but no statement anywhere notes this changes comparisons with other programs.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Funds at most two pillars above token level rather than splitting across all five pillars the user listed.",
+        "evidence": "\"At most two pillars funded above token level: yes (Enablement, Content).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names what the chosen concentration deliberately starves.",
+        "evidence": "\"Starves: community growth, a second/third event, any OSS program.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Holds between 10% and 20% of discretionary spend as an unallocated reserve.",
+        "evidence": "\"27,000 EUR \u2014 15% of discretionary\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the reserve percentage as a self-set starting point rather than an industry standard.",
+        "evidence": "\"15% of discretionary (self-set, mid of the skill's 10\u201320% band)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives every funded line an owner who is one of the three named people, never 'the team' or 'devrel'.",
+        "evidence": "Owners listed as \"DevRel lead\" and \"Technical writer\" for every line, mapping to \"you\" and \"writer\" \u2014 never \"the team\" or generic \"devrel\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives every funded line both a cash figure and an hours figure.",
+        "evidence": "Each pillar row has a Cash and Hours/yr value, e.g. \"60,000 | 470 (you 300, writer 60, designer 110)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags any line whose hours exceed the hours envelope as unfunded regardless of its cash.",
+        "evidence": "No line's hours exceed the 2,105h envelope (\"Planned hours (1,990) sit under the 2,105 envelope\"), so no such flagging is demonstrated anywhere in the document.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces both an unfunded list and an ordered cut list, and neither is empty.",
+        "evidence": "\"Unfunded list \u2014 ranked, lost on the ranking\" (3 items) and the \"Cut list\" table with \u221220%/\u221240% rows.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Tags every percentage or threshold it states as sourced, program baseline, or self-set.",
+        "evidence": "\"Volume: \u226520 pieces, program baseline 14\"; \"70/20/10 shape (borrowed from marketing portfolio practice, not a devrel benchmark)\"; \"Every self-set/program-baseline/sourced number tagged in the same sentence as the number: yes throughout.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States an hours envelope alongside the cash envelope, totalled from the three named people at 25, 30 and 6 hours per week.",
+        "evidence": "Transcript gives FTE fractions only: 'you at 0.63 FTE net of support rotation, writer at 0.75 FTE, designer at 0.15 FTE' \u2014 never converted into a stated hours-per-week total (e.g. ~61 hrs/week).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Applies a deduction of between 20% and 30% to the hours envelope before planning against it, and gives the reason (support load, launches, incidents).",
+        "evidence": "No deduction step is shown; '0.63 FTE net of support rotation' is presented as a given, not derived via an explicit 20-30% deduction with stated reasoning.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sorts the money into committed, discretionary, borrowed and in-kind rather than treating all 180,000 EUR as allocatable.",
+        "evidence": "The whole \u20ac180,000 is split directly into the five pillar percentages with no committed/borrowed/in-kind categorization.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States explicitly that the 180,000 EUR excludes staff salaries, and notes that this changes any comparison with other programs.",
+        "evidence": "No mention anywhere that \u20ac180,000 excludes salaries or how that affects comparisons.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Funds at most two pillars above token level rather than splitting across all five pillars the user listed.",
+        "evidence": "All five pillars are funded substantially: 'Docs & tooling \u20ac52,000 29%... Content \u20ac45,000 25%... Events \u20ac36,000 20%... Community \u20ac27,000 15%... Education \u20ac20,000 11%'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names what the chosen concentration deliberately starves.",
+        "evidence": "No two-pillar concentration exists to name a starve target against; rationale only explains relative down-weighting of Events and Community.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Holds between 10% and 20% of discretionary spend as an unallocated reserve.",
+        "evidence": "Total column sums to 100% ('\u20ac180,000 | 100%') with no reserve line.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels the reserve percentage as a self-set starting point rather than an industry standard.",
+        "evidence": "No reserve exists to label.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives every funded line an owner who is one of the three named people, never 'the team' or 'devrel'.",
+        "evidence": "Line items (e.g. 'Docs platform + search', 'Contract technical writer hours') carry no owner column at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives every funded line both a cash figure and an hours figure.",
+        "evidence": "Tables only list 'Item | Amount' \u2014 no hours column anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags any line whose hours exceed the hours envelope as unfunded regardless of its cash.",
+        "evidence": "No hours are tracked per line, so no such flag is possible or present.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces both an unfunded list and an ordered cut list, and neither is empty.",
+        "evidence": "No unfunded list or cut list appears; the entire \u20ac180,000 is allocated across the five pillars.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Tags every percentage or threshold it states as sourced, program baseline, or self-set.",
+        "evidence": "Percentages like 29%, 25%, 20% are stated as plan output with no sourcing tag.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

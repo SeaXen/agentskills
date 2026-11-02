@@ -1,0 +1,190 @@
+import { jest } from '@jest/globals';
+import type { FioriElementsApp, LROPSettings } from '../../src/index.js';
+import type { ALPSettings } from '../../src/types.js';
+
+// Mock annotation-generator to prevent ESM transitive import chain
+jest.unstable_mockModule('@sap-ux/annotation-generator', () => ({
+    generateAnnotations: jest.fn()
+}));
+
+const { OdataVersion, TemplateType } = await import('../../src/index.js');
+const { TemplateTypeAttributes } = await import('../../src/data/templateAttributes.js');
+const { t } = await import('../../src/i18n.js');
+const { validateApp, validateRequiredProperties } = await import('../../src/validate.js');
+const { feBaseConfig } = await import('../common.js');
+
+describe('Validate', () => {
+    test('Valid app config', () => {
+        const feApp: FioriElementsApp<LROPSettings> = {
+            ...Object.assign(feBaseConfig('felrop1'), {
+                template: {
+                    type: TemplateType.ListReportObjectPage,
+                    settings: {}
+                },
+                service: {
+                    version: OdataVersion.v2
+                }
+            })
+        } as FioriElementsApp<LROPSettings>;
+
+        expect(() => validateApp(feApp)).not.toThrow();
+    });
+
+    test('Invalid ODataVersion for template type', () => {
+        const feApp: FioriElementsApp<LROPSettings> = {
+            ...Object.assign(feBaseConfig('felrop1'), {
+                template: {
+                    type: TemplateType.FormEntryObjectPage,
+                    settings: {}
+                },
+                service: {
+                    version: OdataVersion.v2 // Form Entry Object Page does not support v2
+                }
+            })
+        } as FioriElementsApp<LROPSettings>;
+
+        expect(() => validateApp(feApp)).toThrow(
+            t('error.unsupportedOdataVersion', {
+                serviceVersion: feApp.service.version,
+                templateType: feApp.template.type
+            })
+        );
+    });
+
+    test('Invalid semantic version specified', () => {
+        let feApp: FioriElementsApp<LROPSettings> = {
+            ...Object.assign(
+                feBaseConfig('felrop1'),
+                {
+                    ui5: {
+                        version: 'a.b.c',
+                        minUI5Version: '1.60'
+                    }
+                },
+                {
+                    template: {
+                        type: TemplateType.ListReportObjectPage,
+                        settings: {}
+                    },
+                    service: {
+                        version: OdataVersion.v2
+                    }
+                }
+            )
+        } as FioriElementsApp<LROPSettings>;
+
+        expect(() => validateApp(feApp)).toThrow(
+            t('error.invalidUI5Version', {
+                versionProperty: 'version',
+                ui5Version: feApp.ui5?.version
+            })
+        );
+
+        feApp = Object.assign(feApp, {
+            ui5: {
+                version: '1.1.1',
+                minUI5Version: 'NOT.A.VALID.SEMVER'
+            }
+        });
+
+        expect(() => validateApp(feApp)).toThrow(
+            t('error.invalidUI5Version', {
+                versionProperty: 'minUI5Version',
+                ui5Version: feApp.ui5?.minUI5Version
+            })
+        );
+    });
+
+    test('Invalid ui5 version for specified template type', () => {
+        const feApp: FioriElementsApp<ALPSettings> = {
+            ...Object.assign(
+                feBaseConfig('felrop1'),
+                {
+                    ui5: {
+                        version: '1.88.1',
+                        minUI5Version: '1.92.0'
+                    }
+                },
+                {
+                    template: {
+                        type: TemplateType.AnalyticalListPage,
+                        settings: {}
+                    },
+                    service: {
+                        version: OdataVersion.v4 // Worklist does not support v4
+                    }
+                }
+            )
+        } as FioriElementsApp<ALPSettings>;
+
+        expect(() => validateApp(feApp)).toThrow(
+            t('error.unsupportedUI5Version', {
+                versionProperty: 'version',
+                ui5Version: feApp.ui5?.version,
+                templateType: feApp.template.type,
+                minRequiredUI5Version:
+                    TemplateTypeAttributes[TemplateType.AnalyticalListPage].minimumUi5Version[OdataVersion.v4]
+            })
+        );
+    });
+
+    test('Invalid minimum ui5 version for specified template type', () => {
+        const feApp: FioriElementsApp<ALPSettings> = {
+            ...Object.assign(
+                feBaseConfig('felrop1'),
+                {
+                    ui5: {
+                        version: '1.92.0',
+                        minUI5Version: '1.60.0'
+                    }
+                },
+                {
+                    template: {
+                        type: TemplateType.AnalyticalListPage,
+                        settings: {}
+                    },
+                    service: {
+                        version: OdataVersion.v4 // Worklist does not support v4
+                    }
+                }
+            )
+        } as FioriElementsApp<ALPSettings>;
+
+        expect(() => validateApp(feApp)).toThrow(
+            t('error.unsupportedUI5Version', {
+                versionProperty: 'minUI5Version',
+                ui5Version: feApp.ui5?.minUI5Version,
+                templateType: feApp.template.type,
+                minRequiredUI5Version:
+                    TemplateTypeAttributes[TemplateType.AnalyticalListPage].minimumUi5Version[OdataVersion.v4]
+            })
+        );
+    });
+
+    test('Missing required property', () => {
+        // Missing property: `FioriElementsApp.service`
+        const feApp: FioriElementsApp<ALPSettings> = {
+            ...Object.assign(
+                feBaseConfig('felrop1'),
+                {
+                    ui5: {
+                        version: '1.92.0',
+                        minUI5Version: '1.60.0'
+                    }
+                },
+                {
+                    template: {
+                        type: TemplateType.AnalyticalListPage,
+                        settings: {}
+                    }
+                }
+            )
+        } as FioriElementsApp<ALPSettings>;
+
+        expect(() => validateRequiredProperties(feApp)).toThrow(
+            t('error.missingRequiredProperty', {
+                propertyName: 'FioriElementsApp.service'
+            })
+        );
+    });
+});

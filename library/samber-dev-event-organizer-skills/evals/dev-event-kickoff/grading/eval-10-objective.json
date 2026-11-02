@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The response declines to route to event-continuous-improvement now.",
+        "evidence": "'(a) ... cannot be set up yet'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The stated reason is that the recurring gate is about having a previous edition to read, not intent to repeat - a first edition has no debrief logs to compare.",
+        "evidence": "'that gate is about having an edition to read, not about intent to repeat.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Continuous improvement is placed in a not-now list with an explicit unblocking condition (editions and their debriefs existing), rather than deleted or silently dropped.",
+        "evidence": "'after two dated debrief logs exist (edition 2 debrief)'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response corrects the user's assumption for ask (b): cross-event-promotion is available to a first edition and is not recurring-gated.",
+        "evidence": "'your assumption is wrong... deliberately not recurring-gated'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response states why: the swap skill handles one-off boosts for a coming edition, and it is an acquisition lever a first edition can reach without a track record.",
+        "evidence": "'the one acquisition lever a first edition can reach without a track record'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ask (b) is routed to samber/dev-event-organizer-skills@cross-event-promotion.",
+        "evidence": "Ask (b) names only bare `cross-event-promotion`. The full form appears only in the routines.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ask (c) is routed to samber/dev-event-organizer-skills@event-portfolio-strategy.",
+        "evidence": "Ask (c) names only bare `event-portfolio-strategy`.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response states that the portfolio skill opens on property count - the day a team starts weighing a second property - whatever edition the flagship is on.",
+        "evidence": "'The properties gate opens the day you start weighing a second property, whatever edition the flagship is on.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "event-first-edition is promoted or recommended for the flagship, tied to the stated first-edition answer.",
+        "evidence": "'Run event-first-edition first'; short-list rung 2 'Promoted by first edition (Q3a)'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cross-edition after-and-between entries (community building between editions, growth strategy, the trend read) are removed from the current short-list rather than listed low.",
+        "evidence": "community-building, growth-strategy and team-structure are only in Not now.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gates are read from stated facts, not inferred from the event's ambition or name.",
+        "evidence": "'\"Developer conference\" is the name, not the gate, so I did not infer a shape.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes are named in owner/repo@skill form.",
+        "evidence": "Routes are mostly bare names. The full form appears only in routines and the sibling hint.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The stated intent to run the summit every year is not treated as satisfying the recurring gate.",
+        "evidence": "'intent: annual (stated, not a recurring-gate fact yet)'.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The response declines to route to event-continuous-improvement now.",
+        "evidence": "'Nothing has run, so there is nothing to improve yet... set up measurement now, not the process.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The stated reason is that the recurring gate is about having a previous edition to read, not intent to repeat - a first edition has no debrief logs to compare.",
+        "evidence": "The reason given is no benchmark and the first run underperforming, not the recurring gate.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Continuous improvement is placed in a not-now list with an explicit unblocking condition (editions and their debriefs existing), rather than deleted or silently dropped.",
+        "evidence": "There is no not-now list. It only says 'Judge the programme on edition 1 alone' is wrong.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response corrects the user's assumption for ask (b): cross-event-promotion is available to a first edition and is not recurring-gated.",
+        "evidence": "'Cross-promotion: you assumed wrong, say yes'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response states why: the swap skill handles one-off boosts for a coming edition, and it is an acquisition lever a first edition can reach without a track record.",
+        "evidence": "'A track record is not on the list'; it lists what a first edition can offer.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ask (b) is routed to samber/dev-event-organizer-skills@cross-event-promotion.",
+        "evidence": "No skill is named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ask (c) is routed to samber/dev-event-organizer-skills@event-portfolio-strategy.",
+        "evidence": "Routed to `developer-relations-skills:developer-meetup-program`.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response states that the portfolio skill opens on property count - the day a team starts weighing a second property - whatever edition the flagship is on.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "event-first-edition is promoted or recommended for the flagship, tied to the stated first-edition answer.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cross-edition after-and-between entries (community building between editions, growth strategy, the trend read) are removed from the current short-list rather than listed low.",
+        "evidence": "No short-list is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gates are read from stated facts, not inferred from the event's ambition or name.",
+        "evidence": "No gate language is used.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes are named in owner/repo@skill form.",
+        "evidence": "Only the `developer-relations-skills:developer-meetup-program` form is used, in the wrong collection.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The stated intent to run the summit every year is not treated as satisfying the recurring gate.",
+        "evidence": "'Annual cadence also means one data point per year'; 'Nothing has run'.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

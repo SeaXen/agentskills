@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Declines to accept the 92/100 tool score as evidence that the README works",
+        "evidence": "\"## Verdict: Not yet \u2014 a 92/100 health score doesn't answer 'ship it?'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that structural scorers measure form, hygiene or complexity rather than whether a reader was persuaded, so a high score is compatible with a README nobody understands",
+        "evidence": "\"pure structure and rendering hygiene... High structural scores are compatible with a README nobody understands\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Re-runs the full scorecard rather than spot-checking the three items the user listed",
+        "evidence": "The table maps all of \"A1... A2... A3... A4... A5\" plus differentiation (B1) and the cold-reader test, not just the items the user cited.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires all five Band A checks to pass and Band B to total at least 14 of 16",
+        "evidence": "No '14 of 16' or any Band B numeric total is mentioned anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels the 14-of-16 bar as this skill's own default rather than a published standard, movable by the user for a stated reason recorded in the report",
+        "evidence": "No such bar or labeling is present, since no 14/16 figure appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Runs the cold-reader test with a reader who has never seen the project - a person if one can be found, otherwise a fresh agent session with no repository context",
+        "evidence": "\"Run the cold-reader test \u2014 a person or a fresh no-context agent session, 60 seconds, five questions\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Specifies the cold-reader protocol: five questions, a 60-second window, and five correct answers to pass",
+        "evidence": "\"60 seconds, five questions... Five-of-five is pass.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists the five questions, including why to use it instead of the alternative the reader already knows, and whether the project is alive",
+        "evidence": "\"what is it / why this over the alternative / does it fit my constraints / what's the first command / is it alive\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Maps a wrong answer to a specific check - question 2 to B1, question 5 to A4",
+        "evidence": "No mapping of individual questions to specific check IDs (B1, A4, etc.) is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels the 60-second window, the five questions and the five-of-five bar as this skill's own construction rather than a published protocol",
+        "evidence": "No such meta-labeling of the protocol's origin appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Declines to accept the 92/100 tool score as evidence that the README works",
+        "evidence": "\"The 92/100 score isn't evidence the README is *true*, only that it's well-*formed*.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that structural scorers measure form, hygiene or complexity rather than whether a reader was persuaded, so a high score is compatible with a README nobody understands",
+        "evidence": "\"README health-score tools check structure \u2014 sections present (Install/Usage/License), badges rendering, code-block presence, line length, TOC, heading hierarchy. None of that verifies content accuracy. Grade A tells you the README looks like a good README, not that it is one.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Re-runs the full scorecard rather than spot-checking the three items the user listed",
+        "evidence": "The response only walks through the three listed items plus a few additional ad-hoc concerns (quickstart snippets, badges, comparison claims) \u2014 there is no formal full scorecard re-run.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires all five Band A checks to pass and Band B to total at least 14 of 16",
+        "evidence": "No Band A/Band B framework or numeric thresholds appear anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels the 14-of-16 bar as this skill's own default rather than a published standard, movable by the user for a stated reason recorded in the report",
+        "evidence": "No such bar or disclaimer appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Runs the cold-reader test with a reader who has never seen the project - a person if one can be found, otherwise a fresh agent session with no repository context",
+        "evidence": "No cold-reader test is conducted; the only external-verification attempt mentioned is trying to pull repo metadata via `gh`, which failed and was handed back to the user.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Specifies the cold-reader protocol: five questions, a 60-second window, and five correct answers to pass",
+        "evidence": "No such protocol appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Lists the five questions, including why to use it instead of the alternative the reader already knows, and whether the project is alive",
+        "evidence": "No such question list appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Maps a wrong answer to a specific check - question 2 to B1, question 5 to A4",
+        "evidence": "No such mapping appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels the 60-second window, the five questions and the five-of-five bar as this skill's own construction rather than a published protocol",
+        "evidence": "None of this protocol or its labeling appears in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

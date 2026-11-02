@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Gives a monitoring or evidence step with an owner rather than a vague recommendation",
+        "evidence": "Fix row 1 assigns the evidence step to DevRel: ask 3 to 5 affected readers to forward the issue as an attachment and collect raw bounce text. It is due within 3 days and is done when headers from at least 2 companies are in hand with BCL and CAT recorded. A monitoring sheet gives every signal a source, an alert level and an owner, for example 'BCL on Microsoft 365 copies | X-Forefront-Antispam-Report | 6 or above | DevRel' and 'DMARC aggregate reports | ... | DNS owner'. Each blocked threshold also names the missing fact, its owner and a due date.",
+        "score": 5,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Gives a monitoring or evidence step with an owner rather than a vague recommendation",
+        "evidence": "The evidence step is concrete and time-boxed: 'Get one bounced or quarantined message from a bank reader. Ask their IT team for the full headers, or the quarantine reason code' (about 30 minutes, 'today'). It also lists specific header fields to read (X-Forefront-Antispam-Report, SCL) and signups (SNDS/JMRP). Ownership is only implied: the imperatives are addressed to the reader, and the CEO script says 'I'll have evidence from real headers in a week.' No step names a role or person as owner. The monitoring loop ('1 to 2 weeks to see if enterprise delivery improves', 'stays bad for 4 to 6 week",
+        "score": 3,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

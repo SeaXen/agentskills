@@ -1,0 +1,80 @@
+import { jest } from '@jest/globals';
+
+const spyTrackEvent = jest.fn();
+
+jest.unstable_mockModule('applicationinsights', () => {
+    class TelemetryClient {
+        public config: any;
+        public context: any;
+        public setUseDiskRetryCaching: any;
+        public trackEvent: any;
+
+        constructor() {
+            this.config = {
+                samplingPercentage: 0
+            };
+            this.context = { tags: {} };
+            this.setUseDiskRetryCaching = jest.fn();
+            this.trackEvent = (event: any) => spyTrackEvent(event);
+        }
+    }
+    return { TelemetryClient };
+});
+
+const { ClientFactory } = await import('../../src/base/client/index.js');
+const { TelemetrySettings } = await import('../../src/base/config-state.js');
+const { EventName } = await import('../../src/base/types/event-name.js');
+
+describe('ClientFactory Send Report Default Sample Rate', () => {
+    beforeEach(() => {
+        TelemetrySettings.telemetryEnabled = true;
+    });
+
+    it('Test function getTelemetryClient()', async () => {
+        process.env.SAP_UX_FIORI_TOOLS_DISABLE_TELEMETRY = 'false';
+        const telemetryClient = ClientFactory.getTelemetryClient();
+        await telemetryClient.report(EventName.Test, {}, {}, undefined);
+        expect(spyTrackEvent).toHaveBeenCalledTimes(1);
+        expect(spyTrackEvent).toHaveBeenCalledWith({
+            measurements: {},
+            name: expect.stringContaining(EventName.Test),
+            properties: {
+                appstudio: false,
+                datetime: expect.any(String),
+                internalVsExternal: 'external',
+                v: expect.any(String),
+                'cmn.appstudio': false,
+                'cmn.internalFeatures': 'external',
+                'cmn.devspace': '',
+                'cmn.nodeVersion': expect.any(String),
+                'cmn.ideType': expect.any(String)
+            }
+        });
+        delete process.env.SAP_UX_FIORI_TOOLS_DISABLE_TELEMETRY;
+    });
+
+    it('Test function getTelemetryClient() - disabled', async () => {
+        process.env.SAP_UX_FIORI_TOOLS_DISABLE_TELEMETRY = 'true';
+
+        const telemetryClient = ClientFactory.getTelemetryClient();
+        await telemetryClient.report(EventName.Test, {}, {}, undefined);
+        expect(spyTrackEvent).toHaveBeenCalledTimes(1);
+        expect(spyTrackEvent).toHaveBeenCalledWith({
+            measurements: {},
+            name: expect.stringContaining(EventName.Test),
+            properties: {
+                appstudio: false,
+                datetime: expect.any(String),
+                internalVsExternal: 'external',
+                v: expect.any(String),
+                'cmn.appstudio': false,
+                'cmn.internalFeatures': 'external',
+                'cmn.devspace': '',
+                'cmn.nodeVersion': expect.any(String),
+                'cmn.ideType': expect.any(String)
+            }
+        });
+
+        delete process.env.SAP_UX_FIORI_TOOLS_DISABLE_TELEMETRY;
+    });
+});

@@ -4,7 +4,7 @@ description: Decides whether, where and when to launch a developer community, th
 license: MIT
 metadata:
   author: Samuel Berthe
-  version: "1.0.2"
+  version: "1.0.4"
 ---
 
 # Developer Community Launch
@@ -290,3 +290,5 @@ If your environment has persistent memory, store the verdict, the venue choice w
 
 - samber/developer-relations-skills@devrel-strategy for where community sits among the other DevRel pillars
 - samber/developer-relations-skills@devrel-budget-allocation for the launch's line-item cost against the program budget
+- samber/developer-relations-skills@discord-community-playbook for running the server once Discord is the chosen venue
+- samber/developer-relations-skills@discourse-forums-playbook for running the forum once Discourse is the chosen venue: categories, trust levels, seeding without sock puppets, Solved, forum SEO

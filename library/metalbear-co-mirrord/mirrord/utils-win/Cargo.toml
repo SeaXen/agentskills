@@ -1,0 +1,78 @@
+[package]
+name = "utils-win"
+version = "0.1.0"
+authors.workspace = true
+description.workspace = true
+documentation.workspace = true
+readme.workspace = true
+homepage.workspace = true
+repository.workspace = true
+license.workspace = true
+keywords.workspace = true
+categories.workspace = true
+publish.workspace = true
+edition.workspace = true
+
+[lib]
+doctest = false
+
+[build-dependencies]
+embed-resource = "2"
+
+[target.'cfg(windows)'.dependencies]
+mirrord-config = { path = "../config" }
+str-win = { path = "../str-win" }
+winapi = { workspace = true, features = [
+    "psapi",
+    "winver",
+    "errhandlingapi",
+    "winnt",
+    "minwinbase",
+    "memoryapi",
+    "libloaderapi",
+    "processthreadsapi",
+    "synchapi",
+    "handleapi",
+    "fileapi",
+    "winbase",
+    "minwindef",
+    "processenv",
+    "securitybaseapi",
+    "accctrl",
+    "aclapi",
+    "winerror",
+    "tlhelp32",
+    "wow64apiset",
+    "winuser",
+    "wingdi",
+    "shellapi",
+    "dwmapi",
+    "debugapi",
+    "excpt",
+] }
+zip = { version = "2", default-features = false }
+rustc-demangle = "0.1"
+windows-sys = { version = "0.59", features = [
+    "Wdk_Foundation",
+    "Wdk_Storage_FileSystem",
+    "Wdk_System_Threading",
+    "Win32_Foundation",
+    "Win32_Security",
+    "Win32_Storage_FileSystem",
+    "Win32_System_IO",
+    "Win32_System_Kernel",
+    "Win32_System_Memory",
+    "Win32_System_Diagnostics_Debug",
+    "Win32_System_Threading",
+] }
+bincode.workspace = true
+chrono.workspace = true
+ci_info.workspace = true
+rand.workspace = true
+thiserror.workspace = true
+tracing.workspace = true
+
+[target.'cfg(windows)'.dev-dependencies]
+mirrord-command = { path = "../command" }
+# Oplocks, to hold an open of a file from a test.
+winapi = { workspace = true, features = ["ioapiset", "winioctl"] }

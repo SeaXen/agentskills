@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that no validated framework exists for profile work",
+        "evidence": "'There's no validated, published framework for \"org profile page optimization\" \u2014 on GitHub, Forgejo, or anywhere else.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines to name or repeat the one coined acronym framework in circulation, noting it has no adoption beyond its own post",
+        "evidence": "'One marketing blog post coined an acronym for this a few years back; it has zero citations from other practitioners, no evidence base, and no adoption outside that single post.' \u2014 the acronym itself is never named.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines to invent a replacement framework or acronym for the deck",
+        "evidence": "'give it an honest, plain one \u2014 \"Repo Surface Audit,\" \"Org Page Fix List\"... and say in the same breath that it's your own checklist, not an industry standard.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Offers the audience question plus the scorecard as what does the work a framework would claim to do",
+        "evidence": "The transcript offers the scorecard/checklist but never poses an explicit audience question to the user; audience is only asserted ('your primary audience for this page is other engineers...').",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the bundled audit script calls GitHub's own APIs and has no equivalent for a self-hosted forge",
+        "evidence": "'the script this is normally run through only talks to GitHub's API'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Directs applying the same checklist by hand from the profile page itself",
+        "evidence": "'Here's the manual version of the audit... ## Run this yourself (15 minutes)'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States plainly which facts could not be verified rather than assuming them",
+        "evidence": "'I don't have your instance URL or org name, so I haven't audited the actual page \u2014 everything above is the mechanism, not a finding about your content.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that other forges expose different profile surfaces, so pin counts and contribution-graph mechanics do not transfer unchanged",
+        "evidence": "'6 pinned repos... **No equivalent.** Forgejo's org page lists repos... there's no manual curation widget' and 'Contribution graph, achievements... nothing equivalent at the org level'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks whether this is the organization page or a personal profile, and what one outcome the page should produce, before proposing content",
+        "evidence": "The transcript assumes an org page context (Kestrel Freight Systems org, Forgejo org) throughout and never asks whether it's a personal profile or what outcome it should produce.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the open-source stance to state which two crates are open and that the rest is internal",
+        "evidence": "'Since you open-source two Rust crates and keep everything else internal, the highest-value single sentence on that page is a plain statement of that split'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the scorecard thresholds are self-set defaults the owner can move with a reason",
+        "evidence": "Not stated anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that no validated framework exists for profile work",
+        "evidence": "The transcript does the opposite, presenting OSPO and InnerSource Commons as established, named frameworks with real backers (Linux Foundation, TODO Group).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines to name or repeat the one coined acronym framework in circulation, noting it has no adoption beyond its own post",
+        "evidence": "The transcript actively names and recommends OSPO and InnerSource Commons rather than declining to name any framework.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines to invent a replacement framework or acronym for the deck",
+        "evidence": "The recommendation relies entirely on citing existing named frameworks (OSPO, InnerSource Commons, CHAOSS) rather than inventing a new acronym.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Offers the audience question plus the scorecard as what does the work a framework would claim to do",
+        "evidence": "No 'audience question plus scorecard' concept appears; the whole answer is framework-centric (OSPO/InnerSource).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the bundled audit script calls GitHub's own APIs and has no equivalent for a self-hosted forge",
+        "evidence": "No audit script is mentioned in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Directs applying the same checklist by hand from the profile page itself",
+        "evidence": "The checklist given (README template, pinned repos, accountable owner) is not framed as a manual workaround for missing tooling.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States plainly which facts could not be verified rather than assuming them",
+        "evidence": "The closest statement, 'I didn't look at anything under skill-wip/... per your instruction,' addresses scope, not verification of specific facts.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that other forges expose different profile surfaces, so pin counts and contribution-graph mechanics do not transfer unchanged",
+        "evidence": "No discussion of pin counts or contribution-graph mechanics differing across forges.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks whether this is the organization page or a personal profile, and what one outcome the page should produce, before proposing content",
+        "evidence": "The response immediately proposes the OSPO/InnerSource framework without first asking clarifying questions.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the open-source stance to state which two crates are open and that the rest is internal",
+        "evidence": "The transcript acknowledges two public crates exist but does not prescribe a required open-source stance statement naming them explicitly.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the scorecard thresholds are self-set defaults the owner can move with a reason",
+        "evidence": "No scorecard or threshold system is mentioned in this transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

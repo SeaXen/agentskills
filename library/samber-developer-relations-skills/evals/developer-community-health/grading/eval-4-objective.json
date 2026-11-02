@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that the record activity numbers do not contradict the burnout signal, and that burnout is the finding activity metrics hide best",
+        "evidence": "\"The community's growth metrics cannot see the risk that actually threatens the project... a community can post record numbers the same quarter its maintainers decide to quit.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Promotes the sentiment pillar ahead of the volume metrics for this report because the worry behind the request is about people rather than volume",
+        "evidence": "\"this skill's own rule (SKILL.md, 'Efficiency starves sentiment') says exactly this case \u2014 a maintainer showing burnout signals \u2014 is when you promote sentiment to the top of the sheet even though it's normally last.\" (Maintainer sustainability signal is the first row in the sheet)",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a maintainer burnout check asked of the small group carrying the load, separately and privately from any general community survey",
+        "evidence": "\"Private, direct check-in with both maintainers on workload vs. capacity, energy, and any intent to step back... Not a survey \u2014 the maintainer group is two people, too small for Likert scoring.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists burnout survey items covering energy or exhaustion, workload versus capacity, thoughts of stepping back, whether the contribution feels valued, and whether a concern can be raised safely",
+        "evidence": "Only three dimensions are listed: \"workload vs. capacity, energy, and any intent to step back\" \u2014 no mention of whether contribution feels valued or whether a concern can be raised safely",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names behavioural trace signals to read beside the survey: sustained high contribution ending abruptly, and contribution concentrated in very few people",
+        "evidence": "The transcript includes concentration via the contributor absence factor row but never mentions 'sustained high contribution ending abruptly' as a trace signal",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not propose inferring burnout by running a sentiment classifier over Ines's public messages",
+        "evidence": "No classifier of Ines's messages is proposed anywhere; the burnout signal comes only from the private conversation",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes the contributor absence factor or an equivalent concentration measure, given that two maintainers carry the project",
+        "evidence": "\"Contributor absence factor | Contributor funnel | Smallest number of people producing 50% of commits...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps burnout responses separable from identity and does not attribute any individual answer to Ines in the board report",
+        "evidence": "The 'This period's reading' table states \"1 maintainer (Ines) reporting dread / considering stepping back\" \u2014 directly naming her in the report, despite the watch list later saying not to attribute the finding to her by name",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Attaches a named owner and a concrete action to the concentration or burnout finding, such as delegating review or recruiting reviewers",
+        "evidence": "\"Private conversation with Ines about workload... | Sam | Before Friday\" and absence factor action \"If 1\u20132: open the review/merge rung to the next most active contributors; start a co-maintainer search\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the 40% message increase as a number needing a burst-versus-trend check rather than as evidence of health",
+        "evidence": "\"Confirm the +40% isn't a single-event burst before calling it a trend\" and watch list \"check for a release/launch/HN mention that quarter before presenting growth as trend\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not present total message volume as the headline of the board report",
+        "evidence": "\"don't lead the board with the growth numbers and bury the risk \u2014 lead with the honest version: numbers are genuinely good this quarter, one structural risk... needs board attention now\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that the record activity numbers do not contradict the burnout signal, and that burnout is the finding activity metrics hide best",
+        "evidence": "\"That is the headline finding of this report, not a footnote to it. A community health report that leads with engagement numbers and buries maintainer sustainability at the bottom would be misleading the board about what 'healthy' means for a two-person project.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Promotes the sentiment pillar ahead of the volume metrics for this report because the worry behind the request is about people rather than volume",
+        "evidence": "The Summary opens with \"one of two maintainers is signaling burnout. That is the headline finding of this report\" before the numbers table, and \"It's also the quarter in which the project's actual constraint \u2014 two maintainers, no depth behind them \u2014 became visible. The right response isn't to celebrate the numbers and move on.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a maintainer burnout check asked of the small group carrying the load, separately and privately from any general community survey",
+        "evidence": "Only vague mention: \"A direct, non-metric check-in: are the two of us finding this sustainable, asked explicitly each quarter, not inferred from silence\" \u2014 no distinct mechanism separated from any general community survey is described.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Lists burnout survey items covering energy or exhaustion, workload versus capacity, thoughts of stepping back, whether the contribution feels valued, and whether a concern can be raised safely",
+        "evidence": "No itemized survey exists; the only related line is the single generic question \"are the two of us finding this sustainable,\" with no coverage of exhaustion, valuation, or psychological safety.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names behavioural trace signals to read beside the survey: sustained high contribution ending abruptly, and contribution concentrated in very few people",
+        "evidence": "Only concentration is touched on (\"reviewer concentration (how much of the 23 fell to each of us)\"); there is no mention of sustained high contribution ending abruptly.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not propose inferring burnout by running a sentiment classifier over Ines's public messages",
+        "evidence": "The burnout finding is sourced directly from a personal disclosure \u2014 \"Ines told me last week she's dreading opening the repo and is considering stepping back\" \u2014 with no mention of any classifier or automated sentiment analysis of her messages.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes the contributor absence factor or an equivalent concentration measure, given that two maintainers carry the project",
+        "evidence": "\"Brambleweave has a bus factor of two. If it drops to one, the project doesn't have a health problem, it has a survival problem\" and \"PR review turnaround time, and reviewer concentration (how much of the 23 fell to each of us)\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps burnout responses separable from identity and does not attribute any individual answer to Ines in the board report",
+        "evidence": "The asks (\"Budget or approval to build a triage/helper tier,\" \"Formally recognizing and delegating to 3-5 of them\") are directed at the board generally with no named individual owner assigned to execute them.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Attaches a named owner and a concrete action to the concentration or burnout finding, such as delegating review or recruiting reviewers",
+        "evidence": "The report explicitly names and attributes a personal statement to her: \"Ines told me last week she's dreading opening the repo and is considering stepping back. I'm flagging this to the board directly rather than softening it.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats the 40% message increase as a number needing a burst-versus-trend check rather than as evidence of health",
+        "evidence": "The +40% figure is reframed as load (\"it's +40% more load on two people, not evidence of a self-sustaining community\") but no check for whether the increase is a temporary burst versus a sustained trend is proposed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not present total message volume as the headline of the board report",
+        "evidence": "The Summary explicitly assigns headline status to burnout, not volume: \"Growth in community volume has not been matched by growth in maintainer capacity... That is the headline finding of this report, not a footnote to it.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

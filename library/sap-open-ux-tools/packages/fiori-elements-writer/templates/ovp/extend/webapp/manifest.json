@@ -1,0 +1,18 @@
+{
+    "sap.ovp": {
+        "globalFilterModel": "<%- defaultModel %>",
+        <% if (locals.filterEntityType) { %>
+        "globalFilterEntityType": "<%- filterEntityType %>",
+        <% } else if (locals.filterEntitySet) { %>
+        "globalFilterEntitySet": "<%- filterEntitySet %>",
+        <% } %>
+        "containerLayout": "resizable",
+        "enableLiveFilter": true,
+        "considerAnalyticalParameters": false,
+        "cards": {}
+    },
+    "sap.fiori": {
+        "registrationIds": [],
+        "archeType": "analytical"
+    }
+}

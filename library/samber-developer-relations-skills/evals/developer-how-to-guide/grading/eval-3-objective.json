@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Writes the goal sentence for the page before assigning any shape.",
+        "evidence": "The 'Goal sentence (internal, not on the page)' section comes before the page set and variant handling.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Puts Kubernetes and single-VM on separate pages sharing a title stem (such as \"Deploy a worker on Kubernetes\" and \"Deploy a worker on a VM\") because their prerequisites and verification differ.",
+        "evidence": "'Deploy a worker on Kubernetes' and 'Deploy a worker on a VM'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that forcing prerequisite- or verification-changing variants into tabs ships one page that is wrong for every tab but one.",
+        "evidence": "'Forcing them into tabs would make the page wrong for whichever tab a reader isn't on.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Puts the SDK language (Python, Node, Go) in tabs with a persistent, site-wide selection, because only syntax differs and the steps map one to one.",
+        "evidence": "'Python / Node / Go | Tabs, using your synced switcher, on every step where syntax differs'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the dashboard as the recommended interface on the page and gives Terraform its own linked page, because the steps do not map one to one.",
+        "evidence": "'Dashboard on pages 1 and 2; Terraform is its own page'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes the EU/US difference as an inline conditional imperative (\"If your project is in the EU region, add `--region eu`\"), not a tab.",
+        "evidence": "'If your account is in the EU region, add `--region eu`.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Covers Windows with one \"To do this on Windows, see...\" link, or one line stating the page does not cover it when no page exists; not a tab.",
+        "evidence": "'One out-of-scope line, or a link if a Windows page exists'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes the bare-metal steps, keeps only a one-line out-of-scope note, and refuses the \"Advanced\" section, stating that a parked branch silently becomes scope.",
+        "evidence": "'Bare metal does not go under \"Advanced\". The skill says a parked branch silently becomes scope'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the efficiency ranking out loud: inline conditional > tabs > link out > sibling headings > separate pages.",
+        "evidence": "The efficiency ranking (inline conditional > tabs > link out > sibling headings > separate pages) is never stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the value ranking out loud: separate pages > sibling headings > tabs > inline conditional > link out.",
+        "evidence": "The value ranking is never stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the default (one recommended path plus inline conditionals) and says the split tests override it for the Kubernetes/VM axis.",
+        "evidence": "Only 'The skill's split test says to separate pages'. The default is never named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Re-ranks against the synced tab switcher (tabs near-free) instead of presenting the default ranking as fixed, and still notes each tab costs one run per release.",
+        "evidence": "'Tabs are not free. Two hosting pages times three languages is six runs per release. The synced switcher makes authoring cheap but not testing.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that no step every reader needs may live inside a single tab, because tabs drop out of print and are skimmed past.",
+        "evidence": "This is never stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Lists every page not written in full in the hand-over, each with its goal sentence and variant row.",
+        "evidence": "Pages 3 and 4 are described in the table and outline. The hand-over gives no goal sentence or variant row for them.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Writes the goal sentence for the page before assigning any shape.",
+        "evidence": "The outline's Intro describes the end state loosely. No goal sentence is written before shapes are assigned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Puts Kubernetes and single-VM on separate pages sharing a title stem (such as \"Deploy a worker on Kubernetes\" and \"Deploy a worker on a VM\") because their prerequisites and verification differ.",
+        "evidence": "Step 3 uses tabs '**Kubernetes** | **Single VM**'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that forcing prerequisite- or verification-changing variants into tabs ships one page that is wrong for every tab but one.",
+        "evidence": "This is not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Puts the SDK language (Python, Node, Go) in tabs with a persistent, site-wide selection, because only syntax differs and the steps map one to one.",
+        "evidence": "Step 2 uses Python/Node/Go tabs, and 'Synced groups: use one key per dimension (`language`...)'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the dashboard as the recommended interface on the page and gives Terraform its own linked page, because the steps do not map one to one.",
+        "evidence": "Step 1 uses tabs '**Dashboard** | **Terraform**'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes the EU/US difference as an inline conditional imperative (\"If your project is in the EU region, add `--region eu`\"), not a tab.",
+        "evidence": "It is a callout: 'Region (a callout, not a tab group)'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Covers Windows with one \"To do this on Windows, see...\" link, or one line stating the page does not cover it when no page exists; not a tab.",
+        "evidence": "'one or two lines on what's supported... linking to a separate page if that page exists'; it is not a tab.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes the bare-metal steps, keeps only a one-line out-of-scope note, and refuses the \"Advanced\" section, stating that a parked branch silently becomes scope.",
+        "evidence": "'Skip the tutorial. A step-by-step \"Advanced\" section tells readers it's a supported path'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the efficiency ranking out loud: inline conditional > tabs > link out > sibling headings > separate pages.",
+        "evidence": "It is not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the value ranking out loud: separate pages > sibling headings > tabs > inline conditional > link out.",
+        "evidence": "It is not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the default (one recommended path plus inline conditionals) and says the split tests override it for the Kubernetes/VM axis.",
+        "evidence": "It is not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Re-ranks against the synced tab switcher (tabs near-free) instead of presenting the default ranking as fixed, and still notes each tab costs one run per release.",
+        "evidence": "It is not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that no step every reader needs may live inside a single tab, because tabs drop out of print and are skimmed past.",
+        "evidence": "It is not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Lists every page not written in full in the hand-over, each with its goal sentence and variant row.",
+        "evidence": "There is no hand-over.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

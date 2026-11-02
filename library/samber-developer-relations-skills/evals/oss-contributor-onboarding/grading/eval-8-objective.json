@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Marks the setup blocking check as failed because the cold run required an undocumented step - exactly JDK 21 against a documented 17+",
+        "evidence": "\"B2 Setup runs cold FAIL Cold run reached passing tests in 22 min, but only because the runner happened to have JDK 21. Docs say \\\"17+.\\\"\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Marks the work-available blocking check as failed because fewer than three unclaimed valid beginner issues exist",
+        "evidence": "\"B3 There is work available FAIL 2 unclaimed beginner issues. Skill's self-set floor is 3\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Marks the submissions-answered blocking check as failed because the 9-day median sits outside the published 48-hour target",
+        "evidence": "\"B4 Submissions get answered FAIL Published target: 48 hours (README). Actual median over 90 days: 9 days \u2014 4.5x the promise.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that this check cannot be fixed by publishing a slower target and then meeting it, and records the honest target as a finding rather than a pass in disguise",
+        "evidence": "\"A broken published promise is a finding, not a near-pass.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Scores the out-of-scope-stated check at 0",
+        "evidence": "\"S1 Out-of-scope stated 0/2 No scope section anywhere.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Scores the legal-gate check below 2 because the CLA appears only in the pull request template rather than in the CONTRIBUTING file before the reader writes code",
+        "evidence": "\"S7 Legal gate pre-announced 0/2 CLA appears only in the PR template \u2014 discovered after the code is already written\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Scores the credit-and-next-step check below 2 because merged contributors are credited but never pointed at a concrete next issue",
+        "evidence": "\"S8 Credit and next step 1/2 Credited in release notes. No pointer to a next issue.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Returns a verdict line carrying blocking n/4 and scored n/16",
+        "evidence": "\"FAIL \u2014 blocking: 1/4 passed, scored: 6/16 (threshold is 4/4 blocking + \u226512/16)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to ship the new guide while blocking checks fail, and iterates rather than shipping with a caveat",
+        "evidence": "\"Not as a finished, passing guide \u2014 but yes, conditionally, if you close items 1-6 first.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a failed blocking check outranks every scored check",
+        "evidence": "\"Total: 6/16, and irrelevant on its own \u2014 the blocking gate fails first.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Produces the report in the prescribed shape: verdict, blocking checks table, scored checks table, funnel baseline, fix order, confounders",
+        "evidence": "No funnel baseline table (new contributors/quarter, second-contribution rate, etc.) or formally labeled confounders section appears; only verdict, blocking table, scored table, findings-by-category, fix order, and a shipping discussion.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ranks the fix order by damage removed per hour spent, letting effort break ties only among fixes of similar damage",
+        "evidence": "\"## Fix order (damage removed per hour)\" with item 1 justified as \"Minutes. Unblocks B2 outright \u2014 the highest-damage, lowest-effort item on this list.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps this first score so the delta after the fixes is measurable",
+        "evidence": "No statement about retaining this score as a baseline for measuring future delta.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Marks the setup blocking check as failed because the cold run required an undocumented step - exactly JDK 21 against a documented 17+",
+        "evidence": "\"Setup accuracy | 2/5 | \u274c Docs say JDK 17+, repo needs 21 exactly \u2014 wrong requirement, not a missing one\" listed among the trust-breaking items that must be fixed before shipping.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Marks the work-available blocking check as failed because fewer than three unclaimed valid beginner issues exist",
+        "evidence": "No count of unclaimed beginner issues is given; 'Beginner-issue quality' is scored 3/5 on a different basis (missing mentor names), not on an unclaimed-issue count.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Marks the submissions-answered blocking check as failed because the 9-day median sits outside the published 48-hour target",
+        "evidence": "\"Response-time honesty | 1/5 | \u274c README claims 48h, real 90-day median is 9 days \u2014 4.5x gap\", listed as a trust-breaking hold-shipping item.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that this check cannot be fixed by publishing a slower target and then meeting it, and records the honest target as a finding rather than a pass in disguise",
+        "evidence": "The transcript offers publishing the real number as an acceptable fix: \"Fix: publish the real median, or commit to a process change that closes the gap before republishing the number.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Scores the out-of-scope-stated check at 0",
+        "evidence": "No separate 'out-of-scope-stated' check exists in the table; scope is only mentioned inside 'Structure & discoverability' (2/5).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Scores the legal-gate check below 2 because the CLA appears only in the pull request template rather than in the CONTRIBUTING file before the reader writes code",
+        "evidence": "CLA is folded into 'Structure & discoverability' (2/5) rather than scored as a distinct legal-gate check on a 0-2 scale.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Scores the credit-and-next-step check below 2 because merged contributors are credited but never pointed at a concrete next issue",
+        "evidence": "'Retention loop | 2/5 | Contributors credited in release notes, never pointed to a next issue' \u2014 matches the finding but the transcript's own scale (0-5) never states a 'below 2' figure.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Returns a verdict line carrying blocking n/4 and scored n/16",
+        "evidence": "The verdict line reads \"score: 15/30 (50%, D+)\", not blocking n/4 plus scored n/16.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to ship the new guide while blocking checks fail, and iterates rather than shipping with a caveat",
+        "evidence": "\"Ship this week: yes, but not as-is... hold the guide until they land\" for the three trust-breaking items, i.e. fix first, then ship.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a failed blocking check outranks every scored check",
+        "evidence": "No such priority statement is made.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces the report in the prescribed shape: verdict, blocking checks table, scored checks table, funnel baseline, fix order, confounders",
+        "evidence": "The report is shaped as verdict + single dimension table + ship-this-week list + non-blocking list + bottom line; no funnel baseline or confounders section appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ranks the fix order by damage removed per hour spent, letting effort break ties only among fixes of similar damage",
+        "evidence": "No explicit damage-per-hour ranking rationale is stated for the fix order.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps this first score so the delta after the fixes is measurable",
+        "evidence": "No statement about preserving this score as a baseline for future comparison.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

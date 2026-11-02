@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that the projected surplus does not answer the question - a budget can be profitable and still fail on cash",
+        "evidence": "\"The P&L is positive... but that is the wrong test.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Builds a dated schedule with each outflow on the date it leaves and each inflow on the date it lands",
+        "evidence": "Cash timeline table with Mar 15, Mar 20, Apr 1, and the sponsor and ticket inflow dates.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the lowest cash point and places it in the window before sponsor money arrives mid-May",
+        "evidence": "\"It falls around Apr 1\u2013May.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the gap explicitly: deposits leave in March and April before any sponsor payment lands",
+        "evidence": "\"Every deposit leaves before the first sponsor euro is due.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ticket revenue is flagged as the latest-arriving line and the one that can miss",
+        "evidence": "\"Ticket money is the latest-arriving line and the one that can miss.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The sponsor net-60 terms are treated as setting the inflow date the whole model rests on",
+        "evidence": "\"Net-60 from a February signing falls due around April, so mid-May assumes slippage.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The vendor's pay-now offer is declined: with no early-payment discount on the other side, paying early spends recoverability and buys nothing",
+        "evidence": "\"Decline.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Paying early is not framed as prudent or as getting ahead",
+        "evidence": "\"Paying early is a pure loss.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends the latest-safe-date posture: identify, per commitment, the last date it can be made without losing the thing, and hold until then",
+        "evidence": "\"Apply the latest-safe-date rule to every outflow\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Raises fund-access timing: how long money takes to become spendable once it lands in the account",
+        "evidence": "\"ask how fast the entity can spend money once it arrives in the account\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Checkpoint dates for tracking revenue against the plan are produced",
+        "evidence": "Example checkpoint: \"if sponsor cash received by Apr 15 is below X, drop to Good.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends re-reading the lowest cash point whenever a payment term changes, not only when a price changes",
+        "evidence": "No statement about re-reading the lowest cash point when terms change.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The cost of the early payment is expressed as reversibility given up, not as a money amount",
+        "evidence": "\"Money paid before the due date can't be recovered if the event shrinks, the vendor fails, or you downgrade.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that the projected surplus does not answer the question - a budget can be profitable and still fail on cash",
+        "evidence": "'The event is profitable on paper, but the cash timing is a problem.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Builds a dated schedule with each outflow on the date it leaves and each inflow on the date it lands",
+        "evidence": "It lists dates without amounts and says 'Build a week-by-week cash table'. It does not build one.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the lowest cash point and places it in the window before sponsor money arrives mid-May",
+        "evidence": "It describes 'about 8 weeks with money going out' but defers the lowest cash point to a later stress case.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the gap explicitly: deposits leave in March and April before any sponsor payment lands",
+        "evidence": "'You pay three deposits before any money comes in.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ticket revenue is flagged as the latest-arriving line and the one that can miss",
+        "evidence": "Tickets are 'nothing before May 1', and sponsors are called later ('mid-May at the earliest'). Tickets are not flagged as the latest line.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The sponsor net-60 terms are treated as setting the inflow date the whole model rests on",
+        "evidence": "'Net-60 from a February invoice... Plan for that case'; 'all three deposits still land before the earliest payment.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The vendor's pay-now offer is declined: with no early-payment discount on the other side, paying early spends recoverability and buys nothing",
+        "evidence": "'Decline it as stated... Paying early with no discount... buys you nothing.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Paying early is not framed as prudent or as getting ahead",
+        "evidence": "The offer is described as benefiting 'their cash flow, not yours'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends the latest-safe-date posture: identify, per commitment, the last date it can be made without losing the thing, and hold until then",
+        "evidence": "It suggests moving deposit dates and a go/no-go gate. It does not identify the last safe date per commitment.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Raises fund-access timing: how long money takes to become spendable once it lands in the account",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Checkpoint dates for tracking revenue against the plan are produced",
+        "evidence": "None produced.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends re-reading the lowest cash point whenever a payment term changes, not only when a price changes",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The cost of the early payment is expressed as reversibility given up, not as a money amount",
+        "evidence": "'It removes your leverage... you become an unsecured creditor for the full amount.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

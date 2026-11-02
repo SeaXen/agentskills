@@ -1,0 +1,208 @@
+//! Definitions of environment variables used to configure the mirrord-agent.
+//!
+//! If you want to add some more, please do it here.
+
+use std::net::{IpAddr, SocketAddr};
+
+use crate::{checked_env::CheckedEnv, steal_tls::StealPortTlsConfig};
+
+/// Used to pass operator's x509 certificate to the agent.
+///
+/// This way the agent can be sure that it only accepts TLS connections coming from the exact
+/// operator that spawned it.
+pub const OPERATOR_CERT: CheckedEnv<String> = CheckedEnv::new("AGENT_OPERATOR_CERT_ENV");
+
+/// Enables Prometheus metrics export point and sets its address.
+pub const METRICS: CheckedEnv<SocketAddr> = CheckedEnv::new("MIRRORD_AGENT_METRICS");
+
+/// Used to inform the agent that the target pod is in a mesh.
+pub const IN_SERVICE_MESH: CheckedEnv<bool> = CheckedEnv::new("MIRRORD_AGENT_IN_SERVICE_MESH");
+
+/// Used to inform the agent that the target pod is in an Istio CNI mesh.
+pub const ISTIO_CNI: CheckedEnv<bool> = CheckedEnv::new("MIRRORD_AGENT_ISTIO_CNI");
+
+/// Instructs the agent to flush connections when adding new iptables rules.
+pub const STEALER_FLUSH_CONNECTIONS: CheckedEnv<bool> =
+    CheckedEnv::new("MIRRORD_AGENT_STEALER_FLUSH_CONNECTIONS");
+
+/// Controls whether the connection flush (see [`STEALER_FLUSH_CONNECTIONS`]) uses a `conntrack -D`
+/// command in addition to `ss -K`.
+///
+/// The `conntrack -D` call is scoped with `--reply-port-src` so that it only deletes entries of
+/// connections that were not redirected to the agent. Without that filter it also deleted the
+/// entries of connections that had just been redirected but not yet accepted, leaving the agent
+/// unable to resolve their original destination via `SO_ORIGINAL_DST` (the lookup fails with
+/// `ENOENT`).
+///
+/// Defaults to `true` (i.e. `conntrack -D` is used). Set to `false` to flush using only `ss -K`.
+pub const STEALER_FLUSH_CONNECTIONS_CONNTRACK: CheckedEnv<bool> =
+    CheckedEnv::new("MIRRORD_AGENT_STEALER_FLUSH_CONNECTIONS_CONNTRACK");
+
+/// Instructs the agent to use `iptables-nft` instead of `iptables-legacy` for manipulating
+/// iptables.
+pub const NFTABLES: CheckedEnv<bool> = CheckedEnv::new("MIRRORD_AGENT_NFTABLES");
+
+/// Instructs the agent to produce logs in JSON format.
+pub const JSON_LOG: CheckedEnv<bool> = CheckedEnv::new("MIRRORD_AGENT_JSON_LOG");
+
+/// Sets a hard timeout on DNS queries.
+pub const DNS_TIMEOUT: CheckedEnv<u32> = CheckedEnv::new("MIRRORD_AGENT_DNS_TIMEOUT");
+
+/// Sets a hard limit on DNS query attempts.
+pub const DNS_ATTEMPTS: CheckedEnv<u32> = CheckedEnv::new("MIRRORD_AGENT_DNS_ATTEMPTS");
+
+/// Used in incoming traffic redirection to produce correct iptables rules.
+pub const POD_IPS: CheckedEnv<Vec<IpAddr>> = CheckedEnv::new("MIRRORD_AGENT_POD_IPS");
+
+/// Sets agent log level.
+///
+/// Should follow `tracing` format, e.g `mirrord=trace`.
+pub const LOG_LEVEL: CheckedEnv<String> = CheckedEnv::new("RUST_LOG");
+
+/// Identifies the serverless service represented by a workload-companion agent.
+pub const REMOTE_SERVICE: CheckedEnv<String> = CheckedEnv::new("MIRRORD_REMOTE_SERVICE");
+
+/// Identifies the workload replica (e.g. one ECS task) this workload-companion agent runs beside.
+///
+/// Stable across agent restarts on the replica, so it must be unique among concurrently running
+/// replicas of the service; nothing verifies this. When unset, the agent uses the replica id
+/// reported by the hosting platform's metadata (e.g. the task ARN on ECS), and `HOSTNAME` when
+/// the platform is not recognized.
+///
+/// It is one half of the agent's sessions-manager identity (see `AgentIdentity`); the other half
+/// is a UUID generated at every agent start.
+pub const REMOTE_SERVICE_REPLICA: CheckedEnv<String> =
+    CheckedEnv::new("MIRRORD_REMOTE_SERVICE_REPLICA");
+
+/// Identifies the sessions-manager environment where this workload companion registers.
+///
+/// This is distinct from `MIRRORD_TARGET_NAMESPACE`, which configures a local mirrord process.
+pub const REMOTE_ENVIRONMENT: CheckedEnv<String> = CheckedEnv::new("MIRRORD_REMOTE_ENVIRONMENT");
+
+/// Base URL of the standalone sessions-manager the workload companion registers with, including
+/// any path prefix it is served under, e.g. `https://example.com/sm`.
+///
+/// When neither this nor [`OPERATOR_API_URL`] is set, the companion registers with the MetalBear
+/// Cloud sessions-manager. Setting both is an error.
+pub const SESSIONS_MANAGER_URL: CheckedEnv<String> =
+    CheckedEnv::new("MIRRORD_SESSIONS_MANAGER_URL");
+
+/// Makes the workload companion register with the sessions-manager hosted by the mirrord
+/// operator, through this Kubernetes API server, instead of a standalone sessions-manager at
+/// [`SESSIONS_MANAGER_URL`]. Setting both is an error.
+///
+/// The value is the EKS cluster's API server endpoint, e.g.
+/// `https://ABC123.gr7.us-east-1.eks.amazonaws.com`. The companion authenticates as its AWS
+/// identity (the task role, on ECS), which the cluster must map to a Kubernetes identity with an
+/// access entry, and RBAC must grant that identity `proxy` on `serverlessagentassignments` and
+/// `get` on `serverlessdataplanes` in `operator.metalbear.co`.
+///
+/// Tokens are signed for the cluster's region, read from this endpoint's hostname. When it isn't
+/// an EKS endpoint hostname (e.g. a proxy in front of the API server), `AWS_REGION` or
+/// `AWS_DEFAULT_REGION` must name the cluster's region.
+///
+/// Requires [`OPERATOR_EKS_CLUSTER_NAME`] and [`OPERATOR_API_CA_DATA`].
+/// The operator deployment must support these routes and enable `operator.sessionsManager`.
+pub const OPERATOR_API_URL: CheckedEnv<String> = CheckedEnv::new("MIRRORD_OPERATOR_API_URL");
+
+/// Name of the EKS cluster at [`OPERATOR_API_URL`]. It's signed into the bearer token, and EKS
+/// rejects tokens signed for another cluster.
+pub const OPERATOR_EKS_CLUSTER_NAME: CheckedEnv<String> =
+    CheckedEnv::new("MIRRORD_OPERATOR_EKS_CLUSTER_NAME");
+
+/// Certificate authority of the API server at [`OPERATOR_API_URL`], as base64-encoded PEM (the
+/// `certificateAuthority.data` of `aws eks describe-cluster`).
+pub const OPERATOR_API_CA_DATA: CheckedEnv<String> =
+    CheckedEnv::new("MIRRORD_OPERATOR_API_CA_DATA");
+
+/// Provides the agent with a steal TLS configuration.
+pub const STEAL_TLS_CONFIG: CheckedEnv<Vec<StealPortTlsConfig>> =
+    CheckedEnv::new("MIRRORD_AGENT_STEAL_TLS_CONFIG");
+
+/// Container id of the target we're attaching to, e.g. `mirrord exec -t
+/// pod/glorious-cat/container/[cat-container]`, this is the id of `cat-container` that you
+/// can retrieve with `kubectl describe glorious-cat`.
+///
+/// For `Mode::Ephemeral`, this is used to get the target's `pid`.
+/// When this is not present, we default it to `1`, meaning file operations are done in `/proc/1`.
+/// Look at `find_pid_for_ephemeral` docs for more info.
+///
+/// **Attention**: this is **not** the ephemeral container id, it's the target's!
+pub const EPHEMERAL_TARGET_CONTAINER_ID: CheckedEnv<String> =
+    CheckedEnv::new("MIRRORD_AGENT_EPHEMERAL_TARGET_CONTAINER_ID");
+
+/// Exclude agent's port from service mesh sidecar proxy.
+pub const EXCLUDE_FROM_MESH: CheckedEnv<bool> = CheckedEnv::new("MIRRORD_AGENT_EXCLUDE_FROM_MESH");
+
+/// TODO remove
+///
+/// Deprecated, used to control mirroring mode.
+/// Should always be set to `true` for compatibility with older agents.
+pub const PASSTHROUGH_MIRRORING: CheckedEnv<bool> =
+    CheckedEnv::new("MIRRORD_AGENT_PASSTHROUGH_MIRRORING");
+
+/// Controls how long the agent should keep running after all client connections have been closed.
+///
+/// Specified in seconds.
+pub const IDDLE_TTL: CheckedEnv<u64> = CheckedEnv::new("MIRRORD_AGENT_IDLE_TTL");
+
+/// Sets whether `Mirrord-Agent` headers are injected into HTTP
+/// responses that went through the agent.
+pub const INJECT_HEADERS: CheckedEnv<bool> = CheckedEnv::new("MIRRORD_AGENT_INJECT_HEADERS");
+
+/// Sets whether the `Cache-Control` header in HTTP responses that went through the agent is
+/// replaced with a value that disables caching.
+///
+/// Defaults to `true` when unset.
+pub const OVERRIDE_CACHE_CONTROL: CheckedEnv<bool> =
+    CheckedEnv::new("MIRRORD_AGENT_OVERRIDE_CACHE_CONTROL");
+
+/// Sets how long (in seconds) to wait for data on a redirected connection during HTTP protocol
+/// detection before treating it as raw TCP.
+pub const HTTP_DETECTION_TIMEOUT: CheckedEnv<u64> =
+    CheckedEnv::new("MIRRORD_AGENT_HTTP_DETECTION_TIMEOUT");
+
+/// Sets the max size (in bytes) of the HTTP/2 header list accepted by the agent.
+pub const HTTP2_MAX_HEADER_LIST_SIZE: CheckedEnv<u32> =
+    CheckedEnv::new("MIRRORD_AGENT_HTTP2_MAX_HEADER_LIST_SIZE");
+
+/// Sets how long (in seconds) to keep an unused incoming port redirection before removing it.
+pub const UNUSED_PORT_LINGER: CheckedEnv<u64> =
+    CheckedEnv::new("MIRRORD_AGENT_UNUSED_PORT_LINGER_SECS");
+
+/// Sets the max size (in bytes) for bodies buffered for body filters.
+pub const MAX_BODY_BUFFER_SIZE: CheckedEnv<u32> = CheckedEnv::new("MIRRORD_MAX_BODY_BUFFER_SIZE");
+
+/// Sets how long to wait (in milliseconds) to receive the entire body for body filters.
+pub const MAX_BODY_BUFFER_TIMEOUT: CheckedEnv<u32> =
+    CheckedEnv::new("MIRRORD_MAX_BODY_BUFFER_TIMEOUT");
+
+/// When set, the agent will clean any existing iptables rules.
+pub const CLEAN_IPTABLES_ON_START: CheckedEnv<bool> =
+    CheckedEnv::new("MIRRORD_AGENT_CLEAN_IPTABLES_ON_START");
+
+/// Jaq process time limit (ms)
+pub const JAQ_TIME_LIMIT: CheckedEnv<u64> = CheckedEnv::new("MIRRORD_JAQ_TIME_LIMIT");
+
+/// Enables the fix for applications that listen on the pod's external IP instead of loopback.
+///
+/// In some cluster setups the target application resolves its own pod name and binds to the pod IP
+/// rather than `127.0.0.1`. When that happens, passing redirected connections through to loopback
+/// fails, because nothing is listening there.
+///
+/// When this is set, the agent instead passes such connections through to their original
+/// destination IP (the pod IP). To avoid an iptables redirection loop, those connections are marked
+/// with [`PASSTHROUGH_FWMARK`], and a matching `RETURN` rule is installed so the redirect chain
+/// skips them. Requires `SO_MARK` support (i.e. `CAP_NET_ADMIN`).
+pub const EXTERNAL_IP_FIX: CheckedEnv<bool> = CheckedEnv::new("MIRRORD_AGENT_EXTERNAL_IP_FIX");
+
+/// `fwmark` set (via `SO_MARK`) on passthrough connections made to the original destination when
+/// [`EXTERNAL_IP_FIX`] is enabled.
+///
+/// The agent installs an iptables `RETURN` rule matching this mark (and the agent's own gid) ahead
+/// of the redirect rules, so these connections are not redirected back into the agent.
+///
+/// A single dedicated bit (`0x2000`) is used and matched with a mask, deliberately kept out of the
+/// ranges used by common components (kube-proxy `0x4000`/`0x8000`, Cilium `0x0F00`, Istio `0x1337`)
+/// so it cannot collide with or disturb their mark-based decisions.
+pub const PASSTHROUGH_FWMARK: u32 = 0x2000;

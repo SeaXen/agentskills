@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Includes Windlass's own column in the scorecard rather than skipping it.",
+        "evidence": "\"**Windlass column included, not skipped** \u2014 a scorecard with only three columns can't produce a gap plan\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Freezes one identical field list applied to every company before any further collection.",
+        "evidence": "\"The field list is frozen at 20 fields across three surfaces (Documentation & DX, Open source, Community) \u2014 not 40, and not one list for Larkspur and a thinner one for everyone else.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Fills every cell with either a value or an explicit \"not observable\".",
+        "evidence": "\"Every cell carries a value or **NO** (not observable \u2014 no sourced figure exists in this conversation for that cell...). No cell is estimated.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to carry a richer profile for Larkspur than for the other companies.",
+        "evidence": "\"Two rows deleted rather than left ragged... this is exactly the kind of Larkspur-specific granularity a 40-point week produces, and it has no symmetric equivalent for a company you haven't opened the docs site for.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a thinner symmetrical table beats a richer asymmetric one.",
+        "evidence": "\"A thinner symmetrical table beats a richer asymmetric one (`SKILL.md` step 2)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes any row that cannot reach symmetry across every company rather than leaving it ragged.",
+        "evidence": "\"**Two rows deleted rather than left ragged**, per the 'delete rather than demote' rule\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a source URL on every quantitative cell.",
+        "evidence": "\"every value needs a source URL and an observation date. Both are currently unmet by construction\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires an observation date on every quantitative cell.",
+        "evidence": "Same quote: \"every value needs a source URL and an observation date.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States symmetry and traceability as one-hundred-percent targets and labels them as this analysis's own bar.",
+        "evidence": "\"Symmetry and traceability are this analysis's own targets, at 100% each (`SKILL.md` \u00a7 Quality bar), not industry benchmarks\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Fills no Ashgrove or Beacontree cell with an estimate.",
+        "evidence": "\"No figure in this document is a proxy, an estimate, or a published claim. Every cell is either a frozen field name or NO.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Includes Windlass's own column in the scorecard rather than skipping it.",
+        "evidence": "\"Windlass is excluded, as instructed.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Freezes one identical field list applied to every company before any further collection.",
+        "evidence": "\"Rows are the standard cut this repo already uses for affiliate profiles (category, pricing, top features, ICP) plus the two dimensions you specifically called out (release cadence, forum reply times).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Fills every cell with either a value or an explicit \"not observable\".",
+        "evidence": "Cells use heterogeneous placeholders ('*needs your notes*', 'Unknown', 'Unresearched') that mean different things (missing user input vs. not yet researched), not a consistent 'not observable from outside' designation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to carry a richer profile for Larkspur than for the other companies.",
+        "evidence": "\"Coverage depth | ~40 data points: full docs, release history, forum reply times\" for Larkspur vs. \"Not started\"/\"Docs site only\" for Ashgrove/Beacontree \u2014 the asymmetry is reported, not refused.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a thinner symmetrical table beats a richer asymmetric one.",
+        "evidence": "No such statement appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes any row that cannot reach symmetry across every company rather than leaving it ragged.",
+        "evidence": "The inherently asymmetric 'Coverage depth' row is kept in the table rather than deleted.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a source URL on every quantitative cell.",
+        "evidence": "No source URL requirement is mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires an observation date on every quantitative cell.",
+        "evidence": "No observation date requirement is mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States symmetry and traceability as one-hundred-percent targets and labels them as this analysis's own bar.",
+        "evidence": "No such target or self-imposed-bar framing appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Fills no Ashgrove or Beacontree cell with an estimate.",
+        "evidence": "Beacontree/Ashgrove cells use honest gap-labels ('Docs site only', 'Unknown', 'Partial \u2014 docs reviewed, nothing else', 'Not started', 'Unresearched'), with no fabricated figures.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

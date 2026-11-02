@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the premise that 0.x permits unannounced breaks for a package with production users, citing that software used in production should already be 1.0",
+        "evidence": "Rejects the premise (\"Your premise has a gap\", ZeroVer), but never says software used in production should already be 1.0.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that on PyPI a compatible-release range such as ~=0.9 accepts any later 0.x release, so no resolver protects users from 0.10 breaks, unlike npm or Cargo caret",
+        "evidence": "\"`~=0.9` accepts any 0.x from 0.9 up, so pip users get 0.10\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Presents exactly two acceptable paths, writing the rule that 0.MINOR is the breaking digit and 0.x.PATCH is a compatible fix, or shipping 1.0 with the policy in the same release, and recommends one",
+        "evidence": "Gives only the 0.MINOR-breaking-digit README; 1.0-with-policy is not presented as a second path.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the ack-mode default change as breaking on its own, independent of the class rename",
+        "evidence": "\"The ack-mode change is the risky one. It has no signature change\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not deliver only a README paragraph; produces or outlines a RELEASES.md with the template sections",
+        "evidence": "Only a README paragraph delivered; RELEASES.md merely offered: \"I'd write the full `RELEASES.md`\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes the pre-release spelling in PEP 440 normalized form such as 1.0.0rc1, not 1.0.0-rc.1",
+        "evidence": "No pre-release spelling mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the last 0.x minor a support window equal to the one an old major would get, with an end date or ending event",
+        "evidence": "\"Only the latest `0.MINOR` receives fixes.\" No window for an old line.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names Requires-Python as the metadata field that declares the runtime floor",
+        "evidence": "Not named; only mentioned that Python versions are an unanswered question.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that dropping a Python version past upstream end-of-life may ship in a minor because pip and uv fall back to the last compatible release",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the rule that on PyPI an unsure change is treated as breaking because a break shipped as a minor reaches production through automerge",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Lists default values and error or exception types in the covered surface, citing the 0.8 and 0.7 complaints as the evidence",
+        "evidence": "\"The default serializer (0.8) and an exception class (0.7)... skill counts both as breaking\"; README covers \"default values... and the exception classes\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes an explicit Not covered exclusion list with at least one entry",
+        "evidence": "\"Underscore-prefixed names, undocumented behaviour and log text are not covered.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Runs the capacity arithmetic against the 3 hours a month before promising any line beyond latest",
+        "evidence": "\"would need the skill's capacity arithmetic first, and I don't have your fixes-per-year count\" \u2014 not run.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the premise that 0.x permits unannounced breaks for a package with production users, citing that software used in production should already be 1.0",
+        "evidence": "Opens \"Semver does allow it.\" and drafts a pre-1.0 policy allowing breaks in any minor.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that on PyPI a compatible-release range such as ~=0.9 accepts any later 0.x release, so no resolver protects users from 0.10 breaks, unlike npm or Cargo caret",
+        "evidence": "Recommends pinning `loomreach>=0.9,<0.10` but never explains compatible-release behaviour.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Presents exactly two acceptable paths, writing the rule that 0.MINOR is the breaking digit and 0.x.PATCH is a compatible fix, or shipping 1.0 with the policy in the same release, and recommends one",
+        "evidence": "Gives one pre-1.0 paragraph with a 1.0 criterion, not the two paths.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the ack-mode default change as breaking on its own, independent of the class rename",
+        "evidence": "\"The risk is the ack default, not the rename... Auto to manual ack is silent.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not deliver only a README paragraph; produces or outlines a RELEASES.md with the template sections",
+        "evidence": "Delivers only a README \"Versioning\" paragraph.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes the pre-release spelling in PEP 440 normalized form such as 1.0.0rc1, not 1.0.0-rc.1",
+        "evidence": "No pre-release spelling is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the last 0.x minor a support window equal to the one an old major would get, with an end date or ending event",
+        "evidence": "States only \"can't promise long-term support for old minor versions\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names Requires-Python as the metadata field that declares the runtime floor",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that dropping a Python version past upstream end-of-life may ship in a minor because pip and uv fall back to the last compatible release",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the rule that on PyPI an unsure change is treated as breaking because a break shipped as a minor reaches production through automerge",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Lists default values and error or exception types in the covered surface, citing the 0.8 and 0.7 complaints as the evidence",
+        "evidence": "Lists \"ack handling, serializers, exceptions\" as API, but not defaults, and does not cite 0.8/0.7.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes an explicit Not covered exclusion list with at least one entry",
+        "evidence": "No Not covered list.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Runs the capacity arithmetic against the 3 hours a month before promising any line beyond latest",
+        "evidence": "Mentions 3 hours only as a reason to avoid long-term support; no arithmetic.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

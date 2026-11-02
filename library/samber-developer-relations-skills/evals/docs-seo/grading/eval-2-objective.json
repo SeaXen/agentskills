@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Explains that a URL disallowed in robots.txt is never crawled, so its noindex directive and its canonical are never read",
+        "evidence": "The transcript only covers noindex: \"A URL Google already indexed before you added Disallow: /v1/ and Disallow: /v2/ can never be recrawled, so Googlebot never sees the noindex you put in the front matter.\" Canonical tags are never mentioned in this section.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Connects that rule to the observed symptom: the 830 URLs stay indexable as bare URLs with no title or snippet",
+        "evidence": "\"That's exactly why those 830 URLs show as bare links with no title or snippet: it's Search Console's 'indexed, though blocked by robots.txt' state, frozen since the day you added the Disallow lines nine months ago.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Instructs removing the Disallow: /v1/ and Disallow: /v2/ lines so the noindex can be read, or redirecting those URLs instead",
+        "evidence": "\"infra \u2014 Remove Disallow: /v1/ and Disallow: /v2/ from robots.txt. This alone does nothing for indexing yet; it only lets Google back in.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies the robots.txt plus noindex combination as a blocking defect rather than a ranked improvement",
+        "evidence": "Listed under header \"## Blocking defects\" as item #1: \"/v1/ and /v2/ disallowed in robots.txt, so their noindex front-matter flag is never read\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the infra lead's proposal to add more robots.txt Disallow lines as the fix for the preview hosts",
+        "evidence": "\"Your infra lead's proposal \u2014 add more Disallow lines for the preview hosts \u2014 reproduces this same bug on purpose. Do not do it, at least not yet and not alone.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prescribes serving X-Robots-Tag: noindex for the preview hosts at the CDN or the server",
+        "evidence": "\"Add X-Robots-Tag: noindex at the nginx block that fronts every preview host, before any Disallow\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that robots.txt may be used for the preview hosts only as a second layer, never as the only one",
+        "evidence": "\"add a separate robots.txt served on the preview hostnames themselves (Disallow: /), as a second layer on top of the header, not instead of it. This is the one place adding a Disallow is safe \u2014 because it's added after the noindex signal is already working, not before.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives a command that checks the actual response header, such as curl -sI on a preview URL filtered for x-robots-tag, rather than trusting the platform's defaults",
+        "evidence": "\"curl -sI https://docs-pr-1142.preview.fernbrook.io/ | grep -i x-robots-tag\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that self-hosted or per-branch preview environments usually do not send a noindex header by default, unlike managed platforms",
+        "evidence": "The transcript states the observed fact ('Preview hosts... serve 200 with no X-Robots-Tag at all') but never generalizes that self-hosted/per-branch environments typically lack this by default unlike managed platforms.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places both defects at the top of the fix list, above any page-signal or internal-linking work",
+        "evidence": "\"## Page signals / internal linking\\n\\nNot in scope for what you described \u2014 nothing here to report.\" while the fix list is entirely occupied by the robots/noindex/preview defects.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that blocking defects override any overall score the rest of the audit produces",
+        "evidence": "\"Items 1\u20132 override any score below. Nothing else matters until crawl access is restored.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Explains that a URL disallowed in robots.txt is never crawled, so its noindex directive and its canonical are never read",
+        "evidence": "'Adding noindex to the front matter did nothing, because Googlebot was never allowed in to read the front matter'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Connects that rule to the observed symptom: the 830 URLs stay indexable as bare URLs with no title or snippet",
+        "evidence": "'That \"bare URL, no title, no snippet\" result is the textbook signature of a blocked-but-linked page'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Instructs removing the Disallow: /v1/ and Disallow: /v2/ lines so the noindex can be read, or redirecting those URLs instead",
+        "evidence": "'Remove Disallow: /v1/ and Disallow: /v2/ from robots.txt' and the 301 option in step 3.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies the robots.txt plus noindex combination as a blocking defect rather than a ranked improvement",
+        "evidence": "Presented as a 'Priority Fix List' item; it is never labelled a blocking defect.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the infra lead's proposal to add more robots.txt Disallow lines as the fix for the preview hosts",
+        "evidence": "'Your infra lead's fix... repeats the exact same mistake... Don't do that.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prescribes serving X-Robots-Tag: noindex for the preview hosts at the CDN or the server",
+        "evidence": "'a single X-Robots-Tag: noindex, nofollow response header for the whole wildcard vhost' at nginx.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that robots.txt may be used for the preview hosts only as a second layer, never as the only one",
+        "evidence": "Only criticizes per-host Disallow; never says robots.txt could be a second layer.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives a command that checks the actual response header, such as curl -sI on a preview URL filtered for x-robots-tag, rather than trusting the platform's defaults",
+        "evidence": "No curl -sI or equivalent command is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that self-hosted or per-branch preview environments usually do not send a noindex header by default, unlike managed platforms",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places both defects at the top of the fix list, above any page-signal or internal-linking work",
+        "evidence": "Steps 1-7 cover only these two defects; no page-signal work is listed.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that blocking defects override any overall score the rest of the audit produces",
+        "evidence": "No score is discussed.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

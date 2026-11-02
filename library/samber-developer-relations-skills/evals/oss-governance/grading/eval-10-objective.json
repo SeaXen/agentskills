@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rules federated subprojects out rather than ranking it low or parking it at the bottom of a menu.",
+        "evidence": "\"Federation, as asked for, fails gate 2 before it reaches the efficiency ranking.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the gate that rules it out: components without their own contributor communities make federation unadoptable.",
+        "evidence": "\"Gate 2 (components without their own contributor communities block federation): **triggered.**\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says explicitly that the model was deleted from consideration and why, rather than leaving it listed.",
+        "evidence": "\"Q10 (2-hour/week ceiling) is what moves this ranking \u2014 it's the answer that deletes federation outright rather than just demoting it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the stated effort ceiling of roughly two hours a week each independently removes federation from consideration.",
+        "evidence": "Same quote: \"deletes federation outright rather than just demoting it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that federation buys cross-component deadlock resolution and little else, which is not the problem described.",
+        "evidence": "\"Buys: cross-component deadlock resolution and nothing else \u2014 a problem nobody reported.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that federation is wrong as a starting point because it multiplies process before there is anyone to govern.",
+        "evidence": "\"'wrong as a starting point, because it multiplies process before there is anyone to govern.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the real cost shape: roughly a week per charter, then a standing job for each subproject, with diverged cadences resisting re-merging.",
+        "evidence": "\"about a week per charter to install... then a standing job per SIG afterward\" is present, but no mention anywhere of diverged cadences resisting re-merging into the parent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends delegation, meaning named per-area owners or working groups with a written scope and a report-back expectation, as the cheaper answer to the review bottleneck.",
+        "evidence": "\"name 1-2 area owners per directory... who route reviews and decide routine changes inside their area, reporting back rather than deciding in isolation forever\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a maintainer council as the model that fits six maintainers working in one shared area.",
+        "evidence": "\"Matches the model catalogue's own fit row: '3-8 maintainers, one shared area \u2192 maintainer council.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that if federation is ever pursued, the first subproject is chartered as an experiment with explicit scope and a review date.",
+        "evidence": "\"charter exactly one subproject, as an experiment with a review date\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the premature-split test: if the council still makes all of the subprojects' decisions, the split was premature.",
+        "evidence": "\"If the council still makes all the decisions for that component, the split was premature \u2014 undo it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes the review-throughput complaint from a governance-model problem, and addresses throughput with approval and review rules rather than a structural change.",
+        "evidence": "\"the problem is nothing's delegated, not that there are too few governance bodies\" and enforcement's CODEOWNERS/branch-protection fixes.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rules federated subprojects out rather than ranking it low or parking it at the bottom of a menu.",
+        "evidence": "'Don't copy the Kubernetes SIG model wholesale \u2014 it's built for a scale you don't have... Adopt the decision-rights idea from SIGs, skip almost all the ceremony.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the gate that rules it out: components without their own contributor communities make federation unadoptable.",
+        "evidence": "\"'All six of us work across all six directories' directly contradicts area-based governance. SIGs assume people specialize in their area. If nobody does, six SIGs just becomes six labels on the same six people.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says explicitly that the model was deleted from consideration and why, rather than leaving it listed.",
+        "evidence": "'What to explicitly drop from the K8s playbook: Per-SIG charters and mission docs; Per-SIG meetings; SIG leads...; Top-level steering council...; Election process; Separate comms channels per SIG.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the stated effort ceiling of roughly two hours a week each independently removes federation from consideration.",
+        "evidence": "'Budget check: 6 people \u00d7 2 hrs/week = 12 hrs/week of process, total, for the whole project. One weekly SIG meeting per area (6 meetings) already burns most of that.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that federation buys cross-component deadlock resolution and little else, which is not the problem described.",
+        "evidence": "'Council-above-SIGs only earns its keep when SIGs disagree and need arbitration by people not already in the room. With six people total, the council and the SIGs are the same six people.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that federation is wrong as a starting point because it multiplies process before there is anyone to govern.",
+        "evidence": "'A K8s SIG has enough contributors to hit quorum without everyone showing up. Your \"SIG\" would be ~1 person plus maybe one of the four outsiders. That's not a SIG, that's just an owner with a title.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the real cost shape: roughly a week per charter, then a standing job for each subproject, with diverged cadences resisting re-merging.",
+        "evidence": "No such cost breakdown (per-charter week, standing job, diverging cadences) appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends delegation, meaning named per-area owners or working groups with a written scope and a report-back expectation, as the cheaper answer to the review bottleneck.",
+        "evidence": "'Area ownership, not SIGs. One OWNERS-style file at the repo root, one row per directory... Owner \u2260 \"only person allowed to touch it,\" it means \"person whose approval unblocks a merge.\"'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a maintainer council as the model that fits six maintainers working in one shared area.",
+        "evidence": "The document explicitly rejects a separate council structure: 'No separate council. Escalation = the whole team, informally... no extra body needed' rather than naming/recommending a 'maintainer council' model.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that if federation is ever pursued, the first subproject is chartered as an experiment with explicit scope and a review date.",
+        "evidence": "Not discussed anywhere; federation is dropped entirely, with no piloting plan mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the premature-split test: if the council still makes all of the subprojects' decisions, the split was premature.",
+        "evidence": "No such test is stated anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes the review-throughput complaint from a governance-model problem, and addresses throughput with approval and review rules rather than a structural change.",
+        "evidence": "'\"Every change seems to need everyone's attention\" is a review/approval-rights problem, not a missing-governance-structure problem. The fix is changing who has to say yes, not inventing new entities to say yes.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

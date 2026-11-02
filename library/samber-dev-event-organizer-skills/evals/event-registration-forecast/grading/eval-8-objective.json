@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Capacity is read on expected attendance including the 55 comps, not on the 372 registrations",
+        "evidence": "Table: registrations \u00d7 show rate plus comps; 'comps add about 47'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The paid registration close point is computed as room capacity minus comps expected to attend (about 400 minus 50), not 400",
+        "evidence": "'400 \u2212 55 = 345... 600 \u2212 55 = 545'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response points out that 372 already exceeds that close point, so paid registration closes and the waitlist opens now rather than at 400",
+        "evidence": "'Close today at 372' but no waitlist mention",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The overbooking proposal is not decided here; the ratio is routed to event-no-show-management and only applied per type for the attendance read",
+        "evidence": "'Overbooking ratios belong to event-no-show-management'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The larger-room decision is flagged to event-venue-sourcing with the 6-day option deadline, triggered by high-end attendance crossing the 400 capacity",
+        "evidence": "'Send the venue deadline (2026-11-01) to event-venue-sourcing today'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The band is built from last edition's export and the pooled curve, and the high end is the figure compared against capacity",
+        "evidence": "521 / 571 / 622; high end compared to 600 hall",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Once the cap binds, registrations are no longer read as demand; the waitlist is forecast instead",
+        "evidence": "Not stated",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The script is run with --ceiling, and the days-out at which each reference reaches the ceiling is reported",
+        "evidence": "'The forecast script did not run'; ceiling days-out only roughly worked by hand",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The 'forecast says 600' claim is not accepted as given; expected attendance is shown explicitly against the 600-seat option",
+        "evidence": "'The \"forecast says 600\" claim is wrong'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Comps are counted once, as count-basis types in the --types file, never inside the 372",
+        "evidence": "No types file; comps handled in prose",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Expected attendance by ticket type is delivered with each show rate labelled sourced, own-data or self-set",
+        "evidence": "'paid 90% (sourced...), speakers 97% (self-set), sponsor staff 70% (self-set)'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "No demand verdict is issued",
+        "evidence": "Room decision only; no demand verdict",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The 600-seat option expiry appears as a lock date in the lock-date table with its commit figure, band end and reason",
+        "evidence": "Venue option row: 'Take 600 | n/a | Section 6'; no date or band end",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Capacity is read on expected attendance including the 55 comps, not on the 372 registrations",
+        "evidence": "\"372 paid plus 55 comps... is 427 people against 400 seats.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The paid registration close point is computed as room capacity minus comps expected to attend (about 400 minus 50), not 400",
+        "evidence": "\"Paid capacity in that hall is about 345\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response points out that 372 already exceeds that close point, so paid registration closes and the waitlist opens now rather than at 400",
+        "evidence": "\"Close paid sales today, since you're already past the seated limit. Run a waitlist\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The overbooking proposal is not decided here; the ratio is routed to event-no-show-management and only applied per type for the attendance read",
+        "evidence": "Computes its own overbooking and defers it to 10 days out; no routing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The larger-room decision is flagged to event-venue-sourcing with the 6-day option deadline, triggered by high-end attendance crossing the 400 capacity",
+        "evidence": "Makes the decision itself.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The band is built from last edition's export and the pooled curve, and the high end is the figure compared against capacity",
+        "evidence": "Uses three hand ratios from last year.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Once the cap binds, registrations are no longer read as demand; the waitlist is forecast instead",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The script is run with --ceiling, and the days-out at which each reference reaches the ceiling is reported",
+        "evidence": "No script.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The 'forecast says 600' claim is not accepted as given; expected attendance is shown explicitly against the 600-seat option",
+        "evidence": "\"The 600 figure isn't supported\"; fit table shows present vs 600.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Comps are counted once, as count-basis types in the --types file, never inside the 372",
+        "evidence": "No types file.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Expected attendance by ticket type is delivered with each show rate labelled sourced, own-data or self-set",
+        "evidence": "Single 10% no-show, unlabelled.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "No demand verdict is issued",
+        "evidence": "Gives a capacity/forecast recommendation, no demand verdict.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The 600-seat option expiry appears as a lock date in the lock-date table with its commit figure, band end and reason",
+        "evidence": "No table.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

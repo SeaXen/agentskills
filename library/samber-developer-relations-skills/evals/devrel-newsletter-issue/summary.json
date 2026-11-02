@@ -1,0 +1,194 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "devrel-newsletter-issue",
+  "scenarios": 8,
+  "expectations_total": 88,
+  "expectations_subjective": 1,
+  "expectations_objective": 87,
+  "pass_rate_with_skill_pct": 94.3,
+  "pass_rate_without_skill_pct": 63.6,
+  "delta_pp": 30.7,
+  "uplift_multiplier": 1.48,
+  "trigger_accuracy_pct": 57.6,
+  "trigger_queries": 92,
+  "trigger_positive_fire_rate": 0.348,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.309 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "The Streams 2.0 item opens with a plain statement of what the user can now do, before availability."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The response sets a maximum code line length of 45 characters or fewer, citing phone screen width."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Empty sections are dropped from this issue rather than kept with placeholder or filler content."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The response offers more than one subject line option, each with a stated trade-off."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The response recommends a standing way for readers to report errors in the footer of future issues."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "The draft does not state the 3x ingestion figure as a fact in the Shipped section or the subject line."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The response explains that the 3x figure has no published source to link or attribute to, and either cuts it or asks for a published post that states it."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The Free-tier Q1 date is either omitted from the draft or explicitly flagged as needing confirmation that it is announced before it can be published."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The Streams 2.0 item opens with a plain statement of what the user can now do, before availability."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The response recommends live text instead of an image of code."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The response does not write a full new webhook signature verification implementation of its own."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The response asks for the team's own tested verification code, or points to linking the existing docs page, instead of authoring it."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The response proposes showing a short excerpt (5 lines or fewer) and linking to the full file, gist or docs page."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Any code block font declaration uses a system monospace stack and no web font loaded via @font-face or Google Fonts."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The response warns that a dark highlighting theme such as Dracula can invert or lose contrast in dark-mode or light-mode clients."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The response sets a maximum code line length of 45 characters or fewer, citing phone screen width."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The response mentions the plain-text part, with the code indented or the full URL spelled out."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The response asks the user for the titles of the perf-2024-q3 and 9a7f2c links instead of presenting headlines derived from the URL slugs as real titles."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The response declines to choose or invent items to fill empty sections, saying item selection is a separate job."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Empty sections are dropped from this issue rather than kept with placeholder or filler content."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The response tells the user the issue is thin."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The response offers at least two of: ship a shorter issue, skip this week, merge into the next issue."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The response names at least one cost of padding, such as readers learning to skip sections or losing trust that each item is worth reading."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The recommended subject line is 45 characters or fewer."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The preview text does not repeat the subject line's wording."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The response recommends dropping the intro, or reduces it to 25 words or fewer."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The response gives as the reason that nothing about the newsletter changed, so an editor's note adds nothing."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The response recommends correcting the author credit in the web archive."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The first sentence of the drafted correction email states the safe version or corrected command, before any apology."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The response recommends a standing way for readers to report errors in the footer of future issues."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The sponsor block contains exactly one link."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The sponsor block does not contain '#1', 'fastest' or 'in the world'."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The response proposes, given the 4-hour window, running a neutral line with the label, sponsor name and link, and telling the sponsor what changed."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The bottom of the issue carries one primary ask, not five separate calls to action of equal weight."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The rewritten item puts the primary link on the headline or descriptive text."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The response presents its checks as pass, fail or blocked lines."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The response marks the test send to Gmail and Outlook (light and dark) as something the user must do before noon, or as blocked."
+      }
+    ]
+  }
+}

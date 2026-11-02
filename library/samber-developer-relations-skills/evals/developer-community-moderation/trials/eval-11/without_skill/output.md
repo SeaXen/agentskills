@@ -1,0 +1,5 @@
+I don't have web search permission granted in this session, so I can't pull live industry data right now.
+
+Before I go further: do you want to grant WebSearch access so I can pull current, citable numbers (vendor reports, transparency reports, T&S benchmark surveys)? That's the only way to give you defensible figures rather than round numbers I recall from training, which I'd rather not hand you for a leadership OKR doc without flagging the difference.
+
+If you'd rather not grant it, I can still give you a directionally-honest answer right now based on what's publicly documented across CX/T&S benchmark reports (Zendesk CX Trends, Sprout Social, Discord/Reddit transparency reports, Trust & Safety Professional Association materials) as I recall them — clearly labeled as recalled-not-fetched, with the specific caveat that moderation-specific benchmarks (as opposed to general support-ticket SLAs) are thin and inconsistently defined industry-wide. Which do you want?

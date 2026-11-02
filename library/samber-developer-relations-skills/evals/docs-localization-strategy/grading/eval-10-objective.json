@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Cites the MDN 2024 German-browser survey (62% preferring English, 35% German) as a sourced figure and notes MDN still launched a machine-translated German locale for that minority",
+        "evidence": "\"62% preferred English and 35% German... MDN still launched\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that preference evidence decides scope and labelling, not only whether to translate",
+        "evidence": "\"Preference evidence decides scope and labelling, not just yes or no.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the 62% as a likely upper bound on English preference because the survey ran on English-language pages",
+        "evidence": "\"probably an upper bound... the survey ran on English pages\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ranks continuous labelled MT below the reviewed LLM set on efficiency because unreviewed pages that misstate parameters, quotas, security steps or deprecations do harm a reviewed subset never does",
+        "evidence": "Bundle A eliminated for unreviewed errors; reviewed set deferred, not eliminated",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Tiers review by risk: security, authentication, billing, quotas, deprecations and parameter semantics get Jonas's review before publication, other pages get review once they pass a page-view threshold",
+        "evidence": "\"Human review before publication: every page in the pack.\" No risk tiering or threshold.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the German locale out of search until its first review pass, citing that MDN waited about a month before indexing",
+        "evidence": "\"about a month out of search before indexing\"; \"index `de` pages only after their first review pass\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a label on every page naming AI assistance and its review status, stating the English page is authoritative, with a link to it and a way to report a problem",
+        "evidence": "Label text in the Review model section",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a remembered language opt-out or persistent switcher and no auto-redirect by browser language",
+        "evidence": "\"Never auto-redirect\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Masks code blocks before LLM translation and verifies code-fence, link and heading counts per page",
+        "evidence": "\"Mask code before the LLM sees it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that Jonas alone does not satisfy the two-reviewer gate item and names the closing action",
+        "evidence": "Gate item 1 \"Open: only Jonas\" with closing actions",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks for the browser-language ratio, engagement gap and German-language demand before approving, rather than approving on budget and precedent",
+        "evidence": "Step 1 test; \"Questions still open\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Presents a reviewed LLM set over a traffic-ranked page set as a competing bundle, not only the nightly pipeline",
+        "evidence": "Bundle C \"Reviewed LLM set ... About 100 traffic-ranked pages\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the search-exposure decision as something the continuous MT rung obliges the team to make",
+        "evidence": "The search-exposure decision is not tied to the continuous MT rung.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a source-commit pin on every page and the drift check in CI even though the pipeline re-runs nightly",
+        "evidence": "\"Pipeline rule: set `source_commit`...\"; drift check in CI",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Cites the MDN 2024 German-browser survey (62% preferring English, 35% German) as a sourced figure and notes MDN still launched a machine-translated German locale for that minority",
+        "evidence": "Says MDN premise unverified; no survey figures.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that preference evidence decides scope and labelling, not only whether to translate",
+        "evidence": "Treated only as go/no-go.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the 62% as a likely upper bound on English preference because the survey ran on English-language pages",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ranks continuous labelled MT below the reviewed LLM set on efficiency because unreviewed pages that misstate parameters, quotas, security steps or deprecations do harm a reviewed subset never does",
+        "evidence": "Tier 2 published as MT with banner and auto-merge.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Tiers review by risk: security, authentication, billing, quotas, deprecations and parameter semantics get Jonas's review before publication, other pages get review once they pass a page-view threshold",
+        "evidence": "Tier 1: security/compliance pages reviewed by Jonas before publish.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the German locale out of search until its first review pass, citing that MDN waited about a month before indexing",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a label on every page naming AI assistance and its review status, stating the English page is authoritative, with a link to it and a way to report a problem",
+        "evidence": "Banner only on Tier 2.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a remembered language opt-out or persistent switcher and no auto-redirect by browser language",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Masks code blocks before LLM translation and verifies code-fence, link and heading counts per page",
+        "evidence": "Placeholders substituted, but no per-page fence/link/heading count check.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that Jonas alone does not satisfy the two-reviewer gate item and names the closing action",
+        "evidence": "Only notes single point of failure.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks for the browser-language ratio, engagement gap and German-language demand before approving, rather than approving on budget and precedent",
+        "evidence": "\"Step 1: demand check\" - traffic by browser locale, German queries, tickets.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Presents a reviewed LLM set over a traffic-ranked page set as a competing bundle, not only the nightly pipeline",
+        "evidence": "Only one pipeline pilot.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the search-exposure decision as something the continuous MT rung obliges the team to make",
+        "evidence": "Not named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a source-commit pin on every page and the drift check in CI even though the pipeline re-runs nightly",
+        "evidence": "Uses segment hashes and translation memory; no pin.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

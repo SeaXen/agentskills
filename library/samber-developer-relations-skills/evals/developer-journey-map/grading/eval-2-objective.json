@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to use the 40-60% quickstart conversion figure as a benchmark.",
+        "evidence": "\"'40-60% is normal quickstart conversion' \u2014 no such figure exists as a citable benchmark. ... There is no methodology behind the 40-60% band anyone has published. Citing it against Northwind's 28% is comparing your funnel to a rumor...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to use the 20-40% self-serve activation figure as a benchmark.",
+        "evidence": "\"'20-40% is standard self-serve activation' \u2014 this one is explicitly a figure this class of claim gets refused for.\" ... \"Neither supports '20-40% is standard.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that circulating per-stage conversion figures are single-company anecdotes with incompatible stage definitions.",
+        "evidence": "\"Every per-stage conversion rate in circulation for API/quickstart products is a single company's anecdote, with its own audience, product maturity, and definition of 'started' and 'succeeded.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that no normal discovery-to-production rate for a developer product can be quoted.",
+        "evidence": "\"...here is what we're doing about the lower of the two.' That is a stronger opening than a fabricated gap, because it can't be shot down by someone Googling the 40-60% figure and finding nothing behind it\" \u2014 combined with refusing both circulating figures, the transcript concludes no external benchmark exists for either stage of the funnel: \"no external benchmark exists for either\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the only honest comparison is against this same map's own previous version.",
+        "evidence": "\"What should open the map instead: your own numbers, against your own history, full stop \u2014 '28% of quickstart starters reach first success, 22% of signups activate within 7 days; no external benchmark exists for either...'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not open the map with a benchmark-gap framing.",
+        "evidence": "The map itself opens with '## Scope' (segment, end state, stage model, deleted alternatives, open items) rather than any benchmark comparison; the benchmark discussion is confined to the preceding 'sanity check' section, separate from the map's own opening.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that the leading developer-tools product benchmark survey declines to publish a single activation-rate figure, because the activation milestone differs by product.",
+        "evidence": "\"The most detailed public study on this exact question (OpenView's 2023 developer-tools benchmark survey, 1,000+ respondents) *declines to publish one activation rate at all*, on the stated grounds that the milestone differs by product \u2014 a Loom share, a Zapier zap, and a Kafka topic-create-and-consume are not the same unit of value.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names a real published activation figure with its methodology when discussing activation at all, for example the self-reported 25% median / 34% average survey band, and labels it self-reported.",
+        "evidence": "\"Lenny Rachitsky / Yuriy Timen's 2022 survey (500+ products, self-reported, 'activated \u00f7 completed signups,' milestone required to show \u22652x retention): median 25%, average 34% overall \u2014 but that's a self-reported panel, not an instrumented measurement...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes that self-reported activation band from instrumented day-7 return figures (about 2.1% median, 7% top quartile) as different metrics under different definitions.",
+        "evidence": "\"Amplitude's 2025 B2B benchmark (2,600+ companies' actual instrumented data, Sept 2023\u2013Sept 2024): day-7 return rate \u2014 a different definition again \u2014 puts the *median* B2B technical product at 2.1%, and 7% at the top quartile.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the popular round 20-40% figure collapses two different metrics into one number.",
+        "evidence": "\"The round number floating around collapses two incompatible metrics into one folklore figure \u2014 that's a documented failure mode, not a gap in your data.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Records 28% and 22% in the map as Northwind's own numbers, with their definitions stated.",
+        "evidence": "Journey table: \"**28% of quickstart starters reach first success**\"; Handoff: \"Signal to watch: share of quickstart starters reaching first success (currently 28%)\"; Gaps: \"22% of signups, 7-day window\" and \"'topic created + message consumed within 7 days'\" given as the activation definition.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that Northwind's activation definition (topic created plus one message consumed in 7 days) is product-specific and not comparable to another company's milestone.",
+        "evidence": "The OpenView point uses Northwind's own metric type as the illustrative example of non-comparability: \"a Loom share, a Zapier zap, and a Kafka topic-create-and-consume are not the same unit of value\" \u2014 directly paralleling the map's later-stated activation definition, \"'topic created + message consumed within 7 days'\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not declare either stage broken on the strength of a borrowed rate.",
+        "evidence": "\"**Provisional nomination: Onboarding**, on the numbers available \u2014 it's the earliest stage with both a measured rate and a named owner... Treat this as 'best current read,' not a settled diagnosis, until the reconciliation work below happens.\" \u2014 nomination is based on Northwind's own numbers, not any external benchmark.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to use the 40-60% quickstart conversion figure as a benchmark.",
+        "evidence": "The table explicitly compares '28%' against 'Cited benchmark 40-60%' and gives verdict 'Real gap.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to use the 20-40% self-serve activation figure as a benchmark.",
+        "evidence": "'22% sits inside 20-40%' is used directly as the basis for declaring activation 'not broken.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that circulating per-stage conversion figures are single-company anecdotes with incompatible stage definitions.",
+        "evidence": "The caveat calls them 'generic PLG blog figures... pooled across API products broadly,' not single-company anecdotes with incompatible definitions.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that no normal discovery-to-production rate for a developer product can be quoted.",
+        "evidence": "Not stated; the text instead recommends finding better peer benchmarks (Confluent, Redpanda, MSK Serverless).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the only honest comparison is against this same map's own previous version.",
+        "evidence": "No prior version of this map is referenced or proposed as the only honest comparator.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not open the map with a benchmark-gap framing.",
+        "evidence": "The document opens with 'Sanity check first' and a table titled 'The math' comparing actuals to 'Cited benchmark.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that the leading developer-tools product benchmark survey declines to publish a single activation-rate figure, because the activation milestone differs by product.",
+        "evidence": "Not mentioned anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names a real published activation figure with its methodology when discussing activation at all, for example the self-reported 25% median / 34% average survey band, and labels it self-reported.",
+        "evidence": "No such figure or methodology is cited.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes that self-reported activation band from instrumented day-7 return figures (about 2.1% median, 7% top quartile) as different metrics under different definitions.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the popular round 20-40% figure collapses two different metrics into one number.",
+        "evidence": "Not mentioned; 20-40% is treated as a single valid benchmark range.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Records 28% and 22% in the map as Northwind's own numbers, with their definitions stated.",
+        "evidence": "'Quickstart: first produce + consume \u2014 28% complete' and 'Activation: topic created + 1 message consumed, 7-day window \u2014 22%' both state the numbers with their definitions.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that Northwind's activation definition (topic created plus one message consumed in 7 days) is product-specific and not comparable to another company's milestone.",
+        "evidence": "Instead it asks whether 'your window is tighter than how the category benchmark defines activation,' still treating the benchmark as a valid comparator rather than declaring incomparability.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not declare either stage broken on the strength of a borrowed rate.",
+        "evidence": "'Quickstart completion is a confirmed gap' is declared directly from the cited 40-60% benchmark comparison.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,614 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "dev-event-kickoff",
+  "scenarios": 12,
+  "expectations_total": 152,
+  "expectations_subjective": 2,
+  "expectations_objective": 150,
+  "pass_rate_with_skill_pct": 84.2,
+  "pass_rate_without_skill_pct": 23.7,
+  "delta_pp": 60.5,
+  "uplift_multiplier": 3.55,
+  "trigger_accuracy_pct": 55.9,
+  "trigger_queries": 152,
+  "trigger_positive_fire_rate": 0.289,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 0.529,
+  "subjective_pass_disagreements": [
+    {
+      "eval_id": 4,
+      "condition": "with_skill",
+      "expectation": "While promoting it, the response names sponsorship's cost honestly: a months-long motion running on a counterparty's calendar, the most expensive class rather than a cheap one.",
+      "pass1": false,
+      "pass2": true
+    }
+  ],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Any interview questions are asked one at a time with multiple-choice options offered, never as one batched questionnaire dumped in a single message."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The immediate route is an existence-check skill (event-market-fit or corporate-event-strategy), not a logistics skill like venue, budget, or marketing."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "corporate-event-strategy is surfaced as reachable, with its gate read from the stated fact that a company funds and owns the event."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Each short-list entry names both the bottleneck it attacks and what the session costs, and the response states the list is ordered by value returned per unit of effort."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The response states that hybrid-event-design and virtual-event-production sit downstream of the format decision and must never be used to make it."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The response commits to recording the format decision in the context artifact once it is made, so the next session reads the gate instead of re-asking."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "While promoting it, the response names sponsorship's cost honestly: a months-long motion running on a counterparty's calendar, the most expensive class rather than a cheap one."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "A sponsorship chain is presented in this order: value proposition, then pricing, then prospectus, then outreach, then agreement, then fulfillment."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The chain links are named as skills in owner/repo@skill form."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Each proposed routine names an explicit output channel."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "A ticket-pace check is proposed, justified by the ticketing source existing, and anchored to the on-sale period or pricing-tier boundaries."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Each routine names the skill it runs in owner/repo@skill form."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The response states why the artifact stays the source of truth: memory is invisible and unreviewable to teammates, and a memory-first flow forks the project state per user."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The location choice is justified against the alternatives, explicitly ruling out a local per-user store because more than one organizer works on the project."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The response does not re-interview: the artifact exists, so at most the session-goal question is asked."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "The response states that accessibility still applies to a virtual event because its digital-access provisions need no room."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Ask (b) is routed to samber/dev-event-organizer-skills@cross-event-promotion."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Ask (c) is routed to samber/dev-event-organizer-skills@event-portfolio-strategy."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Routes are named in owner/repo@skill form."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "The response does not ask for the event date - it is read from the published grid."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Any questions are asked one at a time with multiple-choice options."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Each short-list entry names the bottleneck it attacks and what the session costs."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Marketing, sponsorship, on-the-day, and existence-check classes are deleted from the short-list, not listed at the bottom."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Routes are named in owner/repo@skill form."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "The session is treated as a cold start decided from the absence of a context artifact, without asking the user whether it is a new or resumed project."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The response does not re-ask facts the message already gave: the event does not exist yet, the company funds it, and the effort ceiling is a one-off with hours only."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Any interview questions are asked one at a time with multiple-choice options offered, never as one batched questionnaire dumped in a single message."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The interview stays within a seven-question cap."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The immediate route is an existence-check skill (event-market-fit or corporate-event-strategy), not a logistics skill like venue, budget, or marketing."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "corporate-event-strategy is surfaced as reachable, with its gate read from the stated fact that a company funds and owns the event."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The short-list is restricted to existence-check and spine skills (format, date, timeline), consistent with the hours-only one-off effort ceiling."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Sponsorship skills are absent from the short-list entirely, not parked at the bottom as a later step."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Day-of operations skills (run of show, production, comms channels) are absent from the short-list."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Each short-list entry names both the bottleneck it attacks and what the session costs, and the response states the list is ordered by value returned per unit of effort."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "At most one routine is proposed, and it is a recurring kickoff re-invocation check-in; no ticket-pace, sponsor, or go/no-go routines are proposed."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The response creates, or explicitly commits to creating and updating before the session ends, an event-context.md context artifact recording the answers."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The response does not deliver a full hackathon plan (challenge brief, prize structure, judging rubric) in this session, despite being asked for one."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "At most one question is asked, and it is the goal of this session."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "A state summary of exactly 5 lines is produced."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The summary lines cover: event identity and format, the date and where it sits, in-flight work, top open decision, and the active constraint."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The immediate route is samber/dev-event-organizer-skills@event-talk-selection, matching the open decision of who reviews the 41 submissions before the CFP closes."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The route is named in owner/repo@skill form."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "A dated session-log line (goal, skill routed to, what changed) is appended to the artifact."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The artifact is updated by patching only changed fields, not rebuilt from scratch."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The short-list is re-ranked from the artifact's recorded constraints (fixed doors date, standing few-hours-weekly ceiling) without re-asking those questions."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The response states which recorded answer or constraint moved which recommendation off its default place."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Recurring-gated skills are treated as reachable with the gate read from the artifact's edition-3 record, not re-asked."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Skills ruled out for this session are absent from the short-list rather than listed at the bottom."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The response routes to samber/dev-event-organizer-skills@event-format-selection as the single route for this session."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The response does not provide hybrid streaming or production design guidance and does not route to hybrid-event-design."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The response states that hybrid-event-design and virtual-event-production sit downstream of the format decision and must never be used to make it."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The response does not route to event-venue-sourcing or begin shortlisting venues, because the delivery mode is unfixed and no room is confirmed to exist."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The response does not give hackathon prize or cash-prize guidance while the hackathon shape is undecided."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The response explicitly names which skill groups are suspended (the hackathon lane, the delivery-mode skills, the conference-scale rows) rather than silently omitting them."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The suspended rows are described as unreachable until the format is fixed, not as absent from the collection."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The response does not guess or assume a shape (for example proceeding 'assuming a conference') in order to give gated advice."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "No short-list drawn from gated rows is offered."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The response commits to recording the format decision in the context artifact once it is made, so the next session reads the gate instead of re-asking."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The route is named in owner/repo@skill form."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The response does not itself decide between conference, hackathon, or hybrid in this session; it routes the decision."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The response explicitly ties that promotion to the closing sponsor budget window, stating that this deadline moved sponsorship off its default place."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "While promoting it, the response names sponsorship's cost honestly: a months-long motion running on a counterparty's calendar, the most expensive class rather than a cheap one."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "A sponsorship chain is presented in this order: value proposition, then pricing, then prospectus, then outreach, then agreement, then fulfillment."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The chain links are named as skills in owner/repo@skill form."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The chain is presented as dependency order, each link consuming what the previous produced, and the chain itself is not ranked by value or importance."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Sponsor pricing is anchored to the revenue target taken from the event budget; the budget is consumed as an input, not re-set by pricing."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The short-list contains between 5 and 8 entries."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Each short-list entry names both the bottleneck it attacks and what the session costs."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The stated ordering criterion is value returned per unit of effort, not lowest cost."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "If routines are proposed, the sponsor pipeline and renewal sweep is installed first, tied to the closing budget window."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The re-rank is stated out loud: which stated fact moved which class, rather than a silently reordered list."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Question 1 is routed to startup-pitch-contest, not to hackathon-judging."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Question 2 is routed to event-side-event-coordination, since a third party wants to run a satellite around the event's dates."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Question 3 is routed to cross-event-promotion, a reciprocal swap with another organizer's own event."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Question 4 is routed to event-speaker-cold-outreach, the invitation to a speaker a shortlist already picked."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Question 4 is not routed to event-speaker-sourcing, and the split is stated: sourcing stops at a ranked shortlist, outreach writes the invitation."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "For question 5, whether a first paid role is warranted at all is routed to event-team-structure."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "For question 5, the job posting and scorecard are routed to dev-event-hiring, conditional on team-structure's verdict saying hire."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Every route is named in owner/repo@skill form."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Each sub-question receives exactly one route decided from declared scope, and no skill name outside the collection's routing tables is invented."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The response states that event-talk-selection reviews talk proposals for stage slots only, and does not stretch it to cover proceedings."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The response states that event-accessibility-inclusion covers interpretation and captioning as access provisions on request, and does not stretch it into bilingual programme design."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "No route names a skill outside the collection's routing tables."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The response does not hand these two subjects off to a sibling collection (DevRel or platform), since neither belongs there."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The response still performs kickoff project-state behavior - checking for or referencing the context artifact and cold-versus-warm state - rather than answering as a stateless Q&A."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The output includes a distinct Gap statement or section carrying both uncovered subjects."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "No more than 4 routines are proposed."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Each proposed routine names an explicit output channel."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Each proposed routine names a stop condition."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "A ticket-pace check is proposed, justified by the ticketing source existing, and anchored to the on-sale period or pricing-tier boundaries."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The previous edition's still-configured reminder jobs are explicitly retired before new routines are installed."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Each routine names the skill it runs in owner/repo@skill form."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "A work-back checkpoint routine tied to the plan's own replanning checkpoints is among the proposals, tied to the fixed doors date."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The response states which detected or stated fact moved which routine off its default place."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The response refuses to store the speaker's dietary and step-free access needs in memory, identifying them as personal data and an accommodation request."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The response refuses to store the negotiated venue rate in memory."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The response refuses to store the code-of-conduct report and does not invite the user to paste its details for storage."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The exclusion list (attendee/speaker personal data, accommodation requests, conduct reports, negotiated rates, terms under negotiation) is stated when memory is first written."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The single-track decision is written into the context artifact, and any memory entry is derived from the artifact, never the reverse."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The interview answers are persisted through the artifact first; no memory entry is written straight from an answer."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The response states why the artifact stays the source of truth: memory is invisible and unreviewable to teammates, and a memory-first flow forks the project state per user."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "A memories/ directory inside the project's git repository is chosen as the memory location."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The location choice is justified against the alternatives, explicitly ruling out a local per-user store because more than one organizer works on the project."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "An index file listing each memory entry with a one-line hook is part of the plan."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Each refusal is explicit and named, not a silent omission of the item."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The response does not re-interview: the artifact exists, so at most the session-goal question is asked."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "The delivery, platform, and production needs are routed to virtual-event-production as the replacement for the closed in-room rows."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "The captions question is routed to event-accessibility-inclusion."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "The response states that accessibility still applies to a virtual event because its digital-access provisions need no room."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Routes are named in owner/repo@skill form."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "The inapplicable checklist items are rejected rather than partially followed: no venue shortlisting or caterer advice appears anywhere in the response."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "The stated reason is that the recurring gate is about having a previous edition to read, not intent to repeat - a first edition has no debrief logs to compare."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Continuous improvement is placed in a not-now list with an explicit unblocking condition (editions and their debriefs existing), rather than deleted or silently dropped."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Ask (b) is routed to samber/dev-event-organizer-skills@cross-event-promotion."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Ask (c) is routed to samber/dev-event-organizer-skills@event-portfolio-strategy."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "The response states that the portfolio skill opens on property count - the day a team starts weighing a second property - whatever edition the flagship is on."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "event-first-edition is promoted or recommended for the flagship, tied to the stated first-edition answer."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Cross-edition after-and-between entries (community building between editions, growth strategy, the trend read) are removed from the current short-list rather than listed low."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Gates are read from stated facts, not inferred from the event's ambition or name."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Routes are named in owner/repo@skill form."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "The published grid's existence removes event-schedule-design from the recommendations."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "The signed venue contract removes event-venue-sourcing from the recommendations."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "The signed venue contract promotes event-risk-management (go/no-go against the cancellation exposure) on the short-list."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "The committed budget is treated as making budget modelling near-free or already done, not recommended as a first task."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Interview questions are limited to what detection could not answer, and the total stays within the seven-question cap."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Any questions are asked one at a time with multiple-choice options."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "The deleted skills (schedule design, venue sourcing) do not appear at the bottom of the short-list - they are removed entirely."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Each short-list entry names the bottleneck it attacks and what the session costs."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "The finished-event answer reduces the current short-list to the after-and-between class alone."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Marketing, sponsorship, on-the-day, and existence-check classes are deleted from the short-list, not listed at the bottom."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "A closing chain is presented in this order: event-feedback, then event-debrief, then event-content-repurposing, then event-continuous-improvement."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "The chain is framed as dependency order - each link handing its output to the next - and the chain itself is not ranked."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "event-feedback is kept as the first link despite the user's temptation to skip the survey, because the debrief and the trend read consume its output."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "event-continuous-improvement is treated as reachable, with the recurring gate read from edition 5 having prior editions."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "The dormant standing talks channel is routed to samber/dev-event-organizer-skills@tech-podcast-youtube-channel."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "The developer-content and documentation push is recommended to the samber/developer-relations-skills collection."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "That sibling-repo hand-off is framed as a recommendation, never a dependency; the collection stays usable standalone."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "The sponsor-API hackathon-challenge question is kept inside this collection and routed to hackathon-brief-design."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Routes are named in owner/repo@skill form."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "No skill name outside the collection's routing tables is offered as a route."
+      }
+    ]
+  }
+}

@@ -1,0 +1,258 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-cfp-design",
+  "scenarios": 6,
+  "expectations_total": 82,
+  "expectations_subjective": 1,
+  "expectations_objective": 81,
+  "pass_rate_with_skill_pct": 92.7,
+  "pass_rate_without_skill_pct": 42.7,
+  "delta_pp": 50.0,
+  "uplift_multiplier": 2.17,
+  "trigger_accuracy_pct": 75.6,
+  "trigger_queries": 78,
+  "trigger_positive_fire_rate": 0.872,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "States that at least 2 weeks are needed between CFP close and program decisions to review proposals"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes the title carries roughly twice the review weight of the abstract"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes that most CFPs are in fact not blind, making named review the field's de facto norm"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes a call silent on perks reads as a call with none, so the confirmed floor is stated rather than omitted"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Refuses the sponsor's guaranteed talk slot outright as a line that cannot be bought, with no compromise that trades program access for the renewal"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Applies the honesty check: publishes only criteria that will actually be applied, acknowledging name recognition and topic mix will shape selection"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Recommends not running an open CFP for this event instead of writing the requested CFP page for the 9-week plan"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States the floor that a CFP should close at least 6-8 weeks before the event"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that a CFP should stay open at least a month, so the proposed 3-week window is below the minimum"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that at least 2 weeks are needed between CFP close and program decisions to review proposals"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Grounds the timeline floor in speakers needing 4-6 weeks to arrange travel or time off, not in organizer convenience"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Identifies the 9-week runway as below the roughly 10-12 week minimum an open CFP needs from open to event"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Rejects the proposed close date 4 weeks before the event as leaving speakers unable to arrange travel"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends filling the program by directly inviting speakers instead of an open call"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Treats the invited route as the program's channel for this edition, not as a backup running beside a compressed CFP"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Does not propose any workaround that keeps an open CFP by shortening the window or moving the close inside 6 weeks of the event"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Does not deliver the requested CFP announcement page while merely warning that the timeline is tight"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Places program announcement around 3.5 months before the event"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Hands the go/no-go demand interpretation to a market-fit or demand-assessment step rather than settling it inside the CFP design"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that the long window's real cost is promotion sustained across the whole open window, not the early open date"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Warns against the stale-window failure where a CFP is announced once and sits silent through the middle of its window"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes a first edition has no archive of past accepted proposals to publish as worked examples for first-time speakers"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that under-represented speakers are less likely to respond to an open call, so the diversity goal requires active outreach into those communities beyond posting the CFP"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Explains that one merged field prevents reviewers from scoring topic quality and speaker fit separately"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes the title carries roughly twice the review weight of the abstract"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Caps the abstract near 100 words"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Adds a separate optional context or why-me field distinct from the abstract"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Explains that the unbounded one-box field makes blind review impossible because identity is woven through the only field there is"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Identifies opt-in anonymization as a platform capability, not a fairness posture"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that a pool mixing named and anonymous submissions is not reviewed on one footing"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Warns that announcing blind review without managed mechanics is blind-review theater"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes that most CFPs are in fact not blind, making named review the field's de facto norm"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Cites at-scale practice where author information is hidden during initial review only"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Ties whichever posture is chosen to review criteria published in the call as the response to the same-names criticism"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Does not design the rating grid or committee scoring process, which belongs to the selection stage after the call closes"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Cites a published flat honorarium of $256 per speaker as one real calibration point"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Cites a published \u00a3500 honorarium alongside covered travel, hotel, and meals as a second calibration point"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Presents the two published figures as disagreeing calibration points rather than a converging market rate"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Gates any actual honorarium amount on the organizer's own budget and a legal or tax review"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes a call silent on perks reads as a call with none, so the confirmed floor is stated rather than omitted"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Warns that direct payments to speakers bring tax, visa, and conflict-of-interest or employment-agreement complications"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Caps travel grants at one per accepted proposal"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Includes the ask that speakers who can afford to attend refrain from requesting a grant from the limited pool"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Cites a published benchmark such as 15% acceptance of 938 proposals or 8-30x oversubscription at popular single-track events"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Prescribes more review capacity, not a narrower call, as the response to submission volume"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Refuses the sponsor's guaranteed talk slot outright as a line that cannot be bought, with no compromise that trades program access for the renewal"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Routes vendor and product-specific talks to an open-space or similar block rather than rejecting them outright"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Checks that the event structure actually offers an open-space block before the call promises that routing"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Includes favoring new content over already-published material among the published criteria"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Includes local versus out-of-town speaker balance among the published criteria"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Includes actively favoring new speakers among the published criteria"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Applies the honesty check: publishes only criteria that will actually be applied, acknowledging name recognition and topic mix will shape selection"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends choosing 2-3 metrics with revision thresholds recorded before the CFP opens"
+      }
+    ]
+  }
+}

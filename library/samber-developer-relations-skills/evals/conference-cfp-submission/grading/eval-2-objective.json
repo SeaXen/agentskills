@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Keeps the employer name out of the title",
+        "evidence": "The 'Blind-round-safe alternative (recommended for round 1)' title 'Rebuilding Idempotent Retries After a 1,900-Customer Duplicate Charge' is explicitly recommended and omits Marbleline.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the employer name out of the abstract",
+        "evidence": "The blind-safe abstract opens 'Idempotency is a product feature, not an implementation detail - we learned that the hard way' with no employer name, recommended for round 1.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the employer name out of the outline",
+        "evidence": "The Outline section ('0\u20133 min \u2014 the incident...') never mentions Marbleline.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that the first round of review is anonymous, so identifying detail in the published fields breaks the event's own review process",
+        "evidence": "\"NordicCloud Summit's own stated policy \u2014 author info hidden from reviewers in round one \u2014 means the skill's rule applies: title, abstract and outline can't name the speaker or employer.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the requested opening line beginning \"At Marbleline, we believe\" rather than using it as written",
+        "evidence": "\"'At [Employer], we believe\u2026' is independently flagged in this skill's own failure-pattern file as a top opening to cut, anonymity aside\" \u2014 and the recommended blind-safe version drops that opening entirely.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Supplies a replacement opening that names the problem the reader recognises instead of the employer",
+        "evidence": "Blind-safe abstract opens with \"Idempotency is a product feature, not an implementation detail - we learned that the hard way. A retry-storm bug in our payments infrastructure double-charged 1,900 customers...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Still discloses the affiliation in whatever form field asks for it rather than concealing it entirely",
+        "evidence": "\"Affiliation disclosure: state \"Marbleline\" in whatever dedicated employer/company field the form provides for this...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Shows a character count for the title against the 80-character cap",
+        "evidence": "\"(70/80 chars)\", \"(69/80 chars)\" etc. shown for each title option.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Shows a character count for the abstract against the 1,200-character cap",
+        "evidence": "\"974/1,200 chars\" and \"(944/1,200 chars)\" shown for the two abstract versions.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Offers five title options, ranked",
+        "evidence": "Six distinct titles are offered across two grouped sections (named vs blind-safe, 3 each), not a single ranked list of five.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Carries the 1,900-customer figure into the abstract",
+        "evidence": "\"double-charged 1,900 customers before anyone caught it\" appears in both abstract versions.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Keeps the employer name out of the title",
+        "evidence": "Title: 'How Marbleline Rebuilt Its Retry Layer After 1,900 Duplicate Charges'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the employer name out of the abstract",
+        "evidence": "Abstract opens: 'At Marbleline, we believe idempotency is a product feature, not an implementation detail.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the employer name out of the outline",
+        "evidence": "No outline field is present in the transcript at all, so this is not demonstrated as satisfied.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that the first round of review is anonymous, so identifying detail in the published fields breaks the event's own review process",
+        "evidence": "'the CFP explicitly anonymizes authors in round one, and this abstract puts Marbleline in the title and the opening line \u2014 that's a deliberate call to trade blind-review neutrality for credibility.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the requested opening line beginning \"At Marbleline, we believe\" rather than using it as written",
+        "evidence": "The abstract uses exactly that line as its opening: 'At Marbleline, we believe idempotency is a product feature, not an implementation detail.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Supplies a replacement opening that names the problem the reader recognises instead of the employer",
+        "evidence": "No replacement opening is supplied; the employer-first opening is kept as written.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Still discloses the affiliation in whatever form field asks for it rather than concealing it entirely",
+        "evidence": "No separate affiliation form field is mentioned or addressed distinctly from the title/abstract.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Shows a character count for the title against the 80-character cap",
+        "evidence": "'Title (68/80 characters):'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Shows a character count for the abstract against the 1,200-character cap",
+        "evidence": "'Abstract (1,103/1,200 characters):'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Offers five title options, ranked",
+        "evidence": "Only a single title is given, not five ranked options.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Carries the 1,900-customer figure into the abstract",
+        "evidence": "'our retry layer failed quietly for weeks before it surfaced as duplicate charges on 1,900 customers.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

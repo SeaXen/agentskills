@@ -1,0 +1,19 @@
+## Neither. You're both diagnosing a supply-side problem when the data says you have a demand-side problem.
+
+**Read the numbers straight.** 61 of 940 accounts (6.5%) generated a key — that's your entire top-of-funnel after 14 months, 9 blog posts, two hackathon sponsorships, and a hired advocate. Of those 61, exactly one team built anything, and they built it twice, and kept both for themselves. That's not "awareness is low" or "docs are rough." That's 61 people trying and 60 of them stopping. Something happens right after key generation that kills the project, and neither more content nor an app store touches that moment.
+
+**Your VP is proposing more of what already didn't work.** Nine blog posts and two hackathons already tested the "if we shout louder, they will build" hypothesis. The result was one customer. A "bigger relaunch" is the same bet with a bigger chip — there's no reason to expect a different payout unless you know *why* the first 61 attempts stalled, and right now nobody does.
+
+**You're proposing to skip past the same unknown, not around it.** An app store is a two-sided marketplace: it needs a supply of builders motivated to publish *for other people to use*, and a demand of customers who want to install things built by strangers. You have zero evidence either side exists. The one team that succeeded explicitly chose not to share — which is itself a signal, and probably a more important one than the marketing question: they got value from *building*, none from *distributing*. A marketplace commoditizes exactly the thing they didn't want to give away.
+
+**Why incident-response tooling may not want to be an ecosystem at all.** Every customer's IR stack — paging, ticketing, chat ops, runbooks — is wired differently. An integration one team builds for their environment is often not reusable by another team, so there's no "reach" incentive to publish it, and no reason to expect the pattern that works for Slack's or Stripe's app stores (generic use case, huge horizontal audience) to hold for a 940-account niche product. That's plausibly the real reason 60 keys went nowhere: not friction, not docs — no shareable use case to build toward.
+
+### What to actually do
+
+1. **Talk to all 61, not a sample.** Ask the 60 who didn't ship: what did you try, where did you stop, why. Ask the one who shipped twice: what made your case different, and what would it take to open-source or co-market even one of the two (with them, not around them).
+2. **Look for a repeatable pattern across those conversations**, not a marketing narrative. If three teams independently wanted "auto-create a Jira ticket from a webhook," that's a feature to ship yourselves, not an ecosystem to seed.
+3. **If no pattern exists, that's your answer.** The API stays a solid integration surface for individual customers' internal automation — a Tier-1 self-serve capability — and never needs to become a marketplace. Not every good API is a platform business.
+4. **Redirect the developer advocate from content to this research.** Nine blog posts is enough top-of-funnel content for a product with 61 trials; the advocate's highest-value work right now is running those 61 conversations and turning the one success into a real case study, with permission.
+5. **Put both the relaunch and the app store on hold until you have that data.** Neither is wrong forever — but committing budget to either before you know why adoption stalled is optimizing a funnel stage you haven't identified yet.
+
+If the interviews turn up a genuine, recurring, shareable use case, revisit the app store — but scoped as a curated set of reference integrations you help build (Tier 2, co-developed), not an open marketplace, since you're nowhere near the volume where discovery/trust infrastructure pays for itself. If they turn up friction (auth complexity, unclear webhook semantics, no sandbox), that's a docs and DX fix — but a targeted one, not a "bigger relaunch."

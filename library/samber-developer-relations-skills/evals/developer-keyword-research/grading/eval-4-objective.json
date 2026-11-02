@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Deletes the integration family (segment, snowflake) from the map and names the absent maintenance capacity as the reason",
+        "evidence": "\"Segment integration (140/90d) and Snowflake export (98/90d) are demoted twice over: legal blocks the vendor name, and even without that, a standing integration-maintenance job doesn't fit a zero-upkeep budget.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that an integration guide nobody can keep current rots into a wrong answer that costs more than the page ever earned",
+        "evidence": "No statement about a stale integration guide rotting into a wrong answer; only maintenance-capacity/staffing reasoning is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes the comparison family ('fernweh vs Amplitude') and names the absent legal sign-off as the reason",
+        "evidence": "\"fernweh vs Amplitude (61/90d) | Legal: names a vendor, door closed regardless of evidence strength.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Serves the competitor-comparison demand with a migration guide about their own product instead",
+        "evidence": "\"a 'moving your analytics stack to Fernweh' page that describes the steps and data mapping without naming the tool being replaced\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not park either deleted family at the bottom of the ranked list or as a low-priority row",
+        "evidence": "Both families appear only in the \"Do not target\" table, not in the Ranked clusters table at any priority.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that a cluster parked at the bottom returns next quarter as unbudgeted scope",
+        "evidence": "No such statement appears; the transcript explains deletion reasons (legal, capacity) but not the risk of parking returning as unbudgeted scope.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Attaches a parked date to the backlog entries",
+        "evidence": "\"What is product analytics (45 docs searches / 90d, User-provided) \u2014 parked 2026-09-20.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places the error cluster ('SDK init error 4013') at or near the top, on the grounds the fix already exists and the page costs about an hour",
+        "evidence": "It is placed first with cost reasoning (\"Both survivors are cheap (an hour each)\"), but no statement that \"the fix already exists\" is given as grounds.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the sort used above the ranked table",
+        "evidence": "\"Sorted by outcome per page-hour, highest first.\" appears directly before the Ranked clusters table.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Records the unavailable sources (error telemetry, search console) as unavailable in the Scope section",
+        "evidence": "\"Tier 1 \u2014 first-party query/Search Console data: not yet set up, per the brief... Tier 4 \u2014 product error telemetry: explicitly none.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Deletes the integration family (segment, snowflake) from the map and names the absent maintenance capacity as the reason",
+        "evidence": "Segment and Snowflake are 'Reframe or defer' and kept in the Backlog as a conditional generic export page. They are not deleted.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that an integration guide nobody can keep current rots into a wrong answer that costs more than the page ever earned",
+        "evidence": "It mentions upkeep risk but not rot into a costly wrong answer.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes the comparison family ('fernweh vs Amplitude') and names the absent legal sign-off as the reason",
+        "evidence": "'vs Amplitude' is 'Reject for docs'. 'Legal's rule... blocks the category... its own legal sign-off path'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Serves the competitor-comparison demand with a migration guide about their own product instead",
+        "evidence": "It offers a 'Generic migration checklist' for Mixpanel searches and sends Amplitude to marketing, not a guide about Fernweh.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not park either deleted family at the bottom of the ranked list or as a low-priority row",
+        "evidence": "Integration demand is parked in 'Backlog \u2014 next quarter, conditional'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that a cluster parked at the bottom returns next quarter as unbudgeted scope",
+        "evidence": "No such explanation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Attaches a parked date to the backlog entries",
+        "evidence": "Backlog entries carry no dates.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places the error cluster ('SDK init error 4013') at or near the top, on the grounds the fix already exists and the page costs about an hour",
+        "evidence": "The error page is page 1, but the grounds given are volume and zero vendor risk, not an existing fix or an hour of effort.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the sort used above the ranked table",
+        "evidence": "The 'Prioritized map' table has no stated sort.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Records the unavailable sources (error telemetry, search console) as unavailable in the Scope section",
+        "evidence": "'Basis: ... No error telemetry or Search Console yet'.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that every copyright holder whose code is still present must consent, since MIT plus no contributor agreement means no pre-granted relicensing right",
+        "evidence": "\"Every copyright holder whose code is still present must consent, unless a contributor agreement already granted the right.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that published releases stay MIT forever and can always be forked from the last MIT commit",
+        "evidence": "\"Every 1.x/2.x/3.x release stays MIT permanently \u2014 that's not a policy choice... anyone can fork from the last MIT commit today\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Produces a change plan covering whose consent is needed, what happens to unreachable contributors, the version boundary, what stays on the old terms, and the announcement",
+        "evidence": "'Step 6 \u2014 The relicense plan' covers 'Who must consent', 'Decline or no-response...', 'Version boundary', 'What stays permissive', plus a full 'blog post' announcement draft.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats a fork as the predictable response rather than the worst case",
+        "evidence": "\"Prepare for the fork. Given MIT + copyleft precedent... expect one.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the documented relicensing cases and the fork each produced: Elasticsearch and OpenSearch, Redis and Valkey, HashiCorp and OpenTofu",
+        "evidence": "\"Elastic \u2192 OpenSearch, Redis \u2192 Valkey, HashiCorp \u2192 OpenTofu\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that HashiCorp's BUSL-1.1 change applied to future releases only, with SDKs and APIs left on MPL-2.0",
+        "evidence": "Only says \"it's what HashiCorp, the closest precedent here, did with its SDKs and APIs\" \u2014 no mention of future-releases-only scope or MPL-2.0 specifically.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the OpenTF manifesto's scale, over 140 companies and over 700 individuals, and OpenTofu's Linux Foundation launch on 20 September 2023",
+        "evidence": "No such figures or date are mentioned anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States BUSL-1.1's Change Date must be at most four years after first publication",
+        "evidence": "The LICENSE text sets \"The fourth anniversary\" as a chosen parameter but never states this is a required maximum.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States BUSL-1.1's Change License must be GPL-2.0-or-later or compatible",
+        "evidence": "Reproduced Covenants text: \"To specify as the Change License the GPL Version 2.0 or any later version, or a license that is compatible with GPL Version 2.0 or a later version\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Mentions the optional Additional Use Grant as the parameter that defines free production use",
+        "evidence": "\"The Licensor may make an Additional Use Grant, above, permitting limited production use.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that BUSL is not OSI-approved and must be called source-available, never open source",
+        "evidence": "\"If any current customer's procurement process requires OSI-approved-only, BUSL will fail that filter\" plus the reproduced Notice: \"the Business Source License... is not an Open Source license.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that four weeks is incompatible with a 47-contributor consent campaign, citing Mozilla's 2001 to 2006 Firefox relicensing as the scale to plan against",
+        "evidence": "\"It is not enough time to get affirmative, defensible consent from 47 people... Slip the date and run consent-gathering properly first (months, per Mozilla's own precedent).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends leaving SDKs, clients, APIs, examples and documentation permissive",
+        "evidence": "\"if you ship separate client libraries, SDKs, language bindings, or examples/docs as distinct packages, leave those on MIT.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that every copyright holder whose code is still present must consent, since MIT plus no contributor agreement means no pre-granted relicensing right",
+        "evidence": "The transcript states the opposite: \"You almost certainly have the legal right to do this without going back to the 47 contributors.\" and explains MIT's sublicensing grant lets them redistribute under different terms without contributor consent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that published releases stay MIT forever and can always be forked from the last MIT commit",
+        "evidence": "\"you cannot undo what's already MIT. Every commit through your last MIT-licensed release stays MIT forever, for everyone who already has it. Anyone \u2014 including the competitor \u2014 can fork that last commit and keep going under the original terms.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Produces a change plan covering whose consent is needed, what happens to unreachable contributors, the version boundary, what stays on the old terms, and the announcement",
+        "evidence": "The plan covers version boundary (4.0 onward BUSL vs 3.x MIT) and announcement, but explicitly asserts no consent is needed ('email them... not as a courtesy but before legal review') and never addresses what happens if a contributor cannot be reached.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats a fork as the predictable response rather than the worst case",
+        "evidence": "\"We expect some of you to be unhappy about this, and some of you to fork the last MIT release and keep going without us. That's allowed, it's expected...\" and \"Assume it happens to you too. It's not a legal risk, it's close to a certainty, and the plan below treats it as one.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the documented relicensing cases and the fork each produced: Elasticsearch and OpenSearch, Redis and Valkey, HashiCorp and OpenTofu",
+        "evidence": "\"This has happened every single time a company has pulled this move: Terraform \u2192 OpenTofu, Elasticsearch \u2192 OpenSearch, Redis \u2192 Valkey.\" (repeated again later: \"MongoDB, Elastic, HashiCorp, Sentry, CockroachDB, and a growing list of others made the same call before us.\")",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that HashiCorp's BUSL-1.1 change applied to future releases only, with SDKs and APIs left on MPL-2.0",
+        "evidence": "No mention anywhere of HashiCorp's SDKs/APIs remaining on MPL-2.0 or any scope detail of HashiCorp's own BUSL change.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the OpenTF manifesto's scale, over 140 companies and over 700 individuals, and OpenTofu's Linux Foundation launch on 20 September 2023",
+        "evidence": "No mention of the OpenTF manifesto, its signatory counts, or the Linux Foundation launch date anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States BUSL-1.1's Change Date must be at most four years after first publication",
+        "evidence": "\"Effective on the Change Date, or the fourth anniversary of the first publicly available distribution of a specific version of the Licensed Work under this License, whichever comes first, the Licensor hereby grants you rights under the terms of the Change License...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States BUSL-1.1's Change License must be GPL-2.0-or-later or compatible",
+        "evidence": "Covenant 1: \"To specify as the Change License the GPL Version 2.0 or any later version, or a license that is compatible with GPL Version 2.0 or a later version...\" and the follow-up note flags Apache 2.0 as technically breaking this covenant.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Mentions the optional Additional Use Grant as the parameter that defines free production use",
+        "evidence": "The license text's \"Additional Use Grant\" clause defines permitted production use, and Covenant 2 explains it as \"an additional grant of rights to use that does not impose any additional restriction on the right granted in this License.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that BUSL is not OSI-approved and must be called source-available, never open source",
+        "evidence": "\"The Business Source License (this document, or the \"License\") is not an Open Source license.\" and in the FAQ: \"Yes \u2014 BUSL is source-available, not source-restricted.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that four weeks is incompatible with a 47-contributor consent campaign, citing Mozilla's 2001 to 2006 Firefox relicensing as the scale to plan against",
+        "evidence": "No mention of Mozilla or Firefox relicensing anywhere; the transcript instead lays out a four-week plan without flagging it as too short for a consent campaign.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends leaving SDKs, clients, APIs, examples and documentation permissive",
+        "evidence": "No mention of carving out SDKs, client libraries, APIs, examples, or documentation to remain under a permissive license; the license change is applied to \"Harborloom 4.0\" as a whole.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Computes three separate ceilings - room, coverage, and exercise throughput - rather than producing a single capacity number directly.",
+        "evidence": "Table has exercise throughput, room and coverage rows.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Takes the lowest of the three as the capacity.",
+        "evidence": "\"It comes from the lowest of the three capacity ceilings\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States which ceiling bound the number.",
+        "evidence": "\"Exercise throughput | 9 (binds)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives 9 as the capacity, bound by the number of dev boards.",
+        "evidence": "\"Give marketing 9... board count.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not rank the three ceilings against each other or present them as alternatives with different value or efficiency.",
+        "evidence": "Ceilings are compared only to find the minimum, with no value/efficiency ranking.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reduces the room ceiling below the venue's stated 30 seats because the benches are fixed, and treats power at the seats as a separate question from the seat count.",
+        "evidence": "\"Room | \u226430, unconfirmed... doesn't account for bolted benches or power on two walls only\"; \"Power on two walls only is a layout problem\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Infers no capacity from the room's name.",
+        "evidence": "No capacity is derived from the room name.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the coverage ceiling with its sizing logic attached instead of a number looked up from a standard.",
+        "evidence": "\"\u22659 (my judgment, not a standard)... one path at every seat. One instructor plus one roaming troubleshooter\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that the throughput ceiling is the one invisible on the registration page until a participant is left without a device.",
+        "evidence": "No such statement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Hands the capacity figure onward as an input to scheduling rather than placing the session in the grid itself.",
+        "evidence": "No mention of passing the figure to schedule design.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Invents no per-seat bandwidth or power figure specific to a workshop room; any per-attendee density figure used is labelled as an upper bound borrowed from hackathon-floor guidance.",
+        "evidence": "No per-seat figures given.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "If a pre-event demand vote is proposed for matching sessions to rooms, states that it ranks demand and lifts none of the three ceilings.",
+        "evidence": "No demand vote proposed (a waitlist only), so the condition does not trigger.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Computes three separate ceilings - room, coverage, and exercise throughput - rather than producing a single capacity number directly.",
+        "evidence": "Its three limits are room seats, vendor toolchain logins and dev boards. There is no coverage ceiling.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Takes the lowest of the three as the capacity.",
+        "evidence": "'Seat cap = the smallest of the three hard limits.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States which ceiling bound the number.",
+        "evidence": "Dev boards (one per participant) = 9, marked 'Yes' under Binding.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives 9 as the capacity, bound by the number of dev boards.",
+        "evidence": "'The number: 9'; the board count caps us at 9.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not rank the three ceilings against each other or present them as alternatives with different value or efficiency.",
+        "evidence": "Presents them as simultaneous hard limits in a table, with no ranking by value or efficiency.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reduces the room ceiling below the venue's stated 30 seats because the benches are fixed, and treats power at the seats as a separate question from the seat count.",
+        "evidence": "Lists the room at 30 as not binding. It raises power from two walls but does not reduce the room ceiling, and it treats the benches as an outlet-reach question only.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Infers no capacity from the room's name.",
+        "evidence": "The 30 seats come from the venue's stated figure, not from the name 'Large Workshop Suite'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the coverage ceiling with its sizing logic attached instead of a number looked up from a standard.",
+        "evidence": "No coverage ceiling is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that the throughput ceiling is the one invisible on the registration page until a participant is left without a device.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Hands the capacity figure onward as an input to scheduling rather than placing the session in the grid itself.",
+        "evidence": "Hands the figure to marketing copy, not to scheduling.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Invents no per-seat bandwidth or power figure specific to a workshop room; any per-attendee density figure used is labelled as an upper bound borrowed from hackathon-floor guidance.",
+        "evidence": "No such figures appear.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "If a pre-event demand vote is proposed for matching sessions to rooms, states that it ranks demand and lifts none of the three ceilings.",
+        "evidence": "No demand vote is proposed, so the condition does not apply.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

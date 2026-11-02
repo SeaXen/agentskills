@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Promotes CalVer for this project and names both conditions: single-digit compatibility is impossible for a multi-surface project, and a time-based deprecation rule already runs",
+        "evidence": "\"Single-digit compatibility is impossible when every release removes something... and you already run a time-based deprecation rule.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that CalVer moves the compatibility contract into prose and writes that compatibility rule explicitly, saying what a release may remove and under what notice",
+        "evidence": "\"CalVer moves the contract into prose\"; Deprecation section with removal notice.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Specifies unpadded, PEP 440 normalized spelling such as 26.1.0 and rejects padded months",
+        "evidence": "\"Segments are never zero-padded\"; \"normalized PEP 440 form, for example `27.2.0`\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that 26.x sorts above 7.14 so the switch preserves ordering and needs no epoch",
+        "evidence": "\"`7.14.x` sorts below `27.1.0` under PEP 440, so no epoch is needed.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes the deprecation window as removal no earlier than two releases and one year after the deprecation, noting that two releases at three per year is under a year so the time part binds",
+        "evidence": "\"two feature releases and 12 months... whichever is later\"; \"two releases is about 8 months\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the replacement to be named in each deprecation warning and linked from the changelog",
+        "evidence": "\"Warning text: the replacement...\"; \"recorded in the changelog\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a stable identifier per deprecation because the project deprecates often",
+        "evidence": "\"`QF-DEP-0042` that the warning also prints\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the misreading risk that users read year-based numbers as SemVer majors, and writes that misreading into the policy",
+        "evidence": "\"read the year as a major\"; \"It is the same calendar year, not a compatibility guarantee.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States what ~=26.0 buys a pip user under the written policy, same calendar year",
+        "evidence": "\"`quillforge~=27.1` means `>=27.1, ==27.*`... same calendar year, not a compatibility guarantee.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that Dependabot reads a year rollover as a major and a month as a minor, so dependents' type-based automerge rules are wrong by default",
+        "evidence": "\"The year rollover reads as a major. A change in `N` reads as a minor.\" plus the automerge hazard.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends that the project publish what each segment means so dependents can write a per-package rule, such as Renovate regex versioning",
+        "evidence": "Asks dependents to automerge only MICRO and gives a Renovate packageRules sketch.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps a time-based cadence and states that no empty release ships to keep the calendar",
+        "evidence": "\"We never publish an empty release to fill a slot.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Announces the scheme change at least one release ahead and names the last 7.x version with its support end date",
+        "evidence": "\"Announce... in the `7.15` release notes\"; \"State the last `7.x` version and its support end date.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Promotes CalVer for this project and names both conditions: single-digit compatibility is impossible for a multi-surface project, and a time-based deprecation rule already runs",
+        "evidence": "Chooses YY.M.P but does not name the multi-surface and time-based-deprecation conditions.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that CalVer moves the compatibility contract into prose and writes that compatibility rule explicitly, saying what a release may remove and under what notice",
+        "evidence": "\"The year does not signal a break... Nothing is removed without a prior warning, except under 'Exceptions'.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Specifies unpadded, PEP 440 normalized spelling such as 26.1.0 and rejects padded months",
+        "evidence": "\"M is the month of the release, without a leading zero\"; pre-releases \"26.11.0rc1\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that 26.x sorts above 7.14 so the switch preserves ordering and needs no epoch",
+        "evidence": "\"Every calendar version sorts above it, so pip install -U needs no epoch.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes the deprecation window as removal no earlier than two releases and one year after the deprecation, noting that two releases at three per year is under a year so the time part binds",
+        "evidence": "Uses a 6-month floor, not one year.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the replacement to be named in each deprecation warning and linked from the changelog",
+        "evidence": "Warning must state \"what replaces it\"; release-note deprecation entries.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a stable identifier per deprecation because the project deprecates often",
+        "evidence": "A registry keyed by name exists, but no stable identifier is recommended.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the misreading risk that users read year-based numbers as SemVer majors, and writes that misreading into the policy",
+        "evidence": "\"The year does not signal a break. Any feature release can remove things\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States what ~=26.0 buys a pip user under the written policy, same calendar year",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that Dependabot reads a year rollover as a major and a month as a minor, so dependents' type-based automerge rules are wrong by default",
+        "evidence": "\"every January release... counts as major. Every other feature release counts as minor\"; \"Minor no longer means safe\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends that the project publish what each segment means so dependents can write a per-package rule, such as Renovate regex versioning",
+        "evidence": "Segments are explained, but not for writing per-package bot rules such as Renovate regex versioning.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps a time-based cadence and states that no empty release ships to keep the calendar",
+        "evidence": "Says three releases a year but has no no-empty-release rule.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Announces the scheme change at least one release ahead and names the last 7.x version with its support end date",
+        "evidence": "\"Publish before the first calendar release\"; \"7.14 receives security fixes only, until <DATE>\".",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

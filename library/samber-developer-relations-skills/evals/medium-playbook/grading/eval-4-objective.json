@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Uses presentations at or below the follower count as the sign the stories are in Network (followers-only) distribution",
+        "evidence": "\"Presentations at or near follower count suggest Network only.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names product announcements and comparison or trial-driven posts as content marketing that loses General distribution",
+        "evidence": "\"Content marketing, PR pieces and stories whose primary point is signups get Network only\"; both example titles fail the test.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says topics unrelated to the story's content (e.g. AI, Startup, Productivity on a release note) count as topic spam",
+        "evidence": "\"Off-topic topics chosen for reach are penalised\"; \"not about AI, Startup or Productivity.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says mentioning large numbers of users makes a story ineligible for General distribution",
+        "evidence": "\"example of a mass mention is 20 users. Such stories lose General distribution\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that stories not written in English receive no Boost and no General distribution",
+        "evidence": "\"Other languages get no Boost and no General distribution [platform].\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that ChatGPT drafts with only a light edit count as AI-generated content, which gets no General distribution or Boost even when disclosed",
+        "evidence": "\"Majority-AI text with little editing... no General distribution, no Boost, labelled or not\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends first-hand engineering stories by named engineers as the replacement",
+        "evidence": "\"Named engineers publish under their own accounts. Boost weighs first-hand experience\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends limiting topics to at most 5 that describe the story",
+        "evidence": "\"Up to 5 topics, each one the story is actually about.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes presentations, views and reads when explaining the funnel",
+        "evidence": "\"Presentations high but views low would mean a title, subtitle or cover problem\"; \"read ratio (reads of 30 seconds or more over views)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Advises not to re-post the failed stories",
+        "evidence": "\"Don't re-post, delete or unlist old stories to retry them. One copy on Medium.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Uses presentations at or below the follower count as the sign the stories are in Network (followers-only) distribution",
+        "evidence": "Says posts 'reach roughly our 300 followers and stop' but never names Network distribution or presentations.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names product announcements and comparison or trial-driven posts as content marketing that loses General distribution",
+        "evidence": "'Medium's rules and curation also treat primarily promotional content as ineligible for broader recommendation.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says topics unrelated to the story's content (e.g. AI, Startup, Productivity on a release note) count as topic spam",
+        "evidence": "Calls the tags crowded and a poor fit, but does not say topic spam.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says mentioning large numbers of users makes a story ineligible for General distribution",
+        "evidence": "Says mass tagging 'can look like spam to Medium's systems', with no ineligibility.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that stories not written in English receive no Boost and no General distribution",
+        "evidence": "Only 'Medium recommends by language'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that ChatGPT drafts with only a light edit count as AI-generated content, which gets no General distribution or Boost even when disclosed",
+        "evidence": "Only 'Medium has said it limits distribution of AI-generated writing. Verify.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends first-hand engineering stories by named engineers as the replacement",
+        "evidence": "'Put real people on the byline. Use an engineer with their own profile' and posts built on 'our own benchmarks, incidents, and queries'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends limiting topics to at most 5 that describe the story",
+        "evidence": "Recommends five tags but never states a limit.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes presentations, views and reads when explaining the funnel",
+        "evidence": "Mentions views and read ratio but not presentations.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Advises not to re-post the failed stories",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

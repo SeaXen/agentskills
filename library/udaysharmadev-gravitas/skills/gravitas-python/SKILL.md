@@ -13,7 +13,6 @@ triggers:
   - "flask"
   - "pytest"
   - "mypy"
-category: code-quality-refactoring
 ---
 
 # GRAVITAS — Python Extension

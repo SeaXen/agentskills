@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Response declines to state a guard headcount for 800 attendees.",
+        "evidence": "the skill won't assert a number",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response cites the published event-security standard (ANSI ES1.40-2023, Event Safety - Event Security) and states the standard itself says there is no one correct number of guards and no single best practice for staffing a given event.",
+        "evidence": "says there is no single correct headcount",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response declines to state a security hourly rate or day rate.",
+        "evidence": "no public benchmark for security hourly rates",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response declines to assert which licence a guard must hold, and states that licensing is jurisdiction-specific.",
+        "evidence": "Don't assert one",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response instructs asking the firm what licences and insurance it and its staff hold, and asking the venue what it requires, rather than asserting a standard.",
+        "evidence": "What licences does the firm hold, and what licence does each guard hold",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response notes that whether a licence is required at all can turn on whether the guards are the firm's own employees or subcontracted, and instructs asking which.",
+        "evidence": "A licence requirement can turn on this",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response instructs asking the venue first whether it includes security, mandates its own, or will only permit firms it already works with, and notes the category closes if no outside firm is permitted.",
+        "evidence": "this category closes",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response instructs asking the venue what the building actually requires - guard posts, hours, and whether a fire marshal is a separately paid role - instead of the organizer deciding a coverage level.",
+        "evidence": "guard posts, hours, and whether a fire marshal is a separate paid role",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response requires a written post order before the event: a map or table naming each post, how many guards staff it, and their hours.",
+        "evidence": "map or table naming each post, how many guards staff it, and their hours",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response states that a firm which cannot produce a post order has priced a headcount rather than planned a deployment.",
+        "evidence": "has priced a headcount, not planned a deployment",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response mentions the 1:250 trained-crowd-manager-to-occupant ratio as a floor for that specific credential, and frames a lower total security number as grounds for a direct question rather than for rejecting the quote outright.",
+        "evidence": "a floor for that credential... Don't automatically reject the quote",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response lists baseline guard qualifications: at least 18 years old, no other duties that interfere with the security role, identifiable by uniform or visible credential, and trained for the specific tasks the event needs such as crowd management, de-escalation or evacuation direction.",
+        "evidence": "Lists 18+, uniform, trained but omits no interfering other duties",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response asks about the firm's incident-report practice - what a report captures, who writes it, and how long records are kept.",
+        "evidence": "what a report captures, who writes it, how long it is kept",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Response declines to state a guard headcount for 800 attendees.",
+        "evidence": "'Plan for 10 people... 9 guards plus 1 supervisor'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response cites the published event-security standard (ANSI ES1.40-2023, Event Safety - Event Security) and states the standard itself says there is no one correct number of guards and no single best practice for staffing a given event.",
+        "evidence": "Not cited.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response declines to state a security hourly rate or day rate.",
+        "evidence": "Gives \u00a320\u201328/h etc. and a day cost.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response declines to assert which licence a guard must hold, and states that licensing is jurisdiction-specific.",
+        "evidence": "Asserts SIA and CNAPS requirements.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response instructs asking the firm what licences and insurance it and its staff hold, and asking the venue what it requires, rather than asserting a standard.",
+        "evidence": "'Licence or card numbers for every named guard'; 'Do they require their own approved contractor?'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response notes that whether a licence is required at all can turn on whether the guards are the firm's own employees or subcontracted, and instructs asking which.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response instructs asking the venue first whether it includes security, mandates its own, or will only permit firms it already works with, and notes the category closes if no outside firm is permitted.",
+        "evidence": "Asks about own contractor but not the closing logic.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response instructs asking the venue what the building actually requires - guard posts, hours, and whether a fire marshal is a separately paid role - instead of the organizer deciding a coverage level.",
+        "evidence": "'minimum headcount or ratio'; 'Who covers fire marshals and first aid? Those are separate from security.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response requires a written post order before the event: a map or table naming each post, how many guards staff it, and their hours.",
+        "evidence": "'A written deployment plan: posts, shift times, breaks, radio channels'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response states that a firm which cannot produce a post order has priced a headcount rather than planned a deployment.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response mentions the 1:250 trained-crowd-manager-to-occupant ratio as a floor for that specific credential, and frames a lower total security number as grounds for a direct question rather than for rejecting the quote outright.",
+        "evidence": "Cites NFPA 1:250 as a 'legal floor', not framed as credential-specific or a question.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response lists baseline guard qualifications: at least 18 years old, no other duties that interfere with the security role, identifiable by uniform or visible credential, and trained for the specific tasks the event needs such as crowd management, de-escalation or evacuation direction.",
+        "evidence": "Not listed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response asks about the firm's incident-report practice - what a report captures, who writes it, and how long records are kept.",
+        "evidence": "Only 'An incident log and a debrief report within 48 hours'.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

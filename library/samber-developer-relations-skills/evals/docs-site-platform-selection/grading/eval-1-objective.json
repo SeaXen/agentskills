@@ -1,0 +1,118 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The response does not recommend Docusaurus or Mintlify as the answer",
+        "evidence": "Opens with \"**Mintlify, unless you have a named person who can own the build. In that case, Docusaurus.**\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response asks exactly one question",
+        "evidence": "\"**The one question that decides it:** who keeps this site running after launch, and for how many hours a month?\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The question offers multiple-choice options",
+        "evidence": "The question is open-ended, with no options offered.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The question concerns who authors/edits the docs, who maintains the build, or what triggered the choice",
+        "evidence": "\"who keeps this site running after launch\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response states that requirements come before product choice",
+        "evidence": "It gives a product answer straight away and never says requirements must come first.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response does not present a feature comparison table of the two named tools",
+        "evidence": "The response has no table, only prose and bullets.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response says comparison posts or vendor articles are claims rather than evidence, or that several are written by vendors",
+        "evidence": "\"Most 'best docs tools' lists are written by a vendor that ranks itself first, and feature rows are claims, not evidence.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response frames the two names as possibly different classes (hosted platform versus self-hosted generator) rather than equivalent options",
+        "evidence": "\"Docusaurus is a self-hosted generator... Mintlify is a hosted platform\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response explains why it is not answering with a tool name directly",
+        "evidence": "It names a tool at once. \"This is conditional because I can't answer your questions\" is not an explanation of withholding a name.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The response does not recommend Docusaurus or Mintlify as the answer",
+        "evidence": "\"**Pick Mintlify.**\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response asks exactly one question",
+        "evidence": "No question is asked; the response gives a recommendation and a next step.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The question offers multiple-choice options",
+        "evidence": "There is no question.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The question concerns who authors/edits the docs, who maintains the build, or what triggered the choice",
+        "evidence": "There is no question.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response states that requirements come before product choice",
+        "evidence": "It jumps to a product pick. It says only \"I assumed none of these apply.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response does not present a feature comparison table of the two named tools",
+        "evidence": "The comparison is in bullets, with no table.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response says comparison posts or vendor articles are claims rather than evidence, or that several are written by vendors",
+        "evidence": "No mention of vendor articles or of comparison posts being unreliable.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response frames the two names as possibly different classes (hosted platform versus self-hosted generator) rather than equivalent options",
+        "evidence": "It treats them as alternatives (\"Pick Docusaurus only if...\"), though it does mention SaaS versus self-host.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response explains why it is not answering with a tool name directly",
+        "evidence": "It answers with a tool name directly.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

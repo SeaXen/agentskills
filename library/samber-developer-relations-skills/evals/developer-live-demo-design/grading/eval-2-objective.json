@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Recommends a recorded screencast played inside the deck as the primary plan",
+        "evidence": "\"Take the two-thirds version: record the exact demo, play it back, narrate it live. That's Tier 3...\" and step 7 says \"video embedded in the deck (not a browser tab you have to alt-tab to)\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explicitly rejects annotated screenshots as the primary plan",
+        "evidence": "\"Why not your co-founder's screenshots (Tier 4)... Tier 4 quietly proves a weaker claim than the one you actually want the room to believe.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that screenshots buy near-zero proof for near-zero effort, so the cheapest option is not the most efficient one",
+        "evidence": "The text argues tier 3 and tier 4 are \"equally safe\" and picks the one that \"proves more\" \u2014 it never frames screenshots as cheap/low-effort or invokes a cost-vs-proof efficiency argument.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the narration to stay live over the recorded screen",
+        "evidence": "\"Narration stays live over the recorded pixels \u2014 don't pre-record your voice too, or it just becomes a video and the room checks out.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that pre-recording the commentary as well turns the session into a video and disengages the audience",
+        "evidence": "\"don't pre-record your voice too, or it just becomes a video and the room checks out\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names annotated screenshots or a diagram as the standing fallback below the recorded screencast",
+        "evidence": "\"Pull one frame for the standing fallback (15 min)... an annotated screenshot. That's your Tier 4, one level down, sitting on the next slide, silent unless you need it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rules out the live-typing tiers because six hours of prep cannot make them safe",
+        "evidence": "\"Why not live (Tier 0/1/2): nine days and six hours of prep is the combination this skill flags as disqualifying for anything that depends on rehearsal to become safe... Cut them now, not on day 8.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Presents two or three candidate tiers with their trade-offs before recommending one",
+        "evidence": "The response opens with the recommendation itself (\"Neither. Take the two-thirds version... That's Tier 3\") and only afterward explains \"Why not live\" and \"Why not... screenshots\" \u2014 trade-offs come after, not before, the recommendation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that the recording has to be re-recorded whenever the product UI moves",
+        "evidence": "No mention of re-recording being needed if the product UI changes.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not present the tier ladder to the user as a published or industry-standard framework",
+        "evidence": "\"That's Tier 3 on the fidelity ladder this skill uses (0 = live typing, 4 = static screenshots).\" \u2014 attributed to \"this skill,\" not to an external standard.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Orders the options by value returned per unit of effort rather than by cost alone",
+        "evidence": "\"a recording has zero execution risk, same as a screenshot \u2014 so between two tiers that are equally safe, take the one that proves more. That's the whole decision rule: keep only the tiers that prove the claim, then take the strongest of the survivors.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Settles the live-versus-recorded decision without producing an unrequested slide-by-slide talk outline",
+        "evidence": "The six-hour plan is a prep task checklist (pick query, harden environment, record takes, etc.), not a slide-by-slide narration script.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Recommends a recorded screencast played inside the deck as the primary plan",
+        "evidence": "\"Go live \u2014 with recorded safety net baked into deck\" \u2014 live is primary, recording is the safety net",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explicitly rejects annotated screenshots as the primary plan",
+        "evidence": "\"Screenshots-with-narration kills credibility here... Narrated screenshot reads as vaporware\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that screenshots buy near-zero proof for near-zero effort, so the cheapest option is not the most efficient one",
+        "evidence": "no cost/effort-vs-proof framing is given, only a credibility argument",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the narration to stay live over the recorded screen",
+        "evidence": "no statement requiring live narration during the recorded fallback's playback",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that pre-recording the commentary as well turns the session into a video and disengages the audience",
+        "evidence": "not mentioned anywhere in the transcript",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names annotated screenshots or a diagram as the standing fallback below the recorded screencast",
+        "evidence": "no fallback below the recorded screen capture is named",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rules out the live-typing tiers because six hours of prep cannot make them safe",
+        "evidence": "opposite: \"Lowest-risk live-demo shape that exists. Bulletproof-able in 6 hours.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Presents two or three candidate tiers with their trade-offs before recommending one",
+        "evidence": "only a brief rejection of screenshots is given before recommending live+recording; no structured multi-tier comparison",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that the recording has to be re-recorded whenever the product UI moves",
+        "evidence": "not mentioned",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not present the tier ladder to the user as a published or industry-standard framework",
+        "evidence": "no tier ladder is framed as a published/industry standard anywhere in the text",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Orders the options by value returned per unit of effort rather than by cost alone",
+        "evidence": "no effort/value framing is used; reasoning is about credibility risk",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Settles the live-versus-recorded decision without producing an unrequested slide-by-slide talk outline",
+        "evidence": "the plan gives hour-by-hour prep steps, not a slide-by-slide outline of the talk itself",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

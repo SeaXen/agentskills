@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Frames the overload as a staffing decision for the employer rather than a personal timeboxing problem, and rejects 'timebox it and let the backlog be' as the plan.",
+        "evidence": "'This is a staffing decision.' and '\"Timebox it and let the backlog be\" is half right... that alone fails here'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends bringing the ledger (hours now versus the 20% budget, inflow, backlog split) to the manager and asking for a second maintainer or a scope cut before the user cuts their own hours.",
+        "evidence": "'Ask your manager this week for a named second maintainer... Bring the ledger, the contract and the escalation data.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags that the npm package is published from the user's personal account and orders moving publishing to a company-owned account or organization scope (with CI-based trusted publishing where supported) before any change of role.",
+        "evidence": "Move 0: transfer to the org, 'npm trusted publishing (OIDC from GitHub Actions)', and 'Do it before any role change.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the reason: a single personal name on the publish right turns a departure or reassignment into a stranded package.",
+        "evidence": "'you can't take a holiday or leave your job without stranding 40 customers.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes customer escalations off the public issue tracker (support channel, SUPPORT.md, issue forms) as an intake cut rather than promising faster replies.",
+        "evidence": "Move 2: 'customer problems enter through a support ticket, not a GitHub issue.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Publishes a contract: a README status line with the hours the company funds, a response window derived from those hours, and scope.",
+        "evidence": "The README block has 'about 8 hours a week across the team', '10 business days', and scope lines. The window is checked against the formula.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declares a maintenance tier or scope statement so feature requests close by pointer instead of debate.",
+        "evidence": "Move 3: 'Declare maintenance tier and scope... Feature requests close by pointer'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend sponsorship or donations for this employer-paid maintainer.",
+        "evidence": "'Funding is dropped. You are already paid, and donations don't reduce inflow.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists the account move and intake cut as transition hours in a one-time dated bridge with an end date.",
+        "evidence": "'about 29 h... treat it as a dated bridge... until 2026-12-04'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires two holders for every publish and release right in the plan's health check, labelled a self-set baseline.",
+        "evidence": "The health check row says 'Two holders per publish right'. It is never labelled a self-set baseline.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Hands the full credential inventory and trust ladder to samber/developer-relations-skills@oss-governance rather than redesigning them inline.",
+        "evidence": "The credential steps and ladder are written inline. oss-governance is never named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not offer a self-care listicle as the plan; every move changes inflow, scope, or who holds the work.",
+        "evidence": "Every move changes scope, inflow or ownership.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Frames the overload as a staffing decision for the employer rather than a personal timeboxing problem, and rejects 'timebox it and let the backlog be' as the plan.",
+        "evidence": "\"Timeboxing alone fails.\" \"Escalation work is company support work... The company should fund it and own it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends bringing the ledger (hours now versus the 20% budget, inflow, backlog split) to the manager and asking for a second maintainer or a scope cut before the user cuts their own hours.",
+        "evidence": "Step 2: \"Take the numbers from step 1... A second engineer.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags that the npm package is published from the user's personal account and orders moving publishing to a company-owned account or organization scope (with CI-based trusted publishing where supported) before any change of role.",
+        "evidence": "Step 5: \"Move the @brindlewood scope into an npm organization owned by the company... npm trusted publishing (OIDC)\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the reason: a single personal name on the publish right turns a departure or reassignment into a stranded package.",
+        "evidence": "Gives only \"release bottleneck\" and company risk. Departure or reassignment is not named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes customer escalations off the public issue tracker (support channel, SUPPORT.md, issue forms) as an intake cut rather than promising faster replies.",
+        "evidence": "Step 3: blank issues disabled, contact links, SUPPORT.md; Step 2 named escalation path.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Publishes a contract: a README status line with the hours the company funds, a response window derived from those hours, and scope.",
+        "evidence": "The response targets (5 and 2 working days) are not derived from funded hours. There is no README status line with hours.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declares a maintenance tier or scope statement so feature requests close by pointer instead of debate.",
+        "evidence": "No scope or tier statement for closing feature requests.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend sponsorship or donations for this employer-paid maintainer.",
+        "evidence": "No sponsorship or donations recommended.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists the account move and intake cut as transition hours in a one-time dated bridge with an end date.",
+        "evidence": "Per-step hours are given but no bridge above steady state.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires two holders for every publish and release right in the plan's health check, labelled a self-set baseline.",
+        "evidence": "Step 7 targets do not include two publish holders.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Hands the full credential inventory and trust ladder to samber/developer-relations-skills@oss-governance rather than redesigning them inline.",
+        "evidence": "No handoff.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not offer a self-care listicle as the plan; every move changes inflow, scope, or who holds the work.",
+        "evidence": "Every step changes intake, scope or who holds the work.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

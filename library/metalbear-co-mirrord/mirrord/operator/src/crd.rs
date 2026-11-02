@@ -1,0 +1,1888 @@
+use std::{
+    borrow::Cow,
+    collections::{BTreeMap, HashMap},
+    fmt::{Display, Formatter},
+};
+
+use k8s_openapi::{
+    ByteString,
+    apimachinery::pkg::apis::meta::v1::{Condition, MicroTime, OwnerReference, Time},
+};
+use kube::CustomResource;
+use kube_target::{KubeTarget, UnknownTargetType};
+pub use mirrord_config::feature::split_queues::QueueId;
+use mirrord_config::{
+    feature::split_queues::{QueueKind, QueueMessageFilter},
+    target::{Target, TargetConfig},
+};
+use schemars::JsonSchema;
+use semver::Version;
+use serde::{Deserialize, Serialize};
+use strum_macros::{EnumDiscriminants, EnumIter};
+
+#[cfg(feature = "client")]
+use crate::client::error::OperatorApiError;
+#[cfg(feature = "client")]
+use crate::types::{PaidFeatureGate, RequiredPlan};
+use crate::{
+    crd::{copy_target::CopyTargetCrd, kafka::MirrordKafkaEphemeralTopicSpec},
+    types::{GatedFeature, LicenseInfoOwned},
+};
+
+pub mod copy_target;
+pub mod db_branching;
+pub mod kafka;
+pub mod kube_target;
+pub mod label_selector;
+pub mod preview;
+pub mod profile;
+pub mod queue_filter;
+pub mod queue_split;
+pub mod rabbitmq;
+
+pub mod session;
+
+pub use kafka::MirrordKafkaEphemeralTopic;
+pub const LABEL_TARGET_NAME: &str = "label";
+pub const TARGETLESS_TARGET_NAME: &str = "targetless";
+
+/// Request body for `POST /branchcredentials` - asks the operator to create a K8s
+/// Secret with the given values in the target namespace. The Secret name is derived
+/// from `branch_id`, which carries the branch's resource name, so the same branch always
+/// reuses the same Secret.
+#[derive(Clone, Debug, Serialize, Deserialize)]
+pub struct CreateCredentialSecretRequest {
+    pub namespace: String,
+    pub branch_id: String,
+    pub values: HashMap<String, String>,
+}
+
+/// Response from `POST /branchcredentials` with the name of the created Secret.
+#[derive(Clone, Debug, Serialize, Deserialize)]
+pub struct CreateCredentialSecretResponse {
+    pub secret_name: String,
+}
+
+/// Request body for `POST /previewsecretmounts` - asks the operator to create a K8s Secret holding
+/// the `secret_mounts` file contents for a preview session, in the session's namespace.
+///
+/// The contents travel here, over the operator API, instead of on the `PreviewSession`, so they
+/// live only in the Secret and access can be RBAC-controlled independently of the session. The
+/// operator creates the Secret with its own service account, so the developer running the CLI does
+/// not need permission to create Secrets. `owner_ref` points at the already-created
+/// `PreviewSession`: it ties the Secret's lifetime to the session via garbage collection, and the
+/// operator derives the Secret's name from it (see `preview::secret_mounts_secret_name`) so the
+/// name is neither sent here nor stored on the CR.
+#[derive(Clone, Debug, Serialize, Deserialize)]
+pub struct CreatePreviewSecretMountsRequest {
+    pub namespace: String,
+    pub owner_ref: OwnerReference,
+    /// Map of secret key (e.g. `k0`) to the raw file contents.
+    pub values: BTreeMap<String, ByteString>,
+}
+
+/// Response from `POST /previewsecretmounts` with the name of the created Secret.
+#[derive(Clone, Debug, Serialize, Deserialize)]
+pub struct CreatePreviewSecretMountsResponse {
+    pub secret_name: String,
+}
+
+/// For Multi-Cluster Management-Only mode: Annotation used to specify the target namespace on
+/// remote clusters. When a CRD is created in the operator namespace on Primary, this annotation
+/// tells the sync controller which namespace to use on the Default cluster. If not present, the
+/// CRD's own namespace is used.
+pub const TARGET_NAMESPACE_ANNOTATION: &str = "mirrord.metalbear.co/target-namespace";
+
+#[derive(CustomResource, Clone, Debug, Deserialize, Serialize, JsonSchema)]
+#[kube(
+    group = "operator.metalbear.co",
+    version = "v1",
+    kind = "Target",
+    root = "TargetCrd",
+    namespaced
+)]
+pub struct TargetSpec {
+    /// The kubernetes resource to target.
+    pub target: KubeTarget,
+
+    /// The image of the target's container, as the target's pod template names it. `mirrord
+    /// preview sync` reuses a preview that runs the target's image only while the target still
+    /// names that image. `None` for a target without a single container, such as a label target,
+    /// and from an operator that doesn't report it.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub image: Option<String>,
+}
+
+impl TargetCrd {
+    /// Creates a target name in format of `target_type.target_name.[container.container_name]`
+    /// for example:
+    ///
+    /// - `DeploymentTarget { deployment: "nginx", container: None }` -> `deploy.nginx`;
+    /// - `DeploymentTarget { deployment: "nginx", container: Some("pyrex") }` ->
+    ///   `deploy.nginx.container.pyrex`;
+    ///
+    /// It's used to connect to a resource through the operator.
+    ///
+    /// # Warning
+    ///
+    /// Do **not** change url paths here, even if the operator recognizes the other format.
+    /// It can break existing `operator-crd::crd::policy::MirrordPolicy`s and
+    /// `operator-crd::crd::policy::MirrordClusterPolicy` (see
+    /// `operator-crd::crd::policy::MirrordPolicySpec::target_path` and
+    /// `operator-crd::crd::policy::MirrordClusterPolicySpec::target_path`).
+    pub fn urlfied_name(target: &Target) -> String {
+        let (type_name, target, container) = match target {
+            Target::Deployment(target) => ("deploy", &target.deployment, &target.container),
+            Target::Pod(target) => ("pod", &target.pod, &target.container),
+            Target::Rollout(target) => ("rollout", &target.rollout, &target.container),
+            Target::Job(target) => ("job", &target.job, &target.container),
+            Target::CronJob(target) => ("cronjob", &target.cron_job, &target.container),
+            Target::StatefulSet(target) => ("statefulset", &target.stateful_set, &target.container),
+            Target::Service(target) => ("service", &target.service, &target.container),
+            Target::ReplicaSet(target) => ("replicaset", &target.replica_set, &target.container),
+            Target::Label(_) => return LABEL_TARGET_NAME.to_owned(),
+            Target::Targetless => return TARGETLESS_TARGET_NAME.to_owned(),
+            Target::Serverless(target) => ("serverless", &target.serverless, &target.container),
+        };
+
+        if let Some(container) = container {
+            format!("{}.{}.container.{}", type_name, target, container)
+        } else {
+            format!("{}.{}", type_name, target)
+        }
+    }
+
+    /// "targetless" ([`TARGETLESS_TARGET_NAME`]) if `None`,
+    /// else <resource_type>.<resource_name>...
+    pub fn target_name_by_config(target_config: &TargetConfig) -> String {
+        target_config
+            .path
+            .as_ref()
+            .map_or_else(|| TARGETLESS_TARGET_NAME.to_owned(), Self::urlfied_name)
+    }
+}
+
+impl TryFrom<TargetCrd> for TargetConfig {
+    type Error = UnknownTargetType;
+
+    fn try_from(crd: TargetCrd) -> Result<Self, Self::Error> {
+        Ok(TargetConfig {
+            path: Some(Target::try_from(crd.spec.target)?),
+            namespace: crd.metadata.namespace,
+        })
+    }
+}
+
+pub static OPERATOR_STATUS_NAME: &str = "operator";
+
+#[derive(CustomResource, Clone, Debug, Deserialize, Serialize, JsonSchema)]
+#[kube(
+    group = "operator.metalbear.co",
+    version = "v1",
+    kind = "MirrordOperator",
+    root = "MirrordOperatorCrd",
+    status = "MirrordOperatorStatus"
+)]
+pub struct MirrordOperatorSpec {
+    #[schemars(with = "String")]
+    pub operator_version: Version,
+    pub default_namespace: String,
+    /// Should be removed when we can stop supporting compatibility with versions from before the
+    /// `supported_features` field was added.
+    /// "Breaking" that compatibility by removing this field and then running with one old (from
+    /// before the `supported_features` field) side (client or operator) would make the client
+    /// think `ProxyApi` is not supported even if it is.
+    #[deprecated(note = "use supported_features instead")]
+    features: Option<Vec<OperatorFeatures>>,
+    /// Replaces both `features` and `copy_target_enabled`. Operator versions that use a version
+    /// of this code that has both this and the old fields are expected to populate this field with
+    /// the features enabled in the operator's configuration and permitted by its license, and
+    /// the old fields with the corresponding limited info, for old clients. License-denied
+    /// features are described separately in `gated_features`, independently of configuration.
+    ///
+    /// Access this info only via `supported_features()`.
+    /// Optional for backwards compatibility (new clients can talk to old operators that don't send
+    /// this field).
+    supported_features: Option<Vec<NewOperatorFeature>>,
+    pub license: LicenseInfoOwned,
+    /// Known features denied by the current license, regardless of operator configuration.
+    /// Requirements consult these gates before support, so paid requests receive a license
+    /// diagnosis even when the operator's configuration also disables the feature.
+    /// Absence of this metadata retains older operators' feature/version diagnostics.
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    pub gated_features: Vec<GatedFeature>,
+    pub protocol_version: Option<String>,
+    /// Should be removed when we can stop supporting compatibility with versions from before the
+    /// `supported_features` field was added.
+    /// "Breaking" that compatibility by removing this field and then running with one old (from
+    /// before the `supported_features` field) side (client or operator) would make the client
+    /// think copy target is not enabled even if it is.
+    /// Optional for backwards compatibility (new clients can talk to old operators that don't send
+    /// this field).
+    #[deprecated(note = "use supported_features instead")]
+    copy_target_enabled: Option<bool>,
+    /// The namespace where the operator is deployed.
+    /// Used by CLI in multi-cluster management-only mode to create CRDs
+    /// in the operator's namespace with a target-namespace annotation.
+    pub operator_namespace: Option<String>,
+    /// Features this operator version knows but which its Helm values switch off, so the client
+    /// can tell "enable it in the chart" apart from "upgrade the operator". Only features the
+    /// license tier allows are listed; tier restrictions are described in `gated_features` when
+    /// available and otherwise reported as unsupported.
+    ///
+    /// Older operators do not send it; the list is then empty and a missing feature is
+    /// reported as unsupported by the version, as before.
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    disabled_features: Vec<NewOperatorFeature>,
+}
+
+impl MirrordOperatorSpec {
+    pub fn new(
+        operator_version: Version,
+        default_namespace: String,
+        supported_features: Vec<NewOperatorFeature>,
+        license: LicenseInfoOwned,
+        protocol_version: Option<String>,
+        operator_namespace: Option<String>,
+    ) -> Self {
+        let features = supported_features
+            .contains(&NewOperatorFeature::ProxyApi)
+            .then(|| vec![OperatorFeatures::ProxyApi]);
+        let copy_target_enabled =
+            Some(supported_features.contains(&NewOperatorFeature::CopyTarget));
+        #[allow(deprecated)] // deprecated objects must still be included in construction.
+        Self {
+            operator_version,
+            default_namespace,
+            supported_features: Some(supported_features),
+            license,
+            gated_features: Vec::new(),
+            protocol_version,
+            features,
+            copy_target_enabled,
+            operator_namespace,
+            disabled_features: Vec::new(),
+        }
+    }
+
+    /// Records the features this operator knows but has switched off in its Helm values.
+    pub fn with_disabled_features(mut self, disabled_features: Vec<NewOperatorFeature>) -> Self {
+        self.disabled_features = disabled_features;
+        self
+    }
+
+    /// Features this operator version knows but has switched off in its Helm values. Empty for
+    /// operators that predate the field.
+    pub fn disabled_features(&self) -> &[NewOperatorFeature] {
+        &self.disabled_features
+    }
+
+    /// Features enabled in the operator's configuration and permitted by its license.
+    /// Use `require_feature()` before requesting a feature so its license gate is honored.
+    /// Handles objects sent from old and new operators, including those that omit this field.
+    // When the deprecated fields are removed, this can be changed to just return
+    // `self.supported_features.unwrap_or_default()`.
+    pub fn supported_features(&self) -> Vec<NewOperatorFeature> {
+        self.supported_features
+            .clone()
+            // if supported_features was sent, just use that. If not we are dealing with an older
+            // operator, so we build a vector of new features from the old fields.
+            .or_else(|| {
+                // object was sent by an old operator that still uses fields that are now deprecated
+                #[allow(deprecated)]
+                self.features.as_ref().map(|features| {
+                    features
+                        .iter()
+                        .map(From::from)
+                        .chain(
+                            self.copy_target_enabled.and_then(|enabled| {
+                                enabled.then_some(NewOperatorFeature::CopyTarget)
+                            }),
+                        )
+                        .collect()
+                })
+            })
+            // Convert `None` to empty vector since we don't expect this to often be
+            // `None` (although it's ok if it is) and that way the return type is simpler.
+            .unwrap_or_default()
+    }
+
+    /// Checks license gates before advertised support, so a license denial takes precedence over
+    /// operator configuration. Otherwise, a feature listed as disabled needs its Helm value
+    /// switched on, and a feature not advertised needs an operator upgrade.
+    #[cfg(feature = "client")]
+    pub fn require_feature(&self, feature: NewOperatorFeature) -> Result<(), OperatorApiError> {
+        if let Some(gated) = self
+            .gated_features
+            .iter()
+            .find(|entry| entry.feature == feature)
+        {
+            if let (required_plan @ (RequiredPlan::Team | RequiredPlan::Enterprise), Some(key)) =
+                (gated.required_plan, feature.feature_config_key())
+            {
+                return Err(OperatorApiError::LocalFeatureNotLicensed {
+                    feature,
+                    gate: PaidFeatureGate {
+                        feature_config_key: key.to_owned(),
+                        required_plan,
+                    },
+                });
+            }
+            // Unrecognized gate metadata must not authorize an advertised feature.
+        } else if feature != NewOperatorFeature::Unknown
+            && self.supported_features().contains(&feature)
+        {
+            return Ok(());
+        } else if self.disabled_features().contains(&feature) {
+            return Err(OperatorApiError::FeatureDisabled { feature });
+        }
+        Err(OperatorApiError::UnsupportedFeature {
+            feature,
+            operator_version: self.operator_version.to_string(),
+        })
+    }
+}
+
+#[derive(Clone, Debug, Deserialize, Serialize, JsonSchema)]
+pub struct CopyTargetEntry {
+    pub pod_name: String,
+    pub copy_target: CopyTargetCrd,
+}
+
+/// Compatibility enum for CopyTargetEntry that can handle both old tuple format and new struct
+/// format.
+///
+/// This enum provides backward/forward compatibility by accepting both:
+/// - Modern: The new CopyTargetEntry struct format (for OpenAPI v2 compatibility)
+/// - Legacy: The old tuple format (String, CopyTargetCrd)
+///
+/// The JsonSchema implementation only exposes the modern format to ensure clean OpenAPI schemas,
+/// while serde can still deserialize both formats from existing data.
+#[derive(Clone, Debug, Deserialize, Serialize)]
+#[serde(untagged)]
+pub enum CopyTargetEntryCompat {
+    Modern(CopyTargetEntry),
+    Legacy(String, CopyTargetCrd), // tuple format
+}
+
+impl JsonSchema for CopyTargetEntryCompat {
+    fn schema_name() -> Cow<'static, str> {
+        "CopyTargetEntry".into()
+    }
+
+    fn json_schema(schema_gen: &mut schemars::SchemaGenerator) -> schemars::Schema {
+        // Only expose the modern schema in OpenAPI
+        CopyTargetEntry::json_schema(schema_gen)
+    }
+}
+
+impl CopyTargetEntryCompat {
+    pub fn to_copy_target_entry(&self) -> CopyTargetEntry {
+        match self {
+            CopyTargetEntryCompat::Modern(entry) => entry.clone(),
+            CopyTargetEntryCompat::Legacy(pod_name, copy_target) => CopyTargetEntry {
+                pod_name: pod_name.clone(),
+                copy_target: copy_target.clone(),
+            },
+        }
+    }
+
+    pub fn from_copy_target_entry(entry: CopyTargetEntry) -> Self {
+        CopyTargetEntryCompat::Modern(entry)
+    }
+}
+
+/// _CRD-ish_ that we get from `mirrord operator status`.
+#[derive(Clone, Debug, Default, Deserialize, Serialize, JsonSchema)]
+pub struct MirrordOperatorStatus {
+    /// Active exec and CI sessions, plus an entry per preview environment.
+    ///
+    /// mirrord CLI versions before 3.246.0 and browser extension versions before 0.7.0 read
+    /// preview environments from here, so those entries stay for as long as these versions are
+    /// supported. New preview information belongs in [`Self::preview_sessions`].
+    pub sessions: Vec<Session>,
+    pub statistics: Option<MirrordOperatorStatusStatistics>,
+
+    /// Option because added later.
+    pub copy_targets: Option<Vec<CopyTargetEntryCompat>>,
+
+    /// Status of connected remote clusters (only on primary with multi-cluster enabled).
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub connected_clusters: Option<Vec<ConnectedClusterStatus>>,
+
+    /// Active multi-cluster sessions (only on primary with multi-cluster enabled).
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub multi_cluster_sessions: Option<Vec<MultiClusterSessionInfo>>,
+
+    /// Active preview environments.
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    pub preview_sessions: Vec<PreviewSessionInfo>,
+}
+
+#[derive(Clone, Debug, Deserialize, Serialize, JsonSchema)]
+#[serde(rename_all = "camelCase")]
+pub struct PreviewSessionInfo {
+    pub id: String,
+    pub namespace: String,
+    pub key: String,
+    pub target: String,
+    pub duration_secs: u64,
+
+    /// When the preview environment was created.
+    ///
+    /// `None` from operators that report only `duration_secs`, leaving a client to derive the
+    /// time from it - which yields a value that drifts by however long the read took.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub created_at: Option<Time>,
+
+    /// Current phase of the preview environment.
+    pub phase: preview::PreviewSessionPhase,
+
+    /// How long this preview environment has been idling.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub idle_secs: Option<u64>,
+}
+
+/// Display representation of a multi-cluster session for `mirrord operator status`.
+#[derive(Clone, Debug, Deserialize, Serialize, JsonSchema)]
+#[serde(rename_all = "camelCase")]
+pub struct MultiClusterSessionInfo {
+    /// Session ID (CRD name).
+    pub id: String,
+    /// Duration of the session in seconds.
+    pub duration_secs: u64,
+    /// User who created the session.
+    pub user: String,
+    /// Target identifier (e.g., "deployment/my-app").
+    pub target: String,
+    /// Namespace for the target.
+    pub namespace: String,
+    /// List of clusters this session spans.
+    pub clusters: Vec<String>,
+    /// Current phase of the session.
+    pub phase: String,
+}
+
+/// Status of a connected remote cluster.
+#[derive(Clone, Debug, Deserialize, Serialize, JsonSchema)]
+#[serde(rename_all = "camelCase")]
+pub struct ConnectedClusterStatus {
+    /// Logical name of the cluster.
+    pub name: String,
+    /// Timestamp of last health check.
+    pub last_check: MicroTime,
+    /// Result of the health check.
+    #[serde(flatten)]
+    pub result: ClusterCheckResult,
+}
+
+/// Result of a cluster health check.
+#[derive(Clone, Debug, Deserialize, Serialize, JsonSchema)]
+#[serde(rename_all = "camelCase", rename_all_fields = "camelCase")]
+pub enum ClusterCheckResult {
+    /// Cluster is connected and responding.
+    Connected {
+        /// Operator version running on the remote cluster.
+        operator_version: String,
+        /// License fingerprint from the remote cluster (for license validation).
+        #[serde(skip_serializing_if = "Option::is_none")]
+        license_fingerprint: Option<String>,
+    },
+    /// Cluster check failed.
+    Error {
+        /// Error message describing the failure.
+        message: String,
+    },
+}
+
+#[derive(Clone, Debug, Default, Deserialize, Serialize, JsonSchema)]
+pub struct MirrordOperatorStatusStatistics {
+    pub dau: usize,
+    pub mau: usize,
+
+    /// Count of active mirrord for ci sessions.
+    ///
+    /// - These sessions have a slight delay before they're reported as dead (they have a ttl), so
+    ///   you may see a number in here that's higher than how many are actually being used (the
+    ///   count is correct though, they're still alive).
+    pub active_ci_sessions_count: Option<u64>,
+
+    /// Count of active preview environment sessions.
+    pub active_preview_sessions_count: Option<u64>,
+}
+
+#[derive(Clone, Debug, Deserialize, Serialize, JsonSchema)]
+pub struct LockedPort {
+    pub port: u16,
+    pub kind: String,
+    pub filter: Option<String>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub hit_count: Option<u64>,
+}
+
+/// Compatibility enum for LockedPort that can handle both old tuple format and new struct format.
+///
+/// This enum provides backward/forward compatibility by accepting both:
+/// - Modern: The new LockedPort struct format (for OpenAPI v2 compatibility)
+/// - Legacy: The old tuple format (u16, String, `Option<String>`)
+///
+/// The JsonSchema implementation only exposes the modern format to ensure clean OpenAPI schemas,
+/// while serde can still deserialize both formats from existing data.
+#[derive(Clone, Debug, Deserialize, Serialize)]
+#[serde(untagged)]
+pub enum LockedPortCompat {
+    Modern(LockedPort),
+    Legacy(u16, String, Option<String>), // tuple format
+}
+
+impl JsonSchema for LockedPortCompat {
+    fn schema_name() -> Cow<'static, str> {
+        "LockedPort".into()
+    }
+
+    fn json_schema(schema_gen: &mut schemars::SchemaGenerator) -> schemars::Schema {
+        // Only expose the modern schema in OpenAPI
+        LockedPort::json_schema(schema_gen)
+    }
+}
+
+impl LockedPortCompat {
+    pub fn to_locked_port(&self) -> LockedPort {
+        match self {
+            LockedPortCompat::Modern(locked_port) => locked_port.clone(),
+            LockedPortCompat::Legacy(port, kind, filter) => LockedPort {
+                port: *port,
+                kind: kind.clone(),
+                filter: filter.clone(),
+                hit_count: None,
+            },
+        }
+    }
+
+    pub fn from_locked_port(locked_port: LockedPort) -> Self {
+        LockedPortCompat::Modern(locked_port)
+    }
+}
+
+/// Marker value the operator emits in [`Session::user`] for entries that represent a
+/// preview environment rather than a real mirrord exec session. Preview-env entries are
+/// folded into the [`MirrordOperatorCrd`] status `sessions` list so the local mirrord UI
+/// and the browser extension can surface them, but they don't behave like normal sessions
+/// (different id shape, no locked ports, no queue-splitting state), so the CLI's
+/// session-management surfaces should filter them out.
+///
+/// Those entries exist for clients that predate [`MirrordOperatorStatus::preview_sessions`].
+/// Everything else should read previews from that field.
+pub const PREVIEW_SESSION_USER: &str = "preview-env";
+
+#[derive(Clone, Debug, Deserialize, Serialize, JsonSchema)]
+pub struct Session {
+    pub id: Option<String>,
+    pub duration_secs: u64,
+    pub user: String,
+    pub target: String,
+    pub namespace: Option<String>,
+    pub locked_ports: Option<Vec<LockedPortCompat>>,
+    pub user_id: Option<String>,
+    pub sqs: Option<Vec<MirrordSqsSession>>,
+    pub rmq: Option<Vec<rabbitmq::MirrordRmqSession>>,
+    pub kafka: Option<Vec<MirrordKafkaEphemeralTopicSpec>>,
+    /// The session `key`: the identifier the user started the session with (`mirrord exec
+    /// --key`, `MIRRORD_KEY`, or the `key` config field). Exposed as a field so sessions can be
+    /// filtered by it, e.g. `mirrord session ls --key <key>` querying `spec.session.key`.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub key: Option<String>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub http_filter: Option<SessionHttpFilter>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub created_at: Option<Time>,
+}
+
+impl Session {
+    pub fn is_preview(&self) -> bool {
+        self.user == PREVIEW_SESSION_USER
+    }
+}
+
+#[derive(Clone, Debug, Default, Deserialize, Eq, PartialEq, Serialize, JsonSchema)]
+#[serde(rename_all = "camelCase")]
+pub struct SessionHttpFilter {
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub header_filter: Option<String>,
+}
+
+/// Resource used to access the operator's session management routes.
+///
+/// - `kind = Session` controls how [`kube`] generates the route, in this case it becomes
+///   `/sessions`;
+/// - `root = "SessionCrd"` is the json return value we get from this resource's API;
+/// - `SessionSpec` carries the details of one active session, mirroring the entries in
+///   [`MirrordOperatorStatus::sessions`].
+///
+/// This is not a stored Kubernetes object: the `operator.metalbear.co` group is served through the
+/// operator's aggregated API, so a `list`/`get` is answered live from the operator's session state
+/// rather than etcd. The resource is `namespaced` so clients can scope a `list` to a single
+/// namespace (`mirrord session`) or span the cluster (`mirrord operator status`); the operator
+/// matches on [`Session::namespace`].
+///
+/// The [`SessionCrd`] also provides the k8s_openapi `APIResource`, see `API_RESOURCE_LIST` in the
+/// operator.
+#[derive(CustomResource, Clone, Debug, Deserialize, Serialize, JsonSchema)]
+#[kube(
+    group = "operator.metalbear.co",
+    version = "v1",
+    kind = "Session",
+    root = "SessionCrd",
+    namespaced
+)]
+pub struct SessionSpec {
+    /// Details of the active session.
+    pub session: Session,
+}
+
+/// Escapes a user-provided value so it can be embedded on the right-hand side of a Kubernetes
+/// `fieldSelector` requirement (e.g. `spec.session.key=<value>`) without its `\`, `,`, or `=`
+/// characters being read as selector syntax.
+pub fn escape_field_selector_value(value: &str) -> String {
+    let mut out = String::with_capacity(value.len());
+    for c in value.chars() {
+        if matches!(c, '\\' | ',' | '=') {
+            out.push('\\');
+        }
+        out.push(c);
+    }
+
+    out
+}
+/// Features supported by operator
+///
+/// Since this enum does not have a variant marked with `#[serde(other)]`, and is present like that
+/// in released clients, existing clients would fail to parse any new variant. This means the
+/// operator can never send anything but the one existing variant, otherwise the client will error
+/// out.
+#[derive(Clone, Copy, Debug, Deserialize, Eq, PartialEq, Serialize, JsonSchema)]
+pub enum OperatorFeatures {
+    ProxyApi,
+    // DON'T ADD VARIANTS - old clients won't be able to deserialize them.
+    // Add new features in NewOperatorFeature
+}
+
+/// Operator features advertised to clients in [`MirrordOperatorSpec::supported_features`].
+///
+/// Unlike [`OperatorFeatures`], new variants are safe to add: a client that predates one
+/// deserializes it as [`Unknown`](NewOperatorFeature::Unknown) instead of failing.
+///
+/// # Adding a variant
+///
+/// A new variant is not self-contained - the operator's license gating lives in a separate
+/// repository and has to be updated alongside it:
+///
+/// - `LicenseType::allows` decides which tiers include the feature. Paid tiers generally get new
+///   variants automatically, but the free tier is an allowlist, so a new variant is denied there
+///   until it is added explicitly. Leaving it denied is the correct default for anything the
+///   operator adds on top of open-source mirrord. [`KeylessCi`](Self::KeylessCi) is advertised by
+///   Free and Teams licenses; Enterprise and legacy licenses require CI API keys for explicit CI
+///   sessions.
+/// - Configured capabilities are advertised only when allowed by the license. License-denied
+///   features are listed in separate gates regardless of configuration, so gate-aware CLI
+///   requirements can explain paid refusals. Server *enforcement* is not automatic: if clients
+///   request the feature through connect params, add it to
+///   `ConnectParams::requested_licensed_features`; if it has its own endpoint, guard that handler
+///   directly.
+///
+/// Independent server guards are needed for older clients that ignore gates and for stale
+/// discovery or license races. Skipping the enforcement step leaves those requests unchecked
+/// even on tiers that do not include the feature.
+#[derive(Clone, Copy, Debug, Deserialize, EnumIter, Eq, PartialEq, Serialize, JsonSchema)]
+pub enum NewOperatorFeature {
+    ProxyApi,
+    CopyTarget,
+    CopyTargetExcludeContainers,
+    SessionManagement,
+    SqsQueueSplitting,
+    KafkaQueueSplitting,
+    LayerReconnect,
+    KafkaQueueSplittingDirect,
+    SqsQueueSplittingDirect,
+    MySqlBranching,
+    ExtendableUserCredentials,
+    PgBranching,
+    CockroachdbBranching,
+
+    /// The operator supports bypassing user license validation (skips the
+    /// `user_license.verify()`).
+    ///
+    /// Useful when the `CiApiKey::V1` is being used for `mirrord ci start`, since this user's
+    /// credentials are tied to a specific operator license, and thus it breaks whenever the
+    /// operator's license gets updated (on validity extension, for example).
+    BypassCiCertificateVerification,
+
+    MongodbBranching,
+    /// This operator can act as a primary and use envoy to connect to remote clusters.
+    MultiClusterPrimary,
+    /// This operator can be connected to by a primary.
+    MultiClusterRemote,
+    /// This operator can accept jq filters for SQS queue splitting.
+    SqsQueueSplittingWithJqFilter,
+
+    /// This operator can accept jq filters for Kafka queue splitting.
+    KafkaQueueSplittingWithJqFilter,
+
+    PreviewEnv,
+
+    /// Prevents older operators from silently ignoring preview TLS client identity and SNI.
+    PreviewTlsDelivery,
+
+    /// The operator supports the unified `BranchDatabase` CRD with per-dialect options
+    /// (`postgresOptions`, `mysqlOptions`, `mongodbOptions`) instead of the old separate
+    /// `PgBranchDatabase`, `MysqlBranchDatabase`, `MongodbBranchDatabase` CRDs.
+    UnifiedBranchDbCrd,
+
+    /// This operator can perform queue splitting on RabbitMQ
+    RmqQueueSplitting,
+
+    /// This operator can perform queue splitting on Google Cloud Pub/Sub
+    GcpPubSubQueueSplitting,
+
+    /// This operator can perform queue splitting on Redis Pub/Sub
+    RedisPubSubQueueSplitting,
+    /// This operator can perform queue splitting on Temporal task queues
+    TemporalQueueSplitting,
+
+    /// This operator accepts the connect query string in the [`CONNECT_PARAMS_HEADER`] header
+    /// instead of (only) the URL query string, so sessions work through ingress proxies that
+    /// reject the percent-encoded JSON we put in the query string (e.g. GKE Connect Gateway).
+    ///
+    /// [`CONNECT_PARAMS_HEADER`]: crate::types::CONNECT_PARAMS_HEADER
+    ConnectParamsInHeader,
+    /// This operator can perform queue splitting on BullMQ job queues
+    BullMqQueueSplitting,
+
+    /// This operator supports generic (user-supplied image) db branching via the
+    /// `genericOptions` field on the unified `BranchDatabase` CRD. Advertised only when the
+    /// operator's `genericBranching` flag is enabled, so the CLI can fail fast instead of
+    /// creating a CRD that an unsupporting operator would silently delete.
+    GenericDbBranching,
+
+    /// This operator isolates the copy pod out of the target's Service and steals from the
+    /// original pods, so an HTTP filter on a copy target no longer discards unmatched requests
+    /// (they keep being served by the originals). Advertised so the CLI can drop the stale
+    /// "unmatched requests are discarded" warning when talking to an operator that has the fix.
+    CopyTargetFilterIsolation,
+
+    /// The operator supports selecting a dynamic pod set using exact-match labels.
+    LabelTargeting,
+
+    /// This operator supports MariaDB db branching via the `mariadbOptions` field on the unified
+    /// `BranchDatabase` CRD. Advertised only when the operator's `mariadbBranching` flag is
+    /// enabled, so the CLI can fail fast instead of creating a CRD an unsupporting operator would
+    /// silently delete.
+    MariaDbBranching,
+
+    /// This operator supports branching S3 buckets via the `s3Options` field on the unified
+    /// `BranchDatabase` CRD. The branch bucket is cloned through the provider's API, with no
+    /// pod in the cluster. Advertised only when the operator's `s3Branching` flag is enabled,
+    /// so the CLI can fail fast instead of creating a CRD an unsupporting operator would
+    /// silently delete.
+    S3Branching,
+
+    /// This operator supports branching turbopuffer namespaces via the `turbopufferOptions`
+    /// field on the unified `BranchDatabase` CRD. The branch namespace is a copy-on-write clone
+    /// made through turbopuffer's API, with no pod in the cluster. Advertised only when the
+    /// operator's `turbopufferBranching` flag is enabled, so the CLI can fail fast instead of
+    /// creating a CRD an unsupporting operator would silently delete.
+    TurbopufferBranching,
+
+    /// This operator honors the `image` field on the unified `BranchDatabase` CRD, letting the
+    /// user supply a full image reference for a built-in engine's branch pod. Gated so the CLI
+    /// can fail fast on older operators, whose CRD schema would silently prune the field and
+    /// run the branch with the default image.
+    DbBranchCustomImage,
+
+    /// This operator honors the `profile` field on the unified `BranchDatabase` CRD, selecting
+    /// an admin-defined branch-config profile (e.g. `redisBranchConfig.profiles` in the Helm
+    /// values) for the branch pod. Gated so the CLI can fail fast on older operators, whose
+    /// CRD schema would silently prune the field and run the branch with the default config.
+    DbBranchProfiles,
+
+    /// This operator exposes a no-session ping endpoint used by `mirrord diagnose latency` to
+    /// measure client-to-operator latency without starting a session or spawning an agent.
+    /// Advertised so the CLI can use the lightweight probe instead of creating a full targetless
+    /// session just to run ping/pong.
+    DiagnosticPing,
+
+    /// This operator can accept jq filters for RabbitMQ queue splitting.
+    RmqQueueSplittingWithJqFilter,
+
+    /// This operator can decode plain-protobuf Kafka payloads with a client-supplied descriptor
+    /// before running the jq filter (`payload_protobuf` in the split queues config). Gated so
+    /// the CLI fails fast instead of an older operator silently ignoring the decoding config
+    /// and stealing nothing.
+    KafkaQueueSplittingWithProtobufDecoding,
+
+    /// This operator honors `queryParams` on `postgresOptions` and accepts the pg `sslmode`
+    /// extra connection param. Gated so the CLI fails fast on older operators: their CRD
+    /// schema silently prunes `queryParams` (the branch would ignore the override), and
+    /// their validation marks a branch declaring a pg `sslmode` param `Failed`.
+    PgBranchQueryParams,
+
+    /// This operator honors the `copy` field on `genericOptions` of the unified
+    /// `BranchDatabase` CRD, running a user-supplied copy Job before the branch turns Ready.
+    /// Gated so the CLI can fail fast on older operators, whose CRD schema would silently
+    /// prune the field and run the branch empty.
+    GenericDbCopy,
+
+    /// This operator resolves a generic branch's `image`/`port` (and `copy`) from the admin
+    /// profile's `dbPod.branch` when the spec omits them. Gated so a CLI that omits
+    /// `genericOptions.image`/`port` fails fast instead of an older operator's installed CRD
+    /// schema rejecting the CR (those fields used to be required).
+    GenericBranchProfileDefaults,
+
+    /// This operator publishes a `Ready` condition on the `MirrordClusterSession`s it owns, so a
+    /// multi-cluster primary can wait for this cluster to report a child session ready instead of
+    /// assuming it is ready the moment it was created.
+    SessionReadyCondition,
+
+    /// This operator can perform queue splitting on NATS JetStream consumers
+    NatsQueueSplitting,
+
+    /// This operator can perform queue splitting on core NATS (non-JetStream) subject
+    /// subscriptions, with best-effort delivery.
+    NatsPubSubQueueSplitting,
+
+    /// This operator resolves `configmap` connection param sources for DB branching (values
+    /// read out of a ConfigMap entry, optionally a field inside a mounted JSON/YAML file).
+    /// Gated so the CLI fails fast on older operators: the branch CRD schema lets the new
+    /// source kind through, and an older operator then cannot deserialize the branch and
+    /// never reconciles it, which the CLI would only see as a creation timeout.
+    DbBranchConfigMapSource,
+
+    /// This operator layers a branch's connection params over a `url` param. Gated so the CLI
+    /// fails fast on older operators: the branch CRD schema lets the param through, and an
+    /// older operator ignores it and provisions from the remaining params, which points the
+    /// branch at the wrong source rather than failing.
+    DbBranchUrlParam,
+
+    /// This operator understands `flavor: liquibase` in a branch's `migrations`. Gated so the
+    /// CLI fails fast: an older operator's CRD schema constrains the flavor to the values it
+    /// knows, so the API server rejects the branch with a schema error instead of anything the
+    /// user can act on.
+    LiquibaseMigrations,
+    /// This operator accepts `cronjob/<name>` preview targets: the preview is an isolated copy
+    /// of the source CronJob (with the optional `spec.cronjob.schedule` override) instead of a
+    /// Deployment. Gated so the CLI fails fast on older operators, which reject CronJob
+    /// targets at resolution time and would only report it as a failed session.
+    PreviewCronJobTarget,
+    /// This operator accepts `label/<selector>` preview targets: one preview session takes
+    /// traffic from every pod matching the selector, whichever workloads own them. Gated so the
+    /// CLI fails fast: an older operator cannot read a `PreviewSession` whose target is a label
+    /// selector, and one such resource stops it from listing every other preview session too.
+    PreviewLabelTarget,
+    /// This operator reads a preview's TLS client certificate from the target's own pod when
+    /// `tls_delivery.client_cert_source` is `target`. Gated so the CLI fails fast: an older
+    /// operator's CRD schema prunes `clientAuthFromTarget`, and the preview pod would reject
+    /// every stolen request with a TLS alert instead of anything pointing at the config.
+    PreviewTlsClientAuthFromTarget,
+
+    /// This operator builds the preview pod from the pod template and ConfigMaps/Secrets the CLI
+    /// sends in `spec.specResources` (`mirrord preview start --resource`). Gated so the CLI fails
+    /// fast: an older operator's CRD schema prunes the unknown field, so the preview would
+    /// silently run the target's live spec instead of the user's files.
+    PreviewSpecResources,
+
+    /// The interception event stream serves every session at once when given no key, honors
+    /// `include_session_key` and `include_unmatched`, and carries the ids pairing an HTTP request
+    /// with its response.
+    SubscribeEventOptions,
+
+    /// This operator accepts the composable `filter` shape in `feature.split_queues` (`metadata`
+    /// regexes combined with `any_of` / `all_of`), sent in the `queue_filters` connect param and
+    /// the preview session's `queues` list. Gated so the CLI fails fast: an older operator
+    /// ignores the param it does not know, and a copy target carrying the new field fails to
+    /// deserialize there.
+    QueueSplittingWithComposedFilters,
+
+    /// This operator copies `additionalDatabases` of `postgresOptions` into the same PostgreSQL
+    /// branch pod and points each one's app connection at it. Gated so the CLI fails fast: an
+    /// older operator's CRD schema prunes the field, and the branch would come up with only
+    /// the first database while the app keeps talking to the source for the others.
+    PgBranchAdditionalDatabases,
+
+    /// This operator accepts explicit CI sessions using ordinary client certificates without a CI
+    /// API key. Advertised with Free and Teams licenses, so clients can reject missing keys before
+    /// requesting credentials or preparing a session on Enterprise or legacy installations.
+    /// CI retains the license tier's features; the operator applies the Free target-loader pod
+    /// allowance to Free and Teams CI in each participating cluster.
+    KeylessCi,
+    /// This operator resolves `feature.db_branches: "*"` (or a list of entry ids) against the
+    /// `dbBranches` entries on the target's `MirrordSplitConfig`, through
+    /// `POST /splitconfigdbbranches`, and records each branch's resolved source in its status.
+    /// Gated so the CLI fails fast: an older operator has no such endpoint, and the session
+    /// would otherwise start without the branches the config asked for.
+    DbBranchesFromSplitConfig,
+    /// A multi-cluster primary's interception event stream also carries every linked cluster's
+    /// events, each naming the cluster it came from in `cluster`, and reports a linked cluster
+    /// it cannot reach as a `cluster_unavailable` event. Lets `mirrord subscribe` say up front
+    /// whether a primary streams the whole setup or just its own cluster.
+    MultiClusterSubscribe,
+
+    ServerlessSessionsManager,
+
+    /// Reporting is available on Free so locally rejected demand can be observed without granting
+    /// permission to use the rejected feature.
+    LicenseGateReporting,
+
+    /// This operator runs a session's Kafka queues against an isolated per-key broker
+    /// (`feature.kafka_branch`), sent in the `kafka_branch` connect param and the preview
+    /// session's `kafkaBranch` field. Gated so the CLI fails fast: an older operator ignores both
+    /// and would leave the app on the cluster's Kafka.
+    KafkaBranching,
+
+    /// This operator applies `value_selector` / `value_pattern` on `gcp_secret_manager` and
+    /// `aws_secrets_manager` connection sources, picking one field out of a JSON secret. Gated
+    /// so the CLI fails fast: an older operator drops the extractors silently and provisions
+    /// with the whole secret as the value, which surfaces only as a login failure.
+    DbBranchSecretManagerExtract,
+
+    /// This operator runs a branch's pods in the operator-managed namespace of the session key
+    /// (`feature.db_branches[].namespace`). Gated so the CLI fails fast: an older operator's
+    /// CRD schema prunes `dedicatedNamespaceKey` and the branch silently runs in the target's
+    /// namespace instead.
+    DbBranchDedicatedNamespace,
+    /// This operator resolves `aws_ssm_parameter` connection sources (AWS Systems Manager
+    /// Parameter Store). Gated so the CLI fails fast: an older operator cannot deserialize a
+    /// branch carrying the source kind and never reconciles it, which surfaces only as a
+    /// creation timeout.
+    DbBranchSsmParameter,
+
+    /// This operator runs a Redis branch as a one node Redis Cluster when
+    /// `feature.db_branches[].cluster` is set. Gated so the CLI fails fast: an older operator's
+    /// CRD schema prunes `redisOptions.cluster` and brings up a standalone server, which a
+    /// Redis Cluster client then refuses to talk to.
+    RedisClusterBranching,
+    /// This operator drops the queue splits of a `PreviewSession` with `autoQueueSplitting` that
+    /// it can't serve (a broker whose splitting is off), instead of failing the session, as it
+    /// does for `mirrord up` sessions. Gated so the CLI only sends the splits `mirrord preview
+    /// up` adds by default to an operator that won't fail the preview over them.
+    PreviewAutoQueueSplitting,
+    /// This operator has Azure Service Bus queue splitting on. Advertised separately from the
+    /// other brokers' features, which came first, so older operators that split Azure Service Bus
+    /// don't advertise it: a CLI can only take its presence as a yes, never its absence as a no.
+    AzureServiceBusQueueSplitting,
+
+    /// This operator honors `sync` on a `PreviewSession`: it adds the code sync sidecar to the
+    /// preview pod and relays pushes to it. The CLI requires this feature before it sends `sync`,
+    /// because an older operator's CRD schema prunes `sync`, and the preview would then try to
+    /// run an empty image.
+    PreviewCodeSync,
+
+    /// This variant is what a client sees when the operator includes a feature the client is not
+    /// yet aware of, because it was introduced in a version newer than the client's.
+    #[schemars(skip)]
+    #[serde(other, skip_serializing)]
+    #[strum(disabled)]
+    Unknown,
+}
+
+impl NewOperatorFeature {
+    /// Canonical feature configuration paths group paid demand without exposing workload names,
+    /// branch IDs or broker IDs. Capability variants share their configuration root rather than
+    /// their display name.
+    pub fn feature_config_key(self) -> Option<&'static str> {
+        match self {
+            Self::CopyTarget
+            | Self::CopyTargetExcludeContainers
+            | Self::CopyTargetFilterIsolation => Some("feature.copy_target"),
+            Self::SqsQueueSplitting
+            | Self::KafkaQueueSplitting
+            | Self::KafkaQueueSplittingDirect
+            | Self::SqsQueueSplittingDirect
+            | Self::SqsQueueSplittingWithJqFilter
+            | Self::KafkaQueueSplittingWithJqFilter
+            | Self::RmqQueueSplitting
+            | Self::GcpPubSubQueueSplitting
+            | Self::RedisPubSubQueueSplitting
+            | Self::TemporalQueueSplitting
+            | Self::BullMqQueueSplitting
+            | Self::RmqQueueSplittingWithJqFilter
+            | Self::KafkaQueueSplittingWithProtobufDecoding
+            | Self::NatsQueueSplitting
+            | Self::NatsPubSubQueueSplitting
+            | Self::AzureServiceBusQueueSplitting
+            | Self::QueueSplittingWithComposedFilters => Some("feature.split_queues"),
+            Self::KafkaBranching => Some("feature.kafka_branch"),
+            Self::MySqlBranching
+            | Self::PgBranching
+            | Self::CockroachdbBranching
+            | Self::MongodbBranching
+            | Self::UnifiedBranchDbCrd
+            | Self::GenericDbBranching
+            | Self::MariaDbBranching
+            | Self::S3Branching
+            | Self::TurbopufferBranching
+            | Self::DbBranchCustomImage
+            | Self::DbBranchProfiles
+            | Self::PgBranchQueryParams
+            | Self::GenericDbCopy
+            | Self::GenericBranchProfileDefaults
+            | Self::DbBranchConfigMapSource
+            | Self::DbBranchUrlParam
+            | Self::LiquibaseMigrations
+            | Self::PgBranchAdditionalDatabases
+            | Self::DbBranchesFromSplitConfig
+            | Self::DbBranchSecretManagerExtract
+            | Self::DbBranchSsmParameter
+            | Self::DbBranchDedicatedNamespace
+            | Self::RedisClusterBranching => Some("feature.db_branches"),
+            Self::PreviewEnv
+            | Self::PreviewTlsDelivery
+            | Self::PreviewCronJobTarget
+            | Self::PreviewLabelTarget
+            | Self::PreviewTlsClientAuthFromTarget
+            | Self::PreviewAutoQueueSplitting
+            | Self::PreviewCodeSync
+            | Self::PreviewSpecResources => Some("feature.preview"),
+            Self::LabelTargeting | Self::ServerlessSessionsManager => Some("target.path"),
+            Self::MultiClusterPrimary | Self::MultiClusterRemote | Self::MultiClusterSubscribe => {
+                Some("multi_cluster")
+            }
+            Self::ProxyApi
+            | Self::SessionManagement
+            | Self::LayerReconnect
+            | Self::ExtendableUserCredentials
+            | Self::BypassCiCertificateVerification
+            | Self::ConnectParamsInHeader
+            | Self::DiagnosticPing
+            | Self::SessionReadyCondition
+            | Self::SubscribeEventOptions
+            | Self::KeylessCi
+            | Self::LicenseGateReporting
+            | Self::Unknown => None,
+        }
+    }
+}
+
+impl Display for NewOperatorFeature {
+    fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
+        let name = match self {
+            NewOperatorFeature::ProxyApi => "proxy API",
+            NewOperatorFeature::CopyTarget => "copy target",
+            NewOperatorFeature::CopyTargetExcludeContainers => "copy target excluded containers",
+            NewOperatorFeature::SessionManagement => "session management",
+            NewOperatorFeature::SqsQueueSplitting => "SQS queue splitting",
+            NewOperatorFeature::KafkaQueueSplitting => "Kafka queue splitting",
+            NewOperatorFeature::LayerReconnect => "layer reconnect",
+            NewOperatorFeature::KafkaQueueSplittingDirect => {
+                "Kafka queue splitting without copy target"
+            }
+            NewOperatorFeature::SqsQueueSplittingDirect => {
+                "SQS queue splitting without copy target"
+            }
+            NewOperatorFeature::MySqlBranching => "MySQL branching",
+            NewOperatorFeature::MariaDbBranching => "MariaDB branching",
+            NewOperatorFeature::PgBranching => "PostgreSQL branching",
+            NewOperatorFeature::CockroachdbBranching => "CockroachDB branching",
+            NewOperatorFeature::S3Branching => "S3 branching",
+            NewOperatorFeature::TurbopufferBranching => "turbopuffer branching",
+            NewOperatorFeature::MongodbBranching => "MongoDB branching",
+            NewOperatorFeature::PreviewEnv => "preview environments",
+            NewOperatorFeature::PreviewTlsDelivery => "TLS delivery configuration for previews",
+            NewOperatorFeature::ExtendableUserCredentials => "ExtendableUserCredentials",
+            NewOperatorFeature::BypassCiCertificateVerification => {
+                "BypassCiCertificateVerification"
+            }
+            NewOperatorFeature::MultiClusterPrimary => "multi-cluster primary",
+            NewOperatorFeature::MultiClusterRemote => "multi-cluster remote",
+            NewOperatorFeature::SqsQueueSplittingWithJqFilter => {
+                "Splitting SQS queues with a jq filter"
+            }
+            NewOperatorFeature::KafkaQueueSplittingWithJqFilter => {
+                "Splitting Kafka topics with a jq filter"
+            }
+            NewOperatorFeature::UnifiedBranchDbCrd => "unified branch database CRD",
+            NewOperatorFeature::RmqQueueSplitting => "RabbitMQ queue splitting",
+            NewOperatorFeature::GcpPubSubQueueSplitting => "GCP Pub/Sub queue splitting",
+            NewOperatorFeature::RedisPubSubQueueSplitting => "Redis Pub/Sub queue splitting",
+            NewOperatorFeature::TemporalQueueSplitting => "Temporal queue splitting",
+            NewOperatorFeature::ConnectParamsInHeader => "connect params in header",
+            NewOperatorFeature::BullMqQueueSplitting => "BullMQ queue splitting",
+            NewOperatorFeature::GenericDbBranching => "generic db branching",
+            NewOperatorFeature::CopyTargetFilterIsolation => "copy target filter isolation",
+            NewOperatorFeature::LabelTargeting => "label targeting",
+            NewOperatorFeature::DbBranchCustomImage => "custom db branch image",
+            NewOperatorFeature::DbBranchProfiles => "db branch config profiles",
+            NewOperatorFeature::DiagnosticPing => "diagnostic ping",
+            NewOperatorFeature::RmqQueueSplittingWithJqFilter => {
+                "Splitting RabbitMQ queues with a jq filter"
+            }
+            NewOperatorFeature::KafkaQueueSplittingWithProtobufDecoding => {
+                "Splitting Kafka topics with protobuf payload decoding"
+            }
+            NewOperatorFeature::PgBranchQueryParams => "pg branch query params",
+            NewOperatorFeature::GenericDbCopy => "generic db branch copy job",
+            NewOperatorFeature::GenericBranchProfileDefaults => {
+                "generic db branch profile defaults"
+            }
+            NewOperatorFeature::SessionReadyCondition => "session readiness reporting",
+            NewOperatorFeature::NatsQueueSplitting => "NATS queue splitting",
+            NewOperatorFeature::NatsPubSubQueueSplitting => "NATS pub/sub queue splitting",
+            NewOperatorFeature::PreviewAutoQueueSplitting => {
+                "default queue splitting in preview environments"
+            }
+            NewOperatorFeature::AzureServiceBusQueueSplitting => {
+                "Azure Service Bus queue splitting"
+            }
+            NewOperatorFeature::PreviewCodeSync => "code sync in preview environments",
+            NewOperatorFeature::DbBranchConfigMapSource => {
+                "DB branching ConfigMap connection sources"
+            }
+            NewOperatorFeature::DbBranchUrlParam => "DB branching url connection param",
+            NewOperatorFeature::LiquibaseMigrations => "DB branching Liquibase migrations",
+            NewOperatorFeature::PreviewCronJobTarget => "CronJob preview targets",
+            NewOperatorFeature::PreviewLabelTarget => "label preview targets",
+            NewOperatorFeature::PreviewSpecResources => "preview specs from manifest files",
+            NewOperatorFeature::PreviewTlsClientAuthFromTarget => {
+                "TLS client certificate read from the target for previews"
+            }
+            NewOperatorFeature::SubscribeEventOptions => "subscribe event options",
+            NewOperatorFeature::MultiClusterSubscribe => "multi-cluster subscribe",
+            NewOperatorFeature::QueueSplittingWithComposedFilters => {
+                "queue splitting with composable message filters"
+            }
+            NewOperatorFeature::PgBranchAdditionalDatabases => {
+                "PostgreSQL branches with additional databases"
+            }
+            NewOperatorFeature::KeylessCi => "keyless CI",
+            NewOperatorFeature::LicenseGateReporting => "license gate reporting",
+            NewOperatorFeature::DbBranchesFromSplitConfig => {
+                "db_branches resolved from the target's MirrordSplitConfig"
+            }
+            NewOperatorFeature::ServerlessSessionsManager => "serverless sessions-manager",
+            NewOperatorFeature::KafkaBranching => "Kafka branching",
+            NewOperatorFeature::DbBranchSecretManagerExtract => {
+                "DB branching field extraction from secret manager sources"
+            }
+            NewOperatorFeature::DbBranchDedicatedNamespace => {
+                "DB branches in a dedicated namespace per key"
+            }
+            NewOperatorFeature::RedisClusterBranching => "Redis Cluster branching",
+            NewOperatorFeature::DbBranchSsmParameter => {
+                "DB branching connection values from AWS SSM Parameter Store"
+            }
+            NewOperatorFeature::Unknown => "unknown feature",
+        };
+        f.write_str(name)
+    }
+}
+
+impl NewOperatorFeature {
+    /// The feature an operator advertises when splitting the queues of `kind` is on.
+    ///
+    /// Older operators split Azure Service Bus without advertising
+    /// [`AzureServiceBusQueueSplitting`](Self::AzureServiceBusQueueSplitting), so only its
+    /// presence says something.
+    pub fn queue_splitting(kind: QueueKind) -> Option<Self> {
+        match kind {
+            QueueKind::Sqs => Some(Self::SqsQueueSplitting),
+            QueueKind::Kafka => Some(Self::KafkaQueueSplitting),
+            QueueKind::Rmq => Some(Self::RmqQueueSplitting),
+            QueueKind::GcpPubSub => Some(Self::GcpPubSubQueueSplitting),
+            QueueKind::RedisPubSub => Some(Self::RedisPubSubQueueSplitting),
+            QueueKind::AzureServiceBus => Some(Self::AzureServiceBusQueueSplitting),
+            QueueKind::Temporal => Some(Self::TemporalQueueSplitting),
+            QueueKind::BullMq => Some(Self::BullMqQueueSplitting),
+            QueueKind::Nats => Some(Self::NatsQueueSplitting),
+            QueueKind::NatsPubSub => Some(Self::NatsPubSubQueueSplitting),
+            QueueKind::Unknown => None,
+        }
+    }
+
+    /// The operator Helm values that switch this feature on, for the hint shown when the
+    /// operator reports the feature as disabled. Empty for features that are always on, that come
+    /// with any of several values (the shared DB branching features turn on with any
+    /// `*Branching` value), or that need more setup than a `--set` (multi-cluster needs its
+    /// cluster list and default cluster, so a lone `multiCluster.enabled` fails startup).
+    pub fn helm_values(&self) -> &'static [&'static str] {
+        match self {
+            NewOperatorFeature::PreviewEnv
+            | NewOperatorFeature::PreviewTlsDelivery
+            | NewOperatorFeature::PreviewTlsClientAuthFromTarget
+            | NewOperatorFeature::PreviewCronJobTarget
+            | NewOperatorFeature::PreviewLabelTarget
+            | NewOperatorFeature::PreviewSpecResources
+            | NewOperatorFeature::PreviewAutoQueueSplitting
+            | NewOperatorFeature::PreviewCodeSync => &["operator.previewEnv"],
+            NewOperatorFeature::SqsQueueSplitting
+            | NewOperatorFeature::SqsQueueSplittingDirect
+            | NewOperatorFeature::SqsQueueSplittingWithJqFilter => &["operator.sqsSplitting"],
+            NewOperatorFeature::KafkaQueueSplitting
+            | NewOperatorFeature::KafkaQueueSplittingDirect
+            | NewOperatorFeature::KafkaQueueSplittingWithJqFilter
+            | NewOperatorFeature::KafkaQueueSplittingWithProtobufDecoding => {
+                &["operator.kafkaSplitting"]
+            }
+            NewOperatorFeature::RmqQueueSplitting
+            | NewOperatorFeature::RmqQueueSplittingWithJqFilter => &["operator.rmqSplitting"],
+            NewOperatorFeature::GcpPubSubQueueSplitting => &["operator.gcpPubsubSplitting"],
+            NewOperatorFeature::RedisPubSubQueueSplitting => &["operator.redisPubsubSplitting"],
+            NewOperatorFeature::TemporalQueueSplitting => &["operator.temporalSplitting"],
+            NewOperatorFeature::BullMqQueueSplitting => &["operator.bullmqSplitting"],
+            NewOperatorFeature::NatsQueueSplitting => &["operator.natsSplitting"],
+            NewOperatorFeature::NatsPubSubQueueSplitting => &["operator.natsPubsubSplitting"],
+            NewOperatorFeature::AzureServiceBusQueueSplitting => {
+                &["operator.azureServiceBusSplitting"]
+            }
+            NewOperatorFeature::MySqlBranching => &["operator.mysqlBranching"],
+            NewOperatorFeature::MariaDbBranching => &["operator.mariadbBranching"],
+            NewOperatorFeature::PgBranching
+            | NewOperatorFeature::PgBranchQueryParams
+            | NewOperatorFeature::PgBranchAdditionalDatabases => &["operator.pgBranching"],
+            NewOperatorFeature::MongodbBranching => &["operator.mongodbBranching"],
+            NewOperatorFeature::CockroachdbBranching => &["operator.cockroachdbBranching"],
+            NewOperatorFeature::GenericDbBranching
+            | NewOperatorFeature::GenericDbCopy
+            | NewOperatorFeature::GenericBranchProfileDefaults => &["operator.genericBranching"],
+            NewOperatorFeature::S3Branching => &["operator.s3Branching"],
+            NewOperatorFeature::TurbopufferBranching => &["operator.turbopufferBranching"],
+            NewOperatorFeature::RedisClusterBranching => &["operator.redisBranching"],
+            // Kafka branching rides on the Kafka splitting machinery, so both must be on.
+            NewOperatorFeature::KafkaBranching => {
+                &["operator.kafkaSplitting", "operator.kafkaBranching"]
+            }
+            NewOperatorFeature::DbBranchDedicatedNamespace => &["operator.dbBranchNamespaces"],
+            NewOperatorFeature::ServerlessSessionsManager => &["operator.sessionsManager"],
+            NewOperatorFeature::ProxyApi
+            | NewOperatorFeature::CopyTarget
+            | NewOperatorFeature::CopyTargetExcludeContainers
+            | NewOperatorFeature::SessionManagement
+            | NewOperatorFeature::LayerReconnect
+            | NewOperatorFeature::ExtendableUserCredentials
+            | NewOperatorFeature::BypassCiCertificateVerification
+            | NewOperatorFeature::MultiClusterRemote
+            | NewOperatorFeature::MultiClusterPrimary
+            | NewOperatorFeature::MultiClusterSubscribe
+            | NewOperatorFeature::UnifiedBranchDbCrd
+            | NewOperatorFeature::ConnectParamsInHeader
+            | NewOperatorFeature::CopyTargetFilterIsolation
+            | NewOperatorFeature::LabelTargeting
+            | NewOperatorFeature::DbBranchCustomImage
+            | NewOperatorFeature::DbBranchProfiles
+            | NewOperatorFeature::DiagnosticPing
+            | NewOperatorFeature::SessionReadyCondition
+            | NewOperatorFeature::DbBranchConfigMapSource
+            | NewOperatorFeature::DbBranchUrlParam
+            | NewOperatorFeature::LiquibaseMigrations
+            | NewOperatorFeature::SubscribeEventOptions
+            | NewOperatorFeature::QueueSplittingWithComposedFilters
+            | NewOperatorFeature::KeylessCi
+            | NewOperatorFeature::LicenseGateReporting
+            | NewOperatorFeature::DbBranchesFromSplitConfig
+            | NewOperatorFeature::DbBranchSecretManagerExtract
+            | NewOperatorFeature::DbBranchSsmParameter
+            | NewOperatorFeature::Unknown => &[],
+        }
+    }
+}
+
+impl From<&OperatorFeatures> for NewOperatorFeature {
+    fn from(old_feature: &OperatorFeatures) -> Self {
+        match old_feature {
+            OperatorFeatures::ProxyApi => NewOperatorFeature::ProxyApi,
+        }
+    }
+}
+
+/// Set where the application reads the name of the queue from, so that mirrord can find that queue,
+/// split it, and temporarily change the name there to the name of the branch queue when splitting.
+#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize, JsonSchema)]
+#[serde(rename_all = "camelCase")] // EnvVar -> envVar in yaml.
+pub enum QueueNameSource {
+    /// Name of an environment variable.
+    ///
+    /// References a single environment variable that contains the queue name.
+    /// Only this one queue will be split.
+    EnvVar(String),
+    /// Regex pattern for environment variable name.
+    ///
+    /// References multiple environment variables that can contain names of multiple queues.
+    /// All found queues will be split.
+    RegexPattern(String),
+}
+
+#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize, JsonSchema)]
+#[serde(rename_all = "camelCase")] // name_source -> nameSource in yaml.
+pub struct SplitQueueNameDetails {
+    /// Where the application gets the queue name from. Will be used to read messages from that
+    /// queue and distribute them to the output queues. When running with mirrord and splitting
+    /// this queue, applications will get a modified name from that source.
+    pub name_source: QueueNameSource,
+
+    /// Fallback queue name, if the source specified in `nameSource` is not present on the target.
+    /// If the configured source is not present and the fallback is used - the configured source
+    /// will be used to make the target use the temporary queue.
+    /// For example, if `nameSource` is `envVar: MEME_QUEUE_NAME`, but `MEME_QUEUE_NAME` is not
+    /// present in the target, and `IncomingMemeQueue.fifo` was set as a fallback queue name, then
+    /// the target will be modified to include the environment variable `MEME_QUEUE_NAME`, with the
+    /// name of the temporary queue as a value.
+    /// Setting a fallback name only makes sense if the target application indeed uses the defined
+    /// queue name source to override the source it uses on its absence.
+    pub fallback_name: Option<String>,
+
+    /// If set, the value read from `name_source` or `fallback_name`
+    /// will be parsed as a JSON map. The values in this map will be used as queue names.
+    pub names_from_json_map: Option<bool>,
+}
+
+#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize, JsonSchema)]
+#[serde(rename_all = "camelCase")] // name_source -> nameSource in yaml.
+pub struct SqsQueueDetails {
+    #[serde(flatten)]
+    pub name_details: SplitQueueNameDetails,
+
+    /// These tags will be set for all temporary SQS queues created by mirrord for queues defined
+    /// in this MirrordWorkloadQueueRegistry, alongside with the original tags of the respective
+    /// original queue. In case of a collision, the temporary queue will get the value from the
+    /// tag passed in here.
+    pub tags: Option<HashMap<String, String>>,
+
+    /// When this is set, the mirrord SQS splitting operator will try to parse SQS messages as
+    /// json objects that are created when SQS messages are created from SNS notifications.
+    /// The filters will then be matched also against the message attributes that are found inside
+    /// the body of the SQS message, and originate in SNS notification attributes.
+    pub sns: Option<bool>,
+
+    /// When this is set, the mirrord SQS splitting operator will try to parse SQS messages as
+    /// S3 event notification JSONs. For each S3 object referenced in the notification, it will
+    /// fetch the object's metadata from S3 and match the jq filter against that metadata.
+    pub s3_event: Option<bool>,
+}
+
+// This is a proxy to generate a schemars schema that contains the common fields between
+// [`SqsQueueDetails`] and [`RmqQueueDetails`](rabbitmq::RmqQueueDetails)
+/// The details of a queue that should be split.
+#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize, EnumDiscriminants)]
+#[strum_discriminants(derive(Deserialize, Serialize, JsonSchema))]
+#[strum_discriminants(serde(rename_all = "SCREAMING_SNAKE_CASE"))]
+#[serde(tag = "queueType", rename_all = "SCREAMING_SNAKE_CASE")]
+pub enum SplitQueue {
+    /// Amazon SQS
+    Sqs(SqsQueueDetails),
+
+    /// RabbitMQ
+    Rmq(rabbitmq::RmqQueueDetails),
+
+    /// Unknown, left for future compatibility.
+    ///
+    /// Solves issues when deserializing unknown variants returned in responses to list or watch
+    /// requests.
+    #[strum_discriminants(schemars(skip))]
+    #[serde(other)]
+    Unknown,
+}
+
+impl JsonSchema for SplitQueue {
+    fn schema_name() -> Cow<'static, str> {
+        "SplitQueue".into()
+    }
+
+    /// [`SplitQueue`] is adjacently tagged. Because of this, its JSON schema is not valid according
+    /// to CRD standards.
+    fn json_schema(generator: &mut schemars::SchemaGenerator) -> schemars::Schema {
+        #[derive(Serialize, Deserialize, JsonSchema)]
+        struct Proxy {
+            // We verify the tag.
+            #[serde(rename = "queueType")]
+            tag: SplitQueueDiscriminants,
+            // Other fields can be whatever.
+            //
+            // Generated CRD has `x-kubernetes-preserve-unknown-fields`,
+            // so everything is all right.
+            #[serde(flatten)]
+            rest: HashMap<String, serde_json::Value>,
+        }
+
+        Proxy::json_schema(generator)
+    }
+}
+
+/// A workload that is a consumer of a queue that is being split.
+#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize, JsonSchema, Hash)]
+#[serde(rename_all = "camelCase")] // workload_type -> workloadType
+pub struct QueueConsumer {
+    pub name: String,
+    /// If a container is not specified, the workload queue registry will apply to every run that
+    /// targets any of the workload's containers.
+    pub container: Option<String>,
+    pub workload_type: QueueConsumerType,
+}
+
+/// A workload that is a consumer of a queue that is being split.
+#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize, JsonSchema, Hash)]
+pub enum QueueConsumerType {
+    Deployment,
+
+    Rollout,
+
+    #[schemars(skip)]
+    #[serde(other, skip_serializing)]
+    Unsupported,
+}
+
+impl Display for QueueConsumerType {
+    fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
+        match self {
+            QueueConsumerType::Deployment => write!(f, "deployment"),
+            QueueConsumerType::Rollout => write!(f, "rollout"),
+            QueueConsumerType::Unsupported => write!(f, "unsupported"),
+        }
+    }
+}
+
+impl QueueConsumer {
+    /// For self that is the queue consumer of a run, test if a given registry object is the correct
+    /// registry for this run.
+    pub fn registry_matches(&self, registry: &MirrordWorkloadQueueRegistry) -> bool {
+        let registry_consumer = &registry.spec.consumer;
+        self.workload_type == registry_consumer.workload_type
+            && self.name == registry_consumer.name
+            && (self.container == registry_consumer.container
+            // If registry does not specify a container, it applies to all runs with
+            // this target, regardless of what container they are targeting.
+            || registry_consumer.container.is_none())
+    }
+}
+
+impl Display for QueueConsumer {
+    fn fmt(&self, f: &mut Formatter<'_>) -> std::fmt::Result {
+        if let Some(ref container) = self.container {
+            write!(
+                f,
+                "{}/{}/container/{container}",
+                self.workload_type, self.name
+            )
+        } else {
+            write!(f, "{}/{}", self.workload_type, self.name)
+        }
+    }
+}
+
+#[derive(Clone, Debug, Default, Deserialize, Serialize, JsonSchema)]
+#[serde(rename_all = "camelCase")] // original_name -> originalName
+pub struct QueueNameUpdate {
+    pub original_name: String,
+    pub output_name: String,
+}
+
+/// Details retrieved from K8s resources once the splitter is active.
+///
+/// used on filter session creation to determine the required
+/// config changes that make the application use the
+/// output queues instead of the original.
+// This status struct is not optimal in that it contains redundant information. This makes the
+// controller's code a bit simpler.
+// Some information is present in the spec, but it is organized differently.
+#[derive(Clone, Debug, Default, Deserialize, Serialize, JsonSchema)]
+#[serde(rename_all = "camelCase")] // workload_type -> workloadType
+pub struct ActiveSqsSplits {
+    /// For each queue_id, the actual queue name as retrieved from the target's pod spec or config
+    /// map, together with the name of its temporary output queue.
+    pub queue_names: BTreeMap<QueueId, QueueNameUpdate>,
+
+    /// Names of env vars that contain the queue name directly in the pod template, without config
+    /// map refs, mapped to their queue id.
+    pub direct_env_vars: HashMap<String, QueueId>,
+
+    pub env_updates: BTreeMap<String, QueueNameUpdate>,
+}
+
+impl ActiveSqsSplits {
+    pub fn output_queue_names(&self) -> Vec<&str> {
+        self.queue_names
+            .values()
+            .map(|QueueNameUpdate { output_name, .. }| output_name.as_str())
+            .collect()
+    }
+}
+
+#[derive(Clone, Debug, Default, Deserialize, Serialize, JsonSchema)]
+#[serde(rename_all = "camelCase")] // sqs_details -> sqsDetails
+pub struct WorkloadQueueRegistryStatus {
+    /// Active SQS splits.
+    pub sqs_details: Option<ActiveSqsSplits>,
+
+    /// Observed generation of the spec.
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub observed_generation: Option<i64>,
+
+    /// Standard conditions.
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    #[schemars(extend("x-kubernetes-list-type" = "map", "x-kubernetes-list-map-keys" = ["type"]))]
+    pub conditions: Vec<Condition>,
+}
+
+/// Defines a Custom Resource that holds a central configuration for splitting queues for a
+/// QueueConsumer (a target workload for which queues should be split).
+///
+/// This means there should be 1 such resource per queue splitting target.
+#[derive(CustomResource, Clone, Debug, Deserialize, Serialize, JsonSchema)]
+#[kube(
+    group = "queues.mirrord.metalbear.co",
+    group_resolver = "crate::types::keyed_group",
+    version = "v1alpha",
+    kind = "MirrordWorkloadQueueRegistry",
+    category = "mirrord",
+    shortname = "qs",
+    status = "WorkloadQueueRegistryStatus",
+    namespaced,
+    printcolumn = r#"{"name":"Target Kind", "type":"string", "description":"Kind of the consumer workload.", "jsonPath":".spec.consumer.workloadType"}"#,
+    printcolumn = r#"{"name":"Target Name", "type":"string", "description":"Name of the consumer workload.", "jsonPath":".spec.consumer.name"}"#,
+    printcolumn = r#"{"name":"Accepted", "type":"string", "description":"Whether the operator resolved this registry into a split configuration.", "jsonPath":".status.conditions[?(@.type==\"Accepted\")].status"}"#,
+    printcolumn = r#"{"name":"Detail", "type":"string", "description":"Why the registry could not be resolved.", "jsonPath":".status.conditions[?(@.type==\"Accepted\")].message", "priority":1}"#,
+    printcolumn = r#"{"name":"Age", "type":"date", "description":"Time since the resource was created.", "jsonPath":".metadata.creationTimestamp"}"#
+)]
+#[serde(rename_all = "camelCase")]
+pub struct MirrordWorkloadQueueRegistrySpec {
+    /// A map of the queues that should be split.
+    /// The key is used by users to associate filters to the right queues.
+    pub queues: BTreeMap<QueueId, SplitQueue>,
+
+    /// The resource (deployment or Argo rollout) that reads from the queues.
+    pub consumer: QueueConsumer,
+
+    /// Timeout for waiting until workload patch takes effect, that is - at least one pod reads
+    /// from the main temporary queue.
+    ///
+    /// Specified in seconds. Defaults to 120s.
+    #[serde(skip_serializing_if = "Option::is_none")]
+    pub workload_restart_timeout: Option<u32>,
+}
+
+#[derive(Clone, Debug, Default, Deserialize, Serialize, JsonSchema)]
+#[serde(rename = "SQSSplitDetails", rename_all = "camelCase")]
+pub struct SqsSplitDetails {
+    /// Queue ID -> old and new queue names.
+    pub queue_names: BTreeMap<QueueId, QueueNameUpdate>,
+
+    // A bit redundant, because the registry resource status has the mapping from env var name
+    // to queue id, and `queue_names` has the mapping from queue id to name update, but, saving
+    // it here in the form that is useful to reader, for simplicity and readability.
+    /// Env var name -> old and new queue names.
+    pub env_updates: BTreeMap<String, QueueNameUpdate>,
+}
+
+/// Representation of Sqs errors for the status of SQS session resources.
+#[derive(Clone, Debug, Deserialize, Serialize, JsonSchema)]
+#[serde(rename_all = "camelCase")]
+pub struct SqsSessionError {
+    /// HTTP code for operator response.
+    pub status_code: u16,
+
+    /// Human-readable explanation of what went wrong.
+    pub reason: String,
+}
+
+impl Display for SqsSessionError {
+    fn fmt(&self, f: &mut Formatter) -> std::fmt::Result {
+        write!(f, "{}", self.reason)
+    }
+}
+
+#[derive(Clone, Debug, Deserialize, Serialize, JsonSchema)]
+#[serde(rename = "SQSSessionStatus")]
+pub enum SqsSessionStatus {
+    // kube-rs does not allow mixing unit variants with tuple/struct variants, so this variant
+    // has to be a tuple/struct too. If we leave the tuple empty, k8s complains about an object
+    // without any items, and kube-rs does not support internally tagged enums, so we actually
+    // have to put something in there, even if we don't actually care about that info.
+    Starting {
+        start_time_utc: String,
+    },
+    /// SQS operator sets this status before it starts registering filters, so that if anything
+    /// fails during the registration of filters, we have all the queues we need to delete on
+    /// cleanup.
+    RegisteringFilters(SqsSplitDetails),
+    Ready(SqsSplitDetails),
+    StartError(SqsSessionError),
+    CleanupError {
+        error: SqsSessionError,
+        details: Option<SqsSplitDetails>,
+    },
+}
+
+impl SqsSessionStatus {
+    pub fn get_split_details(&self) -> Option<&SqsSplitDetails> {
+        match self {
+            SqsSessionStatus::RegisteringFilters(details) | SqsSessionStatus::Ready(details) => {
+                Some(details)
+            }
+            SqsSessionStatus::CleanupError { details, .. } => details.as_ref(),
+            _ => None,
+        }
+    }
+}
+
+/// The [`kube::runtime::wait::Condition`] trait is auto-implemented for this function.
+/// To be used in [`kube::runtime::wait::await_condition`].
+pub fn is_session_ready(session: Option<&MirrordSqsSession>) -> bool {
+    session
+        .and_then(|session| session.status.as_ref())
+        .map(|status| {
+            matches!(
+                status,
+                SqsSessionStatus::Ready(..)
+                    | SqsSessionStatus::StartError(..)
+                    | SqsSessionStatus::CleanupError { .. }
+            )
+        })
+        .unwrap_or_default()
+}
+
+/// The operator creates this object when a user runs mirrord against a target that is a queue
+/// consumer.
+#[derive(CustomResource, Clone, Debug, Deserialize, Serialize, JsonSchema)]
+#[kube(
+    group = "queues.mirrord.metalbear.co",
+    group_resolver = "crate::types::keyed_group",
+    version = "v1alpha",
+    kind = "MirrordSQSSession",
+    category = "mirrord",
+    root = "MirrordSqsSession", // for Rust naming conventions (Sqs, not SQS)
+    status = "SqsSessionStatus",
+    namespaced,
+    printcolumn = r#"{"name":"Target Kind", "type":"string", "description":"Kind of the target workload.", "jsonPath":".spec.queueConsumer.workloadType"}"#,
+    printcolumn = r#"{"name":"Target Name", "type":"string", "description":"Name of the target workload.", "jsonPath":".spec.queueConsumer.name"}"#,
+    printcolumn = r#"{"name":"Session", "type":"string", "description":"mirrord session id that owns this split.", "jsonPath":".spec.sessionId", "priority":1}"#,
+    printcolumn = r#"{"name":"Age", "type":"date", "description":"Time since the resource was created.", "jsonPath":".metadata.creationTimestamp"}"#
+)]
+#[serde(rename_all = "camelCase")] // queue_filters -> queueFilters
+pub struct MirrordSqsSessionSpec {
+    /// For each queue_id, a mapping from attribute name, to attribute value regex.
+    /// The queue_id for a queue is determined at the queue registry. It is not (necessarily)
+    /// The name of the queue on AWS.
+    pub queue_filters: HashMap<QueueId, QueueMessageFilter>,
+
+    /// Specify jq programs that will be used to filter messages from queues.
+    /// For queues with a specified jq program, for every message the jq filter runs on a JSON
+    /// representation of the SQS `Message` object.
+    ///
+    /// If the jq program outputs `true`, that message is considered as matching the filter.
+    #[serde(default, skip_serializing_if = "HashMap::is_empty")]
+    pub queue_jq_filters: HashMap<QueueId, String>,
+
+    /// The target of this session.
+    pub queue_consumer: QueueConsumer,
+
+    /// The id of the mirrord exec session, from the operator.
+    // The Kubernetes API can't deal with 64 bit numbers (with most significant bit set)
+    // so we save that field as a (HEX) string even though its source is a u64
+    pub session_id: String,
+
+    /// Multi-cluster coordination: explicit output queue names.
+    ///
+    /// Maps original queue names to their corresponding output queue names.
+    /// For multi-cluster: the default cluster creates temp queues and passes the exact names here.
+    /// Other clusters use these names directly instead of generating their own.
+    #[serde(default, skip_serializing_if = "HashMap::is_empty")]
+    pub output_queue_names: HashMap<String, String>,
+}
+
+#[derive(CustomResource, Clone, Debug, Deserialize, Serialize, JsonSchema)]
+#[kube(
+    group = "operator.metalbear.co",
+    version = "v1",
+    kind = "MirrordClusterOperatorUserCredential",
+    status = "MirrordClusterOperatorUserCredentialStatus"
+)]
+#[serde(rename_all = "camelCase")]
+pub struct MirrordClusterOperatorUserCredentialSpec {
+    /// Certificate signing request created using the client's key pair.
+    pub csr: String,
+
+    /// The intended usage of this credential.
+    pub kind: UserCredentialKind,
+}
+
+#[derive(Clone, Debug, Deserialize, Serialize, JsonSchema)]
+#[serde(rename_all = "camelCase")]
+pub struct MirrordClusterOperatorUserCredentialStatus {
+    pub certificate: String,
+}
+
+#[derive(Clone, Debug, Deserialize, Serialize, JsonSchema, Default)]
+#[serde(rename_all = "camelCase")]
+pub enum UserCredentialKind {
+    #[default]
+    Regular,
+    Ci,
+    #[schemars(skip)]
+    #[serde(other)]
+    Unknown,
+}
+
+#[cfg(test)]
+mod tests {
+    use std::{fs, path::Path};
+
+    use kube::CustomResourceExt;
+
+    use super::{
+        db_branching::{
+            branch_database::BranchDatabase, mongodb::MongodbBranchDatabase,
+            mysql::MysqlBranchDatabase, pg::PgBranchDatabase,
+        },
+        kafka::MirrordKafkaEphemeralTopic,
+        preview::PreviewSession,
+        profile::{MirrordClusterProfile, MirrordProfile},
+        rabbitmq::MirrordRmqSession,
+        *,
+    };
+
+    fn write_crd_yaml<T: CustomResourceExt>() {
+        let crd = T::crd();
+        let yaml = serde_saphyr::to_string(&crd).unwrap();
+        println!("{yaml}");
+
+        if let Some(out_path) = std::env::var_os("MIRRORD_TEST_DUMP_CRD_DIR") {
+            let path = Path::new(&out_path);
+            fs::create_dir_all(path).unwrap();
+            let filename = crd.metadata.name.as_ref().unwrap();
+            let filepath = path.join(format!("{filename}.yaml"));
+            fs::write(filepath, yaml).unwrap();
+        }
+    }
+
+    #[test]
+    fn write_all_crd_yamls() {
+        write_crd_yaml::<MirrordWorkloadQueueRegistry>();
+        write_crd_yaml::<MirrordSqsSession>();
+        write_crd_yaml::<MirrordRmqSession>();
+        write_crd_yaml::<MirrordClusterOperatorUserCredential>();
+        write_crd_yaml::<PreviewSession>();
+        write_crd_yaml::<PgBranchDatabase>();
+        write_crd_yaml::<MysqlBranchDatabase>();
+        write_crd_yaml::<MongodbBranchDatabase>();
+        write_crd_yaml::<BranchDatabase>();
+        write_crd_yaml::<MirrordKafkaEphemeralTopic>();
+        write_crd_yaml::<MirrordClusterProfile>();
+        write_crd_yaml::<MirrordProfile>();
+        write_crd_yaml::<PreviewSession>();
+    }
+
+    #[test]
+    fn deserialize_split_queue() {
+        let valid_sqs = serde_json::json!({
+            "queueType": "SQS",
+            "nameSource": {
+                "envVar": "TEST_ENV",
+            },
+        });
+        let deserialized = serde_json::from_value::<SplitQueue>(valid_sqs).unwrap();
+        assert_eq!(
+            deserialized,
+            SplitQueue::Sqs(SqsQueueDetails {
+                name_details: SplitQueueNameDetails {
+                    name_source: QueueNameSource::EnvVar("TEST_ENV".into()),
+                    fallback_name: None,
+                    names_from_json_map: None,
+                },
+                tags: None,
+                sns: None,
+                s3_event: None,
+            }),
+        );
+
+        let invalid_sqs = serde_json::json!({
+            "queueType": "SQS",
+            "nameSource": {
+                "ENV_VAR": "TEST_ENV",
+            },
+        });
+        serde_json::from_value::<SplitQueue>(invalid_sqs).unwrap_err();
+
+        let unknown_queue_type = serde_json::json!({
+            "queueType": "I_DO_NOT_EXIST",
+            "nameSource": {
+                "envVar": {
+                    "variable": "TEST_ENV",
+                },
+            },
+        });
+        let deserialized = serde_json::from_value::<SplitQueue>(unknown_queue_type).unwrap();
+        assert_eq!(deserialized, SplitQueue::Unknown,);
+    }
+
+    /// An operator spec as older operators send it: no `disabled_features` field at all.
+    fn spec_without_disabled_features() -> MirrordOperatorSpec {
+        serde_json::from_value(serde_json::json!({
+            "operator_version": "3.200.0",
+            "default_namespace": "default",
+            "supported_features": [NewOperatorFeature::CopyTarget],
+            "license": {"name": "test", "organization": "test", "expire_at": "2099-01-01"}
+        }))
+        .unwrap()
+    }
+
+    /// Preview environments off in the chart used to read as "operator 3.200.0 does not support
+    /// preview environments", sending users to upgrade an operator that only needed
+    /// `operator.previewEnv=true`. The operator now lists what it switched off, and the client
+    /// reports that as disabled; anything not advertised either way still means an upgrade.
+    #[cfg(feature = "client")]
+    #[test]
+    fn require_feature_tells_disabled_from_unsupported() {
+        let spec = spec_without_disabled_features()
+            .with_disabled_features(vec![NewOperatorFeature::PreviewEnv]);
+
+        assert!(spec.require_feature(NewOperatorFeature::CopyTarget).is_ok());
+        assert!(matches!(
+            spec.require_feature(NewOperatorFeature::PreviewEnv),
+            Err(OperatorApiError::FeatureDisabled {
+                feature: NewOperatorFeature::PreviewEnv
+            })
+        ));
+        assert!(matches!(
+            spec.require_feature(NewOperatorFeature::PgBranching),
+            Err(OperatorApiError::UnsupportedFeature {
+                feature: NewOperatorFeature::PgBranching,
+                ..
+            })
+        ));
+    }
+
+    /// Older operators never send `disabled_features`; the client must keep reading their spec
+    /// and fall back to the unsupported-by-version error.
+    #[cfg(feature = "client")]
+    #[test]
+    fn missing_disabled_features_means_unsupported() {
+        let spec = spec_without_disabled_features();
+
+        assert!(spec.disabled_features().is_empty());
+        assert!(matches!(
+            spec.require_feature(NewOperatorFeature::PreviewEnv),
+            Err(OperatorApiError::UnsupportedFeature {
+                feature: NewOperatorFeature::PreviewEnv,
+                ..
+            })
+        ));
+    }
+
+    /// Every chart-toggled feature names the values that turn it on, so the disabled error can
+    /// show `--set`s the admin can paste. Kafka branching needs splitting too, and multi-cluster
+    /// gets no hint because a lone `multiCluster.enabled` fails startup.
+    #[test]
+    fn chart_toggled_features_name_their_helm_values() {
+        assert_eq!(
+            NewOperatorFeature::PreviewEnv.helm_values(),
+            ["operator.previewEnv"]
+        );
+        assert_eq!(
+            NewOperatorFeature::KafkaBranching.helm_values(),
+            ["operator.kafkaSplitting", "operator.kafkaBranching"]
+        );
+        assert!(
+            NewOperatorFeature::MultiClusterPrimary
+                .helm_values()
+                .is_empty()
+        );
+        assert!(NewOperatorFeature::CopyTarget.helm_values().is_empty());
+    }
+}

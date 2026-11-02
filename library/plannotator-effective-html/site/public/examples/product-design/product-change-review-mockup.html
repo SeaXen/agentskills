@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Product change review mockup</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #11131a;
+        --blue: #2451d6;
+        --blue-deep: #173996;
+        --blue-pale: #dfe8ff;
+        --orange: #f0643c;
+        --pink: #f4a6bc;
+        --green: #1f9b62;
+        --white: #ffffff;
+        --paper: #f3f5f8;
+        --line: #bdc5d2;
+        --muted: #5c6472;
+        --shadow: 0 24px 54px rgba(14, 24, 55, .22);
+        font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+      * { box-sizing: border-box; }
+      body { min-width: 320px; margin: 0; color: var(--ink); background: var(--paper); }
+      button { font: inherit; color: inherit; }
+      button:focus-visible { outline: 3px solid var(--orange); outline-offset: 3px; }
+      .review-page { min-height: 100vh; }
+      .masthead { min-height: 62px; display: grid; grid-template-columns: auto 1fr auto; align-items: center; gap: 22px; padding: 0 clamp(16px, 3vw, 42px); border-bottom: 1px solid #0e2d83; color: var(--white); background: var(--blue); }
+      .product { font-weight: 850; letter-spacing: -.025em; }
+      .crumb { color: #d8e2ff; font-size: .75rem; }
+      .masthead-actions { display: flex; align-items: center; gap: 8px; }
+      .masthead-actions button { min-height: 36px; border: 1px solid rgba(255,255,255,.45); border-radius: 5px; padding: 0 11px; color: var(--white); background: transparent; font-size: .7rem; font-weight: 740; }
+      .masthead-actions .approve { border-color: var(--white); color: var(--blue-deep); background: var(--white); }
+
+      .intro { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(320px, .7fr); gap: clamp(24px, 5vw, 80px); padding: clamp(36px, 6vw, 78px) clamp(18px, 5vw, 72px) 44px; color: var(--white); background: var(--blue); }
+      .intro h1 { max-width: 830px; margin: 0; font-family: "Arial Narrow", "Helvetica Neue", sans-serif; font-size: clamp(3.2rem, 6vw, 6.2rem); line-height: .86; letter-spacing: -.04em; text-wrap: balance; }
+      .brief { align-self: end; padding: 18px 0 4px 22px; border-left: 1px solid rgba(255,255,255,.48); }
+      .brief p { max-width: 50ch; margin: 0; color: #dfe7ff; font-size: .95rem; line-height: 1.55; }
+      .brief dl { display: grid; grid-template-columns: repeat(2, 1fr); gap: 14px; margin: 20px 0 0; }
+      .brief dt { color: #b9c9f4; font-size: .62rem; }
+      .brief dd { margin: 4px 0 0; font-size: .78rem; font-weight: 720; }
+
+      main { width: min(1520px, 100%); margin: 0 auto; padding: 28px clamp(18px, 4vw, 58px) 56px; }
+      .controls { display: grid; grid-template-columns: 1fr auto; align-items: center; gap: 20px; margin-bottom: 20px; }
+      .controls-copy strong, .controls-copy span { display: block; }
+      .controls-copy strong { font-size: .9rem; }
+      .controls-copy span { margin-top: 4px; color: var(--muted); font-size: .72rem; }
+      .segmented { display: flex; border: 1px solid var(--ink); border-radius: 6px; overflow: hidden; background: var(--white); }
+      .segmented button { min-height: 42px; border: 0; border-right: 1px solid var(--ink); padding: 0 14px; background: transparent; cursor: pointer; font-size: .72rem; font-weight: 760; }
+      .segmented button:last-child { border-right: 0; }
+      .segmented button[aria-pressed="true"] { color: var(--white); background: var(--ink); }
+
+      .proof { display: grid; grid-template-columns: minmax(0, 1fr) 310px; overflow: hidden; border: 1px solid var(--ink); border-radius: 8px; background: var(--white); box-shadow: var(--shadow); }
+      .proof-stage { min-width: 0; padding: clamp(18px, 3vw, 38px); background: var(--blue-pale); }
+      .screen-pair { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 18px; transition: opacity 180ms ease; }
+      .screen { min-width: 0; display: grid; grid-template-rows: 34px 1fr; overflow: hidden; border: 1px solid var(--ink); border-radius: 6px; background: var(--white); }
+      .screen-label { display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 0 11px; border-bottom: 1px solid var(--ink); font-size: .66rem; font-weight: 800; }
+      .screen-label span { color: var(--muted); font-weight: 540; }
+      .app-screen { min-height: 510px; display: grid; grid-template-columns: 27% 1fr; }
+      .app-nav { display: grid; align-content: start; gap: 7px; padding: 15px 10px; border-right: 1px solid var(--line); background: #f6f7f9; }
+      .app-logo { display: flex; align-items: center; gap: 6px; margin-bottom: 12px; font-size: .68rem; font-weight: 800; }
+      .app-logo i { width: 17px; height: 17px; border-radius: 4px; background: var(--blue); }
+      .nav-row { min-height: 28px; display: flex; align-items: center; gap: 7px; border-radius: 4px; padding: 0 7px; color: #586071; font-size: .61rem; }
+      .nav-row.active { color: var(--ink); background: #e5e9f1; font-weight: 700; }
+      .nav-row i { width: 10px; height: 10px; border: 1px solid currentColor; border-radius: 2px; }
+      .content { min-width: 0; padding: 21px 18px; }
+      .content h2 { margin: 0; font-size: 1.1rem; letter-spacing: -.025em; }
+      .content > p { margin: 7px 0 20px; color: var(--muted); font-size: .65rem; line-height: 1.45; }
+      .members { border-top: 1px solid var(--line); }
+      .member { display: grid; grid-template-columns: 28px minmax(0, 1fr) auto; align-items: center; gap: 9px; min-height: 66px; border-bottom: 1px solid #dce1e8; }
+      .avatar { width: 28px; height: 28px; display: grid; place-items: center; border-radius: 50%; color: var(--white); background: var(--blue); font-size: .56rem; font-weight: 800; }
+      .member:nth-child(2) .avatar { background: var(--orange); }
+      .member:nth-child(3) .avatar { color: var(--ink); background: var(--pink); }
+      .member strong, .member small { display: block; }
+      .member strong { font-size: .66rem; }
+      .member small { margin-top: 4px; color: var(--muted); font-size: .55rem; }
+      .member button { min-height: 28px; border: 1px solid var(--line); border-radius: 4px; padding: 0 8px; background: var(--white); font-size: .56rem; }
+      .current .member button { width: 30px; padding: 0; }
+      .proposed .member.selected { margin-inline: -8px; padding-inline: 8px; background: var(--blue-pale); }
+      .proposed .member.selected button { border-color: var(--blue); color: var(--white); background: var(--blue); }
+      .permission-note { display: none; margin-top: 16px; padding: 11px; border: 1px solid #9bb0e8; border-radius: 5px; color: #21325c; background: #edf2ff; font-size: .6rem; line-height: 1.45; }
+      .proposed .permission-note { display: block; }
+
+      .proof-notes { border-left: 1px solid var(--ink); background: var(--white); }
+      .proof-notes h2 { margin: 0; padding: 17px 16px; border-bottom: 1px solid var(--ink); font-size: .88rem; }
+      .note { position: relative; padding: 17px 16px 17px 48px; border-bottom: 1px solid var(--line); }
+      .note::before { position: absolute; left: 15px; top: 16px; width: 22px; height: 22px; display: grid; place-items: center; border-radius: 50%; color: var(--white); background: var(--orange); font-size: .62rem; font-weight: 850; }
+      .note:nth-of-type(1)::before { content: "1"; }
+      .note:nth-of-type(2)::before { content: "2"; background: var(--blue); }
+      .note:nth-of-type(3)::before { content: "3"; color: var(--ink); background: var(--pink); }
+      .note strong { display: block; margin-bottom: 6px; font-size: .73rem; }
+      .note p { margin: 0; color: var(--muted); font-size: .68rem; line-height: 1.5; }
+      .decision-box { margin: 18px 16px; padding: 14px; border: 1px solid var(--ink); border-radius: 6px; }
+      .decision-box strong { display: block; font-size: .75rem; }
+      .decision-box p { margin: 7px 0 13px; color: var(--muted); font-size: .65rem; line-height: 1.45; }
+      .decision-box button { width: 100%; min-height: 38px; border: 0; border-radius: 4px; color: var(--white); background: var(--blue); font-size: .68rem; font-weight: 800; }
+
+      body[data-mode="current"] .proposed { display: none; }
+      body[data-mode="current"] .screen-pair { grid-template-columns: minmax(0, 760px); justify-content: center; }
+      body[data-mode="proposed"] .current { display: none; }
+      body[data-mode="proposed"] .screen-pair { grid-template-columns: minmax(0, 760px); justify-content: center; }
+      body[data-width="mobile"] .screen-pair { grid-template-columns: repeat(2, minmax(250px, 330px)); justify-content: center; }
+      body[data-width="mobile"] .app-screen { grid-template-columns: 1fr; }
+      body[data-width="mobile"] .app-nav { display: none; }
+      body[data-width="mobile"] .member { grid-template-columns: 28px 1fr; padding-block: 10px; }
+      body[data-width="mobile"] .member button { grid-column: 1 / -1; width: 100%; }
+      body[data-width="mobile"][data-mode="current"] .screen-pair, body[data-width="mobile"][data-mode="proposed"] .screen-pair { grid-template-columns: minmax(250px, 330px); }
+
+      .states { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; margin-top: 20px; border: 1px solid var(--ink); background: var(--ink); }
+      .state { min-height: 94px; display: grid; align-content: start; gap: 7px; padding: 13px; background: var(--white); }
+      .state strong { font-size: .68rem; }
+      .state p { margin: 0; color: var(--muted); font-size: .62rem; line-height: 1.45; }
+      .state.saved { background: #e5f5eb; }
+      .state.blocked { background: #fff0eb; }
+
+      @media (max-width: 1080px) {
+        .intro { grid-template-columns: 1fr; }
+        .brief { padding-left: 0; border-left: 0; }
+        .proof { grid-template-columns: 1fr; }
+        .proof-notes { border-top: 1px solid var(--ink); border-left: 0; }
+      }
+      @media (max-width: 760px) {
+        .crumb, .masthead-actions button:first-child { display: none; }
+        .masthead { grid-template-columns: 1fr auto; }
+        .controls { grid-template-columns: 1fr; }
+        .segmented { width: 100%; }
+        .segmented button { flex: 1; padding-inline: 6px; }
+        body[data-width] .screen-pair { grid-template-columns: 1fr; }
+        .states { grid-template-columns: 1fr; }
+      }
+      @media (max-width: 460px) {
+        .intro { padding-inline: 16px; }
+        main { padding-inline: 12px; }
+        .proof-stage { padding: 12px; }
+        .app-screen { min-height: 450px; }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .screen-pair { transition: none; }
+      }
+    </style>
+  </head>
+  <body data-mode="compare" data-width="desktop">
+    <!--
+      THESIS: Product-change review is its own artifact, not a screenshot pasted into a ticket.
+      OWN-WORLD: Cobalt proof field, white interface plates, orange/pink review marks, exact black rules, and synthetic member data.
+      STORY: Compare current and proposed role changes, inspect the relevant states, and record a bounded decision.
+      FIRST VIEWPORT: Saturated brief above a large dual-screen proof with numbered review notes at the edge.
+      FORM: Polished product-change mockup in a subject-specific proofing language; seed product-change-review-mockup.
+      FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+    -->
+    <div class="review-page">
+      <header class="masthead"><div class="product">Change review</div><div class="crumb">Member roles · proposal 184</div><div class="masthead-actions"><button type="button">Request changes</button><button class="approve" type="button">Approve direction</button></div></header>
+      <section class="intro"><h1>Move the action next to the person.</h1><div class="brief"><p>The current member list hides every role change in an overflow menu. The proposal keeps valid actions and permission limits beside the selected member.</p><dl><div><dt>Decision</dt><dd>Action placement</dd></div><div><dt>Review by</dt><dd>Product + engineering</dd></div></dl></div></section>
+      <main>
+        <div class="controls"><div class="controls-copy"><strong>Member role change</strong><span>Synthetic product context · desktop and mobile included</span></div><div class="segmented" role="group" aria-label="Change review view"><button type="button" data-mode-choice="compare" aria-pressed="true">Compare</button><button type="button" data-mode-choice="current" aria-pressed="false">Current</button><button type="button" data-mode-choice="proposed" aria-pressed="false">Proposed</button><button type="button" data-width-choice aria-pressed="false">Mobile</button></div></div>
+        <section class="proof">
+          <div class="proof-stage">
+            <div class="screen-pair">
+              <article class="screen current"><header class="screen-label">Current <span>Actions hidden</span></header><div class="app-screen"><nav class="app-nav"><div class="app-logo"><i></i>Northstar</div><span class="nav-row"><i></i>Overview</span><span class="nav-row active"><i></i>Members</span><span class="nav-row"><i></i>Security</span><span class="nav-row"><i></i>Billing</span></nav><section class="content"><h2>Members</h2><p>Manage workspace access and roles.</p><div class="members"><div class="member"><span class="avatar">JM</span><span><strong>Jordan Miles</strong><small>Editor · joined Jul 18</small></span><button type="button">•••</button></div><div class="member"><span class="avatar">AR</span><span><strong>Ana Rivera</strong><small>Viewer · joined Jul 21</small></span><button type="button">•••</button></div><div class="member"><span class="avatar">KL</span><span><strong>Kai Lee</strong><small>Owner · joined May 02</small></span><button type="button">•••</button></div></div></section></div></article>
+              <article class="screen proposed"><header class="screen-label">Proposed <span>Valid actions visible</span></header><div class="app-screen"><nav class="app-nav"><div class="app-logo"><i></i>Northstar</div><span class="nav-row"><i></i>Overview</span><span class="nav-row active"><i></i>Members</span><span class="nav-row"><i></i>Security</span><span class="nav-row"><i></i>Billing</span></nav><section class="content"><h2>Members</h2><p>Select a member to review the roles you can assign.</p><div class="members"><div class="member selected"><span class="avatar">JM</span><span><strong>Jordan Miles</strong><small>Editor · joined Jul 18</small></span><button type="button">Change role</button></div><div class="member"><span class="avatar">AR</span><span><strong>Ana Rivera</strong><small>Viewer · joined Jul 21</small></span><button type="button">Change role</button></div><div class="member"><span class="avatar">KL</span><span><strong>Kai Lee</strong><small>Owner · role protected</small></span><button type="button" disabled>Owner</button></div></div><div class="permission-note"><strong>Owner role protected.</strong> Transfer ownership before changing Kai’s access.</div></section></div></article>
+            </div>
+            <div class="states"><article class="state"><strong>Default</strong><p>No member selected. Each row offers one clear starting action.</p></article><article class="state blocked"><strong>Permission blocked</strong><p>The interface explains why the owner role cannot change.</p></article><article class="state saved"><strong>Role saved</strong><p>Confirmation names the person and the new access level.</p></article></div>
+          </div>
+          <aside class="proof-notes"><h2>Review notes</h2><article class="note"><strong>Less hunting</strong><p>The selected row exposes the next action without adding controls to every column.</p></article><article class="note"><strong>Earlier boundary</strong><p>Protected roles explain the restriction before the user submits anything.</p></article><article class="note"><strong>Mobile stacks cleanly</strong><p>The action moves below the member details instead of shrinking into a tiny menu.</p></article><div class="decision-box"><strong>Decision needed</strong><p>Is the selected-row treatment clear enough without turning the list into a form?</p><button type="button">Record product decision</button></div></aside>
+        </section>
+      </main>
+    </div>
+    <script>
+      const modeButtons = [...document.querySelectorAll("[data-mode-choice]")];
+      modeButtons.forEach((button) => button.addEventListener("click", () => {
+        document.body.dataset.mode = button.dataset.modeChoice;
+        modeButtons.forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
+      }));
+      const widthButton = document.querySelector("[data-width-choice]");
+      widthButton.addEventListener("click", () => {
+        const mobile = document.body.dataset.width !== "mobile";
+        document.body.dataset.width = mobile ? "mobile" : "desktop";
+        widthButton.setAttribute("aria-pressed", String(mobile));
+        widthButton.textContent = mobile ? "Desktop" : "Mobile";
+      });
+    </script>
+  </body>
+</html>

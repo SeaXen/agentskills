@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects opening from a pre-authenticated, pre-installed state for this audience",
+        "evidence": "\"Mostly sound \u2014 pre-staging the account, the CLI auth, and the project is exactly right... You're not fabricating anything by skipping install/login on stage.\" \u2014 the plan endorses, not rejects, this.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the credibility question for hobbyist and indie audiences is whether they can do this tonight, for free",
+        "evidence": "\"Hobbyists and students aren't auditing your security posture; they're asking 'can I run this tonight.'\" \u2014 used to justify skipping ceremony, not to argue against pre-auth, and \"for free\" is never mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires showing the real install or signup path and the real time it takes",
+        "evidence": "The plan explicitly removes install/login from the demo: \"you're not fabricating anything by skipping install/login on stage; you're removing variance nobody needed to watch.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires running on a plan the audience could actually have, not an internal, elevated or comped account",
+        "evidence": "No discussion of account tier/plan parity with what the audience could actually obtain.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that a pre-authenticated session hiding several minutes of setup is the fastest way to lose this audience",
+        "evidence": "The transcript says the opposite: pre-staging login is \"exactly right\" for this audience.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes this from a buyer or enterprise audience, where a seeded sandbox tenant is the right call instead",
+        "evidence": "The text only says a meetup doesn't need \"a sandbox tenant, no compliance review, no speaker buddy\" without explicitly contrasting a buyer/enterprise audience where a sandbox tenant would be the right call.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Still requires genuinely slow steps such as package downloads, image pulls or caches to be pre-provisioned rather than waited on in front of the room",
+        "evidence": "The plan pre-stages the entire login/auth step wholesale rather than distinguishing which slow sub-steps (downloads, caches) need pre-provisioning while still showing signup.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Resolves the tension between showing the real path and not waiting on stage, rather than ignoring one of the two",
+        "evidence": "The plan resolves by skipping the real signup/login path entirely rather than reconciling showing it with not waiting on stage.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the claim the demo must prove in one sentence",
+        "evidence": "\"Claim \u2014 fill this in, one sentence: what should someone believe about Tinderbox after 10 minutes...\" \u2014 left as a placeholder, never actually stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Segments the ten minutes with a restore point per segment",
+        "evidence": "\"Segments \u2014 one per command, each independently enterable... 2 | ... | its own restore point \u2014 not 'command 1 just ran' | ...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a fallback asset for the install or signup step, as the segment most exposed to the venue network",
+        "evidence": "No install/signup segment exists in this plan at all, since that step was removed from the demo; no such fallback is specified.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects opening from a pre-authenticated, pre-installed state for this audience",
+        "evidence": "\"Yes \u2014 pre-staging login, CLI auth, and project creation is the right call for a 10-minute slot\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the credibility question for hobbyist and indie audiences is whether they can do this tonight, for free",
+        "evidence": "not discussed anywhere",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires showing the real install or signup path and the real time it takes",
+        "evidence": "the opposite is endorsed: pre-staging login/auth/project creation is called \"the right call\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires running on a plan the audience could actually have, not an internal, elevated or comped account",
+        "evidence": "not mentioned",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that a pre-authenticated session hiding several minutes of setup is the fastest way to lose this audience",
+        "evidence": "not mentioned; pre-staging is endorsed as reducing \"setup friction\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes this from a buyer or enterprise audience, where a seeded sandbox tenant is the right call instead",
+        "evidence": "no such audience distinction is made",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Still requires genuinely slow steps such as package downloads, image pulls or caches to be pre-provisioned rather than waited on in front of the room",
+        "evidence": "only login/auth/project creation pre-staging is discussed, not package downloads/image pulls/caches",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Resolves the tension between showing the real path and not waiting on stage, rather than ignoring one of the two",
+        "evidence": "no such tension is raised or resolved; pre-staging is simply endorsed",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the claim the demo must prove in one sentence",
+        "evidence": "no single-sentence claim is stated",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Segments the ten minutes with a restore point per segment",
+        "evidence": "no segmentation or restore points are discussed",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a fallback asset for the install or signup step, as the segment most exposed to the venue network",
+        "evidence": "the install/signup step is skipped via pre-staging; the only fallback given is generic (\"a local/offline demo mode, or a pre-recorded terminal capture\") for the three live commands",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

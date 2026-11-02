@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Removes feedback volume as a success metric and states that more requests is not better or worse by itself.",
+        "evidence": "\"Volume isn't a success metric. More requests isn't better or worse by itself\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes the 95% / 10% / 5% statistic and states that no public Gartner source for the three-part figure exists, so it is not to be cited.",
+        "evidence": "\"I found no public Gartner source for the three-part figure... Delete it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the under-10-minute figure if it includes bot replies and defines time to first staff reply as excluding bots, auto-replies and peer answers.",
+        "evidence": "\"Exclude bots, auto-replies and peer answers.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports first staff reply as a median and a 90th percentile.",
+        "evidence": "\"Report the median and the 90th percentile.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects 'at least one Discord mention' as attribution and requires an attribution rule written before counting.",
+        "evidence": "\"'At least one Discord mention' claims every feature that anyone mentioned.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the rule: a change counts as shipped-from-feedback when a record existed before the work was scheduled and the record is linked from the release note.",
+        "evidence": "\"A shipped change counts when a feedback record existed before the work was scheduled, and the release note links that record.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Caps the sheet at three to five metrics and rejects adding nine more.",
+        "evidence": "\"the skill keeps three to five metrics... Nine more makes thirteen\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the metric set: time to first staff reply, capture rate, decision rate, closure rate, shipped-from-feedback.",
+        "evidence": "Table lists time to first staff reply, capture, decision, closure, shipped-from-feedback.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives each metric an owner and the action it triggers, in a sheet with the columns metric, definition, owner, baseline from the leak trace, self-set target, action if it slips.",
+        "evidence": "The table has Metric, Definition, Owner, Action if it slips; no baseline or self-set target columns.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels every target self-set, derived from the team's own leak trace, and cites no industry benchmark.",
+        "evidence": "\"Set targets from your own trace and label them self-set.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that first-response time has only correlational evidence, from open-source code contributions (Hasan et al., MSR 2023), and is a direction rather than a target.",
+        "evidence": "Hasan et al. is cited only for bot speed; it is not called correlational or a direction.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that capture rate comes from the quarterly re-trace and moves four times a year, and adds the next re-trace date.",
+        "evidence": "\"quarterly re-trace\" appears but no next date; the slide says \"re-trace on [date]\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Makes shipped-from-feedback the single line for the VP, with the leak trace before and after as the evidence behind it.",
+        "evidence": "The slide has four bullets, and the text says \"lead with shipped-from-feedback and time to first staff reply\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Uses the starting targets of a two-business-day capture window and requester told within five business days of a status change, labelled as starting points to replace with the team's own trend.",
+        "evidence": "\"The 2-day and 5-day windows are starting targets the skill sets, not benchmarks.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Removes feedback volume as a success metric and states that more requests is not better or worse by itself.",
+        "evidence": "It says volume is activity, not a result, but keeps it as a normalized supporting metric (\"Feedback per 100 active accounts\").",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Removes the 95% / 10% / 5% statistic and states that no public Gartner source for the three-part figure exists, so it is not to be cited.",
+        "evidence": "\"I couldn't verify this as a Gartner figure... Cut it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the under-10-minute figure if it includes bot replies and defines time to first staff reply as excluding bots, auto-replies and peer answers.",
+        "evidence": "\"A bot or auto-acknowledgement shouldn't count\" and \"Human replies only\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports first staff reply as a median and a 90th percentile.",
+        "evidence": "\"Median [m] min, p90 [h] h\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects 'at least one Discord mention' as attribution and requires an attribution rule written before counting.",
+        "evidence": "\"Better rule, written before you recount\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the rule: a change counts as shipped-from-feedback when a record existed before the work was scheduled and the record is linked from the release note.",
+        "evidence": "\"Request exists... dated before the work was scoped... linked to the shipped item.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Caps the sheet at three to five metrics and rejects adding nine more.",
+        "evidence": "\"Don't add them... Add 3 to 4, not 9.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the metric set: time to first staff reply, capture rate, decision rate, closure rate, shipped-from-feedback.",
+        "evidence": "Different set: closed-loop rate, feedback per 100 accounts, first-response p90 and others.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives each metric an owner and the action it triggers, in a sheet with the columns metric, definition, owner, baseline from the leak trace, self-set target, action if it slips.",
+        "evidence": "No such sheet is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels every target self-set, derived from the team's own leak trace, and cites no industry benchmark.",
+        "evidence": "No leak trace is mentioned. Example targets such as \"95% within 4 hours\" are not labelled self-set.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that first-response time has only correlational evidence, from open-source code contributions (Hasan et al., MSR 2023), and is a direction rather than a target.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that capture rate comes from the quarterly re-trace and moves four times a year, and adds the next re-trace date.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Makes shipped-from-feedback the single line for the VP, with the leak trace before and after as the evidence behind it.",
+        "evidence": "The headline is closed-loop rate.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Uses the starting targets of a two-business-day capture window and requester told within five business days of a status change, labelled as starting points to replace with the team's own trend.",
+        "evidence": "Not mentioned. It uses a 30-day closed-loop window.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

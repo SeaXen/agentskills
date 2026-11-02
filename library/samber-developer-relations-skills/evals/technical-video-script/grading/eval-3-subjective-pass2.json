@@ -1,0 +1,38 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Gives every beat a starting state precise enough to re-shoot that beat alone.",
+        "evidence": "No beat says what must already be on screen or in the environment before recording starts, such as which file is open, the terminal state, the schema version or seeded data. Some beats show code snippets ('on screen, not spoken'), but those describe content shown during the beat, not a reset point. The type-errors beat relies on state from earlier steps: the schema rename is made live, and it's unclear whether the string-for-number error happens with the rename still in place. The run beat assumes the query is already built. Only the hook names any prerequisites (CLI 2.4, sample orders databas",
+        "score": 1,
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sizes each beat to roughly one thought and about twenty seconds of narration.",
+        "evidence": "Beats are timed at 30\u201360s (00:00\u201300:30, 00:30\u201301:05, 01:05\u201301:40, 01:40\u201302:15, 02:15\u201302:50, 02:50\u201303:50), well above about 20s. Several beats carry more than one thought. The hook tells a typo story, pitches the product, previews five sections and lists prerequisites. The generated-SQL beat covers both parameter binding and closing the injection gap. The type-errors beat runs 60s and covers two separate errors with two demo pauses. The script never states a per-beat sizing rule, and its runtime math covers the whole script only.",
+        "score": 1,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Gives every beat a starting state precise enough to re-shoot that beat alone.",
+        "evidence": "Each beat has only a loose stage cue, such as '[pull up a raw SQL string built with concatenation or interpolation]', '[type the fluent chain]', '[execute, show results]' or '[log or print the generated SQL]'. No beat says what should already be on screen: which file is open, what code is already typed, whether the DB is connected, or whether the terminal is cleared. Beats 3\u20135 depend on earlier beats ('that conditional filter I mentioned earlier', 'same as the raw SQL version'), so you can't re-shoot one alone. The type-error beat even leaves the error to choose ('e.g. compare a string column ",
+        "score": 1,
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sizes each beat to roughly one thought and about twenty seconds of narration.",
+        "evidence": "The beats run 40\u201355 seconds each (0:00\u20130:40, 0:40\u20131:35, 1:35\u20132:20, 2:20\u20133:00, 3:00\u20133:50). Only the 10-second close is short. Several beats pack in more than one idea. Beat 1 covers fragility, typo checking, missing parameters, dynamic WHERE splicing, testability and injection. Beat 2 covers method chaining, typed autocomplete, naming conventions and conditional filters. None are cut down to one thought of about 20 seconds.",
+        "score": 1,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

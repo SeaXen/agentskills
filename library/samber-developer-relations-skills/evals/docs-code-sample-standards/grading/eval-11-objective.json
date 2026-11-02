@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the docs team's proposal rather than signing off on it",
+        "evidence": "\"Verdict: do not sign off.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects putting ... inside a copyable block outright",
+        "evidence": "\"`...` breaks the safety rule... never inside a click-to-copy block.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that omissions, where needed at all, are marked in the language's own comment syntax",
+        "evidence": "\"omissions are marked with a comment in the language's own syntax\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a region starting after the imports publishes a sample the reader cannot run",
+        "evidence": "\"A region that starts after the imports publishes a sample the reader cannot run.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the extracted region to wrap the maximum useful code rather than the minimum interesting lines",
+        "evidence": "\"Wrap the maximum useful code, imports and client setup included.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes the tested artefact, which is the complete file, from the published artefact, which is a region or filtered view of it",
+        "evidence": "\"Gate the published artefact, not the source file... CI runs the full source file\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the rule as hide setup, never delete it",
+        "evidence": "\"publish the whole region, hide the setup, never delete it\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites the rustdoc pattern of prefixed lines that compile but do not render as the property to reproduce whatever the mechanism",
+        "evidence": "\"Rustdoc's `#`-prefixed lines have this property: they compile but don't render.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires each region identifier to be globally unique, snake_case or dotted, prefixed by the product area, and identical across languages",
+        "evidence": "Only \"Keep the region identifier unchanged and identical across languages\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires one sample per file in the source project so its imports can be validated",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ranks extract-from-tested-source above test-what-is-embedded and above generate-from-spec on reliability",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says to pick one source-of-truth pattern per surface and write that choice into the policy, and states that a sample hand-pasted into prose belongs to none of the three",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the docs team's proposal rather than signing off on it",
+        "evidence": "'Verdict: don't sign off on the \"imports omitted\" note'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects putting ... inside a copyable block outright",
+        "evidence": "'`...` is not code. A reader who pastes the block gets a syntax error'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that omissions, where needed at all, are marked in the language's own comment syntax",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a region starting after the imports publishes a sample the reader cannot run",
+        "evidence": "The extractor 'decides what to cut by position', and the proposal's `...` leaves the reader without runnable code.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the extracted region to wrap the maximum useful code rather than the minimum interesting lines",
+        "evidence": "It says setup readers need goes inside the region, but it never states the maximum-useful-code principle.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes the tested artefact, which is the complete file, from the published artefact, which is a region or filtered view of it",
+        "evidence": "'The full file the source of truth... The snippet on the page is a view of that file.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the rule as hide setup, never delete it",
+        "evidence": "'Collapse the imports and setup, don't delete them.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites the rustdoc pattern of prefixed lines that compile but do not render as the property to reproduce whatever the mechanism",
+        "evidence": "Not cited.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires each region identifier to be globally unique, snake_case or dotted, prefixed by the product area, and identical across languages",
+        "evidence": "Markers carry no identifiers.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires one sample per file in the source project so its imports can be validated",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ranks extract-from-tested-source above test-what-is-embedded and above generate-from-spec on reliability",
+        "evidence": "No ranking of patterns is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says to pick one source-of-truth pattern per surface and write that choice into the policy, and states that a sample hand-pasted into prose belongs to none of the three",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

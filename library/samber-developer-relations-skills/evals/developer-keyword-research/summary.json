@@ -1,0 +1,430 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "developer-keyword-research",
+  "scenarios": 11,
+  "expectations_total": 121,
+  "expectations_subjective": 1,
+  "expectations_objective": 120,
+  "pass_rate_with_skill_pct": 79.3,
+  "pass_rate_without_skill_pct": 41.3,
+  "delta_pp": 38.0,
+  "uplift_multiplier": 1.92,
+  "trigger_accuracy_pct": 50.0,
+  "trigger_queries": 116,
+  "trigger_positive_fire_rate": 0.0,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Explains that reported volume averages roughly twelve months, merges a keyword with its close variants, and is rounded"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Directs the harvest at the Search Console export, docs-search logs and Zendesk export before ranking anything"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes the report comes back sorted by clicks, so the window can only be cut after a wide pull"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Replaces hosts, IP addresses, ports, timeout values and node identifiers with placeholders before grouping"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Trims the client-library wrapper text (CorvidConnectionException, java.net.ConnectException) down to the innermost cause"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Emits no keyword containing a hostname, IP address or port number"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Labels the ticket and telemetry counts Measured, with source, count and date"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that frequency alone does not decide the ranking, weighing time-to-resolve and whether a reader can self-serve the fix"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that an integration guide nobody can keep current rots into a wrong answer that costs more than the page ever earned"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Explains that a cluster parked at the bottom returns next quarter as unbudgeted scope"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Places the error cluster ('SDK init error 4013') at or near the top, on the grounds the fix already exists and the page costs about an hour"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Breaks ties on evidence tier first, then business proximity"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that the ranking formula is a default to re-rank against this team's situation, not a law"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Lowers the 70% first-party evidence floor explicitly, in the Scope section"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Labels the 70% floor as this approach's own baseline rather than a published benchmark"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Writes N/A instead of inventing a count for any missing metric"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes that phrasings that read alike can draw disjoint result sets, and phrasings that read differently can draw the same one"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Refuses the exit-code-137 cluster on the grounds its real fix is a product change - a better error message - rather than a page"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Routes the exit-code-137 cluster to engineering rather than to the writer"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that a round of research that refused nothing did not apply the winnability filter"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Cites that 66% name AI solutions that are 'almost right, but not quite' as their top frustration"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Cites the fall in trust in AI answers from roughly 40% in 2023 to 29% in 2025"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that an ungated matrix is a doorway-page generator"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Stamps version-bound clusters with a review date"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Limits the task crossing to the top two or three language and framework combinations rather than all supported ones"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "States that a reported volume of zero is a statement about the tool's index, not about developer demand"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Explains that reported volume averages roughly twelve months, merges a keyword with its close variants, and is rounded"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Cites that roughly 93% of a major tool's U.S. keyword database sits below ten monthly searches"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Tags every evidence item as Measured, User-provided, or Estimated"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Writes N/A for any metric it cannot obtain and names the source it could not reach, rather than supplying a number"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Output carries the sections Scope, Ranked clusters, Company-adoption set, Fix first, Do not target, and Backlog"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The Do not target list is non-empty"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Reports the 70% first-party evidence floor as this approach's own baseline rather than an industry standard"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States the row limit accepts 1 to 25,000 rows and returns 1,000 by default"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes the report comes back sorted by clicks, so the window can only be cut after a wide pull"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Reports that the API does not guarantee returning all data rows, only top ones"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Refuses to sum query-level rows into a site total, and says so about the 412,000 figure specifically"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Attributes the 5-20 window as a reused convention rather than a measured cut-off"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Replaces hosts, IP addresses, ports, timeout values and node identifiers with placeholders before grouping"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Trims the client-library wrapper text (CorvidConnectionException, java.net.ConnectException) down to the innermost cause"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Keeps the most frequent raw phrasings as a variants column on the cluster instead of as separate rows"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Emits no keyword containing a hostname, IP address or port number"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Flags the token-expired cluster as a regression tied to the 4.2 release and routes it to engineering rather than treating it as a docs gap"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Labels the ticket and telemetry counts Measured, with source, count and date"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Routes the surviving docs-gap cluster to exactly one canonical error entry"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that frequency alone does not decide the ranking, weighing time-to-resolve and whether a reader can self-serve the fix"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Deletes the integration family (segment, snowflake) from the map and names the absent maintenance capacity as the reason"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that an integration guide nobody can keep current rots into a wrong answer that costs more than the page ever earned"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Serves the competitor-comparison demand with a migration guide about their own product instead"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Does not park either deleted family at the bottom of the ranked list or as a low-priority row"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Explains that a cluster parked at the bottom returns next quarter as unbudgeted scope"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Attaches a parked date to the backlog entries"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Places the error cluster ('SDK init error 4013') at or near the top, on the grounds the fix already exists and the page costs about an hour"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States the sort used above the ranked table"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States the sort - outcome per page-hour, highest first - above the ranked table"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Emits a Company-adoption set as a section separate from the main ranked table"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Gives the company-adoption set its own filled target count rather than letting it inherit the ratio's order"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names migration and comparison as the high-value clusters the efficiency ratio demotes"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States the condition that would promote each demoted cluster"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Breaks ties on evidence tier first, then business proximity"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Assigns the evaluation queries ('tessellate rate limits', 'self-host tessellate requirements') to the company-adoption set"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Routes each cluster to exactly one canonical target surface"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that the ranking formula is a default to re-rank against this team's situation, not a law"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Gives the reason: for a product this young the cheap sources observe an audience that does not exist yet"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that error telemetry is the only source that sees developers who hit a failure and never reported it"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes that the telemetry cost is already paid because the Sentry project is already running"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Lowers the 70% first-party evidence floor explicitly, in the Scope section"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Labels the 70% floor as this approach's own baseline rather than a published benchmark"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Records every unreachable or empty source as unavailable in Scope rather than silently omitting it"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Writes N/A instead of inventing a count for any missing metric"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes that telemetry measures occurrence rather than search, so a frequent error users retry past may produce no query"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Calls pair B (5 shared) one cluster with separate pages"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Attributes the shared-result thresholds as a reused convention rather than a measured standard"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that comparing every pair is quadratic and does not propose an all-pairs comparison of the 60 remaining candidates"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Pre-groups the remaining candidates by query family and tests only the pairs sitting on a boundary"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes that phrasings that read alike can draw disjoint result sets, and phrasings that read differently can draw the same one"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Refuses the exit-code-137 cluster on the grounds its real fix is a product change - a better error message - rather than a page"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Routes the exit-code-137 cluster to engineering rather than to the writer"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Refuses the 'python venv activate not found' lookup on the grounds it is owned by the language's own documentation"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names the incumbent result for each cluster it keeps"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names the specific weakness it can beat for each kept cluster (stale answer, version that no longer exists, listing with no working configuration, or reference page with no example)"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that a round of research that refused nothing did not apply the winnability filter"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Forecasts the return in citations and arrivals rather than clicks"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Cites that 84% of surveyed developers use or plan to use AI tools, attributing the survey"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Cites that 66% name AI solutions that are 'almost right, but not quite' as their top frustration"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Cites the fall in trust in AI answers from roughly 40% in 2023 to 29% in 2025"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Refuses published-page count as the outcome metric, on the grounds it measures the writing team rather than the research"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Proposes coverage, movement and arrival as the metrics to track instead"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Defines arrival as first-party query counts for the exact strings after each page ships"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Limits the output to the Fix first and Ranked clusters sections"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Does not invent a report shape outside the skill's defined sections"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Gates every generated cell on at least one evidence item before it enters the map"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that an ungated matrix is a doorway-page generator"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Stamps version-bound clusters with a review date"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Limits the task crossing to the top two or three language and framework combinations rather than all supported ones"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Pulls the solutions engineers' question list for the limits, permissions, compliance and migration questions that never reach public channels"
+      }
+    ]
+  }
+}

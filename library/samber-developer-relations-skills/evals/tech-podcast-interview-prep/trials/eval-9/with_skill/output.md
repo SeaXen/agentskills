@@ -1,0 +1,17 @@
+Your plan is built for the wrong format. "Restart the sentence, they'll cut it out later" is edited-show thinking — someone in post trims the fluffed take and nobody ever hears it. You're streaming live, simultaneously, to Twitch and YouTube. There is no "later." Whatever you say airs, in both places, in real time. A restart doesn't erase the fumble — it just puts two versions of it on the record instead of one, and on Twitch specifically, chat can clip any 30-60 second window themselves the moment it happens. Treat every sentence as if it's already been broadcast, because it has.
+
+Here's what to do instead:
+
+**Drop the restart habit, pre-write a recovery line instead.** One sentence, decided now, not live: something that moves you to firmer ground rather than stalling on "sorry, let me try that again." Put it on your card. When an answer collapses, you say the recovery line and keep going — you don't relitigate the flub.
+
+**Compress and lead with the point.** Live has no edit to save a buried lede, so flip your usual order: punchline first, context after. Target 15-20 seconds before you've said the actual point, not 15-20 seconds of wind-up. If a host interrupts before you finish — which happens more with two co-hosts working off each other — the important part is already out.
+
+**Slow down, don't speed up.** The instinct under live pressure is to rush. Slowing down is the single highest-leverage fix, and it's also what kills filler words — more reliably than consciously trying to suppress "um." Leave a half-second beat before answering instead of filling dead air.
+
+**Rehearse getting interrupted, specifically.** With two co-hosts, you'll get cut into more than in a solo interview. Have someone run your two most-dreaded questions and interrupt you at the 10-second mark. Practice acknowledging the interruption, bridging, and still landing your content — don't just practice answers in isolation, since a clean answer said uninterrupted proves nothing about what happens when it's cut off mid-thought.
+
+**Chat Q&A is your hard-question prep, live and unscreened.** Predict your 8 hard questions in advance (3 from what these hosts usually ask, 3 obvious ones for your topic, 2 you're hoping nobody raises) and know your two answer shapes cold: ordinary question → answer, then example, then why it matters; hostile or awkward one → concede the real, unflattering part first, then bridge to a message you actually prepared. Chat will ask things you didn't plan for — "no comment" or a non-answer reads as evasion and is exactly the kind of moment that gets clipped and outlives the stream.
+
+**Assume you're on camera even when you're not the one talking.** Video means your face is in frame while a co-host talks or reads a chat question. Visible disengagement — checking notes, looking away — reads on stream the same way talking over someone does.
+
+**One thing to actively let go of:** don't over-engineer around small stumbles. Audiences don't expect perfection, and most flubs go unnoticed unless you flag them yourself by stopping to restart. The habit you're trying to protect yourself with is more likely to create the moment you're afraid of than a stumble would on its own.

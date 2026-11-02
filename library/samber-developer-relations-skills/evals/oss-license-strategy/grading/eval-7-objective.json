@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the appended paragraph and requires LICENSE to hold unmodified license text with nothing appended",
+        "evidence": "\"Drop the paragraph, ship real unmodified MIT.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a modified LICENSE file defeats automatic license detection",
+        "evidence": "\"A root LICENSE file with unmodified text is what automated detection reads; modified or bundled text defeats it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the appended restriction makes this a bespoke license that can no longer be called MIT, and is not OSI-approved",
+        "evidence": "States \"You're calling it MIT while it isn't one\" and \"It's a bespoke license now\" but never explicitly asserts the modified LICENSE is not OSI-approved.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to draft, modify or invent a license, naming license proliferation as a cost paid by adopters rather than by the author",
+        "evidence": "\"Never draft, modify, or invent a license \u2014 a bespoke license forces every evaluator's legal team into an unbudgeted review.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a single root LICENSE silently claims the documentation, assets and examples too",
+        "evidence": "\"A single root LICENSE silently claims everything under it\" followed by rows for docs/, examples/, packages/ridgeblack-sdk/, server/.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the per-directory licensing boundary to be written down for the mixed repository",
+        "evidence": "\"give it a `LICENSING.md` explaining the per-directory boundary the way a mixed repo requires\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a content license such as CC-BY-4.0 for the operator handbook rather than a code license",
+        "evidence": "\"Docs want a content license (typically CC-BY-4.0), not a code license.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the npm package metadata license field to be corrected, and a license label on the container image",
+        "evidence": "\"`packages/ridgeblack-sdk/package.json`'s `license` field almost certainly says...\" and \"`server/`'s container image labels (`org.opencontainers.image.licenses`) need the same honesty check\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires `SPDX-License-Identifier` headers per file matching each directory's license",
+        "evidence": "No mention of SPDX-License-Identifier file headers anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends a collective copyright notice such as 'Copyright The Ridgeblack Authors' instead of an enumerated or company-plus-contributors line",
+        "evidence": "The transcript explicitly says the current form is fine: \"'Copyright (c) 2024 Ridgeblack Inc. and contributors' is a normal, acceptable form... No fix needed. The stricter form... is a nicety, not a gap.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a NOTICE file where the license demands attribution propagation, and preservation of third-party notices",
+        "evidence": "No NOTICE file requirement is discussed in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires validating the result against an automated license detector, or by inspection where none is available",
+        "evidence": "The closing 'Before I'd call this closed' checklist lists dependency audit, ownership, timing, and server scope \u2014 no re-validation via a detector.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the exact file and location to fix for each gap found",
+        "evidence": "Specific paths named throughout: \"packages/ridgeblack-sdk/package.json's `license` field\", \"server/'s container image labels\", \"docs/ (90-page handbook)\", \"examples/ (8 sample apps)\".",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the appended paragraph and requires LICENSE to hold unmodified license text with nothing appended",
+        "evidence": "The transcript never asks for the ML-training clause to be removed; instead it recommends keeping the restriction but relabeling it: 'rename the license (e.g. \"Ridgeblack Software License (Modified MIT)\")... and use SEE LICENSE IN LICENSE.md or a LicenseRef-* custom identifier instead.' It accommodates the modification rather than rejecting it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a modified LICENSE file defeats automatic license detection",
+        "evidence": "'SCA/license-scanning tools run by acquirer/investor counsel diff license text against known templates. A modified MIT body under an \"MIT\" label reads as an anomaly \u2014 it gets escalated to manual legal review, which slows diligence rather than speeding it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the appended restriction makes this a bespoke license that can no longer be called MIT, and is not OSI-approved",
+        "evidence": "'MIT is an OSI/OSD-compliant permissive license with no field-of-use restrictions (OSD clause 6). Appending a \"no ML training\" clause converts it into a custom source-available license.' and 'The SPDX identifier MIT no longer applies.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to draft, modify or invent a license, naming license proliferation as a cost paid by adopters rather than by the author",
+        "evidence": "The transcript actively proposes drafting new license text/names: 'rename the license (e.g. \"Ridgeblack Software License (Modified MIT)\")' \u2014 it does not refuse to draft or invent a license, and never mentions license proliferation as a cost borne by adopters.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a single root LICENSE silently claims the documentation, assets and examples too",
+        "evidence": "'A single repo-root LICENSE is conventionally read... as governing everything in the repo unless directories override it. Right now that means: server/ \u2014 ... docs/ \u2014 a 90-page operator handbook is prose/creative content... examples/ \u2014 this is the one place a permissive license is clearly intentional and fine.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the per-directory licensing boundary to be written down for the mixed repository",
+        "evidence": "'Fix: split licensing by directory before diligence starts. packages/ridgeblack-sdk/LICENSE and examples/LICENSE can stay open. server/ needs its own explicit license... docs/ needs its own copyright/rights statement.' and step 3: 'Replace the blanket root LICENSE with per-directory LICENSE/NOTICE files.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a content license such as CC-BY-4.0 for the operator handbook rather than a code license",
+        "evidence": "The transcript only vaguely says docs need '...a documentation-specific license, not a code license' without naming any specific content license such as CC-BY-4.0.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the npm package metadata license field to be corrected, and a license label on the container image",
+        "evidence": "It requires correcting package.json ('Stop calling the modified text \"MIT\" anywhere (LICENSE header, package.json, source file headers)'), but never mentions adding or correcting a license label/metadata on the container image, only noting the server is 'built into a container image.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires `SPDX-License-Identifier` headers per file matching each directory's license",
+        "evidence": "It only addresses removing the incorrect MIT SPDX id ('drop the bare MIT SPDX identifier everywhere (repo LICENSE, file headers, package.json)'), without requiring distinct SPDX-License-Identifier headers per file that match each directory's own (different) license.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends a collective copyright notice such as 'Copyright The Ridgeblack Authors' instead of an enumerated or company-plus-contributors line",
+        "evidence": "Section 3 only questions whether 'Ridgeblack Inc. and contributors' is accurate and asks to verify IP assignment/CLA coverage; it never proposes switching to a collective authors-style notice.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a NOTICE file where the license demands attribution propagation, and preservation of third-party notices",
+        "evidence": "'Generate a third-party NOTICE file for bundled dependencies in the SDK and server image, and check specifically for any AGPL dependency in the server image.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires validating the result against an automated license detector, or by inspection where none is available",
+        "evidence": "The transcript describes how SCA tools would flag the current state but never instructs re-running a license detector (or manual inspection) to validate the fix once applied; the 'What to actually do' list has no such verification step.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the exact file and location to fix for each gap found",
+        "evidence": "Specific paths are cited throughout, e.g. 'packages/ridgeblack-sdk/package.json', 'packages/ridgeblack-sdk/LICENSE and examples/LICENSE can stay open. server/ needs its own explicit license... docs/ needs its own copyright/rights statement.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

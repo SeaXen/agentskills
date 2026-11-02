@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects installing the CLI and agent on attendee work laptops given managed laptops and a mandatory VPN",
+        "evidence": "'Laptop install of the CLI and agent' is ranked first among breakages; 'Access: ... so attendees install nothing on the laptop'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends vendor-provisioned disposable environments, one per attendee, as the default",
+        "evidence": "'One pre-built, least-privilege, auto-expiring environment per attendee, on your infrastructure'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps trial sign-up for take-home continuation rather than minute zero of the workshop",
+        "evidence": "'Move it to after the session as the take-home path, on attendees' own time'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that the corporate VPN may block the hosted collector or trial services outright",
+        "evidence": "'A VPN can block the hosted collector or trial cluster outright.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Schedules provisioning from the slowest step, starting at least two days before the workshop",
+        "evidence": "'Create the logging account at least 5 business days before the session'; 'find the slowest provisioning step and schedule from it'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires environment time-to-live longer than the whole session including breaks",
+        "evidence": "'Longer than the full session including breaks, e.g. 8 hours for a 4-hour event'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires an automated checkpoint test (check fails, solve, check passes) within about 24 hours before delivery",
+        "evidence": "'Run the checkpoint test again within 24 hours before delivery'; 'setup, check fails, solve, check passes'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a dry run on the bank's own network with at least one onsite attendee running the prerequisites",
+        "evidence": "'one onsite attendee, on the VPN, on a managed laptop, opens the lab, runs prerequisites and completes module 1'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists written network questions for IT: outbound domains and ports, IP allow-lists, install rights, sign-up with corporate email",
+        "evidence": "The checklist covers VPN, outbound domains/ports, IP allow-lists, WebSockets and who can fix. It has no question on install rights and none on corporate-email sign-up.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sizes environments from the 18 confirmed attendees plus a small number of spares, not from an invitation list",
+        "evidence": "'18 confirmed (calendar acceptance) + 2 spares = 20'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Uses least-privilege lab credentials and synthetic data, with no customer data in vendor environments without written agreement",
+        "evidence": "'least-privilege'; 'Synthetic only... Never ask for bank credentials or data'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires teardown after the session and a take-home path with explicit cleanup steps",
+        "evidence": "'Destroy everything the day after the session'; take-home trial 'with explicit cleanup steps'.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects installing the CLI and agent on attendee work laptops given managed laptops and a mandatory VPN",
+        "evidence": "Fix 2: 'Package installs for IT review'; install remains the primary path.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends vendor-provisioned disposable environments, one per attendee, as the default",
+        "evidence": "Default is one tenant with 18 seats; dev container is only a fallback.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps trial sign-up for take-home continuation rather than minute zero of the workshop",
+        "evidence": "Recommends pre-provisioning rather than moving sign-up to take-home.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that the corporate VPN may block the hosted collector or trial services outright",
+        "evidence": "'The VPN probably blocks the hosted collector.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Schedules provisioning from the slowest step, starting at least two days before the workshop",
+        "evidence": "'Provision the tenant and logging service' at T-7 days.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires environment time-to-live longer than the whole session including breaks",
+        "evidence": "No TTL requirement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires an automated checkpoint test (check fails, solve, check passes) within about 24 hours before delivery",
+        "evidence": "Only a manual load test and a pre-flight checklist.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a dry run on the bank's own network with at least one onsite attendee running the prerequisites",
+        "evidence": "'Run a pilot with 1\u20132 Hollin & Rowe engineers... real laptop, on the VPN.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists written network questions for IT: outbound domains and ports, IP allow-lists, install rights, sign-up with corporate email",
+        "evidence": "Four questions on install rights, domains/ports, TLS inspection, and sign-up with work emails.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sizes environments from the 18 confirmed attendees plus a small number of spares, not from an invitation list",
+        "evidence": "'one tenant with 18 seats'; no spares.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Uses least-privilege lab credentials and synthetic data, with no customer data in vendor environments without written agreement",
+        "evidence": "'Use sample app data only. Send no real bank telemetry... State this in writing to IT.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires teardown after the session and a take-home path with explicit cleanup steps",
+        "evidence": "No teardown or cleanup mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

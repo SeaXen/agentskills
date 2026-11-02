@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Warns that switching the organization to invoiced billing cancels its existing sponsorships, which then have to be re-established",
+        "evidence": "\"Switching a GitHub Sponsors organization to invoiced billing cancels every sponsorship currently on the account.\" and later \"use the bulk re-sponsor tool to re-establish all 23 sponsorships at identical tiers, so the gap is effectively zero.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the 23 sponsored maintainers will receive a cancellation email that reads to them as a withdrawal",
+        "evidence": "\"Your 23 maintainers each get an automated cancellation email.\" ... \"maintainers receive a cancellation email that reads as a withdrawal.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the switch must be sequenced before sponsorships are established, never after, and identifies the current plan as the wrong order",
+        "evidence": "The transcript states the rule (\"Sequence the switch before the first sponsorship, never after\") but explicitly says the opposite of identifying the current plan as wrong order: \"The good news: your timing is actually right... Doing the switch now, ahead of both the controller's deadline and the announcement, is the correct order \u2014 you're not backing into it late.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the $5,000 minimum per invoice on invoiced corporate billing",
+        "evidence": "\"$5,000 minimum per invoice, 30-day payment terms, 3% service fee, and a 3-year agreement term\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the 30-day payment term",
+        "evidence": "\"$5,000 minimum per invoice, 30-day payment terms, 3% service fee, and a 3-year agreement term\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the 3% service fee on invoiced billing",
+        "evidence": "\"$5,000 minimum per invoice, 30-day payment terms, 3% service fee, and a 3-year agreement term\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the three-year agreement term and flags it as a commitment legal has to review",
+        "evidence": "\"a 3-year agreement term \u2014 that last one is a real commitment and should get a legal sign-off, not just a controller sign-off, given a 3-year floor is what you're accepting to satisfy an invoicing preference.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that below the invoice minimum the company pays by card or routes money through a fiscal host instead",
+        "evidence": "No mention of card payment or a fiscal-host alternative for amounts below the invoice minimum anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that fiscal hosts commonly take 3-10% of funds received and pay out against a public ledger",
+        "evidence": "The transcript never mentions fiscal hosts or any 3-10% fee / public ledger payout mechanism.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires vendor onboarding, tax forms and sanctions screening to be started before any date is promised",
+        "evidence": "\"In parallel, start vendor onboarding for the $150k program now: tax forms and sanctions screening on whichever maintainers/projects will receive money. This is the longest pole in the whole sequence and is the one thing that, if left late, breaks the Oct 14 date\" \u2014 placed as a Week 1 action, before the Week 4 announcement.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names announcing before procurement clears as a failure mode that becomes a broken promise in public",
+        "evidence": "\"The gate here is real money moving, not a promise \u2014 announcing before procurement clears is the single most common failure mode this skill documents.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends telling the affected maintainers before the switch rather than letting the cancellation email be the first they hear of it",
+        "evidence": "\"Message the 23 maintainers yourself, before flipping billing... Skip this and 23 maintainers independently conclude they've been dropped.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Advises re-checking the platform's current billing terms before quoting these figures, because they drift",
+        "evidence": "\"(Terms are platform-published and drift \u2014 verify current figures before your controller books anything.)\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Warns that switching the organization to invoiced billing cancels its existing sponsorships, which then have to be re-established",
+        "evidence": "The plan assumes continuity: \"Keep the first invoice a clean like-for-like match to what the card was already charging\" \u2014 no mention that the switch cancels the 23 sponsorships.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the 23 sponsored maintainers will receive a cancellation email that reads to them as a withdrawal",
+        "evidence": "No mention of any cancellation email being sent to maintainers anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the switch must be sequenced before sponsorships are established, never after, and identifies the current plan as the wrong order",
+        "evidence": "The transcript instead treats the billing switch as a routine, low-risk step to do \"This week\" with the sponsorships already active, not flagging any sequencing problem with re-establishing them.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the $5,000 minimum per invoice on invoiced corporate billing",
+        "evidence": "Only vague language is used: \"confirm the current minimum-spend requirement in your org's billing page rather than assuming last year's number still holds\" \u2014 no specific $5,000 figure given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the 30-day payment term",
+        "evidence": "No mention of any specific payment term (30-day or otherwise) anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the 3% service fee on invoiced billing",
+        "evidence": "No mention of any service fee percentage.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the three-year agreement term and flags it as a commitment legal has to review",
+        "evidence": "No mention of a three-year agreement term at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that below the invoice minimum the company pays by card or routes money through a fiscal host instead",
+        "evidence": "Not discussed; the transcript doesn't address what happens below any invoice minimum.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that fiscal hosts commonly take 3-10% of funds received and pay out against a public ledger",
+        "evidence": "No mention of fiscal hosts or their fee ranges.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires vendor onboarding, tax forms and sanctions screening to be started before any date is promised",
+        "evidence": "Only generic vendor setup for GitHub itself is mentioned (\"get GitHub set up as a vendor, assign a PO/cost-center code\"), with no mention of tax forms or sanctions screening for the $150k program.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names announcing before procurement clears as a failure mode that becomes a broken promise in public",
+        "evidence": "\"A gap between 'we announced $150k' and sponsorships/grants going live is the visible failure mode to avoid.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends telling the affected maintainers before the switch rather than letting the cancellation email be the first they hear of it",
+        "evidence": "No cancellation risk is identified, so no such recommendation is made.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Advises re-checking the platform's current billing terms before quoting these figures, because they drift",
+        "evidence": "\"Note the eligibility threshold and exact terms can change \u2014 confirm the current minimum-spend requirement in your org's billing page rather than assuming last year's number still holds.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

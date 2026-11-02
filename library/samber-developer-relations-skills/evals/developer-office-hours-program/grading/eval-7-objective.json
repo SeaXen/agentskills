@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Names the goodwill-rotation failure: engineers invited in a kickoff and gone by week four or five",
+        "evidence": "Says \"A kickoff meeting is not a commitment\" but never names the failure or the gone-by-week-four pattern.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects gift cards, optional attendance and the DevRel-solo option, and says a program staffed by DevRel alone becomes a support desk that cannot answer the hard questions",
+        "evidence": "Verdict table: \"No\", \"No\", and \"You are already a support desk that escalates afterwards.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces goodwill with a cap in sessions: at most one session per engineer per month (baseline), about 75 minutes each",
+        "evidence": "Cap of one per month is stated but no 75-minute duration or baseline label for it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags Dario at three sessions in four weeks as over the cap",
+        "evidence": "\"Three sessions in about four weeks is three times the cap of one per month.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does the cap arithmetic: weekly needs about six engineers (four sessions a month plus a spare), so five engineers cannot hold weekly, and moves to biweekly or recruits",
+        "evidence": "\"Weekly needs about six engineers... You have five, so you are short. Biweekly needs three or four.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires each engineer's manager to agree to the cap in writing and to count the session as work in their review",
+        "evidence": "\"Get written manager sign-off... the session counts as work in their review.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Books the rotation a quarter ahead with a named backup per session, the month's spare engineer serving as that backup",
+        "evidence": "\"Book a quarter ahead with a backup per session\"; \"Backup is the spare for that month.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names a backup host so the program does not die on the host's first holiday, and gives note-taking to someone other than the host",
+        "evidence": "Charter has a backup host, but no note-taker other than the host.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Credits the engineer and their team by name in the session and in the write-up, citing Kubernetes thanking donating employers on air",
+        "evidence": "Kubernetes \"thanked donating employers by name\"; \"Credit the engineer and their team by name in the write-up.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sends each engineer a prep brief with the pre-submitted questions and the scope card 48 hours before the session",
+        "evidence": "\"T-48h: triage the queue; send the engineer the prep brief and scope card.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Announces the next engineer by name and area in promotion, because users come for a person who knows their problem",
+        "evidence": "\"T-72h: nudge the intake thread with the engineer's name and area.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the engineer pool as the single point of failure, citing Kubernetes pausing an edition when panelists ran out",
+        "evidence": "\"He is your single point of failure. Kubernetes paused an edition when its panel pool ran dry.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Tracks engineer sessions per month in the session log with the target of no engineer over one",
+        "evidence": "Measurement: \"Engineer sessions per month | none over 1 | Dario over cap\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Names the goodwill-rotation failure: engineers invited in a kickoff and gone by week four or five",
+        "evidence": "\"A kickoff volunteer pledge is social pressure with no structure behind it. It decays in about three weeks.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects gift cards, optional attendance and the DevRel-solo option, and says a program staffed by DevRel alone becomes a support desk that cannot answer the hard questions",
+        "evidence": "Table drops all three; solo \"quietly turns the program into support with extra steps\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces goodwill with a cap in sessions: at most one session per engineer per month (baseline), about 75 minutes each",
+        "evidence": "Weekly one-engineer rota with 30-minute joins; only Dario capped \"once per cycle\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags Dario at three sessions in four weeks as over the cap",
+        "evidence": "Calls Dario a burnout risk without the over-cap framing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does the cap arithmetic: weekly needs about six engineers (four sessions a month plus a spare), so five engineers cannot hold weekly, and moves to biweekly or recruits",
+        "evidence": "Plans weekly rota with five engineers.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires each engineer's manager to agree to the cap in writing and to count the session as work in their review",
+        "evidence": "Asks managers to treat it like on-call and mention in reviews, but not written.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Books the rotation a quarter ahead with a named backup per session, the month's spare engineer serving as that backup",
+        "evidence": "\"Publish a rota 6 to 8 weeks ahead, with a swap option\"; no named backup.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names a backup host so the program does not die on the host's first holiday, and gives note-taking to someone other than the host",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Credits the engineer and their team by name in the session and in the write-up, citing Kubernetes thanking donating employers on air",
+        "evidence": "Posts a named thanks in the engineering channel only.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sends each engineer a prep brief with the pre-submitted questions and the scope card 48 hours before the session",
+        "evidence": "Questions due 24 hours ahead; no scope card.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Announces the next engineer by name and area in promotion, because users come for a person who knows their problem",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the engineer pool as the single point of failure, citing Kubernetes pausing an edition when panelists ran out",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Tracks engineer sessions per month in the session log with the target of no engineer over one",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

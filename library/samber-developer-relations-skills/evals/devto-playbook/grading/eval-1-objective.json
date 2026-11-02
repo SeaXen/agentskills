@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Advises against publishing all 40 imported posts on the same day and recommends publishing them one at a time over weeks",
+        "evidence": "\"Pick 6-8 posts, not 40... Publish them one at a time.\" The cadence table spreads posts across weeks 3-8.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that coordinated reactions from the 12 engineers count as engagement manipulation or can trigger reaction-ring detection that reduces the engineers' reputation",
+        "evidence": "\"matches the reaction-ring pattern... Reputation gets halved. It also violates the engagement-manipulation rule.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that #opensource tag rules ban project promotion or announcements",
+        "evidence": "\"#opensource bans project promotion, announcements and contributor requests.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that #beginners is for beginners to programming or to a language, not people new to a specific tool or SDK",
+        "evidence": "\"#beginners means beginners to programming or a language, not 'new to Flagpole'.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends #showdev (or topic tags) instead of #opensource for showing off the SDK",
+        "evidence": "The tag table says to use `opensource` for running or licensing a project and not for SDK promotion. It points to `typescript`/`javascript` for code posts and `showdev` for a project launch.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends publishing under a DEV organization rather than only a standalone brand account",
+        "evidence": "\"Create the organization from a personal account instead.\" and \"Organization. You create 'Flagpole' from your own personal account.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says the RSS import option to mark the source as canonical must be ticked (it is not automatic)",
+        "evidence": "\"Tick 'Mark the RSS source as canonical URL'. It's opt-in.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says RSS-imported posts arrive as drafts that need review before publishing",
+        "evidence": "\"Imports land as drafts... On each draft, delete the `date:` line, set tags, add a cover image and set the AI tier.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes an earn-first period of commenting on other people's posts before the first company post",
+        "evidence": "Weeks 1-2: \"Earn first. Each poster leaves substantive comments on 3-5 posts a week... No links.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that a brand-new account faces new-account limits or extra spam scrutiny",
+        "evidence": "\"A brand-new account posting links gets weighed by the spam labeler\" and \"A new account is limited to 1 article in its first 3 days.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says public reaction types (heart, unicorn) count the same, so asking for unicorns buys nothing extra",
+        "evidence": "\"All public reactions score the same, so asking for unicorns buys nothing.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that blog categories in the RSS feed become dev.to tags on import and must be checked",
+        "evidence": "\"the first four blog categories become tags.\" The next step says to \"set tags\" on each draft.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that imported drafts keep the original blog post date and that old posts publish back-dated unless the date line is removed",
+        "evidence": "\"Each draft keeps the original post's date. An old post published with its `date:` line goes out back-dated, outside the signed-in feed, permanently.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Advises against publishing all 40 imported posts on the same day and recommends publishing them one at a time over weeks",
+        "evidence": "\"Publish all 40 same day | \u274c Drop\" and \"Publish 1 post Monday. Then publish 2 to 3 per week, with a gap between posts. The rollout takes about 4 weeks.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that coordinated reactions from the 12 engineers count as engagement manipulation or can trigger reaction-ring detection that reduces the engineers' reputation",
+        "evidence": "\"This is coordinated vote manipulation. It violates dev.to rules and risks suspending the account\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that #opensource tag rules ban project promotion or announcements",
+        "evidence": "#opensource appears only as an example of a fitting tag; no tag rule is mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that #beginners is for beginners to programming or to a language, not people new to a specific tool or SDK",
+        "evidence": "Says only \"`#beginners` only on real beginner content\"; it never makes the programming-versus-tool distinction.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends #showdev (or topic tags) instead of #opensource for showing off the SDK",
+        "evidence": "#showdev is never mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends publishing under a DEV organization rather than only a standalone brand account",
+        "evidence": "\"Use a dev.to Organization with named engineers as authors.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says the RSS import option to mark the source as canonical must be ticked (it is not automatic)",
+        "evidence": "\"it creates drafts and offers a 'mark RSS source as canonical URL' option. Turn that option on.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says RSS-imported posts arrive as drafts that need review before publishing",
+        "evidence": "\"it creates drafts\" and \"Leave everything as drafts.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes an earn-first period of commenting on other people's posts before the first company post",
+        "evidence": "Nothing about commenting on other people's posts before publishing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that a brand-new account faces new-account limits or extra spam scrutiny",
+        "evidence": "Only says \"A zero-follower brand account has no trust\" and that a 40-post dump looks like spam. No new-account limits or scrutiny are described.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says public reaction types (heart, unicorn) count the same, so asking for unicorns buys nothing extra",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that blog categories in the RSS feed become dev.to tags on import and must be checked",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that imported drafts keep the original blog post date and that old posts publish back-dated unless the date line is removed",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

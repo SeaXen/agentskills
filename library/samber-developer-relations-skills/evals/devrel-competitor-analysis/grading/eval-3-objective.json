@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the thirty-day sample as a basis for any cadence conclusion.",
+        "evidence": "\"This pull is below that bar, so what follows is directional, not a scorecard row yet.\" and \"No close / ignore / counter yet.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a twelve-month sample before reporting content cadence.",
+        "evidence": "\"Pull twelve months, monthly, for all four, with launches/conferences/major ships marked on the calendar.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the twelve-month window as this analysis's own convention rather than an industry standard.",
+        "evidence": "\"This skill's own standard for content cadence is a twelve-month sample (SKILL.md \u00a7 Which surfaces to collect first, rung 5...)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a thirty-day window can report the opposite of the truth.",
+        "evidence": "No such phrase appears; the closest statements are \"a 30-day count with no baseline to compare it against\" and describing two \"misreads,\" but never states the window reports \"the opposite of the truth.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ties the Beacontree spike to the user conference and the 4.0 launch rather than to a step change in investment.",
+        "evidence": "\"A user conference plus a major-version ship inside the same window is the textbook launch-burst pattern... Recap posts, the 4.0 announcement, a migration guide, feature deep-dives \u2014 those cluster around an event like this on calendar, not on budget.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the correction as a planned launch burst on top of a maintained baseline.",
+        "evidence": "The text explicitly leaves this undetermined: \"This pull can't tell you whether Beacontree holds a 15/month baseline the rest of the year (real investment) or drops to 2/month once the launch noise clears (a burst on top of a thin baseline)\" \u2014 both possibilities are left open, not asserted.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires comparing baselines with baselines rather than a burst against a baseline.",
+        "evidence": "\"Baseline rate, not peak month. Beacontree's non-launch-month average is what answers 'are they investing more' \u2014 not the 19.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses the conclusion that Larkspur is under-resourced, inconsistent or has given up on this evidence.",
+        "evidence": "\"'Given up' is a twelve-month claim resting on a thirty-day count. A slower publishing cadence, a team between campaigns, a writer out that month \u2014 any of those produce the same 2.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats a flat cadence with no burst at all as its own finding rather than as weakness.",
+        "evidence": "For the non-launch pair (Ashgrove, Ours) the text says: \"Still one month of data each, so treat as a placeholder, not a finding\" \u2014 explicitly declining to treat it as a finding.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires every spike in the plotted series to be annotated with the launch or event behind it.",
+        "evidence": "\"Pull twelve months, monthly, for all four, with launches/conferences/major ships marked on the calendar.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the thirty-day sample as a basis for any cadence conclusion.",
+        "evidence": "The text still draws a comparative conclusion from the 30-day counts: \"we're roughly in Ashgrove's range, meaningfully behind Beacontree's raw count ... and ahead of Larkspur's current pace.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a twelve-month sample before reporting content cadence.",
+        "evidence": "Only a 30-day re-pull is requested: \"Re-pull all four in 30 days with no major event in-window for any of them.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels the twelve-month window as this analysis's own convention rather than an industry standard.",
+        "evidence": "No twelve-month window is mentioned at all in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a thirty-day window can report the opposite of the truth.",
+        "evidence": "The text discusses under/over-counting risk but never states the window could show the opposite of the truth.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ties the Beacontree spike to the user conference and the 4.0 launch rather than to a step change in investment.",
+        "evidence": "\"They ran their user conference and shipped 4.0 in the same 30-day window this snapshot covers.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the correction as a planned launch burst on top of a maintained baseline.",
+        "evidence": "\"Attributing the full 19 to sustained investment risks mistaking an event bump for a baseline ... treat 19 as an upper bound, not a run rate.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires comparing baselines with baselines rather than a burst against a baseline.",
+        "evidence": "\"Re-pull all four in 30 days with no major event in-window for any of them; that comparison is the one that actually supports a conclusion.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses the conclusion that Larkspur is under-resourced, inconsistent or has given up on this evidence.",
+        "evidence": "\"'Dead' is a strong claim from n=2; 'currently quiet, worth re-checking' is what the data actually supports.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats a flat cadence with no burst at all as its own finding rather than as weakness.",
+        "evidence": "\"Ashgrove is the more informative comparison point here. No known event driving their 5, no reason to discount it \u2014 it's a plausible steady-state number.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires every spike in the plotted series to be annotated with the launch or event behind it.",
+        "evidence": "There is no plotted time series discussed or requirement stated for annotating every spike; only the single Beacontree snapshot is flagged.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

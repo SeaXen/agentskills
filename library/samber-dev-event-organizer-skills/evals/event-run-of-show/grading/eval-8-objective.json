@@ -1,0 +1,118 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Gives each room reconfiguration its own timed cue-sheet row with a named owner",
+        "evidence": "Separate 12:30-12:55 rows for Lobby, Room 2 and Room 3 with `[name]` owners.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Starts the reset row while the current segment is still running rather than after it ends",
+        "evidence": "'The staff track runs ahead of the attendee track, so each reset starts while the current segment is still running.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes staff-facing and participant-facing rows as two interleaved tracks rather than one column",
+        "evidence": "'on the staff track of the cue sheet. The staff track runs ahead of the attendee track'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the failure mode of assuming a room reset happens invisibly with no owner and no row",
+        "evidence": "'The lobby reset has no owner and no row.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives each reset row an escalation target like any other row",
+        "evidence": "'Escalates to: [on-duty]' on each row.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States what physically moves in each reset",
+        "evidence": "'Moves: sponsor tables out, riser built, 180 chairs set'; 'chairs out, tables in.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Expresses the reset row's clock as a window rather than an instant",
+        "evidence": "'12:30-12:55'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Challenges whether the 30-minute lunch break actually covers three simultaneous resets rather than assuming the published break length is the budget",
+        "evidence": "'The 30 minutes are spent on three resets with no buffer'; 'If they run to 12:30, the flip has no slack.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Assigns a tech owner for the lobby flip where the stage riser and plenary AV are involved",
+        "evidence": "'Tech owner, plenary | [name]'.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Gives each room reconfiguration its own timed cue-sheet row with a named owner",
+        "evidence": "A space spec table with Lobby, Room 2 and Room 3 rows, each with crew and lead, plus a timeline.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Starts the reset row while the current segment is still running rather than after it ends",
+        "evidence": "The reset starts at 12:30 \"Go\". Only pre-staging happens before then.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes staff-facing and participant-facing rows as two interleaved tracks rather than one column",
+        "evidence": "There is a single staff timeline. Attendee holding is only raised as a question.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the failure mode of assuming a room reset happens invisibly with no owner and no row",
+        "evidence": "Not named explicitly.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives each reset row an escalation target like any other row",
+        "evidence": "There is only one sponsor-refusal escalation in the risk table.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States what physically moves in each reset",
+        "evidence": "\"Lobby: riser goes up. Rooms 2 and 3: chairs out, tables in.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Expresses the reset row's clock as a window rather than an instant",
+        "evidence": "\"12:30\u201312:40\", \"12:40\u201312:50\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Challenges whether the 30-minute lunch break actually covers three simultaneous resets rather than assuming the published break length is the budget",
+        "evidence": "It says to adjust to crew size and dry-run timing, but never challenges the 30-minute budget.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Assigns a tech owner for the lobby flip where the stage riser and plenary AV are involved",
+        "evidence": "Only generic \"AV contact: [name, phone]\" is given, with no lobby tech owner.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Declines to start with contributing-guide wording, and says this symptom usually points at the environment step or the review-and-response step rather than the wording of any file",
+        "evidence": "\"Root cause: wording is not the leverage point... almost always means step 3 (setup) or step 4/6 (issue queue quality, review), not file prose.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Scores the current path against the scorecard and shows the maintainer the result before proposing changes",
+        "evidence": "No blocking/scored checklist or numeric scorecard (B1-B4, S1-S8) appears anywhere; only narrative bullets about the 11 issues and PR outcomes.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the four blocking checks: contribution is invited, the documented setup runs cold, there is work available, submissions get answered",
+        "evidence": "None of these four checks are named anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States there are eight scored checks worth 0-2 points each, 16 points total",
+        "evidence": "No mention of scored checks or a 16-point total.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the pass threshold as all four blocking checks passing plus at least 12 of 16 scored points",
+        "evidence": "No such threshold is stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the 12-of-16 mark is this skill's own baseline rather than a published standard",
+        "evidence": "12/16 is never mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a cold run from a clean machine before the setup check can be marked as passing",
+        "evidence": "\"Then run go test ./... from a truly clean clone before publishing \u2014 that's the only way to know the setup line is true.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the eleven relabelled old bugs as a likely failure: small for someone who knows the codebase is not small for a stranger",
+        "evidence": "\"11 old bugs relabeled \\\"good first issue\\\" \u2014 named failure mode in this skill: \\\"small for someone who knows codebase is not small for stranger.\\\"\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks to read the last ten pull requests from non-maintainers, oldest comment first, noting where each stalled and what the first maintainer reply said",
+        "evidence": "No such request appears; only aggregate numbers (\"1 outside PR ever got closed, 2 typo fixes never returned\") are discussed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires evidence attached to every finding - a file path and line, a command output, or a counted number with its date",
+        "evidence": "Findings cite counted numbers (\"11 old bugs\", \"1 outside PR\", \"2 typo fixes\") but no dates and no explicit evidence requirement is stated going forward.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names which of the five published newcomer-barrier categories (social interaction, prior knowledge, finding a way to start, documentation, technical hurdles) each finding falls into",
+        "evidence": "No barrier-category taxonomy is referenced anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not draft or rewrite CONTRIBUTING prose in this response",
+        "evidence": "The response contains a full \"## CONTRIBUTING.md draft\" with complete markdown content, directly contradicting this item.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Declines to start with contributing-guide wording, and says this symptom usually points at the environment step or the review-and-response step rather than the wording of any file",
+        "evidence": "The transcript opens by critiquing prior rewrites and then immediately provides new CONTRIBUTING.md copy ('Here's the copy:'), never redirecting to environment/review-response as the real symptom.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Scores the current path against the scorecard and shows the maintainer the result before proposing changes",
+        "evidence": "No scorecard or scoring of any kind appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the four blocking checks: contribution is invited, the documented setup runs cold, there is work available, submissions get answered",
+        "evidence": "None of these four checks are named; the transcript discusses trust/risk framing and labels instead.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States there are eight scored checks worth 0-2 points each, 16 points total",
+        "evidence": "No scoring system of any kind is mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the pass threshold as all four blocking checks passing plus at least 12 of 16 scored points",
+        "evidence": "No such threshold is stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the 12-of-16 mark is this skill's own baseline rather than a published standard",
+        "evidence": "Not present anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a cold run from a clean machine before the setup check can be marked as passing",
+        "evidence": "No mention of running setup on a clean machine; setup/environment is never addressed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the eleven relabelled old bugs as a likely failure: small for someone who knows the codebase is not small for a stranger",
+        "evidence": "The transcript frames the 11 old issues as a staleness/'nobody wants this' signal ('an 8-month-old \"beginner\" issue reads as \"nobody actually wants this\"'), not as a size-miscalibration problem between maintainer and stranger.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks to read the last ten pull requests from non-maintainers, oldest comment first, noting where each stalled and what the first maintainer reply said",
+        "evidence": "No request of this kind appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires evidence attached to every finding - a file path and line, a command output, or a counted number with its date",
+        "evidence": "Findings are asserted without file paths, command output, or dated counts.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names which of the five published newcomer-barrier categories (social interaction, prior knowledge, finding a way to start, documentation, technical hurdles) each finding falls into",
+        "evidence": "No such taxonomy is referenced anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not draft or rewrite CONTRIBUTING prose in this response",
+        "evidence": "The transcript explicitly drafts a full CONTRIBUTING.md rewrite ('Here's the copy:' followed by the full markdown document).",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that a beginner label is a promise of mentoring, not a difficulty rating",
+        "evidence": "\"A good first issue label is a promise of mentoring, not a difficulty rating \u2014 that's Kubernetes' own definition of the convention\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes `good first issue` (members have committed to extra assistance) from `help wanted` (the broader 'we would take a patch'), citing the Kubernetes convention",
+        "evidence": "\"help wanted is the broader \\\"we'd take a patch,\\\" with no mentoring commitment attached \u2014 it's a legitimately different promise than good first issue\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes the forge surfaces the `good first issue` label algorithmically and publishes no criteria for it, so the label pulls in strangers from outside the project",
+        "evidence": "\"GitHub also surfaces that label algorithmically to strangers browsing the whole platform, with no published criteria of its own.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rewrites each candidate issue against the seven parts: observed behaviour, expected behaviour, the file and its test, the skills or APIs required, a suggested approach or an explicit 'design not settled', the exact verification command, and a named mentor",
+        "evidence": "Only describes the required shape (\"the seven parts a real first issue needs...\") and instructs the maintainers to do the rewrite themselves; no actual rewritten issue example is produced.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds a technical-domain or skills label, citing the 74-participant study finding newcomers picked issues labelled by the technical domain required over issues labelled by architecture area",
+        "evidence": "References \"a controlled newcomer study\" generically but never cites a 74-participant figure nor proposes an explicit skills/domain label.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the one-evening sizing as this skill's own default rather than a published standard",
+        "evidence": "No mention of one-evening issue sizing anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects typo-sized or one-word issues on the ground that they teach nothing and produce a contributor who never returns",
+        "evidence": "No discussion of typo-sized or one-word issues appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Publishes a claiming convention and a stale-claim expiry, and applies the expiry to the January claim",
+        "evidence": "\"Publish a claiming convention and a stale-claim expiry now, and apply it retroactively... Send that to your January claimant this week\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a queue which looks full but is entirely claimed by absent people is worse than an empty one",
+        "evidence": "Closest text is \"Nineteen half-written issues are worse than five well-written ones\" \u2014 about completeness, not about claimed-by-absent-people framing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets a standing floor of at least three valid unclaimed beginner issues and names it as a self-set default",
+        "evidence": "\"The self-set baseline this kind of queue should hold to is \\\"at least three valid, complete, unclaimed issues at any time\\\"\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reserves non-code entry points explicitly - documentation, tests, triage, translation, examples",
+        "evidence": "\"Keep \\\"Improve docs for the supervisor\\\" as a non-code entry point \u2014 reserved doc/test-only issues are the widest door into a project\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Tells the maintainers to stop fixing the easy bugs themselves, framing each one as a recruiting opportunity spent",
+        "evidence": "No such statement appears anywhere in section 3.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines 'label more issues' as the fix",
+        "evidence": "\"Short answer: reject your friend's fix. Labelling more issues and stacking help wanted on top makes this worse, not better\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that a beginner label is a promise of mentoring, not a difficulty rating",
+        "evidence": "The transcript discusses mentoring capacity ('limited slack to review, mentor, and merge') but never frames the label itself as 'a promise of mentoring, not a difficulty rating.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes `good first issue` (members have committed to extra assistance) from `help wanted` (the broader 'we would take a patch'), citing the Kubernetes convention",
+        "evidence": "\"Adding `help wanted` on top just conflates two different asks (help from anyone vs. onboarding for newcomers)\" distinguishes the two labels conceptually but cites no Kubernetes convention.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes the forge surfaces the `good first issue` label algorithmically and publishes no criteria for it, so the label pulls in strangers from outside the project",
+        "evidence": "Not mentioned anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rewrites each candidate issue against the seven parts: observed behaviour, expected behaviour, the file and its test, the skills or APIs required, a suggested approach or an explicit 'design not settled', the exact verification command, and a named mentor",
+        "evidence": "Only three elements are specified: \"exact file/function to touch, a concrete definition of done, and what tests are expected\" \u2014 far short of the seven parts.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds a technical-domain or skills label, citing the 74-participant study finding newcomers picked issues labelled by the technical domain required over issues labelled by architecture area",
+        "evidence": "No such label or study citation appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the one-evening sizing as this skill's own default rather than a published standard",
+        "evidence": "No 'one-evening' sizing concept is mentioned at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects typo-sized or one-word issues on the ground that they teach nothing and produce a contributor who never returns",
+        "evidence": "Not addressed; the transcript's concern is scoping and staleness, not issue triviality.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Publishes a claiming convention and a stale-claim expiry, and applies the expiry to the January claim",
+        "evidence": "The text unassigns the January claim ad hoc (\"Comment on the January one: 'No activity in a while \u2014 unassigning...'\") but never publishes a formal claiming convention or a defined expiry period.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a queue which looks full but is entirely claimed by absent people is worse than an empty one",
+        "evidence": "\"Stale claims are actively blocking, not neutral. A newcomer scanning the list sees 'claimed since January' and skips it \u2014 even though the claimant vanished 8 months ago. Every unclaimed-but-marked-claimed issue quietly subtracts from the real pool.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets a standing floor of at least three valid unclaimed beginner issues and names it as a self-set default",
+        "evidence": "\"Cut the 19 down to 3\u20135 that are actually ready\" gives a one-time cut range but is not framed as an ongoing floor or named as a self-set default.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reserves non-code entry points explicitly - documentation, tests, triage, translation, examples",
+        "evidence": "Not mentioned anywhere; all discussion is about code issues (backoff config, docs issue) without a general non-code-entry-points framing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Tells the maintainers to stop fixing the easy bugs themselves, framing each one as a recruiting opportunity spent",
+        "evidence": "The transcript instead tells maintainers to do the deciding/fixing themselves in some cases: \"do it yourselves in the time it'd take to explain it to a stranger\" and \"just knock the small ones out internally\" \u2014 the opposite recommendation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines 'label more issues' as the fix",
+        "evidence": "\"Bottom line: don't widen the funnel (more labels). Narrow it, sharpen the few issues worth keeping...\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

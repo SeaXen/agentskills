@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Flags that a Removed entry inside a minor release is a defect in either the notes or the version number",
+        "evidence": "\"**Version conflict \u2014 fix before shipping.** Keep a Changelog ties categories to SemVer: `Removed` entries require a **major** bump, never minor.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends 3.0.0 or another major bump rather than silently writing the removals under 2.5.0",
+        "evidence": "\"1. Retag as **3.0.0**, or 2. Confirm both removals were pre-announced as deprecated...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that major means breaking, minor means additive, and patch means fixes",
+        "evidence": "Only \"`Removed` entries require a **major** bump, never minor\" is stated; no full definition of major/minor/patch semantics appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not accept low telemetry usage as a reason the removal is non-breaking",
+        "evidence": "\"**Breaking:** Remove the `--legacy-auth` CLI flag. Telemetry shows no callers over the past year...\" \u2014 still marked Breaking despite low usage.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Points out that neither removal was announced as a deprecation in an earlier release",
+        "evidence": "Only asks about `--legacy-auth`: \"Was `--legacy-auth` ever formally marked deprecated in a past release?\" \u2014 no equivalent question is raised for the XML export endpoint.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends announcing a deprecation in a release that removes nothing, naming the replacement and the earliest version that removes it",
+        "evidence": "No such process recommendation appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives each removal a what-breaks, who-it-hits, what-to-do treatment rather than a bare bullet",
+        "evidence": "\"Remove the XML export endpoint. Integrations requesting XML output must switch to `<replacement format>`. See `<migration guide link>`.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the affected subset for each removal instead of saying it affects everyone",
+        "evidence": "\"any script or CI job still passing this flag\" and \"Integrations requesting XML output\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Uses Keep a Changelog category names and an ISO 8601 YYYY-MM-DD date",
+        "evidence": "\"## [2.5.0] - 2026-09-19\" with \"### Removed\", \"### Added\", \"### Fixed\" headers.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places the breaking items first within their category",
+        "evidence": "Both bullets under \"### Removed\" (the first category shown) are marked Breaking, preceding Added and Fixed.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Flags that a Removed entry inside a minor release is a defect in either the notes or the version number",
+        "evidence": "\"SemVer mismatch: removing a CLI flag and deleting an endpoint entirely are both breaking changes by definition... this should be `3.0.0`, not a `2.5.0` minor bump \u2014 anyone pinned to `^2.x` will auto-pull this and silently break.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends 3.0.0 or another major bump rather than silently writing the removals under 2.5.0",
+        "evidence": "\"this should be `3.0.0`, not a `2.5.0` minor bump\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that major means breaking, minor means additive, and patch means fixes",
+        "evidence": "The transcript only says breaking changes should bump to 3.0.0; it never states the general SemVer definitions for major, minor, and patch.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not accept low telemetry usage as a reason the removal is non-breaking",
+        "evidence": "Despite the draft's rationale ('Unused in telemetry for over a year; no replacement.'), the response still asserts 'removing a CLI flag and deleting an endpoint entirely are both breaking changes by definition,' rejecting usage level as a mitigating factor.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Points out that neither removal was announced as a deprecation in an earlier release",
+        "evidence": "No mention of deprecation history or prior-release announcement appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends announcing a deprecation in a release that removes nothing, naming the replacement and the earliest version that removes it",
+        "evidence": "No such recommendation appears; the only recommendation given is the version-number bump to 3.0.0.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives each removal a what-breaks, who-it-hits, what-to-do treatment rather than a bare bullet",
+        "evidence": "The two removals are addressed together with one generic line ('anyone pinned to `^2.x` will auto-pull this and silently break'), not individually broken down by what-breaks/who-it-hits/what-to-do.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the affected subset for each removal instead of saying it affects everyone",
+        "evidence": "\"anyone pinned to `^2.x` will auto-pull this and silently break\" \u2014 a blanket statement about all ^2.x consumers, not a named subset per removal (e.g. flag users vs. XML endpoint users).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Uses Keep a Changelog category names and an ISO 8601 YYYY-MM-DD date",
+        "evidence": "The changelog uses '### Added', '### Removed', '### Fixed' headings and the date '## [2.5.0] - 2026-09-19'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places the breaking items first within their category",
+        "evidence": "Both entries in the Removed category are marked '**Breaking:**' and appear as the only/first entries in that section: '**Breaking:** `--legacy-auth` CLI flag...' followed by '**Breaking:** XML export endpoint...'.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Measures each locale against a control: the same pages read in the source language by the same market",
+        "evidence": "\"outcomes against a control (the same pages read in English by the same market)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports adoption as the share of candidate-language sessions staying on locale pages versus switching to the source page",
+        "evidence": "\"share of Japanese/Korean-language sessions staying on locale pages vs switching to English\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports outcome as quickstart completion or time to first API call for locale readers, before versus after launch",
+        "evidence": "\"quickstart completion or time to first API call\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports freshness as the percentage of pages current by pin, with the 80% of the critical-path pack target labelled as a baseline",
+        "evidence": "\"target \u2265 80% of the critical-path pack at every release\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports quality as translation-problem reports per 1,000 views",
+        "evidence": "\"translation-problem reports per 1,000 views\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes the kill rule: adoption or freshness below target for two consecutive quarters retires the locale, with redirects to the source pages",
+        "evidence": "Kill rule two quarters; \"Redirect every ko URL to its English page\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Applies the last-reviewer rule to ko: freeze read-only with a banner, then retire if no replacement is named within one quarter of the reviewer leaving",
+        "evidence": "Quotes the rule: freeze read-only with banner, then retire; June to October exceeds a quarter",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not keep ko live as-is, because it has no owner and nobody allowed to approve changes",
+        "evidence": "\"freeze it read-only today\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Specifies ko retirement as redirecting every ko URL to the source page and removing ko from the language switcher",
+        "evidence": "\"remove ko from the language switcher\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that retirement is one-way: a retired locale is revived only through the full launch gate, never by unfreezing old pages",
+        "evidence": "\"Not by unfreezing the old pages.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites the MDN cut of 21 unmaintained locales with an estimated traffic loss under 2% as a sourced precedent",
+        "evidence": "\"stopped displaying 21 locales... under 2%\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks whether ko and ja pages carry source-commit pins and computes freshness from the drift check, not from last-touched dates",
+        "evidence": "\"Do the ko pages carry any `source_commit` pin?\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Checks that ja still has a written retirement threshold and a named person allowed to pull the locale",
+        "evidence": "Gate row \"Written retirement threshold and a named person allowed to pull\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not treat ko's traffic as evidence the locale works without the source-language control comparison",
+        "evidence": "\"ko traffic is not evidence the translation is needed.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Measures each locale against a control: the same pages read in the source language by the same market",
+        "evidence": "No control comparison.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reports adoption as the share of candidate-language sessions staying on locale pages versus switching to the source page",
+        "evidence": "Not reported.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reports outcome as quickstart completion or time to first API call for locale readers, before versus after launch",
+        "evidence": "Uses helpfulness votes and tickets instead.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reports freshness as the percentage of pages current by pin, with the 80% of the critical-path pack target labelled as a baseline",
+        "evidence": "Freshness from diffing against translation date; no pin or 80% target.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reports quality as translation-problem reports per 1,000 views",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes the kill rule: adoption or freshness below target for two consecutive quarters retires the locale, with redirects to the source pages",
+        "evidence": "Uses a 60-day decision date instead.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Applies the last-reviewer rule to ko: freeze read-only with a banner, then retire if no replacement is named within one quarter of the reviewer leaving",
+        "evidence": "Keeps ko live with a banner while recruiting, not frozen read-only.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not keep ko live as-is, because it has no owner and nobody allowed to approve changes",
+        "evidence": "\"keep ko live\" with a banner and a 60-day wait.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Specifies ko retirement as redirecting every ko URL to the source page and removing ko from the language switcher",
+        "evidence": "Redirects only 'the rest'; no switcher removal.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that retirement is one-way: a retired locale is revived only through the full launch gate, never by unfreezing old pages",
+        "evidence": "Says the opposite: restore ko if an owner is found.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites the MDN cut of 21 unmaintained locales with an estimated traffic loss under 2% as a sourced precedent",
+        "evidence": "No citation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks whether ko and ja pages carry source-commit pins and computes freshness from the drift check, not from last-touched dates",
+        "evidence": "Not asked.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Checks that ja still has a written retirement threshold and a named person allowed to pull the locale",
+        "evidence": "Not checked.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not treat ko's traffic as evidence the locale works without the source-language control comparison",
+        "evidence": "\"Treat traffic as context, not success. Traffic to stale pages isn't a good outcome.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

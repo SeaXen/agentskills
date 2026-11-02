@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Fixes the sections a handoff must cover and applies a mandatory-entry rule: every section carries an entry or an explicit 'none'",
+        "evidence": "Six sections; 'every section needs an entry or an explicit \"none\". A blank is not \"none\".'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the explicit 'none' is what separates 'nothing to report' from 'nobody checked'",
+        "evidence": "'A blank means nobody checked.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Splits the overlap window into a writing phase and a talking phase, with writing first",
+        "evidence": "'Written handoff (12:30-12:45)' then 'Talk-through (12:45-13:10)'; 'Dan writes it before talking to anyone.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the overlap length is set by this event rather than taken from a published benchmark",
+        "evidence": "'The 13:15 boundary and every window length below are my own settings, not industry figures.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Carries no timing figures or tooling from on-call or incident-response practice",
+        "evidence": "No on-call timings or tools appear; the window lengths are event-specific.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ends the overlap with a live check that the incoming person can reach and be reached on the coordination channel",
+        "evidence": "'Live verification (13:10, before Dan leaves)': message sent and answered on the written channel, live channel call.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects a verbal assurance that the incoming person 'has the channel' as verification",
+        "evidence": "'A verbal \"I have it\" does not count.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names failure states that look identical to a working setup, such as a flat radio battery, muted notifications, or never having been added to the channel",
+        "evidence": "Roster check 'member of the org text channel', 'battery full', 'notifications are not muted'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Provides a separate, denser template for handing off in the middle of a live problem",
+        "evidence": "'Use the mid-incident template instead of the routine one'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States what the mid-incident template must carry, including the pending decision and its deadline",
+        "evidence": "Five items including 'The pending decision' and 'The deadline on that decision'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Advises holding the shift boundary until an active situation closes where that is possible",
+        "evidence": "'If the situation can close before 13:15, hold the boundary until it does.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives an async fallback for Dan's day-two departure: a written quick handoff, a short recorded walkthrough, and a named person who was there and is still reachable",
+        "evidence": "Written handoff, '3-5 minute voice memo or phone video', 'Name one second reachable person who was in the building all morning'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says the handoff structure is borrowed from on-call or incident-response practice rather than presenting it as an events-industry norm",
+        "evidence": "'The handoff structure is borrowed from on-call incident-response practice, not an events standard.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not frame the shift boundary as damage to be minimised, and states the rotation exists so no one person is the single point of failure for crisis decisions",
+        "evidence": "It never states the single-point-of-failure rationale for rotation.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Fixes the sections a handoff must cover and applies a mandatory-entry rule: every section carries an entry or an explicit 'none'",
+        "evidence": "An 8-section template and \"If a section is empty, write 'none'.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the explicit 'none' is what separates 'nothing to report' from 'nobody checked'",
+        "evidence": "\"A blank section can't be told apart from a forgotten one.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Splits the overlap window into a writing phase and a talking phase, with writing first",
+        "evidence": "The note is posted 30 minutes before the boundary; the live walkthrough follows.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the overlap length is set by this event rather than taken from a published benchmark",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Carries no timing figures or tooling from on-call or incident-response practice",
+        "evidence": "All timings are tied to Dan's train and the event schedule.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ends the overlap with a live check that the incoming person can reach and be reached on the coordination channel",
+        "evidence": "\"PM posts 'PM live' in the organizer channel and answers one question from the Handoff Owner.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects a verbal assurance that the incoming person 'has the channel' as verification",
+        "evidence": "\"Saying they were told doesn't count\" and \"Someone physically looks at the channel member list.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names failure states that look identical to a working setup, such as a flat radio battery, muted notifications, or never having been added to the channel",
+        "evidence": "It has a \"PM not in channel\" fallback, but does not name look-alike failures such as muted notifications or a flat battery.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Provides a separate, denser template for handing off in the middle of a live problem",
+        "evidence": "There is only one template.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States what the mid-incident template must carry, including the pending decision and its deadline",
+        "evidence": "No mid-incident template exists.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Advises holding the shift boundary until an active situation closes where that is possible",
+        "evidence": "Not mentioned; the 13:30 release is fixed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives an async fallback for Dan's day-two departure: a written quick handoff, a short recorded walkthrough, and a named person who was there and is still reachable",
+        "evidence": "There is no recorded walkthrough. The Handoff Owner covers, and Dan is \"not the fallback\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says the handoff structure is borrowed from on-call or incident-response practice rather than presenting it as an events-industry norm",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not frame the shift boundary as damage to be minimised, and states the rotation exists so no one person is the single point of failure for crisis decisions",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Builds a named capability ladder with explicit point deltas rather than a plain numeric opinion scale for this criterion",
+        "evidence": "\"a capability ladder with a negative rung... 'simple chatbot, no added logic', -5\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Assigns a negative delta to the trivial path, such as a bare chatbot with no added logic",
+        "evidence": "\"-5\" for the bare chatbot.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the ladder is chosen because it actively discourages the cheapest route rather than merely failing to reward it",
+        "evidence": "\"actively subtracts points. A wrapper falls below a plain-prompt project\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Applies a cohort min-max normalization of the form (score - min) / (max - min) scaled to the published scale",
+        "evidence": "\"(score \u2212 min) / 24 \u00d7 4 + 1\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies min = -6, max = 18 and range = 24 from the six totals given",
+        "evidence": "\"The min is -6, the max is 18 and the range is 24.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Maps the -6 total to 1.0 and the 18 total to 5.0 on the published scale",
+        "evidence": "Table: -6 \u2192 1.00, 18 \u2192 5.00",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Computes the 9 total as 3.5 on the 1-5 scale",
+        "evidence": "\"9 | 3.50\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Computes the 14 total as approximately 4.33 on the 1-5 scale",
+        "evidence": "\"14 | 4.33\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Publishes the normalized figure on the sheet rather than the raw open-ended ladder total",
+        "evidence": "\"Teams and the sponsor never see -6 or 18.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the normalization applies only within one cohort scored on the same ladder",
+        "evidence": "\"the same team's number changes depending on who made the cut\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats modifiers such as slow response time or repetitive output as further deltas on top of the rung reached, not as a separate score",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not publish per-judge raw scores to teams or the sponsor",
+        "evidence": "Only raw ladder totals are discussed; per-judge scores are not addressed.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Builds a named capability ladder with explicit point deltas rather than a plain numeric opinion scale for this criterion",
+        "evidence": "No ladder is built. It only converts totals and mentions a cap.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Assigns a negative delta to the trivial path, such as a bare chatbot with no added logic",
+        "evidence": "It mentions 'A negative-point penalty alone' but assigns no delta.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the ladder is chosen because it actively discourages the cheapest route rather than merely failing to reward it",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Applies a cohort min-max normalization of the form (score - min) / (max - min) scaled to the published scale",
+        "evidence": "It explicitly uses the scheme's bounds: 'Use the scheme's bounds, not the finalists' range.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies min = -6, max = 18 and range = 24 from the six totals given",
+        "evidence": "'floor = -6, ceiling = 18, and the range is 24.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Maps the -6 total to 1.0 and the 18 total to 5.0 on the published scale",
+        "evidence": "Table: A -6 \u2192 1.0, F 18 \u2192 5.0.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Computes the 9 total as 3.5 on the 1-5 scale",
+        "evidence": "Table: D 9 \u2192 3.5.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Computes the 14 total as approximately 4.33 on the 1-5 scale",
+        "evidence": "Table: E 14 \u2192 4.3.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Publishes the normalized figure on the sheet rather than the raw open-ended ladder total",
+        "evidence": "'Do not publish raw totals.' It publishes the converted 1-5 figure.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the normalization applies only within one cohort scored on the same ladder",
+        "evidence": "It rejects cohort-relative scaling and does not state this.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats modifiers such as slow response time or repetitive output as further deltas on top of the rung reached, not as a separate score",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not publish per-judge raw scores to teams or the sponsor",
+        "evidence": "Not addressed. The transcript only says not to publish raw totals.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

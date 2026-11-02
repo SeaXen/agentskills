@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States the public organization README lives in a public repository named .github at the path profile/README.md",
+        "evidence": "Table: 'Public org profile | `.github` \u2014 public repo | `profile/README.md` | Everyone, logged out included'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the member-only variant lives in a private repository named .github-private at the same profile/README.md path",
+        "evidence": "Table: 'Member-only | `.github-private` \u2014 private repo | `profile/README.md` | Signed-in org members'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects porting the homepage copy wholesale, on the grounds that the visitor came to GitHub for the code",
+        "evidence": "'the skill names this exact failure mode: \"Writing the organization profile as a second marketing site \u2014 the visitor came to GitHub for the code.\"'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a plainly stated open-source stance saying what is open, what is commercial, and under which licence",
+        "evidence": "README template's '## Open source vs. commercial' section listing '<LICENSE, e.g. Apache-2.0>' repos vs. 'the managed service, control plane, and enterprise features'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires named entry-point repositories, each with a short line saying who should start there",
+        "evidence": "'## Start here' section: '[`<ingest-runtime-repo>`](<url>) \u2014 start here if you want to see how events get into the platform.' etc.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Limits the page to one primary call to action rather than several of equal weight",
+        "evidence": "'The skeleton rule is one primary CTA, not three of equal weight \u2014 \"docs, blog, Discord, Twitter, newsletter, careers\" all bolded together is the named weak example.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that an organization has 6 public pins plus 6 member-visible pins",
+        "evidence": "Only 'Pins (6 public slots)' is discussed; no number is given for member-visible pins anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that only organization owners can set pins",
+        "evidence": "'Create a public repo named exactly `.github` under the Thornpike Data org (org owners only \u2014 pins and this repo both require owner permission).'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Adds the organization-only blocking condition that the page must answer which repository to open first without the visitor scrolling into the repository list",
+        "evidence": "'B4 next step FAIL \u2014 org-specific blocking rule: visitor must know which repo to open first without scrolling into the list; a bare list doesn't answer that'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the organization cold-reader test is five questions and the pass is five of five",
+        "evidence": "'ask someone with zero context five questions \u2014 what does this org do, which repo do I open first, is this active, what do I do next, what's open source vs. commercial. Five of five is the pass'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends assigning an owner for the page before writing its content",
+        "evidence": "The owner-naming instruction ('Name an owner and review triggers') appears only in the 'Before you ship' section, after the full README draft has already been presented.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends the pins cover repositories the README prose does not already name, rather than repeating them",
+        "evidence": "'Pins should extend past what the README prose already names, not repeat it \u2014 that's the difference between an \"entry-point tour\" and a leaderboard'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks who owns the page after today and which event triggers the next review",
+        "evidence": "'Name an owner and review triggers, not a calendar reminder: next OSS runtime release, a newly-nameable customer, a careers-page change, a funding announcement.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States the public organization README lives in a public repository named .github at the path profile/README.md",
+        "evidence": "'Create a new repo under the Thornpike Data org, named exactly .github... Must be public. Inside it, add profile/README.md.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the member-only variant lives in a private repository named .github-private at the same profile/README.md path",
+        "evidence": "No mention of a .github-private repo or member-only variant.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects porting the homepage copy wholesale, on the grounds that the visitor came to GitHub for the code",
+        "evidence": "The stated ground is audience/funnel-stage mismatch ('None of them are mid-funnel... reads as misplaced sales pitch next to a repo grid'), not explicitly 'came to GitHub for the code'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a plainly stated open-source stance saying what is open, what is commercial, and under which licence",
+        "evidence": "The draft states what's open vs commercial ('We build a commercial stream-processing platform, and open-source the runtime pieces underneath it') but never mentions a licence.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires named entry-point repositories, each with a short line saying who should start there",
+        "evidence": "The repo table gives 'what it does' one-liners, not 'who should start here' persona framing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Limits the page to one primary call to action rather than several of equal weight",
+        "evidence": "'Careers CTA \u2014 the one piece that's a genuine fit... Keep it, but low-key, near the bottom rather than as a headline element,' while hero pitch, logos, and product tour are all demoted or cut.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that an organization has 6 public pins plus 6 member-visible pins",
+        "evidence": "No mention of pin counts for organizations.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that only organization owners can set pins",
+        "evidence": "No mention of who can set pins.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds the organization-only blocking condition that the page must answer which repository to open first without the visitor scrolling into the repository list",
+        "evidence": "No such condition is stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the organization cold-reader test is five questions and the pass is five of five",
+        "evidence": "No cold-reader test framework appears in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends assigning an owner for the page before writing its content",
+        "evidence": "The transcript only notes 'Any engineer with write access to that new repo can ship this' \u2014 no ownership-assignment recommendation before writing content.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends the pins cover repositories the README prose does not already name, rather than repeating them",
+        "evidence": "Pins are not discussed in this transcript at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks who owns the page after today and which event triggers the next review",
+        "evidence": "No such questions are asked.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

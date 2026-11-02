@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Replaces them with a leading-indicator set of five or fewer numbers, all of which move before revenue.",
+        "evidence": "The transcript names the gap ('Your standing set is signups, MAU, ARR, NPS. None of those move *before* revenue on the expansion question') but never replaces the set. It only appends two metrics \u2014 'net revenue retention and share of revenue from expansion' ('Add both now') \u2014 leaving signups/MAU/ARR/NPS in place, so no replacement set of five or fewer is defined. Worse, both proposed additions are revenue-derived lagging measures: NRR is a cohort's MRR today vs. twelve months ago, and expansion share is a ratio of booked revenue \u2014 neither moves before revenue, which is the item's core requirem",
+        "score": 1,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Replaces them with a leading-indicator set of five or fewer numbers, all of which move before revenue.",
+        "evidence": "The answer does propose a small set of additions \u2014 \"Missing: NRR, GRR, logo churn rate, quick ratio (new+expansion MRR / churned+contracted MRR)\" plus \"current active/paid seats... trended with net adds vs removed\" \u2014 but every one of these is a lagging or coincident revenue measure, not a leading indicator. NRR, GRR, logo churn and quick ratio are all computed *from* realized revenue movements; they move with or after revenue, not before it. The answer even criticizes ARR as \"aggregate, lagging\" and then substitutes metrics from the same family. No usage/behavioral leading signals (activation ",
+        "score": 1,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

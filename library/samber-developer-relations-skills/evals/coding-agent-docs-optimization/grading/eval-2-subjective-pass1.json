@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Writes each entry note as a routing signal describing what the reader will find, not as marketing copy",
+        "evidence": "In \u00a76's draft, nearly every entry carries a colon-suffixed note that names concrete contents rather than selling: \"Install the Web SDK ... package name, init snippet, first pageview event\"; \"Identify users ... linking anonymous and identified traffic without double-counting\"; \"Track events ... event schema, required fields, idempotency keys\"; \"Consent and privacy ... GDPR/CCPA gating before first track call\"; \"Error codes ... every error string, its cause, its fix\"; \"Rate limits ... thresholds, backoff, retry-after header\"; \"Webhooks ... inbound destination signature verification\". Zero promot",
+        "score": 4,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Writes each entry note as a routing signal describing what the reader will find, not as marketing copy",
+        "evidence": "Every entry note is a functional descriptor of page contents, not promotional language. Examples: 'Install an SDK and send your first event in under 10 minutes'; 'Events, properties, users, and the data pipeline, in one page'; '`identify`, anonymous-to-known merge, and alias resolution'; 'Auth, rate limits, and base URLs'; 'What not to send, redaction, and retention controls'; 'Mapping Segment's spec to Brightloom's event model'. Notes disambiguate between similar entries (Node.js vs Python SDK both 'Server-side tracking and batching'; JS/iOS/Android differentiated by language and capture mode",
+        "score": 5,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

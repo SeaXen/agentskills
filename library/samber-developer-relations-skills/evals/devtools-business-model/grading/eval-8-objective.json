@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that per-seat pricing collapses when usage grows through automation and agents instead of headcount",
+        "evidence": "\"Per-seat pricing is decoupling from usage because usage no longer requires a seat.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects stacking a consumption charge and seats on the same underlying value",
+        "evidence": "\"Don't stack a per-call charge on top of full seat price... That's charging twice for one expansion in value on the same customer relationship\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that billing both makes the customer optimise against the vendor",
+        "evidence": "\"Customers can shrink the side that's easy to shrink (consolidate logins, cut named seats) while the side driving your cost \u2014 CI/agent calls \u2014 keeps growing untouched.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Tests any candidate metric against whether the customer already counts it for their own reasons",
+        "evidence": "\"Already counted: yes \u2014 migration runs show up in the customer's own CI logs and agent run history.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Tests whether the metric grows as the value the customer receives grows",
+        "evidence": "\"Grows with value: yes \u2014 more automated migrations is the value Braidmark delivers, not a side effect.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Tests whether the customer can forecast the metric before the invoice arrives",
+        "evidence": "\"Forecastable: only if you ship usage dashboards and spend caps/alerts before billing on it \u2014 not optional\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Tests whether the vendor can measure the metric accurately and explain the measurement in one sentence",
+        "evidence": "\"Measurable in one sentence: 'one metered unit per schema migration executed through the API, however it was triggered.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects a metric only the vendor can measure, because it turns every invoice into a dispute",
+        "evidence": "No language about invoice disputes; raw call count is rejected for including uncontrolled traffic (\"health checks, dry-runs, retries\"), not framed as a vendor-only measurability/dispute issue.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires spend caps, alerts or forecasting before any consumption billing ships",
+        "evidence": "\"Build before billing: per-account usage metering, a customer-facing usage dashboard, spend caps/alerts...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names bill shock as the failure mode consumption billing dies of, and public posts from a developer audience as how it surfaces",
+        "evidence": "\"Unbounded per-call billing with no caps or forecast tooling is exactly how consumption pricing dies: bill shock, then a public complaint from a dev audience that notices immediately.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names net revenue retention, or the share of accounts above a committed floor, as the leading indicator for a metered model",
+        "evidence": "\"Share of accounts whose metered usage already exceeds their seat-floor equivalent, read monthly.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that per-seat pricing collapses when usage grows through automation and agents instead of headcount",
+        "evidence": "'Seats stopped tracking value the moment usage went machine-driven... it's the value metric decoupling from actual consumption.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects stacking a consumption charge and seats on the same underlying value",
+        "evidence": "'\"On top, same accounts, day one\" reads as a stealth price increase... Bundle before you meter... Low-usage seat customers see zero change \u2014 only the accounts actually driving the 3x see a new line item.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that billing both makes the customer optimise against the vendor",
+        "evidence": "The transcript explains that raw call metering is gameable ('easiest metric in the world for customers... to route around by batching'), but does not tie this specifically to billing seats and usage together causing optimization against the vendor.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Tests any candidate metric against whether the customer already counts it for their own reasons",
+        "evidence": "No test of whether the customer already tracks the proposed metric for their own purposes is applied anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Tests whether the metric grows as the value the customer receives grows",
+        "evidence": "'Charge per successfully applied migration... it actually correlates with what they're getting.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Tests whether the customer can forecast the metric before the invoice arrives",
+        "evidence": "'Harder to game, easier for a customer to predict.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Tests whether the vendor can measure the metric accurately and explain the measurement in one sentence",
+        "evidence": "No discussion of the vendor's own measurement accuracy or explainability of the metric.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects a metric only the vendor can measure, because it turns every invoice into a dispute",
+        "evidence": "No mention of invoice disputes or vendor-only measurability.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires spend caps, alerts or forecasting before any consumption billing ships",
+        "evidence": "No mention of spend caps, alerts, or forecasting tooling as a prerequisite.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names bill shock as the failure mode consumption billing dies of, and public posts from a developer audience as how it surfaces",
+        "evidence": "The closest concept is 'stealth price increase' and 'generates support tickets', but 'bill shock' and public developer posts are never named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names net revenue retention, or the share of accounts above a committed floor, as the leading indicator for a metered model",
+        "evidence": "No leading indicator such as net revenue retention is proposed anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

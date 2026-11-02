@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Drops stars from the tracking plan even though the user named stars as the goal",
+        "evidence": "\"Drop stars from the tracking plan entirely, even when the goal names stars\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that stars are cumulative and monotonic, so the metric cannot show a regression",
+        "evidence": "\"Star count can only go up or flat. It can't prove the rewrite worked \u2014 it can't fail either, so it proves nothing.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that stars would report success for a change that made the page worse",
+        "evidence": "\"the metric cannot show a regression and reports success for a change that made the page worse.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Offers conversion rate - clones or downloads divided by unique visitors - as the replacement metric",
+        "evidence": "\"Real metric per skill: **conversion rate = clones \u00f7 unique visitors**, from repo traffic insights.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the '~15% star conversion lift from a star-history chart' claim as unsourced and declines to build on it",
+        "evidence": "\"that stat is on the skill's folklore list... 'self-reported on a growth blog, no methodology.' ... Not using it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ranks support load ahead of conversion rate and contributor conversion by efficiency, and states that ordering explicitly",
+        "evidence": "The list order is conversion rate first, then support load; contributor conversion is explicitly ranked last ('slowest, most confounded signal, read last'), but no statement ranks support load ahead of conversion rate.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Describes support load as counting the 'how do I install this' and 'what does this do' issues per month",
+        "evidence": "\"count of 'how do I install this' / 'what does this do' issues opened per month, pre- vs post-ship.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses the one-week review window, requiring re-measurement four to six weeks out because shorter windows are noise",
+        "evidence": "\"re-measure at 4-6 weeks, shorter windows read as noise. One week post-ship isn't a verdict \u2014 it's a checkpoint.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a full period before compared against a full period after, not a point-in-time snapshot on each side",
+        "evidence": "\"Real comparison: full pre-ship week vs full post-ship period, conversion rate + support load\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that attribution on a README is weak, and annotates confounders rather than claiming the delta",
+        "evidence": "\"Annotate confounders when you report the delta \u2014 any traffic spike, HN/Reddit mention, other repo change in that window breaks clean attribution.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that if clones rise but contributor count does not, the contribution path is broken rather than the README",
+        "evidence": "No such statement appears; contributor conversion is only flagged as 'slowest, most confounded signal, read last.'",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Drops stars from the tracking plan even though the user named stars as the goal",
+        "evidence": "The entire tracking plan and script are built around capturing and charting star counts, e.g. \"Star count at rewrite merge\" and \"Star count daily since\" in the tracking table.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that stars are cumulative and monotonic, so the metric cannot show a regression",
+        "evidence": "No statement about stars being cumulative/monotonic or unable to show regression appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that stars would report success for a change that made the page worse",
+        "evidence": "No such statement appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Offers conversion rate - clones or downloads divided by unique visitors - as the replacement metric",
+        "evidence": "The only alternative data row offered is \"Traffic referrers (optional hedge)\", not a clones/downloads-over-visitors conversion rate.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the '~15% star conversion lift from a star-history chart' claim as unsourced and declines to build on it",
+        "evidence": "\"I don't have a credible source for 'star-history chart \u2192 +15% star conversion.' It's a number that circulates in GitHub-growth-hacking content with no study behind it... Don't put that figure in front of leadership; if someone asks for the source, there isn't a good one.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ranks support load ahead of conversion rate and contributor conversion by efficiency, and states that ordering explicitly",
+        "evidence": "No mention of \"support load\" or any such ranking appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Describes support load as counting the 'how do I install this' and 'what does this do' issues per month",
+        "evidence": "No such description appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses the one-week review window, requiring re-measurement four to six weeks out because shorter windows are noise",
+        "evidence": "The plan instead supports the short window: \"Run it with... Run this once now... and again the morning of the review\" with no refusal or 4-6 week requirement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a full period before compared against a full period after, not a point-in-time snapshot on each side",
+        "evidence": "The design is explicitly point-in-time: \"Star count at rewrite merge\" (before) vs. \"Star count now\" (after), captured via two snapshot runs of the script.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that attribution on a README is weak, and annotates confounders rather than claiming the delta",
+        "evidence": "\"Stars alone won't prove the rewrite worked. A before/after star count is confounded by anything else that happened in the same window \u2014 a HN/Reddit mention, a dependency bump pulling in traffic, a tweet, seasonality... log it now (see below)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that if clones rise but contributor count does not, the contribution path is broken rather than the README",
+        "evidence": "No mention of contributor count or a broken-contribution-path claim appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

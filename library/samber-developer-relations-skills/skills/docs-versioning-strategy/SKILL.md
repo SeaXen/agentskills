@@ -4,7 +4,7 @@ description: "Decides how developer docs track several product, library or API v
 license: MIT
 metadata:
   author: Samuel Berthe
-  version: "1.0.0"
+  version: "1.0.1"
 ---
 
 # Docs Versioning Strategy
@@ -213,3 +213,4 @@ Validate the plan section by section, getting agreement on each before writing t
 - `samber/developer-relations-skills@developer-docs-structure-audit` - classify pages before deciding which ones to version.
 - `samber/developer-relations-skills@docs-localization-strategy` - locales multiply every versioned page; translate `current` only.
 - `samber/developer-relations-skills@changelog-writing` - where retirements and "added in" history are announced.
+- `samber/developer-relations-skills@docs-site-platform-selection` - when the version topology needs a different docs platform, choosing it.

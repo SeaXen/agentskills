@@ -1,3 +1,7 @@
+🌐 [한국어](README.md) | [English](README.en.md) | [中文](README.zh.md) | [日本語](README.ja.md)
+
+> 외국인 관광객 및 한국 거주 외국인은 영어·중국어·일본어 README를 참고하세요.
+
 # k-skill
 
 ![k-skill thumbnail](docs/assets/k-skill-thumbnail.png)
@@ -40,16 +44,24 @@ npx -y @nomadamas/k-skill@0 update
 
 기여 전에는 [기여 가이드](CONTRIBUTING.md)를 확인해 주세요.
 
+## 같이 쓰면 좋은 도구
+
+k-skill이 에이전트를 **한국 서비스**에 연결해 준다면, 아래 둘은 **내 컴퓨터**에 연결해 줍니다.
+
+- 🔎 **[AutoRAG Agent](https://github.com/Marker-Inc-Korea/AutoRAG)**: 파일·카톡·Slack·메일·HWP까지 읽고 출처 달린 답을 주는 개인 사서 에이전트. Claude Code·Codex에 MCP로 연결. `npm i -g @autorag/librarian`
+- 🌻 **[Dazzi](https://dazziapp.com/)**: AutoRAG 기반 AI 파일 매니저 (macOS·Windows). `brew install --cask nomadamas/dazzi/dazzi`
+
 ## 협력사
 
+<!-- BC카드 공식 심볼 원본: https://cdn.bccard.com/static/images/comm/logo/etc-bc-s-1-l.png (144×144, 3× 표시 해상도) -->
 <p align="center">
-  <a href="https://www.bccard.com"><img src="docs/assets/bccard-logo.png" alt="BC카드" width="242"></a>&nbsp;&nbsp;&nbsp;&nbsp;
-  <img src="docs/assets/heyumi-logo.png" alt="Heyumi" height="60">
+  <a href="https://www.bccard.com"><img src="docs/assets/bccard-logo.png" alt="BC카드" width="48" height="48"></a>&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="docs/assets/heyumi-logo.png" alt="Heyumi" width="48" height="48">
 </p>
 
 ## 어떤 걸 할 수 있나
 
-총 125개 스킬을 한국 실생활 영역별 카테고리로 나눴습니다. 각 영역은 아래 별도 표에 정리되어 있습니다.
+총 133개 스킬을 한국 실생활 영역별 카테고리로 나눴습니다. 각 영역은 아래 별도 표에 정리되어 있습니다.
 
 ### 🚉 이동·교통·여행
 
@@ -80,6 +92,7 @@ npx -y @nomadamas/k-skill@0 update
 | --- | --- | --- |
 | [한국 부동산 실거래가 조회](docs/features/real-estate-search.md) | `real-estate-search` | 아파트/오피스텔/빌라/단독주택 실거래가·전월세·지역코드 조회 |
 | [한국 주택 공시가격 조회](docs/features/housing-official-price.md) | `housing-official-price` | realtyprice.kr 공개 웹 데이터 표면에서 공동주택·개별주택 정부 공시가격 이력을 직접 조회 (공식 문서화된 OpenAPI 아님) |
+| [민영주택 청약가점·예치금 기준 조회](docs/features/housing-subscription-reference.md) | `housing-subscription-reference` | 「주택공급에 관한 규칙」 별표 1·별표 2 기준 청약가점(무주택기간·부양가족·가입기간 84점)과 지역·면적별 청약 예치금 조회 (외부 CSV 의존 없이 번들 참고값) |
 | [개별공시지가 조회](docs/features/gongsijiga-search.md) | `gongsijiga-search` | realtyprice.kr 공개 API에서 지번 단위 개별공시지가(원/㎡) 다년도 추이·전년 대비 변동률 조회 |
 | [건축물대장 표제부 조회](docs/features/building-register-search.md) | `building-register-search` | 주소·PNU·법정동 코드와 필지로 주용도·연면적·층수·사용승인일 조회 (공공데이터포털 15134735, 프록시 경유) |
 | [LH 청약 공고문 조회](docs/features/lh-notice-search.md) | `lh-notice-search` | 한국토지주택공사(LH) 임대/분양/주거복지(신혼희망타운)/토지/상가 공고를 지역·상태·공고유형·키워드로 조회하고 마감 여부를 KST 기준으로 표시 |
@@ -91,7 +104,7 @@ npx -y @nomadamas/k-skill@0 update
 
 | 할 수 있는 일 | 스킬 이름 | 설명 |
 | --- | --- | --- |
-| [한국 법령 검색](docs/features/korean-law-search.md) | `korean-law-search` | 한국 법령/조문/판례/유권해석 검색 |
+| [한국 법령 검색](docs/features/korean-law-search.md) | `korean-law-search` | 한국 법령/조문/판례/유권해석 검색, 개정 조문만 주면 현행을 가져와 만드는 신･구조문대비표(한글 `.hwpx` 저장) |
 | [한국 특허 정보 검색](docs/features/korean-patent-search.md) | `korean-patent-search` | 한국 특허/실용신안 키워드 검색 및 출원번호 상세 조회 |
 | [한국 개인정보처리방침·이용약관 자동 생성](docs/features/korean-privacy-terms.md) | `korean-privacy-terms` | Next.js 프로젝트에 개인정보보호법·약관규제법·전자상거래법 기반 개인정보처리방침/이용약관/쿠키 배너/동의 모달을 생성하는 `kimlawtech/korean-privacy-terms` (Apache-2.0) thin wrapper |
 | [등기부등본 자동화](docs/features/iros-registry-automation.md) | `iros-registry-automation` | 인터넷등기소(IROS)에서 법인/부동산 등기부등본 장바구니, 수동 결제 후 열람·저장 흐름을 보조 |
@@ -126,6 +139,7 @@ npx -y @nomadamas/k-skill@0 update
 | [부정당제재업체 조회](docs/features/g2b-sanctioned-supplier.md) | `g2b-sanctioned-supplier` | 사업자번호로 나라장터 부정당제재(조회시점 유효 제재) 조회(공공데이터포털 API, 프록시 경유) |
 | [국방전자조달 공고 조회](docs/features/d2b-notice-search.md) | `d2b-notice-search` | 국방전자조달시스템(D2B) 공개 입찰공고 화면을 Aside Browser 우선으로 조회하고 공고건명·공고구분·날짜·G2B공고번호·발주기관 조건으로 검색 |
 | [S2B 학교장터 공고 조회](docs/features/s2b-notice-search.md) | `s2b-notice-search` | S2B 학교장터 공개 고객 공고/견적요청 화면을 브라우저 우선으로 조회하고 목록·상세 HTML fixture를 파싱 |
+| [보임 업체·입찰 찾기](docs/features/boim-business-search.md) | `boim-business-search` | 지역×업종·상호로 전국 업체, 품명으로 공공 조달 실적 업체, 낱말로 진행 중 공공기관 입찰 공고(나라장터·국방전자조달·LH·한국수자원공사·누리장터)를 한 번에 조회(보임 공개 검색, 무인증) |
 | [전기차 보조금 현황 조회](docs/features/ev-subsidy-status.md) | `ev-subsidy-status` | 지자체별 전기차 민간공고·접수·출고·출고잔여 대수와 모델별 보조금 조회 |
 
 ### 🧑‍💼 채용·일자리
@@ -160,6 +174,7 @@ npx -y @nomadamas/k-skill@0 update
 | [근처 응급실 병상 상태 확인](docs/features/emergency-room-beds.md) | `emergency-room-beds` | 현재 위치 기준 가까운 응급실 운영·입원실/병상 운영 플래그와 갱신시각 조회 (정확한 잔여 병상 수/가동률은 공개 E-Gen nearby 목록에 없음) |
 | [장기요양·건강검진기관 조회](docs/features/nhis-care-checkup-search.md) | `nhis-care-checkup-search` | 국민건강보험공단 장기요양기관·건강검진기관 공개 후보 조회 (공공데이터포털 15059029·15154419, 프록시 경유) |
 | [의약품 안전 체크](docs/features/mfds-drug-safety.md) | `mfds-drug-safety` | 식약처 e약은요·안전상비의약품 정보를 인터뷰-first 흐름으로 프록시 조회 |
+| [약학정보원 의약품 검색](docs/features/kpic-drug-search.md) | `kpic-drug-search` | 약학정보원(KPIC) 공개 이름 검색과 약품 코드별 상세 원문 조회 (API 키, 로그인, 프록시 불필요) |
 | [식품 안전 체크](docs/features/mfds-food-safety.md) | `mfds-food-safety` | 식약처 부적합 식품·식품안전나라 회수 정보를 인터뷰-first 흐름으로 프록시 조회 |
 | [동물약국·동물용의약품 취급 약국 조회](docs/features/animal-pharmacy-search.md) | `animal-pharmacy-search` | 홍익메디케어 공개 MCP로 지역별 동물약국, 제품 검색, 최근 6개월 구매 이력 기반 취급 약국 조회 |
 
@@ -249,7 +264,7 @@ npx -y @nomadamas/k-skill@0 update
 
 | 할 수 있는 일 | 스킬 이름 | 설명 |
 | --- | --- | --- |
-| [한국 날씨 조회](docs/features/korea-weather.md) | `korea-weather` | 기상청 단기예보 기반 한국 날씨 조회 |
+| [한국 날씨 조회](docs/features/korea-weather.md) | `korea-weather` | 기상청 단기예보·초단기예보(초단기실황) 기반 한국 날씨 조회 |
 | [서울 기상 위험 시간대 조회](docs/features/seoul-weather-risk.md) | `seoul-weather-risk` | ASK 서울 Marketplace의 장소별 폭염·한파·호우·대설·강풍 후보 예보 시간대와 판정 근거 조회 (기상청 공식 특보 아님) |
 | [사용자 위치 미세먼지 조회](docs/features/fine-dust-location.md) | `fine-dust-location` | 현재 위치 또는 지역 기준 PM10/PM2.5 미세먼지 조회 |
 | [한강 수위 정보 조회](docs/features/han-river-water-level.md) | `han-river-water-level` | 한강 관측소 기준 현재 수위·유량·기준수위 확인 |

@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that submitting five proposals means none of them is reviewed, not that the first three are kept",
+        "evidence": "\"The rule you quoted doesn't say 'only the extra ones get skipped' \u2014 it says none of an over-the-cap speaker's submissions get reviewed. As described, this plan produces zero reviewed talks, panel included.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Tells the user to cut the list to three or fewer before submitting",
+        "evidence": "\"You submit your best 3 (talks + panel count together) and drop the rest for this cycle.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Counts the panel submission against the per-person cap rather than treating it as exempt from it",
+        "evidence": "\"Five solo talks + a panel with you on it = 6 proposals carrying your name.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags that a panel where all three speakers come from the same company fails the usual requirement that more than one company be represented",
+        "evidence": "\"Plenty of CFPs (this skill flags it explicitly) require panels to span more than one employer. If Atlantic has that rule and you don't know it yet, the panel gets rejected independent of the cap issue.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the rule against a panel of three or more speakers who all identify as men",
+        "evidence": "No mention of gender composition or diversity rules anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that every panellist must be named and confirmed at submission time",
+        "evidence": "The text only asks the user to 'confirm Dev + Marcus are still in if you're keeping it' as a practical check, not as a stated formal submission requirement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Restates the event's AI policy back to the user explicitly",
+        "evidence": "\"'No opportunity to resubmit' is the key phrase \u2014 worse than a normal rejection.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the generated copy is a draft the user must rewrite in their own voice with their own specifics before submitting",
+        "evidence": "\"you do a fast personal rewrite pass (specifics, your own voice, your real numbers) before pasting. Given the penalty, that pass isn't optional even under time pressure.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a humanizer pass on the final copy without naming a specific humanizer skill",
+        "evidence": "The text recommends only a 'fast personal rewrite pass' \u2014 the word 'humanizer' never appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats the per-person cap as a published rule that is not negotiable, distinct from any self-set quality bar",
+        "evidence": "\"The rule you quoted doesn't say 'only the extra ones get skipped' \u2014 it says none of an over-the-cap speaker's submissions get reviewed.\" treated strictly as the event's own rule.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not hand back five proposals presented as ready to paste into the form",
+        "evidence": "\"I don't actually have the five ideas... Without that I'd be generating generic filler... I'll turn around full field-by-field packs... fast once that lands.\" No proposal copy is given.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that submitting five proposals means none of them is reviewed, not that the first three are kept",
+        "evidence": "\"'If an individual submits more than three proposals, none of their submissions will be reviewed' doesn't say which three get penalized \u2014 it says *none* get reviewed. Submitting five kills all five, guaranteed, before anyone reads them.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Tells the user to cut the list to three or fewer before submitting",
+        "evidence": "'1. Pick your best 3, not 5.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Counts the panel submission against the per-person cap rather than treating it as exempt from it",
+        "evidence": "'Five solo talks + the panel = 6 proposals listing you as a submitter.' and 'If the cap is per-individual and you\u2019re on the panel too, that\u2019s likely 1 of your 3.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags that a panel where all three speakers come from the same company fails the usual requirement that more than one company be represented",
+        "evidence": "No mention of a same-company panel restriction appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the rule against a panel of three or more speakers who all identify as men",
+        "evidence": "No mention of any gender-diversity rule for panels appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that every panellist must be named and confirmed at submission time",
+        "evidence": "No statement about panelist naming/confirmation requirements appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Restates the event's AI policy back to the user explicitly",
+        "evidence": "\"Pasting LLM output directly is the one thing their fine print calls out by name... 'No opportunity to resubmit' isn't a per-conference-cycle penalty like the count rule might be.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the generated copy is a draft the user must rewrite in their own voice with their own specifics before submitting",
+        "evidence": "'you write the abstract paragraph in your own voice before pasting, especially the opening and closing lines, since that's what \"large-scale language model\" detection and human reviewers both key on.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a humanizer pass on the final copy without naming a specific humanizer skill",
+        "evidence": "The recommendation is for the user to originally author the abstract in their own voice, not to run a humanizing pass over generated text; no such pass is described.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats the per-person cap as a published rule that is not negotiable, distinct from any self-set quality bar",
+        "evidence": "The cap is quoted as a rule ('none of their submissions will be reviewed') separately from the quality argument, 'A strong 3 beats a diluted 5 that never gets read.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not hand back five proposals presented as ready to paste into the form",
+        "evidence": "'I don\u2019t have your five ideas or the incident you\u2019d base the panel on \u2014 send me those in a line or two each and I\u2019ll turn them into tight outlines for your top 3.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

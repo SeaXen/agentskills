@@ -1,0 +1,435 @@
+import { isAppStudio } from '@sap-ux/btp-utils';
+import { CommandRunner } from '@sap-ux/nodejs-utils';
+import { UI5Config } from '@sap-ux/ui5-config';
+import axios from 'axios';
+import fs from 'node:fs';
+import path from 'node:path';
+import yaml from 'yaml';
+
+/**
+ * Import with Tree shaking behaviour '@sap/ux-project-access/dist/project/utils'
+ * performance optimization to remove unreachable code automatically from esbuild.
+ * Esbuild will only bundle parts of your packages that you actually use
+ *
+ * Note: Without Tree shaking import '@sap/ux-project-access'
+ * packages consuming telemetry need to add dependencies manually (for ex: sap/cds)
+ * Further, size of generated .vsix will be increased by esbuild
+ */
+import type { ProjectType } from '@sap-ux/project-access';
+import {
+    findProjectRoot,
+    getAppProgrammingLanguage,
+    getAppType,
+    getProjectType,
+    getWebappPath,
+    isCapJavaProject
+} from '@sap-ux/project-access';
+import type { CustomTask } from '@sap-ux/ui5-config';
+import { ToolingTelemetrySettings } from './config-state.js';
+import type { CommonFioriProjectProperties, IdeType, InternalFeature, SourceTemplate } from './types.js';
+import { CommonProperties, DeployTarget, ODataSource, ToolsId } from './types.js';
+
+/**
+ * Collect commone properties that needs to be added to telemetry event.
+ *
+ * @param telemetryHelperProperties Pass to report ApplicationInsightClient.report()
+ * @returns Common Fiori project properties
+ */
+export async function processToolsSuiteTelemetry(
+    telemetryHelperProperties: Record<string, string> | undefined
+): Promise<CommonFioriProjectProperties> {
+    const commonProperties = await getCommonProperties();
+
+    let appProperties = {} as Record<string, string>;
+    if (telemetryHelperProperties) {
+        appProperties = await getAppProperties(telemetryHelperProperties['appPath']);
+    }
+
+    return { ...commonProperties, ...appProperties };
+}
+
+/**
+ * Get common properties that related to Fiori project runtime environment.
+ *
+ * @returns Common properties
+ */
+export async function getCommonProperties(): Promise<CommonFioriProjectProperties> {
+    const commonProperties = {} as CommonFioriProjectProperties;
+    commonProperties[CommonProperties.DevSpace] = await getSbasDevspace();
+    commonProperties[CommonProperties.AppStudio] = isAppStudio();
+    commonProperties[CommonProperties.AppStudioBackwardCompatible] = commonProperties[CommonProperties.AppStudio];
+    commonProperties[CommonProperties.InternlVsExternal] = getInternalVsExternal();
+    commonProperties[CommonProperties.InternlVsExternalBackwardCompatible] =
+        commonProperties[CommonProperties.InternlVsExternal];
+
+    commonProperties[CommonProperties.NodeVersion] = await getOSNodeVersion();
+    commonProperties[CommonProperties.IdeType] = getIdeType();
+
+    return commonProperties;
+}
+
+/**
+ * Obtain dev space type from SBAS rest api.
+ *
+ * @returns SBAS Dev Space Name. Empty string is returned if unable to fetch workspace type or the environment is not SBAS
+ */
+async function getSbasDevspace(): Promise<string> {
+    if (isAppStudio()) {
+        try {
+            if (!process.env.H2O_URL || !process.env.WORKSPACE_ID) {
+                return '';
+            }
+            const h20Url = process.env.H2O_URL;
+            const workspaceId = process.env.WORKSPACE_ID.replace('workspaces-', '');
+            const url = `${h20Url}/ws-manager/api/v1/workspace/${workspaceId}`;
+
+            const response = await axios.get(url);
+            if (response.data) {
+                const workspaceConfig = response.data;
+                // devspace stored in this path
+                return workspaceConfig?.config?.annotations?.pack;
+            }
+        } catch (error) {
+            // handling error
+        }
+    }
+    return '';
+}
+
+/**
+ * Get common properties from a give Fiori project path.
+ *
+ * @param appPath Fiori project path.
+ * @returns Properties to be append to properties in telemetry event
+ */
+async function getAppProperties(appPath: string): Promise<Record<string, string>> {
+    if (!appPath) {
+        return {};
+    }
+
+    const templateType = await getTemplateType(appPath);
+    const deployTarget = await getDeployTarget(appPath);
+    const applicationType = await getAppType(appPath);
+    let odataSource = await getODataSource(appPath);
+    // Correct logic in getAppType() implementation, if it's reuse lib type, odata source should be unknown
+    if (applicationType === 'Fiori Reuse') {
+        odataSource = ODataSource.UNKNOWN;
+    }
+    const sourceTemplate = await getSourceTemplate(appPath);
+    const appProgrammingLanguage = await getAppProgrammingLanguage(appPath);
+    const output: Record<string, string> = {};
+    output[CommonProperties.TemplateType] = templateType;
+    output[CommonProperties.DeployTargetType] = deployTarget;
+    output[CommonProperties.ODataSourceType] = odataSource;
+    output[CommonProperties.AppToolsId] = sourceTemplate.toolsId ?? '';
+    output[CommonProperties.AppProgrammingLanguage] = appProgrammingLanguage;
+    output[CommonProperties.TemplateId] = sourceTemplate.id ?? '';
+    output[CommonProperties.TemplateVersion] = sourceTemplate.version ?? '';
+    output[CommonProperties.ApplicationType] = applicationType ?? '';
+
+    return output;
+}
+
+/**
+ * Read template type from the .appGenInfo.json file or README.md of an Fiori app.
+ *
+ * @param appPath Root folder path of Fiori app
+ * @returns Template type used in the Fiori app
+ */
+async function getTemplateType(appPath: string): Promise<string> {
+    const readmeFilePath = path.join(appPath, 'README.md');
+    const appGenInfoPath = path.join(appPath, '.appGenInfo.json');
+
+    // N.B.: Keep this order i.e .appGenInfo.json file is read first, then README.md.
+    if (fs.existsSync(appGenInfoPath)) {
+        const appGenInfo = await fs.promises.readFile(appGenInfoPath, 'utf-8');
+        const appGenInfoParsed = JSON.parse(appGenInfo);
+        if (appGenInfoParsed?.generationParameters?.template) {
+            return appGenInfoParsed.generationParameters.template.trim();
+        }
+    }
+
+    if (fs.existsSync(readmeFilePath)) {
+        const readmeContent = await fs.promises.readFile(readmeFilePath, 'utf-8');
+        if (readmeContent) {
+            let templateType = '';
+            const lines = readmeContent.split(/\r?\n/);
+            for (const line of lines) {
+                // Check if the line matches the pattern |**Template Used**<br>{{TemplateType}}|
+                const regex = /\|\*\*Template Used\*\*<br>(.*?)\|/;
+                const match = regex.exec(line);
+                if (match && match.length >= 2) {
+                    // Extract {{TemplateType}} from the matching pattern
+                    templateType = match[1].trim();
+                    break;
+                }
+            }
+            return templateType;
+        }
+    }
+    return '';
+}
+
+/**
+ * Find OData Source type of a given app folder path.
+ *
+ * @param appPath Root folder path of Fiori app
+ * @returns Project Type ABAP | CAPJava | CAPNode | UNKNOWN
+ */
+async function getODataSource(appPath: string): Promise<string> {
+    try {
+        // First attempt: Loop up a folder that contain a pacakge.json that has sapux property as project root
+        // If appPath has package.json that contains sapux, it is EDMX project type and we derive odata source
+        // is ABAP.
+        let projectRoot: string | undefined;
+        try {
+            projectRoot = await findProjectRoot(appPath);
+        } catch {
+            // No project root can be found
+        }
+
+        // Second attempt: For FF app, package.json does not have sapux property. Try to find the
+        // first parent folder that contain pacakge.json as CAP root. If no such folder exists,
+        // use appPath as project root.
+        if (!projectRoot) {
+            try {
+                const appParentFolder = path.dirname(appPath);
+                projectRoot = await findProjectRoot(appParentFolder, false);
+            } catch (e) {
+                // No project root can be found at parent folder.
+            }
+        }
+
+        // Third attempt: CAPJava that doesn't have package.json at project root. We assume
+        // the project has default structure <projectRoot>/app/<appPath>, and use parent folder
+        // path two levels above appPath as projectRoot. This should cover most cases until we have
+        // a better solution
+        let isCapJavaWithoutPackageJson = false;
+        if (!projectRoot) {
+            const directParentFolder = path.dirname(appPath);
+            const twoLevelUpParentFolder = path.dirname(directParentFolder);
+            isCapJavaWithoutPackageJson = await isCapJavaProject(twoLevelUpParentFolder);
+            projectRoot = isCapJavaWithoutPackageJson ? twoLevelUpParentFolder : appPath;
+        }
+
+        if (isCapJavaWithoutPackageJson) {
+            return ODataSource.CAPJava;
+        }
+        const projectType = await getProjectType(projectRoot);
+        return getProjectTypeForTelemetry(projectType);
+    } catch (e) {
+        return ODataSource.UNKNOWN;
+    }
+}
+
+/**
+ * Map ProjectType to values used for telemetry reporting.
+ *
+ * @param projectType ProjectType
+ * @returns Odata source type
+ */
+function getProjectTypeForTelemetry(projectType: ProjectType): ODataSource {
+    if (projectType === 'EDMXBackend') {
+        return ODataSource.ABAP;
+    } else if (projectType === 'CAPNodejs') {
+        return ODataSource.CAPNode;
+    } else if (projectType === 'CAPJava') {
+        return ODataSource.CAPJava;
+    } else {
+        return ODataSource.UNKNOWN;
+    }
+}
+
+/**
+ * Read ui5-deploy.yaml to decide if it is CF or ABAP deploy target.
+ *
+ * @param appPath  appPath Root folder path of Fiori app
+ * @returns CF | ABAP | NO_DEPLOY_CONFIG | UNKNOWN_DEPLOY_CONFIG
+ */
+async function getDeployTarget(appPath: string): Promise<string> {
+    let deployTarget = DeployTarget.NO_DEPLOY_CONFIG;
+    const deployConfigPath = path.join(appPath, 'ui5-deploy.yaml');
+
+    try {
+        await fs.promises.access(deployConfigPath);
+        const deployConfigContent = await fs.promises.readFile(deployConfigPath, 'utf-8');
+        const deployConfig = yaml.parse(deployConfigContent);
+        const customTasks = deployConfig?.builder?.customTasks;
+
+        if (customTasks) {
+            const isAbapDeployTarget = customTasks.some((task: CustomTask<unknown>) => task.name === 'deploy-to-abap');
+            deployTarget = isAbapDeployTarget ? DeployTarget.ABAP : DeployTarget.CF;
+        } else {
+            deployTarget = DeployTarget.UNKNOWN_DEPLOY_CONFIG;
+        }
+    } catch {
+        // cannot determine deploy target, use default DeployTarget.NO_DEPLOY_CONFIG
+    }
+
+    return deployTarget;
+}
+
+/**
+ * Convert init setting property internalFeaturesEnabled to string value.
+ *
+ * @returns String value 'internal' | 'external' to be backward compatible with existing telemetry data format.
+ */
+function getInternalVsExternal(): InternalFeature {
+    return ToolingTelemetrySettings.internalFeature ? 'internal' : 'external';
+}
+
+/**
+ * Retrieves the source template configuration from either the standard manifest.json or
+ * the ui5.yaml based on the project type.
+ *
+ * @param {string} appPath - The file system path to the application directory.
+ * @returns {Promise<SourceTemplate>} A promise that resolves to the source template configuration object.
+ */
+async function getSourceTemplate(appPath: string): Promise<SourceTemplate> {
+    const webappPath = await getWebappPath(appPath);
+    const paths = {
+        manifest: path.join(webappPath, 'manifest.json'),
+        appdescr: path.join(webappPath, 'manifest.appdescr_variant'),
+        ui5Yaml: path.join(appPath, 'ui5.yaml')
+    };
+
+    try {
+        if (fs.existsSync(paths.manifest)) {
+            const manifestStr = await fs.promises.readFile(paths.manifest, 'utf-8');
+            const manifest = JSON.parse(manifestStr);
+            return populateSourceTemplate(manifest['sap.app']?.sourceTemplate ?? {});
+        }
+
+        if (fs.existsSync(paths.appdescr) && fs.existsSync(paths.ui5Yaml)) {
+            const baseUi5ConfigContent = await fs.promises.readFile(paths.ui5Yaml, 'utf-8');
+            const ui5Config = await UI5Config.newInstance(baseUi5ConfigContent);
+            const adp = ui5Config.getCustomConfiguration('adp') as { support: SourceTemplate };
+            return populateSourceTemplate(adp?.support ?? {});
+        }
+    } catch {
+        // Failed to read manifest.json or manifest.appdescr_variant
+    }
+
+    return populateSourceTemplate({});
+}
+
+/**
+ * Populates default values for the source template if not specified.
+ *
+ * @param {SourceTemplate} sourceTemplate - Source template object potentially lacking defaults.
+ * @returns {SourceTemplate} Source template with defaults populated.
+ */
+function populateSourceTemplate(sourceTemplate: SourceTemplate): SourceTemplate {
+    return {
+        id: sourceTemplate.id ?? '',
+        version: sourceTemplate.version ?? '',
+        toolsId: sourceTemplate.toolsId ?? ToolsId.NO_TOOLS_ID
+    };
+}
+
+/**
+ * Get node.js runtime version installed in the operating system.
+ *
+ * @returns Node.js version or 'unknown' if it cannot be determined.
+ */
+async function getOSNodeVersion(): Promise<string> {
+    try {
+        const nodeVer = (await new CommandRunner().run('node', ['-v'])) ?? 'unknown';
+        return nodeVer.replaceAll(/(?:^v)|([\r\n]{1,100})/g, '');
+    } catch {
+        return 'unknown';
+    }
+}
+
+/**
+ * Detect the IDE/editor hosting the extension.
+ * Identifies VSCode, VSCode Insiders, Cursor, Windsurf, Antigravity, Trae, Kiro,
+ * VSCodium, code-server, SAP Business Application Studio, and standalone Node.js processes (CLI, MCP servers).
+ *
+ * Note: AppStudio is checked first because it is a VS Code fork that sets VSCODE_PID.
+ * Without the early return, it would fall through to 'vscode'.
+ *
+ * Detection priority: VSCODE_APPNAME is checked as an opportunistic hint — it is set by some
+ * VS Code forks (e.g. Cursor, Windsurf) that expose their Electron productName via this variable,
+ * but it is not a standard VS Code environment variable and may be absent in plain VS Code or CLI
+ * contexts. Fork-specific env vars (e.g. CURSOR_TRACE_ID) and VSCODE_CWD path matching are used
+ * as complementary fallbacks.
+ *
+ * @returns The detected IDE type
+ */
+export function getIdeType(): IdeType {
+    // AppStudio is a VS Code fork that sets VSCODE_PID — check first to avoid misdetection as 'vscode'
+    if (isAppStudio()) {
+        return 'appstudio';
+    }
+
+    const vscodeCwd = process.env.VSCODE_CWD?.toLowerCase() ?? '';
+    const vscodePid = process.env.VSCODE_PID;
+    const termProgram = process.env.TERM_PROGRAM ?? '';
+    const appName = process.env.VSCODE_APPNAME?.toLowerCase() ?? '';
+
+    // No VS Code environment detected — none of VSCODE_PID, VSCODE_CWD, or a vscode-related
+    // TERM_PROGRAM are set. This is likely a standalone Node.js process (CLI, MCP server, etc.)
+    if (!vscodePid && !vscodeCwd && termProgram !== 'vscode' && termProgram !== 'vscode-insiders') {
+        return 'unknown';
+    }
+
+    // Cursor detection — dedicated env var or VSCODE_APPNAME / CWD fallback
+    if (process.env.CURSOR_TRACE_ID || appName.includes('cursor') || vscodeCwd.includes('cursor')) {
+        return 'cursor';
+    }
+
+    // Windsurf detection (Codeium's IDE)
+    if (appName.includes('windsurf') || vscodeCwd.includes('windsurf') || vscodeCwd.includes('codeium')) {
+        return 'windsurf';
+    }
+
+    // Antigravity detection (Google's IDE)
+    if (appName.includes('antigravity') || vscodeCwd.includes('antigravity')) {
+        return 'antigravity';
+    }
+
+    // Trae detection (ByteDance's IDE)
+    if (appName.includes('trae') || vscodeCwd.includes('trae')) {
+        return 'trae';
+    }
+
+    // Kiro detection (AWS's IDE)
+    if (appName.includes('kiro') || vscodeCwd.includes('kiro')) {
+        return 'kiro';
+    }
+
+    // VSCodium detection (open-source VS Code without MS telemetry)
+    if (
+        appName.includes('vscodium') ||
+        appName.includes('codium') ||
+        vscodeCwd.includes('vscodium') ||
+        vscodeCwd.includes('codium')
+    ) {
+        return 'vscodium';
+    }
+
+    // code-server detection (browser-based VS Code)
+    if (appName.includes('code-server') || vscodeCwd.includes('code-server') || process.env.CODE_SERVER_SESSION) {
+        return 'code-server';
+    }
+
+    // VSCode Insiders detection — match specific product names to avoid false positives
+    // from paths that merely contain the substring "insiders"
+    if (
+        appName.includes('insiders') ||
+        vscodeCwd.includes('code - insiders') ||
+        vscodeCwd.includes('code insiders') ||
+        vscodeCwd.includes('vscode-insiders') ||
+        termProgram === 'vscode-insiders'
+    ) {
+        return 'vscode-insiders';
+    }
+
+    // Standard VSCode detection
+    if (vscodePid || termProgram === 'vscode') {
+        return 'vscode';
+    }
+
+    return 'unknown';
+}

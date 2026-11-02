@@ -1,0 +1,118 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The report status for the primary metric is not green",
+        "evidence": "\"\ud83d\udd34 red (below threshold, down 22)\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The primary metric appears with 188, 210 and the 230 threshold",
+        "evidence": "\"188 | 210 last quarter / 230 threshold\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The report contains a misses or 'what did not work' row for the primary metric with a cause and a change",
+        "evidence": "Likely cause cell reads \"Not yet known... [fill if known]\"; a change is given, but no actual cause.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response explains why keeping it green is a problem (status read as judgment, late red costs more trust)",
+        "evidence": "\"A green status would be read as my judgment. If it turns red later, that costs far more trust than red now.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Talks, posts, hackathons, Discord members and impressions appear only in an appendix or single activity line",
+        "evidence": "The activity table sits in the Appendix.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The headline is about the primary metric outcome, not the talk or post counts",
+        "evidence": "\"Activated workspaces from DevRel-touched signups fell from 210 to 188 (-10%)...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response explains why the highlights format is replaced (activity log answers 'were you busy', not 'what did it move')",
+        "evidence": "\"An activity list answers 'were you busy', not 'what did it move'.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The report contains a decision asked",
+        "evidence": "\"Decision asked: approve a 6-week diagnosis...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Every number in the results table carries a claim label",
+        "evidence": "Label: \"influenced (touched cohort)\".",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The report status for the primary metric is not green",
+        "evidence": "'Program health: AMBER'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The primary metric appears with 188, 210 and the 230 threshold",
+        "evidence": "Table: 210 | 188 | 230",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The report contains a misses or 'what did not work' row for the primary metric with a cause and a change",
+        "evidence": "The change is shown (-42, -18%), but the cause is only a bracketed placeholder.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response explains why keeping it green is a problem (status read as judgment, late red costs more trust)",
+        "evidence": "'A green rating would give the head of marketing a false picture'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Talks, posts, hackathons, Discord members and impressions appear only in an appendix or single activity line",
+        "evidence": "A full 'Highlights' table lists talks, posts, hackathons, Discord and impressions.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The headline is about the primary metric outcome, not the talk or post counts",
+        "evidence": "'the primary metric is below its threshold and declining'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response explains why the highlights format is replaced (activity log answers 'were you busy', not 'what did it move')",
+        "evidence": "Says it 'used last quarter's highlights format'; no explanation of replacing it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The report contains a decision asked",
+        "evidence": "Only a bracketed 'Ask of marketing' placeholder; no decision.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Every number in the results table carries a claim label",
+        "evidence": "No claim labels.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

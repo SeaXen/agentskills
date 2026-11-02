@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Treats this as an audit of an existing document rather than a rewrite, and does not rewrite text the community already knows",
+        "evidence": "The transcript explicitly produces a full replacement document ('## `CODE_OF_CONDUCT.md`' followed by an entirely new markdown file, including rewritten 'Our Pledge', 'Our Standards', 'Enforcement Responsibilities' sections) rather than a diff against the existing Contributor Covenant 2.1 text, and states outright: 'so \"fix only what fails\" and \"full rewrite\" converge on the same output.' The old document's text is never preserved or referenced except as a contrast in the Publish-gate table.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reports a pass or fail verdict for each of the eleven publish-gate items",
+        "evidence": "The 'Publish gate' table lists 11 numbered items each with an 'Old' and 'Rewrite below' column marked \u274c/\u2705/\u26a0\ufe0f, e.g. '| 4 | Time-boxed sanctions state duration | \u274c \"for a specified period of time\" \u2014 no number | \u2705 30\u201390 day band |' through item 11.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Fixes only the items that fail",
+        "evidence": "New, unrelated content is introduced beyond the failing gate items, e.g. an entirely new 'Our Standards' section with invented examples ('Answering a beginner's question about WASM internals without implying they shouldn't have needed to ask') and a new 'Outcomes outside the ladder' section \u2014 neither tied to any of the 11 audited items \u2014 showing the whole document was rewritten rather than only the failing pieces patched.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags that a single active maintainer fails the item requiring at least two people able to execute every action the ladder promises",
+        "evidence": "The transcript argues the opposite: 'All four rungs are executable by one person: GitHub admin rights cover block/restrict/ban on every surface named above, so this ladder doesn't need a second person to function day to day \u2014 only the two cases below do,' and the gate table marks item 11 \u26a0\ufe0f with 'One person can execute every rung solo (GitHub admin)' rather than flagging it as a failure.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends shortening the published ladder to what one person can actually execute rather than leaving four rungs standing",
+        "evidence": "The published CODE_OF_CONDUCT.md keeps all four rungs (Warning, Temporarily Limited Activities, Temporary Suspension, Permanent Ban) unchanged in count, and the accompanying prose defends keeping all four ('this ladder doesn't need a second person to function day to day') instead of recommending a shorter, one-person-executable ladder.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a ladder nobody can execute is fiction, and that publishing it means the community watches the promise break",
+        "evidence": "No such statement appears; instead the transcript asserts the ladder IS executable by one person ('this ladder doesn't need a second person to function day to day \u2014 only the two cases below do'), directly contradicting the premise that the ladder is unexecutable fiction.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the failure of the item requiring a second reporting path for a report about the primary recipient",
+        "evidence": "'| 6 | Second channel for reports about the primary recipient | \u274c Did not exist | \u26a0\ufe0f Depends on the two co-maintainers' consent \u2014 confirm before publishing |' plus the reporting section calls it 'Open question, and the biggest gap in this rewrite' and instructs 'Do not publish this section until you've asked them.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Checks whether an escalation body above the moderation team is named, and flags its absence",
+        "evidence": "'| 9 | Escalation body named | \u274c Not named | \u26a0\ufe0f Same dependency as #6 |' \u2014 the transcript checks this item explicitly and flags that it remains unresolved pending co-maintainer confirmation, the same gap noted for item 6.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Checks that the acknowledgment target is a number the team can hold at current volume",
+        "evidence": "'| 7 | Acknowledgment target holdable at current volume | \u274c Not stated | \u2705 3 business days |' with justification: 'Chosen because it's CNCF's own published promise and realistic for a volunteer with a day job; tighten it once you have real data instead of a made-up ambitious number you can't hold.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Checks that a case-record location, access list and retention rule exist in writing",
+        "evidence": "The runbook only specifies location and fields: 'Case record: a private note (even a local encrypted file or a locked GitHub Gist) with case code, dates, surface, neutral summary, decision, rung, effective/end dates.' No retention rule (how long records are kept) or explicit access list (who may view them) is stated anywhere, despite the gate table marking item 10 \u2705.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Checks that any time-boxed sanction states its duration",
+        "evidence": "The enforcement ladder states durations explicitly: 'Restricted from specific interactions ... for a stated period, e.g. 2\u20134 weeks' and 'Full removal from interaction across all named surfaces for a stated duration (Django's bands: 30\u201390 days short, 90+ extended)', matching gate item 4's \u2705 '30\u201390 day band'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not replace the per-item pass/fail report with a numeric score or a letter grade",
+        "evidence": "The Publish gate table uses only \u274c/\u2705/\u26a0\ufe0f symbols per item (e.g. '\u2705 Explicit, with a named alternate path'), with no numeric score or letter grade anywhere in the transcript.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Treats this as an audit of an existing document rather than a rewrite, and does not rewrite text the community already knows",
+        "evidence": "The transcript delivers a fully rewritten Contributor Covenant document from scratch, not an audit report.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reports a pass or fail verdict for each of the eleven publish-gate items",
+        "evidence": "No pass/fail checklist against eleven items appears anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Fixes only the items that fail",
+        "evidence": "There is no structured gate-check from which to determine 'only failing items were fixed'; three ad hoc fixes are made without reference to a checklist.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags that a single active maintainer fails the item requiring at least two people able to execute every action the ladder promises",
+        "evidence": "The opposite is claimed: \"it's a self-contained decision framework a single person can apply solo, nothing there assumes a committee.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends shortening the published ladder to what one person can actually execute rather than leaving four rungs standing",
+        "evidence": "\"Kept the enforcement ladder (Correction \u2192 Warning \u2192 Temporary Ban \u2192 Permanent Ban) as-is\" \u2014 all four rungs kept unchanged.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a ladder nobody can execute is fiction, and that publishing it means the community watches the promise break",
+        "evidence": "No such statement appears; the opposite claim (solo-executable) is made instead.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the failure of the item requiring a second reporting path for a report about the primary recipient",
+        "evidence": "\"Added the gap the original CC template doesn't handle at all: what happens when the report is about the only maintainer. Routed that case to GitHub's own abuse-report tooling.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Checks whether an escalation body above the moderation team is named, and flags its absence",
+        "evidence": "No discussion of an escalation body above the maintainer appears anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Checks that the acknowledgment target is a number the team can hold at current volume",
+        "evidence": "\"Reports get an initial response within 5 business days, not instantly \u2014 this is unpaid, part-time work.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Checks that a case-record location, access list and retention rule exist in writing",
+        "evidence": "No mention of case-record storage, access, or retention anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Checks that any time-boxed sanction states its duration",
+        "evidence": "The kept template language still reads \"for a specified period of time\" with no concrete duration, and this is left unaddressed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not replace the per-item pass/fail report with a numeric score or a letter grade",
+        "evidence": "No numeric score or letter grade appears anywhere in the response.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

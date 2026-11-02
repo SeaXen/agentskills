@@ -1,0 +1,106 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Does not pick a shape before the mode, the last-three-months supply counts and the owner hours are known",
+        "evidence": "\"Pick: own-surface product digest. Monthly.\" before any counts or hours.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks one question per message",
+        "evidence": "Lists six open questions at once.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks for counts of what shipped in the last three months, not adjectives",
+        "evidence": "\"Items shipped in the last 3 months: releases, posts, events?\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks who owns it, hours per issue, who backs up, who reviews, and who holds the sending account, list export and domain",
+        "evidence": "Q2 asks \"Owner, backup, hours per issue?\"; it does not ask who reviews or who holds the sending account, list export and domain.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks for the landing date, whether it is a one-off win or a compounding asset, and the effort ceiling in hours per month",
+        "evidence": "Asks effort ceiling (Q6) and funding goal (Q5), but not the landing date or one-off vs compounding.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States why it will not pick yet: a cadence chosen before supply and owner hours are known is a guess the team will miss",
+        "evidence": "It picks anyway: \"The digest is the safest pick to make blind.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Offers to carry any partial answer as a named open question rather than refusing to proceed",
+        "evidence": "\"Open questions (you said you'd handle the rest; these are the ones to close)\"; \"Blocked, naming the missing fact and its owner\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Stores interview answers in devrel-context.md when file-based memory is in use, or in the harness memory otherwise",
+        "evidence": "No mention of devrel-context.md or memory storage.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Does not pick a shape before the mode, the last-three-months supply counts and the owner hours are known",
+        "evidence": "'Pick: the curated ecosystem newsletter.' It picks immediately.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks one question per message",
+        "evidence": "No questions are asked.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks for counts of what shipped in the last three months, not adjectives",
+        "evidence": "Not asked.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks who owns it, hours per issue, who backs up, who reviews, and who holds the sending account, list export and domain",
+        "evidence": "Not asked.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks for the landing date, whether it is a one-off win or a compounding asset, and the effort ceiling in hours per month",
+        "evidence": "Not asked.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States why it will not pick yet: a cadence chosen before supply and owner hours are known is a guess the team will miss",
+        "evidence": "It picks and gives reasons for the pick.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Offers to carry any partial answer as a named open question rather than refusing to proceed",
+        "evidence": "Not offered.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Stores interview answers in devrel-context.md when file-based memory is in use, or in the harness memory otherwise",
+        "evidence": "No interview was run and nothing is stored.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

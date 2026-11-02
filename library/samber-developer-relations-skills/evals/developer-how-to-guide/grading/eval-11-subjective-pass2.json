@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Cuts the nine screenshots to only screens that are hard to find, each with alt text stating what it shows, and notes they must be re-captured when the UI changes.",
+        "evidence": "The change table removes the 'Nine screenshots of GitHub's own install screens', which 'go stale whenever GitHub changes'. It replaces them with one step that links GitHub's docs. The hand-over says: 'If you need one, take one only of the Sablefield screen the reader must find. Give it alt text and re-capture it when the UI changes.' That covers cutting to hard-to-find screens, alt text and re-capture. It loses a point because it never says the alt text must state what the screenshot shows. The guidance is also conditional and sits in the hand-over notes, not in the page itself.",
+        "score": 4,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Cuts the nine screenshots to only screens that are hard to find, each with alt text stating what it shows, and notes they must be re-captured when the UI changes.",
+        "evidence": "The guide goes from nine screenshots to one: `![GitHub repository access screen with \"Only select repositories\" chosen](images/github-select-repositories.png)`. The alt text clearly says what the image shows. The cut is explained: \"GitHub's install screens change, so a screenshot of each goes stale and you'd keep re-shooting them.\" Two gaps remain. First, the image was kept because it is \"the only place a wrong click has consequences\", not because the screen is hard to find. Second, the answer never says the remaining screenshot must be re-captured when the UI changes. Staleness is used only a",
+        "score": 3,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

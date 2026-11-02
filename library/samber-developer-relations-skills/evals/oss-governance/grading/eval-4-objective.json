@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Declines to lead with the announcement, stating that neutrality is transferred rather than announced.",
+        "evidence": "\"Per the skill: neutrality is transferred, not announced\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Runs the four checkable signals in order of weight: trademark, domains and registry accounts; maintainer-affiliation ratio; contribution-agreement shape; published minutes.",
+        "evidence": "Table order: \"Trademark, domain, registry accounts\", \"Maintainer affiliation\", \"Contribution agreement\", \"Published minutes\", \"License\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Returns a per-signal verdict rather than prose impressions.",
+        "evidence": "Table uses \u274c/\u2705 verdicts per row.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the Apache-2.0 licence passes the licence row and fixes nothing on the other four.",
+        "evidence": "\"License | Apache-2.0, OSI-approved | \u2705 passes, and is irrelevant to the other four\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States explicitly that code-license openness and governance openness are two separate audits.",
+        "evidence": "\"License openness and governance openness are separately audited \u2014 a permissive license does not offset any of this.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports the five-of-five single-employer maintainer ratio as the signal that classifies the project as single-vendor.",
+        "evidence": "\"Maintainer affiliation | 5 of 5 employed by Corvid | \u274c fails \u2014 worse than the 2-of-5 ratio that classified Redis as single-vendor before its fork\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites the pre-fork Redis position, where only two of five maintainers worked outside the controlling company, as a case where the affiliation ratio preceded a fork.",
+        "evidence": "Same quote as above.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the sequence in the right order: maintainers from a second organization first, then vote or seat caps, then the trademark and asset transfer.",
+        "evidence": "\"the order is maintainer diversity first, then seat/vote caps, then the asset transfer\" and the numbered 1-5 sequence ending with trademark last.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that announcing before the maintainer pool changes reads as marketing and is checked as marketing.",
+        "evidence": "\"Announcing the asset move before the maintainer pool changes reads as marketing because it is marketing.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites the Istio trademark episode and the read that partners judge where the asset landed, not the sincerity of the arrangement.",
+        "evidence": "\"partners judged where the trademark actually landed, not the sincerity of the announcement, and the dispute only closed when Google donated the mark to CNCF two years later\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a company CLA with a broad grant is what makes a later unilateral relicense possible, and names it as the lever procurement will look for.",
+        "evidence": "\"this is the exact lever that made Redis's later relicense possible; fork contributors called this out by name\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the trademark transfer and the contribution agreement to legal counsel instead of advising on their terms.",
+        "evidence": "\"Send the CLA-vs-DCO question to counsel now\" and \"Trademark assignment, CLA terms, and any sponsorship agreement go to counsel\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends published, versioned minutes on a real cadence, with private categories enumerated and a visible marker left where content was withheld.",
+        "evidence": "\"Minutes are published within 3 business days... with exceptions only for security reports, conduct cases, and matters under confidentiality \u2014 each withheld item marked as withheld, never silently omitted.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Declines to lead with the announcement, stating that neutrality is transferred rather than announced.",
+        "evidence": "'I won't hand you copy that says \"vendor-neutral\" today, because it isn't true yet... Lead with the roadmap, not a false finish line.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Runs the four checkable signals in order of weight: trademark, domains and registry accounts; maintainer-affiliation ratio; contribution-agreement shape; published minutes.",
+        "evidence": "The table order is IP custody, Infra custody, Contribution terms, Maintainer diversity, Governance transparency, License \u2014 contribution-agreement shape is placed before maintainer-affiliation ratio, not after it as the rubric specifies.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Returns a per-signal verdict rather than prose impressions.",
+        "evidence": "The table gives explicit \u274c/\u2705 verdicts per row, e.g. 'IP custody | ... | \u274c Held by Corvid'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the Apache-2.0 licence passes the licence row and fixes nothing on the other four.",
+        "evidence": "'One real point in your favor: the license itself... Everything else on that table is currently single-vendor... but it is the opposite of \"vendor-neutral.\"'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States explicitly that code-license openness and governance openness are two separate audits.",
+        "evidence": "This distinction is implied by the table structure but never stated explicitly as 'two separate audits'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reports the five-of-five single-employer maintainer ratio as the signal that classifies the project as single-vendor.",
+        "evidence": "'Maintainer diversity | Multiple independent employers, no single-company majority | \u274c 5/5 Corvid'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites the pre-fork Redis position, where only two of five maintainers worked outside the controlling company, as a case where the affiliation ratio preceded a fork.",
+        "evidence": "No mention of Redis or any historical fork precedent anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the sequence in the right order: maintainers from a second organization first, then vote or seat caps, then the trademark and asset transfer.",
+        "evidence": "The five-step order given is CLA\u2192DCO, publish minutes, invite external maintainers, publish charter, then start foundation/trademark conversation \u2014 CLA and minutes precede external maintainers, and no seat/vote caps are mentioned at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that announcing before the maintainer pool changes reads as marketing and is checked as marketing.",
+        "evidence": "The transcript frames premature announcement generally as 'open-washing... a known category banks specifically screen for,' not specifically tied to the maintainer pool remaining unchanged.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites the Istio trademark episode and the read that partners judge where the asset landed, not the sincerity of the arrangement.",
+        "evidence": "No mention of Istio or any trademark-episode precedent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a company CLA with a broad grant is what makes a later unilateral relicense possible, and names it as the lever procurement will look for.",
+        "evidence": "The CLA is flagged as a governance gap ('\u274c CLA assigns broad rights to Corvid') but relicensing risk is discussed only in connection with the license row, stating Apache-2.0 already eliminates that risk \u2014 the CLA-to-relicense causal link is never made.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the trademark transfer and the contribution agreement to legal counsel instead of advising on their terms.",
+        "evidence": "The transcript itself advises directly on CLA replacement and trademark timeline steps rather than routing these to legal counsel.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends published, versioned minutes on a real cadence, with private categories enumerated and a visible marker left where content was withheld.",
+        "evidence": "Only 'Publish minutes going forward (zero cost, immediate, do it this week...)' is recommended, with no mention of versioning, enumerated private categories, or a withheld-content marker.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

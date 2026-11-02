@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Scores the existing calendar against the pass thresholds instead of rebuilding it from scratch.",
+        "evidence": "\"Audit of Rivetline Q4 against devrel-content-calendar pass thresholds... Minimum changes, no re-planning\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags 'content team' as neither an owner nor a named reviewer, and requires a named person in both roles on every row.",
+        "evidence": "\"Owner = 'content team' on every row. Threshold requires named owner AND named reviewer, person not team. 'Content team' means nobody.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the single-surface plan: thirteen blog slots, with no docs, changelog or video surface.",
+        "evidence": "\"One surface. Threshold: \u2265 3 surfaces, \u2265 2 journey stages. Every row reads blog post.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags that 100% of capacity is committed, and requires roughly 20% held open as named slack.",
+        "evidence": "\"13/13 weeks filled = 100% capacity committed. Threshold: committed slots \u2264 80%, rest named slack... 80% of 13 weeks = 10 committed, 3 slack.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the missing preparation slot and missing follow-up slot for the week-7 v6 GA.",
+        "evidence": "\"v6 GA W7 \u2014 your only hard date \u2014 sits alone... No prep before... no follow-up after (W8 is unrelated 'hygiene tips').\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the timely-only mix, which resets the quarter to zero.",
+        "evidence": "The document discusses \"Evergreen = minority once anything is cut\" but never uses the 'resets the quarter to zero' framing or calls the mix 'timely-only'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the announcement and product-promotion share against a cap the user has to agree.",
+        "evidence": "\"Announcement count W6/W7/W10/W12 \u2248 4 of 10: no cap was ever agreed. Agree one; 3 suggested.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags that no slot carries a surface, pillar, journey stage or evergreen/timely label.",
+        "evidence": "Missing surface and shelf-life columns are flagged (\"Add 3 columns: surface, shelf-life (evergreen/timely), one-line evidence or hypothesis\") but 'pillar' is never mentioned anywhere in the document.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags slots carrying neither evidence nor a stated hypothesis, naming at least one such as '5 things you didn't know about feature flags' or 'Meet the team'.",
+        "evidence": "\"'5 things you didn't know about feature flags' = exact no-evidence listicle anti-pattern from skill's negative example.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that v6 is the only anchor and carries most of the quarter's capacity, so a slip takes the quarter with it.",
+        "evidence": "\"v6 GA W7 \u2014 your only hard date\" and \"Remaining risk: v6 slip consumes W7+W8. Slack absorbs one such hit, not two.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not deliver a rewritten 13-week calendar as the deliverable.",
+        "evidence": "\"Minimum changes, no re-planning... Whole edit \u2248 1 hour in spreadsheet.\" \u2014 bullet-point edits are given, not a full rewritten calendar.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Scores the existing calendar against the pass thresholds instead of rebuilding it from scratch.",
+        "evidence": "\"Verdict: the arc is sound \u2014 the calendar has two factual defects and two structural ones. About six cell edits fix it. No redo needed.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags 'content team' as neither an owner nor a named reviewer, and requires a named person in both roles on every row.",
+        "evidence": "Only 4 of the 13 rows are flagged for owner issues ('4 rows aren't yours to deliver alone'), and no distinct 'named reviewer' role requirement is made for every row.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the single-surface plan: thirteen blog slots, with no docs, changelog or video surface.",
+        "evidence": "No critique of surface diversity (docs/changelog/video) appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags that 100% of capacity is committed, and requires roughly 20% held open as named slack.",
+        "evidence": "\"Zero buffer with one hard date. 13/13 weeks filled... W2, W4, W8 are evergreen and movable \u2014 designate them the shock absorbers.\" (3 of 13 weeks \u2248 23% designated as buffer)",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the missing preparation slot and missing follow-up slot for the week-7 v6 GA.",
+        "evidence": "No structural flag for missing prep/follow-up slots around the W7 GA is made; only an ownership dependency is noted.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the timely-only mix, which resets the quarter to zero.",
+        "evidence": "No such critique about a timely-only content mix appears anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the announcement and product-promotion share against a cap the user has to agree.",
+        "evidence": "No mention of an announcement/promotion-share cap appears anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags that no slot carries a surface, pillar, journey stage or evergreen/timely label.",
+        "evidence": "No such labeling critique appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags slots carrying neither evidence nor a stated hypothesis, naming at least one such as '5 things you didn't know about feature flags' or 'Meet the team'.",
+        "evidence": "No such titles or evidence/hypothesis critique appear; the flagged issues are W1/W7 version contradiction and the W9 placeholder name.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that v6 is the only anchor and carries most of the quarter's capacity, so a slip takes the quarter with it.",
+        "evidence": "\"Zero buffer with one hard date... If v6 GA slips a week, W7\u2013W13 all cascade with no slack.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not deliver a rewritten 13-week calendar as the deliverable.",
+        "evidence": "The deliverable is a 'Minimum changes before Monday' edit table plus a 'What's fine \u2014 don't touch it' section, not a full rewritten calendar.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

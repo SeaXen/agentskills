@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that the jump is instrumentation, not growth, and must be annotated as such before anyone reports it.",
+        "evidence": "\"That flip is instrumentation resolving, not signups growing ... annotate the date\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Instructs comparing only within the post-stitch period until a full cycle has passed.",
+        "evidence": "\"compare only within post-stitch period until a full cycle passed\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that first-party attribution reads near zero until the cross-domain stitch is verified in production, then flips the week it lands.",
+        "evidence": "\"261 vs 4 matches a known pattern exact: stitch ship, near-zero-before flips to real numbers same week.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a green debugger proves something is configured, not that anything is measured correctly, and is not evidence.",
+        "evidence": "\"Green debugger and firing tags confirm config, not measurement \u2014 playbook rule: \\\"A green debugger is not evidence; the trace is.\\\"\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires an end-to-end trace of each primary conversion event, walked as a real user in a fresh browser profile arriving through a tagged external link.",
+        "evidence": "The transcript says \"real browser, tagged link in\" but never specifies a fresh/uncached browser profile (contrast with 'no cached session' language used elsewhere).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires confirming that the landing URL keeps its query string through redirects and OAuth hops.",
+        "evidence": "No mention of redirects, shorteners, or OAuth query-string preservation appears in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires finding the stored record and confirming the identity fields resolved, with anonymous_id present and user_id attached on the signup event.",
+        "evidence": "The transcript only requires confirming \"the signup event payload carries anonymous_id + resolved source\" \u2014 user_id is never mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires finding the row in the report the funnel view will actually read, and names it as the step teams skip.",
+        "evidence": "\"confirm it lands in the actual report row the 261 comes from. Config green \u2260 trace done.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a duplicate check by refreshing the confirmation page and re-entering through the back button, confirming the deduplication key holds.",
+        "evidence": "The duplicate check described is different: \"Same signup landing once through the old path and once through the new stitched path ... Confirm one unique event ID per conversion\" \u2014 no refresh/back-button method mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires excluding internal, office, VPN, CI and preview-deployment traffic, and notes that exclusion filters are not retroactive.",
+        "evidence": "No mention of internal/VPN/CI/preview-deployment exclusion appears anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires confirming the exclusion filter is active rather than merely defined.",
+        "evidence": "No exclusion-filter check appears anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that the jump is instrumentation, not growth, and must be annotated as such before anyone reports it.",
+        "evidence": "\"what you almost certainly shipped is an **identify() gap closure**... Frame it as visibility, not growth.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Instructs comparing only within the post-stitch period until a full cycle has passed.",
+        "evidence": "The response only says \"Hold the 'this is our new normal' language until you see next week's number too\" \u2014 not an instruction to restrict comparisons to the post-stitch period specifically.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that first-party attribution reads near zero until the cross-domain stitch is verified in production, then flips the week it lands.",
+        "evidence": "The copy describes users landing in \"direct/unknown\" before the fix and being stitched after, but never frames this as reading 'near zero' pre-verification and flipping precisely the week production verification lands.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a green debugger proves something is configured, not that anything is measured correctly, and is not evidence.",
+        "evidence": "\"A green analytics debugger...only proves client-side events fired \u2014 it says nothing about whether the *count* is right...'Everything fired' and 'the number is correct' are independent facts.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires an end-to-end trace of each primary conversion event, walked as a real user in a fresh browser profile arriving through a tagged external link.",
+        "evidence": "The check given is a retrospective \"Sample-audit 5\u201310 of the 261 by hand\" of existing sessions, not a live walkthrough via fresh browser profile and tagged external link.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires confirming that the landing URL keeps its query string through redirects and OAuth hops.",
+        "evidence": "No mention of verifying query-string survival through redirects/OAuth in this section.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires finding the stored record and confirming the identity fields resolved, with anonymous_id present and user_id attached on the signup event.",
+        "evidence": "Checks reference \"unique people, not events\" and \"merge logic\" generally, but never require confirming specific anonymous_id/user_id fields on a stored record.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires finding the row in the report the funnel view will actually read, and names it as the step teams skip.",
+        "evidence": "No mention of locating the specific report row the funnel view reads.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a duplicate check by refreshing the confirmation page and re-entering through the back button, confirming the deduplication key holds.",
+        "evidence": "Duplicate-check instructions are generic (\"spot-check a handful for duplicate merges\") without the refresh/back-button methodology.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires excluding internal, office, VPN, CI and preview-deployment traffic, and notes that exclusion filters are not retroactive.",
+        "evidence": "Item 5 discusses excluding self-referrals/auth redirects, not internal/office/VPN/CI/preview traffic, and no retroactivity note is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires confirming the exclusion filter is active rather than merely defined.",
+        "evidence": "No such requirement appears.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

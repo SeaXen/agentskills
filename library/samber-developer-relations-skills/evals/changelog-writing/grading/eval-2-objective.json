@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Omits the 40% figure from every entry",
+        "evidence": "Entry reads \"cutting connection overhead under concurrent load (#310)\" with no percentage anywhere in the notes.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists the missing benchmark for #310 as an open item needing a human rather than estimating or softening a number",
+        "evidence": "\"#310's \"40% faster\" claim: dropped per your note \u2014 no benchmark in the PR, only an eyeballed load test. Don't restate the number until a real benchmark exists.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Still produces an entry for #310, describing socket reuse as an observable behaviour change under concurrency",
+        "evidence": "\"Reuse sockets across client instances instead of opening a new connection per request, cutting connection overhead under concurrent load (#310)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Collapses #313, #316 and #319 into at most one entry rather than three",
+        "evidence": "\"Add an opt-in `retryOn` option for custom retry logic... (#313, #316, #319)\" \u2014 single bullet citing all three.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Produces no entry for the retryOn option, because the flag defaults off and nothing is observable yet",
+        "evidence": "A full Added entry for retryOn is produced: \"Add an opt-in `retryOn` option for custom retry logic, gated behind the `RETRY_ON_EXPERIMENTAL` environment flag and disabled by default (#313, #316, #319)\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Excludes #311 as a development-only dependency bump",
+        "evidence": "\"`chore(deps): bump vitest 1.4 -> 1.6` (#311) | dev-only dependency, no consumer surface\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Excludes #323 as a CI change with no consumer surface",
+        "evidence": "\"`ci: split the matrix job` (#323) | CI-only change, no consumer surface\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps #321 as an entry despite living under docs/, because newly documented behaviour is release-relevant",
+        "evidence": "\"Document that `request()` has always retried `502` responses up to three times; this clarifies existing behavior only, nothing changed in code (#321)\" is included as a Changed entry, not excluded.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Excludes #322 despite living under src/, because an internal rename has no consumer surface",
+        "evidence": "\"`refactor(src): rename InternalDispatcher to Dispatcher` (#322) | internal rename, no consumer surface\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States explicitly that a change is never classified by its filename or directory",
+        "evidence": "No statement in the transcript generalizes that classification never depends on filename or directory; the #322 note only discusses whether Dispatcher is publicly exported.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Returns an exclusion list naming every dropped change with its reason",
+        "evidence": "\"## Excluded (3 changes)\" table lists #311, #322, #323 each with a reason.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Returns a traceability table mapping each entry to its pull request",
+        "evidence": "\"## Traceability\" table maps each of the four entries to #310/#321/#313,#316,#319/#325.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes #325 impact-first, describing the failure a caller would observe rather than the lock",
+        "evidence": "\"Fix the auth refresh lock not being released when a token refresh request fails, which could leave subsequent requests stuck waiting indefinitely (#325)\" \u2014 names the lock mechanism before the caller-observed effect.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Omits the 40% figure from every entry",
+        "evidence": "No percentage figure appears anywhere in the transcript. The #310 entry says only 'noticeably faster on hot paths, though we haven't run a formal benchmark, so treat that as directional rather than a guaranteed number for your workload.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists the missing benchmark for #310 as an open item needing a human rather than estimating or softening a number",
+        "evidence": "The text softens rather than flags an open action item: 'though we haven't run a formal benchmark, so treat that as directional rather than a guaranteed number for your workload' \u2014 no call for a human to run/verify a benchmark.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Still produces an entry for #310, describing socket reuse as an observable behaviour change under concurrency",
+        "evidence": "'Socket reuse across client instances (#310) \u2014 Corvid now reuses connections across separate client instances instead of opening fresh sockets each time.' This is a concrete, observable behavior change entry.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Collapses #313, #316 and #319 into at most one entry rather than three",
+        "evidence": "Only 'Experimental `retryOn` option (#313, #319)' is present; #316 is not referenced anywhere in the transcript, so it is not clearly shown as collapsed into the entry rather than simply dropped.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces no entry for the retryOn option, because the flag defaults off and nothing is observable yet",
+        "evidence": "An entry for retryOn is clearly present: '**Experimental `retryOn` option** (#313, #319) \u2014 lets you customize which conditions trigger a retry. Off by default, gated behind the `RETRY_ON_EXPERIMENTAL` flag...'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Excludes #311 as a development-only dependency bump",
+        "evidence": "'Bumped `vitest` 1.4 \u2192 1.6 (dev dependency only, no runtime impact).' is relegated to the Internal section rather than Added/Fixed/Documentation, matching a dev-only dependency bump treatment.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Excludes #323 as a CI change with no consumer surface",
+        "evidence": "'Split the CI matrix job for faster builds.' appears only under Internal, with no consumer-facing entry elsewhere.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps #321 as an entry despite living under docs/, because newly documented behaviour is release-relevant",
+        "evidence": "'Clarified that `request()` has always retried `502` responses up to three times (#321). This isn't new behavior \u2014 it was previously undocumented \u2014 but call it out in case you were working around it on your end.' is kept as a Documentation entry with an explicit relevance rationale.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Excludes #322 despite living under src/, because an internal rename has no consumer surface",
+        "evidence": "'Renamed the internal `InternalDispatcher` class to `Dispatcher`; this type was never part of the public API, so no action needed on your end.' is placed under Internal with an explicit no-consumer-impact rationale.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States explicitly that a change is never classified by its filename or directory",
+        "evidence": "No such methodological statement appears anywhere in the transcript; the changelog only presents categorized entries without commentary on classification rules.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Returns an exclusion list naming every dropped change with its reason",
+        "evidence": "There is no dedicated exclusion list; the closest is the 'Internal' section, which lists items without framing them as excluded-with-reason (e.g. 'Split the CI matrix job for faster builds.' has no stated exclusion rationale).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Returns a traceability table mapping each entry to its pull request",
+        "evidence": "PR numbers are given inline in parentheses next to bullet headings (e.g. '(#310)', '(#325)'), not in any table structure.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes #325 impact-first, describing the failure a caller would observe rather than the lock",
+        "evidence": "The entry leads with the mechanism, not the observable failure: '**Auth refresh lock not released on error** (#325) \u2014 if a token refresh failed, the internal lock could stay held, blocking subsequent requests from ever refreshing again.'",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

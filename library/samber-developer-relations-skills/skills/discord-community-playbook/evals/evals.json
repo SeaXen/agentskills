@@ -1,0 +1,381 @@
+{
+  "skill_name": "discord-community-playbook",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I run community at Fennec Labs (open-source observability SDK). Our Discord has 640 members, opened in September. Q1 plan I need you to flesh out: (1) an invite leaderboard where the top 10 inviters each month get a hoodie and $50 cloud credits, (2) apply for the Discord Partner program and the verified checkmark so we look official, (3) get listed in Server Discovery by the end of January. Give me the plan with dates.",
+      "expected_output": "Refuses the invite-reward leaderboard as banned membership inflation under Discord's platform manipulation policy and offers recognition for helping instead; explains Partner is closed and Verified is games-only so neither is available; states the Discovery gate (1,000 members, 8 weeks, activity, moderator 2FA) and that 640 members means the January date depends on reaching 1,000 organically; reframes success away from member count.",
+      "files": [],
+      "expectations": [
+        "Refuses or advises against the invite leaderboard with hoodies and credits",
+        "Cites Discord's policy naming 'invite rewards' (or join-for-join / induced engagement) as banned membership inflation",
+        "Offers an alternative that rewards helping (answers, talks, contributions) rather than invite counts",
+        "States that the Discord Partner Program is closed to new applications",
+        "States that the Verified server program now covers games only, so a devtools company cannot get it",
+        "States the 1,000-member minimum for Server Discovery",
+        "States the 8-week minimum server age for Discovery",
+        "Mentions the moderator two-factor authentication requirement for Discovery",
+        "Notes that 640 members means the end-of-January Discovery date is not achievable unless membership reaches 1,000 without rewards",
+        "Does not quote retention or weekly-communicator numbers as Discord's current published Discovery criteria",
+        "Mentions that Discoverable status brings a public Server Web Page and web indexing, a privacy decision to announce to members",
+        "Proposes measuring communicators or new-member retention rather than member count as the Q1 result",
+        "Labels claims by source (Discord policy vs practitioner) rather than asserting all as fact"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Our Discord for Ledgerline (payments API) is at 3,800 members, Discoverable since last year. About 70% of members are in Germany, France and the Netherlands. My VP read that Discord now puts server messages on Google, so she wants to shut down our GitHub Discussions and point all support to the Discord #help channel to 'consolidate SEO'. Can you write the migration plan for next month?",
+      "expected_output": "Challenges the premise: Server Web Pages and channel summaries start 2026-11-16, individual messages from mid-December, but individual member messages are opted out by default in the EU/EEA, so most of this audience's answers will not appear, while admin-controlled summaries still can; summaries are AI-generated and may be inaccurate; earlier content is not covered; keeps an indexed home for support; moves Discord help into a forum channel; announces Web Presence to members.",
+      "files": [],
+      "expectations": [
+        "Does not write a plan that shuts GitHub Discussions down on the assumption that Discord answers will be indexed",
+        "States that Channel Messages on the web are off by default for members in the EU/EEA (or names Germany/France/Netherlands as default-off)",
+        "Concludes that most individual answers from this server will not appear in web search unless members opt in",
+        "Distinguishes Channel Summaries (from 2026-11-16) from individual Channel Messages (from mid-December 2026)",
+        "Notes that Channel Summaries are AI-generated and Discord warns they may be inaccurate",
+        "Notes that content posted before the rollout dates is not covered",
+        "Notes that private or role-restricted channels never appear on the web",
+        "Recommends keeping an indexed home for support answers (GitHub Discussions, docs or a forum) rather than consolidating onto Discord",
+        "Recommends moving Discord help from a text channel to a forum channel with tags",
+        "Recommends announcing Web Presence to members, naming which channels feed the web",
+        "Mentions that members control their own setting under User Settings > Data & Privacy",
+        "Labels the web-page facts as Discord-published and date-bound, suggesting re-checking the support articles",
+        "States that Channel Summaries are controlled by admins only and are not gated by the member setting, so EU members' conversations can still be summarised"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "We ship v3 of Zustand-alternative 'Tidepool' (React state lib) next Tuesday. I've got 4 devrels. Plan: each posts the launch in Reactiflux #general and in 5-6 other React/React Native servers, then DMs everyone who asked about state management in those servers last month with a link. Between launches, have them answer help questions in Reactiflux and Python Discord (we have a Python SDK too) using Claude-drafted answers so they can do 50 a day. Write the playbook and the DM template.",
+      "expected_output": "Refuses the #general launch posts, mass DMs and AI-drafted answer volume; routes launch posts to dedicated channels (#i-built-this) after reading each server's rules and asking mods; no DMs without permission; Python Discord bans AI-pasted answers and unapproved advertising; answers written by staff, disclosed, fewer and complete; earn-first cadence.",
+      "files": [],
+      "expectations": [
+        "Refuses or advises against posting the launch in Reactiflux #general",
+        "Routes launch posts to dedicated showcase channels such as Reactiflux #i-built-this",
+        "Says to read each server's rules or promotion page before posting, since rules differ per server",
+        "Recommends asking the channel or moderators before posting anything commercial",
+        "Refuses to write the mass DM template",
+        "States that Reactiflux's rules forbid DMing someone without permission granted in the server",
+        "Cites Discord's platform rules against unsolicited bulk messages",
+        "States that Python Discord bans pasting answers from ChatGPT or similar AI tools",
+        "States that Python Discord bans unapproved advertising",
+        "Recommends staff disclose their affiliation when an answer touches their product",
+        "Replaces the 50-answers-a-day target with fewer complete, human-written answers",
+        "Proposes an earn-first period of answering without product links before launch-related posts",
+        "Notes Reactiflux's cap on episodic or repeated content (about once every two weeks)"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Decision's made, we're going with Discord for Vectrix (open-source vector DB). Zero members today, two part-time devrels, users in US and EU. My draft setup: Carl-bot reaction-role verification gate, a welcome DM bot that sends our docs and a newsletter signup, and one text channel per SDK (we have 12 SDKs) plus #help, #general, #off-topic, #jobs, #memes, #showcase, #feedback. Can you finalize the server setup checklist?",
+      "expected_output": "Uses native Community setup (verification level, media filter, rules channel, updates channel), Rules Screening and Raid Protection instead of a bot gate, Onboarding with 7 default channels (5 writable) and an SDK question instead of 12 SDK channels, a forum help channel with tags, a short channel set the staff can fill, no welcome DM bot pitching a newsletter.",
+      "files": [],
+      "expectations": [
+        "Lists the Community-mode requirements: verified-email verification level, explicit media filter, rules channel and a moderator-only updates channel",
+        "Recommends native Rules Screening instead of the reaction-role bot verification gate",
+        "States that Discord's own guidance advises removing bot verification steps in favour of Onboarding and Raid Protection",
+        "Advises against the welcome DM bot that pushes a newsletter signup",
+        "Uses Discord Onboarding and proposes a starting channel set that meets its minimum of 7 default channels with 5 writable by everyone",
+        "Replaces the 12 per-SDK channels with an onboarding question or forum tags routing by SDK",
+        "Recommends a forum channel with required tags for help instead of a #help text channel",
+        "Cuts the starting channel list to what two part-time staff can fill",
+        "Cites Discord's guidance of about 4-5 channels per category or its warning that too many channels spread conversation thin",
+        "Names an owner per weekday for answering help posts, covering US and EU time zones",
+        "Recommends Server Guide first tasks (3-5) for newcomers",
+        "Does not route the user back to the whether-to-launch decision, since the venue is already chosen",
+        "Hands code-of-conduct writing to the moderation skill rather than drafting the enforcement ladder in full",
+        "Adds a help-channel rule against pasting API keys, tokens or customer data"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Pipewright's Discord has 12k members. Every Thursday we release, and we post each changelog item (usually 12-18 items) as its own message in #announcements with @everyone so nobody misses it. People are complaining and muting the server. Also two partner servers want our release posts piped into their servers. Should we add a second @everyone ping for hotfixes? Draft our new announcement routine.",
+      "expected_output": "Stops per-item @everyone posts; explains members can suppress @everyone server-wide and above 2,500 members only mentions and role pings push to mobile, not every message; one consolidated release post; uses announcement channel following for partners, noting mentions are stripped in following servers and the 10 publishes per hour cap; no second @everyone for hotfixes.",
+      "files": [],
+      "expectations": [
+        "Advises against a second @everyone ping for hotfixes",
+        "Replaces 12-18 separate messages with one consolidated release post",
+        "Explains that members can suppress @everyone and @here server-wide, so overuse hides later announcements",
+        "States that above 2,500 members, members cannot get a mobile push for every message, while mentions and role pings still push",
+        "Recommends partner servers use announcement channel following (the Follow button)",
+        "States that @everyone, @here and role mentions are stripped in following servers",
+        "States the limit of 10 publishes per hour for announcement channels",
+        "Notes that posting each changelog item separately would hit or approach the publish limit",
+        "Notes a channel can follow at most 10 announcement channels, or that edits propagate and deletions leave a note",
+        "Provides a release post template with a link to full notes",
+        "Suggests a role members opt into for release pings instead of @everyone",
+        "Labels these limits as Discord-published"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Need a slide for my VP by Friday: our Discord (Brambleworks, edge functions platform) went from 2,100 to 5,400 members this quarter after we put the invite link in our CLI's first-run message. Title I had in mind: 'Discord community grew 157%'. Can you write the slide and pull a year-over-year chart from Server Insights?",
+      "expected_output": "Rejects member count as the headline; uses communicators/visitors against Discord's 30% benchmark and new-member retention after a week; notes Insights keeps 120 days so a year-over-year chart is impossible unless exported earlier, recommends monthly CSV export; attributes joins via per-source invite links; reframes title.",
+      "files": [],
+      "expectations": [
+        "Advises against 'grew 157%' member count as the headline result",
+        "Proposes communicators as a share of members or visitors as a headline metric",
+        "Cites Discord's benchmark of about 30% communicators",
+        "Proposes new-member retention after one week (Discord's definition) as a metric",
+        "States that Server Insights keeps about 120 days of history for non-partner servers",
+        "Concludes a year-over-year chart cannot be pulled from Insights unless data was exported earlier",
+        "Recommends exporting Insights to CSV monthly going forward",
+        "Recommends separate invite links per source so the CLI invite's joins and their retention can be compared",
+        "Defines Visitor and Communicator as Discord does (viewed a channel vs sent a message or spoke)",
+        "Notes that a CLI-driven influx may join without engaging, so activation should be checked before claiming success",
+        "Offers a revised slide title tied to activity rather than headcount",
+        "Notes that Insights counts are partial (alpha feature, members can opt out) so the slide should not present them as exact totals",
+        "Does not claim the CLI invite link itself violates Discord policy (no reward is attached to invites)"
+      ]
+    }
+  ],
+  "trigger_queries": [
+    {
+      "query": "our discord has 900 members but only like 15 people talk, what are we doing wrong with the server setup",
+      "should_trigger": true
+    },
+    {
+      "query": "How should we structure channels and onboarding for our open-source database's Discord server? We picked Discord already.",
+      "should_trigger": true
+    },
+    {
+      "query": "can a devtools company get the verified checkmark on discord",
+      "should_trigger": true
+    },
+    {
+      "query": "We want to get our Discord listed in Server Discovery, what do we need?",
+      "should_trigger": true
+    },
+    {
+      "query": "is it ok for our devrels to post our launch in other people's discord servers like reactiflux",
+      "should_trigger": true
+    },
+    {
+      "query": "Our support questions get buried in Discord #help within an hour, how do we fix that without leaving Discord?",
+      "should_trigger": true
+    },
+    {
+      "query": "Discord now publishes server messages on the web? what does that mean for our dev community server and member privacy",
+      "should_trigger": true
+    },
+    {
+      "query": "We want partner servers to receive our release notes automatically in their Discord",
+      "should_trigger": true
+    },
+    {
+      "query": "how often can we ping @everyone in our 8k member discord before people mute it",
+      "should_trigger": true
+    },
+    {
+      "query": "Plan an invite contest for our Discord server with swag for top referrers",
+      "should_trigger": true
+    },
+    {
+      "query": "What Discord Server Insights metrics should I report to leadership for our SDK community?",
+      "should_trigger": true
+    },
+    {
+      "query": "We're adopting the unofficial community Discord for our library as the official one, what should we change first?",
+      "should_trigger": true
+    },
+    {
+      "query": "Write rules for what our staff can and can't do when answering in Python Discord and other big programming servers",
+      "should_trigger": true
+    },
+    {
+      "query": "set up forum channels for support in our discord, tags, guidelines, the works",
+      "should_trigger": true
+    },
+    {
+      "query": "Should we use Stage channels or scheduled events in our Discord for monthly community calls?",
+      "should_trigger": true
+    },
+    {
+      "query": "our discord bot-based verification is killing joins, what's the native alternative",
+      "should_trigger": true
+    },
+    {
+      "query": "Draft a pitch to host a Q&A session in a big JavaScript Discord server for our new framework release",
+      "should_trigger": true
+    },
+    {
+      "query": "What are Discord's limits on announcement channels, roles and channels per category for a large dev server?",
+      "should_trigger": true
+    },
+    {
+      "query": "Can we DM people in the Reactiflux server who asked about our competitor?",
+      "should_trigger": true
+    },
+    {
+      "query": "Help me plan the first 6 weeks of running our new developer Discord with 2 part-time community folks",
+      "should_trigger": true
+    },
+    {
+      "query": "Our Discord server is 1,200 members, should we turn on Discoverable given most of our members are in Europe?",
+      "should_trigger": true
+    },
+    {
+      "query": "server tags and boosts for our dev community discord, worth it?",
+      "should_trigger": true
+    },
+    {
+      "query": "We have a Discord and GitHub Discussions, how do we split what goes where so answers stay findable?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our dev advocate posts the same blog link in 10 discord servers every week and got banned from two, what's the right approach",
+      "should_trigger": true
+    },
+    {
+      "query": "Is Discord Partner program still worth applying for in 2026 for our API company's server?",
+      "should_trigger": true
+    },
+    {
+      "query": "We're thinking about starting a community for our API users, should it be Discord, Slack or a forum?",
+      "should_trigger": false
+    },
+    {
+      "query": "Write a code of conduct and enforcement ladder for our developer Discord",
+      "should_trigger": false
+    },
+    {
+      "query": "Someone reported harassment by a moderator in our Discord, how do I run the investigation?",
+      "should_trigger": false
+    },
+    {
+      "query": "Build a Discord bot in Python that answers questions from our docs",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we get our Discord app listed in the Discord App Directory?",
+      "should_trigger": false
+    },
+    {
+      "query": "Design a community health dashboard across our Slack, forum and GitHub with contributor funnel metrics",
+      "should_trigger": false
+    },
+    {
+      "query": "Set up a Discourse forum for our product with trust levels and categories",
+      "should_trigger": false
+    },
+    {
+      "query": "Plan our conference attendee Discord for the 3 days of the event, channels for each track",
+      "should_trigger": false
+    },
+    {
+      "query": "How should hackathon mentors use the event Discord to find teams that need help?",
+      "should_trigger": false
+    },
+    {
+      "query": "Design a recurring office hours program with an engineer rotation for our developers",
+      "should_trigger": false
+    },
+    {
+      "query": "Design an ambassador program for the 40 people who answer questions in our community",
+      "should_trigger": false
+    },
+    {
+      "query": "How do I get our Show HN to the front page?",
+      "should_trigger": false
+    },
+    {
+      "query": "What subreddits should we post our CLI launch in and what are their self-promo rules?",
+      "should_trigger": false
+    },
+    {
+      "query": "Cross-post our engineering blog to dev.to with canonical URL",
+      "should_trigger": false
+    },
+    {
+      "query": "Get our Slack app approved in the Slack Marketplace",
+      "should_trigger": false
+    },
+    {
+      "query": "Set up GitHub Discussions categories for our repo and pin the right threads",
+      "should_trigger": false
+    },
+    {
+      "query": "Plan a Twitch live coding stream schedule for our devrel team",
+      "should_trigger": false
+    },
+    {
+      "query": "We should shut down our community, engagement is dead, how do we decide and announce it?",
+      "should_trigger": false
+    },
+    {
+      "query": "Integrate our product's notifications into Discord via webhooks for customers",
+      "should_trigger": false
+    },
+    {
+      "query": "Our Slack community free plan loses history after 90 days, should we migrate somewhere else?",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we route feature requests from community channels to the product team?",
+      "should_trigger": false
+    },
+    {
+      "query": "Write a launch plan across HN, Product Hunt, Reddit and newsletters for our open-source release",
+      "should_trigger": false
+    },
+    {
+      "query": "Our event's meetup group wants a Discord to keep members engaged between yearly conferences, what to post?",
+      "should_trigger": false
+    },
+    {
+      "query": "Use the Discord API to sync roles from our SaaS subscription tiers with Linked Roles",
+      "should_trigger": false
+    },
+    {
+      "query": "Write moderation automation rules (AutoMod keyword lists, raid response) for our community moderators' incident runbook",
+      "should_trigger": false
+    },
+    {
+      "query": "we're a 3 person devtools startup, our discord is 300 people and dead on weekdays. what should we actually post and when?",
+      "should_trigger": true
+    },
+    {
+      "query": "How do I track which of our invite links (docs, CLI, newsletter) bring members who actually stick around in Discord?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our Discord's #general is all off-topic chatter and real product questions get lost; restructure it for an SDK community",
+      "should_trigger": true
+    },
+    {
+      "query": "Write a welcome email sequence for new signups of our developer platform",
+      "should_trigger": false
+    },
+    {
+      "query": "Moderate a raid on our Discord right now: hundreds of spam accounts joined in 5 minutes, what's the incident playbook and who decides bans?",
+      "should_trigger": false
+    },
+    {
+      "query": "Create a Telegram group strategy for our crypto SDK community",
+      "should_trigger": false
+    },
+    {
+      "query": "Our CLI's first-run message links to our Discord; how do we make the first week for those joiners actually useful?",
+      "should_trigger": true
+    },
+    {
+      "query": "we keep getting api keys pasted in our discord help channel, and now discord is putting messages on the web?? what do we change",
+      "should_trigger": true
+    },
+    {
+      "query": "How do I get the Active Developer badge on my Discord profile after building a bot?",
+      "should_trigger": false
+    },
+    {
+      "query": "Set up onboarding and verified status for our indie game's player Discord on Steam",
+      "should_trigger": false
+    },
+    {
+      "query": "Our maintainers answer in the Rust community Discord a lot; how should they mention our crate without getting flagged as spam?",
+      "should_trigger": true
+    },
+    {
+      "query": "Write our product's community guidelines and a ban appeal process",
+      "should_trigger": false
+    }
+  ]
+}

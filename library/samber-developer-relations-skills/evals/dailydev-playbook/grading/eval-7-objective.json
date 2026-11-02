@@ -1,0 +1,106 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that personal blogs are not eligible as daily.dev sources",
+        "evidence": "\"daily.dev excluded company and personal blogs as sources in 2024.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends sharing posts directly with New Post",
+        "evidence": "\"Post your articles by hand instead, through New Post.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Suggests cross-posting to DEV (dev.to) or another indexed platform, which daily.dev indexes as a source",
+        "evidence": "\"Optional DEV cross-post. It may get indexed, and then you can claim authorship.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says being picked up by daily.dev does not guarantee traffic or a high feed position",
+        "evidence": "\"it guarantees a feed slot, not traffic.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains author claiming with the twitter:creator meta tag",
+        "evidence": "\"Add `<meta name=\\\"twitter:creator\\\" content=\\\"@yourhandle\\\">` to the post `<head>`... same X handle under Account details\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends joining or posting into relevant Go or performance Squads within the 3-Squads-per-post limit or their gates",
+        "evidence": "\"New Post to your profile, plus at most 3 Squads in total\"; \"Squads: pick by topic fit and rules card... every gate is 'check in composer'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends commenting to build reputation, which raises the visibility of later posts",
+        "evidence": "\"Substantive comments on Go and performance posts. This is the best value per hour.\"; \"Earn reputation... Reach 250 before your first post\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that suggesting a source requires 250 reputation or that review takes up to 30 days",
+        "evidence": "\"the request would tie up a review of up to 30 days\"; \"A source also needs 250 reputation\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that personal blogs are not eligible as daily.dev sources",
+        "evidence": "Opens with \"Yes, suggest the blog as a source. It's the standard route.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends sharing posts directly with New Post",
+        "evidence": "\"Post links by hand. Each new post, you can share the link on daily.dev yourself.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Suggests cross-posting to DEV (dev.to) or another indexed platform, which daily.dev indexes as a source",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says being picked up by daily.dev does not guarantee traffic or a high feed position",
+        "evidence": "Says \"your posts won't reach many people through the feed unless they get upvotes early\". That is about early engagement, not an explicit statement that pickup guarantees nothing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains author claiming with the twitter:creator meta tag",
+        "evidence": "Claiming is described vaguely as \"a flow for blog owners to claim or contact them\". No twitter:creator.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends joining or posting into relevant Go or performance Squads within the 3-Squads-per-post limit or their gates",
+        "evidence": "\"Make a small Squad for Go performance\" and sharing \"in a relevant Squad\". The 3-Squad limit and gates are not mentioned, so this is a weak pass.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends commenting to build reputation, which raises the visibility of later posts",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that suggesting a source requires 250 reputation or that review takes up to 30 days",
+        "evidence": "Says only \"it can take days to weeks\" and gives no 250 or 30-day figure.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

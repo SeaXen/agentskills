@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States plainly that the collection has no skill for task-oriented how-to guides",
+        "evidence": "\"No skill in `samber/developer-relations-skills` covers this. Say so plainly rather than stretching a neighbor onto it\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the how-to guide gap explicitly rather than routing to the nearest neighbour",
+        "evidence": "\"the collection's own gap list says outright: 'Task-oriented how-to guides, and API reference completeness' are not covered by any of the 55 skills\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not route to `samber/developer-relations-skills@developer-tutorial`",
+        "evidence": "\"developer-tutorial \u2014 ... a tutorial would lecture people who just want the steps\" \u2014 explicitly ruled out, not routed",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not route to `samber/developer-relations-skills@developer-quickstart-guide`",
+        "evidence": "Quoted table: \"Route to: no skill \u2014 see Coverage gaps | Never route to: either quickstart or tutorial\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not route to `samber/developer-relations-skills@developer-troubleshooting-docs`",
+        "evidence": "\"developer-troubleshooting-docs \u2014 ... isn't an error-reference problem even though it's ticket-driven\" \u2014 explicitly ruled out",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that a quickstart serves a reader who has never run the thing, which this reader has",
+        "evidence": "No standalone explanation of quickstart's purpose is given beyond the routing-table quote; only developer-tutorial and developer-troubleshooting-docs get individual \"ruling out\" explanations",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that a tutorial teaches a concept by building something, which this reader did not ask for",
+        "evidence": "\"That's teaching a concept to someone learning it. Your users already understand key rotation as a concept; a tutorial would lecture people who just want the steps\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not invent a skill name to cover the gap",
+        "evidence": "\"What I *can* do directly, outside the router's job, is draft the how-to page itself\" \u2014 no skill name invented",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not route to `samber/developer-relations-skills@developer-docs-structure-audit`, which operates on the whole docs set rather than one page",
+        "evidence": "developer-docs-structure-audit is never mentioned anywhere in the transcript",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that conflating a tutorial with a how-to guide fails both readers",
+        "evidence": "Only one direction is discussed (\"a tutorial would lecture people who just want the steps\"); no symmetric statement about the reverse failure",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes or updates `devrel-context.md` with a session-log line recording the gap",
+        "evidence": "devrel-context.md is never mentioned anywhere in this transcript",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States plainly that the collection has no skill for task-oriented how-to guides",
+        "evidence": "\"technical-tutorials \u2014 it's the only docs skill in the set whose triggers cover 'how to guide' and 'step by step' content, which is what this is.\" \u2014 claims a skill covers it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the how-to guide gap explicitly rather than routing to the nearest neighbour",
+        "evidence": "It routes directly to technical-tutorials rather than naming a gap.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not route to `samber/developer-relations-skills@developer-tutorial`",
+        "evidence": "developer-tutorial is never named; the transcript names \"technical-tutorials\" instead.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not route to `samber/developer-relations-skills@developer-quickstart-guide`",
+        "evidence": "developer-quickstart-guide is never named.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not route to `samber/developer-relations-skills@developer-troubleshooting-docs`",
+        "evidence": "developer-troubleshooting-docs is never named.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that a quickstart serves a reader who has never run the thing, which this reader has",
+        "evidence": "No explicit statement distinguishing quickstart's audience appears; only \"no audience-context lookup... those are for onboarding a stranger to a new concept.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that a tutorial teaches a concept by building something, which this reader did not ask for",
+        "evidence": "No explicit statement of this specific claim; only \"closer to a runbook than a tutorial.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not invent a skill name to cover the gap",
+        "evidence": "It uses the existing \"technical-tutorials\" skill rather than inventing a new name.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not route to `samber/developer-relations-skills@developer-docs-structure-audit`, which operates on the whole docs set rather than one page",
+        "evidence": "developer-docs-structure-audit is never named.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that conflating a tutorial with a how-to guide fails both readers",
+        "evidence": "No such statement appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes or updates `devrel-context.md` with a session-log line recording the gap",
+        "evidence": "No file-write action is shown.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

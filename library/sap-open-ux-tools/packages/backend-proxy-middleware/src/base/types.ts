@@ -1,0 +1,81 @@
+import type { AuthenticationType } from '@sap-ux/store';
+import type { Options } from 'http-proxy-middleware';
+
+export interface BaseBackendConfig {
+    /**
+     * Path that is to be proxied
+     */
+    path: string;
+    /**
+     * If provided then the path will be replaced with this value before forwarding.
+     */
+    pathReplace?: string;
+    /**
+     * sap-client parameter
+     */
+    client?: string;
+    /**
+     * Optional map of additional query parameters to append to every proxied request.
+     * Aligned with the `params` property in `UrlAbapTarget` from `@sap-ux/system-access`.
+     * Example: { saml2: 'disabled' }
+     */
+    params?: Record<string, string>;
+    /**
+     * If set to true the proxy will execute the required OAuth routine for the ABAP environment on SAP BTP
+     */
+    scp?: boolean;
+
+    /**
+     * Authentication mechanism to be used. Currently supported: "ReentranceTicket"
+     */
+    authenticationType?: AuthenticationType;
+
+    /**
+     * If set to true then the proxy will connect to the SAP API Business Hub
+     */
+    apiHub?: boolean;
+    /**
+     * If set then it will override the proxy settings from node.
+     */
+    proxy?: string;
+    /**
+     * The BSP property for the FLP Embedded Flow. The property refers to the BSP Application Name.
+     * In that case, we need to redirect the manifest.appdescr request to the local manifest.json in order to overwrite the deployed application with the local one.
+     */
+    bsp?: string;
+}
+
+export interface DestinationBackendConfig extends BaseBackendConfig {
+    /**
+     * Optional URL pointing to the backend system
+     */
+    url?: string;
+    /**
+     * Required if the backend system is available as destination in SAP Business Application Studio.
+     */
+    destination: string;
+    /**
+     * If a destination needs to be read by a specific instance of a destination service then you need to provide the id of the service as optional property `destinationInstance`.
+     */
+    destinationInstance?: string;
+}
+
+export interface LocalBackendConfig extends BaseBackendConfig {
+    /**
+     * Mandatory URL pointing to the backend system
+     */
+    url: string;
+    /**
+     * Path used to connect to a specific service in the backend system.
+     * This is required to fetch the correct credentials from the store when a full odata service url 'system' is used.
+     */
+    connectPath?: string;
+}
+
+export type BackendConfig = LocalBackendConfig | DestinationBackendConfig;
+
+export interface BackendMiddlewareConfig {
+    backend: BackendConfig;
+    options?: Partial<Options>;
+    debug?: boolean;
+}

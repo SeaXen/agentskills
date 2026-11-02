@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States the fix ordering explicitly rather than leaving it implied by list order",
+        "evidence": "\"Effort-cheapest \u2260 value-highest \u2260 do-first. Skill's efficiency order, re-ranked for your Friday deadline:\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Emits three separate orderings - effort, value, and efficiency - rather than one blended rank",
+        "evidence": "Only one full ranked list (the 'efficiency order') is given; 'value ordering' gets only a single fact ('puts badge row dead last'), no full effort ordering is enumerated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Leads with the efficiency ordering (return per hour spent), not the effort ordering",
+        "evidence": "\"Skill's efficiency order, re-ranked for your Friday deadline:\" followed directly by the numbered 1-6 list.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects starting with the badge row despite it being the cheapest edit to make",
+        "evidence": "\"Badges last, not first.\" ... \"Badges (B5) \u2014 10 min, last.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places the status line first in the efficiency ordering",
+        "evidence": "\"1. **Status line** (A4) \u2014 5 min.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that the status line and the badge row tie on effort but separate on value, citing that only 21.4% of READMEs state project status",
+        "evidence": "No mention of the 21.4% figure or an effort-tie/value-split argument anywhere in section 3.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites that 61% of contributors say badges do not influence them, as the reason the badge row ranks low on value",
+        "evidence": "No '61%' figure appears; badge justification only cites the Trockman study generally: \"badge adoption doesn't raise popularity, and past a few badges it correlates with *less*.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the funnel restructure as what the efficiency ordering starves",
+        "evidence": "The reorder step is included within the 3-hour plan as item 5, not identified as something the ordering starves.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the condition that promotes the funnel restructure anyway - a cold reader answering wrong because they never scrolled far enough, or a launch being the reason for the audit - and says the promotion goes against the ratio",
+        "evidence": "No such condition or promotion statement appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats the Friday demo day as a hard date that promotes the fixes landing in an hour and drops the funnel restructure from this pass",
+        "evidence": "Friday is treated as a deadline ('for your Friday deadline') but the reorder/funnel work stays in the plan ('5. Reorder (B4) \u2014 45\u201360 min'), not dropped.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says which of the user's answers moved which fix in the ordering",
+        "evidence": "No explicit statement ties a specific user answer to a specific position change in the ordering.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends a top-three first pass rather than working the full list",
+        "evidence": "All six fixes are presented as a single 'one afternoon (~3h)' plan, not a top-three-first recommendation.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States the fix ordering explicitly rather than leaving it implied by list order",
+        "evidence": "\"Sequence below is ranked by what actually changes a judge's decision in the 30 seconds they spend on your README, not by edit speed.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Emits three separate orderings - effort, value, and efficiency - rather than one blended rank",
+        "evidence": "Only a single numbered \"Fix order\" list (1-5) is given; no separate effort/value/efficiency orderings appear.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Leads with the efficiency ordering (return per hour spent), not the effort ordering",
+        "evidence": "No efficiency ordering (return per hour) is presented at all; the single list mixes value and structural priority.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects starting with the badge row despite it being the cheapest edit to make",
+        "evidence": "\"Skip the badges. Fix the order first.\" and \"Cutting badges is the fastest edit, not the highest-leverage one\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places the status line first in the efficiency ordering",
+        "evidence": "In the given ordering, \"1. Reorder the file\" comes first and \"2. State maintained status\" is second \u2014 the status line is not first, and no efficiency ordering exists.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that the status line and the badge row tie on effort but separate on value, citing that only 21.4% of READMEs state project status",
+        "evidence": "No such tie/value explanation or 21.4% statistic appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites that 61% of contributors say badges do not influence them, as the reason the badge row ranks low on value",
+        "evidence": "No 61% statistic or contributor-influence citation appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the funnel restructure as what the efficiency ordering starves",
+        "evidence": "The funnel restructure (\"Reorder the file\") is item 1, done first, not described as starved by any ordering.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the condition that promotes the funnel restructure anyway - a cold reader answering wrong because they never scrolled far enough, or a launch being the reason for the audit - and says the promotion goes against the ratio",
+        "evidence": "No such promotion-condition language appears; the funnel restructure is simply ranked #1 without discussion of a ratio it goes against.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats the Friday demo day as a hard date that promotes the fixes landing in an hour and drops the funnel restructure from this pass",
+        "evidence": "\"Do 1\u20134 this afternoon\" (not \"an hour\"), and the funnel restructure (item 1) is not dropped \u2014 it is the very first item done.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says which of the user's answers moved which fix in the ordering",
+        "evidence": "No reference is made to specific user answers influencing the ranking.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends a top-three first pass rather than working the full list",
+        "evidence": "\"Do 1\u20134 this afternoon; 5 (badge trim) takes two minutes whenever you get to it\" \u2014 recommends four items, not three.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

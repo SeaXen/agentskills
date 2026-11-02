@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The response refuses to store the speaker's dietary and step-free access needs in memory, identifying them as personal data and an accommodation request.",
+        "evidence": "'Speaker personal data and accommodation requests are barred.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response refuses to store the negotiated venue rate in memory.",
+        "evidence": "'Negotiated venue rates are barred.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response refuses to store the code-of-conduct report and does not invite the user to paste its details for storage.",
+        "evidence": "'Please don't paste the details. If you do, I won't store them.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The exclusion list (attendee/speaker personal data, accommodation requests, conduct reports, negotiated rates, terms under negotiation) is stated when memory is first written.",
+        "evidence": "'I'll say this exclusion again when I first write memory.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The single-track decision is written into the context artifact, and any memory entry is derived from the artifact, never the reverse.",
+        "evidence": "'It goes under Decided and Format in event-context.md first, then into memory.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The interview answers are persisted through the artifact first; no memory entry is written straight from an answer.",
+        "evidence": "'I write them to event-context.md first and derive memory from that.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response states why the artifact stays the source of truth: memory is invisible and unreviewable to teammates, and a memory-first flow forks the project state per user.",
+        "evidence": "No reason is given about memory being invisible to teammates or forking state per user.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "A memories/ directory inside the project's git repository is chosen as the memory location.",
+        "evidence": "'Memory would live in a memories/ directory in the repo with an index file'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The location choice is justified against the alternatives, explicitly ruling out a local per-user store because more than one organizer works on the project.",
+        "evidence": "Only 'since the project is in git' is given. A per-user store is not ruled out.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "An index file listing each memory entry with a one-line hook is part of the plan.",
+        "evidence": "'with an index file'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Memory is not committed silently: the response shows or commits to showing the diff and asks for approval before committing.",
+        "evidence": "'I'll show you the diff and wait for your approval first.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Each refusal is explicit and named, not a silent omission of the item.",
+        "evidence": "The table has a verdict per item, with \u274c marks.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response does not re-interview: the artifact exists, so at most the session-goal question is asked.",
+        "evidence": "It asks which block the session is in and which cold-start questions to run, beyond the session goal.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The response refuses to store the speaker's dietary and step-free access needs in memory, identifying them as personal data and an accommodation request.",
+        "evidence": "'project_rustrhein-keynote-ana-morales.md says Ana Morales is vegan and needs step-free stage access.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response refuses to store the negotiated venue rate in memory.",
+        "evidence": "'project_rustrhein-meetup.md holds the Hafenwerk rate of 2,400 EUR/day'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response refuses to store the code-of-conduct report and does not invite the user to paste its details for storage.",
+        "evidence": "'When you do paste them, I'd keep the report in my private memory only.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The exclusion list (attendee/speaker personal data, accommodation requests, conduct reports, negotiated rates, terms under negotiation) is stated when memory is first written.",
+        "evidence": "No exclusion list is stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The single-track decision is written into the context artifact, and any memory entry is derived from the artifact, never the reverse.",
+        "evidence": "The decision was saved to memory, and the artifact was 'not read'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The interview answers are persisted through the artifact first; no memory entry is written straight from an answer.",
+        "evidence": "No interview answers exist and the artifact is not used.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response states why the artifact stays the source of truth: memory is invisible and unreviewable to teammates, and a memory-first flow forks the project state per user.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "A memories/ directory inside the project's git repository is chosen as the memory location.",
+        "evidence": "Files are saved under ~/.claude/projects, outside any repo.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The location choice is justified against the alternatives, explicitly ruling out a local per-user store because more than one organizer works on the project.",
+        "evidence": "Not justified.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "An index file listing each memory entry with a one-line hook is part of the plan.",
+        "evidence": "The pointer goes to the user's private MEMORY.md, not a project memory index.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Memory is not committed silently: the response shows or commits to showing the diff and asks for approval before committing.",
+        "evidence": "'I'll draft the edit for you to review before any commit or push.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Each refusal is explicit and named, not a silent omission of the item.",
+        "evidence": "The sensitive items were saved rather than refused.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response does not re-interview: the artifact exists, so at most the session-goal question is asked.",
+        "evidence": "It asks the user to 'paste the CoC details and the interview answers' and for the clone path.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

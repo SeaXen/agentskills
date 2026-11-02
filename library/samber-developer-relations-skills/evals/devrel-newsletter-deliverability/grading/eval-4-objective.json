@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that the pct tag was removed by RFC 9989 (DMARCbis) because receivers applied partial values inconsistently",
+        "evidence": "\"RFC 9989 (May 2026) removed `pct`, because receivers applied in-between values inconsistently.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names t=y test mode as the replacement for pct",
+        "evidence": "\"`t=y` replaces the `pct` ramp.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends rehearsing each enforcement level with t=y together with pct=0 so old and new receivers both apply one level lower",
+        "evidence": "\"Both `t=y` and `pct=0` mean 'apply one level lower', so old and new receivers behave the same.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends reading aggregate reports for a period (weeks) before any enforcement",
+        "evidence": "Fix 6: \"Read the aggregate reports for 2 to 4 weeks.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists inventorying every sender (Workspace, newsletter platform, Zendesk, billing, Greenhouse) and aligning or retiring each",
+        "evidence": "Fix 6 inventory (Workspace, newsletter, Zendesk, billing, Greenhouse); fix 7 \"Align... or retire it\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that p=reject without inventory would make legitimate third-party mail (such as invoices or support replies) fail",
+        "evidence": "\"their mail bounces or is dropped: invoices, support replies and candidate emails.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends enforcing on the newsletter subdomain before the organizational domain",
+        "evidence": "Fix 9 then fix 10: \"Enforce corvane.com the same way, last.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends the newsletter platform sign with custom DKIM on the corvane domain or its subdomain",
+        "evidence": "Fix 3: \"publish the platform's custom DKIM and return-path records... `dkim=pass` with `d=` on corvane.com\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that some receivers may still follow the old RFC 7489 behaviour during the transition",
+        "evidence": "\"Receivers still on the old RFC 7489 may apply 10%.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Describes t=y as an on/off test flag rather than a percentage ramp",
+        "evidence": "\"`t=y` is an on/off test flag, not a percentage.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the order: monitor, inventory, subdomain enforcement, organizational domain enforcement",
+        "evidence": "Fix plan steps 1, 6, 9, 10 in that order.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that the pct tag was removed by RFC 9989 (DMARCbis) because receivers applied partial values inconsistently",
+        "evidence": "It says only \"The newer DMARCbis draft drops pct in favor of a t= testing flag\", with no RFC 9989 and no removal rationale beyond uneven handling.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names t=y test mode as the replacement for pct",
+        "evidence": "It mentions a \"t= testing flag\" but never t=y.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends rehearsing each enforcement level with t=y together with pct=0 so old and new receivers both apply one level lower",
+        "evidence": "Not mentioned; it recommends a pct ramp.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends reading aggregate reports for a period (weeks) before any enforcement",
+        "evidence": "\"weeks 1-4, inventory and fix\"; gate on \"two consecutive weeks\" of clean reports.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists inventorying every sender (Workspace, newsletter platform, Zendesk, billing, Greenhouse) and aligning or retiring each",
+        "evidence": "Sender table covering Workspace, newsletter platform, Zendesk, billing and Greenhouse, plus unknown sources.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that p=reject without inventory would make legitimate third-party mail (such as invoices or support replies) fail",
+        "evidence": "\"Invoices, support replies and recruiting mail are exactly what you can't afford to drop.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends enforcing on the newsletter subdomain before the organizational domain",
+        "evidence": "The subdomain is only a fallback for vendors that can't sign; enforcement order is not subdomain first.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends the newsletter platform sign with custom DKIM on the corvane domain or its subdomain",
+        "evidence": "\"Complete 'domain authentication' so it signs as d=corvane.com.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that some receivers may still follow the old RFC 7489 behaviour during the transition",
+        "evidence": "Not stated as a transition caveat.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Describes t=y as an on/off test flag rather than a percentage ramp",
+        "evidence": "Not described; the pct ramp is recommended.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the order: monitor, inventory, subdomain enforcement, organizational domain enforcement",
+        "evidence": "Its order is monitor, fix, then org-level quarantine/reject ramp, with no subdomain enforcement stage.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

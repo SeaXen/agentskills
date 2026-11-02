@@ -1,0 +1,318 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-sponsor-renewal",
+  "scenarios": 7,
+  "expectations_total": 90,
+  "expectations_subjective": 0,
+  "expectations_objective": 90,
+  "pass_rate_with_skill_pct": 91.1,
+  "pass_rate_without_skill_pct": 33.3,
+  "delta_pp": 57.8,
+  "uplift_multiplier": 2.74,
+  "trigger_accuracy_pct": 77.3,
+  "trigger_queries": 66,
+  "trigger_positive_fire_rate": 0.879,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": null,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.309 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "A per-sponsor read is produced for all six sponsors, each row carrying a red-flag count, a contact rung, a proposed package, an incentive and a hold date"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Glassfern, as a first-time sponsor, is not assigned the flat-renewal or price-comparison flags, since it has no history for them"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Gross revenue retention lands in the mid-70s percent, below net revenue retention"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Net revenue retention includes the upgrades and comes out just above 100% (about 103%) at 2026 prices"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Net revenue retention is restated at constant prices, dividing 2026 spend by 1.10, landing at about 93%, showing the price increase masked a revenue decline"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The three-year deal is demoted under the near deadline because the review will not finish in time, and capped at two editions with an annual opt-out because a volunteer team turns over"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The four January sponsors get debrief calls within days of the Sept 26 report, hold dates 30-60 days after it, and formal asks before their January locks"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Pinecrest's incentive is first pick of a capped surface (the workshop room), not a discount"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "A per-sponsor read is produced for all six sponsors, each row carrying a red-flag count, a contact rung, a proposed package, an incentive and a hold date"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Ironvale's six days of silence is not counted as a red flag, because the silence flag starts at 10 business days after the stage-2 report"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Ironvale stays on the standard renewal path with at most one observed flag (the unstaffed booth as unused inventory), not in the rescue path"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The warm introduction to Quillstone's new budget owner is requested from Tomas through a public professional channel, never through his old work inbox"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Nettlebay's report is sent back to the fulfillment stage to add a method line under the 212 raffle-entries figure; the method is not patched into the renewal email"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The 10% loyalty discount is rejected, and first pick of capped surfaces (booth location, workshop room, prize track) is offered as the incentive instead"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Under the two-evenings-a-week ceiling, the debrief call is reserved for the two highest-priced tiers (Platinum and Gold) and Silver sponsors get the proposal email"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Mosswick is read as an in-kind contributor: same contribution or a named larger one, no price line, and counted outside the revenue retention rates"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The formal-ask schedule is keyed to each sponsor's budget-lock month (January, February, Nov 12, March), not to the event date or the Dec 15 deadline"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "No message to any sponsor asks whether they are coming back; every touch opens with a specific result from the report plus one new idea"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The mass email with the rate card is cancelled; the increase is communicated privately to each returning sponsor at its debrief call, before the prospectus is public on Dec 1"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The sponsor-price increase is not set equal to the venue's 18%; the increase is derived from the venue line's share of the budget, stated as 'the venue raised its rate; sponsorship covers [share] of that cost'"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The new list price is attributed to the sponsor-pricing decision; until it exists, the price is quoted as indicative with a confirmation date"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "A published price-change date is set at least 30 days after Dec 1 (no earlier than Dec 31), with anyone signing before it paying the current price"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The proposal that returning sponsors who sign before Dec 1 keep the old price is rejected as a returning-only discount by calendar"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The advantage given to returning sponsors is hearing the price-change date first and privately, not a different price"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Tarnwick is called the same day the 'no' is read, enters the rescue path, and hears about the price increase only after its reason is known and answered"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Oakhaven's formal ask is scheduled before its Dec 15 budget lock, with the published price-change date covering the gap below the 90-day notice practitioners ask for"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The fix from each report's what-went-wrong section is placed in the same message as the price, ahead of the price"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The formal-ask email carries the clause that the current price applies to agreements signed before the published price-change date, because of the documented reason"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Net revenue retention for this cohort is to be reported a second time at constant prices, so the 18% increase does not pass for growth"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The 'are you coming back next year?' email is rejected outright, and every touch instead opens with a specific result plus one new idea"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Mira's old work inbox is not emailed; the warm introduction is requested through a public professional channel"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "If Mira does not answer within a week, the next contact is the agreement signatory or the invoice contact, with the report attached"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The report is sent to Glassfern's new budget owner as a handover document with a two-line context note (what the company bought, what it got), followed by a short call to restate the objective"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Glassfern, as a first-time sponsor, is not assigned the flat-renewal or price-comparison flags, since it has no history for them"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Mira's new employer is recorded as a warm net-new prospect for sponsor outreach"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Pennywort is offered a lower tier or an in-kind contribution framed as right-sizing with a stated path back up, never a loyalty discount on the same tier"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Duskhollow is phoned now rather than waiting on the written reply, because a 'no' on the survey is called the same day"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The prevention rule is set: two named contacts per sponsor (technical champion and budget owner) recorded before the next event"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Hartsfield's release is counted as a lost logo, not excluded from the cohort"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The 62% average is refused as a benchmark because it traces to no published study, and no measured benchmark for tech-event sponsor renewal is claimed to exist"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Any proxy cited is the trade-show exhibitor retention figure, labelled a proxy at best, with an instruction never to quote a benchmark at a sponsor"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The 20% early-renewal discount is rejected; the incentives offered are non-price (first pick of capped surfaces, a published price-change date, or the rate card's own early-bird)"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The 2k price reduction is not used as the make-good; the missing logo is compensated in kind, and any credit toward next edition is routed through the pricing deviation log"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The make-good is treated as compensation, not an incentive, and Vexmoor's formal ask is gated on the make-good being delivered, not merely promised"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Vexmoor is assigned the executive meeting rung, because it is the anchor sponsor with a multi-edition deal on the table and its budget lock is more than a month away"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The multi-year term is accepted for a company-run event with a yearly review point and a cancellation refund clause drafted by counsel"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The 3-5% annual escalator or CPI indexing is presented as template advice or public example, never as a measured norm"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Vexmoor's mid-January lock falls after the 30-60 day hold window, so written intent is requested by the hold date and the deal converts at the budget lock"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Alderquay's budget lock is asked for on the debrief call; if still unknown, its hold date stands at 30-60 days after Oct 20"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Brinewood's August lock is later than the hold window, so written intent is asked by the hold date and the surface stays held only if intent is given"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The company-run incentive currency includes a sponsored talk slot and category exclusivity at its card premium within the published cap"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Drafting of the hold clause and the multi-year agreement is routed to the sponsor-agreement stage rather than written here"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The November executive dinner is rejected for Kestrelbank because its budget lock is under a month away; a debrief call with the budget owner now replaces it"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The three-year deal is demoted under the near deadline because the review will not finish in time, and capped at two editions with an annual opt-out because a volunteer team turns over"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Wrenfield's debrief call is booked the day the Sept 26 report lands, and its formal ask is sent before Oct 10"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Wrenfield's hold date is set a few business days before Oct 10, not 30-60 days after the report"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The four January sponsors get debrief calls within days of the Sept 26 report, hold dates 30-60 days after it, and formal asks before their January locks"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Every debrief call asks who else signs off and when the budget locks"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Each stage-2 report is checked for its five items (objective and verdict, misses with make-goods, what went wrong and the fix, a method line under each number, next edition lightly) before any ask goes out"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Kestrelbank's soft ask carries one proposed package and a hold date, and never asks whether they are coming back"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The sponsor record fields are named: champion and budget owner, budget-lock month, call notes, red flags, offer, hold date, outcome and release reason"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Pinecrest receives a proposal email instead of further call requests, and the email asks in writing what their team reports on internally and when their budget locks"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Pinecrest's tier read is a swap: a workshop or prize-track package in place of the booth at the same or lower price, not an upgrade and not the same booth package"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Ledgerwick is released despite the request for a bigger booth; no upgrade or larger package is offered"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The release is made in writing, thanks Ledgerwick, and names what would make the event a fit again"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The release is recorded with its reason and counted as a lost logo in retention, not hidden"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Ledgerwick is handed to sponsor outreach as a net-new prospect and is never re-pitched next edition as if nothing happened"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Pinecrest's incentive is first pick of a capped surface (the workshop room), not a discount"
+      }
+    ]
+  }
+}

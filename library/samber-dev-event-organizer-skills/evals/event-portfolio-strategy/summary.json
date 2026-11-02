@@ -1,0 +1,482 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-portfolio-strategy",
+  "scenarios": 8,
+  "expectations_total": 91,
+  "expectations_subjective": 0,
+  "expectations_objective": 91,
+  "pass_rate_with_skill_pct": 65.9,
+  "pass_rate_without_skill_pct": 14.3,
+  "delta_pp": 51.6,
+  "uplift_multiplier": 4.61,
+  "trigger_accuracy_pct": 66.7,
+  "trigger_queries": 84,
+  "trigger_positive_fire_rate": 0.524,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": null,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Declines to run the portfolio composition menu on the nine city chapters."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that the composition, shared-infrastructure and cadence menus would give the wrong answer for a set of independent teams."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Asks which properties, if any, the user's own team runs directly before applying any menu."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Places the standalone second format as the highest-value but lowest-efficiency rung on the composition menu, because it is a full second production cycle."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Asks what each existing property is for, in one sentence, and who owns it end to end."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that the team constraint is checked before the audience constraint."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Reports single-owner coverage as a measure, treating one person owning two properties as a finding in itself."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Flags the monthly meetup months that will silently be skipped because the team is inside another property's build-up."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Separately flags any two properties whose audiences are the same people within one quarter."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Asks whether the four properties draw the same people, overlapping people or genuinely different people before judging the audience collision."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States the structural pass threshold: every property needs a purpose sentence, a named owner and a written kill criterion, with no exceptions."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that a criterion written after a property starts failing is a negotiation, not a criterion."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Maps the funnel between the four properties pair by pair, marking each path as existing or aspirational."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names the shared audience list, not the sponsor package, as the highest-value shared-infrastructure rung."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names the continuity surface - one always-on, non-event property such as a chat space, a list or a publishing surface - as the default composition rung."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names Noor wanting a property of her own, and the free room, as facts that promote the standalone second format above its normal position."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Checks the flagship stability gate and states that PolarStack's five editions clear it."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Requires the continuity surface to have a named owner and a moderation plan before it is added."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that an always-on space with no owner and no moderation plan is an unstaffed property with a code of conduct attached, not the cheap rung it looked like."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Routes animating the continuity surface to samber/dev-event-organizer-skills@event-community-building while keeping the belongs-in-the-set decision here."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that the move from a continuity surface up to a low-cadence meetup happens once the surface has an audience and the gap is still visibly cold."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names the shared audience list as the default and highest-value shared-infrastructure rung."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the shared audience list is what makes the funnel paths real rather than aspirational."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the mixed case is the one where the shared-entity rung stops being optional, and promotes it out of the basement."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the five-week deadline demotes the rungs that cannot be done quickly, the cross-property sponsor package and the single entity."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names anchor-and-spread as the default cadence posture."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Promotes seasonal waves because the team is already at its limit."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that seasonal waves is the only posture that treats recovery as a scheduling decision instead of something hoped for."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Notes that only the postures pre-committing a venue, fixed multi-year rotation and co-location, carry a compliance cost on this menu."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Does not recommend letting each property's owner pick its own date, and states that the collisions that produces cost more than the coordination it avoids."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Re-runs the build-up collision calendar against whichever cadence posture is chosen."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Identifies the nine-city setup as a franchise rather than a portfolio."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States the distinguishing test explicitly: a portfolio is format diversity under one team, a franchise is team diversity under one format."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Declines to run the portfolio composition menu on the nine city chapters."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that the composition, shared-infrastructure and cadence menus would give the wrong answer for a set of independent teams."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Identifies brand licensing - recruiting, vetting and enforcing standards on teams the user does not run - as the part no skill in the collection covers."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Points at samber/dev-event-organizer-skills@event-team-structure for the governance half of the franchise question."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Asks which properties, if any, the user's own team runs directly before applying any menu."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Refuses to add the hackathon and presents the flagship stability requirement as a hard gate, not one consideration among several."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names both failing conditions: fewer than two completed editions, and a last edition the team and the budget did not come out of intact."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Cites the prompt's own facts against the gate: one completed edition, the treasurer leaving, and the 3,900 euro shortfall."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that an unstable flagship plus a new property produces two weak properties and one exhausted team rather than a portfolio."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Rejects the user owning the hackathon end to end while also owning the flagship."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that a different person must be able to own a standalone second format end to end."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Lists all three conditions required before a standalone second format is promoted: at least two stable flagship editions, a distinct audience that keeps asking for something the flagship's format cannot host, and a different end-to-end owner."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Places the standalone second format as the highest-value but lowest-efficiency rung on the composition menu, because it is a full second production cycle."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Offers a cheaper rung - the continuity surface or the low-cadence small format - as what can be done while the flagship stabilizes."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Does not produce a hackathon planning checklist, budget or run-of-show."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Routes money modelling to samber/dev-event-organizer-skills@event-budget instead of estimating the hackathon's cost."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Asks what each existing property is for, in one sentence, and who owns it end to end."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Maps each property's build-up window, not only its date."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Flags that the conference build-up, roughly the six weeks before 10 June, and the hackathon build-up sit under one owner, Marta."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that the team constraint is checked before the audience constraint."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Reports single-owner coverage as a measure, treating one person owning two properties as a finding in itself."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Flags the monthly meetup months that will silently be skipped because the team is inside another property's build-up."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Separately flags any two properties whose audiences are the same people within one quarter."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Asks whether the four properties draw the same people, overlapping people or genuinely different people before judging the audience collision."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Asks for, or writes, a one-sentence purpose for each of the four properties."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Applies the purpose-sentence test before any attendance metric."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names TerraLab and the Terra Podcast as the first retirement candidates because neither has a stated purpose."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States the structural pass threshold: every property needs a purpose sentence, a named owner and a written kill criterion, with no exceptions."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that a criterion written after a property starts failing is a negotiation, not a criterion."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Specifies the three required parts of a kill criterion: a named metric, a floor value, and the number of consecutive editions below the floor."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that the criterion triggers a retirement conversation rather than an automatic retirement."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires each criterion to be dated and written in advance."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Presents every floor value as self-set, never as a benchmark or an industry figure."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Checks whether TerraJams' decline is a stale theme or format rather than a portfolio problem, and routes that renewal question away from this decision."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Maps the funnel between the four properties pair by pair, marking each path as existing or aspirational."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Rejects the proposed opening line, stating that a cross-property bundle is not established practice for organizers or for sponsors."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States explicitly that the cross-property sponsor package rung is untested."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Confirms the precondition the user already meets: the same sponsor already renews on two properties separately, so the bundle formalizes an existing relationship rather than inventing one."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires that one person can own fulfilment across all three properties before the bundle is offered."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires a per-property price that still stands if Vantatek takes only one property, written down before the conversation."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires the bundle to be described to the sponsor as new rather than as how this is normally done."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Frames the first bundle as a test with a named fallback to per-property deals."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Routes the pricing work to samber/dev-event-organizer-skills@event-sponsor-pricing."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that quoting a bundled figure as a market rate sets a price the portfolio cannot sustain."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names the shared audience list, not the sponsor package, as the highest-value shared-infrastructure rung."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names the continuity surface - one always-on, non-event property such as a chat space, a list or a publishing surface - as the default composition rung."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that the compounding three-year mandate promotes the continuity surface and the low-cadence small format."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that the compounding mandate demotes the co-located add-on because it buys nothing between editions."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names Noor wanting a property of her own, and the free room, as facts that promote the standalone second format above its normal position."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Checks the flagship stability gate and states that PolarStack's five editions clear it."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Requires the continuity surface to have a named owner and a moderation plan before it is added."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that an always-on space with no owner and no moderation plan is an unstaffed property with a code of conduct attached, not the cheap rung it looked like."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Routes animating the continuity surface to samber/dev-event-organizer-skills@event-community-building while keeping the belongs-in-the-set decision here."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names gap coverage - the longest stretch of the year with no touchpoint of any kind - as the measure this decision moves."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that the move from a continuity surface up to a low-cadence meetup happens once the surface has an audience and the gap is still visibly cold."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Treats carrying one property's attendee list into another property's marketing without that property's own consent as deleted from the menu, not as a cheaper variant of the shared-list rung."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names the shared audience list as the default and highest-value shared-infrastructure rung."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the shared audience list is what makes the funnel paths real rather than aspirational."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Identifies the setup as the mixed community and company pole, not purely community-run or purely company-run."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the mixed case is the one where the shared-entity rung stops being optional, and promotes it out of the basement."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires writing down whose brand, whose list and whose money each property uses before a sponsor, a member or a tax authority asks."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Flags that one code of conduct spanning both properties means a ban on one carries to the other."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires that cross-property ban rule to be written down before it is first used, not during an incident."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the five-week deadline demotes the rungs that cannot be done quickly, the cross-property sponsor package and the single entity."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Does not treat a shared visual identity as evidence of a funnel between the two properties."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Rejects the two-venue adjacent-days arrangement as deleted from the cadence menu rather than ranked last."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States why: it takes co-location's promise of one trip and one weekend without its mechanism, because neither the booking nor the crew is shared."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names the consequences: the audience is asked to choose or to attend both, and the team runs two full setups inside 48 hours."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States the conditions that would promote real co-location: an audience that travels to reach you, or the same booking and the same crew genuinely carrying both programmes without a second setup."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names anchor-and-spread as the default cadence posture."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Promotes seasonal waves because the team is already at its limit."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that seasonal waves is the only posture that treats recovery as a scheduling decision instead of something hoped for."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that the 14 October deadline demotes any option needing a second production cycle."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Notes that only the postures pre-committing a venue, fixed multi-year rotation and co-location, carry a compliance cost on this menu."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Does not recommend letting each property's owner pick its own date, and states that the collisions that produces cost more than the coordination it avoids."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Re-runs the build-up collision calendar against whichever cadence posture is chosen."
+      }
+    ]
+  }
+}

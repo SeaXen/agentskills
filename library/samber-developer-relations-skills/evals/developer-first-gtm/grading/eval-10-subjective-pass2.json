@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Names a concrete first-value moment as an observable event rather than calling it 'activation'.",
+        "evidence": "Under 'Entry design' the transcript names the first-value moment as an observable event: \"an engineer retrieves a real secret into a running service using their own sandbox key, without talking to a human.\" It is specific, observable and tied to the product, not just the label 'activation'. The post-sale signals reinforce it with observable events such as 'live API calls' and 'distinct engineers have authenticated'.",
+        "score": 5,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Names a concrete first-value moment as an observable event rather than calling it 'activation'.",
+        "evidence": "The plan never defines a first-value moment. The nearest material is generic: 'Walk own funnel... Time every step from landing page to API reference', 'Stand up scoped sandbox', 'sandbox usage + production usage', 'API call volume', and 'engineers who build real integrations'. None of these names a specific observable event, such as an engineer's first secret fetched via the API or SDK in the sandbox. They are aggregate usage signals and assets, not a defined moment of first value. The word 'activation' does not appear, but nothing concrete takes its place.",
+        "score": 1,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

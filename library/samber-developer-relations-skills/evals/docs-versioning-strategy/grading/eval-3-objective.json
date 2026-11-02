@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Collapses granularity from per-minor to per-major, citing that minors never changed instructions while 2.0 and 3.0 changed the config format",
+        "evidence": "\"Minors never broke an upgrade\"; \"the config format differs between them.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the collapsed versions as line segments `3.x`, `2.x`, `1.x`, not release numbers such as `3.4`",
+        "evidence": "\"Use line segments (`3.x`, `2.x`), not releases.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Moves the default landing from Next to `current` (3.x), stating that unreleased docs as default document features readers cannot install",
+        "evidence": "\"Default landing: `current`, never Next.\" The reason is not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Lists each old minor URL pattern with its per-page target in the collapsed line (for example `/2.3/*` to `/2.x/*`), so no ticket or issue link breaks",
+        "evidence": "Old minor URLs are kept as byte-identical snapshots: \"No consolidation redirects are needed for them.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Un-versions the blog and the changelog and lists them with tutorials and concepts as unversioned content",
+        "evidence": "\"Unversioned content: blog, changelog, tutorials, concepts that never changed\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Builds only `current`, `maintained` and `next` per deploy and serves 1.x as a static snapshot outside the build",
+        "evidence": "Builds 3.x and 2.x only; snapshots live outside the build. There is no next build.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Restricts PR previews to `current` and `next` only",
+        "evidence": "\"PR previews build `current` only\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites the Docusaurus maintainers' guidance to stay under about 10 built versions and archive older ones as immutable deployments, labelled sourced",
+        "evidence": "No such citation appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Assigns 1.x the `frozen` state because air-gapped installs mean the line is still installed, with an 'unsupported' banner and no 'insecure' wording absent a known vulnerability",
+        "evidence": "1.x banner: \"no longer supported... static snapshot\"; \"Add 'insecure' only if known vulnerabilities exist.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names March as the trigger moving 2.x from `maintained` to `frozen`",
+        "evidence": "\"2.x freezes at support end in March 2027.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places `current` at the versioned line path `/3.x/` behind a `latest` alias, and points stable links in tickets and support replies at the alias",
+        "evidence": "\"`current` lives at `/docs/3.x/`. `/docs/latest/` is a 302 alias\"; \"Aliases: link `/docs/latest/` from support replies\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes the release cut into the release checklist: old `current` becomes `maintained`, the alias moves, switcher and banners update, `next` becomes `current`",
+        "evidence": "Checklist: convert marks, update switcher, repoint alias, at 4.0 cut 3.x to maintained.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Hands the redirect map and the search-entry column to samber/developer-relations-skills@docs-seo instead of writing canonical or noindex tags",
+        "evidence": "Only search-entry is handed to docs-seo; the redirect sets are specified in place.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Collapses granularity from per-minor to per-major, citing that minors never changed instructions while 2.0 and 3.0 changed the config format",
+        "evidence": "\"Keep all 23 versions and every URL\"; only the dropdown grouping follows majors, and there is no 2.0/3.0 config-format citation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the collapsed versions as line segments `3.x`, `2.x`, `1.x`, not release numbers such as `3.4`",
+        "evidence": "Uses release numbers such as 3.4.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Moves the default landing from Next to `current` (3.x), stating that unreleased docs as default document features readers cannot install",
+        "evidence": "\"I recommend setting lastVersion: '3.4' for the public site... Next stays at /docs/next/\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists each old minor URL pattern with its per-page target in the collapsed line (for example `/2.3/*` to `/2.x/*`), so no ticket or issue link breaks",
+        "evidence": "All old URLs are kept; no collapse map.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Un-versions the blog and the changelog and lists them with tutorials and concepts as unversioned content",
+        "evidence": "Un-versions blog and changelog but does not list tutorials or concepts.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Builds only `current`, `maintained` and `next` per deploy and serves 1.x as a static snapshot outside the build",
+        "evidence": "Archive profiles are optional and cached; the live build is Next + 3.0\u20133.4.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Restricts PR previews to `current` and `next` only",
+        "evidence": "PREVIEW_VERSIONS = ['current', '3.4'] (Next plus latest release).",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites the Docusaurus maintainers' guidance to stay under about 10 built versions and archive older ones as immutable deployments, labelled sourced",
+        "evidence": "No citation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Assigns 1.x the `frozen` state because air-gapped installs mean the line is still installed, with an 'unsupported' banner and no 'insecure' wording absent a known vulnerability",
+        "evidence": "Uses an 'unmaintained' banner and a tarball; the frozen state is not named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names March as the trigger moving 2.x from `maintained` to `frozen`",
+        "evidence": "\"In March, move the 2.x versions to archive-2x.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places `current` at the versioned line path `/3.x/` behind a `latest` alias, and points stable links in tickets and support replies at the alias",
+        "evidence": "No alias; uses lastVersion.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes the release cut into the release checklist: old `current` becomes `maintained`, the alias moves, switcher and banners update, `next` becomes `current`",
+        "evidence": "Only a freeze rule: \"when 3.5 cuts, move 3.4 into an archive profile\"; no checklist.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Hands the redirect map and the search-entry column to samber/developer-relations-skills@docs-seo instead of writing canonical or noindex tags",
+        "evidence": "No docs-seo mention; suggests noIndex itself.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

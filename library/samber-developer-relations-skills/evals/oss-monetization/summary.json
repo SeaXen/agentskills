@@ -1,0 +1,482 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "oss-monetization",
+  "scenarios": 8,
+  "expectations_total": 102,
+  "expectations_subjective": 0,
+  "expectations_objective": 102,
+  "pass_rate_with_skill_pct": 73.5,
+  "pass_rate_without_skill_pct": 19.6,
+  "delta_pp": 53.9,
+  "uplift_multiplier": 3.75,
+  "trigger_accuracy_pct": 50.0,
+  "trigger_queries": 86,
+  "trigger_positive_fire_rate": 0.0,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": null,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Recommends the paid add-on on a free core as the primary option."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that a deleted option does not reappear lower in the ranking as a later phase."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "If any license move is kept for a future major, requires it to land on a new major with a new Go module import path, with old releases untouched and the module proxy serving the last GPL version forever."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Includes a fork forecast naming who would maintain a fork and whether a company would fund it, and states that only the trademark controls what a fork may be called."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Sends license wording and the contributor-consent question to counsel and routes license text to samber/developer-relations-skills@oss-license-strategy rather than drafting license terms."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Deletes the Pro team-features add-on, support contracts, extended security support, commercial license and hosting because the users are mostly individual developers, rather than parking them as a later phase."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States plainly that donations and sponsorships rarely reach a salary, and does not propose growing GitHub Sponsors as the path to $5,000 a month."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Cites the Livewire/Alpine maintainer's $1M through GitHub Sponsors as about 73% paid content, as evidence that paid teaching can pay a salary."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Compares the plan against an employment baseline and says whether a job or contract beats the plan's first-year revenue per hour."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Caps the support contract's customer count and response terms in the contract, and states that support alone rarely scales past a side income."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Flags the burnout risk once for 10 hours a week on top of a full-time job and caps the plan at that budget."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Sets the time expectation that salary-level outcomes took years, while the support contract can bill within weeks."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Cites FluentAssertions' per-developer price as the shape that drew the strongest recent fork, and AutoMapper's developer bands per organization as the shape that drew less anger."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that an offline license key inside the paid module is acceptable only if the FAQ says so, and that redistribution of the paid package is stopped by the license contract and private delivery, never by checks in the free code."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires securing the Brasswick name by trademark registration before selling, noting that first use alone rarely protects it outside the US and UK."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Hands the actual price levels to samber/developer-relations-skills@devtools-pricing-strategy rather than fixing dollar figures as final."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Routes to samber/developer-relations-skills@oss-maintainer-sustainability."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Produces no ranked comparison of Pro tier, support contracts and dual licensing, and no monetization plan for this month."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States the condition under which monetization would be revisited: a goal of replacing or supplementing income, with hours available for the standing work it creates."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that relicensing the current version ranks last in the default order, with unproven revenue and a likely fork of the last free version."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that the hosted offering means on-call every week and is a business, not a side line, and assigns that standing load to Dario explicitly in the hours section."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Includes a fork forecast for any eventual license change: who would maintain the fork and whether the reseller would fund it."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Runs the capacity gate against 8 hours a week, estimating the standing hours of backports per old major plus hours per support customer, labelled as the advisor's own estimate."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Structures the announcement as what changes, what does not change, why, who pays, price, timeline and where to ask, and states that the free edition does not change."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Answers the FAQ questions 'will the free edition get fewer features from now on' with no and 'can I keep using the current version forever' with yes."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States the date the goal threshold implies at the current rate of new customers minus churn, or states that no such rate exists yet because nobody has paid."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names the vendor's acquire-and-sponsor offer as an exit that hands the trust decisions to the buyer, citing FluentAssertions' vendor partnership as the precedent, rather than a fallback revenue model."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Reports the shape gate: because Quillfeed runs inside backend services, GPL creates no pressure to buy a commercial license; only AGPL would."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that the paid add-on passes the ownership gate regardless, because new code the maintainer writes alone is theirs to sell."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends capped support contracts sold now to the companies that already asked, as the first sale and as validation of which add-on features those companies would pay for."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends the paid add-on on a free core as the primary option."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that a deleted option does not reappear lower in the ranking as a later phase."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "If any license move is kept for a future major, requires it to land on a new major with a new Go module import path, with old releases untouched and the module proxy serving the last GPL version forever."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Includes a fork forecast naming who would maintain a fork and whether a company would fund it, and states that only the trademark controls what a fork may be called."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Sets the time expectation that the cited salary-level cases took years, not months, and checks the 4,000 EUR within a year target against that."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Compares the plan against an employment baseline, such as a contract with one of the dozen companies paying for maintenance time, and says whether it beats the plan's first-year revenue per hour."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Sends license wording and the contributor-consent question to counsel and routes license text to samber/developer-relations-skills@oss-license-strategy rather than drafting license terms."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Deletes the Pro team-features add-on, support contracts, extended security support, commercial license and hosting because the users are mostly individual developers, rather than parking them as a later phase."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Does not endorse emailing engineering managers from the stargazer list as a substitute for buyer evidence."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Reports the audience gate as passed, citing the 28k YouTube subscribers and the 9k newsletter."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Ranks paid content or a companion product as the primary offer, naming the existing audience as the rule that promoted it."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Keeps a sponsorware companion as an option, with a published sponsor-count threshold at which the new tool opens."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States plainly that donations and sponsorships rarely reach a salary, and does not propose growing GitHub Sponsors as the path to $5,000 a month."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Warns that one-time purchases sold through a single traffic funnel are fragile, citing Tailwind UI's reported revenue fall of close to 80% attributed to AI assistants answering from the docs."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Cites the Livewire/Alpine maintainer's $1M through GitHub Sponsors as about 73% paid content, as evidence that paid teaching can pay a salary."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Computes the number of paying customers the $5,000 target needs with the formula target / (monthly price x (1 - payment fee rate)) for whichever price it proposes, and shows the number."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that the cited salary-level cases took years, not months, and sets that against the 8-month runway."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Compares the plan against an employment baseline and says whether a job or contract beats the plan's first-year revenue per hour."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Defines the leading indicator as organizations asking to pay per month, not stars, installs or sponsor count."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Deletes the hosted migration runner because the end-of-quarter date promotes options that bill within weeks and deletes hosting and license changes, which need months; says so explicitly."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Does not design or price the SaaS the user asked about."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Caps the support contract's customer count and response terms in the contract, and states that support alone rarely scales past a side income."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Uses the three company conversations as boundary validation for a later paid add-on, naming which features those companies would pay for as the thing to learn before writing code."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Does not place the requested dry-run mode in a paid tier without validating it with the requesting company, and applies the rule that a feature everyone needs belongs in the free core."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Flags the burnout risk once for 10 hours a week on top of a full-time job and caps the plan at that budget."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Runs the capacity gate with an explicit hours estimate (fixed upkeep plus hours per customer per month times customers) against the 10-hour budget, labelled as the advisor's own estimate because no published per-option benchmark exists."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Reports the ownership gate as passed because Apache-2.0 inbound contributions can ship under other terms with notices kept and the maintainer wrote nearly all of the code."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Computes the paying organizations needed from the $2,500 target with the formula target / (monthly price x (1 - payment fee rate)) and shows the number."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Answers the billing question by asking the user's country and offering the choice between the maintainer's own registered business and a merchant-of-record service, sending tax and entity questions to an accountant."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that the paid support queue's response terms must be written down and the free issue queue's terms left unchanged."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Keeps the hosted offering deleted rather than listing it as a phase two after the quarter."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Sets the time expectation that salary-level outcomes took years, while the support contract can bill within weeks."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Keeps SSO and the audit log as paid candidates because they are organization-scale needs, and names the logistics company and the bank as the companies to validate them with before writing code."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Refuses the daily ping to check for a Pro key and the user-count banner in the free server, stating that the free edition must carry no telemetry, phone-home code or license checks."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Cites Moq's sponsorship check, which hashed developers' git emails and sent them out, as the precedent for the backlash such a check draws."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Replaces the $19 per developer per month price with per-organization pricing, flat or banded by developer count, billed annually."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Cites FluentAssertions' per-developer price as the shape that drew the strongest recent fork, and AutoMapper's developer bands per organization as the shape that drew less anger."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Answers the audit-log pull request with the written contribution rule: decline with a written reason, or move the feature to free when everyone needs it, and states this rule must be decided before the first such PR arrives."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that community-contributed code is never paywalled, so if the PR is merged the audit log cannot later move behind the paid tier."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Places paid code in a separate package or module wrapping the free server, delivered privately with a per-customer credential."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that an offline license key inside the paid module is acceptable only if the FAQ says so, and that redistribution of the paid package is stopped by the license contract and private delivery, never by checks in the free code."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires a published always-free list before launch, covering at least: everything free today, security fixes for the free edition, documentation needed to use it, data export, and community contributions."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires securing the Brasswick name by trademark registration before selling, noting that first use alone rarely protects it outside the US and UK."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Offers a card-paid self-serve tier and a custom tier with purchase orders, invoices and security answers."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Hands the actual price levels to samber/developer-relations-skills@devtools-pricing-strategy rather than fixing dollar figures as final."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Stops rather than picking a model, stating that monetization adds standing load (selling, invoicing, support) on top of the current 20 hours."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Routes to samber/developer-relations-skills@oss-maintainer-sustainability."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Produces no ranked comparison of Pro tier, support contracts and dual licensing, and no monetization plan for this month."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Does not recommend sponsorship or donations as the fix."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Asks the goal question (what the money should do) or makes the goal determination explicit before any other advice, rather than opening with an option comparison."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Flags that 20 hours a week on top of a day job already spends the hours budget on the free project, so no capacity exists for a paid offer's standing work."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States the condition under which monetization would be revisited: a goal of replacing or supplementing income, with hours available for the standing work it creates."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that this condition is the only rule that moves the hosted offering up the default order, and that it otherwise sits near the bottom as the option the efficiency order starves."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Rejects the switch to AGPL next week: a license change must be announced three to six months ahead and land on a new major, with old releases untouched."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that relicensing the current version ranks last in the default order, with unproven revenue and a likely fork of the last free version."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Cites Plausible Analytics renaming its self-hosted edition because resellers used its name and logo."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names the data-processing terms the hosted offering adds on the compliance axis, beyond the end-user license an add-on needs."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Includes a continuity clause for buyers: deployed self-hosted versions keep working, and source access or escrow if the maintainers stop."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Requires the EU Cyber Resilience Act manufacturer role test via samber/developer-relations-skills@oss-security-disclosure before launch."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Includes a fork forecast for any eventual license change: who would maintain the fork and whether the reseller would fund it."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Treats the 'free forever, no enterprise edition' README line as a promise that must become the published always-free list, with its edit announced rather than made silently."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends capped support contracts with the two insurers as the first sale, with response terms stated and the free queue's terms unchanged."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Runs the capacity gate against 8 hours a week, estimating the standing hours of backports per old major plus hours per support customer, labelled as the advisor's own estimate."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Structures the announcement as what changes, what does not change, why, who pays, price, timeline and where to ask, and states that the free edition does not change."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Answers the FAQ questions 'will the free edition get fewer features from now on' with no and 'can I keep using the current version forever' with yes."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names trademark registration of the Hollowmere name as a step before selling anything."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Delivers the plan with Gates, Chosen offer, Paid boundary and Announcement sections rather than as an unstructured answer."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Rejects the 1% download-to-paid conversion assumption, stating that no free-to-paid conversion rate has been published for a library and the plan must not rely on one."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that 420k downloads and 35k docs visitors are usage, not buyers, and that only a company asking to pay counts as demand."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Replaces the seat projection with the goal threshold formula: paying organizations needed = $8,000 / (monthly price per organization x (1 - payment fee rate)), on prices before sales tax, and shows the resulting number."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States the date the goal threshold implies at the current rate of new customers minus churn, or states that no such rate exists yet because nobody has paid."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Sets the leading indicator as companies asking to pay (invoice, quote or security-review requests) per month, measured before and after launch."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Sets the demand test at ten paying organizations within two quarters of launch, and states it proves demand rather than the goal."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Includes revenue per maintainer hour, compared quarterly with an employment baseline."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Includes the trust signals: outside pull requests per month and activity on any fork of the last free version."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that the cloud marketplace and GitHub Marketplace listings are a procurement channel, not a revenue model, and that no indie library has shown material revenue from them."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names the vendor's acquire-and-sponsor offer as an exit that hands the trust decisions to the buyer, citing FluentAssertions' vendor partnership as the precedent, rather than a fallback revenue model."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Replaces $29 per developer per month with a per-organization unit, flat or banded by developer count."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Writes a kill or pivot condition tied to the demand test, such as revisiting the paid boundary before adding features if fewer than ten organizations pay within two quarters."
+      }
+    ]
+  }
+}

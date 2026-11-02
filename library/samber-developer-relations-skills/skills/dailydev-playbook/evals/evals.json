@@ -1,0 +1,328 @@
+{
+  "skill_name": "dailydev-playbook",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I lead DevRel at Tracewell (OpenTelemetry-based tracing SaaS, ~40 people). Our engineering blog at blog.tracewell.io has RSS and 60 posts. Plan for next week: (1) suggest blog.tracewell.io as a daily.dev source so every post lands in the feed automatically, (2) create a fresh 'tracewell' account and post our v3 launch to the 10 biggest Squads (Node.js developers, Next.js, DevOps Daily, etc.), (3) have our 15 engineers sign up and upvote it in the first hour. Anything I'm missing?",
+      "expected_output": "Rejects the source suggestion (company blogs are ineligible), the 10-Squad blast and the team upvote plan; routes the blog through New Post, an own Squad or a Verified Company Squad; adds an earn-first reputation phase.",
+      "files": [],
+      "expectations": [
+        "States that company blogs are not eligible as daily.dev sources",
+        "Names at least one legitimate path for company blog content: New Post, posting in an own Squad, or a paid Verified Company Squad with RSS auto-posting",
+        "States that a single post can target at most 3 Squads",
+        "Says each third-party Squad has its own posting gate (post approval or a minimum reputation) or rules that must be checked before posting",
+        "Warns that coordinated upvoting by the 15 engineers counts as vote manipulation or reputation farming",
+        "States that upvotes from accounts under 250 reputation do not change the author's reputation",
+        "Notes that a new account starts at 10 reputation and that higher reputation raises post visibility",
+        "Recommends an earn-first period of substantive comments before the launch post",
+        "Mentions that a comment upvote is worth +50 reputation (more than a post upvote)",
+        "Recommends creating the company's own public Squad"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "We're a Series A payments API (Ledgerline). An agency pitched us a daily.dev package: 5 'high-reputation daily.dev influencers' each post our new webhook tutorial and upvote each other's posts, plus they'll pay the admin of a 30k-member backend Squad $300 to pin it for a week. The tutorial also has our partner program referral links so we can track signups. Budget is $4k. Good deal?",
+      "expected_output": "Declines the package: compensated posting and upvoting, paid pinning and referral links are all banned; offers labelled paid paths (Boost, Sponsored Content, ads) and organic disclosure.",
+      "files": [],
+      "expectations": [
+        "States that paying people (including agencies or influencers) to post or upvote content is banned on daily.dev",
+        "States that paying a Squad admin or moderator to pin, approve or publish a post is banned",
+        "States that affiliate or referral links are banned on daily.dev even when disclosed",
+        "Names penalties that can include content removal, submission restrictions, or account or Squad suspension",
+        "Names Boost, Sponsored Content or daily.dev Ads as the only permitted paid distribution routes",
+        "Notes that permitted paid placements are labelled as sponsored or boosted",
+        "States that agencies placing posts or votes for a client are banned, and ties any agency admin or moderator seat to a daily.dev Ads plan",
+        "States that articles an indexed publication was paid to run are ineligible on daily.dev, labelled or not",
+        "Gives Post Boost limits in Cores (5,000-100,000 per day, 1-30 days) or says the budget is set in Cores per day"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Our growth team at Quillstack (AI code-review tool) generates ~30 articles a month with an LLM pipeline for GEO and backlinks. Plan: publish one per day on daily.dev via New Post from our CMO's account so we get backlinks and get cited by ChatGPT/Perplexity. Each post links to a landing page. What tags and posting times should we use?",
+      "expected_output": "Refuses the plan: daily.dev rejects AI-generated content and content made for SEO/AEO/GEO; links in posts are nofollow; removals cost reputation and future reach. Proposes fewer human-written technical posts.",
+      "files": [],
+      "expectations": [
+        "States that daily.dev rejects AI-generated content or content with AI-generated characteristics",
+        "States that content made primarily for SEO, backlinks or AI citation (AEO/GEO) is rejected",
+        "States that links inside daily.dev posts are nofollow, so they pass no backlink value",
+        "States that a removed post costs the author 100 reputation or that reputation loss reduces future visibility",
+        "Says daily.dev publishes no best posting time or ranking formula, instead of inventing one",
+        "Recommends far fewer posts written by a human engineer with real technical substance",
+        "Notes that dofollow links exist only on a paid Verified Company Squad (website plus up to 10 links)",
+        "Explains that tags act as targeting because feeds match readers' followed tags",
+        "Does not provide a daily posting schedule for the 30 generated articles"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Launch of Driftbase (Postgres branching, free tier) is in 3 weeks. We have $15k for paid. I read on daily.dev's business blog that CPMs are around $4, so I want to run a one-week daily.dev Ads test right before launch and judge the channel on it. We have 2 blog posts total and no daily.dev presence. Thoughts?",
+      "expected_output": "Pushes back on the one-week test and the blog CPM; daily.dev Ads is a managed monthly plan quoted per company; suggests self-serve Post Boost on one strong post plus organic setup, with measurement.",
+      "files": [],
+      "expectations": [
+        "States that daily.dev Ads is sold as a managed monthly plan quoted per company, not a self-serve CPM buy",
+        "Says daily.dev itself describes a one-week test as the wrong shape for its plans",
+        "States daily.dev publishes no rate card, so pricing must come from a written per-company quote rather than CPM figures in blog or resource posts",
+        "Notes daily.dev describes teams with little or no technical content as a poor fit, suggesting a single Sponsored Content post or building content first",
+        "Proposes self-serve Post Boost as the launch-window option",
+        "Recommends boosting a post that already earns organic upvotes rather than a weak one",
+        "States Squad Boost requires a public Squad with a description, profile image and cover image",
+        "Recommends the daily.dev conversion pixel (or UTM-tagged links as a fallback) to attribute signups from the paid push",
+        "Includes organic setup in parallel (profiles, comments, own Squad) rather than paid alone",
+        "States an Ads plan commits to a first quarter and renews quarterly, so a one-week plan test is the wrong shape; a single campaign must be requested separately"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "For 2 months three of our engineers at Hexmesh (service mesh, Apache-2.0) have posted every release on daily.dev. Each post is the release link plus 'check out what's new!' and titles like 'You won't believe how fast Hexmesh 2.4 is'. Avg 40 views and 1 upvote. Their accounts are at 10-30 reputation. Also our articles that daily.dev picked up from our posts on DEV show no author. Why is reach so bad?",
+      "expected_output": "Diagnoses low reputation, link-only posts and clickbait titles; prescribes comment-driven reputation to 250, substantive commentary, plain titles, tag targeting, author claiming via twitter:creator, and day-3 analytics.",
+      "files": [],
+      "expectations": [
+        "Identifies the authors' low reputation as a reach problem because higher-reputation authors get ranking priority",
+        "Recommends earning reputation through substantive comments toward 250",
+        "Identifies the clickbait titles as a problem, noting clickbait is demoted or rewritten for Plus readers",
+        "Warns that teammates upvoting each other's comments to reach 250 counts as reputation farming",
+        "Notes that downvotes are private but lower a post's ranking",
+        "Recommends choosing tags that match what target readers follow",
+        "Explains author claiming with the twitter:creator meta tag plus the matching handle in daily.dev account settings",
+        "Lists post analytics metrics to read (impressions, unique reach, upvotes, comments or clicks)",
+        "Sets a hygiene metric for declined or removed posts or reputation drops"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "I maintain Ferrule, an async Rust web framework (4k GitHub stars). I want a daily.dev Squad for it and I want it in the Featured section of the Squads directory within 2 weeks. I'm thinking: start private while I set it up, let anyone post without review so it feels active, and invite our Discord when it's live. Good plan?",
+      "expected_output": "Corrects the plan: public Squads are discoverable and boostable, private are not; featuring is an editorial pick with no timeline; recommends post approval, rules, category, images, seeding before inviting.",
+      "files": [],
+      "expectations": [
+        "States that only public Squads appear in the Squads Directory",
+        "States that being Featured is an editorial choice by daily.dev, not something a 2-week plan can guarantee",
+        "Recommends choosing a directory category (Languages, Open Source or similar) at setup",
+        "Recommends routing Squad comments to an owner (for example the Squad's Slack integration) so replies land within a day",
+        "Recommends 'Require post approval' (or a reputation gate) instead of open posting without review",
+        "Mentions up to 10 custom Squad rules",
+        "Recommends seeding the Squad with several curated or original posts before inviting the Discord",
+        "Notes that a private Squad cannot be boosted",
+        "Notes that a regular Squad must build activity before daily.dev shows it widely, unlike a Verified Company Squad",
+        "Mentions advocacy@daily.dev or the featured-Squad criteria (quality posts, engagement, growth, compliance)"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "solo maintainer here, I write about Go performance on my own Hugo blog (gopherlog.dev, has RSS, ~2 posts a month). How do I get my posts onto daily.dev? Should I just suggest my blog as a source?",
+      "expected_output": "Personal blogs are not eligible sources; routes through New Post and/or cross-posting to DEV (an indexed source) with canonical, author claiming via twitter:creator, and notes being picked up does not guarantee traffic.",
+      "files": [],
+      "expectations": [
+        "States that personal blogs are not eligible as daily.dev sources",
+        "Recommends sharing posts directly with New Post",
+        "Suggests cross-posting to DEV (dev.to) or another indexed platform, which daily.dev indexes as a source",
+        "Says being picked up by daily.dev does not guarantee traffic or a high feed position",
+        "Explains author claiming with the twitter:creator meta tag",
+        "Recommends joining or posting into relevant Go or performance Squads within the 3-Squads-per-post limit or their gates",
+        "Recommends commenting to build reputation, which raises the visibility of later posts",
+        "Notes that suggesting a source requires 250 reputation or that review takes up to 30 days"
+      ]
+    }
+  ],
+  "trigger_queries": [
+    {
+      "query": "how do I get our engineering blog posts onto daily.dev?",
+      "should_trigger": true
+    },
+    {
+      "query": "our daily.dev posts get like 40 views each, what are we doing wrong",
+      "should_trigger": true
+    },
+    {
+      "query": "Should we create a daily.dev Squad for our open source CLI?",
+      "should_trigger": true
+    },
+    {
+      "query": "a squad moderator declined my post on daily.dev, can I repost it?",
+      "should_trigger": true
+    },
+    {
+      "query": "is a Verified Company Squad on daily.dev worth paying for if we publish twice a month?",
+      "should_trigger": true
+    },
+    {
+      "query": "daily.dev ads vs boosting a post with cores - which for a launch in 3 weeks?",
+      "should_trigger": true
+    },
+    {
+      "query": "can I suggest my company blog as a source on daily.dev",
+      "should_trigger": true
+    },
+    {
+      "query": "how does reputation work on daily.dev and why do my upvotes not count",
+      "should_trigger": true
+    },
+    {
+      "query": "We're launching v2 of our Postgres extension next month; plan our daily.dev push.",
+      "should_trigger": true
+    },
+    {
+      "query": "what's the self-promotion limit on daily.dev squads?",
+      "should_trigger": true
+    },
+    {
+      "query": "our devrel team wants to post on daily.dev from personal accounts vs a brand account, what's better",
+      "should_trigger": true
+    },
+    {
+      "query": "how do I claim authorship of my articles that daily.dev picked up?",
+      "should_trigger": true
+    },
+    {
+      "query": "Squad Boost requirements and how many cores per day for a squad growth campaign",
+      "should_trigger": true
+    },
+    {
+      "query": "grow members of our company squad on daily.dev past 200",
+      "should_trigger": true
+    },
+    {
+      "query": "is it ok to have our 12 engineers upvote the company post on daily.dev",
+      "should_trigger": true
+    },
+    {
+      "query": "We publish AI-assisted tutorials; will daily.dev remove them?",
+      "should_trigger": true
+    },
+    {
+      "query": "which daily.dev squads should we post our Kubernetes operator tutorial into",
+      "should_trigger": true
+    },
+    {
+      "query": "the new tab feed developers use - how do devtool companies get featured there?",
+      "should_trigger": true
+    },
+    {
+      "query": "our posts in the dailydev feed rank low, does the algorithm favor upvotes or reads?",
+      "should_trigger": true
+    },
+    {
+      "query": "Agency offered to post our tutorial in big daily.dev squads for a fee. Legit?",
+      "should_trigger": true
+    },
+    {
+      "query": "set up posting rules and moderation for our product squad on daily.dev",
+      "should_trigger": true
+    },
+    {
+      "query": "we got our first daily.dev Squad post removed for self-promotion, what now",
+      "should_trigger": true
+    },
+    {
+      "query": "Compare organic daily.dev reach vs paying for sponsored content there",
+      "should_trigger": true
+    },
+    {
+      "query": "best way to get a solo maintainer's Go blog in front of daily.dev readers",
+      "should_trigger": true
+    },
+    {
+      "query": "daily.dev content guidelines for vendors posting about their own product",
+      "should_trigger": true
+    },
+    {
+      "query": "Write a 1,500-word technical blog post about our new tracing sampler.",
+      "should_trigger": false
+    },
+    {
+      "query": "how do I set canonical_url when cross-posting to dev.to?",
+      "should_trigger": false
+    },
+    {
+      "query": "Plan our Show HN for next Tuesday, title and first comment",
+      "should_trigger": false
+    },
+    {
+      "query": "Should we launch on Product Hunt or skip it for a CLI tool?",
+      "should_trigger": false
+    },
+    {
+      "query": "build a quarterly devrel content calendar around our two releases",
+      "should_trigger": false
+    },
+    {
+      "query": "Use the daily.dev public API to pull trending Rust posts into our Slack every morning",
+      "should_trigger": false
+    },
+    {
+      "query": "set up a Discord server for our developer community",
+      "should_trigger": false
+    },
+    {
+      "query": "should we open a community at all, and where - forum, Discord, or Slack?",
+      "should_trigger": false
+    },
+    {
+      "query": "write a code of conduct and enforcement ladder for our community",
+      "should_trigger": false
+    },
+    {
+      "query": "sell sponsor slots in our own developer newsletter",
+      "should_trigger": false
+    },
+    {
+      "query": "which developer conferences should we sponsor next year",
+      "should_trigger": false
+    },
+    {
+      "query": "plan the whole launch week sequencing across HN, PH, Reddit and newsletters",
+      "should_trigger": false
+    },
+    {
+      "query": "measure signups attributed to our devrel content with UTMs and a dashboard",
+      "should_trigger": false
+    },
+    {
+      "query": "I'm a recruiter, how do I use daily.dev Career Mode to source backend engineers?",
+      "should_trigger": false
+    },
+    {
+      "query": "post our product launch on r/programming without getting banned",
+      "should_trigger": false
+    },
+    {
+      "query": "grow our Substack newsletter for developers",
+      "should_trigger": false
+    },
+    {
+      "query": "optimize our docs for SEO and Google indexing",
+      "should_trigger": false
+    },
+    {
+      "query": "Build an MCP server that lets agents read our docs",
+      "should_trigger": false
+    },
+    {
+      "query": "Add 'Sign in with daily.dev' OAuth to our app",
+      "should_trigger": false
+    },
+    {
+      "query": "our Stack Overflow product tag has 300 unanswered questions, triage plan",
+      "should_trigger": false
+    },
+    {
+      "query": "write a LinkedIn post announcing our series A",
+      "should_trigger": false
+    },
+    {
+      "query": "best tech news apps for developers to keep up with releases",
+      "should_trigger": false
+    },
+    {
+      "query": "our Discourse forum's trust levels are blocking new users from posting links",
+      "should_trigger": false
+    },
+    {
+      "query": "plan a YouTube channel strategy for our devtool",
+      "should_trigger": false
+    },
+    {
+      "query": "help me design a paid ads campaign on Reddit and LinkedIn for developers",
+      "should_trigger": false
+    }
+  ]
+}

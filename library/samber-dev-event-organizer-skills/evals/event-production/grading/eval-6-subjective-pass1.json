@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Does not assign a named role that has no work attached to it in this setup",
+        "evidence": "The answer removes the two roles that had no real work: a camera operator for the fixed camera ('A camera operator there is wasted headcount') and the floater ('If they float, nobody mixes'). Each of the six seats it keeps has work attached: two camera operators, the vision mixer, main-room audio on the board feed, the room-2 owner (audio, fixed camera, start-of-session check), and the production owner (owns the signal path). The production owner's duties are the least specific of the six and are spread across sections, with monitor checks given to 'somebody'. That vagueness keeps the score be",
+        "score": 4,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Does not assign a named role that has no work attached to it in this setup",
+        "evidence": "The response flags the empty role directly: 'The fixed camera in room 2 doesn't need an operator... Treating it as a \"camera role\" wastes a person.' It turns that slot into a 'Room 2 owner' with real duties: fixed camera, audio, recording start and stop, and timekeeping. Every row in the proposed split has concrete work. Volunteer 4 covers floater and relief, plus main-room audio and mic and battery swaps. 'You' handles the schedule, speaker issues, and escalations. The director role appears only on the condition that the event is live-switched or streamed, so it is not assigned in the recordi",
+        "score": 5,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

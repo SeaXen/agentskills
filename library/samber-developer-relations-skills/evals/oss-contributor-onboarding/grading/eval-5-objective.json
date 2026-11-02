@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Separates acknowledgement from review - a same-day 'I have seen this, full review by <date>' on a different clock from the review itself",
+        "evidence": "\"Rule 1 \u2014 Acknowledge and review are two different clocks. Whoever sees a new PR first posts something within one business day \u2014 not a review, just \\\"seen, here's when.\\\"\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names silence, not slowness, as the expensive failure",
+        "evidence": "\"Silence is the expensive failure here, not slowness\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Answers scope in the first comment, saying the Redis backend is out of scope now rather than after review rounds",
+        "evidence": "In the drafted reply: \"a Redis backend isn't something we're looking to take on. We've deliberately kept this SDK's core dependency-free...\" stated up front in the same first comment.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines fast and kindly: thanks them, names the scope rule, links where it was published, offers an alternative issue, closes",
+        "evidence": "Rule 5: \"Thank them, name the scope rule (link where it's published), offer an alternative issue, close.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Tells the contributor which failing check they can fix locally and which ones need repository secrets and therefore cannot run on a fork",
+        "evidence": "\"CI shows red on lint. Run <your lint command> locally... The other two red checks need repository secrets and can't run on a fork \u2014 that's expected\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps naming and formatting out of human review comments where the formatter can fix them",
+        "evidence": "\"style (only what the formatter missed \u2014 anything a machine can fix never appears as a human comment)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the fixed review order: scope, then correctness and tests, then design with the reasoning attached, then only the style the formatter missed",
+        "evidence": "\"Scope \u2192 correctness & tests \u2192 design (with reasoning) \u2192 style (only what the formatter missed...)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels every review comment as blocking or optional",
+        "evidence": "\"Mark every comment Blocking or Optional; an unlabelled wall of comments reads as a wall of failures.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the absence of a published out-of-scope rule as a finding to fix in the CONTRIBUTING file",
+        "evidence": "\"Rule 2 \u2014 Scope gets stated before code, not after. Add an explicit \\\"out of scope\\\" list to CONTRIBUTING.md\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Produces a short written playbook of the review-loop items for the other two maintainers to share",
+        "evidence": "\"## 2. First-PR playbook \u2014 for the three of you... Share this as a pinned doc\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Mirrors the published response target into the CONTRIBUTING file so contributors and maintainers read the same number",
+        "evidence": "\"Pick a full-review target you three can actually hit given real hours-per-week, publish it in CONTRIBUTING.md, and hold it\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says a stated target that is honest and met beats a faster one that is missed",
+        "evidence": "\"a stated 5 business days that's met beats a stated 48 hours that's missed.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prescribes reviewing against the written scope rule and the fixed order rather than against an impression of the person, naming it as the cheapest available control on reviewer bias",
+        "evidence": "\"Terrell et al... found outside contributions reviewed with reasoning attached and consistent process score more evenly across contributors than impression-based review does. Same fixed order, every PR, whoever's reviewing.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Separates acknowledgement from review - a same-day 'I have seen this, full review by <date>' on a different clock from the review itself",
+        "evidence": "\"Rotate a triage duty... whoever's 'on' replies (even just 'thanks, will look properly next week') to any new external PR within 2 business days.\" \u2014 a quick acknowledgement on a separate clock from the full review.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names silence, not slowness, as the expensive failure",
+        "evidence": "\"The real bug isn't @nreddy's PR \u2014 it's that a 340-line scope-mismatched PR got as far as sitting unreviewed for four days with no signal it was dead on arrival.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Answers scope in the first comment, saying the Redis backend is out of scope now rather than after review rounds",
+        "evidence": "\"I'm going to close this one. The blocker isn't the lint failure or the checks \u2014 it's that a Redis backend isn't something we've wanted for Harborlight.\" \u2014 stated directly in the single closing comment.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines fast and kindly: thanks them, names the scope rule, links where it was published, offers an alternative issue, closes",
+        "evidence": "The comment thanks, states scope, offers alternative issues, and closes, but never links to a published scope rule (none existed yet \u2014 this transcript's own proposal is to add one going forward).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Tells the contributor which failing check they can fix locally and which ones need repository secrets and therefore cannot run on a fork",
+        "evidence": "\"The two checks failing on AWS access aren't something you can fix \u2014 we don't share those secrets with fork PRs... The lint failure and naming are real, and would've mattered if we were merging this.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps naming and formatting out of human review comments where the formatter can fix them",
+        "evidence": "No such principle is stated; naming/lint are simply called out as 'real' issues in the comment, not routed to an automated formatter instead of human comments.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the fixed review order: scope, then correctness and tests, then design with the reasoning attached, then only the style the formatter missed",
+        "evidence": "No such general review order is articulated anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels every review comment as blocking or optional",
+        "evidence": "No blocking/optional labeling scheme appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats the absence of a published out-of-scope rule as a finding to fix in the CONTRIBUTING file",
+        "evidence": "\"Add `CONTRIBUTING.md` with three sections: Scope / non-goals \u2014 name what Harborlight explicitly won't do... This is the line that would've stopped @nreddy before they wrote code.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Produces a short written playbook of the review-loop items for the other two maintainers to share",
+        "evidence": "The 'Process for the other two maintainers' section lists concrete, numbered items (CONTRIBUTING.md, PR template, fork-approval setting, CI split, triage rotation) as a shareable playbook.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Mirrors the published response target into the CONTRIBUTING file so contributors and maintainers read the same number",
+        "evidence": "The proposed CONTRIBUTING.md sections (Scope, Before you code, Local checks) never mention a response-time number matching the '2 business days' triage commitment.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says a stated target that is honest and met beats a faster one that is missed",
+        "evidence": "No such statement appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Prescribes reviewing against the written scope rule and the fixed order rather than against an impression of the person, naming it as the cheapest available control on reviewer bias",
+        "evidence": "No bias-control framing or 'fixed order' concept appears in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

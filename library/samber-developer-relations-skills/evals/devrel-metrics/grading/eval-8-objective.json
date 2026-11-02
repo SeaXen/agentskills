@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects calling 305,000 downloads users, and states registry downloads are request counts rather than people",
+        "evidence": "\"**305,000 'monthly users': not defensible.**\" and \"downloads are request counts, not people, by the registries' own documentation\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States npm counts every HTTP 200 tarball response, including continuous integration and mirror traffic",
+        "evidence": "\"npm counts every HTTP 200 tarball response \u2014 CI pipelines, mirrors, caches, fresh Docker builds\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States PyPI excludes known mirrors by default, so the two registries are not measured on the same basis",
+        "evidence": "\"npm includes mirrors and CI; PyPI excludes known mirrors by default; crates.io has its own methodology.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to sum downloads across registries and present the total as users",
+        "evidence": "\"never sum two registries and call the result users\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the 240,000 Google Analytics docs sessions as a substantial undercount for a developer audience",
+        "evidence": "\"**240k docs sessions: not defensible as a board absolute.** ... it is wrong by a factor you cannot state.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites the Plausible measurement of 58% of a tech audience blocking Google Analytics, 82.3% on Linux and 88.3% on Firefox",
+        "evidence": "\"Plausible found 58% of a tech audience blocking Google Analytics \u2014 82.3% on Linux, 88.3% on Firefox\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Qualifies that measurement with its scope: one site, August 2021, traffic skewed toward Hacker News and Reddit",
+        "evidence": "\"(August 2021, one HN/Reddit-heavy site; treat as directional)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires reach and engagement metrics be built as ratios inside one source rather than as absolutes compared across sources",
+        "evidence": "\"Never compare GA absolutes against registry numbers in one funnel; different denominators, different biases.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not retain an absolute session count as a headline metric",
+        "evidence": "Board slide replacement lists API keys, first-success rate, retention, attribution sentence, and optional labeled sparklines \u2014 no absolute GA session count.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes npm treats under roughly 50 downloads per day as mostly automation",
+        "evidence": "\"npm's own docs treat under ~50/day per package as mostly automation.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the definition of each number to be written next to the number",
+        "evidence": "\"the replacements above are numbers whose *definitions* are the answer to the follow-up question, not the vulnerability.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires any surviving reach metric to have a named downstream partner in the same row's story or be dropped",
+        "evidence": "Row 6 (\"Per-registry install requests\") has a self-contained action (\"check CI configs, mirrors, broken release\") with no pairing to another row's story anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects calling 305,000 downloads users, and states registry downloads are request counts rather than people",
+        "evidence": "'305,000 as \"monthly users\" \u2014 indefensible... The number counts file fetches, not people.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States npm counts every HTTP 200 tarball response, including continuous integration and mirror traffic",
+        "evidence": "Text says 'npm: counts every tarball fetch \u2014 every CI run, Docker build...' but never says 'HTTP 200' nor mentions mirror traffic.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States PyPI excludes known mirrors by default, so the two registries are not measured on the same basis",
+        "evidence": "The PyPI bullet says 'what remains includes CI' \u2014 it does not state mirrors are excluded by default.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to sum downloads across registries and present the total as users",
+        "evidence": "'The sum is worse than either part... It's mismatched-unit arithmetic \u2014 the total doesn't measure anything' and 'Never re-sum registries into one figure again.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the 240,000 Google Analytics docs sessions as a substantial undercount for a developer audience",
+        "evidence": "The text says the GA error 'runs both ways: headless/AI crawlers appear in GA, consent-refusing EU humans don't' \u2014 not framed as a clean undercount.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites the Plausible measurement of 58% of a tech audience blocking Google Analytics, 82.3% on Linux and 88.3% on Firefox",
+        "evidence": "No such statistic appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Qualifies that measurement with its scope: one site, August 2021, traffic skewed toward Hacker News and Reddit",
+        "evidence": "N/A \u2014 the underlying statistic in item 6 is never cited.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires reach and engagement metrics be built as ratios inside one source rather than as absolutes compared across sources",
+        "evidence": "'SDK share: % of all API calls arriving via official SDKs vs raw HTTP' and 'Never re-sum registries into one figure again. Per-registry or nothing.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not retain an absolute session count as a headline metric",
+        "evidence": "'Keep 240k as a secondary line: \"docs sessions (trend)\" plus engaged-sessions %' \u2014 the new headline is 'monthly active developers' from API logs.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes npm treats under roughly 50 downloads per day as mostly automation",
+        "evidence": "No such threshold or statement appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the definition of each number to be written next to the number",
+        "evidence": "'Keep downloads, honestly labeled: per-registry, \"includes CI,\" trend only' and 'Label the window (monthly vs quarterly) explicitly.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires any surviving reach metric to have a named downstream partner in the same row's story or be dropped",
+        "evidence": "'Frame the new set as a funnel: Reach... \u2192 Adopt... \u2192 Deepen... Boards fund the arrows, not the first box.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

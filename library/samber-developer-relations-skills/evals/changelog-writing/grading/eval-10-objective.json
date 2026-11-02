@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to claim a changelog drove adoption, retention, expansion or revenue",
+        "evidence": "\"'a changelog drove adoption, retention, expansion or revenue' is explicitly listed as unmeasured... What I'm explicitly not claiming: a retention lift, an upgrade-rate lift, or a revenue number.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that Linear's reported returns are first-party and unquantified",
+        "evidence": "\"it's a first-party, unquantified claim, not a measured study\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Describes the app-store finding as correlational and confounded by release frequency and app maturity",
+        "evidence": "\"The paper itself flags the confound: release frequency and app maturity move with both variables, so this is not evidence that writing longer notes *causes* better ratings\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not present longer release notes as causing higher ratings",
+        "evidence": "\"this is not evidence that writing longer notes *causes* better ratings \u2014 cite it as 'the one published outcome study in this space,' not as proof\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Offers measurable proxies instead, led by support and issue volume tagged to the release",
+        "evidence": "\"What I will commit to measuring... - Support/issue volume tagged to each release (cheap \u2014 you already triage this...)\" listed first.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ranks click-through from a breaking entry to its migration guide above release-page views",
+        "evidence": "\"Release-page views\" is never mentioned as a metric anywhere in the transcript, so no such ranking is demonstrated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that time-to-upgrade needs roughly a quarter plus telemetry before it says anything",
+        "evidence": "The metric is defined as \"version distribution in use at 7/30/90 days post-release\" without an explicit statement that it needs roughly a quarter of telemetry before being meaningful.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends promoting time-to-upgrade when a breaking change is coming and the team needs to know who is still on the old version",
+        "evidence": "\"Time-to-upgrade: version distribution in use at 7/30/90 days post-release, especially for breaking releases.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Offers the drafting cost, up to eight hours of an experienced developer per release-note document, instead of inventing an ROI figure",
+        "evidence": "\"Drafting one release-note document takes an experienced developer up to 8 hours (Moreno et al., cited in Daneshyan et al., FSE 2025).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Invents no percentage lift for retention or upgrade rate",
+        "evidence": "\"Nobody in the field has published one, and I'd rather you catch me not making that number up than have a board member catch it later.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to claim a changelog drove adoption, retention, expansion or revenue",
+        "evidence": "The financial case is framed explicitly as a model to fill in, not a proven outcome: 'Plug in your actual ARR, churn, ticket volume, and engineer rate \u2014 the model holds even under pessimistic assumptions.' The transcript never asserts that a changelog actually caused a measured increase in adoption/retention/expansion/revenue; it presents formulas ('fill in your own numbers \u2014 this is a model, not a memorized stat') rather than realized results.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that Linear's reported returns are first-party and unquantified",
+        "evidence": "The transcript says 'I don't have a specific credible \"X% retention/upgrade lift\" figure attributable to Linear \u2014 I'd be fabricating precision if I gave you one,' which establishes unquantified, but it never characterizes any Linear-reported figure as first-party (self-reported by Linear); it only suggests 'asking a Linear team member' as a way to eventually find a number, without framing that source as first-party/self-interested.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Describes the app-store finding as correlational and confounded by release frequency and app maturity",
+        "evidence": "The transcript mentions 'mixed academic literature on update frequency/ratings (some research finds frequent updates correlate with lower ratings when they introduce bugs)' \u2014 this flags a frequency confound and uses 'correlate,' but it never mentions app maturity as a confounding variable.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not present longer release notes as causing higher ratings",
+        "evidence": "The transcript explicitly withholds the claim: 'I can't verify a specific study with a specific percentage right now... Don't cite a number here until you've found and read the primary source' and later 'leave the App Store claim out entirely until you've found and read the source.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Offers measurable proxies instead, led by support and issue volume tagged to the release",
+        "evidence": "KPIs listed are 'feature adoption rate on releases documented vs. prior baseline; \"what changed\" ticket volume; time-to-adopt for new features; qualitative CS/sales feedback' \u2014 ticket volume is included but feature adoption rate is listed first, so proxies are not led by support/issue volume.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ranks click-through from a breaking entry to its migration guide above release-page views",
+        "evidence": "No mention of click-through rates, migration guides, or release-page views appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that time-to-upgrade needs roughly a quarter plus telemetry before it says anything",
+        "evidence": "The transcript mentions only 'time-to-adopt for new features' as a KPI with no discussion of a required quarter of telemetry data or statistical maturation period.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends promoting time-to-upgrade when a breaking change is coming and the team needs to know who is still on the old version",
+        "evidence": "There is no discussion of breaking changes, version tracking, or a 'time-to-upgrade' metric tied to identifying customers on old versions anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Offers the drafting cost, up to eight hours of an experienced developer per release-note document, instead of inventing an ROI figure",
+        "evidence": "The transcript offers only a generic formula: 'Engineer time recovered | (hours/month engineers/PMs spend drafting release copy) \u00d7 12 \u00d7 (fully loaded engineer hourly rate)' with no specific 'eight hours per document' figure given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Invents no percentage lift for retention or upgrade rate",
+        "evidence": "The transcript states as an illustrative but unsourced figure: 'Even 0.3\u20130.5pp of annual churn avoided on a mid-size ARR base typically exceeds a half-time salary outright,' introducing a specific unverified percentage range tied to retention/churn.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

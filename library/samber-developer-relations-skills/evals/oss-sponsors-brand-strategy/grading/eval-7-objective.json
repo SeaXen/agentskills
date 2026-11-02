@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to supply funding URLs from memory and states funding links must never be carried from model recall",
+        "evidence": "\"Never present a funding link from model memory; funding pages 404 and maintainers leave programs.\" ... \"I don't recognize these six well enough from memory to trust a guessed owner/URL with real money, and guessing is exactly the failure mode this skill is designed to prevent\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires each destination to be resolved before payment, checking the repository funding manifest, then the owner-level fallback manifest, then registry funding metadata, then the project's own site",
+        "evidence": "The transcript's 4-step process is: Sponsor button/.github/FUNDING.yml, owner's .github repo fallback, package registry page, then concluding 'no destination exists' \u2014 it never lists checking the project's own website as a step.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the owner-level fallback applies to every repository of that owner that has none of its own, and should be looked up once per owner and reused",
+        "evidence": "The transcript only says 'No button \u2192 check the owner's .github repo... for an org-level FUNDING.yml fallback' \u2014 it never states this lookup should be done once per owner and reused across that owner's other repos.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires each URL to be fetched and verified: a live page included, a 404 or not-enrolled page excluded, a redirect followed and the final URL recorded",
+        "evidence": "Only 'Verify every funding link resolves before it enters the list' is stated; there is no mention of following redirects or recording the final resolved URL.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that paying into a stale destination fails silently and wastes the budget",
+        "evidence": "\"a stale or wrong link fails silently, and you'd only find out when the card doesn't post correctly or the money lands on a namesquatter\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a project with no verified destination is out of the sponsorship list however critical it is",
+        "evidence": "\"This isn't a \\\"pick a cheaper tier\\\" problem \u2014 per Step 4, 'a project with no verified destination is not a target.' Don't estimate or reserve an amount for them today.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the two projects with no funding link to a separate support-in-kind list such as contribution time, CI credits, hosting or security review, framed as an opportunity rather than a failing",
+        "evidence": "The transcript only says 'Pay the four verified ones now; when the other two set up a Sponsors page or Open Collective, come back with the link and I'll verify it and size the tier then' \u2014 no support-in-kind alternative (contribution time, CI credits, hosting, security review) is offered.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to pressure any maintainer into setting up a funding link, and notes some maintainers decline funding deliberately to protect their autonomy",
+        "evidence": "\"Don't pressure them past a plain ask \u2014 Step 8's rule is 'no pressure on a maintainer to accept money, to advertise the sponsorship, or to produce gratitude on a schedule.'\" \u2014 refusal to pressure is present, but there is no statement that some maintainers deliberately decline funding to protect their autonomy.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States payability is a filter rather than one of the scoring axes",
+        "evidence": "The transcript treats unverified destinations as excluded ('not a target') but never frames or states payability explicitly as a filter versus a scoring axis.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks which surface each tier's placement lands on before any tier is chosen",
+        "evidence": "The transcript first commits to a recommendation ('pick the lowest recurring tier on their published ladder... So for each of the four... pick the lowest recurring tier') and only afterward adds 'If the actual intent behind this payout is reach/visibility... flag that if it's the case' \u2014 the surface question is raised after the tier choice, not before.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that card-paid organization sponsorships carry up to 6% in total fees, 3% processing plus 3% service, while personal-account sponsorships pass through at 0%",
+        "evidence": "\"Personal-account sponsorships pass through fee-free; organization sponsorships by card carry up to 6% (3% processing + 3% service) \u2014 check which one your card is actually running through.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to supply funding URLs from memory and states funding links must never be carried from model recall",
+        "evidence": "\"I won't invent GitHub Sponsors/Open Collective/Ko-fi/Patreon URLs or a tier for six specific projects I have no verified data on.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires each destination to be resolved before payment, checking the repository funding manifest, then the owner-level fallback manifest, then registry funding metadata, then the project's own site",
+        "evidence": "The given checklist only covers sponsor button, .github/FUNDING.yml, and README \u2014 it never mentions an owner-level fallback manifest or registry funding metadata.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the owner-level fallback applies to every repository of that owner that has none of its own, and should be looked up once per owner and reused",
+        "evidence": "No mention of an owner-level fallback manifest concept at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires each URL to be fetched and verified: a live page included, a 404 or not-enrolled page excluded, a redirect followed and the final URL recorded",
+        "evidence": "No verification protocol like this is described; the response only gives manual steps for the user to click through themselves.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that paying into a stale destination fails silently and wastes the budget",
+        "evidence": "Not stated anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a project with no verified destination is out of the sponsorship list however critical it is",
+        "evidence": "\"For the two you already expect have nothing: that's your email-them-today list \u2014 no card to run until they set one up.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the two projects with no funding link to a separate support-in-kind list such as contribution time, CI credits, hosting or security review, framed as an opportunity rather than a failing",
+        "evidence": "Only \"email them today\" is suggested; no support-in-kind alternatives (time, CI credits, hosting, security review) are mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to pressure any maintainer into setting up a funding link, and notes some maintainers decline funding deliberately to protect their autonomy",
+        "evidence": "Not discussed anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States payability is a filter rather than one of the scoring axes",
+        "evidence": "No such framing appears; the transcript doesn't discuss scoring axes at all in this response.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks which surface each tier's placement lands on before any tier is chosen",
+        "evidence": "No tier or placement-surface discussion occurs; this response is only about locating basic funding URLs.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that card-paid organization sponsorships carry up to 6% in total fees, 3% processing plus 3% service, while personal-account sponsorships pass through at 0%",
+        "evidence": "No mention of any fee percentages anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

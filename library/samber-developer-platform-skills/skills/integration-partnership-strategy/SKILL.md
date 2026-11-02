@@ -4,7 +4,7 @@ description: Select which technology partners a B2B SaaS vendor integrates with 
 license: MIT
 metadata:
   author: Samuel Berthe
-  version: "1.0.2"
+  version: "1.0.5"
 ---
 
 # Integration Partnership Strategy
@@ -210,3 +210,7 @@ See also, same collection:
 - `samber/developer-platform-skills@etl-connector-strategy` - your presence as a source connector on third-party ETL/ELT platforms, a specific partnership surface this skill only points at.
 - `samber/developer-platform-skills@partner-app-onboarding` - the partner-developer onboarding path (docs, sandbox tenancy, certification steps) once the partners chosen here start building.
 - `samber/developer-platform-skills@salesforce-appexchange-playbook` - execution once Salesforce wins the prioritization: AppExchange listing type, packaging, security review and revenue share.
+- `samber/developer-platform-skills@microsoft-appsource-playbook` - execution once Microsoft wins the prioritization: transactable Marketplace offer, Teams store validation and co-sell or MACC eligibility.
+- `samber/developer-platform-skills@shopify-app-store-playbook` - execution once Shopify wins the prioritization: distribution choice, Shopify billing for your connector, App Store review and ranking.
+- `samber/developer-platform-skills@google-workspace-marketplace-playbook` - execution once Google Workspace wins the prioritization: scope tiers, OAuth verification, the CASA assessment and Marketplace listing review.
+- `samber/developer-platform-skills@wordpress-plugin-directory-playbook` - execution once WordPress wins the prioritization: connector plugin review, where paid features may live, releases and closures on WordPress.org.

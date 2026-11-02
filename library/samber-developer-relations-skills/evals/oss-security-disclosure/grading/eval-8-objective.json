@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Addresses the dispute to the CNA that assigned the CVE rather than to MITRE by default, requesting rejection or, failing that, a disputed marking",
+        "evidence": "\"Disputes go to the CNA that assigned the ID.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets the expectation that the outcome is DISPUTED and that REJECTED is rare once a record is published",
+        "evidence": "\"Expect DISPUTED, rarely REJECTED.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Structures the dispute with the claimed issue, the documented trust assumption with a link to the 'for tests only' documentation line, the history (reported 8 months ago, assessed and closed before assignment), and the record's score assumption against the documented fact",
+        "evidence": "Claimed issue, 'for tests only' doc link, history, 9.8 score assumption.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires publishing a citable public note of the conclusion and the documentation line now, since the earlier rejection existed only in a private email",
+        "evidence": "Step 2: publish a citable public note; \"This is your dispute evidence.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Files the same correction with the code-host advisory database, the Go vulnerability database using its NOT_A_VULNERABILITY exclusion, and OSV, not only with the CNA",
+        "evidence": "Step 5 lists all three.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that code-host database curators do lower inflated scores when shown the precondition, and supplies that precondition (an opt-in option documented as disabling verification)",
+        "evidence": "No statement that code-host curators lower inflated scores.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that becoming a CNA does not reach back to a CVE another CNA already assigned, citing curl's CVE-2023-52071",
+        "evidence": "\"curl's CVE-2023-52071 is the example\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends evaluating becoming a CNA as the response to recurring third-party CVEs, citing curl and the Linux kernel becoming CNAs for their own products",
+        "evidence": "Recommends CNA long-term but cites no curl/Linux kernel becoming CNAs.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites curl's CVE-2020-19909 or node-ip's CVE-2023-42282 as precedent for a database-scored 9.8 later lowered, with the lesson that not-a-vulnerability reasoning must be public and citable",
+        "evidence": "Only \"Both curl cases ended as DISPUTED or lowered scores\"; no IDs.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Drafts a reply for the three dependents' issues pointing at the public note, without adding the reporter's private detail",
+        "evidence": "Reply links <link to public note>, no reporter detail.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Adds documented test-only options that disable verification to the SECURITY.md out-of-scope list in the retrospective",
+        "evidence": "Adds a 'Not a vulnerability' docs section, no out-of-scope list retrospective item.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Addresses the dispute to the CNA that assigned the CVE rather than to MITRE by default, requesting rejection or, failing that, a disputed marking",
+        "evidence": "\"Dispute to that CNA first. Escalate to MITRE only if that fails.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets the expectation that the outcome is DISPUTED and that REJECTED is rare once a record is published",
+        "evidence": "Lists \"REJECTED, then DISPUTED tag\" as outcomes without saying REJECTED is rare.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Structures the dispute with the claimed issue, the documented trust assumption with a link to the 'for tests only' documentation line, the history (reported 8 months ago, assessed and closed before assignment), and the record's score assumption against the documented fact",
+        "evidence": "Quotes the docs line but gives no link.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires publishing a citable public note of the conclusion and the documentation line now, since the earlier rejection existed only in a private email",
+        "evidence": "Section 4 thread quotes the docs and states the conclusion, to be posted after the filings.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Files the same correction with the code-host advisory database, the Go vulnerability database using its NOT_A_VULNERABILITY exclusion, and OSV, not only with the CNA",
+        "evidence": "Covers GitHub and Go vulndb withdrawal; no OSV and no NOT_A_VULNERABILITY exclusion.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that code-host database curators do lower inflated scores when shown the precondition, and supplies that precondition (an opt-in option documented as disabling verification)",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that becoming a CNA does not reach back to a CVE another CNA already assigned, citing curl's CVE-2023-52071",
+        "evidence": "Says a CNA can't touch other CNAs' IDs, but cites no curl CVE-2023-52071.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends evaluating becoming a CNA as the response to recurring third-party CVEs, citing curl and the Linux kernel becoming CNAs for their own products",
+        "evidence": "\"Becoming a CNA won't work... Drop this path.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites curl's CVE-2020-19909 or node-ip's CVE-2023-42282 as precedent for a database-scored 9.8 later lowered, with the lesson that not-a-vulnerability reasoning must be public and citable",
+        "evidence": "No precedents cited.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Drafts a reply for the three dependents' issues pointing at the public note, without adding the reporter's private detail",
+        "evidence": "Section 5 reply; no reporter details.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Adds documented test-only options that disable verification to the SECURITY.md out-of-scope list in the retrospective",
+        "evidence": "Only offers to draft a scope paragraph; not in a retrospective.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

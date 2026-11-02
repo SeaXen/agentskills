@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Computes the independent software vendor's annual return from the figures given, arriving at roughly $55,000 a year, from about 11 attached customers at $5,000 each.",
+        "evidence": "\"Attach rate | 25% (~11) ... Their return | $5,000/customer/yr \u2192 ~$56,250/yr\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Weighs that return against the vendor's stated alternative - the 9,000-customer logistics platform they already ship on - rather than against zero.",
+        "evidence": "\"Alternative | Sell into their existing 9,000-customer platform ... Net return vs alternative | Positive but small \u2014 Parcelwise is <0.5% upside on their existing book\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Concludes the independent software vendor column is not clearly positive against its alternative.",
+        "evidence": "The table explicitly labels the ISV's net return as \"Positive but small,\" and the rung-selection text states \"They're not [internal team's only positive signal]; ISVs are also positive\" \u2014 treating ISV as a genuine positive, not an unclear one.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats the two agencies that would only build if paid as a logo rather than a complementor, because they have no return of their own.",
+        "evidence": "\"**Agencies aren't complementors.** Paying them makes this rung 2 with contractors, not rung 3 supply. Don't count them toward 'builder supply.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the four customers' own ops teams as the only clearly positive column.",
+        "evidence": "The rung-selection reasoning explicitly states the internal team is not the only positive signal: \"They're not; ISVs are also positive.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Applies the rule that when the only positive column is the customer's internal team, the case is for in-product extension points, not for installable third-party apps.",
+        "evidence": "\"Rung 4 (extension points) \u2014 would fit if internal teams were your *only* positive signal. They're not; ISVs are also positive. Rung 3 captures more value at less cost.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends against the installable third-party app model at this point.",
+        "evidence": "\"Rejected: ... **Rung 5 (installable apps, what you asked for)** \u2014 G5 fails (no standing review/consent team)...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the unsupported CSV glue the four ops teams already built as the strongest available class of demand evidence.",
+        "evidence": "\"4 customers already built unsupported rate-comparison spreadsheets glued to your CSV export. Strongest evidence tier this skill recognizes.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Fills a worksheet line per archetype with ranges where a figure is rough, leaving no line blank.",
+        "evidence": "The Agency column shows \"Reachable accounts | \u2014\" and \"Attach rate | \u2014\", and other figures (45 accounts, 25%, $5,000, 12 person-weeks) are given as single point estimates rather than ranges.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Counts the migrations Parcelwise would force on builders inside the maintenance cost line rather than omitting it.",
+        "evidence": "The \"Maintenance\" row simply states \"4 person-weeks/yr\" for the ISV with no connection made to API-change-driven migrations; that topic only appears separately under \"Obligations\" as a 90-day notice policy.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Applies the mirror test: if both sides can walk away at zero cost this is a handshake, not an ecosystem.",
+        "evidence": "\"Net return vs alternative | **Fails test** \u2014 'if we don't do this, nothing changes for them' unless paid\" applied to the agencies.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that any builder return that depends on Parcelwise routing customers to them becomes part of the obligations, not part of the pitch.",
+        "evidence": "Routing customers to ISVs is mentioned only under \"Flywheel\" (\"you route customers at them, not just list them\"), not listed among the \"Obligations\" section items.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Computes the independent software vendor's annual return from the figures given, arriving at roughly $55,000 a year, from about 11 attached customers at $5,000 each.",
+        "evidence": "'Realistic attach: 25% \u2192 ~11 customers, total. Vendor price: $5,000/yr. Total ecosystem GMV once mature: ~$55,000/yr.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Weighs that return against the vendor's stated alternative - the 9,000-customer logistics platform they already ship on - rather than against zero.",
+        "evidence": "'They already ship this integration into a platform with 9,000 customers. That's their bar for \"worth building standalone.\"'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Concludes the independent software vendor column is not clearly positive against its alternative.",
+        "evidence": "'That does not clear payback in any reasonable window for either vendor alone... Expect lukewarm engineering priority, slow SLAs, and a partner who deprioritizes you.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the two agencies that would only build if paid as a logo rather than a complementor, because they have no return of their own.",
+        "evidence": "'Two agencies offering to build \"if paid\" is not a free option \u2014 it just moves the build cost onto your balance sheet... Don't mistake \"someone will build it\" for \"the economics work.\"'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the four customers' own ops teams as the only clearly positive column.",
+        "evidence": "'Four customers already built the workaround themselves, unprompted, off your existing CSV export. That's free market research: real demand, already proven, at zero acquisition cost.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Applies the rule that when the only positive column is the customer's internal team, the case is for in-product extension points, not for installable third-party apps.",
+        "evidence": "'Ship the cheap fix first. Extend the CSV export (or add a minimal native rate-comparison view) to directly serve the segment your own customers already proved wants this.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends against the installable third-party app model at this point.",
+        "evidence": "'Don't build an app platform for this. Marketplace infrastructure... is a play for dozens of complements and hundreds of partners. You have one validated complement and 11 realistic customers. That's a partnership, not a platform.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the unsupported CSV glue the four ops teams already built as the strongest available class of demand evidence.",
+        "evidence": "'The stronger signal you're underweighting: Four customers already built the workaround themselves, unprompted, off your existing CSV export.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Fills a worksheet line per archetype with ranges where a figure is rough, leaving no line blank.",
+        "evidence": "Only the vendor line gets numeric ranges (e.g. '12 weeks to build (~$40-45k loaded)'); the agency and customer-ops-team lines are discussed qualitatively with no dollar ranges attached.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Counts the migrations Parcelwise would force on builders inside the maintenance cost line rather than omitting it.",
+        "evidence": "The maintenance line only covers the vendor's own '4 weeks/yr to maintain (~$14k/yr)'; no line item accounts for migrations Parcelwise itself would force on the vendor.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Applies the mirror test: if both sides can walk away at zero cost this is a handshake, not an ecosystem.",
+        "evidence": "No 'walk away at zero cost' or mirror-test language appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that any builder return that depends on Parcelwise routing customers to them becomes part of the obligations, not part of the pitch.",
+        "evidence": "The transcript suggests using leverage in negotiation ('ask what it would take for them to treat you the same way') but never frames Parcelwise's routing of customers as an obligation owed to the vendor.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

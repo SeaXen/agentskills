@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Confirms the CHAOSS Starter Project Health model does refuse cross-project comparison.",
+        "evidence": "\"**Starter Project Health** \u2014 the model that says 'we do not compare projects against each other.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Scopes that refusal to self-improvement decisions.",
+        "evidence": "\"This governs *self-improvement* decisions: using metrics to make your own project better.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the CHAOSS Practitioner Guide on assessing viability as the comparative model.",
+        "evidence": "\"**Practitioner Guide: Assessing Viability** \u2014 comparative by design.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places a competitor benchmark on the viability side because the decision is judging the credibility of their motion rather than scoring your own project.",
+        "evidence": "\"Our open-source section is the viability question, not the self-improvement one... which is a dependency/credibility judgment, not a health-improvement one.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Corrects the elephant factor reading: it counts organizations, not individual people.",
+        "evidence": "\"Elephant Factor (the fewest orgs producing 50% of activity) is a published CHAOSS metric\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes it from the contributor absence factor, which counts the smallest number of people producing fifty percent of contributions.",
+        "evidence": "\"contributor absence factor\" is never mentioned anywhere in this section.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reads an elephant factor of 1 as a single-vendor surface presented as a community.",
+        "evidence": "\"their 'community' repo is a single-vendor surface wearing community clothes\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that this reading changes how every other number in that column is read.",
+        "evidence": "\"it's a discount we apply to every other number in their column... that changes how much weight their other community and content signals deserve too\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names Organizational Influence as the companion published CHAOSS metric.",
+        "evidence": "\"Organizational Influence\" is never mentioned in this section; only Elephant Factor is discussed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels both metrics as published and attributes them to CHAOSS rather than to this analysis's own conventions.",
+        "evidence": "Only Elephant Factor is labeled as a \"published CHAOSS metric\"; a second metric (Organizational Influence) is never named, so \"both\" cannot be satisfied.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Proposes the share of merged pull requests authored outside the company as a collectible row for that column.",
+        "evidence": "No mention of \"merged pull requests\" or outside-contribution share anywhere in this section.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Confirms the CHAOSS Starter Project Health model does refuse cross-project comparison.",
+        "evidence": "The transcript discusses CHAOSS's Goal-Question-Metric approach generically and never names the 'Starter Project Health' model specifically.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Scopes that refusal to self-improvement decisions.",
+        "evidence": "No such scoping is discussed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the CHAOSS Practitioner Guide on assessing viability as the comparative model.",
+        "evidence": "No specific named guide is cited; only generic references to 'CHAOSS-aligned use cases' and 'OpenSSF Scorecard.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places a competitor benchmark on the viability side because the decision is judging the credibility of their motion rather than scoring your own project.",
+        "evidence": "The closest text is \"the goal is 'which of these should we depend on'\" \u2014 related to adoption/dependency risk, but not framed as judging the credibility of a competitor's motion.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Corrects the elephant factor reading: it counts organizations, not individual people.",
+        "evidence": "\"Elephant Factor isn't an individual bus-factor metric \u2014 it's an organizational concentration metric: the minimum number of distinct companies whose employees account for more than 50% of contributions.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes it from the contributor absence factor, which counts the smallest number of people producing fifty percent of contributions.",
+        "evidence": "The transcript names \"Bus Factor or Pony Factor\" loosely, without using the term 'contributor absence factor' or precisely defining either as counting people producing 50% of contributions.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reads an elephant factor of 1 as a single-vendor surface presented as a community.",
+        "evidence": "The text only states \"An EF of 1 means one company's employees dominate the repo\" \u2014 it does not frame this as a vendor surface being 'presented as a community.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that this reading changes how every other number in that column is read.",
+        "evidence": "No such statement about reinterpreting an entire column of numbers appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names Organizational Influence as the companion published CHAOSS metric.",
+        "evidence": "\"Organizational Influence\" is never mentioned anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels both metrics as published and attributes them to CHAOSS rather than to this analysis's own conventions.",
+        "evidence": "Since Organizational Influence is never named, no such dual attribution occurs.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Proposes the share of merged pull requests authored outside the company as a collectible row for that column.",
+        "evidence": "No such metric is proposed; the proposal section only discusses restricting comparisons to like-for-like repos with disclosed methodology.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

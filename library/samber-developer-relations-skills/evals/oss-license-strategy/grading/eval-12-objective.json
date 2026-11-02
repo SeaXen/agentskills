@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that LGPL lets proprietary applications link but requires recipients to be able to swap in a modified library",
+        "evidence": "\"LGPL trigger: distribution of linked work. Obligation: recipient must be able to relink modified library into it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that dynamic linking keeps the relink obligation simple while static linking pulls it onto the application",
+        "evidence": "Only static linking is discussed (\"static linking pulls relink obligations onto the application\"); dynamic linking is never mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that LGPL-3.0 raises installation-information duties on locked devices",
+        "evidence": "\"LGPLv3 incorporates GPLv3 \u00a76 anti-tivoization: for a 'User Product,' you must give Installation Information \u2014 enough for recipient to install and run a *modified* library on the actual device.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the customers' signed firmware as where the obligation lands, making those accounts a deleted market rather than a slower sale",
+        "evidence": "The transcript identifies the conflict (\"A locked bootloader that only executes vendor-signed images is the exact case that clause exists to kill\") but never frames the customer segment as a 'deleted market' vs. a slower sale.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Offers MPL-2.0 as a file-level copyleft alternative where static linking into a proprietary product is fine and only modified MPL files must be published",
+        "evidence": "\"A \u2014 Open commons | MPL-2.0 | File-level copyleft. Explicitly permits static linking into proprietary firmware... Modified pulsecore files must be published to recipients on distribution.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that MPL section 3.3 permits combining with GPL, LGPL or AGPL code unless Exhibit B marks the file 'Incompatible With Secondary Licenses'",
+        "evidence": "No mention of MPL \u00a73.3 or Exhibit B anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Attributes the LGPL recommendation for a library facing an entrenched non-copyleft competitor to the FSF, and labels MPL-2.0 as this skill's own alternative",
+        "evidence": "No such FSF attribution or framing appears in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Matches the family to the artifact's trigger event, distribution of a linked work",
+        "evidence": "\"LGPL trigger: distribution of linked work.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines to rank the candidate licenses inside the posture by efficiency, because the trigger event and the constraints determine the choice",
+        "evidence": "\"Your message says 'right now\u2026 we license it per unit' without saying you're dropping that revenue \u2014 confirm which one you actually want before picking. That single answer decides A vs B.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that GPL-3.0 adds anti-tivoization terms relative to GPL-2.0",
+        "evidence": "GPL-2.0 is never mentioned or compared against GPL-3.0's anti-tivoization clause in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats 'or any later version' as a separate decision that hands the license steward a future say",
+        "evidence": "Not discussed anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to draft a custom linking exception or a modified LGPL",
+        "evidence": "Only refuses downgrading to the existing LGPL-2.1 standard license (\"Don't reach for it\"); no mention of a custom linking exception or a modified/bespoke LGPL text.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that LGPL lets proprietary applications link but requires recipients to be able to swap in a modified library",
+        "evidence": "The transcript never states that LGPL permits proprietary applications to link against the library. It only describes the relink obligation once triggered (e.g. '\u00a74(d)(0) requires giving recipients the Minimal Corresponding Source plus the Corresponding Application Code \"in a form suitable for\" relinking against a modified pulsecore'), never framing LGPL's baseline permission for proprietary linking explicitly.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that dynamic linking keeps the relink obligation simple while static linking pulls it onto the application",
+        "evidence": "'\u00a74(d)(1) (shared-library mechanism) is the escape hatch, and it is unavailable to you: these images are statically linked into signed firmware... For static firmware that means shipping hospitals object files, archives, and linker scripts for the *proprietary* firmware.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that LGPL-3.0 raises installation-information duties on locked devices",
+        "evidence": "'LGPLv3 \u00a74(e) pulls in GPLv3 \u00a76's *Installation Information* requirement when the combined work is conveyed in, or with, or specifically for use in, a **User Product**... Your customers' entire threat model is that nothing unsigned boots.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the customers' signed firmware as where the obligation lands, making those accounts a deleted market rather than a slower sale",
+        "evidence": "'one of the two problems is fatal for your customers' and 'Your customers' entire threat model is that nothing unsigned boots. Complying means handing hospitals signing capability. Not complying means license breach.' plus 'Likely a regulatory non-starter independent of the license.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Offers MPL-2.0 as a file-level copyleft alternative where static linking into a proprietary product is fine and only modified MPL files must be published",
+        "evidence": "'MPL-2.0 for the open side. File-level copyleft, purpose-built for mixing with proprietary code. Modify an MPL file \u2192 publish that file's source to your recipients. No Installation Information clause, no relink obligation, static linking is a non-event.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that MPL section 3.3 permits combining with GPL, LGPL or AGPL code unless Exhibit B marks the file 'Incompatible With Secondary Licenses'",
+        "evidence": "No mention anywhere in the transcript of MPL section 3.3, Exhibit B, or the 'Incompatible With Secondary Licenses' notice.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Attributes the LGPL recommendation for a library facing an entrenched non-copyleft competitor to the FSF, and labels MPL-2.0 as this skill's own alternative",
+        "evidence": "No mention of the FSF anywhere in the transcript, nor any framing of MPL-2.0 as a 'skill's own alternative' versus an FSF-endorsed LGPL recommendation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Matches the family to the artifact's trigger event, distribution of a linked work",
+        "evidence": "'LGPL obligations trigger on *conveying* a modified work, and they run to whoever receives that copy' contrasted with MPL's file-modification trigger ('Modify an MPL file \u2192 publish that file's source to your recipients'), tying the recommended license family to the specific triggering event.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines to rank the candidate licenses inside the posture by efficiency, because the trigger event and the constraints determine the choice",
+        "evidence": "No statement in the transcript declines to rank licenses by 'efficiency'; instead the transcript actively ranks options (MPL-2.0 first, LGPL-2.1 as fallback, LGPL-3.0 rejected) without addressing an efficiency-ranking question at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that GPL-3.0 adds anti-tivoization terms relative to GPL-2.0",
+        "evidence": "'If you insist on staying in the LGPL family, LGPL-2.1, not 3.0. It predates GPLv3, so no anti-tivoization clause.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats 'or any later version' as a separate decision that hands the license steward a future say",
+        "evidence": "The transcript contains no mention of an 'or any later version' clause or any discussion of licensor discretion over future license versions.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to draft a custom linking exception or a modified LGPL",
+        "evidence": "The transcript neither raises nor addresses a custom linking exception or a modified LGPL text; there is no explicit refusal of such a request anywhere in the response.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,370 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "business-event-formats",
+  "scenarios": 8,
+  "expectations_total": 88,
+  "expectations_subjective": 1,
+  "expectations_objective": 87,
+  "pass_rate_with_skill_pct": 86.4,
+  "pass_rate_without_skill_pct": 21.6,
+  "delta_pp": 64.8,
+  "uplift_multiplier": 4.0,
+  "trigger_accuracy_pct": 50.0,
+  "trigger_queries": 86,
+  "trigger_positive_fire_rate": 0.0,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Offers the deliverable for validation section by section rather than delivering one final block"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Removes the dinner from the menu entirely rather than keeping it as a low-ranked or fallback option"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Recommends a shape matched to a volume goal, such as a multi-city roadshow or single-city conference, instead of the dinners"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Asks what evidence exists that an audience would travel, or what audience assets exist, before choosing between the volume shapes"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that a summit cannot serve an audience that evaluates products hands-on"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Establishes who the intended attendee is, or whether the goal is named-account depth versus volume, before endorsing any shape"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States the credibility ordering across postures: open submissions above mixed labelled above customer-story above company-supplied"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes that open submissions also tops the effort ordering, citing the review cycle and the cost of refusing internal speakers"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "For an own floor, routes layout, tier specs, setup windows, staffing and traffic to the floor-operations sibling instead of answering them inline"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that attendee traffic reads on the floor's operation, which is the floor-operations sibling's outcome, not on the shape choice"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Stops rather than applying the company-run shape ladder: delivers no roadshow-versus-summit recommendation from this catalog"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Does not let sponsor appetite drive the shape choice, noting sponsor offerings are priced and delivered against a chosen shape rather than being a reason to pick one"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Establishes whether the goal is volume of qualified conversations or penetration of the 14-account list before ranking or recommending any shape, by asking the question or explicitly surfacing the conflict between the CRO and the marketing team"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that reach and account depth order the event shapes in exactly opposite ways, so the choice between those two axes decides the ranking"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that the floor-primary shape is top of reach but bottom of account depth, so neither efficiency ordering ever selects it"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names the floor-primary promotion condition as the combination of having no audience that will travel and the ecosystem rather than the product being the year's story"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Ties the shape candidates to the chosen axis: dinner or roundtable and executive summit lead if the named-account axis wins, roadshow or single-city conference lead if volume wins, rather than one generic pick"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Asks for evidence that an audience would travel (customer base, mailable list, past registrations) rather than impressions before proposing a single-city conference"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Presents 2-3 candidate shapes with trade-offs and exactly one recommendation"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names, for each choice made, the interview answer that would flip it next year"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Routes goal mix, funding ownership and success measurement to a separate corporate event strategy decision rather than fixing goals or KPIs itself"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Contains no invented headcount, city count, agenda length, ticket price or budget figure"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Offers the deliverable for validation section by section rather than delivering one final block"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Advises against the dinner series because no named account list exists"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that without named invitees the dinner degrades into a generic mixer that buys neither reach nor account depth"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Removes the dinner from the menu entirely rather than keeping it as a low-ranked or fallback option"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Rejects the framing that the dinners are low risk because they are small and involve no venue contracts"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Places the dinner or roundtable at the top of the compliance ordering among event shapes"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that an accepted invitation cannot be quietly withdrawn"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Recommends a shape matched to a volume goal, such as a multi-city roadshow or single-city conference, instead of the dinners"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Asks what evidence exists that an audience would travel, or what audience assets exist, before choosing between the volume shapes"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names the condition that would bring the dinner back onto the menu: a real named account list"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Adds no invented headcount, seat count, budget or price figures of its own"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Declines to validate 12 cities or to supply any specific right number of cities"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Prescribes fixing a per-city stop rule before the first city: what a stop must return for the next one to run"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that the stop rule set in advance is the only defence, because the marginal-city question has no general answer"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Routes the per-city economics and payback question to the goals-and-budget decision rather than guessing a count"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names the reuse structure: later stops reuse one deck, one crew and one run-of-show while the first stop absorbs the setup"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Distinguishes a roadshow (one program re-run across places) from a conference series (different programs across time)"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Declines to design per-city agendas, talk counts or session formats, and routes internal program structure to the format-selection sibling"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that a roadshow does not become an owned annual property: it has stops, not editions"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Identifies the single-city user conference as the only shape that becomes an owned annual property, and ties the flagship ambition to it"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that the compounding-annual-property answer can promote the single-city conference past the roadshow even though the roadshow leads reach per unit effort"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Flags the per-jurisdiction registration-data and marketing-consent review triggered by stops across the US and Europe"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that a summit cannot serve an audience that evaluates products hands-on"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Distinguishes a summit from a roundtable by how the list is built - assembled through nomination or application versus invitees personally known to the company - not by seniority or size"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes that a summit needs runway that a roundtable does not"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names the summit's live risk as compliance from hosted hospitality, not budget"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Establishes who the intended attendee is, or whether the goal is named-account depth versus volume, before endorsing any shape"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Routes why the event is run, who funds it and how it is measured to a separate strategy decision rather than fixing them here"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names both promotion conditions for open submissions: a compounding annual property and the political capital to tell an executive their slot did not make the program"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States the collapse failure: without that political capital the open posture becomes a company-supplied program with extra administration, the worst outcome on the menu"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States the credibility ordering across postures: open submissions above mixed labelled above customer-story above company-supplied"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes that open submissions also tops the effort ordering, citing the review cycle and the cost of refusing internal speakers"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Sets the measurement gate as counting company slots on the final program against the planned number, watching for drift"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Routes what the chosen posture entitles the event to claim about itself to the positioning decision rather than declaring the event neutral or community-run"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Routes session formats and track structure to the format-selection sibling rather than designing the agenda"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Deletes the all-internal, company-supplied program from the menu for this edition rather than merely ranking it low"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that a company-supplied program remains legitimate for the customers-only roadmap day it used to be"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that the 'independent gathering' claim is forfeit when single-vendor content dominates, citing the roughly 30-40% single-vendor-content share threshold"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Attributes that threshold to the positioning sibling and labels it a reasoned default, not an industry standard"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends the customer-story program and explicitly promotes it because the customer advisory board already meets"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Warns of the customer-story program's hidden cost: reference approval and legal sign-off per customer"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Offers the mixed practitioner program with labelled company slots as another compliant candidate"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Does not invent an alternative neutrality threshold or re-derive the positioning analysis instead of citing it"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Routes final agenda mechanics such as session formats and track structure to the format-selection sibling"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recognizes that both floor-primary promotion conditions hold - no audience that will travel and the ecosystem as the year's story - so the floor-primary family is legitimately in play"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States the floor-shape trade-off: an own floor buys ecosystem visibility while only the third-party rung borrows an audience someone else assembled"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "When discussing the own-floor options, names the own showcase floor as the cheapest buy of partner visibility or the program-plus-floor promotion condition as the ecosystem being what is sold this year"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Declines to give booth layout and staffing recommendations for exhibiting at the third-party show"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States the reason for declining: the floor-operations sibling serves the organizer who owns the hall, not a company exhibiting on someone else's floor, so support ends at naming the shape"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that limit explicitly instead of improvising generic booth tips"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "For an own floor, routes layout, tier specs, setup windows, staffing and traffic to the floor-operations sibling instead of answering them inline"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Sets the own-floor success gate as exhibitors who return, not attendee walk-past traffic"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that attendee traffic reads on the floor's operation, which is the floor-operations sibling's outcome, not on the shape choice"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Adds no invented attendee counts, exhibitor counts or booth prices of its own"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Routes the shape question to the community-pole format-selection skill instead of answering from the company-run catalog"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Stops rather than applying the company-run shape ladder: delivers no roadshow-versus-summit recommendation from this catalog"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Uses the pole names company-run and community-run while addressing what the user called corporate, mirroring the meaning rather than the label"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Explains why the routing happens: the shape ladder here serves companies choosing a company-run event"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Does not let sponsor appetite drive the shape choice, noting sponsor offerings are priced and delivered against a chosen shape rather than being a reason to pick one"
+      }
+    ]
+  }
+}

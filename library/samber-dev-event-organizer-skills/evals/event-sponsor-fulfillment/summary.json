@@ -1,0 +1,274 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-sponsor-fulfillment",
+  "scenarios": 8,
+  "expectations_total": 81,
+  "expectations_subjective": 1,
+  "expectations_objective": 80,
+  "pass_rate_with_skill_pct": 87.7,
+  "pass_rate_without_skill_pct": 42.0,
+  "delta_pp": 45.7,
+  "uplift_multiplier": 2.09,
+  "trigger_accuracy_pct": 73.6,
+  "trigger_queries": 72,
+  "trigger_positive_fire_rate": 0.833,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 2,
+        "expectation": "Sorts the deadline table by date and treats its top row as the clock"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Deletes the organizer's own copy of the entries after hand-off"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States the entries never merge into any organizer list and the raffle never substitutes for an attendee list"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes the raffle carries a compliance cost the aggregate document does not, and that a mishandled hand-off cannot be walked back"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Passes along guidance to send someone who can tell the company's story and participate with the community rather than a sales representative"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Collects the workshop title, abstract and speaker name as intake assets against a deadline"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Ranks the onboarding options explicitly by value returned per unit of effort rather than by which is cheapest"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Keeps the accompanying asset kit deliberately minimal (photos, a presentation template, one contact-request email) rather than a sprawling toolkit"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States the ranking is a default that the four-hours-a-week effort ceiling and the compounding relationship re-rank"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Walks the booths at doors-open with the matrix in hand, photographing premium placements, banners and signage as cell evidence"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Builds a tier-by-perk matrix with perks as rows and tiers or sponsors as columns, not a single flat list of perks"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Gives each matrix cell a state along a promised, scheduled, delivered, evidenced progression"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States the promise column quotes each signed agreement, and declines to build the perk list from the prospectus PDF"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Explains that the prospectus is the sales document while custom-negotiated deltas exist only in the signed contract"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Holds every Klarstack perk, including the website logo, until the invoice is paid in full"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Treats Nordpath Analytics's half payment as not-paid-in-full and holds their perks too"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Communicates each hold to the affected sponsor through their liaison, naming what is queued and why"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Rejects letting an unpaid sponsor discover the hold at the venue door or at setup time"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names one liaison per sponsor"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Places printed surfaces (lanyard, swag bag, signage) ahead of digital ones (newsletter, social, slides)"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States a logo missed on a printed run is unfixable afterwards and becomes a make-good negotiation instead of a perk"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Holds Cindercloud's lanyard artwork behind payment rather than sending it to the printer on an open invoice"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Tells Cindercloud the print deadline explicitly so they can decide in time, instead of silently letting the slot lapse"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Sorts the deadline table by date and treats its top row as the clock"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Shares the sponsor-facing part of the deadline table with each sponsor"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Refuses sponsor badge scanning at this community-run event"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Identifies the newsletter opt-in checkbox on the raffle form as the banned bulk-capture move in disguise, not a middle ground"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Offers aggregate demographics (role mix, seniority mix, company-size mix, no names) as the default answer"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Offers a consented opt-in raffle as the higher-value option where that perk was sold"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Hands the raffle entries to Ferrolane only"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Deletes the organizer's own copy of the entries after hand-off"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States the entries never merge into any organizer list and the raffle never substitutes for an attendee list"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Briefs the volunteers that the raffle and the aggregate demographics document are the only data hand-offs that exist"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes the raffle carries a compliance cost the aggregate document does not, and that a mishandled hand-off cannot be walked back"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Sends the report within 72 hours of the event rather than polishing it over the following weeks"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Includes a delivered-versus-promised table with per-perk evidence such as a photo, link or screenshot"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Includes aggregate audience data (attendance, role, seniority, company-size mix) and no attendee names"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Produces a renew, renegotiate or drop read on Auxograph and hands it with the report to the sponsor outreach motion"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Makes a named on-site representative a hard condition of the API-credits perk rather than a nice-to-have"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that a tool with nobody available to troubleshoot it gets abandoned the moment it stops working"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Offers an enthusiastic independent user of the tool as the on-site point of contact when no company representative can attend"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Passes along guidance to send someone who can tell the company's story and participate with the community rather than a sales representative"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Collects the workshop title, abstract and speaker name as intake assets against a deadline"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Ranks the onboarding options explicitly by value returned per unit of effort rather than by which is cheapest"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Promotes a kickoff call for Pellucid Labs as a compounding multi-edition relationship and names that as the promotion condition"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends an intake form at nine sponsors, citing roughly five sponsors as the point where it repays its setup cost"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Generates each welcome email from that sponsor's own column of the fulfillment matrix"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Writes the welcome email against specific named program moments the sponsor's team can put in a calendar, not a flat benefits list"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Keeps the accompanying asset kit deliberately minimal (photos, a presentation template, one contact-request email) rather than a sprawling toolkit"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States the ranking is a default that the four-hours-a-week effort ceiling and the compounding relationship re-rank"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States the fulfillment matrix must honor every published cap, covering exclusive surfaces, premium placements and pitch slots"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Describes an oversold exclusive surface as one promise two sponsors hold at the same time"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Covers the setup and teardown window, shipping to the venue, whom to send, electricity, WiFi and additional A/V equipment"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Puts a logistics call or thread with each sponsor's on-site lead on the fulfillment calendar"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Produces one day-of brief per sponsor about a week out, carrying booth location and size, staff badge count and pickup, scheduled slots, an on-site organizer phone contact and teardown rules"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Takes the booth specs and setup schedule from the existing floor layout work instead of re-deriving or restating them"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Walks the booths at doors-open with the matrix in hand, photographing premium placements, banners and signage as cell evidence"
+      }
+    ]
+  }
+}

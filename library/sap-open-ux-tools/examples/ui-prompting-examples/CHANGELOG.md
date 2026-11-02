@@ -1,0 +1,1274 @@
+# @sap-ux-private/ui-prompting-examples
+
+## 1.1.17
+
+### Patch Changes
+
+#### Workspace Updates
+
+- @sap-ux/ui-components 3.0.18 → 3.0.19
+- @sap-ux/ui-prompting 1.0.20 → 1.0.21
+
+## 1.1.16
+
+### Patch Changes
+
+#### Workspace Updates
+
+- @sap-ux/ui-prompting 1.0.19 → 1.0.20
+
+## 1.1.15
+
+### Patch Changes
+
+#### Workspace Updates
+
+- @sap-ux/ui-components 3.0.17 → 3.0.18
+- @sap-ux/ui-prompting 1.0.18 → 1.0.19
+
+## 1.1.14
+
+### Patch Changes
+
+#### Workspace Updates
+
+- @sap-ux/ui-components 3.0.16 → 3.0.17
+- @sap-ux/ui-prompting 1.0.17 → 1.0.18
+
+## 1.1.13
+
+### Patch Changes
+
+#### Bug Fixes
+
+- Resolve npm audit vulnerabilities — adm-zip 0.6.1, sanitize-html 2.17.7, @xmldom/xmldom 0.9.12, @sap/approuter 23.0.0, qs 6.16.0; add pnpm-workspace.yaml overrides for browserslist, hono, js-yaml, smol-toml, sharp, stream-json, csv-parse, pacote, and others; upgrade @modelcontextprotocol/sdk to 1.32.1 (GHSA-6qxp-vccf-f47h) [[33b98a5](https://github.com/SAP/open-ux-tools/commit/33b98a54ec2f1e2d937cdcd068017c76cc230080)]
+
+#### Workspace Updates
+
+- @sap-ux/ui-components 3.0.15 → 3.0.16
+- @sap-ux/ui-prompting 1.0.16 → 1.0.17
+
+## 1.1.12
+
+### Patch Changes
+
+#### Release Date
+
+2026-09-08
+
+#### Workspace Updates
+
+- @sap-ux/ui-components 3.0.14 → 3.0.15
+- @sap-ux/ui-prompting 1.0.15 → 1.0.16
+
+## 1.1.11
+
+### Patch Changes
+
+#### Workspace Updates
+
+- @sap-ux/ui-components 3.0.13 → 3.0.14
+- @sap-ux/ui-prompting 1.0.14 → 1.0.15
+
+## 1.1.10
+
+### Patch Changes
+
+#### Workspace Updates
+
+- @sap-ux/ui-components 3.0.12 → 3.0.13
+- @sap-ux/ui-prompting 1.0.13 → 1.0.14
+
+## 1.1.9
+
+### Patch Changes
+
+#### Workspace Updates
+
+- @sap-ux/ui-components 3.0.11 → 3.0.12
+- @sap-ux/ui-prompting 1.0.12 → 1.0.13
+
+## 1.1.8
+
+### Patch Changes
+
+#### Workspace Updates
+
+- @sap-ux/ui-components 3.0.10 → 3.0.11
+- @sap-ux/ui-prompting 1.0.11 → 1.0.12
+
+## 1.1.7
+
+### Patch Changes
+
+#### Workspace Updates
+
+- @sap-ux/ui-components 3.0.9 → 3.0.10
+- @sap-ux/ui-prompting 1.0.10 → 1.0.11
+
+## 1.1.6
+
+### Patch Changes
+
+#### Workspace Updates
+
+- @sap-ux/ui-components 3.0.8 → 3.0.9
+- @sap-ux/ui-prompting 1.0.9 → 1.0.10
+
+## 1.1.5
+
+### Patch Changes
+
+#### Workspace Updates
+
+- @sap-ux/ui-components 3.0.7 → 3.0.8
+- @sap-ux/ui-prompting 1.0.8 → 1.0.9
+
+## 1.1.4
+
+### Patch Changes
+
+#### Workspace Updates
+
+- @sap-ux/ui-components 3.0.6 → 3.0.7
+- @sap-ux/ui-prompting 1.0.7 → 1.0.8
+
+## 1.1.3
+
+### Patch Changes
+
+#### Workspace Updates
+
+- @sap-ux/ui-components 3.0.5 → 3.0.6
+- @sap-ux/ui-prompting 1.0.6 → 1.0.7
+
+## 1.1.2
+
+### Patch Changes
+
+#### Dependency Updates
+
+- Bulk upgrade of minor dependencies and devDependencies [[5ce779c](https://github.com/SAP/open-ux-tools/commit/5ce779c43ae81d9a4ed85414bfb6f0ca8f882afc)]
+
+#### Workspace Updates
+
+- @sap-ux/ui-components 3.0.4 → 3.0.5
+- @sap-ux/ui-prompting 1.0.5 → 1.0.6
+
+## 1.1.1
+
+### Patch Changes
+
+#### Workspace Updates
+
+- @sap-ux/ui-components 3.0.3 → 3.0.4
+- @sap-ux/ui-prompting 1.0.4 → 1.0.5
+
+## 1.1.0
+
+### Minor Changes
+
+#### Features
+
+- Add full template support for the Page building block with all 7 aggregations and controller stub generation [[5a4f633](https://github.com/SAP/open-ux-tools/commit/5a4f633fdd1a1c7d5415221c0863089e7e540aca)]
+
+## 1.0.4
+
+### Patch Changes
+
+#### Release Date
+
+2026-06-18
+
+#### Bug Fixes
+
+- Code preview in Storybook examples was hard to read due to background color [[e3b09f8](https://github.com/SAP/open-ux-tools/commit/e3b09f83d9ea244a4d3b107ed4e50615a1c45367)]
+
+#### Workspace Updates
+
+- @sap-ux/ui-prompting 1.0.3 → 1.0.4
+
+## 1.0.3
+
+### Patch Changes
+
+- Updated dependencies [a1235d6]
+    - @sap-ux/ui-components@3.0.3
+    - @sap-ux/ui-prompting@1.0.3
+
+## 1.0.2
+
+### Patch Changes
+
+- Updated dependencies [21a3de7]
+    - @sap-ux/ui-components@3.0.2
+    - @sap-ux/ui-prompting@1.0.2
+
+## 1.0.1
+
+### Patch Changes
+
+- Updated dependencies [21cadc3]
+    - @sap-ux/ui-components@3.0.1
+    - @sap-ux/ui-prompting@1.0.1
+
+## 1.0.0
+
+### Major Changes
+
+- 32609a7: # Migration to ECMAScript Modules (ESM)
+
+    Packages in the SAP Open UX Tools monorepo have been migrated from CommonJS (CJS) to ECMAScript Modules (ESM) with NodeNext module resolution.
+
+    '@sap-ux/backend-proxy-middleware-cf' is experimental and will remain at major version 0.
+    '@sap-ux/generator-odata-downloader' is a top level yeoman generator and will remain as CJS until validation as ESM is done.
+
+    ## What Changed
+    - **Module System**: Most packages now use native ESM (`"type": "module"` in package.json)
+    - **TypeScript Configuration**: Updated to `module: "NodeNext"` and `moduleResolution: "NodeNext"`
+    - **Import Statements**: All relative imports now include explicit `.js` extensions (per ESM spec)
+    - **Build Output**: Generated JavaScript files are now ESM modules
+    - **Node.js Requirement**: Minimum Node.js version remains >=22.x
+
+    ### Jest Configuration (for Testing)
+
+    If your project tests code that imports these packages, update your Jest configuration:
+
+    ```js
+    export default {
+        extensionsToTreatAsEsm: ['.ts'],
+        transform: {
+            '^.+\\.ts$': ['ts-jest', { useESM: true }]
+        }
+    };
+    ```
+
+    And run Jest with: `NODE_OPTIONS='--experimental-vm-modules' jest`
+
+### Patch Changes
+
+- Updated dependencies [32609a7]
+    - @sap-ux/ui-components@3.0.0
+    - @sap-ux/ui-prompting@1.0.0
+
+## 0.5.36
+
+### Patch Changes
+
+- Updated dependencies [b0a922a]
+    - @sap-ux/ui-components@2.2.5
+    - @sap-ux/ui-prompting@0.7.5
+
+## 0.5.35
+
+### Patch Changes
+
+- Updated dependencies [bc315f0]
+    - @sap-ux/ui-components@2.2.4
+    - @sap-ux/ui-prompting@0.7.4
+
+## 0.5.34
+
+### Patch Changes
+
+- 01b70ca: chore: upgrade sanitize-html 2.17.3 → 2.17.4 (GHSA-rpr9-rxv7-x643), ws 8.20.0 → 8.21.0 (GHSA-58qx-3vcg-4xpx)
+- a97d926: fix(ui-prompting-examples): upgrade sanitize-html 2.17.3 → 2.17.4 to resolve critical XSS vulnerability (GHSA-mjxr-4v3x-q3m4)
+- Updated dependencies [01b70ca]
+- Updated dependencies [a97d926]
+    - @sap-ux/ui-components@2.2.3
+    - @sap-ux/ui-prompting@0.7.3
+
+## 0.5.33
+
+### Patch Changes
+
+- Updated dependencies [882d45b]
+    - @sap-ux/ui-components@2.2.2
+    - @sap-ux/ui-prompting@0.7.2
+
+## 0.5.32
+
+### Patch Changes
+
+- Updated dependencies [742d896]
+    - @sap-ux/ui-components@2.2.1
+    - @sap-ux/ui-prompting@0.7.1
+
+## 0.5.31
+
+### Patch Changes
+
+- Updated dependencies [72695e5]
+    - @sap-ux/ui-components@2.2.0
+    - @sap-ux/ui-prompting@0.7.0
+
+## 0.5.30
+
+### Patch Changes
+
+- Updated dependencies [50a8ba5]
+    - @sap-ux/ui-components@2.1.16
+    - @sap-ux/ui-prompting@0.6.29
+
+## 0.5.29
+
+### Patch Changes
+
+- Updated dependencies [189ad98]
+    - @sap-ux/ui-components@2.1.15
+    - @sap-ux/ui-prompting@0.6.28
+
+## 0.5.28
+
+### Patch Changes
+
+- Updated dependencies [678a08e]
+    - @sap-ux/ui-components@2.1.14
+    - @sap-ux/ui-prompting@0.6.27
+
+## 0.5.27
+
+### Patch Changes
+
+- Updated dependencies [7f8a712]
+    - @sap-ux/ui-components@2.1.13
+    - @sap-ux/ui-prompting@0.6.26
+
+## 0.5.26
+
+### Patch Changes
+
+- Updated dependencies [c160401]
+    - @sap-ux/ui-components@2.1.12
+    - @sap-ux/ui-prompting@0.6.25
+
+## 0.5.25
+
+### Patch Changes
+
+- f77f003: fix(deps): update dependency sanitize-html to v2.17.3 [security]
+- Updated dependencies [f77f003]
+    - @sap-ux/ui-components@2.1.11
+    - @sap-ux/ui-prompting@0.6.24
+
+## 0.5.24
+
+### Patch Changes
+
+- Updated dependencies [4357b0b]
+    - @sap-ux/ui-components@2.1.10
+    - @sap-ux/ui-prompting@0.6.23
+
+## 0.5.23
+
+### Patch Changes
+
+- Updated dependencies [9357457]
+    - @sap-ux/ui-components@2.1.9
+    - @sap-ux/ui-prompting@0.6.22
+
+## 0.5.22
+
+### Patch Changes
+
+- Updated dependencies [10f83b6]
+    - @sap-ux/ui-components@2.1.8
+    - @sap-ux/ui-prompting@0.6.21
+
+## 0.5.21
+
+### Patch Changes
+
+- Updated dependencies [f101671]
+    - @sap-ux/ui-components@2.1.7
+    - @sap-ux/ui-prompting@0.6.20
+
+## 0.5.20
+
+### Patch Changes
+
+- Updated dependencies [6b622e0]
+    - @sap-ux/ui-components@2.1.6
+    - @sap-ux/ui-prompting@0.6.19
+
+## 0.5.19
+
+### Patch Changes
+
+- c53a4ba: chore(ui-prompting-examples): replace deprecated @storybook/addons with @storybook/manager-api 8.6.17; align @storybook/react + @storybook/react-webpack5 8.4.2 → 8.6.17; upgrade sass-loader 13→16, style-loader 3→4, css-loader 6→7, ws 8.19.0→8.20.0
+- Updated dependencies [c53a4ba]
+- Updated dependencies [c53a4ba]
+    - @sap-ux/ui-components@2.1.5
+    - @sap-ux/ui-prompting@0.6.18
+
+## 0.5.18
+
+### Patch Changes
+
+- Updated dependencies [a41533f]
+    - @sap-ux/ui-components@2.1.4
+    - @sap-ux/ui-prompting@0.6.17
+
+## 0.5.17
+
+### Patch Changes
+
+- Updated dependencies [7f2689f]
+    - @sap-ux/ui-components@2.1.3
+    - @sap-ux/ui-prompting@0.6.16
+
+## 0.5.16
+
+### Patch Changes
+
+- Updated dependencies [addfdee]
+    - @sap-ux/ui-components@2.1.2
+    - @sap-ux/ui-prompting@0.6.15
+
+## 0.5.15
+
+### Patch Changes
+
+- Updated dependencies [59c6ac3]
+    - @sap-ux/ui-components@2.1.1
+    - @sap-ux/ui-prompting@0.6.14
+
+## 0.5.14
+
+### Patch Changes
+
+- Updated dependencies [24bd091]
+    - @sap-ux/ui-components@2.1.0
+    - @sap-ux/ui-prompting@0.6.13
+
+## 0.5.13
+
+### Patch Changes
+
+- Updated dependencies [12b8b2e]
+    - @sap-ux/ui-components@2.0.3
+    - @sap-ux/ui-prompting@0.6.12
+
+## 0.5.12
+
+### Patch Changes
+
+- Updated dependencies [5d458c7]
+    - @sap-ux/ui-components@2.0.2
+    - @sap-ux/ui-prompting@0.6.11
+
+## 0.5.11
+
+### Patch Changes
+
+- 14d8ab3: fix(deps): update dependency babel-loader to v10
+- Updated dependencies [14d8ab3]
+    - @sap-ux/ui-components@2.0.1
+    - @sap-ux/ui-prompting@0.6.10
+
+## 0.5.10
+
+### Patch Changes
+
+- 4b02611: fix(deps): update dependency ws to v8.19.0
+    - @sap-ux/ui-prompting@0.6.9
+
+## 0.5.9
+
+### Patch Changes
+
+- Updated dependencies [c4839f5]
+    - @sap-ux/ui-components@2.0.0
+    - @sap-ux/ui-prompting@0.6.9
+
+## 0.5.8
+
+### Patch Changes
+
+- 88a1f57: fix(deps): update dependency storybook to v8.6.17 [security]
+- Updated dependencies [88a1f57]
+    - @sap-ux/ui-components@1.27.10
+    - @sap-ux/ui-prompting@0.6.8
+
+## 0.5.7
+
+### Patch Changes
+
+- Updated dependencies [4e6c4d5]
+    - @sap-ux/ui-components@1.27.9
+    - @sap-ux/ui-prompting@0.6.7
+
+## 0.5.6
+
+### Patch Changes
+
+- 4d381b7: fix(deps): update dependencies [react]
+- Updated dependencies [4d381b7]
+    - @sap-ux/ui-components@1.27.8
+    - @sap-ux/ui-prompting@0.6.6
+
+## 0.5.5
+
+### Patch Changes
+
+- cc1c422: fix(deps): update dependency npm-run-all2 to v8
+- Updated dependencies [cc1c422]
+    - @sap-ux/ui-components@1.27.7
+    - @sap-ux/ui-prompting@0.6.5
+
+## 0.5.4
+
+### Patch Changes
+
+- d8a39ce: fix(deps): update dependency sanitize-html to v2.17.1
+- Updated dependencies [5deb976]
+- Updated dependencies [d8a39ce]
+    - @sap-ux/ui-components@1.27.6
+    - @sap-ux/ui-prompting@0.6.4
+
+## 0.5.3
+
+### Patch Changes
+
+- a22d236: fix(deps): update dependency sanitize-html to v2.17.0
+- Updated dependencies [a22d236]
+    - @sap-ux/ui-components@1.27.5
+    - @sap-ux/ui-prompting@0.6.3
+
+## 0.5.2
+
+### Patch Changes
+
+- Updated dependencies [3795bb2]
+    - @sap-ux/ui-components@1.27.4
+    - @sap-ux/ui-prompting@0.6.2
+
+## 0.5.1
+
+### Patch Changes
+
+- Updated dependencies [b990534]
+    - @sap-ux/ui-components@1.27.3
+    - @sap-ux/ui-prompting@0.6.1
+
+## 0.5.0
+
+### Minor Changes
+
+- 68b0e54: Add Rich Text Editor Button Groups support
+
+### Patch Changes
+
+- Updated dependencies [68b0e54]
+    - @sap-ux/ui-prompting@0.6.0
+
+## 0.4.14
+
+### Patch Changes
+
+- Updated dependencies [26dde65]
+    - @sap-ux/ui-components@1.27.2
+    - @sap-ux/ui-prompting@0.5.13
+
+## 0.4.13
+
+### Patch Changes
+
+- Updated dependencies [e111d0d]
+    - @sap-ux/ui-components@1.27.1
+    - @sap-ux/ui-prompting@0.5.12
+
+## 0.4.12
+
+### Patch Changes
+
+- Updated dependencies [f9f119d]
+    - @sap-ux/ui-components@1.27.0
+    - @sap-ux/ui-prompting@0.5.11
+
+## 0.4.11
+
+### Patch Changes
+
+- Updated dependencies [87a6696]
+    - @sap-ux/ui-components@1.26.19
+    - @sap-ux/ui-prompting@0.5.10
+
+## 0.4.10
+
+### Patch Changes
+
+- a9471d0: fix sonar issues
+- Updated dependencies [a9471d0]
+    - @sap-ux/ui-components@1.26.18
+    - @sap-ux/ui-prompting@0.5.9
+
+## 0.4.9
+
+### Patch Changes
+
+- 4ecfbe2: Chore - upgrade eslint devDependenies, convert to flat config and fix lint issues.
+- Updated dependencies [4ecfbe2]
+    - @sap-ux/ui-components@1.26.17
+    - @sap-ux/ui-prompting@0.5.8
+
+## 0.4.8
+
+### Patch Changes
+
+- Updated dependencies [037a430]
+    - @sap-ux/ui-components@1.26.16
+    - @sap-ux/ui-prompting@0.5.7
+
+## 0.4.7
+
+### Patch Changes
+
+- Updated dependencies [afb4be5]
+    - @sap-ux/ui-components@1.26.15
+    - @sap-ux/ui-prompting@0.5.6
+
+## 0.4.6
+
+### Patch Changes
+
+- Updated dependencies [cfe9c13]
+    - @sap-ux/ui-components@1.26.14
+    - @sap-ux/ui-prompting@0.5.5
+
+## 0.4.5
+
+### Patch Changes
+
+- Updated dependencies [6debb89]
+- Updated dependencies [6debb89]
+    - @sap-ux/ui-components@1.26.13
+    - @sap-ux/ui-prompting@0.5.4
+
+## 0.4.4
+
+### Patch Changes
+
+- Updated dependencies [4c448a7]
+    - @sap-ux/ui-components@1.26.12
+    - @sap-ux/ui-prompting@0.5.3
+
+## 0.4.3
+
+### Patch Changes
+
+- 43a2446: chore: fix Sonar issues
+- Updated dependencies [43a2446]
+    - @sap-ux/ui-prompting@0.5.2
+
+## 0.4.2
+
+### Patch Changes
+
+- Updated dependencies [7f652f3]
+    - @sap-ux/ui-components@1.26.11
+    - @sap-ux/ui-prompting@0.5.1
+
+## 0.4.1
+
+### Patch Changes
+
+- 99ec164: Remove button group configuration from Rich Text Editor template for initial version
+
+## 0.4.0
+
+### Minor Changes
+
+- 1276258: Add support for Rich text editor
+
+### Patch Changes
+
+- Updated dependencies [1276258]
+    - @sap-ux/ui-prompting@0.5.0
+
+## 0.3.3
+
+### Patch Changes
+
+- Updated dependencies [904f8e3]
+    - @sap-ux/ui-components@1.26.10
+    - @sap-ux/ui-prompting@0.4.2
+
+## 0.3.2
+
+### Patch Changes
+
+- Updated dependencies [2d0380a]
+    - @sap-ux/ui-prompting@0.4.1
+
+## 0.3.1
+
+### Patch Changes
+
+- Updated dependencies [69cfbe3]
+    - @sap-ux/ui-prompting@0.4.0
+
+## 0.3.0
+
+### Minor Changes
+
+- f81c86b: Add Page building block support to fpm writer
+
+### Patch Changes
+
+- Updated dependencies [e4197e0]
+    - @sap-ux/ui-prompting@0.3.37
+
+## 0.2.50
+
+### Patch Changes
+
+- Updated dependencies [e660064]
+    - @sap-ux/ui-components@1.26.9
+    - @sap-ux/ui-prompting@0.3.36
+
+## 0.2.49
+
+### Patch Changes
+
+- Updated dependencies [282f30e]
+    - @sap-ux/ui-components@1.26.8
+    - @sap-ux/ui-prompting@0.3.35
+
+## 0.2.48
+
+### Patch Changes
+
+- Updated dependencies [a4e81fc]
+    - @sap-ux/ui-components@1.26.7
+    - @sap-ux/ui-prompting@0.3.34
+
+## 0.2.47
+
+### Patch Changes
+
+- Updated dependencies [12faf8b]
+    - @sap-ux/ui-components@1.26.6
+    - @sap-ux/ui-prompting@0.3.33
+
+## 0.2.46
+
+### Patch Changes
+
+- Updated dependencies [5b4af69]
+    - @sap-ux/ui-components@1.26.5
+    - @sap-ux/ui-prompting@0.3.32
+
+## 0.2.45
+
+### Patch Changes
+
+- Updated dependencies [739045a]
+    - @sap-ux/ui-components@1.26.4
+    - @sap-ux/ui-prompting@0.3.31
+
+## 0.2.44
+
+### Patch Changes
+
+- Updated dependencies [46c775f]
+    - @sap-ux/ui-components@1.26.3
+    - @sap-ux/ui-prompting@0.3.30
+
+## 0.2.43
+
+### Patch Changes
+
+- Updated dependencies [077eae5]
+    - @sap-ux/ui-components@1.26.2
+    - @sap-ux/ui-prompting@0.3.29
+
+## 0.2.42
+
+### Patch Changes
+
+- Updated dependencies [698b7e3]
+    - @sap-ux/ui-components@1.26.1
+    - @sap-ux/ui-prompting@0.3.28
+
+## 0.2.41
+
+### Patch Changes
+
+- Updated dependencies [e21805c]
+    - @sap-ux/ui-components@1.26.0
+    - @sap-ux/ui-prompting@0.3.27
+
+## 0.2.40
+
+### Patch Changes
+
+- Updated dependencies [1c276ac]
+    - @sap-ux/ui-components@1.25.0
+    - @sap-ux/ui-prompting@0.3.26
+
+## 0.2.39
+
+### Patch Changes
+
+- Updated dependencies [3a01535]
+    - @sap-ux/ui-components@1.24.12
+    - @sap-ux/ui-prompting@0.3.25
+
+## 0.2.38
+
+### Patch Changes
+
+- Updated dependencies [21292ad]
+    - @sap-ux/ui-components@1.24.11
+    - @sap-ux/ui-prompting@0.3.24
+
+## 0.2.37
+
+### Patch Changes
+
+- Updated dependencies [17847f9]
+    - @sap-ux/ui-components@1.24.10
+    - @sap-ux/ui-prompting@0.3.23
+
+## 0.2.36
+
+### Patch Changes
+
+- Updated dependencies [3190a55]
+    - @sap-ux/ui-components@1.24.9
+    - @sap-ux/ui-prompting@0.3.22
+
+## 0.2.35
+
+### Patch Changes
+
+- Updated dependencies [8568e6b]
+    - @sap-ux/ui-components@1.24.8
+    - @sap-ux/ui-prompting@0.3.21
+
+## 0.2.34
+
+### Patch Changes
+
+- Updated dependencies [8b27155]
+    - @sap-ux/ui-components@1.24.7
+    - @sap-ux/ui-prompting@0.3.20
+
+## 0.2.33
+
+### Patch Changes
+
+- Updated dependencies [689f1b8]
+    - @sap-ux/ui-components@1.24.6
+    - @sap-ux/ui-prompting@0.3.19
+
+## 0.2.32
+
+### Patch Changes
+
+- Updated dependencies [b410041]
+    - @sap-ux/ui-components@1.24.5
+    - @sap-ux/ui-prompting@0.3.18
+
+## 0.2.31
+
+### Patch Changes
+
+- Updated dependencies [1215e5b]
+    - @sap-ux/ui-components@1.24.4
+    - @sap-ux/ui-prompting@0.3.17
+
+## 0.2.30
+
+### Patch Changes
+
+- Updated dependencies [ec30d25]
+    - @sap-ux/ui-components@1.24.3
+    - @sap-ux/ui-prompting@0.3.16
+
+## 0.2.29
+
+### Patch Changes
+
+- 59453ba: fix(security): security findings from github
+- Updated dependencies [59453ba]
+    - @sap-ux/ui-prompting@0.3.15
+
+## 0.2.28
+
+### Patch Changes
+
+- Updated dependencies [dd34d62]
+    - @sap-ux/ui-components@1.24.2
+    - @sap-ux/ui-prompting@0.3.14
+
+## 0.2.27
+
+### Patch Changes
+
+- Updated dependencies [7b5e3b9]
+    - @sap-ux/ui-components@1.24.1
+    - @sap-ux/ui-prompting@0.3.13
+
+## 0.2.26
+
+### Patch Changes
+
+- Updated dependencies [f48bfa0]
+    - @sap-ux/ui-components@1.24.0
+    - @sap-ux/ui-prompting@0.3.12
+
+## 0.2.25
+
+### Patch Changes
+
+- Updated dependencies [c570683]
+    - @sap-ux/ui-components@1.23.0
+    - @sap-ux/ui-prompting@0.3.11
+
+## 0.2.24
+
+### Patch Changes
+
+- Updated dependencies [81a5351]
+    - @sap-ux/ui-components@1.22.3
+    - @sap-ux/ui-prompting@0.3.10
+
+## 0.2.23
+
+### Patch Changes
+
+- Updated dependencies [318477a]
+    - @sap-ux/ui-components@1.22.2
+    - @sap-ux/ui-prompting@0.3.9
+
+## 0.2.22
+
+### Patch Changes
+
+- Updated dependencies [0fd924b]
+    - @sap-ux/ui-components@1.22.1
+    - @sap-ux/ui-prompting@0.3.8
+
+## 0.2.21
+
+### Patch Changes
+
+- Updated dependencies [0f9d186]
+    - @sap-ux/ui-components@1.22.0
+    - @sap-ux/ui-prompting@0.3.7
+
+## 0.2.20
+
+### Patch Changes
+
+- Updated dependencies [d167a73]
+    - @sap-ux/ui-components@1.21.4
+    - @sap-ux/ui-prompting@0.3.6
+
+## 0.2.19
+
+### Patch Changes
+
+- Updated dependencies [bb0531d]
+    - @sap-ux/ui-components@1.21.3
+    - @sap-ux/ui-prompting@0.3.5
+
+## 0.2.18
+
+### Patch Changes
+
+- 2a72ad2: chore - Fix audit issues
+- Updated dependencies [2a72ad2]
+    - @sap-ux/ui-components@1.21.2
+    - @sap-ux/ui-prompting@0.3.4
+
+## 0.2.17
+
+### Patch Changes
+
+- Updated dependencies [32191dd]
+    - @sap-ux/ui-components@1.21.1
+    - @sap-ux/ui-prompting@0.3.3
+
+## 0.2.16
+
+### Patch Changes
+
+- Updated dependencies [25b90b5]
+    - @sap-ux/ui-components@1.21.0
+    - @sap-ux/ui-prompting@0.3.2
+
+## 0.2.15
+
+### Patch Changes
+
+- Updated dependencies [1c8b59f]
+    - @sap-ux/ui-components@1.20.4
+    - @sap-ux/ui-prompting@0.3.1
+
+## 0.2.14
+
+### Patch Changes
+
+- a52de73: Implement changes to handle i18n entry creation with i18n annotation information.
+- Updated dependencies [a52de73]
+    - @sap-ux/ui-prompting@0.3.0
+
+## 0.2.13
+
+### Patch Changes
+
+- Updated dependencies [e9e1e4d]
+    - @sap-ux/ui-components@1.20.3
+    - @sap-ux/ui-prompting@0.2.13
+
+## 0.2.12
+
+### Patch Changes
+
+- Updated dependencies [9d06579]
+    - @sap-ux/ui-components@1.20.2
+    - @sap-ux/ui-prompting@0.2.12
+
+## 0.2.11
+
+### Patch Changes
+
+- Updated dependencies [f7c606c]
+    - @sap-ux/ui-components@1.20.1
+    - @sap-ux/ui-prompting@0.2.11
+
+## 0.2.10
+
+### Patch Changes
+
+- Updated dependencies [ae2a993]
+    - @sap-ux/ui-components@1.20.0
+    - @sap-ux/ui-prompting@0.2.10
+
+## 0.2.9
+
+### Patch Changes
+
+- Updated dependencies [ea18bcb]
+    - @sap-ux/ui-components@1.19.0
+    - @sap-ux/ui-prompting@0.2.9
+
+## 0.2.8
+
+### Patch Changes
+
+- Updated dependencies [b403459]
+    - @sap-ux/ui-components@1.18.11
+    - @sap-ux/ui-prompting@0.2.8
+
+## 0.2.7
+
+### Patch Changes
+
+- Updated dependencies [9e9daa4]
+    - @sap-ux/ui-components@1.18.10
+    - @sap-ux/ui-prompting@0.2.7
+
+## 0.2.6
+
+### Patch Changes
+
+- Updated dependencies [4c6f92c]
+    - @sap-ux/ui-components@1.18.9
+    - @sap-ux/ui-prompting@0.2.6
+
+## 0.2.5
+
+### Patch Changes
+
+- Updated dependencies [b669796]
+    - @sap-ux/ui-components@1.18.8
+    - @sap-ux/ui-prompting@0.2.5
+
+## 0.2.4
+
+### Patch Changes
+
+- Updated dependencies [e65bb7f]
+    - @sap-ux/ui-components@1.18.7
+    - @sap-ux/ui-prompting@0.2.4
+
+## 0.2.3
+
+### Patch Changes
+
+- Updated dependencies [0b8a374]
+    - @sap-ux/ui-prompting@0.2.3
+
+## 0.2.2
+
+### Patch Changes
+
+- Updated dependencies [64aacf2]
+    - @sap-ux/ui-components@1.18.6
+    - @sap-ux/ui-prompting@0.2.2
+
+## 0.2.1
+
+### Patch Changes
+
+- 93f8a83: chore - upgrade typescript 5.6.2
+- Updated dependencies [93f8a83]
+    - @sap-ux/ui-components@1.18.5
+    - @sap-ux/ui-prompting@0.2.1
+
+## 0.2.0
+
+### Minor Changes
+
+- d91c081: Rename`ui-prompting` examples package name from `@sap-ux/prompting-ui` to `@sap-ux-private/ui-prompting-examples`
+
+## 0.1.7
+
+### Patch Changes
+
+- 05b554d: Example to handle i18n bundle for translation input for 'ui-prompting'
+- Updated dependencies [05b554d]
+    - @sap-ux/ui-prompting@0.2.0
+
+## 0.1.6
+
+### Patch Changes
+
+- Updated dependencies [195d758]
+    - @sap-ux/ui-components@1.18.4
+    - @sap-ux/ui-prompting@0.1.14
+
+## 0.1.5
+
+### Patch Changes
+
+- Updated dependencies [89ec1c3]
+    - @sap-ux/ui-components@1.18.3
+    - @sap-ux/ui-prompting@0.1.13
+
+## 0.1.4
+
+### Patch Changes
+
+- a18d4a2: Extend the building block examples with an option to toggle the `allowAutoAddDependencyLib` property, allowing to turning off the automatic addition of the 'sap.fe.macros' library to the 'manifest.json'.
+
+## 0.1.3
+
+### Patch Changes
+
+- Updated dependencies [1fdac94]
+    - @sap-ux/ui-components@1.18.2
+    - @sap-ux/ui-prompting@0.1.12
+
+## 0.1.2
+
+### Patch Changes
+
+- Updated dependencies [15c57bc]
+    - @sap-ux/ui-components@1.18.1
+    - @sap-ux/ui-prompting@0.1.11
+
+## 0.1.1
+
+### Patch Changes
+
+- Updated dependencies [3174ebc]
+    - @sap-ux/ui-prompting@0.1.10
+
+## 0.1.0
+
+### Minor Changes
+
+- 327ebec: Divide chart, filter bar and table building block prompts questions into groups, add Manifest Change group.
+  Update custom chart example in prompting-ui.
+
+## 0.0.12
+
+### Patch Changes
+
+- 19e3b0e: Extend the building block examples with an option to toggle the `alwaysAbsolutePath` property, allowing the generation of either relative or always absolute paths.
+
+## 0.0.11
+
+### Patch Changes
+
+- Updated dependencies [a492b41]
+    - @sap-ux/ui-components@1.18.0
+    - @sap-ux/ui-prompting@0.1.9
+
+## 0.0.10
+
+### Patch Changes
+
+- Updated dependencies [ea0674c]
+    - @sap-ux/ui-components@1.17.9
+    - @sap-ux/ui-prompting@0.1.8
+
+## 0.0.9
+
+### Patch Changes
+
+- Updated dependencies [b124873]
+    - @sap-ux/ui-components@1.17.8
+    - @sap-ux/ui-prompting@0.1.7
+
+## 0.0.8
+
+### Patch Changes
+
+- Updated dependencies [73f905f]
+    - @sap-ux/ui-components@1.17.7
+    - @sap-ux/ui-prompting@0.1.6
+
+## 0.0.7
+
+### Patch Changes
+
+- Updated dependencies [7710aa5]
+    - @sap-ux/ui-components@1.17.6
+    - @sap-ux/ui-prompting@0.1.5
+
+## 0.0.6
+
+### Patch Changes
+
+- Updated dependencies [128a3dc]
+    - @sap-ux/ui-components@1.17.5
+    - @sap-ux/ui-prompting@0.1.4
+
+## 0.0.5
+
+### Patch Changes
+
+- Updated dependencies [3de01ca]
+    - @sap-ux/ui-prompting@0.1.3
+
+## 0.0.4
+
+### Patch Changes
+
+- Updated dependencies [ee7aeb8]
+    - @sap-ux/ui-components@1.17.4
+    - @sap-ux/ui-prompting@0.1.2
+
+## 0.0.3
+
+### Patch Changes
+
+- 0084205: chore: update sanitize-html and transitive dependencies
+- Updated dependencies [0084205]
+    - @sap-ux/ui-components@1.17.3
+    - @sap-ux/ui-prompting@0.1.1
+
+## 0.0.2
+
+### Patch Changes
+
+- Updated dependencies [88c8bf6]
+- Updated dependencies [88c8bf6]
+    - @sap-ux/ui-components@1.17.2
+    - @sap-ux/ui-prompting@0.1.0

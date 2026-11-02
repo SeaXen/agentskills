@@ -1,0 +1,213 @@
+@import '_variables.scss';
+@import '_mixins.scss';
+
+@mixin splitter-border($border, $horizontal: true) {
+    @if $horizontal {
+        border-left: $border;
+        border-right: $border;
+    } @else {
+        border-top: $border;
+        border-bottom: $border;
+    }
+}
+
+$splitter-focus-border: 1px solid var(--vscode-focusBorder);
+$splitter-grip-color: var(--vscode-widget-border);
+$splitter-highlight-color: var(--vscode-focusBorder);
+
+.splitter {
+    position: absolute;
+    outline: none;
+
+    // Grip
+    &__grip {
+        position: absolute;
+        margin: auto;
+    }
+
+    // Highlight hover and focus
+    &:after {
+        content: '';
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        position: absolute;
+        z-index: 1;
+        margin: auto;
+    }
+
+    &--horizontal {
+        top: 0;
+        bottom: 0;
+        cursor: col-resize;
+
+        .splitter__grip {
+            height: 100%;
+            width: $splitter-resize-size;
+            left: 0;
+            right: 0;
+        }
+        &.splitter--compact {
+            .splitter__grip {
+                width: $splitter-resize-compact-size;
+            }
+        }
+        &.splitter--toggle {
+            .splitter__grip {
+                width: 100%;
+                svg {
+                    transform: rotate(180deg);
+                }
+            }
+        }
+
+        &.splitter--resize:after {
+            width: 4px;
+        }
+    }
+
+    &--vertical {
+        cursor: row-resize;
+        left: 0;
+        right: 0;
+
+        .splitter__grip {
+            width: 100%;
+            height: $splitter-resize-size;
+            top: 0;
+            bottom: 0;
+        }
+        &.splitter--compact {
+            .splitter__grip {
+                height: $splitter-resize-compact-size;
+            }
+        }
+        &.splitter--toggle {
+            .splitter__grip {
+                height: 100%;
+                svg {
+                    transform: rotate(270deg);
+                }
+            }
+        }
+
+        &.splitter--resize:after {
+            height: 4px;
+        }
+    }
+
+    &--toggle {
+        cursor: pointer;
+        background-color: $splitter-grip-color;
+
+        .splitter__grip {
+            width: 100%;
+            position: absolute;
+            height: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0;
+            right: 0;
+            z-index: 0;
+        }
+    }
+
+    &--resize {
+        .splitter__grip {
+            background-color: $splitter-grip-color;
+        }
+        &.splitter--horizontal {
+            cursor: col-resize;
+        }
+
+        &.splitter--vertical {
+            cursor: row-resize;
+        }
+    }
+
+    & + .section {
+        .section__header__title,
+        .section__body {
+            padding-left: calc($splitter-toggle-size / 2);
+        }
+    }
+
+    // Splitter focus style
+    &:hover {
+        &.splitter--resize {
+            &:after {
+                // animation: fadeInAnimation 0.07s ease-in 0.3s forwards;
+                background-color: $splitter-highlight-color;
+                transition: background-color 0.07s ease-in 0.3s;
+            }
+        }
+        &.splitter--toggle {
+            background-color: $splitter-highlight-color;
+            svg path {
+                fill: var(--vscode-button-foreground);
+            }
+        }
+    }
+
+    // Hide with animation for delay
+    &--hidden {
+        animation: 0.5s delayedFadeOut;
+        animation-fill-mode: forwards;
+    }
+
+    i.ts-icon {
+        display: flex;
+        height: 100%;
+        svg {
+            height: 100%;
+            width: 100%;
+        }
+    }
+
+    &--active {
+        &:after {
+            background-color: $splitter-highlight-color;
+        }
+    }
+}
+
+.splitter__overlay {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: transparent;
+
+    &--horizontal {
+        cursor: col-resize;
+    }
+
+    &--vertical {
+        cursor: row-resize;
+    }
+}
+
+.ms-Fabric--isFocusVisible .splitter {
+    &:focus {
+        &.splitter--resize {
+            &:after {
+                background-color: $splitter-highlight-color;
+            }
+        }
+        &.splitter--toggle {
+            &.splitter--horizontal {
+                &:after {
+                    @include splitter-border($splitter-focus-border, true);
+                }
+            }
+            &.splitter--vertical {
+                &:after {
+                    @include splitter-border($splitter-focus-border, false);
+                }
+            }
+        }
+    }
+}

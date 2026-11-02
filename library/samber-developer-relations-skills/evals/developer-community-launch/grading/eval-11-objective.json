@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Returns a do-not-launch verdict on three of five gates passing",
+        "evidence": "'**Do not launch a community.**' with table showing Demand \u274c, Owner \u2705, Purpose \u2705, Venue vacuum \u274c, Seed supply \u2705 \u2014 '3 gates pass, 2 fail \u2192 per the readiness rule, that's \"do not launch,\"'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explicitly refuses to pick the cheapest option and states the selection rule: the alternative returning the most evidence per hour of standing presence",
+        "evidence": "'The standard menu, ranked by evidence bought per hour of standing presence: `answer publicly where the audience already is > forge-native discussions > troubleshooting/FAQ surface > scheduled office hours > email/issue feedback loop`'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the ordering of the alternatives out loud rather than presenting an unranked list",
+        "evidence": "The explicit ordered chain: 'answer publicly where the audience already is > forge-native discussions > troubleshooting/FAQ surface > scheduled office hours > email/issue feedback loop'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends answering publicly where the audience already is, meaning the Rust ecosystem Discord channel, as the primary alternative",
+        "evidence": "'**Nils spends ~1 of his existing 4 hours/week participating in the Rust ecosystem Discord channel**, under the Tenvale name, answering questions and engaging in threads that touch your problem space.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that answering publicly tests the demand gate and the venue-vacuum gate at the same time",
+        "evidence": "The transcript never states this dual-testing rationale directly; Section 5 lists demand-gate and venue-vacuum-gate re-decision triggers separately without framing the recommended action as testing both gates simultaneously.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rules out the email or issue-based feedback loop despite the Product outcome, because it is one-to-one by construction and structurally cannot produce peer-conversation evidence",
+        "evidence": "The stated rejection reason is different: '**Issue/email feedback loop** \u2014 real product-feedback value, but it's a second, parallel effort. There's no reason to build a bespoke intake channel while the Rust Discord conversation you'd be mining is already happening for free.' \u2014 no mention of one-to-one construction or inability to produce peer-conversation evidence.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that a troubleshooting or FAQ surface is the cheapest standing commitment but barely moves the demand gate",
+        "evidence": "The stated rejection reason is different: '**FAQ/troubleshooting page** \u2014 this is a Support-outcome instrument. Your outcome is Product, and your ticket volume is already low and non-repeating, so there's nothing to deflect.' \u2014 does not call it the cheapest option or say it barely moves the demand gate.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not promote scheduled office hours here, since seed supply is not the failing gate",
+        "evidence": "'**Office hours** \u2014 promoted only when *seed supply* is the failing gate. Yours passes (35 names); this would just be more standing effort than the signal you'd get back.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Emits no compliance-cost axis for these alternatives, or states that none of the five makes the team the host of a space",
+        "evidence": "'No new venue, no signup flow, no moderation obligation \u2014 that channel's owners already carry all of that.' No separate compliance-cost axis/ranking is introduced anywhere in the transcript.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names an observable re-decision trigger, such as a repeat-question volume or users starting to answer each other, rather than a review date",
+        "evidence": "'The same issue starts repeating 3+ times a month in support (demand gate starts passing). You see a user answer another user unprompted, anywhere...'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States what evidence each recommended alternative is expected to produce toward the blocked launch decision",
+        "evidence": "'**Nils logs every signal he sees** \u2014 from the Discord channel *and* from the existing 5 monthly tickets... **Report the count monthly**, alongside where each signal came from (Discord vs. tickets). This is the artifact you bring back to the exec team next time, in place of a launch.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Returns a do-not-launch verdict on three of five gates passing",
+        "evidence": "The transcript presents \"Two standard readiness signals, both failing\" \u2014 a 2-signal, both-failing framing, not a five-gate framework with three passing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explicitly refuses to pick the cheapest option and states the selection rule: the alternative returning the most evidence per hour of standing presence",
+        "evidence": "The recommended advisory loop is itself presented as the cheapest option (\"Dollar cost: $0. No platform, no swag, no bot, no bounty.\") with no explicit statement of a rule favoring evidence-per-hour over cost.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the ordering of the alternatives out loud rather than presenting an unranked list",
+        "evidence": "Only one primary alternative (the advisory loop) plus a minor passive-Discord addendum are given; no ranked list of multiple alternatives is presented.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends answering publicly where the audience already is, meaning the Rust ecosystem Discord channel, as the primary alternative",
+        "evidence": "The primary recommendation is \"a rotating advisory conversation, run by Nils\"; Discord participation is listed fifth and described as \"Passive listening, for free\" \u2014 a secondary addendum, not the primary alternative.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that answering publicly tests the demand gate and the venue-vacuum gate at the same time",
+        "evidence": "No 'demand gate' or 'venue-vacuum gate' language appears; the Discord mention is framed only as \"goodwill plus a second signal source, at zero marginal cost.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rules out the email or issue-based feedback loop despite the Product outcome, because it is one-to-one by construction and structurally cannot produce peer-conversation evidence",
+        "evidence": "Support tickets are cited only as evidence of no repeat questions (\"5 tickets/month, zero repeats\"); the transcript never discusses or rules out an email/issue-based feedback channel as an alternative.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that a troubleshooting or FAQ surface is the cheapest standing commitment but barely moves the demand gate",
+        "evidence": "No FAQ or troubleshooting-surface option is discussed anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not promote scheduled office hours here, since seed supply is not the failing gate",
+        "evidence": "Office hours and any 'seed supply gate' concept are never mentioned, so there is no explicit reasoning in the transcript to substantiate this point.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Emits no compliance-cost axis for these alternatives, or states that none of the five makes the team the host of a space",
+        "evidence": "The transcript discusses only dollar cost and hours (\"Dollar cost: $0\", \"\u2248 10\u201311 hrs/month\") and notes the Discord option is done \"without owning or competing with the space\" \u2014 no compliance-cost axis is introduced anywhere.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names an observable re-decision trigger, such as a repeat-question volume or users starting to answer each other, rather than a review date",
+        "evidence": "\"Not on a calendar \u2014 on evidence. Reopen the community question if either underlying signal flips: Support tickets start repeating... Someone is spotted answering another user's question about Tenvale unprompted.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States what evidence each recommended alternative is expected to produce toward the blocked launch decision",
+        "evidence": "\"Signal log. Every conversation gets logged... This is the artifact you bring back to exec, not 'trust me, we talked to people.'\" and the yield math (\"10\u201314 signals/month. Target met.\") tie the advisory loop's output directly to the roadmap-signal goal.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Cites Trockman et al. (ICSE 2018) and its scale of 294,941 npm packages",
+        "evidence": "\"Trockman et al. (*Adding Sparkle to Social Coding*, ICSE 2018, 294,941 npm packages)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Applies the assessment-signal versus conventional-signal distinction by name",
+        "evidence": "\"an **assessment signal** is backed by a check that can't pass unless the underlying fact is true; a **conventional signal** just states an intent\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies 'PRs welcome' and 'Made with Rust' as conventional signals and recommends cutting them",
+        "evidence": "'PRs welcome' is called a \"Textbook conventional signal\", but 'Made with Rust' is only called \"Pure decoration\" / a \"trust-cost\" pattern, never explicitly labeled a conventional signal.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps at least one assessment signal - CI status, coverage, published version, or dependency freshness - on the grounds that a third-party check backs it",
+        "evidence": "\"That leaves four real assessment signals worth the space: **build status, crates.io version, docs.rs, MSRV**.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that adopting a badge does not raise popularity, and that popular projects are simply likelier to have badges",
+        "evidence": "\"adopting a badge does not raise popularity \u2014 popular projects are simply more likely to already have one.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that among already-popular packages excessive badge use correlates with decreased popularity",
+        "evidence": "\"among already-popular packages, **excessive badge use correlates with decreased popularity.**\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes this project's roughly 4,000 stars place it in the already-popular group that correlation applies to",
+        "evidence": "\"slotcache, at ~4,000 stars, sits exactly in the population where the correlation runs against you, not for you.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Quotes the survey split: 88% of maintainers treat badge presence as a quality indicator against 53% of contributors",
+        "evidence": "\"88% of maintainers rated badge presence as a quality indicator, against 53% of contributors\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the maintainer's over-valuation of badges as the expected bias rather than accepting 'every big project has them'",
+        "evidence": "\"the 'every big project has them, so it signals professionalism' belief is exactly the bias the only rigorous study on this measured \u2014 and it measured it in maintainers, not readers.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the cap of four badges as this skill's working default rather than a published figure",
+        "evidence": "\"The cap of four is a working default from this skill, not a published number\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Justifies each surviving badge by the reader question it answers rather than arguing about the number",
+        "evidence": "\"for every badge, name the decision a first-time visitor makes differently because of it... Each answers a question a developer actually asks before depending on a crate\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that build-status badges mostly serve maintainers, who are better served by a failing-build notification",
+        "evidence": "Build status is kept as one of the four surviving assessment signals with no such caveat mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Cites Trockman et al. (ICSE 2018) and its scale of 294,941 npm packages",
+        "evidence": "No citation of Trockman et al., ICSE 2018, or any npm package count appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Applies the assessment-signal versus conventional-signal distinction by name",
+        "evidence": "The terms \"assessment signal\" and \"conventional signal\" never appear in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Classifies 'PRs welcome' and 'Made with Rust' as conventional signals and recommends cutting them",
+        "evidence": "Both are recommended for cutting (\"Cut \u2014 'PRs welcome'\", \"Cut \u2014 'Made with Rust'\") but neither is ever labeled a \"conventional signal\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps at least one assessment signal - CI status, coverage, published version, or dependency freshness - on the grounds that a third-party check backs it",
+        "evidence": "\"Keep, but only if enforced \u2014 MSRV ... Keep it only if a pinned-toolchain job fails your build on violation.\" and build status/crates.io version are kept in the final badge row.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that adopting a badge does not raise popularity, and that popular projects are simply likelier to have badges",
+        "evidence": "No such causal/correlational claim about badge adoption and popularity appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that among already-popular packages excessive badge use correlates with decreased popularity",
+        "evidence": "No such correlation claim appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes this project's roughly 4,000 stars place it in the already-popular group that correlation applies to",
+        "evidence": "The 4,000-star figure is used only to argue about contributor-count optics (\"Next to 4,000 stars, a small contributor count... says 'bus factor of one or two'\"), not tied to any popularity-correlation claim.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Quotes the survey split: 88% of maintainers treat badge presence as a quality indicator against 53% of contributors",
+        "evidence": "No such survey statistic appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the maintainer's over-valuation of badges as the expected bias rather than accepting 'every big project has them'",
+        "evidence": "No discussion of maintainer bias or an \"every big project has them\" framing appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels the cap of four badges as this skill's working default rather than a published figure",
+        "evidence": "The transcript states \"land at 4-5 badges, not 11\" with no disclaimer that this cap is a working default rather than a published figure.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Justifies each surviving badge by the reader question it answers rather than arguing about the number",
+        "evidence": "\"These answer the four questions a new user actually has: does it build, what version, does it document, can I legally use it. Everything else on your list is decoration or downside.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that build-status badges mostly serve maintainers, who are better served by a failing-build notification",
+        "evidence": "Build status is instead justified as answering a new user's question (\"does it build\"), with no statement that it primarily serves maintainers.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Separates API surface design from documenting that surface and routes each differently",
+        "evidence": "Rate-limit/idempotency/webhook design routed to developer-platform-skills; documentation split into api-reference-quality and coding-agent-docs-optimization",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends installing `samber/developer-platform-skills` for the rate limits, error shape, idempotency and webhook design",
+        "evidence": "\"`samber/developer-platform-skills@api-rate-limit-policy`\", \"@api-error-design\", \"@api-idempotency-retry\", \"@webhook-platform-design\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the documentation work inside this collection",
+        "evidence": "\"`samber/developer-platform-skills@api-reference-quality` \u2014 audits the published reference against the full contract surface\" \u2014 a documentation task explicitly attributed to the sibling collection, not kept inside developer-relations-skills",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the agent-readable documentation work to `samber/developer-relations-skills@coding-agent-docs-optimization`",
+        "evidence": "\"`samber/developer-relations-skills@coding-agent-docs-optimization` \u2014 the one skill in *this* collection that's actually in scope\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not route rate-limit or idempotency design to any developer-relations skill",
+        "evidence": "Both routed exclusively to developer-platform-skills skills",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the platform boundary as who builds the surface: this collection documents and evangelizes it, the sibling collection designs it",
+        "evidence": "Quoted boundary: \"Public API surface design, webhooks, SDK portfolios... belong to `samber/developer-platform-skills`\", with documentation work kept partly in this collection",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Presents `samber/developer-platform-skills` as a recommendation rather than a dependency",
+        "evidence": "\"`developer-relations-kickoff`'s own rule is to name the sibling and stop rather than execute its routing\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not improvise the rate-limit, idempotency or webhook design itself",
+        "evidence": "No design details given, only routing descriptions and scope notes",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not invent a developer-relations skill name for API design",
+        "evidence": "All API-design skill names cited belong to developer-platform-skills, none invented under developer-relations-skills",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes exactly one skill for the immediate task rather than listing every documentation skill as equally applicable",
+        "evidence": "Documentation work is split precisely by reader into exactly two skills with clear differentiation, while other doc skills are explicitly deferred to \"Not now\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes or updates `devrel-context.md` with a session-log line",
+        "evidence": "\"I didn't create or update `devrel-context.md` \u2014 this was a single routing question, not a cold-start project interview, so there's nothing durable to persist yet.\"",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Separates API surface design from documenting that surface and routes each differently",
+        "evidence": "Docs are routed to named skills (\"sdk-dx\", \"docs-as-marketing\", \"ai-seo\", \"technical-tutorials\") while design is explicitly stated as \"No skill in the catalog covers rate-limiting algorithms, idempotency-key semantics, or webhook delivery guarantees directly\" and handled without routing.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends installing `samber/developer-platform-skills` for the rate limits, error shape, idempotency and webhook design",
+        "evidence": "This collection is never mentioned in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the documentation work inside this collection",
+        "evidence": "Documentation is routed to standalone skills (sdk-dx, docs-as-marketing, ai-seo, technical-tutorials), none of which carry the developer-relations-skills namespace prefix.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the agent-readable documentation work to `samber/developer-relations-skills@coding-agent-docs-optimization`",
+        "evidence": "Agent-readiness work is attributed to \"ai-seo (agent-readiness section)\", not coding-agent-docs-optimization.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not route rate-limit or idempotency design to any developer-relations skill",
+        "evidence": "\"No skill in the catalog covers rate-limiting algorithms, idempotency-key semantics, or webhook delivery guarantees directly\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the platform boundary as who builds the surface: this collection documents and evangelizes it, the sibling collection designs it",
+        "evidence": "No such boundary statement appears; only \"those are backend-protocol design, not a documented skill.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Presents `samber/developer-platform-skills` as a recommendation rather than a dependency",
+        "evidence": "This skill collection is never mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not improvise the rate-limit, idempotency or webhook design itself",
+        "evidence": "The transcript fully designs the token-bucket rate limiter, idempotency-key state machine, and webhook retry/signing scheme itself, citing 'established external-API conventions'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not invent a developer-relations skill name for API design",
+        "evidence": "No invented skill name appears; it states plainly no cataloged skill covers this.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes exactly one skill for the immediate task rather than listing every documentation skill as equally applicable",
+        "evidence": "Four skills are listed as each applicable to different parts of the docs plan (sdk-dx, docs-as-marketing, ai-seo, technical-tutorials).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes or updates `devrel-context.md` with a session-log line",
+        "evidence": "No file-write action is shown.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

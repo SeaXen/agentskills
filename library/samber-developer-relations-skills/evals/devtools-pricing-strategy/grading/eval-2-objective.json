@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Computes the floor from marginal cost plus a gross-margin target rather than from the $400 competitor price",
+        "evidence": "\"Adding an illustrative support-hours line... At 80%, overage rates are raw cost \u00d7 5\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Models the floor on the 90th-percentile account - the heaviest decile costing about 4x the median - rather than on the average or median account",
+        "evidence": "\"modeling at the 90th-percentile account (given: ~4x median cost): floor cost for a heavy account \u2248 $12.60 raw + ~$80 support \u2248 $93/month\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the 90th-percentile modelling choice as this skill's own baseline rather than an industry benchmark",
+        "evidence": "\"this is your 90th-percentile signal; use it, not the average, for the floor (this skill's baseline)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Carries the free surface's total marginal cost as a line item inside the margin calculation rather than outside it",
+        "evidence": "\"Raw marginal cost per free account... \u2248 $0.10/month\" then \"Ceiling on total free-tier cost as a share of paid gross profit: set at 10%\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies self-hosting as the binding ceiling for a product with a free self-hostable equivalent",
+        "evidence": "The transcript explicitly states the opposite: \"the binding ceiling is not self-hosting... The number Cloud has to beat is $400, not $860\" and \"Binding ceiling = $400/month\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Computes the self-host ceiling as infrastructure plus operator time plus upgrade risk plus on-call, quantified in the customer's terms rather than the vendor's",
+        "evidence": "Only infra + labor are computed (\"$260/month infra + 5 eng-hours/month... \u2192 $860/month all-in\"); upgrade risk and on-call are never mentioned",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Converts the 5 engineer-hours a month into a loaded cost figure and adds it to the $260 infrastructure cost",
+        "evidence": "\"Valuing the labor at $120/hr loaded (mid-market senior/SRE rate) [assumed] \u2192 $860/month all-in\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the $400 competitor price as a bound on the number and never as the justification for it",
+        "evidence": "\"Team at $249/month sits at 62% of the $400 ceiling and 29% of the $860 self-host all-in cost \u2014 a clear, legible win... without reading as a fire sale\" (price set from cost+margin first, then checked against ceiling)",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names all four ceilings - self-host it, build it, the next best vendor, do nothing - and takes the lowest",
+        "evidence": "\"Lowest of: self-host all-in $860/mo, competitor $400/mo flat, build-it (n/a...), do-nothing (n/a...). Binding ceiling = $400/month.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that usage-only pricing models run a 62% median gross margin against an 80% software median, because infrastructure cost sits in COGS",
+        "evidence": "\"Target gross margin: 80% (software median, sourced), chosen deliberately over the 62% usage-only baseline because your actual infra COGS ratio is unusually low relative to price\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the 62% and 80% margin figures as sourced, distinguishing them from the skill's self-set baselines",
+        "evidence": "Only 80% is explicitly tagged \"(software median, sourced)\"; the 62% figure is called \"the 62% usage-only baseline\" with no explicit sourced tag attached",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends choosing a consumption-weighted margin target deliberately rather than discovering it at the first cost review",
+        "evidence": "\"chosen deliberately over the 62% usage-only baseline... \u2014 flagged explicitly since this is a judgment call, not a given fact\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends publishing what will always stay in the open-source edition, warning that silence is read as intent to close",
+        "evidence": "\"State explicitly, in the first paragraph of the launch announcement, that the Apache-2.0 engine's scope of what stays free is not changing and will not close later \u2014 silence here reads as intent to close\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the paid gates on operation, governance and support rather than on capability the community could rebuild in a weekend",
+        "evidence": "\"core engine, SDKs, CLI are already Apache-2.0 and stay that way... Basic SSO sits at Team, not gated as an enterprise surcharge\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Computes the floor from marginal cost plus a gross-margin target rather than from the $400 competitor price",
+        "evidence": "\"Cost-plus is irrelevant here... COGS is a rounding error, not a constraint. Don't let it anchor the number.\" Floor is instead anchored to competitor price and self-host TCO.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Models the floor on the 90th-percentile account - the heaviest decile costing about 4x the median - rather than on the average or median account",
+        "evidence": "Floor is defined as \"$400 (competitor's sticker price) and $260 (self-host cash-only)\", not the top-decile 4x cost case.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels the 90th-percentile modelling choice as this skill's own baseline rather than an industry benchmark",
+        "evidence": "Not applicable \u2014 no such modelling choice made.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Carries the free surface's total marginal cost as a line item inside the margin calculation rather than outside it",
+        "evidence": "Free tier cost only mentioned qualitatively: \"COGS near-zero at these volumes, so it's cheap top-of-funnel\" \u2014 not a margin-calc line item.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies self-hosting as the binding ceiling for a product with a free self-hostable equivalent",
+        "evidence": "\"Ceiling: ~$635\u20131,010/mo (true self-host TCO once engineer time is counted)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Computes the self-host ceiling as infrastructure plus operator time plus upgrade risk plus on-call, quantified in the customer's terms rather than the vendor's",
+        "evidence": "Only infra + labor computed: \"$260 infra + 5 eng-hours/mo... true self-host TCO \u2248 $635\u20131,010/mo\" \u2014 no upgrade risk or on-call included.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Converts the 5 engineer-hours a month into a loaded cost figure and adds it to the $260 infrastructure cost",
+        "evidence": "\"Add the 5 eng-hours/mo: at a fully-loaded $75\u2013150/hr, that's $375\u2013750/mo of labor on top of the $260 infra\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the $400 competitor price as a bound on the number and never as the justification for it",
+        "evidence": "\"Matching the competitor's $400 copies their packaging risk, not their economics\" \u2014 used to bound the band, not as the reason for $399.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names all four ceilings - self-host it, build it, the next best vendor, do nothing - and takes the lowest",
+        "evidence": "Only self-host TCO and competitor price discussed; no 'build it' or 'do nothing' ceiling named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that usage-only pricing models run a 62% median gross margin against an 80% software median, because infrastructure cost sits in COGS",
+        "evidence": "No such figures appear in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels the 62% and 80% margin figures as sourced, distinguishing them from the skill's self-set baselines",
+        "evidence": "Not applicable \u2014 figures absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends choosing a consumption-weighted margin target deliberately rather than discovering it at the first cost review",
+        "evidence": "No discussion of a consumption-weighted margin target.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends publishing what will always stay in the open-source edition, warning that silence is read as intent to close",
+        "evidence": "No mention of OSS-edition scope commitments anywhere in the text.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the paid gates on operation, governance and support rather than on capability the community could rebuild in a weekend",
+        "evidence": "Tiers gate on usage allowance, \"priority support/SLA\", and \"SSO/VPC/dedicated support/SLA\" for Enterprise \u2014 not on a discrete feature.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

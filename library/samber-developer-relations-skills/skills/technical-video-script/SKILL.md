@@ -4,7 +4,7 @@ description: Writes or reviews a shooting-ready script for a technical video or 
 license: MIT
 metadata:
   author: Samuel Berthe
-  version: "1.1.3"
+  version: "1.1.4"
 ---
 
 # Technical Video Script
@@ -17,9 +17,10 @@ Route to the matching skill in the References section instead of stretching this
 
 - a written page a reader scrolls
 - a live stage demo
+- a live stream or recurring live show (samber/developer-relations-skills@devrel-live-streaming)
 - a conference talk
 - a podcast appearance
-- deciding which videos to make this quarter
+- deciding which videos to make this quarter, or what the company channel is for (samber/developer-relations-skills@devrel-youtube-channel)
 - getting the video _rendered_
 
 Planning is where the leverage is. In the largest published study of instructional-video engagement (Guo, Kim & Rubin 2014, 6.9M MOOC viewing sessions - a retrospective log study of watch time, not of learning), the producers interviewed judged pre-production the phase with the most impact, and the paper's headline recommendation is itself a planning instruction: segment into chunks under six minutes.

@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Declines to build or operate the MCP server itself, naming that as product work rather than documentation work",
+        "evidence": "\"Hosting the server: out of scope here. This skill covers docs/spec surfaces an agent reads \u2014 not building or operating the callable tool server.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Hands the server build and hosting off to the platform-side skill rather than attempting it",
+        "evidence": "\"Hand that to samber/developer-platform-skills.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps curating the spec before conversion in scope and performs that work",
+        "evidence": "\"Curating the spec down before conversion is the last step in scope\" plus full Blocker 1/2 curation work performed",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects converting all 162 operations wholesale into an exposed tool surface",
+        "evidence": "\"Don't run the 162-op spec through the converter unmodified.\"; \"162 tools is not a servable surface\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites the guidance of fewer than 20 functions available at the start of a turn",
+        "evidence": "\"OpenAI's own guidance: fewer than 20 functions available at the start of a turn \u2014 past that, filter instead of exposing everything.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends tag filtering or vendor extensions to expose only what agents need past roughly 20-30 operations",
+        "evidence": "\"Fix: tag-filter before conversion, not after... OR use x-mcp extensions to mark a curated default set (~15-20 ops...)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that curated tool surfaces outperform auto-converted OpenAPI servers, especially for complex APIs with many endpoints",
+        "evidence": "\"models achieve significantly better performance with well-designed and curated MCP servers than with auto-converted OpenAPI servers\u2026 especially true for complex APIs with many endpoints.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies `GetV2ProjectsProjectIdDeploymentsDeploymentIdLogs` as too long and not verb-noun, and proposes a shorter verb-noun replacement",
+        "evidence": "\"Your example... is the {method}_{path} fallback shape, not a real operationId\"; fix example \"GetV2ProjectsProjectIdDeploymentsDeploymentIdLogs \u2192 getDeploymentLogs\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes the converter name-resolution order: `x-mcp-tool-name`, then `operationId`, then a `{method}_{path}` fallback",
+        "evidence": "\"openapi-to-mcp resolves tool name in order: x-mcp-tool-name \u2192 operationId \u2192 {method}_{path} fallback\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that a tool whose name fails the `^[a-zA-Z0-9_-]{1,64}$` pattern is discarded",
+        "evidence": "\"and drops any name failing ^[a-zA-Z0-9_-]{1,64}$.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes operationId truncation at the first `__` and a 56-character cap in at least one named generator",
+        "evidence": "\"FastMCP additionally truncates at first __, slugifies, caps at 56 chars\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends `x-mcp-tool-name` or an equivalent vendor extension when the SDK wants a terse method name and the agent wants a descriptive one, rather than compromising on a single string",
+        "evidence": "\"x-mcp-tool-name: getDeploymentLogs  # only needed if the SDK wants a shorter/different method name\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that renaming an operationId silently renames the exposed tool for existing consumers",
+        "evidence": "\"Renaming one later silently renames the tool an agent already learned \u2014 treat it as a breaking change.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Declines to build or operate the MCP server itself, naming that as product work rather than documentation work",
+        "evidence": "The transcript fully builds the server: architecture diagram, file tree, TypeScript source for auth/executor/confirm/server, Dockerfile, DB schema \u2014 it does not decline.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Hands the server build and hosting off to the platform-side skill rather than attempting it",
+        "evidence": "All hosting artifacts (Dockerfile, .env.dist, rollout steps) are produced directly rather than handed off.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps curating the spec before conversion in scope and performs that work",
+        "evidence": "policy.json tiering, build-manifest.ts classification/name-diff generation, and naming.ts derivation are all spec-curation work performed directly.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects converting all 162 operations wholesale into an exposed tool surface",
+        "evidence": "'Skip blind 1:1 conversion of all 162 operations.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites the guidance of fewer than 20 functions available at the start of a turn",
+        "evidence": "The cited threshold is '~40-60 flat tools,' not fewer than 20.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends tag filtering or vendor extensions to expose only what agents need past roughly 20-30 operations",
+        "evidence": "The approach used is tiering plus a meta list_operations/describe_operation/call pattern with ~12 pinned tools, not tag filtering or vendor extensions, and no 20-30 threshold is cited.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that curated tool surfaces outperform auto-converted OpenAPI servers, especially for complex APIs with many endpoints",
+        "evidence": "'Tool-selection accuracy drops past ~40-60 flat tools. 162 top-level tools in every context window hurts, not helps.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies `GetV2ProjectsProjectIdDeploymentsDeploymentIdLogs` as too long and not verb-noun, and proposes a shorter verb-noun replacement",
+        "evidence": "'GetV2ProjectsProjectIdDeploymentsDeploymentIdLogs as a tool name/description gives model nothing to match against' and the confirmed mapping 'GET .../logs \u2192 deployments.logs'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes the converter name-resolution order: `x-mcp-tool-name`, then `operationId`, then a `{method}_{path}` fallback",
+        "evidence": "No mention of 'x-mcp-tool-name' anywhere; naming.ts derives purely from the path template, not this resolution order.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that a tool whose name fails the `^[a-zA-Z0-9_-]{1,64}$` pattern is discarded",
+        "evidence": "No such validation pattern is discussed; generated names even use dots (e.g. 'deployments.logs') without addressing pattern conformance.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes operationId truncation at the first `__` and a 56-character cap in at least one named generator",
+        "evidence": "No mention of truncation rules or character caps for operationId.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends `x-mcp-tool-name` or an equivalent vendor extension when the SDK wants a terse method name and the agent wants a descriptive one, rather than compromising on a single string",
+        "evidence": "The only override mechanism shown is policy.json's 'nameOverride' field, not a vendor extension addressing terse-vs-descriptive tradeoffs.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that renaming an operationId silently renames the exposed tool for existing consumers",
+        "evidence": "No such warning appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,357 @@
+{
+  "skill_name": "devrel-youtube-channel",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I'm the only DevRel at Tidewire (we sell a managed Postgres change-data-capture service, ~40 people). Our CEO watched a growth-hacker video and now wants the company YouTube channel to post every single day, including 5 Shorts a week, because 'the algorithm rewards consistency'. He also wants the goal to be 10,000 subscribers by end of Q2 (we're at 640). I have maybe 8 hours a week for video and one contractor editor. Can you give me a plan I can take back to him?",
+      "expected_output": "A channel plan that rejects the daily-upload premise with YouTube's own statement that upload frequency does not correlate with growth, derives cadence from the 8 hours a week and the editor, replaces the subscriber goal with outcome and channel-health metrics, makes Shorts cut-downs of long-form linked via the Related video field, and weights pillars toward search-led Help videos.",
+      "files": [],
+      "expectations": [
+        "States that YouTube itself reports no correlation between upload frequency (or time between uploads) and growth in views",
+        "Labels that statement as platform-published (e.g. [YouTube]) rather than as opinion",
+        "Computes a cadence from the 8 weekly hours and narrator hours per finished video, not from a fixed daily or weekly rule",
+        "If the computed cadence falls below one video a month, says so and proposes the docs-embedded or creator rung instead",
+        "Says subscribers are not viewers or not an outcome, citing YouTube",
+        "Proposes an outcome metric tied to signups via tagged long-form links or a 'how did you hear about us' field",
+        "Says Shorts should be cut from long-form videos rather than produced as a separate stream",
+        "Says each Short should point to its long-form source via the Related video link",
+        "Excludes Shorts from the share of Help or search-led content it recommends",
+        "Gives a stop or fallback rule if search watch time and attributed signups stay flat",
+        "Asks or states the deadline / one-off versus compounding / effort ceiling before or while ranking options"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Our channel for Quarrystack (API gateway, B2B) has 2,100 subscribers and 140 videos. Honestly most of it is webinar recordings (45-60 min), conference talks our engineers gave, and 'v4.2 is out!' announcement videos. Average maybe 300 views per video. Leadership asks why YouTube brings zero signups and my manager's answer is 'post more'. What should we change?",
+      "expected_output": "A library audit that reads traffic sources, keeps and tags the best videos, cuts search-shaped tutorials from webinars and talks kept in one public playlist after checking whether they convert elsewhere, refuses 'post more', makes signup attribution a precondition, and uses absolute YouTube-search watch time as the leading channel-health metric.",
+      "files": [],
+      "expectations": [
+        "Asks for or reads YouTube traffic-source data (share or volume from YouTube search versus external/notifications) before redesigning",
+        "Identifies webinar and talk re-uploads and release announcements as archive content that rarely answers a search",
+        "Recommends cutting search-shaped tutorials or Help videos out of the existing webinar and talk material",
+        "Recommends keeping full recordings together in a single playlist and public rather than deleting them",
+        "Asks whether the recordings convert elsewhere (emails, embeds) before demoting them",
+        "Rejects 'post more' as the fix, citing YouTube's statement that upload frequency does not drive growth",
+        "Recommends adding tagged links to the existing top videos by watch time before new uploads",
+        "Says the channel cannot be judged on signups until signups carry a source",
+        "Uses YouTube-search watch time (absolute, not only share) as a channel-health metric",
+        "Ranks pillar options with an explicit efficiency ordering"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Quick context: I'm Lena, sole developer advocate at Orbitsail (feature flags SaaS). I started our YouTube channel two years ago on my personal Gmail because IT was slow, and it's now at 18k subs, almost all videos are me presenting. I'm leaving the company in 3 months (they know). My VP wants to 'keep the channel growing after Lena'. What should the handover and plan look like?",
+      "expected_output": "A plan that routes the channel from Lena's personal Google account to a company-administered Brand Account owner (Brand Account move, 7-day owner wait, primary owner, a second owner) weeks before she leaves, keeps roles in channel permissions, adds a backup presenter and a written series format, sets cadence from the remaining team's hours, and baselines metrics before the handover.",
+      "files": [],
+      "expectations": [
+        "Flags that a channel owned by a personal Google account leaves with the person",
+        "States that channel permissions roles alone cannot transfer ownership",
+        "Gives the route through a Brand Account: move the channel to a Brand Account before ownership can change",
+        "Mentions the 7-day wait before a new owner can become primary owner",
+        "Recommends starting the transfer weeks before Lena's last day",
+        "Warns that deleting the primary owner's account deletes the channel, or that moving onto a Brand Account with an existing channel deletes it",
+        "Recommends rechecking verification or advanced-feature eligibility after the ownership change",
+        "Recommends a backup presenter and a documented series format rather than an immediate one-for-one replacement face",
+        "Recommends capturing baseline metrics before the handover",
+        "Sets post-handover cadence from the remaining team's hours, not from Lena's past output",
+        "Notes that YouTube lists a drop in upload frequency among reasons for lower recommendation traffic, rather than claiming a gap costs nothing"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Marketing at Lumenkey (secrets management for CI) wants me to run 5 YouTube Shorts a week, each with 'Sign up free: lumenkey.dev/start' in the description and pinned in the comments. Separately, our September channel report shows public views up 180% versus July and the CMO wants that in the board deck as proof YouTube is working. Anything I should push back on before I say yes?",
+      "expected_output": "Pushback on two facts: URLs in Shorts descriptions and comments are not clickable, so the signup link must move to a long-form reached through the Related video link; and views were redefined to count from the first frame across all formats from 24 August 2026, so the 180% jump is not comparable and must be restated in watch time or engaged views.",
+      "files": [],
+      "expectations": [
+        "States that URLs in Shorts descriptions are not clickable",
+        "States that URLs in Shorts comments (including pinned comments) are not clickable",
+        "Recommends the Short's Related video link pointing to a long-form video that carries the clickable link",
+        "Explains that YouTube changed view counting to count from the start of play across all formats in August 2026",
+        "Concludes the July-to-September 180% comparison is not like-for-like",
+        "Recommends watch time or engaged views as the comparable series across the change",
+        "Recommends against putting public views in the board deck as proof of outcome",
+        "Recommends judging Shorts on clicks into long-form or engaged views rather than public views",
+        "Questions the 5-a-week Shorts volume against capacity or recommends cutting Shorts from long-form"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "We're Kestrel Queue (open-core message broker). Board approved $40k for 'YouTube influencers' this half. My CMO has picked one guy with 1.2M subscribers who does general tech news, wants to pay him for a 60-second pre-roll that we write word for word, and measure it with a promo code. Can you turn this into a plan for the half?",
+      "expected_output": "A creator plan screened on views per video and engagement per view rather than subscribers, favouring Collaborations or integrations in the creator's own format, a brief instead of a script, disclosure and the paid-promotion tick in the contract, a tagged link in the top three description lines plus 'mention us at signup', and spreading budget over fitting creators.",
+      "files": [],
+      "expectations": [
+        "Says to screen creators on audience fit, views per video and engagement per view rather than subscriber count",
+        "Says creator size by itself is not disqualifying",
+        "Gives a concrete screening threshold or ratio and labels it as practitioner or a vendor's published practice",
+        "Recommends the creator write the read in their own words from a short brief (2-3 points)",
+        "Requires disclosure and ticking YouTube's paid promotion setting, written into the contract or brief",
+        "Recommends a tagged link in the top three lines of the description",
+        "Recommends asking viewers to name the creator at signup in addition to or instead of only a promo code",
+        "Mentions YouTube's Collaborations feature or an integration in the creator's format as an option over a pre-roll",
+        "Recommends finding creators via Studio's 'Channels your audience watches' or creators the team already watches",
+        "Recommends comparing deals on cost per attributed signup or cost per thousand views",
+        "Recommends repeat deals with creators that work rather than one-off placements"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Our docs have ~400 pages. Plan from our growth lead: feed each docs page to a pipeline that writes a script, reads it with a synthetic voice, puts stock code visuals over it, and uploads ~30 videos a month to the company YouTube channel. Our two docs engineers would rather not be on camera but could narrate a couple of videos a month. What YouTube approach should Pylonmesh (service mesh) take?",
+      "expected_output": "A verdict that mass-produced similar videos fall under YouTube's spam policy while synthetic narration on a distinct video is allowed, accurate AI-disclosure nuance, and a plan that treats the docs engineers' voice-only narration as enough for a small owned channel at the cadence they can narrate, paired with docs pages, with options ranked by efficiency.",
+      "files": [],
+      "expectations": [
+        "Says YouTube's spam policy bans automated or synthetic mass-production of similar videos",
+        "Names the strike or termination risk to the channel",
+        "Says synthetic narration on a distinct, reviewed video is not itself banned",
+        "Distinguishes AI disclosure: realistic AI content must be disclosed, AI-written scripts do not need disclosure",
+        "Notes that cloning one's own voice for voiceover or dubs needs no disclosure, or otherwise gives the disclosure line accurately",
+        "Treats voice-only narration by the docs engineers as enough to run an owned channel (on camera is optional)",
+        "Derives a cadence from the couple of narrated videos a month",
+        "Ranks the options (docs-embedded, creators, owned channel) with an explicit efficiency order",
+        "Recommends pairing videos with existing docs pages or embedding them in docs"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "Brightloom (observability for edge functions) launches v2 in 6 weeks at our own launch event. We have no YouTube channel yet. I'm head of marketing; we have one developer advocate who is great on camera but also owns docs and the launch demo. What should we do on YouTube for the launch and after?",
+      "expected_output": "An existence-gate answer that ranks rungs for a hard 6-week date (creators and docs-embedded first, owned channel set up but not dependent on the launch), names what the order starves, sets up ownership and verification before launch, warns about single-presenter risk, and phases the owned channel after launch with Help videos first.",
+      "files": [],
+      "expectations": [
+        "Ranks where video should live (docs-embedded, creators, owned channel tiers) with an explicit ordering",
+        "Says the 6-week hard date promotes faster rungs such as creator collaborations",
+        "States what the efficiency order starves (broad education or owned channel) and when to promote it",
+        "Starts company ownership, verification and the advanced-features request before launch, and plans the launch to work without advanced features",
+        "Mentions the 15-minute upload cap or non-clickable description links before verification/advanced features",
+        "Warns that one advocate who also owns docs and the demo is a single-presenter risk or capacity limit",
+        "Recommends building several Help videos before announcing the channel",
+        "Treats the launch video as a one-off Hero piece rather than the channel strategy",
+        "Hands the live launch-event stream to a live-streaming skill or treats it as out of scope"
+      ]
+    }
+  ],
+  "trigger_queries": [
+    {
+      "query": "we're a devtools startup thinking about starting a youtube channel, is it worth it and what should we post",
+      "should_trigger": true
+    },
+    {
+      "query": "our company YouTube channel has 3k subs and basically zero signups from it, how do I fix our video strategy?",
+      "should_trigger": true
+    },
+    {
+      "query": "How often should our developer YouTube channel upload? CEO wants daily.",
+      "should_trigger": true
+    },
+    {
+      "query": "Should we do YouTube Shorts for our API product or stick to long tutorials?",
+      "should_trigger": true
+    },
+    {
+      "query": "Draft a content pillar plan for the Cloudvane developer YouTube channel for next year",
+      "should_trigger": true
+    },
+    {
+      "query": "we have $30k to work with developer youtubers this half, how do we pick creators and measure it",
+      "should_trigger": true
+    },
+    {
+      "query": "Our dev advocate who fronts every video on our channel is leaving, how do we keep the channel alive?",
+      "should_trigger": true
+    },
+    {
+      "query": "the views on our company channel jumped in september, can I report that as growth to the board?",
+      "should_trigger": true
+    },
+    {
+      "query": "What metrics should I track for our devrel YouTube channel beyond subscribers?",
+      "should_trigger": true
+    },
+    {
+      "query": "is it better to sponsor Fireship-style creators or build our own channel for our database product",
+      "should_trigger": true
+    },
+    {
+      "query": "We should be on YouTube. Where do I even start? We sell a CI security scanner.",
+      "should_trigger": true
+    },
+    {
+      "query": "audit our developer youtube channel: mostly webinar recordings and release videos, 200 views each",
+      "should_trigger": true
+    },
+    {
+      "query": "how do we use YouTube's collaborations feature with independent creators for our SDK",
+      "should_trigger": true
+    },
+    {
+      "query": "Can I put our signup link in Shorts descriptions? planning a Shorts series for our CLI tool",
+      "should_trigger": true
+    },
+    {
+      "query": "Plan a YouTube strategy for a B2B observability company targeting platform engineers",
+      "should_trigger": true
+    },
+    {
+      "query": "we want to automate youtube videos from our docs with AI voiceover, good idea for our channel?",
+      "should_trigger": true
+    },
+    {
+      "query": "help me write the plan for relaunching our dormant company youtube channel (open source db vendor)",
+      "should_trigger": true
+    },
+    {
+      "query": "Who should own our company's YouTube channel account and how do we give the agency access safely?",
+      "should_trigger": true
+    },
+    {
+      "query": "our docs team wants to embed videos in the docs, marketing wants a youtube channel - which first?",
+      "should_trigger": true
+    },
+    {
+      "query": "What's a realistic YouTube cadence for a two-person devrel team at a Series A infra startup?",
+      "should_trigger": true
+    },
+    {
+      "query": "which videos should our developer channel make first, we have zero videos and one person who can present",
+      "should_trigger": true
+    },
+    {
+      "query": "thumbnail and title A/B testing strategy for our devtools channel - how do we judge winners?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our engineering YouTube channel gets views but no regular viewers. How should the programming change?",
+      "should_trigger": true
+    },
+    {
+      "query": "convince my VP that a developer YouTube channel is a multi-year bet, not a launch tactic",
+      "should_trigger": true
+    },
+    {
+      "query": "should our dev tool company make YouTube Posts and polls or is that a waste of time",
+      "should_trigger": true
+    },
+    {
+      "query": "We pay a tech youtuber for a pre-roll read we script ourselves. What's wrong with that approach?",
+      "should_trigger": true
+    },
+    {
+      "query": "Write the script for a 6-minute screencast showing how to set up our webhook retries",
+      "should_trigger": false
+    },
+    {
+      "query": "We want to start a weekly Twitch and YouTube Live coding stream for our SDK, how do we run it?",
+      "should_trigger": false
+    },
+    {
+      "query": "Our conference wants its own podcast and YouTube channel between editions, who owns it?",
+      "should_trigger": false
+    },
+    {
+      "query": "Turn this blog post about connection pooling into a YouTube video script with chapters",
+      "should_trigger": false
+    },
+    {
+      "query": "Plan the Q3 devrel content calendar across blog, newsletter, video and social",
+      "should_trigger": false
+    },
+    {
+      "query": "What KPIs should our whole DevRel team report to the CFO this quarter?",
+      "should_trigger": false
+    },
+    {
+      "query": "set up UTM conventions and a dashboard for all our devrel channels",
+      "should_trigger": false
+    },
+    {
+      "query": "Design our recurring monthly webinar series for developers, registration to replay",
+      "should_trigger": false
+    },
+    {
+      "query": "write youtube ad copy for a TrueView campaign promoting our SaaS free trial",
+      "should_trigger": false
+    },
+    {
+      "query": "We're sponsoring a developer newsletter next month, how should we write the ad?",
+      "should_trigger": false
+    },
+    {
+      "query": "help me prepare for being a guest on a developer podcast that's also on YouTube",
+      "should_trigger": false
+    },
+    {
+      "query": "Cut our conference talk recordings into clips for social this week",
+      "should_trigger": false
+    },
+    {
+      "query": "Design a live demo for our booth at KubeCon",
+      "should_trigger": false
+    },
+    {
+      "query": "Our dev.to posts get no reactions, how do we post there?",
+      "should_trigger": false
+    },
+    {
+      "query": "storyboard a 2-minute animated explainer for our product homepage",
+      "should_trigger": false
+    },
+    {
+      "query": "How should we structure the docs site so tutorials are easy to find?",
+      "should_trigger": false
+    },
+    {
+      "query": "Build a developer tutorial page for deploying our agent to Kubernetes",
+      "should_trigger": false
+    },
+    {
+      "query": "What should a developer advocate's career path look like if they want to become a YouTuber?",
+      "should_trigger": false
+    },
+    {
+      "query": "Plan the press and media outreach for our v3 launch",
+      "should_trigger": false
+    },
+    {
+      "query": "should we run a LinkedIn Live AMA with our CTO next month, and how",
+      "should_trigger": false
+    },
+    {
+      "query": "Edit the audio and cut the ums from my recorded screencast",
+      "should_trigger": false
+    },
+    {
+      "query": "I'm a developer advocate and want to grow my personal YouTube channel to build my profile, how often should I post?",
+      "should_trigger": false
+    },
+    {
+      "query": "Write the YouTube description, chapters and pinned comment for our new webhook-retries tutorial video",
+      "should_trigger": false
+    },
+    {
+      "query": "Our recruiting team wants an engineering-culture YouTube channel to attract senior hires",
+      "should_trigger": false
+    },
+    {
+      "query": "Which video host should we use to embed tutorial videos in our docs site, YouTube or self-hosted?",
+      "should_trigger": false
+    },
+    {
+      "query": "Script a 45-second YouTube Short announcing our v3 CLI",
+      "should_trigger": false
+    },
+    {
+      "query": "our devrel lead wants to restart the company youtube after a year of silence - what should we publish and how do we know it's working?",
+      "should_trigger": true
+    },
+    {
+      "query": "Pick the best camera, mic and screen recorder for our developer tutorials",
+      "should_trigger": false
+    },
+    {
+      "query": "Is a YouTube channel worth it for a 12-person API company or should we spend that time elsewhere? Be honest.",
+      "should_trigger": true
+    },
+    {
+      "query": "split our devrel budget between YouTube creators, newsletter sponsorships and conference booths for next year",
+      "should_trigger": false
+    }
+  ]
+}

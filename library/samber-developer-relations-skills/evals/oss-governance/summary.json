@@ -1,0 +1,706 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "oss-governance",
+  "scenarios": 13,
+  "expectations_total": 167,
+  "expectations_subjective": 1,
+  "expectations_objective": 166,
+  "pass_rate_with_skill_pct": 73.1,
+  "pass_rate_without_skill_pct": 28.1,
+  "delta_pp": 45.0,
+  "uplift_multiplier": 2.6,
+  "trigger_accuracy_pct": 52.7,
+  "trigger_queries": 150,
+  "trigger_positive_fire_rate": 0.52,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.267 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "States that for this shape the scarce resource is maintainer attention, and names curation, scope defence and succession as the actual work."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that an elected steering committee carries the highest value and the highest effort, and therefore loses on the value-per-maintainer-hour ordering."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends a maintainer council, naming it the default at three or more maintainers."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Attaches a monthly effort figure to each presented model, next to what those hours buy."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Warns that a governance document describing elections the project never holds reads as theatre to contributors and is treated as a defect by reviewers."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that the measure should also run on reviews, issue responses and documentation, not commits alone."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Warns against publishing per-person contribution league tables and recommends reporting aggregates."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Says the governance document should state that the staging pause is policy rather than distrust."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Identifies governance never exercised as the other slow gap."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that what a graduation gate certifies is that no single company can walk away and kill the project, rather than code quality."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Quotes any foundation threshold with the foundation named as its owner, rather than as a generic standard."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Quotes a minimum 72-hour voting period with its stated reason of letting other time zones take part, attributed to Apache."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Separates published figures from self-set baselines explicitly, and says which of its own recommendations are which."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Warns that a named project's published thresholds change, and that the project's own governance file should be re-checked before the number is quoted."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Routes the conduct dimension to the code-of-conduct process rather than through the governance escalation ladder."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that conduct cases are handled in private, with the accused excluded from deliberation."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Specifies that where a maintainer is the subject, others handle it, escalating outside the project if the whole group is implicated."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Replaces the promotion sentence with self-assessable criteria combining a time period, a count of non-trivial merged contributions, and a count of substantive reviews."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Enumerates the decision classes the section is missing, at minimum routine change, breaking change, new maintainer, removal, scope change, release, security response and amendment."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Specifies quorum, minimum open period, and whether abstentions count in the denominator for any vote it defines."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names lazy consensus as the default for routine work, and excludes it from irreversible actions such as a release, a key rotation or a removal."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Labels any threshold it proposes as a self-set baseline the project may move, rather than as a standard."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Applies the clause test explicitly: every clause must describe something the project has done or will plausibly do this year."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Includes an inactivity definition in months and an emeritus clause with rights removed, credit retained, and reinstatement stated."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that an archive announcement marks the repository read-only, states the last supported version and the security policy, and points at a successor fork if one exists."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Links the neighbouring files (contribution mechanics, code of conduct, people file, security policy) rather than absorbing their content, so that a process tweak is not a governance amendment."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Includes an amendments clause with a threshold and a window, plus a line stating that changing the document is expected rather than a crisis."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Recommends publishing the reduced-availability period, and treats a stated weekly time budget as a legitimate governance clause rather than something to keep quiet about."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names the real cost shape: roughly a week per charter, then a standing job for each subproject, with diverged cadences resisting re-merging."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Distinguishes lightweight fiscal hosting (donation handling, no governance imposed, a percentage of donations) from a fiscal sponsor with legal services (around 10% of processed revenue, written decision-making required, asset assignment optional)."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Runs the join-or-not test on all three axes: money, neutrality, and the autonomy budget."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names the money-governance components required once funds exist: a written conflict-of-interest policy, a budget approved by the governing body rather than by whoever holds the payment credentials, spending-authorization thresholds, a reserve target, and a transparency mechanism."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names paid maintainers as the recurring friction once some contributors draw project funds and others do not."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Recommends funding a defined administrative or triage role rather than feature development, separating paying for upkeep from paying to decide direction."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Warns that a US charitable-status application is not a formality, citing a denial that arrived after roughly four and a half years."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Requires a people file listing current affiliations plus a separate emeritus section."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that where the forge exposes no setting for a documented rule, the manual convention replacing it must be written down."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "States that more than one company now employing maintainers makes asset separation urgent now, while moving the trademark and domains is still uncontroversial."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "States that what triggers a maintainer revolt is an assurance that drifts, not a limit that was stated up front."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Recommends per-organization seat or vote caps, and says to adopt them while the seat count is still small enough for the cap to be uncontroversial."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Describes organization-balanced voting correctly: one vote per employer, independents counting as their own, applied to listed decision types, while day-to-day merges stay on lazy consensus."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Names invisible control - an internal roadmap meeting, a trademark on a company balance sheet, one shared employer - as the specific risk of a company-backed project."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Cites the .NET Foundation episode, or its read that creating a foundation does not by itself remove the founder's authority: only the asset transfer and the bylaw amendment rule do."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Names 'maintainers on more than one payroll' as one of the conditions that promotes an elected steering committee, and states that it is now met."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Recommends published, versioned minutes on a real cadence, with the categories that may be decided privately enumerated."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Classifies the project as the 'stadium' shape (many users, very few contributors) using the two-axis Working in Public / Eghbal taxonomy, named rather than presented as a generic observation."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that for this shape the scarce resource is maintainer attention, and names curation, scope defence and succession as the actual work."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Does not deliver the requested five-seat elected steering committee as the recommendation."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that an elected steering committee carries the highest value and the highest effort, and therefore loses on the value-per-maintainer-hour ordering."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends a maintainer council, naming it the default at three or more maintainers."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Presents exactly two models with trade-offs plus one recommendation, rather than a single option or a long menu."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Attaches a monthly effort figure to each presented model, next to what those hours buy."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States how easily each presented model can be reversed or undone."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names at least one of the four conditions that would promote an elected steering committee anyway (maintainers on more than one payroll, a visible founder departure, a contributor base outgrowing the maintainer set, a foundation application with a stated governance bar) and states that none of them holds here."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that the March 2.0 date favours models that install in an afternoon and works against an elected body, because an election's legitimacy cannot be compressed."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Produces an as-is statement of who decides today, and by what implicit rule, before proposing any model."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Computes or asks for the contributor absence factor before ranking shared models."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Warns that a governance document describing elections the project never holds reads as theatre to contributors and is treated as a defect by reviewers."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Uses the term 'contributor absence factor' and attributes the metric definition to CHAOSS, or notes it was formerly called bus factor."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States the definition as the smallest number of contributors responsible for 50% of contributions."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Excludes the bot author from the calculation and says why."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Reports a corrected project-wide absence factor of 3."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Shows the arithmetic: the corrected total, the 50% threshold, and the accumulation that crosses it."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that the measure should also run on reviews, issue responses and documentation, not commits alone."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Labels the 'at least 2, and two holders per credential' figure as a self-set baseline rather than a published standard."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Warns against publishing per-person contribution league tables and recommends reporting aggregates."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names concrete relief moves before any grant: triage help, scope cuts, funding, or pausing releases."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Withholds PyPI publish rights and the signing key until at least one supervised release cycle has happened."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that key-holder rights are never granted in the same act as merge rights."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that a legitimate co-maintainer can wait a release cycle."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "References the 2024 xz-utils takeover (or CVE-2024-3094), including the multi-year credibility build and the pressure applied to an exhausted solo maintainer."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Presents the conflict between the liberal-commit-access position attributed to @felixge via opensource.guide and the post-xz staged-grant position, and resolves it as generous with the ladder, slow with the keys, rather than silently picking one side."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Says the governance document should state that the staging pause is policy rather than distrust."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends counting reviews given, not only pull requests merged, as promotion evidence."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "For key-holder roles, prefers a verifiable identity or an established public track record, and says the requirement belongs in the document rather than being applied silently."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Runs the four checkable signals in order of weight: trademark, domains and registry accounts; maintainer-affiliation ratio; contribution-agreement shape; published minutes."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States explicitly that code-license openness and governance openness are two separate audits."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Cites the pre-fork Redis position, where only two of five maintainers worked outside the controlling company, as a case where the affiliation ratio preceded a fork."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Gives the sequence in the right order: maintainers from a second organization first, then vote or seat caps, then the trademark and asset transfer."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that announcing before the maintainer pool changes reads as marketing and is checked as marketing."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Cites the Istio trademark episode and the read that partners judge where the asset landed, not the sincerity of the arrangement."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that a company CLA with a broad grant is what makes a later unilateral relicense possible, and names it as the lever procurement will look for."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Routes the trademark transfer and the contribution agreement to legal counsel instead of advising on their terms."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends published, versioned minutes on a real cadence, with private categories enumerated and a visible marker left where content was withheld."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Declines to tighten the drafted structure as-is, and names it as over-engineered for four maintainers at a single employer."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that governance documented but never exercised is a review-blocking defect, not a neutral omission."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names adopting a complex structure shortly before a foundation application as a recognized anti-pattern."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names the concrete costs of the draft: elections that never happen, expired terms, working groups with one member, and a reviewer distrusting the whole document because one part is false."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends writing the smaller, honest model instead, and recording a revisit trigger such as maintainers exceeding eight or a second organization holding two seats."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Identifies the single-employer maintainer pool as one of the two slow readiness gaps that take quarters rather than days."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Identifies governance never exercised as the other slow gap."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Lists the remaining readiness gaps in fix order: repository permissions contradicting documented roles, unclear ownership of the name, domains or registry accounts, missing community-health files or a stale maintainers list, and no adopters willing to be named publicly."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that what a graduation gate certifies is that no single company can walk away and kill the project, rather than code quality."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Quotes any foundation threshold with the foundation named as its owner, rather than as a generic standard."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Marks which requirements are legal gates for counsel (IP clearance, software grant, trademark, membership or sponsorship agreement) rather than ranking them alongside choices."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Advises confirming the target foundation's published criteria as currently stated rather than relying on remembered figures."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends producing evidence that the rules have actually run at least once, such as a maintainer added or moved to emeritus, a vote held, or an escalation resolved under the written path."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Attributes every quoted figure to its owning project or body, in the shape 'Node.js waits 72 hours' rather than 'the standard is 72 hours'."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Quotes the pattern of two approvals to land a change, dropping to one once the change has sat 7 days, attributed to Node.js."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Quotes a minimum 72-hour voting period with its stated reason of letting other time zones take part, attributed to Apache."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Quotes a final comment period of 10 days with a minimum of 5 business days, attributed to the Rust RFC process."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Labels the two-thirds removal and amendment threshold as a common template value with a named source, not as a standard."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Labels the 6-to-12-month inactivity definition as a common convention rather than a standard."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Separates published figures from self-set baselines explicitly, and says which of its own recommendations are which."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends the aging-approval rule as the single most useful import for a small maintainer team, because it stops the repository stalling when one maintainer is away."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Advises adjusting every window for community size and timezone spread rather than pasting the numbers unchanged."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Warns that a named project's published thresholds change, and that the project's own governance file should be re-checked before the number is quoted."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes that a team split across three widely separated timezones changes whether a given voting window actually buys the participation it was meant to buy."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Cites the precedent of a major project that produced an elected steering committee and two forks in the same year."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Routes the conduct dimension to the code-of-conduct process rather than through the governance escalation ladder."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that conduct cases are handled in private, with the accused excluded from deliberation."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Specifies that where a maintainer is the subject, others handle it, escalating outside the project if the whole group is implicated."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names recusal for anyone employed by a party to the dispute, with a named fallback for when recusal leaves no quorum."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Warns that the resignations have probably moved the contributor absence factor, and calls for recomputing concentration and credential holders now."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Advises that when structure is eventually published, the simplest workable ladder is what sticks, not the most sophisticated one."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Sides with the contributor and names the specific defects: 'significant' undefined, 'consensus' with no test, no clock, and nobody named as decider."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that a rule that cannot be violated cannot be relied on."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Rewrites the clause into a bounded, testable, escalatable form carrying a named decider, a threshold, a stated window and an escalation path."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Requires any blocking objection to carry a technical justification, so that a veto is an argument rather than a mood."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Puts a timer on every decision path, naming the unbounded thread as the failure mode of consensus-seeking."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Replaces the promotion sentence with self-assessable criteria combining a time period, a count of non-trivial merged contributions, and a count of substantive reviews."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Explains that the original promotion wording leaves a contributor nothing to act on, so nobody applies and the maintainer pool never grows."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Enumerates the decision classes the section is missing, at minimum routine change, breaking change, new maintainer, removal, scope change, release, security response and amendment."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Specifies quorum, minimum open period, and whether abstentions count in the denominator for any vote it defines."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names lazy consensus as the default for routine work, and excludes it from irreversible actions such as a release, a key rotation or a removal."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Labels any threshold it proposes as a self-set baseline the project may move, rather than as a standard."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Applies the clause test explicitly: every clause must describe something the project has done or will plausibly do this year."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Follows the template section order for the sections it keeps, and skips the ones the project does not need rather than reordering."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Lists merge rights separately from privileged credentials such as signing, publishing and organization ownership in the roles section."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Includes a scope sentence stating what the project refuses to become, so that features can be declined impersonally."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Includes an inactivity definition in months and an emeritus clause with rights removed, credit retained, and reinstatement stated."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Includes a named end state: a successor named, or an archive announced publicly, rather than the project going silent."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that an archive announcement marks the repository read-only, states the last supported version and the security policy, and points at a successor fork if one exists."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Includes an amendments clause with a threshold and a window, plus a line stating that changing the document is expected rather than a crisis."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names the real cost shape: roughly a week per charter, then a standing job for each subproject, with diverged cadences resisting re-merging."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Recommends a maintainer council as the model that fits six maintainers working in one shared area."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that if federation is ever pursued, the first subproject is chartered as an experiment with explicit scope and a review date."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Gives the premature-split test: if the council still makes all of the subprojects' decisions, the split was premature."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Reports that the named fiscal sponsor requires a licence that is both OSI-approved and DFSG-free, and that BUSL-1.1 does not meet it, so that route is closed as things stand."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Distinguishes lightweight fiscal hosting (donation handling, no governance imposed, a percentage of donations) from a fiscal sponsor with legal services (around 10% of processed revenue, written decision-making required, asset assignment optional)."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that a fiscal host removes the need to incorporate, and that a legal entity is unnecessary until money is involved."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Runs the join-or-not test on all three axes: money, neutrality, and the autonomy budget."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names the money-governance components required once funds exist: a written conflict-of-interest policy, a budget approved by the governing body rather than by whoever holds the payment credentials, spending-authorization thresholds, a reserve target, and a transparency mechanism."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names paid maintainers as the recurring friction once some contributors draw project funds and others do not."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Recommends funding a defined administrative or triage role rather than feature development, separating paying for upkeep from paying to decide direction."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Tells the user to confirm which legal entity actually holds the funds, and to write the exit plan while nothing is wrong, citing the 2024 staged dissolution of a charitable fiscal host that affected more than 600 collectives with roughly seven months to spend down or transfer."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Notes that a fiscal sponsor holding assigned assets typically cannot later transfer them to an individual or a for-profit, and that the irreversibility is what an adopter reads."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Routes any licence change, the sponsorship or membership agreement, and contributor agreements to legal counsel rather than advising on their terms."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Warns that a US charitable-status application is not a formality, citing a denial that arrived after roughly four and a half years."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Flags Bo as the sole registry publisher, and requires more than one holder for registry publishing, release signing and organization ownership."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Requires a people file listing current affiliations plus a separate emeritus section."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that zero contradictions between documented roles and repository permissions is binary and not a threshold the project can adjust downward."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that where the forge exposes no setting for a documented rule, the manual convention replacing it must be written down."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "States that more than one company now employing maintainers makes asset separation urgent now, while moving the trademark and domains is still uncontroversial."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "States that what triggers a maintainer revolt is an assurance that drifts, not a limit that was stated up front."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Recommends per-organization seat or vote caps, and says to adopt them while the seat count is still small enough for the cap to be uncontroversial."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Describes organization-balanced voting correctly: one vote per employer, independents counting as their own, applied to listed decision types, while day-to-day merges stay on lazy consensus."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Moves roadmap decisions out of the internal planning meeting and into public issues."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Names invisible control - an internal roadmap meeting, a trademark on a company balance sheet, one shared employer - as the specific risk of a company-backed project."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Adds that maintainer nominations are judged without prejudice to employer, plus a cap on nominations from an organization already employing half the maintainers."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Reports the five-of-seven affiliation ratio as still classifying the project as single-vendor by the measure adopters and researchers use."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Cites the .NET Foundation episode, or its read that creating a foundation does not by itself remove the founder's authority: only the asset transfer and the bylaw amendment rule do."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Names 'maintainers on more than one payroll' as one of the conditions that promotes an elected steering committee, and states that it is now met."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Routes the trademark arrangement and any contributor agreement to legal counsel rather than drafting terms."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Recommends published, versioned minutes on a real cadence, with the categories that may be decided privately enumerated."
+      }
+    ]
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Produces interlock lines and a named arbiter rather than recommending the merge as the first move.",
+        "evidence": "The transcript's headline recommendation is the merge itself: 'Candidate A \u2014 centralize (recommended). Merge docs into DevRel, one manager, reports to you... Recommend A because you're already below the split-by-focus floor.' The interlock line and arbiter appear only later, as step 3 of the Transition plan ('Month 1: Stand up the Engineering interlock'), after confirming headcount and naming owners \u2014 not as the first move in place of the merge.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Assigns exactly one interaction mode to the docs / technical-writing team.",
+        "evidence": "The transcript never treats docs/technical-writing as a standing team with an assigned interaction mode to DevRel/CMO \u2014 it merges docs into the new 'Developer Experience' team. The only mode named ('X-as-a-service') is assigned to the relationship between the merged team and Engineering, not to the docs team itself.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the mode as one of collaboration, X-as-a-service or facilitation, and attributes the model to Team Topologies.",
+        "evidence": "'X-as-a-service' is used in the interlock line, but nowhere in the transcript is this term attributed to Team Topologies or any source framework.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names X-as-a-service as the default mode for docs drafts, reviews and structure decisions.",
+        "evidence": "The only X-as-a-service usage covers 'API-change notifications + review queue on public-surface PRs' between DevExp and Engineering \u2014 not docs drafts, reviews, or structure decisions.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes each interlock with what crosses the boundary.",
+        "evidence": "The single interlock line specifies what crosses: 'Engineering \u2014 X-as-a-service \u2014 API-change notifications + review queue on public-surface PRs \u2014 arbiter: new DevExp manager + a named Eng lead, biweekly sync.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes each interlock with who arbitrates when it stalls.",
+        "evidence": "Same interlock line names an arbiter: 'arbiter: new DevExp manager + a named Eng lead, biweekly sync.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that more than one mode per adjacent team means nobody can say where the boundary is.",
+        "evidence": "No such statement appears anywhere in the transcript; only one interlock/mode is discussed at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites that technical writing is staffed on around 42.7% of surveyed teams, with the year attached, and sits under another manager in most of the rest.",
+        "evidence": "No statistic about technical writing staffing percentage or survey year appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names leaving docs ownership implicit as the failure that produces gaps exactly between the two orgs.",
+        "evidence": "'No declared interlock. Nobody ever wrote down: who owns API reference, who owns tutorials, who arbitrates when it's unclear. Result: the arbiter became you, weekly, by default. That's the actual bug,' combined with 'splitting enablement content across two under-staffed teams with different managers guarantees boundary fights' \u2014 implicit ownership between the two orgs is named as the root failure.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that collaboration mode needs an end date or the team silently becomes interrupt-driven.",
+        "evidence": "No mention of 'collaboration mode,' end dates, or interrupt-driven states anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns against reorganising when the real fix is declaring ownership and re-scoping.",
+        "evidence": "The transcript does the opposite \u2014 it recommends the reorg as the primary fix ('Recommend A') and only adds 'Merging fixes #1. It does NOT fix #2 unless you explicitly name owners... Do both, not just the re-org,' rather than warning against reorganizing in favor of ownership/re-scoping alone.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Records technical writing on the six-function coverage map as owned by another named team or shared with a named split, in writing.",
+        "evidence": "The coverage table assigns 'API reference' and 'Tutorials' to roles inside the newly merged team ('assign to current docs lead', 'assign to a DevRel person') rather than to a separate named team outside the merged org or a named split arrangement.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Produces interlock lines and a named arbiter rather than recommending the merge as the first move.",
+        "evidence": "The transcript avoids merging first (\"Don't merge the teams yet\") but the fix offered is a content-ownership charter with disputes routed to '[charter]', not named-arbiter interlock lines.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Assigns exactly one interaction mode to the docs / technical-writing team.",
+        "evidence": "No Team Topologies interaction-mode framing is used anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the mode as one of collaboration, X-as-a-service or facilitation, and attributes the model to Team Topologies.",
+        "evidence": "No such terminology or attribution appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names X-as-a-service as the default mode for docs drafts, reviews and structure decisions.",
+        "evidence": "Not present in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes each interlock with what crosses the boundary.",
+        "evidence": "The content-type ownership table lists owners and reasons, not boundary-crossing artifacts in interlock form.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes each interlock with who arbitrates when it stalls.",
+        "evidence": "Only a generic escalation line ('disagreements... go to [charter], not to the CMO') is given, with no named arbiter.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that more than one mode per adjacent team means nobody can say where the boundary is.",
+        "evidence": "Not stated anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites that technical writing is staffed on around 42.7% of surveyed teams, with the year attached, and sits under another manager in most of the rest.",
+        "evidence": "No such statistic appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names leaving docs ownership implicit as the failure that produces gaps exactly between the two orgs.",
+        "evidence": "\"What's actually broken: ownership was never defined by content type\" combined with \"Most of the three months of escalation is probably arguments over the middle ground.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that collaboration mode needs an end date or the team silently becomes interrupt-driven.",
+        "evidence": "No mention of collaboration mode or end dates.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns against reorganising when the real fix is declaring ownership and re-scoping.",
+        "evidence": "\"A merged team with undefined internal ownership just relocates the argument... Do step 1 only. A clear charter with named ownership and a stated escalation path solves the pain you're actually describing.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Records technical writing on the six-function coverage map as owned by another named team or shared with a named split, in writing.",
+        "evidence": "No six-function coverage map exists; only a four-row content-type table is given.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

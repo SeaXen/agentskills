@@ -1,7 +1,7 @@
 # 🎭 Playwright & Browser Automation
 
 > **Category**: `testing-playwright-e2e`  
-> **Total Curated Skills**: 117 skills  
+> **Total Curated Skills**: 120 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -71,10 +71,13 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`google-scholar-scraper`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/google-scholar-scraper) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Ethical Google Scholar data collection techniques and best practices |
 | [`grok-build`](../../library/sickn33-agentic-awesome-skills/skills/grok-build) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Delegate well-specified implementation tasks to xAI's Grok Build CLI running headlessly while t... |
 | [`headless-testing`](../../library/membranedev-application-skills/skills/headless-testing) | ⚪ Reserve | `membranedev-application-skills` | Headless Testing integration. Manage Tests, Projects, Environments, Users, Roles. Use when the ... |
+| [`i4h-workflow-e2e`](../../library/nvidia-skills/skills/i4h-workflow-e2e) | ⚪ Reserve | `nvidia-skills` | Run the maintained workflow data-to-policy pipeline from recording through checkpoint validatio... |
 | [`indeed-job-search`](../../library/browser-act-skills/skills/indeed-job-search) | ⚪ Reserve | `browser-act-skills` | Scrape job listings from Indeed.com by keyword, location, and country. Returns job title, compa... |
 | [`instagram-profile-posts`](../../library/browser-act-skills/skills/instagram-profile-posts) | ⚪ Reserve | `browser-act-skills` | Scrapes posts from an Instagram user's profile feed including captions, media URLs, like/commen... |
 | [`invisible-playwright`](../../library/feder-cr-invisible_dots/skills/invisible-playwright) | ⚪ Reserve | `feder-cr-invisible_dots` | Use the Dot's browser identities for any task on a website or search on the web: which identity... |
 | [`jet-browser`](../../library/sickn33-agentic-awesome-skills/skills/jet-browser) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Verify or integrate Jet Browser when a project needs isolated WPE WebKit sessions, native input... |
+| [`jetson-headless-mode`](../../library/nvidia-skills/skills/jetson-headless-mode) | ⚪ Reserve | `nvidia-skills` | Plan and apply safe Jetson headless-mode changes to reclaim GUI and daemon memory. |
+| [`jetson-optimize-memory`](../../library/nvidia-skills/skills/jetson-optimize-memory) | ⚪ Reserve | `nvidia-skills` | Reclaim DRAM by disabling unused subsystems across MB1 BCT, MB2 BCT, kernel reserved-memory, an... |
 | [`lambdatest-agent-skills`](../../library/sickn33-agentic-awesome-skills/skills/lambdatest-agent-skills) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Production-grade test automation skills for 46 frameworks across E2E, unit, mobile, BDD, visual... |
 | [`lightpanda-browser`](../../library/reason-machines-trending-skills/skills/lightpanda-browser) | ⚪ Reserve | `reason-machines-trending-skills` | Expert skill for Lightpanda — the headless browser built in Zig for AI agents and automation. 9... |
 | [`llm-public-opinion-analytics-assistant`](../../library/reason-machines-data-skills/skills/llm-public-opinion-analytics-assistant) | ⚪ Reserve | `reason-machines-data-skills` | Multi-platform hot search crawler and LLM-powered public opinion analysis system with clusterin... |

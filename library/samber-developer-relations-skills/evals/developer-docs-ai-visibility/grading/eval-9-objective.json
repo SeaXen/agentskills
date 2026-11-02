@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Corrects the inference: `GPTBot` is OpenAI's training agent, and its hits say nothing about ChatGPT search, which uses `OAI-SearchBot`, or user fetch via `ChatGPT-User`",
+        "evidence": "\"GPTBot is OpenAI's training crawler... ChatGPT search uses OAI-SearchBot. Live fetches... ChatGPT-User.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that 200 responses to IP-verified AI agents are interim evidence of reachability only, never evidence of what robots.txt allows, and requires reading robots.txt and the CDN rules",
+        "evidence": "\"Interim evidence of reachability is 200 responses to IP-verified OAI-SearchBot hits. That proves reach, not what robots.txt allows.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Runs or prescribes `scripts/ai-bot-log-summary.py` with `--path-prefix /docs/` on the main host logs",
+        "evidence": "Command includes `--path-prefix /docs/`.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Passes a custom `--version-regex` because the default pattern requires a `v` prefix and the bare-number `/docs/3.x/` and `/docs/2.x/` scheme would otherwise read as unversioned",
+        "evidence": "\"default version regex needs a `v` prefix... pass `--version-regex`\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Runs the script once per host file for v1.docs.dunmoresignal.io, since version subdomains are not in the combined log format",
+        "evidence": "\"combined log format has no host field, so run one pass per host.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes the script reads `.gz` files directly and needs only the Python 3 standard library",
+        "evidence": "Uses .gz filenames but never states the script reads .gz directly or needs only Python 3 stdlib.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Passes `--ip-ranges` with one file per vendor downloaded beforehand, and states that an agent whose vendor file is missing reads as unverified",
+        "evidence": "\"Pass every vendor file you want checked, or those agents read as unverified.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a user-agent string alone is trivially spoofed, so unverified GPTBot hits may not come from OpenAI",
+        "evidence": "\"A user-agent string alone is trivially spoofed\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reads user-triggered fetch hits (`ChatGPT-User`, `Claude-User`, `Perplexity-User`) on 2.x or 1.x paths as the early warning of old-version answers",
+        "evidence": "\"ChatGPT-User hits on old-version paths... are the early warning.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports hits split by bot role (ai-search, user-fetch, training, classic-search) rather than one AI-bot total, with classic search crawlers reported apart because they also feed AI Overviews and Copilot",
+        "evidence": "Splits OpenAI agents by role but never mentions ai-search/user-fetch/training/classic-search grouping or classic crawlers reported apart.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reports AI assistant referral visits by version and calls them a lower bound",
+        "evidence": "No referral discussion.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that `llms.txt` requests are counted site-wide regardless of the path prefix",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Corrects the inference: `GPTBot` is OpenAI's training agent, and its hits say nothing about ChatGPT search, which uses `OAI-SearchBot`, or user fetch via `ChatGPT-User`",
+        "evidence": "'GPTBot hits do not show that ChatGPT search can read your docs.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that 200 responses to IP-verified AI agents are interim evidence of reachability only, never evidence of what robots.txt allows, and requires reading robots.txt and the CDN rules",
+        "evidence": "Only 2xx counts as read; checks robots.txt and WAF/CDN rules.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Runs or prescribes `scripts/ai-bot-log-summary.py` with `--path-prefix /docs/` on the main host logs",
+        "evidence": "Writes custom awk script.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Passes a custom `--version-regex` because the default pattern requires a `v` prefix and the bare-number `/docs/3.x/` and `/docs/2.x/` scheme would otherwise read as unversioned",
+        "evidence": "No such script/flag.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Runs the script once per host file for v1.docs.dunmoresignal.io, since version subdomains are not in the combined log format",
+        "evidence": "'Run it once per host, because the 1.x host is a different site.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes the script reads `.gz` files directly and needs only the Python 3 standard library",
+        "evidence": "Own awk script; not the named script's properties.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Passes `--ip-ranges` with one file per vendor downloaded beforehand, and states that an agent whose vendor file is missing reads as unverified",
+        "evidence": "Manual check against gptbot.json; no flag or missing-file rule.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a user-agent string alone is trivially spoofed, so unverified GPTBot hits may not come from OpenAI",
+        "evidence": "'counts spoofed user-agents'; IPs outside ranges are spoofed.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reads user-triggered fetch hits (`ChatGPT-User`, `Claude-User`, `Perplexity-User`) on 2.x or 1.x paths as the early warning of old-version answers",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reports hits split by bot role (ai-search, user-fetch, training, classic-search) rather than one AI-bot total, with classic search crawlers reported apart because they also feed AI Overviews and Copilot",
+        "evidence": "Per-agent runs only; no classic search separation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reports AI assistant referral visits by version and calls them a lower bound",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that `llms.txt` requests are counted site-wide regardless of the path prefix",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

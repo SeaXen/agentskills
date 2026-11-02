@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects handing the complete file at every step, stating that a tutorial copy-pasting as much at the last step as at the first has taught nothing.",
+        "evidence": "\"'Step 8 written like step 2, a full file to paste. It is faster to write, faster to complete, and teaches nothing: the learner never once produced the pattern.' That's your plan, verbatim.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prescribes fading across three stages: full file with all imports early, only the added lines in a named file with the insertion point stated in the middle, and the requirement plus expected output late.",
+        "evidence": "Only early (\"full files is correct\") and late (\"least copy-paste... producing code, with help available only when stuck\") stages are discussed; no middle-stage diff/insertion-point description appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names guidance fading as a cognitive-load result and attributes it to Renkl (and Atkinson).",
+        "evidence": "Neither \"Renkl\", \"Atkinson\", nor \"cognitive load\" appear anywhere in section 3.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the three-stage early/middle/late split is a self-set baseline shape, not part of the published finding.",
+        "evidence": "No statement addressing whether the staging shape is self-set versus published appears in section 3.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the \"copy full solution\" button on the late steps as removing the step that produces transferable skill.",
+        "evidence": "\"by step 8 they've never once produced the pattern themselves... Escalate in this order... with full solution as the last click, not the headline button.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ranks the four hint rungs by value per authoring hour as: blanked solution, then pointer, then full solution, then pseudocode.",
+        "evidence": "\"The skill ranks the four rungs by teaching value per authoring hour: **blanked solution > pointer > full solution > pseudocode**.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends authoring the blanked solution and the pointer, and rejects the proposed pseudocode-plus-full-solution pair.",
+        "evidence": "\"You picked pseudocode and full solution \u2014 the bottom two... Swap in **blanked solution**... and a **pointer**... instead.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the blanked block is the full solution minus about three lines and teaches the most.",
+        "evidence": "\"blanked solution (your existing full-solution code, minus 2-3 interesting lines)\" is stated, but nowhere does the text explicitly say the blanked block \"teaches the most\" (only that full solution \"teaches the least\").",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States pseudocode must be rewritten on every API change and says only what the blanked block already says.",
+        "evidence": "\"Pseudocode 'is prose you rewrite on every API change to say what the blanked block already says'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Attributes the blanked-block rung to the completion-problem effect (Paas, 1992).",
+        "evidence": "\"Paas\" and \"completion problem\" do not appear anywhere in section 3.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes the learner's escalation order (pointer, pseudocode, blanked solution, full solution) from the authoring priority order.",
+        "evidence": "The transcript's actual escalation order is \"pointer \u2192 blanked solution \u2192 full solution\" with pseudocode dropped entirely (\"Drop pseudocode unless one specific step is genuinely algorithm-shaped\"), not the four-step order with pseudocode the rubric describes.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ties late-step fading to the learner being able to perform the objective unaided on a variation they were never walked through.",
+        "evidence": "\"It also fails the pass threshold's criterion 5 \u2014 the learner performing the objective once more, unaided \u2014 because by step 8 they've never once produced the pattern themselves.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the \"too hard from step 6\" feedback as a possible fading or one-new-thing-per-step defect rather than accepting more complete code as the fix.",
+        "evidence": "\"Handing over the full file for all three steps 'fixes' all four uniformly by deleting the requirement to think \u2014 which is the cheapest possible response and the one least likely to be right.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects handing the complete file at every step, stating that a tutorial copy-pasting as much at the last step as at the first has taught nothing.",
+        "evidence": "The transcript explicitly treats early full-file dumps as fine (\"Steps 1-2 are almost certainly boilerplate/setup \u2014 low learning value, so giving the whole file costs nothing pedagogically\"), and only objects to it at steps 6-8. It never states that copy-pasting as much at the last step as the first teaches nothing; it draws a distinction rather than a blanket rejection.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Prescribes fading across three stages: full file with all imports early, only the added lines in a named file with the insertion point stated in the middle, and the requirement plus expected output late.",
+        "evidence": "No such three-stage scheme (full file/imports, added-lines-in-named-file with insertion point, requirement+expected output) appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names guidance fading as a cognitive-load result and attributes it to Renkl (and Atkinson).",
+        "evidence": "The transcript contains no citation of Renkl, Atkinson, or any named research attribution for fading guidance.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the three-stage early/middle/late split is a self-set baseline shape, not part of the published finding.",
+        "evidence": "No mention of a three-stage split or any claim about it being a self-set baseline vs. published finding.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the \"copy full solution\" button on the late steps as removing the step that produces transferable skill.",
+        "evidence": "\"Dumping the complete file there removes the struggle at exactly the point it's supposed to happen\" and \"Copy-paste rate on steps 6-8 will likely spike and *look* like the fix worked (feedback stops) while nobody actually learns the hard part\" \u2014 directly rejects full-solution access at the hard steps as eliminating the productive struggle needed for learning.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ranks the four hint rungs by value per authoring hour as: blanked solution, then pointer, then full solution, then pseudocode.",
+        "evidence": "The transcript never mentions a \"blanked solution\" or \"pointer\" rung, nor any ranking of hint types by authoring-hour value.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends authoring the blanked solution and the pointer, and rejects the proposed pseudocode-plus-full-solution pair.",
+        "evidence": "The transcript instead recommends keeping pseudocode and adding \"a one-sentence conceptual nudge above the pseudocode\" \u2014 it does not mention or recommend a \"blanked solution\" or \"pointer\" rung, nor does it reject the pseudocode-plus-full-solution pair outright.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the blanked block is the full solution minus about three lines and teaches the most.",
+        "evidence": "No mention of a \"blanked block\" concept anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States pseudocode must be rewritten on every API change and says only what the blanked block already says.",
+        "evidence": "The transcript does not discuss pseudocode maintenance costs or API-change rewrites; it treats pseudocode as a kept element needing only a conceptual nudge added above it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Attributes the blanked-block rung to the completion-problem effect (Paas, 1992).",
+        "evidence": "No citation of Paas (1992) or the completion-problem effect appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes the learner's escalation order (pointer, pseudocode, blanked solution, full solution) from the authoring priority order.",
+        "evidence": "The transcript never introduces a pointer/blanked-solution rung system, so no such distinction between escalation order and authoring order is made.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ties late-step fading to the learner being able to perform the objective unaided on a variation they were never walked through.",
+        "evidence": "There is no statement connecting late-step guidance reduction to unaided performance on an untaught variation; the transcript's closest point is about instrumenting clicks per step, not about unaided transfer.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats the \"too hard from step 6\" feedback as a possible fading or one-new-thing-per-step defect rather than accepting more complete code as the fix.",
+        "evidence": "\"reread the step-5\u21926 transition. 'Too hard starting at step 6' often means two new concepts got introduced in one step with no checkpoint in between (see progressive-complexity / checkpoint-every-3-5-steps pattern) \u2014 that's a step-splitting fix, not a hints-authoring fix\" explicitly reframes the complaint as a step-design defect instead of endorsing more complete code as the remedy.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

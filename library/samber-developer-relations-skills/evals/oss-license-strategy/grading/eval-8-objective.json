@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that a DCO does not grant the right to relicense or dual-license contributed code",
+        "evidence": "\"A DCO doesn't grant that... DCO \u2260 CLA.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that dual licensing requires the vendor to hold or be granted all the rights, which is why dual-licensing vendors run CLAs",
+        "evidence": "\"Dual licensing only works when the vendor **holds or has been granted all the rights** to relicense the code under different terms.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires consent from the 22 existing contributors, or rewriting or removing their code, before selling commercial licenses covering it",
+        "evidence": "\"Get each remaining contributor to sign a CLA retroactively... either rewrite that specific code before it's sold commercially, or accept the gap and disclose it\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prescribes a CLA for new contributions from a stated date, with existing history grandfathered",
+        "evidence": "\"Track 1 \u2014 Future contributions: replace DCO with a CLA... keep the DCO's historical commits as-is, they don't need to be re-signed.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires publishing the reason for the CLA in the contributing guide rather than introducing it unexplained",
+        "evidence": "\"State the real reason in CONTRIBUTING.md, don't hide it behind 'legal safety'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Supplies 'why we ask' wording tied to the specific right, selling a commercial license to customers who cannot accept AGPL",
+        "evidence": "\"we sell a commercial license of this server to organizations... that cannot accept AGPL's network-disclosure terms\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a CLA is a license grant rather than a transfer of ownership, and that contributors keep their copyright and may reuse their own work",
+        "evidence": "\"Signing grants us a license to your contribution; you keep your copyright and can use your own work anywhere else.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a corporate agreement covers employer-owned work while mature programs still require an individual agreement from each person on top",
+        "evidence": "Only states \"They sign a CCLA once and maintain an approved-contributor list\" \u2014 no mention of individuals also needing a separate agreement on top.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that corporate contributors sit in their employer's legal queue for weeks and must be told up front",
+        "evidence": "No mention of corporate legal review timelines anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ranks the sales-led levers by revenue reached per unit of trust spent: dual licensing above open core above a source-available relicense",
+        "evidence": "This document only executes an already-chosen dual-licensing plan; no comparative ranking of levers appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that dual licensing works only when the copyleft obligations are genuinely inconvenient to the buyer",
+        "evidence": "No general statement of this condition; only the specific fact that banks 'cannot accept AGPL's network-disclosure terms' is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the CLA to be enforced by an automated check at merge time, not by memory",
+        "evidence": "\"Enforce with an automated gate on every PR (EasyCLA or CLA Assistant)... a policy enforced by memory isn't a policy.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Makes no assertion about whether any specific contributor's employment contract assigns their work to their employer",
+        "evidence": "The transcript never discusses any of the 22 contributors' employment contracts or ownership status.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that a DCO does not grant the right to relicense or dual-license contributed code",
+        "evidence": "'DCO \u2260 relicensing rights' and 'It is a provenance attestation, not a copyright license grant.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that dual licensing requires the vendor to hold or be granted all the rights, which is why dual-licensing vendors run CLAs",
+        "evidence": "'only works if Sablewright holds \u2014 for 100% of the shipped code \u2014 rights broad enough' and 'the textbook reason dual-licensed projects use a CLA'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires consent from the 22 existing contributors, or rewriting or removing their code, before selling commercial licenses covering it",
+        "evidence": "'Retroactive consent... Rewrite... Architectural isolation' for contributors who don't consent",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prescribes a CLA for new contributions from a stated date, with existing history grandfathered",
+        "evidence": "It prescribes a CLA going forward but gives no start date. It does not grandfather existing history, and instead seeks retroactive consent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires publishing the reason for the CLA in the contributing guide rather than introducing it unexplained",
+        "evidence": "'Update CONTRIBUTING.md and the PR template to state plainly: contributions are licensed to Sablewright under the CLA... Sablewright separately sells commercial licenses.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Supplies 'why we ask' wording tied to the specific right, selling a commercial license to customers who cannot accept AGPL",
+        "evidence": "It gives a description of what to state but no ready-to-use wording. It never mentions customers who cannot accept AGPL.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a CLA is a license grant rather than a transfer of ownership, and that contributors keep their copyright and may reuse their own work",
+        "evidence": "It specifies a copyright license grant but never says contributors keep their copyright or may reuse their own work.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a corporate agreement covers employer-owned work while mature programs still require an individual agreement from each person on top",
+        "evidence": "It says 'Require a Corporate CLA for anyone contributing as part of their job'. It does not say individuals still sign on top.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that corporate contributors sit in their employer's legal queue for weeks and must be told up front",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ranks the sales-led levers by revenue reached per unit of trust spent: dual licensing above open core above a source-available relicense",
+        "evidence": "No ranking of levers.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that dual licensing works only when the copyleft obligations are genuinely inconvenient to the buyer",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the CLA to be enforced by an automated check at merge time, not by memory",
+        "evidence": "'Gate merges on CLA the same way the DCO bot gates today (CLA Assistant, EasyCLA, or equivalent)'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Makes no assertion about whether any specific contributor's employment contract assigns their work to their employer",
+        "evidence": "Only hedged: 'their employer may hold the actual copyright'. It makes no claim about a specific contract.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

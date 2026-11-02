@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Restricts backfill to records whose source is blank, and forbids overwriting any record already carrying a journey-linked or self-reported value.",
+        "evidence": "\"The rule is never overwrite: backfill touches only rows where source is blank.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the proposed job specifically because it would overwrite populated rows.",
+        "evidence": "\"### 1. It overwrites populated rows\" \u2014 \"'Filled in by whoever noticed at the time' is still a recorded source ... A row someone already populated doesn't get replaced by a heuristic guess\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the three conditions the campaign-window heuristic requires: the date falls inside exactly one campaign's window, the landing page belongs to that campaign, and that campaign's tags were live.",
+        "evidence": "\"1. The signup date falls inside exactly one campaign's window ... 2. The landing page belongs to that campaign. 3. That campaign's tags were live at the time.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Concludes that three to five concurrent campaigns sharing the /get-started landing page break the pin, so those records must be written as unknown.",
+        "evidence": "\"That fails condition 1 ... and condition 2 ... simultaneously, for most of the eight months.\" and \"Most of the 40% blank stays unknown after this job runs, not filled.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Instructs recording three fields rather than a bare channel: source, source_basis and source_confidence.",
+        "evidence": "Table: \"source | ...\", \"source_basis | ...\", \"source_confidence | ...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Defines the source_basis values as journey_linked, self_reported and campaign_window.",
+        "evidence": "\"source_basis | journey_linked \\| self_reported \\| campaign_window\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that confidence is judged on the quality of the evidence and is never read off the basis.",
+        "evidence": "\"source_confidence | judged on evidence quality \u2014 never inferred from source_basis alone\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the fail-closed rule: when the merge is ambiguous, record nothing, because a gap is visible and fixable while a wrong merge is corruption nobody later detects.",
+        "evidence": "\"A row that resolves to unknown gets no source_basis/source_confidence \u2014 absence of a value, not a manufactured one. That's the visible, fixable gap the skill wants over a silent wrong merge.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires backfilled history to be kept visually separate so it is not read as a trend.",
+        "evidence": "\"unknown as its own segment, visually distinct (hatched or greyed, not just another color in the same palette)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines to present the eight-month backfilled series as a trend chart.",
+        "evidence": "\"No gapless eight-month trend ... Build it as a stacked bar per month, not a line\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not propose a probabilistic or fractional allocation of ambiguous conversions across the concurrent campaigns.",
+        "evidence": "\"There's no fractional or probabilistic split across the concurrent campaigns either \u2014 allocating a signup 1/4 to each of four campaigns manufactures attribution, it doesn't recover it.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Restricts backfill to records whose source is blank, and forbids overwriting any record already carrying a journey-linked or self-reported value.",
+        "evidence": "\"Keep the original value. Never overwrite a real (if messy) recorded channel with a guess.\" and SQL: \"-- never clobber a real value\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the proposed job specifically because it would overwrite populated rows.",
+        "evidence": "The plan explicitly fixes the original ask by adding \"Keep the original value. Never overwrite a real (if messy) recorded channel with a guess\" as a correction to the stated approach.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the three conditions the campaign-window heuristic requires: the date falls inside exactly one campaign's window, the landing page belongs to that campaign, and that campaign's tags were live.",
+        "evidence": "Only a single-campaign-live-that-week condition is used; landing page is explicitly dismissed as unhelpful (\"`/get-started` doesn't help either\"), and tag-liveness is never discussed as a separate condition.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Concludes that three to five concurrent campaigns sharing the /get-started landing page break the pin, so those records must be written as unknown.",
+        "evidence": "\"Where multiple campaigns overlapped, bucket as **'Unresolved'** instead of picking one arbitrarily.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Instructs recording three fields rather than a bare channel: source, source_basis and source_confidence.",
+        "evidence": "The schema adds `channel_source` and `candidate_channels`, not a distinct `source_confidence` field as required.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Defines the source_basis values as journey_linked, self_reported and campaign_window.",
+        "evidence": "The actual values used are 'observed' | 'inferred_single' | 'inferred_mixed' | 'unattributed', not the rubric's specific vocabulary.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that confidence is judged on the quality of the evidence and is never read off the basis.",
+        "evidence": "No confidence field or reasoning about confidence being judged separately from basis appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the fail-closed rule: when the merge is ambiguous, record nothing, because a gap is visible and fixable while a wrong merge is corruption nobody later detects.",
+        "evidence": "\"forcing one manufactures attribution that never existed... bucket as 'Unresolved'...That's still a gap-free chart \u2014 'Unresolved' is an honest, informative category, not a hole.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires backfilled history to be kept visually separate so it is not read as a trend.",
+        "evidence": "The chart blends 'observed' and 'inferred_single' values into the same colored channel series with no visual distinction; only 'Unresolved' gets its own bucket.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines to present the eight-month backfilled series as a trend chart.",
+        "evidence": "Section is literally titled \"3. Eight-month trend chart\" and builds a stacked-column trend visualization from the backfilled data.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not propose a probabilistic or fractional allocation of ambiguous conversions across the concurrent campaigns.",
+        "evidence": "Ambiguous weeks are bucketed wholesale as \"Mixed\"/\"Unresolved\", never fractionally split across candidate campaigns.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that 1.0.0 sorts below 2026.3.1 under both npm's semver and PEP 440, so resolvers and bots would treat it as older",
+        "evidence": "\"`1.0.0` sorts below `2026.3.1`\"; table covers pip and npm ranges.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a PEP 440 epoch, 1!1.0.0, for the PyPI package to reset ordering",
+        "evidence": "Recommends 2027.0.0 and lists \"`1!1.0.0` with a Debian epoch\" under \"Rejected alternatives\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that npm has no epoch, so the npm package must keep its major at or above the last calendar year (for example 2027.0.0 and SemVer from there) or publish under a new package name",
+        "evidence": "Recommends 2027.0.0 and rejects a new package name, but never says npm has no epoch.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend shortening the year from 2026 to 26, or explicitly warns that doing so breaks ordering",
+        "evidence": "No such recommendation; uses 2027.0.0.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes an explicit ordering check comparing the first new version against the highest old version under each resolver the project publishes to, and states the result",
+        "evidence": "\"Ordering holds on npm, PyPI and dpkg\"; gives python, npx semver and dpkg commands.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends announcing the new scheme and its reason at least one release before it applies",
+        "evidence": "\"Publish this one release ahead of 2027.0.0\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the last version under the old scheme and its support end date in the announcement",
+        "evidence": "\"2026.3.1 [or the final 2026.x release]\" and end date is a placeholder \"[date]\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that dependents' type-based automerge rules flip meaning after the switch and says so in the announcement",
+        "evidence": "Announcement: \"your minor and patch automerge rules are safe\"; \"Old automerge rules were wrong.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says that badges, docs and the changelog header must be updated in the same release",
+        "evidence": "Only a changelog header line is given; badges and docs not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends telling the Debian packager before the release because they may need to add an epoch",
+        "evidence": "\"Tell the Debian packager now.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States what a dependent's existing range such as ~=2026.0 or ^2026.3.1 now buys after the switch",
+        "evidence": "Table: \"npm `^2026.3.1` | Stays on 2026.x. Never picks up 2027.0.0.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that Dependabot reads a year rollover as a major and a month as a minor under the current scheme",
+        "evidence": "\"Dependabot reads the leading segments as major.minor.patch whatever the scheme.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the fixed launch date promotes options that need no tooling or import-path change, naming which answer moved the recommendation",
+        "evidence": "Mentions moving the launch date only; no such reasoning.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that 1.0.0 sorts below 2026.3.1 under both npm's semver and PEP 440, so resolvers and bots would treat it as older",
+        "evidence": "\"Both registries order versions numerically, and 1 is less than 2026.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a PEP 440 epoch, 1!1.0.0, for the PyPI package to reset ordering",
+        "evidence": "\"Epoch: publish 1!1.0.0.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that npm has no epoch, so the npm package must keep its major at or above the last calendar year (for example 2027.0.0 and SemVer from there) or publish under a new package name",
+        "evidence": "\"npm has no epoch\"; recommends shipping `2027.0.0`.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend shortening the year from 2026 to 26, or explicitly warns that doing so breaks ordering",
+        "evidence": "No mention of 2026 vs 26.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes an explicit ordering check comparing the first new version against the highest old version under each resolver the project publishes to, and states the result",
+        "evidence": "Python Version('1!1.0.0') > Version('2026.3.1') # True; npx semver check \"prints nothing = no match\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends announcing the new scheme and its reason at least one release before it applies",
+        "evidence": "No advance announcement is recommended.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the last version under the old scheme and its support end date in the announcement",
+        "evidence": "\"2026.3.1 is the final calendar release. It receives security fixes until [date]\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that dependents' type-based automerge rules flip meaning after the switch and says so in the announcement",
+        "evidence": "Bot notes mention semver-major PRs, but the announcement does not say automerge rules change meaning.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says that badges, docs and the changelog header must be updated in the same release",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends telling the Debian packager before the release because they may need to add an epoch",
+        "evidence": "\"Tell the maintainer now, before the release date.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States what a dependent's existing range such as ~=2026.0 or ^2026.3.1 now buys after the switch",
+        "evidence": "\"Existing ^2026.3.1 and >=2026.3.1 ranges never match it\"; upper bounds block the upgrade.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that Dependabot reads a year rollover as a major and a month as a minor under the current scheme",
+        "evidence": "Not stated for the calendar scheme.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the fixed launch date promotes options that need no tooling or import-path change, naming which answer moved the recommendation",
+        "evidence": "Only says to decide \"before marketing locks the date\"; no such reasoning.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

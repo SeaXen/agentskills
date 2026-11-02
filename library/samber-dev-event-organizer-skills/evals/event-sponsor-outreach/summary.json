@@ -1,0 +1,358 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-sponsor-outreach",
+  "scenarios": 9,
+  "expectations_total": 99,
+  "expectations_subjective": 1,
+  "expectations_objective": 98,
+  "pass_rate_with_skill_pct": 84.8,
+  "pass_rate_without_skill_pct": 38.4,
+  "delta_pp": 46.4,
+  "uplift_multiplier": 2.21,
+  "trigger_accuracy_pct": 62.2,
+  "trigger_queries": 90,
+  "trigger_positive_fire_rate": 0.489,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 0.2,
+  "subjective_pass_disagreements": [
+    {
+      "eval_id": 2,
+      "condition": "without_skill",
+      "expectation": "Proposes a specific, curiosity-driving subject line rather than a flat 'DeltaHack and Brannock Systems partnership'-style label",
+      "pass1": true,
+      "pass2": false
+    }
+  ],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "States that outreach is the first external-facing motion of the plan, ahead of the CFP and ahead of attendee marketing"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends prioritizing targets whose budget cycle is still open rather than pitching the full list uniformly"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Produces a scored target list with a top-3-to-5 callout naming why each of those goes first"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The draft names one differentiator setting DeltaHack apart from other events soliciting the same company"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Raises the referral ask - one no-pitch message to someone senior to Lena Mirov asking only who owns sponsorship decisions - as a higher-yield first touch where no warm path exists"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Requires the proposal to state why this package fits this specific sponsor, tied to the success metric the sponsor named on the call"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Qualifies authority, need, urgency and money during the call"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends diversifying the list across startups, midsized companies and large enterprises instead of concentrating on one segment"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Explains that a deadline the sponsor can verify carries more weight than a stated close date with nothing behind it"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Identifies mid-September, roughly three months after the 6 June close, as late on the renewal clock and notes the sponsor's attention or budget line has had time to move elsewhere"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Rejects merging renewal and net-new into one list and requires the two motions be tracked separately"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Structures each objection with the statement as actually said, the real concern beneath it, a response approach, a proof point and a follow-up question"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names attendee-stack vendor mapping - identifying which vendors' tools the expected audience uses or evaluates, then targeting those vendors' DevRel and marketing teams - and identifies it as the highest-research-effort source"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Promotes the cold email sequence explicitly because a first edition with no organizer network has no warm paths left to exhaust"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Records the sponsor's budget-cycle month alongside the liaison and pipeline record, so next edition's outreach starts from it"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "States that sponsor outreach should have begun roughly eight months before the event date, not four"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Gives the reason as sponsor budgets, especially at larger companies, being locked in during the prior financial year"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that outreach is the first external-facing motion of the plan, ahead of the CFP and ahead of attendee marketing"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Does not present the newly published schedule as the right trigger for starting sponsor outreach"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends prioritizing targets whose budget cycle is still open rather than pitching the full list uniformly"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Advises asking each prospect which month their team plans next year's event budget, so the next edition starts from that record"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Sizes the target list backward from the EUR 38,000 goal divided by an average package price, rather than proposing a fixed company count"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Produces a scored target list with a top-3-to-5 callout naming why each of those goes first"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Refuses to attach the sponsor prospectus PDF to the first email"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Excludes every hyperlink and image from the first email, explicitly including the Calendly link and the signature logo"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Gives corporate phishing and spam filtering auto-trashing the mail unread as the reason for that rule"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that the prospectus, the booking link and the website all wait for a follow-up message"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The draft names one differentiator setting DeltaHack apart from other events soliciting the same company"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The draft proposes a specific time for a call instead of asking the recipient to say what works"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Raises the referral ask - one no-pitch message to someone senior to Lena Mirov asking only who owns sponsorship decisions - as a higher-yield first touch where no warm path exists"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Confirms Developer Relations as the right title to target for a product-feedback motivation"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Rejects sending the prospectus as the first touch"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Places an exploratory call before the prospectus is sent"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States the proposal goes out immediately after the call, same day, rather than as the opening move"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Requires the proposal to state why this package fits this specific sponsor, tied to the success metric the sponsor named on the call"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Structures the call so the organizer pitches the event and team briefly and then lets the sponsor talk"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Includes asking the sponsor what success metrics they used on past sponsorships and what they spent and got out of them"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Qualifies authority, need, urgency and money during the call"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Instructs scheduling the follow-up call before the first call ends"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Replaces chasing whoever opened the deck with tracking every one of the 15 prospects by pipeline stage"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that event sponsorship publishes no close-rate or reply-rate benchmark of its own"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Warns against planning on B2B SaaS figures such as 9-15% reply or 20-30% close as if they were sponsorship facts"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Applies a 2-3x sourcing multiple on top of the computed list, because qualification culls hard"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends the capped sponsor-standard follow-up cadence for a two-person volunteer team rather than a longer multi-angle sales sequence"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends diversifying the list across startups, midsized companies and large enterprises instead of concentrating on one segment"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Caps the follow-up count at three for the default sponsorship cadence"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Spaces pings one to two weeks apart and identifies the day-4 ping as too tight at five months out"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States the 3-4 day tightening applies only close to the event date, not five months out"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Ties the final reminder to a real, verifiable production date already on the calendar, such as a merchandise print cutoff or a program-lock date, rather than an invented close date"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Warns that following up past the cap costs more goodwill than it recovers"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names the community-reputation cost - burning the event's name among people who talk to each other - as the sponsorship-specific reason for the cap, distinct from any sales-benchmark reasoning"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that renewal outreach starts at or within days of event close, not months later"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Identifies mid-September, roughly three months after the 6 June close, as late on the renewal clock and notes the sponsor's attention or budget line has had time to move elsewhere"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Anchors the renewal conversation on last edition's post-event sponsor report"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes that renewal outreach without that report is just a cold email to someone who happens to know you"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Requires separate stage-conversion rates for the renewal motion and the net-new motion"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Keeps the eight-months-out fiscal-year checkpoint on the net-new track only, rather than applying it to renewals"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes that renewal conversion also reads as a demand signal about the event itself, not only as a measure of outreach quality"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Points to the post-event sponsor report as the proof point for that objection"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Delivers the answers as a quick-reference table scannable mid-call, matching the second-screen request"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Structures each objection with the statement as actually said, the real concern beneath it, a response approach, a proof point and a follow-up question"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Flags that at EUR 15,000, the largest pledge the event has taken, a values-alignment check inside the organizing team is warranted before the deal is finalized"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Tags each objection heard with the sponsor's segment and logs it, rather than answering and moving on"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Has the fixed operational checklist answered before the call - projected attendance, aggregate audience composition, per-level benefits, and logistics such as power, network, table size and shipping"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Rules out the ZoomInfo export entirely rather than keeping it as a last resort at the bottom of the channel menu"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Asks whether the event belongs to a franchise or multi-city series whose sibling or local editions' sponsor roster could substitute"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names attendee-stack vendor mapping - identifying which vendors' tools the expected audience uses or evaluates, then targeting those vendors' DevRel and marketing teams - and identifies it as the highest-research-effort source"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Justifies promoting that high-effort source here on the grounds that the warm lists are absent or exhausted against the revenue goal"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Promotes the cold email sequence explicitly because a first edition with no organizer network has no warm paths left to exhaust"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Keeps an inbound broadcast - a sponsorship-call post on the event's own site plus social posts - running as background while stating it must not be the plan"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Scores each candidate Hot / Warm / Cold / Skip with a source URL and date attached to each qualification claim"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names one dedicated liaison, a specific organizer, who owns contact, payment chasing and discount codes for Halden Robotics"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that the liaison assignment persists through fulfillment rather than ending at signature"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Advances Halden Robotics to the committed or signed stage in the pipeline rather than leaving the record at proposal sent"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Gates the closing step by deal size, not only by the deliverables the pledge buys"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Records the sponsor's budget-cycle month alongside the liaison and pipeline record, so next edition's outreach starts from it"
+      }
+    ]
+  }
+}

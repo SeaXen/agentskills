@@ -1,0 +1,378 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-content-repurposing",
+  "scenarios": 8,
+  "expectations_total": 99,
+  "expectations_subjective": 1,
+  "expectations_objective": 98,
+  "pass_rate_with_skill_pct": 86.9,
+  "pass_rate_without_skill_pct": 29.3,
+  "delta_pp": 57.6,
+  "uplift_multiplier": 2.97,
+  "trigger_accuracy_pct": 57.6,
+  "trigger_queries": 92,
+  "trigger_positive_fire_rate": 0.348,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "States that a drip requires both a recurring edition and a named owner with a standing slot through a stated end date, and identifies that the owner half is missing here"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Refuses any 'we will publish when we get to it' arrangement as an option, rather than presenting it as the cheapest choice"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that an all-at-once dump with a date is the acceptable floor, not a failure"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Presents the plan (sessions, formats, dates) for validation before any editing starts"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Warns against publishing an uncorrected machine transcript as if it were a finished document"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that a derivative of an uncovered recording is as unpublishable as the recording itself"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that third-party clearance for slide material has no owner, and that the checklist is deliberately minimal rather than clearance advice"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes a third-party finding is reversible (the piece can be re-cut without those frames), unlike publishing an identifiable attendee"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Keeps the source files and a record of what was cut and why"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Does not invent a substitute consent mechanism (such as emailing attendees for retroactive approval) parallel to the badge signal"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Rejects deciding the licence per artifact at upload time by whoever uploads, which produces an archive with mixed unrecorded terms"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Grounds the ready-made asset in the reasoning that the speaker's own effort, not their willingness, decides whether they post"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Reuses the event's existing shareable kit rather than building a second one"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "States that a drip requires both a recurring edition and a named owner with a standing slot through a stated end date, and identifies that the owner half is missing here"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Does not treat the annual recurrence alone as sufficient to justify the drip"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends a batched release (or an all-at-once dump) as the latency choice for this team"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Evaluates latency options on whether planned artifacts actually ship (completion), not on reach or sustained presence alone"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names the specific failure that the later half of a drip is what an exhausted post-event team drops"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Refuses any 'we will publish when we get to it' arrangement as an option, rather than presenting it as the cheapest choice"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that an all-at-once dump with a date is the acceptable floor, not a failure"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Places the written write-up in the first wave, before any clips"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Every line of the plan carries the artifact, a date, and a named person"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Treats evergreen re-surfacing only as opportunistic re-posting of already-existing artifacts with no schedule, or excludes it because nobody will keep the watch"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Presents the plan (sessions, formats, dates) for validation before any editing starts"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Leads the derivative mix with a written write-up"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Restricts clips to the three sessions people asked about rather than clipping all 28 in programme order"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Rejects or defers the audio-cut/podcast plan because no standing audio property with its own subscribers exists"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States the audio cut has nowhere to land on its own, or that the write-up is strictly better on both value and effort"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes that building a standing podcast or channel is a separate undertaking beyond a single edition's repurposing, not part of this plan"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Rejects transcript pages for all 28 talks because the edition does not recur (and search-driven discovery is unestablished), so the per-talk correction pass does not pay back"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Identifies the transcript correction pass as a standing job across a programme, not a quick automated export"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Warns against publishing an uncorrected machine transcript as if it were a finished document"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Directs the write-up to cover what the sessions actually said, not to restate the schedule or programme"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Has the write-up link to the published masters rather than re-hosting the videos"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Refuses to treat re-uploading the full talks to the brand channel and LinkedIn as repurposing, stating a full-session re-upload is the master again, not a derivative"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names the risk that a second copy published under different terms stops matching the consent record, or splits the archive"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that the master file and its publication belong to the production pipeline, not to this repurposing work"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Keeps actual derivatives (clips, a write-up) as the deliverable instead of the re-upload"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Declines to write the captions, pick the hashtags, or choose platforms, handing those to whoever runs the event's channels"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Hands each scheduled piece over with the artifact and where its file is"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The handover carries the publish date for each piece"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The handover carries the licence line that must appear with each piece"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The handover carries any rights restriction per piece (a speaker not to tag, a photo not to use, frames already cut)"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Replaces the shared drive-folder link with a curated inventory list for the next edition's campaign"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The inventory marks which artifacts are evergreen versus dated, and which carry an open licence and which do not"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The inventory names what is missing and will not exist, so the next campaign is not built on a hoped-for piece"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that a grant of recording and publication does not license re-cuts or derivative works"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Treats both the vertical cuts and the translated subtitle tracks as derivative works that exceed the publication grant"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Marks the sessions covered by the publication-only release as restricted rather than usable"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "For restricted sessions, links to the published master instead of cutting from it"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Routes the release-form gap to whoever owns consent collection, as wording added to the next edition's release"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Does not itself re-contact speakers to collect new consent or build a parallel consent flow"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that a derivative of an uncovered recording is as unpublishable as the recording itself"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes that some events' releases do extend explicitly to editing and derivative works, so the fix is a release-form change rather than an impossibility"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Offers exactly three actions per finding: clear it with the rights holder, cut those frames, or drop the clip"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "For the clip where the licensed track runs through the key moment: drop the clip unless the music is cleared, with no partial version"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Points out the rights gate should have run before cutting, and that the editor's day of work is the cost of checking at upload time"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Applies the third-party checklist per planned clip before production going forward"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that third-party clearance for slide material has no owner, and that the checklist is deliberately minimal rather than clearance advice"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes a third-party finding is reversible (the piece can be re-cut without those frames), unlike publishing an identifiable attendee"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Keeps the source files and a record of what was cut and why"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Rules out the close-up carousel: with the opt-out not retrievable per photo, the whole set is restricted for identifiable close crops"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Allows at most wide shots where nobody is identifiable, or recommends not using the set at all"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States the opt-out signal was given in a moment that has passed and cannot be re-collected, so re-asking the room is not available"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Treats identifiable-attendee material as the heaviest rights category, above third-party material in slides"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Does not invent a substitute consent mechanism (such as emailing attendees for retroactive approval) parallel to the badge signal"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Treats the badge-sticker scheme as the only attendee-photo signal, owned by the accessibility/inclusion side of the event rather than by this workstream"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Runs the photo check before production and selection, not just before publication"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends deciding the photo-set policy at planning time rather than after pieces are edited"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes that an artifact with no licence line and no statement gets resolved in the re-user's favour"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Records who made the licence decision"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Makes the licence call explicitly as this workstream's own decision rather than deferring it or letting it drift"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Rejects deciding the licence per artifact at upload time by whoever uploads, which produces an archive with mixed unrecorded terms"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Drops sending speakers their own full-talk video links - that message belongs to the post-event follow-up someone else already owns"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Scopes the outreach to the derivative made from each speaker's own talk, and nothing else"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Defaults to a one-line ask riding the follow-up message already being sent, coordinating the wording rather than sending a separate message to all 30"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Upgrades to a ready-made asset (clip plus drafted caption and link) only for the speakers of the most-asked-about sessions, not for everyone"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Grounds the ready-made asset in the reasoning that the speaker's own effort, not their willingness, decides whether they post"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "For the 120k-follower keynote speaker, proposes a dated joint push (same-day, cross-tagged) conditional on her agreeing to a date, instead of just tagging her"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Reuses the event's existing shareable kit rather than building a second one"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Refuses the 10,000-views-per-clip target and does not invent any numeric view, retention, or engagement threshold"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Reads a low take-up rate as diagnosing the ask (usually a missing attached asset), not the speakers"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Cites the checkable completeness gates: every derivative traces to a consent-covered session, and every artifact had a date and an owner before production"
+      }
+    ]
+  }
+}

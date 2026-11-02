@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The response refuses to extend or move the May 30 early-bird date inside the marketing plan.",
+        "evidence": "\"I did not extend the early-bird.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "It explains the cutoff is owned by the pricing decision: moving it changes the price ladder and revenue, and the pricing checkpoint no longer measures what it did.",
+        "evidence": "\"moving the cutoff changes the price ladder and revenue, and that the ~15% checkpoint then needs re-baselining\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "If the date genuinely must move, the decision is routed back to the pricing owner rather than absorbed into the marketing plan.",
+        "evidence": "\"send event-ticket-pricing a decision request\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The campaign is planned around May 30 as a fixed date, with the reminder push timed before it.",
+        "evidence": "Reminders May 19 and May 28, close Fri May 30 (fixed)",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response declines to draft the reminder email copy itself.",
+        "evidence": "It wrote a full email draft with subject, preview and body.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Email execution is routed to the sibling that writes attendee email sequences, handing over weight, phase and send dates.",
+        "evidence": "It drafted the copy itself and labelled it \"draft for event-attendee-email-sequences\" instead of handing over weight, phase and dates.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response declines to build the two weeks of LinkedIn posts or a social content calendar.",
+        "evidence": "It produced a ten-day LinkedIn post table.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Social execution is routed to the sibling that owns the event's social presence, with its weight, phase and dates handed over.",
+        "evidence": "Built the content itself; routing is only a list line.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The early-bird close is identified as a sales-spike moment carrying the roughly-15% checkpoint on the ladder.",
+        "evidence": "\"Fri May 30 | Early-bird closes (fixed) | about 15% of net expected sales\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The slipped speaker announcement is flagged as a communication cause to check when reading the next checkpoint, since late announcements are an execution risk.",
+        "evidence": "\"the late speaker announcement is one of the three communication causes to check first\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The response refuses to extend or move the May 30 early-bird date inside the marketing plan.",
+        "evidence": "\"Moved to Fri Jun 20, 23:59\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "It explains the cutoff is owned by the pricing decision: moving it changes the price ladder and revenue, and the pricing checkpoint no longer measures what it did.",
+        "evidence": "Only notes the pricing team must approve; no explanation of ladder or checkpoint.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "If the date genuinely must move, the decision is routed back to the pricing owner rather than absorbed into the marketing plan.",
+        "evidence": "\"The extension needs their approval\" (pricing team).",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The campaign is planned around May 30 as a fixed date, with the reminder push timed before it.",
+        "evidence": "Plan is built around Jun 20.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response declines to draft the reminder email copy itself.",
+        "evidence": "Full email drafted.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Email execution is routed to the sibling that writes attendee email sequences, handing over weight, phase and send dates.",
+        "evidence": "None.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response declines to build the two weeks of LinkedIn posts or a social content calendar.",
+        "evidence": "Ten posts drafted.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Social execution is routed to the sibling that owns the event's social presence, with its weight, phase and dates handed over.",
+        "evidence": "None.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The early-bird close is identified as a sales-spike moment carrying the roughly-15% checkpoint on the ladder.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The slipped speaker announcement is flagged as a communication cause to check when reading the next checkpoint, since late announcements are an execution risk.",
+        "evidence": "\"Speaker announcement | Unchanged\"",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

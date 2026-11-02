@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to convert the four mandates into a percentage weighting, and says so explicitly rather than quietly producing one",
+        "evidence": "\"four mandates weighted against each other implies you can trade them off. You can't, cleanly; they're different goals with different owners and different renewal tests. What the weighting *should* do is set one **primary** ... and the rest follow.\" The response structurally separates mandate ranking (primary/secondary, no ratio) from the later budget-split percentages assigned to the chosen allocation models, e.g. the 'Mandate' section names primary/secondary with no percentages, while the percentage table (39/29/19/12) is presented under 'Budget', tied to allocation models, not mandates.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the four mandates are four different goals rather than four routes to one, so a ratio across them would be false precision",
+        "evidence": "\"they're different goals with different owners and different renewal tests\" \u2014 directly stated when explaining why the four mandates can't be cleanly traded off against each other via a ratio.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the user to name exactly one primary mandate and one secondary mandate",
+        "evidence": "The assistant itself declares primary/secondary (\"Primary: supply-chain risk reduction ... Secondary: developer brand\") by inferring from the user's existing ranking (\"Your ranking already does this \u2014 supply-chain is clearly #1 \u2014 I'm just making it explicit\"), rather than asking the user to name them. The closing 'What I need from you before this goes to the board' checklist (5 items) never asks the user to confirm or name the primary/secondary mandate.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains the primary mandate breaks ties later, deciding which project wins the last money and which metric renewal is judged on",
+        "evidence": "\"Primary: supply-chain risk reduction ... Breaks every tie on the last dollar; the annual report leads with dependency coverage, not with a placement count.\" Also: \"Secondary: developer brand ... Wins the tie only when the primary is indifferent.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the internal-engagement mandate and the public-values mandate distinct, noting engagement targets projects employees already touch while a values commitment targets whatever the commitment named",
+        "evidence": "\"Internal engagement and pledge compliance are real, but neither breaks ties \u2014 they're judged on their own separate terms (participation rate; floor met + report published)\"; employee fund eligibility is scoped to projects \"in use by Nord Ledger\" (i.e., already touched by employees), while the pledge is scoped instead to \"total qualifying spend\" against published category definitions (company-controlled projects, exclusive-benefit software, etc.) that the commitment itself sets.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the values or pledge mandate is judged on that commitment's own terms: the floor met and the annual report published",
+        "evidence": "Measurement table row: \"Pledge | Floor met (total qualifying spend \u00f7 FTE devs); annual report published | \u2014\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Maps supply-chain assurance to a default breadth allocation across the dependency graph, measured on coverage of fundable dependencies and reachability of maintainers",
+        "evidence": "\"Breadth (supply chain): near-zero discovery cost once your dependency graph is resolved. Buys coverage\"; Measurement table: \"Supply chain | Share of fundable dependencies covered; dormant-dependency count; issue response time\"; scoring table weights \"Relationship value (reachable during an incident)\" for supply-chain candidates.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Maps reach and credibility to a default depth allocation on a few projects the buyers already use, measured on verified placements and referral traffic",
+        "evidence": "\"Depth (developer brand): a human decision per project ... Buys the only verifiable placement and the only named maintainer relationship\"; Measurement table: \"Developer brand | Placements live and verified; referral traffic from placement URLs; unaided mentions\"; scoring table weights \"Audience fit (buyers/hires overlap) \u00d73\" for brand candidates.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Maps internal engagement to an employee-nominated fund, measured on employees contributing and nominations per cycle",
+        "evidence": "\"Employee-nominated fund (internal engagement): the highest-effort motion ... Buys engagement and a defensible selection story.\"; Measurement table: \"Internal engagement | Employees contributing per cycle; nominations submitted; participation rate | Fund size\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes mandate selection, which gets no ratio, from allocation-model selection, which is ranked and does get a budget split",
+        "evidence": "The response has a separate '## Mandate' section (primary/secondary, no percentages) and a separate '## Model' + '## Budget' section where allocation models get an explicit percentage split (\"Breadth ... 39% ... Depth ... 29% ... Fund ... 19% ... Reserve ... 12%\").",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks whether developers buy or choose the product before treating reach as a marketing return rather than an employer-brand return",
+        "evidence": "\"Open question, needs your answer before this locks: does Nord Ledger sell to developers (payments API/SDK evaluated by engineering teams), or to non-developer buyers (finance, ops)? If the former, developer brand is a real marketing/pipeline return ... If the latter, 'developer brand' mostly returns employer brand and recruiting.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not produce a target project list before the mandate is agreed",
+        "evidence": "\"I can't produce a verified list without your actual dependency data \u2014 no repo, lockfile, or SBOM was provided for this conversation ... send a lockfile or SBOM and I'll run it for real.\" The only table given is explicitly labeled \"Illustrative row shape (composite, not a real target \u2014 this is what a defensible row looks like once you run discovery)\".",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to convert the four mandates into a percentage weighting, and says so explicitly rather than quietly producing one",
+        "evidence": "The transcript explicitly endorses the split: \"keep 40/30/20/10 as the *narrative* the board sees\" and builds a full dollar breakdown under that percentage structure ($124k/$93k/$62k/$31k).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the four mandates are four different goals rather than four routes to one, so a ratio across them would be false precision",
+        "evidence": "No such statement appears; the transcript treats the four buckets as compatible parts of one blended $310k portfolio.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the user to name exactly one primary mandate and one secondary mandate",
+        "evidence": "All four mandates are kept and funded simultaneously with percentages; no request to pick one primary and one secondary.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains the primary mandate breaks ties later, deciding which project wins the last money and which metric renewal is judged on",
+        "evidence": "Not discussed; the transcript never introduces a tie-breaking primary mandate concept.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the internal-engagement mandate and the public-values mandate distinct, noting engagement targets projects employees already touch while a values commitment targets whatever the commitment named",
+        "evidence": "The transcript's distinction is between \"developer brand\" and \"engineer engagement\" overlap, not between engagement and the pledge; the pledge is only discussed as \"a fixed liability... a floor.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the values or pledge mandate is judged on that commitment's own terms: the floor met and the annual report published",
+        "evidence": "Only says \"Treat as a pre-committed floor, paid first, not subject to the sanity check above\" \u2014 no mention of an annual report as the judging criterion.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Maps supply-chain assurance to a default breadth allocation across the dependency graph, measured on coverage of fundable dependencies and reachability of maintainers",
+        "evidence": "Supply-chain 40% bucket is a mix of line items (direct funding, OpenSSF membership, tooling, rapid-response fund, audit) with no breadth/coverage-of-fundable-dependencies metric stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Maps reach and credibility to a default depth allocation on a few projects the buyers already use, measured on verified placements and referral traffic",
+        "evidence": "Developer brand bucket lists conference sponsorship, SDK maintenance, content, swag with no verified-placements/referral-traffic measurement framework.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Maps internal engagement to an employee-nominated fund, measured on employees contributing and nominations per cycle",
+        "evidence": "Engagement bucket is OSS days, hackathon, conference attendance, micro-grant pool \u2014 not an employee-nominated fund, and no nominations-per-cycle metric given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes mandate selection, which gets no ratio, from allocation-model selection, which is ranked and does get a budget split",
+        "evidence": "The entire response operates within a single ratio (40/30/20/10) applied directly to mandates, with no such distinction drawn.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks whether developers buy or choose the product before treating reach as a marketing return rather than an employer-brand return",
+        "evidence": "Not asked; the transcript assumes developer brand spend is straightforwardly useful for recruiting/candidates without probing whether developers are Nord Ledger's buyers.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not produce a target project list before the mandate is agreed",
+        "evidence": "\"I don't know your dependency stack, so the '$55k to 5\u201310 critical packages' line is a placeholder shape, not specific vendors \u2014 the Q1 audit should name them.\" No named target projects are given.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Identifies that every segment consumes the previous segment's live output, so a single failure ends the demo",
+        "evidence": "\"Every step depends on the previous step's live output \u2014 the single riskiest pattern this skill flags... If `init` hangs, or `deploy` times out... you don't lose one segment \u2014 you lose the whole remaining demo.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the rule that no segment may depend on a previous segment's live output",
+        "evidence": "\"Every step depends on the previous step's live output \u2014 the single riskiest pattern this skill flags.\" framed as a known flagged antipattern, with the fix being independent restore points.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prescribes a named restore point per segment, such as a pre-scaffolded directory, a pre-deployed URL or a seeded tenant, so each can be entered directly",
+        "evidence": "\"give each step its own restore point \u2014 a pre-scaffolded project as a fallback if `init` misbehaves, a pre-deployed known-good URL you can jump to if `deploy` misbehaves\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the pricing page segment as not serving the claim and a candidate for deletion",
+        "evidence": "\"Step 5 ('show pricing page') is an unrelated fourth topic riding along on the technical claim... if so, step 5 doesn't serve it at all\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Points out that no claim has been written down, so nothing tells the speaker what to cut when the clock slips",
+        "evidence": "\"No claim written down. Nothing says what the audience should believe afterward... Write the one sentence first; everything that doesn't serve it is a cut candidate.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags that rehearsing at a desk measures nothing about legibility from the back of the room",
+        "evidence": "\"Not verified at venue resolution from the back row. You don't know yet if the dashboard, the config file, or the terminal is readable past row five.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags that rehearsing on the office network measures nothing about the venue network",
+        "evidence": "\"Not on the venue network, and never run with the network disconnected. You have zero data on what happens when DataConf's Wi-Fi does any of the things conference Wi-Fi reliably does.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the dependency on a live preview URL reachable over the venue network",
+        "evidence": "\"the audience hitting your preview URL the moment it's on screen at a data conference... There's no offline mode, no hotspot tested in the actual room\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that four rehearsal repetitions are not evidence of reliability",
+        "evidence": "\"'Works every time' at your desk is not evidence it survives DataConf... Four desk runs satisfy none of these\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the absence of any fallback asset, leaving on-stage debugging as the only available recovery",
+        "evidence": "\"No fallback assets, no reset command, no recovery lines. If any step misbehaves on stage, the only option in this plan is debugging live in front of the audience\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that the plan has no measured cold-run time against the six-minute budget",
+        "evidence": "\"No measured time reported. Target is under half your 6 minutes (baseline, tune it)...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not offer more practice runs as the primary fix",
+        "evidence": "\"Not a rehearsal problem \u2014 a design problem, same as this skill's own bad example. More reps at your desk won't touch any of the nine items above.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Identifies that every segment consumes the previous segment's live output, so a single failure ends the demo",
+        "evidence": "\"init \u2192 deploy \u2192 preview URL \u2192 hot reload are four sequential live network dependencies... Steps 2\u20134 all assume step 1 succeeded cleanly.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the rule that no segment may depend on a previous segment's live output",
+        "evidence": "only a specific fix for step 1 (\"pre-staged, already-init'd project\") is given, not a stated general rule",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Prescribes a named restore point per segment, such as a pre-scaffolded directory, a pre-deployed URL or a seeded tenant, so each can be entered directly",
+        "evidence": "only step 1 gets a named restore point (\"pre-staged, already-init'd project\"); deploy/preview only gets \"pre-warm the deploy,\" and hot reload gets no restore point at all",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the pricing page segment as not serving the claim and a candidate for deletion",
+        "evidence": "\"Ending on the pricing page is a weak close for a dev-conference technical demo... unless this talk is explicitly framed as commercial\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Points out that no claim has been written down, so nothing tells the speaker what to cut when the clock slips",
+        "evidence": "not mentioned; the time-budget critique focuses on per-step timing, not on an absent written claim",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags that rehearsing at a desk measures nothing about legibility from the back of the room",
+        "evidence": "\"bump terminal font size beyond what feels natural sitting at your desk\" following the AV/projector-resolution warning",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags that rehearsing on the office network measures nothing about the venue network",
+        "evidence": "\"Desk runs mean warm caches, warm DNS, your own network, sitting down, no time pressure. None of that holds on a conference stage\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the dependency on a live preview URL reachable over the venue network",
+        "evidence": "\"init \u2192 deploy \u2192 preview URL \u2192 hot reload are four sequential live network dependencies\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that four rehearsal repetitions are not evidence of reliability",
+        "evidence": "\"Four clean runs at your desk proves the happy path works, not that it's robust.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the absence of any fallback asset, leaving on-stage debugging as the only available recovery",
+        "evidence": "\"If venue wifi drops or chokes...you have nothing to fall back on.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that the plan has no measured cold-run time against the six-minute budget",
+        "evidence": "\"No time budget per step. 6 minutes \u00f7 5 steps \u2248 72s/step, but deploy and hot-reload won't take the same time...Without rehearsed time checkpoints, you find out you're behind schedule mid-demo\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not offer more practice runs as the primary fix",
+        "evidence": "the recommended fix is \"get on the actual venue wifi (or a hotspot)...build the backup video and the pre-staged fallback project,\" not more rehearsal",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

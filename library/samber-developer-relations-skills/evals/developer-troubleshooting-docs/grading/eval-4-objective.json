@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The entry carries all six parts: message, applies-to, cause, fix, confirmation, escape hatch",
+        "evidence": "Document has ## Message, ## Applies to, ## Cause, ## Fix, ## Confirm it worked, ## Still stuck as headings.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The six parts appear in that order",
+        "evidence": "Headings appear in the sequence Message \u2192 Applies to \u2192 Cause \u2192 Fix \u2192 Confirm it worked \u2192 Still stuck.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The error text appears verbatim inside a fenced code block",
+        "evidence": "```text\ntessellate: error: cache upload rejected (HTTP 413): object <OBJECT_ID> exceeds the per-object limit of <LIMIT_MIB> MiB for plan '<PLAN>'\n```",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The object UUID is replaced by an obvious placeholder while the rest of the string, including casing and punctuation, is preserved",
+        "evidence": "`<OBJECT_ID>` replaces the UUID while surrounding text 'tessellate: error: cache upload rejected (HTTP 413): object ... exceeds the per-object limit of ... MiB for plan '...'' keeps original casing and punctuation.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The title or first heading contains the emitted error text or its identifying substring, not a topic label such as 'Upload problems'",
+        "evidence": "Title: \"# `cache upload rejected (HTTP 413): object exceeds the per-object limit`\" \u2014 directly lifted from the error string, not a generic label.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "An applies-to section names CLI 2.1 through 2.8, Linux and macOS, and the `team` and `starter` plans, and states that `enterprise` is unaffected",
+        "evidence": "\"CLI 2.1 through current (2.8), on Linux and macOS.\" and \"Plans `team` and `starter`... Plan `enterprise` has no per-object limit and cannot produce this error\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The fix branches into separate per-cause blocks rather than one flat list of every check",
+        "evidence": "Three separate ### subsections: \"If `TESSELLATE_MAX_OBJECT` is set above your plan's limit\", \"If the artifact really is over the limit\", \"If a corporate proxy is mangling the upload\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The 3-minute plan-limit check is ordered ahead of the instant `TESSELLATE_MAX_OBJECT` check",
+        "evidence": "The `TESSELLATE_MAX_OBJECT` check ('a ten-second check') is listed first, and the artifact-size check ('takes a few minutes...run this after ruling out the free check above, not before') is listed second \u2014 the opposite of the order this item requires.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The ordering rationale is stated as how often that check is the actual cause per minute of the reader's time, explicitly not cheapest-check-first",
+        "evidence": "Preamble states branches are \"ordered by cause-likelihood \u00f7 diagnosis-time\"; body reinforces with e.g. \"Most common cause (roughly 7 in 10 cases), but confirming it takes a few minutes... run this after ruling out the free check above, not before\" \u2014 likelihood weighed against time rather than pure cost.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The proxy-chunking cause is placed last as the successive fall-back",
+        "evidence": "\"### If a corporate proxy is mangling the upload... Rare (roughly 1 in 20 cases) and the slowest to confirm \u2014 only worth it once the two checks above have come back clean.\" is the third and final branch.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The words 'simply', 'easy' and 'just' do not appear describing the fix",
+        "evidence": "No occurrence of 'simply' or 'easy'; the only 'just' occurrence \u2014 \"Flagged as a product gap, not just a support scenario\" \u2014 describes a classification, not a fix step.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "No sentence attributes the failure to the reader forgetting or doing something wrong",
+        "evidence": "Causes are framed as product/environment issues, e.g. \"the client doesn't validate that before trying to upload\" and \"Flagged as a product gap, not just a support scenario\" \u2014 no phrasing like 'you forgot' or 'your mistake'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The confirmation part names a specific observable output or state rather than the absence of the error",
+        "evidence": "\"re-running `tessellate cache inspect --largest 10` no longer shows an object at or above your plan's limit (unless you upgraded plans, in which case it's expected to still be listed but no longer rejected)\" \u2014 a concrete command output, not just 'no more error'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The escape hatch names the specific artifacts to attach and a place to report, rather than a bare 'contact support'",
+        "evidence": "\"Open a support request with: CLI version..., Plan name..., Output of `echo $TESSELLATE_MAX_OBJECT`..., Output of `tessellate cache inspect --largest 10`..., ...`curl -v --trace-ascii` capture\" plus \"Never attach the artifact itself or full object contents\".",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The entry carries all six parts: message, applies-to, cause, fix, confirmation, escape hatch",
+        "evidence": "Has message, Applies-to, 'What it means' (cause), and Fix steps, but no distinct confirmation section or escape-hatch/escalation section.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The six parts appear in that order",
+        "evidence": "Since confirmation and escape hatch are absent, the full six-part order cannot be present.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The error text appears verbatim inside a fenced code block",
+        "evidence": "```\ntessellate: error: cache upload rejected (HTTP 413): object <uuid> exceeds the per-object limit of 512 MiB for plan 'team'\n```",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The object UUID is replaced by an obvious placeholder while the rest of the string, including casing and punctuation, is preserved",
+        "evidence": "The code block uses '<uuid>' in place of an actual UUID while the rest of the string is preserved verbatim.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The title or first heading contains the emitted error text or its identifying substring, not a topic label such as 'Upload problems'",
+        "evidence": "\"# Cache upload rejected (HTTP 413)\" reproduces the identifying substring from the actual error string, not a generic topic label.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "An applies-to section names CLI 2.1 through 2.8, Linux and macOS, and the `team` and `starter` plans, and states that `enterprise` is unaffected",
+        "evidence": "\"**Applies to:** CLI 2.1\u20132.8, Linux and macOS. `team` and `starter` plans. ... `enterprise` has no per-object limit.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The fix branches into separate per-cause blocks rather than one flat list of every check",
+        "evidence": "Three separate numbered causes each with their own 'Fix:' subsection (env var override, oversized object, proxy chunking).",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The 3-minute plan-limit check is ordered ahead of the instant `TESSELLATE_MAX_OBJECT` check",
+        "evidence": "Order is reversed: '1. Check for an env var override (instant)' comes before '2. Find the actual oversized object (~3 min...)'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The ordering rationale is stated as how often that check is the actual cause per minute of the reader's time, explicitly not cheapest-check-first",
+        "evidence": "States \"Check fastest and most likely first\" and orders instant\u21923min\u219210min exactly matching cost order, with no explicit rejection of cheapest-first reasoning.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The proxy-chunking cause is placed last as the successive fall-back",
+        "evidence": "\"**3. Check for a corporate proxy mangling the upload (~10 min, rare)** ... If steps 1 and 2 don't explain it...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The words 'simply', 'easy' and 'just' do not appear describing the fix",
+        "evidence": "No occurrence of 'simply', 'easy', or 'just' in the Fix descriptions of the transcript.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "No sentence attributes the failure to the reader forgetting or doing something wrong",
+        "evidence": "All causes are framed as system/config conditions (e.g. 'a genuine artifact over 512 MiB'), never as reader error.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The confirmation part names a specific observable output or state rather than the absence of the error",
+        "evidence": "No confirmation section exists anywhere in the entry.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The escape hatch names the specific artifacts to attach and a place to report, rather than a bare 'contact support'",
+        "evidence": "No escape-hatch or support-contact section exists anywhere in the entry.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

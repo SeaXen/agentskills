@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Names the Churn Rule explicitly and attributes it to Software Engineering at Google",
+        "evidence": "\"This is squarely the case the Churn Rule (*Software Engineering at Google*, ch.1) is written for\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States which side of the Churn Rule this project sits on before producing any draft",
+        "evidence": "Section \"0. Which side of the Churn Rule this is on\" opens the document: \"State this before anything else, because it changes what 'done' means,\" preceding all assumptions and the guide itself.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends that the platform team move the 61 services itself rather than publishing a guide for the service teams to follow",
+        "evidence": "The recommendation is explicitly hybrid, not exclusive: \"build the codemod and open the mechanical PRs yourselves; use the guide for the ~20% of edits a codemod cannot safely decide... That's the hybrid this draft is built around.\" A full guide is still produced as the primary deliverable, so it does not recommend moving services instead of publishing a guide.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends a codemod plus a short note as the deliverable instead of a full prose migration guide",
+        "evidence": "The deliverable is an extensive markdown guide (\"## 4. The guide\") with per-change prose entries, code samples, troubleshooting, deprecation tables, etc. \u2014 not a short note; the codemod supplements rather than replaces it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a guide is the right deliverable only when the consumers are genuinely other people's codebases",
+        "evidence": "No such general principle is stated anywhere in the transcript; it only critiques handing 61 internal teams a checklist without stating guides are reserved for external/other-people's codebases.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites the monorepo and internal ownership of all 61 consumers as the specific reason the Churn Rule applies here",
+        "evidence": "\"Kelvinbridge owns every consumer (61 services, one monorepo, every team internal).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not deliver a full library-shaped migration guide with per-change prose entries as its primary recommendation",
+        "evidence": "Section 4 \"The guide\" is exactly this: a full markdown migration guide with a dedicated prose entry (search pattern, why, before/after code, fix, escape hatch) for each of the 9 changes and 2 removals, presented as the main deliverable.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that announcing a change and leaving 61 consuming teams to cope hands them work that belonged to the platform team",
+        "evidence": "\"A guide that just hands 61 teams a checklist and a deadline moves work that was the platform team's onto them, for no reason other than that writing a codemod is more upfront effort than writing prose.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the codemod to be validated across the consumer corpus rather than against a single repository",
+        "evidence": "\"Automation honesty \u2014 run authkitfix@v4 against the cold-run service and at least a handful of others first; publish the exact residue it leaves...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the residue a codemod leaves behind (for example dynamic dispatch, re-exports, generated code or string-keyed access) as something that must be reported",
+        "evidence": "\"Every context.TODO() marker it leaves behind is also worth a manual look\" and the verification plan requires publishing \"the exact residue it leaves (the context.TODO() markers, the flagged-not-rewritten ParseClaims sites)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that any accompanying document for this internal audience must name which team owns each affected service and a tracking issue",
+        "evidence": "\"Stragglers list: named services still on v3 past the freeze date, with owning team and tracking issue \u2014 this is what turns the freeze date from a suggestion into an enforceable one.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States a freeze date after which the old version stops being deployable",
+        "evidence": "\"The freeze date: the day a service deployed on v3 stops being deployable at all.\" and \"Start hard enforcement (the CI gate that makes v3 undeployable) only once the adoption curve visibly flattens...\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Names the Churn Rule explicitly and attributes it to Software Engineering at Google",
+        "evidence": "No mention of 'Churn Rule' or 'Software Engineering at Google' anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States which side of the Churn Rule this project sits on before producing any draft",
+        "evidence": "No discussion of the Churn Rule at all; the draft is produced without any such framing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends that the platform team move the 61 services itself rather than publishing a guide for the service teams to follow",
+        "evidence": "The document itself IS a migration guide for the 61 service teams to follow (\u00a73 'Quick migration checklist' addressed to each service), the opposite of this recommendation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends a codemod plus a short note as the deliverable instead of a full prose migration guide",
+        "evidence": "The deliverable produced is a 10-section prose guide with a codemod merely as one subsection (\u00a76), not codemod+short-note in place of the guide.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a guide is the right deliverable only when the consumers are genuinely other people's codebases",
+        "evidence": "No such statement appears; the guide is written for internal monorepo teams with no caveat about when guides are appropriate.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites the monorepo and internal ownership of all 61 consumers as the specific reason the Churn Rule applies here",
+        "evidence": "The monorepo is mentioned only as a coexistence mechanism ('these are two independent packages... in the same monorepo'), never as a reason to apply/avoid a Churn-Rule-style approach.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not deliver a full library-shaped migration guide with per-change prose entries as its primary recommendation",
+        "evidence": "\u00a74 delivers exactly that: nine per-function prose entries each with v3/v4 signatures, Why, and Fix, e.g. '### 4.1 [FunctionName1] \u2014 mechanical' and '### 4.2 [FunctionName2] \u2014 semantic', as the guide's primary content.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that announcing a change and leaving 61 consuming teams to cope hands them work that belonged to the platform team",
+        "evidence": "No such framing; the guide instead frames migration as something each of the 61 teams individually executes via the checklist in \u00a73.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the codemod to be validated across the consumer corpus rather than against a single repository",
+        "evidence": "\u00a76 describes the codemod's behavior and TODO markers but never requires validating it across the 61 consuming services.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the residue a codemod leaves behind (for example dynamic dispatch, re-exports, generated code or string-keyed access) as something that must be reported",
+        "evidence": "\u00a76 only says the tool 'will leave a // TODO(authkit-v4): comment at every site it couldn't safely rewrite' \u2014 generic TODO tracking, not the specific residue categories (dynamic dispatch, re-exports, generated code, string-keyed access) as something to report.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that any accompanying document for this internal audience must name which team owns each affected service and a tracking issue",
+        "evidence": "\u00a78's migration tracker table has columns '| Team | Service | Status | Owner | PR |', naming an owner and a PR link per service.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States a freeze date after which the old version stops being deployable",
+        "evidence": "\u00a72 states '`authkit` (v3) will be deleted from the monorepo on `[DATE]`. After that date, unmigrated services stop compiling.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

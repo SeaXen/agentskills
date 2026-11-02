@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to fold two audience segments into one map.",
+        "evidence": "'Two \u2014 declined. Not folding the enterprise platform-team audience into this map.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the reason: a small-team path and an enterprise platform team's path are different journeys, so one map per segment.",
+        "evidence": "'Different exit events, different owners, different friction \u2014 that's two journeys, not two columns on one journey.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Offers a second, separate map for the enterprise platform-team segment instead.",
+        "evidence": "'Recommend a second, separate map for the enterprise platform-team segment, same method, its own stage cut and its own (real) buyer lane.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the five-stage API arc for this refresh rather than switching to AAARRRP.",
+        "evidence": "'Three \u2014 declined, for this refresh. Keeping the five-stage API arc.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that on a refresh, comparability against the map's own history outranks a better-fitting vocabulary, and the model changes only if it actually broke.",
+        "evidence": "'A refresh keeps the previous model unless it actually broke, because comparability against the map's own history is worth more than a better-fitting vocabulary'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Skips the stage-model selection step and goes straight to evidence collection for this refresh.",
+        "evidence": "'Because this is a refresh, model selection (skill step 1) is skipped entirely \u2014 straight to evidence.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Diffs each signal against its previous value rather than restating only the current value.",
+        "evidence": "'**39% of onboarding starters reach first green run**, up from 34% (+5pp)'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports onboarding 34% to 39%, integration 52% to 49% and production 28% to 31% as movements against the previous map.",
+        "evidence": "Table: '39%...up from 34% (+5pp)', '49%...down from 52% (-3pp...)', '31%...up from 28% (+3pp)'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names integration as the one stage whose rate moved backwards.",
+        "evidence": "'It's the only stage that moved backwards this quarter (52% \u2192 49%)'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Compares only against this map's own previous version, not against any outside funnel.",
+        "evidence": "'Compared only against this map's own last version, per this skill's rule; no outside benchmark used.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Acknowledges the company-wide AARRR funnel as a genuine argument for AAARRRP, while subordinating it to continuity on a refresh.",
+        "evidence": "'Marketing's company-wide AARRR standardisation is a real argument, not a trivial one \u2014 it's the reason to fold Vaneworth into AAARRRP on a *future* map'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States what would justify switching models later: the current model actually breaking.",
+        "evidence": "'Switch when the arc breaks \u2014 production stops being the meaningful terminal stage, or this map needs to reconcile against a company OKR the arc has no vocabulary for. A sibling team's rebrand isn't that trigger.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets a re-read date, defaulting to 90 days and also triggered by a launch, a pricing change, a docs rewrite or a new SDK.",
+        "evidence": "'**Re-read date.** 2026-12-18 (90 days), or sooner if there's a launch, a pricing change, a docs rewrite, or a new SDK before then.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to fold two audience segments into one map.",
+        "evidence": "'Enterprise platform-team audience folded in \u2014 one map instead of two, with segment-specific notes at each stage instead of a separate document.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the reason: a small-team path and an enterprise platform team's path are different journeys, so one map per segment.",
+        "evidence": "No such reasoning is given; the opposite decision and rationale (marketing standardization) is provided.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Offers a second, separate map for the enterprise platform-team segment instead.",
+        "evidence": "The document explicitly merges rather than separates: 'one map instead of two.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the five-stage API arc for this refresh rather than switching to AAARRRP.",
+        "evidence": "'Framework switched from the old 5-stage \"API arc\"... to AAARRRP.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that on a refresh, comparability against the map's own history outranks a better-fitting vocabulary, and the model changes only if it actually broke.",
+        "evidence": "No such reasoning appears; the switch is justified by alignment with 'marketing's company-wide AARRR... standard' instead.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Skips the stage-model selection step and goes straight to evidence collection for this refresh.",
+        "evidence": "A large portion of the document ('Design call on the letters', 'Old \u2192 new stage mapping') is spent deliberating and switching the stage model itself.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Diffs each signal against its previous value rather than restating only the current value.",
+        "evidence": "The mapping table includes 'Old % | New % | \u0394' columns, e.g. '34% | 39% | +5 pts'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports onboarding 34% to 39%, integration 52% to 49% and production 28% to 31% as movements against the previous map.",
+        "evidence": "Table rows: 'Onboarding\u2192Activation 34%\u219239% +5 pts', 'Integration\u2192Retention 52%\u219249% \u22123 pts', 'Production\u2192Revenue 28%\u219231% +3 pts'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names integration as the one stage whose rate moved backwards.",
+        "evidence": "'\u26a0\ufe0f Only regression this cycle \u2014 see flag below' next to the Integration\u2192Retention row.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Compares only against this map's own previous version, not against any outside funnel.",
+        "evidence": "All numeric deltas (34%\u219239%, 52%\u219249%, 28%\u219231%) are compared solely to 'Old %' from v1, with no external benchmark cited for these figures.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Acknowledges the company-wide AARRR funnel as a genuine argument for AAARRRP, while subordinating it to continuity on a refresh.",
+        "evidence": "AARRR is cited as the justification for switching, with no subordination to continuity \u2014 the switch is simply made.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States what would justify switching models later: the current model actually breaking.",
+        "evidence": "Not stated; the switch is justified by organizational standardization, not the old model breaking.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets a re-read date, defaulting to 90 days and also triggered by a launch, a pricing change, a docs rewrite or a new SDK.",
+        "evidence": "Only 'Suggested next re-read: ~2026-12-18 (90-day cadence...)' is given; no additional event-based triggers are listed.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

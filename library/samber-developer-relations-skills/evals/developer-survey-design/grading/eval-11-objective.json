@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Replaces the 4.1 out of 5 mean with the full distribution across the scale, with n and exact wording.",
+        "evidence": "'Never print a Likert mean alone. Show all five bars, the exact wording, n'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Applies the segment-gap reading rule: the gap counts only if it is large enough to change a decision and its direction holds in every source channel that clears the subgroup minimum.",
+        "evidence": "'large enough to change a decision, and its direction holds in every source channel that clears the subgroup minimum.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the enterprise-vs-startup SSO gap 'untested' because the enterprise group comes almost entirely from one channel, rather than publishing 'enterprise cares more about SSO'.",
+        "evidence": "'We treat it as untested.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets a self-set minimum subgroup n above the privacy floor of 10, labels it self-set, and hides subgroups below it.",
+        "evidence": "'Subgroups under <self-set minimum> are not shown. This minimum was set <before | after> analysis.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Merges or suppresses the Africa slice (7 respondents) in the region chart.",
+        "evidence": "'Seven is under the 10-respondent floor. Merge Africa into a bigger cell'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses the 25 verbatim answers; publishes coded themes and quotes checked for names and employers, and states whether coding was by hand or model-assisted with a person checking.",
+        "evidence": "'Never publish raw open text'; '<hand | model-assisted, person-checked>'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces the response rate with the funnel (views where known, starts, completes, kept), explaining that an open link has no denominator.",
+        "evidence": "'An open link has no denominator. Publish the funnel per channel.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses weighting to install counts because installs count machines rather than people, and uses the Linux 61% vs 40% comparison as a bias check reported in the methodology instead.",
+        "evidence": "'Installs count machines, not people'; side-by-side 61% vs 40% in methodology.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports the cleaning rules with the count each removed (qualifiers, speeders, straight-liners, duplicates and bots).",
+        "evidence": "'Add the cleaning counts: qualifiers, speeders, straight-liners, duplicates, bots.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Drafts a methodology section covering who ran it, population, dates, channels and source mix, funnel, cleaning rules, 'not weighted', a link to the full questionnaire, and a plain sentence naming who the sample over-represents.",
+        "evidence": "The 'Methodology section (paste, then fill)' covers who ran it, dates, channels, funnel, cleaning, not weighted, questionnaire link, and the over-representation sentence.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Supplies a chart caption template with exact wording, who was asked, n, 'multiple answers allowed' where true, and the recruitment channels.",
+        "evidence": "Satisfaction caption template with wording, asked of, n, single answer, source channels; multi-select noted in methodology.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States 'Don't know' handling once and applies it the same way to every chart.",
+        "evidence": "'\"Don't know\" answers are <excluded from | shown in> percentages.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps every published percentage at the respondents rung ('of respondents'), never 'of users' or 'of developers'.",
+        "evidence": "'Percentages describe respondents, not all Postgres extension users.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Replaces the 4.1 out of 5 mean with the full distribution across the scale, with n and exact wording.",
+        "evidence": "'4.1 average: fine, but add the distribution' keeps the mean.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Applies the segment-gap reading rule: the gap counts only if it is large enough to change a decision and its direction holds in every source channel that clears the subgroup minimum.",
+        "evidence": "No rule about decision size or consistent direction across channels.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels the enterprise-vs-startup SSO gap 'untested' because the enterprise group comes almost entirely from one channel, rather than publishing 'enterprise cares more about SSO'.",
+        "evidence": "'we cannot separate company size from recruitment channel... a signal worth following up, not a finding.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets a self-set minimum subgroup n above the privacy floor of 10, labels it self-set, and hides subgroups below it.",
+        "evidence": "Only the 10 floor is used.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Merges or suppresses the Africa slice (7 respondents) in the region chart.",
+        "evidence": "'Other regions including Africa and Oceania'; 'n<10, suppressed'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses the 25 verbatim answers; publishes coded themes and quotes checked for names and employers, and states whether coding was by hand or model-assisted with a person checking.",
+        "evidence": "The verbatims are kept with conditions; the coding method is not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Replaces the response rate with the funnel (views where known, starts, completes, kept), explaining that an open link has no denominator.",
+        "evidence": "Open link has no denominator; gives completion rate, responses per channel and partner-mailing rate.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses weighting to install counts because installs count machines rather than people, and uses the Linux 61% vs 40% comparison as a bias check reported in the methodology instead.",
+        "evidence": "Weighted figures are computed and reported as a sensitivity check; it does not refuse weighting to install counts.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reports the cleaning rules with the count each removed (qualifiers, speeders, straight-liners, duplicates and bots).",
+        "evidence": "Only the placeholder '[duplicates / incomplete / failed attention check \u2014 state your actual rules]', with no counts.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Drafts a methodology section covering who ran it, population, dates, channels and source mix, funnel, cleaning rules, 'not weighted', a link to the full questionnaire, and a plain sentence naming who the sample over-represents.",
+        "evidence": "'About the data' lacks dates, questionnaire link, funnel and a bias sentence.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Supplies a chart caption template with exact wording, who was asked, n, 'multiple answers allowed' where true, and the recruitment channels.",
+        "evidence": "Not provided.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States 'Don't know' handling once and applies it the same way to every chart.",
+        "evidence": "Not provided.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps every published percentage at the respondents rung ('of respondents'), never 'of users' or 'of developers'.",
+        "evidence": "'results describe respondents, not all Greywater users.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

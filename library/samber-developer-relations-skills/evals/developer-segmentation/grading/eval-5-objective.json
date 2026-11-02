@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to accept the 1.9% signup share as evidence that the JVM segment is small.",
+        "evidence": "'this number can't tell you \"JVM demand is small\" \u2014 only \"JVM demand inside a product that doesn't ask JVM developers to come is small.\"'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that first-party data is survivorship-shaped and describes only who already got through the funnel.",
+        "evidence": "'first-party data is survivorship-shaped. You never counted the JVM developers who bounced off a Node/Python-first CI runner before signing up.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that sizing an unserved segment from your own user base returns \"small\" by construction.",
+        "evidence": "'this number can't tell you \"JVM demand is small\" \u2014 only \"JVM demand inside a product that doesn't ask JVM developers to come is small.\"'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Proposes an external estimate of the JVM population built from a source outside the company's own funnel.",
+        "evidence": "The document explicitly relies only on first-party telemetry and states 'Measured beats estimated beats inferred... no external source needed to make the call' \u2014 no external population estimate is proposed anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires that estimate to carry a range, a method, a date and a confidence tier.",
+        "evidence": "Since no external estimate is proposed (see above), no range/method/date/confidence tier is given for one.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that the product being Node-and-Python-first is itself a plausible cause of the low Java share.",
+        "evidence": "'You never counted the JVM developers who bounced off a Node/Python-first CI runner before signing up.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Proposes a cheap test that could settle the question in days rather than a quarter.",
+        "evidence": "'Cheap test, days not quarters, per the method: if the advocate can produce one named lost or stalled deal where Maven/JVM support was the stated blocker...'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the result that would make the team genuinely drop the segment, written before the test runs.",
+        "evidence": "The stated test condition ('if the advocate can produce one named lost or stalled deal... that's a real data point and the call gets revisited') is framed as a condition to reopen/fund the already-ruled anti-segment, not a condition to further drop it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not endorse killing the segment on the strength of the funnel number alone.",
+        "evidence": "'Not \"1.9% is small\" alone \u2014 that's not a defensible reason by itself and you'll get pushed back into the same argument if that's all you lead with.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the segment as a hypothesis segment rather than a confirmed small one while its evidence sits below the floor.",
+        "evidence": "'If the honest answer is \"a handful of anecdotes and a strong opinion,\" this is a hypothesis segment, not a segment \u2014 it doesn't get funded, it gets a cheap test.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to accept the 1.9% signup share as evidence that the JVM segment is small.",
+        "evidence": "'1.9% of signups and 2.3% of active workspaces isn't an underserved segment \u2014 it's the tail' directly accepts the share as evidence the segment is small.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that first-party data is survivorship-shaped and describes only who already got through the funnel.",
+        "evidence": "No mention that first-party funnel data is survivorship-shaped or only describes who already got through.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that sizing an unserved segment from your own user base returns \"small\" by construction.",
+        "evidence": "No statement that sizing from the company's own base returns 'small' by construction.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Proposes an external estimate of the JVM population built from a source outside the company's own funnel.",
+        "evidence": "No external, outside-the-funnel estimate of the JVM population is proposed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires that estimate to carry a range, a method, a date and a confidence tier.",
+        "evidence": "No estimate is proposed, so no range/method/date/confidence-tier requirement is stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that the product being Node-and-Python-first is itself a plausible cause of the low Java share.",
+        "evidence": "No mention that the product being Node/Python-first could itself suppress the observed Java share.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Proposes a cheap test that could settle the question in days rather than a quarter.",
+        "evidence": "The 'cheap alternative' cited (CI already runs mvn) is an existing fact, not a proposed days-scale test to run.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the result that would make the team genuinely drop the segment, written before the test runs.",
+        "evidence": "The reopen thresholds ('Java crosses a defined share... a named enterprise deal...') describe conditions to re-add the segment, not a pre-stated result that would make the team drop it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not endorse killing the segment on the strength of the funnel number alone.",
+        "evidence": "'Don't build the Maven plugin or Java quickstart. Table it, don't kill it' plus multiple independent reasons beyond the funnel percentage.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the segment as a hypothesis segment rather than a confirmed small one while its evidence sits below the floor.",
+        "evidence": "'\"JVM enterprise segment\" is an assumption, not a finding... this is a hypothesis wearing a business case's clothes.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

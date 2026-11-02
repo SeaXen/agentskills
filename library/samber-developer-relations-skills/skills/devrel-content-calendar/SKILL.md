@@ -4,7 +4,7 @@ description: Plans a quarter of developer-relations content as a dated slot plan
 license: MIT
 metadata:
   author: Samuel Berthe
-  version: "1.0.2"
+  version: "1.0.3"
 ---
 
 # DevRel Content Calendar
@@ -197,6 +197,7 @@ Stop at plan-level metrics, and do not rebuild the following here:
 - Per-piece performance (search, activation, deflection) is measured by the piece's own format skill.
 - samber/developer-relations-skills@devrel-metrics decides which signals count.
 - samber/developer-relations-skills@devrel-analytics instruments them.
+- Whether the company runs a YouTube channel, and its pillars and upload cadence: samber/developer-relations-skills@devrel-youtube-channel.
 
 ## References
 

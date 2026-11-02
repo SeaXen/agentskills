@@ -1,0 +1,662 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "oss-launch",
+  "scenarios": 15,
+  "expectations_total": 174,
+  "expectations_subjective": 1,
+  "expectations_objective": 173,
+  "pass_rate_with_skill_pct": 75.3,
+  "pass_rate_without_skill_pct": 36.2,
+  "delta_pp": 39.1,
+  "uplift_multiplier": 2.08,
+  "trigger_accuracy_pct": 50.0,
+  "trigger_queries": 154,
+  "trigger_positive_fire_rate": 0.0,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.309 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "States that a rename after public visibility costs the URL, the accumulated search history and the announcement itself"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Warns that relicensing an already-adopted project reliably triggers a fork, naming a precedent such as HashiCorp's 2023 move to BSL and the resulting OpenTofu fork"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Classifies registry publication plus a release tag and release notes as a blocker for distribution"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that every hesitation is a defect to fix, and that the run is repeated with a different reader afterwards"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Specifies a clean environment and the repository URL only, with nothing else supplied to the reader"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Gives the pass condition as an unaided cold reader reaching first success inside the claimed budget with zero blocking hesitations"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that if the assistant runs the protocol itself in place of a human reader, the plan must say that substitute was used"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Counts any moment that required inspecting the source code as a hesitation"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends a single spike rather than a multi-day caravan for this project"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Identifies that a solo maintainer working evenings and weekends cannot hold a named owner per day"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Rejects splitting one project into five themed days as though each were its own story"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that a caravan multiplies the launch week's hours by the number of days"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Warns that below the threshold a caravan dilutes into several ignored posts"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes that the caravan model needs volume rather than secrecy, and that Supabase ships features early and re-announces them rather than holding them back"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Ranks single spike above caravan on outcome per maintainer-hour below that threshold"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Does not produce the requested five-day sequence"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Warns that several simultaneous primary posts produce several dead threads, because discussion surfaces rank on early engagement density"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Collapses the plan to registry work plus the anchor post and its thread, given an effort ceiling under about one day"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Deletes the maintainer's own social accounts from the plan rather than ranking them last, because there is no existing audience"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Deletes newsletter and curated-list submissions rather than ranking them last, because no second person can own them"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes that registry work ranks first on efficiency and last on reach inside the launch window"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Rejects flipping the repository public at the same moment as the anchor post"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names a community's weekly showcase or self-promotion thread as the sanctioned path where one exists"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Distinguishes the firing clock, fixed by mechanics, from the efficiency ranking that decides which rows run at all"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Notes that the comment edit window closes after two hours, so drafts must be reviewed before posting"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Notes that the penalties are invisible from outside, so the team never learns why the post died"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that Product Hunt's terms prohibit the same solicitation, so the rule travels across channels unchanged"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Supplies a replacement message that asks colleagues only to reply where they have something real to add, to flag factual errors privately to the maintainer, and to forward it to people who would actually use it"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Directs the maintainer to state this distinction to the team before launch day, because someone will otherwise do it in good faith"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that reposts are allowed only when a story has had no significant attention for roughly a year"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Warns that a relaunch with the same framing fails identically"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Reads flat downloads alongside star growth as the announcement travelling while the project did not"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Sets targets as multiples of the project's own pre-launch baseline instead"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Directs capture of the baseline on the evening before the launch"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Lists the baseline items to capture, including stars, unique visitors and unique cloners, registry downloads for the last full week, documentation sessions, open issues, contributor count and the current referrer list"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Treats stars as the loudest and least meaningful signal"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Pairs star growth against unique cloners and registry downloads rather than reading stars alone"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Warns that a large \"direct\" referrer bucket is expected, because aggregators, chat clients and privacy-preserving browsers strip referrers"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Notes that comparison against other projects is only meaningful within the same language, category and project age"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "States what the project will not do, so the one-liner is limiting as well as short"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Routes the final draft through a humanizer pass before publishing"
+      },
+      {
+        "eval_id": 15,
+        "expectation": "States that \"the team is watching\" reliably means nobody is"
+      },
+      {
+        "eval_id": 15,
+        "expectation": "Agrees the over-performance escalation trigger before launch day - issue templates, good-first-issue routing, thread locks or a temporary contribution freeze - together with a response SLA the team can actually hold"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "States that trademark clearance must cover phonetic, visual and conceptual similarity, not only identical matches"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Scopes the clearance search across every jurisdiction the project will be used in, not a single country"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Rejects the claim that free distribution removes trademark exposure, and states that distributing software over the internet at no charge can itself constitute use in commerce"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Cites Planetary Motion v. Techsplosion (261 F.3d 1188) or equivalent authority for that point"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Flags the 3-week date against the roughly 8-week lead time that name and license clearance carry"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Treats any colorable conflict as a rename before launch rather than a risk carried into public visibility"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that a rename after public visibility costs the URL, the accumulated search history and the announcement itself"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Settles the CLA-versus-DCO position in the same pass as the license rather than deferring it"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Warns that relicensing an already-adopted project reliably triggers a fork, naming a precedent such as HashiCorp's 2023 move to BSL and the resulting OpenTofu fork"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Does not accept the Series A date as fixed without stating the clearance conflict it creates"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Classifies the unreproducible staging-cluster benchmark as a blocker on the defensible-claims check"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Classifies registry publication plus a release tag and release notes as a blocker for distribution"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Treats an open issue tracker, a named communication channel and basic contributor guidance as pre-announcement items rather than post-launch cleanup"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that every hesitation is a defect to fix, and that the run is repeated with a different reader afterwards"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Specifies a clean environment and the repository URL only, with nothing else supplied to the reader"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Forbids maintainer help during the run, with the maintainer watching silently and taking notes"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Rejects \"five minutes is the industry standard\" and sets the budget from what this project's own README promises"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Gives the pass condition as an unaided cold reader reaching first success inside the claimed budget with zero blocking hesitations"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that if the assistant runs the protocol itself in place of a human reader, the plan must say that substitute was used"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Counts any moment that required inspecting the source code as a hesitation"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends a single spike rather than a multi-day caravan for this project"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States the caravan threshold explicitly: at least three genuinely announceable items, a conference or fixed date on the calendar, and staff to hold a named owner per day"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Identifies that a solo maintainer working evenings and weekends cannot hold a named owner per day"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Rejects splitting one project into five themed days as though each were its own story"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that a caravan multiplies the launch week's hours by the number of days"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Warns that below the threshold a caravan dilutes into several ignored posts"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes that the caravan model needs volume rather than secrecy, and that Supabase ships features early and re-announces them rather than holding them back"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Ranks single spike above caravan on outcome per maintainer-hour below that threshold"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Does not produce the requested five-day sequence"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Warns that several simultaneous primary posts produce several dead threads, because discussion surfaces rank on early engagement density"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Puts registry publication, release tag, repository description, topics and social preview first on outcome per maintainer-hour"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that a failing install command wastes all the traffic the rest of the plan produces"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Collapses the plan to registry work plus the anchor post and its thread, given an effort ceiling under about one day"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Deletes the maintainer's own social accounts from the plan rather than ranking them last, because there is no existing audience"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Deletes newsletter and curated-list submissions rather than ranking them last, because no second person can own them"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Deletes the long-form architecture write-up from the launch week because the date is fixed and near"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes that registry work ranks first on efficiency and last on reach inside the launch window"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Hands the write-up and the long-tail submissions to ongoing distribution after the window instead of re-costing them inside it"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Moves the maintainer's social accounts to roughly 30 to 90 minutes after the anchor post"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Directs the social post to link to the discussion rather than duplicate the announcement"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Staggers the secondary communities to roughly two to six hours after the anchor rather than firing them simultaneously"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names a community's weekly showcase or self-promotion thread as the sanctioned path where one exists"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Distinguishes the firing clock, fixed by mechanics, from the efficiency ranking that decides which rows run at all"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends an engineering blog post syndicated to an aggregator and to practitioner newsletters as the anchor shape for company-backed infrastructure aimed at teams"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names the company-adoption assets required: license compatibility, maintenance guarantees, security posture, release cadence and support path"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that these are pages the evaluator must be able to forward to an approver"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names the early signals of company adoption: clones from corporate networks, private forks, carefully written issues and licensing questions"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that company adoption runs on a timeline of weeks to quarters rather than days"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Directs the verdict to the day-30 numbers rather than the day-1 numbers"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Warns that individual-developer channels for an enterprise-shaped project produce applause and no deployments"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires disclosing the commercial boundary up front: what is open, what is sold, and what will never be closed"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Keeps a comparison section naming real alternatives with honest trade-offs, as the booster with the highest lift for company adoption"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Identifies 500 karma as the downvote threshold rather than a trust or ranking threshold"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Notes the Launch HN process involves a form, a staff decision within about two weeks, and one per startup"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that no first-party guidance on posting hours exists, and that hardcoded US-morning windows circulating in launch guides are invented"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Derives the posting hour from the German and Dutch audience's working day rather than US Eastern time"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Keeps the post mid-week and early in that audience's working day"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Notes that ranking divides points by a power of elapsed time, so the first hours decide the outcome"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Notes that the comment edit window closes after two hours, so drafts must be reviewed before posting"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Refuses to draft a message soliciting upvotes, comments or stars"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that soliciting votes gets the submission, the account and sometimes the whole domain penalized"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that softening the wording to \"only if you feel like it\" does not help, because the coordination itself is what gets detected"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Notes that the penalties are invisible from outside, so the team never learns why the post died"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that Product Hunt's terms prohibit the same solicitation, so the rule travels across channels unchanged"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Draws the line at intent: pointing people at the project is fine, asking them to act on the platform's ranking signals is not"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Supplies a replacement message that asks colleagues only to reply where they have something real to add, to flag factual errors privately to the maintainer, and to forward it to people who would actually use it"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Directs the maintainer to state this distinction to the team before launch day, because someone will otherwise do it in good faith"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Does not suggest asking newsletter subscribers to star the repository"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Does not present coordinated voting as a grey area or a minor rule"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Refuses the next-day repost and states that aggregators bury it as a duplicate"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that deleting the submission and resubmitting is not a workaround"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that reposts are allowed only when a story has had no significant attention for roughly a year"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names the second-chance pool as the sanctioned recovery path, requested by a single polite message to the moderators"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Prescribes restructuring the top of the README and adding a demo rather than rewriting the title"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that only a wrong-channel diagnosis justifies relaunching elsewhere"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Warns that a relaunch with the same framing fails identically"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Notes that a relaunch spends the novelty budget a second time"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Reads flat downloads alongside star growth as the announcement travelling while the project did not"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Refuses to supply an absolute day-one star or upvote target"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that circulating figures for launch-day stars per hour, front-page point thresholds and Product Hunt vote thresholds trace back to single anecdotes and launch-consultancy claims"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Sets targets as multiples of the project's own pre-launch baseline instead"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Lists the baseline items to capture, including stars, unique visitors and unique cloners, registry downloads for the last full week, documentation sessions, open issues, contributor count and the current referrer list"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Splits the reading into day 1 as attention, day 7 as trial and day 30 as adoption"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that the day-30 numbers decide the verdict"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names retained download run-rate against the pre-launch week as the number that separates adoption from applause"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Warns that a large \"direct\" referrer bucket is expected, because aggregators, chat clients and privacy-preserving browsers strip referrers"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Notes that comparison against other projects is only meaningful within the same language, category and project age"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Stops public discussion of the specifics rather than explaining the fix in the thread"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Replies once, briefly, pointing the reporter at SECURITY.md and the private contact"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Opens a private advisory and adds the reporter as a collaborator"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Develops and tests the patch on a private branch rather than pushing to the default branch mid-thread"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Credits the reporter when the advisory publishes, rather than thanking them in the public thread"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Treats this as a separate procedure that bypasses the normal comment response rotation"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Warns that debating severity or validity in the open thread invites exploit detail into a public conversation and reads as defensive"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Notes that this only works if the private contact path existed before launch day, which is why it is a readiness blocker"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Does not recommend a public issue or a README note as the disclosure path"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Rewrites the one-liner to the shape \"<name> is a <category> for <audience> that <capability the alternatives lack>\", leading with the category"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "States what the project will not do, so the one-liner is limiting as well as short"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Includes at least one row where Basalt loses to Airflow"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Routes the final draft through a humanizer pass before publishing"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "States that the selection formula is unpublished and that reverse-engineered versions in circulation are folklore"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Refuses to give a stars-per-day number needed to reach the front page"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Restates the boundary that stars must never be solicited or coordinated"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Distinguishes asking someone to go look at the project from asking them to star it"
+      },
+      {
+        "eval_id": 15,
+        "expectation": "States that \"the team is watching\" reliably means nobody is"
+      },
+      {
+        "eval_id": 15,
+        "expectation": "Includes a pre-flight about 24 hours out that re-runs the install command on a clean environment and verifies every link in every draft"
+      },
+      {
+        "eval_id": 15,
+        "expectation": "Freezes the default branch for launch day"
+      },
+      {
+        "eval_id": 15,
+        "expectation": "Captures the measurement baseline before launch and stores it outside the traffic panel"
+      },
+      {
+        "eval_id": 15,
+        "expectation": "Directs small breakages found in the thread to be fixed and shipped the same hour, and said so in the thread"
+      },
+      {
+        "eval_id": 15,
+        "expectation": "Agrees the over-performance escalation trigger before launch day - issue templates, good-first-issue routing, thread locks or a temporary contribution freeze - together with a response SLA the team can actually hold"
+      },
+      {
+        "eval_id": 15,
+        "expectation": "Gives the fallback drop order Voice > Triage > Watcher > Amplifier if Dan becomes unavailable"
+      }
+    ]
+  }
+}

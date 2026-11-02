@@ -1,7 +1,7 @@
 # ⚔️ Core Antigravity Kit Protocols
 
 > **Category**: `core-antigravity-protocols`  
-> **Total Curated Skills**: 37 skills  
+> **Total Curated Skills**: 41 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -39,10 +39,14 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`context-status`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/context-status) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Show current session status and context health for the sewage project. Use to check context usa... |
 | [`databowl`](../../library/membranedev-application-skills/skills/databowl) | ⚪ Reserve | `membranedev-application-skills` | Databowl integration. Manage Recordses. Use when the user wants to interact with Databowl data. |
 | [`eval-engineering`](../../library/langchain-ai-langchain-skills/skills/eval-engineering) | ⚪ Reserve | `langchain-ai-langchain-skills` | Inspect an agent repository and optional traces, interview the user, write reviewed Task Specs,... |
+| [`genre-shooter`](../../library/arjun988-blender-skills/skills/genre-shooter) | ⚪ Reserve | `arjun988-blender-skills` | Art direction for FPS, TPS, shooter, battle royale, and extraction-shooter maps and props in Bl... |
 | [`google-cloud-solution-agentic-analytics-spark-knowledge-catalog`](../../library/google-skills/skills/google-cloud-solution-agentic-analytics-spark-knowledge-catalog) | ⚪ Reserve | `google-skills` | Discovers requirements and designs an end-to-end governed agentic analytics solution using Know... |
 | [`incident-commander`](../../library/alirezarezvani-claude-skills/skills/incident-commander) | ⚪ Reserve | `alirezarezvani-claude-skills` | Comprehensive incident response framework from detection through resolution and post-incident r... |
 | [`infinite-gratitude`](../../library/antigravity-awesome-skills/skills/infinite-gratitude) | ⚪ Reserve | `antigravity-awesome-skills` | Multi-agent research skill for parallel research execution (10 agents, battle-tested with real ... |
+| [`jetson-flash-image`](../../library/nvidia-skills/skills/jetson-flash-image) | ⚪ Reserve | `nvidia-skills` | Use to flash a promoted BSP image to a Jetson DUT in RCM mode via flash.sh or l4t_initrd_flash.... |
+| [`jetson-quick-start`](../../library/nvidia-skills/skills/jetson-quick-start) | ⚪ Reserve | `nvidia-skills` | Entry skill for Jetson / IGX BSP customization. Asks one core click-to-select setup questionnai... |
 | [`nanoclaw-repl`](../../library/affaan-m-ecc/skills/nanoclaw-repl) | ⚪ Reserve | `affaan-m-ecc` | Operate and extend NanoClaw, ECC's zero-dependency session-aware REPL, with persistent markdown... |
+| [`nemotron-customize`](../../library/nvidia-skills/skills/nemotron-customize) | ⚪ Reserve | `nvidia-skills` | Plan, configure, and chain repo-native Nemotron customization steps into single-step or multi-s... |
 | [`owl`](../../skills/owl) | 🟢 Active | `active` | Activates the OWL (Optimized Workforce Learning) decoupled multi-agent pipeline: uses DeepInves... |
 | [`owl-protocol-automation`](../../library/composio-community-awesome-codex-skills/skills/owl-protocol-automation) | ⚪ Reserve | `composio-community-awesome-codex-skills` | Automate Owl Protocol tasks via Rube MCP (Composio). Always search tools first for current sche... |
 | [`property-patterns`](../../library/dotnet-skills/skills/property-patterns) | ⚪ Reserve | `dotnet-skills` | Diagnose and fix concrete MSBuild property defects in projects and existing shared-file hierarc... |

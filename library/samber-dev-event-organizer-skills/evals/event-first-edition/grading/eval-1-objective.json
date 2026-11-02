@@ -1,0 +1,106 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The response does not deliver the requested complete launch plan (venue, program, budget, marketing) in this turn.",
+        "evidence": "\"I can't give you the full plan yet.\" Venue, program, budget and marketing are listed under \"Marked not yet decided\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Demand validation is required before any launch planning, with the user routed to a demand-validation step or the event-market-fit sibling skill.",
+        "evidence": "\"the skill routes unvalidated demand to `samber/dev-event-organizer-skills@event-market-fit` before anything else.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The team's own conviction ('streaming is exploding, we know there's appetite') is explicitly classified as unvalidated opinion or stated interest, not evidence.",
+        "evidence": "\"'Streaming is exploding'... That is level 1 on the validation ladder (opinion).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Concrete acceptable validation evidence is named, such as waitlist signups, a sold-out precursor meetup, or an existing community asking for the event.",
+        "evidence": "\"real registrations such as waitlist signups, claimed early-bird tickets or deposits.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Viral coefficient, CAC/LTV, and cohort retention are rejected as edition-1 success measures because they measure sustained usage over time, which a single edition cannot generate.",
+        "evidence": "\"measure sustained usage over time, and one edition can't produce that data.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The rejected growth metrics are redirected to their proper home (growing an established event / the event-growth-strategy sibling), not merely deleted.",
+        "evidence": "\"That vocabulary belongs to `event-growth-strategy`, for edition 2 and later.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Demand validation and edition sizing are distinguished as two sequential, different decisions: an event with real demand can still over-scope or under-scope its launch.",
+        "evidence": "Scope tier is covered in section 4, but the transcript never says that an event with real demand can still over-scope or under-scope its launch.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The two-colleague, single-company founding team is flagged against the floor of at least three organizers from at least three different organizations for a community-run event.",
+        "evidence": "\"Two organizers from one company fail the team gate, which needs at least 3 organizers from 3 different organizations.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The response does not deliver the requested complete launch plan (venue, program, budget, marketing) in this turn.",
+        "evidence": "The response delivers a full plan covering venue (section 4), program (3), budget (5) and marketing (6).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Demand validation is required before any launch planning, with the user routed to a demand-validation step or the event-market-fit sibling skill.",
+        "evidence": "It includes a '6-week validation gate' but still delivers the full plan, and only says 'before signing anything'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The team's own conviction ('streaming is exploding, we know there's appetite') is explicitly classified as unvalidated opinion or stated interest, not evidence.",
+        "evidence": "'\"We know there's appetite\" is an assumption, not a fact'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Concrete acceptable validation evidence is named, such as waitlist signups, a sold-out precursor meetup, or an existing community asking for the event.",
+        "evidence": "Waitlist signups, interviews, sponsor letters of intent, and a 'paid pre-sale test: 30 founding tickets'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Viral coefficient, CAC/LTV, and cohort retention are rejected as edition-1 success measures because they measure sustained usage over time, which a single edition cannot generate.",
+        "evidence": "The metrics table says viral coefficient 'needs a repeatable invite loop', LTV is undefined, and retention is 'undefined for an attendee'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The rejected growth metrics are redirected to their proper home (growing an established event / the event-growth-strategy sibling), not merely deleted.",
+        "evidence": "The metrics are replaced with in-plan substitutes. There is no pointer to a growth-strategy skill or a later phase.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Demand validation and edition sizing are distinguished as two sequential, different decisions: an event with real demand can still over-scope or under-scope its launch.",
+        "evidence": "Sizing (~250 attendees) is assumed in the same plan. The response never separates it from validation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The two-colleague, single-company founding team is flagged against the floor of at least three organizers from at least three different organizations for a community-run event.",
+        "evidence": "There is no mention of a three-organizer, three-organization floor. Only a program committee is suggested.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

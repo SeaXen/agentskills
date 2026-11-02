@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that a model download on that hub counts every HTTP GET or HEAD against a per-library query file such as config.json, so repeated automated access counts every time.",
+        "evidence": "\"Model download = every GET/HEAD on a per-library query file (config.json by default). CI hitting your repo on every build counts every time.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a dataset download collapses every file one IP fetches from one repository inside a 5-minute window into a single download.",
+        "evidence": "\"Dataset download = every file one IP pulls from one repo inside a 5-minute window collapses to one download.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Concludes that model and dataset counts are not summable, and rejects the combined 1.2M figure.",
+        "evidence": "\"These are not summable and not comparable to each other ... Kill that line.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that unique-downloader figures are not available by default and require a paid enterprise add-on, so 'how many people' is unanswerable from the public surface.",
+        "evidence": "\"Per-request dedup (hashed user/IP, country, agent) is a paid enterprise add-on on this hub, not part of the default API.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Corrects the likes-versus-downloads reading: likes are a recency signal concentrating on new releases while downloads concentrate on older dependencies, and neither proxies the other.",
+        "evidence": "\"likes concentrate on new releases (recency), downloads concentrate on adoption (usage over time)\" and \"The hub's own analysis names treating one as a proxy for the other 'the most common mistake we see in coverage of the Hub.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Instructs keeping likes and downloads as two separate series, each labelled with what it means.",
+        "evidence": "\"likes_total | int | separate series from downloads, never blended\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects trending rank as a tracked metric because the score has no published formula and no stability guarantee, allowing it only as a snapshot observation.",
+        "evidence": "\"Trending score is an opaque API sort key \u2014 no published formula, no stability guarantee. Snapshot weekly, never set a threshold or goal on it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags that the untokenized polling job falls under a lower anonymous rate limit enforced over fixed 5-minute windows, and instructs sending a token.",
+        "evidence": "\"Hub rate-limits per 5-minute window, anonymous callers get a fraction of authenticated quota.\" / \"Fix cron job now: add API token to poller.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that a collection job silently returning rate-limit errors produces a flat line that reads as lost adoption.",
+        "evidence": "\"Unauthed daily/weekly poll risks silent 429s \u2192 flat line reads as \\\"adoption died\\\" when it's just rate-limiting.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Instructs snapshotting totals daily into the team's own store and reporting deltas, because the public API returns current totals rather than history.",
+        "evidence": "\"Daily snapshot job: per-model downloads, per-model likes, per-dataset downloads, trending rank\" and \"report deltas, not the raw cumulative, for a \\\"this week\\\" number\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not treat this hub's download counts as comparable to a package registry's download counts.",
+        "evidence": "No comparison to npm/PyPI or any package registry appears anywhere in this transcript; the hub's counts are treated entirely on their own terms.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that a model download on that hub counts every HTTP GET or HEAD against a per-library query file such as config.json, so repeated automated access counts every time.",
+        "evidence": "The transcript says downloads are \"file-resolution requests through the tracked client libraries\" but never mentions config.json, GET/HEAD, or the per-library query-file mechanism.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a dataset download collapses every file one IP fetches from one repository inside a 5-minute window into a single download.",
+        "evidence": "No mention of a 5-minute collapsing window for dataset downloads.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Concludes that model and dataset counts are not summable, and rejects the combined 1.2M figure.",
+        "evidence": "\"Model downloads and dataset downloads aren't the same kind of event... Adding them together produces a number that's bigger but means nothing\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that unique-downloader figures are not available by default and require a paid enterprise add-on, so 'how many people' is unanswerable from the public surface.",
+        "evidence": "\"There is no Hub API endpoint that returns per-model unique downloader counts... Ask if the Hub offers an enterprise/org analytics tier \u2014 even then, expect aggregated estimates, not a literal distinct-person count\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Corrects the likes-versus-downloads reading: likes are a recency signal concentrating on new releases while downloads concentrate on older dependencies, and neither proxies the other.",
+        "evidence": "The correction given is about automated-vs-human signal strength (\"A 'like'...is a genuine distinct-human signal. A 'download'...is not\"), not the recency/older-dependency framing the rubric describes.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Instructs keeping likes and downloads as two separate series, each labelled with what it means.",
+        "evidence": "The append-only table schema stores \"(entity_id, snapshot_date, rank, downloads, likes)\" as distinct fields, consistent with the separate meanings explained in \u00a72.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects trending rank as a tracked metric because the score has no published formula and no stability guarantee, allowing it only as a snapshot observation.",
+        "evidence": "The transcript says trending has \"no historical trending-rank endpoint\" and must be snapshotted, but never states the score lacks a published formula or stability guarantee as the reason.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags that the untokenized polling job falls under a lower anonymous rate limit enforced over fixed 5-minute windows, and instructs sending a token.",
+        "evidence": "\"Unauthenticated requests share the Hub's anonymous, IP-based rate-limit pool... Fix: create a fine-grained, read-only access token\" \u2014 flags the limit and fix but never mentions fixed 5-minute windows.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that a collection job silently returning rate-limit errors produces a flat line that reads as lost adoption.",
+        "evidence": "\"a failed week silently looks like 'no data' or, worse, like a real rank/download drop rather than an API failure.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Instructs snapshotting totals daily into the team's own store and reporting deltas, because the public API returns current totals rather than history.",
+        "evidence": "The proposed cron is \"Weekly cron hits...\", not daily, and no delta-reporting instruction is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not treat this hub's download counts as comparable to a package registry's download counts.",
+        "evidence": "The transcript never compares Hub downloads to npm/PyPI or any package registry figures.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

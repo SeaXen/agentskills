@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Declines to build the per-sponsor tracking matrix as part of designing the floor",
+        "evidence": "Never build a per-sponsor tracking matrix here.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes per-sponsor execution - tracking, staging, payment gating, individual FAQ replies - to the sponsor-fulfillment side",
+        "evidence": "event-sponsor-fulfillment... should handle both the 14-row tracker and the Vantiq reply",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Offers the once-per-edition generic floor brief as the deliverable instead",
+        "evidence": "If you want the full floor brief first",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the brief's contents: the master schedule, the tier spec catalog, staffing and conduct provisioning rules, and a named contact",
+        "evidence": "Lists schedule, tier specs, power allocation only; no staffing/conduct or named contact.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the split explicitly: this work designs the floor once per edition; execution happens per signed sponsor downstream",
+        "evidence": "This skill only produces the generic brief for every sponsor.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Answers the shipping question at brief level - published shipping window, venue address and routing, fees - for all sponsors rather than as a one-off reply to Vantiq",
+        "evidence": "shipping window and move-in time are rows of the master schedule",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Applies the routing pattern for sponsor questions: publish what is fixed, and name the person for everything else",
+        "evidence": "Only says FAQ pattern routes shipping to organizers; doesn't state the publish-fixed/name-a-person pattern.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats payment gating as a downstream concern, not a column tracked in this deliverable",
+        "evidence": "that skill covers the payment gate and staging",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the earliest date the venue accepts deliveries as a venue fact to settle before the shipping row can be published",
+        "evidence": "How soon can sponsors start shipping",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not quietly produce the requested spreadsheet anyway alongside the refusal",
+        "evidence": "I stopped without building the spreadsheet",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Declines to build the per-sponsor tracking matrix as part of designing the floor",
+        "evidence": "Builds the CSV spreadsheet",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes per-sponsor execution - tracking, staging, payment gating, individual FAQ replies - to the sponsor-fulfillment side",
+        "evidence": "Does it itself",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Offers the once-per-edition generic floor brief as the deliverable instead",
+        "evidence": "Not offered",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the brief's contents: the master schedule, the tier spec catalog, staffing and conduct provisioning rules, and a named contact",
+        "evidence": "Not named",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the split explicitly: this work designs the floor once per edition; execution happens per signed sponsor downstream",
+        "evidence": "Not stated",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Answers the shipping question at brief level - published shipping window, venue address and routing, fees - for all sponsors rather than as a one-off reply to Vantiq",
+        "evidence": "One-off reply to Vantiq",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Applies the routing pattern for sponsor questions: publish what is fixed, and name the person for everything else",
+        "evidence": "Not applied",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats payment gating as a downstream concern, not a column tracked in this deliverable",
+        "evidence": "Includes Payment received column",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the earliest date the venue accepts deliveries as a venue fact to settle before the shipping row can be published",
+        "evidence": "Placeholder '[earliest date]' only",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not quietly produce the requested spreadsheet anyway alongside the refusal",
+        "evidence": "Produces the full spreadsheet",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "name": "@launchdarkly/agent-skills-evals",
+  "version": "1.0.0",
+  "description": "LLM eval suite for LaunchDarkly agent skills and gram function tools",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test:llm-evals":  "npm run eval",
+    "eval:create":     "SKILL_ROOT=$(cd ../skills && pwd) PROVIDER_ROOT=$(pwd)/providers promptfoo eval --config evals/metrics/metric-create.eval.yaml --no-cache --output /tmp/promptfoo-results.json; node print-results.mjs",
+    "eval:choose":     "SKILL_ROOT=$(cd ../skills && pwd) PROVIDER_ROOT=$(pwd)/providers promptfoo eval --config evals/metrics/metric-choose.eval.yaml --no-cache --output /tmp/promptfoo-results.json; node print-results.mjs",
+    "eval:instrument": "SKILL_ROOT=$(cd ../skills && pwd) PROVIDER_ROOT=$(pwd)/providers promptfoo eval --config evals/metrics/metric-instrument.eval.yaml --no-cache --output /tmp/promptfoo-results.json; node print-results.mjs",
+    "eval":            "npm run eval:create && npm run eval:choose && npm run eval:instrument",
+    "view": "promptfoo view",
+    "cache:clear": "promptfoo cache clear"
+  },
+  "devDependencies": {
+    "promptfoo": "^0.124.0"
+  },
+  "overrides": {
+    "@ai-sdk/provider-utils@4": "4.0.46",
+    "adm-zip": "^0.6.0",
+    "brace-expansion": "^5.0.9",
+    "js-yaml@4": "^4.3.1",
+    "mongoose": "^9.7.2",
+    "sharp": "^0.35.3",
+    "simple-git": "^4.0.2",
+    "socket.io-parser": "^4.2.7",
+    "uuid@13": "^13.0.1"
+  }
+}

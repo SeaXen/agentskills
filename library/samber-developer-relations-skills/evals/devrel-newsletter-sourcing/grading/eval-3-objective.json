@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The output does not use a rolling 'past 7 days' window ending at the send date or today.",
+        "evidence": "\"The skill forbids a rolling window.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output starts the window at 2026-06-08, the previous issue's sourcing cutoff.",
+        "evidence": "\"Window start: 2026-06-08 12:00 UTC.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output explains that a rolling 7-day window would miss items published between the last cutoff and the late send (or double-count after a late send).",
+        "evidence": "\"It double-counts after a late send and drops items after an early one\"; \"Past 7 days would drop Orrin 1.9.0.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Orrin 1.9.0 (2026-06-09) is treated as inside this issue's window, after a check that the late-sent issue did not already carry it.",
+        "evidence": "\"Inside the window.\" and \"If it carried 1.9.0 (released 06-09), cut 1.9.0 here.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The connector internals write-up (2026-06-11) is treated as inside this issue's window.",
+        "evidence": "Row 2: \"2026-06-11 ... Inside the window.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output recommends checking last week's issue contents for overlap before including items.",
+        "evidence": "\"Last issue (sent 06-12). I need it, for the duplicate check... Does it already carry 1.9.0?\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Orrin Day Berlin is listed with the date 2026-07-09 from the meetup page, not 2026-07-02 from the calendar.",
+        "evidence": "\"if the 07-09 page is confirmed, list 07-09 and fix the calendar entry.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output states that the event page's date takes precedence over the calendar's.",
+        "evidence": "\"The event's own page wins\"; \"the event page wins over the calendar.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The 2024 backfill guide is included as a reading or learning item, not presented as news.",
+        "evidence": "\"it goes on the learning rung and is never presented as news.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The backfill guide entry states its trigger: 1.9.0 restoring the backfill command.",
+        "evidence": "\"Trigger: 1.9.0, 2026-06-09, brought the backfill command back.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Every candidate carries a full YYYY-MM-DD date.",
+        "evidence": "Backfill guide date: \"2024 (exact date unknown)\"; Berlin lists two conflicting dates.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The output says to record this issue's sourcing cutoff so the next window starts from it.",
+        "evidence": "\"Record the cutoff. Store 2026-06-16 12:00 UTC as the start of the next window.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The window boundaries are stated with a time and a time zone, not only dates.",
+        "evidence": "\"2026-06-08 12:00 UTC\" and \"2026-06-16 12:00 UTC\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The output does not use a rolling 'past 7 days' window ending at the send date or today.",
+        "evidence": "\"I used 06-08 rather than a strict 7-day window (06-10 on)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output starts the window at 2026-06-08, the previous issue's sourcing cutoff.",
+        "evidence": "\"Anything in the release feed or calendar from 2026-06-08 onward\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output explains that a rolling 7-day window would miss items published between the last cutoff and the late send (or double-count after a late send).",
+        "evidence": "\"so nothing falls between issues. Under a strict window, 1.9.0 (06-09) would drop out.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Orrin 1.9.0 (2026-06-09) is treated as inside this issue's window, after a check that the late-sent issue did not already carry it.",
+        "evidence": "It asserts \"1.9.0 missed that issue\" from the list's close date. It never checks last week's issue contents.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The connector internals write-up (2026-06-11) is treated as inside this issue's window.",
+        "evidence": "Listed under Reading, posted 2026-06-11.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output recommends checking last week's issue contents for overlap before including items.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Orrin Day Berlin is listed with the date 2026-07-09 from the meetup page, not 2026-07-02 from the calendar.",
+        "evidence": "\"Don't print a date until you confirm which is right.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The output states that the event page's date takes precedence over the calendar's.",
+        "evidence": "It treats the conflict as unresolved and says to check with the organizer.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The 2024 backfill guide is included as a reading or learning item, not presented as news.",
+        "evidence": "Under Reading: \"Backfilling with Orrin (2024 guide, worth rereading)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The backfill guide entry states its trigger: 1.9.0 restoring the backfill command.",
+        "evidence": "\"1.9.0 brought back the `backfill` command, so this guide matters again.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Every candidate carries a full YYYY-MM-DD date.",
+        "evidence": "The guide is only \"2024 guide\", and Berlin has no single date.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The output says to record this issue's sourcing cutoff so the next window starts from it.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The window boundaries are stated with a time and a time zone, not only dates.",
+        "evidence": "Only dates are given.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

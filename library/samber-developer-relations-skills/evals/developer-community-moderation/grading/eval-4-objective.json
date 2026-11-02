@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that no reliable technical indicator exists for AI-generated content and declines to supply detection heuristics or a threshold",
+        "evidence": "\"OpenSSF's own working group on this exact problem concluded there is no reliable technical indicator for AI-generated text \u2014 detection runs on maintainer intuition, not a metric (wg-vulnerability-disclosures#178).\" combined with \"Drop perplexity and boilerplate-phrase scoring as a close/ban trigger.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends gating volume rather than detecting authorship",
+        "evidence": "\"Don't build a system whose job is 'guess whether a human wrote this' \u2014 score whether the report is *actionable*, which is checkable, not whether it's *authored by AI*, which isn't.\" and \"None of this needs an 'is this AI' judgment anywhere in it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that individual bans answer individual behaviour and do nothing to the inflow rate",
+        "evidence": "\"individual bans remove one identity, and a scripted or LLM-driven submitter returns under a new email/account for near-zero cost \u2014 you'd be paying per-instance forever against an attacker whose marginal cost is ~0. The leverage is upstream, in gates 1-3, which cut inflow regardless of which identity is submitting.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that the behaviour ladder fits this badly because there is usually no malice to escalate against",
+        "evidence": "The transcript never discusses a 'behaviour ladder' concept or states that malice is usually absent; the closest statement is 'A failed repro is not proof of bad faith; plenty of legitimate reporters submit incomplete PoCs,' which is about repro failures, not an escalation-ladder critique.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ranks the countermeasures by inflow removed per hour of maintainer time and leads with a reputation or contribution-history gate",
+        "evidence": "The transcript structures countermeasures as three sequential gates (structural completeness, symbol resolution, automated repro) with no explicit ranking by 'inflow removed per hour of maintainer time'; it leads with Gate 1 (structural completeness), not a reputation/contribution-history gate, which only appears later as an escalation option ('Move to a reputation-gated channel').",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places the disclosure rule last on efficiency and states that it changes nothing on its own",
+        "evidence": "No 'disclosure rule' is mentioned anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the effort tie between a review-effort cap and a disclosure rule, and justifies it as one paragraph written once for each",
+        "evidence": "No disclosure rule or effort-tie comparison appears in the transcript; the only effort cap discussed is the Gate 3 triage cap ('time-boxed human triage (cap it \u2014 10-15 minutes...)'), with no comparison to a disclosure rule.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names raising the submission cost as the option the efficiency order starves, and gives the condition that promotes it: the gate is in place and the valid share is still falling",
+        "evidence": "The transcript has an escalation section ('If gates 1-3 don't bring valid share back up... Removing or capping a reward is the highest-value, highest-political-cost move; don't reach for it first...') but this is not framed against any 'efficiency order' that the option is said to be 'starved' by, since no such ranking exists in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that any disclosure rule is enforced on the submission's content, never on suspicion, and warns that accusing a member of using a language model without proof creates its own incident",
+        "evidence": "No disclosure rule is discussed. The closest related text, 'without risking a false accusation,' refers to needs-info closures for unresolved symbols, not to a warning about accusing someone of using a language model.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds submissions per week and valid share as measurements, and states that measurement does not compete with the countermeasures",
+        "evidence": "\"Track two numbers weekly regardless of what else you do: submissions/week and valid share (reports that pass Gate 3 or get confirmed by a human).\" \u2014 'regardless of what else you do' frames measurement as running alongside, not competing with, the countermeasures.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites at least one published figure with its owner, such as curl's roughly 20% AI-junk share of its 2025 bug-bounty submissions, or Node.js's HackerOne Signal score floor of 1.0 after a month brought over 30 reports against a usual 6-7",
+        "evidence": "\"~20% of 2025 bug-bounty submissions were AI slop... (Stenberg, \"Death by a thousand slops,\" 2025-07; bounty closed 2026-01-31)\" and \"Node.js's fix was a reputation floor (HackerOne Signal \u2265 1.0), which pulled a 30+/month spike back to its usual 6-7.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels any such figure as one project's measurement of its own programme rather than an industry rate",
+        "evidence": "The transcript attributes the figures to curl and Node.js specifically ('Curl hit this same problem... and published real numbers', 'Node.js's fix was...') but never explicitly caveats that these are one project's own measurement rather than an industry-wide rate.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that no reliable technical indicator exists for AI-generated content and declines to supply detection heuristics or a threshold",
+        "evidence": "The transcript supplies an extensive tiered heuristic system (Tier 1/2/3) rather than declining.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends gating volume rather than detecting authorship",
+        "evidence": "The core recommendation is \"score fabrication (falsifiable claims), not authorship (writing style)\" \u2014 a content-verification approach, not a volume-gating one.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that individual bans answer individual behaviour and do nothing to the inflow rate",
+        "evidence": "Not stated anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that the behaviour ladder fits this badly because there is usually no malice to escalate against",
+        "evidence": "No such statement appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ranks the countermeasures by inflow removed per hour of maintainer time and leads with a reputation or contribution-history gate",
+        "evidence": "Countermeasures are organized by verification trustworthiness (Tier 1/2/3), not by inflow-removed-per-hour, and do not lead with a reputation/contribution-history gate.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places the disclosure rule last on efficiency and states that it changes nothing on its own",
+        "evidence": "No disclosure rule is discussed anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the effort tie between a review-effort cap and a disclosure rule, and justifies it as one paragraph written once for each",
+        "evidence": "Neither concept appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names raising the submission cost as the option the efficiency order starves, and gives the condition that promotes it: the gate is in place and the valid share is still falling",
+        "evidence": "Not present; no efficiency order or starved-option framing exists in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that any disclosure rule is enforced on the submission's content, never on suspicion, and warns that accusing a member of using a language model without proof creates its own incident",
+        "evidence": "No disclosure rule or such warning appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds submissions per week and valid share as measurements, and states that measurement does not compete with the countermeasures",
+        "evidence": "No such measurement framework is proposed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites at least one published figure with its owner, such as curl's roughly 20% AI-junk share of its 2025 bug-bounty submissions, or Node.js's HackerOne Signal score floor of 1.0 after a month brought over 30 reports against a usual 6-7",
+        "evidence": "curl is mentioned only vaguely (\"curl's maintainers... have written publicly about their HackerOne inbox filling with confident, fabricated, LLM-written reports\") with no concrete numeric figure.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels any such figure as one project's measurement of its own programme rather than an industry rate",
+        "evidence": "The opposite framing is used: \"This is a documented industry-wide pattern through 2025\u20132026\", generalizing curl's experience as an industry-wide fact.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

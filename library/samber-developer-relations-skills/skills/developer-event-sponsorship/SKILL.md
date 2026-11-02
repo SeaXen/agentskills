@@ -4,7 +4,7 @@ description: Builds a developer-event sponsorship plan - which conferences, meet
 license: MIT
 metadata:
   author: Samuel Berthe
-  version: "1.0.2"
+  version: "1.0.6"
 ---
 
 # Developer Event Sponsorship
@@ -110,7 +110,7 @@ No compliance-cost line at this altitude: contracts, consent and code-of-conduct
 
 - **Ecosystem-anchored** - every event sits inside one technology community. Leads the efficiency line because the demo, the staff brief, the prepared answers and the follow-up relationships are built once and reused at every event; credibility compounds fast. Effort: a month or two of preparation, then a standing job for whoever owns that community. Fails the moment the strategy needs a second ecosystem.
 - **Flagship-led** - one deep sponsorship plus small presences elsewhere. Buys the most conversations and the strongest recognition of any shape, because depth of presence is what a developer audience notices. Effort: a month or two of preparation and a standing job for the week itself. Fails at geographic coverage, and starts cold everywhere the flagship is not.
-- **Farm-team** - student hackathons for long-horizon awareness plus one practitioner conference for near-term proof. Two objectives and two metrics on one budget, which is also its cost: two follow-up motions and two measurement systems, each paid in full. Effort: the preparation of the flagship shape, doubled, and two owners.
+- **Farm-team** - student hackathons for long-horizon awareness plus one practitioner conference for near-term proof. Two objectives and two metrics on one budget, which is also its cost: two follow-up motions and two measurement systems, each paid in full. Effort: the preparation of the flagship shape, doubled, and two owners. When the student side is a standing program rather than a few events, plan it with samber/developer-relations-skills@student-developer-programs.
 - **Regional spread** - many small local events. Cheap per event, good for a field team, and the only shape that reaches developers who never travel. Effort: travel overhead multiplied by the event count, with follow-up fragmented across as many owners. Rarely reaches decision-makers.
 
 - Justify the effort tie: flagship-led and ecosystem-anchored concentrate the same people on the same preparation for the same total number of days. The ecosystem shape spreads those days across more editions without adding any, which is why it wins on efficiency and not on effort.
@@ -208,7 +208,7 @@ Effort in magnitudes:
   - both the workshop and the side event when only one person is travelling, since a team of one can staff exactly one thing
 - The scholarship or diversity fund sits off this ladder on purpose. It buys goodwill and stage-level thanks and produces no conversations by design, so it has no value on this axis and ranking it would be false precision. Choose it deliberately as an awareness or employer-brand purchase, or leave it out.
 
-[references/activation-playbooks.md](./references/activation-playbooks.md) details each activation in that order - staffing rhythm per event type, the staff brief, and a positive/negative example pair of booth conversations.
+[references/activation-playbooks.md](./references/activation-playbooks.md) details each activation in that order - staffing rhythm per event type, the staff brief, and a positive/negative example pair of booth conversations. Once the side event is chosen, plan it with `samber/developer-relations-skills@devrel-field-events`: the organizer's side-event rules, guest list, hospitality limits and named-guest follow-up. Once the booth is bought, write its floor plan - crew and shift grid, floor scripts, graded capture, swag policy, the event's exhibitor rules - with `samber/developer-relations-skills@developer-booth-playbook`.
 
 Two rules bind every activation. Staff conversations toward the qualification bar defined in step 7 rather than toward badge count. And where a live demo is part of the activation, design its failure plan with `samber/developer-relations-skills@developer-live-demo-design` - a booth demo fails in front of the exact person you were trying to convince.
 
@@ -231,7 +231,7 @@ Route each logged conversation to the team that can use it, and name the destina
 | Candidates                   | Recruiting   |
 | Buyers                       | Sales        |
 
-Most booth conversations are not sales leads, and defaulting them all to sales is what fills a CRM with records nobody works.
+Most booth conversations are not sales leads, and defaulting them all to sales is what fills a CRM with records nobody works. Run the follow-up itself, from the closed hall to the 30/60/90-day cohort readings, with `samber/developer-relations-skills@developer-event-followup`.
 
 [references/sponsorship-roi-model.md](./references/sponsorship-roi-model.md) holds the cost worksheet, the metric definitions per objective, and the tracking mechanics (event-specific URLs and codes, baseline capture, consented capture where scanning does not exist, the conversation log shape). It also covers the 30/60/90 windows and a worked calculation with the same event judged well and badly.
 

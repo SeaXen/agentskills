@@ -1,0 +1,402 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-speaker-sourcing",
+  "scenarios": 8,
+  "expectations_total": 95,
+  "expectations_subjective": 0,
+  "expectations_objective": 95,
+  "pass_rate_with_skill_pct": 83.2,
+  "pass_rate_without_skill_pct": 23.2,
+  "delta_pp": 60.0,
+  "uplift_multiplier": 3.59,
+  "trigger_accuracy_pct": 67.4,
+  "trigger_queries": 86,
+  "trigger_positive_fire_rate": 0.721,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": null,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Identifies the six Slack names as the referral-asks channel and states its ceiling is that it returns the organizer's own network's network"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Warns that an option parked at the bottom of a menu silently returns as scope partway through sourcing"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Gives the reason that a referral arrives vouched and therefore skips a qualification step an unvouched name still has to pay for"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States the lead-time gate applies when a candidate enters the shortlist, not when outreach happens"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that filtering on region alone returns candidates who cannot be briefed in a shared language"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that filtering on language alone returns candidates from the organizer's own country again"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that some entry routes need months of lead time and a formal invitation letter"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Weights the candidate pool toward customers, partners, and practitioners who use the vendor's technology"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Treats an unresolved conflict with the programme's independence as a Skip disqualifier rather than a low score"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Declines to treat presentation polish alone as qualification for the vendor candidate"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes the invitation at a vendor conference can usually carry real budget, unlike the community-run case"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names the two failure modes it guards against: a great talk that never gets written, and a speaker who cancels late"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Flags organizer reference as carrying the highest compliance cost of the qualification rungs, because it is a discussion about a named person with a third party"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Promotes prior-talk review ahead of directory search here, because a single slot concentrates the risk and the three names arrived unvouched"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Flags community scouting as the highest-effort and highest-compliance-cost channel, so it is paired with at least one cheaper channel rather than run alone"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Promotes community scouting or another slow, compounding channel because the mandate is a long-term annual asset rather than a one-off edition"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Names the trigger explicitly as a supplement to a live call for papers, not the replacement case where the call was deleted"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that thin early CFP volume is ordinary, expected practice rather than treating it as a crisis"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that audience-size metrics are excluded from the qualification rubric entirely, rather than kept as a lower-weighted factor or a tiebreak between otherwise equal candidates"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Requires a written slot brief for each gap before any candidate name is attached to it"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Specifies the slot brief contents as at least theme, session format, audience level, and what success looks like for that slot"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Requires at least two sourcing channels, at least one of which reaches beyond the organizer's own network"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Identifies the six Slack names as the referral-asks channel and states its ceiling is that it returns the organizer's own network's network"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Declines to write the invitation message itself and routes that work to samber/dev-event-organizer-skills@event-speaker-cold-outreach"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States the shortlist is presented slot by slot for the organizer's validation before any invitation is sent"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Requires delivery evidence - a recorded talk, a transcript, or long-form writing - for every name that reaches the shortlist"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that the size of the gap is re-checked after the call closes, since the final proposal count is not yet known"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names the trigger as the replacement case, where a deleted call for papers means the entire lineup is sourced by invitation"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Deletes paid speaker-bureau or agency booking from the channel menu outright rather than ranking it low or keeping it as a fallback"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Warns that an option parked at the bottom of a menu silently returns as scope partway through sourcing"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Gives the reason that a referral arrives vouched and therefore skips a qualification step an unvouched name still has to pay for"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States the 4-6 week speaker travel lead time as a floor and minimum, not a target"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Works back from the 8-week event date to a speaker confirmation deadline roughly 2 to 4 weeks from today so the travel floor still fits"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States the lead-time gate applies when a candidate enters the shortlist, not when outreach happens"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States the mechanism for international sourcing is filtering on published directory fields, not searching harder or longer on general-purpose search engines"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Requires region and language filters to be applied together in the same query rather than separately"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that filtering on region alone returns candidates who cannot be briefed in a shared language"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that filtering on language alone returns candidates from the organizer's own country again"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names at least one live directory that publishes region, language, and topic or project filters usable together"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Treats visa and entry requirements as a per-candidate check against the actual route rather than assuming one processing time"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that some entry routes need months of lead time and a formal invitation letter"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Scores any candidate whose visa answer would arrive after the 5-week confirmation date as Skip for this edition"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Flags that same candidate as a strong lead to carry into the next edition rather than discarding them"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Records the third travel budget as unconfirmed rather than as covered, likely, or probable"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that an unconfirmed travel budget means that candidate is being asked to fund their own trip"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Writes the unconfirmed budget status into the handoff so the invitation discloses it, rather than leaving it to surface during negotiation"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States the invitation-to-confirmation rate for invited speakers is unknown and no defensible general multiplier exists"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Identifies the 2-3x figure as a lead-generation or sales number rather than a speaker-sourcing benchmark"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Explains that the ask, the relationship, and the cost of a no all differ between sales prospecting and a speaker invitation"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Labels the 2-3x figure as a shape for thinking if it is repeated at all, rather than applying it to produce a candidate count"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Directs the organizer to size the long list from their own first edition's invitation outcomes"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Instructs the organizer to record this edition's observed long-list-to-confirmation ratio as the baseline for the next one"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Refuses to supply a market rate, a per-minute figure, or an industry-standard honorarium for an invited speaker"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that community technical events have no standard honorarium rate"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Presents any published per-speaker figure it cites as calibration rather than a rate card, noting such figures disagree by more than 2x and sit in different currencies"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes that published flat figures pay every accepted speaker the same amount regardless of format, which is a different shape from a negotiated invited-speaker fee"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Warns that direct payment to speakers raises tax, visa, and conflict-of-interest or employment-agreement issues"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Gates any fee policy on the organizer's own confirmed budget and their own legal and tax review"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that at a vendor-run user conference this sourcing pass is the main content intake rather than a backup to an open call"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Weights the candidate pool toward customers, partners, and practitioners who use the vendor's technology"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires the sponsor-supplied name to be qualified on the same evidence as any other candidate, or excluded from the shortlist"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Treats an unresolved conflict with the programme's independence as a Skip disqualifier rather than a low score"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires delivery evidence for the customer engineer despite her having never spoken, accepting long-form writing or a transcript in place of a recorded talk"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes the invitation at a vendor conference can usually carry real budget, unlike the community-run case"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Requires the invited-review lane to be decided now and written into the handoff packet rather than improvised later"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Offers the two lanes as either confirmed at invitation and entering the programme directly, or reviewed on its own named track against the same criteria"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Gives the promotion reasons as the keynote or headline slot and the candidate being paid and flown at real cost"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that organizer reference is the only rung that predicts reliability rather than talent"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names the two failure modes it guards against: a great talk that never gets written, and a speaker who cancels late"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Flags organizer reference as carrying the highest compliance cost of the qualification rungs, because it is a discussion about a named person with a third party"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Constrains the reference conversation to what the referring organizer personally observed, and to statements the organizer would repeat to the candidate"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Promotes prior-talk review ahead of directory search here, because a single slot concentrates the risk and the three names arrived unvouched"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Lists the handoff packet contents, including the slot brief, the per-candidate why with dated evidence, the Hot/Warm/Cold/Skip score, availability and travel constraints, the honest budget offer, and the intended contact route"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Promotes community scouting for this programme and names the conditions met: a stated under-represented-speakers goal with a named accountable owner, and a topic too specific for any directory to cover"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Rejects the bulk-pull script, stating that sourcing runs on public channels with no bulk scraping and no gated-data workarounds"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires the community space's own code of conduct or rules to be checked before any names are taken from it"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that many community codes of conduct treat recruiting or solicitation inside the space as off-limits"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Replaces that inference with sourcing from a directory whose members opted in to being found for that reason"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names at least one live directory whose speakers self-register and that states organizer sourcing as its own purpose"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Corrects the speakerline.io assumption, identifying it as a speaker-side CFP-transparency tool rather than an organizer-facing directory with a contact route"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that a directory listing is consent to be found, not consent to be pitched"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Flags community scouting as the highest-effort and highest-compliance-cost channel, so it is paired with at least one cheaper channel rather than run alone"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names shortlist evidence completeness as the measure carrying a real threshold: every shortlisted name, or the shortlist is not finished"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Labels the long-list-to-confirmation ratio as self-set and meaningful only against the organizer's own prior editions"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Instructs the organizer to pick two metrics, write down what each would change next edition, and record both before the event"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Specifies that roster as a categorical role field such as speaker, invited-only, or keynote, plus a free-text detail field"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States the purpose of that roster as carrying a returning candidate's prior evidence and outcome forward instead of re-qualifying them from zero"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Promotes organizer reference for headline candidates because last edition's late cancellation is still fresh"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Promotes community scouting or another slow, compounding channel because the mandate is a long-term annual asset rather than a one-off edition"
+      }
+    ]
+  }
+}

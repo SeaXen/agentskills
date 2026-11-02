@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Recommends no Register, RSVP or sign-up call to action anywhere on the page.",
+        "evidence": "\"No 'Register,' 'Subscribe' or 'Propose' button. The only link-style action is Contact.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explicitly rejects the friend's 'every landing page needs a CTA' advice on the grounds that there is nothing to register for, not merely as a style preference.",
+        "evidence": "\"Rivetfest has no tickets, no registration and no open call, so a button would have nothing behind it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Builds the hero around the event's scale figures (3,000 attendees, 14 tracks, 120 talks) together with the April 18-19 dates and the Maritime Academy location, instead of a value-proposition headline.",
+        "evidence": "Hero row: \"3,000 attendees \u00b7 14 tracks \u00b7 120 talks\" under the name, with April 18-19, the Maritime Academy in Tallinn, and \"Free. No registration, just show up.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the email capture box rather than adding it, removing that option outright for a free no-registration event.",
+        "evidence": "\"Why not the email box\" section; \"No Register, Subscribe or Propose button.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "With no open call for talks, reduces the action set to an organizer contact link plus schedule and news links.",
+        "evidence": "\"The only link-style action is Contact\"; News section is live; the program is omitted or shown as a heading with a date.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the organizer contact link present unconditionally, at every phase.",
+        "evidence": "\"Because no action is gated, the 'CTA' is always Contact\"; footer cluster includes \"the organizer contact\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Groups accessibility, code of conduct and practical during-the-event guidance as one footer block rather than scattering them through the navigation.",
+        "evidence": "\"Footer cluster | Accessibility, Code of Conduct, on-the-day info and health policy as one block\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Uses the past editions' archive (recordings, photos, past talks) as the page's credibility evidence.",
+        "evidence": "\"The archive is your social proof.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not use a problem/solution/features/testimonials section order borrowed from product pages.",
+        "evidence": "Section order is Hero, contrast sentence, past editions, video archive, and so on; \"No fake testimonials\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes a machine-readable structured-data block carrying the event name, description, dates, URL, image and location.",
+        "evidence": "JSON-LD with name, description, startDate, endDate, url, image and location.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that what, who, when, where and what it costs must be answerable within one phone screen without scrolling.",
+        "evidence": "Gate 2: \"What, who, when, where and what it costs are readable in one phone screen.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Recommends no Register, RSVP or sign-up call to action anywhere on the page.",
+        "evidence": "Hero has no register button, but the footer adds 'Get a reminder one week before' link using 'a single-purpose email', a sign-up action.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explicitly rejects the friend's 'every landing page needs a CTA' advice on the grounds that there is nothing to register for, not merely as a style preference.",
+        "evidence": "'There's no ticket, registration or open call... A form implies a step that doesn't exist.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Builds the hero around the event's scale figures (3,000 attendees, 14 tracks, 120 talks) together with the April 18-19 dates and the Maritime Academy location, instead of a value-proposition headline.",
+        "evidence": "Hero headline is 'Rivetfest 2027. Free open-source conference in Tallinn.' The 3,000/14/120 figures sit in a separate proof strip.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the email capture box rather than adding it, removing that option outright for a free no-registration event.",
+        "evidence": "Rejects it from the hero but allows a footer reminder option using 'a single-purpose email'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "With no open call for talks, reduces the action set to an organizer contact link plus schedule and news links.",
+        "evidence": "Primary button is 'See the schedule', with a calendar link and a video subscribe button. Contact appears only conditionally: 'add contact links if you want to be reachable'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the organizer contact link present unconditionally, at every phase.",
+        "evidence": "'add contact links if you want to be reachable' is conditional.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Groups accessibility, code of conduct and practical during-the-event guidance as one footer block rather than scattering them through the navigation.",
+        "evidence": "Practical info and accessibility are in a 'Plan your visit' section, and the code of conduct is in the FAQ and footer.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Uses the past editions' archive (recordings, photos, past talks) as the page's credibility evidence.",
+        "evidence": "'Watch last year's talks... This is your strongest conversion tool. It shows quality.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not use a problem/solution/features/testimonials section order borrowed from product pages.",
+        "evidence": "Sections are hero, proof, what it is, tracks, schedule, talks, visit, FAQ.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes a machine-readable structured-data block carrying the event name, description, dates, URL, image and location.",
+        "evidence": "No JSON-LD or structured data is mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that what, who, when, where and what it costs must be answerable within one phone screen without scrolling.",
+        "evidence": "No one-screen requirement is stated.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Opens with a direct answer to 'should we do it': not an email newsletter now, feed first",
+        "evidence": "\"Answer: no newsletter now, and not 'Ferrule Friday'. Set up feed-only\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Presents the five shapes in efficiency order, feed only, own-surface digest, curated ecosystem, community-edited, personal letter, and states the ranking explicitly",
+        "evidence": "Only says feed-only is \"Ranked first on efficiency and durability\"; the five shapes are never listed in order.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes the curated ecosystem, community-edited and personal-letter shapes on the one-hour-a-month effort ceiling, and names the deletions",
+        "evidence": "Curated is deleted on the ceiling, but personal letter is deleted for \"no backup\" and community-edited for \"no contributor base known\"; it also treats own-surface digest as failing the gate.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends feed only as the shape",
+        "evidence": "\"Shape: feed-only.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that feed only needs a public changelog with an RSS or Atom feed, which the project lacks, so building it comes first",
+        "evidence": "Says \"Your public changelog is the GitHub releases page. It already has an Atom feed\" rather than treating the changelog as missing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the changelog build to samber/developer-relations-skills@changelog-writing",
+        "evidence": "No reference to samber/developer-relations-skills@changelog-writing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects weekly 'Ferrule Friday' on the counted supply of about two releases a month and no blog",
+        "evidence": "\"about 2 releases a month, no blog. A weekly issue needs ... 20\u201328 items a month. You have about 2.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats advisors saying 'you need a newsletter' as not evidence of reader demand, and names explicit reader requests or users who never see the changelog as the evidence that would count",
+        "evidence": "\"'Advisors say so' is not reader evidence\"; test requires \"At least 5 unprompted requests for an email option\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the condition under which an editor and email get added later: the demand condition holding with evidence",
+        "evidence": "\"Upgrade to a monthly digest only if all three hold\" on 2027-01-22.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not propose a signup form, list-growth tactics, or sending-platform selection",
+        "evidence": "None proposed; it uses GitHub watcher emails.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes the gate result naming which condition failed or is unproven, rather than a blanket 'not now'",
+        "evidence": "Table: supply \"fails weekly. Monthly is unproven\", owner \"fails\", readers want email \"unproven\".",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Opens with a direct answer to 'should we do it': not an email newsletter now, feed first",
+        "evidence": "'Run a release-triggered email instead: 2 sends a month'. It recommends an email newsletter now.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Presents the five shapes in efficiency order, feed only, own-surface digest, curated ecosystem, community-edited, personal letter, and states the ranking explicitly",
+        "evidence": "No shape ranking appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes the curated ecosystem, community-edited and personal-letter shapes on the one-hour-a-month effort ceiling, and names the deletions",
+        "evidence": "None of the shapes are named or deleted.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends feed only as the shape",
+        "evidence": "It recommends 'Ferrule Releases' email via Buttondown or Kit.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that feed only needs a public changelog with an RSS or Atom feed, which the project lacks, so building it comes first",
+        "evidence": "It assumes the GitHub releases.atom feed. The changelog build is not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the changelog build to samber/developer-relations-skills@changelog-writing",
+        "evidence": "No skill is referenced.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects weekly 'Ferrule Friday' on the counted supply of about two releases a month and no blog",
+        "evidence": "'You ship about 24 releases a year, so roughly half the Fridays would have nothing to say.' 'You have no blog.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats advisors saying 'you need a newsletter' as not evidence of reader demand, and names explicit reader requests or users who never see the changelog as the evidence that would count",
+        "evidence": "'Your advisors are right about owning a channel.' Advisors are treated as valid.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the condition under which an editor and email get added later: the demand condition holding with evidence",
+        "evidence": "It gives conditions for revisiting weekly (1,000 subscribers, replies and clicks, an owner). It does not give conditions for adding an editor and email.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not propose a signup form, list-growth tactics, or sending-platform selection",
+        "evidence": "'Pick the tool (10 min)... Buttondown and Kit' and 'Add signup in 3 places'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes the gate result naming which condition failed or is unproven, rather than a blanket 'not now'",
+        "evidence": "No gate result appears. The recommendation is made on effort and supply.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

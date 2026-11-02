@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Produces three candidate positioning sentences rather than one",
+        "evidence": "'1. Mechanical...', '2. Problem removed...', '3. Recommended...'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the trade-off of each candidate, gives an explicit recommendation, and leaves the choice to the owner",
+        "evidence": "Each candidate has commentary (e.g. 'Reads slightly more marketing-forward; a technical reviewer may want the \"how\" too'), and 'Recommendation: #3.' is given as a suggestion, not a mandate.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Applies the test that a competitor's account must not be able to paste the sentence unchanged",
+        "evidence": "'Test for each: could a competitor's account paste this unchanged?'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the sentence propagates into the bio, the organization tagline, link unfurls and search listings",
+        "evidence": "Not mentioned anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies that both adoption motions are in play and does not force a choice between them",
+        "evidence": "'Solo dev reads \"generates migrations\" = can build the thing I need. Bank platform team reads \"nothing auto-runs against your database\" = answers their real fear' \u2014 one sentence serving both.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the solo developer's dominant question as whether this person can build the thing they need",
+        "evidence": "'Solo dev reads \"generates migrations\" = can build the thing I need.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the team's dominant question as what they are depending on and who answers when it breaks",
+        "evidence": "The transcript frames the team's concern as 'loss of control' fear ('nothing auto-runs against your database'), not explicitly as dependency/who-answers-when-it-breaks.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names licensing stance, maintenance cadence, and support or security routes as what must surface early for the team audience",
+        "evidence": "Not mentioned anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the absence of an answer to 'who maintains this' as the fatal omission for the team audience",
+        "evidence": "Not mentioned anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the first screen identical for both audiences and adds a short evaluation block lower down rather than writing the top twice",
+        "evidence": "The transcript uses one identical sentence for both audiences per the 'first screen must be identical for both' rule, but never adds a separate evaluation block lower down.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends a plain-language project status line such as maintained, seeking maintainers, or feature-frozen",
+        "evidence": "Not mentioned anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Produces three candidate positioning sentences rather than one",
+        "evidence": "One 'Primary' sentence plus two 'Alternates' are given, totaling three candidates.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the trade-off of each candidate, gives an explicit recommendation, and leaves the choice to the owner",
+        "evidence": "'Why this shape, not a \"we're stable/trustworthy\" line' explains the primary's rationale, and 'Drop the bank/laptop pairing if it feels too cute... the plain function-first alternate carries the same precision' leaves the final call to the reader.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Applies the test that a competitor's account must not be able to paste the sentence unchanged",
+        "evidence": "No such test is mentioned or applied.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the sentence propagates into the bio, the organization tagline, link unfurls and search listings",
+        "evidence": "No mention of bio, tagline, link unfurls, or search listings propagation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies that both adoption motions are in play and does not force a choice between them",
+        "evidence": "'Solo devs read speed and simplicity into it; platform teams read \"no bait-and-switch, no fork to get orphaned in.\" One line does both jobs... without excluding the other.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the solo developer's dominant question as whether this person can build the thing they need",
+        "evidence": "No such framing of the solo developer's dominant question appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the team's dominant question as what they are depending on and who answers when it breaks",
+        "evidence": "The transcript alludes to 'no fork to get orphaned in' but never frames this explicitly as the team's dominant question about dependency/who answers when it breaks.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names licensing stance, maintenance cadence, and support or security routes as what must surface early for the team audience",
+        "evidence": "None of licensing, maintenance cadence, or support/security routes are mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the absence of an answer to 'who maintains this' as the fatal omission for the team audience",
+        "evidence": "No such statement is present.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the first screen identical for both audiences and adds a short evaluation block lower down rather than writing the top twice",
+        "evidence": "No discussion of page layout or a lower evaluation block; the response is only about the single positioning sentence.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends a plain-language project status line such as maintained, seeking maintainers, or feature-frozen",
+        "evidence": "No such status-line recommendation appears.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

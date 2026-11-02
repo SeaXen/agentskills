@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects ordering pins by star count",
+        "evidence": "'Ranking by stars is itself the named failure mode, not just a detail to fix'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the platform already displays star counts, so star-ranked pins repeat information the visitor can already see",
+        "evidence": "'\"Pins ordered by popularity waste the one editorial lever on repeating information the visitor can see.\"'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Selects the contributors pin set because the stated goal is contributors",
+        "evidence": "'The skill's rule for this exact goal: order pins by \"the repository with curated good-first-issues, then the one with the best contributor docs\" \u2014 not by popularity'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Orders that set as the repository with curated good-first-issues first, then the one with the best contributor documentation",
+        "evidence": "'\"the repository with curated good-first-issues, then the one with the best contributor docs\"'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects pinning the archived experiment",
+        "evidence": "'The archived experiment (380\u2605). Also explicit: \"Never pin an archived repository.\"'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects pinning the fork that was not substantially changed",
+        "evidence": "'The typo-fix fork (700\u2605). The skill's pin rule is explicit: \"Never pin... a fork you did not substantially change.\"'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that leaving pins unset is worse than an imperfect set, because the platform falls back to auto-selected 'Popular repositories'",
+        "evidence": "The transcript never discusses leaving pins unset \u2014 it only compares choosing among six existing candidates.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires each pinned repository to have a description and topics before it is pinned",
+        "evidence": "Not mentioned anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a bare pin wastes one of only six slots",
+        "evidence": "Not mentioned anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a personal account has six pin slots, repositories and gists combined",
+        "evidence": "Not mentioned anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines to rank the four pin sets against each other, on the grounds that the goal answer selects one outright and every pin costs the same to set",
+        "evidence": "'order pins by... not ranked against other goals (adoption, credibility) that don't apply here.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Confirms that the order within the chosen set is real because it decides which repository a visitor opens first",
+        "evidence": "The text asserts 'it belongs in slot one' for gsdcache but never explicitly reasons that slot order determines which repo a visitor opens first.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects ordering pins by star count",
+        "evidence": "'Short answer: no, don't pin by stars. You're optimizing for the wrong metric.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the platform already displays star counts, so star-ranked pins repeat information the visitor can already see",
+        "evidence": "No such statement about redundancy with platform-displayed star counts.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Selects the contributors pin set because the stated goal is contributors",
+        "evidence": "'Your goal \u2014 get people to actually open PRs and clear your issue backlog \u2014 needs a different signal' drives every subsequent recommendation.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Orders that set as the repository with curated good-first-issues first, then the one with the best contributor documentation",
+        "evidence": "The transcript discusses gsdcache generically and filter criteria for other repos (open issues, CONTRIBUTING.md), not a specific two-repo ranked pairing of 'good-first-issues repo' then 'best documentation repo'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects pinning the archived experiment",
+        "evidence": "'Archived experiment (380) \u2014 Cut it. GitHub puts a literal \"This repository has been archived by the owner\" banner on it... Pinning it actively tells visitors not to bother.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects pinning the fork that was not substantially changed",
+        "evidence": "'Fork with a typo fix (700, inherited) \u2014 Cut this one hardest... you changed one character.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that leaving pins unset is worse than an imperfect set, because the platform falls back to auto-selected 'Popular repositories'",
+        "evidence": "No mention of an unset-pins fallback behavior.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires each pinned repository to have a description and topics before it is pinned",
+        "evidence": "The stated filter criteria are open issues, freshness, CONTRIBUTING.md/labels, and originality \u2014 not description/topics.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a bare pin wastes one of only six slots",
+        "evidence": "The closest statement is about dotfiles occupying 'a slot that could go to something that actually has open issues', not framed as a 'bare pin' wasting one of six slots.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a personal account has six pin slots, repositories and gists combined",
+        "evidence": "No mention of gists or the six-slot rule.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines to rank the four pin sets against each other, on the grounds that the goal answer selects one outright and every pin costs the same to set",
+        "evidence": "No 'four pin sets' framing appears in this transcript at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Confirms that the order within the chosen set is real because it decides which repository a visitor opens first",
+        "evidence": "The transcript assigns gsdcache 'pin #1, full stop' due to importance, but never explains this in terms of which repo a visitor opens first.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

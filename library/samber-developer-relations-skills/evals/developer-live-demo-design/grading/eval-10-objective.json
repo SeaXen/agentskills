@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects sharing the entire screen and requires an application or window share instead",
+        "evidence": "\"If the AV setup allows it, ask whether you can share an application/window instead of the full screen \u2014 it's the single cheapest risk reduction available...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that an extended display driving the venue projector behaves as a desktop share in practice",
+        "evidence": "No mention of extended display behavior anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects anonymised customer data and requires synthetic data instead",
+        "evidence": "\"Don't just rename customers \u2014 re-check emails, internal URLs, bucket/project names, ticket numbers... 'Anonymized' isn't 'synthetic' \u2014 one leftover real identifier re-identifies the rest.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists concrete re-identification channels that survive anonymisation, such as email domains, URLs, bucket names, IP ranges, project codenames, support tickets, a colleague's name in a comment, or avatars",
+        "evidence": "\"re-check emails, internal URLs, bucket/project names, ticket numbers, and any colleague's name left in a code comment.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that Do Not Disturb alone is not enough and requires chat, mail and calendar to be quit entirely",
+        "evidence": "\"Quit \u2014 don't just background \u2014 email, calendar, Teams/Zoom chat, any other IM... Turn off calendar/reminder popups specifically \u2014 DND doesn't always suppress these\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires browser notifications to be disabled per site, not only at the operating system level",
+        "evidence": "No mention of per-site browser notification settings; only OS-level and app-quitting guidance is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Extends notification silencing to the phone, watch and any other device mirroring the same account",
+        "evidence": "\"Silence phone and watch if either mirrors notifications from your work accounts \u2014 a wrist buzz still gets caught on camera or spoken about.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a dedicated demo profile or separate OS account rather than the daily driver",
+        "evidence": "\"Open a fresh browser window/profile for the demo: no saved passwords, no autofill, no bookmarks bar...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires shell history and editor recent-file lists to be cleared, and the scrollback cleared before the session",
+        "evidence": "\"Clear shell history and editor recent-files/project-switcher lists\" is present, but there is no mention of clearing terminal scrollback specifically.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a custom shell prompt carrying no username, hostname, client name or personal path",
+        "evidence": "\"Set a custom shell prompt with no username, hostname, or company domain in it \u2014 the default prompt is a small biography on every command.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a dedicated demo repository rather than the team's working repo, because earlier commits remain inspectable",
+        "evidence": "\"If the demo repo is cloned from your real work repo, git log/git blame will show your real name, email, and possibly real ticket/customer references... use a clean clone or a repo with no inherited history.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires .env files to contain placeholder values only, even for a local stack",
+        "evidence": "\".env and any config shown on screen: placeholders only (API_KEY=demo_key_123), even for a local/offline stack.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Bans on-screen commands that print environment or history, such as env, printenv, history, or a remote listing that carries credentials",
+        "evidence": "No mention of banning specific commands like env, printenv, or history from being run on screen.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a safe screen on a single keystroke plus a known stop-sharing shortcut, both rehearsed before the slot",
+        "evidence": "\"Have a 'Demo paused' full-screen slide ready on one keystroke, and know your stop-sharing shortcut on their specific AV/conferencing setup before you're on stage, not during a failure.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects sharing the entire screen and requires an application or window share instead",
+        "evidence": "no discussion of whole-screen vs application/window share anywhere in the transcript",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that an extended display driving the venue projector behaves as a desktop share in practice",
+        "evidence": "the closest text, \"including background tabs on other displays if you're extending, not mirroring,\" does not state that an extended display behaves as a desktop share",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects anonymised customer data and requires synthetic data instead",
+        "evidence": "not explicitly discussed; the checklist assumes client names have already been replaced without arguing for synthetic vs anonymised data",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Lists concrete re-identification channels that survive anonymisation, such as email domains, URLs, bucket names, IP ranges, project codenames, support tickets, a colleague's name in a comment, or avatars",
+        "evidence": "\"internal ticket/Slack links in comments or README\" and cloud CLI outputs \"routinely print real account IDs, org names, or cluster names\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that Do Not Disturb alone is not enough and requires chat, mail and calendar to be quit entirely",
+        "evidence": "\"Quit, don't just background: Teams, Discord, WhatsApp/Signal/Telegram desktop, Mail client, Messages\" and \"some in-app banners bypass macOS-level DND\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires browser notifications to be disabled per site, not only at the operating system level",
+        "evidence": "no per-site browser notification setting is mentioned",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Extends notification silencing to the phone, watch and any other device mirroring the same account",
+        "evidence": "\"Turn off Handoff/Continuity...otherwise an iPhone text can surface as a macOS notification even mid-demo\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a dedicated demo profile or separate OS account rather than the daily driver",
+        "evidence": "\"Create a dedicated macOS user account (or a fresh guest profile) just for the demo.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires shell history and editor recent-file lists to be cleared, and the scrollback cleared before the session",
+        "evidence": "shell history (\"fresh .zsh_history\") and IDE recent files are covered, but terminal scrollback clearing is never mentioned",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a custom shell prompt carrying no username, hostname, client name or personal path",
+        "evidence": "\"Check PS1/prompt doesn't leak hostname if your machine name reveals the company\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a dedicated demo repository rather than the team's working repo, because earlier commits remain inspectable",
+        "evidence": "the advice is to \"skim it once\" the existing git log for leaks, not to use a separate dedicated repo",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires .env files to contain placeholder values only, even for a local stack",
+        "evidence": "only checks that no .env/credentials leak, not a requirement for placeholder-only values",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Bans on-screen commands that print environment or history, such as env, printenv, history, or a remote listing that carries credentials",
+        "evidence": "\"Double-check .env files, dotfiles, and any real secrets aren't in history or shell-visible env vars (env, printenv) if you run those commands live\" \u2014 advises checking, not banning",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a safe screen on a single keystroke plus a known stop-sharing shortcut, both rehearsed before the slot",
+        "evidence": "not mentioned anywhere in the transcript",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

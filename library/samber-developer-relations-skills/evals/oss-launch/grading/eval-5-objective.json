@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Picks exactly one anchor channel and treats every other channel as amplification pointing back at it",
+        "evidence": "\"## Anchor: Hacker News, not Product Hunt ... HN gets full presence. PH still runs, but as cheap, low-touch secondary\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that several simultaneous primary posts produce several dead threads, because discussion surfaces rank on early engagement density",
+        "evidence": "No such warning appears anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Puts registry publication, release tag, repository description, topics and social preview first on outcome per maintainer-hour",
+        "evidence": "\"registry/repo hygiene \u2192 HN anchor \u2192 ...\" and \"09:00 | **Row 1.** Tag the release, publish to crates.io, repo description/topics/social-preview image live.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a failing install command wastes all the traffic the rest of the plan produces",
+        "evidence": "\"Minutes, but nothing else converts if this is broken.\" (Row 1 note)",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Collapses the plan to registry work plus the anchor post and its thread, given an effort ceiling under about one day",
+        "evidence": "The plan keeps six additional actions on launch day (Twitter, LinkedIn, r/rust, Dev.to, Product Hunt, plus the anchor) rather than collapsing to just registry + anchor.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes the maintainer's own social accounts from the plan rather than ranking them last, because there is no existing audience",
+        "evidence": "\"Set expectations honestly: 90 unused followers won't move anything, but it's five minutes and free, so it stays in.\" \u2014 kept despite no audience, not deleted.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes newsletter and curated-list submissions rather than ranking them last, because no second person can own them",
+        "evidence": "\"This Week in Rust \u2014 do this now, not on the 19th ... entirely outside the 6-hour launch-day budget, not a same-day task.\" \u2014 rescheduled, not deleted, and reasoning is about lead time, not ownership.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes the long-form architecture write-up from the launch week because the date is fixed and near",
+        "evidence": "\"The architecture write-up \u2014 cut from launch day. This is your best asset... it costs a week you don't have, and you have zero hours after the 22nd.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the ranking out loud rather than leaving it implied by the order of a list",
+        "evidence": "\"## The order, and why\\n\\nEfficiency order for the channels you named, highest outcome per hour first:\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ranks by outcome per maintainer-hour rather than by cheapest first",
+        "evidence": "\"Efficiency order for the channels you named, highest outcome per hour first\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that registry work ranks first on efficiency and last on reach inside the launch window",
+        "evidence": "No statement about registry work ranking last on reach appears anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Budgets most of the launch day for presence in the anchor thread rather than for writing",
+        "evidence": "\"14:00\u201317:30 | **This is the day.** Stay in the thread continuously.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Hands the write-up and the long-tail submissions to ongoing distribution after the window instead of re-costing them inside it",
+        "evidence": "\"skip it entirely for now and publish it properly whenever contract work frees real time again \u2014 a write-up doesn't need to ride the launch date\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Picks exactly one anchor channel and treats every other channel as amplification pointing back at it",
+        "evidence": "'This 100-minute block decides whether it survives to the front page \u2014 don't split it with anything else' dedicates a protected block only to HN, while Twitter ('for the record'), PH ('runs passively'), and Reddit are staggered around it.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that several simultaneous primary posts produce several dead threads, because discussion surfaces rank on early engagement density",
+        "evidence": "No statement connecting simultaneous posting to 'dead threads' via early engagement density ranking mechanics.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Puts registry publication, release tag, repository description, topics and social preview first on outcome per maintainer-hour",
+        "evidence": "Only 'cargo add quillbase, run the example... under 5 minutes' is mentioned; repo description, topics, and social preview are never addressed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a failing install command wastes all the traffic the rest of the plan produces",
+        "evidence": "'This is what all the traffic converts on \u2014 fix this before fixing copy' implies priority but never states that a failure wastes all the traffic generated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Collapses the plan to registry work plus the anchor post and its thread, given an effort ceiling under about one day",
+        "evidence": "The plan retains many channels (Dev.to, TWiR, Lobsters, HN, r/rust, r/programming, LinkedIn, Twitter, Product Hunt) rather than collapsing to registry + anchor only.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes the maintainer's own social accounts from the plan rather than ranking them last, because there is no existing audience",
+        "evidence": "Twitter/LinkedIn remain in the day-of schedule and are only ranked first-to-cut ('1. Twitter (already near-zero cost/return, nothing lost)'), not deleted from the plan.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes newsletter and curated-list submissions rather than ranking them last, because no second person can own them",
+        "evidence": "This Week in Rust is kept and ranked near the top of the cut-priority list ('7. This Week in Rust (cheap, durable, compounding \u2014 hard to justify cutting)') rather than being deleted.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes the long-form architecture write-up from the launch week because the date is fixed and near",
+        "evidence": "'The architecture write-up itself (never cut \u2014 it's the thing everything else points to)' \u2014 kept and prioritized, not deleted.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the ranking out loud rather than leaving it implied by the order of a list",
+        "evidence": "'## If time runs out, cut in this order' followed by an explicit numbered 1\u20139 list with reasons.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ranks by outcome per maintainer-hour rather than by cheapest first",
+        "evidence": "Twitter is cut first for being 'near-zero cost/return', while HN and the write-up are 'never cut' \u2014 ranking tracks value/outcome, not raw cost.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that registry work ranks first on efficiency and last on reach inside the launch window",
+        "evidence": "No explicit efficiency-vs-reach framing of registry/cargo work is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Budgets most of the launch day for presence in the anchor thread rather than for writing",
+        "evidence": "'13:50\u201315:30 ... Glued to HN only. Reply fast to every comment. This 100-minute block decides whether it survives to the front page' plus continued answering through 18:30, with all writing done pre-launch.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Hands the write-up and the long-tail submissions to ongoing distribution after the window instead of re-costing them inside it",
+        "evidence": "The write-up is published at 13:20 and TWiR/Lobsters submitted at 13:25/13:30, all inside the 6-hour launch-day window, not deferred to post-window distribution.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

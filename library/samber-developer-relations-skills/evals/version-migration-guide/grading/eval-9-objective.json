@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Leads with the deadline and the 90-day notice window rather than with what the upgrade buys the customer",
+        "evidence": "Guide opens with \"Dates and notice\" table, \"no earlier than NOTICE DATE + 90 days\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Expresses the window in dates rather than release counts, because this audience schedules against calendars and contracts",
+        "evidence": "Dates table with [DATE] placeholders.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the support path and the escalation contact inside the guide itself, not only in the announcement email",
+        "evidence": "\"Support and escalation\" section in the guide.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason: the announcement email reaches one address that may no longer be monitored, while the guide is what the engineer actually opens",
+        "evidence": "Reason not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes a rollback procedure and states how long rollback remains possible",
+        "evidence": "\"Rollback is possible until [DATE], when v7 support ends.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States who performs the cutover on the vendor side and what the customer must complete before it",
+        "evidence": "\"Ashgrove staff do not change your running version without your scheduled window. Before your window you complete steps 1 to 5... During it we [CONFIRM]\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the 9 air-gapped managed deployments their own escape hatch with its own end date, separate from the general timeline",
+        "evidence": "\"Managed and air-gapped deployments\" section: \"v7 security fixes until [DATE]\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason those deployments need a separate date: they plan on a different cycle and will otherwise escalate",
+        "evidence": "\"Your patch schedule is yours. The v7 line therefore has its own end date\"; must exceed the longest air-gapped patch cycle.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the draft through support and legal or comms sign-off before publication",
+        "evidence": "\"Review. Support, then legal, then comms.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States explicitly what happens to a customer who does nothing by the deadline",
+        "evidence": "\"You are never moved to v8 without your own change window... Staying on v7 until the date above is a supported choice.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not leave the guide without a named owner and a date the customer can schedule against",
+        "evidence": "Owner, contact and dates are all placeholders ([NAMED ROLE, CONTACT], [DATE]).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Defers hard enforcement such as forced removal or closing the enterprise escape hatch until adoption visibly flattens rather than starting it on the originally announced date",
+        "evidence": "\"Do not close the v7 escape hatch while any named customer is unmigrated and still within their contract.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Leads with the deadline and the 90-day notice window rather than with what the upgrade buys the customer",
+        "evidence": "The Summary opens 'Ashgrove v8 removes the legacy TCP ingest protocol...'. The date appears later as a placeholder.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Expresses the window in dates rather than release counts, because this audience schedules against calendars and contracts",
+        "evidence": "The Timeline table is date-based ('[NOTICE DATE + 90 days or more]'), and the notes compute 2027-01-03.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the support path and the escalation contact inside the guide itself, not only in the announcement email",
+        "evidence": "'Contact: [SUPPORT CHANNEL, NAMED OWNER, RESPONSE TIMES]' in section 1 and a Support line in section 10.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason: the announcement email reaches one address that may no longer be monitored, while the guide is what the engineer actually opens",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes a rollback procedure and states how long rollback remains possible",
+        "evidence": "Section 8 gives rollback steps but no duration. It asks only 'YES/NO' for rollback after data migration.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States who performs the cutover on the vendor side and what the customer must complete before it",
+        "evidence": "Customers choose when to upgrade. No vendor-side cutover actor is named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the 9 air-gapped managed deployments their own escape hatch with its own end date, separate from the general timeline",
+        "evidence": "Air-gapped customers get an offline bundle and a note in the internal section. There is no separate escape hatch or end date.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason those deployments need a separate date: they plan on a different cycle and will otherwise escalate",
+        "evidence": "The internal notes say air-gapped customers 'schedule' on their own, but no separate date is proposed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the draft through support and legal or comms sign-off before publication",
+        "evidence": "Only 'Send the finished text to Legal'. Support and comms are not included.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States explicitly what happens to a customer who does nothing by the deadline",
+        "evidence": "It says 'You choose when to upgrade' and 'Upgrading to v8 is the point at which legacy TCP stops working'. The do-nothing outcome is not addressed explicitly.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not leave the guide without a named owner and a date the customer can schedule against",
+        "evidence": "Owner and dates are bracket placeholders.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Defers hard enforcement such as forced removal or closing the enterprise escape hatch until adoption visibly flattens rather than starting it on the originally announced date",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

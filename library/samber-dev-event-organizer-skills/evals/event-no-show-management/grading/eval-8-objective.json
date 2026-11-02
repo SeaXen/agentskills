@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that a show-up rate of roughly 56%, meaning roughly 44% no-shows, sits inside the published free-event band of 40-60% no-shows.",
+        "evidence": "\"You landed inside the free band... That is normal for a free event\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the band describes a population rather than being a target to manage toward, so landing inside it is normal rather than proof of a failure.",
+        "evidence": "The transcript calls the result normal but never says the band is a population description rather than a target.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines to rewrite or draft the reminder email copy.",
+        "evidence": "\"I did not rewrite the emails\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the reminder sequence's design and copy to samber/dev-event-organizer-skills@event-attendee-email-sequences.",
+        "evidence": "\"That belongs to the sibling skill\"; \"Then I'll run event-attendee-email-sequences\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to read the low show-up rate as an operations failure on its own.",
+        "evidence": "\"the figures alone don't show an operations failure.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the demand, price and audience reading of the number to samber/dev-event-organizer-skills@event-market-fit before acting on the capacity side.",
+        "evidence": "\"event-market-fit separates demand, price, audience and reminders. Run it before anyone gets blamed.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the realised registered-versus-attended count as this event's own input for the next edition's ceiling.",
+        "evidence": "\"This edition is your only measured data.\"; \"your edition 2 (sample of one)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Computes a next-edition registration ceiling from the measured rate against the 300-seat room, in the region of 530-540 registrations, and notes it sits under the sourced double ceiling of 600.",
+        "evidence": "\"Break-even registrations | 538 (300 \u00f7 0.558)\" next to \"Sourced ceiling | 600\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not blend the free band with any other published figure to produce a single rate.",
+        "evidence": "Figures are listed separately with their sources and never merged.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names what to count on the day next time: registrations, attended, walk-ins, and waitlist promotions with how many of those arrived.",
+        "evidence": "\"The skill requires counting registered, attended, walk-ins and waitlist arrivals separately.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that a show-up rate of roughly 56%, meaning roughly 44% no-shows, sits inside the published free-event band of 40-60% no-shows.",
+        "evidence": "'268 of 480 is a 56% show rate. That's roughly normal for a free event. The usual range is about 40\u201360%.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the band describes a population rather than being a target to manage toward, so landing inside it is normal rather than proof of a failure.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines to rewrite or draft the reminder email copy.",
+        "evidence": "Drafts all four emails.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the reminder sequence's design and copy to samber/dev-event-organizer-skills@event-attendee-email-sequences.",
+        "evidence": "No routing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to read the low show-up rate as an operations failure on its own.",
+        "evidence": "Lists ten operational failures.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the demand, price and audience reading of the number to samber/dev-event-organizer-skills@event-market-fit before acting on the capacity side.",
+        "evidence": "No routing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats the realised registered-versus-attended count as this event's own input for the next edition's ceiling.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Computes a next-edition registration ceiling from the measured rate against the 300-seat room, in the region of 530-540 registrations, and notes it sits under the sourced double ceiling of 600.",
+        "evidence": "Says 'cap registration at about 400\u2013430'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not blend the free band with any other published figure to produce a single rate.",
+        "evidence": "No blended rate is produced.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names what to count on the day next time: registrations, attended, walk-ins, and waitlist promotions with how many of those arrived.",
+        "evidence": "Mentions check-in data but not registrations, attended, walk-ins and waitlist promotions with arrivals.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

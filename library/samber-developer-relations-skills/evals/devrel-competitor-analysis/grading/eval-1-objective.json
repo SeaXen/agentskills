@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Caps the retained peer set at no more than five companies.",
+        "evidence": "\"Peer set (5, at cap):\" with a five-row table (Beacontree, Larkspur, Ashgrove/Tidepool, Tidepool/Ashgrove, demand-side).",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the three-to-five peer cap is a convention this analysis sets rather than an industry standard.",
+        "evidence": "\"Set by this analysis, not industry standard: the 3\u20135 peer cap (landed at 5), the 12-month sampling window...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects funding rank as the criterion for choosing the peer set.",
+        "evidence": "\"Ranking by last raise and handing over all seven is the exact anti-pattern this method warns against, for three compounding reasons\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason that a better-funded vendor's motion is sized for distribution Windlass does not have.",
+        "evidence": "\"their output level is funded by scale Windlass doesn't have; only their *choices* (which artefact types they bother to build at all) transfer.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Assigns an explicit role to each retained peer instead of a single best-to-worst ranking.",
+        "evidence": "Peer set table has a dedicated \"Role\" column: Category leader, Second enterprise-scale data point, Closest direct substitute, Second substitute/stage check, Adjacent-category outlier/stand-in.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes a category-leader role that sets the expectation an evaluator arrives with.",
+        "evidence": "\"Beacontree ($240M) | Category leader | Largest round in the set \u2014 sets the DX expectation an evaluator arrives with\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes a closest-direct-substitute role.",
+        "evidence": "\"Ashgrove ($95M) *or* Tidepool ($60M) | Closest direct substitute \u2014 **pick one, provisional**\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes an adjacent-category outlier drawn from outside the feature-flag category.",
+        "evidence": "The document explicitly says this role is missing: \"the method calls for a third role \u2014 an outlier *outside* the feature-flag category whose practice is worth stealing... None of the VP's seven sit outside the category, so this peer set has zero cross-category idea import.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks what a developer would use if Windlass vanished, and adds that answer to the peer set even when it is not a funded vendor.",
+        "evidence": "\"Demand-side: config-toggle / OpenFeature + OSS backend | Adjacent-category outlier, stand-in | What a developer builds or adopts for free instead of buying anyone on this list. No funding, no vendor \u2014 that's the point\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Excludes Greypine and Sablefin for having no public developer surface to observe, and records that exclusion in writing.",
+        "evidence": "\"Greypine \u2014 no public docs or repository found; nothing to observe... Sablefin \u2014 same as Greypine.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Excludes Marlowe as acquired and frozen, and records that exclusion in writing.",
+        "evidence": "\"Marlowe \u2014 acquired March 2026, no shipping activity since; a frozen motion predicts nothing about Q4.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Caps the retained peer set at no more than five companies.",
+        "evidence": "The tiering table retains all 7 vendors (4 Tier A tested, Greypine/Sablefin 'score it, don't skip it', Marlowe monitored) \u2014 no cap at 5.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the three-to-five peer cap is a convention this analysis sets rather than an industry standard.",
+        "evidence": "No cap or such framing appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects funding rank as the criterion for choosing the peer set.",
+        "evidence": "The tiering table's first column is 'Last raise' and directly drives Tier A/B/C assignment (e.g. '$240M | A \u2014 full benchmark').",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason that a better-funded vendor's motion is sized for distribution Windlass does not have.",
+        "evidence": "No such reasoning appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Assigns an explicit role to each retained peer instead of a single best-to-worst ranking.",
+        "evidence": "Vendors get a resource-allocation 'Treatment this quarter' (full benchmark/discovery-only/monitor), not a competitive-positioning role.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes a category-leader role that sets the expectation an evaluator arrives with.",
+        "evidence": "No category-leader role is named in the tiering or dimensions sections.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes a closest-direct-substitute role.",
+        "evidence": "No closest-substitute role is named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes an adjacent-category outlier drawn from outside the feature-flag category.",
+        "evidence": "All 7 vendors listed are feature-flag SDK competitors; no adjacent-category outlier appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks what a developer would use if Windlass vanished, and adds that answer to the peer set even when it is not a funded vendor.",
+        "evidence": "No such question or addition appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Excludes Greypine and Sablefin for having no public developer surface to observe, and records that exclusion in writing.",
+        "evidence": "\"Don't just drop Greypine, Sablefin, and Marlowe from the deck. ... score it, don't skip it\" \u2014 the opposite of exclusion.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Excludes Marlowe as acquired and frozen, and records that exclusion in writing.",
+        "evidence": "\"Marlowe | $15M | C \u2014 monitor only | Acquired March, no shipping since \u2192 exclude from hands-on testing, track as a market-narrative signal\" and section 5 reiterates: \"Acquired in March, nothing shipped since \u2014 don't spend hands-on testing time here this quarter.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

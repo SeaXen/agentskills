@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Says slides alone end the journey and proposes a finish-the-exercise activation path",
+        "evidence": "\"Slides alone also end the journey at the slides\"; the finish-the-exercise page.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Starts the activation path from the step where the workshop ended, or provisions a sandbox or credit",
+        "evidence": "\"Finish-the-exercise page, which starts at the step where the session ended\"; the sandbox line.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects adding the whole roster to the newsletter because the sign-up said 'get the workshop materials'",
+        "evidence": "\"don't add everyone to the newsletter. The sign-up form said 'get the workshop materials'.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Offers an opt-in to the newsletter rather than automatic subscription",
+        "evidence": "Recap page has a \"get monthly updates\" opt-in \"the visitor chooses to click\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Defines an activation event (for example a first successful query or API call) for the cohort",
+        "evidence": "\"first successful query against a created index, or similar\", with a question asking the user to confirm.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets 30-day and 60-day readings against the boss deadline",
+        "evidence": "\"Measurement sheet (for your boss at day 60)\"; \"Activation at day 30 and 60 beside a non-event baseline\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends tagging the workshop cohort so activations are attributable",
+        "evidence": "\"Tag the cohort: `evt-pycon-2026-rag` on the roster, credit codes and signups.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Compares the cohort with a non-event baseline or labels any target as self-set",
+        "evidence": "\"Non-event baseline\" row; \"Threshold | self-set\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Uses the stuck step of attendees who stall as feedback for the workshop or docs",
+        "evidence": "\"Where attendees stall at the same exercise step, the workshop or the docs are broken.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Offers any newsletter opt-in as a separate choice with no second email unless the attendee clicks",
+        "evidence": "The opt-in sits on the public recap page, not in the email; \"This is the only email you'll get from me\"; one message max unless they reply or click.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sends the activation path to roster members whose sign-up covered the materials",
+        "evidence": "\"Send the workshop-continuation email below to all 45\", which contains the finish-the-exercise link.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Says slides alone end the journey and proposes a finish-the-exercise activation path",
+        "evidence": "Sandbox link in Email 1 plus a Day 14 nudge \"for people who haven't hit the activation event\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Starts the activation path from the step where the workshop ended, or provisions a sandbox or credit",
+        "evidence": "\"Free sandbox to keep building: {tracked link}\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects adding the whole roster to the newsletter because the sign-up said 'get the workshop materials'",
+        "evidence": "\"The sign-up form promised 'get the workshop materials', and nothing more.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Offers an opt-in to the newsletter rather than automatic subscription",
+        "evidence": "\"The opt-in link should be a real confirmation. Don't use a pre-ticked box.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Defines an activation event (for example a first successful query or API call) for the cohort",
+        "evidence": "\"created a cluster and ran a query\" / \"indexed their own data\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets 30-day and 60-day readings against the boss deadline",
+        "evidence": "\"Day 30 mid-point data pull... Day 60 Show the one-pager to your boss\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends tagging the workshop cohort so activations are attributable",
+        "evidence": "\"workshop-specific link with UTM parameters, or a workshop code on signup\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Compares the cohort with a non-event baseline or labels any target as self-set",
+        "evidence": "Baseline only excludes pre-existing accounts; no comparison group and no self-set label.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Uses the stuck step of attendees who stall as feedback for the workshop or docs",
+        "evidence": "\"fix the setup step that blocked {n} people\"; top blockers from replies.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Offers any newsletter opt-in as a separate choice with no second email unless the attendee clicks",
+        "evidence": "\"If not, you won't hear from us again beyond this thread.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sends the activation path to roster members whose sign-up covered the materials",
+        "evidence": "Email 1 goes to the roster; Email 2 to those who haven't activated.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

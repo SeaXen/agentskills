@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Recommends no overbooking and does not release the extra 60 tickets.",
+        "evidence": "\"Do not release the 60... Stay at 400 registrations.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Quotes the paid-event band - roughly 90-97% of tickets converting to attendance, a 3-10% no-show rate - rather than a free-event rate.",
+        "evidence": "\"Paid events see 90-97% of tickets convert to attendance, a 3-10% no-show rate\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that both overbooking ceilings are deleted from the menu on a paid or nominal-fee event.",
+        "evidence": "\"The skill deletes both ceilings for any paid event\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the asymmetry: an empty chair costs one cover, while turning away someone who paid costs a refund and the public account of it.",
+        "evidence": "\"An empty chair costs one cover. Turning away someone who paid 290 EUR costs a refund and a public account of it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the 3-10% no-show rate is a number to plan catering against, never a margin to sell into.",
+        "evidence": "The 460-registration table shows the band does not support selling into it, and \"The number to send is the expected show-up\". The point is implicit rather than stated outright.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the employer-funded or expensed-ticket argument as an untested hypothesis and refuses to use it as a lever.",
+        "evidence": "\"her argument could be right, but it is unmeasured. We can't sell 60 seats on it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that every show-up figure cited is measured against price posture, never against who actually paid for the ticket.",
+        "evidence": "\"Every show-up figure is measured against price posture, not against who paid.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Plans against the paid price posture rather than the free band.",
+        "evidence": "\"At 290 EUR you are in the paid band.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives catering an expected-show-up number derived from the paid band, in the region of 360-390 of the 400 seats, rather than 400 or 460.",
+        "evidence": "\"400 \u00d7 0.90 = 360... 400 \u00d7 0.97 = 388\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not apply a roughly 50% free-event show-up rate or a double-the-registrations ceiling to this event.",
+        "evidence": "\"The overbooking ceilings (2x) were sourced from free hackathons.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Leaves the ticket price itself to samber/dev-event-organizer-skills@event-ticket-pricing rather than proposing or changing a price.",
+        "evidence": "Proposes no price change. \"The nominal-fee lever belongs to the ticket-pricing skill, and a 290 EUR ticket has already done that job.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the 14-day catering lock as the date after which the head count stops being changeable.",
+        "evidence": "\"drained before the 14-day catering lock\"; \"After the lock, a promotion fills a chair but does not change the guarantee.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Recommends no overbooking and does not release the extra 60 tickets.",
+        "evidence": "'Release 30 tickets, not 60.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Quotes the paid-event band - roughly 90-97% of tickets converting to attendance, a 3-10% no-show rate - rather than a free-event rate.",
+        "evidence": "Uses about 85% show rate and an 87% break-even.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that both overbooking ceilings are deleted from the menu on a paid or nominal-fee event.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the asymmetry: an empty chair costs one cover, while turning away someone who paid costs a refund and the public account of it.",
+        "evidence": "Contrasts an unused meal with a hungry attendee, and a 'hard capacity breach, plus refunds and goodwill'; it never names turning away a payer as the cost against one empty cover.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the 3-10% no-show rate is a number to plan catering against, never a margin to sell into.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats the employer-funded or expensed-ticket argument as an untested hypothesis and refuses to use it as a lever.",
+        "evidence": "Says 'Partly right', then uses it in the decision rule: 'Below 80%, with the employer-paid claim verified: release up to 60'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that every show-up figure cited is measured against price posture, never against who actually paid for the ticket.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Plans against the paid price posture rather than the free band.",
+        "evidence": "Plans on an 85% estimate, not a paid-event band.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives catering an expected-show-up number derived from the paid band, in the region of 360-390 of the 400 seats, rather than 400 or 460.",
+        "evidence": "'Lock 370.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not apply a roughly 50% free-event show-up rate or a double-the-registrations ceiling to this event.",
+        "evidence": "Uses roughly 85% and a break-even; no 50% or double ceiling is applied.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Leaves the ticket price itself to samber/dev-event-organizer-skills@event-ticket-pricing rather than proposing or changing a price.",
+        "evidence": "No routing to that skill.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the 14-day catering lock as the date after which the head count stops being changeable.",
+        "evidence": "Only 'a \u00b110% adjustment window up to 72 hours out'; no 14-day lock.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

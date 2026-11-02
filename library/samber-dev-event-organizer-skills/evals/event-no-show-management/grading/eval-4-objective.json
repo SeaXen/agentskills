@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that a live, per-seat waitlist promotion during the event is untested, and declines to design it as the recommendation.",
+        "evidence": "\"Your 09:45 release with an SMS to seat 114 is the one mechanic the skill marks as untested.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the ticketing-platform waitlist automation runs before the event, against cancellations and expired holds, never during it.",
+        "evidence": "\"documented only for pre-event use. It handles cancellations and expired holds\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Repeats the platform's own framing that the mechanism is a recovery mechanism for post-sale inventory gaps, not an in-event promotion strategy.",
+        "evidence": "\"one platform calls it 'not an in-event promotion strategy'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends the walk-in lane as the mechanic with practice behind it, filling the room from below rather than promoting a named person into a named empty seat.",
+        "evidence": "\"The walk-in lane fills the room from below without anyone tracking who failed to arrive.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the walk-in lane uses a separate late-registration form.",
+        "evidence": "\"The walk-in lane is a separate form\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the walk-in lane opens only after the pre-registered check-in window has closed.",
+        "evidence": "\"The walk-in lane opens only after that window closes, around 09:45.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that everyone arriving through the walk-in lane still completes the full registration form.",
+        "evidence": "\"everyone still completes the full registration form.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names what skipping the full form costs: the head count, the code-of-conduct agreement, the dietary and accessibility data, and the emergency contact list.",
+        "evidence": "The transcript never lists head count, code of conduct, dietary or accessibility data, or emergency contacts.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects promoting continuously, one seat at a time, on every cancellation, as a standing job whose gain the ceiling has already absorbed.",
+        "evidence": "There is no statement rejecting standing per-cancellation promotion. It only says not to release a registered person's seat at 09:45.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Hands the expected walk-in volume and the ratio behind it to samber/dev-event-organizer-skills@event-attendee-experience rather than specifying how the desk is staffed or queued.",
+        "evidence": "\"Give the desk your predicted walk-in volume. The desk owner is event-attendee-experience.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that a live, per-seat waitlist promotion during the event is untested, and declines to design it as the recommendation.",
+        "evidence": "Designs the 09:45 release with SMS: 'Verdict: the idea works'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the ticketing-platform waitlist automation runs before the event, against cancellations and expired holds, never during it.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Repeats the platform's own framing that the mechanism is a recovery mechanism for post-sale inventory gaps, not an in-event promotion strategy.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends the walk-in lane as the mechanic with practice behind it, filling the room from below rather than promoting a named person into a named empty seat.",
+        "evidence": "No walk-in lane is recommended.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the walk-in lane uses a separate late-registration form.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the walk-in lane opens only after the pre-registered check-in window has closed.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that everyone arriving through the walk-in lane still completes the full registration form.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names what skipping the full form costs: the head count, the code-of-conduct agreement, the dietary and accessibility data, and the emergency contact list.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects promoting continuously, one seat at a time, on every cancellation, as a standing job whose gain the ceiling has already absorbed.",
+        "evidence": "It adds an automatic cascade rather than rejecting continuous promotion.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Hands the expected walk-in volume and the ratio behind it to samber/dev-event-organizer-skills@event-attendee-experience rather than specifying how the desk is staffed or queued.",
+        "evidence": "No routing to that skill.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

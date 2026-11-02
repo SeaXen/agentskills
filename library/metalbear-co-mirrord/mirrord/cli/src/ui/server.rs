@@ -1,0 +1,2197 @@
+#[cfg(target_os = "macos")]
+use std::path::PathBuf;
+use std::{
+    collections::{BTreeMap, HashMap, hash_map::Entry},
+    convert::Infallible,
+    str::FromStr,
+    sync::Arc,
+    time::{Duration, SystemTime, UNIX_EPOCH},
+};
+
+use axum::{
+    Router,
+    extract::{
+        Path, Query, Request, State,
+        ws::{Message, WebSocket, WebSocketUpgrade},
+    },
+    http::{HeaderMap, HeaderValue, StatusCode, header, header::HeaderName},
+    middleware::{self, Next},
+    response::{IntoResponse, Redirect, Response, sse},
+    routing::{get, post},
+};
+use axum_extra::extract::cookie::{Cookie, CookieJar, SameSite};
+use futures::stream::StreamExt as _;
+use itertools::Itertools as _;
+use k8s_openapi::{
+    api::{authentication::v1::SelfSubjectReview, core::v1::Namespace},
+    jiff::Timestamp,
+};
+use kube::{
+    Api, Client,
+    api::{ListParams, PostParams},
+    config::{Config, KubeConfigOptions, Kubeconfig},
+};
+use mirrord_config::target::{Target, TargetDisplay};
+use mirrord_intproxy::session_monitor::MonitorEvent;
+use mirrord_operator::{
+    client::{add_baggage_header, operator_installed},
+    crd::{
+        MirrordOperatorCrd, OPERATOR_STATUS_NAME, PreviewSessionInfo, Session, SessionHttpFilter,
+        preview::PreviewSessionPhase,
+    },
+    types::MIRRORD_CLI_VERSION_HEADER,
+};
+use mirrord_session_monitor_client::{
+    SESSION_SENTINEL_EXTENSION, SessionClient, SessionEndpoint, connect_to_session,
+    session_endpoints,
+};
+use mirrord_session_monitor_protocol::SessionInfo;
+use notify::{EventKind, RecommendedWatcher, RecursiveMode, Watcher};
+#[cfg(not(debug_assertions))]
+use rust_embed::Embed;
+use serde::{Deserialize, Serialize};
+use tokio::sync::{Mutex, RwLock, broadcast, mpsc};
+use tokio_stream::wrappers::ReceiverStream;
+use tokio_util::sync::CancellationToken;
+use tower_http::{set_header::SetResponseHeaderLayer, trace::TraceLayer};
+use tracing::{debug, error, info, warn};
+
+use crate::{
+    data::{GlobalConfig, UserData},
+    ui::{
+        MAX_EVENTS_PER_SESSION, TOKEN_HEADER_NAME, chaos::chaos_router, daemon, db_portforwards,
+        error::ApiError, wizard::wizard_router,
+    },
+};
+
+mod v2;
+
+/// Alias for the return type of the top-level `mirrord ui` route handlers.
+type UiResult<T> = Result<T, ApiError>;
+
+#[cfg(not(debug_assertions))]
+#[derive(Embed)]
+#[folder = "../../packages/ui/dist/"]
+struct FrontendAssets;
+
+#[derive(Clone, Debug, Serialize)]
+#[serde(tag = "type", rename_all = "snake_case")]
+pub(crate) enum SessionNotification {
+    SessionAdded {
+        session: Box<SessionInfo>,
+    },
+    SessionRemoved {
+        session_id: String,
+    },
+    OperatorSessionAdded {
+        session: Box<OperatorSessionSummary>,
+    },
+    OperatorSessionRemoved {
+        id: String,
+    },
+    OperatorSessionUpdated {
+        session: Box<OperatorSessionSummary>,
+    },
+    OperatorPreviewAdded {
+        preview: Box<OperatorPreviewSession>,
+    },
+    OperatorPreviewRemoved {
+        id: String,
+    },
+    OperatorPreviewUpdated {
+        preview: Box<OperatorPreviewSession>,
+    },
+}
+
+#[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct OperatorSessionSummary {
+    pub id: String,
+    pub key: String,
+    pub namespace: String,
+    pub owner: OperatorSessionOwner,
+    pub target: Option<OperatorSessionTarget>,
+    pub created_at: String,
+    #[serde(default)]
+    pub duration_secs: u64,
+    #[serde(default, skip_serializing_if = "Vec::is_empty")]
+    pub locked_ports: Vec<OperatorLockedPort>,
+    #[serde(default)]
+    pub queue_splits: OperatorQueueSplits,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub http_filter: Option<SessionHttpFilter>,
+}
+
+#[derive(Clone, Debug, Default, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct OperatorLockedPort {
+    pub port: u16,
+    pub kind: String,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub filter: Option<String>,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub hit_count: Option<u64>,
+}
+
+#[derive(Clone, Debug, Default, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct OperatorQueueSplits {
+    #[serde(default)]
+    pub sqs: usize,
+    #[serde(default)]
+    pub rabbitmq: usize,
+    #[serde(default)]
+    pub kafka: usize,
+}
+
+#[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct OperatorSessionOwner {
+    pub username: String,
+    pub k8s_username: String,
+}
+
+#[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct OperatorSessionTarget {
+    pub kind: String,
+    pub name: String,
+    pub container: String,
+}
+
+impl FromStr for OperatorSessionTarget {
+    type Err = ();
+
+    fn from_str(s: &str) -> Result<Self, Self::Err> {
+        // The operator lists a pod-set target as its bare selector (`app=api`), which is the
+        // `label/` target path without its prefix.
+        let target = Target::from_str(s)
+            .or_else(|_| Target::from_str(&format!("label/{s}")))
+            .map_err(|_| ())?;
+        let name = match &target {
+            Target::Targetless => return Err(()),
+            // `name()` is the constant "label"; the selector is what tells previews apart.
+            Target::Label(label) => label.selector(),
+            target => target.name().to_owned(),
+        };
+        Ok(OperatorSessionTarget {
+            kind: target.type_().to_owned(),
+            name,
+            container: String::new(),
+        })
+    }
+}
+
+/// Information of a preview environment required by frontend.
+#[derive(Clone, Debug, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct OperatorPreviewSession {
+    pub id: String,
+    pub key: String,
+    pub namespace: String,
+    pub target: Option<OperatorSessionTarget>,
+    pub created_at: String,
+    #[serde(default)]
+    pub duration_secs: u64,
+    pub phase: OperatorPreviewPhase,
+    /// How long the preview has been idle. `None` unless `phase` is
+    /// [`OperatorPreviewPhase::Idle`].
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub idle_secs: Option<u64>,
+}
+
+/// Lifecycle phase of a preview environment, lower-cased for the frontend.
+#[derive(Clone, Copy, Debug, Serialize, Deserialize, PartialEq, Eq)]
+#[serde(rename_all = "lowercase")]
+pub enum OperatorPreviewPhase {
+    Initializing,
+    Waiting,
+    Ready,
+    Failed,
+    Idle,
+    Paused,
+    Unknown,
+}
+
+impl From<PreviewSessionPhase> for OperatorPreviewPhase {
+    fn from(phase: PreviewSessionPhase) -> Self {
+        match phase {
+            PreviewSessionPhase::Initializing => Self::Initializing,
+            PreviewSessionPhase::Waiting => Self::Waiting,
+            PreviewSessionPhase::Ready => Self::Ready,
+            PreviewSessionPhase::Failed => Self::Failed,
+            PreviewSessionPhase::Idle => Self::Idle,
+            PreviewSessionPhase::Paused => Self::Paused,
+            PreviewSessionPhase::Unknown => Self::Unknown,
+        }
+    }
+}
+
+impl OperatorPreviewSession {
+    pub(crate) fn from_preview(preview: &PreviewSessionInfo) -> Option<Self> {
+        Some(Self {
+            id: preview.id.clone(),
+            key: preview.key.clone(),
+            namespace: preview.namespace.clone(),
+            target: OperatorSessionTarget::from_str(&preview.target).ok(),
+            created_at: preview
+                .created_at
+                .as_ref()
+                .map(|created_at| created_at.0.to_string())
+                .or_else(|| created_at_from_duration(preview.duration_secs))?,
+            duration_secs: preview.duration_secs,
+            phase: preview.phase.into(),
+            idle_secs: preview.idle_secs,
+        })
+    }
+}
+
+/// Derives a creation time from an elapsed duration, for operators that report no timestamp.
+///
+/// Recomputed on every poll, so it drifts: two reads of an unchanged preview disagree by
+/// however long passed between them. That is why the operator reports the timestamp itself
+/// whenever it can.
+fn created_at_from_duration(duration_secs: u64) -> Option<String> {
+    SystemTime::now()
+        .checked_sub(Duration::from_secs(duration_secs))
+        .and_then(|t| t.duration_since(UNIX_EPOCH).ok())
+        .map(|d| d.as_secs())
+        .and_then(|secs| i64::try_from(secs).ok())
+        .and_then(|secs| Timestamp::from_second(secs).ok())
+        .map(|ts| ts.to_string())
+}
+
+impl OperatorSessionSummary {
+    pub(crate) fn from_session(session: &Session) -> Option<Self> {
+        let id = session.id.clone()?;
+        let key = session.key.clone()?;
+        let namespace = session.namespace.clone().unwrap_or_default();
+        let owner = parse_session_owner(&session.user).unwrap_or_else(|| OperatorSessionOwner {
+            username: session.user.clone(),
+            k8s_username: session.user.clone(),
+        });
+
+        let target = OperatorSessionTarget::from_str(&session.target).ok();
+
+        let created_at = created_at_from_duration(session.duration_secs)?;
+        let http_filter = session.http_filter.as_ref().map(|f| SessionHttpFilter {
+            header_filter: f.header_filter.clone(),
+        });
+        let locked_ports = session
+            .locked_ports
+            .as_ref()
+            .map(|ports| {
+                ports
+                    .iter()
+                    .map(|lp| {
+                        let lp = lp.to_locked_port();
+                        OperatorLockedPort {
+                            port: lp.port,
+                            kind: lp.kind,
+                            filter: lp.filter,
+                            hit_count: lp.hit_count,
+                        }
+                    })
+                    .collect()
+            })
+            .unwrap_or_default();
+        let queue_splits = OperatorQueueSplits {
+            sqs: session.sqs.as_ref().map(|v| v.len()).unwrap_or(0),
+            rabbitmq: session.rmq.as_ref().map(|v| v.len()).unwrap_or(0),
+            kafka: session.kafka.as_ref().map(|v| v.len()).unwrap_or(0),
+        };
+        Some(Self {
+            id,
+            key,
+            namespace,
+            owner,
+            target,
+            created_at,
+            duration_secs: session.duration_secs,
+            locked_ports,
+            queue_splits,
+            http_filter,
+        })
+    }
+}
+
+fn parse_session_owner(user: &str) -> Option<OperatorSessionOwner> {
+    let (head, _hostname) = user.rsplit_once('@')?;
+    let (username, k8s_username) = head.split_once('/')?;
+    Some(OperatorSessionOwner {
+        username: username.to_owned(),
+        k8s_username: k8s_username.to_owned(),
+    })
+}
+
+#[derive(Clone, Debug)]
+pub(crate) struct TrackedSession {
+    pub(crate) info: SessionInfo,
+    pub(crate) endpoint: SessionEndpoint,
+    pub(crate) events: Vec<MonitorEvent>,
+    pub(crate) client: SessionClient,
+}
+
+#[derive(Clone)]
+pub struct AppState {
+    pub(crate) sessions: Arc<RwLock<HashMap<String, TrackedSession>>>,
+    pub(crate) operator_sessions: Arc<RwLock<BTreeMap<String, OperatorSessionSummary>>>,
+    pub(crate) operator_previews: Arc<RwLock<BTreeMap<String, OperatorPreviewSession>>>,
+    pub(crate) operator_watch_status: Arc<RwLock<OperatorWatchStatus>>,
+    pub(crate) operator_license: Arc<RwLock<Option<OperatorLicense>>>,
+    pub(crate) notify_tx: broadcast::Sender<SessionNotification>,
+    pub(crate) token: String,
+    /// Backs the wizard's `is-returning` endpoint and is flagged when the user starts the config
+    /// flow. Behind a [`Mutex`] because updating it writes `~/.mirrord/data.json`.
+    pub(crate) user_data: Arc<Mutex<UserData>>,
+    /// Kube clients keyed by context (`None` = kubeconfig current context), cached and reused
+    /// across the frequent per-context operator-session polls of the [`v2`] API. Building a
+    /// client parses the kubeconfig and sets up TLS, so caching avoids repeating that on every
+    /// poll. Only the v2 (per-request, context-aware) handlers use this; the v1 background
+    /// watcher keeps its own current-context client.
+    pub(crate) clients: Arc<RwLock<HashMap<Option<String>, Client>>>,
+    /// DB branch forwards owned by the local daemon and shared by active mirrord sessions.
+    pub(crate) db_portforwards: db_portforwards::DbPortForwards,
+    /// Cancels the daemon server after an authenticated, safe shutdown request.
+    pub(crate) shutdown: CancellationToken,
+}
+
+#[derive(Clone, Debug, Serialize, Default)]
+#[serde(tag = "status", rename_all = "snake_case")]
+pub enum OperatorWatchStatus {
+    #[default]
+    NotStarted,
+    Watching,
+    Error {
+        message: String,
+    },
+    Unavailable {
+        reason: String,
+    },
+}
+
+#[derive(Deserialize)]
+struct TokenQuery {
+    token: Option<String>,
+    /// Where to send the browser after the cookie is set. `mirrord ui` opens `/` (session monitor)
+    /// and `mirrord wizard` opens `/wizard`; both are served by the same SPA. Validated to a local
+    /// path in [`safe_redirect_target`] so this entry point can't be abused as an open redirect.
+    redirect: Option<String>,
+}
+
+/// Only a same-origin local path (starting with a single `/`) is allowed as the post-auth redirect
+/// target; anything else (an absolute URL, a scheme-relative `//host`, or nothing) falls back to
+/// the app root. Without this, `/auth?token=...&redirect=//evil.example` would be an open redirect.
+fn safe_redirect_target(redirect: Option<&str>) -> &str {
+    match redirect {
+        Some(path) if path.starts_with('/') && !path.starts_with("//") => path,
+        _ => "/",
+    }
+}
+
+/// Builds the `mirrord_token` auth cookie carrying the given token. `HttpOnly` keeps it out of
+/// reach of JS (so a script injection can't exfiltrate it) and `SameSite=Strict` stops other
+/// origins from riding it in a CSRF request.
+///
+/// The `Secure` attribute is deliberately omitted: this server serves plain HTTP on loopback
+/// (`http://127.0.0.1`), which browsers like Safari don't treat as a secure context, so a `Secure`
+/// cookie would never be sent back and would break auth entirely. There is no network attacker to
+/// guard against on loopback, so the attribute would add no protection.
+fn auth_cookie(token: &str) -> Cookie<'static> {
+    Cookie::build(("mirrord_token", token.to_owned()))
+        .http_only(true)
+        .same_site(SameSite::Strict)
+        .path("/")
+        .build()
+}
+
+/// The single entry point that accepts the auth token via the `?token=` query parameter. On a
+/// valid token it sets the `mirrord_token` cookie and redirects to the requested local page (the
+/// app root by default, `/wizard` for `mirrord wizard`); every other route authenticates via that
+/// cookie (or the `x-auth-token` header) alone.
+///
+/// Confining the query parameter to this one route keeps the high-entropy token out of the URLs of
+/// ordinary navigation and API calls, where it would otherwise leak into browser history, the
+/// `Referer` header, and server access logs.
+async fn auth_entry(State(state): State<AppState>, Query(query): Query<TokenQuery>) -> Response {
+    if query.token.as_deref() != Some(state.token.as_str()) {
+        return StatusCode::UNAUTHORIZED.into_response();
+    }
+
+    let mut response =
+        Redirect::to(safe_redirect_target(query.redirect.as_deref())).into_response();
+    if let Ok(value) = HeaderValue::from_str(&auth_cookie(&state.token).to_string()) {
+        response.headers_mut().append(header::SET_COOKIE, value);
+    }
+    response
+}
+
+/// Middleware that validates the request carries a valid auth token, either via the `mirrord_token`
+/// cookie or the `x-auth-token` header. The token cannot be passed as a query parameter here; that
+/// is only accepted by [`auth_entry`], which exchanges it for the cookie.
+pub(super) async fn token_auth(
+    State(state): State<AppState>,
+    jar: CookieJar,
+    headers: HeaderMap,
+    request: Request,
+    next: Next,
+) -> Response {
+    if let Some(cookie) = jar.get("mirrord_token")
+        && cookie.value() == state.token
+    {
+        return next.run(request).await;
+    }
+
+    if headers
+        .get(TOKEN_HEADER_NAME)
+        .map(HeaderValue::to_str)
+        .transpose()
+        .unwrap_or_default()
+        == Some(&state.token)
+    {
+        let mut response = next.run(request).await;
+        if let Ok(value) = HeaderValue::from_str(&auth_cookie(&state.token).to_string()) {
+            response.headers_mut().append(header::SET_COOKIE, value);
+        }
+        return response;
+    }
+
+    StatusCode::UNAUTHORIZED.into_response()
+}
+
+/// Buffers typed monitor events, capping at [`MAX_EVENTS_PER_SESSION`] so long sessions retain
+/// bounded traffic history.
+async fn buffer_session_events(session_id: &str, events: Vec<MonitorEvent>, state: &AppState) {
+    let mut sessions = state.sessions.write().await;
+    let Some(session) = sessions.get_mut(session_id) else {
+        return;
+    };
+    for event in events {
+        if let MonitorEvent::PortSubscription {
+            port,
+            mode,
+            hit_count,
+        } = &event
+        {
+            match session
+                .info
+                .port_subscriptions
+                .iter_mut()
+                .find(|subscription| subscription.port == *port)
+            {
+                Some(subscription) => {
+                    subscription.mode = mode.clone();
+                    subscription.hit_count = *hit_count;
+                }
+                None => session.info.port_subscriptions.push(
+                    mirrord_session_monitor_protocol::PortSubscription {
+                        port: *port,
+                        mode: mode.clone(),
+                        hit_count: *hit_count,
+                    },
+                ),
+            }
+
+            // Every hit sends a port subscription event. Keeping them all would fill this buffer
+            // and remove older traffic events, so keep only the latest event for each port.
+            session.events.retain(|buffered| match buffered {
+                MonitorEvent::PortSubscription {
+                    port: buffered_port,
+                    ..
+                } => buffered_port != port,
+                _ => true,
+            });
+        }
+        session.events.push(event);
+    }
+    if session.events.len() > MAX_EVENTS_PER_SESSION {
+        session
+            .events
+            .drain(..session.events.len() - MAX_EVENTS_PER_SESSION);
+    }
+}
+
+/// Connects to a session's SSE /events endpoint and buffers events into the shared state.
+async fn stream_session_events(session_id: String, client: SessionClient, state: AppState) {
+    let mut sse_stream = match client.open_event_stream().await {
+        Ok(s) => s,
+        Err(err) => {
+            warn!(%session_id, ?err, "Failed to open SSE stream");
+            return;
+        }
+    };
+
+    while let Some(result) = sse_stream.next().await {
+        let event = match result {
+            Ok(e) => e,
+            Err(err) => {
+                debug!(%session_id, ?err, "SSE stream error");
+                break;
+            }
+        };
+        if let Ok(event) = serde_json::from_str::<MonitorEvent>(&event.data) {
+            buffer_session_events(&session_id, vec![event], &state).await;
+        }
+    }
+
+    info!(%session_id, "Session stream disconnected, removing");
+    if let Some(session) = state.sessions.read().await.get(&session_id)
+        && let Err(err) = std::fs::remove_file(&session.endpoint.sentinel_path)
+    {
+        warn!(%session_id, ?err, "Failed to remove session sentinel");
+    }
+    remove_session(&session_id, &state).await;
+}
+
+pub(crate) async fn scan_existing_sessions(sessions_dir: &std::path::Path, state: &AppState) {
+    for (session_id, endpoint) in session_endpoints(sessions_dir) {
+        add_session(session_id, endpoint, state.clone()).await;
+    }
+}
+
+async fn add_session(session_id: String, endpoint: SessionEndpoint, state: AppState) {
+    if state.sessions.read().await.contains_key(&session_id) {
+        return;
+    }
+
+    let connection = match connect_to_session(&endpoint.sentinel_path).await {
+        Ok(connection) => connection,
+        Err(err) => {
+            debug!(%session_id, ?err, "Could not fetch session info, removing stale sentinel");
+            if let Err(err) = std::fs::remove_file(&endpoint.sentinel_path) {
+                warn!(%session_id, ?err, "Failed to remove stale sentinel");
+            }
+            return;
+        }
+    };
+
+    let tracked = TrackedSession {
+        endpoint: connection.endpoint.clone(),
+        info: connection.info,
+        events: Vec::new(),
+        client: connection.client,
+    };
+
+    let session_client = tracked.client.clone();
+    let notification = SessionNotification::SessionAdded {
+        session: Box::new(tracked.info.clone()),
+    };
+
+    {
+        let mut sessions = state.sessions.write().await;
+        if let Entry::Vacant(entry) = sessions.entry(session_id.clone()) {
+            entry.insert(tracked);
+        } else {
+            return;
+        }
+    }
+
+    let _ = state.notify_tx.send(notification);
+    info!(%session_id, "Session added");
+
+    tokio::spawn(stream_session_events(session_id, session_client, state));
+}
+
+/// Removes a locally tracked session and releases all of its DB-forward claims.
+///
+/// Loss of the session monitor connection is the daemon's authoritative termination signal. This
+/// path therefore handles normal shutdown, crashes, and panics without relying on the CLI or
+/// intproxy to send an explicit release request.
+async fn remove_session(session_id: &str, state: &AppState) {
+    let removed = state.sessions.write().await.remove(session_id).is_some();
+    db_portforwards::release_session(session_id, state).await;
+    if removed {
+        let _ = state.notify_tx.send(SessionNotification::SessionRemoved {
+            session_id: session_id.to_owned(),
+        });
+        info!(%session_id, "Session removed");
+    }
+}
+
+async fn list_sessions(State(state): State<AppState>) -> impl IntoResponse {
+    let sessions = state.sessions.read().await;
+    let list: Vec<SessionInfo> = sessions.values().map(|s| s.info.clone()).collect();
+    axum::Json(list)
+}
+
+async fn get_session(State(state): State<AppState>, Path(id): Path<String>) -> Response {
+    let sessions = state.sessions.read().await;
+    match sessions.get(&id) {
+        Some(session) => axum::Json(session.info.clone()).into_response(),
+        None => StatusCode::NOT_FOUND.into_response(),
+    }
+}
+
+/// Channel depth for an SSE proxy, bounding how far a browser may fall behind before the proxy
+/// task blocks.
+const SSE_CHANNEL_CAPACITY: usize = 256;
+
+const SSE_KEEP_ALIVE_INTERVAL: Duration = Duration::from_secs(15);
+
+/// Sender half of an [`sse_channel`], held by the task producing the events.
+pub(crate) type SseSender = mpsc::Sender<Result<sse::Event, Infallible>>;
+
+/// Receiver half of an [`sse_channel`], consumed by [`sse_response`].
+pub(crate) type SseReceiver = mpsc::Receiver<Result<sse::Event, Infallible>>;
+
+/// Channel an SSE proxy task writes its events into, sized for a browser `EventSource`.
+pub(crate) fn sse_channel() -> (SseSender, SseReceiver) {
+    mpsc::channel(SSE_CHANNEL_CAPACITY)
+}
+
+/// Serves the events written into [`sse_channel`], keeping the connection alive through idle
+/// stretches so an intermediary doesn't drop it.
+pub(crate) fn sse_response(rx: SseReceiver) -> Response {
+    sse::Sse::new(ReceiverStream::new(rx))
+        .keep_alive(
+            sse::KeepAlive::new()
+                .interval(SSE_KEEP_ALIVE_INTERVAL)
+                .text("ping"),
+        )
+        .into_response()
+}
+
+async fn session_events_sse(State(state): State<AppState>, Path(id): Path<String>) -> Response {
+    let (buffered_events, client) = {
+        let sessions = state.sessions.read().await;
+        match sessions.get(&id) {
+            Some(session) => (session.events.clone(), session.client.clone()),
+            None => return StatusCode::NOT_FOUND.into_response(),
+        }
+    };
+
+    let (tx, rx) = sse_channel();
+
+    tokio::spawn(async move {
+        for event in buffered_events {
+            let data =
+                serde_json::to_string(&event).expect("buffered event serialization cannot fail");
+            if tx.send(Ok(sse::Event::default().data(data))).await.is_err() {
+                return;
+            }
+        }
+
+        let mut sse_stream = match client.open_event_stream().await {
+            Ok(s) => s,
+            Err(err) => {
+                warn!(?err, "Failed to open SSE stream for proxy");
+                return;
+            }
+        };
+
+        while let Some(result) = sse_stream.next().await {
+            let event = match result {
+                Ok(e) => e,
+                Err(_) => break,
+            };
+            if let Ok(event) = serde_json::from_str::<MonitorEvent>(&event.data) {
+                let data_str =
+                    serde_json::to_string(&event).expect("SSE event serialization cannot fail");
+                if tx
+                    .send(Ok(sse::Event::default().data(data_str)))
+                    .await
+                    .is_err()
+                {
+                    return;
+                }
+            }
+        }
+    });
+
+    sse_response(rx)
+}
+
+#[derive(Serialize, Clone)]
+#[serde(rename_all = "camelCase")]
+pub(crate) struct OperatorLicense {
+    pub(crate) fingerprint: Option<String>,
+    pub(crate) organization: String,
+}
+
+#[derive(Serialize)]
+pub(crate) struct OperatorSessionsResponse {
+    pub(crate) by_key: BTreeMap<String, Vec<OperatorSessionSummary>>,
+    pub(crate) sessions: Vec<OperatorSessionSummary>,
+    pub(crate) watch_status: OperatorWatchStatus,
+    pub(crate) operator_license: Option<OperatorLicense>,
+}
+
+#[derive(Serialize)]
+#[serde(rename_all = "camelCase")]
+pub(crate) struct OperatorPreviewsResponse {
+    pub(crate) by_key: BTreeMap<String, Vec<OperatorPreviewSession>>,
+    pub(crate) previews: Vec<OperatorPreviewSession>,
+    pub(crate) watch_status: OperatorWatchStatus,
+}
+
+#[derive(Serialize)]
+#[serde(rename_all = "camelCase")]
+struct CurrentUserResponse {
+    k8s_username: Option<String>,
+    error: Option<String>,
+}
+
+#[derive(Serialize)]
+struct TokenResponse {
+    token: String,
+}
+
+/// Returns the auth token to a request that already authenticated.
+///
+/// The browser extension's "Open mirrord ui" button (and any reload) navigates to the bare origin
+/// with no `?token=` query param. The page still authenticates via the `mirrord_token` cookie, but
+/// that cookie is `HttpOnly`, so the frontend JS can't read it to hand the token to the extension.
+/// This endpoint lets the already-authenticated page recover the token at runtime and forward it to
+/// the extension. Access is gated by [`token_auth`] (cookie / `x-auth-token`), so an
+/// unauthenticated caller never reaches it.
+async fn auth_token(State(state): State<AppState>) -> axum::Json<TokenResponse> {
+    axum::Json(TokenResponse {
+        token: state.token.clone(),
+    })
+}
+
+async fn current_user() -> axum::Json<CurrentUserResponse> {
+    let client = match client_for_context(None).await {
+        Ok(client) => client,
+        Err(err) => {
+            return axum::Json(CurrentUserResponse {
+                k8s_username: None,
+                error: Some(format!("kube client init failed: {err}")),
+            });
+        }
+    };
+    let api: Api<SelfSubjectReview> = Api::all(client);
+    match api
+        .create(&PostParams::default(), &SelfSubjectReview::default())
+        .await
+    {
+        Ok(review) => {
+            let username = review
+                .status
+                .and_then(|s| s.user_info)
+                .and_then(|u| u.username);
+            axum::Json(CurrentUserResponse {
+                k8s_username: username,
+                error: None,
+            })
+        }
+        Err(err) => axum::Json(CurrentUserResponse {
+            k8s_username: None,
+            error: Some(format!("self-subject-review failed: {err}")),
+        }),
+    }
+}
+
+#[derive(Serialize)]
+#[serde(rename_all = "camelCase")]
+struct ContextsResponse {
+    contexts: Vec<String>,
+    current_context: Option<String>,
+}
+
+/// Lists the kube contexts available in the user's kubeconfig, along with the one currently
+/// selected. Read straight from the merged kubeconfig files (honouring `KUBECONFIG`) — this touches
+/// no cluster, so it works even when no cluster is reachable.
+async fn list_contexts() -> UiResult<axum::Json<ContextsResponse>> {
+    let kubeconfig = Kubeconfig::read().map_err(ApiError::ReadKubeconfig)?;
+    Ok(axum::Json(ContextsResponse {
+        contexts: kubeconfig
+            .contexts
+            .iter()
+            .map(|context| context.name.clone())
+            .collect(),
+        current_context: GlobalConfig::fresh_kube_context()
+            .await
+            .or(kubeconfig.current_context),
+    }))
+}
+
+#[derive(Deserialize)]
+struct NamespacesQuery {
+    /// Context to list namespaces from. When absent, the global default is used, else the
+    /// kubeconfig's current context.
+    context: Option<String>,
+}
+
+#[derive(Serialize)]
+#[serde(rename_all = "camelCase")]
+struct NamespacesResponse {
+    namespaces: Vec<String>,
+    context: Option<String>,
+}
+
+/// How long building a kube client may take before the context counts as unreachable. Bounds an
+/// auth-exec plugin that blocks on an expired credential.
+const CLIENT_BUILD_TIMEOUT: Duration = Duration::from_secs(15);
+
+/// Builds a kube client for the given context, or for the global default, else the kubeconfig's
+/// current context, when `context` is `None`.
+pub(super) async fn client_for_context(context: Option<&str>) -> UiResult<Client> {
+    tokio::time::timeout(CLIENT_BUILD_TIMEOUT, build_client(context))
+        .await
+        .map_err(|_| ApiError::Timeout {
+            what: "kube client initialization",
+            secs: CLIENT_BUILD_TIMEOUT.as_secs(),
+        })?
+}
+
+async fn build_client(context: Option<&str>) -> UiResult<Client> {
+    let global_context = GlobalConfig::fresh_kube_context().await;
+    let mut config = match context.or(global_context.as_deref()) {
+        Some(context) => {
+            let options = KubeConfigOptions {
+                context: Some(context.to_owned()),
+                ..Default::default()
+            };
+            Config::from_kubeconfig(&options)
+                .await
+                .map_err(|source| ApiError::LoadContext {
+                    context: context.to_owned(),
+                    source,
+                })?
+        }
+        None => Config::infer().await.map_err(ApiError::InferKubeconfig)?,
+    };
+    add_baggage_header(&mut config, baggage_from_env().as_deref())
+        .map_err(|error| ApiError::InvalidBaggage(error.to_string()))?;
+    // Without a client version, the operator returns legacy ports without hit counts.
+    config.headers.push((
+        HeaderName::from_static(MIRRORD_CLI_VERSION_HEADER),
+        HeaderValue::from_static(env!("CARGO_PKG_VERSION")),
+    ));
+
+    // Building the client runs the context's auth-exec plugin synchronously, which must not hold
+    // the runtime thread.
+    tokio::task::spawn_blocking(move || Client::try_from(config))
+        .await
+        .expect("building a kube client does not panic")
+        .map_err(ApiError::from)
+}
+
+/// The baggage the daemon was started with: `mirrord ui -f <config>` resolves the config file's
+/// `baggage` into `MIRRORD_BAGGAGE` before spawning it, and setting the variable directly works
+/// too.
+fn baggage_from_env() -> Option<String> {
+    std::env::var("MIRRORD_BAGGAGE")
+        .ok()
+        .filter(|baggage| !baggage.is_empty())
+}
+
+/// Lists the namespaces visible to the user in the requested context (or the current context when
+/// none is supplied). Unlike [`list_contexts`], this queries the cluster's API server, so it
+/// requires the context to be reachable and the user authorized to list namespaces.
+async fn list_namespaces(
+    Query(query): Query<NamespacesQuery>,
+) -> UiResult<axum::Json<NamespacesResponse>> {
+    let client = client_for_context(query.context.as_deref()).await?;
+    let api: Api<Namespace> = Api::all(client);
+    let namespaces = api
+        .list(&ListParams::default())
+        .await
+        .map_err(ApiError::KubeApi)?;
+
+    Ok(axum::Json(NamespacesResponse {
+        namespaces: namespaces
+            .iter()
+            .filter_map(|namespace| namespace.metadata.name.clone())
+            .collect(),
+        context: query.context,
+    }))
+}
+
+pub(crate) async fn list_operator_sessions(
+    State(state): State<AppState>,
+) -> axum::Json<OperatorSessionsResponse> {
+    let map = state.operator_sessions.read().await;
+    let watch_status = state.operator_watch_status.read().await.clone();
+    let operator_license = state.operator_license.read().await.clone();
+
+    let sessions: Vec<OperatorSessionSummary> = map.values().cloned().collect();
+    let by_key = sessions
+        .iter()
+        .cloned()
+        .into_group_map_by(|session| session.key.clone())
+        .into_iter()
+        .collect();
+
+    axum::Json(OperatorSessionsResponse {
+        by_key,
+        sessions,
+        watch_status,
+        operator_license,
+    })
+}
+
+pub(crate) async fn list_operator_previews(
+    State(state): State<AppState>,
+) -> axum::Json<OperatorPreviewsResponse> {
+    let map = state.operator_previews.read().await;
+    let watch_status = state.operator_watch_status.read().await.clone();
+
+    let previews: Vec<OperatorPreviewSession> = map.values().cloned().collect();
+    let by_key = previews
+        .iter()
+        .cloned()
+        .into_group_map_by(|preview| preview.key.clone())
+        .into_iter()
+        .collect();
+
+    axum::Json(OperatorPreviewsResponse {
+        by_key,
+        previews,
+        watch_status,
+    })
+}
+
+async fn kill_session(State(state): State<AppState>, Path(id): Path<String>) -> Response {
+    let (client, sentinel_path) = {
+        let sessions = state.sessions.read().await;
+        match sessions.get(&id) {
+            Some(session) => (
+                session.client.clone(),
+                session.endpoint.sentinel_path.clone(),
+            ),
+            None => return StatusCode::NOT_FOUND.into_response(),
+        }
+    };
+
+    match client.kill().await {
+        Ok(()) => {
+            // Clean up the sentinel file (the socket on unix; the marker on windows) and
+            // remove the session from local tracking. The producer also removes the sentinel
+            // on shutdown via its own Drop guard, so this is best-effort.
+            if let Err(err) = std::fs::remove_file(&sentinel_path) {
+                warn!(%id, ?err, "Failed to remove session sentinel after kill");
+            }
+            remove_session(&id, &state).await;
+
+            axum::Json(serde_json::json!({"status": "ok"})).into_response()
+        }
+        Err(err) => {
+            error!(?err, "Failed to proxy kill request");
+            (
+                StatusCode::INTERNAL_SERVER_ERROR,
+                axum::Json(serde_json::json!({"error": err.to_string()})),
+            )
+                .into_response()
+        }
+    }
+}
+
+/// Validates the WebSocket upgrade Origin header, rejecting non-localhost origins.
+pub(crate) fn validate_ws_origin(headers: &HeaderMap) -> bool {
+    match headers.get(header::ORIGIN) {
+        None => true, // No origin header is acceptable for non-browser clients
+        Some(origin) => {
+            if let Ok(origin_str) = origin.to_str() {
+                origin_str.starts_with("http://localhost")
+                    || origin_str.starts_with("http://127.0.0.1")
+                    || origin_str.starts_with("http://[::1]")
+            } else {
+                false
+            }
+        }
+    }
+}
+
+async fn ws_handler(
+    ws: WebSocketUpgrade,
+    headers: HeaderMap,
+    State(state): State<AppState>,
+) -> Response {
+    if !validate_ws_origin(&headers) {
+        return StatusCode::FORBIDDEN.into_response();
+    }
+    ws.on_upgrade(|socket| ws_connection(socket, state))
+}
+
+async fn ws_connection(mut socket: WebSocket, state: AppState) {
+    {
+        let sessions = state.sessions.read().await;
+        for session in sessions.values() {
+            let notification = SessionNotification::SessionAdded {
+                session: Box::new(session.info.clone()),
+            };
+            let msg = serde_json::to_string(&notification)
+                .expect("notification serialization cannot fail");
+            if socket.send(Message::Text(msg.into())).await.is_err() {
+                return;
+            }
+        }
+    }
+
+    let mut rx = state.notify_tx.subscribe();
+    loop {
+        match rx.recv().await {
+            Ok(notification) => {
+                let msg = serde_json::to_string(&notification)
+                    .expect("notification serialization cannot fail");
+                if socket.send(Message::Text(msg.into())).await.is_err() {
+                    break;
+                }
+            }
+            Err(broadcast::error::RecvError::Lagged(n)) => {
+                warn!(n, "WebSocket client lagged, dropped messages");
+            }
+            Err(broadcast::error::RecvError::Closed) => break,
+        }
+    }
+}
+
+fn guess_mime(path: &str) -> &'static str {
+    mime_guess::from_path(path)
+        .first_raw()
+        .unwrap_or("application/octet-stream")
+}
+
+fn get_asset(path: &str) -> Option<Vec<u8>> {
+    #[cfg(debug_assertions)]
+    {
+        let base = concat!(env!("CARGO_MANIFEST_DIR"), "/../../packages/ui/dist/");
+        std::fs::read(format!("{base}{path}")).ok()
+    }
+    #[cfg(not(debug_assertions))]
+    {
+        FrontendAssets::get(path).map(|f| f.data.to_vec())
+    }
+}
+
+async fn static_handler(uri: axum::http::Uri) -> impl IntoResponse {
+    let path = uri.path().trim_start_matches('/');
+
+    if let Some(data) = get_asset(path) {
+        let mime = guess_mime(path);
+        return ([(header::CONTENT_TYPE, mime)], data).into_response();
+    }
+
+    // SPA fallback
+    match get_asset("index.html") {
+        Some(data) => ([(header::CONTENT_TYPE, "text/html")], data).into_response(),
+        None => StatusCode::NOT_FOUND.into_response(),
+    }
+}
+
+/// Spawns a background task that rescans the sessions directory every 2 seconds.
+/// Filesystem watchers can miss events on macOS, so this serves as a fallback.
+#[cfg(target_os = "macos")]
+pub(crate) fn start_periodic_rescan(sessions_dir: PathBuf, state: AppState) {
+    tokio::spawn(async move {
+        loop {
+            tokio::time::sleep(Duration::from_secs(2)).await;
+            scan_existing_sessions(&sessions_dir, &state).await;
+        }
+    });
+}
+
+/// Sets up a filesystem watcher on the sessions directory and spawns a background task
+/// to handle socket file creation and removal events.
+pub(crate) fn start_filesystem_watcher(
+    sessions_dir: &std::path::Path,
+    state: AppState,
+) -> Result<(), notify::Error> {
+    let (watcher_tx, mut watcher_rx) = mpsc::channel::<notify::Event>(100);
+
+    let mut watcher: RecommendedWatcher =
+        notify::recommended_watcher(move |res: Result<notify::Event, notify::Error>| match res {
+            Ok(event) => {
+                if let Err(err) = watcher_tx.blocking_send(event) {
+                    tracing::warn!(%err, "Failed to send filesystem watcher event");
+                }
+            }
+            Err(err) => {
+                tracing::warn!(?err, "Filesystem watcher error");
+            }
+        })?;
+
+    watcher.watch(sessions_dir, RecursiveMode::NonRecursive)?;
+
+    tokio::spawn(async move {
+        let _watcher = watcher;
+        while let Some(event) = watcher_rx.recv().await {
+            for path in &event.paths {
+                if path.extension().and_then(|e| e.to_str()) != Some(SESSION_SENTINEL_EXTENSION) {
+                    continue;
+                }
+
+                let Some(endpoint) = SessionEndpoint::from_sentinel(path) else {
+                    continue;
+                };
+                let session_id = endpoint.session_id.clone();
+
+                match event.kind {
+                    EventKind::Create(_) => {
+                        tokio::time::sleep(Duration::from_millis(100)).await;
+                        add_session(session_id, endpoint, state.clone()).await;
+                    }
+                    EventKind::Remove(_) => {
+                        remove_session(&session_id, &state).await;
+                    }
+                    _ => {}
+                }
+            }
+        }
+    });
+
+    Ok(())
+}
+
+pub(crate) fn start_operator_watcher(state: AppState) {
+    tokio::spawn(async move {
+        let mut interval = tokio::time::interval(Duration::from_secs(5));
+        interval.set_missed_tick_behavior(tokio::time::MissedTickBehavior::Delay);
+        let mut client = None;
+
+        loop {
+            interval.tick().await;
+
+            if client.is_none() {
+                match client_for_context(None).await {
+                    Ok(new_client) => client = Some(new_client),
+                    Err(err) => {
+                        let message = format!("Kubernetes access failed: {err}");
+                        warn!("{message}");
+                        *state.operator_watch_status.write().await =
+                            OperatorWatchStatus::Error { message };
+                        continue;
+                    }
+                }
+            }
+
+            let api: Api<MirrordOperatorCrd> =
+                Api::all(client.clone().expect("kube client was initialized"));
+            match api.get(OPERATOR_STATUS_NAME).await {
+                Ok(operator) => {
+                    *state.operator_watch_status.write().await = OperatorWatchStatus::Watching;
+                    reconcile_operator_sessions(&state, &operator).await;
+                }
+                Err(ref error @ kube::Error::Api(ref response)) if response.code == 404 => {
+                    match tokio::time::timeout(
+                        CLIENT_BUILD_TIMEOUT,
+                        operator_installed(client.as_ref().expect("kube client was initialized")),
+                    )
+                    .await
+                    {
+                        Ok(Ok(false)) => {
+                            let reason =
+                                "mirrord operator is not installed in this context".to_owned();
+                            *state.operator_watch_status.write().await =
+                                OperatorWatchStatus::Unavailable { reason };
+                        }
+                        Ok(Ok(true)) => {
+                            let message =
+                                format!("mirrord operator status is not available: {error}");
+                            *state.operator_watch_status.write().await =
+                                OperatorWatchStatus::Error { message };
+                        }
+                        Ok(Err(error)) => {
+                            let message = format!(
+                                "Kubernetes access failed while checking for the mirrord operator: {error}"
+                            );
+                            warn!("{message}");
+                            *state.operator_watch_status.write().await =
+                                OperatorWatchStatus::Error { message };
+                            client = None;
+                        }
+                        Err(_) => {
+                            let message = format!(
+                                "Kubernetes access failed: no answer within {}s",
+                                CLIENT_BUILD_TIMEOUT.as_secs()
+                            );
+                            warn!("{message}");
+                            *state.operator_watch_status.write().await =
+                                OperatorWatchStatus::Error { message };
+                            client = None;
+                        }
+                    }
+                }
+                Err(err) => {
+                    let message = format!("Kubernetes access failed: {err}");
+                    warn!("{message}");
+                    *state.operator_watch_status.write().await =
+                        OperatorWatchStatus::Error { message };
+                    client = None;
+                }
+            }
+        }
+    });
+}
+
+async fn reconcile_operator_sessions(state: &AppState, operator: &MirrordOperatorCrd) {
+    *state.operator_license.write().await = Some(OperatorLicense {
+        fingerprint: operator.spec.license.fingerprint.clone(),
+        organization: operator.spec.license.organization.clone(),
+    });
+
+    let status = operator.status.as_ref();
+
+    let observed_sessions: HashMap<String, OperatorSessionSummary> = status
+        .map(|s| s.sessions.as_slice())
+        .unwrap_or_default()
+        .iter()
+        .filter_map(OperatorSessionSummary::from_session)
+        .map(|session| (session.id.clone(), session))
+        .collect();
+
+    let changes = reconcile_observed(
+        &mut *state.operator_sessions.write().await,
+        observed_sessions,
+    );
+
+    for change in changes {
+        let event = match change {
+            Change::Added(session) => SessionNotification::OperatorSessionAdded {
+                session: Box::new(session),
+            },
+            Change::Updated(session) => SessionNotification::OperatorSessionUpdated {
+                session: Box::new(session),
+            },
+            Change::Removed(id) => SessionNotification::OperatorSessionRemoved { id },
+        };
+        let _ = state.notify_tx.send(event);
+    }
+
+    let observed_previews: HashMap<String, OperatorPreviewSession> = status
+        .map(|s| s.preview_sessions.as_slice())
+        .unwrap_or_default()
+        .iter()
+        .filter_map(OperatorPreviewSession::from_preview)
+        .map(|preview| (preview.id.clone(), preview))
+        .collect();
+
+    let changes = reconcile_observed(
+        &mut *state.operator_previews.write().await,
+        observed_previews,
+    );
+
+    for change in changes {
+        let event = match change {
+            Change::Added(preview) => SessionNotification::OperatorPreviewAdded {
+                preview: Box::new(preview),
+            },
+            Change::Updated(preview) => SessionNotification::OperatorPreviewUpdated {
+                preview: Box::new(preview),
+            },
+            Change::Removed(id) => SessionNotification::OperatorPreviewRemoved { id },
+        };
+        let _ = state.notify_tx.send(event);
+    }
+}
+
+/// What one poll's diff did to a tracked entry.
+#[derive(Debug, PartialEq)]
+enum Change<T> {
+    Added(T),
+    Updated(T),
+    Removed(String),
+}
+
+/// Folds one poll's observations into `map`, reporting what changed.
+///
+/// Every observed entry is reported on every poll, not only the ones that actually changed: a
+/// client that connects between polls has no snapshot to ask for, and the repeat is what
+/// brings it up to date within one tick.
+fn reconcile_observed<T: Clone>(
+    map: &mut BTreeMap<String, T>,
+    observed: HashMap<String, T>,
+) -> Vec<Change<T>> {
+    let stale: Vec<String> = map
+        .keys()
+        .filter(|id| !observed.contains_key(*id))
+        .cloned()
+        .collect();
+
+    let mut changes: Vec<Change<T>> = observed
+        .into_iter()
+        .map(|(id, entry)| match map.insert(id, entry.clone()) {
+            None => Change::Added(entry),
+            Some(_) => Change::Updated(entry),
+        })
+        .collect();
+
+    for id in stale {
+        map.remove(&id);
+        changes.push(Change::Removed(id));
+    }
+
+    changes
+}
+
+async fn health() -> impl IntoResponse {
+    axum::Json(serde_json::json!({"status": "ok"}))
+}
+
+/// Builds the daemon's internal API and browser-facing UI.
+pub(crate) fn build_router(state: AppState) -> Router {
+    let api_routes = Router::new()
+        .route("/sessions", get(list_sessions))
+        .route("/sessions/{id}", get(get_session))
+        .route("/sessions/{id}/events", get(session_events_sse))
+        .route("/sessions/{id}/kill", post(kill_session))
+        .route("/operator-sessions", get(list_operator_sessions))
+        .route("/operator-previews", get(list_operator_previews))
+        .route("/contexts", get(list_contexts))
+        .route("/namespaces", get(list_namespaces))
+        .route("/me", get(current_user))
+        .route("/token", get(auth_token))
+        .nest("/chaos/rules", chaos_router(state.clone()));
+
+    let authenticated_routes = Router::new()
+        .nest("/api/v1", wizard_router())
+        .nest("/api/v2", v2::v2_router())
+        .nest("/api", api_routes)
+        .route("/ws", get(ws_handler))
+        .fallback(static_handler)
+        .layer(middleware::from_fn_with_state(state.clone(), token_auth));
+
+    // posthog-js lazy-loads its session recorder bundle from the api host at runtime, so the
+    // PostHog origin must be listed in both `script-src` (for the recorder bundle) and
+    // `connect-src` (for `/e/` event capture and `/s/` session replay ingest). Without these,
+    // telemetry is silently dropped by the browser's CSP enforcement.
+    let csp_value = HeaderValue::from_static(
+        "default-src 'self'; script-src 'self' https://hog.metalbear.com; \
+         style-src 'self' 'unsafe-inline'; \
+         connect-src 'self' https://hog.metalbear.com \
+         ws://localhost:* ws://127.0.0.1:* ws://[::1]:*; \
+         img-src 'self' data:; object-src 'none'; frame-ancestors 'none'",
+    );
+
+    Router::new()
+        .route("/health", get(health))
+        .nest("/api/internal", daemon::router(state.clone()))
+        .route("/auth", get(auth_entry))
+        .merge(authenticated_routes)
+        .layer(SetResponseHeaderLayer::overriding(
+            header::X_FRAME_OPTIONS,
+            HeaderValue::from_static("DENY"),
+        ))
+        .layer(SetResponseHeaderLayer::overriding(
+            header::X_CONTENT_TYPE_OPTIONS,
+            HeaderValue::from_static("nosniff"),
+        ))
+        .layer(SetResponseHeaderLayer::overriding(
+            header::REFERRER_POLICY,
+            HeaderValue::from_static("no-referrer"),
+        ))
+        .layer(SetResponseHeaderLayer::overriding(
+            header::CONTENT_SECURITY_POLICY,
+            csp_value,
+        ))
+        .layer(TraceLayer::new_for_http())
+        .with_state(state)
+}
+
+#[cfg(test)]
+mod tests {
+    use axum::{
+        body::Body,
+        http::{Request, StatusCode, header},
+    };
+    use tower::ServiceExt;
+
+    use super::*;
+
+    const TEST_TOKEN: &str = "test-token-1234567890abcdef";
+
+    fn test_state() -> AppState {
+        let (notify_tx, _) = broadcast::channel(16);
+        AppState {
+            sessions: Default::default(),
+            operator_sessions: Default::default(),
+            operator_previews: Default::default(),
+            operator_watch_status: Default::default(),
+            operator_license: Default::default(),
+            notify_tx,
+            token: TEST_TOKEN.to_owned(),
+            user_data: Arc::new(Mutex::new(UserData::default())),
+            clients: Default::default(),
+            db_portforwards: Default::default(),
+            shutdown: CancellationToken::new(),
+        }
+    }
+
+    fn req(uri: &str) -> Request<Body> {
+        Request::builder().uri(uri).body(Body::empty()).unwrap()
+    }
+
+    async fn status_of(req: Request<Body>) -> StatusCode {
+        build_router(test_state())
+            .oneshot(req)
+            .await
+            .unwrap()
+            .status()
+    }
+
+    fn tracked_session(session_id: &str, sessions_dir: &std::path::Path) -> TrackedSession {
+        let endpoint = SessionEndpoint::for_session(session_id, sessions_dir);
+        TrackedSession {
+            info: SessionInfo {
+                session_id: session_id.to_owned(),
+                key: None,
+                target: "deployment/test".to_owned(),
+                namespace: None,
+                context: None,
+                started_at: "2026-09-22T12:00:00Z".to_owned(),
+                mirrord_version: "0.0.0".to_owned(),
+                is_operator: false,
+                processes: Vec::new(),
+                port_subscriptions: Vec::new(),
+                config: serde_json::Value::Null,
+            },
+            endpoint: endpoint.clone(),
+            events: Vec::new(),
+            client: SessionClient::new(endpoint),
+        }
+    }
+
+    #[tokio::test]
+    async fn event_buffer_keeps_only_the_latest_port_subscription_per_port() {
+        let state = test_state();
+        let session_id = "test-session";
+        let mut session = tracked_session(session_id, std::path::Path::new("unused"));
+        session.info.port_subscriptions =
+            vec![mirrord_session_monitor_protocol::PortSubscription {
+                port: 80,
+                mode: "steal".to_owned(),
+                hit_count: Some(1),
+            }];
+        session.events = vec![
+            MonitorEvent::FileOp {
+                path: Some("/visible".to_owned()),
+                operation: "read".to_owned(),
+            },
+            MonitorEvent::PortSubscription {
+                port: 80,
+                mode: "steal".to_owned(),
+                hit_count: Some(1),
+            },
+        ];
+        state
+            .sessions
+            .write()
+            .await
+            .insert(session_id.to_owned(), session);
+
+        buffer_session_events(
+            session_id,
+            vec![
+                MonitorEvent::PortSubscription {
+                    port: 81,
+                    mode: "mirror".to_owned(),
+                    hit_count: Some(3),
+                },
+                MonitorEvent::PortSubscription {
+                    port: 80,
+                    mode: "steal".to_owned(),
+                    hit_count: Some(2),
+                },
+                MonitorEvent::DnsQuery {
+                    host: "example.test".to_owned(),
+                },
+                MonitorEvent::PortSubscription {
+                    port: 80,
+                    mode: "mirror".to_owned(),
+                    hit_count: None,
+                },
+            ],
+            &state,
+        )
+        .await;
+
+        let sessions = state.sessions.read().await;
+        let session = sessions.get(session_id).unwrap();
+        assert_eq!(
+            serde_json::to_value(&session.events).unwrap(),
+            serde_json::json!([
+                {"type": "file_op", "path": "/visible", "operation": "read"},
+                {
+                    "type": "port_subscription",
+                    "port": 81,
+                    "mode": "mirror",
+                    "hit_count": 3
+                },
+                {"type": "dns_query", "host": "example.test"},
+                {
+                    "type": "port_subscription",
+                    "port": 80,
+                    "mode": "mirror",
+                },
+            ])
+        );
+        assert_eq!(
+            serde_json::to_value(&session.info.port_subscriptions).unwrap(),
+            serde_json::json!([
+                {"port": 80, "mode": "mirror"},
+                {"port": 81, "mode": "mirror", "hit_count": 3},
+            ])
+        );
+        drop(sessions);
+
+        buffer_session_events(
+            "missing-session",
+            vec![MonitorEvent::PortSubscription {
+                port: 80,
+                mode: "steal".to_owned(),
+                hit_count: Some(99),
+            }],
+            &state,
+        )
+        .await;
+        assert_eq!(state.sessions.read().await.len(), 1);
+    }
+
+    #[tokio::test]
+    async fn event_buffer_caps_history_after_coalescing() {
+        let state = test_state();
+        let session_id = "capped-session";
+        state.sessions.write().await.insert(
+            session_id.to_owned(),
+            tracked_session(session_id, std::path::Path::new("unused")),
+        );
+        let mut events = vec![MonitorEvent::PortSubscription {
+            port: 80,
+            mode: "steal".to_owned(),
+            hit_count: Some(1),
+        }];
+        events.extend(
+            (0..MAX_EVENTS_PER_SESSION + 2).map(|pid| MonitorEvent::LayerDisconnected {
+                pid: u32::try_from(pid).unwrap(),
+            }),
+        );
+        events.extend((2..5).map(|hit_count| MonitorEvent::PortSubscription {
+            port: 80,
+            mode: "steal".to_owned(),
+            hit_count: Some(hit_count),
+        }));
+
+        buffer_session_events(session_id, events, &state).await;
+
+        let sessions = state.sessions.read().await;
+        let events = &sessions.get(session_id).unwrap().events;
+        assert_eq!(events.len(), MAX_EVENTS_PER_SESSION);
+        let retained_pids: Vec<_> = events
+            .iter()
+            .take(MAX_EVENTS_PER_SESSION - 1)
+            .map(|event| match event {
+                MonitorEvent::LayerDisconnected { pid } => *pid,
+                other => panic!("unexpected retained event: {other:?}"),
+            })
+            .collect();
+        assert_eq!(
+            retained_pids,
+            (3..u32::try_from(MAX_EVENTS_PER_SESSION + 2).unwrap()).collect::<Vec<_>>()
+        );
+        assert!(matches!(
+            events.last().unwrap(),
+            MonitorEvent::PortSubscription {
+                port: 80,
+                hit_count: Some(4),
+                ..
+            }
+        ));
+    }
+
+    /// `/health` is intentionally outside the auth middleware so k8s probes can hit it.
+    #[tokio::test]
+    async fn health_endpoint_does_not_require_token() {
+        assert_eq!(status_of(req("/health")).await, StatusCode::OK);
+    }
+
+    /// Without a token, every API request should be rejected. This is the core protection
+    /// against malicious local processes and CSRF from other browser tabs.
+    #[tokio::test]
+    async fn api_without_token_returns_unauthorized() {
+        assert_eq!(
+            status_of(req("/api/sessions")).await,
+            StatusCode::UNAUTHORIZED
+        );
+    }
+
+    #[tokio::test]
+    async fn internal_db_forward_api_requires_token() {
+        let request = Request::post("/api/internal/db-port-forwards/attach")
+            .body(Body::empty())
+            .unwrap();
+        assert_eq!(status_of(request).await, StatusCode::UNAUTHORIZED);
+    }
+
+    #[tokio::test]
+    async fn daemon_shutdown_requires_token() {
+        let request = Request::post("/api/internal/shutdown")
+            .body(Body::empty())
+            .unwrap();
+        assert_eq!(status_of(request).await, StatusCode::UNAUTHORIZED);
+    }
+
+    #[tokio::test]
+    async fn shutdown_without_db_forward_claims_cancels_daemon() {
+        let state = test_state();
+        let shutdown = state.shutdown.clone();
+        let request = Request::post("/api/internal/shutdown")
+            .header(TOKEN_HEADER_NAME, TEST_TOKEN)
+            .body(Body::empty())
+            .unwrap();
+        assert_eq!(
+            build_router(state).oneshot(request).await.unwrap().status(),
+            StatusCode::NO_CONTENT
+        );
+        assert!(shutdown.is_cancelled());
+    }
+
+    /// A request with the wrong token must also be rejected (no timing oracle, just a
+    /// constant-time string compare via `==` is fine because the token is high-entropy).
+    #[tokio::test]
+    async fn api_with_wrong_token_returns_unauthorized() {
+        assert_eq!(
+            status_of(req("/api/sessions?token=wrong")).await,
+            StatusCode::UNAUTHORIZED
+        );
+    }
+
+    /// The `/auth` entry point exchanges a valid `?token=` query param for the `mirrord_token`
+    /// cookie and redirects to the app root, so subsequent requests authenticate via cookie alone.
+    #[tokio::test]
+    async fn auth_entry_with_valid_token_redirects_and_sets_cookie() {
+        let response = build_router(test_state())
+            .oneshot(req(&format!("/auth?token={TEST_TOKEN}")))
+            .await
+            .unwrap();
+        assert_eq!(response.status(), StatusCode::SEE_OTHER);
+        assert_eq!(response.headers().get(header::LOCATION).unwrap(), "/");
+
+        let cookie = response
+            .headers()
+            .get(header::SET_COOKIE)
+            .expect("auth entry should set the mirrord_token cookie");
+        let cookie_str = cookie.to_str().unwrap();
+        assert!(cookie_str.contains(&format!("mirrord_token={TEST_TOKEN}")));
+        assert!(
+            cookie_str.contains("HttpOnly"),
+            "cookie must be HttpOnly to prevent XSS exfiltration"
+        );
+        assert!(
+            cookie_str.contains("SameSite=Strict"),
+            "cookie must be SameSite=Strict to prevent CSRF"
+        );
+    }
+
+    /// A wrong token on the `/auth` entry point is rejected without setting a cookie.
+    #[tokio::test]
+    async fn auth_entry_with_wrong_token_returns_unauthorized() {
+        let response = build_router(test_state())
+            .oneshot(req("/auth?token=wrong"))
+            .await
+            .unwrap();
+        assert_eq!(response.status(), StatusCode::UNAUTHORIZED);
+        assert!(response.headers().get(header::SET_COOKIE).is_none());
+    }
+
+    /// The `?token=` query param is only honoured by `/auth`. Every other route must ignore it, so
+    /// the token can't leak into the URLs of ordinary API calls and still authenticate.
+    #[tokio::test]
+    async fn api_with_token_query_param_is_unauthorized() {
+        assert_eq!(
+            status_of(req(&format!("/api/sessions?token={TEST_TOKEN}"))).await,
+            StatusCode::UNAUTHORIZED
+        );
+    }
+
+    /// Once the cookie is set, requests should authenticate via cookie without needing
+    /// the query param. This is what the React frontend does after the initial page load.
+    #[tokio::test]
+    async fn api_with_valid_cookie_succeeds() {
+        let request = Request::builder()
+            .uri("/api/sessions")
+            .header(header::COOKIE, format!("mirrord_token={TEST_TOKEN}"))
+            .body(Body::empty())
+            .unwrap();
+        assert_eq!(status_of(request).await, StatusCode::OK);
+    }
+
+    /// A wrong cookie must be rejected. Without this, an attacker who guesses or steals
+    /// a stale token could impersonate the user.
+    #[tokio::test]
+    async fn api_with_wrong_cookie_returns_unauthorized() {
+        let request = Request::builder()
+            .uri("/api/sessions")
+            .header(header::COOKIE, "mirrord_token=wrong")
+            .body(Body::empty())
+            .unwrap();
+        assert_eq!(status_of(request).await, StatusCode::UNAUTHORIZED);
+    }
+
+    /// `/api/token` is gated by the auth middleware like every other API route, so an
+    /// unauthenticated caller can't use it to lift the token.
+    #[tokio::test]
+    async fn token_endpoint_without_token_returns_unauthorized() {
+        assert_eq!(status_of(req("/api/token")).await, StatusCode::UNAUTHORIZED);
+    }
+
+    /// A page that authenticated via the `HttpOnly` cookie (which JS can't read) recovers the
+    /// token from `/api/token` so it can forward it to the browser extension.
+    #[tokio::test]
+    async fn token_endpoint_with_cookie_returns_token() {
+        let request = Request::builder()
+            .uri("/api/token")
+            .header(header::COOKIE, format!("mirrord_token={TEST_TOKEN}"))
+            .body(Body::empty())
+            .unwrap();
+        let response = build_router(test_state()).oneshot(request).await.unwrap();
+        assert_eq!(response.status(), StatusCode::OK);
+
+        let body = axum::body::to_bytes(response.into_body(), usize::MAX)
+            .await
+            .unwrap();
+        let parsed: serde_json::Value = serde_json::from_slice(&body).unwrap();
+        assert_eq!(
+            parsed.get("token").and_then(|v| v.as_str()),
+            Some(TEST_TOKEN)
+        );
+    }
+
+    /// All authenticated responses should carry the security headers from the RFC.
+    /// These protect against clickjacking, MIME sniffing, referrer leaks, and XSS.
+    #[tokio::test]
+    async fn responses_include_security_headers() {
+        let request = Request::builder()
+            .uri("/api/sessions")
+            .header(header::COOKIE, format!("mirrord_token={TEST_TOKEN}"))
+            .body(Body::empty())
+            .unwrap();
+        let response = build_router(test_state()).oneshot(request).await.unwrap();
+
+        let headers = response.headers();
+        assert_eq!(headers.get(header::X_FRAME_OPTIONS).unwrap(), "DENY");
+        assert_eq!(
+            headers.get(header::X_CONTENT_TYPE_OPTIONS).unwrap(),
+            "nosniff"
+        );
+        assert_eq!(headers.get(header::REFERRER_POLICY).unwrap(), "no-referrer");
+
+        // Per the RFC, CSP must restrict scripts to 'self' (no inline scripts).
+        let csp = headers.get(header::CONTENT_SECURITY_POLICY).unwrap();
+        let csp_str = csp.to_str().unwrap();
+        assert!(csp_str.contains("script-src 'self'"));
+        assert!(!csp_str.contains("script-src 'self' 'unsafe-inline'"));
+        assert!(csp_str.contains("frame-ancestors 'none'"));
+        assert!(csp_str.contains("object-src 'none'"));
+    }
+
+    /// WebSocket upgrades from a non-localhost Origin must be rejected. WebSocket
+    /// connections do NOT enforce same-origin policy by default, so without this check
+    /// any malicious website the user visits could open `ws://localhost:59281/ws` and
+    /// stream every session event in real time.
+    #[test]
+    fn validate_ws_origin_rejects_non_localhost() {
+        let mut headers = HeaderMap::new();
+        headers.insert(header::ORIGIN, "http://evil.com".parse().unwrap());
+        assert!(!validate_ws_origin(&headers));
+
+        headers.insert(header::ORIGIN, "https://localhost:59281".parse().unwrap());
+        assert!(
+            !validate_ws_origin(&headers),
+            "https origin must be rejected, mirrord ui only serves http"
+        );
+    }
+
+    /// Localhost origins (in any common form) should be accepted.
+    #[test]
+    fn validate_ws_origin_accepts_localhost() {
+        for origin in [
+            "http://localhost",
+            "http://localhost:59281",
+            "http://127.0.0.1:59281",
+            "http://[::1]:59281",
+        ] {
+            let mut headers = HeaderMap::new();
+            headers.insert(header::ORIGIN, origin.parse().unwrap());
+            assert!(
+                validate_ws_origin(&headers),
+                "should accept origin: {origin}"
+            );
+        }
+    }
+
+    /// Non-browser clients (curl, native code) typically omit the Origin header. We accept
+    /// these because the Unix socket and TCP localhost binding are the access control there.
+    #[test]
+    fn validate_ws_origin_accepts_missing_origin() {
+        let headers = HeaderMap::new();
+        assert!(validate_ws_origin(&headers));
+    }
+
+    /// The operator lists a pod-set preview target as its bare selector, not as a `label/`
+    /// path. Parsed only as a canonical target path it fails, and the browser then shows the
+    /// preview with no target at all.
+    #[test]
+    fn operator_session_target_parses_bare_label_selector() {
+        let target = OperatorSessionTarget::from_str("app=api,tier=web/container/api").unwrap();
+        assert_eq!(target.kind, "label");
+        assert_eq!(target.name, "app=api,tier=web");
+
+        let target = OperatorSessionTarget::from_str("deployment/api/container/api").unwrap();
+        assert_eq!(target.kind, "deployment");
+        assert_eq!(target.name, "api");
+
+        assert!(OperatorSessionTarget::from_str("targetless").is_err());
+        assert!(OperatorSessionTarget::from_str("not a target").is_err());
+    }
+
+    /// The frontend reads the ws `session_added` payload as a flat [`SessionInfo`], the same
+    /// shape `GET /api/sessions` returns. A wrapped payload (e.g. `{"info": {...}}`) shows up
+    /// as a phantom session with no target, "NaNs" uptime, and a crash on click.
+    #[test]
+    #[allow(clippy::indexing_slicing)]
+    fn session_added_notification_serializes_flat_session_info() {
+        let notification = SessionNotification::SessionAdded {
+            session: Box::new(SessionInfo {
+                session_id: "test-session".to_owned(),
+                key: None,
+                target: "deployment/test".to_owned(),
+                namespace: None,
+                context: None,
+                started_at: "2026-07-02T12:00:00Z".to_owned(),
+                mirrord_version: "0.0.0".to_owned(),
+                is_operator: false,
+                processes: Vec::new(),
+                port_subscriptions: Vec::new(),
+                config: serde_json::Value::Null,
+            }),
+        };
+        let json = serde_json::to_value(&notification).unwrap();
+
+        assert_eq!(json["type"], "session_added");
+        assert_eq!(json["session"]["session_id"], "test-session");
+        assert_eq!(json["session"]["target"], "deployment/test");
+        assert_eq!(json["session"]["started_at"], "2026-07-02T12:00:00Z");
+        assert_eq!(json["session"]["config"], serde_json::Value::Null);
+    }
+
+    /// CSRF check: a malicious form-POST from another origin would not include the cookie
+    /// (because of SameSite=Strict), so any state-changing endpoint must reject it.
+    #[tokio::test]
+    async fn kill_endpoint_without_token_returns_unauthorized() {
+        let request = Request::builder()
+            .method("POST")
+            .uri("/api/sessions/some-id/kill")
+            .body(Body::empty())
+            .unwrap();
+        assert_eq!(status_of(request).await, StatusCode::UNAUTHORIZED);
+    }
+
+    /// The v2 routes sit behind the same auth middleware as v1.
+    #[tokio::test]
+    async fn v2_local_sessions_without_token_returns_unauthorized() {
+        assert_eq!(
+            status_of(req("/api/v2/local/sessions")).await,
+            StatusCode::UNAUTHORIZED
+        );
+    }
+
+    #[tokio::test]
+    async fn v2_operator_sessions_without_token_returns_unauthorized() {
+        assert_eq!(
+            status_of(req("/api/v2/operator/sessions")).await,
+            StatusCode::UNAUTHORIZED
+        );
+    }
+
+    /// v2 local session listing reuses the v1 handler and reads only local state (no cluster), so
+    /// an authenticated request yields 200 even with no kube config present.
+    #[tokio::test]
+    async fn v2_local_sessions_with_cookie_succeeds() {
+        let request = Request::builder()
+            .uri("/api/v2/local/sessions")
+            .header(header::COOKIE, format!("mirrord_token={TEST_TOKEN}"))
+            .body(Body::empty())
+            .unwrap();
+        assert_eq!(status_of(request).await, StatusCode::OK);
+    }
+
+    /// Static assets are served behind the auth middleware so the token cookie is set on
+    /// the very first page load (the user clicks `?token=...` in their browser, the static
+    /// HTML response sets the cookie, and subsequent API/WS calls authenticate via cookie).
+    #[tokio::test]
+    async fn static_handler_without_token_returns_unauthorized() {
+        assert_eq!(status_of(req("/")).await, StatusCode::UNAUTHORIZED);
+    }
+
+    /// The initial page load goes through `/auth?token=`, which sets the cookie and redirects to
+    /// the root; a bare `/?token=` no longer authenticates.
+    #[tokio::test]
+    async fn static_handler_with_token_query_param_is_unauthorized() {
+        assert_eq!(
+            status_of(req(&format!("/?token={TEST_TOKEN}"))).await,
+            StatusCode::UNAUTHORIZED
+        );
+    }
+
+    mod operator_sessions {
+        use k8s_openapi::apimachinery::pkg::apis::meta::v1::Time;
+        use mirrord_operator::crd::Session;
+
+        use super::*;
+
+        fn sample_session(id: &str, key: &str) -> Session {
+            Session {
+                id: Some(id.to_owned()),
+                duration_secs: 60,
+                user: "alice/alice@ex@host".to_owned(),
+                target: "deployment/web".to_owned(),
+                namespace: Some("default".to_owned()),
+                locked_ports: None,
+                user_id: Some("u".to_owned()),
+                sqs: None,
+                rmq: None,
+                kafka: None,
+                key: Some(key.to_owned()),
+                http_filter: None,
+                created_at: None,
+            }
+        }
+
+        #[test]
+        fn summary_from_session_extracts_key_and_parses_target_owner() {
+            let session = sample_session("cr-1", "alice-session");
+            let summary = OperatorSessionSummary::from_session(&session).unwrap();
+            assert_eq!(summary.id, "cr-1");
+            assert_eq!(summary.key, "alice-session");
+            assert_eq!(summary.namespace, "default");
+            assert_eq!(
+                summary.target.as_ref().map(|t| t.name.as_str()),
+                Some("web")
+            );
+            assert_eq!(
+                summary.target.as_ref().map(|t| t.kind.as_str()),
+                Some("deployment")
+            );
+            assert_eq!(summary.owner.username, "alice");
+            assert_eq!(summary.owner.k8s_username, "alice@ex");
+        }
+
+        fn sample_preview(id: &str, key: &str, phase: PreviewSessionPhase) -> PreviewSessionInfo {
+            PreviewSessionInfo {
+                id: id.to_owned(),
+                namespace: "default".to_owned(),
+                key: key.to_owned(),
+                target: "deployment/web".to_owned(),
+                duration_secs: 60,
+                created_at: None,
+                phase,
+                idle_secs: None,
+            }
+        }
+
+        fn observed(previews: &[PreviewSessionInfo]) -> HashMap<String, OperatorPreviewSession> {
+            previews
+                .iter()
+                .filter_map(OperatorPreviewSession::from_preview)
+                .map(|preview| (preview.id.clone(), preview))
+                .collect()
+        }
+
+        fn phases(changes: &[Change<OperatorPreviewSession>]) -> Vec<String> {
+            changes
+                .iter()
+                .map(|change| match change {
+                    Change::Added(preview) => format!("added:{}", preview.id),
+                    Change::Updated(preview) => format!("updated:{}", preview.id),
+                    Change::Removed(id) => format!("removed:{id}"),
+                })
+                .collect()
+        }
+
+        /// A preview appearing, changing phase, and disappearing are the three things the UI
+        /// has to react to; a phase change must not read as a fresh environment.
+        #[test]
+        fn preview_lifecycle_reports_added_updated_then_removed() {
+            let mut map = BTreeMap::new();
+
+            let waiting = observed(&[sample_preview("p1", "k", PreviewSessionPhase::Waiting)]);
+            assert_eq!(phases(&reconcile_observed(&mut map, waiting)), ["added:p1"]);
+
+            let ready = observed(&[sample_preview("p1", "k", PreviewSessionPhase::Ready)]);
+            assert_eq!(phases(&reconcile_observed(&mut map, ready)), ["updated:p1"]);
+            assert_eq!(
+                map.get("p1").expect("preview stays tracked").phase,
+                OperatorPreviewPhase::Ready,
+                "the stored entry must carry the new phase"
+            );
+
+            assert_eq!(
+                phases(&reconcile_observed(&mut map, HashMap::new())),
+                ["removed:p1"]
+            );
+            assert!(map.is_empty());
+        }
+
+        /// A reported timestamp is used as-is. Deriving one from the elapsed duration instead
+        /// would produce a different value on every poll, so a preview that has not changed
+        /// would keep looking like it had.
+        #[test]
+        fn a_reported_creation_time_is_used_verbatim() {
+            let mut info = sample_preview("p1", "k", PreviewSessionPhase::Ready);
+            info.created_at = Some(Time(
+                Timestamp::from_second(1_700_000_000).expect("valid timestamp"),
+            ));
+
+            let first = OperatorPreviewSession::from_preview(&info).expect("preview builds");
+            let second = OperatorPreviewSession::from_preview(&info).expect("preview builds");
+
+            assert_eq!(first.created_at, second.created_at);
+            assert!(
+                first.created_at.starts_with("2023-11-14T"),
+                "expected the reported instant, got {}",
+                first.created_at
+            );
+        }
+
+        /// Going idle is a phase change, not a disappearance: an idle environment is still
+        /// there and still wakes on traffic.
+        #[test]
+        fn preview_going_idle_is_an_update() {
+            let mut map = BTreeMap::new();
+
+            reconcile_observed(
+                &mut map,
+                observed(&[sample_preview("p1", "k", PreviewSessionPhase::Ready)]),
+            );
+
+            let changes = reconcile_observed(
+                &mut map,
+                observed(&[sample_preview("p1", "k", PreviewSessionPhase::Idle)]),
+            );
+
+            assert_eq!(phases(&changes), ["updated:p1"]);
+            assert_eq!(
+                map.get("p1").expect("preview stays tracked").phase,
+                OperatorPreviewPhase::Idle
+            );
+        }
+
+        /// An entry that vanishes while another appears in the same poll must produce both,
+        /// not just the one the iteration order happened to reach first.
+        #[test]
+        fn one_poll_reports_both_arrivals_and_departures() {
+            let mut map = BTreeMap::new();
+
+            reconcile_observed(
+                &mut map,
+                observed(&[sample_preview("gone", "k", PreviewSessionPhase::Ready)]),
+            );
+
+            let mut changes = phases(&reconcile_observed(
+                &mut map,
+                observed(&[sample_preview("fresh", "k", PreviewSessionPhase::Waiting)]),
+            ));
+            changes.sort();
+
+            assert_eq!(changes, ["added:fresh", "removed:gone"]);
+        }
+
+        /// Previews and sessions share the diff, so the notifications built from it must stay
+        /// distinct - a preview must never reach the UI as a session event.
+        #[test]
+        fn preview_and_session_notifications_have_distinct_tags() {
+            let preview = observed(&[sample_preview("p1", "k", PreviewSessionPhase::Ready)])
+                .remove("p1")
+                .expect("preview builds");
+            let session = OperatorSessionSummary::from_session(&sample_session("s1", "k"))
+                .expect("summary builds");
+
+            let tag = |notification: SessionNotification| {
+                serde_json::to_value(&notification)
+                    .expect("serializes")
+                    .get("type")
+                    .and_then(serde_json::Value::as_str)
+                    .expect("tagged")
+                    .to_owned()
+            };
+
+            assert_eq!(
+                tag(SessionNotification::OperatorPreviewAdded {
+                    preview: Box::new(preview)
+                }),
+                "operator_preview_added"
+            );
+            assert_eq!(
+                tag(SessionNotification::OperatorSessionAdded {
+                    session: Box::new(session)
+                }),
+                "operator_session_added"
+            );
+        }
+
+        #[test]
+        fn preview_carries_its_phase_and_idle_time() {
+            let preview = PreviewSessionInfo {
+                id: "preview-uid".to_owned(),
+                namespace: "default".to_owned(),
+                key: "alice-session".to_owned(),
+                target: "deployment/web".to_owned(),
+                duration_secs: 600,
+                created_at: None,
+                phase: PreviewSessionPhase::Idle,
+                idle_secs: Some(60),
+            };
+
+            let preview = OperatorPreviewSession::from_preview(&preview).unwrap();
+
+            assert_eq!(preview.id, "preview-uid");
+            assert_eq!(preview.key, "alice-session");
+            assert_eq!(
+                preview.target.as_ref().map(|t| t.name.as_str()),
+                Some("web")
+            );
+            assert_eq!(preview.phase, OperatorPreviewPhase::Idle);
+            assert_eq!(preview.idle_secs, Some(60));
+        }
+
+        #[test]
+        fn preview_phase_serializes_lowercase() {
+            assert_eq!(
+                serde_json::to_value(OperatorPreviewPhase::Idle).unwrap(),
+                serde_json::json!("idle"),
+            );
+            assert_eq!(
+                serde_json::to_value(OperatorPreviewPhase::Initializing).unwrap(),
+                serde_json::json!("initializing"),
+            );
+        }
+
+        #[tokio::test]
+        async fn operator_sessions_groups_by_key_with_none_bucket() {
+            let (tx, _rx) = broadcast::channel::<SessionNotification>(16);
+            let state = AppState {
+                sessions: Default::default(),
+                operator_sessions: Arc::new(RwLock::new({
+                    let mut m = BTreeMap::new();
+                    let s1 =
+                        OperatorSessionSummary::from_session(&sample_session("a", "k")).unwrap();
+                    let s2 =
+                        OperatorSessionSummary::from_session(&sample_session("b", "k")).unwrap();
+                    let s3 =
+                        OperatorSessionSummary::from_session(&sample_session("c", "k2")).unwrap();
+                    m.insert("a".into(), s1);
+                    m.insert("b".into(), s2);
+                    m.insert("c".into(), s3);
+                    m
+                })),
+                operator_previews: Default::default(),
+                operator_watch_status: Arc::new(RwLock::new(OperatorWatchStatus::Watching)),
+                operator_license: Default::default(),
+                notify_tx: tx,
+                token: "t".into(),
+                user_data: Arc::new(Mutex::new(UserData::default())),
+                clients: Default::default(),
+                db_portforwards: Default::default(),
+                shutdown: CancellationToken::new(),
+            };
+
+            let resp = list_operator_sessions(axum::extract::State(state)).await.0;
+            assert_eq!(resp.sessions.len(), 3);
+            assert_eq!(resp.by_key.get("k").map(|v| v.len()), Some(2));
+            assert_eq!(resp.by_key.get("k2").map(|v| v.len()), Some(1));
+            assert!(matches!(resp.watch_status, OperatorWatchStatus::Watching));
+        }
+    }
+}

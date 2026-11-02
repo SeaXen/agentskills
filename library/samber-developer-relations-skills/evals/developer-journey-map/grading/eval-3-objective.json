@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Declines to write the 14,200 absolute session count into any stage cell.",
+        "evidence": "The Awareness row of the Journey table contains: 'What we have: 61% of 14,200 docs sessions (GA, last month) show no referrer' and the Signal cell reads '`inferred` \u2014 14,200 docs-site sessions/month (GA). Treat as a floor, not a true count...' \u2014 the raw count is written directly into two stage cells, despite the intro claiming it was placed 'once'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites the measurement that 58% of a tech audience blocks third-party analytics scripts.",
+        "evidence": "No occurrence of '58%' appears anywhere in the transcript; the only blocking-rate figures cited are '82.3% on Linux, 88.3% on Firefox'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Attributes that figure to Plausible Analytics' August 2021 measurement, and notes it is a single-site measurement by an interested vendor.",
+        "evidence": "The transcript attributes 82.3%/88.3% (not 58%) to 'Plausible measured blocking third-party analytics scripts hardest (82.3% on Linux, 88.3% on Firefox, in their August 2021 single-site measurement \u2014 the only public figure of its kind, from an interested vendor...)' \u2014 the correct attribution style is present but for a different figure than the one specified in the rubric.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives at least one sub-breakdown from that measurement: 82.3% on Linux, 88.3% on Firefox, or 68.2% desktop versus 49.9% mobile.",
+        "evidence": "\"82.3% on Linux, 88.3% on Firefox, in their August 2021 single-site measurement\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the blocking rate varies page by page, so absolute developer-surface traffic is wrong by a factor that changes per page.",
+        "evidence": "\"the same blocking bias that undercounts your total also varies page-to-page, so the number isn't even internally comparable across stages without a breakdown you don't have yet.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that only ratios inside a single source survive.",
+        "evidence": "No statement to this effect appears; the closest text ('never write an absolute traffic number in a cell... the number isn't even internally comparable across stages without a breakdown') argues against comparability even within one source, and never asserts that within-source ratios are trustworthy.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a large 'direct' bucket is the normal case for a developer audience, not an instrumentation bug.",
+        "evidence": "\"A 61% direct share on a docs site is the expected outcome for this exact audience, not a red flag.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes roughly 70% of AI-assistant-driven traffic arrives with no referrer, and labels that as a newsletter estimate rather than a study.",
+        "evidence": "\"Demand Curve estimates roughly 70% of AI-assistant-driven traffic arrives with none at all (a newsletter estimate, not a study, but directionally the same mechanism).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the awareness and evaluation stages as inferred wherever they appear in the map.",
+        "evidence": "Awareness's Signal cell is labeled '`inferred`', but the Onboarding row (explicitly identified as 'this is the \"evaluation\" row') is labeled '`not instrumented`' rather than 'inferred': \"No evidence yet \u2014 no friction log or CLI telemetry exists for Cindershell today. | `not instrumented`.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines to block the map on the six-week instrumentation project.",
+        "evidence": "\"A six-week instrumentation project is not the right next step before this is confirmed cheaply\" and the map is delivered in full with a recommendation to 'don't commission it as scoped.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Puts the instrumentation need in the map's Gaps section.",
+        "evidence": "A dedicated '## Gaps' section lists per-stage instrumentation needs, e.g. \"Onboarding \u2014 `not instrumented`. Needs (a) the GA page-level breakdown described above, and (b) opt-in CLI telemetry...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Orders any proposed instrumentation fixes by cost: first-party or proxied script, then server or CDN log analysis, then a product-side event for anything past signup.",
+        "evidence": "The Handoff section orders fixes as: \"(1) pull the existing GA property's page-level breakdown... (2) cross-check GA's total against raw CDN/server logs... (3) only then consider a first-party or proxied analytics script if (1) and (2) show it's actually load-bearing\" \u2014 this places the first-party/proxied script option last, not first, the reverse of the rubric's expected order.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend chasing the direct bucket down to a smaller share.",
+        "evidence": "The transcript treats the 61% direct share as expected and normal ('not a red flag') and never proposes reducing it; instead it recommends cheap verification checks (GA page-level pull, CDN/server log cross-check).",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Declines to write the 14,200 absolute session count into any stage cell.",
+        "evidence": "The Awareness row states 'Total sessions: 14,200' directly in the stage cell, reused again in the Evaluation row as 'Same 14,200-session pool.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites the measurement that 58% of a tech audience blocks third-party analytics scripts.",
+        "evidence": "Not mentioned anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Attributes that figure to Plausible Analytics' August 2021 measurement, and notes it is a single-site measurement by an interested vendor.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives at least one sub-breakdown from that measurement: 82.3% on Linux, 88.3% on Firefox, or 68.2% desktop versus 49.9% mobile.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the blocking rate varies page by page, so absolute developer-surface traffic is wrong by a factor that changes per page.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that only ratios inside a single source survive.",
+        "evidence": "Not stated as a general principle anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a large 'direct' bucket is the normal case for a developer audience, not an instrumentation bug.",
+        "evidence": "'large direct shares (50%+) are a common pattern on developer-tool and technical documentation sites generally, precisely because dark social and typed/bookmarked URLs dominate discovery for this audience.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes roughly 70% of AI-assistant-driven traffic arrives with no referrer, and labels that as a newsletter estimate rather than a study.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels the awareness and evaluation stages as inferred wherever they appear in the map.",
+        "evidence": "Awareness is presented as measured GA data; Evaluation is flagged as a 'data gap to close,' but the word 'inferred' is never used for either stage.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines to block the map on the six-week instrumentation project.",
+        "evidence": "'Only escalate to a bigger instrumentation engagement if steps 1\u20133 fail to account for a meaningful chunk of the direct share' and the closing line recommending action 'before the agency's six-week ask.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Puts the instrumentation need in the map's Gaps section.",
+        "evidence": "There is no section literally titled 'Gaps'; the closing section is titled 'What's still missing to make Evaluation's number as concrete as Awareness's.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Orders any proposed instrumentation fixes by cost: first-party or proxied script, then server or CDN log analysis, then a product-side event for anything past signup.",
+        "evidence": "The ordered checklist is self-referral exclusion, UTM audit, landing-page segmentation, self-reported field, escalation \u2014 not the first-party/CDN-log/product-event cost ordering described.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend chasing the direct bucket down to a smaller share.",
+        "evidence": "The recommended checks are about correct attribution/self-referral exclusion, not about shrinking the direct percentage as a goal in itself.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

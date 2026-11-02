@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Names four distinct clash types rather than one generic conflict check",
+        "evidence": "Table lists clash types #3, #4, #1 and #2: same room, same speaker, room contract window, speaker availability.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the check already run as covering only same-room overlap and speaker double-booking",
+        "evidence": "\"no room holds two sessions at once, and no speaker appears twice at the same time.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that room-availability and speaker-availability conflicts fail silently, because nothing on the grid looks wrong",
+        "evidence": "\"Types 1 and 2 fail silently. Nothing on the grid looks wrong while the room is locked or the speaker is still in the air.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the 09:30 Hall C placement as sitting outside the room's contracted window of 12:30 onwards",
+        "evidence": "\"Hall C contract | from 12:30 | \u274c Fails by 3 hours\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the co-presented session as violating Priya Raghunathan's stated availability",
+        "evidence": "\"Priya Raghunathan | lands 10:40, good from 11:30 | \u274c Fails by 2 hours\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a multi-speaker session's valid window is the intersection of all co-speakers' availabilities",
+        "evidence": "\"Co-speaker intersection | from 11:30\"; \"Compute each one's intersection of speaker windows\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the Dario-Priya intersection as beginning at 11:30 or later",
+        "evidence": "\"Co-speaker intersection | from 11:30\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that the per-speaker check passed because it was run against Dario, the first-named speaker, alone",
+        "evidence": "Only hypothetical: \"If anyone checked the speakers one at a time, starting with whoever is listed first, it would look fine.\" It never says that is what happened.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends computing and recording the intersection as its own value before slotting rather than re-deriving it afterwards",
+        "evidence": "\"Compute each one's intersection of speaker windows and record it per session, before slotting.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends re-running clash detection after every subsequent change rather than once before publication",
+        "evidence": "\"re-run all four checks after every move. Each move invalidates the previous pass.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the room's contractual window and the speaker's personal window as two separate constraints",
+        "evidence": "The table has separate rows for Hall C contract and for each speaker, plus a separate \"Room \u2229 speakers\" row.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not treat a clean overlap and double-booking report as sufficient grounds to publish",
+        "evidence": "\"Don't publish yet... the check your ops lead ran wouldn't have caught it.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Names four distinct clash types rather than one generic conflict check",
+        "evidence": "Names double-booking, speaker availability and room availability, then lists capacity and changeover as extra checks. It never frames four clash types.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the check already run as covering only same-room overlap and speaker double-booking",
+        "evidence": "\"The spreadsheet check is clean, but it only tests double-booking. It can't see availability limits\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that room-availability and speaker-availability conflicts fail silently, because nothing on the grid looks wrong",
+        "evidence": "Says the check \"can't see availability limits\" but never says these conflicts look fine on the grid.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the 09:30 Hall C placement as sitting outside the room's contracted window of 12:30 onwards",
+        "evidence": "\"The venue contract gives you Hall C from 12:30... Any session in Hall C before 12:30 sits in a room you don't have.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the co-presented session as violating Priya Raghunathan's stated availability",
+        "evidence": "\"Priya can't make 09:30-10:15. Her flight lands at 10:40 and she's good from 11:30.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a multi-speaker session's valid window is the intersection of all co-speakers' availabilities",
+        "evidence": "Only says to check multi-speaker talks \"against each person's availability\"; it does not state the intersection rule.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the Dario-Priya intersection as beginning at 11:30 or later",
+        "evidence": "\"Put it at 11:30 or later at the earliest.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that the per-speaker check passed because it was run against Dario, the first-named speaker, alone",
+        "evidence": "Notes \"Dario is free from 08:00\" but never explains why the per-speaker check passed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends computing and recording the intersection as its own value before slotting rather than re-deriving it afterwards",
+        "evidence": "No such recommendation appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends re-running clash detection after every subsequent change rather than once before publication",
+        "evidence": "\"Re-run the conflict check after the moves. Moving talks can create new room or speaker clashes.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the room's contractual window and the speaker's personal window as two separate constraints",
+        "evidence": "Lists Priya's availability and the Hall C contract as separate numbered problems.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not treat a clean overlap and double-booking report as sufficient grounds to publish",
+        "evidence": "\"Do not publish yet.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

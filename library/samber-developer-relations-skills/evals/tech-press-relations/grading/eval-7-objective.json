@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Runs the open-source leak check before the lift time is committed",
+        "evidence": "\"your release process is wired to leak the embargo\" \u2014 enumerates tag push, docs deploy, changelog PR, and pricing flag as leak vectors requiring action before lift.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the tag-triggered npm publish as an embargo-breaking vector and requires holding the publish until lift",
+        "evidence": "\"Tag push \u2192 CI publishes to npm = the 'package published to a registry' leak vector... Do not push the tag... until the literal lift second.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the auto-deploying docs site as a leak vector",
+        "evidence": "\"Docs site auto-deploys from main = the 'docs deploy' leak vector.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the open changelog pull request as a leak vector",
+        "evidence": "\"Changelog PR already open on the public repo = the 'changelog entry' leak vector\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the pricing page as a leak vector",
+        "evidence": "\"Pricing page merged behind a flag = the 'licence or pricing file' leak vector.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects 'Thursday morning' and requires a stated day, clock time and timezone",
+        "evidence": "\"stating the literal lift instant in an unambiguous format \u2014 e.g. 'Thursday, Sep 24, 14:00 UTC (10:00 ET / 16:00 CEST / 23:00 JST)'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes the first-time contact from the embargo and gives them the news at lift time instead",
+        "evidence": "The transcript instead allows keeping them: \"If that checks out, keeping them in the embargo group is a defensible judgment call\" \u2014 only removes them conditionally if unverified in time.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends a tarball or private preview rather than early repository access",
+        "evidence": "No mention of a tarball or private preview alternative anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires deciding explicitly who internally knows the date",
+        "evidence": "No discussion of deciding who internally knows the date; only assigns execution ownership at 14:00.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that if anyone breaks the embargo it lifts for everyone immediately, so honest outlets are not punished",
+        "evidence": "No such statement appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the owned post and press page live at lift time with community channels hit in the same minute",
+        "evidence": "The transcript sequences these as separate phases (\"owned post + press page live at lift, then coverage, then community\"), not simultaneous.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Runs the open-source leak check before the lift time is committed",
+        "evidence": "Listed as the top critical item: 'The changelog PR being open on the public repo right now... Fix: check right now whether the PR diff or title reveals anything embargo-sensitive.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the tag-triggered npm publish as an embargo-breaking vector and requires holding the publish until lift",
+        "evidence": "'tag push is the most public, instantly-discoverable action via the npm registry, so it goes last.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the auto-deploying docs site as a leak vector",
+        "evidence": "'Docs site auto-deploying from main... one accidental merge... is a full leak.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the open changelog pull request as a leak vector",
+        "evidence": "'The changelog PR being open on the public repo right now.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the pricing page as a leak vector",
+        "evidence": "'The pricing page flag in the marketing repo... the code is already in production.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects 'Thursday morning' and requires a stated day, clock time and timezone",
+        "evidence": "'re-send the actual instant as an unambiguous absolute time \u2014 ISO 8601 with UTC offset (e.g., 2026-XX-XX 14:00 CEST / 12:00 UTC / 08:00 EDT).'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes the first-time contact from the embargo and gives them the news at lift time instead",
+        "evidence": "'if you can't verify them in time, give them the same materials at 14:00 alongside the public release instead of pre-embargo.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a tarball or private preview rather than early repository access",
+        "evidence": "No mention of a tarball or private preview alternative to repo access appears anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires deciding explicitly who internally knows the date",
+        "evidence": "The transcript addresses assigning a DRI per release step, not explicitly controlling who internally knows the embargo date.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that if anyone breaks the embargo it lifts for everyone immediately, so honest outlets are not punished",
+        "evidence": "'the moment it breaks publicly, you notify the other five immediately and lift the embargo for everyone \u2014 nobody waits to be scooped.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the owned post and press page live at lift time with community channels hit in the same minute",
+        "evidence": "No press page or same-minute community-channel requirement is stated in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

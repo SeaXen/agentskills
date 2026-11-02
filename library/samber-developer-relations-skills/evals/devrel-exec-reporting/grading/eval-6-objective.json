@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The report does not include the new 'community sentiment score'",
+        "evidence": "\"Why the two additions are not in the body\"; it is only a next-period proposal.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response routes the sentiment score idea to samber/developer-relations-skills@devrel-metrics or to a framework change, rather than adding it",
+        "evidence": "\"take it to devrel-metrics and baseline it for a quarter\"; \"Propose 'community sentiment' to the framework\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Blog pageviews (180k) are not added to the goal ledger as a metric",
+        "evidence": "Only in the appendix: \"Blog pageviews: 180k (measured, analytics; reach, not a framework metric)\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The headline or first section leads with an enablement or product-feedback result (time to first call or shipped feature requests)",
+        "evidence": "\"Median time to first successful API call fell from 22 to 14 minutes, and 6 community-requested features shipped.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response checks whether another change (for example an SDK or product release) could explain the time-to-first-call drop, or phrases it as co-movement rather than DevRel causing it",
+        "evidence": "\"co-movement, not a causal claim... Confirm that no API or onboarding change by engineering moved the same metric.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The SDK response metric at 78% appears in a misses or 'what did not work' row against its 80% threshold",
+        "evidence": "What did not work: \"78% against an 80% threshold\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The influenced pipeline figure is either placed after enablement results or in the appendix, not in the headline",
+        "evidence": "The headline omits the $260k; it sits in the last table row.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "If the $260k appears, it is labelled influenced",
+        "evidence": "\"influenced ([N]-day rule, shared with sales)\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Every number carries a claim label",
+        "evidence": "Each table row labelled measured or influenced.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The report contains a decision asked with a date or deadline",
+        "evidence": "\"Needed by <date>\"; options A/B.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The report does not include the new 'community sentiment score'",
+        "evidence": "'I would not put it in front of the CTO yet'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response routes the sentiment score idea to samber/developer-relations-skills@devrel-metrics or to a framework change, rather than adding it",
+        "evidence": "Suggests tracking it quietly as a baseline; never names devrel-metrics or a framework change.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Blog pageviews (180k) are not added to the goal ledger as a metric",
+        "evidence": "Left out of the main page; offered only as a conditional context line.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The headline or first section leads with an enablement or product-feedback result (time to first call or shipped feature requests)",
+        "evidence": "First summary bullet: 'Time to first successful API call fell from 22 to 14 minutes'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response checks whether another change (for example an SDK or product release) could explain the time-to-first-call drop, or phrases it as co-movement rather than DevRel causing it",
+        "evidence": "Only asks to 'name the 1\u20132 changes'; no check for an SDK or product release as an alternative cause.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The SDK response metric at 78% appears in a misses or 'what did not work' row against its 80% threshold",
+        "evidence": "'\u26a0\ufe0f SDK issue responsiveness missed its threshold. 78%... against the 80%'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The influenced pipeline figure is either placed after enablement results or in the appendix, not in the headline",
+        "evidence": "It is the last summary bullet, after the other results.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "If the $260k appears, it is labelled influenced",
+        "evidence": "'Influenced pipeline was $260k... shared credit'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Every number carries a claim label",
+        "evidence": "Status icons, not claim labels; 14 min and 78% have none.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The report contains a decision asked with a date or deadline",
+        "evidence": "'Decision requested: [Fill in...]' is a placeholder with no date.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,590 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "tech-talk-outline",
+  "scenarios": 9,
+  "expectations_total": 110,
+  "expectations_subjective": 0,
+  "expectations_objective": 110,
+  "pass_rate_with_skill_pct": 68.2,
+  "pass_rate_without_skill_pct": 8.2,
+  "delta_pp": 60.0,
+  "uplift_multiplier": 8.32,
+  "trigger_accuracy_pct": 67.3,
+  "trigger_queries": 104,
+  "trigger_positive_fire_rate": 0.673,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": null,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Asks clarifying questions before producing any outline, one question per message rather than a single batched questionnaire"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Does not deliver a finished talk outline in the first response"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Presents 2-3 candidate narrative arcs and waits for the speaker to choose before continuing, rather than selecting one silently"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names what that ranking starves - a high-value, high-effort arc that loses on ratio - and the condition that would promote it anyway"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Instructs the speaker to state in the first minute that they maintain the client being presented, and to name where it is the wrong choice"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Requires the speaker to state what to watch before starting the demo, and gives a concrete example of such a line"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Labels the two-minute floor and the 2x demo budget as this skill's own defaults rather than measured or published thresholds"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Reserves 3 to 4.5 minutes of the 30-minute slot as unused buffer"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that the value ordering runs the opposite way, because unscripted live typing is the only tier an audience cannot suspect and a screencast asks the room to take the recording on trust"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names the condition that would promote unscripted live typing anyway: when liveness itself is the claim being made"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that every retake of a narrated screencast is free, which is what makes that tier cheap on effort"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Declines to produce a ranked cut list from the outline text alone"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires deriving the single-sentence arrow and re-reading the accepted abstract's promise before cutting, since both are what the cut list is judged against"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Writes cut checkpoints into the speaker notes as a clock time plus what gets dropped, for example 'past 0:14 at slide 12, drop pillar 3'"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names the slides that must never be cut, including the hook, the moment of realization and the arrow"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Forces an explicit choice between the single surviving point and the benchmark demo for the lightning slot"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes that the lightning slot rules out the sparkline arc"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes that the lightning slot rules out the progressive-construction arc"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Treats the four-event re-give as a reason to promote a more expensive arc, because the preparation amortizes across every later slot instead of being paid once"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Gives the range slide counts legitimately take as a counter-example - a story-led talk on a handful of slides, a dense technical talk running around a hundred in thirty minutes"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Requires each slide title to be written as the takeaway sentence rather than a topic label, and shows a worked contrast between the two"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Requires that nothing appear on screen the speaker is not about to say, with the reason that the audience reads faster than the speaker talks"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Presents the skeleton one section at a time and asks for approval before moving to the next, rather than dumping the whole thing at once"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Hands the outline over as a document or file rather than leaving it in the chat log, where the environment allows writing one"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Surfaces the speaking.io position that an outline is a point to channel thoughts, not the verbatim bible of the talk"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes that a rate measured on the speaker's second language differs from one measured on their first"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Attributes the rate-versus-engagement finding to a study of edX instructional-video sessions rather than to conference-stage measurement"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that the only legitimate feature tour is a release keynote, where the audience explicitly came for the list"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Calibrates depth one level below the deepest listener in the room so the median attendee stays in, rather than targeting the average or the most senior"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names the curse of knowledge and states that the speaker's own depth estimate errs toward too deep, never too shallow"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Cites the tapper and listener figures as 50 percent predicted against 2.5 percent actually named"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Attributes those figures to Heath and Heath's retelling in Made to Stick rather than directly to the 1990 Stanford study"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Recommends having someone outside the team read the outline and mark where they got lost"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Requires the speaker to say in the first minute that they work on the product, name competing approaches fairly, and state where Corvid is the wrong choice"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names the share still watching after the first 30 seconds as the measure that indicts the hook and the promise"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Asks clarifying questions before producing any outline, one question per message rather than a single batched questionnaire"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Does not deliver a finished talk outline in the first response"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Presents 2-3 candidate narrative arcs and waits for the speaker to choose before continuing, rather than selecting one silently"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that arcs the available material, the audience's starting belief, or the slot length make infeasible are deleted from the menu entirely, not ranked last"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Ranks the surviving arcs by belief moved per hour of preparation and names a recommended leader"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names what that ranking starves - a high-value, high-effort arc that loses on ratio - and the condition that would promote it anyway"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Produces a single-sentence arrow and states that it is reused verbatim as the closing line"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Proposes 2-3 pillars and names a concrete piece of evidence for each one, drawn from the benchmark harness, the flame graphs, or the migration diff"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Places a moment of realization at a named minute and ties it to a specific belief that flips"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Reserves 10-15% of the 25-minute slot as unused buffer and states the buffer amount explicitly"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Instructs the speaker to state in the first minute that they maintain the client being presented, and to name where it is the wrong choice"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Rejects opening the talk with the demo, on the grounds that the audience does not yet believe the problem at minute zero"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that the same demo shown before the problem lands reads as a product tour, and only reads as proof once the problem has landed"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Moves the demo to sit after the pillar whose claim it proves"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Rejects ending the talk on a demo"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Requires at least two minutes of speaking inside the slot after the demo ends"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Gives the reason that an overrun must not be able to eat the conclusion, so the arrow stays the last thing heard"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Budgets the demo at roughly twice its rehearsed desk length - about 6 minutes for a 3-minute desk run, not 3"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Requires the speaker to state what to watch before starting the demo, and gives a concrete example of such a line"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Labels the two-minute floor and the 2x demo budget as this skill's own defaults rather than measured or published thresholds"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Reserves 3 to 4.5 minutes of the 30-minute slot as unused buffer"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Flags that no single mode should run longer than about seven minutes without a change of mode"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Returns a revised minute-by-minute budget in which the closing position holds the arrow restated in the same words as the hook, not a demo"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Removes unscripted live typing from the options entirely rather than offering it with caveats, because the two-hour rehearsal ceiling cannot cover it"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Removes the progressive-construction arc for the same reason instead of ranking it last"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States the principle that an option the speaker has no hours to rehearse is not presented at all"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends a narrated screencast, or an equivalent pre-recorded demo, as the fidelity tier for this case"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States the efficiency ordering of demo fidelity tiers: narrated screencast > scripted live demo against a prepared environment > unscripted live typing"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that the value ordering runs the opposite way, because unscripted live typing is the only tier an audience cannot suspect and a screencast asks the room to take the recording on trust"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names the condition that would promote unscripted live typing anyway: when liveness itself is the claim being made"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that every retake of a narrated screencast is free, which is what makes that tier cheap on effort"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Flags the compliance cost of demoing against a live staging cluster in a room that may be recorded"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends an arc built from material the speaker has already lived rather than one that must be constructed and verified, because of the three-day deadline"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Says explicitly which answer moved which option - the rehearsal ceiling deleting the tiers, the deadline re-ranking the arcs"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Surfaces the speaking.io position that the only way to win a live demo in front of hundreds of strangers is not to do one"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Declines to produce a ranked cut list from the outline text alone"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Gives the reason: the cut order is what the accordion measures, and a ranking computed from the outline would be false precision substituted for a real measurement"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Prescribes the accordion - deliver the talk to a 3-minute timer, then 2, then 1, then 30 seconds"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires the speaker to stay in character and end strong on every rep rather than skimming"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires expanding back up through 1, 2 and 3 minutes, adding material deliberately"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that what survives the 30-second rep is the arrow and the pillars"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that whatever only reappears on the way back up is the cut list, in cut order"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Distinguishes what is ranked before rehearsal - the arc and the demo - from what rehearsal itself ranks, which is the cuts"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Prescribes dropping a whole pillar rather than thinning all three to fit"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires deriving the single-sentence arrow and re-reading the accepted abstract's promise before cutting, since both are what the cut list is judged against"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Sets the gate at two consecutive timed runs landing inside 25 minutes minus the buffer"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Writes cut checkpoints into the speaker notes as a clock time plus what gets dropped, for example 'past 0:14 at slide 12, drop pillar 3'"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names the slides that must never be cut, including the hook, the moment of realization and the arrow"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Re-derives the 10-minute version from the arrow rather than from the 30-minute outline"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that a 5-10 minute slot carries one point or one demo, never both"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Forces an explicit choice between the single surviving point and the benchmark demo for the lightning slot"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes that the lightning slot rules out the sparkline arc"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes that the lightning slot rules out the progressive-construction arc"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Treats the four-event re-give as a reason to promote a more expensive arc, because the preparation amortizes across every later slot instead of being paid once"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends recording the benchmark demo once, on the grounds that a recorded demo amortizes across the four slots the same way"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Says explicitly that the re-give answer is what moved those rankings"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends storing the arrow, the chosen arc, the pillars and the cut list so the later slots are re-derived from the same decisions instead of re-invented into a different talk"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Refuses to output slide files or a deck export, and states that slide files come later from a deck tool"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Rejects the 22-slides-for-22-minutes rule and states that slide count is an outcome, never a target"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Gives the range slide counts legitimately take as a counter-example - a story-led talk on a handful of slides, a dense technical talk running around a hundred in thirty minutes"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Produces instead an ordered list of what each slide must accomplish"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Requires each slide title to be written as the takeaway sentence rather than a topic label, and shows a worked contrast between the two"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Requires one idea per slide, and splitting any slide that carries more than one"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Requires that nothing appear on screen the speaker is not about to say, with the reason that the audience reads faster than the speaker talks"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Gives every section a marker slide so a listener who drifted has a visible way back into the talk"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Places the repository, docs and handle on a slide that appears twice - once where it becomes useful, once at the end"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Marks the slides that must never be cut under time pressure"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Presents the skeleton one section at a time and asks for approval before moving to the next, rather than dumping the whole thing at once"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Hands the outline over as a document or file rather than leaving it in the chat log, where the environment allows writing one"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Describes a job per slide rather than a title-and-bullets design, for example 'cold-start latency histogram with the warm-pool cutover marked; hold it silently for a beat'"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Refuses to write the talk out as prose to be read aloud, despite the speaker explicitly asking for it"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the memorized word-for-word script is what causes the freeze, because talking points survive losing your place on stage while memorized prose does not"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Surfaces the speaking.io position that an outline is a point to channel thoughts, not the verbatim bible of the talk"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Offers speaker-note cues instead: per section, a timing checkpoint plus what gets dropped if the clock is behind"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Refuses to convert 4,200 words into minutes using a table value or a generic words-per-minute figure"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Instructs the speaker to measure their own rate by reading 200 of their own words aloud, timing it, and dividing"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the 185-254 wpm band is the fastest quintile of the study's corpus, not a target the paper sets"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the study's authors treat speaking rate as a surface feature that tracks enthusiasm, and advise against forcing faster delivery"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes that a rate measured on the speaker's second language differs from one measured on their first"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Attributes the rate-versus-engagement finding to a study of edX instructional-video sessions rather than to conference-stage measurement"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that the only legitimate feature tour is a release keynote, where the audience explicitly came for the list"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Makes the problems the pillars and demotes each feature to evidence under the problem it solves"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that a feature with no problem to sit under is cut from the talk"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Reduces the seven features to at most three pillars"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Calibrates depth one level below the deepest listener in the room so the median attendee stays in, rather than targeting the average or the most senior"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names the curse of knowledge and states that the speaker's own depth estimate errs toward too deep, never too shallow"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Cites the tapper and listener figures as 50 percent predicted against 2.5 percent actually named"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Attributes those figures to Heath and Heath's retelling in Made to Stick rather than directly to the 1990 Stanford study"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names, per pillar, the single term the speaker will define out loud, instead of simplifying the whole talk"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Recommends having someone outside the team read the outline and mark where they got lost"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Requires the speaker to say in the first minute that they work on the product, name competing approaches fairly, and state where Corvid is the wrong choice"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Gives the reason that an engineering audience discovers the affiliation anyway, and a late reveal retroactively turns the whole talk into an advertisement"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Refuses to set a target retention percentage, and states that the curve is used to locate a failing minute rather than to score the talk"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Treats the minute 14 spike as ambiguous, since a spike can mean rewatched because it was good or because it was unclear"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names the share still watching after the first 30 seconds as the measure that indicts the hook and the promise"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that the six-minute median engagement figure comes from instructional video where viewers can skip, and a seated conference room cannot"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Concludes that the finding constrains the published recording, not the talk that was accepted"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Recommends chapter markers and short extracted clips as the response to partial viewing"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that attribution from the talk to the 212 repo clicks is weak, and treats the figure as directional only"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Refuses to let a link-click count decide whether the talk was good"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Reports the signals as movement against the speaker's own previous talk rather than against an absolute benchmark"
+      }
+    ]
+  }
+}

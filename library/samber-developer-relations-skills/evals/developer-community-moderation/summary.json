@@ -1,0 +1,822 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "developer-community-moderation",
+  "scenarios": 14,
+  "expectations_total": 163,
+  "expectations_subjective": 1,
+  "expectations_objective": 162,
+  "pass_rate_with_skill_pct": 58.3,
+  "pass_rate_without_skill_pct": 22.7,
+  "delta_pp": 35.6,
+  "uplift_multiplier": 2.57,
+  "trigger_accuracy_pct": 59.0,
+  "trigger_queries": 144,
+  "trigger_positive_fire_rate": 0.5,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.267 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 2,
+        "expectation": "States that facilitated communication is permissible only as an add-on after the team has made and recorded its own decision, and only with everyone's informed consent"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Flags \"give Priya some space\" as a stay-away condition standing in for a decision, and gives the either-or reasoning: either the person is not a threat and the condition is unnecessary, or they are and the community is not safe"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes that the draft states no consequence, no effective date, and no route to contest the facts"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The rewritten notice describes the behaviour in neutral wording with a date and a named space"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The rewritten notice names the rung, an effective date, and either an end date or \"permanent\""
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that the harmed person should be shown the proposed response before it is enacted, to catch a missed fact or a retaliation risk, and not to seek approval or let them pick the consequence"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that moderator hours are not the currency the harmed person is paying in, or otherwise rejects the cost framing in those terms"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States the duration of any time-boxed sanction and schedules the restoration on the day the sanction is applied"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Treats the two-person roster and the four-hour ceiling as a roster and publish-gate problem to fix, not as a reason to choose a lower rung"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes that the behaviour ladder fits this badly because there is usually no malice to escalate against"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Ranks the countermeasures by inflow removed per hour of maintainer time and leads with a reputation or contribution-history gate"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Places the disclosure rule last on efficiency and states that it changes nothing on its own"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States the effort tie between a review-effort cap and a disclosure rule, and justifies it as one paragraph written once for each"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names raising the submission cost as the option the efficiency order starves, and gives the condition that promotes it: the gate is in place and the valid share is still falling"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that any disclosure rule is enforced on the submission's content, never on suspicion, and warns that accusing a member of using a language model without proof creates its own incident"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Labels any such figure as one project's measurement of its own programme rather than an industry rate"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that the host's rules outrank the community's code of conduct on those surfaces"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that the team cannot ban anyone on either surface"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Produces a control sheet that reduces to essentially two rows: report to the host, and move the conversation to a surface the team controls"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Deletes rate limits, trust levels and bans from the control sheet rather than listing them as future work"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Gives the reason for deleting rather than deferring: an option ruled out by the user's constraints reappears as scope when it is parked at the bottom"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Does not publish ladder rungs the team has no way to execute on those surfaces"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends moving to an owned venue if durable enforcement is required, and does not present that move as free"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Treats this as an audit of an existing document rather than a rewrite, and does not rewrite text the community already knows"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Fixes only the items that fail"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Flags that a single active maintainer fails the item requiring at least two people able to execute every action the ladder promises"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends shortening the published ladder to what one person can actually execute rather than leaving four rungs standing"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that a ladder nobody can execute is fiction, and that publishing it means the community watches the promise break"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Checks that a case-record location, access list and retention rule exist in writing"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that recusal takes effect the moment a member realises it applies, including mid-read of the report, and that someone else executes the removal from documents and channels"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Routes the case to a named escalation body if every eligible member turns out to be conflicted"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Fixes a decision rule in advance covering ties and absences, and leans it toward acting"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the dominant enforcement error is delay rather than haste"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Orders the investigation as evidence first, then the reporter, then witnesses, then the reported person, and judges impact before intent"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Removes the reported maintainer from the alias, the inbox and the case material before the case is discussed further"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States the no-retaliation position and does not disclose the reporter's identity to the reported person"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Afterwards closes the missing alternate-reporting-path gap, publishing the alternate path in the same paragraph as the primary channel and naming the people behind each address"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that invisible enforcement reads as no enforcement, and cites the case of a harassment target who left believing nothing had happened"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Gives the reason: a statement from the team carries amplified weight, and naming is often read as disproportionate whatever the facts"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names the narrow exception where naming is warranted: when people need the name to stay safe, such as a known repeat offender attending an event"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Requires the naming stance to be decided in advance rather than under pressure"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Routes any unavoidable public statement to the escalation body rather than to the response team"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Institutes aggregate statistics on a fixed cadence plus an annual anonymized trends report"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that process transparency costs nothing and is what makes reporting feel safe"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Keeps case records restricted to the response team, with a stated access list and retention rule"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Proposes a fixed set of five operating metrics rather than an open-ended dashboard"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Includes median time from report to resolution and moderator load measured against an agreed cap"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Adds submission rate and valid share only for flood-type problems"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Notes that rising moderator load against a flat roster predicts the next resignation"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Flags entry gates as costing real join conversion, to be traded deliberately rather than discovered afterwards"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States the three-way compliance tie between rate limits, automatic filters and trust levels, justified by none of them storing anything the platform was not storing already"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Deletes role removal from the outcome menu rather than listing it, because a volunteer project with no governance body cannot execute it"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Gives the reason for deleting rather than demoting: an option ruled out by the user's constraints reappears as scope when it is parked at the bottom"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Names an escalation body above the team anyway, offering a foundation, a fiscal host, or a written group of senior maintainers as candidates"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Gives the reason: a team with nothing above it has no exit from a deadlocked case"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Leads the outcome ranking with a systemic fix and explains that it removes the class of incident so every case it prevents afterwards is free"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "States the effort tie between content removal and a public statement, justified by each being one person writing for a few minutes with nobody to consult"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "States the relationship-cost tie between content removal and a systemic fix, justified by neither of them naming a person"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Names mentoring as what the efficiency order starves, and states it is never a substitute for a sanction when harm occurred"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Recommends version 3.0 over version 2.1 for a new document"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "States that the two versions do not share section names, and states which one the delivered document adapts"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Maps at least one renamed section between the versions, such as 2.1's Our Standards splitting into Encouraged Behaviors and Restricted Behaviors, or Enforcement becoming Reporting an Issue"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Renames the template role title to a title that actually exists in this project"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Rewrites the enforcement section to describe the procedure this team will really follow, rather than keeping the template wording"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Replaces generic virtue-list standards with concrete behaviours, on both sides, rather than shipping the template's examples untouched"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Excludes \"assume good intent\" from the standards, with the reason that it redirects every discussion onto intentions and hands anyone acting in bad faith a reset"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "States an explicit off-platform stance instead of leaving the scope clause silent on it"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Does not ship the document without a private reporting channel, a second path for a report about the primary recipient, an acknowledgment target, and a no-retaliation statement"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Attributes that rule to Aurora and Gardiner's practitioner handbook on responding to code of conduct reports, or names the handbook and its publisher"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Presents exactly two honest options: remove the exemption, or publish community guidelines carrying no conduct-enforcement language"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Hands the choice between those two options to the user rather than picking one silently"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that a selectively enforced code is worse than having no code at all"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Raises the exemption as a blocking finding before drafting, not as a caveat appended after a finished document"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "If any document is drafted, it is the guidelines variant with no rungs, no sanctions, and no enforcement promise"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Notes that the exemption fails the first item of the publish gate"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names the requested apology as a banned response and explains it destroys the only useful signal, whether the person would have apologised unprompted"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Flags that naming Priya in the notice identifies the reporter"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Flags the proposed call to \"clear the air\" as mediation offered in place of a decision"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that facilitated communication is permissible only as an add-on after the team has made and recorded its own decision, and only with everyone's informed consent"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Flags \"give Priya some space\" as a stay-away condition standing in for a decision, and gives the either-or reasoning: either the person is not a threat and the condition is unnecessary, or they are and the community is not safe"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes that the draft states no consequence, no effective date, and no route to contest the facts"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Supplies a rewritten notice with four parts in this order: behaviour, impact, expected change, consequence"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The rewritten notice describes the behaviour in neutral wording with a date and a named space"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The rewritten notice names the rung, an effective date, and either an end date or \"permanent\""
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The rewritten notice gives a contact and a window for contesting the facts, and states the sanction stands while any review happens"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The rewritten notice does not name the reporter"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that the harmed person should be shown the proposed response before it is enacted, to catch a missed fact or a retaliation risk, and not to seek approval or let them pick the consequence"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Refuses to rank the possible responses by effort, cost or efficiency for this case"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that a serious breach is a gate and that the breach itself determines the rung"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that moderator hours are not the currency the harmed person is paying in, or otherwise rejects the cost framing in those terms"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Does not present the ladder rungs to the user as options to weigh"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Places the case at temporary suspension or permanent ban rather than at correction or warning"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Does not accept a systemic fix, a rule change or content removal as a substitute for the severity-determined rung"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that non-ladder outcomes may be added alongside the rung but never instead of it"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States the duration of any time-boxed sanction and schedules the restoration on the day the sanction is applied"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names the situations where ranking does legitimately apply, such as off-topic drift, self-promotion, a hostile technical argument, a first-occurrence lapse, or a volume flood with no malice behind it"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Treats the two-person roster and the four-hour ceiling as a roster and publish-gate problem to fix, not as a reason to choose a lower rung"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that no reliable technical indicator exists for AI-generated content and declines to supply detection heuristics or a threshold"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends gating volume rather than detecting authorship"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that individual bans answer individual behaviour and do nothing to the inflow rate"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes that the behaviour ladder fits this badly because there is usually no malice to escalate against"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Ranks the countermeasures by inflow removed per hour of maintainer time and leads with a reputation or contribution-history gate"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Places the disclosure rule last on efficiency and states that it changes nothing on its own"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States the effort tie between a review-effort cap and a disclosure rule, and justifies it as one paragraph written once for each"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names raising the submission cost as the option the efficiency order starves, and gives the condition that promotes it: the gate is in place and the valid share is still falling"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that any disclosure rule is enforced on the submission's content, never on suspicion, and warns that accusing a member of using a language model without proof creates its own incident"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Adds submissions per week and valid share as measurements, and states that measurement does not compete with the countermeasures"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Cites at least one published figure with its owner, such as curl's roughly 20% AI-junk share of its 2025 bug-bounty submissions, or Node.js's HackerOne Signal score floor of 1.0 after a month brought over 30 reports against a usual 6-7"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Labels any such figure as one project's measurement of its own programme rather than an industry rate"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Identifies both surfaces as spaces the community does not own"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that the host's rules outrank the community's code of conduct on those surfaces"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that the team cannot ban anyone on either surface"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Produces a control sheet that reduces to essentially two rows: report to the host, and move the conversation to a surface the team controls"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Deletes rate limits, trust levels and bans from the control sheet rather than listing them as future work"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Gives the reason for deleting rather than deferring: an option ruled out by the user's constraints reappears as scope when it is parked at the bottom"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Does not publish ladder rungs the team has no way to execute on those surfaces"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends moving to an owned venue if durable enforcement is required, and does not present that move as free"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Keeps scope, reporting channels and case records in place, since those transfer across venue classes unchanged"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Flags the publish-gate item requiring at least two people able to execute every action the ladder promises against these surfaces"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Treats this as an audit of an existing document rather than a rewrite, and does not rewrite text the community already knows"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Reports a pass or fail verdict for each of the eleven publish-gate items"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Fixes only the items that fail"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Flags that a single active maintainer fails the item requiring at least two people able to execute every action the ladder promises"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends shortening the published ladder to what one person can actually execute rather than leaving four rungs standing"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that a ladder nobody can execute is fiction, and that publishing it means the community watches the promise break"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Checks whether an escalation body above the moderation team is named, and flags its absence"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Checks that a case-record location, access list and retention rule exist in writing"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Checks that any time-boxed sanction states its duration"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Distinguishes hard conflict from soft conflict as two grades rather than applying one blanket recusal"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Defines hard conflict as exclusion from the discussion, from the vote, and from the confidential material"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Defines soft conflict, covering a shared employer without a close relationship or a mere appearance of conflict, as allowed to take part in discussion but not to vote"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Gives the reason for two grades: a single grade either paralyses a small team or lets a conflicted member vote"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that recusal takes effect the moment a member realises it applies, including mid-read of the report, and that someone else executes the removal from documents and channels"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the deadline clock starts when the team receives the report, not when it starts working on it"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Fixes a decision rule in advance covering ties and absences, and leans it toward acting"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the dominant enforcement error is delay rather than haste"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Orders the investigation as evidence first, then the reporter, then witnesses, then the reported person, and judges impact before intent"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Assigns a case code and code names so the case can be discussed in team notes without identities"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States the no-retaliation position and does not disclose the reporter's identity to the reported person"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Afterwards closes the missing alternate-reporting-path gap, publishing the alternate path in the same paragraph as the primary channel and naming the people behind each address"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that everyone who witnessed a violation should learn that the community answered it"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that invisible enforcement reads as no enforcement, and cites the case of a harassment target who left believing nothing had happened"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Gives the reason: a statement from the team carries amplified weight, and naming is often read as disproportionate whatever the facts"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names the narrow exception where naming is warranted: when people need the name to stay safe, such as a known repeat offender attending an event"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Requires the naming stance to be decided in advance rather than under pressure"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Routes any unavoidable public statement to the escalation body rather than to the response team"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Institutes aggregate statistics on a fixed cadence plus an annual anonymized trends report"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States in that public page that internal guidelines exist and change"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that process transparency costs nothing and is what makes reporting feel safe"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Keeps case records restricted to the response team, with a stated access list and retention rule"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Distinguishes publishing aggregate statistics, which it recommends, from publishing the procedure, which it does not"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Distinguishes published, quotable windows from baselines that are design gates set here"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Quotes at least two published acknowledgment windows with their owners, such as one business day at Django and three business days at CNCF"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Cites the 24-hour acknowledgment plus 10 business days to a decision as one handbook's worked example rather than a norm"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that 95% acknowledgment within target and 100% of cases carrying a recorded outcome are starting baselines set here, not industry benchmarks"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Says explicitly which of the figures handed over are published and which are self-set"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Recommends recalibrating the baselines from the team's own first quarter of data"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Proposes a fixed set of five operating metrics rather than an open-ended dashboard"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Includes median time from report to resolution and moderator load measured against an agreed cap"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Warns that a repeat-violation rate near zero can mean the ladder works or that nobody reports any more, and must be read next to report volume"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Declines to supply a cross-community percentile, distribution or industry average for resolution time or repeat-offence rate"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Adds submission rate and valid share only for flood-type problems"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Notes that rising moderator load against a flat roster predicts the next resignation"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Ranks the controls by inflow stopped per moderator hour, not by how quickly each can be switched on"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Leads the efficiency order with rate and interaction limits"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Places individual bans and manual triage of every item at the bottom of the efficiency order"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Rejects the user's plan to start with bans because they are available today"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States the effort tie between rate limits and automatic filters, justified by each being a single settings change nobody maintains"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Flags entry gates as costing real join conversion, to be traded deliberately rather than discovered afterwards"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Flags entry gates as carrying a real compliance cost, since email or identity verification collects personal data and can require a privacy notice, more so where minors are plausibly present"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States the three-way compliance tie between rate limits, automatic filters and trust levels, justified by none of them storing anything the platform was not storing already"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Names earned trust levels as the highest-value control that the efficiency order starves, because they take about a week to design"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Gives the condition that promotes earned trust levels: moderator load crossing the agreed cap, or the community surviving a second flood"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Explains that individual bans remove one actor who returns under a new account"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States the ranking explicitly rather than leaving it implied by the order of a list"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Deletes role removal from the outcome menu rather than listing it, because a volunteer project with no governance body cannot execute it"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Gives the reason for deleting rather than demoting: an option ruled out by the user's constraints reappears as scope when it is parked at the bottom"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Names an escalation body above the team anyway, offering a foundation, a fiscal host, or a written group of senior maintainers as candidates"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Gives the reason: a team with nothing above it has no exit from a deadlocked case"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Leads the outcome ranking with a systemic fix and explains that it removes the class of incident so every case it prevents afterwards is free"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "States the effort tie between content removal and a public statement, justified by each being one person writing for a few minutes with nobody to consult"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "States the relationship-cost tie between content removal and a systemic fix, justified by neither of them naming a person"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Names mentoring as what the efficiency order starves, and states it is never a substitute for a sanction when harm occurred"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Recommends version 3.0 over version 2.1 for a new document"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Gives the reason: 3.0 drops 2.1's line that a public apology may be requested"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "States that the two versions do not share section names, and states which one the delivered document adapts"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Maps at least one renamed section between the versions, such as 2.1's Our Standards splitting into Encouraged Behaviors and Restricted Behaviors, or Enforcement becoming Reporting an Issue"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Renames the template role title to a title that actually exists in this project"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Rewrites the enforcement section to describe the procedure this team will really follow, rather than keeping the template wording"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Replaces generic virtue-list standards with concrete behaviours, on both sides, rather than shipping the template's examples untouched"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Excludes \"assume good intent\" from the standards, with the reason that it redirects every discussion onto intentions and hands anyone acting in bad faith a reset"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "States an explicit off-platform stance instead of leaving the scope clause silent on it"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Names the surfaces one by one, covering the repository and issue tracker, the chat server and the mailing list, and names the categories of people covered"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Does not ship the document without a private reporting channel, a second path for a report about the primary recipient, an acknowledgment target, and a no-retaliation statement"
+      }
+    ]
+  }
+}

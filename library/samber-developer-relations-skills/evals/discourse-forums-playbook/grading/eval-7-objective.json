@@ -1,0 +1,70 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Routes the single-sign-on and docs-embedding work to samber/developer-platform-skills@developer-portal-design",
+        "evidence": "'`samber/developer-platform-skills@developer-portal-design` owns SSO, embedding topics in docs'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the forum-versus-Discord venue decision to samber/developer-relations-skills@developer-community-launch",
+        "evidence": "'To choose a venue from scratch, use `samber/developer-relations-skills@developer-community-launch`.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not write DiscourseConnect or embed configuration steps itself",
+        "evidence": "Only lists Discourse-side constraints; implementation is deferred to the sibling skill.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not decide the Discord-versus-Discourse switch itself",
+        "evidence": "'Don't switch to Discord because someone said so. Keep Discourse unless your main goal is real-time chat.' and 'Reasons not to switch' make the call in this skill.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Offers to continue with forum operations (categories, trust levels, seeding or SEO) once those are settled",
+        "evidence": "'Answer these and I'll turn this into a full plan'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Routes the single-sign-on and docs-embedding work to samber/developer-platform-skills@developer-portal-design",
+        "evidence": "No routing; it writes the SSO and docs-embed steps itself.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the forum-versus-Discord venue decision to samber/developer-relations-skills@developer-community-launch",
+        "evidence": "No routing; it decides itself with \"Verdict on Discord: do not switch.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not write DiscourseConnect or embed configuration steps itself",
+        "evidence": "It gives full DiscourseConnect and OIDC setup steps, e.g. \"Set `discourse_connect_url`...\", plus the docs-embed API steps.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not decide the Discord-versus-Discourse switch itself",
+        "evidence": "\"Part 3: Switch to Discord? No. Keep Discourse.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Offers to continue with forum operations (categories, trust levels, seeding or SEO) once those are settled",
+        "evidence": "The only offer is \"I can write the signing endpoint for Option B\"; forum operations are not offered.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

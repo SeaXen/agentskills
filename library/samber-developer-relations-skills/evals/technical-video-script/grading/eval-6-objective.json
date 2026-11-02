@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Identifies the problem as addressability rather than runtime.",
+        "evidence": "\"No. Trim-and-speed-up plan fixes wrong problem.\" ... \"Verdict: don't cut to 7 min. Fix addressability.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites that tutorials are watched roughly two to three minutes on average regardless of their total length.",
+        "evidence": "\"procedural/tutorial video is watched 2-3 min on average, **regardless of length**.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the 2:40 average view duration as consistent with normal procedural-video use rather than as proof of a pacing failure.",
+        "evidence": "\"2:40 average view duration matches Guo et al finding almost exactly ... Cutting 11 min to 7 min likely won't move that number \u2014 length isn't the cause.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that procedural video is re-watched and paused selectively at step boundaries rather than watched once end to end.",
+        "evidence": "The transcript only says a step \"can't be entered mid-video, can't be re-shot alone, can't be jumped to\" \u2014 a diagnosis of missing addressability, not a stated claim that procedural video is normally re-watched/paused at step boundaries.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cuts the video into titled segments, roughly one per deploy step.",
+        "evidence": "\"Cut into 8 titled chapters, in the viewer's search words\" \u2014 matching the transcript's own count of \"8 deploy steps.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Titles segments in the viewer's search vocabulary as tasks or outcomes, never \"Step 4\" or \"Part 2\".",
+        "evidence": "\"Cut into 8 titled chapters, in the viewer's search words (\\\"Configure the control plane\\\", not \\\"Step 3\\\").\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives each segment a starting state so a returning viewer can enter in the middle.",
+        "evidence": "\"Replace every \\\"so now that we've done that\\\" with a state sentence \u2014 what's true now. Example: \\\"The service is registered with the scheduler \u2014 now set its resource limits.\\\"\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces every \"so now that we've done that\" transition with a sentence stating the current state.",
+        "evidence": "\"Replace every \\\"so now that we've done that\\\" with a state sentence \u2014 what's true now.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Moves the architecture background to a linked written page, keeping only the sentence the deploy itself needs.",
+        "evidence": "\"Cut the architecture block to the one sentence the deploy actually needs. Move the rest to a linked doc.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that the runtime barely needs to move for the fix to work.",
+        "evidence": "\"Content and runtime barely need to move\" and \"Keep runtime near 11 min.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Adds a chapter list whose first timestamp is 00:00, with at least three entries, each at least ten seconds long, in ascending order.",
+        "evidence": "The transcript only states the constraint \u2014 \"Platform rule: `00:00` first, 3+ timestamps, each 10s+, ascending\" \u2014 without producing an actual chapter list of real timestamps.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines speeding up the delivery as a remedy.",
+        "evidence": "\"'speed up delivery': speaking rate correlates with engagement, but forcing it isn't the lever ... Forced pace risks flat delivery, fixes nothing.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Identifies the problem as addressability rather than runtime.",
+        "evidence": "'Real leak: ... No chapters = steps 1-8 sit as one undifferentiated mass, no jump-to-step.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites that tutorials are watched roughly two to three minutes on average regardless of their total length.",
+        "evidence": "It treats 2:40 as a data point, not as a norm.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats the 2:40 average view duration as consistent with normal procedural-video use rather than as proof of a pacing failure.",
+        "evidence": "It reads 2:40 as showing a leak point.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that procedural video is re-watched and paused selectively at step boundaries rather than watched once end to end.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cuts the video into titled segments, roughly one per deploy step.",
+        "evidence": "'Add chapters, one per step.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Titles segments in the viewer's search vocabulary as tasks or outcomes, never \"Step 4\" or \"Part 2\".",
+        "evidence": "No titles are given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives each segment a starting state so a returning viewer can enter in the middle.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Replaces every \"so now that we've done that\" transition with a sentence stating the current state.",
+        "evidence": "It only says to trim the transitions.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Moves the architecture background to a linked written page, keeping only the sentence the deploy itself needs.",
+        "evidence": "'Don't cut architecture.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that the runtime barely needs to move for the fix to work.",
+        "evidence": "It says to 'Reach 7min by trimming'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds a chapter list whose first timestamp is 00:00, with at least three entries, each at least ten seconds long, in ascending order.",
+        "evidence": "No timestamped chapter list.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines speeding up the delivery as a remedy.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

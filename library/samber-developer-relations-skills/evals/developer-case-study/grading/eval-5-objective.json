@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Identifies all three supplied items as roadmap statements rather than limitations.",
+        "evidence": "'The EM's lines 1 and 2 are that \"Bad\" example almost verbatim'; item 3 called 'forward-looking and positively framed.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the distinguishing rule: a limitation is a cost the reader would inherit, not a plan.",
+        "evidence": "'A limitation is a cost the reader would inherit today, not a plan for later.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to publish the section as supplied, or marks the limitations check as failing.",
+        "evidence": "'Verdict: not yet publishable \u2014 the limitations section fails gate 3.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks Meridian for the migration effort in engineer-weeks.",
+        "evidence": "The two drafted follow-up questions only cover 'how many engineers can actually modify each one' and the approvals workflow \u2014 no engineer-weeks question is asked.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks about the dual-running period.",
+        "evidence": "No question about running both systems in parallel appears in the 'What to send back to the EM' follow-ups.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks what broke during rollout.",
+        "evidence": "Not present in the two follow-up questions drafted.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks what the team had to retrain on.",
+        "evidence": "No retraining question appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks which workloads they deliberately did not move.",
+        "evidence": "Not asked; follow-ups only address the two existing roadmap items.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks what still does not work.",
+        "evidence": "Not explicitly asked; questions only ask about slowdown/incidents and today's approval workaround.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the section to state who should not copy this architecture.",
+        "evidence": "No mention of a 'who should not copy this' requirement anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Converts item (1) from a plan into a present cost, for example that the orchestration layer sits in a different language from the rest of the team's work so every change routes through the few people who know both, rather than simply deleting the item.",
+        "evidence": "Template: 'The [service] runs on [language A], while the rest of the team writes [language B] \u2014 so changes to it go through [the N people / the team] who know both.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that if the customer strikes the limitations section entirely the study is weaker but still shippable, while striking limitations and alternatives together makes it an advertisement that must be framed as one to the owner.",
+        "evidence": "Only the first half is present ('the customer can strike the limitations section entirely, and the study still ships \u2014 weaker, but shippable'); no mention of the combined alternatives+limitations removal being an advertisement needing framing.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Identifies all three supplied items as roadmap statements rather than limitations.",
+        "evidence": "The section presents the three quotes under \"Meridian Health's engineering team is candid about what's still unresolved,\" treating them as current unresolved issues, not as flagged future plans.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the distinguishing rule: a limitation is a cost the reader would inherit, not a plan.",
+        "evidence": "No such distinguishing rule appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to publish the section as supplied, or marks the limitations check as failing.",
+        "evidence": "\"Here's the section, ready to slot in\" \u2014 the section is delivered as final with no refusal or failing check noted.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks Meridian for the migration effort in engineer-weeks.",
+        "evidence": "No such question is asked anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks about the dual-running period.",
+        "evidence": "No question about a dual-running period is present.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks what broke during rollout.",
+        "evidence": "No such question appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks what the team had to retrain on.",
+        "evidence": "No such question appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks which workloads they deliberately did not move.",
+        "evidence": "No such question appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks what still does not work.",
+        "evidence": "No such question appears; the three items given are all forward-looking plans, not current gaps.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the section to state who should not copy this architecture.",
+        "evidence": "No such requirement or statement appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Converts item (1) from a plan into a present cost, for example that the orchestration layer sits in a different language from the rest of the team's work so every change routes through the few people who know both, rather than simply deleting the item.",
+        "evidence": "Item (1) is kept verbatim as a future plan: \"'We plan to consolidate our two orchestration languages next year,' their engineering manager says\" \u2014 never reframed as a present cost.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that if the customer strikes the limitations section entirely the study is weaker but still shippable, while striking limitations and alternatives together makes it an advertisement that must be framed as one to the owner.",
+        "evidence": "No such note appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

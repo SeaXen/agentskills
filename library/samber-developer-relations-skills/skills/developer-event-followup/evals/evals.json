@@ -1,0 +1,404 @@
+{
+  "skill_name": "developer-event-followup",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "We just got back from KubeCon EU in Amsterdam: 412 badge scans and a Google Sheet where our engineers noted about 30 real conversations. The scanner app said 'Scan to get the demo config emailed to you'. Our CMO wants every scan loaded into our 6-email HubSpot nurture by Monday and says GDPR is fine because B2B legitimate interest covers it. Contacts are roughly 40% Germany, 30% rest of EU, 15% UK, 15% US. We sell a Kubernetes cost-monitoring SaaS with a free tier. What do we do?",
+      "expected_output": "A follow-up plan that refuses the blanket nurture, gates by purpose line and jurisdiction, sends the promised config to every scan, personal notes to A conversations, and measures the cohort.",
+      "files": [],
+      "expectations": [
+        "States that the nurture sequence must not be sent to all 412 scans",
+        "Says legitimate interest does not authorise marketing email in Germany, and in the rest of the EU only where a member-state rule allows it, citing ePrivacy prior consent or EDPB Guidelines 1/2024",
+        "Says a scanned badge is not consent for email advertising in Germany (UWG s.7 or equivalent wording)",
+        "Sends the demo config to every scanned contact, including those with no conversation notes",
+        "Keeps the config email free of promotion or newsletter subscription",
+        "Says the scanner's purpose line ('demo config') limits marketing even for UK or US contacts",
+        "Sends personal notes to the noted A conversations from the engineer who had the conversation",
+        "Sets the A follow-up within about two working days and gives memory of the conversation as the reason, not a lead-response study",
+        "Routes to sales only records whose notes show a stated buying need",
+        "Recommends loading contacts into the CRM without enrolling them in the nurture unless the gate allows it",
+        "Defines an event cohort tag and an activation event to measure at 30, 60 and 90 days",
+        "Treats UK contacts with personal or unknown-type addresses as individual subscribers needing consent or soft opt-in",
+        "Matches the scans against the CRM so existing customers go to their account owner and earlier unsubscribes win"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Our hackathon sponsorship at HackZurich wrapped Sunday. 61 teams, 23 used our payments API, lots of university students and a few high-schoolers. Our VP Sales wants the SDRs to call every participant this week because 'research shows you have to respond within 5 minutes or the lead dies'. Our recruiter also wants the list. Can you draft the plan and the outreach?",
+      "expected_output": "A hackathon follow-up that routes students to community, rejects the 5-minute study as evidence, and uses a showcase plus project-specific notes and an activation path.",
+      "files": [],
+      "expectations": [
+        "Gives participants under 18 no marketing without the privacy owner's sign-off",
+        "Routes students or job seekers to community or recruiting, never sales",
+        "States the 5-minute lead-response figures came from inbound web-form leads, not event or hackathon contacts",
+        "Notes the speed study was co-authored by or tied to a lead-response software vendor (InsideSales)",
+        "Publishes a public showcase or recap of submissions, with the teams' permission",
+        "Sends personal notes to teams that built on the payments API, referencing their specific project",
+        "Includes a day-30 check-in for teams still building",
+        "Proposes an activation path or extended credits for the 23 API teams",
+        "Hands to sales only participants who stated a buying need",
+        "Limits the recruiter's use of participants to those whose capture or reply covers recruiting",
+        "Measures the hackathon cohort's activation rather than calls made or emails opened"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "I ran a 90-minute hands-on workshop at PyCon US on building retrieval pipelines with our vector DB. 45 people on the roster (sign-up form said 'get the workshop materials'). My plan: send slides + a thank-you, then add everyone to our monthly newsletter. Sound good? I need something to show my boss in 60 days.",
+      "expected_output": "A workshop follow-up built around an activation path from where the session ended, roster purpose respected, cohort measurement at 30/60.",
+      "files": [],
+      "expectations": [
+        "Says slides alone end the journey and proposes a finish-the-exercise activation path",
+        "Starts the activation path from the step where the workshop ended, or provisions a sandbox or credit",
+        "Rejects adding the whole roster to the newsletter because the sign-up said 'get the workshop materials'",
+        "Offers an opt-in to the newsletter rather than automatic subscription",
+        "Defines an activation event (for example a first successful query or API call) for the cohort",
+        "Sets 30-day and 60-day readings against the boss deadline",
+        "Recommends tagging the workshop cohort so activations are attributable",
+        "Compares the cohort with a non-event baseline or labels any target as self-set",
+        "Uses the stuck step of attendees who stall as feedback for the workshop or docs",
+        "Offers any newsletter opt-in as a separate choice with no second email unless the attendee clicks",
+        "Sends the activation path to roster members whose sign-up covered the materials"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "At DevOpsDays Montreal and DevOpsDays Paris we had no scanners, so we ran a draw for a mechanical keyboard: about 150 paper entries with name and work email ('Enter to win - winner announced at closing'; about 40 also ticked a separate 'send me product news' box), plus a few business cards handed to our engineers. Marketing wants to send everyone a 20% discount code. A colleague says CASL lets us use business cards for six months. What's allowed?",
+      "expected_output": "Raffle entries excluded from marketing; CASL disclosure-based implied consent explained correctly; France B2B rule; business cards treated separately.",
+      "files": [],
+      "expectations": [
+        "Says raffle entries without the ticked box must not get the discount email",
+        "Explains the raffle purpose line covers only the draw",
+        "Corrects the six-month claim: the six-month window applies to inquiries, not to a business card disclosure",
+        "Explains CASL implied consent from a disclosed address requires relevance to the person's business role",
+        "Treats business cards handed to engineers differently from raffle entries",
+        "States the French B2B rule requires the person to have been informed at collection and able to object",
+        "Recommends a public recap or announcement for raffle entrants instead of email marketing",
+        "Keeps the entrants who ticked the separate product-news box eligible for marketing",
+        "Recommends agreeing retention with the privacy owner, deleting raffle data once the prize ships",
+        "Adds sender identification and an unsubscribe mechanism to any marketing message sent to Canadian contacts"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Our event leads never convert. Last year we did 9 conferences and almost nothing came of it. My CEO read that '80% of trade show leads are never followed up' and wants a 5-email/30-day sequence fired at everyone within 24 hours of each show. We sell an observability platform, PLG with a sales team for enterprise. How do I fix this?",
+      "expected_output": "A diagnosis that rejects the untraced 80% statistic, looks at capture quality and purpose, proposes tiered tracks and cohort measurement with influenced vs sourced reporting.",
+      "files": [],
+      "expectations": [
+        "States the '80% of trade-show leads are never followed up' figure has no traceable original study",
+        "Diagnoses capture quality (notes, grades, purpose lines) as a likely cause before proposing more emails",
+        "Rejects a single 5-email sequence for every contact",
+        "Assigns different tracks to A, B and C contacts",
+        "Limits B and C contacts to at most one message unless they respond",
+        "Proposes a public recap as the track for C contacts",
+        "Defines event-cohort activation at 30/60/90 days as the outcome metric",
+        "Distinguishes influenced from sourced pipeline and warns against claiming source for influenced deals",
+        "Sets a per-batch spam-complaint stop rule instead of waiting for the domain-level 0.10% Postmaster rate to react",
+        "Feeds the follow-up results into the per-event sponsorship renew or drop decision",
+        "Labels any conversion threshold as self-set or derived from the company's own data, not a published benchmark"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "We sponsor the monthly Go meetup in Berlin and the organizer just passed us the sheet people sign at the door ('name + email, for the pizza headcount next time'). We also gave a talk at GopherCon EU and about ten people came up after with questions; one asked for pricing for 200 seats. Now I want to put the sheet into our product newsletter and email the talk folks a demo invite. Thoughts?",
+      "expected_output": "Germany prior consent; sign-up sheet purpose limits; talk follow-ups as personal answers; the pricing ask as the only sales handoff.",
+      "files": [],
+      "expectations": [
+        "Says the pizza-headcount sheet cannot be used for the product newsletter",
+        "Says Germany requires prior express consent for email advertising, business addresses included",
+        "Returns or deletes the pizza-headcount sheet and never emails the people on it",
+        "Treats the talk questioners as personal notes delivering the answer owed, not a demo-invite blast",
+        "Hands only the 200-seat pricing request to sales",
+        "Makes the sales handoff an introduction in the same thread, not a cold sequence",
+        "Does not build a mailing list from the talk audience",
+        "Offers a newsletter opt-in through a public page or recap rather than by email to non-consented contacts",
+        "Says a list handed over without a sponsor-sharing notice gets no import",
+        "Tells the user to tell the organizer the sheet was shared without a sponsor-sharing notice",
+        "Recommends a suppression list for people who object"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "AWS re:Invent wrap-up: 520 scans, the scanner screen said 'Scan to get product updates from Acme'. About 30% of the scans are German, plus some from Brazil and Japan; the rest are US and UK, many UK ones on gmail addresses. As a Diamond sponsor we also got the organizer's opt-in attendee list of 3,000 people. Marketing wants to send our launch announcement to all of it tomorrow from our main domain. How do we do this right?",
+      "expected_output": "Updates-purpose scans gated by jurisdiction: German double opt-in, US/UK corporate allowed with opt-out, unknown jurisdictions prior-consent, organizer list within its notice, stop rules and CRM import.",
+      "files": [],
+      "expectations": [
+        "Sends German scans one confirmation email free of promotion and enrols them only on the click (double opt-in)",
+        "Allows the launch email to US scans because the purpose line covered updates, with an opt-out and postal address",
+        "Treats Brazil and Japan as prior-consent until the privacy owner names the local rule",
+        "Treats UK gmail addresses as individual subscribers needing consent or soft opt-in",
+        "Mails EU and UK attendees on the organizer list only where their consent named the company, not generic sponsors or partners wording",
+        "Loads the records into the CRM as non-marketing contacts and enrols only those the gate allows",
+        "Sets a per-batch complaint stop rule before sending",
+        "Warns that one mass send from the main domain puts its reputation at risk for later campaigns",
+        "Defines an event cohort tag and activation readings at 30, 60 and 90 days",
+        "Gates the organizer list as a separate source with its own row, apart from the 520 scans"
+      ]
+    }
+  ],
+  "trigger_queries": [
+    {
+      "query": "we got 400 badge scans at kubecon, what do we do with them now",
+      "should_trigger": true
+    },
+    {
+      "query": "How should we follow up with the people we met at our booth at re:Invent?",
+      "should_trigger": true
+    },
+    {
+      "query": "Hackathon ended yesterday, 40 teams used our API. How do we follow up without being spammy?",
+      "should_trigger": true
+    },
+    {
+      "query": "can I legally email the people who entered our raffle at DevOpsDays?",
+      "should_trigger": true
+    },
+    {
+      "query": "Draft post-conference follow-up emails for the conversations our engineers logged at PyCon",
+      "should_trigger": true
+    },
+    {
+      "query": "Our event leads never convert, what are we doing wrong after the event?",
+      "should_trigger": true
+    },
+    {
+      "query": "Marketing wants to put all the conference scans into our nurture sequence. Is that OK under GDPR?",
+      "should_trigger": true
+    },
+    {
+      "query": "What's the right follow-up sequence after a hands-on workshop we ran at a conference?",
+      "should_trigger": true
+    },
+    {
+      "query": "We met ~30 developers at a meetup we sponsored, how do we turn them into users?",
+      "should_trigger": true
+    },
+    {
+      "query": "Plan the week after KubeCon: who gets emailed, who goes to sales, what we measure",
+      "should_trigger": true
+    },
+    {
+      "query": "badge scan follow-up for german contacts, what's allowed",
+      "should_trigger": true
+    },
+    {
+      "query": "Should the SDRs call everyone who visited our booth?",
+      "should_trigger": true
+    },
+    {
+      "query": "How do I measure whether our post-event follow-up worked? 30/60/90 days?",
+      "should_trigger": true
+    },
+    {
+      "query": "We sponsored a Berlin meetup and got their sign-up sheet, can we add them to the newsletter?",
+      "should_trigger": true
+    },
+    {
+      "query": "write the thank you email to everyone who stopped by our booth at GopherCon",
+      "should_trigger": true
+    },
+    {
+      "query": "Under CASL can we email the business cards we collected at a Toronto conference?",
+      "should_trigger": true
+    },
+    {
+      "query": "a few people came up after my talk with questions, how should I follow up with them",
+      "should_trigger": true
+    },
+    {
+      "query": "How fast should we follow up with conference leads, is the 5 minute rule real?",
+      "should_trigger": true
+    },
+    {
+      "query": "post-hackathon follow-up plan for student participants",
+      "should_trigger": true
+    },
+    {
+      "query": "Our booth staff graded leads A/B/C, now design the follow-up for each grade",
+      "should_trigger": true
+    },
+    {
+      "query": "How do we hand event contacts from DevRel to sales without burning them?",
+      "should_trigger": true
+    },
+    {
+      "query": "turn our conference contacts into community members, not spam recipients",
+      "should_trigger": true
+    },
+    {
+      "query": "we did a workshop at a conference, attendees got halfway through, what now",
+      "should_trigger": true
+    },
+    {
+      "query": "What should we send to people whose badges we scanned but never talked to?",
+      "should_trigger": true
+    },
+    {
+      "query": "Event follow-up checklist for a developer tools company after a trade show",
+      "should_trigger": true
+    },
+    {
+      "query": "our CMO says B2B legitimate interest covers emailing every scan from Amsterdam, true?",
+      "should_trigger": true
+    },
+    {
+      "query": "How many emails should conference leads get, and when do we stop?",
+      "should_trigger": true
+    },
+    {
+      "query": "Should we send the hackathon participants a discount code?",
+      "should_trigger": true
+    },
+    {
+      "query": "the scanner said 'scan to get the demo emailed', can we send them more than the demo?",
+      "should_trigger": true
+    },
+    {
+      "query": "lead follow-up after a developer conference: personal notes vs sequence",
+      "should_trigger": true
+    },
+    {
+      "query": "Which post-event metrics should I report: scans, MQLs or activations?",
+      "should_trigger": true
+    },
+    {
+      "query": "We sponsored AI Engineer Summit, help me plan everything after the event closes",
+      "should_trigger": true
+    },
+    {
+      "query": "organizer gave us the opt-in attendee list as part of our sponsor package, what can we send them?",
+      "should_trigger": true
+    },
+    {
+      "query": "How many people should staff our 10x20 booth at KubeCon and in what shifts?",
+      "should_trigger": false
+    },
+    {
+      "query": "What swag should we bring to PyCon and should we run a raffle?",
+      "should_trigger": false
+    },
+    {
+      "query": "Should we sponsor KubeCon or three smaller community events next year?",
+      "should_trigger": false
+    },
+    {
+      "query": "Is the Gold tier at $18k for DevOpsDays worth it?",
+      "should_trigger": false
+    },
+    {
+      "query": "We're organizing our own conference, write the attendee email sequence from announcement to post-event",
+      "should_trigger": false
+    },
+    {
+      "query": "As the hackathon organizer, how do we judge submissions fairly?",
+      "should_trigger": false
+    },
+    {
+      "query": "Run our organizing team's post-mortem on last month's meetup",
+      "should_trigger": false
+    },
+    {
+      "query": "Design the post-event attendee feedback survey for our conference",
+      "should_trigger": false
+    },
+    {
+      "query": "As event organizers, how do we deliver the post-event report to our sponsors?",
+      "should_trigger": false
+    },
+    {
+      "query": "Write the onboarding email sequence for developers who sign up for our free tier",
+      "should_trigger": false
+    },
+    {
+      "query": "Grow our developer newsletter subscriber list",
+      "should_trigger": false
+    },
+    {
+      "query": "Write a cold email to CTOs at fintech companies",
+      "should_trigger": false
+    },
+    {
+      "query": "Plan an invite-only VIP dinner for 12 platform leads during re:Invent",
+      "should_trigger": false
+    },
+    {
+      "query": "What DevRel KPIs should we report to the board?",
+      "should_trigger": false
+    },
+    {
+      "query": "Write the exec QBR slide on what DevRel delivered this quarter",
+      "should_trigger": false
+    },
+    {
+      "query": "Help me write a conference talk proposal for KubeCon",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we design a live demo that won't fail on stage?",
+      "should_trigger": false
+    },
+    {
+      "query": "Start a recurring developer meetup in Lisbon",
+      "should_trigger": false
+    },
+    {
+      "query": "Set up UTM and event tracking for our developer docs",
+      "should_trigger": false
+    },
+    {
+      "query": "Design a recurring webinar program and its registrant follow-up",
+      "should_trigger": false
+    },
+    {
+      "query": "Our Discord community is quiet, how do we revive engagement?",
+      "should_trigger": false
+    },
+    {
+      "query": "Write release notes for v3.2",
+      "should_trigger": false
+    },
+    {
+      "query": "Plan the launch of our open-source CLI on Hacker News",
+      "should_trigger": false
+    },
+    {
+      "query": "Build a lead scoring model in our CRM for inbound demo requests",
+      "should_trigger": false
+    },
+    {
+      "query": "How should SDRs prioritize inbound trial signups by company size?",
+      "should_trigger": false
+    },
+    {
+      "query": "Is our cookie banner GDPR compliant?",
+      "should_trigger": false
+    },
+    {
+      "query": "Write our GDPR privacy notice for the website",
+      "should_trigger": false
+    },
+    {
+      "query": "Design a student ambassador program for universities",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we set up a DevRel budget split between events and content?",
+      "should_trigger": false
+    },
+    {
+      "query": "Write a case study about a customer we met at a conference",
+      "should_trigger": false
+    },
+    {
+      "query": "Organize a hackathon for our users next spring",
+      "should_trigger": false
+    },
+    {
+      "query": "Plan the pre-event outreach to book meetings at re:Invent",
+      "should_trigger": false
+    },
+    {
+      "query": "Follow up with the candidates we met at our table at the university career fair",
+      "should_trigger": false
+    }
+  ]
+}

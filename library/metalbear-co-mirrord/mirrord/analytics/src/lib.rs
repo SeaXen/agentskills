@@ -1,0 +1,812 @@
+#![deny(unused_crate_dependencies)]
+
+use std::{
+    collections::HashMap,
+    str::FromStr,
+    time::{Duration, Instant},
+};
+
+use base64::{Engine as _, engine::general_purpose};
+use serde::{Deserialize, Serialize};
+use sha2::{Digest, Sha256};
+use strum_macros::IntoStaticStr;
+use tracing::{Level, info};
+use uuid::Uuid;
+
+pub mod preview;
+
+const CURRENT_VERSION: &str = env!("CARGO_PKG_VERSION");
+
+/// Environment variable carrying the `mirrord up` correlation id down to child
+/// mirrord sessions.
+pub const MIRRORD_UP_CORRELATION_ID_ENV: &str = "MIRRORD_UP_CORRELATION_ID";
+
+/// Reads the [`MIRRORD_UP_CORRELATION_ID_ENV`] correlation id, if this process
+/// was spawned by `mirrord up`.
+pub fn read_correlation_id_from_env() -> Option<Uuid> {
+    std::env::var(MIRRORD_UP_CORRELATION_ID_ENV)
+        .ok()
+        .and_then(|value| value.parse().ok())
+}
+
+/// Prefix of the stdout line on which a session started by `mirrord up` reports the branch
+/// databases it uses, as a JSON list of [`UpSessionDbBranch`]. `mirrord up` reads it from the
+/// session's output for its own analytics and doesn't show it.
+pub const UP_DB_BRANCHES_REPORT_PREFIX: &str = "mirrord-up-db-branches:";
+
+/// One branch database a session started by `mirrord up` uses (see
+/// [`UP_DB_BRANCHES_REPORT_PREFIX`]).
+#[derive(Clone, Debug, Serialize, Deserialize)]
+pub struct UpSessionDbBranch {
+    /// Resource name of the branch. It is unique within a cluster only, so services of one run
+    /// use the same branch when they report the same name and the same `cluster`.
+    pub name: String,
+    /// URL of the API server of the cluster the branch lives in.
+    pub cluster: String,
+    /// The session created the branch, rather than attaching to one that existed.
+    pub created: bool,
+}
+
+/// Environment variables carrying the connected cluster's Kubernetes
+/// apiserver version from the CLI down to the proxy that reports
+/// session analytics.
+///
+/// Intproxy (or extproxy) is the main component responsible for
+/// reporting analytics, but it does not have a kube client. CLI does
+/// have a kube client, so it serializes the version into env for the
+/// (int/ext)proxy to report.
+pub const MIRRORD_KUBE_VERSION_MAJOR_ENV: &str = "MIRRORD_KUBE_VERSION_MAJOR";
+pub const MIRRORD_KUBE_VERSION_MINOR_ENV: &str = "MIRRORD_KUBE_VERSION_MINOR";
+
+/// Reads the Kubernetes apiserver version `(major, minor)` set by the
+/// parent CLI, if present.
+pub fn read_kube_version_from_env() -> Option<(u16, u16)> {
+    let major = std::env::var(MIRRORD_KUBE_VERSION_MAJOR_ENV)
+        .ok()?
+        .parse()
+        .ok()?;
+    let minor = std::env::var(MIRRORD_KUBE_VERSION_MINOR_ENV)
+        .ok()?
+        .parse()
+        .ok()?;
+    Some((major, minor))
+}
+
+/// Possible values for analytic data.
+///
+/// Variant order affect deserialization, but all values are deserialized by the server into json
+/// `Value`. This means, for example, `Uuid` and `SanitizedString` will become `String`. Rount trip
+/// serialization to the same [`AnalyticValue`] variant is not important.
+#[derive(Debug, Serialize, Deserialize, Clone)]
+#[serde(untagged)]
+pub enum AnalyticValue {
+    Bool(bool),
+    Number(u32),
+    Uuid(Uuid),
+    Nested(Analytics),
+    String(SanitizedString),
+    List(Vec<AnalyticValue>),
+}
+
+#[derive(Default, Debug, Serialize, Deserialize, Clone, Copy)]
+#[serde(rename_all = "snake_case")]
+pub enum AnalyticsError {
+    AgentConnection,
+    EnvFetch,
+    BinaryExecuteFailed,
+    IntProxyFirstConnection,
+
+    #[default]
+    Unknown,
+}
+
+#[derive(Default, Debug, Clone, Copy)]
+#[repr(u32)]
+pub enum ExecutionKind {
+    Container = 1,
+    #[default]
+    Exec = 2,
+    PortForward = 3,
+    Dump = 4,
+    Wizard = 5,
+    Preview = 6,
+    Other = 0,
+}
+
+impl From<u32> for ExecutionKind {
+    fn from(kind: u32) -> Self {
+        match kind {
+            1 => ExecutionKind::Container,
+            2 => ExecutionKind::Exec,
+            3 => ExecutionKind::PortForward,
+            4 => ExecutionKind::Dump,
+            5 => ExecutionKind::Wizard,
+            6 => ExecutionKind::Preview,
+            _ => ExecutionKind::Other,
+        }
+    }
+}
+
+impl FromStr for ExecutionKind {
+    type Err = <u32 as FromStr>::Err;
+
+    fn from_str(value: &str) -> std::result::Result<Self, <Self as std::str::FromStr>::Err> {
+        value.parse::<u32>().map(ExecutionKind::from)
+    }
+}
+
+/// AI coding agent that launched (or drove) this mirrord run, detected from environment
+/// variables the agents set for their subprocesses, in the same best-effort spirit as `is_ci`.
+///
+/// Reported on analytics events as the numeric `ai_agent` property (alongside the
+/// `is_ai_agent` boolean), so AI-agent-driven usage can be distinguished from direct
+/// human usage. The numeric mapping keeps the analytics schema stable.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, IntoStaticStr)]
+#[strum(serialize_all = "kebab-case")]
+#[repr(u32)]
+pub enum AiAgent {
+    ClaudeCode = 1,
+    Cursor = 2,
+    Codex = 3,
+    GeminiCli = 4,
+    Amp = 5,
+}
+
+impl AiAgent {
+    pub fn detect() -> Option<Self> {
+        Self::detect_from(|name| std::env::var(name).ok())
+    }
+
+    fn detect_from(var: impl Fn(&str) -> Option<String>) -> Option<Self> {
+        let set = |name: &str| var(name).is_some_and(|value| !value.is_empty());
+
+        if set("CLAUDECODE") || set("CLAUDE_CODE_ENTRYPOINT") {
+            Some(Self::ClaudeCode)
+        } else if set("CURSOR_TRACE_ID") || set("CURSOR_AGENT") {
+            Some(Self::Cursor)
+        } else if set("CODEX_SANDBOX") {
+            Some(Self::Codex)
+        } else if set("GEMINI_CLI") {
+            Some(Self::GeminiCli)
+        } else if var("AGENT").is_some_and(|value| value.eq_ignore_ascii_case("amp")) {
+            Some(Self::Amp)
+        } else {
+            None
+        }
+    }
+}
+
+/// Struct to store analytics data.
+/// Example usage that would output the following json
+/// ```json
+/// {
+///     "a": true,
+///     "b": false,
+///     "c": 3,
+///     "extra": {
+///         "d": true,
+///         "e": true
+///     }
+/// }
+/// ```
+/// ```
+/// use mirrord_analytics::{Analytics, CollectAnalytics};
+/// let mut analytics = Analytics::default();
+/// analytics.add("a", true);
+/// analytics.add("b", false);
+/// analytics.add("c", 3usize);
+///
+/// struct A {}
+/// impl CollectAnalytics for A {
+///     fn collect_analytics(&self, analytics: &mut Analytics) {
+///         analytics.add("d", true);
+///     }
+/// }
+///
+/// struct B {}
+/// impl CollectAnalytics for B {
+///     fn collect_analytics(&self, analytics: &mut Analytics) {
+///         let a = A {};
+///         a.collect_analytics(analytics);
+///         analytics.add("e", true);
+///     }
+/// }
+/// let b = B {};
+/// analytics.add("extra", b);
+/// ```
+#[derive(Debug, Default, Serialize, Deserialize, Clone)]
+pub struct Analytics {
+    #[serde(flatten)]
+    data: HashMap<String, AnalyticValue>,
+}
+
+impl Analytics {
+    pub fn add<Key: ToString, Value: Into<AnalyticValue>>(&mut self, key: Key, value: Value) {
+        self.data.insert(key.to_string(), value.into());
+    }
+}
+
+/// Type safe abstraction for sending [`String`] values, should be explicitly created so we don't
+/// accidentaly send sensitive data.
+///
+/// If hashed, values are base64 for more optimal size of json.
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub struct SanitizedString(String);
+
+impl SanitizedString {
+    /// Creates a [`SanitizedString`] contianing `bytes` encoded as base 64.
+    pub fn from_bytes(bytes: &[u8]) -> Self {
+        SanitizedString(general_purpose::STANDARD_NO_PAD.encode(bytes))
+    }
+
+    /// Creates a [`SanitizedString`] from a base64 string.
+    pub fn from_base64(val: &str) -> Self {
+        SanitizedString(val.to_owned())
+    }
+
+    /// Creates a [`SanitizedString`] containing an explicitly non-sensitive value. Used only when
+    /// we need to know the value itself, e.g. for `mirrord::diagnose::sip::send_entries()`.
+    pub fn new_plaintext(val: &str) -> Self {
+        SanitizedString(val.to_owned())
+    }
+
+    /// Deterministically hashes a session key with the operator license fingerprint.
+    pub fn for_session_key(key: &str, license_fingerprint: &str) -> Self {
+        let mut hasher = Sha256::new();
+        hasher.update(license_fingerprint.as_bytes());
+        hasher.update(key.as_bytes());
+        Self::from_bytes(&hasher.finalize())
+    }
+
+    pub fn as_str(&self) -> &str {
+        &self.0
+    }
+}
+
+/// Structs that collect analytics about themselves should implement this trait
+pub trait CollectAnalytics {
+    /// Write analytics data to the given `Analytics` struct
+    fn collect_analytics(&self, analytics: &mut Analytics);
+}
+
+impl From<bool> for AnalyticValue {
+    fn from(b: bool) -> Self {
+        AnalyticValue::Bool(b)
+    }
+}
+
+impl From<u16> for AnalyticValue {
+    fn from(n: u16) -> Self {
+        AnalyticValue::Number(n.into())
+    }
+}
+
+impl From<u32> for AnalyticValue {
+    fn from(n: u32) -> Self {
+        AnalyticValue::Number(n)
+    }
+}
+
+impl From<u64> for AnalyticValue {
+    fn from(n: u64) -> Self {
+        AnalyticValue::Number(u32::try_from(n).unwrap_or(u32::MAX))
+    }
+}
+
+impl From<usize> for AnalyticValue {
+    fn from(n: usize) -> Self {
+        AnalyticValue::Number(u32::try_from(n).unwrap_or(u32::MAX))
+    }
+}
+
+impl From<Uuid> for AnalyticValue {
+    fn from(id: Uuid) -> Self {
+        AnalyticValue::Uuid(id)
+    }
+}
+
+impl From<Analytics> for AnalyticValue {
+    fn from(analytics: Analytics) -> Self {
+        AnalyticValue::Nested(analytics)
+    }
+}
+
+impl From<SanitizedString> for AnalyticValue {
+    fn from(hash: SanitizedString) -> Self {
+        AnalyticValue::String(hash)
+    }
+}
+
+impl From<Vec<AnalyticValue>> for AnalyticValue {
+    fn from(vec: Vec<AnalyticValue>) -> Self {
+        AnalyticValue::List(vec)
+    }
+}
+
+impl<T: CollectAnalytics> From<T> for AnalyticValue {
+    fn from(other: T) -> Self {
+        let mut analytics = Analytics::default();
+        other.collect_analytics(&mut analytics);
+        analytics.into()
+    }
+}
+
+pub trait Reporter: Sized {
+    /// Workstation identity is exported only with telemetry consent. Non-CLI reporters need not
+    /// invent one for operator reports.
+    fn machine_id(&self) -> Option<Uuid> {
+        None
+    }
+
+    fn get_mut(&mut self) -> &mut Analytics;
+
+    fn set_operator_properties(&mut self, operator_properties: AnalyticsOperatorProperties);
+
+    fn set_error(&mut self, error: AnalyticsError);
+
+    fn has_error(&self) -> bool;
+}
+
+#[derive(Debug, Clone, Copy)]
+pub enum ReportTarget {
+    ClientSession,
+    UpSession,
+    /// One action inside the mirrord terminal interface. Several are reported per run, tied
+    /// together by a `run_id` property.
+    TuiEvent,
+    /// A client (an AI agent's harness) connected to `mirrord mcp`.
+    McpServerStarted,
+    /// One tool call handled by `mirrord mcp`.
+    McpToolCalled,
+    /// One run of `mirrord operator install`.
+    OperatorInstall,
+    /// One run of `mirrord operator uninstall`.
+    OperatorUninstall,
+    /// An ARM mac had to use Rosetta for some binaries.
+    MissingX86Binaries,
+    /// One run of `mirrord preview up`, or of `mirrord preview sync`, which reports `sync`.
+    PreviewUp,
+}
+
+/// Header the client sets to tell the analytics-server which event a report is.
+///
+/// The server maps each known value to its own PostHog event name. A *missing* header is taken as
+/// a client session, for older CLIs; an *unrecognized* one is rejected with 400, so every value
+/// here has to exist server-side before a build that sends it ships.
+pub const EVENT_KIND_HEADER: &str = "x-mirrord-event-kind";
+
+impl ReportTarget {
+    /// The [`EVENT_KIND_HEADER`] value sent for this target.
+    fn event_kind(self) -> &'static str {
+        match self {
+            ReportTarget::ClientSession => "client-session",
+            ReportTarget::UpSession => "up-session",
+            ReportTarget::TuiEvent => "tui-event",
+            ReportTarget::McpServerStarted => "mcp-server-started",
+            ReportTarget::McpToolCalled => "mcp-tool-called",
+            ReportTarget::OperatorInstall => "operator-install",
+            ReportTarget::OperatorUninstall => "operator-uninstall",
+            ReportTarget::MissingX86Binaries => "missing-x86-binaries",
+            ReportTarget::PreviewUp => "preview-up",
+        }
+    }
+}
+
+/// Due to the drop nature using tokio::spawn, runtime must be started.
+#[derive(Debug)]
+pub struct AnalyticsReporter {
+    pub enabled: bool,
+    error_only_send: bool,
+    analytics: Analytics,
+    error: Option<AnalyticsError>,
+    start_instant: Instant,
+    operator_properties: Option<AnalyticsOperatorProperties>,
+    watch: drain::Watch,
+    target: ReportTarget,
+    session_key: Option<String>,
+    machine_id: Uuid,
+}
+
+impl AnalyticsReporter {
+    pub fn new(
+        enabled: bool,
+        execution_kind: ExecutionKind,
+        watch: drain::Watch,
+        machine_id: Uuid,
+        session_key: Option<String>,
+    ) -> Self {
+        let mut analytics = Analytics::default();
+        analytics.add("execution_kind", execution_kind as u32);
+        analytics.add("machine_id", machine_id);
+        analytics.add("is_ci", ci_info::is_ci());
+        let ai_agent = AiAgent::detect();
+        analytics.add("is_ai_agent", ai_agent.is_some());
+        if let Some(agent) = ai_agent {
+            analytics.add("ai_agent", agent as u32);
+        }
+
+        AnalyticsReporter {
+            analytics,
+            error_only_send: false,
+            enabled,
+            error: None,
+            operator_properties: None,
+            start_instant: Instant::now(),
+            watch,
+            target: ReportTarget::ClientSession,
+            session_key,
+            machine_id,
+        }
+    }
+
+    /// Reports one action taken inside the mirrord terminal interface.
+    ///
+    /// `run_id` is shared by every report from the same run of the interface, which is what makes
+    /// a run reconstructable from events that are sent as they happen rather than summarized at
+    /// the end.
+    pub fn for_tui_event(
+        enabled: bool,
+        watch: drain::Watch,
+        machine_id: Uuid,
+        run_id: Uuid,
+    ) -> Self {
+        let mut analytics = Analytics::default();
+        analytics.add("machine_id", machine_id);
+        analytics.add("run_id", run_id);
+
+        AnalyticsReporter {
+            analytics,
+            error_only_send: false,
+            enabled,
+            error: None,
+            operator_properties: None,
+            start_instant: Instant::now(),
+            watch,
+            target: ReportTarget::TuiEvent,
+            session_key: None,
+            machine_id,
+        }
+    }
+
+    pub fn only_error(
+        enabled: bool,
+        execution_kind: ExecutionKind,
+        watch: drain::Watch,
+        machine_id: Uuid,
+        session_key: Option<String>,
+    ) -> Self {
+        let mut reporter =
+            AnalyticsReporter::new(enabled, execution_kind, watch, machine_id, session_key);
+        reporter.error_only_send = true;
+        reporter
+    }
+
+    /// Constructs a reporter that delivers to [`ReportTarget::UpSession`].
+    pub fn for_up_event(enabled: bool, watch: drain::Watch, machine_id: Uuid) -> Self {
+        Self::for_event(ReportTarget::UpSession, enabled, watch, machine_id)
+    }
+
+    /// Constructs a reporter for one `mirrord mcp` event, either
+    /// [`ReportTarget::McpServerStarted`] or [`ReportTarget::McpToolCalled`].
+    pub fn for_mcp_event(
+        target: ReportTarget,
+        enabled: bool,
+        watch: drain::Watch,
+        machine_id: Uuid,
+    ) -> Self {
+        Self::for_event(target, enabled, watch, machine_id)
+    }
+
+    /// A reporter for `target` that carries the properties shared by every standalone event:
+    /// `machine_id`, `is_ci`, and the AI agent detection.
+    pub fn for_event(
+        target: ReportTarget,
+        enabled: bool,
+        watch: drain::Watch,
+        machine_id: Uuid,
+    ) -> Self {
+        let mut analytics = Analytics::default();
+        analytics.add("machine_id", machine_id);
+        analytics.add("is_ci", ci_info::is_ci());
+        let ai_agent = AiAgent::detect();
+        analytics.add("is_ai_agent", ai_agent.is_some());
+        if let Some(agent) = ai_agent {
+            analytics.add("ai_agent", agent as u32);
+        }
+
+        AnalyticsReporter {
+            analytics,
+            error_only_send: false,
+            enabled,
+            error: None,
+            operator_properties: None,
+            start_instant: Instant::now(),
+            watch,
+            target,
+            session_key: None,
+            machine_id,
+        }
+    }
+
+    fn as_report(&mut self) -> AnalyticsReport {
+        let duration = self
+            .start_instant
+            .elapsed()
+            .as_secs()
+            .try_into()
+            .unwrap_or(u32::MAX);
+
+        if let Some(key) = self.session_key.as_deref()
+            && let Some(license_fingerprint) = self
+                .operator_properties
+                .as_ref()
+                .and_then(|properties| properties.license_hash.as_ref())
+        {
+            let session_key_identifier =
+                SanitizedString::for_session_key(key, license_fingerprint.as_str());
+            self.analytics
+                .add("session_key_identifier", session_key_identifier);
+        }
+
+        AnalyticsReport {
+            duration,
+            error: self.error,
+            event_properties: self.analytics.clone(),
+            operator: self.operator_properties.is_some(),
+            operator_properties: self.operator_properties.clone(),
+            platform: std::env::consts::OS,
+            version: CURRENT_VERSION,
+        }
+    }
+
+    /// Sends this report immediately instead of waiting for its drop task. Sets enabled to false so
+    /// another report will not be created on drop.
+    ///
+    /// `explicitly_enabled` can override MIRRORD_TELEMETRY=false if the user has explicitly asked
+    /// the report to be sent, e.g. with `mirrord diagnose sip-report`
+    pub async fn send_now(mut self, explicitly_enabled: bool) -> Result<(), reqwest::Error> {
+        if !(self.enabled || explicitly_enabled) {
+            return Ok(());
+        }
+
+        self.enabled = false;
+        let report = self.as_report();
+        send_analytics(report, self.target).await
+    }
+}
+
+impl Reporter for AnalyticsReporter {
+    fn machine_id(&self) -> Option<Uuid> {
+        self.enabled.then_some(self.machine_id)
+    }
+
+    fn get_mut(&mut self) -> &mut Analytics {
+        &mut self.analytics
+    }
+
+    fn set_operator_properties(&mut self, operator_properties: AnalyticsOperatorProperties) {
+        self.operator_properties.replace(operator_properties);
+    }
+
+    fn set_error(&mut self, error: AnalyticsError) {
+        self.error.replace(error);
+    }
+
+    fn has_error(&self) -> bool {
+        self.error.is_some()
+    }
+}
+
+#[derive(Debug, Default)]
+pub struct NullReporter {
+    analytics: Analytics,
+}
+
+impl Reporter for NullReporter {
+    fn get_mut(&mut self) -> &mut Analytics {
+        &mut self.analytics
+    }
+
+    fn set_operator_properties(&mut self, _operator_properties: AnalyticsOperatorProperties) {}
+
+    fn set_error(&mut self, _error: AnalyticsError) {}
+
+    fn has_error(&self) -> bool {
+        false
+    }
+}
+
+/// Must be called in tokio runtime.
+///
+/// We rely on the main tokio runtime to be started using the macro, meaning it will wait for all
+/// ongoing tasks to finish before exiting.
+impl Drop for AnalyticsReporter {
+    fn drop(&mut self) {
+        if self.enabled && (self.error.is_some() || !self.error_only_send) {
+            let report = self.as_report();
+            let watch = self.watch.clone();
+            let target = self.target;
+            tokio::spawn(async move {
+                if let Err(error) = send_analytics(report, target).await {
+                    info!("Failed to send analytics: {error}");
+                }
+                // hold clone of watch to prevent it from being dropped
+                // allowing our task to finish
+                drop(watch);
+            });
+        }
+    }
+}
+
+/// Extra fields for [`AnalyticsReport`] when using mirrord with operator.
+#[derive(Debug, Serialize, Deserialize, Clone)]
+pub struct AnalyticsOperatorProperties {
+    /// client certificate public key
+    pub client_hash: Option<SanitizedString>,
+
+    /// sha256 fingerprint from operator license
+    pub license_hash: Option<SanitizedString>,
+}
+
+#[derive(Debug, Serialize)]
+struct AnalyticsReport {
+    event_properties: Analytics,
+    platform: &'static str,
+    duration: u32,
+    version: &'static str,
+    operator: bool,
+    #[serde(flatten)]
+    operator_properties: Option<AnalyticsOperatorProperties>,
+    error: Option<AnalyticsError>,
+}
+
+const ANALYTICS_ENDPOINT: &str = "https://analytics.metalbear.com/api/v1/event";
+const ANALYTICS_TIMEOUT: Duration = Duration::from_secs(10);
+
+/// Send [`Analytics`] & [`AnalyticsOperatorProperties`] to [`ANALYTICS_ENDPOINT`].
+///
+/// Will time out after [`ANALYTICS_TIMEOUT`], preventing blocking execution when analytics are sent
+/// at a time other than the end of the session (e.g. for `ReportTarget::MissingX86Binaries`).
+#[tracing::instrument(level = Level::TRACE)]
+async fn send_analytics(
+    report: AnalyticsReport,
+    target: ReportTarget,
+) -> Result<(), reqwest::Error> {
+    let client = reqwest::Client::builder()
+        .timeout(ANALYTICS_TIMEOUT)
+        .build()?;
+    client
+        .post(ANALYTICS_ENDPOINT)
+        .header(EVENT_KIND_HEADER, target.event_kind())
+        .json(&report)
+        .send()
+        .await?
+        .error_for_status()?;
+    Ok(())
+}
+
+#[cfg(test)]
+mod tests {
+    use assert_json_diff::assert_json_eq;
+    use serde_json::json;
+
+    use super::*;
+    /// this tests creates a struct that is flatten and one that is nested
+    /// serializes it and verifies it's correct
+    #[test]
+    fn happy_flow() {
+        let mut analytics = Analytics::default();
+        analytics.add("a", true);
+        analytics.add("b", false);
+        analytics.add("c", 3usize);
+
+        struct A {}
+        impl CollectAnalytics for A {
+            fn collect_analytics(&self, analytics: &mut Analytics) {
+                analytics.add("d", true);
+            }
+        }
+
+        struct B {}
+        impl CollectAnalytics for B {
+            fn collect_analytics(&self, analytics: &mut Analytics) {
+                let a = A {};
+                a.collect_analytics(analytics);
+                analytics.add("e", true);
+            }
+        }
+        let b = B {};
+        analytics.add("extra", b);
+
+        assert_json_eq!(
+            analytics,
+            json!({
+                "a": true,
+                "b": false,
+                "c": 3,
+                "extra": {
+                    "d": true,
+                    "e": true
+                }
+            })
+        );
+    }
+
+    #[test]
+    fn hash_value_serialization() {
+        let mut analytics = Analytics::default();
+        analytics.add(
+            "preview_key_identifier",
+            SanitizedString::from_bytes(b"key"),
+        );
+
+        assert_json_eq!(
+            analytics,
+            json!({
+                "preview_key_identifier": "a2V5"
+            })
+        );
+    }
+
+    #[test]
+    fn ai_agent_detection() {
+        let env = |vars: &'static [(&'static str, &'static str)]| {
+            move |name: &str| {
+                vars.iter()
+                    .find(|(key, _)| *key == name)
+                    .map(|(_, value)| (*value).to_owned())
+            }
+        };
+
+        assert_eq!(
+            AiAgent::detect_from(env(&[("CLAUDECODE", "1")])),
+            Some(AiAgent::ClaudeCode)
+        );
+        assert_eq!(
+            AiAgent::detect_from(env(&[("CURSOR_TRACE_ID", "abc123")])),
+            Some(AiAgent::Cursor)
+        );
+        assert_eq!(
+            AiAgent::detect_from(env(&[("CODEX_SANDBOX", "seatbelt")])),
+            Some(AiAgent::Codex)
+        );
+        assert_eq!(
+            AiAgent::detect_from(env(&[("GEMINI_CLI", "1")])),
+            Some(AiAgent::GeminiCli)
+        );
+        assert_eq!(
+            AiAgent::detect_from(env(&[("AGENT", "amp")])),
+            Some(AiAgent::Amp)
+        );
+        assert_eq!(AiAgent::detect_from(env(&[("AGENT", "jenkins")])), None);
+        assert_eq!(AiAgent::detect_from(env(&[("CLAUDECODE", "")])), None);
+        assert_eq!(AiAgent::detect_from(env(&[])), None);
+        assert_eq!(
+            AiAgent::detect_from(env(&[("CLAUDECODE", "1"), ("CURSOR_TRACE_ID", "abc")])),
+            Some(AiAgent::ClaudeCode)
+        );
+    }
+
+    /// These values are registered on the analytics server, which rejects unknown ones.
+    #[test]
+    fn mcp_event_kinds() {
+        assert_eq!(
+            ReportTarget::McpServerStarted.event_kind(),
+            "mcp-server-started"
+        );
+        assert_eq!(ReportTarget::McpToolCalled.event_kind(), "mcp-tool-called");
+    }
+
+    /// These values are registered on the analytics server, which rejects unknown ones.
+    #[test]
+    fn operator_event_kinds() {
+        assert_eq!(
+            ReportTarget::OperatorInstall.event_kind(),
+            "operator-install"
+        );
+        assert_eq!(
+            ReportTarget::OperatorUninstall.event_kind(),
+            "operator-uninstall"
+        );
+    }
+}

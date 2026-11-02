@@ -1,0 +1,226 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "kaggle-playbook",
+  "scenarios": 6,
+  "expectations_total": 57,
+  "expectations_subjective": 0,
+  "expectations_objective": 57,
+  "pass_rate_with_skill_pct": 89.5,
+  "pass_rate_without_skill_pct": 31.6,
+  "delta_pp": 57.9,
+  "uplift_multiplier": 2.83,
+  "trigger_accuracy_pct": 84.0,
+  "trigger_queries": 50,
+  "trigger_positive_fire_rate": 0.92,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": null,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.309 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "States that Novice colleagues' votes start counting (retroactively) once they reach Contributor tier, so promoting the engineers to Contributor does not make their votes legitimate"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Says Accomplishments posts earn no discussion medals and should carry substance (what changed and why), not a vote request"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Mentions the prize cap for community prediction competitions (about $25,000) and that $15,000 fits under it"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Warns against a shared company user account on Kaggle (one account per person) and says content should come from named staff while the organization profile carries the brand"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Mentions requesting preinstallation via the Kaggle docker-python repository and that the bar is high"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names staff competing under the company name as the starved high-value, high-effort option, conditioned on using only the public release any competitor can install"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "States that Novice colleagues' votes start counting (retroactively) once they reach Contributor tier, so promoting the engineers to Contributor does not make their votes legitimate"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that linking your own work outside the Accomplishments forum counts as self-promotion or spam under Kaggle's rules"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names the Accomplishments forum as the place where announcing your own notebook is allowed"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Says Accomplishments posts earn no discussion medals and should carry substance (what changed and why), not a vote request"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Says repeated votes from the same few colleagues stop counting toward medals or that votes on posts older than about 90 days do not count"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Gives the notebook medal thresholds of 5, 20 and 50 counted votes (bronze, silver, gold) or at least the 50-vote gold threshold"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Proposes answering competition-forum questions in full without links as the earn-first alternative"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Says Kaggle Secrets do not carry over to forks, so each user must add their own secret"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes Kaggle Secrets cannot be used in internet-off code-competition submissions"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Says the competition host (with Kaggle), not the vendor, decides whether a paid tool meets the Reasonableness Standard"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes that a time-limited trial is a problem for competitors over the competition period"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that code shared publicly in a competition is deemed licensed under an OSI-approved open-source license"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Recommends a standalone notebook outside the code competition (or on a public dataset) as the better surface for an API-only product"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Recommends testing the notebook by having one colleague fork it once from their own account (not a second account, not the whole team, since forks count as votes)"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Identifies the Community Competition as the self-serve, no-cost hosting track fitting a $15,000-only budget"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that in a Community Competition the host itself pays and distributes the prizes, including tax handling"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Explains that each competition sets a winner license type in its rules (for example an OSI license, CC-BY 4.0, or write-up only)"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Mentions the prize cap for community prediction competitions (about $25,000) and that $15,000 fits under it"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Includes a rules block or text covering prizes, winner license and staff eligibility"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends publishing under a Kaggle organization profile rather than a personal account"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that organization profiles are requested by the user and approved by Kaggle"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Says a public Kaggle dataset has no email gate and downloads are anonymous, so the lead-capture form approach does not work as planned"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends filling the dataset usability fields (subtitle, tags, description, cover image, licence, file and column descriptions)"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Says a public starter notebook attached to the dataset raises its usability score or credibility"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes the 40 GB dataset fits under the 200 GB per-dataset limit"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Explains that a Kaggle Models listing is organised as variations combining framework, weights and licence"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Says an OSI licence such as Apache 2.0 or MIT allows the model to be used in Kaggle competitions"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Provides a filled dataset description template"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Warns against a shared company user account on Kaggle (one account per person) and says content should come from named staff while the organization profile carries the brand"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Applies an explicit fit test about whether the product runs inside a notebook or a data/ML workflow"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Gives a Skip (or do-not-invest) verdict for a CI/CD security scanner on Kaggle"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Suggests redirecting the effort to channels where CI/CD or security developers already are"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Gives an explicit efficiency ranking of Kaggle surfaces (for example with '>' ordering or a ranked table), not a flat list"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Starts with earn-first full answers in competition forums before any own-work link"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Promotes competition starter notebooks because the library runs offline in code competitions"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends installing the package offline (Kaggle's Dependency Manager or the wheels attached as a Kaggle dataset) for code competitions"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Mentions requesting preinstallation via the Kaggle docker-python repository and that the bar is high"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names staff competing under the company name as the starved high-value, high-effort option, conditioned on using only the public release any competitor can install"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends requesting an organization profile"
+      }
+    ]
+  }
+}

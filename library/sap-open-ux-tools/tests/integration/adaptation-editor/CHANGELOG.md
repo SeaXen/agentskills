@@ -1,0 +1,951 @@
+# @sap-ux-private/adaptation-editor-tests
+
+## 1.0.30
+
+### Patch Changes
+
+#### Workspace Updates
+
+- @sap-ux/yaml 1.0.2 → 1.0.3
+- @sap-ux-private/playwright 1.0.7 → 1.0.8
+- @sap-ux/project-access 2.3.2 → 2.3.3
+
+## 1.0.29
+
+### Patch Changes
+
+#### Workspace Updates
+
+- @sap-ux/project-access 2.3.1 → 2.3.2
+
+## 1.0.28
+
+### Patch Changes
+
+#### Dependency Updates
+
+- Upgrade dotenv 17.4.2 → 18.0.8 [[c12e096](https://github.com/SAP/open-ux-tools/commit/c12e096b48bd3ebc18afc8bcae5f9825974bb55c)]
+
+## 1.0.27
+
+### Patch Changes
+
+#### Release Date
+
+2026-10-16
+
+#### Dependency Updates
+
+- Upgrade npm-run-all2 9.0.2 → 9.0.3 [[192bae1](https://github.com/SAP/open-ux-tools/commit/192bae152640fb51741f16d77402719d0dde0979)]
+
+#### Workspace Updates
+
+- @sap-ux/ui5-info 1.0.6 → 1.0.7
+- @sap-ux-private/playwright 1.0.6 → 1.0.7
+- @sap-ux/project-access 2.3.0 → 2.3.1
+
+## 1.0.26
+
+### Patch Changes
+
+#### Bug Fixes
+
+- Resolve npm audit vulnerabilities — adm-zip 0.6.1, sanitize-html 2.17.7, @xmldom/xmldom 0.9.12, @sap/approuter 23.0.0, qs 6.16.0; add pnpm-workspace.yaml overrides for browserslist, hono, js-yaml, smol-toml, sharp, stream-json, csv-parse, pacote, and others; upgrade @modelcontextprotocol/sdk to 1.32.1 (GHSA-6qxp-vccf-f47h) [[33b98a5](https://github.com/SAP/open-ux-tools/commit/33b98a54ec2f1e2d937cdcd068017c76cc230080)]
+
+## 1.0.25
+
+### Patch Changes
+
+#### Workspace Updates
+
+- @sap-ux/project-access 2.2.2 → 2.3.0
+
+## 1.0.24
+
+### Patch Changes
+
+#### Workspace Updates
+
+- @sap-ux/project-access 2.2.1 → 2.2.2
+
+## 1.0.23
+
+### Patch Changes
+
+#### Workspace Updates
+
+- @sap-ux/project-access 2.2.0 → 2.2.1
+
+## 1.0.22
+
+### Patch Changes
+
+#### Workspace Updates
+
+- @sap-ux/project-access 2.1.13 → 2.2.0
+
+## 1.0.21
+
+### Patch Changes
+
+#### Workspace Updates
+
+- @sap-ux/project-access 2.1.12 → 2.1.13
+
+## 1.0.20
+
+### Patch Changes
+
+#### Workspace Updates
+
+- @sap-ux/project-access 2.1.11 → 2.1.12
+
+## 1.0.19
+
+### Patch Changes
+
+#### Workspace Updates
+
+- @sap-ux/project-access 2.1.10 → 2.1.11
+
+## 1.0.18
+
+### Patch Changes
+
+#### Workspace Updates
+
+- @sap-ux/project-access 2.1.9 → 2.1.10
+
+## 1.0.17
+
+### Patch Changes
+
+#### Workspace Updates
+
+- @sap-ux-private/playwright 1.0.5 → 1.0.6
+- @sap-ux/project-access 2.1.8 → 2.1.9
+- @sap-ux/ui5-info 1.0.5 → 1.0.6
+
+## 1.0.16
+
+### Patch Changes
+
+#### Dependency Updates
+
+- Upgrade adm-zip 0.5.17 → 0.6.0 [[e07b300](https://github.com/SAP/open-ux-tools/commit/e07b3009552002d60344dbd46fee5b957b054f03)]
+
+## 1.0.15
+
+### Patch Changes
+
+#### Release Date
+
+2026-07-22
+
+#### Dependency Updates
+
+- Upgrade npm-run-all2 8.0.4 → 9.0.2 [[20a52ef](https://github.com/SAP/open-ux-tools/commit/20a52ef640141e4bcaa87482b44ce5049cbc2de1)]
+
+## 1.0.14
+
+### Patch Changes
+
+#### Workspace Updates
+
+- @sap-ux/project-access 2.1.7 → 2.1.8
+
+## 1.0.13
+
+### Patch Changes
+
+#### Workspace Updates
+
+- @sap-ux/project-access 2.1.6 → 2.1.7
+
+## 1.0.12
+
+### Patch Changes
+
+#### Workspace Updates
+
+- @sap-ux-private/playwright 1.0.4 → 1.0.5
+- @sap-ux/project-access 2.1.6 → 2.1.6
+- @sap-ux/ui5-info 1.0.4 → 1.0.5
+
+## 1.0.11
+
+### Patch Changes
+
+#### Workspace Updates
+
+- @sap-ux/ui5-info 1.0.3 → 1.0.4
+- @sap-ux/project-access 2.1.5 → 2.1.6
+
+## 1.0.10
+
+### Patch Changes
+
+#### Dependency Updates
+
+- Bulk upgrade of minor dependencies and devDependencies [[5ce779c](https://github.com/SAP/open-ux-tools/commit/5ce779c43ae81d9a4ed85414bfb6f0ca8f882afc)]
+
+#### Workspace Updates
+
+- @sap-ux/project-access 2.1.4 → 2.1.5
+- @sap-ux-private/playwright 1.0.3 → 1.0.4
+- @sap-ux/ui5-info 1.0.2 → 1.0.3
+- @sap-ux/yaml 1.0.1 → 1.0.2
+
+## 1.0.9
+
+### Patch Changes
+
+#### Workspace Updates
+
+- @sap-ux/project-access 2.1.3 → 2.1.4
+
+## 1.0.8
+
+### Patch Changes
+
+#### Dependency Updates
+
+- Upgrade patch-level dependencies [[aed328d](https://github.com/SAP/open-ux-tools/commit/aed328da8a5c93e226c58e4d7dc14c7c82756259)]
+
+#### Workspace Updates
+
+- @sap-ux-private/playwright 1.0.2 → 1.0.3
+- @sap-ux/ui5-info 1.0.1 → 1.0.2
+
+## 1.0.7
+
+### Patch Changes
+
+#### Workspace Updates
+
+- @sap-ux/project-access 2.1.2 → 2.1.3
+
+## 1.0.6
+
+### Patch Changes
+
+- @sap-ux/project-access@2.1.2
+
+## 1.0.5
+
+### Patch Changes
+
+- Updated dependencies [fff7490]
+    - @sap-ux/project-access@2.1.1
+
+## 1.0.4
+
+### Patch Changes
+
+- Updated dependencies [d2b8d7b]
+- Updated dependencies [b326a9a]
+    - @sap-ux-private/playwright@1.0.2
+    - @sap-ux/project-access@2.1.0
+
+## 1.0.3
+
+### Patch Changes
+
+- Updated dependencies [21a3de7]
+    - @sap-ux/project-access@2.0.3
+    - @sap-ux-private/playwright@1.0.1
+    - @sap-ux/ui5-info@1.0.1
+    - @sap-ux/yaml@1.0.1
+
+## 1.0.2
+
+### Patch Changes
+
+- @sap-ux/project-access@2.0.2
+
+## 1.0.1
+
+### Patch Changes
+
+- Updated dependencies [aed799d]
+    - @sap-ux/project-access@2.0.1
+
+## 1.0.0
+
+### Major Changes
+
+- 32609a7: # Migration to ECMAScript Modules (ESM)
+
+    Packages in the SAP Open UX Tools monorepo have been migrated from CommonJS (CJS) to ECMAScript Modules (ESM) with NodeNext module resolution.
+
+    '@sap-ux/backend-proxy-middleware-cf' is experimental and will remain at major version 0.
+    '@sap-ux/generator-odata-downloader' is a top level yeoman generator and will remain as CJS until validation as ESM is done.
+
+    ## What Changed
+    - **Module System**: Most packages now use native ESM (`"type": "module"` in package.json)
+    - **TypeScript Configuration**: Updated to `module: "NodeNext"` and `moduleResolution: "NodeNext"`
+    - **Import Statements**: All relative imports now include explicit `.js` extensions (per ESM spec)
+    - **Build Output**: Generated JavaScript files are now ESM modules
+    - **Node.js Requirement**: Minimum Node.js version remains >=22.x
+
+    ### Jest Configuration (for Testing)
+
+    If your project tests code that imports these packages, update your Jest configuration:
+
+    ```js
+    export default {
+        extensionsToTreatAsEsm: ['.ts'],
+        transform: {
+            '^.+\\.ts$': ['ts-jest', { useESM: true }]
+        }
+    };
+    ```
+
+    And run Jest with: `NODE_OPTIONS='--experimental-vm-modules' jest`
+
+### Patch Changes
+
+- Updated dependencies [32609a7]
+    - @sap-ux/project-access@2.0.0
+    - @sap-ux-private/playwright@1.0.0
+    - @sap-ux/ui5-info@1.0.0
+    - @sap-ux/yaml@1.0.0
+
+## 0.0.87
+
+### Patch Changes
+
+- @sap-ux/project-access@1.38.1
+
+## 0.0.86
+
+### Patch Changes
+
+- Updated dependencies [63e6846]
+    - @sap-ux/project-access@1.38.0
+
+## 0.0.85
+
+### Patch Changes
+
+- Updated dependencies [fb00faa]
+    - @sap-ux-private/playwright@0.3.1
+
+## 0.0.84
+
+### Patch Changes
+
+- Updated dependencies [72695e5]
+    - @sap-ux-private/playwright@0.3.0
+    - @sap-ux/project-access@1.37.0
+    - @sap-ux/ui5-info@0.14.0
+    - @sap-ux/yaml@0.18.0
+
+## 0.0.83
+
+### Patch Changes
+
+- Updated dependencies [50a8ba5]
+    - @sap-ux-private/playwright@0.2.16
+    - @sap-ux/project-access@1.36.5
+    - @sap-ux/ui5-info@0.13.22
+    - @sap-ux/yaml@0.17.8
+
+## 0.0.82
+
+### Patch Changes
+
+- Updated dependencies [21abda3]
+    - @sap-ux/project-access@1.36.4
+
+## 0.0.81
+
+### Patch Changes
+
+- Updated dependencies [678a08e]
+    - @sap-ux/ui5-info@0.13.21
+    - @sap-ux/project-access@1.36.3
+
+## 0.0.80
+
+### Patch Changes
+
+- @sap-ux/project-access@1.36.2
+
+## 0.0.79
+
+### Patch Changes
+
+- Updated dependencies [3945459]
+    - @sap-ux/project-access@1.36.1
+
+## 0.0.78
+
+### Patch Changes
+
+- Updated dependencies [1d60871]
+    - @sap-ux/project-access@1.36.0
+
+## 0.0.77
+
+### Patch Changes
+
+- Updated dependencies [03d3ea1]
+    - @sap-ux/project-access@1.35.21
+
+## 0.0.76
+
+### Patch Changes
+
+- Updated dependencies [9a48e63]
+    - @sap-ux/ui5-info@0.13.20
+
+## 0.0.75
+
+### Patch Changes
+
+- 67d1f8b: Bump dotenv and configure "quiet" option
+
+## 0.0.74
+
+### Patch Changes
+
+- Updated dependencies [cc4450c]
+    - @sap-ux/ui5-info@0.13.19
+    - @sap-ux/project-access@1.35.20
+
+## 0.0.73
+
+### Patch Changes
+
+- Updated dependencies [f1e4481]
+    - @sap-ux/yaml@0.17.7
+    - @sap-ux-private/playwright@0.2.15
+    - @sap-ux/project-access@1.35.19
+    - @sap-ux/ui5-info@0.13.18
+
+## 0.0.72
+
+### Patch Changes
+
+- Updated dependencies [3291f6c]
+    - @sap-ux/project-access@1.35.18
+
+## 0.0.71
+
+### Patch Changes
+
+- @sap-ux-private/playwright@0.2.14
+- @sap-ux/project-access@1.35.17
+- @sap-ux/ui5-info@0.13.17
+
+## 0.0.70
+
+### Patch Changes
+
+- Updated dependencies [b66e827]
+    - @sap-ux/project-access@1.35.17
+
+## 0.0.69
+
+### Patch Changes
+
+- Updated dependencies [a41533f]
+- Updated dependencies [a41533f]
+- Updated dependencies [a41533f]
+- Updated dependencies [a41533f]
+    - @sap-ux-private/playwright@0.2.13
+    - @sap-ux/project-access@1.35.16
+    - @sap-ux/ui5-info@0.13.16
+    - @sap-ux/yaml@0.17.6
+
+## 0.0.68
+
+### Patch Changes
+
+- Updated dependencies [f384ace]
+    - @sap-ux/project-access@1.35.15
+
+## 0.0.67
+
+### Patch Changes
+
+- @sap-ux/project-access@1.35.14
+
+## 0.0.66
+
+### Patch Changes
+
+- Updated dependencies [5d452e5]
+    - @sap-ux/ui5-info@0.13.15
+
+## 0.0.65
+
+### Patch Changes
+
+- Updated dependencies [d834713]
+    - @sap-ux/project-access@1.35.13
+
+## 0.0.64
+
+### Patch Changes
+
+- fdd57de: fix(deps): update dependency dotenv to v17
+- Updated dependencies [2917c4c]
+- Updated dependencies [7c06ef0]
+    - @sap-ux/yaml@0.17.5
+    - @sap-ux/project-access@1.35.12
+
+## 0.0.63
+
+### Patch Changes
+
+- Updated dependencies [5aff25c]
+    - @sap-ux-private/playwright@0.2.12
+
+## 0.0.62
+
+### Patch Changes
+
+- afc03e2: fix(deps): update dependency jest-dev-server to v11
+
+## 0.0.61
+
+### Patch Changes
+
+- @sap-ux-private/playwright@0.2.11
+- @sap-ux/project-access@1.35.11
+- @sap-ux/ui5-info@0.13.14
+
+## 0.0.60
+
+### Patch Changes
+
+- 451b2f0: fix(deps): update dependency @playwright/test to v1.58.2
+- Updated dependencies [451b2f0]
+    - @sap-ux-private/playwright@0.2.10
+
+## 0.0.59
+
+### Patch Changes
+
+- @sap-ux/project-access@1.35.11
+
+## 0.0.58
+
+### Patch Changes
+
+- Updated dependencies [8017bd3]
+    - @sap-ux-private/playwright@0.2.9
+
+## 0.0.57
+
+### Patch Changes
+
+- Updated dependencies [ca2566b]
+    - @sap-ux/project-access@1.35.10
+
+## 0.0.56
+
+### Patch Changes
+
+- d732237: fix(deps): update dependency jest-dev-server to v10.1.4
+- Updated dependencies [9072d52]
+    - @sap-ux-private/playwright@0.2.8
+    - @sap-ux/project-access@1.35.9
+
+## 0.0.55
+
+### Patch Changes
+
+- cc1c422: fix(deps): update dependency npm-run-all2 to v8
+- Updated dependencies [0ecc5f1]
+    - @sap-ux/project-access@1.35.8
+
+## 0.0.54
+
+### Patch Changes
+
+- @sap-ux/project-access@1.35.7
+
+## 0.0.53
+
+### Patch Changes
+
+- 97735d2: fix(deps): update dependency portfinder to v1.0.38
+- Updated dependencies [97735d2]
+    - @sap-ux-private/playwright@0.2.7
+
+## 0.0.52
+
+### Patch Changes
+
+- bb310dc: fix(deps): update dependency semver to v7.7.4
+- Updated dependencies [bb310dc]
+- Updated dependencies [e5bc3ca]
+    - @sap-ux/project-access@1.35.6
+    - @sap-ux/ui5-info@0.13.13
+
+## 0.0.51
+
+### Patch Changes
+
+- Updated dependencies [d57cc47]
+    - @sap-ux/project-access@1.35.5
+
+## 0.0.50
+
+### Patch Changes
+
+- @sap-ux/project-access@1.35.4
+
+## 0.0.49
+
+### Patch Changes
+
+- Updated dependencies [346f09c]
+    - @sap-ux/project-access@1.35.3
+
+## 0.0.48
+
+### Patch Changes
+
+- Updated dependencies [d2b772d]
+    - @sap-ux/project-access@1.35.2
+
+## 0.0.47
+
+### Patch Changes
+
+- Updated dependencies [2fc459c]
+    - @sap-ux/ui5-info@0.13.12
+    - @sap-ux/project-access@1.35.1
+
+## 0.0.46
+
+### Patch Changes
+
+- Updated dependencies [a5ecd7f]
+    - @sap-ux/project-access@1.35.0
+
+## 0.0.45
+
+### Patch Changes
+
+- Updated dependencies [467e6aa]
+    - @sap-ux/project-access@1.34.7
+
+## 0.0.44
+
+### Patch Changes
+
+- ad321ab: fix(deps): update dependency semver to v7.7.3
+- Updated dependencies [ad321ab]
+    - @sap-ux/project-access@1.34.6
+    - @sap-ux/ui5-info@0.13.11
+
+## 0.0.43
+
+### Patch Changes
+
+- Updated dependencies [89175fe]
+    - @sap-ux/project-access@1.34.5
+
+## 0.0.42
+
+### Patch Changes
+
+- Updated dependencies [ea7a16c]
+    - @sap-ux/yaml@0.17.4
+    - @sap-ux-private/playwright@0.2.6
+    - @sap-ux/project-access@1.34.4
+    - @sap-ux/ui5-info@0.13.10
+
+## 0.0.41
+
+### Patch Changes
+
+- Updated dependencies [6d71400]
+    - @sap-ux/project-access@1.34.3
+    - @sap-ux/ui5-info@0.13.9
+
+## 0.0.40
+
+### Patch Changes
+
+- c707af1: fix(deps): update dependency dotenv to v16.6.1
+
+## 0.0.39
+
+### Patch Changes
+
+- Updated dependencies [9aad34c]
+    - @sap-ux/ui5-info@0.13.8
+
+## 0.0.38
+
+### Patch Changes
+
+- Updated dependencies [be67fc4]
+    - @sap-ux/project-access@1.34.2
+
+## 0.0.37
+
+### Patch Changes
+
+- Updated dependencies [55ac9f0]
+    - @sap-ux/project-access@1.34.1
+
+## 0.0.36
+
+### Patch Changes
+
+- Updated dependencies [b132944]
+    - @sap-ux/project-access@1.34.0
+
+## 0.0.35
+
+### Patch Changes
+
+- ce4b29c: Upgrade qs/body-parser/express
+
+## 0.0.34
+
+### Patch Changes
+
+- Updated dependencies [f13d1c2]
+    - @sap-ux/project-access@1.33.2
+
+## 0.0.33
+
+### Patch Changes
+
+- Updated dependencies [e111d0d]
+    - @sap-ux/project-access@1.33.1
+
+## 0.0.32
+
+### Patch Changes
+
+- Updated dependencies [03598eb]
+    - @sap-ux/ui5-info@0.13.7
+
+## 0.0.31
+
+### Patch Changes
+
+- Updated dependencies [c7f9a60]
+    - @sap-ux/project-access@1.33.0
+    - @sap-ux-private/playwright@0.2.5
+    - @sap-ux/ui5-info@0.13.6
+
+## 0.0.30
+
+### Patch Changes
+
+- a9471d0: fix sonar issues
+- Updated dependencies [a9471d0]
+    - @sap-ux/project-access@1.32.17
+    - @sap-ux-private/playwright@0.2.4
+    - @sap-ux/ui5-info@0.13.5
+
+## 0.0.29
+
+### Patch Changes
+
+- 4ecfbe2: Chore - upgrade eslint devDependenies, convert to flat config and fix lint issues.
+- Updated dependencies [4ecfbe2]
+    - @sap-ux/project-access@1.32.16
+    - @sap-ux-private/playwright@0.2.3
+    - @sap-ux/ui5-info@0.13.4
+    - @sap-ux/yaml@0.17.3
+
+## 0.0.28
+
+### Patch Changes
+
+- Updated dependencies [7217d7d]
+    - @sap-ux/project-access@1.32.15
+
+## 0.0.27
+
+### Patch Changes
+
+- Updated dependencies [4bdced0]
+    - @sap-ux/project-access@1.32.14
+
+## 0.0.26
+
+### Patch Changes
+
+- Updated dependencies [985223a]
+    - @sap-ux/project-access@1.32.13
+
+## 0.0.25
+
+### Patch Changes
+
+- Updated dependencies [45fe64e]
+    - @sap-ux/project-access@1.32.12
+
+## 0.0.24
+
+### Patch Changes
+
+- Updated dependencies [07725fe]
+    - @sap-ux/project-access@1.32.11
+
+## 0.0.23
+
+### Patch Changes
+
+- @sap-ux/project-access@1.32.10
+
+## 0.0.22
+
+### Patch Changes
+
+- Updated dependencies [1c45a4d]
+    - @sap-ux/ui5-info@0.13.3
+
+## 0.0.21
+
+### Patch Changes
+
+- Updated dependencies [7c09c8e]
+- Updated dependencies [1c13c9c]
+    - @sap-ux/project-access@1.32.9
+
+## 0.0.20
+
+### Patch Changes
+
+- 744fa93: Updating @ui5/cli references to v4 and align version
+
+## 0.0.19
+
+### Patch Changes
+
+- Updated dependencies [fef7496]
+    - @sap-ux/ui5-info@0.13.2
+
+## 0.0.18
+
+### Patch Changes
+
+- Updated dependencies [cfe9c13]
+    - @sap-ux/project-access@1.32.8
+    - @sap-ux-private/playwright@0.2.2
+    - @sap-ux/ui5-info@0.13.1
+    - @sap-ux/yaml@0.17.2
+
+## 0.0.17
+
+### Patch Changes
+
+- Updated dependencies [d895232]
+    - @sap-ux/project-access@1.32.7
+
+## 0.0.16
+
+### Patch Changes
+
+- Updated dependencies [ea0a942]
+    - @sap-ux/project-access@1.32.6
+
+## 0.0.15
+
+### Patch Changes
+
+- Updated dependencies [c5d7915]
+    - @sap-ux/project-access@1.32.5
+
+## 0.0.14
+
+### Patch Changes
+
+- Updated dependencies [bba16a6]
+    - @sap-ux/ui5-info@0.13.0
+
+## 0.0.13
+
+### Patch Changes
+
+- @sap-ux/project-access@1.32.4
+
+## 0.0.12
+
+### Patch Changes
+
+- 43a2446: chore: fix Sonar issues
+- Updated dependencies [43a2446]
+    - @sap-ux/project-access@1.32.3
+    - @sap-ux-private/playwright@0.2.1
+    - @sap-ux/ui5-info@0.12.4
+    - @sap-ux/yaml@0.17.1
+
+## 0.0.11
+
+### Patch Changes
+
+- @sap-ux/project-access@1.32.2
+
+## 0.0.10
+
+### Patch Changes
+
+- Updated dependencies [9872384]
+    - @sap-ux/ui5-info@0.12.3
+    - @sap-ux/project-access@1.32.1
+
+## 0.0.9
+
+### Patch Changes
+
+- Updated dependencies [f9b4afe]
+    - @sap-ux/project-access@1.32.0
+
+## 0.0.8
+
+### Patch Changes
+
+- Updated dependencies [c385a76]
+    - @sap-ux/project-access@1.31.0
+
+## 0.0.7
+
+### Patch Changes
+
+- @sap-ux/project-access@1.30.14
+
+## 0.0.6
+
+### Patch Changes
+
+- Updated dependencies [4cfebaf]
+    - @sap-ux/ui5-info@0.12.2
+    - @sap-ux/project-access@1.30.13
+
+## 0.0.5
+
+### Patch Changes
+
+- @sap-ux/project-access@1.30.12
+
+## 0.0.4
+
+### Patch Changes
+
+- @sap-ux/project-access@1.30.11
+
+## 0.0.3
+
+### Patch Changes
+
+- @sap-ux/project-access@1.30.10
+
+## 0.0.2
+
+### Patch Changes
+
+- @sap-ux/project-access@1.30.9

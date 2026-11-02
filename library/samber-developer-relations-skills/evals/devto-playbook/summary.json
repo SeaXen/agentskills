@@ -1,0 +1,210 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "devto-playbook",
+  "scenarios": 8,
+  "expectations_total": 61,
+  "expectations_subjective": 0,
+  "expectations_objective": 61,
+  "pass_rate_with_skill_pct": 93.4,
+  "pass_rate_without_skill_pct": 39.3,
+  "delta_pp": 54.1,
+  "uplift_multiplier": 2.38,
+  "trigger_accuracy_pct": 70.0,
+  "trigger_queries": 50,
+  "trigger_positive_fire_rate": 0.72,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": null,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.309 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 4,
+        "expectation": "Recommends replying to comments and hearting good comments on their own posts"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends #showdev for the launch post"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Points to the launch-window skill (oss-launch) or Hacker News playbook for the rest of launch day"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Flags that one content marketer cannot also answer comments and do earn-first engagement"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "States that #opensource tag rules ban project promotion or announcements"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that #beginners is for beginners to programming or to a language, not people new to a specific tool or SDK"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends #showdev (or topic tags) instead of #opensource for showing off the SDK"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Includes an earn-first period of commenting on other people's posts before the first company post"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Notes that a brand-new account faces new-account limits or extra spam scrutiny"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Says public reaction types (heart, unicorn) count the same, so asking for unicorns buys nothing extra"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Notes that blog categories in the RSS feed become dev.to tags on import and must be checked"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Warns that imported drafts keep the original blog post date and that old posts publish back-dated unless the date line is removed"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Says the posts must carry an AI disclosure tier on dev.to (Hand Written, AI-Assisted, Fully Autonomous)"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that an LLM draft that a human only skims or approves counts as Fully Autonomous, not Hand Written or AI-Assisted"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Cites the DEV AI guideline that AI-assisted posts must not promote a business, including the author's own"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Recommends that posts naming the product be human-written or meaningfully rewritten by a human"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that DEV's AI guidelines exempt a company-blog backlink only when the post is published under the company's DEV organization"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that an organization byline does not make AI-assisted product promotion acceptable"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Flags the Terms rule against content designed primarily for promotion or backlinks"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Mentions that readers can choose to reduce AI-labelled posts in their feed, lowering reach"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Questions the 3-posts-a-week volume against the team's capacity to answer comments"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Identifies that the RSS import only sets canonical_url when the 'mark the RSS source as canonical URL' option is enabled"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends turning on the canonical option in the RSS import settings for future imports"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Says teaser posts that send readers to the docs for the full content break dev.to's substantial-content rule or attract trusted-member downvotes"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that public reaction types weigh the same, so unicorn requests do not add ranking"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Says ranking weight concentrates in the first few days after publishing"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends measuring reactions and comments at around day 4 rather than at month end"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Labels at least one ranking claim as published by the platform versus practitioner evidence"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that #opensource bans project announcements and contributor requests"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends #showdev for the launch post"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that dev.to Listings have been turned off"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names Billboards (via Pro Tools, requiring an organization admin) as the replacement paid option"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends a story-led post with the problem, what was built, a trade-off and limitations rather than a feature list"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends a #discuss companion post or question during launch week"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Points to the launch-window skill (oss-launch) or Hacker News playbook for the rest of launch day"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that once a tag moderator removes a tag the author cannot add it back"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends syndicate-only or skip rather than a 3-posts-per-week program"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Flags that one content marketer cannot also answer comments and do earn-first engagement"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that dev.to's guidelines ban AI-generated comments"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Notes the exception for translation and grammar or assistive tools"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Mentions that replying to and hearting comments on their own posts is a high-value ranking action, so it is worth human time"
+      }
+    ]
+  }
+}

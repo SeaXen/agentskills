@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Separates the crawler controls into three categories: search-style discovery, user-directed fetch, and model training",
+        "evidence": "Table header: \"Category | What it controls | What breaks if blocked\" with rows \"Search-style discovery\", \"User-directed fetch\", \"Model training\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that blocking model training carries no search-visibility cost and is a licensing and policy decision rather than an SEO one",
+        "evidence": "\"Model training | whether your content may be used to train a future model | no visibility cost at all \u2014 pure licensing/policy decision\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the blocked search-style discovery agents as the reason the docs disappear from assistant answers",
+        "evidence": "\"'ask any assistant about our API' returns nothing \u2014 a competitor with open access wins the citation by default\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the blocked user-directed fetch agents as the reason an assistant cannot retrieve a page a user explicitly asks about",
+        "evidence": "\"a prospect who pastes your docs URL and asks a follow-up gets a fetch failure\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Preserves legal's training block while restoring discovery and user-directed fetch access",
+        "evidence": "\"Fix is not 'unblock the bots' or 'keep the block' \u2014 it's split the one rule into three, keep training blocked, restore the other two.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Instructs resolving each named agent's category against that vendor's own current crawler documentation rather than inferring the category from the agent name",
+        "evidence": "\"Vendors rename and add crawlers \u2014 verify each agent's category against that vendor's own current crawler documentation, never from the name alone.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Instructs auditing the CDN or bot-management layer alongside robots.txt, and notes that a rule can live there that nobody on the docs team chose",
+        "evidence": "\"a CDN 'block AI bots' toggle nobody on the docs team enabled\" and fix item 2: \"CDN 'block AI bots' toggle enabled account/zone-wide, undocumented, origin unknown\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that robots.txt-family signals are honour-system, so they are not enforcement against a non-compliant crawler",
+        "evidence": "\"robots.txt is honor-system, the CDN is the actual enforcement layer, and a fixed robots.txt can still be silently overridden by an untouched CDN rule\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the crawler policy as a policy call rather than as a blocking defect",
+        "evidence": "For ambiguous crawlers: \"that's a real trade-off, not a fixable misconfiguration: put it in front of legal explicitly... and let them decide per vendor, instead of defaulting to block-everything because it's the easiest line to keep.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports the cost of each rule per agent instead of giving a single blanket allow or block recommendation",
+        "evidence": "The \"Working categorization\" section lists specific named agents (GPTBot, OAI-SearchBot, ChatGPT-User, ClaudeBot, etc.) sorted per-agent into categories rather than a single blanket rule.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Stops at crawler access and does not prescribe what to publish for assistants or how to earn citations",
+        "evidence": "\"that's a separate track (ai-seo / optimize-for-ai), not part of this fix\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not present llms.txt or a markdown endpoint as a ranking or citation factor",
+        "evidence": "\"Publishing llms.txt or another machine-readable surface is a separate publishing decision with no ranking or citation effect on its own \u2014 don't bundle it into this fix or present it as the thing that brings citations back.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Separates the crawler controls into three categories: search-style discovery, user-directed fetch, and model training",
+        "evidence": "Uses Bucket A training, B retrieval/citation (which lumps search-style discovery with user-directed fetch), and C ambiguous.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that blocking model training carries no search-visibility cost and is a licensing and policy decision rather than an SEO one",
+        "evidence": "'Keeping these disallowed site-wide costs nothing.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the blocked search-style discovery agents as the reason the docs disappear from assistant answers",
+        "evidence": "'no index entry, no live fetch, nothing to cite'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the blocked user-directed fetch agents as the reason an assistant cannot retrieve a page a user explicitly asks about",
+        "evidence": "'ChatGPT-User (live fetch when ChatGPT browses a page on a user's behalf)'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Preserves legal's training block while restoring discovery and user-directed fetch access",
+        "evidence": "'keep Disallow for Bucket A only, remove Bucket B entirely'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Instructs resolving each named agent's category against that vendor's own current crawler documentation rather than inferring the category from the agent name",
+        "evidence": "Assigns categories itself; only ambiguous bots get 'an explicit legal call'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Instructs auditing the CDN or bot-management layer alongside robots.txt, and notes that a rule can live there that nobody on the docs team chose",
+        "evidence": "'Two independent blocks stacked'; 'Audit before touching anything' including the CDN toggle.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that robots.txt-family signals are honour-system, so they are not enforcement against a non-compliant crawler",
+        "evidence": "'only for vendors that... actually honor robots.txt \u2014 most reputable ones do, some don't'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the crawler policy as a policy call rather than as a blocking defect",
+        "evidence": "'Frame the deliverable to legal as risk mitigation'; the buckets are a policy split.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports the cost of each rule per agent instead of giving a single blanket allow or block recommendation",
+        "evidence": "Costs are given per bucket and no per-agent cost report is made.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Stops at crawler access and does not prescribe what to publish for assistants or how to earn citations",
+        "evidence": "Adds a Sitemap line and AI-citation tracking tools (Otterly, Peec AI) beyond crawler access.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not present llms.txt or a markdown endpoint as a ranking or citation factor",
+        "evidence": "llms.txt is not mentioned.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

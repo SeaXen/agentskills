@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Before/after snippets are complete enough to paste and use the same variable names in both halves",
+        "evidence": "Variable names match in every before/after pair. The config pair repeats the same four keys and values. The close() pair uses `client` in both halves. The fetch() pair keeps `client`, the \"/users/42\" path, `err`, `res`, `handleError` and `render` throughout. The snippets fall short of fully paste-ready in three ways. `logger` appears only in the After half of the close() example and is never defined. The fetch() After block uses `await` with no enclosing async function, though Fix step 4 mentions this. The v6 `.cwickrc` block is plain JSON but is fenced as `ts`. Neither half shows how `client`",
+        "score": 4,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Before/after snippets are complete enough to paste and use the same variable names in both halves",
+        "evidence": "The before and after halves use the same names. fetch uses client, url, err, res, handle and use in both halves. The config pair keeps the same keys and values (plugins, retries, baseUrl, logLevel), and the after file is a complete, valid cwick.config.ts. The close() pair uses client in both halves. Two things keep this from a 5. First, the fetch and close snippets are fragments: they use top-level await and rely on client, url, handle and use without declaring or importing them, so they won't run as pasted. Second, the close() 'after' adds a `log` identifier that the 'before' doesn't have and",
+        "score": 4,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Moves the percentage-rollout rules engine out of the paid tier into the free core, applying the rule that a feature everyone needs belongs in the free core.",
+        "evidence": "Percentage rollouts and targeting rules: keep them free.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps SSO and the audit log as paid candidates because they are organization-scale needs, and names the logistics company and the bank as the companies to validate them with before writing code.",
+        "evidence": "SSO... Both named buyers asked for it; Email the logistics company and the bank... to validate the boundary",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses the daily ping to check for a Pro key and the user-count banner in the free server, stating that the free edition must carry no telemetry, phone-home code or license checks.",
+        "evidence": "Banner and daily ping: cut both... No banner, no phone-home and no license check in the free server.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites Moq's sponsorship check, which hashed developers' git emails and sent them out, as the precedent for the backlash such a check draws.",
+        "evidence": "Moq, 2023: a sponsorship check that sent hashed developer git emails drew a public backlash",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces the $19 per developer per month price with per-organization pricing, flat or banded by developer count, billed annually.",
+        "evidence": "$19 per developer per month: drop it... Draft bands, per organization, annual only.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites FluentAssertions' per-developer price as the shape that drew the strongest recent fork, and AutoMapper's developer bands per organization as the shape that drew less anger.",
+        "evidence": "FluentAssertions is cited; AutoMapper's bands are not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Answers the audit-log pull request with the written contribution rule: decline with a written reason, or move the feature to free when everyone needs it, and states this rule must be decided before the first such PR arrives.",
+        "evidence": "Written now, so the first one is not improvised. A PR that adds a paid-list feature... declined with a written reason",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that community-contributed code is never paywalled, so if the PR is merged the audit log cannot later move behind the paid tier.",
+        "evidence": "Merged code is community-contributed. You may never paywall it later.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places paid code in a separate package or module wrapping the free server, delivered privately with a per-customer credential.",
+        "evidence": "Deliver it privately as a separate image or module with a per-customer token.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that an offline license key inside the paid module is acceptable only if the FAQ says so, and that redistribution of the paid package is stopped by the license contract and private delivery, never by checks in the free code.",
+        "evidence": "The FAQ is mentioned, but the redistribution-by-contract point is absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a published always-free list before launch, covering at least: everything free today, security fixes for the free edition, documentation needed to use it, data export, and community contributions.",
+        "evidence": "Always-free list. Publish it before you ship Pro.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires securing the Brasswick name by trademark registration before selling, noting that first use alone rarely protects it outside the US and UK.",
+        "evidence": "'Register the Brasswick name as a trademark' appears without the first-use caveat.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Offers a card-paid self-serve tier and a custom tier with purchase orders, invoices and security answers.",
+        "evidence": "Team: card checkout; Business: invoice or PO; Enterprise: PO, security pack",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Hands the actual price levels to samber/developer-relations-skills@devtools-pricing-strategy rather than fixing dollar figures as final.",
+        "evidence": "Not mentioned. The plan fixes draft dollar figures as its own.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Moves the percentage-rollout rules engine out of the paid tier into the free core, applying the rule that a feature everyone needs belongs in the free core.",
+        "evidence": "'Percentage rollouts... Free. Your draft puts this in Pro, which I'd reverse.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps SSO and the audit log as paid candidates because they are organization-scale needs, and names the logistics company and the bank as the companies to validate them with before writing code.",
+        "evidence": "It says to validate with 'the two companies that asked for SSO', and it names the bank and logistics company only in the Enterprise row.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses the daily ping to check for a Pro key and the user-count banner in the free server, stating that the free edition must carry no telemetry, phone-home code or license checks.",
+        "evidence": "It drops the ping but keeps an admin banner with a local count. It offers an opt-in version check in the free server.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites Moq's sponsorship check, which hashed developers' git emails and sent them out, as the precedent for the backlash such a check draws.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Replaces the $19 per developer per month price with per-organization pricing, flat or banded by developer count, billed annually.",
+        "evidence": "'$29 per editor seat per month' is still per-seat.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites FluentAssertions' per-developer price as the shape that drew the strongest recent fork, and AutoMapper's developer bands per organization as the shape that drew less anger.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Answers the audit-log pull request with the written contribution rule: decline with a written reason, or move the feature to free when everyone needs it, and states this rule must be decided before the first such PR arrives.",
+        "evidence": "It says to merge it after review and tell the contributor the boundary, with no written rule decided in advance.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that community-contributed code is never paywalled, so if the PR is merged the audit log cannot later move behind the paid tier.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places paid code in a separate package or module wrapping the free server, delivered privately with a per-customer credential.",
+        "evidence": "It puts Pro code in an `ee/` directory in the same repo under a commercial license.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that an offline license key inside the paid module is acceptable only if the FAQ says so, and that redistribution of the paid package is stopped by the license contract and private delivery, never by checks in the free code.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a published always-free list before launch, covering at least: everything free today, security fixes for the free edition, documentation needed to use it, data export, and community contributions.",
+        "evidence": "It publishes a PRICING.md boundary and a promise that 'nothing free becomes Pro'. It does not list security fixes, docs, data export or contributions.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires securing the Brasswick name by trademark registration before selling, noting that first use alone rarely protects it outside the US and UK.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Offers a card-paid self-serve tier and a custom tier with purchase orders, invoices and security answers.",
+        "evidence": "The Enterprise row has PO and invoice billing, but no self-serve card tier is stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Hands the actual price levels to samber/developer-relations-skills@devtools-pricing-strategy rather than fixing dollar figures as final.",
+        "evidence": "It proposes $29 with a 10-seat minimum. It does not route to the skill.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

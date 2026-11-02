@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Identifies the canonical from /fr/ and /ja/ to /en/ as the reason the translations do not appear, and states that it removes them from search",
+        "evidence": "\"The /fr/ \u2192 /en/ and /ja/ \u2192 /en/ canonicals are the root cause of both symptoms... it's the mechanism actively deleting both locales from search.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prescribes a self-referencing canonical on every locale's pages",
+        "evidence": "\"Fix: every locale self-canonicalizes. /fr/guides/webhooks/ canonicals to itself, /ja/guides/webhooks/ canonicals to itself, /en/guides/webhooks/ canonicals to itself.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a complete hreflang set in which each language version lists itself as well as all the others",
+        "evidence": "\"Self-reference: each language version must list itself as well as every other version.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires an x-default entry for the case where no other language or region matches",
+        "evidence": "\"x-default: needed for visitors whose browser language matches none of en/fr/ja. Confirm it's present and points at a sensible fallback (typically /en/).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that hreflang return links must be bidirectional, and that missing return links may cause the annotations to be ignored",
+        "evidence": "\"Return links (bidirectional): if /en/ lists /ja/, then /ja/ must list /en/ back, or Google may ignore the whole annotation set.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the Japanese launch without regenerating the French alternates as a return-link failure",
+        "evidence": "\"/fr/ today is very likely still advertising a two-way (en/fr) or even just self-referencing set with no ja entry, which is a return-link failure for the new locale\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Instructs regenerating the whole hreflang mesh across every locale whenever a locale is added or removed, not just the new locale's pages",
+        "evidence": "\"Fix: regenerate the entire hreflang mesh across every locale \u2014 en, fr, ja \u2014 in the same change... Any future locale launch (or removal) requires the same full regeneration, every time.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports the hreflang breaches as defects rather than as optional suggestions or improvements",
+        "evidence": "Presented under numbered \"Fix list, in order\" alongside item 1 labeled \"Blocking defect \u2014 nothing else here matters until this ships,\" with prescriptive \"Fix:\" language rather than optional phrasing.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends applying noindex to the unreviewed machine-translated Portuguese set",
+        "evidence": "\"noindex the Portuguese set until someone reviews it; exclude it from the hreflang mesh while it's noindexed.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that unreviewed machine translation competes with the English page while satisfying nobody",
+        "evidence": "\"it would just compete with the English (or eventually French) page for the same queries while offering nobody a page anyone signed off on.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the duplicate-content-penalty rationale offered for the cross-locale canonicals",
+        "evidence": "\"The 'duplicate content penalty' rationale the previous agency gave is wrong on its own terms. Google has never treated translated content as a penalizable duplicate\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that a page canonicalized elsewhere has its hreflang annotations discarded, so the set belongs on canonical URLs only",
+        "evidence": "\"Hreflang belongs on canonical URLs only: this is exactly why the current setup is doubly broken \u2014 /fr/ and /ja/ are canonicalized away from themselves... Google is entitled to discard them\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Identifies the canonical from /fr/ and /ja/ to /en/ as the reason the translations do not appear, and states that it removes them from search",
+        "evidence": "'a direct instruction to drop the localized URL from the index'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prescribes a self-referencing canonical on every locale's pages",
+        "evidence": "'Every /fr/, /ja/, and (once reviewed) /pt/ page needs a self-referencing canonical'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a complete hreflang set in which each language version lists itself as well as all the others",
+        "evidence": "Requires a 'complete, reciprocal hreflang set' but never says each page lists itself.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires an x-default entry for the case where no other language or region matches",
+        "evidence": "'Include x-default.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that hreflang return links must be bidirectional, and that missing return links may cause the annotations to be ignored",
+        "evidence": "'Hreflang has to be fully reciprocal... or the whole cluster is invalid'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the Japanese launch without regenerating the French alternates as a return-link failure",
+        "evidence": "Attributes Japanese's failure to the canonical conflict and French to never being included.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Instructs regenerating the whole hreflang mesh across every locale whenever a locale is added or removed, not just the new locale's pages",
+        "evidence": "Suggests a single generated template but does not state the regenerate-all rule.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reports the hreflang breaches as defects rather than as optional suggestions or improvements",
+        "evidence": "Presented as a fix-priority list with no defect framing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends applying noindex to the unreviewed machine-translated Portuguese set",
+        "evidence": "Says 'Hold Portuguese out' and 'Don't flip Portuguese into the index', but never recommends noindex.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that unreviewed machine translation competes with the English page while satisfying nobody",
+        "evidence": "Cites spam-policy and manual-action risk instead.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the duplicate-content-penalty rationale offered for the cross-locale canonicals",
+        "evidence": "'Google does not treat translated content as duplicate content'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that a page canonicalized elsewhere has its hreflang annotations discarded, so the set belongs on canonical URLs only",
+        "evidence": "'Google's documented behavior is to trust the canonical and disregard the hreflang cluster on that URL'.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

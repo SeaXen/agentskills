@@ -1,0 +1,20 @@
+Big picture: this plan has one structural flaw that dominates everything else — every step after minute 0 depends on a live network call succeeding on venue wifi, and there's no fallback if it doesn't. Four clean runs at your desk proves the happy path works, not that it's robust. Desk rehearsal and conference reality differ in exactly the ways that break CLI demos: wifi, DNS, timing, adrenaline.
+
+**Critical**
+
+- **Single point of failure: live network, no backup.** `init` → `deploy` → preview URL → hot reload are four sequential live network dependencies. If venue wifi drops or chokes (hundreds of devs on laptops is the norm at DataConf), you have nothing to fall back on. Fix: record a full backup video of a successful run and have it cued up to cut to; bring a personal hotspot as a second network path; pre-warm the deploy beforehand so DNS/TLS/CDN for the preview URL are already resolved rather than cold on stage.
+- **No checkpoints — one failure cascades to zero.** Steps 2–4 all assume step 1 succeeded cleanly. If `init` hangs, prompts unexpectedly, or pulls a different template version than what you rehearsed, the rest of the 6 minutes has nothing to show. Fix: have a pre-staged, already-`init`'d project ready to `cd` into as a silent fallback, so one bad step doesn't sink the talk.
+
+**High**
+
+- **Rehearsal ≠ venue conditions.** Desk runs mean warm caches, warm DNS, your own network, sitting down, no time pressure. None of that holds on a conference stage with a demo laptop, projector, and an audience. "Works every time" at your desk is a different claim than "works every time on unfamiliar hardware under pressure."
+- **No time budget per step.** 6 minutes ÷ 5 steps ≈ 72s/step, but `deploy` and hot-reload won't take the same time as opening a browser tab. Without rehearsed time checkpoints, you find out you're behind schedule mid-demo, which is when people start typing faster and making mistakes. Fix: script the narration with a time marker per step, and rehearse against a visible timer, not just for correctness.
+- **Live typing on stage.** Editing a config line live risks typos, wrong file, and exposes your actual terminal — shell history, other tabs, notifications, real hostnames/paths. Given your own rule against publishing internal technical details publicly, a live unscrubbed terminal is a leak risk if this gets recorded/streamed. Fix: pre-stage the edit as a copy-paste snippet, use a clean demo profile, silence notifications, hide anything you wouldn't want on YouTube forever.
+- **Hot reload is a classic flaky-demo moment.** File watchers missing a save, stale browser cache, and reload-that-doesn't-reload are extremely common live-demo failures. Fix: have a manual-refresh fallback ready, and don't stake the demo's climax on a mechanism you don't control.
+
+**Medium**
+
+- **Ending on the pricing page is a weak close for a dev-conference technical demo.** It's an abrupt pivot from "look what just happened" to a sales page, and it's the last thing the audience remembers — recency effect works against you here. A QR code / GitHub link / "try it yourself" CTA holds the technical high note better than a price table, unless this talk is explicitly framed as commercial.
+- **No mention of A/V contingencies** — HDMI/adapter failure, projector resolution shrinking your terminal font unreadably, wrong display mirroring. Not `skeincli`-specific, but it's the failure mode that kills demos most often industry-wide. Do a tech check with the room's actual AV before your slot, and bump terminal font size beyond what feels natural sitting at your desk.
+
+**What to change before Thursday:** get on the actual venue wifi (or a hotspot) at least once before you're on stage and run the whole sequence on it — that single test would surface most of the above. Then build the backup video and the pre-staged fallback project as insurance, not as extra work.

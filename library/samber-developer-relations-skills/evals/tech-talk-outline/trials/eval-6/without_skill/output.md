@@ -1,0 +1,1 @@
+I need your approval to write files under `/tmp/cold-starts-deck/` (or another location of your choice) to build the deck. Should I go ahead there, or would you prefer I build it inside this repo (e.g. a temp folder you point me to)?

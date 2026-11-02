@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Declines to write the map from the team's existing belief.",
+        "evidence": "The transcript proceeds to build the full map and explicitly complies with the given belief: 'Integration, as instructed' under the Leak section, and the Scope section states 'The leak is entered as given.' It never declines to produce the map.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a map assembled from opinion documents the team's beliefs, not the developer's path.",
+        "evidence": "The transcript hedges the leak as consensus ('Evidence cells below say so explicitly rather than dressing that consensus up as measured data') and notes stages are 'unmeasured,' but never makes a general statement that the map as assembled documents team beliefs rather than the actual developer path.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Records 'SDK reference docs' as the team's hypothesis rather than as friction evidence.",
+        "evidence": "'standing team consensus, ~12 months running, naming the SDK reference docs as the blocker at this stage. Self-reported by the team; no friction log, ticket-cluster count, or exit interview has been run against it yet.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Orders evidence collection cheapest source first: walk the path and keep a friction log, mine what developers already wrote, interview developers, then read the funnel data that already exists.",
+        "evidence": "Discovery is explicitly skipped ('Discovery skipped, by request... No interview, no friction log, no ticket-cluster count was run for this pass'), and no ordered evidence-collection sequence is prescribed anywhere in the document.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the inference that few onboarding tickets means onboarding works.",
+        "evidence": "'team reads that as \"onboarding is fine.\" Directional only \u2014 developers who stall here typically leave without filing anything, so low ticket volume is suggestive, not conclusive.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that developers who fail at setup rarely file anything, they leave.",
+        "evidence": "'developers who stall here typically leave without filing anything' and in Gaps: 'developers who fail early usually leave without filing anything.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the inverse signal: a stage with almost no questions and low conversion is a stage where people leave without speaking.",
+        "evidence": "The transcript only cautions that low ticket volume is 'suggestive, not conclusive' and recommends checking 'a quickstart cohort's day-1 completion rate' \u2014 it never explicitly pairs low questions with low conversion as the joint tell for silent departure (no conversion data is even given for Onboarding, which is marked 'not instrumented').",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Specifies the friction log as one realistic scenario recorded as a running narrative, explicitly not minimal reproduction steps.",
+        "evidence": "The document only references 'friction log' as a term (e.g., 'no friction log, ticket-cluster count, or exit interview has been run') without ever describing its methodology as a running narrative versus minimal repro steps.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the friction log to record verbatim search terms, clicked URLs and pasted commands, plus emotional reactions.",
+        "evidence": "No such specification appears anywhere in the transcript; 'friction log' is mentioned only as a missing evidence source, never defined with required fields.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the green / yellow / red convention for delight, friction and blocking.",
+        "evidence": "No color-coding convention of any kind is mentioned in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that whoever is newest to the product makes the best friction logger.",
+        "evidence": "No mention of who should conduct a friction log or any staffing recommendation appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends interviewing 5 to 8 developers who completed the journey and 3 who abandoned it, and labels both counts as this skill's own defaults.",
+        "evidence": "The transcript never recommends interview counts; discovery/interviews were explicitly skipped and no follow-up interview quota is proposed anywhere, including in the Gaps section.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Instructs tagging each piece of evidence with the stage it belongs to before analysing it.",
+        "evidence": "No instruction about tagging evidence by stage prior to analysis appears; the table's 'Stage' column is structural, not a stated evidence-tagging instruction.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Declines to write the map from the team's existing belief.",
+        "evidence": "'Known leak (team consensus, ~1 year standing): SDK reference docs... stages are shaped around the known leak, not re-derived from scratch.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a map assembled from opinion documents the team's beliefs, not the developer's path.",
+        "evidence": "No such caution is stated; the team consensus is adopted as the map's organizing premise.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Records 'SDK reference docs' as the team's hypothesis rather than as friction evidence.",
+        "evidence": "The summary table calls it 'not instrumented, but confirmed leak by team consensus' \u2014 treating consensus as confirmation, not as an unverified hypothesis.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Orders evidence collection cheapest source first: walk the path and keep a friction log, mine what developers already wrote, interview developers, then read the funnel data that already exists.",
+        "evidence": "No evidence-collection plan is given; the handoff line only vaguely mentions 'audit of the reference docs themselves, instrumentation of time-in-stage, or a docs rewrite plan.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the inference that few onboarding tickets means onboarding works.",
+        "evidence": "'ticket volume measures escalated friction, not all friction... this signal says \"onboarding isn't broken,\" not \"onboarding is optimal.\"'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that developers who fail at setup rarely file anything, they leave.",
+        "evidence": "The caveat discusses silent struggle after a successful quickstart, not developers failing setup and leaving without filing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the inverse signal: a stage with almost no questions and low conversion is a stage where people leave without speaking.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Specifies the friction log as one realistic scenario recorded as a running narrative, explicitly not minimal reproduction steps.",
+        "evidence": "No friction log methodology is discussed anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the friction log to record verbatim search terms, clicked URLs and pasted commands, plus emotional reactions.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the green / yellow / red convention for delight, friction and blocking.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that whoever is newest to the product makes the best friction logger.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends interviewing 5 to 8 developers who completed the journey and 3 who abandoned it, and labels both counts as this skill's own defaults.",
+        "evidence": "No interview counts or recommendations of this kind appear.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Instructs tagging each piece of evidence with the stage it belongs to before analysing it.",
+        "evidence": "Not mentioned; no evidence-tagging methodology is described.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

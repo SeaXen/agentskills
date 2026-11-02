@@ -1,0 +1,602 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "hackathon-cash-prize",
+  "scenarios": 11,
+  "expectations_total": 126,
+  "expectations_subjective": 1,
+  "expectations_objective": 125,
+  "pass_rate_with_skill_pct": 72.2,
+  "pass_rate_without_skill_pct": 17.5,
+  "delta_pp": 54.7,
+  "uplift_multiplier": 4.13,
+  "trigger_accuracy_pct": 68.4,
+  "trigger_queries": 114,
+  "trigger_positive_fire_rate": 0.579,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Addresses the prize medium (cash versus non-cash) before sizing or splitting the pool, and says explicitly that the medium decision comes first"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Presents a five-rung medium menu containing cash, gear, credits or vouchers, opportunity, and recognition only"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names gear - hardware, components, tools the winner keeps - as the recommended default rather than cash"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States an efficiency ordering of the medium menu that places cash fourth, below gear, recognition only and credits"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Explains that cash is cheapest to procure but most expensive on the compliance axis, rather than calling cash the cheapest option outright"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Deletes cash from the medium menu for this event rather than demoting it, on the grounds that a minor and a winner outside the organiser's country are both in the pool"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Gives a routing ladder ordered cheapest-first: published practice, then the fiscal host or institution holding the money, then the funding sponsor's legal team, then counsel"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Distinguishes the minor payout question from an overnight-stay or venue waiver for a minor"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Rejects wording of the form 'organizers and volunteers may not participate' as ambiguous between may-not-build and may-not-win"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends recording what was actually handed over, to whom, and what remains outstanding"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that the organiser's own baseline pool and the sponsor-funded part are separate, with different ceilings and different owners"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Warns that podium order does not track perceived value for in-kind prizes, so a third-place item can be worth more to its winner than a first-place one"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Asks when the sponsor money actually clears, and flags that a sponsorship clearing after the event means the organiser funds the prize personally in the meantime"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Cites published organizer guidance that splitting a pool into many chances to win is the most effective structure because participants want a reasonable chance of placing before committing hours"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that winner-take-most motivates only the teams who already believe they can win"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Ranks track-only below graduated podium on value, because with no overall award a team that used no sponsor's product has nothing to aim at"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names flat-across-many-tracks as the starved option, top of every cost axis"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States the flat option's promotion condition as several published sponsor tracks plus a non-cash medium"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Promotes recognition only, naming it as the one rung that needs neither a legal entity nor a fiscal host"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Frames recognition only as a deliberately chosen structure rather than a fallback or a downgrade"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Suggests a recognition form that outlives the ceremony, such as a trophy passed between cohorts or a public acknowledgement from someone the winners recognise"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names Hack Club and Hack+ as hackathon-specific fiscal sponsors"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Lists the operational questions to ask any host: who holds signing authority and how long their review takes, where funds are held and what fees apply, and the timeline between money arriving and being spendable"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Cites a civic-tech organizer's published practice of running hackathons without making winners and losers"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Notes the continuing condition costs far more on a cash prize than on a trophy or other recognition award"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Notes the eligibility questions differ between a raffle and a judged award even though both are sponsor-funded and both get called a prize"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Recommends recording what was actually handed over, to whom, and what remains outstanding"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Does not propose a discretionary or special award invented after the fact to satisfy the sponsor's preference"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Presents the structure for validation before anything reaches the published brief, treating publication as the point of no return"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Enumerates a six-item completeness check covering the medium, the total pool with its budget line, the split with an award count, the eligibility-to-receive text, the payout mechanic naming who hands over what, and the list of exposure categories with who each was routed to"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that all six must exist in writing with zero blanks before the brief is published, and iterates until the count is six"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Separates the organiser's 3,000 EUR Prizes line from the 3,000 EUR of signed sponsor track funding rather than merging them into one pool"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Delivers eligibility-to-receive wording with every bracketed decision resolved, and states that publishing a paragraph with a bracket left in is worse than publishing nothing"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Presents the structure section by section - medium, pool, split, eligibility, payout mechanic - for validation before publication"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Notes the nonprofit's signing authority and review time as an input to whether the payout can happen on schedule"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Addresses the prize medium (cash versus non-cash) before sizing or splitting the pool, and says explicitly that the medium decision comes first"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Presents a five-rung medium menu containing cash, gear, credits or vouchers, opportunity, and recognition only"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names gear - hardware, components, tools the winner keeps - as the recommended default rather than cash"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Cites MLH's stated position that it does not recommend cash prizes and that the perceived value of a cash prize is lower than traditional prizes"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Flags that the anti-cash claim is one organisation's stated position rather than a measured comparison of outcomes"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States an efficiency ordering of the medium menu that places cash fourth, below gear, recognition only and credits"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Explains that cash is cheapest to procure but most expensive on the compliance axis, rather than calling cash the cheapest option outright"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names graduated podium as the default split shape rather than weighting the top more heavily"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Asks whether any winner could be a minor or located outside the organiser's country, and whether the organising team has its own legal entity or a fiscal host"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Does not present cash as the obviously correct answer merely because the user proposed it"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names the minor-receiving-an-award exposure category and routes it rather than answering it"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names the cross-border payment exposure category and routes it rather than answering it"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names payer-side tax reporting and withholding as a category, and states it typically attaches to the organiser rather than to the winner"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that the specific threshold, form or requirement is jurisdiction-specific"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Treats the minor and the cross-border winner as gates forcing a counsel or fiscal-host review before the prize is announced or paid, not as factors weighed against effort"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Deletes cash from the medium menu for this event rather than demoting it, on the grounds that a minor and a winner outside the organiser's country are both in the pool"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Deletes informal handover from the payout-rigor menu because the prize is cash"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Separates cross-border payment into two distinct problems: whether the payment rail can reach the winner at all, and what rules or treaty questions apply to the outbound payment"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes that the organiser's bank or platform answers the reachability question but not the rules question"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Gives a routing ladder ordered cheapest-first: published practice, then the fiscal host or institution holding the money, then the funding sponsor's legal team, then counsel"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Distinguishes the minor payout question from an overnight-stay or venue waiver for a minor"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Distinguishes eligibility to compete from eligibility to receive as two different permissions"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Cites published practice excluding volunteers, organizers and mentors from winning prizes while allowing them to work on projects for their portfolio"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that the sponsor-employee payout question is distinct from the judging conflict of interest that governs who decides the rank"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Routes the sponsor-employee question to the signed sponsorship agreement first, then to the sponsor's own legal team or counsel"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes the sponsor-employee question should have been settled in the sponsorship agreement before the event"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Does not re-open or change the judges' placements"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Rejects wording of the form 'organizers and volunteers may not participate' as ambiguous between may-not-build and may-not-win"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Provides eligibility-to-receive wording that grants permission to build and withholds permission to win in separate clauses"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Hands the eligibility text to the hackathon brief or published rules document rather than publishing it from here"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that the published 'open to everyone' rule left the receiving question unanswered, and that the organiser decides it rather than a template supplying it"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires a stated rule for the leftover unit decided before the event rather than improvised at the podium"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names concrete leftover options such as returned, raffled, or held for a later edition"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Cites the practice of saving prize receipts so an unused unit can be returned and added to a later budget"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Warns that gear should be ordered early because many items are backordered, framing it as vendor-side stock risk rather than a shipping deadline"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends recording what was actually handed over, to whom, and what remains outstanding"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that the organiser's own baseline pool and the sponsor-funded part are separate, with different ceilings and different owners"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes that valuing in-kind at the budget line it displaces assumes the organiser would otherwise have made that spend, and that the assumption must be checked before applying it to a prize"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Warns that podium order does not track perceived value for in-kind prizes, so a third-place item can be worth more to its winner than a first-place one"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Treats the platform seats as credits or vouchers rather than as gear"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Places credits beside cash rather than beside gear on the compliance axis, because redeemable value is treated like a cash equivalent for reporting purposes"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires publishing the credit's expiry date, redemption region, and any account the winner must create"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Asks when the sponsor money actually clears, and flags that a sponsorship clearing after the event means the organiser funds the prize personally in the meantime"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names the sponsor-funded pool as the default rung where a sponsor is in play, while conditioning it on signed commitments rather than verbal ones"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Deletes winner-take-most from the split menu because sponsors fund named tracks and the shape has nowhere to put a sponsor award"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Deletes rather than merely demotes winner-take-most, and attributes the deletion to the signed sponsor tracks"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names graduated podium as the default split shape"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Cites published organizer guidance that splitting a pool into many chances to win is the most effective structure because participants want a reasonable chance of placing before committing hours"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that winner-take-most motivates only the teams who already believe they can win"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Ranks track-only below graduated podium on value, because with no overall award a team that used no sponsor's product has nothing to aim at"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes that the already-published best overall category means track-only would contradict the published brief"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names flat-across-many-tracks as the starved option, top of every cost axis"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States the flat option's promotion condition as several published sponsor tracks plus a non-cash medium"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Uses the two part-time organisers' low effort ceiling as a reason not to promote the flat split, whose cost is the per-winner check repeated"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Deletes the flagship pool option because the budget's Prizes line has not been set"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that a headline pool sized against no ceiling commits money on behalf of a budget nobody has written"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Presents 'a bigger pool draws more submissions' as an untested assumption rather than an established fact"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Cites published organizer guidance that a modest, well-distributed pool can perform as well as a much larger one"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Cites published guidance that more prize money is no guarantee of stronger submissions"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes the counterpart finding that a very low prize can suppress participation"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Cites the ETHGlobal Bangkok figures - roughly 713 project submissions from about 1,950 hackers in its largest-ever prize pool edition - as a single-edition illustration rather than as evidence"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the cited large-pool editions do not control for year-over-year growth and publish no same-edition comparison against a smaller pool"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes that leading with a headline pool competes on ground credible large events deliberately vacate by leading with learning, building and sharing"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Warns that a headline pool selects for the participants who came for the money"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Asks whether the prize is meant to buy attention before the event or reward winners after it, and ties the flagship promotion condition to that intent"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires the Prizes line to exist before any pool is proposed, rather than naming a figure for finance to adopt"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Deletes cash from the medium menu because the organising team has no legal entity and no fiscal host"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Declines the personal-account payout route rather than treating it as an acceptable workaround"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Promotes recognition only, naming it as the one rung that needs neither a legal entity nor a fiscal host"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Frames recognition only as a deliberately chosen structure rather than a fallback or a downgrade"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Suggests a recognition form that outlives the ceremony, such as a trophy passed between cohorts or a public acknowledgement from someone the winners recognise"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names fiscal sponsorship as the standard route for an organising team with no entity of its own"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names Hack Club and Hack+ as hackathon-specific fiscal sponsors"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Lists the operational questions to ask any host: who holds signing authority and how long their review takes, where funds are held and what fees apply, and the timeline between money arriving and being spendable"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Cites a civic-tech organizer's published practice of running hackathons without making winners and losers"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Offers a non-cash medium that avoids the payment rail entirely as an alternative to routing the 500 EUR"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Deletes informal handover from the payout-rigor menu because the prize is cash"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names standard-form payout as the default payout rung"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Describes standard-form payout as published eligibility-to-receive text, a claim step, and identity or status collection appropriate to the medium"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Explains that informal handover is not the cheapest option on compliance because it defers the whole review to the least reversible moment, after money has reached a stranger"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that a misjudged rank can be re-announced while a payment cannot be un-made"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Requires publishing the date the award becomes final alongside any continuing condition"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Warns that a continuing condition with no stated end leaves every award permanently revocable"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Cites published rules making prize eligibility conditional on the submission staying public, with new winners selectable if it is not"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Notes the continuing condition costs far more on a cash prize than on a trophy or other recognition award"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Describes what the winner must provide as a category rather than naming a specific document or form"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that the ranked outcome is an input to be awarded against, and that prize size must never influence who won"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Separates the booth raffle from the competition prize, stating a raffle is an attendee incentive open to any attendee while a competition prize is awarded on a judged rank"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Rejects revealing the prize structure at the closing ceremony, and requires publication before submissions close"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that a prize announced after teams have chosen what to build has already failed at motivating anything"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Notes the eligibility questions differ between a raffle and a judged award even though both are sponsor-funded and both get called a prize"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Recommends recording what was actually handed over, to whom, and what remains outstanding"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Does not propose a discretionary or special award invented after the fact to satisfy the sponsor's preference"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Presents the structure for validation before anything reaches the published brief, treating publication as the point of no return"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Enumerates a six-item completeness check covering the medium, the total pool with its budget line, the split with an award count, the eligibility-to-receive text, the payout mechanic naming who hands over what, and the list of exposure categories with who each was routed to"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that all six must exist in writing with zero blanks before the brief is published, and iterates until the count is six"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Separates the organiser's 3,000 EUR Prizes line from the 3,000 EUR of signed sponsor track funding rather than merging them into one pool"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Treats the 17-year-old registrant as a gate requiring a counsel or fiscal-host review before the prize is announced, not as a menu weighting traded off against effort"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States no numeric age threshold, tax-form name, or reporting figure, and says the minor question is jurisdiction-specific"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Delivers eligibility-to-receive wording with every bracketed decision resolved, and states that publishing a paragraph with a bracket left in is worse than publishing nothing"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Hands the eligibility text to the hackathon brief or rules document rather than publishing it directly from here"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Plans the hardware kits in whole units against the team cap of 4, with a stated leftover-unit rule"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Presents the structure section by section - medium, pool, split, eligibility, payout mechanic - for validation before publication"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Notes the nonprofit's signing authority and review time as an input to whether the payout can happen on schedule"
+      }
+    ]
+  }
+}

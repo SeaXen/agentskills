@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to accept a single ChatGPT run as the diagnosis and requires at least five runs per prompt before classifying the failure",
+        "evidence": "\"I haven't run the panel, so the pipeline below is inferred from one answer, not measured\"; \"One answer proves nothing\"; 10 prompts \u00d7 5 runs.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies the observed answer (no sources shown, confident use of a removed symbol) as training recall rather than search-grounded retrieval, and says so explicitly",
+        "evidence": "\"Most likely pipeline: training recall. No sources were shown, and the answer was confident and old.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that canonical tags and noindex act on the search index and therefore cannot change an answer produced from training recall",
+        "evidence": "\"canonicals, noindex and llms.txt don't touch it\"; \"Canonicals are a search-index hint... don't reach recall answers.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the lag for a training-recall fix as the next model release, not days or weeks",
+        "evidence": "\"Training-recall levers wait for the next model release.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects noindexing the v3 tree because v3 still has paying users, prescribing a banner plus a link to the replacement page instead",
+        "evidence": "\"Replace item 2 with: a server-rendered banner on every v3 page, the replacement link, and no noindex.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the consequence of hiding an in-use version: its users lose their pages and a third-party copy takes the citation",
+        "evidence": "\"removes their pages from search, and a third-party copy then takes the citation\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects llms.txt as a citation lever, citing server-log evidence that AI search crawlers almost never request it",
+        "evidence": "\"Server-log studies find AI search crawlers almost never request it (independently measured).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Runs the search toggle test (same prompt with web search off and on) and the version probe (\"which version does this code target?\") as diagnostic steps before any fix",
+        "evidence": "Only asks in a question whether search-off gave the same answer; no version probe step is prescribed as a diagnostic.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Puts a runtime deprecation warning naming the replacement for `ferrowave.connect` and the migration URL on the lever list as the lever that reaches training-recall answers",
+        "evidence": "\"Runtime deprecation warning in the last v3 release... Name the replacement and the docs URL, once per process.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Puts an old-to-new symbol map in the migration guide on the plan at once, because users arrive with the removed symbol in their prompts",
+        "evidence": "\"Add the old-to-new symbol map right away, because users arrive with connect() in their prompts.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Separates the Node and Python clients into distinct prompt rows and answer keys",
+        "evidence": "\"One row per client, Node and Python, because a Python key can't score a Node answer.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Hands the canonical and index-posture decision to the docs-seo skill rather than designing it",
+        "evidence": "\"Canonicals are a search-index hint, owned by `docs-seo`.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States plainly, as its own report section, what no docs change fixes quickly: the released model's weights",
+        "evidence": "\"## 7. What no docs change fixes quickly - The released model's weights.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to accept a single ChatGPT run as the diagnosis and requires at least five runs per prompt before classifying the failure",
+        "evidence": "Classifies at once ('ChatGPT showed no sources, so it answered from memory'); no run count before diagnosis.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Classifies the observed answer (no sources shown, confident use of a removed symbol) as training recall rather than search-grounded retrieval, and says so explicitly",
+        "evidence": "'it answered from memory, not from a live fetch.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that canonical tags and noindex act on the search index and therefore cannot change an answer produced from training recall",
+        "evidence": "'Search-index controls can't change what a trained model remembers.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the lag for a training-recall fix as the next model release, not days or weeks",
+        "evidence": "'Parametric memory... will improve only as models retrain.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects noindexing the v3 tree because v3 still has paying users, prescribing a banner plus a link to the replacement page instead",
+        "evidence": "'Noindex the whole v3 tree: don't'; banner 'See the v4 equivalent'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the consequence of hiding an in-use version: its users lose their pages and a third-party copy takes the citation",
+        "evidence": "Says noindex removes pages from search results; no mention of a third-party copy taking the citation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects llms.txt as a citation lever, citing server-log evidence that AI search crawlers almost never request it",
+        "evidence": "Says 'I'm not aware of evidence'; cites no log study.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Runs the search toggle test (same prompt with web search off and on) and the version probe (\"which version does this code target?\") as diagnostic steps before any fix",
+        "evidence": "Browsing on/off appears only in the monthly baseline; no version probe, not a pre-fix diagnostic.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Puts a runtime deprecation warning naming the replacement for `ferrowave.connect` and the migration URL on the lever list as the lever that reaches training-recall answers",
+        "evidence": "Item 4: error 'names the removed option and links the migration page.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Puts an old-to-new symbol map in the migration guide on the plan at once, because users arrive with the removed symbol in their prompts",
+        "evidence": "Item 2: 'quotes the removed API verbatim... show the v4 replacement.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Separates the Node and Python clients into distinct prompt rows and answer keys",
+        "evidence": "Only 'Check whether [Python] has the same removal'; no separate prompt rows/answer keys.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Hands the canonical and index-posture decision to the docs-seo skill rather than designing it",
+        "evidence": "Designs canonical advice itself; no skill handoff.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States plainly, as its own report section, what no docs change fixes quickly: the released model's weights",
+        "evidence": "'Set expectations' section on parametric memory improving only as models retrain.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

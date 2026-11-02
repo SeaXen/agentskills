@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Runs a re-read against the stored map rather than rebuilding it from a blank page.",
+        "evidence": "'Don't redo this from scratch. Re-run it. You have a stored map from last September... You have one. Use it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Returns a diff: what moved, which predictions held, and which segments to retire.",
+        "evidence": "The '## Diff' table has rows 'Predictions that held', 'What moved', and 'Retire / promote | Nothing retires. Primary and secondary both hold. Anti-segment holds.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reads the studio signup share moving from 18% to 31% as the concentration measure improving.",
+        "evidence": "'studio share of new signups moved 18% \u2192 31%... That's the concentration metric the whole method is designed to move.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Counts the general \"for developers\" performance guide as an artefact-fit miss, because it was not built for a named segment.",
+        "evidence": "'One of the three shipped items was a general \"for developers\" performance guide... This skill's own artefact-fit measure counts anything built for \"developers\" generally as a miss, on purpose.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Checks prediction accuracy by asking which sized segments actually behaved as the map predicted.",
+        "evidence": "'Predictions that held | Mid-size gaming studios as primary \u2014 signups concentrated toward the segment you built for, not away from it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a wrong prediction should correct the sizing method rather than the conclusion.",
+        "evidence": "No prediction in this transcript is identified as wrong, and no statement links a wrong prediction to correcting the sizing method rather than the conclusion; the metric-split fix addresses ambiguity, not a falsified prediction.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes argument frequency - how often the team reopens the audience question - as a measure of whether the map worked.",
+        "evidence": "'the failure mode this skill calls \"argument frequency\": a map that's working should end the audience debate for a horizon, not get reopened every time someone new looks at it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Re-checks whether the anti-segment's stated reason still holds before retiring or keeping that exclusion.",
+        "evidence": "'VFX/animation as anti-segment \u2014 nothing you shipped touched the colour-pipeline blocker, so there's no new information to revisit that exclusion on.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the events that would force an early re-read before the next scheduled review.",
+        "evidence": "'Early re-read if: pricing/packaging changes, a new engine/platform target is added, the funded driver changes, a competitor takes mid-size studios' default position, or the split-metric test... comes back showing indie... drove the move.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets a new review date on the updated map.",
+        "evidence": "'Re-read in one quarter (reset to quarterly cadence \u2014 this run was 3 quarters late).'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Runs a re-read against the stored map rather than rebuilding it from a blank page.",
+        "evidence": "'Don't restart blank. Redo as evidence-based refresh, not blind resegmentation. Old map got validated, not disproven.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Returns a diff: what moved, which predictions held, and which segments to retire.",
+        "evidence": "The 'Draft updated map (provisional)' section states what carries forward, what upgrades, and what remains conditional per segment.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reads the studio signup share moving from 18% to 31% as the concentration measure improving.",
+        "evidence": "'Studio signup share nearly doubled (18%\u219231%) after you shipped for that segment' is used as the primary supporting evidence for the primary-segment thesis.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Counts the general \"for developers\" performance guide as an artefact-fit miss, because it was not built for a named segment.",
+        "evidence": "'The general \"for developers\" guide wasn't segment-gated. It may have pulled VFX/animation signups in anyway' contrasts it with the '2 studio-specific ships.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Checks prediction accuracy by asking which sized segments actually behaved as the map predicted.",
+        "evidence": "Proposes pulling 'Signup data by segment tag, monthly, 12 months... Confirms or kills the \"studios grew, indie flat\" story.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a wrong prediction should correct the sizing method rather than the conclusion.",
+        "evidence": "'your primary-segment bet needs rethinking' addresses the conclusion, not a correction to the sizing method itself.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes argument frequency - how often the team reopens the audience question - as a measure of whether the map worked.",
+        "evidence": "No mention of tracking how often the team reopens the audience question as a measure of the old map's success.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Re-checks whether the anti-segment's stated reason still holds before retiring or keeping that exclusion.",
+        "evidence": "'Check the anti-segment for leakage (gap 4)... decide explicitly: still anti-segment... or promote to secondary now that demand is proven.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the events that would force an early re-read before the next scheduled review.",
+        "evidence": "No named external trigger events (pricing change, competitor move, etc.) that would force an early re-read before the next scheduled review.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets a new review date on the updated map.",
+        "evidence": "No new review date is set anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

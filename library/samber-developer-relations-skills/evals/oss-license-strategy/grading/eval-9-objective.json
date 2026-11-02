@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Asks about the business model, the hard date, whether this is a per-repository or inherited policy, and the acceptable friction ceiling before naming any license",
+        "evidence": "\"You gave me a single-shot brief, so I answered every question I could from your facts and flagged the two I couldn't\" \u2014 it explicitly skips asking these questions since a brief was given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States which interview answer moved which option in the ranking",
+        "evidence": "\"Hard constraint: 3 weeks... Does not rule out a CLA \u2014 you already have retainer counsel, which is the thing that normally makes a CLA too slow for a deadline like this.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a confirmed business model reverses the value order to commercial optionality above reciprocity above maximum adoption",
+        "evidence": "Only states \"promotes commercial optionality and the CLA rung to the front\" and flips \"maximum adoption first\" \u2014 no mention of a 'reciprocity' middle tier.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a hard date promotes whatever needs no counsel, and surfaces the conflict between the three-week deadline and a counsel-drafted agreement",
+        "evidence": "\"Hard constraint: 3 weeks. Rules out anything requiring a bespoke agreement drafted from scratch. Does not rule out a CLA \u2014 you already have retainer counsel\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Re-ranks explicitly because in-house counsel and a retained firm price the commercial-optionality posture differently from a solo maintainer",
+        "evidence": "\"doesn't apply to you the way it applies to a solo maintainer: you already have retainer counsel who can turn around a boilerplate ICLA in days... That's the 're-rank the default against what you actually have' step\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Presents two or three postures, each as a bundle of license family, contribution policy, and what it forecloses in two years",
+        "evidence": "Postures A and B bundle license+CLA+consequences but no explicit 'two years' foreclosure horizon is stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says explicitly that it is brainstorming and that no recommendation has been made yet",
+        "evidence": "\"## Posture (Step 2) \u2014 brainstorming, no recommendation locked yet\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Makes the user choose the posture before any specific license is named",
+        "evidence": "The 'Posture' section (with recommendation B) precedes the 'Outbound license' section naming Apache-2.0.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the library and the server as separate artifacts, the library's trigger being distribution and the server's being network interaction",
+        "evidence": "\"MIT/Apache-2.0 on the library, AGPL-3.0 on the server, CLA on the server only\" labeled as \"server network-copyleft\" vs. \"library permissive\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Proposes licensing the two artifacts differently rather than one compromise license for the whole repository",
+        "evidence": "\"A. Split posture (library permissive, server network-copyleft).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the three postures as this skill's own working labels rather than a published taxonomy",
+        "evidence": "No disclaimer that the posture labels (A/B) are the skill's own working terms rather than an external taxonomy.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that every posture is sticky because published releases keep their terms forever and relicensing needs unanimous consent",
+        "evidence": "No statement about posture stickiness or forever-published terms appears; the document instead emphasizes the pre-launch consent window closing ('the cheapest moment you will ever have').",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Asks about the business model, the hard date, whether this is a per-repository or inherited policy, and the acceptable friction ceiling before naming any license",
+        "evidence": "The transcript opens directly with 'Split license across the repo: Apache-2.0 for the Go client library, Business Source License 1.1 (BUSL) for the scheduler server.' No clarifying questions about business model, deadline, policy scope, or friction tolerance appear anywhere before this recommendation is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States which interview answer moved which option in the ranking",
+        "evidence": "There is no interview or Q&A shown in the transcript, and no discussion of how any answer changed a ranking of options.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a confirmed business model reverses the value order to commercial optionality above reciprocity above maximum adoption",
+        "evidence": "No such statement or value-ordering framework (commercial optionality vs reciprocity vs maximum adoption) appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a hard date promotes whatever needs no counsel, and surfaces the conflict between the three-week deadline and a counsel-drafted agreement",
+        "evidence": "The transcript instead resolves this without friction: 'Have the law firm on retainer review the CLA text and the BUSL Additional Use Grant language now \u2014 this is exactly the kind of one-time document review outside counsel is for, and it doesn't need to wait for the January in-house hire' \u2014 no conflict between the deadline and needing counsel is surfaced.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Re-ranks explicitly because in-house counsel and a retained firm price the commercial-optionality posture differently from a solo maintainer",
+        "evidence": "No re-ranking process appears; counsel is mentioned only once, to review CLA/BUSL text, not to reprice a posture ranking.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Presents two or three postures, each as a bundle of license family, contribution policy, and what it forecloses in two years",
+        "evidence": "The 'Why not one license for everything' section discusses Apache/MIT, AGPL, and SSPL each with a downside, but none are bundled with a stated contribution policy or a two-year foreclosure horizon (the only horizon given is the BUSL 'Change Date 3-4 years out').",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says explicitly that it is brainstorming and that no recommendation has been made yet",
+        "evidence": "The transcript is framed as a final recommendation from its first sentence: 'Split license across the repo... This is the standard shape for infra companies...' \u2014 it never disclaims that this is brainstorming or that no recommendation has been made.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Makes the user choose the posture before any specific license is named",
+        "evidence": "Specific licenses (Apache-2.0, BUSL 1.1) are named in the very first sentence, before any user choice is solicited.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats the library and the server as separate artifacts, the library's trigger being distribution and the server's being network interaction",
+        "evidence": "The transcript does split client vs. server treatment, but never frames the rationale via a distribution-trigger vs. network-interaction-trigger distinction; it explicitly rejects AGPL (the license built around the network-interaction trigger) as 'the wrong tool' and instead relies on BUSL's contractual Additional Use Grant against 'a competing hosted/managed scheduler service.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Proposes licensing the two artifacts differently rather than one compromise license for the whole repository",
+        "evidence": "'Split license across the repo: Apache-2.0 for the Go client library, Business Source License 1.1 (BUSL) for the scheduler server. Same repo, two LICENSE files, clearly scoped by directory.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the three postures as this skill's own working labels rather than a published taxonomy",
+        "evidence": "No named postures or labels are used; the transcript discusses specific license names (Apache-2.0/MIT, AGPL, SSPL, BUSL, FSL) directly rather than any labeled posture framework.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that every posture is sticky because published releases keep their terms forever and relicensing needs unanimous consent",
+        "evidence": "The transcript only notes, in the CLA context, that 'changing license terms later... requires tracking down every past contributor for consent' \u2014 it never states that already-published releases keep their original license terms forever, nor generalizes stickiness across postures.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

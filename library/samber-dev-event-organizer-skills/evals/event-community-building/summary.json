@@ -1,0 +1,422 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-community-building",
+  "scenarios": 9,
+  "expectations_total": 110,
+  "expectations_subjective": 1,
+  "expectations_objective": 109,
+  "pass_rate_with_skill_pct": 91.8,
+  "pass_rate_without_skill_pct": 22.7,
+  "delta_pp": 69.1,
+  "uplift_multiplier": 4.04,
+  "trigger_accuracy_pct": 50.0,
+  "trigger_queries": 100,
+  "trigger_positive_fire_rate": 0.1,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Names, or requires the team to name, a single owner for the chosen posture, and states that a cadence with no named owner is not a decided posture."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Treats any inventory row with no holder-after as the finding to resolve, not a blank to leave."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends an opt-in path into the community for ticket buyers instead of automatic enrollment."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Positions the carry rate as evidence handed onward to the demand/market-fit read, not as a growth recommendation the community plan itself makes."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Covers the hardest rows of that delta: what the register sounds like when nothing has happened, and when the news is somebody else's."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Frames the role as two handovers: receiving the space at wind-down and returning the live list at build-up."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Distinguishes scope grants: 'announcing our own next edition' and 'anything the team decides later' are different scopes, and only the one granted applies."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that the retention duty is inherited from the sign-up and attendee-list consent framework, to be restated, not re-derived as a second policy."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Requires the retention decision to be restated at every future handoff rather than inherited silently."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Grounds the cadence choice in who has recurring hours in the quiet months, not in the team's current post-edition enthusiasm."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Identifies the proposed plan (live AMAs, new sub-channels, standing prompts) as the heaviest cadence posture, which requires funded or guaranteed moderation capacity this volunteer team lacks."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that a recurring digest or spotlight rhythm is only viable when one named person holds recurring hours across the whole gap, and lapses otherwise."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names, or requires the team to name, a single owner for the chosen posture, and states that a cadence with no named owner is not a decided posture."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Warns that a published calendar the team then abandons reads worse to members than deliberate, stated silence."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "If dormancy is chosen, prescribes one pinned dated notice containing a date tied to the next build-up, a named owner, a conduct-report route that still works, and a promise small enough to keep."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that dormancy keeps the archive readable and the member list intact and owned; it is not deleting or closing the server."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Treats missed posting cycles as a signal to demote the cadence next gap, not as a team-discipline problem to push through."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Requires the member list to have a named owner and a written retention decision at the start of the gap, whatever cadence is chosen."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Prescribes a one-page written inventory listing each asset (workspace ownership, admin and moderator roles, billing, domain or vanity links, standing invite links, member-list export, archive, conduct reporting route) with a holder today and a holder after per row."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Treats any inventory row with no holder-after as the finding to resolve, not a blank to leave."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Restates the member-list retention decision explicitly at the handoff (named living owner, what members were told when they joined, permitted scope, a review-or-deletion date) rather than letting it be inherited by silence."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Checks that the conduct-reporting route resolves to someone who will still be reading it after Priya leaves."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Prescribes posting to the space, in the event's established voice, that ownership of the space and the data has changed."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Dates the handoff document and sets a next review date."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Frames the handoff as something a departing volunteer will want to complete, not as an employee offboarding procedure with enforceable obligations."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Separates the community-asset transfer from the team/decision-rights handover and from the operational learning log, treating them as distinct artifacts rather than one bundle."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Applies the decisive test of whether anyone outside the organizing team would run an event under the event's name, and classifies the chapter request as governance and brand licensing."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Declines to draft the chapter-lead application form, brand usage guidelines, and local-event quality standards, rather than producing them."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States plainly that licensing the brand to independently-run local editions is a gap it has no playbook for, instead of quietly improvising an answer."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Splits the request into a governance half and an engagement half, and answers only the engagement half."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The engagement half stays on the team's own surface: per-city threads or sub-spaces inside the existing Discord, run by the organizing team."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends finding a named local member willing to keep each city thread warm."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Feeds the city threads the same digest and spotlight stream the main space gets, rather than inventing separate local programming."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Keeps local members in the same member list under the same retention decision, not in per-city lists."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Warns concretely that letting the brand question ride informally fails at the first incident at an event carrying the name that the team did not organize."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Does not treat 'free growth' as a reason to proceed, and makes no growth recommendation."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Does not reframe the local groups as external partner events to cross-promote with."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Tells the user explicitly which half of their request was answered and that the governance half needs a decision path this plan does not provide."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Explains the specific damage of the sales blast: it converts the warmest people who were coming anyway, and teaches everyone else the space only contacts them to sell."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The replacement first contact references something that happened (the edition they attended, what members shipped), because members have a memory of the past edition and none of the announced one."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The replacement is signed by a named person and written in the event's established voice."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Rejects the points, badges, and leaderboard scheme for an audience that meets once a year, rather than tuning its parameters."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that the scheme measures posting volume, which is not the outcome the space exists for (people returning to the next edition, some bringing work)."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that the scheme rewards the loudest members rather than the returning ones."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that the scheme demands maintenance in exactly the months the team has no hours."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Replaces it with a small ladder of named steps (attendee, regular, contributor shaped), each step with a stated way in and a stated reward."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires every step above the first to be climbable entirely asynchronously, because an annual event gives one live touch per year."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires each step's way in to work without personally knowing an organizer, so the ladder is not a clique with a diagram."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Routes the 'feed people toward helping organize' endpoint to the team-structure candidate flag, and stops the ladder there rather than building organizer recruitment into the community mechanism."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Scopes the mechanism to non-volunteer members, with volunteer recognition handled by its own separate loop."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Reports ladder movement as a raw count of members who moved a step, never as a rate or percentage."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Ties success to attendees returning next edition rather than to posting frequency, streaks, or leaderboard positions."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Treats the roughly 30 percent blended industry retention figure as evidence that return rates run lower than teams assume, and explicitly not as a target or baseline to beat."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes that the blended figure mixes every event type, none of them a technical conference, so it cannot anchor a commitment."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Requires the carry-rate threshold to be self-set and fixed before the gap starts, not derived from the industry figure or set after the data arrives."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Identifies 5/12/45 as a misquote of the community-size threshold series (the actual sequence being 7, 13, 50, 90, 150)."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that those thresholds describe groups with ongoing interaction and say nothing about a member list, which is a stock, not a group."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Includes a binary gate for cadence kept: posts planned versus posts actually made across the gap, on the chosen posture."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Includes a binary gate for list integrity: a named owner and a written retention decision for the member list on the day the gap starts."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Includes a binary gate for handoff readiness: a dated access document naming a living holder for every account, checked on a schedule."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Positions the carry rate as evidence handed onward to the demand/market-fit read, not as a growth recommendation the community plan itself makes."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Labels every threshold on the sheet as self-set rather than presenting any as an industry benchmark."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Refuses to author a second, separate off-season voice guide."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States the principle that the event's identity or register is fixed and only its expression modulates between editions."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Prescribes a delta document mapping each existing register attribute to its between-editions expression, instead of a standalone tone guide."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Covers the hardest rows of that delta: what the register sounds like when nothing has happened, and when the news is somebody else's."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires the existing register as input, and if none has been decided, routes to fix that first, labeling anything written before it as provisional."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Declines to sketch the quarterly meetup format."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Gives the reason: a touchpoint that needs a venue, a schedule, or an invited speaker is an event property, not a between-editions community tactic."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Routes the quarterly-meetup question to the portfolio-level property decision rather than answering it inside the community plan."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Offers in-scope gap-bridging alternatives on the existing surface (a digest, a member spotlight, discussion threads) that need no venue, schedule, or speaker."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Does not offer the cosy second voice as a compromise, pilot, or A/B option alongside the recommendation."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Presents the between-editions expression for approval before the mods change anything members can see."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Rejects folding the per-project channels into #general, because a returning member reopens the channel scoped to their project and the general channel does not replace that."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Refuses to restore the two archived channels or otherwise reverse the edition team's wind-down decisions; the between-editions role starts where wind-down ended."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Does not redesign the edition's channel roster or routing rules in any other way."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Declines to build the volunteer recognition program, because the volunteer alumni loop (list, thank-you, candidate flag) belongs to its own owner, not to the community role."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Scopes the between-editions programming audience to non-volunteer members."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Specifies the handback as a live member list: who joined, on what consent basis, and who is actually reachable."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Establishes the user as the named owner of the space for the gap, with the conduct-report route stated as still monitored."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Requires the member list's owner and retention decision to be settled now, at the start of the gap, not at handback."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Frames the role as two handovers: receiving the space at wind-down and returning the live list at build-up."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Rejects deleting and reopening the workspace each edition for a recurring event, rather than endorsing it as hygiene."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States what deletion actually discards: the member list and the archive, which are the community asset itself."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Notes that export-plus-deletion is a legitimate end state only for a one-off edition, not a recurring event."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Rejects 'deletion solves data retention automatically': a retention decision is a deliberate written artifact, not a side effect of clean-up."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Declines to quote a PIPEDA retention period, or any jurisdiction's, and does not write one into the policy doc."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Routes the actual retention ruling to the organizer's own counsel."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Prescribes the retention decision as four fields: a named living owner, the basis in the words members were told at join, the permitted scope, and a review-or-deletion date."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Distinguishes scope grants: 'announcing our own next edition' and 'anything the team decides later' are different scopes, and only the one granted applies."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that the retention duty is inherited from the sign-up and attendee-list consent framework, to be restated, not re-derived as a second policy."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Requires the review-or-deletion date to be a concrete date, not 'when it stops being useful'."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Presents the dormant alternative: archive readable, member list intact and owned, one dated notice, at near-zero effort, so deletion is not the cheap option it looks like."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Requires the retention decision to be restated at every future handoff rather than inherited silently."
+      }
+    ]
+  }
+}

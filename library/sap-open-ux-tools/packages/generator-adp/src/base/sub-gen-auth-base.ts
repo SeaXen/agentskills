@@ -1,0 +1,182 @@
+import path from 'node:path';
+import { Prompts } from '@sap-devx/yeoman-ui-types';
+
+import { isAppStudio } from '@sap-ux/btp-utils';
+import type { Manifest } from '@sap-ux/project-access';
+import { createAbapServiceProvider, type AbapTarget } from '@sap-ux/system-access';
+import type { DescriptorVariant, AdpPreviewConfigWithTarget, IManifestService } from '@sap-ux/adp-tooling';
+import type { AxiosRequestConfig, ProviderConfiguration } from '@sap-ux/axios-extension';
+import {
+    getVariant,
+    getAdpConfig,
+    ManifestService,
+    ManifestServiceCF,
+    isCFEnvironment,
+    isAuthRequired
+} from '@sap-ux/adp-tooling';
+
+import { initI18n } from '../utils/i18n.js';
+import SubGeneratorBase from './sub-gen-base.js';
+import type { GeneratorOpts } from '../utils/opts.js';
+import type { GeneratorTypes, Credentials } from '../types.js';
+import { getCredentialsPrompts } from './questions/credentials.js';
+import { getSubGenAuthPages } from '../utils/steps.js';
+
+/**
+ * Base class for *sub* generators that need authentication handling.
+ * Adds functionality on top of {@link SubGeneratorBase}.
+ */
+export default class SubGeneratorWithAuthBase extends SubGeneratorBase {
+    /**
+     * The ABAP target.
+     */
+    protected abapTarget: AbapTarget;
+    /**
+     * The project data.
+     */
+    protected system: string;
+    /**
+     * The project path.
+     */
+    protected readonly projectPath: string;
+    /**
+     * The type of generator.
+     */
+    protected readonly generatorType: GeneratorTypes;
+    /**
+     * The manifest service (ABAP or CF).
+     */
+    public manifestService: IManifestService;
+    /**
+     * Whether the generator requires authentication.
+     */
+    protected requiresAuth = false;
+    /**
+     * The descriptor variant.
+     */
+    protected variant: DescriptorVariant;
+    /**
+     * Whether this is a CF project.
+     */
+    protected isCFProject = false;
+    /**
+     * The VSCode instance.
+     */
+    private readonly vscode: any;
+
+    /**
+     * Creates an instance of the generator.
+     *
+     * @param {string | string[]} args - The arguments passed to the generator.
+     * @param {Generator.GeneratorOptions} opts - The options for the generator.
+     * @param {GeneratorTypes} type - The type of generator.
+     */
+    constructor(args: string | string[], opts: GeneratorOpts, type: GeneratorTypes) {
+        super(args, opts, type);
+        this.generatorType = type;
+
+        if (opts.data) {
+            this.projectPath = opts.data.path;
+        }
+        this.vscode = opts.vscode;
+    }
+
+    /**
+     * Executes logic that should happen during Yeoman's `initializing` phase.
+     * Subclasses must call this to benefit from the built-in auth handling.
+     */
+    protected async onInit(): Promise<void> {
+        await initI18n();
+
+        this.isCFProject = await isCFEnvironment(this.projectPath);
+
+        if (this.isCFProject) {
+            this.system = '';
+            this.logger.log('CF project detected, will use build output for manifest');
+            this._registerPrompts(new Prompts(getSubGenAuthPages(this.generatorType, this.system)));
+            this.prompts.splice(0, 1, []);
+            return;
+        }
+
+        const adpConfig = await getAdpConfig<AdpPreviewConfigWithTarget>(
+            this.projectPath,
+            path.join(this.projectPath, 'ui5.yaml')
+        );
+        this.abapTarget = adpConfig.target;
+        this.system = (isAppStudio() ? this.abapTarget.destination : this.abapTarget.url) ?? '';
+        this.logger.log(`Successfully retrieved abap target\n${JSON.stringify(this.abapTarget, null, 2)}`);
+
+        this._registerPrompts(new Prompts(getSubGenAuthPages(this.generatorType, this.system)));
+
+        try {
+            this.requiresAuth = await isAuthRequired(this.system, this.logger);
+            this.logger.log(`System ${this.system} requires authentication: ${this.requiresAuth}`);
+
+            if (!this.requiresAuth) {
+                // Remove the credential page when authentication is not required
+                this.prompts.splice(0, 1, []);
+            }
+        } catch (error) {
+            // Remove the credential page in case an error occures.
+            this.prompts.splice(0, 1, []);
+            await this.handleRuntimeCrash(error.message);
+        }
+    }
+
+    /**
+     * Retrieves and parses the manifest (app descriptor) of the current project.
+     * For CF projects, builds the project and reads the manifest from the dist folder.
+     * For ABAP projects, fetches the merged manifest via the ABAP service provider.
+     *
+     * @returns {Promise<Manifest>} The manifest.
+     */
+    protected async getManifest(): Promise<Manifest> {
+        this.variant = await getVariant(this.projectPath);
+
+        if (this.isCFProject) {
+            this.manifestService = await ManifestServiceCF.init(this.projectPath, this.logger);
+        } else {
+            let requestOptions: (AxiosRequestConfig & Partial<ProviderConfiguration>) | undefined;
+            if (this.requiresAuth) {
+                const credentials = (await this.prompt(
+                    getCredentialsPrompts(this.abapTarget, this.logger)
+                )) as Credentials;
+                requestOptions = { auth: { username: credentials.username, password: credentials.password } };
+            }
+            const yamlPath = path.join(this.projectPath, 'ui5.yaml');
+            const { target, ignoreCertErrors = false } = await getAdpConfig<AdpPreviewConfigWithTarget>(
+                this.projectPath,
+                yamlPath
+            );
+            const provider = await createAbapServiceProvider(
+                target,
+                { ...requestOptions, ignoreCertErrors },
+                true,
+                this.logger
+            );
+            this.manifestService = await ManifestService.initMergedManifest(
+                provider,
+                this.projectPath,
+                this.variant,
+                this.logger
+            );
+        }
+
+        const manifest = this.manifestService.getManifest();
+        const oDataSources = this.manifestService.getManifestDataSources();
+        this.logger.log(`OData sources from manifest\n${JSON.stringify(oDataSources, null, 2)}`);
+
+        const oDataTargetSources = Object.entries(oDataSources ?? {})
+            .filter((source) => source[1]?.type === 'OData')
+            .map((source) => {
+                return {
+                    dataSourceName: source[0],
+                    uri: source[1]?.uri,
+                    annotations: source[1]?.settings?.annotations ?? []
+                };
+            });
+        this.logger.log(`OData target sources\n${JSON.stringify(oDataTargetSources, null, 2)}`);
+
+        return manifest;
+    }
+}

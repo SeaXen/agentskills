@@ -1,0 +1,13 @@
+{
+    "scripts": {
+        "lint": "eslint ./",
+        "ts-typecheck": "tsc --noEmit",
+        "prestart": "npm run ts-typecheck",
+        "prebuild": "npm run ts-typecheck"
+    },
+    "devDependencies": {
+        "<%- ui5.typesPackage %>": "<%- ui5.typesVersion %>",
+        "ui5-tooling-transpile": "^3.10.0",
+        "typescript": "^5.9.3"
+    }
+}

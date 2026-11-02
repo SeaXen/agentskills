@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Sequences the work by value returned per hour and states the ranking out loud rather than implying it through row order.",
+        "evidence": "The \"Build order\" table has explicit Rank/Effort/\"What it buys\" columns, and the intro states \"Per the skill, a hard date promotes near-zero-cost rungs and defers the identity spine; that shapes everything below.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Puts the tagging vocabulary and link registry first, as an hour of decisions requiring no engineering.",
+        "evidence": "\"1 | Tagging vocabulary + link registry | ~1 hour | every future link readable and mergeable\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Puts snapshot jobs for the expiring surfaces second, justified by history that cannot be bought later.",
+        "evidence": "\"2 | Snapshot jobs (GH Actions cron: repo, npm, Discord) | ~1 hour build, standing job | the only history that can't be bought back later\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Puts the self-reported source field at signup third, as near-zero effort.",
+        "evidence": "\"3 | Self-reported source field (small ask, reframed) | near-zero, pending a yes | the only signal for off-web and blocked traffic\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that links published before the tagging vocabulary exists stay unmergeable forever.",
+        "evidence": "The transcript only states the vocabulary makes \"every future link readable and mergeable\"; it never states that pre-vocabulary links stay unmergeable forever.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes the rungs the stated constraints rule out, such as log analysis, product-side events and CLI or SDK telemetry, rather than parking them at the bottom of the list.",
+        "evidence": "\"6 | Server/CDN log analysis ... deleted \u2014 below your effort ceiling this cycle\" / \"7 | Product-side events ... deleted \u2014 access already refused twice\" / \"8 | CLI/SDK telemetry ... not applicable\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes the deletion and its reason into the plan document, because a parked rung returns next quarter as unbudgeted scope.",
+        "evidence": "\"Log analysis, CLI/SDK telemetry, product-side events: deleted outright, not deferred quietly ... If they come back as \\\"unbudgeted scope\\\" next quarter, this is the paper trail for why they were cut.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names what the efficiency order starves, the high-value high-effort work such as the identity spine and product-side events, and states the condition that promotes it anyway.",
+        "evidence": "\"5 | Identity spine \u2192 signup/activation | a week if you owned both domains \u2014 you don't | strongest evidence in the plan | deferred, not deleted \u2014 blocked on product access, escalate via decision #4\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the identity spine is promoted ahead of everything once a decision on the list asks whether a surface produces signups.",
+        "evidence": "This section never states that rule; the identity spine here is described as \"structurally blocked ... a permissions one\" and kept deferred at rank 5, not promoted.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ties the three-week deadline explicitly to promoting the near-zero rungs and deferring the identity spine.",
+        "evidence": "\"Hard date: board meeting in 3 weeks \u2014 2026-10-11. Per the skill, a hard date promotes near-zero-cost rungs and defers the identity spine; that shapes everything below.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Captures baselines on the expiring surfaces before any other instrumentation work begins.",
+        "evidence": "\"This week (days 1\u20133) \u2014 start today, backfill is impossible: \u2705 Capture today's baselines before touching anything: current npm download figures, GitHub stars, whatever the last 14 days of repo traffic endpoints currently show...\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Sequences the work by value returned per hour and states the ranking out loud rather than implying it through row order.",
+        "evidence": "The transcript only says 'None of this needs a ticket. Some of it has a shrinking window, so sequence it first,' which ranks by urgency/expiry, not by an explicitly stated 'value returned per hour' metric. No sentence names a value-per-hour ranking rationale; the ordering is left to speak for itself via the numbered list.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Puts the tagging vocabulary and link registry first, as an hour of decisions requiring no engineering.",
+        "evidence": "Track 0 item 1 is 'Verify Google Search Console today,' not tagging vocabulary. UTM-tagging appears as item 8: 'Start UTM-tagging every outbound link you control... Keep a one-tab spreadsheet as the log.' It is placed near the end, not first.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Puts snapshot jobs for the expiring surfaces second, justified by history that cannot be bought later.",
+        "evidence": "Item 2 is 'Start polling GitHub's Traffic API today... GitHub only retains 14 days of traffic data, so the moment you start is the moment your history begins,' placed second in the Track 0 list and justified exactly by history that cannot be recovered later.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Puts the self-reported source field at signup third, as near-zero effort.",
+        "evidence": "The self-reported field ('Add one open-text \"how did you hear about us?\" field...') is item 9, the last item in Track 0, not third \u2014 item 3 is 'Pull npm downloads now.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that links published before the tagging vocabulary exists stay unmergeable forever.",
+        "evidence": "No such statement appears anywhere; the closest is 'This is free and it's the only way to later see which content a click came from, even before a destination tool exists to catch it,' which does not address links published before a tagging vocabulary existing being permanently unmergeable.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes the rungs the stated constraints rule out, such as log analysis, product-side events and CLI or SDK telemetry, rather than parking them at the bottom of the list.",
+        "evidence": "Log analysis and CLI/SDK telemetry are never mentioned at all, and product-side events (the signup UTM capture ask) are explicitly parked, not deleted: 'Run this once you have 4\u20136 weeks of your own numbers (post board meeting)' under Track 3, which keeps it as future live work rather than removing it with a stated reason.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes the deletion and its reason into the plan document, because a parked rung returns next quarter as unbudgeted scope.",
+        "evidence": "There is no deletion recorded anywhere in the document, and no statement about a parked rung returning as unbudgeted scope; Track 3 is instead kept alive as a deferred, reframed ask.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names what the efficiency order starves, the high-value high-effort work such as the identity spine and product-side events, and states the condition that promotes it anyway.",
+        "evidence": "Track 3 reframes the product-side ask as 'an hour of engineering work, not a policy decision,' i.e. frames it as low effort rather than naming it as high-value/high-effort work being starved; the term 'identity spine' or an equivalent concept never appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the identity spine is promoted ahead of everything once a decision on the list asks whether a surface produces signups.",
+        "evidence": "No mention of an 'identity spine' or any equivalent promotion-triggering condition tied to whether a surface produces signups exists in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ties the three-week deadline explicitly to promoting the near-zero rungs and deferring the identity spine.",
+        "evidence": "The three-week framing appears only in the title ('a 3-week build plan') and in 'What to actually show the board in 3 weeks'; nothing explicitly ties this deadline to promoting near-zero-effort rungs while deferring an identity-spine-type effort \u2014 Track 3 deferral is justified by needing '4\u20136 weeks of your own numbers,' not by the 3-week deadline itself.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Captures baselines on the expiring surfaces before any other instrumentation work begins.",
+        "evidence": "Items 1 ('Verify Google Search Console today') and 2 ('Start polling GitHub's Traffic API today') \u2014 both justified by data that cannot be recovered later \u2014 are listed first in Track 0, ahead of npm/star history/Discord/hosting analytics/Ahrefs/UTM tagging/self-report field, and ahead of Track 1's analytics snippet and Track 2's automation pipeline.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

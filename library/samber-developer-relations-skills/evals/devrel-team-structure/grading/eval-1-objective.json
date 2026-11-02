@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Does not name a reporting line before the funded driver is identified and attributed to a named leader.",
+        "evidence": "The document opens with '## Verdict / **DevRel stays under VP Marketing.**' as the very first line, before the 'Why neither VP is currently making a real argument' and 'The fast read' sections that actually work through identifying the funded driver. The line is asserted at the top, with the driver/leader attribution folded into the same verdict sentence ('DevRel reports to marketing, because the funded driver is developer adoption and VP Marketing owns it') rather than established first.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks explicitly why the company funds developer relations, offering driver options such as developer adoption, sales enablement, developer enablement, product input, ecosystem, contributor community or employer brand.",
+        "evidence": "The transcript only asks 'what is DevRel funded to produce, and who signs off that it's happening?' without offering an explicit menu of driver options like developer adoption, sales enablement, developer enablement, product input, ecosystem, contributor community, or employer brand.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that no reporting line holds a majority across the field, so placement is a trade-off rather than a best practice.",
+        "evidence": "\"No line holds a majority; placement is a trade-off, never a default.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Quotes the reporting-line spread with the survey year attached (marketing around 33%, product around 22%, CEO around 20%, engineering around 20%, sales around 3%).",
+        "evidence": "The transcript only cites two figures: \"only 19.9% of teams report to engineering; 33.1% report to marketing \u2014 State of Developer Relations 2024, DevRel.Agency, 310 respondents\" \u2014 it omits product (~22%), CEO (~20%), and sales (~3%) entirely.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Any reporting-line recommendation is written with all four parts: the function, the funded driver plus the named leader who owns it, the pillar that line starves, and the named person or team covering that gap.",
+        "evidence": "\"DevRel reports to marketing, because the funded driver is developer adoption and VP Marketing owns it. This line starves the product/engineering feedback loop. A named, capped interlock with VP Engineering covers that gap, reviewed at the next major fundraise or when the team crosses ~8 FTE.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets a review date or an explicit review trigger on the reporting-line decision.",
+        "evidence": "\"reviewed at the next major fundraise or when the team crosses ~8 FTE\" and the dedicated \"Re-org triggers \u2014 name these now so the fight doesn't restart in Q1\" section listing explicit triggers.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names what an engineering line starves (narrative, measurement literacy or budget defence) and its characteristic failure of the team being used as overflow engineering capacity.",
+        "evidence": "The transcript critiques VP Engineering's argument as weak ('a category claim, not a driver claim') but never states what an engineering reporting line would starve, and never mentions the 'overflow engineering capacity' failure mode.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names what a marketing line starves (the product feedback loop, or technical credibility over time).",
+        "evidence": "\"This line starves the product/engineering feedback loop.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks what is politically fixed - a line that cannot move, or a manager who cannot be moved.",
+        "evidence": "No mention anywhere in the transcript of political fixedness of the reporting line or of a manager who cannot be moved.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a work inventory listing each recurring surface with a named owner, that owner's manager, hours per week, and what breaks if the surface stops, before proposing any structure.",
+        "evidence": "The suggested inventory ('pull the last quarter of DevRel's actual hours across docs, quickstarts, blog/talks/community... versus sample apps, SDK issue triage, and roadmap-facing feedback') lacks named owners, owners' managers, and what-breaks-if-stopped columns, and is proposed only after the verdict ('DevRel stays under VP Marketing') has already been given at the top of the memo.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Quotes no advocate-to-developer or advocate-to-product-line headcount ratio.",
+        "evidence": "No such ratio appears anywhere in the transcript; headcount is only discussed as a flat team size ('The team is 3 people').",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Does not name a reporting line before the funded driver is identified and attributed to a named leader.",
+        "evidence": "Opens with 'Verdict: keep DevRel under VP Marketing.' before any driver-identification process is shown.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks explicitly why the company funds developer relations, offering driver options such as developer adoption, sales enablement, developer enablement, product input, ecosystem, contributor community or employer brand.",
+        "evidence": "No such explicit question with options appears; the transcript asserts 'That's a GTM outcome' rather than asking.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that no reporting line holds a majority across the field, so placement is a trade-off rather than a best practice.",
+        "evidence": "No statement about reporting-line distribution or majority appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Quotes the reporting-line spread with the survey year attached (marketing around 33%, product around 22%, CEO around 20%, engineering around 20%, sales around 3%).",
+        "evidence": "No percentages or survey citation appear in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Any reporting-line recommendation is written with all four parts: the function, the funded driver plus the named leader who owns it, the pillar that line starves, and the named person or team covering that gap.",
+        "evidence": "The 'Recommended structure for Friday' section names the function and owner (VP Marketing) and a mitigation (review gate) but never states the 'funded driver' explicitly nor frames it in the four-part structure.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets a review date or an explicit review trigger on the reporting-line decision.",
+        "evidence": "\"Give VP Marketing 90 days to deliver the three metrics above, reported at the next leadership offsite.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names what an engineering line starves (narrative, measurement literacy or budget defence) and its characteristic failure of the team being used as overflow engineering capacity.",
+        "evidence": "No discussion of what an engineering reporting line would starve or the overflow-capacity failure mode.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names what a marketing line starves (the product feedback loop, or technical credibility over time).",
+        "evidence": "No discussion of what staying under marketing costs; only the review-gate risk is discussed generically.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks what is politically fixed - a line that cannot move, or a manager who cannot be moved.",
+        "evidence": "No such question is posed anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a work inventory listing each recurring surface with a named owner, that owner's manager, hours per week, and what breaks if the surface stops, before proposing any structure.",
+        "evidence": "No surface inventory of any kind appears; the transcript moves straight to a verdict and structural recommendations.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Quotes no advocate-to-developer or advocate-to-product-line headcount ratio.",
+        "evidence": "No such ratio appears anywhere in the transcript.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

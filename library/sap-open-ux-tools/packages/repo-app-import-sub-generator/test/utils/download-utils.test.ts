@@ -1,0 +1,184 @@
+import { jest } from '@jest/globals';
+import { join } from 'node:path';
+import { qfaJsonFileName } from '../../src/utils/constants.js';
+import type { AbapServiceProvider } from '@sap-ux/axios-extension';
+
+jest.unstable_mockModule('adm-zip', () => {
+    class MockAdmZip {
+        buffer: Buffer;
+        constructor(buf?: Buffer) {
+            this.buffer = buf ?? Buffer.alloc(0);
+        }
+    }
+    return { default: MockAdmZip, __esModule: true };
+});
+
+jest.unstable_mockModule('../../src/utils/logger', () => {
+    const mock = {
+        logger: { error: jest.fn(), warn: jest.fn(), info: jest.fn(), debug: jest.fn() },
+        configureLogging: jest.fn()
+    };
+    return { default: mock, ...mock };
+});
+
+const { downloadApp, extractZip, hasQfaJson, fetchServiceMetadata } = await import('../../src/utils/download-utils.js');
+const { PromptState } = await import('../../src/prompts/prompt-state.js');
+const RepoAppDownloadLogger = (await import('../../src/utils/logger.js')).default;
+const AdmZipModule = await import('adm-zip');
+const AdmZip = AdmZipModule.default;
+const { t } = await import('../../src/utils/i18n.js');
+
+describe('App Download Utils', () => {
+    beforeEach(() => {
+        PromptState.reset();
+        jest.clearAllMocks();
+    });
+
+    describe('hasQfaJson', () => {
+        it('should return true when qfa.json is present in zip', () => {
+            const mockEntry = { entryName: qfaJsonFileName };
+            const mockZip = { getEntries: jest.fn(() => [mockEntry]) };
+            PromptState.admZip = Buffer.from('dummy');
+            (PromptState.admZip as any).getEntries = mockZip.getEntries;
+
+            const result = hasQfaJson();
+            expect(result).toBe(true);
+        });
+
+        it('should return false when qfa.json is not present', () => {
+            const mockZip = { getEntries: jest.fn(() => [{ entryName: 'other.json' }]) };
+            PromptState.admZip = Buffer.from('dummy');
+            (PromptState.admZip as any).getEntries = mockZip.getEntries;
+
+            const result = hasQfaJson();
+            expect(result).toBe(false);
+        });
+    });
+
+    describe('extractZip', () => {
+        const mockFs = { write: jest.fn() };
+
+        it('should extract files from zip to provided path', async () => {
+            const mockZipEntries = [
+                { isDirectory: false, entryName: 'file1.txt', getData: jest.fn(() => Buffer.from('file content')) },
+                { isDirectory: true, entryName: 'folder/', getData: jest.fn() }
+            ];
+
+            PromptState.admZip = Buffer.from('dummy');
+            (PromptState.admZip as any).getEntries = jest.fn(() => mockZipEntries);
+
+            await extractZip('/tmp/project', mockFs as any);
+
+            expect(mockFs.write).toHaveBeenCalledWith(join('/tmp/project', 'file1.txt'), 'file content');
+            expect(mockFs.write).toHaveBeenCalledTimes(1);
+        });
+
+        it('should log error on exception', async () => {
+            const erroringZip = {
+                getEntries: jest.fn(() => {
+                    throw new Error('zip failed');
+                })
+            };
+            PromptState.admZip = Buffer.from('dummy');
+            (PromptState.admZip as any).getEntries = erroringZip.getEntries;
+
+            await extractZip('/tmp/project', mockFs as any);
+
+            expect(RepoAppDownloadLogger.logger.error).toHaveBeenCalledWith(
+                t('error.appDownloadErrors.zipExtractionError', { error: 'zip failed' })
+            );
+        });
+    });
+
+    describe('downloadApp', () => {
+        it('should download and assign zip buffer to PromptState', async () => {
+            const mockZipBuffer = Buffer.from('mock zip content');
+            const mockDownload = jest.fn().mockResolvedValue(mockZipBuffer);
+            const mockServiceProvider = {
+                getUi5AbapRepository: jest.fn(() => ({
+                    downloadFiles: mockDownload,
+                    log: undefined
+                }))
+            };
+
+            PromptState.systemSelection = {
+                connectedSystem: { serviceProvider: mockServiceProvider as unknown as AbapServiceProvider }
+            };
+
+            await downloadApp('Z_TEST_REPO');
+
+            expect(mockDownload).toHaveBeenCalledWith('Z_TEST_REPO');
+            expect(PromptState.admZip).toBeInstanceOf(AdmZip);
+        });
+
+        it('should return success:false when downloadFiles returns undefined', async () => {
+            const mockDownload = jest.fn().mockResolvedValue(undefined);
+            const mockServiceProvider = {
+                getUi5AbapRepository: jest.fn(() => ({
+                    downloadFiles: mockDownload,
+                    log: undefined
+                })),
+                getAdtService: jest.fn().mockResolvedValue(null)
+            };
+
+            PromptState.systemSelection = {
+                connectedSystem: { serviceProvider: mockServiceProvider as unknown as AbapServiceProvider }
+            };
+
+            await expect(downloadApp('Z_NO_ZIP')).resolves.toEqual({
+                success: false,
+                errorMessage: expect.any(String)
+            });
+            expect(PromptState.admZip).toBeUndefined();
+        });
+
+        it('should return success:false when downloadFiles returns an empty buffer', async () => {
+            const mockDownload = jest.fn().mockResolvedValue(Buffer.alloc(0));
+            const mockServiceProvider = {
+                getUi5AbapRepository: jest.fn(() => ({
+                    downloadFiles: mockDownload,
+                    log: undefined
+                })),
+                getAdtService: jest.fn().mockRejectedValue(new Error('ADT unavailable'))
+            };
+
+            PromptState.systemSelection = {
+                connectedSystem: { serviceProvider: mockServiceProvider as unknown as AbapServiceProvider }
+            };
+
+            await expect(downloadApp('Z_EMPTY_ZIP')).resolves.toEqual({
+                success: false,
+                errorMessage: expect.any(String)
+            });
+            expect(PromptState.admZip).toBeUndefined();
+        });
+    });
+
+    describe('fetchServiceMetadata', () => {
+        it('should return metadata string when service call succeeds', async () => {
+            const mockMetadata = '<edmx:Edmx Version="4.0"/>';
+            const mockProvider = {
+                service: jest.fn().mockReturnValue({ metadata: jest.fn().mockResolvedValue(mockMetadata) })
+            } as unknown as AbapServiceProvider;
+
+            const result = await fetchServiceMetadata(mockProvider, '/sap/opu/odata4/srvd/test/0001');
+
+            expect(mockProvider.service).toHaveBeenCalledWith('/sap/opu/odata4/srvd/test/0001');
+            expect(result).toBe(mockMetadata);
+        });
+
+        it('should return undefined and log error when service call fails', async () => {
+            const fetchError = new Error('Network timeout');
+            const mockProvider = {
+                service: jest.fn().mockReturnValue({ metadata: jest.fn().mockRejectedValue(fetchError) })
+            } as unknown as AbapServiceProvider;
+
+            const result = await fetchServiceMetadata(mockProvider, '/sap/opu/odata4/srvd/test/0001');
+
+            expect(result).toBeUndefined();
+            expect(RepoAppDownloadLogger.logger.error).toHaveBeenCalledWith(
+                t('error.metadataFetchError', { error: fetchError.message })
+            );
+        });
+    });
+});

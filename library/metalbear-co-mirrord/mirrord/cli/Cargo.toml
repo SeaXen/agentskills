@@ -1,0 +1,143 @@
+[package]
+name = "mirrord"
+version.workspace = true
+authors.workspace = true
+description.workspace = true
+documentation.workspace = true
+readme.workspace = true
+homepage.workspace = true
+repository.workspace = true
+license.workspace = true
+keywords.workspace = true
+categories.workspace = true
+publish.workspace = true
+edition.workspace = true
+
+[lints]
+workspace = true
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+mirrord-macros = { path = "../macros" }
+mirrord-console = { path = "../console", features = ["async-logger"] }
+mirrord-operator = { path = "../operator", features = ["client"] }
+mirrord-intproxy-protocol = { path = "../intproxy/protocol" }
+mirrord-progress = { path = "../progress", features = ["implementations"] }
+mirrord-kube = { path = "../kube", features = ["portforward"] }
+mirrord-config = { path = "../config" }
+mirrord-up = { path = "../up" }
+mirrord-tui = { path = "../tui" }
+mirrord-mcp = { path = "../mcp" }
+mirrord-protocol = { path = "../protocol" }
+mirrord-command = { path = "../command", features = ["tokio"] }
+mirrord-analytics = { path = "../analytics" }
+mirrord-intproxy = { path = "../intproxy" }
+mirrord-vpn = { path = "../vpn" }
+mirrord-tls-util = { path = "../tls-util" }
+mirrord-protocol-io = { path = "../protocol-io" }
+mirrord-auth = { path = "../auth" }
+mirrord-protocol-api = { path = "../protocol-api" }
+mirrord-operator-websocket = { path = "../operator-websocket" }
+
+actix-codec.workspace = true
+atomic-write-file.workspace = true
+clap.workspace = true
+dotenvy.workspace = true
+tracing.workspace = true
+serde_json.workspace = true
+serde-saphyr.workspace = true
+serde.workspace = true
+tracing-subscriber.workspace = true
+futures.workspace = true
+glob.workspace = true
+which.workspace = true
+schemars.workspace = true
+secrecy.workspace = true
+semver.workspace = true
+chrono = { workspace = true, features = ["serde"] }
+reqwest = { workspace = true, features = ["stream"] }
+const-random.workspace = true
+tokio = { workspace = true, features = ["rt", "net", "macros", "process", "signal", "sync"] }
+tokio-retry.workspace = true
+kube.workspace = true
+k8s-openapi.workspace = true
+http.workspace = true
+miette = { workspace = true, features = ["fancy"] }
+thiserror.workspace = true
+humantime.workspace = true
+inquire.workspace = true
+shlex.workspace = true
+tokio-util = { workspace = true, features = ["rt"] }
+socket2.workspace = true
+drain.workspace = true
+prettytable-rs.workspace = true
+strum.workspace = true
+strum_macros.workspace = true
+clap_complete.workspace = true
+rustls.workspace = true
+local-ip-address.workspace = true
+tokio-rustls.workspace = true
+tokio-stream = { workspace = true, features = ["io-util", "net"] }
+regex.workspace = true
+mid.workspace = true
+uuid.workspace = true
+fs4.workspace = true
+tempfile.workspace = true
+hex.workspace = true
+tower = { workspace = true, features = ["retry"] }
+ci_info.workspace = true
+opener.workspace = true
+itertools.workspace = true
+yamlpatch.workspace = true
+yamlpath.workspace = true
+url.workspace = true
+whoami.workspace = true
+base64.workspace = true
+rand.workspace = true
+axum = { workspace = true, features = ["ws"] }
+axum-extra = { workspace = true }
+rust-embed.workspace = true
+notify.workspace = true
+dunce.workspace = true
+mime_guess.workspace = true
+mirrord-session-monitor-protocol.workspace = true
+mirrord-session-monitor-client.workspace = true
+mirrord-sessions-manager-client.workspace = true
+tower-http = { workspace = true, features = ["cors"] }
+hyper.workspace = true
+bytes.workspace = true
+sha2.workspace = true
+
+[target.'cfg(target_os = "windows")'.dependencies]
+mirrord-layer-lib = { path = "../layer-lib", features = ["cli-execution"] }
+utils-win = { path = "../utils-win" }
+stork = { workspace = true }
+
+[target.'cfg(any(target_os = "macos", target_os = "linux"))'.dependencies]
+nix = { workspace = true, features = ["process", "resource", "signal", "user"] }
+
+[target.'cfg(target_os = "macos")'.dependencies]
+mirrord-sip = { path = "../sip" }
+
+[target.'cfg(target_os = "linux")'.dependencies]
+xmas-elf.workspace = true
+
+
+[dev-dependencies]
+rstest.workspace = true
+hyper-util = { workspace = true, "features" = ["server"] }
+http-body-util.workspace = true
+kube.workspace = true
+rcgen.workspace = true
+tempfile.workspace = true
+tower-test.workspace = true
+
+# Only the tests of `preview sync`, which runs on Unix alone, use these.
+[target.'cfg(unix)'.dev-dependencies]
+flate2.workspace = true
+tar.workspace = true
+tokio-tungstenite.workspace = true
+
+[features]
+windows_build = []

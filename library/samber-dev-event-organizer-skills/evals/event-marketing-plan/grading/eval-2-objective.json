@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The target line is expressed as percent of the attendance goal at fixed calendar offsets (2 weeks, 1 week), not as percent of ticket sales at marketing moments.",
+        "evidence": "\"100% of the goal signed up 2 weeks out and 200% 1 week out\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The signup target deliberately exceeds 100% of the goal, framed as absorbing no-shows rather than as a stretch target.",
+        "evidence": "\"The doubling absorbs the no-shows.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The signup-to-attendance drop-off is stated as the 30-50% range, not as a single figure.",
+        "evidence": "\"free hackathons see a 30\u201350% signup-to-attendance drop-off\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "100% of the attendance goal (about 600 signups) is targeted two weeks before the event.",
+        "evidence": "\"Wed 12-16 | T-2 weeks | 600 | 100%\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "200% of the goal (about 1,200 signups) is targeted one week before the event.",
+        "evidence": "\"Wed 12-23 | T-1 week, registration closes | 1,200 | 200%\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Registration close is set at one week before the event, tied to the partner-event requirement (pre-event email preparation and a bad-actor check).",
+        "evidence": "\"MLH requires partner events to close 1 week out so it can send its pre-event email and run a bad-actor check.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The one-week registration close is flagged as hackathon-specific rather than generalized into a conference rule.",
+        "evidence": "Attributed to MLH partner events but never explicitly said not to generalize to conferences.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The risk being managed is named as no-shows, not under-selling.",
+        "evidence": "\"The doubling absorbs the no-shows.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "No ticketed-conference checkpoint (15% at early-bird close, 40-50% one month out) is applied to this free event.",
+        "evidence": "Only the 20/50/100/200% ladder is used; no 15% early-bird or 40-50% one month out",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Checkpoints are converted into absolute signup counts attached to dates, not left as ratios.",
+        "evidence": "Table: 120 on 10-30, 300 on 11-30, 600 on 12-16, 1,200 on 12-23",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Intermediate milestones before the two-week mark (around the two-month and one-month points) are included, not just the final two checkpoints.",
+        "evidence": "\"T-2 months | 120\" and \"T-1 month | 300\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The target line is expressed as percent of the attendance goal at fixed calendar offsets (2 weeks, 1 week), not as percent of ticket sales at marketing moments.",
+        "evidence": "Weekly table shows % of the 1,300 signup goal, not % of the 600 attendance goal at 2 weeks and 1 week.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The signup target deliberately exceeds 100% of the goal, framed as absorbing no-shows rather than as a stretch target.",
+        "evidence": "1,300 signups to get 600 in the building.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The signup-to-attendance drop-off is stated as the 30-50% range, not as a single figure.",
+        "evidence": "\"about 45%\" with a plausible range of \"40\u201355%\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "100% of the attendance goal (about 600 signups) is targeted two weeks before the event.",
+        "evidence": "\"T-2 | 1,120 | 86%\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "200% of the goal (about 1,200 signups) is targeted one week before the event.",
+        "evidence": "\"T-1 | 1,260\" and close at 1,300, roughly 200%+.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Registration close is set at one week before the event, tied to the partner-event requirement (pre-event email preparation and a bad-actor check).",
+        "evidence": "Soft close at T-8 days is justified by the confirmation email and catering counts, not a partner requirement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The one-week registration close is flagged as hackathon-specific rather than generalized into a conference rule.",
+        "evidence": "No such flag.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The risk being managed is named as no-shows, not under-selling.",
+        "evidence": "Signup-to-check-in funnel and over-admit logic.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "No ticketed-conference checkpoint (15% at early-bird close, 40-50% one month out) is applied to this free event.",
+        "evidence": "No early-bird 15% or one-month 40-50% checkpoint.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Checkpoints are converted into absolute signup counts attached to dates, not left as ratios.",
+        "evidence": "Table with cumulative signups per T-week and \"Open day (Oct 19) | 150\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Intermediate milestones before the two-week mark (around the two-month and one-month points) are included, not just the final two checkpoints.",
+        "evidence": "Rows from T-9 through T-3.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

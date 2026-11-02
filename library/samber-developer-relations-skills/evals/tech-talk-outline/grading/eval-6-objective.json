@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to output slide files or a deck export, and states that slide files come later from a deck tool",
+        "evidence": "\"'Export straight into Google Slides' \u2014 not building the deck. The skill refuses this outright... What you get below is the skeleton... which you paste into Slides yourself once it's survived a timed run, not before.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the 22-slides-for-22-minutes rule and states that slide count is an outcome, never a target",
+        "evidence": "\"'22 slides, one per minute' \u2014 not applying this. The skill's own craft rules are explicit: 'There is no slides-per-minute rule... let the count fall out of [what each slide has to accomplish].'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the range slide counts legitimately take as a counter-example - a story-led talk on a handful of slides, a dense technical talk running around a hundred in thirty minutes",
+        "evidence": "No such range or counter-example appears anywhere in the transcript; only a specific prediction for this talk ('I'd bet it lands around 14-16') is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces instead an ordered list of what each slide must accomplish",
+        "evidence": "The 14-item slide skeleton lists each slide's title/purpose in order, e.g. \"5. MARKER (Pillar 1) \u2014 Title: 'Three things we tried that didn't work' \u00b7 List the 3 dead ends by name only, no detail yet\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires each slide title to be written as the takeaway sentence rather than a topic label, and shows a worked contrast between the two",
+        "evidence": "Titles are written as takeaway sentences throughout (e.g. 'We were solving the wrong layer'), but no worked contrast against a topic-label version is shown anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires one idea per slide, and splitting any slide that carries more than one",
+        "evidence": "Quality gate: \"Every slide passes one-idea + title-as-takeaway.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires that nothing appear on screen the speaker is not about to say, with the reason that the audience reads faster than the speaker talks",
+        "evidence": "No such requirement or reasoning about reading speed appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives every section a marker slide so a listener who drifted has a visible way back into the talk",
+        "evidence": "Slides 5, 9, and 11 are explicitly labeled 'MARKER (Pillar 1)', 'MARKER (Pillar 2)', 'MARKER (Pillar 3)'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places the repository, docs and handle on a slide that appears twice - once where it becomes useful, once at the end",
+        "evidence": "Slide 9: \"First appearance of repo/docs link\"; Slide 13: \"Second appearance of repo/docs/handle \u2014 stays up through Q&A\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Marks the slides that must never be cut under time pressure",
+        "evidence": "\"Never cut: 1, 2, 8, 13 \u2014 title, hook, realization, arrow.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Presents the skeleton one section at a time and asks for approval before moving to the next, rather than dumping the whole thing at once",
+        "evidence": "The entire 14-slide skeleton, time budget, cut checkpoints, and rehearsal plan are delivered together in a single response with no approval checkpoints.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Hands the outline over as a document or file rather than leaving it in the chat log, where the environment allows writing one",
+        "evidence": "The outline is delivered entirely as chat-formatted text/tables within the response; no file is written or referenced.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Describes a job per slide rather than a title-and-bullets design, for example 'cold-start latency histogram with the warm-pool cutover marked; hold it silently for a beat'",
+        "evidence": "Entries like \"7. Title: '[Dead end #2] worked \u2014 until traffic spiked' \u00b7 Graph job: the failure mode under load\" and slide 2's \"One held beat of silence before you speak over it\" describe production jobs, not audience-facing bullet content.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to output slide files or a deck export, and states that slide files come later from a deck tool",
+        "evidence": "The transcript contains only a request for file-write approval ('I need your approval to write files under /tmp/cold-starts-deck/ ... to build the deck'); there is no refusal to output slide files and no statement that slide files come later from a deck tool.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the 22-slides-for-22-minutes rule and states that slide count is an outcome, never a target",
+        "evidence": "No mention of slide-count rules, ratios, or the concept of slide count as outcome vs target anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the range slide counts legitimately take as a counter-example - a story-led talk on a handful of slides, a dense technical talk running around a hundred in thirty minutes",
+        "evidence": "No discussion of slide-count ranges or examples of talk types appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces instead an ordered list of what each slide must accomplish",
+        "evidence": "The transcript contains no list of slides or their goals \u2014 only a one-sentence request for file-write approval.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires each slide title to be written as the takeaway sentence rather than a topic label, and shows a worked contrast between the two",
+        "evidence": "No slide titles, takeaway sentences, or topic-label contrasts appear anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires one idea per slide, and splitting any slide that carries more than one",
+        "evidence": "The transcript has no content addressing slide idea density or splitting rules.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires that nothing appear on screen the speaker is not about to say, with the reason that the audience reads faster than the speaker talks",
+        "evidence": "No such requirement or reasoning is present in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives every section a marker slide so a listener who drifted has a visible way back into the talk",
+        "evidence": "The transcript does not mention sections, marker slides, or audience re-orientation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places the repository, docs and handle on a slide that appears twice - once where it becomes useful, once at the end",
+        "evidence": "No mention of a repository/docs/handle slide or its placement appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Marks the slides that must never be cut under time pressure",
+        "evidence": "No slides or cut-priority markings are discussed in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Presents the skeleton one section at a time and asks for approval before moving to the next, rather than dumping the whole thing at once",
+        "evidence": "The transcript's single message asks only for approval on where to write files, not for approval of a section-by-section skeleton; no skeleton content is presented at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Hands the outline over as a document or file rather than leaving it in the chat log, where the environment allows writing one",
+        "evidence": "The message only asks for approval to write files ('Should I go ahead there, or would you prefer I build it inside this repo') \u2014 no outline has actually been produced or handed over yet, just a request to proceed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Describes a job per slide rather than a title-and-bullets design, for example 'cold-start latency histogram with the warm-pool cutover marked; hold it silently for a beat'",
+        "evidence": "The transcript contains no slide descriptions of any kind, let alone a job-per-slide framing.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

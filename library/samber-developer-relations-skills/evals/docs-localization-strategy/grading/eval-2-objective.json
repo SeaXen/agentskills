@@ -1,0 +1,190 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Promotes the community program rung because the project is open source and volunteers are already translating unprompted",
+        "evidence": "\"the case where a community program is promoted\"; \"Rung: critical-path pack, run as a community program\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires two named Portuguese-fluent reviewers before the locale launches, so no translator approves their own change",
+        "evidence": "\"Neither contributor approves their own PR.\" Gate item 1 requires both volunteers.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not count the maintainer as a pt-BR reviewer, since they do not read Portuguese",
+        "evidence": "The two contributors cross-review; the maintainer runs mechanical checks only.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Scopes the volunteers' review and approval permissions to the pt-BR locale directory only",
+        "evidence": "\"Review rights are scoped to the locale directory.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a progress page showing which pages are translated and which are current",
+        "evidence": "\"A status page shows which pages are translated and which are `current`.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a written escalation path for when the volunteer maintainers go silent",
+        "evidence": "\"If neither contributor responds for 90 days (baseline), freeze the locale read-only.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that translations inherit the docs licence and names the contribution agreement or licence terms translators accept",
+        "evidence": "\"Translations inherit the docs licence... (DCO or CLA)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the locale as pt-BR rather than generic Portuguese or pt-PT",
+        "evidence": "Locale: `pt-BR`",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a source-commit pin in the front matter of every translated page from the first merged PR, with the drift check failing CI on no-pin and unknown-pin from day one",
+        "evidence": "\"Add pins to the two PRs\"; drift check with \"--fail-on no-pin,unknown-pin\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the Docusaurus layout for the drift check, with the locale directory under i18n/pt-BR/docusaurus-plugin-content-docs/current (or the equivalent path) rather than a sibling docs/pt-br tree",
+        "evidence": "\"i18n/pt-BR/docusaurus-plugin-content-docs/current\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the community program ranks last on durability because the cohort is the locale: when its maintainers leave, coverage freezes and rots",
+        "evidence": "No durability ordering is stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes the freeze-then-retire rule for when the last named reviewer leaves and no replacement is found within one quarter",
+        "evidence": "The only rule is a 90-day silent-maintainer freeze, with no retire-after-a-quarter rule.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires published owner names and a contact for translation problems before launch",
+        "evidence": "Gate item 6: \"Add a translation-problem link and owner names\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Marks the locale gated until every gate item closes, listing each missing item with its closing action and expected date, rather than treating the merged PRs as a launch",
+        "evidence": "The six-row ownership gate table; \"Keep `pt-BR` out of the production config until the gate closes.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Orders the page set to start with quickstart, install, auth, top task pages and site UI strings, and keeps contributor docs and the docs-site changelog untranslated",
+        "evidence": "\"Contributor docs and the docs changelog\" under Never translated; the pack starts with quickstart/auth/UI strings.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Promotes the community program rung because the project is open source and volunteers are already translating unprompted",
+        "evidence": "\"Say yes, with conditions\" to the two volunteers, with CODEOWNERS and soft launch.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires two named Portuguese-fluent reviewers before the locale launches, so no translator approves their own change",
+        "evidence": "\"The PR author can't be the only approver. The other contributor must approve\"; CODEOWNERS handles.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not count the maintainer as a pt-BR reviewer, since they do not read Portuguese",
+        "evidence": "\"You can't read Portuguese, so they are your reviewers.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Scopes the volunteers' review and approval permissions to the pt-BR locale directory only",
+        "evidence": "\"/i18n/pt-BR/ @contrib1 @contrib2\" and Triage permission, not Write.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a progress page showing which pages are translated and which are current",
+        "evidence": "Only a non-blocking staleness report; no progress page.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a written escalation path for when the volunteer maintainers go silent",
+        "evidence": "Exit rule retires after silence but names no escalation path.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that translations inherit the docs licence and names the contribution agreement or licence terms translators accept",
+        "evidence": "\"Same license as the docs. Add sign-off or DCO if you use it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the locale as pt-BR rather than generic Portuguese or pt-PT",
+        "evidence": "\"Use the locale code pt-BR, not pt.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a source-commit pin in the front matter of every translated page from the first merged PR, with the drift check failing CI on no-pin and unknown-pin from day one",
+        "evidence": "Uses commit timestamps in Gate C, non-blocking; no pin.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the Docusaurus layout for the drift check, with the locale directory under i18n/pt-BR/docusaurus-plugin-content-docs/current (or the equivalent path) rather than a sibling docs/pt-br tree",
+        "evidence": "\"i18n/pt-BR/docusaurus-plugin-content-docs/current/<same path as docs/>\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the community program ranks last on durability because the cohort is the locale: when its maintainers leave, coverage freezes and rots",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes the freeze-then-retire rule for when the last named reviewer leaves and no replacement is found within one quarter",
+        "evidence": "Exit rule is based on team silence for 6 months, not the last reviewer leaving and one quarter.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires published owner names and a contact for translation problems before launch",
+        "evidence": "Only credits translators; no published contact.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Marks the locale gated until every gate item closes, listing each missing item with its closing action and expected date, rather than treating the merged PRs as a launch",
+        "evidence": "Soft launch criteria exist but no itemised gate list with dates.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Orders the page set to start with quickstart, install, auth, top task pages and site UI strings, and keeps contributor docs and the docs-site changelog untranslated",
+        "evidence": "Order is intro, install, quickstart, concepts, operations; no auth, though release notes and blog are excluded.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

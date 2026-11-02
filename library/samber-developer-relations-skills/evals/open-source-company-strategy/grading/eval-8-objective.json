@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Separates the business-context call of whether to open something from the specialist review of whether it is compliant to open",
+        "evidence": "\"Two different questions are being asked... 1. **Should we open this?**... 2. **Is this compliant to open?**\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Assigns the business call to whoever owns the business case, such as the proposing team's manager or director, rather than to the open source program office",
+        "evidence": "\"**BU business decider** (the requesting BU's engineering director or product owner...) The should-we call...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the stated reason that the open source program office frequently lacks the business context to make that call",
+        "evidence": "\"stated on the record as 'the open source office frequently lacks the business context to make it'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Runs licensing, patent and privacy review as parallel approvers that can block only on those grounds",
+        "evidence": "OSPO covers licensing/trademark/security and the attorney covers 'patent and export-control review,' but privacy review is never named as part of the compliance track.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names an escalation path for larger launches, to a director or VP",
+        "evidence": "\"**Named executive sponsor** (pick one \u2014 CTO is the standard placement...) Final decider on Tier 3 only: anything precedent-setting...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the default posture is to approve unless there is a good reason not to",
+        "evidence": "\"## Default posture Approve unless a named person states a specific, written reason not to. Silence is not a block.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the decision to be recorded so it is auditable afterwards",
+        "evidence": "The closest statement is OSPO 'Publishes precedent so BU 4 doesn't relitigate what BU 1 already settled,' but no explicit requirement to record each decision for audit purposes is stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the model in which large tiering decisions route through a published matrix with the CEO as final decider",
+        "evidence": "GitLab and CEO-as-final-decider are never mentioned in this section; Tier 3 escalates to a 'Named executive sponsor,' not explicitly framed via a published-matrix/CEO model.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the classification of contributions as trivial, medium or major, with trivial needing only the relevant business manager",
+        "evidence": "The transcript uses 'Tier 1 \u2014 Fast track,' 'Tier 2 \u2014 Standard,' 'Tier 3 \u2014 Escalation' terminology, not 'trivial, medium, major.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends frame agreements pre-authorizing contribution to ecosystems already judged non-competitive so routine cases never reach the board",
+        "evidence": "No such recommendation about pre-authorized frame agreements for non-competitive ecosystems appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes down who plays each part even where two parts are the same person",
+        "evidence": "The roles table describes distinct roles generically; there is no discussion of the case where two roles are held by the same individual.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the open source program office should not make the strategy call at any company size",
+        "evidence": "The claim is scoped to Ostrava's specific six-BU situation ('It cannot also answer question 1 for six business units, because it doesn't have and can't acquire the business context') rather than stated as a universal rule for any company size.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects a decision-rights statement that has no split between business and compliance, no escalation path and no stated default posture",
+        "evidence": "\"'OSPO signs off on everything' is not how you get there \u2014 it's why every request is currently a three-week negotiation, and making the OSPO the sole approver will make that worse, not better.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Separates the business-context call of whether to open something from the specialist review of whether it is compliant to open",
+        "evidence": "The model keeps OSPO as decider for amber/red judgment calls rather than separating a business-context approver from compliance specialists: \"OSPO owns the *policy* and is the decider for the small set of cases that genuinely need judgment.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Assigns the business call to whoever owns the business case, such as the proposing team's manager or director, rather than to the open source program office",
+        "evidence": "Amber and Red review both list OSPO as R/A (\"Amber review ... OSPO **R/A**\"; \"Red review ... OSPO **R/A**\"), keeping the judgment call with OSPO, not a business owner.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the stated reason that the open source program office frequently lacks the business context to make that call",
+        "evidence": "No such reasoning appears; the document instead justifies OSPO's authority as necessary to avoid renegotiating from scratch each time.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Runs licensing, patent and privacy review as parallel approvers that can block only on those grounds",
+        "evidence": "Review is structured as a tiered self-certification checklist plus OSPO/Legal joint review, not as independent parallel single-purpose approvers.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names an escalation path for larger launches, to a director or VP",
+        "evidence": "\"it goes to the exec sponsor (whoever on the exec team owns this proposal) for a final call within 5 business days.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the default posture is to approve unless there is a good reason not to",
+        "evidence": "The model's default is a pass/fail checklist gate (\"Default is a checklist, not a conversation\"), not a presumption-of-approval posture.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the decision to be recorded so it is auditable afterwards",
+        "evidence": "\"OSPO gets a copy for its register \u2014 informed, not consulted\" and \"Publish decision log / register.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the model in which large tiering decisions route through a published matrix with the CEO as final decider",
+        "evidence": "Escalation terminates at the \"exec sponsor,\" not explicitly the CEO, and no published matrix with CEO as final decider is named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the classification of contributions as trivial, medium or major, with trivial needing only the relevant business manager",
+        "evidence": "The classification used is Green/Amber/Red tiers routed through OSPO, not trivial/medium/major routed to a business manager.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends frame agreements pre-authorizing contribution to ecosystems already judged non-competitive so routine cases never reach the board",
+        "evidence": "No such frame-agreement concept appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes down who plays each part even where two parts are the same person",
+        "evidence": "The RACI table assigns roles generally but never addresses the case where two parts are held by the same person.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the open source program office should not make the strategy call at any company size",
+        "evidence": "Contradicted directly: OSPO is given final authority for amber/red \"judgment\" decisions, i.e., the strategy calls, throughout the RACI table.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects a decision-rights statement that has no split between business and compliance, no escalation path and no stated default posture",
+        "evidence": "The critique offered is about bottleneck/queueing (\"A single approver for every release just moves today's bottleneck\"), not about missing business/compliance split, escalation, or default posture.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

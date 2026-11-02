@@ -1,0 +1,118 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Declines to produce the general, company-wide open standards strategy document the user asked for",
+        "evidence": "\"I can't write the document as scoped \u2014 here's why, and here's the fast path to Friday\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the unit of decision is one named specification, not a company-wide posture",
+        "evidence": "\"Decide per standard, never in general. 'We support open standards' is a value, not a strategy.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks which specification or protocol the decision concerns before proposing anything",
+        "evidence": "\"Q1 \u2014 Which named specs are actually live at Corvado?\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names a single time horizon and a single owner as part of that decision unit, alongside the named spec",
+        "evidence": "The response lists posture, venue, KPI, and kill rule per decision (\"Each decision gets its own posture...venue, KPI with a threshold, and kill rule\") but never mentions a time horizon or a named owner as part of the decision unit.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats \"we support open standards\" as a value rather than a strategy, explicitly",
+        "evidence": "\"'We support open standards' is a value, not a strategy.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends no posture (ignore, consume, conform, extend, contribute, co-found or drive) while no spec is named",
+        "evidence": "The response asks Q1/Q2 instead of naming any posture; \"I don't have your deal desk...so I can't fabricate the landscape section\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Produces no decision record, KPI table or venue recommendation in this response",
+        "evidence": "No tables, KPIs, or venue recommendations appear anywhere in the transcript.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks what triggered the question, offering options such as a customer or procurement request, a competitor announcement, a recurring integration cost, a regulator, or an internal proposal",
+        "evidence": "\"Q2 \u2014 For each one you flag as real, what triggered it \u2014 a customer/procurement ask, a competitor's move, an integration cost you keep paying, a regulator, or an internal push to publish your own?\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Offers to run the full analysis once the user names one specification",
+        "evidence": "\"Everything else in the process...I can run per standard once I know which ones are real and why. Send me answers to Q1/Q2 and I'll have the exec-ready document back to you well before Friday.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Declines to produce the general, company-wide open standards strategy document the user asked for",
+        "evidence": "The transcript is exactly such a document, e.g. '## 1. Executive Summary ... This strategy commits Corvado to three things'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the unit of decision is one named specification, not a company-wide posture",
+        "evidence": "Scope section treats many standards at once (ANSI X12, GS1, OpenAPI, OAuth2, DCSA) as one company-wide posture, e.g. the table in '3. Scope'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks which specification or protocol the decision concerns before proposing anything",
+        "evidence": "No such question is asked; the document proceeds directly to '## 2. Why This Is a Platform Strategy'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names a single time horizon and a single owner as part of that decision unit, alongside the named spec",
+        "evidence": "No single spec is named; ownership is generic ('Owner: VP Platform, accountable to CTO') for the whole strategy, not tied to one spec",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats \"we support open standards\" as a value rather than a strategy, explicitly",
+        "evidence": "The document argues the opposite: 'Open standards are not a compliance checkbox or an engineering nicety. They are our distribution mechanism.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends no posture (ignore, consume, conform, extend, contribute, co-found or drive) while no spec is named",
+        "evidence": "Recommends multiple postures broadly, e.g. '1. Adopt open standards by default... 2. Publish and document our own interfaces... 3. Participate... join the working groups'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces no decision record, KPI table or venue recommendation in this response",
+        "evidence": "Section 10 'Success Metrics' is a KPI table and section 7 is an explicit decision framework/flowchart",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks what triggered the question, offering options such as a customer or procurement request, a competitor announcement, a recurring integration cost, a regulator, or an internal proposal",
+        "evidence": "No such question appears anywhere in the transcript",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Offers to run the full analysis once the user names one specification",
+        "evidence": "No such offer is made; the document is presented as complete and ready to present to the exec team",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

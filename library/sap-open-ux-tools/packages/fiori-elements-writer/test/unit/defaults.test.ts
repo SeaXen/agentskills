@@ -1,0 +1,123 @@
+import { jest } from '@jest/globals';
+import type { LROPSettings } from '../../src/index.js';
+import type { ALPSettings, ALPSettingsV2, ALPSettingsV4, Template } from '../../src/types.js';
+import { TableSelectionMode, TableType } from '../../src/types.js';
+import cloneDeep from 'lodash/cloneDeep';
+
+// Mock annotation-generator to prevent ESM transitive import chain
+jest.unstable_mockModule('@sap-ux/annotation-generator', () => ({
+    generateAnnotations: jest.fn()
+}));
+
+const { OdataVersion, TemplateType } = await import('../../src/index.js');
+const { setDefaultTemplateSettings } = await import('../../src/data/defaults.js');
+
+describe('Defaults', () => {
+    test('Default all template settings', () => {
+        const template: Template<ALPSettings> = {
+            type: TemplateType.AnalyticalListPage,
+            settings: {
+                entityConfig: {
+                    mainEntityName: ''
+                }
+            }
+        };
+
+        expect(setDefaultTemplateSettings(cloneDeep(template))).toMatchInlineSnapshot(`
+            Object {
+              "entityConfig": Object {
+                "mainEntityName": "",
+              },
+              "tableType": "AnalyticalTable",
+            }
+        `);
+
+        expect(setDefaultTemplateSettings(cloneDeep(template), OdataVersion.v4)).toMatchInlineSnapshot(`
+            Object {
+              "entityConfig": Object {
+                "mainEntityName": "",
+              },
+              "selectionMode": "None",
+              "tableType": "AnalyticalTable",
+            }
+        `);
+
+        expect(setDefaultTemplateSettings(cloneDeep(template), OdataVersion.v2)).toMatchInlineSnapshot(`
+            Object {
+              "autoHide": undefined,
+              "entityConfig": Object {
+                "mainEntityName": "",
+              },
+              "multiSelect": undefined,
+              "qualifier": undefined,
+              "smartVariantManagement": undefined,
+              "tableType": "AnalyticalTable",
+            }
+        `);
+    });
+
+    test('Default specific template settings', () => {
+        const templateALPv2: Template<ALPSettingsV2> = {
+            type: TemplateType.AnalyticalListPage,
+            settings: {
+                entityConfig: {
+                    mainEntityName: ''
+                },
+                autoHide: false,
+                multiSelect: true,
+                tableType: TableType.GRID
+            }
+        };
+
+        expect(setDefaultTemplateSettings(cloneDeep(templateALPv2), OdataVersion.v2)).toMatchInlineSnapshot(`
+            Object {
+              "autoHide": false,
+              "entityConfig": Object {
+                "mainEntityName": "",
+              },
+              "multiSelect": true,
+              "qualifier": undefined,
+              "smartVariantManagement": undefined,
+              "tableType": "GridTable",
+            }
+        `);
+
+        const templateALPv4: Template<ALPSettingsV4> = {
+            type: TemplateType.AnalyticalListPage,
+            settings: {
+                entityConfig: {
+                    mainEntityName: ''
+                },
+                selectionMode: TableSelectionMode.MULTI
+            }
+        };
+
+        expect(setDefaultTemplateSettings(cloneDeep(templateALPv4), OdataVersion.v4)).toMatchInlineSnapshot(`
+            Object {
+              "entityConfig": Object {
+                "mainEntityName": "",
+              },
+              "selectionMode": "Multi",
+              "tableType": "AnalyticalTable",
+            }
+        `);
+
+        const templateLROP: Template<LROPSettings> = {
+            type: TemplateType.ListReportObjectPage,
+            settings: {
+                entityConfig: {
+                    mainEntityName: ''
+                }
+            }
+        };
+
+        expect(setDefaultTemplateSettings(cloneDeep(templateLROP))).toMatchInlineSnapshot(`
+            Object {
+              "entityConfig": Object {
+                "mainEntityName": "",
+              },
+              "tableType": "ResponsiveTable",
+            }
+        `);
+    });
+});

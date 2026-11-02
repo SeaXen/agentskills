@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Derives the published first-response target from measured capacity rather than from the desired number",
+        "evidence": "'\"24-hour response on all GitHub issues\" fails the capacity arithmetic before it fails anything else.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses the blanket 24-hour target and names the figure the stated capacity actually supports",
+        "evidence": "'a number in the 3\u20135 business day range for initial acknowledgment is a defensible starting point if inflow is in the tens of issues/week'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Separates the contractually obliged enterprise path into its own intake rather than letting it set the target for the public queue",
+        "evidence": "'### Enterprise support / If you have an enterprise support contract, use your dedicated support channel, not GitHub.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that shortening or changing an already-published target carries a contract-change cost where a contractual response obligation exists",
+        "evidence": "No statement about the cost of changing an already-published target appears; only that the enterprise SLA 'wins every time it collides with the tracker.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Defines first response as a human reply, explicitly not a fix and not a bot acknowledgement",
+        "evidence": "'an initial human acknowledgment (label + short reply, not a fix)'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets the publicly visible target to one the team can hold in a bad month rather than a good one",
+        "evidence": "No 'bad month'/'good month' framing appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Carries the prompt's figures, two engineers at six hours each, through the capacity formula",
+        "evidence": "'Capacity given: 2 engineers \u00d7 6 hours/week each = 12 person-hours/week on the OSS side, total.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes the target into a published policy in the repository next to the contributing guide and links it from the intake forms",
+        "evidence": "Deliverable is a 'Drop-in for the README'; no mention of placement next to CONTRIBUTING.md or linking from issue forms.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the class of items given a tighter target and the reason, rather than applying one target to everything",
+        "evidence": "Issues and PRs are both given the same placeholder '[N] business days' with no differentiated tighter target or stated reason.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds a review trigger for any month where the target was missed more often than met",
+        "evidence": "Trigger given is 'behind for more than two consecutive weeks', not a monthly missed-more-than-met framing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not redefine what counts as a response in order to meet the number",
+        "evidence": "Response is consistently defined as a human acknowledgment, not redefined to inflate the metric.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a published target nobody can meet is worse than publishing none",
+        "evidence": "'a number that reads well this week and gets publicly walked back in month two \u2014 which is worse for \"serious about the community\" than never promising a number at all.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not count hours committed to the enterprise contracts as capacity available to the public queue",
+        "evidence": "'12 person-hours/week on the OSS side' is presented as distinct from the 11 enterprise contracts' hours.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Derives the published first-response target from measured capacity rather than from the desired number",
+        "evidence": "\"2 engineers \u00d7 ~6h/week = 12 combined engineer-hours/week... I've drafted it scoped to business days rather than raw calendar hours, since that's the version 12h/week can actually sustain.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses the blanket 24-hour target and names the figure the stated capacity actually supports",
+        "evidence": "\"a literal '24-hour response on all GitHub issues' reads as calendar hours with no carve-out... that's a materially harder bar than '1 business day'... I've drafted it scoped to business days.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Separates the contractually obliged enterprise path into its own intake rather than letting it set the target for the public queue",
+        "evidence": "Distinct \"Community support (GitHub Issues)\" and \"Enterprise support\" sections with separate targets (24h business-day vs 4h guaranteed).",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that shortening or changing an already-published target carries a contract-change cost where a contractual response obligation exists",
+        "evidence": "No discussion of the cost of changing an already-published contractual target.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Defines first response as a human reply, explicitly not a fix and not a bot acknowledgement",
+        "evidence": "No definition of 'response' as human-reply-only is given anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets the publicly visible target to one the team can hold in a bad month rather than a good one",
+        "evidence": "\"Response times may be longer around holidays or during periods of high issue volume\" hedges for degraded-capacity periods rather than assuming best case.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Carries the prompt's figures, two engineers at six hours each, through the capacity formula",
+        "evidence": "\"2 engineers \u00d7 ~6h/week = 12 combined engineer-hours/week covering the public tracker.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes the target into a published policy in the repository next to the contributing guide and links it from the intake forms",
+        "evidence": "No mention of placing the policy near CONTRIBUTING.md or linking it from issue templates.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the class of items given a tighter target and the reason, rather than applying one target to everything",
+        "evidence": "Enterprise-contract holders get the tighter 4-hour guaranteed target, explicitly distinguished from the 24-hour community aim, reasoned by the paid SLA.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Adds a review trigger for any month where the target was missed more often than met",
+        "evidence": "No monthly review trigger is proposed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not redefine what counts as a response in order to meet the number",
+        "evidence": "No redefinition tricks are used; the policy plainly states the two response tiers without gaming what counts as 'response'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a published target nobody can meet is worse than publishing none",
+        "evidence": "No such statement appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not count hours committed to the enterprise contracts as capacity available to the public queue",
+        "evidence": "The 12h figure is explicitly scoped as \"covering the public tracker,\" separate from the enterprise SLA hours, which are flagged as competing for the same people's time.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

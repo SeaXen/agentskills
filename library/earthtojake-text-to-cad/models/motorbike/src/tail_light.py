@@ -1,0 +1,20 @@
+"""Tail light entry: housing + red lens on the tail, bike frame."""
+
+from __future__ import annotations
+
+import build123d as bd
+from cad import model
+
+from lib import trim as B
+
+
+@model
+def tail_light():
+    built = B.build_tail_light()
+    if isinstance(built, list):
+        return bd.Compound(children=built, label="tail_light")
+    return built
+
+
+if __name__ == "__main__":
+    tail_light()

@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The session is treated as a cold start decided from the absence of a context artifact, without asking the user whether it is a new or resumed project.",
+        "evidence": "Records block (a) 'The event doesn't exist yet' from the message and never asks whether it is new or resumed.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response does not re-ask facts the message already gave: the event does not exist yet, the company funds it, and the effort ceiling is a one-off with hours only.",
+        "evidence": "Its questions cover format, budget and purpose. Existence, funding and the one-off hours-only ceiling are recorded, not asked.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Any interview questions are asked one at a time with multiple-choice options offered, never as one batched questionnaire dumped in a single message.",
+        "evidence": "The three 'Questions for you' arrive in one batch, as free-text questions without options.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The interview stays within a seven-question cap.",
+        "evidence": "Only 3 questions are listed.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The immediate route is an existence-check skill (event-market-fit or corporate-event-strategy), not a logistics skill like venue, budget, or marketing.",
+        "evidence": "Route is 'event-format-selection', not event-market-fit or corporate-event-strategy.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "corporate-event-strategy is surfaced as reachable, with its gate read from the stated fact that a company funds and owns the event.",
+        "evidence": "It appears only in chain step 1 with market-fit. No gate reasoning is given for it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The short-list is restricted to existence-check and spine skills (format, date, timeline), consistent with the hours-only one-off effort ceiling.",
+        "evidence": "The short-list 'collapses to the single route above', which is format selection, a spine skill.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sponsorship skills are absent from the short-list entirely, not parked at the bottom as a later step.",
+        "evidence": "Sponsorship is listed only as 'removed' work. It is not in the short-list or the Not now table.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Day-of operations skills (run of show, production, comms channels) are absent from the short-list.",
+        "evidence": "'On-the-day operations: removed because there is no day yet.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Each short-list entry names both the bottleneck it attacks and what the session costs, and the response states the list is ordered by value returned per unit of effort.",
+        "evidence": "The single entry gives no bottleneck or cost, and no value-per-effort ordering is stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "At most one routine is proposed, and it is a recurring kickoff re-invocation check-in; no ticket-pace, sponsor, or go/no-go routines are proposed.",
+        "evidence": "Only 'Routine: kickoff re-invocation' is proposed.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response creates, or explicitly commits to creating and updating before the session ends, an event-context.md context artifact recording the answers.",
+        "evidence": "A draft is provided and it says 'Tell me the path and I'll create it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response does not deliver a full hackathon plan (challenge brief, prize structure, judging rubric) in this session, despite being asked for one.",
+        "evidence": "'I am not giving you challenge themes, prizes or judging yet.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The session is treated as a cold start decided from the absence of a context artifact, without asking the user whether it is a new or resumed project.",
+        "evidence": "No mention of a context artifact or cold/warm state; the response opens with 'I don't know your product, budget, or community size'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response does not re-ask facts the message already gave: the event does not exist yet, the company funds it, and the effort ceiling is a one-off with hours only.",
+        "evidence": "Question 2 asks 'What does \"a few hours\" total across the three of you', and question 1 asks for the budget, so the response re-opens the effort ceiling.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Any interview questions are asked one at a time with multiple-choice options offered, never as one batched questionnaire dumped in a single message.",
+        "evidence": "Part 1 is a batched list of 12 questions in one message.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The interview stays within a seven-question cap.",
+        "evidence": "Part 1 lists 12 numbered questions.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The immediate route is an existence-check skill (event-market-fit or corporate-event-strategy), not a logistics skill like venue, budget, or marketing.",
+        "evidence": "No skill is routed to. The response goes straight to a plan with a go/no-go gate.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "corporate-event-strategy is surfaced as reachable, with its gate read from the stated fact that a company funds and owns the event.",
+        "evidence": "Not mentioned anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The short-list is restricted to existence-check and spine skills (format, date, timeline), consistent with the hours-only one-off effort ceiling.",
+        "evidence": "There is no skill short-list. The response is a full plan.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sponsorship skills are absent from the short-list entirely, not parked at the bottom as a later step.",
+        "evidence": "No short-list exists, so absence is not demonstrated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Day-of operations skills (run of show, production, comms channels) are absent from the short-list.",
+        "evidence": "No short-list exists. Part 7 includes day-of items such as the support rota.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Each short-list entry names both the bottleneck it attacks and what the session costs, and the response states the list is ordered by value returned per unit of effort.",
+        "evidence": "No short-list and no value-per-effort ordering statement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "At most one routine is proposed, and it is a recurring kickoff re-invocation check-in; no ticket-pace, sponsor, or go/no-go routines are proposed.",
+        "evidence": "No routines are proposed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response creates, or explicitly commits to creating and updating before the session ends, an event-context.md context artifact recording the answers.",
+        "evidence": "No artifact is mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response does not deliver a full hackathon plan (challenge brief, prize structure, judging rubric) in this session, despite being asked for one.",
+        "evidence": "Delivers themes (Part 4), prizes (Part 5), a judging rubric (Part 6), a timeline (Part 7) and a budget (Part 8).",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

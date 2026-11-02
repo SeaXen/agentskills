@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to copy the other company's threshold, on the grounds that cohort shapes differ too much for the number to transfer.",
+        "evidence": "\"Cohort shapes don't transfer: their scale, ICP, deal size, and self-serve maturity are not yours.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the threshold numbers to be derived from the accounts that have already converted at this company.",
+        "evidence": "\"pull the accounts that already converted to paid (even a handful) and check what their depth/boundary values looked like 2-4 weeks before they paid; set N and M there instead.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the chosen value to produce a queue the responder can actually clear.",
+        "evidence": "The transcript ties threshold volume to the 4x revenue-economics test (\"work out how many will actually cross the threshold per month and at what realistic contract size\"), not explicitly to matching a responder's clearable capacity.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that account rollup does not exist here, and makes building it a line item of the plan rather than a footnote.",
+        "evidence": "\"Fix rollup before fixing the number \u2014 this is the real blocker\" and \"You have exactly one join key: signup email.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names email domain as an available but weak rollup source.",
+        "evidence": "\"Roll up by email domain into a company-level account\" with the caveat \"A third of it (gmail.com and similar) can't be rolled up to a company at all.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the specific weaknesses of email domain: free-mail addresses and contractors leak, and subsidiaries fragment.",
+        "evidence": "Only the free-mail weakness (gmail.com) is discussed; contractors and subsidiary fragmentation are never mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names at least two further rollup sources - organization or workspace object, license or API key, self-reported company at signup, or enrichment - and advises combining at least two.",
+        "evidence": "Only \"company name at signup\" and a \"project/database ID\" are proposed as future single additions (\"one more field... upgrades Track B later\"), with no instruction to combine at least two.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes the qualification threshold as a single sentence.",
+        "evidence": "Track A and Track B templates each open with \"An account... becomes qualified when...\" as a single templated rule, consistent with the format used elsewhere.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes an active-developer count condition in that sentence.",
+        "evidence": "\"2 or more distinct users on that domain are active\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes a duration-of-production-usage condition in that sentence.",
+        "evidence": "\"usage has been sustained for 3+ weeks\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes boundary contact as an alternative qualifying trigger in that sentence.",
+        "evidence": "\"or when anyone on that domain hits a plan limit twice or opens the billing/upgrade page\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the role who acts on a qualified account and a response window measured in hours.",
+        "evidence": "The rule uses an unfilled placeholder, \"contacted by <role> within hours, not days,\" never naming an actual role.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States explicitly that accounts below the threshold are not contacted by a human.",
+        "evidence": "\"Accounts below the threshold get product and docs only; no human contact.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the numbers in the rule as self-set or derived from the company's own data, and notes that how many active developers an account needs before it converts is not published anywhere.",
+        "evidence": "\"2 users / 3 weeks are self-set placeholders, not sourced from anything \u2014 including not from the competitor's post.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to copy the other company's threshold, on the grounds that cohort shapes differ too much for the number to transfer.",
+        "evidence": "\"Copying the seat threshold number ('5') without copying the mechanism it measures is a category error. Replace the mechanism, not just relabel it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the threshold numbers to be derived from the accounts that have already converted at this company.",
+        "evidence": "\"pull actual free\u2192paid conversion against the flag and re-cut N1/N2 to whatever percentile actually predicts conversion, rather than the arbitrary p85\u2013p90 starting point.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the chosen value to produce a queue the responder can actually clear.",
+        "evidence": "No discussion of queue size or responder capacity anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that account rollup does not exist here, and makes building it a line item of the plan rather than a footnote.",
+        "evidence": "The transcript states \"Ostrich Labs has no org object, so there's nothing to count\" but designs around this absence using proxies rather than proposing to build account rollup infrastructure.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names email domain as an available but weak rollup source.",
+        "evidence": "\"Domain clustering is unreliable in both directions, not just for the gmail third.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the specific weaknesses of email domain: free-mail addresses and contractors leak, and subsidiaries fragment.",
+        "evidence": "Only free-mail false positive/negative issues are discussed (\"5 strangers on gmail.com look like a team\"); no mention of contractors leaking or subsidiaries fragmenting.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names at least two further rollup sources - organization or workspace object, license or API key, self-reported company at signup, or enrichment - and advises combining at least two.",
+        "evidence": "Only 'distinct_api_keys' (a license/API-key-like proxy) is named as a further source; no second additional source (self-reported company, enrichment, org object) is named, and no advice to combine sources is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes the qualification threshold as a single sentence.",
+        "evidence": "\"PQL = 30-day sustained usage AND production-scale usage intensity.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes an active-developer count condition in that sentence.",
+        "evidence": "The single-sentence definition covers sustained usage and usage intensity, not a developer-count condition; 'distinct_api_keys \u2265 2' is only one of several OR'd criteria buried in a sub-formula, not part of the summary sentence.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes a duration-of-production-usage condition in that sentence.",
+        "evidence": "\"30-day sustained usage\" (SUSTAINED_30D) is explicitly part of the PQL definition sentence.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes boundary contact as an alternative qualifying trigger in that sentence.",
+        "evidence": "No boundary-contact concept (e.g., limit hits, security questionnaire) appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the role who acts on a qualified account and a response window measured in hours.",
+        "evidence": "No mention of who acts on a PQL-flagged account or any response-time window.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States explicitly that accounts below the threshold are not contacted by a human.",
+        "evidence": "No such statement appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels the numbers in the rule as self-set or derived from the company's own data, and notes that how many active developers an account needs before it converts is not published anywhere.",
+        "evidence": "The transcript labels N1/N2 as a hypothesis to calibrate from own data (\"Treat N1/N2 as a hypothesis, not a fact\"), but never discusses a developer-count-to-conversion figure as unpublished, since developer/seat counts are explicitly dropped from the model entirely (\"Seats drop out entirely\").",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,98 @@
+[package]
+name = "mirrord-agent"
+version.workspace = true
+authors.workspace = true
+description.workspace = true
+documentation.workspace = true
+readme.workspace = true
+homepage.workspace = true
+repository.workspace = true
+license.workspace = true
+keywords.workspace = true
+categories.workspace = true
+publish.workspace = true
+edition.workspace = true
+
+[lints]
+workspace = true
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[target.'cfg(target_os = "linux")'.dependencies]
+mirrord-protocol = { path = "../protocol" }
+mirrord-protocol-io = { path = "../protocol-io" }
+mirrord-sessions-manager-client.workspace = true
+mirrord-cluster-auth = { workspace = true, features = ["eks"] }
+mirrord-remote-layer-protocol.workspace = true
+mirrord-agent-env = { path = "./env", default-features = false }
+mirrord-agent-iptables = { path = "./iptables" }
+mirrord-tls-util = { path = "../tls-util" }
+mirrord-nightly-polyfill = { path = "../nightly-polyfill" }
+
+containerd-client.workspace = true
+tokio = { workspace = true, features = [
+    "rt",
+    "net",
+    "macros",
+    "fs",
+    "process",
+    "signal",
+    "io-util",
+] }
+
+async-pidfd.workspace = true
+pin-project-lite.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+bincode.workspace = true
+nix = { workspace = true, features = ["mount", "sched", "user", "socket", "uio"] }
+clap = { workspace = true, features = ["env"] }
+actix-codec.workspace = true
+futures.workspace = true
+tracing.workspace = true
+tracing-subscriber.workspace = true
+tokio-stream.workspace = true
+thiserror.workspace = true
+hickory-resolver.workspace = true
+bollard.workspace = true
+tokio-util.workspace = true
+tokio-seqpacket.workspace = true
+libc.workspace = true
+faccess.workspace = true
+bytes.workspace = true
+wildmatch.workspace = true
+enum_dispatch.workspace = true
+http-body-util = { workspace = true }
+hyper = { workspace = true, features = ["full"] }
+hyper-util = { workspace = true, features = ["client", "client-legacy", "http1", "tokio"] }
+httparse.workspace = true
+fancy-regex = { workspace = true }
+oci-spec.workspace = true
+tonic.workspace = true
+tower.workspace = true
+http.workspace = true
+k8s-cri.workspace = true
+semver.workspace = true
+tokio-rustls.workspace = true
+x509-parser.workspace = true
+rustls.workspace = true
+socket2.workspace = true
+prometheus.workspace = true
+axum = { workspace = true, features = ["macros"] }
+procfs.workspace = true
+rcgen.workspace = true
+serde_json_path.workspace = true
+dns-lookup.workspace = true
+tokio-retry.workspace = true
+jaq-std.workspace = true
+jaq-core.workspace = true
+jaq-json = { workspace = true, features = ["serde_json"] }
+
+
+[target.'cfg(target_os = "linux")'.dev-dependencies]
+pem.workspace = true
+rcgen.workspace = true
+reqwest.workspace = true
+rstest.workspace = true
+tempfile.workspace = true
+rand.workspace = true

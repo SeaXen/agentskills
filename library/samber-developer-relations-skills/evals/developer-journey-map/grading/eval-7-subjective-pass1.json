@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Writes the developer's job in the developer's own words rather than vendor funnel language.",
+        "evidence": "The journey table's \"Developer's job\" column is written entirely in first-person practitioner voice, quoted, with no funnel verbs: \"find a way to see what's happening inside our self-hosted infra without shipping telemetry to a third party\" (Awareness), \"prove the agent actually collects real data from one of our hosts before I invest more time\" (Onboarding), \"wire it into what we already run \u2014 our Prometheus/Grafana/OTel stack, our alerting, our RBAC \u2014 without breaking staging\" (Integration), \"trust this enough to put it on call for a real workload\" (Production), and \"tell other teams or the ",
+        "score": 5,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Writes the developer's job in the developer's own words rather than vendor funnel language.",
+        "evidence": "The Customer Goal column consistently translates each vendor-funnel stage into a job stated from the engineer's side: \"Pin down why current visibility failed and whether fixing it is worth a project,\" \"Prove it works in their environment, at their scale, with no surprises, before it touches anything real,\" \"Get sign-off, cut over to production without an incident, and be able to defend the choice in six months,\" and \"Get credit for the call, spread it to other teams, and stop being the single point of failure for it.\" Pain points reinforce the same voice \u2014 \"pager duty for life with no bus fact",
+        "score": 4,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

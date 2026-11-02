@@ -1,10 +1,10 @@
 ---
 name: devrel-budget-allocation
-description: Splits a developer relations budget across pillars - events, content, community, tooling, education, OSS sponsorship - into line items that each carry a cash cost, an hours cost, a pre-set return threshold, a review date and a reallocation rule, plus a ranked cut list. Use whenever someone asks how to plan or split a devrel budget, how much to spend on events versus content versus community, whether a line item is worth its money, how to defend a devrel budget at review, or what to cut first when the budget shrinks - even if they only say "we spend too much on conferences". Not the metrics framework (samber/developer-relations-skills@devrel-metrics) or one event's ROI (samber/developer-relations-skills@developer-event-sponsorship).
+description: Splits a developer relations budget across pillars - events, content, community, tooling, education, OSS sponsorship - into line items that each carry a cash cost, an hours cost, a pre-set return threshold, a review date and a reallocation rule, plus a ranked cut list. Use whenever someone asks how to plan or split a devrel budget, how much to spend on events versus content versus community, whether a line item is worth its money, or what to cut first when the budget shrinks - even if they only say "we spend too much on conferences". Not the metrics framework (samber/developer-relations-skills@devrel-metrics), one event's ROI (samber/developer-relations-skills@developer-event-sponsorship), or the exec defense case (samber/developer-relations-skills@devrel-exec-reporting).
 license: MIT
 metadata:
   author: Samuel Berthe
-  version: "1.0.2"
+  version: "1.0.3"
 ---
 
 # DevRel Budget Allocation
@@ -50,6 +50,7 @@ Details and honest phrasings are in [./references/budget-benchmarks.md](./refere
 
 - Which pillars the program should run at all, and why → `samber/developer-relations-skills@devrel-strategy`.
 - Which numbers prove the program works → `samber/developer-relations-skills@devrel-metrics`.
+- Presenting the allocation or defending it to the funder, using this cut list → `samber/developer-relations-skills@devrel-exec-reporting`.
 - Splitting the event line across specific events and tiers → `samber/developer-relations-skills@developer-event-sponsorship`.
 - Headcount, reporting line and who owns which budget → `samber/developer-relations-skills@devrel-team-structure`.
 

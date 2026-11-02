@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to rank any accelerator before the environment fix and the review loop hold, stating that on a broken path every one of them scores zero",
+        "evidence": "\"Start with neither. Fix the path first\" and \"a blocking failure outranks any recruitment decision, whatever the ordering below says.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the Windows setup failure and the 3-week first reply as the work that comes first",
+        "evidence": "\"B2 \u2013 documented setup runs cold FAIL Setup breaks on Windows\" / \"B4 \u2013 submissions get answered FAIL ...waited 3 weeks\" followed by fix steps 1 and 2 addressing exactly these.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes the reward-with-no-quality-gate option rather than ranking it last, and says explicitly that it was deleted",
+        "evidence": "Hacktoberfest is conditioned, not deleted: \"Hacktoberfest, if you run it at all this year, only makes sense once step 3 holds... use the hacktoberfest-accepted label so only your own prepped, mentored issues count\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites the 2020 Hacktoberfest spam wave and the response to it: opt-in repositories, a longer grace period, repeat spammers banned, and the T-shirt dropped entirely",
+        "evidence": "No mention of the 2020 spam wave, opt-in repos, grace period, spammer bans, or T-shirt removal appears in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Corrects the 80% figure as a self-reported 2019 alum survey with a 37% response rate",
+        "evidence": "\"It's a 2019 self-reported alum survey with a 37% response rate \u2014 survivorship bias built in, no control group.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites the Mozilla analysis (Labuschagne & Holmes, MSR 2015) finding contributors who started on a good-first-bug or mentored bug were less likely to become long-term contributors",
+        "evidence": "\"The competing study (Labuschagne & Holmes, MSR 2015, Mozilla data) found the opposite direction: contributors whose first contribution was a mentored or good-first-bug were less likely to become long-term contributors.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the two most-cited studies disagree and neither used a matched control group, so program-driven retention is unproven in the general case",
+        "evidence": "\"Two most-cited studies disagree and neither is causal. Treat \\\"mentorship improves retention\\\" as unproven and measure your own funnel instead\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rules out the structured program because 4 hours per week is under a day and cannot clear a mentor's weekly commitment for a full season",
+        "evidence": "\"4 hours/week total, review included, is under this skill's own \\\"under a day per week\\\" threshold \u2014 the point at which a structured mentorship program gets deleted from consideration outright\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes the absence of a second reviewer as a further reason to hold the structured program",
+        "evidence": "\"The skill's own condition for promoting a structured program is a second reviewer existing and your hours clearing a mentor's weekly commitment... neither holds.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the efficiency ordering: bot > structured program > onboarding event",
+        "evidence": "No such explicit ordering is given; only \"a bot... is the only thing worth adding at your hours level\" is stated without ranking against the other two.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the value ordering: structured program > bot > onboarding event",
+        "evidence": "No such explicit value ordering appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a bot may absorb mechanical work but never the first reply, the decline, or the stall check-in",
+        "evidence": "Only states the bot \"absorbs mechanical work without creating a human moment you can't staff\" \u2014 does not enumerate first reply/decline/stall check-in specifically.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the compliance obligations each carries - a third party's participation agreement, mentor commitments, stipend administration and a code of conduct for a season; a code of conduct and a venue for an event; neither for a bot",
+        "evidence": "No discussion of participation agreements, mentor commitments, stipend administration, or code-of-conduct/venue obligations appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends measuring this project's own funnel - time to first response, second-contribution rate - over importing another program's self-reported outcome",
+        "evidence": "\"Those three numbers will tell you whether the path is fixed; a 6-year-old survey of a different program's alumni won't.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to rank any accelerator before the environment fix and the review loop hold, stating that on a broken path every one of them scores zero",
+        "evidence": "The transcript directly ranks Hacktoberfest over GSoC ('Start with Hacktoberfest. Hold off on the GSoC application') rather than refusing to rank until the environment/review issues are fixed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the Windows setup failure and the 3-week first reply as the work that comes first",
+        "evidence": "\"Your two current problems \u2014 3-week PR silence, broken Windows build \u2014 are bandwidth symptoms\" and \"Do these two things before opening it: Label the Windows build failure 'help wanted.'... Add a one-line response-time expectation...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes the reward-with-no-quality-gate option rather than ranking it last, and says explicitly that it was deleted",
+        "evidence": "No such option or its deletion is mentioned anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites the 2020 Hacktoberfest spam wave and the response to it: opt-in repositories, a longer grace period, repeat spammers banned, and the T-shirt dropped entirely",
+        "evidence": "Not mentioned anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Corrects the 80% figure as a self-reported 2019 alum survey with a 37% response rate",
+        "evidence": "The transcript questions the stat's relevance (\"The 80%-Outreachy-retention stat doesn't actually argue for applying now\") but never corrects it as a self-reported 2019 survey with 37% response rate.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites the Mozilla analysis (Labuschagne & Holmes, MSR 2015) finding contributors who started on a good-first-bug or mentored bug were less likely to become long-term contributors",
+        "evidence": "Not cited anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the two most-cited studies disagree and neither used a matched control group, so program-driven retention is unproven in the general case",
+        "evidence": "Not present.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rules out the structured program because 4 hours per week is under a day and cannot clear a mentor's weekly commitment for a full season",
+        "evidence": "\"Google's own guidance is ~5+ hrs/week per intern for a 12\u201322 week coding period... That alone exceeds your entire 4 hr/week budget, before your existing review load is even counted.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes the absence of a second reviewer as a further reason to hold the structured program",
+        "evidence": "\"Solo maintainer = single point of failure. GSoC org admins prefer \u22652 mentors per project as backup; going in alone is a common rejection reason, independent of project quality.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the efficiency ordering: bot > structured program > onboarding event",
+        "evidence": "No bot-vs-program-vs-event ordering appears; only Hacktoberfest vs GSoC is compared.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the value ordering: structured program > bot > onboarding event",
+        "evidence": "Not present.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a bot may absorb mechanical work but never the first reply, the decline, or the stall check-in",
+        "evidence": "No bot is discussed in this transcript at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the compliance obligations each carries - a third party's participation agreement, mentor commitments, stipend administration and a code of conduct for a season; a code of conduct and a venue for an event; neither for a bot",
+        "evidence": "Not present.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends measuring this project's own funnel - time to first response, second-contribution rate - over importing another program's self-reported outcome",
+        "evidence": "\"It gives you real data on your throughput under higher PR volume, which is the actual prerequisite for a credible GSoC application later, not a stat about someone else's program\" and \"You've run at least one Hacktoberfest cycle and know your real hours-per-contributor cost.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Response drops the jargon whose definition does not earn its place.",
+        "evidence": "The transcript states the rule explicitly and applies it in several places. It gives a keep/cut test \u2014 \"would a mid-level backend dev nod or stall here?\" \u2014 with the explicit disposal rule \"Stall \u2192 one-sentence definition or cut it; don't carry a term the definition doesn't earn,\" which is nearly verbatim the rubric item. It also enumerates a 'Never say' list (function/type names, wire-format detail, literal code, formal notation) and a 'Leave out' column in the table (line-by-line syntax, org framing, market size), and converts the Raft diff from code into a structural sentence. It draws the c",
+        "score": 4,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Response drops the jargon whose definition does not earn its place.",
+        "evidence": "The response's core framing is about *how* to define and sequence terms, not about cutting them. It repeatedly instructs the opposite: 'explain every protocol-specific term,' 'define every term on first use,' 'Give each state a memorable, sticky name (not \"State 3\") so it can be referenced later without re-explaining.' That last point is the closest thing to a drop-the-term move \u2014 renaming states so a label doesn't need repeated definition \u2014 and the Raft handling gestures at it ('never read code aloud', 'Don't volunteer the full Raft recap unless you sense the room needs it... a fast one-line ",
+        "score": 2,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

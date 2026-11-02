@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects total GitHub stars as a signal because it is a monotonic counter that cannot fall when the stage breaks.",
+        "evidence": "'11,400 cumulative GitHub stars \u2014 `inferred`. Flagged: a monotonic total (can't fall when discovery breaks)'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects cumulative signups on the same grounds.",
+        "evidence": "'22,900 cumulative signups \u2014 **OKR metric**. Flagged: this is, almost verbatim, this skill's own textbook weak signal (\"total signups\u2026 monotonic, cannot fall when the stage breaks, and covers multiple stages at once\").'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Converts each monotonic counter into a rate or a period delta.",
+        "evidence": "'Replace with new-stars-per-month or a self-reported \"how did you hear about us\" field' and 'Replace with signups-this-quarter (keeps your OKR trackable as a period metric instead of an ever-climbing total)'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to invent numbers for the uninstrumented stages.",
+        "evidence": "'Evaluate and Contribute genuinely have zero data anywhere in what you gave me \u2014 inventing a number there would be exactly the failure mode this skill exists to prevent'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes 'not instrumented' in those rows instead.",
+        "evidence": "Evaluate row Signal: '`not instrumented`'; Contribute row Signal: '`not instrumented`'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists the uninstrumented stages in the map's Gaps section.",
+        "evidence": "'**Evaluate** \u2014 `not instrumented`. Cheapest fix:...' and '**Contribute** \u2014 `not instrumented`. Cheapest fix:...' both appear under Gaps.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the gate that at least 60% of stages must carry a real current value, and reports that this map carries 2 of 6 and fails that line.",
+        "evidence": "The quality gate check instead reports the map passing at '4/6 (Discover, Try, Adopt, Advocate) = 66.7%', not 2 of 6 failing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ships the map anyway rather than blocking on the coverage gap.",
+        "evidence": "Evaluate and Contribute are shipped as '`not instrumented`' rows in the finished map rather than blocking delivery.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that an honest map with named holes beats a complete map with invented numbers.",
+        "evidence": "'inventing a number there would be exactly the failure mode this skill exists to prevent (\"an honest map with holes beats a complete map with invented numbers\")'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the 60% coverage figure as this skill's own working default rather than an industry standard.",
+        "evidence": "No statement anywhere frames the 60% figure as the skill's own default versus an industry standard; it is only cited as a pass/fail threshold.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Replaces the 3.6% advocacy rate with a dated raw list, because 4 events sit below the roughly-30-event floor.",
+        "evidence": "'I didn't compute the 4/112 = 3.6% advocate rate: at n=4 it's far below this skill's 30-event floor (publish the raw list, not a rate)' and table shows '4 conference talks by non-employees, Q2 2026 \u2014 raw dated list.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Pairs the signups OKR with a quality counter-metric, such as 30-day retention of the same signup cohort.",
+        "evidence": "'paired with a quality counter-metric (e.g., 30-day-active rate) so the OKR can't be gamed by throwaway signups'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Applies the 'so what' test and the ownership test to each proposed signal.",
+        "evidence": "No mention of a 'so what' test or an explicit 'ownership test' anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects total GitHub stars as a signal because it is a monotonic counter that cannot fall when the stage breaks.",
+        "evidence": "Stars are kept as the Discover metric, critiqued only as 'weak proxy, misses docs/npm/search discovery,' not rejected for being monotonic.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects cumulative signups on the same grounds.",
+        "evidence": "Signups are labeled '\u2705 Measured \u2014 OKR this half' with no rejection for being cumulative/monotonic.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Converts each monotonic counter into a rate or a period delta.",
+        "evidence": "Stars (11,400) and signups (22,900) remain raw cumulative totals throughout with no rate/delta conversion.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to invent numbers for the uninstrumented stages.",
+        "evidence": "Evaluate (~115,000) and Contribute (~46) are explicitly computed via assumed conversion rates rather than left blank.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes 'not instrumented' in those rows instead.",
+        "evidence": "Instead of 'not instrumented,' the rows carry modeled numeric estimates tagged '\u26a0\ufe0f Modeled, not measured.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Lists the uninstrumented stages in the map's Gaps section.",
+        "evidence": "No section titled 'Gaps' exists; issues are listed as 'Three flags' inline.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the gate that at least 60% of stages must carry a real current value, and reports that this map carries 2 of 6 and fails that line.",
+        "evidence": "No such coverage gate or percentage is mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ships the map anyway rather than blocking on the coverage gap.",
+        "evidence": "'Journey map, Marrowfen... full six stages, no blanks' is delivered directly despite only 2 of 6 rows being truly measured.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that an honest map with named holes beats a complete map with invented numbers.",
+        "evidence": "The opposite practice is followed \u2014 a complete map with modeled/invented figures rather than named holes is delivered.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels the 60% coverage figure as this skill's own working default rather than an industry standard.",
+        "evidence": "No 60% figure appears anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Replaces the 3.6% advocacy rate with a dated raw list, because 4 events sit below the roughly-30-event floor.",
+        "evidence": "The percentage '4 of 112 = 3.6%' is kept as-is with no raw list substitution.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Pairs the signups OKR with a quality counter-metric, such as 30-day retention of the same signup cohort.",
+        "evidence": "No counter-metric is proposed alongside the signups OKR.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Applies the 'so what' test and the ownership test to each proposed signal.",
+        "evidence": "No such tests are mentioned or applied.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

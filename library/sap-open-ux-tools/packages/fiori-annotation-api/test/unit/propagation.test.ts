@@ -1,0 +1,46 @@
+import { promises } from 'node:fs';
+import { fileURLToPath, pathToFileURL } from 'node:url';
+import { dirname, join } from 'node:path';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
+import type { Editor } from 'mem-fs-editor';
+import { getProject } from '@sap-ux/project-access';
+
+import { pathFromUri } from '../../src/utils/index.js';
+import { FioriAnnotationService } from '../../src/index.js';
+
+import { createFsEditorForProject } from './virtual-fs.js';
+import { serialize } from './raw-metadata-serializer.js';
+import { PROJECTS } from './projects.js';
+
+async function updateDBLayerFile(root: string): Promise<Editor> {
+    const srvFilePath = pathFromUri(pathToFileURL(join(root, 'db', 'schema.cds')).toString());
+    const path = join(__dirname, '..', 'data', 'cds', 'propagation-schema.cds');
+    const dbSchema = await promises.readFile(path, { encoding: 'utf-8' });
+    const editor = await createFsEditorForProject(root);
+    editor.write(srvFilePath, dbSchema);
+    return editor;
+}
+
+const getTestData = async (): Promise<FioriAnnotationService> => {
+    const editor = await updateDBLayerFile(PROJECTS.V4_CDS_START.root);
+    const project = await getProject(PROJECTS.V4_CDS_START.root);
+    const service = await FioriAnnotationService.createService(project, 'IncidentService', '', editor, {
+        commitOnSave: false
+    });
+    await service.sync();
+    return service;
+};
+
+describe('check reading of embedded annotations (CDS)', () => {
+    beforeEach(() => {
+        jest.restoreAllMocks();
+    });
+
+    test('propagated annotations', async () => {
+        const service = await getTestData();
+        const metadata = service.getSchema();
+        expect(serialize(metadata.schema, PROJECTS.V4_CDS_START.root)).toMatchSnapshot();
+    });
+});

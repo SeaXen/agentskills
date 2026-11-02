@@ -1,0 +1,361 @@
+{
+  "skill_name": "student-developer-programs",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Hey, I run DevRel at Pipewright (hosted CI runners, free tier, no card needed). Our CEO wants a campus ambassador program at 25 universities by March: one ambassador per school, ideally final-year CS students since they're the most experienced, $15 per verified signup plus a $300/month stipend, 2 events a month each, and anyone with a .edu address gets 12 months of Pro free. Most of our customers are in the US and UK. Can you put the program together? I own it, about 5 hours a week.",
+      "expected_output": "A student program plan that refuses the per-signup bounty and quotas, flags the stipend's visa and employment issues, replaces final-year single leads with leaders who have more than a year left plus co-leads and handover, replaces .edu-only verification with document or existing verification plus a graduation bridge, cuts scope to the owner's hours, and measures an outcome rather than campus or signup counts.",
+      "files": [],
+      "expectations": [
+        "Declines paying ambassadors per signup and names fake or duplicate signups as a reason",
+        "Flags the two-events-a-month quota as making the role resemble work (employment classification) or replaces it with obligations that carry no quota",
+        "States that a cash stipend can be unauthorized work for international (F-1) students or must be cleared with the student's school or visa office before paying",
+        "Rejects final-year students as leaders and requires leaders with more than one year left before graduating",
+        "Recommends co-leads, a named successor or a written handover for each campus",
+        "Rejects .edu-only verification, citing that UK (or other non-US) students lack .edu addresses or that .edu addresses are abused or resold",
+        "Recommends verification by documents or by an existing verified-student service",
+        "Adds a graduation bridge or expiry at the verified end date to the free Pro offer",
+        "Does not present 25 universities or signup counts as the program's success metric",
+        "Proposes at least one outcome metric such as activity after the benefit ends",
+        "States that 5 hours a week cannot run 25 campuses and cuts or sequences the scope accordingly",
+        "Sets an 18+ age floor for ambassador or leader roles"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "A professor at TU Delft emailed me: she wants to use our vector database (Vectrix) in her Information Retrieval master's course next term, 180 students, starting in about 4 weeks. Our free tier needs a credit card for anything over 1 GB. My plan: build her a full 12-week Vectrix course, give the class a shared Pro API key, and ask her for the student roster so our lifecycle team can run onboarding emails. We're also shipping v3 with breaking API changes mid-term. Can you sanity-check and give me a plan?",
+      "expected_output": "A faculty classroom kit plan: course-sized modules for her existing course instead of a full vendor course, a no-card classroom path, instructor-managed accounts or credits instead of a shared key, the roster refused for marketing, a per-term freeze or pinned version around the v3 change, the late timing flagged, and a re-adoption metric.",
+      "files": [],
+      "expectations": [
+        "Recommends modules or assignments that fit her existing course instead of building a full 12-week vendor course",
+        "Refuses to use the student roster for lifecycle or marketing email",
+        "Mentions student data protection (GDPR for EU students, or a school data agreement or privacy review)",
+        "Identifies the credit-card requirement above 1 GB as a blocker that needs a no-card classroom path",
+        "Replaces the shared Pro key with instructor-managed classroom accounts or per-student credits",
+        "Recommends freezing the teaching material or pinning the class to the current API version until the term ends",
+        "Notes that 4 weeks before term is late for course materials and recommends pitching future terms earlier",
+        "Recommends distributing materials through the school's LMS or Git",
+        "Proposes measuring whether the course re-adopts the kit in a later term rather than counting signups",
+        "Does not state a specific TU Delft materials deadline as fact; marks it to be confirmed with the professor or institution",
+        "Does not ask the professor to require students to enter a payment card"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "We're a 40-person observability startup in Boston (Tracewell). Our best student ambassadors want to work with us this summer. Finance won't approve paid intern roles this year, so I'm thinking of a 10-week unpaid 'ambassador internship' with a $500 completion stipend. Three of them are Indian students on F-1 visas at Northeastern. The interns would mostly write docs and triage support tickets. How do I set this up?",
+      "expected_output": "A refusal of the unpaid for-profit internship with the FLSA primary beneficiary reasoning, the stipend treated as pay with F-1 authorization required first, no internship funnel promised without headcount, a compliant alternative, and a route to counsel.",
+      "files": [],
+      "expectations": [
+        "Recommends against an unpaid internship at a for-profit company and recommends paid roles",
+        "Names the US FLSA primary beneficiary test or the Department of Labor's internship guidance",
+        "Notes that writing docs and triaging support tickets displaces or substitutes for paid employees' work",
+        "States that the $500 stipend counts as pay or compensation",
+        "States that F-1 students need work authorization (such as CPT) before starting, cleared through the designated school official or international office",
+        "States that without approved headcount the program should not promise internships this year",
+        "Offers an alternative that fits no headcount, such as access perks, deferring to the next hiring cycle, or a voluntary role without tasks or quotas",
+        "Does not suggest renaming the role (fellowship, volunteer, residency) to avoid pay rules while keeping the same work",
+        "Routes the legal exposure to counsel or says it is not legal advice",
+        "Ties a future internship funnel to a hiring manager and approved roles",
+        "Mentions measuring intern conversion or one-year retention once the funnel exists"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Our coding-education platform Codemint (kids and teens learn Python) wants to extend our university ambassador program to high schools in Germany and the US: 14-17 year-old club leaders, a public leaderboard with their names and photos, and the top 5 flown to our Berlin conference. Just reuse the same application form as the university program. Draft the plan.",
+      "expected_output": "A refusal to reuse the university design for minors, with a separate school-run design: parental consent, the GDPR Art. 8 age in Germany, no public names and photos of minors, no unaccompanied travel or leadership roles reserved for adults, data minimisation, and a route to counsel.",
+      "files": [],
+      "expectations": [
+        "Refuses to reuse the university program design or application form for high-school students",
+        "States that under GDPR Art. 8 consent-based processing for children below 16 needs parental consent, with member states allowed to set 13 to 16",
+        "Requires a verifiable parental consent step",
+        "Refuses or removes the public leaderboard with minors' names and photos",
+        "Refuses flying minors to the conference without parental consent and adult supervision, or reserves travel for 18+",
+        "Proposes running the high-school track with schools or teachers rather than through student leaders alone",
+        "Reserves leadership, travel or public-profile roles for adults (18+) or teacher leads",
+        "Recommends collecting less personal data than the university application form",
+        "Mentions COPPA's under-13 threshold for any US participants who could be younger than 13",
+        "Routes the legal exposure to counsel or says it is not legal advice"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Our CFO wants a justification before renewing the student program budget next month. Last year: 41 universities, 38,000 students registered on our student plan, 120 campus events, 2,300 hoodies. I want a slide saying students become enterprise buyers in 5-10 years, so this is pipeline. We sell Flagstaff, a feature-flag SaaS. Help me write the case and next year's metrics.",
+      "expected_output": "A case that refuses the unsourced lag claim, reclassifies the counts as outputs, proposes a one-year leading indicator such as retention after the student benefit ends, labels the long-term outcome as a hypothesis, sets kill rules, and labels targets as self-set.",
+      "files": [],
+      "expectations": [
+        "Refuses to state the 5-10 year buyer lag as fact or says no published source measures it",
+        "Labels universities, registrations, events and hoodies as outputs or activity rather than results",
+        "Proposes a leading indicator measurable within one academic year",
+        "Proposes measuring verified students still active 6 or 12 months after their student benefit ends, or graduates adding an employer email",
+        "Labels the long-term buyer outcome as a hypothesis",
+        "States explicit kill or stop rules for the program or its components",
+        "Asks whether a graduation bridge exists or recommends adding one",
+        "Labels the proposed targets as self-set",
+        "Separates outputs from outcomes in logic-model terms or plans outcomes before activities",
+        "Asks or states which job the program serves (adoption, hiring, ecosystem)",
+        "Does not invent baseline figures for metrics the user did not provide"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "we're a 6-person startup (Lumenkit, GPU inference API, pay-as-you-go only, card required at signup). our investor says we should 'be big on campuses' - he wants more devs knowing us when they get jobs. I've got maybe 2 hours a week for this. no time for back and forth, just tell me what to do.",
+      "expected_output": "A readiness verdict: the job is adoption, the card-at-signup gate fails so no classroom or adoption component until a free path exists, 2 hours a week supports at most a minimal student offer on existing verification, no ambassador network or internships, and one leading indicator.",
+      "files": [],
+      "expectations": [
+        "Names the job as adoption after graduation",
+        "Runs a readiness check before proposing components",
+        "Identifies the card-at-signup requirement as a blocker for student and classroom use",
+        "Recommends fixing the free path first or routes the pricing change to its owner",
+        "States that 2 hours a week cannot sustain an ambassador or campus champion network",
+        "Recommends no program yet, or only a minimal student offer",
+        "Does not recommend a campus ambassador network",
+        "Does not recommend an internship program",
+        "Does not make hackathon sponsorship the main recommendation",
+        "Recommends piggybacking an existing student verification instead of building one",
+        "Proposes one leading indicator for the minimal step"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "We're a 25-person API security startup in Lyon (Shieldpath). A student from INSA wants to join us for a 6-month 'stage' this spring, and our CFO says we can't pay interns, so let's make it unpaid and have her run our developer support inbox and write SDK docs. Two of her classmates from our campus club also want summer placements. Can you set this up as the start of our internship pipeline?",
+      "expected_output": "A plan that refuses the unpaid placement as a house rule, routes the local legal path through the school's placement agreement and local counsel instead of citing US FLSA as the basis, flags that support and docs work displaces paid staff, ties a pipeline to approved headcount, and gives no country-specific legal figures as fact without a source.",
+      "files": [],
+      "expectations": [
+        "Recommends paying the intern rather than an unpaid placement",
+        "Says the placement must go through the student's school agreement or placement office",
+        "Routes the local legal question to local counsel or says it is not legal advice",
+        "Does not cite the US FLSA or the DOL primary beneficiary test as the governing law for this French placement",
+        "Flags that running the support inbox and writing SDK docs is work that displaces paid staff",
+        "States that without approved headcount the program should not promise an internship pipeline",
+        "Any French stipend amount or duration threshold it states is attributed to French law or the school's placement agreement, not given as a bare figure",
+        "Keeps the campus club role separate from internship work (no assigned company tasks for club members)"
+      ]
+    }
+  ],
+  "trigger_queries": [
+    {
+      "query": "how do we set up a student ambassador program for our API company?",
+      "should_trigger": true
+    },
+    {
+      "query": "We want professors to teach our database in their university courses. Where do we start?",
+      "should_trigger": true
+    },
+    {
+      "query": "we're launching a free-for-students offer on our SaaS. how should we verify students and what happens when they graduate?",
+      "should_trigger": true
+    },
+    {
+      "query": "design a campus champions program across 10 universities for our cloud IDE",
+      "should_trigger": true
+    },
+    {
+      "query": "Investor says we need to be big on campuses. What does a university outreach program look like for a devtool startup?",
+      "should_trigger": true
+    },
+    {
+      "query": "should our student club leaders get a stipend? a few are international students",
+      "should_trigger": true
+    },
+    {
+      "query": "build me a plan to turn our student community into an intern pipeline",
+      "should_trigger": true
+    },
+    {
+      "query": "we lose almost all our student users the month they graduate, how do we fix the student program",
+      "should_trigger": true
+    },
+    {
+      "query": "what's the right KPI for our university program? the CFO doesn't buy '40k students reached'",
+      "should_trigger": true
+    },
+    {
+      "query": "Should our student program work like GitHub Campus Experts or like Microsoft Student Ambassadors? which model fits a small devtool?",
+      "should_trigger": true
+    },
+    {
+      "query": "when should we pitch our teaching kit to faculty if we want it used in the spring semester?",
+      "should_trigger": true
+    },
+    {
+      "query": "our campus chapters die every summer when the student leads graduate. how do we design around that?",
+      "should_trigger": true
+    },
+    {
+      "query": "we want an education discount for students on our developer platform - who qualifies and how do we check?",
+      "should_trigger": true
+    },
+    {
+      "query": "Planning an academic program for our data platform: free classroom accounts, teaching materials, student credits. Help me scope it.",
+      "should_trigger": true
+    },
+    {
+      "query": "draft a university relations program for developer adoption in Europe",
+      "should_trigger": true
+    },
+    {
+      "query": "should we pay campus ambassadors per signup? our CEO likes the idea",
+      "should_trigger": true
+    },
+    {
+      "query": "is a student developer program even worth it for a 5-person startup?",
+      "should_trigger": true
+    },
+    {
+      "query": "how do we get our product into CS curricula at universities?",
+      "should_trigger": true
+    },
+    {
+      "query": "our student plan has 30k signups but almost nobody keeps using it after school. what should we change?",
+      "should_trigger": true
+    },
+    {
+      "query": "we want high-school coding clubs on our platform alongside our university ambassadors - plan both tracks",
+      "should_trigger": true
+    },
+    {
+      "query": "Campus clubs for our dev platform: one selected lead per university, or open sign-up with milestones?",
+      "should_trigger": true
+    },
+    {
+      "query": "we want to hire interns out of our campus ambassador program, set up the funnel",
+      "should_trigger": true
+    },
+    {
+      "query": "need a student developer program strategy for next year's devrel budget",
+      "should_trigger": true
+    },
+    {
+      "query": "what perks should student ambassadors get if we don't pay cash?",
+      "should_trigger": true
+    },
+    {
+      "query": "write up a faculty partnership program for our API: free accounts for whole classes, no credit card, course modules",
+      "should_trigger": true
+    },
+    {
+      "query": "which universities should our student program target first, and how many?",
+      "should_trigger": true
+    },
+    {
+      "query": "our student offer gets farmed by fake accounts - how should a campus program verify and cap it?",
+      "should_trigger": true
+    },
+    {
+      "query": "professors keep asking for our solutions repo for their assignments; how do we run the faculty side of our university program?",
+      "should_trigger": true
+    },
+    {
+      "query": "design an ambassador program for our community of working developers, MVP-style recognition with perks",
+      "should_trigger": false
+    },
+    {
+      "query": "should we build a developer academy with learning paths and labs for our enterprise customers?",
+      "should_trigger": false
+    },
+    {
+      "query": "plan a certification exam for consultants who implement our platform",
+      "should_trigger": false
+    },
+    {
+      "query": "we're sponsoring a student hackathon at MIT next month - which sponsor tier and what activation?",
+      "should_trigger": false
+    },
+    {
+      "query": "help me write the judging rubric for the university hackathon we're organizing",
+      "should_trigger": false
+    },
+    {
+      "query": "write the brief and challenge statements for a 48-hour student hackathon we host",
+      "should_trigger": false
+    },
+    {
+      "query": "our engineering employer brand is weak - why can't we attract junior engineers?",
+      "should_trigger": false
+    },
+    {
+      "query": "I'm a CS student, how do I become a developer advocate after I graduate?",
+      "should_trigger": false
+    },
+    {
+      "query": "how do I prepare as a mentor for Google Summer of Code on our open-source project?",
+      "should_trigger": false
+    },
+    {
+      "query": "create a Google Classroom course for my intro programming class with weekly assignments",
+      "should_trigger": false
+    },
+    {
+      "query": "I'm a master's student, build my academic CV for a PhD application",
+      "should_trigger": false
+    },
+    {
+      "query": "write a beginner tutorial on deploying an app with our API",
+      "should_trigger": false
+    },
+    {
+      "query": "design the interview loop for our first developer advocate hire",
+      "should_trigger": false
+    },
+    {
+      "query": "what free tier limits should our API pricing have?",
+      "should_trigger": false
+    },
+    {
+      "query": "plan a monthly developer meetup in Lyon for our product",
+      "should_trigger": false
+    },
+    {
+      "query": "how do I prove devrel ROI to the board overall?",
+      "should_trigger": false
+    },
+    {
+      "query": "build a launch plan for our developer Discord community",
+      "should_trigger": false
+    },
+    {
+      "query": "our champions program went quiet - how do we remove inactive champions?",
+      "should_trigger": false
+    },
+    {
+      "query": "help my university's CS club plan its semester events and find a sponsor",
+      "should_trigger": false
+    },
+    {
+      "query": "I'm a professor; write a 12-week syllabus for a distributed systems course",
+      "should_trigger": false
+    },
+    {
+      "query": "segment our developer audience into hobbyists, students and enterprise platform teams",
+      "should_trigger": false
+    },
+    {
+      "query": "how should we run a recurring technical webinar series for developers?",
+      "should_trigger": false
+    },
+    {
+      "query": "we want to fund diversity scholarships so students can attend our conference - how do we run that?",
+      "should_trigger": false
+    },
+    {
+      "query": "design a student discount email campaign for our consumer music streaming app",
+      "should_trigger": false
+    },
+    {
+      "query": "write a press release announcing our new university partnership",
+      "should_trigger": false
+    },
+    {
+      "query": "create a 30-60-90 onboarding plan for new-grad engineers joining our company",
+      "should_trigger": false
+    },
+    {
+      "query": "plan our new-grad campus recruiting season: career fairs, info sessions, which schools to visit",
+      "should_trigger": false
+    },
+    {
+      "query": "set up PhD fellowships and joint research projects with three universities",
+      "should_trigger": false
+    }
+  ]
+}

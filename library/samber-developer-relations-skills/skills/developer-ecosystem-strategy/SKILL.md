@@ -4,7 +4,7 @@ description: Decides whether, when and how far a developer product should open i
 license: MIT
 metadata:
   author: Samuel Berthe
-  version: "1.0.3"
+  version: "1.0.4"
 ---
 
 # Developer Ecosystem Strategy
@@ -212,9 +212,12 @@ Doing neither is why a published surface stays empty. The plan below does both:
 
 - **Pick the subsidized side.** Subsidize the more price-sensitive side; charge the side whose demand rises most when the other side grows - Rochet and Tirole's two-sided-market pricing rule (_Journal of the European Economic Association_, 2003). That the price-sensitive side is nearly always the complementor in devtool ecosystems - free tooling, free sandbox tenancy, free listing - is this skill's judgment on top of that rule, not part of it.
 - **Recruit a founding cohort by hand**, chosen to cover the complements customers ask for most - not for logo value.
+- **Recruit through DevRel peers.** Founding complementors and first co-built integrations usually start as a conversation between DevRel teams at adjacent companies. Keep those relationships warm before you need them.
 - **Build the first complements yourself** to prove the surface and set the pattern, then hand them over or retire them.
 - **Route your own distribution at them** - in-product placement, onboarding, docs, sales conversations. Complementors leave when the platform stops pointing at them.
 - **Define the minimum credible pool**: the count and category coverage below which a customer browsing the ecosystem reads it as abandoned.
+
+Count the option value too. Live technical and business integrations make the company easier to sell: each partner already running one is a warm potential acquirer, and integration usage shows product fit in diligence. Never justify an ecosystem on exit value alone - it is a side benefit, not a business case.
 
 Close the step by listing what the bet depends on that you do not control, and date each item. Complement readiness is a real risk, not a detail: Ron Adner's _Harvard Business Review_ article on innovation ecosystems (April 2006) opens on high-definition television stalling for years because complementary pieces - production equipment, compression standards, broadcast infrastructure - were not ready.
 

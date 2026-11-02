@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The session is treated as a warm start; the response does not re-ask format, edition, funding, or date questions already recorded in the artifact.",
+        "evidence": "'Your file already answers the format, lifecycle and funding questions, so I asked none of them.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "At most one question is asked, and it is the goal of this session.",
+        "evidence": "No questions are asked.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "A state summary of exactly 5 lines is produced.",
+        "evidence": "Numbered items 1-5 under 'State summary'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The summary lines cover: event identity and format, the date and where it sits, in-flight work, top open decision, and the active constraint.",
+        "evidence": "Items cover the single-day conference, doors and CFP, the running CFP, reviewers as the top open decision, and the constraints.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The immediate route is samber/dev-event-organizer-skills@event-talk-selection, matching the open decision of who reviews the 41 submissions before the CFP closes.",
+        "evidence": "'Then run samber/dev-event-organizer-skills@event-talk-selection'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The route is named in owner/repo@skill form.",
+        "evidence": "The route uses samber/dev-event-organizer-skills@event-talk-selection.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response does not route to event-cfp-design: the call is already published and collecting submissions.",
+        "evidence": "event-cfp-design is never routed to or listed.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "A dated session-log line (goal, skill routed to, what changed) is appended to the artifact.",
+        "evidence": "The proposed patch has '2026-10-12 - check-in after 10 weeks -> routed to event-talk-selection -> dates re-anchored.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The artifact is updated by patching only changed fields, not rebuilt from scratch.",
+        "evidence": "'Proposed patch to event-context.md' replaces the dates and adds fields and the log line.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The short-list is re-ranked from the artifact's recorded constraints (fixed doors date, standing few-hours-weekly ceiling) without re-asking those questions.",
+        "evidence": "The re-rank cites the fixed doors date and the few-hours-weekly ceiling (Q7c) and re-asks nothing.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response states which recorded answer or constraint moved which recommendation off its default place.",
+        "evidence": "'Re-rank, stated out loud: CFP deadline (Q6b) puts programme intake above fill-the-room.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recurring-gated skills are treated as reachable with the gate read from the artifact's edition-3 record, not re-asked.",
+        "evidence": "'Lifecycle gate: recurring is open (edition 3).'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Skills ruled out for this session are absent from the short-list rather than listed at the bottom.",
+        "evidence": "corporate-event-strategy and event-budget are absent from the short-list. They appear only in the re-rank notes.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The session is treated as a warm start; the response does not re-ask format, edition, funding, or date questions already recorded in the artifact.",
+        "evidence": "'The file is 10 weeks old. It said the CFP closes in 11 weeks'; no format, edition, funding or date questions are asked.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "At most one question is asked, and it is the goal of this session.",
+        "evidence": "No session-goal question is asked. The closing line is only an offer: 'If you want, send me the refreshed numbers'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "A state summary of exactly 5 lines is produced.",
+        "evidence": "There is a 'Why this is first' bullet list, not a 5-line state summary.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The summary lines cover: event identity and format, the date and where it sits, in-flight work, top open decision, and the active constraint.",
+        "evidence": "No 5-line summary is produced.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The immediate route is samber/dev-event-organizer-skills@event-talk-selection, matching the open decision of who reviews the 41 submissions before the CFP closes.",
+        "evidence": "No skill is routed to.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The route is named in owner/repo@skill form.",
+        "evidence": "No route is named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response does not route to event-cfp-design: the call is already published and collecting submissions.",
+        "evidence": "The response never mentions or routes to CFP design.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "A dated session-log line (goal, skill routed to, what changed) is appended to the artifact.",
+        "evidence": "No artifact update is mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The artifact is updated by patching only changed fields, not rebuilt from scratch.",
+        "evidence": "No artifact update is mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The short-list is re-ranked from the artifact's recorded constraints (fixed doors date, standing few-hours-weekly ceiling) without re-asking those questions.",
+        "evidence": "No short-list is produced.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response states which recorded answer or constraint moved which recommendation off its default place.",
+        "evidence": "There is no explicit statement of a re-rank.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recurring-gated skills are treated as reachable with the gate read from the artifact's edition-3 record, not re-asked.",
+        "evidence": "Not addressed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Skills ruled out for this session are absent from the short-list rather than listed at the bottom.",
+        "evidence": "No short-list is produced.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

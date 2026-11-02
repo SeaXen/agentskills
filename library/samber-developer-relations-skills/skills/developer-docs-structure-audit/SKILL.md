@@ -4,7 +4,7 @@ description: Audits an existing developer documentation set's structure - a page
 license: MIT
 metadata:
   author: Samuel Berthe
-  version: "1.0.2"
+  version: "1.0.3"
 ---
 
 # Docs Structure Audit
@@ -257,6 +257,7 @@ A re-score six months later is worthless if the definitions moved in between.
 ## References
 
 - samber/developer-relations-skills@docs-seo for search-engine findability (mentioned in description as the alternative for ranking)
+- samber/developer-relations-skills@docs-site-platform-selection when the audit shows the platform itself (authoring model, build, missing capability), not the structure, is the problem
 - samber/developer-relations-skills@developer-quickstart-guide for writing quick-start pages
 - samber/developer-relations-skills@developer-tutorial for writing tutorial pages
 - samber/developer-relations-skills@developer-troubleshooting-docs for writing troubleshooting pages

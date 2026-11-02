@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Declines to quote an acceptance-rate figure at the user",
+        "evidence": "\"Don't quote a base rate.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the circulating \"about one in ten\" figure has no primary source",
+        "evidence": "\"the 'about one in ten' figure that circulates has no primary source\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that major event CFP pages do not publish submission or acceptance counts",
+        "evidence": "\"Neither PyCon US nor KubeCon publish submission or acceptance counts...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says two submissions is too small a sample to judge the proposal's quality",
+        "evidence": "\"Two submissions isn't a sample; you need something like 8-10 across a season before 'acceptance rate' means anything for you specifically.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names 8-10 submissions as the working sample size before an acceptance rate means anything",
+        "evidence": "\"you need something like 8-10 across a season before 'acceptance rate' means anything for you specifically.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels that sample size as a working number set here rather than a published one",
+        "evidence": "The '8-10' figure is stated with a soft hedge ('something like') but is never explicitly flagged as an assistant-set heuristic distinct from a published statistic.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reads the \"strong proposal, no room\" note as evidence the proposal worked",
+        "evidence": "\"Braidwood's response is a 'strong but no room' note. That's a specific, known signal: the proposal worked.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends resubmitting that proposal elsewhere unchanged rather than rewriting it",
+        "evidence": "\"The right move is to resubmit that proposal, largely unchanged, at the next event with a compatible deadline \u2014 not rewrite it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Tells the user to request written reviewer feedback after a rejection",
+        "evidence": "\"go back to that event (or contact) and explicitly ask for feedback \u2014 this is the single highest-value input available after a rejection\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that large events run a balance pass on topic spread, speaker diversity and first-time speakers, so a strong proposal can lose for reasons the author cannot influence",
+        "evidence": "The text only mentions 'room budget, and topic balance for that edition' \u2014 speaker diversity and first-time-speaker balance are never mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Declines to quote an acceptance-rate figure at the user",
+        "evidence": "'Solid mid-tier tech conferences run 10\u201320% CFP acceptance. Big-name ones (KubeCon, Strange Loop tier) often 5\u201310%.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the circulating \"about one in ten\" figure has no primary source",
+        "evidence": "No mention of a circulating 'one in ten' figure or its sourcing appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that major event CFP pages do not publish submission or acceptance counts",
+        "evidence": "No such statement appears; the transcript instead cites specific acceptance-rate ranges as if known.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says two submissions is too small a sample to judge the proposal's quality",
+        "evidence": "'Two data points can\u2019t tell you the abstract is weak \u2014 you\u2019d need 10\u201315 submissions before the pattern means anything.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names 8-10 submissions as the working sample size before an acceptance rate means anything",
+        "evidence": "The transcript says 'you\u2019d need 10\u201315 submissions', not 8-10.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels that sample size as a working number set here rather than a published one",
+        "evidence": "No such labeling/caveat is given for the 10-15 figure; it is stated flatly.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reads the \"strong proposal, no room\" note as evidence the proposal worked",
+        "evidence": "'Braidwood (\"strong proposal, no room\") = capacity problem, not quality problem. That\u2019s the system telling you the abstract worked.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends resubmitting that proposal elsewhere unchanged rather than rewriting it",
+        "evidence": "'Stop iterating on one abstract. Write 2 angles on the same talk, submit both to every open CFP' \u2014 this recommends creating new angles, not resubmitting the same text unchanged.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Tells the user to request written reviewer feedback after a rejection",
+        "evidence": "The advice given is to 'Get a real human to review before your next round' pre-submission, not to request written feedback after a rejection.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that large events run a balance pass on topic spread, speaker diversity and first-time speakers, so a strong proposal can lose for reasons the author cannot influence",
+        "evidence": "The transcript only says 'Committees reject strong-but-unproven speakers more than strong-but-unproven abstracts,' with no mention of topic-spread or diversity balancing.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

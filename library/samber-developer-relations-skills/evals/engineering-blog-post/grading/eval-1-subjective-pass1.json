@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Orders the fix-list items by trust damage rather than by their position in the document",
+        "evidence": "The list has severity tiers (Blocking / Strong / Optional), so it is partly ordered by severity. Inside the Blocking tier, though, the items follow the draft's order: intro superlative, then the Results '12x', then 'paragraph four' adoption claim, then the snippet, then the missing limitations section. The closing 'thrilled' line is last in the draft and also last among the rewrites. The response never ranks the items by how much trust each one costs. For example, it does not say the headline '12x' claim does the most damage. The order mostly mirrors document position.",
+        "score": 2,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Orders the fix-list items by trust damage rather than by their position in the document",
+        "evidence": "The replacement passages follow the draft's own order: Title and intro, Results section, Paragraph four, the new limits section placed 'after Results', Code snippet, Closing. The response never ranks items by how much they hurt credibility, and it does not say which fix matters most. The 'facts to get' list also follows the benchmark's structure (baseline, workload, hardware, version, times), not severity. One remark, 'This is the section that makes the 12x believable', gives a reason for a single section but does not change the order.",
+        "score": 0,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

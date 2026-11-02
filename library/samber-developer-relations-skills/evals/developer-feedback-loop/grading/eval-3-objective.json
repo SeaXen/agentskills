@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Opens the intake spec with a re-ranking block stating which interview answer moved which option.",
+        "evidence": "\"### Re-ranking block\" follows the assumptions list, with entries like \"Board review in 4 weeks: redirect-to-record and one decision review promoted\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Divides weekly hours by weekly requests (about three hours over roughly sixty requests, about three minutes each) and compares the result to the five-minute line.",
+        "evidence": "\"180 min \u00f7 59 is about 3 min per request. The skill's line is 5 min.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the five-minute line as a planning figure this skill sets, not a benchmark.",
+        "evidence": "Only \"The skill's line is 5 min\"; no planning-figure label.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes the Friday digest rather than demoting it.",
+        "evidence": "\"Friday digest | **Deleted**\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Restricts logging on behalf to paying accounts and blockers, with its own line in the hour budget.",
+        "evidence": "\"Log on behalf (paying, blockers, max ~6) | 0.5\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Makes redirect-to-record (a reply with a link) the primary capture move for Discord.",
+        "evidence": "\"Reply with the form link (this is the 'received' reply).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Adds a weekly sweep by one owner to catch threads nobody redirected.",
+        "evidence": "\"Weekly sweep of threads with no link.\" Owner: You.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Promotes one decision review before the board review and schedules it before Tomas's planning, not after.",
+        "evidence": "\"Review 1 must land by the end of week 3. Otherwise the board has no decisions to show.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Defers the planning seat and states the condition for asking: after two review cycles have run and product has seen records ship.",
+        "evidence": "\"Postponed to review 3... after two reviews have produced statuses and records have shipped.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sequences the quarterly voice-of-developer report after two review cycles, tied to the wants-it-to-last answer.",
+        "evidence": "\"first quarterly report ~week 13\" and \"sequenced after two review cycles\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the both-at-once rule: the near date governs the first cycle, and the slow options start after two review cycles have run.",
+        "evidence": "Re-ranking block promotes the near-date items and sequences the slow ones after two cycles.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Produces a routing table with the columns channel, weekly volume, capture move, owner, notes.",
+        "evidence": "| Channel | Weekly volume | Capture move | Owner | Notes |",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Produces an hour budget per task that sums to within the three weekly hours.",
+        "evidence": "\"Total 2.9 (0.1 buffer)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not add automated chat aggregation, or allows it only once the weekly sweep can no longer merge duplicates inside its hour, and only to suggest merges, never make them.",
+        "evidence": "None proposed.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Opens the intake spec with a re-ranking block stating which interview answer moved which option.",
+        "evidence": "Section 0 is \"Changes to your plan\", not a re-ranking block.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Divides weekly hours by weekly requests (about three hours over roughly sixty requests, about three minutes each) and compares the result to the five-minute line.",
+        "evidence": "\"59 items a week... At 3 minutes each, that is 3 hours... At 5 to 8 minutes... 5 to 8 hours.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the five-minute line as a planning figure this skill sets, not a benchmark.",
+        "evidence": "No such label appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes the Friday digest rather than demoting it.",
+        "evidence": "\"Replace the long Friday digest with a short one.\" It is demoted, not deleted.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Restricts logging on behalf to paying accounts and blockers, with its own line in the hour budget.",
+        "evidence": "It logs themes instead. No restricted log-on-behalf line appears in the budget.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Makes redirect-to-record (a reply with a link) the primary capture move for Discord.",
+        "evidence": "The primary Discord capture is a forum channel with a post template plus the owner's sweep.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds a weekly sweep by one owner to catch threads nobody redirected.",
+        "evidence": "\"Discord sweep, clustering into cards\" is in the weekly routine, run by the community manager.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Promotes one decision review before the board review and schedules it before Tomas's planning, not after.",
+        "evidence": "The review is set for week 3, before the board. Its timing relative to Tomas's planning is not addressed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Defers the planning seat and states the condition for asking: after two review cycles have run and product has seen records ship.",
+        "evidence": "\"Easier to get after two review cycles of evidence than before any.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sequences the quarterly voice-of-developer report after two review cycles, tied to the wants-it-to-last answer.",
+        "evidence": "No such report is mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the both-at-once rule: the near date governs the first cycle, and the slow options start after two review cycles have run.",
+        "evidence": "No such rule appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces a routing table with the columns channel, weekly volume, capture move, owner, notes.",
+        "evidence": "The table has Source, Volume, Capture mechanism and Who does it, with no notes column.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces an hour budget per task that sums to within the three weekly hours.",
+        "evidence": "\"Total 165 (2h45)\" with a per-task breakdown.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not add automated chat aggregation, or allows it only once the weekly sweep can no longer merge duplicates inside its hour, and only to suggest merges, never make them.",
+        "evidence": "The LLM pre-cluster is a last cut-order option, with review of its suggestions only.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

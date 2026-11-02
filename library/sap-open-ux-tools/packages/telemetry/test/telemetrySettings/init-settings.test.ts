@@ -1,0 +1,330 @@
+import { jest } from '@jest/globals';
+import type { ProjectInfo } from '../../src/base/types/index.js';
+
+jest.unstable_mockModule('applicationinsights', () => {
+    class TelemetryClient {
+        public config: any;
+        public setUseDiskRetryCaching: any;
+        public addTelemetryProcessor: any;
+        public trackEvent: any;
+        constructor() {
+            this.config = { samplingPercentage: 0 };
+            this.setUseDiskRetryCaching = jest.fn();
+            this.addTelemetryProcessor = jest.fn();
+            this.trackEvent = jest.fn();
+        }
+    }
+    return { TelemetryClient };
+});
+
+// @ts-expect-error jest mocking
+const isAppStudioMock: jest.Mock<boolean, [void]> = jest.fn();
+const realBtpUtils = await import('@sap-ux/btp-utils');
+jest.unstable_mockModule('@sap-ux/btp-utils', () => ({
+    ...realBtpUtils,
+    isAppStudio: (): boolean => isAppStudioMock()
+}));
+
+const actualFs = await import('node:fs');
+
+const readFileMock = jest.fn();
+jest.unstable_mockModule('node:fs', () => ({
+    ...actualFs,
+    default: {
+        ...actualFs.default,
+        promises: {
+            ...actualFs.default.promises,
+            readFile: (...args: any[]) => readFileMock(...args)
+        }
+    },
+    promises: {
+        ...actualFs.promises,
+        readFile: (...args: any[]) => readFileMock(...args)
+    }
+}));
+
+const mockReportRuntimeError = jest.fn().mockImplementation((error) => {
+    throw error;
+});
+const mockReportEnableTelemetryOnOff = jest.fn() as jest.Mock;
+jest.unstable_mockModule('../../src/base/utils/reporting', () => ({
+    reportRuntimeError: mockReportRuntimeError,
+    reportEnableTelemetryOnOff: mockReportEnableTelemetryOnOff
+}));
+
+const mockGetService = jest.fn<typeof realStore.getService>();
+const mockGetFilesystemWatcherFor = jest.fn<typeof realStore.getFilesystemWatcherFor>();
+const realStore = await import('@sap-ux/store');
+jest.unstable_mockModule('@sap-ux/store', () => ({
+    ...realStore,
+    getService: mockGetService,
+    getFilesystemWatcherFor: mockGetFilesystemWatcherFor,
+    Entity: { TelemetrySetting: 'telemetrySetting' },
+    TelemetrySetting: class {
+        enableTelemetry: boolean;
+        constructor(opts: any) {
+            this.enableTelemetry = opts?.enableTelemetry;
+        }
+    },
+    TelemetrySettingKey: class {}
+}));
+
+const { TelemetrySettings } = await import('../../src/base/config-state.js');
+const { initTelemetrySettings } = await import('../../src/tooling-telemetry/index.js');
+
+const packageJson = {
+    name: 'testProject',
+    version: '0.0.1'
+} as ProjectInfo;
+
+const mockSettingFileContent: Record<string, boolean> = {
+    'sap.ux.annotation.lsp.enableTelemetry': true,
+    'sap.ux.applicationModeler.enableTelemetry': true,
+    'sap.ux.help.enableTelemetry': true,
+    'sap.ux.serviceModeler.enableTelemetry': true
+};
+
+describe('toolsSuiteTelemetrySettings', () => {
+    afterEach(() => {
+        mockSettingFileContent['sap.ux.help.enableTelemetry'] = true;
+    });
+
+    beforeEach(() => {
+        isAppStudioMock.mockReset();
+        readFileMock.mockReset();
+        jest.clearAllMocks();
+    });
+
+    /**
+     * Has existing central telemetry setting
+     */
+    it('Telemetry setting exists in store, enabled: true', async () => {
+        mockGetService.mockResolvedValue({
+            read: () => Promise.resolve({ enableTelemetry: true })
+        });
+
+        await initTelemetrySettings({
+            resourceId: '',
+            consumerModule: packageJson,
+            internalFeature: false,
+            watchTelemetrySettingStore: true
+        });
+
+        expect(readFileMock).toHaveBeenCalledTimes(0);
+        expect(mockGetFilesystemWatcherFor).toHaveBeenCalledTimes(1);
+        expect(TelemetrySettings.consumerModuleName).toBe('testProject');
+        expect(TelemetrySettings.consumerModuleVersion).toBe('0.0.1');
+        expect(TelemetrySettings.telemetryEnabled).toBe(true);
+    });
+
+    it('Telemetry setting exists in store, enabled: false', async () => {
+        mockGetService.mockResolvedValue({
+            read: () => Promise.resolve({ enableTelemetry: false })
+        });
+
+        await initTelemetrySettings({
+            resourceId: undefined,
+            consumerModule: packageJson,
+            internalFeature: false,
+            watchTelemetrySettingStore: false
+        });
+
+        expect(readFileMock).toHaveBeenCalledTimes(0);
+        expect(TelemetrySettings.telemetryEnabled).toBe(false);
+        expect(TelemetrySettings.consumerModuleName).toBe('testProject');
+        expect(TelemetrySettings.consumerModuleVersion).toBe('0.0.1');
+        expect(TelemetrySettings.azureInstrumentationKey).toBe('');
+    });
+
+    /**
+     * No central telemetry setting found. Read config from deprecated vscode extension settings.
+     * Set enableTelemetry to fase if any of the vscode extension setting is false.
+     */
+    it('Telemetry setting does not exist in store, at least one of legacy telemetry setting is disabled', async () => {
+        mockSettingFileContent['sap.ux.help.enableTelemetry'] = false;
+        mockGetService.mockResolvedValue({
+            read: () => Promise.resolve(undefined),
+            write: () => jest.fn()
+        });
+        readFileMock.mockReturnValueOnce(Promise.resolve(JSON.stringify(mockSettingFileContent)));
+
+        await initTelemetrySettings({
+            resourceId: 'abc-123',
+            consumerModule: packageJson,
+            internalFeature: false,
+            watchTelemetrySettingStore: false
+        });
+
+        expect(readFileMock).toHaveBeenCalledTimes(1);
+        expect(readFileMock).toHaveBeenCalledWith(expect.stringContaining('settings.json'), 'utf-8');
+        expect(mockGetFilesystemWatcherFor).toHaveBeenCalledTimes(0);
+        expect(TelemetrySettings.telemetryEnabled).toBe(false);
+        expect(TelemetrySettings.consumerModuleName).toBe('testProject');
+        expect(TelemetrySettings.consumerModuleVersion).toBe('0.0.1');
+        expect(TelemetrySettings.azureInstrumentationKey).toBe('abc-123');
+    });
+
+    it('Applies ingestionEndpoint/liveEndpoint overrides when provided', async () => {
+        mockGetService.mockResolvedValue({
+            read: () => Promise.resolve({ enableTelemetry: true })
+        });
+
+        await initTelemetrySettings({
+            resourceId: '',
+            consumerModule: packageJson,
+            internalFeature: false,
+            watchTelemetrySettingStore: false,
+            ingestionEndpoint: 'https://custom-ingest.example.com/',
+            liveEndpoint: 'https://custom-live.example.com/'
+        });
+
+        expect(TelemetrySettings.azureIngestionEndpoint).toBe('https://custom-ingest.example.com/');
+        expect(TelemetrySettings.azureLiveEndpoint).toBe('https://custom-live.example.com/');
+    });
+
+    it('Keeps default ingestionEndpoint/liveEndpoint when overrides are not provided', async () => {
+        // reset to defaults in case a previous test mutated the shared runtime settings
+        TelemetrySettings.azureIngestionEndpoint = 'https://westus2-0.in.applicationinsights.azure.com/';
+        TelemetrySettings.azureLiveEndpoint = 'https://westus2.livediagnostics.monitor.azure.com/';
+        mockGetService.mockResolvedValue({
+            read: () => Promise.resolve({ enableTelemetry: true })
+        });
+
+        await initTelemetrySettings({
+            resourceId: '',
+            consumerModule: packageJson,
+            internalFeature: false,
+            watchTelemetrySettingStore: false
+        });
+
+        expect(TelemetrySettings.azureIngestionEndpoint).toBe('https://westus2-0.in.applicationinsights.azure.com/');
+        expect(TelemetrySettings.azureLiveEndpoint).toBe('https://westus2.livediagnostics.monitor.azure.com/');
+    });
+
+    /**
+     * No central telemetry setting found. Read config from deprecated vscode extension settings.
+     * Set enableTelemetry to true if all of the vscode extension setting are true.
+     */
+    it('Telemetry setting does not exist in store, all legacy telemetry settings are enabled', async () => {
+        mockGetService.mockResolvedValue({
+            read: () => Promise.resolve(undefined),
+            write: () => jest.fn()
+        });
+        readFileMock.mockReturnValueOnce(Promise.resolve(JSON.stringify(mockSettingFileContent)));
+
+        await initTelemetrySettings({
+            resourceId: '',
+            consumerModule: packageJson,
+            internalFeature: false,
+            watchTelemetrySettingStore: false
+        });
+
+        expect(readFileMock).toHaveBeenCalledTimes(1);
+        expect(readFileMock).toHaveBeenCalledWith(expect.stringContaining('settings.json'), 'utf-8');
+        expect(TelemetrySettings.telemetryEnabled).toBe(true);
+        expect(TelemetrySettings.consumerModuleName).toBe('testProject');
+        expect(TelemetrySettings.consumerModuleVersion).toBe('0.0.1');
+    });
+
+    /**
+     * No central telemetry setting found. No deprecated vscode extension settings.
+     */
+    it('Telemetry setting does not exist in store, no legacy settings found', async () => {
+        mockGetService.mockResolvedValue({
+            read: () => Promise.resolve(undefined),
+            write: () => jest.fn()
+        });
+        readFileMock.mockRejectedValueOnce(new Error('MockError: No file found'));
+
+        await initTelemetrySettings({
+            resourceId: '',
+            consumerModule: packageJson,
+            internalFeature: false,
+            watchTelemetrySettingStore: false
+        });
+        expect(readFileMock).toHaveBeenCalledTimes(1);
+        expect(readFileMock).toHaveBeenCalledWith(expect.stringContaining('settings.json'), 'utf-8');
+        expect(TelemetrySettings.telemetryEnabled).toBe(true);
+        expect(TelemetrySettings.consumerModuleName).toBe('testProject');
+        expect(TelemetrySettings.consumerModuleVersion).toBe('0.0.1');
+    });
+
+    /**
+     * No central telemetry setting found in SBAS environment
+     */
+    it('Telemetry setting does not exist in store for SBAS env, all legacy setting enabled', async () => {
+        isAppStudioMock.mockReturnValue(true);
+        mockGetService.mockResolvedValue({
+            read: () => Promise.resolve(undefined),
+            write: () => jest.fn()
+        });
+        readFileMock.mockReturnValueOnce(Promise.resolve(JSON.stringify(mockSettingFileContent)));
+
+        await initTelemetrySettings({
+            resourceId: '',
+            consumerModule: packageJson,
+            internalFeature: false,
+            watchTelemetrySettingStore: false
+        });
+        expect(readFileMock).toHaveBeenCalledTimes(1);
+        expect(readFileMock).toHaveBeenCalledWith(expect.stringContaining('settings.json'), 'utf-8');
+        expect(readFileMock).toHaveBeenCalledWith(expect.stringContaining('theia'), 'utf-8');
+        expect(TelemetrySettings.telemetryEnabled).toBe(true);
+        expect(TelemetrySettings.consumerModuleName).toBe('testProject');
+        expect(TelemetrySettings.consumerModuleVersion).toBe('0.0.1');
+    });
+
+    it('Telemetry setting does not exist in store for SBAS env, one legacy setting disabled', async () => {
+        mockSettingFileContent['sap.ux.help.enableTelemetry'] = false;
+        isAppStudioMock.mockReturnValue(true);
+        mockGetService.mockResolvedValue({
+            read: () => Promise.resolve(undefined),
+            write: () => jest.fn()
+        });
+        readFileMock.mockReturnValueOnce(Promise.resolve(JSON.stringify(mockSettingFileContent)));
+
+        await initTelemetrySettings({
+            resourceId: '',
+            consumerModule: packageJson,
+            internalFeature: false,
+            watchTelemetrySettingStore: false
+        });
+        expect(readFileMock).toHaveBeenCalledTimes(1);
+        expect(readFileMock).toHaveBeenCalledWith(expect.stringContaining('settings.json'), 'utf-8');
+        expect(readFileMock).toHaveBeenCalledWith(expect.stringContaining('theia'), 'utf-8');
+        expect(TelemetrySettings.telemetryEnabled).toBe(false);
+        expect(TelemetrySettings.consumerModuleName).toBe('testProject');
+        expect(TelemetrySettings.consumerModuleVersion).toBe('0.0.1');
+    });
+
+    /**
+     * No central telemetry setting found. Unknown OS or platform
+     */
+    it('Telemetry setting does not exist in store, unknown OS or platform', async () => {
+        const originalPlatform = process.platform;
+        Object.defineProperty(process, 'platform', {
+            value: 'Unknown'
+        });
+
+        mockGetService.mockResolvedValue({
+            read: () => Promise.resolve(undefined),
+            write: () => jest.fn()
+        });
+        readFileMock.mockReturnValueOnce(Promise.resolve(JSON.stringify(mockSettingFileContent)));
+
+        await initTelemetrySettings({
+            resourceId: '',
+            consumerModule: packageJson,
+            internalFeature: false,
+            watchTelemetrySettingStore: false
+        });
+        expect(readFileMock).toHaveBeenCalledTimes(0);
+        expect(TelemetrySettings.telemetryEnabled).toBe(true);
+        expect(TelemetrySettings.consumerModuleName).toBe('testProject');
+        expect(TelemetrySettings.consumerModuleVersion).toBe('0.0.1');
+
+        Object.defineProperty(process, 'platform', {
+            value: originalPlatform
+        });
+    });
+});

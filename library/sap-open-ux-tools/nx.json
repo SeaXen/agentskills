@@ -1,0 +1,88 @@
+{
+    "tasksRunnerOptions": {
+        "default": {
+            "options": {
+                "canTrackAnalytics": false,
+                "showUsageWarnings": true
+            }
+        }
+    },
+    "namedInputs": {
+        "default": ["{projectRoot}/**/*"],
+        "prod": [
+            "!{projectRoot}/**/*.spec.tsx",
+            "!{projectRoot}/**/*.test.tsx",
+            "!{projectRoot}/**/*.spec.ts",
+            "!{projectRoot}/**/*.test.ts"
+        ],
+        "sharedGlobals": [
+            {
+                "runtime": "node -p \"`${process.platform}_${process.arch}_${process.version}`\""
+            }
+        ]
+    },
+    "targetDefaults": {
+        "build": {
+            "dependsOn": ["^build"],
+            "inputs": ["default", "^prod", "sharedGlobals"],
+            "outputs": [
+                "{projectRoot}/dist",
+                "{projectRoot}/dist-cjs",
+                "{projectRoot}/generators",
+                "{projectRoot}/lib",
+                "{projectRoot}/storybook"
+            ],
+            "cache": true
+        },
+        "test": {
+            "inputs": [
+                "default",
+                "^prod",
+                "{workspaceRoot}/jest.base.mjs",
+                "{projectRoot}/jest.config.{js,cjs,mjs}",
+                "sharedGlobals"
+            ],
+            "outputs": ["{projectRoot}/coverage"],
+            "cache": true
+        },
+        "test:integration": {
+            "inputs": [
+                "default",
+                "^prod",
+                "{workspaceRoot}/jest.base.mjs",
+                "{projectRoot}/jest.config.{js,cjs,mjs}",
+                "sharedGlobals"
+            ],
+            "outputs": ["{projectRoot}/playwright-report"],
+            "cache": true
+        },
+        "build:extension": {
+            "outputs": ["{projectRoot}/*.vsix"],
+            "cache": true
+        },
+        "build:storybook": {
+            "outputs": ["{projectRoot}/storybook"],
+            "cache": true
+        },
+        "lint": {
+            "inputs": ["default", "^prod"],
+            "cache": true
+        },
+        "lint:fix": {
+            "inputs": ["default", "^prod"]
+        },
+        "clean": {
+            "inputs": []
+        },
+        "build:storybook:bundle": {
+            "cache": true
+        }
+    },
+    "defaultBase": "main",
+    "nxCloudId": "63723103eb505e0e8ebeb550",
+    "tui": {
+        "enabled": false,
+        "autoExit": true
+    },
+    "analytics": false
+}

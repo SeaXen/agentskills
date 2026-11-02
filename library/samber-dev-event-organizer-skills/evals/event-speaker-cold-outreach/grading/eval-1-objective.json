@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The drafted email body runs at roughly 150 words or fewer.",
+        "evidence": "The body runs about 140 words, from 'I watched your talk at the Kubernetes meetup in Riga' to 'Would a 20-minute call next week work'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The email opens by naming Dara's specific recent work - the Riga meetup talk about deleting their service mesh - rather than complimenting her reputation or standing in the field.",
+        "evidence": "'I watched your talk at the Kubernetes meetup in Riga last month on why your team deleted its service mesh.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "That opening line also states how she was found, making the discovery route explicit in the message itself.",
+        "evidence": "The opening line says 'I watched your talk at the Kubernetes meetup in Riga', which names the discovery route.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The email states the event basics: roughly 320 attendees, Tallinn, and the 12 May date.",
+        "evidence": "'closing session at NordHack Day on 12 May in Tallinn... about 320 attendees'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The email states plainly, in this first message, that the event covers a train ticket and one night's lodging and pays no speaker fee - the money is not deferred to a later touch or to a call.",
+        "evidence": "'We cover your train ticket and one night in a hotel. We don't pay speaker fees.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The email names 3 March as the date an answer is needed.",
+        "evidence": "'I need an answer by 3 March'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The email contains no links, no attachments and no images, and the response explains that corporate filters auto-trash mail carrying them so those wait for a later touch.",
+        "evidence": "'no links, attachments or images, so corporate filters shouldn't trash it. Hold the program, logo and site link for touch two.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "A subject line is supplied, under 50 characters, naming the specific theme or angle rather than a generic 'Speaking invitation' or 'Invitation to speak at NordHack Day' shape.",
+        "evidence": "'Closing talk on deleting your service mesh' is 43 characters and names the theme.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "None of these words appears anywhere in the email: revolutionary, disruptive, game-changing, best-in-class, cutting-edge, thought leader, rockstar, ninja, guru.",
+        "evidence": "The email contains none of the banned words.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The email makes no superlative claim about the candidate such as 'leading expert', 'the best voice on', or 'one of the top names in'.",
+        "evidence": "The email only references her talk and makes no claims about her standing.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The email closes with a specific low-friction next step carrying a proposed date, never an open-ended 'let me know if you're interested'.",
+        "evidence": "'Would a 20-minute call next week work' gives no concrete proposed date.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response tells the user to run the draft through a humanizer pass before sending, and to review the draft themselves before it goes out.",
+        "evidence": "'run the email through your humanizer skill, then send.' It never tells the user to review the draft themselves.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The drafted email body runs at roughly 150 words or fewer.",
+        "evidence": "Body from 'Hi Dara' to 'Thank you for considering it' runs roughly 230 words.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The email opens by naming Dara's specific recent work - the Riga meetup talk about deleting their service mesh - rather than complimenting her reputation or standing in the field.",
+        "evidence": "Opens with 'I'm [Your name], and I organise NordHack Day...'; the Riga talk only appears in the second paragraph.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "That opening line also states how she was found, making the discovery route explicit in the message itself.",
+        "evidence": "The opening line is the self-introduction; the discovery route appears in the next paragraph.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The email states the event basics: roughly 320 attendees, Tallinn, and the 12 May date.",
+        "evidence": "'single-track community conference in Tallinn on 12 May. About 320 people come'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The email states plainly, in this first message, that the event covers a train ticket and one night's lodging and pays no speaker fee - the money is not deferred to a later touch or to a call.",
+        "evidence": "'A train ticket to Tallinn. One night in a hotel.' and 'We can't pay a speaker fee'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The email names 3 March as the date an answer is needed.",
+        "evidence": "'Could you let me know by 3 March?'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The email contains no links, no attachments and no images, and the response explains that corporate filters auto-trash mail carrying them so those wait for a later touch.",
+        "evidence": "The email has no links, but the response never explains that corporate filters auto-trash them.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "A subject line is supplied, under 50 characters, naming the specific theme or angle rather than a generic 'Speaking invitation' or 'Invitation to speak at NordHack Day' shape.",
+        "evidence": "'Closing talk at NordHack Day, Tallinn, 12 May: would you speak?' is about 63 characters.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "None of these words appears anywhere in the email: revolutionary, disruptive, game-changing, best-in-class, cutting-edge, thought leader, rockstar, ninja, guru.",
+        "evidence": "None of the listed words appear in the email.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The email makes no superlative claim about the candidate such as 'leading expert', 'the best voice on', or 'one of the top names in'.",
+        "evidence": "The email only says the topic is 'the argument our crowd keeps having'; no 'leading expert' style claims.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The email closes with a specific low-friction next step carrying a proposed date, never an open-ended 'let me know if you're interested'.",
+        "evidence": "'Could you let me know by 3 March? A quick yes or no is enough.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response tells the user to run the draft through a humanizer pass before sending, and to review the draft themselves before it goes out.",
+        "evidence": "The closing note only says to fill in name, contact details and website.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

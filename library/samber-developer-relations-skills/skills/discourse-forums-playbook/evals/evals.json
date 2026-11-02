@@ -1,0 +1,331 @@
+{
+  "skill_name": "discourse-forums-playbook",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "We're opening forum.quillstack.dev on hosted Discourse in three weeks (Nov 21). It's completely empty right now. Our growth lead wants to create about 15 persona accounts (\"Dana from fintech\", \"Raj the hobbyist\" etc.) and have ChatGPT write 60 starter threads and replies so it looks busy on day one. We also planned 14 categories, one per SDK (Go, Python, Node, Java, Rust, .NET...) plus Billing, Roadmap, Jobs, Off-topic. We have a 4-person support team and about 900 Zendesk tickets from the last quarter. Can you write the seeding plan?",
+      "expected_output": "Refuses persona accounts and bulk AI-generated seed content, replaces them with a founding cohort recruited from real users and seed topics drawn from real tickets posted with consent under real names, cuts the category plan to 3-5 categories with SDKs as tags, and gives a dated cadence to Nov 21 and beyond.",
+      "files": [],
+      "expectations": [
+        "Refuses creating persona, alt or fake member accounts to seed the forum",
+        "Refuses or advises against generating dozens of seed threads or replies with an AI model",
+        "Proposes recruiting a founding cohort of named real users (from support, beta or issue history) before the public opening",
+        "Proposes seeding from real Zendesk questions, posted either by the original asker or by staff under their own names",
+        "Requires the original asker's consent (or anonymised rewriting with consent) before a ticket becomes a public topic",
+        "Says seed questions should be answered and marked solved, not left open",
+        "Cuts the 14-category plan to roughly 3-5 categories at launch",
+        "Moves the per-SDK split from categories to tags",
+        "Recommends a Categories homepage (rather than Latest) while the forum is young",
+        "Includes a pinned welcome or banner topic saying what the forum is for and how fast staff answer",
+        "Gives a dated cadence that works back from the Nov 21 opening (pre-launch weeks, launch week, first 90 days)",
+        "Assigns a named owner or rota for a daily pass on unanswered topics during the first 90 days"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Quick sanity check. Our legal counsel wants our new Discourse community (community.ferrolink.io, hosted) to be login-required for the first six months, \"until we see what people post\". After that we'd flip it public so the threads start ranking on Google, which is the main reason marketing paid for it. Any problem with that plan?",
+      "expected_output": "Flags that login-required hides the whole site from search for six months and that flipping login-only content public later breaches what members agreed to, so it is close to irreversible; proposes deciding public versus private per category before launch, with restricted categories for contract-covered material and spam controls instead of a site-wide wall.",
+      "files": [],
+      "expectations": [
+        "States that login-required makes the whole forum invisible to search engines while it is on",
+        "Warns that making login-only posts public later conflicts with what existing members expected when they posted (privacy or consent problem)",
+        "Calls the plan close to irreversible, or says the content written during the private period cannot simply be flipped public",
+        "Recommends deciding public versus private per category before launch rather than site-wide",
+        "Suggests a restricted category for content a customer contract or legal concern covers",
+        "Points to trust-level sandbox limits, spam detection or approval of suspicious first posts as the control legal actually needs",
+        "Notes the search-acquisition goal earns nothing during the six private months",
+        "Does not endorse the six-month login-required plan as proposed"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Our Discourse (self-hosted, devs.hallmarkdb.com) is getting hammered: ~40 spam signups a day posting casino and SEO links. Two fixes on the table from my team: (1) put every new topic and reply from everyone into the approval queue, and (2) bulk-promote our 2,000 customers we just imported from Zendesk straight to trust level 3 so the new-user limits stop annoying them. Which one should we do first?",
+      "expected_output": "Rejects both: approval of every member's posts kills answer time, and bulk TL3 hands spam-prone accounts recategorize powers and followed links. Recommends layered controls - AI spam detection on early posts, watched words and blocked email domains, a TL0-only queue during a wave, a lower per-IP account cap, raising TL1 requirements last - and allows TL1 for verified customers while higher levels are earned or granted individually.",
+      "files": [],
+      "expectations": [
+        "Advises against sending every post from everyone to the approval queue",
+        "Explains that answer time or reply speed is what an all-posts approval queue destroys",
+        "Advises against bulk-promoting the 2,000 imported accounts to trust level 3",
+        "Notes that links from TL3 posts lose nofollow by default, so bulk TL3 rewards link spammers",
+        "Cites at least one concrete TL0 default limit (for example 3 topics and 10 replies on day one, 2 links, or no attachments)",
+        "Places raising TL1 requirements after faster controls (spam detection, watched words, TL0-only queue), noting day-one spam posts as TL0",
+        "Recommends capping new accounts per IP address (default 3)",
+        "Recommends spam detection on new users' first posts (AI spam detection or equivalent)",
+        "Limits approval queueing to TL0 or suspicious posts rather than all members' posts",
+        "Allows at most TL1 for verified customers (for example through a group) and leaves higher levels to be earned or granted individually",
+        "Labels platform defaults as Discourse defaults that the admin can change or should verify in settings",
+        "Recommends watched words or blocked email domains as a spam control"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Our forum (community.pellucid.dev, Discourse) gets basically zero Google traffic after 8 months. The SEO agency we hired recommends three things: move it to pellucid.dev/community because subfolders rank better, add QAPage schema to every category including Announcements and Feature Requests, and auto-generate ~200 topics from our docs pages so Google has more to index. They want sign-off Friday. Thoughts?",
+      "expected_output": "Pushes back on all three with platform and Google sources: no subfolder preference at Google and Discourse recommends subdomains; QAPage only on genuine Q&A pages; scaled generated topics are a spam risk. Gives a real diagnosis path: crawler view, public/canonical/sitemap checks, titles in the asker's words, Solved on support only.",
+      "files": [],
+      "expectations": [
+        "States that Google has no stated preference between subdomain and subfolder",
+        "Notes Discourse recommends a subdomain, or that a subfolder requires maintaining robots.txt at the root by hand",
+        "Says QAPage (Q&A) markup belongs only on pages that are one question with answers, per Google",
+        "Rejects applying Q&A markup to Announcements and Feature Requests",
+        "Recommends enabling Solved only on genuine support or Q&A categories",
+        "Rejects auto-generating ~200 topics from docs, citing scaled or low-value content risk",
+        "Suggests auditing the crawler view of a topic (for example with ?print or the crawler header)",
+        "Suggests checking that solved topics are public, canonical and present in the sitemap",
+        "Advises topic titles written in the asker's own words, because title and first post become the search snippet",
+        "Labels claims by source (Google versus Discourse versus practitioner) rather than presenting all as fact",
+        "Does not promise a traffic outcome from the changes"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Need a reality check for our exec review. Our Discourse forum has 3,100 members and 41 categories. Last month 38% of new topics had no reply after a week, and our two DevRel people wrote about 80% of all answers. The CEO thinks we need paid ads to bring more people in. What would you change in the next quarter?",
+      "expected_output": "Diagnoses staffing and structure, not reach: unanswered topics and staff-written answers come first; merges dead categories, sets a daily triage owner, uses Solved and the unsolved filter, grows TL2/TL3 helpers and promotes TL4 by hand; rejects ads as the first move; sets Discourse-report metrics and a stop rule.",
+      "files": [],
+      "expectations": [
+        "Identifies the unanswered-topic rate as a staffing or triage problem before any traffic problem",
+        "Advises against paid ads as the first move while 38% of topics go unanswered",
+        "Recommends merging categories with no recent new topics (for example none in 30 days)",
+        "Assigns a daily pass on unanswered or unsolved topics to a named owner",
+        "Recommends Solved and the unsolved filter as the triage queue for support topics",
+        "Proposes growing non-staff helpers through trust levels, and promoting proven helpers to TL4 by hand",
+        "Sets a time-to-first-reply target (for example a median under 24 hours)",
+        "Tracks the share of solutions written by non-staff members",
+        "Names Discourse admin reports (time to first response, topics with no response, trust level growth) as the data source",
+        "Includes a stop or fold-back rule if non-staff solutions and TL2 growth do not move",
+        "Does not treat the 3,100 member count as evidence of health"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Our devrel team posts about four release announcements a week on our Discourse and bumps them a couple of times so they stay at the top. They never show up in the Hot tab and barely appear in the weekly summary email. How does Discourse actually decide what's hot or top, and what should we do differently?",
+      "expected_output": "Explains Latest as bump order, Hot as likes plus distinct likers and posters over the last 7 days decayed by age (gravity 1.2), Top as views, first-post likes, likes per post and post count with a 10-post bonus, and the summary email built from popular topics with category suppression; says bumping mainly moves Latest; moves announcements to their own category, adds a weekly ritual topic, and labels claims as Discourse-sourced.",
+      "files": [],
+      "expectations": [
+        "Says bumping mainly moves a topic on Latest and does little for Hot or Top",
+        "Explains Hot as driven by likes and the number of distinct people liking or posting, decayed by topic age, over recently active topics (about the last 7 days)",
+        "Explains Top as weighting views, first-post likes and likes per post, with a boost for longer discussions (around 10+ posts)",
+        "Says staff-only or announcement topics with few member likes or replies score low",
+        "Recommends a separate Announcements category for release posts",
+        "Says Announcements can be excluded from the summary email with its suppress-categories setting",
+        "Recommends a member-participation surface such as a weekly ritual topic instead of more announcements",
+        "Labels the ranking explanation as coming from Discourse's own code or docs, not guesswork",
+        "Recommends reducing self-bumping"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "Two things for our Discourse forum at forum.tallyhq.com: we want users to log in with their existing Tally app account and see related forum threads inside our docs pages. Also, someone on the team says we should just have used Discord instead - should we switch?",
+      "expected_output": "Routes SSO with the product account and docs embedding to samber/developer-platform-skills@developer-portal-design, and the Discord-versus-forum venue question to samber/developer-relations-skills@developer-community-launch, without doing either job itself.",
+      "files": [],
+      "expectations": [
+        "Routes the single-sign-on and docs-embedding work to samber/developer-platform-skills@developer-portal-design",
+        "Routes the forum-versus-Discord venue decision to samber/developer-relations-skills@developer-community-launch",
+        "Does not write DiscourseConnect or embed configuration steps itself",
+        "Does not decide the Discord-versus-Discourse switch itself",
+        "Offers to continue with forum operations (categories, trust levels, seeding or SEO) once those are settled"
+      ]
+    }
+  ],
+  "trigger_queries": [
+    {
+      "query": "our discourse forum is a ghost town, 6 weeks after launch maybe 10 posts. how do we get people posting?",
+      "should_trigger": true
+    },
+    {
+      "query": "What trust level settings should we use on our new Discourse community for an API product? Defaults or tighten them?",
+      "should_trigger": true
+    },
+    {
+      "query": "We're about to open a product forum on Discourse next month. How many categories should we start with and what should they be?",
+      "should_trigger": true
+    },
+    {
+      "query": "Is it ok to create a few staff alt accounts to post starter questions on our empty community forum so it doesn't look dead?",
+      "should_trigger": true
+    },
+    {
+      "query": "Do threads on our Discourse community rank on Google? Ours get almost no organic traffic.",
+      "should_trigger": true
+    },
+    {
+      "query": "Should I enable the Solved plugin on every category of our forum or just support?",
+      "should_trigger": true
+    },
+    {
+      "query": "Spam bots keep signing up on community.ourapp.io (Discourse) and posting links. What should I change?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our forum has 40 categories and most are empty. How do I restructure it without breaking everything?",
+      "should_trigger": true
+    },
+    {
+      "query": "Legal wants our community forum to be login-only at launch. Is that a problem for SEO?",
+      "should_trigger": true
+    },
+    {
+      "query": "Why do our release announcement topics never show up in Hot on Discourse?",
+      "should_trigger": true
+    },
+    {
+      "query": "Write the pinned welcome topic and category descriptions for our developer forum",
+      "should_trigger": true
+    },
+    {
+      "query": "Half our support questions on the forum go unanswered for days. What's the playbook to fix that?",
+      "should_trigger": true
+    },
+    {
+      "query": "We're migrating our phpBB community to Discourse. What should we set up so we don't lose search rankings and members?",
+      "should_trigger": true
+    },
+    {
+      "query": "How do we get regular members to help moderate our Discourse instead of the two of us doing everything?",
+      "should_trigger": true
+    },
+    {
+      "query": "seeding plan for a vendor-run community forum - we have a few hundred support tickets we could use",
+      "should_trigger": true
+    },
+    {
+      "query": "what does the Discourse summary email include and can we keep announcements out of it",
+      "should_trigger": true
+    },
+    {
+      "query": "Our Flarum forum for our SDK users is stalling. How should we set up categories and promote helpers?",
+      "should_trigger": true
+    },
+    {
+      "query": "Should we use tags or subcategories for each SDK language on our community forum?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our CEO wants to run ads to grow our customer forum. Most threads have no replies. Is that the right move?",
+      "should_trigger": true
+    },
+    {
+      "query": "How should DevRel staff show up on our product forum - flair, disclosure, how often to answer?",
+      "should_trigger": true
+    },
+    {
+      "query": "We just imported 5k users from our old forum into Discourse. Should they all keep their old reputation as a trust level?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our forum homepage shows Latest and it's all our own release posts. Should we switch the homepage to categories?",
+      "should_trigger": true
+    },
+    {
+      "query": "Do we need a separate Show and tell category where users can promote their projects, or does that invite spam?",
+      "should_trigger": true
+    },
+    {
+      "query": "Plan the first 90 days after we open our customer community on Discourse - who answers what, weekly rituals, what to measure",
+      "should_trigger": true
+    },
+    {
+      "query": "Should we block GPTBot and ClaudeBot on our community forum or let AI crawlers index our answers?",
+      "should_trigger": true
+    },
+    {
+      "query": "Should we start a Discord, a Slack, or a forum for our developer community? We have no community yet.",
+      "should_trigger": false
+    },
+    {
+      "query": "Write a code of conduct and an enforcement ladder for our developer community",
+      "should_trigger": false
+    },
+    {
+      "query": "What community health metrics should we put on our quarterly dashboard across Discord and GitHub?",
+      "should_trigger": false
+    },
+    {
+      "query": "How should we structure roles and channels on our developer Discord server?",
+      "should_trigger": false
+    },
+    {
+      "query": "Set up GitHub Discussions categories and a Q&A flow for our open-source repo",
+      "should_trigger": false
+    },
+    {
+      "query": "How should our engineers answer questions under our product's Stack Overflow tag without breaking rules?",
+      "should_trigger": false
+    },
+    {
+      "query": "Fix canonical tags and versioned URLs on our Docusaurus docs site for SEO",
+      "should_trigger": false
+    },
+    {
+      "query": "Configure DiscourseConnect SSO between our SaaS login and our Discourse instance - what payload fields do we need?",
+      "should_trigger": false
+    },
+    {
+      "query": "Write a Discourse plugin in Ruby that adds a custom field to the user profile",
+      "should_trigger": false
+    },
+    {
+      "query": "Our self-hosted Discourse docker container fails to rebuild after upgrading, error in ./launcher rebuild app",
+      "should_trigger": false
+    },
+    {
+      "query": "Design a champions program with tiers, perks and terms for our most active community members",
+      "should_trigger": false
+    },
+    {
+      "query": "Plan our Show HN launch for next Tuesday",
+      "should_trigger": false
+    },
+    {
+      "query": "Turn our top 30 support tickets into an error-reference troubleshooting section in the docs",
+      "should_trigger": false
+    },
+    {
+      "query": "We want to run monthly office hours and AMAs with our engineers - format and rotation?",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we post about our devtool on Reddit without getting banned from r/programming?",
+      "should_trigger": false
+    },
+    {
+      "query": "Pick between Circle, Bettermode and Discourse for a paid creator membership community",
+      "should_trigger": false
+    },
+    {
+      "query": "Which DevRel KPIs should we report to the board this quarter?",
+      "should_trigger": false
+    },
+    {
+      "query": "Someone reported harassment by a maintainer in our forum DMs. How do we handle the incident?",
+      "should_trigger": false
+    },
+    {
+      "query": "Embed Discourse comments under our blog posts using the embed script - it shows a blank iframe",
+      "should_trigger": false
+    },
+    {
+      "query": "Write a forum post for me to share our new SDK on the Rust users forum",
+      "should_trigger": false
+    },
+    {
+      "query": "Set up a Slack Connect community for our enterprise customers with channel naming rules",
+      "should_trigger": false
+    },
+    {
+      "query": "Our community is quiet - should we shut it down and move back to GitHub issues? We haven't measured anything yet.",
+      "should_trigger": false
+    },
+    {
+      "query": "Build a webhook from Discourse new-topic events into our Zendesk via the Discourse API",
+      "should_trigger": false
+    },
+    {
+      "query": "Write the help-center article structure for our support knowledge base in Zendesk Guide",
+      "should_trigger": false
+    },
+    {
+      "query": "Our developer portal needs a community link in the nav, an API key dashboard and a sandbox - redesign the portal IA",
+      "should_trigger": false
+    }
+  ]
+}

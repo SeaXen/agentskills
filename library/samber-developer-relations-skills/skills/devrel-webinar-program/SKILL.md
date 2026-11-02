@@ -13,7 +13,7 @@ description: >-
 license: MIT
 metadata:
   author: Samuel Berthe
-  version: "1.0.1"
+  version: "1.0.2"
 ---
 
 # DevRel Webinar Program
@@ -30,7 +30,10 @@ Scope is the recurring series for developers. Siblings cover adjacent jobs:
 - Reminder emails and no-show handling for a single event: samber/dev-event-organizer-skills@event-attendee-email-sequences
 - Making the demo inside an episode survive: samber/developer-relations-skills@developer-live-demo-design
 - Scripting a recorded video or the clips cut from a replay: samber/developer-relations-skills@technical-video-script
+- Which replays and cut-downs the company YouTube channel carries: samber/developer-relations-skills@devrel-youtube-channel
 - Fitting episodes into the quarter's content plan: samber/developer-relations-skills@devrel-content-calendar
+- A private hands-on workshop for one customer or prospect account: samber/developer-relations-skills@developer-workshop-program
+- An open, chat-led live show with no registration on Twitch, YouTube Live, LinkedIn Live or X: samber/developer-relations-skills@devrel-live-streaming
 
 Typical invocations:
 

@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that DMARC fails because DKIM and SPF pass only for the platform's domain (mailer-cloud.net), not petrel.dev",
+        "evidence": "\"DKIM and SPF both pass, but for the platform's domain (`mailer-cloud.net`), not yours (`petrel.dev`).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names custom DKIM signing with d= on petrel.dev (or a subdomain of it) as the first technical fix",
+        "evidence": "Fix 2: \"Publish the new tool's custom DKIM and return-path records for `petrel.dev`\"; done-when shows `dkim=pass` with `d=petrel.dev`.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines to lead with subject-line rewrites or spam-word removal, and says content is checked only after authentication and reputation",
+        "evidence": "\"Rewriting subject lines changes nothing while DMARC fails\"; \"Content is the last step of the triage.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says the word 'free' or spam-word lists are not a meaningful filter factor at Gmail or Outlook",
+        "evidence": "\"word lists are folklore at Gmail and Outlook.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says the open-rate drop alone is not evidence of spam-folder placement, citing mail-privacy features or image blocking",
+        "evidence": "\"mail-privacy features and image blocking move opens independently.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks for or recommends Gmail Postmaster Tools spam-rate data and marks complaints unverified until it exists",
+        "evidence": "Evidence table: \"4 Complaints ... Unverified. Access not confirmed\"; fix 4 verifies petrel.dev in Postmaster Tools.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says Gmail 4.7.x or 5.7.x authentication replies, if present in the bounce log, are sender-side and must not be suppressed",
+        "evidence": "\"Keep every `4.7.x` or `5.7.x` address (those are sender blocks, not bad readers).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends checking the raw bounce or deferral replies (for example 4.7.32 or other 4.7.x/5.7.x codes) rather than platform hard/soft totals",
+        "evidence": "Fix 5: \"Pull the platform's bounce log with raw SMTP text... by code and text, not by the platform's hard/soft label.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Mentions that the newsletter sharing petrel.dev with password resets puts reset mail at risk, and suggests moving the newsletter to a dedicated subdomain as a later step",
+        "evidence": "\"Password resets on petrel.dev\" section; fix 11 moves the digest to `news.petrel.dev` in Q1 2027.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend buying a dedicated IP",
+        "evidence": "No dedicated IP recommendation anywhere; platform change row says \"Not recommended\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives a fix plan where each row has an owner, a date and a done-when check",
+        "evidence": "Table has Owner, Date, Done when columns for all 13 rows; row 13 is \"not planned\" with n/a.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes a done-when check of a seed issue showing dkim=pass with the user's own domain and dmarc=pass",
+        "evidence": "Fix 2: \"A seed issue received at Gmail, Outlook.com and Yahoo shows `dkim=pass` with `d=petrel.dev` and `dmarc=pass`.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Orders the next send by most recent human clicks over consecutive sending days rather than one full send",
+        "evidence": "Fix 8: \"Send the held issue by click cohort over consecutive days, most recent human clickers first and roughly doubling each step.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that DMARC fails because DKIM and SPF pass only for the platform's domain (mailer-cloud.net), not petrel.dev",
+        "evidence": "\"DKIM is signed by mailer-cloud.net, not petrel.dev... SPF is checked against bounces.mailer-cloud.net... Both checks pass for the vendor's domain, so DMARC fails for yours.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names custom DKIM signing with d= on petrel.dev (or a subdomain of it) as the first technical fix",
+        "evidence": "The first fix step is \"Send the newsletter from a dedicated subdomain\"; DKIM signing comes second.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines to lead with subject-line rewrites or spam-word removal, and says content is checked only after authentication and reputation",
+        "evidence": "\"I'd hold a full rewrite... Fix the DNS alignment first, then judge subject lines on clean data.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says the word 'free' or spam-word lists are not a meaningful filter factor at Gmail or Outlook",
+        "evidence": "\"The word alone isn't a meaningful spam signal for authenticated, opted-in mail\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says the open-rate drop alone is not evidence of spam-folder placement, citing mail-privacy features or image blocking",
+        "evidence": "It says \"A 41% to 22% open-rate drop is typical of inbox-to-spam placement.\" The MPP note only concerns measuring after the fix.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks for or recommends Gmail Postmaster Tools spam-rate data and marks complaints unverified until it exists",
+        "evidence": "It suggests adding Postmaster Tools for monitoring but never marks complaints as unverified.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says Gmail 4.7.x or 5.7.x authentication replies, if present in the bounce log, are sender-side and must not be suppressed",
+        "evidence": "No mention of 4.7.x or 5.7.x replies.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends checking the raw bounce or deferral replies (for example 4.7.32 or other 4.7.x/5.7.x codes) rather than platform hard/soft totals",
+        "evidence": "No mention of raw bounce or deferral replies.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Mentions that the newsletter sharing petrel.dev with password resets puts reset mail at risk, and suggests moving the newsletter to a dedicated subdomain as a later step",
+        "evidence": "\"a spam-folder newsletter can drag resets down with it\"; recommends news.petrel.dev, though as the first step rather than a later one.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend buying a dedicated IP",
+        "evidence": "No dedicated IP recommendation.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives a fix plan where each row has an owner, a date and a done-when check",
+        "evidence": "The numbered steps have no owners or dates.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes a done-when check of a seed issue showing dkim=pass with the user's own domain and dmarc=pass",
+        "evidence": "\"Send a test to a Gmail account... dkim=pass header.d=news.petrel.dev... dmarc=pass\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Orders the next send by most recent human clicks over consecutive sending days rather than one full send",
+        "evidence": "\"Send the next issue to your most engaged segment first (recent openers and clickers), then widen over 1-2 sends.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

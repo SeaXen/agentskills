@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Cuts the plan to one recommended path (one platform written in full) because of the hard date, and defers the other platforms to linked follow-up pages listed with their goal sentence and variant row.",
+        "evidence": "The 'Pages to write' table lists Android and React Native with a goal sentence and a variant row each.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets `owner: UNVERIFIED` in the front matter because no team owns the page, and names the missing owner in the hand-over as what blocks shipping.",
+        "evidence": "'owner: UNVERIFIED'. Ship blockers: 'Owner: a team name for the stamps. This also unlocks Android and React Native.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a variant needing its own page waits for an owner, because each extra page is another page to keep true.",
+        "evidence": "'With no owner, it limits me to one page in full.' The other pages are 'blocked on owner'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Defers executable steps in CI and the stale-page job because the page is a one-off, and replaces CI with a manual re-run at the next release.",
+        "evidence": "'since this is a one-off, skip CI and re-run the page manually at the next SDK release.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the `owner`, `tested_with` and `last_verified` stamps despite the one-off framing, stating they are a one-off page's only drift signal.",
+        "evidence": "The stamps are kept, but the transcript never says they are the one-off page's only drift signal.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Allows the author's own run only for capturing real output, and states that only someone else's cold run clears the pass threshold.",
+        "evidence": "'You may dry-run to capture real output, but not on production... A second person then does the cold run.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the production project and the author's own phone as the run environment; requires a disposable environment seeded to the competence floor (SDK already sending events), never blank.",
+        "evidence": "'Use a throwaway Fennimore project and your own phone.' This accepts the author's own device.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Runs or asks the risk pass: whether any step sends real events to production or costs money, and whether a test project or debug mode exists.",
+        "evidence": "Question 4 asks about a test or non-production project mode. It also notes that a production run 'would pollute real data'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Hands over a run list naming the environment, a runner who matches the floor and has not seen the draft, and the blocks to capture.",
+        "evidence": "The Run list has Environment, Runner ('Someone other than the author, with Swift/Xcode and an app already sending events') and Capture.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the goal sentence as an observable end state (no event leaves the device until the user consents) rather than an activity such as \"configure consent\".",
+        "evidence": "'wants nothing to leave the device until the user accepts a consent prompt'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prerequisites block links the page that gets the SDK sending events instead of re-teaching SDK setup.",
+        "evidence": "'an app that already sends Fennimore events' has no link.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Marks any command, API name or output not seen run with `UNVERIFIED:` on its own line directly above the block, outside the code fence.",
+        "evidence": "Steps 2 and 3 have 'UNVERIFIED:' on its own line directly above the swift block.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a page carrying any `UNVERIFIED` marker does not ship.",
+        "evidence": "'the page carries `UNVERIFIED` markers and does not ship until each is cleared.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes the verification step as an independent read (the events dashboard or debug stream showing no events before consent and events after), not the SDK call's return value.",
+        "evidence": "The network inspector check in step 5 and the dashboard live event view. The page says the inspector 'stays the stronger proof'.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Cuts the plan to one recommended path (one platform written in full) because of the hard date, and defers the other platforms to linked follow-up pages listed with their goal sentence and variant row.",
+        "evidence": "iOS, Android and React Native are all written in full.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets `owner: UNVERIFIED` in the front matter because no team owns the page, and names the missing owner in the hand-over as what blocks shipping.",
+        "evidence": "There is no front matter. The notes say only 'no owner is assigned' and 'Fill it in'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a variant needing its own page waits for an owner, because each extra page is another page to keep true.",
+        "evidence": "It is not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Defers executable steps in CI and the stale-page job because the page is a one-off, and replaces CI with a manual re-run at the next release.",
+        "evidence": "It is not addressed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the `owner`, `tested_with` and `last_verified` stamps despite the one-off framing, stating they are a one-off page's only drift signal.",
+        "evidence": "The page has a 'Verified against ... [version]' line but no owner/tested_with/last_verified stamps.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Allows the author's own run only for capturing real output, and states that only someone else's cold run clears the pass threshold.",
+        "evidence": "It is not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the production project and the author's own phone as the run environment; requires a disposable environment seeded to the competence floor (SDK already sending events), never blank.",
+        "evidence": "The production plan is accepted: 'Make them filterable... If a separate dev key exists, that is cleaner. Your call.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Runs or asks the risk pass: whether any step sends real events to production or costs money, and whether a test project or debug mode exists.",
+        "evidence": "'Consent tests fire real track() calls. They will land in the production project', and it asks about a separate dev key.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Hands over a run list naming the environment, a runner who matches the floor and has not seen the draft, and the blocks to capture.",
+        "evidence": "No run list is handed over.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the goal sentence as an observable end state (no event leaves the device until the user consents) rather than an activity such as \"configure consent\".",
+        "evidence": "'the SDK collects and sends nothing until the user opts in.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prerequisites block links the page that gets the SDK sending events instead of re-teaching SDK setup.",
+        "evidence": "'Assumes: Fennimore is already installed' has no link.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Marks any command, API name or output not seen run with `UNVERIFIED:` on its own line directly above the block, outside the code fence.",
+        "evidence": "It uses inline '// placeholder 1' comments and no UNVERIFIED lines.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a page carrying any `UNVERIFIED` marker does not ship.",
+        "evidence": "It says 'Not ready to send until the 6 placeholders... are confirmed', but there is no UNVERIFIED rule.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes the verification step as an independent read (the events dashboard or debug stream showing no events before consent and events after), not the SDK call's return value.",
+        "evidence": "'Check the network, not just the dashboard... Expect zero requests'.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

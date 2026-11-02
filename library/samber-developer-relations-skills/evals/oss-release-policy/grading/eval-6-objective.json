@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects option (a) because published versions are immutable and npm never allows republishing the same version, even after unpublish",
+        "evidence": "\"npm never lets you republish a version, even after unpublish.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects option (b) because SemVer ignores build metadata for precedence and npm strips it, so 4.7.0+hotfix cannot be told apart from 4.7.0",
+        "evidence": "\"SemVer ignores build metadata when ordering versions. npm strips it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects option (c) as the resolution, since pinning leaves the break in the latest release",
+        "evidence": "\"a stopgap, not a fix. It leaves `latest` pointing at the broken release.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a fix-forward 4.7.1 that restores the process-TZ default, as the SemVer FAQ prescribes for a break shipped in the latest release",
+        "evidence": "\"Publish 4.7.1 with the process-TZ default restored\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends npm deprecate on 4.7.0 as the withdrawal mechanism rather than unpublishing it",
+        "evidence": "\"npm deprecate tidewatch@4.7.0 ...\"; \"Do not unpublish.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names 'a break shipped as a minor or patch' as a policy trigger for withdrawing a release",
+        "evidence": "\"we deprecate a release only for a security hole, data loss, or a break shipped as a minor or patch\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a changed default is breaking when callers relied on it, even with no signature change",
+        "evidence": "\"A changed default is a breaking change, even when no signature changes.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the UTC default change to the next major, 5.0.0, rather than dropping the change",
+        "evidence": "\"5.0.0: flip the default, with a migration guide.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes default values into the Covered by this promise list of the policy",
+        "evidence": "\"Every default value, including the default time zone...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes the npm rule that an unsure change is treated as breaking because a break shipped as a minor reaches production through automerge",
+        "evidence": "\"Dependents automerge minors and patches, so a break shipped as a minor reaches production without review.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Adds a release-time check that the tag, the manifest version and the changelog entry agree",
+        "evidence": "\"The git tag, `package.json` version, and changelog entry agree.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not file 4.7.0 under Known past breaks, since the break is in the latest release and gets restored instead of kept",
+        "evidence": "\"Known past breaks: 4.7.0 changed the default time zone from the process TZ to UTC. 4.7.1 restored it.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends tracking releases whose number and changelog disagree, with a target of zero",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects option (a) because published versions are immutable and npm never allows republishing the same version, even after unpublish",
+        "evidence": "\"npm never lets you reuse a version number, even after unpublish.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects option (b) because SemVer ignores build metadata for precedence and npm strips it, so 4.7.0+hotfix cannot be told apart from 4.7.0",
+        "evidence": "\"Semver ignores build metadata when comparing versions\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects option (c) as the resolution, since pinning leaves the break in the latest release",
+        "evidence": "\"Use it as a stopgap only... the other ~300k keep floating onto 4.7.0.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a fix-forward 4.7.1 that restores the process-TZ default, as the SemVer FAQ prescribes for a break shipped in the latest release",
+        "evidence": "\"Publish 4.7.1\" after \"Revert the default to the process TZ\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends npm deprecate on 4.7.0 as the withdrawal mechanism rather than unpublishing it",
+        "evidence": "\"Deprecate 4.7.0 (npm deprecate tidewatch@4.7.0 ...)\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names 'a break shipped as a minor or patch' as a policy trigger for withdrawing a release",
+        "evidence": "The bad-release response is keyed to a \"first confirmed report\", not to a break shipped in a minor or patch.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a changed default is breaking when callers relied on it, even with no signature change",
+        "evidence": "\"Breaking changes are defined by behavior, not signatures... defaults, timezones\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the UTC default change to the next major, 5.0.0, rather than dropping the change",
+        "evidence": "\"v5.0.0: change the default to UTC, with a migration guide\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes default values into the Covered by this promise list of the policy",
+        "evidence": "Policy lists \"defaults, timezones and locale\" in the breaking-change definition.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes the npm rule that an unsure change is treated as breaking because a break shipped as a minor reaches production through automerge",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds a release-time check that the tag, the manifest version and the changelog entry agree",
+        "evidence": "Release owner checklist covers behavior differences and soak only.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not file 4.7.0 under Known past breaks, since the break is in the latest release and gets restored instead of kept",
+        "evidence": "The revert is treated as a fix-forward; no Known past breaks entry.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends tracking releases whose number and changelog disagree, with a target of zero",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

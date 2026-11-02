@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to supply an advocate-to-developer ratio as a benchmark.",
+        "evidence": "\"There is no industry-benchmark ratio of advocates-to-registered-developers to give you, and if someone hands you one, it's not a standard\" and \"Don't bring your CFO a ratio.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that every circulating headcount ratio is a single-company anecdote rather than a measured standard.",
+        "evidence": "\"Every 'X advocates per Y developers' figure in circulation (Slack decks, DevRel newsletters, HR benchmarking tools) comes from a single company's headcount at a single point in time, not from a measured cross-company study.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Derives the headcount from an inventory of recurring surfaces instead of from a ratio.",
+        "evidence": "\"Headcount follows the math: `target headcount = ceil(total weekly surface-hours required \u00f7 (0.7 \u00d7 40))`. Whatever that number is, it's your ask \u2014 sourced from your own surfaces, not from an anecdote.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks for or lists the recurring surfaces the company has committed to (docs, quickstart, blog, community venue, event calendar, SDKs, sample apps, changelog, support presence, repositories).",
+        "evidence": "\"List every recurring surface your 2 advocates currently touch or are expected to touch: docs, quickstarts, blog, community venues (Discord/forum/Slack), event calendar and travel, SDK/sample-app maintenance, champions program, changelog, support escalations, OSS repo triage.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Records a named person as owner today for each surface, plus that person's manager.",
+        "evidence": "The transcript only asks to record \"who owns it today, hours/week it actually takes, and what happens if it stops\" \u2014 no mention anywhere of recording that owner's manager.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Records hours per week each surface really takes.",
+        "evidence": "\"For each one, record: who owns it today, hours/week it actually takes...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Records what happens if each surface stops.",
+        "evidence": "\"...and what happens if it stops (nothing / slow decay / visible outage).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Marks each surface as owned, shared, unowned, or informally absorbed by someone with a different job title.",
+        "evidence": "No such classification scheme appears; the closest phrasing is \"unowned, understaffed, or running at bus-factor-one,\" which is a different taxonomy than owned/shared/unowned/informally-absorbed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Plans against at most 70% of declared capacity.",
+        "evidence": "\"Cap planned capacity at 70% of the two advocates' declared hours \u2014 support load, launches and travel eat the rest...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the 70% ceiling as a chosen, adjustable baseline rather than an industry standard or benchmark.",
+        "evidence": "The 70% figure is only justified functionally (\"support load, launches and travel eat the rest, so a plan built on 100% turns into unplanned overtime\") \u2014 the transcript never states it is an adjustable baseline rather than a standard.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires one accountable owner plus one named backup per surface, and flags any surface at a bus factor of one as a risk.",
+        "evidence": "The transcript flags bus-factor-one as a risk (\"running at bus-factor-one (one person, no backup \u2014 an outage waiting for a resignation)\") and asks \"Which of those surfaces has no backup right now if one advocate leaves?\" but never requires assigning one accountable owner plus one named backup per surface.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States in the answer that the headcount figure was derived from the surface table, and quotes no compensation band.",
+        "evidence": "\"That table is also what makes 'four more heads' defensible line by line: each new hire maps to a named surface...\" No compensation figures appear anywhere in the transcript.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to supply an advocate-to-developer ratio as a benchmark.",
+        "evidence": "\"Short answer: there isn't a credible industry-standard ratio you can put in front of a CFO. Don't lead with one\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that every circulating headcount ratio is a single-company anecdote rather than a measured standard.",
+        "evidence": "\"What circulates in talks and blog posts is self-reported, single-company anecdote, not benchmarked data.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Derives the headcount from an inventory of recurring surfaces instead of from a ratio.",
+        "evidence": "Headcount is derived from 'a named capacity gap and one activation/retention metric,' not from any surface inventory.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks for or lists the recurring surfaces the company has committed to (docs, quickstart, blog, community venue, event calendar, SDKs, sample apps, changelog, support presence, repositories).",
+        "evidence": "No such list is requested or produced anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Records a named person as owner today for each surface, plus that person's manager.",
+        "evidence": "No owners or managers are recorded; no surface-level detail exists.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Records hours per week each surface really takes.",
+        "evidence": "No hours-per-week figures appear anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Records what happens if each surface stops.",
+        "evidence": "Only a generic 'workload gap' list (SLA misses, backlog) is given, not per-surface consequences.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Marks each surface as owned, shared, unowned, or informally absorbed by someone with a different job title.",
+        "evidence": "No such classification exists in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Plans against at most 70% of declared capacity.",
+        "evidence": "No 70% capacity ceiling or any capacity-planning percentage is mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels the 70% ceiling as a chosen, adjustable baseline rather than an industry standard or benchmark.",
+        "evidence": "No such ceiling appears at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires one accountable owner plus one named backup per surface, and flags any surface at a bus factor of one as a risk.",
+        "evidence": "No owner/backup structure or bus-factor language appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States in the answer that the headcount figure was derived from the surface table, and quotes no compensation band.",
+        "evidence": "No surface table exists to be cited as the derivation source, though no compensation band is quoted either.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

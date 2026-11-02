@@ -4,7 +4,7 @@ description: Engineers a technical demo so it survives the stage - risk triage, 
 license: MIT
 metadata:
   author: Samuel Berthe
-  version: "1.0.2"
+  version: "1.0.4"
 ---
 
 # Live Demo Design
@@ -203,7 +203,7 @@ The engineering above is identical for every audience. The demo data and the acc
 
 - **B2B and enterprise** - a buyer, architect or security reviewer is in the room, whatever the venue. Seed realistic-looking domain data; `foo`, `test1` and `asdf` read as "never used". Never touch production or show another customer's data, and clear anything embargoed first. Run from a sandbox tenant with read-only credentials where the product allows it.
 - **Sales and customer calls** - one buyer, one pain point, not a room. Ask what they came to see and open on that instead of the fixed sequence; a failed segment recovers into the next one's claim, since there's no slide deck to retreat to. Carry the sandbox-tenant rule above - the highest-stakes place for a leaked customer name.
-- **Booth-floor** - a stream of passers-by, not a seated room; most decide within seconds. Lead with the most visually obvious segment, never the setup. Expect interruption and restart every few minutes, so every segment needs its own restore point even more than on stage. Ambient noise rules out audio-dependent bits; check contrast under the venue's real lighting. Qualify interest with one question first.
+- **Booth-floor** - a stream of passers-by, not a seated room; most decide within seconds. Lead with the most visually obvious segment, never the setup. Expect interruption and restart every few minutes, so every segment needs its own restore point even more than on stage. Ambient noise rules out audio-dependent bits; check contrast under the venue's real lighting. Qualify interest with one question first. Who staffs the booth, the floor scripts and lead capture around the demo belong to `samber/developer-relations-skills@developer-booth-playbook`.
 - **B2C and indie developer** - the credibility question is "can I do this tonight, for free". Show the real install or signup path and the real time it takes, on a plan the audience could have. A pre-authenticated session hiding ten minutes of setup is the fastest way to lose them.
 - **Internal and all-hands** - tolerance for a rough demo is higher, but data risk isn't. Unreleased features, customer names and revenue figures leak from internal demos through the recording.
 
@@ -229,3 +229,4 @@ The engineering above is identical for every audience. The demo data and the acc
 - samber/developer-relations-skills@tech-talk-outline for where the demo belongs in the talk and how many minutes it may spend.
 - samber/developer-relations-skills@technical-video-script for scripting the recorded version of the demo.
 - samber/developer-relations-skills@developer-quickstart-guide for turning the demo path into a documented first-success path afterwards.
+- samber/developer-relations-skills@devrel-live-streaming for the recurring live coding show a demo runs inside: platform, moderation, on-screen secret safety.

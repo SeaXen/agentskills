@@ -1,0 +1,266 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "devrel-live-streaming",
+  "scenarios": 7,
+  "expectations_total": 80,
+  "expectations_subjective": 1,
+  "expectations_objective": 79,
+  "pass_rate_with_skill_pct": 93.8,
+  "pass_rate_without_skill_pct": 37.5,
+  "delta_pp": 56.3,
+  "uplift_multiplier": 2.5,
+  "trigger_accuracy_pct": 50.0,
+  "trigger_queries": 60,
+  "trigger_positive_fire_rate": 0.133,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.309 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 5,
+        "expectation": "States that the older streams are probably unrecoverable unless someone recorded locally, exported them, or saved Highlights, and that Prime or Turbo on the account owner would have extended retention to 60 days"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that the platform tick does not replace a clear in-stream disclosure"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Ranks options explicitly by value per effort (efficiency), not just lists them"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names what the efficiency order starves and when to promote it"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Suggests recording instead of streaming when no live interaction is planned"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Recommends one home platform for the show rather than equal treatment of all four"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that Twitch's written simulcasting rules ban showing merged chat on the Twitch stream, so the Restream merged-chat overlay cannot go on the Twitch output"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that Twitch viewers may not be sent to another streaming platform (for example no YouTube link pasted in Twitch chat)"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that a LinkedIn Live stream goes to only one destination (event, profile or Page), so company page and personal profile at once is not possible"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that LinkedIn Lives must be scheduled events (no spontaneous go-live)"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Requires a moderator for each additional chat that is kept, who relays questions to the host"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Rejects or reduces the 3x-weekly solo cadence, citing host capacity or burnout"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Derives the number of episodes from host hours per week and hours per episode (prep, moderation, repurposing), not from a frequency target"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Mentions that X encoder/RTMP streaming needs a Premium subscription"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Labels platform rules separately from practitioner claims"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Includes a step to set metrics or a continue bar before the first episode"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that since June 2026 LinkedIn Lives cannot be started spontaneously and must be scheduled as an event"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that at stream start notifications go to event attendees, not to all page followers"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Recommends creating the LinkedIn event as soon as possible and inviting connections, noting LinkedIn advises about two weeks of lead time"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that links posted in LinkedIn Live comments are not clickable"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that LinkedIn's live guidelines discourage selling or promotional streams, and moves the discount pitch out of the stream or tones it down"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes LinkedIn Live eligibility criteria (more than 150 followers, account or Page at least 30 days old) or confirms the page meets them"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Builds the run-of-show around viewer questions (for example collected in advance) rather than a feature walkthrough only"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Keeps any starting screen short (one to two minutes at most)"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends a dedicated demo account with scoped, low-limit keys"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends rotating the demo keys after every stream"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends a privacy or BRB scene to cut to before any credential screen"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Mentions protecting the stream key itself (not visible in captured scenes or shared documents)"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends cutting the vulnerability segment from the archive or VOD and any clips"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Assigns at least one named moderator who is not the host"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Explains that since 24 August 2026 YouTube counts a view from the first frame of playback, so the 12.4k public views are not comparable or meaningful as an outcome"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Proposes unique chatters divided by average viewers (chat participation rate)"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Proposes returning viewers across episodes as a health metric"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Proposes counting docs or product fixes traced to viewer questions"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names a fallback if the bar is missed (for example guesting on other streams instead of hosting)"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that Twitch past-broadcast storage is not enabled by default"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that for a non-Affiliate channel past broadcasts are kept only about 7 days"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that the older streams are probably unrecoverable unless someone recorded locally, exported them, or saved Highlights, and that Prime or Turbo on the account owner would have extended retention to 60 days"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Mentions the 100-hour cap on Highlights and uploads as a reason not to rely on Twitch for the library"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends stream markers or timestamp notes during the stream to find segments worth keeping"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Warns that raw live coding repurposes poorly into tutorials and recommends cutting answers or segments, not whole streams"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Routes course or library planning (titles, playlists, Shorts) to samber/developer-relations-skills@devrel-youtube-channel or a recorded-video workflow"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Mentions that Affiliate status would extend retention to 14 days, without treating it as the fix"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Flags that a show on Marco's personal channel (and his Affiliate status) leaves with him"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends a company-owned account for the official show, with 2FA and moderator or editor roles"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Evaluates whether to host a show at all before any equipment advice"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that with nobody able to moderate during the slot, hosting a recurring show is not recommended (or must wait until a moderator exists)"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends guest appearances on established developer streams as the first move"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Mentions launch-day streams as an option for the near-term"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Ranks options explicitly by value per effort (efficiency), not just lists them"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names what the efficiency order starves and when to promote it"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Asks or states the effort ceiling, deadline, or one-off versus compounding goal"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Keeps equipment advice brief and secondary (audio first if mentioned)"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends the show account be company-owned, not the CEO's personal account"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Suggests recording instead of streaming when no live interaction is planned"
+      }
+    ]
+  }
+}

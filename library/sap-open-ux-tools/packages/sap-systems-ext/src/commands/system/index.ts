@@ -1,0 +1,46 @@
+import type { SapSystemsExtContext, SystemCommandContext, SystemCommandHandler } from '../../types/system';
+import { commands } from 'vscode';
+import { PanelManager, type SystemPanel } from '../../panel';
+import { SystemCommands } from '../../utils/constants';
+import { createSystemCommandHandler, createNewSystemCommandHandler } from './create';
+import { showSystemsCommandHandler } from './show';
+import { deleteSystemCommandHandler } from './delete';
+import { refreshSystemsCommandHandler } from './refresh';
+import { importSystemCommandHandler } from './import';
+import { launchAppGenCommandHandler } from './launchAppGen';
+
+export const commandHandlers: Record<string, SystemCommandHandler> = {
+    create: createSystemCommandHandler,
+    createNew: createNewSystemCommandHandler,
+    show: showSystemsCommandHandler,
+    import: importSystemCommandHandler,
+    delete: deleteSystemCommandHandler,
+    refresh: refreshSystemsCommandHandler,
+    launchAppGen: launchAppGenCommandHandler
+};
+
+/**
+ * Register system related commands.
+ *
+ * @param context - the extension context
+ */
+export const registerSystemViewCommands = (context: SapSystemsExtContext): void => {
+    const panelManager = new PanelManager<SystemPanel>();
+
+    const systemCommandContext: SystemCommandContext = {
+        extContext: context,
+        panelManager
+    };
+
+    const disposables = [
+        commands.registerCommand(SystemCommands.Create, commandHandlers.create(systemCommandContext)),
+        commands.registerCommand(SystemCommands.CreateNew, commandHandlers.createNew(systemCommandContext)),
+        commands.registerCommand(SystemCommands.Show, commandHandlers.show(systemCommandContext)),
+        commands.registerCommand(SystemCommands.Delete, commandHandlers.delete(systemCommandContext)),
+        commands.registerCommand(SystemCommands.Import, commandHandlers.import(systemCommandContext)),
+        commands.registerCommand(SystemCommands.Refresh, commandHandlers.refresh(systemCommandContext)),
+        commands.registerCommand(SystemCommands.LaunchAppGen, commandHandlers.launchAppGen(systemCommandContext))
+    ];
+
+    context.vscodeExtContext.subscriptions.push(...disposables);
+};

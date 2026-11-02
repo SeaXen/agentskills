@@ -1,0 +1,118 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Response aims the explanation one level below the deepest listener, not at the principal engineers or the compiler-background host.",
+        "evidence": "\"Depth calibration works by finding the deepest listener and pitching one level below them... One below the ceiling lands you on the second row\" combined with 'Never say: function/type names, wire-format detail, literal code, formal notation' (excluding true formalism even for the host).",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response gives the reason: the median listener has to stay in the conversation.",
+        "evidence": "\"pitching one level below them so the median stays in the room\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response refuses to narrate the five-node-state diagram aloud and replaces it with a physical metaphor plus one number.",
+        "evidence": "\"Diagram \u2192 metaphor + one number, per the format rule for audio. Don't describe boxes and arrows; describe roles and a timeout.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response refuses to read or walk through code aloud and replaces the Raft comparison with the shape of the call.",
+        "evidence": "\"Same rule, no code. Turn 'here's the diff in code' into one quantified structural sentence \u2014 shape of the call, not the call itself\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response rounds every number used and pairs each one with a comparison rather than stating an absolute alone.",
+        "evidence": "\"Round the numbers and always pair each one with a comparison point (a bare number teaches nothing on audio)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response anchors the explanation for hands-on engineers in API surface, failure modes and migration cost, and leaves out org framing and market size.",
+        "evidence": "Table row: \"Hands-on engineers (your median) | API surface, failure modes, migration cost | org framing, market size\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response writes a one-sentence definition for each unavoidable piece of jargon.",
+        "evidence": "The response only gives the general instruction \"Explain in one sentence each: the two or three terms...\" without actually writing out concrete one-sentence definitions for specific jargon terms.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response names \"picture a box with three arrows\" style narration as a failure mode for audio.",
+        "evidence": "\"Don't describe boxes and arrows; describe roles and a timeout.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response does not make a visual aid, screen share or slide the thing that carries the explanation during the recording.",
+        "evidence": "\"it's also exactly what audio-only already forces (no code read aloud, no screen-dependent diagram)\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Response aims the explanation one level below the deepest listener, not at the principal engineers or the compiler-background host.",
+        "evidence": "'Anchor the default explanation at the level of a mid-level backend dev... Treat the principal engineers and the compiler-guy host as people you go deeper for, on demand.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response gives the reason: the median listener has to stay in the conversation.",
+        "evidence": "'That keeps the majority of listeners oriented while still rewarding the people who came for depth.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response refuses to narrate the five-node-state diagram aloud and replaces it with a physical metaphor plus one number.",
+        "evidence": "Replacement is a narrative device ('narrate a day in the life of one node... Give each state a memorable, sticky name'), not a physical metaphor paired with a number.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response refuses to read or walk through code aloud and replaces the Raft comparison with the shape of the call.",
+        "evidence": "'Reading code on audio is close to useless... Compress it to the shape of the difference: \"Raft does the commit in one phase... We split it into two phases because...\"'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response rounds every number used and pairs each one with a comparison rather than stating an absolute alone.",
+        "evidence": "No protocol-specific numbers are given anywhere in the response to round or pair; only airtime percentages (70/20/10) appear, unrelated to technical content.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response anchors the explanation for hands-on engineers in API surface, failure modes and migration cost, and leaves out org framing and market size.",
+        "evidence": "No such framing appears; content is entirely about protocol mechanics and delivery structure.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response writes a one-sentence definition for each unavoidable piece of jargon.",
+        "evidence": "Terms like 'replication, quorum, network partition, leader' are named as assumed vocabulary but never individually defined.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response names \"picture a box with three arrows\" style narration as a failure mode for audio.",
+        "evidence": "The closest analog is 'Don't enumerate \"there are five states: A, B, C, D, E\" up front,' which is a different specific example than the diagram-arrow framing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response does not make a visual aid, screen share or slide the thing that carries the explanation during the recording.",
+        "evidence": "'the audio constraint doesn't have to mean the diagram and code never see daylight, just that they're not the thing carrying the live explanation.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

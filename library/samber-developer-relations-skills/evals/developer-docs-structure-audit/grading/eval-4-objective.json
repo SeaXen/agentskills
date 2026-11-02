@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects creating the four empty top-level sections ahead of content that fills them",
+        "evidence": "'Empty scaffolding. Wiring 4 new top-level sections into the sidebar before content exists is the exact thing Di\u00e1taxis calls out by name'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason that empty structures advertise the gaps and force readers to learn a vocabulary before they can navigate",
+        "evidence": "The stated reader-impact reason given is only 'Readers hit empty or near-empty sections for a full quarter while you backfill' \u2014 no mention of advertising gaps or forcing new vocabulary.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the Q3 teardown, stating that rewriting the docs site is an abdication rather than a recommendation",
+        "evidence": "\"Skill's wording: 'Rewrite the docs site is not a recommendation, it is an abdication.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the documentation to stay useful at every step of the remediation",
+        "evidence": "\"'Keep the documentation useful at every step of the remediation.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Proposes the small remediation loop: choose something, assess it, decide the single next action that produces an immediate improvement, do it, publish, repeat",
+        "evidence": "The plan lists inventory\u2192rank\u2192ship-one-at-a-time\u2192tree test, but never states the explicit choose/assess/decide/do/publish/repeat loop structure.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires each action to ship alone and improve the docs by itself rather than paying off only at the end of the quarter",
+        "evidence": "'Ship one item at a time. Publish after each. A section goes live in the sidebar only once it holds real content \u2014 not on day one of the sprint.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Insists on a complete page inventory before any page is judged or moved",
+        "evidence": "'Inventory all 90 pages first (docs-inventory.py if you have repo access, else build by hand from nav + open pages). Classify each...'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not assume the four mode names should become the navigation labels",
+        "evidence": "The text challenges 'exactly these 4 top-level sections' rather than endorsing mode names as nav labels.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that moving 90 pages breaks inbound links unless a redirect accompanies each move",
+        "evidence": "'Can you ship redirects? If not, every \"move\" and \"rename\" is off the table entirely (broken links).'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Points out that Diataxis itself rules out both the empty scaffolding and the teardown",
+        "evidence": "Only the empty-scaffolding rejection is explicitly attributed to Di\u00e1taxis ('Di\u00e1taxis calls out by name'); the teardown rejection is attributed to 'Skill's wording', not explicitly to Di\u00e1taxis.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Starts from findings tied to specific pages rather than from a target structure",
+        "evidence": "No specific page-level findings are presented in this transcript; it only recommends running an inventory to later obtain such findings.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not endorse a quarter of docs downtime",
+        "evidence": "'A quarter where 90 pages sit half-migrated is not \"useful at every step\" \u2014 it's the failure mode the audit exists to prevent.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects creating the four empty top-level sections ahead of content that fills them",
+        "evidence": "'Fix: cut over section-by-section as each bucket fills, not all four at once up front. Keep the old sidebar live until a section has real content behind it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason that empty structures advertise the gaps and force readers to learn a vocabulary before they can navigate",
+        "evidence": "The stated reason is different: 'means real users hit empty or half-stocked sections for most of Q3,' not about advertising gaps or forcing new vocabulary.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the Q3 teardown, stating that rewriting the docs site is an abdication rather than a recommendation",
+        "evidence": "The document accepts the Q3 timeline explicitly: 'Same destination, same quarter, most of the risk removed' \u2014 it never calls the teardown an abdication.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the documentation to stay useful at every step of the remediation",
+        "evidence": "'Keep the old sidebar live until a section has real content behind it' and 'Ship one batch, watch Search Console/analytics for a week, then move the next' ensure continuous usability.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Proposes the small remediation loop: choose something, assess it, decide the single next action that produces an immediate improvement, do it, publish, repeat",
+        "evidence": "The proposal is batch-by-traffic-tier migration, not an explicit choose-assess-act-publish-repeat loop.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires each action to ship alone and improve the docs by itself rather than paying off only at the end of the quarter",
+        "evidence": "'Batch by product area or by traffic tier. Ship one batch, watch Search Console/analytics for a week, then move the next. Small blast radius per step.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Insists on a complete page inventory before any page is judged or moved",
+        "evidence": "No inventory step is required; the plan discusses pages in aggregate (traffic tiers, product areas) without demanding a full inventory first.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not assume the four mode names should become the navigation labels",
+        "evidence": "The critique accepts 'wiring four new top-level sections into nav' as given and never challenges using the four Di\u00e1taxis mode names as literal nav labels.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that moving 90 pages breaks inbound links unless a redirect accompanies each move",
+        "evidence": "'Every changed URL needs a 301 to its new home or you lose backlink equity, break external links... Build the full old-URL \u2192 new-URL map as a first deliverable.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Points out that Diataxis itself rules out both the empty scaffolding and the teardown",
+        "evidence": "The document critiques sequencing and risk management but never cites Di\u00e1taxis itself as the authority ruling out these approaches.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Starts from findings tied to specific pages rather than from a target structure",
+        "evidence": "The document opens by endorsing the target structure ('Di\u00e1taxis... is the right target shape... The problem isn't the destination') rather than starting from page-level findings; no specific pages are named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not endorse a quarter of docs downtime",
+        "evidence": "'what actually happens is the docs stay live and indexed while structurally inconsistent \u2014 worse for SEO than an outage' explicitly rejects the downtime framing.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

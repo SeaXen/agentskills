@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses a feature-by-feature structure and names it as the feature-tour anti-pattern",
+        "evidence": "\"Marketing's ask \u2014 all seven in the talk \u2014 is this skill's named anti-pattern: a feature tour has no tension and nothing to remember...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the only legitimate feature tour is a release keynote, where the audience explicitly came for the list",
+        "evidence": "No mention of 'keynote' or any legitimate-feature-tour exception appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Makes the problems the pillars and demotes each feature to evidence under the problem it solves",
+        "evidence": "\"Adaptive sampling + per-service budgets \u2192 evidence under Pillar 1 (same problem, two knobs)\" and similar mappings for Pillars 2 and 3.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a feature with no problem to sit under is cut from the talk",
+        "evidence": "\"Terraform provider \u2192 cut from the body. It doesn't sit under an SRE pain point... Give it one line on the closing link slide...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reduces the seven features to at most three pillars",
+        "evidence": "The Pillars section lists exactly three pillars (1, 2, 3), with all seven features mapped into them or cut.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Calibrates depth one level below the deepest listener in the room so the median attendee stays in, rather than targeting the average or the most senior",
+        "evidence": "No discussion of depth calibration relative to the deepest listener appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the curse of knowledge and states that the speaker's own depth estimate errs toward too deep, never too shallow",
+        "evidence": "The phrase 'curse of knowledge' and any related claim about depth-estimate bias do not appear anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites the tapper and listener figures as 50 percent predicted against 2.5 percent actually named",
+        "evidence": "No such figures or study are mentioned anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Attributes those figures to Heath and Heath's retelling in Made to Stick rather than directly to the 1990 Stanford study",
+        "evidence": "Neither Heath and Heath, Made to Stick, nor the Stanford study are mentioned anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names, per pillar, the single term the speaker will define out loud, instead of simplifying the whole talk",
+        "evidence": "\"Term to define out loud: tail-based sampling\" (Pillar 1), \"semantic conventions\" (Pillar 2), \"trace diffing\" (Pillar 3).",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends having someone outside the team read the outline and mark where they got lost",
+        "evidence": "The rehearsal plan only asks for \"Get a colleague to read only this outline and say the arrow back in one sentence, unprompted\" \u2014 no instruction to mark where they got lost.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the speaker to say in the first minute that they work on the product, name competing approaches fairly, and state where Corvid is the wrong choice",
+        "evidence": "The transcript explicitly places this at minute two, not minute one: \"naming it in minute two is the only version that doesn't retroactively turn the whole talk into an ad.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason that an engineering audience discovers the affiliation anyway, and a late reveal retroactively turns the whole talk into an advertisement",
+        "evidence": "\"An SRE-heavy room will clock the affiliation regardless \u2014 naming it in minute two is the only version that doesn't retroactively turn the whole talk into an ad.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses a feature-by-feature structure and names it as the feature-tour anti-pattern",
+        "evidence": "\"\u26a0\ufe0f First, the thing to push back on with marketing:** 7 features in 30 minutes is 4 minutes each after intro/close \u2014 that's a spec sheet read aloud, not a talk... The fix isn't cutting features, it's cutting the *feature-tour format*.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the only legitimate feature tour is a release keynote, where the audience explicitly came for the list",
+        "evidence": "No mention of release keynotes or any exception case for legitimate feature tours anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Makes the problems the pillars and demotes each feature to evidence under the problem it solves",
+        "evidence": "The structure is organized as a chronological incident narrative (\"Cold open\", \"Detection\", \"Investigation\", \"Resolution\") rather than a set of named problems used as organizing pillars with features subordinated to them.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a feature with no problem to sit under is cut from the talk",
+        "evidence": "The transcript instead gives a time-management cut list (\"If you're running long, cut in this order\") based on time budget, not on whether a feature lacks a problem to sit under; all 7 features are retained in the structure.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reduces the seven features to at most three pillars",
+        "evidence": "All seven features are kept and mapped across the incident timeline (OTel ingest, Terraform, anomaly detection, adaptive sampling/budgets, query language, trace-diff), summarized at the end as \"all 7 named explicitly\" rather than reduced to three pillars.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Calibrates depth one level below the deepest listener in the room so the median attendee stays in, rather than targeting the average or the most senior",
+        "evidence": "No statement anywhere about calibrating talk depth relative to the deepest listener; the only audience segmentation given is the Q&A prep breakdown by role (60/30/10), not a depth-calibration rule for the talk content itself.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the curse of knowledge and states that the speaker's own depth estimate errs toward too deep, never too shallow",
+        "evidence": "The term \"curse of knowledge\" and any claim about the speaker's depth estimate bias do not appear in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites the tapper and listener figures as 50 percent predicted against 2.5 percent actually named",
+        "evidence": "No tapper/listener statistic or any percentage figures of this kind appear anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Attributes those figures to Heath and Heath's retelling in Made to Stick rather than directly to the 1990 Stanford study",
+        "evidence": "Neither the tapper/listener study nor Heath and Heath / Made to Stick is mentioned in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names, per pillar, the single term the speaker will define out loud, instead of simplifying the whole talk",
+        "evidence": "There are no defined 'pillars' in the transcript's structure, and no per-item instruction to define a single term out loud.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends having someone outside the team read the outline and mark where they got lost",
+        "evidence": "No recommendation of this kind appears; the only external-facing device mentioned is audience Q&A anticipation by role, not an outside reader reviewing the outline.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the speaker to say in the first minute that they work on the product, name competing approaches fairly, and state where Corvid is the wrong choice",
+        "evidence": "The cold open only says \"Who you are and Corvid get one sentence, in passing, not a slide\" \u2014 it does not require naming competing approaches fairly or stating where Corvid is the wrong choice.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason that an engineering audience discovers the affiliation anyway, and a late reveal retroactively turns the whole talk into an advertisement",
+        "evidence": "No such reasoning about affiliation discovery or retroactive advertisement framing appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

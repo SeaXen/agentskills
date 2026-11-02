@@ -8,7 +8,7 @@
 <a href="https://trendshift.io/repositories/137042?utm_source=trendshift-badge&amp;utm_medium=badge&amp;utm_campaign=badge-trendshift-137042" target="_blank" rel="noopener noreferrer"><img src="https://trendshift.io/api/badge/trendshift/repositories/137042/weekly?language=JavaScript" alt="Trendshift Weekly Trending" width="250" height="55"/></a>
 
 [![npm version](https://img.shields.io/npm/v/antislop-ai?style=flat-square&color=cb3837&label=npm)](https://www.npmjs.com/package/antislop-ai)
-[![Node.js](https://img.shields.io/badge/Node.js-18%2B-339933?style=flat-square&logo=nodedotjs&logoColor=white)](cli/package.json)
+[![Node.js](https://img.shields.io/badge/Node.js-20.12%2B-339933?style=flat-square&logo=nodedotjs&logoColor=white)](cli/package.json)
 [![skills.sh](https://skills.sh/b/miqdadbadjuber/anti-slop?style=flat-square)](https://skills.sh/miqdadbadjuber/anti-slop)
 [![MIT license](https://img.shields.io/badge/license-MIT-f4c430?style=flat-square)](LICENSE)
 [![Discord](https://img.shields.io/badge/Discord-join-5865F2?style=flat-square&logo=discord&logoColor=white)](https://discord.gg/VWKggJfHFR)
@@ -152,7 +152,7 @@ curl -o antislop.md https://raw.githubusercontent.com/miqdadbadjuber/anti-slop/m
 
 ## What it does
 
-- **38 mandatory rules** (R-01 to R-38) in three tiers: Hard Gate, Purpose-Gate, and Quality Locks.
+- **40 mandatory rules** (R-01 to R-40) in three tiers: Hard Gate, Purpose-Gate, and Quality Locks.
 - **A Liveliness Toolkit**: three dials (ENERGY / RHYTHM / MOTION) and a Design Read, so the result comes out alive rather than merely clean.
 - **A Delivery Gate**: a mandatory PASS/FAIL report in four blocks, run before anything ships.
 - **Six skills**, one per concern, so an agent loads only what a task needs.
@@ -164,9 +164,9 @@ The core prevents slop but cannot invent direction. `DESIGN.md` (yours) supplies
 | Skill | Covers | Pick it for |
 |-------|--------|-------------|
 | antislop | The core filter: rules, tiers, the Delivery Gate, liveliness | Everything. Always loaded |
-| antislop-ui | Layout, color, components, decoration, motion, structure | UI and visual work |
+| antislop-ui | Layout, color, components, decoration, motion, structure, performance | UI and visual work |
 | antislop-copywriting | Headlines, CTAs, tone, fake stats, anti-AI writing, markdown hygiene | Copy and text |
-| antislop-human | Contrast, keyboard, focus, states | Accessibility |
+| antislop-human | Contrast, keyboard, focus, states, interaction affordances | Accessibility |
 | antislop-layoutmobile | Reflow across screen widths, breakpoints, grids, overflow, tap targets | Responsive work |
 | antislop-code | AI-slop comments: which to remove, which to keep | Comment cleanup |
 
@@ -212,7 +212,13 @@ A folder that goes deeper into one concern, holding a `SKILL.md` with its rules.
 
 ## Roadmap
 
-**v3.2.23** fixes the version the installer reports for a plugin copy. A Kimi Code, Cline, or Oh My Pi store that kept an old copy beside the new one could report the old version, and Codex ranked 3.2.9 above 3.2.22. `npx antislop-ai --update` run from the home folder also stops writing a pointer into `~/CLAUDE.md`, `~/AGENTS.md`, and `~/GEMINI.md`.
+**v3.2.25** is a maintenance round for the installer:
+
+- **Node.js 20.12 or newer, said plainly.** The prompt library needs it, and an older Node used to stop with an error from inside `node_modules`. The wizard now names the Node it found and asks for an update, while `--version`, `--mode`, and `--update` still run on an older one. CI runs the smoke test on 20.12 too.
+- **No pointer in the home folder.** Picking "This project" from the home folder no longer writes `~/CLAUDE.md`. From community PR #48.
+- **A real npm package page.** The package ships the README and LICENSE. From community PR #51.
+- **A smoke test that stays in its temp folder.** It gets its own home from launch, so no runtime can write into the real one.
+- **A core skill that carries only what a skill route uses.** The generated `SKILL.md` drops the single-file install wizard, about 7 KB that no skill route runs. From issue #54 and community PR #55.
 
 Every earlier release, and what comes next, is in [ROADMAP.md](ROADMAP.md).
 
@@ -226,7 +232,7 @@ Thanks to everyone who helps make antislop better.
 
 <p align="center">
   <a href="https://github.com/miqdadbadjuber/anti-slop/graphs/contributors">
-    <img src="https://contrib.rocks/image?repo=miqdadbadjuber/anti-slop&v=3.2.23" alt="antislop contributors" />
+    <img src="https://contrib.rocks/image?repo=miqdadbadjuber/anti-slop&v=3.2.25" alt="antislop contributors" />
   </a>
 </p>
 

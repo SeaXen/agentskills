@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Routes the Discord health question to samber/developer-relations-skills@developer-community-health",
+        "evidence": "\"Discord dead-or-not | `developer-community-health` for the deep treatment; one row lives in this framework\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the UTM and tool-disagreement question to samber/developer-relations-skills@devrel-analytics",
+        "evidence": "\"UTM mess + GitHub vs analytics disagreement | `devrel-analytics` for the taxonomy; this framework decides *which* number each source is allowed to own\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the 40k booth return question to samber/developer-relations-skills@developer-event-sponsorship",
+        "evidence": "\"$40k DevRelCon booth return | `developer-event-sponsorship` for the full ROI treatment\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps only the program-wide quarterly reporting question in scope for itself",
+        "evidence": "\"What the CTO gets quarterly | **This skill. This is the deliverable.**\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not produce an event taxonomy, UTM convention or tracking plan as its deliverable",
+        "evidence": "\"The UTM taxonomy itself (naming convention, one campaign per tag, never reused) \u2192 `devrel-analytics`.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not produce a community-only health dashboard as its deliverable",
+        "evidence": "\"Full treatment (contributor funnel, sentiment) \u2192 `developer-community-health`.\" \u2014 only a brief 4-point diagnostic is given directly.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that choosing which metrics to report comes before instrumenting them",
+        "evidence": "Metric sheet rows are decided and included with pre-conditions noted (e.g. row 1 \"does not exist yet; one engineering ask\") before \"File the engineering ask\" appears as a later action step.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Hands any metric the team cannot instrument to samber/developer-relations-skills@devrel-analytics as a gap rather than assuming it away",
+        "evidence": "\"No `first_write_read` telemetry \u2192 the primary metric is an engineering request until shipped (~2 days, via `devrel-analytics`).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Uses the owner/repo@skill reference format when naming each routed skill",
+        "evidence": "The transcript only uses bare skill names in backticks (e.g. `developer-community-health`, `devrel-analytics`); the \"samber/developer-relations-skills@\" prefix never appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the pre-conditions each metric needs before it can enter the sheet",
+        "evidence": "Row 1: \"does not exist yet; one engineering ask\"; row 4: \"needs a staff/bot flag\"; row 7: \"needs sales-ops cooperation\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Calls a metric that fails its pre-conditions an instrumentation request rather than a metric",
+        "evidence": "\"the primary metric is an engineering request until shipped\" and \"community-to-expansion unmeasurable; needs an identity map\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes deciding which metrics deserve a target from making them collectable",
+        "evidence": "Routing table separates \"this framework decides *which* number each source is allowed to own\" from the taxonomy-building work handed to `devrel-analytics`.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Routes the Discord health question to samber/developer-relations-skills@developer-community-health",
+        "evidence": "No mention of 'samber/developer-relations-skills' or any skill routing appears; the Discord audit is answered directly in section 2 of the document.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the UTM and tool-disagreement question to samber/developer-relations-skills@devrel-analytics",
+        "evidence": "The UTM/GitHub-Traffic reconciliation is answered directly in section 1, with no routing to any named external skill.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the 40k booth return question to samber/developer-relations-skills@developer-event-sponsorship",
+        "evidence": "The booth ROI reconstruction is answered directly in section 3, with no routing to any named external skill.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps only the program-wide quarterly reporting question in scope for itself",
+        "evidence": "The document directly and fully answers all four items (UTM, booth ROI, Discord, CTO framework) itself, not narrowing scope to just the CTO report.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not produce an event taxonomy, UTM convention or tracking plan as its deliverable",
+        "evidence": "'Fixed taxonomy, three lists, documented once: utm_source (...), utm_medium (...), utm_campaign (...)' is a UTM convention delivered directly.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not produce a community-only health dashboard as its deliverable",
+        "evidence": "A full Discord health scorecard table with healthy/warning/action-needed thresholds is produced directly in section 2.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that choosing which metrics to report comes before instrumenting them",
+        "evidence": "No such sequencing principle is stated; the plan instead fixes instrumentation (UTM, Discord scorecard) before drafting the CTO reporting framework.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Hands any metric the team cannot instrument to samber/developer-relations-skills@devrel-analytics as a gap rather than assuming it away",
+        "evidence": "No such skill-routing or gap-handoff mechanism appears anywhere in the document.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Uses the owner/repo@skill reference format when naming each routed skill",
+        "evidence": "This reference format never appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the pre-conditions each metric needs before it can enter the sheet",
+        "evidence": "The CTO table has 'Confidence' labels (Verified/Directional/Self-reported) for existing rows, but no stated pre-conditions for entry into the sheet.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Calls a metric that fails its pre-conditions an instrumentation request rather than a metric",
+        "evidence": "No such distinction or terminology appears anywhere in the document.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes deciding which metrics deserve a target from making them collectable",
+        "evidence": "No such explicit distinction is drawn anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

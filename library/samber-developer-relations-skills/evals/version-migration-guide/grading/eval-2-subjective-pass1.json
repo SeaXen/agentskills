@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Orders the 11 breaking changes by blast radius rather than alphabetically or grouped by module",
+        "evidence": "Section 2's inventory table carries an explicit \"Blast radius (estimate)\" column and the 11 rows run broadly descending: #1 Very high (constructor), #2 Very high (default export), #3 High (CJS removal), #4 Very high (query interpolation), #5\u2013#7 High (pool options, TarnError subclasses, camelCase rows), #8\u2013#10 Medium (exec(), connect() callback, TARN_API_KEY), #11 Low (event emitter). The guide body in section 4 repeats this same order, and the answer explicitly flags the ranking as a maintainer-judgment estimate to be re-ranked against telemetry. It is clearly not alphabetical (TarnClient, def",
+        "score": 4,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Orders the 11 breaking changes by blast radius rather than alphabetically or grouped by module",
+        "evidence": "The list is neither alphabetical nor module-grouped, and it does have a loose descending arc \u2014 environment gates (1 Node, 2 TypeScript), then module system (3 ESM), then cross-cutting API changes (4 constructor, 5 pool, 6 callbacks), ending with the compile-time-only branded types (11), which is correctly placed last. But the ordering is never framed as blast-radius ordering, and there are clear inversions against it: #10 'Package exports restructured' (default\u2192named import, which touches every file that imports the SDK) sits ninth, below #9 retry and #8 errors; #2 (TypeScript version bump, a ",
+        "score": 2,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

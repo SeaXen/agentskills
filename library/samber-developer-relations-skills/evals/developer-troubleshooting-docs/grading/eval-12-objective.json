@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Names KCS or Knowledge-Centered Service as the operating model",
+        "evidence": "\"Four frameworks anchor what follows, so this is method, not taste: **KCS** (Consortium for Service Innovation) for the operating model...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Attributes KCS to the Consortium for Service Innovation",
+        "evidence": "\"**KCS** (Consortium for Service Innovation) for the operating model\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes the solve loop, capture while resolving, from the evolve loop, restructure for reuse",
+        "evidence": "\"Support (12), KCS Contributor role: raw draft at ticket-close time only \u2014 error text, environment, cause, resolution steps\" is distinguished from \"You, Coach + Publisher role: weekly triage, clustering, editing to structure, verification, publishing, findability wiring.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the resolving support engineer to capture the raw material at resolution time, while the error text and environment are still in front of them",
+        "evidence": "\"Root cause per KCS: capture has to happen *during* resolution, while the error text and environment are still in front of the resolver\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that entries reconstructed from memory are the ones that turn out wrong",
+        "evidence": "The transcript says \"reconstructed-from-memory entries are the ones that go stale first,\" which describes staleness over time, not entries turning out incorrect/wrong.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends a structured template field in the ticket tool capturing error text, environment, cause and resolution",
+        "evidence": "\"Next action, 10 minutes: add the capture field (error text / environment / cause / resolution) to your Zendesk ticket-close form.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a recurring pass that promotes repeat resolutions into entries",
+        "evidence": "\"Weekly (~3 hrs, you): export tickets with the field filled, run `scripts/error-cluster.py tickets.csv --min-count 3`, triage new/growing clusters.\" combined with \"Rank by reader-hours unblocked per hour of writing... Promotes: frequent+reproducible (afternoon each, empties queue fastest)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Describes the model as distributed authoring with centralized editing rather than a single owning role",
+        "evidence": "\"Support (12), KCS Contributor role: raw draft at ticket-close time only\" versus \"You, Coach + Publisher role: weekly triage, clustering, editing to structure, verification, publishing, findability wiring.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Assigns editing, standardization and information architecture to the technical writer, and the error string itself to engineers",
+        "evidence": "\"You, Coach + Publisher role: weekly triage, clustering, editing to structure, verification, publishing, findability wiring.\" and \"Engineering: not ongoing docs work. Only error-string wording changes (when the message itself is the defect)...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Corrects the Zendesk assumption: it creates an article from the ticket being worked but does not pre-populate the draft, so transcription time must be budgeted",
+        "evidence": "\"Zendesk assumption: wrong. Knowledge in Agent Workspace creates a blank help-center draft linked to the ticket being worked. No auto-fill from ticket text... Budget transcription time yourself\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that no promote-to-article tool clusters by root cause first, so the clustering step stays manual",
+        "evidence": "\"No auto-fill from ticket text, no clustering by root cause... every major helpdesk (Zendesk, Dynamics, Freshdesk, Salesforce, Oracle) skips root-cause clustering, so the button alone produces one page per ticket, not one page per failure.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that skipping clustering produces a page restating one customer's ticket instead of covering the failure",
+        "evidence": "\"...the button alone produces one page per ticket, not one page per failure.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives a coach-to-knowledge-worker ratio as a staffing input, roughly 1:5 to 1:8 at start-up moving toward about 1:50 at maturity",
+        "evidence": "\"KCS's own published ratio (v6 Practices Guide, Technique 7.1) is 1 coach to 5\u20138 contributors at start-up, loosening to ~1:50 mature.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Names KCS or Knowledge-Centered Service as the operating model",
+        "evidence": "No mention of KCS or Knowledge-Centered Service anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Attributes KCS to the Consortium for Service Innovation",
+        "evidence": "No mention of the Consortium for Service Innovation anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes the solve loop, capture while resolving, from the evolve loop, restructure for reuse",
+        "evidence": "\"Capture loop \u2014 continuous, cheap, runs on every ticket... Publish + decay loop \u2014 batched, weekly/monthly/quarterly, owned by you.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the resolving support engineer to capture the raw material at resolution time, while the error text and environment are still in front of them",
+        "evidence": "\"Ambient (every ticket): agent tags + drops raw note. Not a task, a byproduct of closing the ticket.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that entries reconstructed from memory are the ones that turn out wrong",
+        "evidence": "No such statement about memory-reconstructed entries appears anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends a structured template field in the ticket tool capturing error text, environment, cause and resolution",
+        "evidence": "The macro template only has \"Issue: __ / What fixed it: __ / Ticket: #__\" \u2014 no separate environment or cause fields.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends a recurring pass that promotes repeat resolutions into entries",
+        "evidence": "No explicit repeat-counting or clustering logic is described; the weekly triage decides 'draft, fix existing, merge, or kill' without a stated repetition criterion.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Describes the model as distributed authoring with centralized editing rather than a single owning role",
+        "evidence": "\"Agents write raw material. You write documentation. Nobody except you publishes.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Assigns editing, standardization and information architecture to the technical writer, and the error string itself to engineers",
+        "evidence": "Writer owns \"triage, editing, structure, publishing, taxonomy\" but engineering is only for \"technical sign-off on a short, named list of hard/ambiguous articles\" \u2014 not assigned ownership of the error string itself.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Corrects the Zendesk assumption: it creates an article from the ticket being worked but does not pre-populate the draft, so transcription time must be budgeted",
+        "evidence": "Describes the tool as: \"lets an agent turn one resolved ticket's reply into a draft KB article\" \u2014 i.e. it does pre-populate a draft, contradicting the rubric's claim.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that no promote-to-article tool clusters by root cause first, so the clustering step stays manual",
+        "evidence": "\"No dedup \u2014 doesn't check if an article already covers this and just needs a fix. No gap detection \u2014 only fires when an agent manually clicks it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that skipping clustering produces a page restating one customer's ticket instead of covering the failure",
+        "evidence": "No such warning appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives a coach-to-knowledge-worker ratio as a staffing input, roughly 1:5 to 1:8 at start-up moving toward about 1:50 at maturity",
+        "evidence": "No staffing ratio of this kind is mentioned anywhere.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

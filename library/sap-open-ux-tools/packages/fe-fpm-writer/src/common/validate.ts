@@ -1,0 +1,108 @@
+import { create as createStorage } from 'mem-fs';
+import type { Editor } from 'mem-fs-editor';
+import { create } from 'mem-fs-editor';
+import { coerce, lt } from 'semver';
+import { isAbsolute } from 'node:path';
+import type { Manifest } from './types.js';
+import { getManifestPath } from './utils.js';
+
+/**
+ * Validate that the UI5 version requirement is valid.
+ *
+ * @param ui5Version - optional minimum required UI5 version
+ * @returns true if the version is supported otherwise throws an error
+ */
+export function validateVersion(ui5Version?: string): boolean {
+    const minVersion = coerce(ui5Version);
+    if (minVersion && lt(minVersion, '1.84.0')) {
+        throw new Error('SAP Fiori elements for OData v4 is only supported starting with SAPUI5 1.84.');
+    }
+    return true;
+}
+
+/**
+ * Validates the library dependencies - at least one of expected dependencies is present.
+ *
+ * @param {string} manifest - the manifest content
+ * @param {string[]} dependencies - expected dependencies
+ * @returns true if at least one of expected dependencies is presented in manifest.
+ */
+export function validateDependenciesLibs(manifest: Manifest, dependencies: string[]): boolean {
+    const libs = manifest['sap.ui5']?.dependencies?.libs;
+    return dependencies.length
+        ? dependencies.some((dependency) => {
+              return libs?.[dependency] !== undefined;
+          })
+        : true;
+}
+
+/**
+ * Validates the provided base path, checks at least one of expected dependencies is present.
+ *
+ * @param {string} basePath - the base path
+ * @param {Editor} fs - the memfs editor instance
+ * @param {string[]} dependencies - expected dependencies
+ * @returns true if the path is valid, otherwise, throws and error
+ */
+export async function validateBasePath(
+    basePath: string,
+    fs?: Editor,
+    dependencies = ['sap.fe.templates']
+): Promise<boolean> {
+    if (!fs) {
+        fs = create(createStorage());
+    }
+
+    const manifestPath = await getManifestPath(basePath, fs);
+    if (!fs.exists(manifestPath)) {
+        throw new Error(`Invalid project folder. Cannot find required file ${manifestPath}`);
+    } else {
+        const manifest = fs.readJSON(manifestPath) as Manifest;
+        if (!validateDependenciesLibs(manifest, dependencies)) {
+            if (dependencies.length === 1) {
+                throw new Error(
+                    `Dependency ${dependencies[0]} is missing in the manifest.json. Fiori elements FPM requires the SAP FE libraries.`
+                );
+            } else {
+                throw new Error(
+                    `All of the dependencies ${dependencies.join(
+                        ', '
+                    )} are missing in the manifest.json. Fiori elements FPM requires the SAP FE libraries.`
+                );
+            }
+        }
+    }
+
+    return true;
+}
+
+/**
+ * Returns the message property if the error is an instance of `Error` else a string representation of the error.
+ *
+ * @param error {Error | unknown} - the error instance
+ * @returns {string} the error message
+ */
+export function getErrorMessage(error: Error | unknown): string {
+    return error instanceof Error ? error.message : String(error);
+}
+
+/**
+ * Validates that a folder path is relative and does not contain path traversal sequences.
+ * This prevents security issues where malicious paths like '../../../etc' could write files outside the project.
+ *
+ * @param {string} folder - the folder path to validate
+ * @param {string} [paramName] - optional parameter name for error messages
+ * @throws {Error} if the path is absolute or contains '..'
+ */
+export function validateRelativePath(folder: string, paramName = 'Path'): void {
+    // Check for absolute paths
+    if (isAbsolute(folder)) {
+        throw new Error(`${paramName} must not be an absolute path, got: ${folder}`);
+    }
+
+    // Check for path traversal attempts by examining path segments
+    const segments = folder.split(/[/\\]/);
+    if (segments.includes('..')) {
+        throw new Error(`${paramName} must not contain '..' (path traversal), got: ${folder}`);
+    }
+}

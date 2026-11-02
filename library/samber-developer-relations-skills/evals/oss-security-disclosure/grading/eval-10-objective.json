@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Classifies the company as a CRA manufacturer under the role test because it places a product built on the software on the EU market under its own name in a commercial activity, and rejects the open-source exemption argument",
+        "evidence": "\"makes your company a manufacturer... Open-source status protects non-commercial projects\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the open-source steward classification, since a steward is a legal person that is not a manufacturer",
+        "evidence": "\"Steward is the fallback role, and only for entities that are not manufacturers.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that manufacturer reporting under Article 14 applies from 11 September 2026, including products already on the market, so it is in force now",
+        "evidence": "\"applies from 11 Sept 2026, including products already on the market\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the 24-hour clock starts at awareness of active exploitation (this morning's follow-up), not at receipt of Tuesday's report",
+        "evidence": "\"This morning's follow-up is the trigger.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists the three deadlines: early warning within 24 hours, notification within 72 hours, final report 14 days after a corrective or mitigating measure is available",
+        "evidence": "24h early warning, 72h notification, final report 14 days after fix or mitigation.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the reporting route as ENISA's Single Reporting Platform to the CSIRT coordinator and ENISA, and says a lawyer owns the classification while this is decision input",
+        "evidence": "\"file the CRA early warning on the Single Reporting Platform\"; \"lawyer's call\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces the 90-day timeline with the fast track: fix, release and advisory the same day because exploitation is in the wild",
+        "evidence": "Same-day fix/release/advisory; \"Don't hold for Monday.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Tells the known commercial customers directly today with hours of notice rather than days, and names the Article 14(8) duty to inform impacted users of the vulnerability and mitigations",
+        "evidence": "T0+8h to ~40 customers; \"Art. 14(8)\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes an interim mitigation in the customer notice so exposed deployments can act before upgrading",
+        "evidence": "\"Send the mitigation and indicators privately to all ~40 customers\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that micro and small enterprises are exempt from fines for missing the 24-hour early warning, without asserting whether this company qualifies",
+        "evidence": "\"A micro or small company is exempt from fines... \"; open question whether company counts.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Fills the CRA field in the incident record with the manufacturer role and its reasoning",
+        "evidence": "No incident record produced.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags that from 11 December 2027 the company owes a declared support period, generally at least five years, and that its supported-versions table should match",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Classifies the company as a CRA manufacturer under the role test because it places a product built on the software on the EU market under its own name in a commercial activity, and rejects the open-source exemption argument",
+        "evidence": "\"you are a **manufacturer** under Art. 3\"; the open-source exemption claim is \"Wrong\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the open-source steward classification, since a steward is a legal person that is not a manufacturer",
+        "evidence": "\"'Open-source steward'... is for entities... such as a foundation. You aren't one.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that manufacturer reporting under Article 14 applies from 11 September 2026, including products already on the market, so it is in force now",
+        "evidence": "\"has applied since 11 September 2026\"; Art. 69(3) covers products placed on the market earlier.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the 24-hour clock starts at awareness of active exploitation (this morning's follow-up), not at receipt of Tuesday's report",
+        "evidence": "\"Today's customer logs are the first evidence of exploitation, so awareness starts at T0.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists the three deadlines: early warning within 24 hours, notification within 72 hours, final report 14 days after a corrective or mitigating measure is available",
+        "evidence": "T+24h early warning, T+72h notification, final report within 14 days of the fix or mitigation.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the reporting route as ENISA's Single Reporting Platform to the CSIRT coordinator and ENISA, and says a lawyer owns the classification while this is decision input",
+        "evidence": "\"File on the ENISA Single Reporting Platform\"; \"Get EU counsel on the phone today.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces the 90-day timeline with the fast track: fix, release and advisory the same day because exploitation is in the wild",
+        "evidence": "Mitigation in 24\u201348h, patch in 3\u20137 days.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Tells the known commercial customers directly today with hours of notice rather than days, and names the Article 14(8) duty to inform impacted users of the vulnerability and mitigations",
+        "evidence": "\"Notify all ~40 support customers at the same moment as the public release.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes an interim mitigation in the customer notice so exposed deployments can act before upgrading",
+        "evidence": "Art. 14(8) notice \"with mitigations\"; a config-level mitigation rule is documented.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that micro and small enterprises are exempt from fines for missing the 24-hour early warning, without asserting whether this company qualifies",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Fills the CRA field in the incident record with the manufacturer role and its reasoning",
+        "evidence": "No incident record.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags that from 11 December 2027 the company owes a declared support period, generally at least five years, and that its supported-versions table should match",
+        "evidence": "Gap list mentions \"support period\" with no five-year figure or supported-versions table.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Presents the AsyncAPI recommendation with lower confidence than the OpenAPI ones rather than with equal confidence",
+        "evidence": "The AsyncAPI section opens with an explicit epistemic caveat: \"Two caveats up front, stated because the source material is explicit about them: AsyncAPI guidance here is inferred from the OpenAPI annotation rules by analogy, not separately sourced\". The analogy framing recurs in the concrete advice (\"stable, unique, verb-noun key ... same leverage as `operationId`, for the same reason\"). Confidence is further lowered elsewhere: the interview table flags Q2 as \"**Unknown \u2014 changes AsyncAPI effort estimate, ask**\"; Finding 2 is titled \"AsyncAPI payload contract is unexercised, not (yet) proven b",
+        "score": 4,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Presents the AsyncAPI recommendation with lower confidence than the OpenAPI ones rather than with equal confidence",
+        "evidence": "AsyncAPI is demoted to \"Tier 2 \u2014 AsyncAPI annotations (conditional, and probably not what caused this specific bug)\" and explicitly hedged: \"annotating the AsyncAPI doc wouldn't have fixed it\", \"That's plausible but unverified \u2014 you tested consumer groups, not payload correctness\", plus a gating condition (\"Add 1\u20132 tasks to your eval ... before spending effort here, so you're not annotating against a hypothetical gap\") and a conditional promotion rule tied to whether codegen consumes the AsyncAPI doc. By contrast the JSDoc/type-level recommendations are asserted flatly and confidently (\"do thi",
+        "score": 5,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Requires the three pilot customers' data to be replaced with seeded data before recording rather than edited out afterwards.",
+        "evidence": "\"Don't let her record against that tenant. Hand her instead: A separate seeded demo tenant, on the corrected v7.3 (or flagged) build, loaded with synthetic data shaped like the pilots' use cases but containing no real names, tenant IDs, account numbers, or counterparties.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists customer names, tenant IDs, internal hostnames and pricing as off-limits on screen.",
+        "evidence": "\"Off-limits list for this specific shoot: The three pilot customers' names, logos, tenant IDs, subdomains ... Internal hostnames, ticket numbers, internal Slack/Jira / Pricing\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the v7.4-rc versus v7.3 mismatch and requires the version to be stated aloud in the narration.",
+        "evidence": "\"Blocker 1 \u2014 the version mismatch is a claim you can't keep\" ... \"State runtime and version aloud \u2014 [verbatim]: 'You're watching Northgate Ledger v7.3'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires limitations to be stated aloud, because an over-claim in a video outlives the release it described.",
+        "evidence": "The transcript only ties spoken disclosure to the version/build (\"the one sentence that keeps this video honest once v7.3 actually ships\") and to prerequisites (\"State prerequisites (edition/plan, data assumptions) so the wrong viewer opts out\"); there is no general requirement to state product limitations aloud with the stated over-claim/outlives-the-release rationale.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes the recording will be replayed in a procurement or security review where verbal hedging is not visible.",
+        "evidence": "\"it will be 'replayed in a procurement or security review where 'it depends' is not visible.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Delivers a recording brief with one starting-state command per beat.",
+        "evidence": "Only a single generic command is given: \"Starting state \u2014 one command, run from a cold, freshly-booted machine ... `[seed command for the synthetic, v7.3-pinned tenant]` \u2192 reset before every take, not once at the start,\" and the per-beat cut list is left as \"[unconfirmed \u2014 needs the actual reconciliation workflow she's demoing before this can be filled in]\" rather than itemized per beat.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires each starting state to be rehearsed from a machine that has not already run the demo.",
+        "evidence": "\"run from a cold, freshly-booted machine (not one that already ran the demo, which hides warm caches/sessions)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires throwaway credentials that get rotated after the recording.",
+        "evidence": "\"Any staging credentials on screen: throwaway, rotated right after recording.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires notifications, badges and personal browser-profile artefacts to be off at the OS level rather than minimized.",
+        "evidence": "\"OS-level notifications, calendar, chat badges off \u2014 not minimized.\" and \"Clean browser profile for the recording: no personal bookmarks, no autofill history, no other signed-in tabs.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires every slow operation - installs, builds, image pulls - to happen before recording starts.",
+        "evidence": "\"Everything slow (login, first load, index rebuild) happens before 'record' \u2014 dead air here kills the 30-second opening.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Compares the resulting metrics against the company's own previous videos of the same shape rather than an external or invented benchmark.",
+        "evidence": "\"Compare every number against Northgate's own past walkthrough-shape videos \u2014 never an outside benchmark.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names takes-per-beat during recording as a script defect signal, usually an unrealistic starting state, rather than a presenter performance problem.",
+        "evidence": "\"Takes per beat during recording: log it live. 5+ takes on one beat is a starting-state defect (usually the seed script leaving the tenant inconsistent), not a performance problem \u2014 fix the seed script, don't re-shoot harder.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Requires the three pilot customers' data to be replaced with seeded data before recording rather than edited out afterwards.",
+        "evidence": "'Provision a synthetic demo org ... seeded with fake reconciliation data' and 'the fix is redo the take ... not trim the clip'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists customer names, tenant IDs, internal hostnames and pricing as off-limits on screen.",
+        "evidence": "It covers names, account numbers and hostnames, but not tenant IDs or pricing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the v7.4-rc versus v7.3 mismatch and requires the version to be stated aloud in the narration.",
+        "evidence": "It flags the mismatch but says to 'Scrub every visible version marker'. It never says to state the version aloud.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires limitations to be stated aloud, because an over-claim in a video outlives the release it described.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes the recording will be replayed in a procurement or security review where verbal hedging is not visible.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Delivers a recording brief with one starting-state command per beat.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires each starting state to be rehearsed from a machine that has not already run the demo.",
+        "evidence": "It mentions a fresh browser profile, not a machine that never ran the demo.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires throwaway credentials that get rotated after the recording.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires notifications, badges and personal browser-profile artefacts to be off at the OS level rather than minimized.",
+        "evidence": "'notifications ... fully silenced' is not specified as OS-level.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires every slow operation - installs, builds, image pulls - to happen before recording starts.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Compares the resulting metrics against the company's own previous videos of the same shape rather than an external or invented benchmark.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names takes-per-beat during recording as a script defect signal, usually an unrealistic starting state, rather than a presenter performance problem.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

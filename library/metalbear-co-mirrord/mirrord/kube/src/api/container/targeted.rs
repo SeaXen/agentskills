@@ -1,0 +1,91 @@
+use kube::Client;
+use mirrord_progress::Progress;
+use tracing::debug;
+
+use crate::{
+    api::{
+        container::{
+            ContainerApi, ContainerVariant,
+            ephemeral::{EphemeralTargetedVariant, create_ephemeral_agent},
+            job::{JobTargetedVariant, create_job_agent},
+        },
+        kubernetes::AgentKubernetesConnectInfo,
+        runtime::{NodeCheck, RuntimeData},
+    },
+    error::{KubeApiError, Result},
+};
+
+pub struct Targeted<'c, V> {
+    client: &'c Client,
+    runtime_data: &'c RuntimeData,
+    variant: &'c V,
+}
+
+impl<'c, V> Targeted<'c, V> {
+    pub fn new(client: &'c Client, runtime_data: &'c RuntimeData, variant: &'c V) -> Self {
+        Targeted {
+            client,
+            runtime_data,
+            variant,
+        }
+    }
+}
+
+impl<'c> ContainerApi<JobTargetedVariant<'c>> for Targeted<'c, JobTargetedVariant<'c>> {
+    async fn create_agent<P>(&self, progress: &mut P) -> Result<AgentKubernetesConnectInfo>
+    where
+        P: Progress,
+    {
+        let Targeted {
+            client,
+            runtime_data,
+            variant,
+        } = self;
+
+        if variant.agent_config().check_out_of_pods {
+            match runtime_data.check_node(client).await {
+                NodeCheck::Success => debug!("node is allocatable"),
+                NodeCheck::Error(err) => {
+                    debug!("unable to check if node is allocatable, {err}");
+                }
+                NodeCheck::Failed { node, pod_count } => {
+                    progress.failure(Some("node is not allocatable"));
+
+                    let node_name = node
+                        .metadata
+                        .name
+                        .clone()
+                        .unwrap_or_else(|| "<unknown>".to_owned());
+
+                    return Err(KubeApiError::NodeOutOfPods {
+                        node_name,
+                        pod_count,
+                    });
+                }
+            }
+        }
+
+        create_job_agent::<P, JobTargetedVariant<'c>>(client, variant, progress).await
+    }
+}
+
+impl<'c> ContainerApi<EphemeralTargetedVariant<'c>> for Targeted<'c, EphemeralTargetedVariant<'c>> {
+    async fn create_agent<P>(&self, progress: &mut P) -> Result<AgentKubernetesConnectInfo>
+    where
+        P: Progress,
+    {
+        let Targeted {
+            client,
+            runtime_data,
+            variant,
+        } = self;
+
+        create_ephemeral_agent::<P, EphemeralTargetedVariant<'c>>(
+            client,
+            runtime_data,
+            variant,
+            progress,
+        )
+        .await
+    }
+}

@@ -5,7 +5,7 @@ description: >-
 license: MIT
 metadata:
   author: Samuel Berthe
-  version: "1.0.3"
+  version: "1.0.5"
 ---
 
 # Build in Public
@@ -170,6 +170,8 @@ Pick amplifiers by where this audience already evaluates tools, and only channel
 
 For Hacker News itself - Show HN eligibility, the ban on AI-written or AI-edited text, staff disclosure - see `samber/developer-relations-skills@hackernews-playbook`.
 
+For streaming the build live on Twitch, YouTube Live or LinkedIn Live - home platform, moderation, secrets on screen - see `samber/developer-relations-skills@devrel-live-streaming`.
+
 Keep the loop cheap: the repository artifact (release notes, decision record, postmortem) is the source of truth, and public posts link to it instead of duplicating it.
 
 ## Step 8 - Plan the downside
@@ -259,5 +261,6 @@ A filled example is in [references/post-examples.md](./references/post-examples.
 - `samber/developer-relations-skills@oss-sponsors-fundraising` - when the goal is funding
 - `samber/developer-relations-skills@oss-issue-triage` - the support load visibility creates
 - `samber/developer-relations-skills@devrel-content-calendar` - scheduling this output alongside other content
+- `samber/developer-relations-skills@bluesky-dev-playbook` - Bluesky mechanics when the practice posts there: domain handles, starter packs, dev feeds, automation rules
 
 Run any draft post through your preferred humanizer skill before publishing - a build-in-public post that reads like a press release defeats the entire practice.

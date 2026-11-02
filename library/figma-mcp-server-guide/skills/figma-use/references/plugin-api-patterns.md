@@ -5,8 +5,8 @@
 ## Contents
 
 - Execution Basics
-- Creating Nodes
-- Fills and Strokes
+- Creating Nodes (Frames, Text, Rectangles, Ellipses, Lines, Vectors, SVG Import)
+- Fills and Strokes (Solid, Linear Gradient, Radial Gradient, Multiple Fills)
 - Auto Layout
 - Effects
 - Opacity and Blend Modes
@@ -22,7 +22,7 @@
 
 ### Page Context
 
-Page context resets between `use_figma` calls — `figma.currentPage` always starts on the first page. Use `await figma.setCurrentPageAsync(page)` at the start of each invocation to switch to the correct page.
+Page context resets between `use_figma` calls — `figma.currentPage` always starts on the first page. Use `await figma.setCurrentPageAsync(page)` at the start of each invocation to switch to the correct page. The sync setter `figma.currentPage = page` does **NOT work** and will throw — always use the async method.
 
 ```javascript
 const targetPage = figma.root.children.find(p => p.name === "My Page");
@@ -30,16 +30,19 @@ await figma.setCurrentPageAsync(targetPage);
 // targetPage.children is now populated
 ```
 
-### Closing the Plugin
+### Returning Results
 
-Every execution **must** call `figma.closePlugin()` on success and `figma.closePluginWithFailure()` on error:
+Scripts are automatically wrapped in an async IIFE with error handling. Just write plain JS and use `return` to send data back to the agent:
 
 ```javascript
-figma.closePlugin("Success message describing what was done");
-figma.closePluginWithFailure("Description of what went wrong");
+// Return an object — auto-serialized to JSON
+return { nodeId: frame.id, count: 5 }
+
+// Return a string
+return "Created 3 components"
 ```
 
-`figma.notify()` does **not** exist. Return all information via the close message string.
+Errors are automatically captured — no try/catch needed. `figma.notify()` does **not** exist. Return all information via the `return` value.
 
 ### Working Incrementally
 
@@ -67,8 +70,10 @@ frame.fills = [{ type: "SOLID", color: { r: 0.98, g: 0.98, b: 0.99 } }];
 
 ### Text
 
+Canonical recipe: load font → `await` → mutate → return affected IDs. This pattern is the same for every font — `Inter` happens to be preloaded so the missing-`loadFontAsync` bug usually only surfaces with other families. See [gotchas.md → Canonical text-edit recipe](gotchas.md#canonical-text-edit-recipe-font-load--await--mutate--return-ids).
+
 ```javascript
-// MUST load font before any text operations
+// Load font BEFORE any text mutation — required for every font, not just Inter
 await figma.loadFontAsync({ family: "Inter", style: "Regular" });
 
 const text = figma.createText();
@@ -108,6 +113,25 @@ line.resize(400, 0);
 line.strokes = [{ type: "SOLID", color: { r: 0, g: 0, b: 0 }, opacity: 0.08 }];
 line.strokeWeight = 1;
 ```
+
+### Vectors (Custom Paths)
+
+Use `figma.createVector()` for any shape that can't be built from primitives — organic curves, flowing contours, custom silhouettes. The `vectorPaths` property accepts SVG path data.
+
+```javascript
+const vector = figma.createVector();
+vector.vectorPaths = [{
+  windingRule: "NONZERO",
+  data: "M 0 60 C 30 10 70 10 100 50 C 130 90 170 20 200 40 L 200 100 L 0 100 Z"
+}];
+vector.fills = [{ type: 'SOLID', color: { r: 0.15, g: 0.3, b: 0.55 } }];
+vector.strokes = [{ type: 'SOLID', color: { r: 0.1, g: 0.2, b: 0.4 } }];
+vector.strokeWeight = 2;
+```
+
+SVG path commands: `M` (move to), `L` (line to), `C x1 y1 x2 y2 x y` (cubic bezier), `Q x1 y1 x y` (quadratic bezier), `A rx ry rot large sweep x y` (arc), `Z` (close). Uppercase = absolute, lowercase = relative.
+
+Vectors support all the same properties as other shapes — fills, strokes, effects, brushes, dynamic strokes, variable-width strokes, and texture effects.
 
 ### SVG Import
 
@@ -150,7 +174,26 @@ node.fills = [{
     { color: { r: 0.2, g: 0.36, b: 0.96, a: 1 }, position: 0 },
     { color: { r: 0.56, g: 0.24, b: 0.88, a: 1 }, position: 1 }
   ],
-  gradientTransform: [[1, 0, 0], [0, 1, 0]]
+  gradientTransform: [[1, 0, 0], [0, 1, 0]]  // left-to-right (default)
+}];
+
+// Top-to-bottom:
+// gradientTransform: [[0, 1, 0], [-1, 0, 1]]
+```
+
+### Radial Gradient
+
+```javascript
+node.fills = [{
+  type: "GRADIENT_RADIAL",
+  gradientStops: [
+    { color: { r: 0.95, g: 0.7, b: 0.3, a: 1 }, position: 0 },   // bright center
+    { color: { r: 0.82, g: 0.38, b: 0.14, a: 1 }, position: 1 }   // deeper edge
+  ],
+  // 2x3 affine matrix [[scaleX, shearX, tx], [shearY, scaleY, ty]]
+  // Scale <1 = gradient LARGER than shape (freeform color — use for illustration)
+  // Scale >1 = gradient SMALLER than shape (obvious oval — avoid for illustration)
+  gradientTransform: [[0.71, 0, 0.19], [0, 0.57, 0.21]]  // large, offset
 }];
 ```
 
@@ -175,18 +218,31 @@ node.fills = [
 
 ### Setting Up Auto Layout
 
+**Prefer `figma.createAutoLayout()`** — it returns a frame with `layoutMode` already set and both axes hugging content, so children can immediately use `layoutSizingHorizontal/Vertical = "FILL"`.
+
 ```javascript
-const frame = figma.createFrame();
-frame.layoutMode = "VERTICAL";              // or "HORIZONTAL"
-frame.primaryAxisSizingMode = "AUTO";       // Hug main axis
-frame.counterAxisSizingMode = "FIXED";      // Fixed cross axis
-frame.resize(360, 1);                        // Width fixed, height auto
-frame.itemSpacing = 16;                      // Gap between children
+const frame = figma.createAutoLayout(); // HORIZONTAL by default
+const column = figma.createAutoLayout("VERTICAL");
+
+// Customize from there as usual:
+frame.itemSpacing = 16;
 frame.paddingTop = 24;
 frame.paddingBottom = 24;
 frame.paddingLeft = 24;
 frame.paddingRight = 24;
 ```
+
+If you need a non-auto-layout frame, use `figma.createFrame()` and set the properties manually:
+
+```javascript
+const frame = figma.createFrame();
+frame.layoutMode = "VERTICAL";              // or "HORIZONTAL"
+frame.resize(360, 1);                        // Width fixed, height auto
+frame.primaryAxisSizingMode = "AUTO";       // Hug main axis
+frame.counterAxisSizingMode = "FIXED";      // Fixed cross axis
+```
+
+**CRITICAL ORDERING:** Always call `resize()` BEFORE setting sizing modes. The `resize()` method silently resets both sizing modes to FIXED, so calling it after setting `primaryAxisSizingMode = "AUTO"` will override your HUG settings and lock the frame to the exact pixel dimensions you passed (even throwaway values like `1`). This causes the common "1px dimension" bug.
 
 ### Alignment
 
@@ -207,15 +263,16 @@ frame.counterAxisAlignItems = "MAX";     // End
 ### Child Sizing
 
 ```javascript
-// IMPORTANT: FILL can only be set AFTER the child is appended to an auto-layout parent
+// FILL requires an auto-layout parent and must be set after appendChild.
+const parent = figma.createAutoLayout("VERTICAL");
 parent.appendChild(child)
 child.layoutSizingHorizontal = "FILL";   // Stretch to parent
-child.layoutSizingHorizontal = "HUG";    // Shrink to content
-child.layoutSizingHorizontal = "FIXED";  // Manual width
-
-child.layoutSizingVertical = "FILL";
-child.layoutSizingVertical = "HUG";
 child.layoutSizingVertical = "FIXED";
+
+// HUG is valid for nodes with intrinsic content, such as text and auto-layout frames.
+// Append the node to its auto-layout parent before assigning HUG.
+parent.appendChild(textChild);
+textChild.layoutSizingHorizontal = "HUG";
 ```
 
 ### Wrapping (Grid-like Layout)
@@ -230,6 +287,9 @@ frame.counterAxisSpacing = 24;   // Vertical gap (between rows)
 ### Absolute Positioning Within Auto Layout
 
 ```javascript
+// ABSOLUTE also requires the child to be attached to an auto-layout parent first.
+const parent = figma.createAutoLayout("HORIZONTAL");
+parent.appendChild(child);
 child.layoutPositioning = "ABSOLUTE";
 child.constraints = { horizontal: "MAX", vertical: "MIN" };  // Top-right
 child.x = parentWidth - childWidth - 8;
@@ -335,7 +395,7 @@ group.name = "Grouped Elements";
 ```javascript
 const section = figma.createSection();
 section.name = "My Section";
-section.resizeWithoutConstraints(800, 600);
+section.resize(800, 600); // `resize` and `resizeWithoutConstraints` are equivalent on sections
 section.x = 0;
 section.y = 0;
 // IMPORTANT: Sections don't auto-resize — always resize after adding content
@@ -373,12 +433,14 @@ instance.y = 100;
 These methods import components from **team libraries** (not the same file). For components in the current file, use `figma.getNodeByIdAsync()` or `findOne()`/`findAll()`.
 
 ```javascript
-// Import a published component from a team library by its key
-const comp = await figma.importComponentByKeyAsync(componentKey)
-const instance = comp.createInstance()
+// Batch independent imports with Promise.all — sequential awaits multiply
+// IPC latency by the number of imports for no benefit.
+const [comp, set] = await Promise.all([
+  figma.importComponentByKeyAsync(componentKey),
+  figma.importComponentSetByKeyAsync(componentSetKey),
+])
 
-// Import a published component set from a team library by its key
-const set = await figma.importComponentSetByKeyAsync(componentSetKey)
+const instance = comp.createInstance()
 const variant = set.defaultVariant
 const variantInstance = variant.createInstance()
 ```
@@ -408,15 +470,15 @@ componentSet.resizeWithoutConstraints(maxX + 40, maxY + 40);
 ```
 
 ### Component Properties
-
 ```javascript
 // addComponentProperty returns a STRING key — capture it!
 const labelKey = component.addComponentProperty("label", "TEXT", "Button");
 const showIconKey = component.addComponentProperty("showIcon", "BOOLEAN", true);
 const iconSlotKey = component.addComponentProperty("iconSlot", "INSTANCE_SWAP", defaultIconId);
-
-// MUST link properties to child nodes via componentPropertyReferences
-labelNode.componentPropertyReferences = { characters: labelKey };
+// MUST narrow each child to the type supported by the referenced property
+if ("characters" in labelNode) {
+  labelNode.componentPropertyReferences = { characters: labelKey };
+}
 iconInstance.componentPropertyReferences = {
   visible: showIconKey,
   mainComponent: iconSlotKey
@@ -428,6 +490,7 @@ iconInstance.componentPropertyReferences = {
 ### Text Style
 
 ```javascript
+// Load font BEFORE setting style.fontName — required for every font, not just Inter
 await figma.loadFontAsync({ family: "Inter", style: "Regular" });
 
 const style = figma.createTextStyle();
@@ -471,13 +534,17 @@ clone.name = "Copy of " + originalNode.name;
 ## Finding Nodes
 
 ```javascript
-// Find by name on current page
+// If you already have the node's ID, NEVER scan — use the indexed lookup.
+const known = await figma.getNodeByIdAsync("123:456");
+
+// Find by name on current page (no ID available)
 const node = figma.currentPage.findOne(n => n.name === "My Frame");
 
-// Find all by type
-const allTexts = figma.currentPage.findAll(n => n.type === "TEXT");
+// Find all by type — use findAllWithCriteria, hundreds of times faster than
+// findAll(n => n.type === '…') because the engine uses an internal type index.
+const allTexts = figma.currentPage.findAllWithCriteria({ types: ["TEXT"] });
 
-// Find all by name pattern
+// Find all by name pattern (predicate is fine — criteria doesn't index name)
 const allButtons = figma.currentPage.findAll(n => n.name.startsWith("Button/"));
 ```
 

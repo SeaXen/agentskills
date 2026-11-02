@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Keeps the drafted constraints to things a judge could actually check",
+        "evidence": "The transcript states the principle outright: 'Write them so a judge can verify each one by looking at the demo.' The five drafted constraints are mostly concrete pass/fail tests: 'must not require new in-store hardware', 'output must reach an associate in one action, not a dashboard', 'must not use real customer or employee personal data', and 'must work from data a store already has'. One is softer: 'run offline or degrade gracefully' has no threshold for 'gracefully', so a judge cannot cleanly verify it. The personal-data constraint also cannot be confirmed from the demo alone; a judge woul",
+        "score": 4,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Keeps the drafted constraints to things a judge could actually check",
+        "evidence": "Most floor constraints can be checked: `make run` must produce `out/alerts.jsonl` with named fields, `confidence` must be between 0 and 1, the run must finish in under 10 minutes, and there must be no network access. The floor-test sketch asserts on several of these, and the held-out metric is precisely defined (top 20 alerts per store per shift, at least 2 hours of lead time). However, floor rule 4 says the system 'never uses data timestamped after the alert's ts', and a judge can't verify that. Teams can use any language and read `data/` files directly, and `test_no_lookahead` is left as a s",
+        "score": 3,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

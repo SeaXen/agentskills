@@ -1,0 +1,38 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Reports the failures in damage order.",
+        "evidence": "Opens with a section explicitly titled \"What's wrong, damage order\" listing five numbered failures, each naming the violated threshold and its concrete consequence: owner=\"content team\" \u2192 \"Every piece stalls in review with no name to chase\"; 13/13 committed \u2192 \"first slip... eats a slot and everything after slides\"; unsupported v6 anchor \u2192 \"Launch week is the one week audience already looks\"; single surface; no evidence/shelf-life labels. Lower-confidence or verification-dependent items (4.0/v6 version mismatch, December dead zone, external approval chains, uncounted review capacity) are segreg",
+        "score": 4,
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Proposes the smallest set of changes that clears the failures.",
+        "evidence": "\"Minimum changes, no re-planning\" gives exactly five edits totalling \"\u2248 1 hour in spreadsheet\", and each maps one-to-one onto a listed failure without re-planning the quarter: add names (~30 min) clears #1; blank three weeks as named slack (10/13 = 77%) clears #2 and simultaneously absorbs the W2 no-evidence listicle cut from #5; repurposing the existing W1 row \u2192 v6 prep and retitling the existing W8 row \u2192 v6 follow-up/docs clears #3 while also supplying the second surface for #4; three added columns (surface, shelf-life, evidence/hypothesis) clear #5 and complete #4 to four surfaces and two j",
+        "score": 5,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Reports the failures in damage order.",
+        "evidence": "Explicitly headed \"What's wrong, ranked\" with a numbered 1\u20135 list, \u26a0\ufe0f on the four real defects and \"Minor:\" on the last \u2014 so an ordering claim is made and marked, not left implicit. The top slot goes to the highest-blast-radius item (W1 publicly announcing a stale major version against the one locked date, v6 GA at W7), and the reasoning for why W1 rather than W7 is the cell to fix is given. Structural issues (wrong owner on the 4 dependency rows; 13/13 weeks with zero slack against a hard GA date) follow the two shipping-wrong-content defects, which is defensible. Deduction: the tail \"minor\" ",
+        "score": 4,
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Proposes the smallest set of changes that clears the failures.",
+        "evidence": "Opens with the sizing claim (\"About six cell edits fix it. No redo needed\") and then delivers a \"Minimum changes before Monday\" table with an explicit per-item cost column: W1 = 1 cell, W9 = 1 cell, owners = 4 cells, buffer designation = \"0 content changes.\" The buffer fix reuses rows that already exist (W2/W4/W8 evergreen) as shock absorbers rather than adding or cutting content \u2014 \"Costs nothing, changes no content.\" Each risky edit carries a fallback so it can be executed without information the reviewer lacks (\"or drop the number,\" \"or swap in an evergreen piece if none is secured\"). Crucia",
+        "score": 5,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

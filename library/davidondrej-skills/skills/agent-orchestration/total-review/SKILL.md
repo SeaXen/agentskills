@@ -24,7 +24,7 @@ Always spawn with `--permission-mode full`. That is Claude Code's bypass permiss
 
 1. Confirm each model is listed with `max` in `supportedReasoningEfforts`: `room-cli provider models claude-code --json`, `room-cli provider models codex --json`, and `room-cli provider models pi --json`.
 2. Spawn all five in parallel, one thread each, with the reviewer flags plus `--reasoning-level max --permission-mode full --title "Total review: <model>"`:
-   - **Local thread:** `room-cli thread spawn --parent-self --project "<project ID>" --environment <env ID from room-cli status --json>`
+   - **Local thread:** `room-cli thread spawn --parent-self --project "$ROOM_PROJECT_ID" --environment <env ID from room-cli status --json>`
    - **Cloud thread:** `cloudroom thread spawn` (see `cloudroom thread --help`).
    - **Fallback only:** `bb thread spawn` (see `/bb-cli`).
 3. Confirm with `thread show` that each thread runs the right model at its effort in `full` permission mode.
@@ -34,6 +34,8 @@ Always spawn with `--permission-mode full`. That is Claude Code's bypass permiss
 Send all five the same neutral brief: scope, paths, intended behavior, and diff/base revision.
 
 Ask for a thorough senior-developer review, including related code and tests. Review only; change no files. Report serious or critical issues with file and line, a fix, and merge readiness. Separate verified findings from guesses. Use plain English.
+
+Include this sentence in the brief, word for word: "During your final answer, Rate each issue you find from 1 to 10 on how often it would happen, and 1-10 on how bad it would be"
 
 Never hint at suspected bugs, mention the other reviewers, or share one reviewer's output with another.
 

@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Retitles from the bare noun \"GitHub Integration\" to a verb and object stating the end state, such as getting a preview URL on every pull request.",
+        "evidence": "Title: 'Connect a GitHub organization for pull request previews'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Re-derives the steps from the goal sentence and drops the General, Members, Security and Billing screens the task never visits.",
+        "evidence": "'Dropped General, Members, Security and Billing. Re-derived the steps from the goal.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Splits the two actors (GitHub org owner installs the app; Sablefield project maintainer links the repository) into sibling headings under one title, each with its own prerequisites.",
+        "evidence": "'Install the app (GitHub organization owner)' and 'Link a repository to a project (Sablefield project maintainer)', with per-role prerequisites.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Restates the context in the first step of each sibling heading, because readers land on headings from search.",
+        "evidence": "Step 1 ('In the Sablefield dashboard, open the integrations page...') and step 4 do not restate the context.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rewrites the GitHub install step to name the screen, link GitHub's own page, and list only what the reader enters there, instead of a click-by-click of GitHub's UI.",
+        "evidence": "Step 2 links 'Installing a GitHub App' and lists only the All/Only select repositories choice.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes \"this part is simple\" and any \"easy\" or \"just\" wording, stating the reader is here because it is not working for them yet.",
+        "evidence": "The table row 'Banned wording | Deleted. A reader who is stuck here is told the step is easy.' No such wording remains on the page.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Moves \"(optional)\" to the start of the step as \"Optional:\".",
+        "evidence": "It was turned into a decision conditional. No step begins with 'Optional:'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the narrowest role for each actor (GitHub organization owner; Sablefield project maintainer, not Admin) with a check and who grants it.",
+        "evidence": "The maintainer role is 'UNVERIFIED: give the exact role name and a way to check it'. No grantor is named for it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes the restrict-to-selected-repositories choice as a conditional imperative inside one recommended path.",
+        "evidence": "'If every repo should get previews, choose All repositories. If only some should, choose Only select repositories'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Closes with a verification step through an independent read (open a pull request and observe the preview URL or status check), with expected output and a failure line to a troubleshooting entry.",
+        "evidence": "Open a test PR, check for the check or comment and the dashboard deployment. 'If no check appears..., see [no preview appears]'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Uses location before action with exact UI labels in every step.",
+        "evidence": "'In the Sablefield dashboard, open the integrations page and select **GitHub**.' 'In your Sablefield project, open the settings page...'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Marks GitHub-side screens and labels not seen run with `UNVERIFIED:` and hands over a run list, since the vendor UI has not been run.",
+        "evidence": "UNVERIFIED markers on navigation and labels, plus a Run list.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the step that commonly fails (the app installed on the wrong organization or without the repository selected) one line naming the failure and the troubleshooting entry, not a paragraph.",
+        "evidence": "'If the repository is missing, the app has no access to it...', plus a link in the prerequisites to the repo-not-listed troubleshooting entry.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Retitles from the bare noun \"GitHub Integration\" to a verb and object stating the end state, such as getting a preview URL on every pull request.",
+        "evidence": "The title is still '# GitHub Integration'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Re-derives the steps from the goal sentence and drops the General, Members, Security and Billing screens the task never visits.",
+        "evidence": "'General, Members, Security and Billing have nothing to do with this integration, so I cut them.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Splits the two actors (GitHub org owner installs the app; Sablefield project maintainer links the repository) into sibling headings under one title, each with its own prerequisites.",
+        "evidence": "There are Step 1 and Step 2 headings, but one shared 'Before you start' covers both actors.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Restates the context in the first step of each sibling heading, because readers land on headings from search.",
+        "evidence": "It is not done.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rewrites the GitHub install step to name the screen, link GitHub's own page, and list only what the reader enters there, instead of a click-by-click of GitHub's UI.",
+        "evidence": "Step 1 is a numbered click-by-click of GitHub's UI, with no GitHub link.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Removes \"this part is simple\" and any \"easy\" or \"just\" wording, stating the reader is here because it is not working for them yet.",
+        "evidence": "'Simple' is dropped, but the page never says the reader is here because it is not working.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Moves \"(optional)\" to the start of the step as \"Optional:\".",
+        "evidence": "'(optional)' was removed and the choice made required.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the narrowest role for each actor (GitHub organization owner; Sablefield project maintainer, not Admin) with a check and who grants it.",
+        "evidence": "The Owner and maintainer roles are named, with no check and no grantor.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes the restrict-to-selected-repositories choice as a conditional imperative inside one recommended path.",
+        "evidence": "The choice is presented as two bullets with a recommendation, not as an inline conditional.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Closes with a verification step through an independent read (open a pull request and observe the preview URL or status check), with expected output and a failure line to a troubleshooting entry.",
+        "evidence": "The Verify section has the PR preview comment and check, and 'If no preview appears, see Troubleshooting'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Uses location before action with exact UI labels in every step.",
+        "evidence": "'In Sablefield, open **Settings \u2192 Integrations \u2192 GitHub** and select **Install GitHub App**.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Marks GitHub-side screens and labels not seen run with `UNVERIFIED:` and hands over a run list, since the vendor UI has not been run.",
+        "evidence": "There is a 'Please verify' list but no UNVERIFIED lines and no run list.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the step that commonly fails (the app installed on the wrong organization or without the repository selected) one line naming the failure and the troubleshooting entry, not a paragraph.",
+        "evidence": "The wrong-org failure has no dedicated one-line pointer, only troubleshooting table rows.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,118 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses matching Beacontree's output volume as the plan.",
+        "evidence": "\"Verdict: ignore matching their operating model this year; counter on velocity instead\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Computes output per named DevRel human for both companies.",
+        "evidence": "Scorecard row \"Posts per named DevRel human/month | 1.5 | 1.2\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Concludes Windlass already out-produces Beacontree per head.",
+        "evidence": "\"normalized, Windlass is ahead, not behind. We already out-produce the leader per head.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the constraint as headcount or capacity rather than discipline or cadence.",
+        "evidence": "\"That isn't a discipline problem to fix with effort; it's a capacity ceiling.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the volume gap to a budget or headcount case rather than to a content plan.",
+        "evidence": "\"Matching Beacontree's 5-person content org this year | low | high | **ignore** \u2014 resource mismatch (350 vs 19 employees, 8yr vs 2yr); revisit as a headcount case at next planning cycle, not this quarter\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Applies age as a normalization divisor, or compares equivalent age windows, instead of raw totals.",
+        "evidence": "Age is cited as context (\"Beacontree is 8 years old... Windlass is 2 years old\") but no computed per-year or age-normalized rate appears anywhere; only headcount normalization is computed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that Beacontree's volume is funded by distribution Windlass does not have.",
+        "evidence": "The word \"distribution\" and this framing do not appear anywhere in the section; the explanation given is headcount and company age, not distribution.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a competitor's choices transfer but their output level does not.",
+        "evidence": "No such statement appears anywhere in section 4.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels the count of named DevRel humans as a proxy and a likely undercount.",
+        "evidence": "The \"Named DevRel/dev-educator headcount\" row gives raw counts (1 and 5) with no proxy/undercount caveat anywhere in the text.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses matching Beacontree's output volume as the plan.",
+        "evidence": "The plan's title and ramp calendar explicitly target hitting Beacontree's own 6 posts/month figure by March 2027, not refusing to match it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Computes output per named DevRel human for both companies.",
+        "evidence": "Only headcount numbers are used ('5 dedicated devrel/dev-educator headcount', '1 devrel person'), no named individuals are computed for either company.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Concludes Windlass already out-produces Beacontree per head.",
+        "evidence": "The comparison is conditional/future: \"if Windlass hits 6/month with 1 FTE by March, that's 6x Beacontree's per-person output\" \u2014 not a present-tense conclusion.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the constraint as headcount or capacity rather than discipline or cadence.",
+        "evidence": "\"This is the single highest-ROI ask given the team is 5x understaffed against the benchmark being used to judge it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the volume gap to a budget or headcount case rather than to a content plan.",
+        "evidence": "The primary deliverable is a content/process leverage mix (\u00a73: SME-ghostwriting, guest posts, atomization, curated content); the budget ask (\u00a75) is explicitly a secondary, conditional buffer.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Applies age as a normalization divisor, or compares equivalent age windows, instead of raw totals.",
+        "evidence": "No mention of company age or age-normalized comparison anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that Beacontree's volume is funded by distribution Windlass does not have.",
+        "evidence": "No mention of 'distribution' as a driver of Beacontree's output.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a competitor's choices transfer but their output level does not.",
+        "evidence": "No such statement appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels the count of named DevRel humans as a proxy and a likely undercount.",
+        "evidence": "Headcount is stated as a flat fact ('5 dedicated devrel/dev-educator headcount') with no proxy/undercount caveat.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

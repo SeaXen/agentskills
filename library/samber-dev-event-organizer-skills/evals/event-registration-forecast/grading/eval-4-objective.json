@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The 95-a-week keynote spike is not projected forward; the forecast is also run --as-of the last reading before the spike and reported beside the latest reading",
+        "evidence": "Low projects from 165 at 45 days; command says 'Also run it with --as-of set to the 45-day reading'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The keynote announcement week is annotated on the readings as an event, not treated as a new run rate",
+        "evidence": "'The 95 was the keynote week. The prior run rate was about 20 a week.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that the quieter week after the spike will read as collapse if the spike is taken as the baseline",
+        "evidence": "'the lull after it then reads as collapse'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The batch-of-50 releases are flagged as manufacturing sellouts and distorting the real curve",
+        "evidence": "'Registrations therefore measure your release schedule, not demand'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Extending the early-bird is refused here, with price dates assigned to event-ticket-pricing",
+        "evidence": "'Pricing dates belong to event-ticket-pricing'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The secret 20% code is refused as a forecast rescue, with the reason that it trains buyers to wait for the next rescue",
+        "evidence": "'It trains buyers to wait for the next rescue'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Both prior editions are run as separate references with the 2025 edition preferred, and the 2024 edition is flagged for booking-window drift",
+        "evidence": "Both listed in the command, but no preference for 2025 and no drift flag",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Each prior edition is aligned on days-out and shifted so its keynote-announcement spike sits on this year's announcement date, with a different shift for 2024 and 2025",
+        "evidence": "2025 aligns directly, 2024 needs '+5 shift'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The hotel block is committed at the low end, with the written reason that over-committing costs more under an 80% usage guarantee",
+        "evidence": "'Commit the low end. Under-using the block has an 80% guarantee penalty'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Growing the block later is conditioned on the hotel confirming in writing that rooms can be added at the group rate; 'we can probably add rooms' is not accepted as that confirmation",
+        "evidence": "'Ask for written confirmation that rooms can be added at the group rate'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Room-nights are computed as expected attendance times the 45% out-of-town share times nights per guest divided by guests per room, with each input labelled own-data or self-set",
+        "evidence": "Formula present, but 45%, 2 nights and 1 per room lack own-data/self-set labels",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Nights per guest for the two-day event are the night before day one and the night between the days, never the night after the last day",
+        "evidence": "Says '2 nights' without naming which nights",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The tripwire response if the low end runs short is a push brief to event-marketing-plan, with the push to be marked on the curve so next edition does not read it as organic",
+        "evidence": "'Send a push brief to event-marketing-plan... Mark the push on the curve'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "No demand verdict is issued; the 700 claim is replaced by a band and any demand question is routed to event-market-fit",
+        "evidence": "Gives a band, but event-market-fit is never named",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The 95-a-week keynote spike is not projected forward; the forecast is also run --as-of the last reading before the spike and reported beside the latest reading",
+        "evidence": "Rejects the spike as a rate but no as-of run is reported.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The keynote announcement week is annotated on the readings as an event, not treated as a new run rate",
+        "evidence": "\"Last week's keynote announcement produced a spike of 95 sales. We do not treat that spike as a weekly rate.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that the quieter week after the spike will read as collapse if the spike is taken as the baseline",
+        "evidence": "\"'This week is slower' is not yet evidence. After a spike, a slower week is expected.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The batch-of-50 releases are flagged as manufacturing sellouts and distorting the real curve",
+        "evidence": "\"Last week's 95 is almost exactly two batches, so it measures how many tickets you released.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Extending the early-bird is refused here, with price dates assigned to event-ticket-pricing",
+        "evidence": "Refused, but no routing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The secret 20% code is refused as a forecast rescue, with the reason that it trains buyers to wait for the next rescue",
+        "evidence": "Reasons are margin, scarcity and leaks; not the train-to-wait reason.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Both prior editions are run as separate references with the 2025 edition preferred, and the 2024 edition is flagged for booking-window drift",
+        "evidence": "Compares 2025 first but no drift flag, no separate runs.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Each prior edition is aligned on days-out and shifted so its keynote-announcement spike sits on this year's announcement date, with a different shift for 2024 and 2025",
+        "evidence": "No shifting.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The hotel block is committed at the low end, with the written reason that over-committing costs more under an 80% usage guarantee",
+        "evidence": "\"Protect the low case... A block of 100 rooms\"; \"The 80% guarantee is a financial commitment\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Growing the block later is conditioned on the hotel confirming in writing that rooms can be added at the group rate; 'we can probably add rooms' is not accepted as that confirmation",
+        "evidence": "\"confirm in writing a right to add rooms at the same rate... 'Can probably add rooms' is not enough\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Room-nights are computed as expected attendance times the 45% out-of-town share times nights per guest divided by guests per room, with each input labelled own-data or self-set",
+        "evidence": "Computes rooms from 45% and ~50% usage; no nights per guest or guests per room.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Nights per guest for the two-day event are the night before day one and the night between the days, never the night after the last day",
+        "evidence": "No nights-per-guest computation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The tripwire response if the low end runs short is a push brief to event-marketing-plan, with the push to be marked on the curve so next edition does not read it as organic",
+        "evidence": "Not present.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "No demand verdict is issued; the 700 claim is replaced by a band and any demand question is routed to event-market-fit",
+        "evidence": "Says \"Real demand is probably higher than sales show\"; no routing.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

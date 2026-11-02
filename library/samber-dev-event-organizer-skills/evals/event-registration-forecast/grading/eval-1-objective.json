@@ -1,0 +1,190 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The straight-line projection (210 in 80 days, 105 more, 315 final) is rejected as a method, with the reason that registration curves are back-loaded toward doors",
+        "evidence": "'210 in 80 days, so 105 more' assumes even sales. Last year took 305 of its 480 registrations in the last 42 days",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The 35 speaker and sponsor codes are removed from the 210 before any projection; the working count is 175 registrations net of comps",
+        "evidence": "'The 210 includes 35 codes, so 175 tickets were actually sold'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "This year and last year are aligned on days-out, never on calendar dates",
+        "evidence": "Readings table is keyed on days out (120, 90, 60, 40) for both years",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Last edition is run twice as a reference: unshifted and shifted so its early-bird spike sits on this year's 42-days-out close (a shift of 8 days)",
+        "evidence": "'last.csv@-8' and 'Last year as is' are both run; early-bird close is 8 days closer",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The pooled lead-time generic curve is run as an additional reference, so at least two distinct references feed the band",
+        "evidence": "'Generic pooled lead-time curve ... 376'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Multiplicative pickup is named as the projection method, justified by more than 15% of the reference curve being in at 40 days out",
+        "evidence": "'Every reference had more than 15% of its final on hand, so multiplicative pickup applies'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The band's low and high ends are each a single reference's projection (the lowest and the highest); no average across references is used as a band end",
+        "evidence": "'The ends are single references' 376 / 538",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The mid is stated to be the median across references, with a note that the shifted and unshifted runs of last edition count twice in that median",
+        "evidence": "Says the mid is the median, but never notes that the two last-year runs count twice",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The catering commit is taken from the high end of the band, with the written reason that running short costs more than spare covers",
+        "evidence": "'High end... One missing lunch costs more than one spare cover'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The catering commit is high-end expected attendance divided by 1.10, with the 10% flex explicitly kept back for a late surge",
+        "evidence": "'402 \u00f7 1.10 = 365 keeps the 10% for a late surge'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The catering figure is labelled provisional, the forecast is to be re-run on the 7-day lock date itself with that run's figure as the commitment, and the request to hand a number over tomorrow is declined",
+        "evidence": "Marks 365 provisional and re-runs at 7 days, but still hands the caterer a number tomorrow: 'Tomorrow: about 365 for day one'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The catering figure is expressed as expected attendance (registrations times a show rate per ticket type, plus comps expected to attend), never as a registration count",
+        "evidence": "Section 7 attendance table; 'Registrations, not covers'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The 40 speaker and 30 sponsor comps re-enter only at the attendance stage, as count-basis ticket types with their own labelled show rates",
+        "evidence": "Speakers 40 at 97% (self-set), sponsor staff 30 at 70% (self-set)",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The method is named as booking-curve (pickup) forecasting borrowed from hotel and airline revenue management, with the note that no event-specific forecasting method is established",
+        "evidence": "No mention of the revenue-management origin",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The forecast is produced by running the bundled script (a command with --actuals, at least two --reference inputs, a --checkpoint for the 7-day catering lock and --types is shown), not by hand arithmetic",
+        "evidence": "'I could not run the bundled script... done by hand'",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The straight-line projection (210 in 80 days, 105 more, 315 final) is rejected as a method, with the reason that registration curves are back-loaded toward doors",
+        "evidence": "\"Linear projection fails because sales are back-loaded... 175 net at 42 days out became 480 at the door.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The 35 speaker and sponsor codes are removed from the 210 before any projection; the working count is 175 registrations net of comps",
+        "evidence": "\"The 210 includes 35 codes, so paid sales are 175.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "This year and last year are aligned on days-out, never on calendar dates",
+        "evidence": "\"Pace check (this year \u00f7 last year, same days out, net of codes)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Last edition is run twice as a reference: unshifted and shifted so its early-bird spike sits on this year's 42-days-out close (a shift of 8 days)",
+        "evidence": "Only the high case \"aligns the two years on days since early-bird close\"; no unshifted/shifted pair and no 8-day shift.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The pooled lead-time generic curve is run as an additional reference, so at least two distinct references feed the band",
+        "evidence": "Only last year's curve is used.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Multiplicative pickup is named as the projection method, justified by more than 15% of the reference curve being in at 40 days out",
+        "evidence": "Method is a pace ratio; \"multiplicative pickup\" and the 15% test are never named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The band's low and high ends are each a single reference's projection (the lowest and the highest); no average across references is used as a band end",
+        "evidence": "Low/base/high come from pace scenarios (0.83, 0.93, alignment), not from distinct references.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The mid is stated to be the median across references, with a note that the shifted and unshifted runs of last edition count twice in that median",
+        "evidence": "No median is stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The catering commit is taken from the high end of the band, with the written reason that running short costs more than spare covers",
+        "evidence": "Gives \"planning figure 430\" or \"400\" from the low/base; no high-end rationale.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The catering commit is high-end expected attendance divided by 1.10, with the 10% flex explicitly kept back for a late surge",
+        "evidence": "The 10% flex is only used to show 315 falls short; no division by 1.10.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The catering figure is labelled provisional, the forecast is to be re-run on the 7-day lock date itself with that run's figure as the commitment, and the request to hand a number over tomorrow is declined",
+        "evidence": "Gives a number for tomorrow (\"planning figure 430\") rather than declining.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The catering figure is expressed as expected attendance (registrations times a show rate per ticket type, plus comps expected to attend), never as a registration count",
+        "evidence": "Figures are not built from per-type show rates; the show rate appears only as a question.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The 40 speaker and 30 sponsor comps re-enter only at the attendance stage, as count-basis ticket types with their own labelled show rates",
+        "evidence": "Comps are added to paid sales (\"400 + 70 = 470\") with no show rates.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The method is named as booking-curve (pickup) forecasting borrowed from hotel and airline revenue management, with the note that no event-specific forecasting method is established",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The forecast is produced by running the bundled script (a command with --actuals, at least two --reference inputs, a --checkpoint for the 7-day catering lock and --types is shown), not by hand arithmetic",
+        "evidence": "All arithmetic is by hand; no command is shown.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

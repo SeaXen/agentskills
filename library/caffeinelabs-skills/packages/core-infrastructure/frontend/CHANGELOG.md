@@ -1,0 +1,51 @@
+
+
+### Bug Fixes
+
+- **core-infrastructure**: send II delegation calls to the II origin (#338)
+
+### Features
+
+- **core-infrastructure**: lift AuthClient to @icp-sdk/auth v9 (#289)
+
+### Bug Fixes
+
+- make frontend packages Node ESM-safe and expose ICP SDK (#281)
+
+### Bug Fixes
+
+- **core-infrastructure**: load the VITE_USE_MOCK backend from the app's own glob (#288)
+- **core-infrastructure**: resolve blob gateway URL from env.json, drop hardcoded host (#241)
+
+### Features
+
+- **core-infrastructure**: one-click Microsoft sign-in (APP-2369) (#204)
+
+### Features
+
+- Google and workspace-SSO login variants (#193)
+
+### Bug Fixes
+
+- **core-infrastructure**: peer-dep object-storage to dedupe installs (#159)
+
+### Bug Fixes
+
+- **object-storage**: restore MIME and filename in gateway blob-tree headers (#144)
+
+### Features
+
+- **authorization**: MixinAuthorization callback for II attribute bundles + email skill docs (#122)
+
+### Bug Fixes
+
+- use isAuthenticated for UI gating instead of isLoginSuccess (#91)
+
+### Bug Fixes
+
+- add publishConfig access public to all scoped packages (#52)
+
+### Refactor
+
+- **authorization**: revert to first-caller-admin (drop token-based bootstrap) (#45)
+- repo structure (#26)

@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Diagnoses the recurrence as organisational rather than structural",
+        "evidence": "'What decayed is process, not classification.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places the governance layer ahead of further page surgery",
+        "evidence": "'The queue: governance ships with the surgery, not after it' with governance items 1-6 listed before content fixes 7-9.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Applies a documentation maturity read and names Hackos's Information Process Maturity Model",
+        "evidence": "'JoAnn Hackos's Information Process Maturity Model (Managing Your Documentation Projects, 1994)'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names its five levels: ad hoc, rudimentary, organized and repeatable, managed and sustainable, optimizing",
+        "evidence": "'1. Ad hoc 2. Rudimentary 3. Organized and repeatable 4. Managed and sustainable 5. Optimizing'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a team at ad hoc or rudimentary has no repeatable process, so any structural fix decays",
+        "evidence": "'A team at level 1 or 2 has no repeatable process, so any structural fix decays'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says this explicitly in the report, not only in the recommendations",
+        "evidence": "Stated in its own dedicated section '### Why it came back: this is a maturity problem, not a structure problem', separate from the queue/recommendations section.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends declaring the content type in front matter and validating it in CI, so a type/content mismatch becomes a build failure rather than an audit finding years later",
+        "evidence": "'A page whose declared type disagrees with its folder becomes a build failure the day someone opens the PR, not something an audit rediscovers in another 18 months.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends shipping page templates so contributors fill blanks instead of inventing structure",
+        "evidence": "'Ship page templates so nobody improvises structure... A concepts template with no steps section is what actually stops \"procedures in the concepts section\" from recurring'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends prose and link checking in CI, naming tools such as Vale, markdownlint and lychee",
+        "evidence": "'Vale for prose/style... markdownlint for structural conventions... lychee for link/anchor checking'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends CODEOWNERS per subtree so each subtree has named reviewers",
+        "evidence": "'CODEOWNERS per subtree. One named reviewer per tutorials/, how-to/, reference/, explanation/'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a redirect for every moved URL and sets a re-audit cadence of once a quarter",
+        "evidence": "'A redirect for every moved URL \u2014 non-negotiable, not optional' and 'A quarterly re-audit on the calendar'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ships the drift controls as part of the remediation queue rather than as a follow-up project",
+        "evidence": "Governance items 1-6 and content fixes 7-9 are combined into a single numbered queue under 'landing in the same wave'.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Diagnoses the recurrence as organisational rather than structural",
+        "evidence": "'Diataxis drifting back in 18 months... isn't a discipline failure \u2014 it's what happens when a structure depends on everyone remembering a taxonomy instead of something enforcing it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places the governance layer ahead of further page surgery",
+        "evidence": "Items 1-3 (CI lint, decision rule, rotating steward) precede item 4 ('Fix the two named symptoms now') in the ordered list.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Applies a documentation maturity read and names Hackos's Information Process Maturity Model",
+        "evidence": "No mention of Hackos or any documentation maturity model anywhere in the document.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names its five levels: ad hoc, rudimentary, organized and repeatable, managed and sustainable, optimizing",
+        "evidence": "None of these levels are named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a team at ad hoc or rudimentary has no repeatable process, so any structural fix decays",
+        "evidence": "No maturity-model-based statement of this kind appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says this explicitly in the report, not only in the recommendations",
+        "evidence": "N/A \u2014 the underlying claim is never made anywhere in the document.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends declaring the content type in front matter and validating it in CI, so a type/content mismatch becomes a build failure rather than an audit finding years later",
+        "evidence": "'Require frontmatter declaring the Diataxis quadrant... Enforce folder-matches-type: fail CI if type: how-to lives outside /how-to/.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends shipping page templates so contributors fill blanks instead of inventing structure",
+        "evidence": "No mention of page templates anywhere in the document.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends prose and link checking in CI, naming tools such as Vale, markdownlint and lychee",
+        "evidence": "No specific tool names (Vale, markdownlint, lychee) are given; only generic staleness/duplicate flags are proposed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends CODEOWNERS per subtree so each subtree has named reviewers",
+        "evidence": "The document recommends a 'rotating docs steward' model instead of CODEOWNERS-based per-subtree ownership.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a redirect for every moved URL and sets a re-audit cadence of once a quarter",
+        "evidence": "'Leave a stub/redirect at the deleted location' and 'Put a lightweight structural audit on the calendar \u2014 quarterly, 30 minutes.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ships the drift controls as part of the remediation queue rather than as a follow-up project",
+        "evidence": "The five numbered items (CI lint, decision rule, steward, symptom fixes, audit schedule) are presented together as 'Do these five things differently,' not deferred as a later project.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

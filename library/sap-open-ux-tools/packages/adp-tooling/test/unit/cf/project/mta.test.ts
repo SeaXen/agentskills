@@ -1,0 +1,452 @@
+import { jest } from '@jest/globals';
+import type { ToolsLogger } from '@sap-ux/logger';
+
+const mockGetRouterType = jest.fn() as jest.Mock;
+const mockGetYamlContent = jest.fn() as jest.Mock;
+const mockRequestCfApi = jest.fn() as jest.Mock;
+const mockGetServiceKeyCredentialsWithTags = jest.fn() as jest.Mock;
+
+jest.unstable_mockModule('../../../../src/cf/project/yaml', () => ({
+    getRouterType: mockGetRouterType
+}));
+
+jest.unstable_mockModule('../../../../src/cf/project/yaml-loader', () => ({
+    getYamlContent: mockGetYamlContent
+}));
+
+jest.unstable_mockModule('../../../../src/cf/services/cli', () => ({
+    requestCfApi: mockRequestCfApi
+}));
+
+jest.unstable_mockModule('../../../../src/cf/services/api', () => ({
+    getServiceKeyCredentialsWithTags: mockGetServiceKeyCredentialsWithTags
+}));
+
+const {
+    getApprouterType,
+    getModuleNames,
+    getServicesForFile,
+    hasApprouter,
+    getMtaServices,
+    getResources,
+    readMta,
+    buildVcapServicesFromResources
+} = await import('../../../../src/cf/project/mta.js');
+import type { MtaYaml } from '../../../../src/index.js';
+const { initI18n, t } = await import('../../../../src/i18n.js');
+
+const mtaProjectPath = '/test/project';
+const mtaFilePath = '/test/mta.yaml';
+
+describe('MTA Project Functions', () => {
+    const mockLogger = {
+        log: jest.fn()
+    } as unknown as ToolsLogger;
+
+    beforeAll(async () => {
+        await initI18n();
+    });
+
+    beforeEach(() => {
+        jest.clearAllMocks();
+    });
+
+    describe('getApprouterType', () => {
+        test('should return approuter type from yaml content', () => {
+            const expectedType = 'Standalone HTML5 Application Runtime';
+            const mockYamlContent = { modules: [] };
+
+            mockGetYamlContent.mockReturnValue(mockYamlContent);
+            mockGetRouterType.mockReturnValue(expectedType);
+
+            const result = getApprouterType(mtaProjectPath);
+
+            expect(mockGetRouterType).toHaveBeenCalledWith(mockYamlContent);
+            expect(result).toBe(expectedType);
+        });
+    });
+
+    describe('getModuleNames', () => {
+        test('should return module names from yaml content', () => {
+            const mockYamlContent = {
+                modules: [{ name: 'module1' }, { name: 'module2' }]
+            };
+
+            mockGetYamlContent.mockReturnValue(mockYamlContent);
+
+            const result = getModuleNames(mtaProjectPath);
+
+            expect(result).toEqual(['module1', 'module2']);
+        });
+
+        test('should return empty array when no modules exist', () => {
+            const mockYamlContent = {};
+
+            mockGetYamlContent.mockReturnValue(mockYamlContent);
+
+            const result = getModuleNames(mtaProjectPath);
+
+            expect(result).toEqual([]);
+        });
+    });
+
+    describe('getServicesForFile', () => {
+        test('should extract services from mta file', () => {
+            const mockYamlContent = {
+                resources: [
+                    {
+                        name: 'service1',
+                        parameters: {
+                            'service-name': 'custom-service-name',
+                            service: 'business-service'
+                        }
+                    },
+                    {
+                        name: 'service2',
+                        parameters: {
+                            service: 'another-service'
+                        }
+                    }
+                ]
+            };
+
+            mockGetYamlContent.mockReturnValue(mockYamlContent);
+
+            const result = getServicesForFile(mtaFilePath, mockLogger);
+
+            expect(mockGetYamlContent).toHaveBeenCalledWith(mtaFilePath);
+            expect(result).toEqual([
+                { name: 'custom-service-name', label: 'business-service' },
+                { name: 'service2', label: 'another-service' }
+            ]);
+        });
+
+        test('should log warning for service without label', () => {
+            const mockYamlContent = {
+                resources: [
+                    {
+                        name: 'service1',
+                        parameters: {
+                            'service-name': 'service-name'
+                            // No 'service' parameter
+                        }
+                    }
+                ]
+            };
+
+            mockGetYamlContent.mockReturnValue(mockYamlContent);
+
+            const result = getServicesForFile(mtaFilePath, mockLogger);
+
+            expect(mockLogger.log).toHaveBeenCalledWith(
+                "Service 'service-name' will be ignored without 'service' parameter"
+            );
+            expect(result).toEqual([{ name: 'service-name', label: undefined }]);
+        });
+
+        test('should return empty array when no resources exist', () => {
+            const mockYamlContent = {};
+
+            mockGetYamlContent.mockReturnValue(mockYamlContent);
+
+            const result = getServicesForFile(mtaFilePath, mockLogger);
+
+            expect(result).toEqual([]);
+        });
+
+        test('should return empty array when resources is not an array', () => {
+            const mockYamlContent = {
+                resources: 'not-an-array'
+            };
+
+            mockGetYamlContent.mockReturnValue(mockYamlContent);
+
+            const result = getServicesForFile(mtaFilePath, mockLogger);
+
+            expect(result).toEqual([]);
+        });
+    });
+
+    describe('hasApprouter', () => {
+        test('should return true when approuter module exists', () => {
+            const moduleNames = ['myproject-approuter', 'other-module'];
+
+            const result = hasApprouter(moduleNames);
+
+            expect(result).toBe(true);
+        });
+
+        test('should return true when destination-content module exists', () => {
+            const moduleNames = ['myproject-destination-content', 'other-module'];
+
+            const result = hasApprouter(moduleNames);
+
+            expect(result).toBe(true);
+        });
+
+        test('should return true when approuter from a different project exists', () => {
+            const moduleNames = ['other-project-approuter', 'some-module'];
+
+            const result = hasApprouter(moduleNames);
+
+            expect(result).toBe(true);
+        });
+
+        test('should return false when no approuter modules exist', () => {
+            const moduleNames = ['other-module', 'another-module'];
+
+            const result = hasApprouter(moduleNames);
+
+            expect(result).toBe(false);
+        });
+
+        test('should return false when module names array is empty', () => {
+            const moduleNames: string[] = [];
+
+            const result = hasApprouter(moduleNames);
+
+            expect(result).toBe(false);
+        });
+    });
+
+    describe('getMtaServices', () => {
+        test('should return services from readMta', async () => {
+            const projectPath = '/test/project';
+            const expectedServices = ['service1', 'service2'];
+
+            mockGetYamlContent.mockReturnValue({
+                resources: [
+                    {
+                        name: 'service1',
+                        parameters: { service: 'business-service1' }
+                    },
+                    {
+                        name: 'service2',
+                        parameters: { service: 'business-service2' }
+                    }
+                ]
+            });
+            mockRequestCfApi.mockResolvedValue({
+                resources: [
+                    {
+                        name: 'business-service1',
+                        broker_catalog: {
+                            metadata: {
+                                sapservice: { odataversion: 'v2' }
+                            }
+                        }
+                    },
+                    {
+                        name: 'business-service2',
+                        broker_catalog: {
+                            metadata: {
+                                sapservice: { odataversion: 'v4' }
+                            }
+                        }
+                    }
+                ]
+            });
+
+            const result = await getMtaServices(projectPath, mockLogger);
+
+            expect(mockLogger.log).toHaveBeenCalledWith(
+                expect.stringContaining('Available services defined in mta.yaml:')
+            );
+            expect(result).toEqual(expectedServices);
+        });
+    });
+
+    describe('getResources', () => {
+        test('should filter and return OData services', async () => {
+            const mockYamlContent = {
+                resources: [
+                    {
+                        name: 'service1',
+                        parameters: { service: 'business-service1' }
+                    },
+                    {
+                        name: 'service2',
+                        parameters: { service: 'business-service2' }
+                    }
+                ]
+            };
+
+            mockGetYamlContent.mockReturnValue(mockYamlContent);
+            mockRequestCfApi.mockResolvedValue({
+                resources: [
+                    {
+                        name: 'business-service1',
+                        broker_catalog: {
+                            metadata: {
+                                sapservice: { odataversion: 'v2' }
+                            }
+                        }
+                    },
+                    {
+                        name: 'business-service2',
+                        broker_catalog: {
+                            metadata: {
+                                sapservice: { odataversion: 'v4' }
+                            }
+                        }
+                    }
+                ]
+            });
+
+            const result = await getResources(mtaFilePath, mockLogger);
+
+            expect(mockRequestCfApi).toHaveBeenCalledWith(
+                '/v3/service_offerings?names=business-service1,business-service2'
+            );
+            expect(result).toEqual(['service1', 'service2']);
+        });
+
+        test('should throw error when no business services found', async () => {
+            const mockYamlContent = {
+                resources: [
+                    {
+                        name: 'service1',
+                        parameters: { 'service-name': 'service1' }
+                        // No 'service' parameter
+                    }
+                ]
+            };
+
+            mockGetYamlContent.mockReturnValue(mockYamlContent);
+
+            await expect(getResources(mtaFilePath, mockLogger)).rejects.toThrow(t('error.noBusinessServicesFound'));
+        });
+
+        test('should log and ignore services without OData support', async () => {
+            const mockYamlContent = {
+                resources: [
+                    {
+                        name: 'service1',
+                        parameters: { service: 'business-service1' }
+                    }
+                ]
+            };
+
+            mockGetYamlContent.mockReturnValue(mockYamlContent);
+            mockRequestCfApi.mockResolvedValue({
+                resources: [
+                    {
+                        name: 'business-service1',
+                        broker_catalog: {
+                            metadata: {
+                                sapservice: { odataversion: 'unknown' } // Not v2/v4
+                            }
+                        }
+                    }
+                ]
+            });
+
+            await expect(getResources(mtaFilePath, mockLogger)).rejects.toThrow(t('error.noBusinessServicesFound'));
+            expect(mockLogger.log).toHaveBeenCalledWith(
+                "Service 'business-service1' doesn't support V2/V4 Odata and will be ignored"
+            );
+        });
+    });
+
+    describe('readMta', () => {
+        test('should throw error when project path is empty', async () => {
+            await expect(readMta('', mockLogger)).rejects.toThrow(t('error.mtaProjectPathMissing'));
+        });
+
+        test('should successfully read MTA and return resources', async () => {
+            const projectPath = '/test/project';
+            const mockYamlContent = {
+                resources: [
+                    {
+                        name: 'service1',
+                        parameters: { service: 'business-service1' }
+                    }
+                ]
+            };
+
+            mockGetYamlContent.mockReturnValue(mockYamlContent);
+            mockRequestCfApi.mockResolvedValue({
+                resources: [
+                    {
+                        name: 'business-service1',
+                        broker_catalog: {
+                            metadata: {
+                                sapservice: { odataversion: 'v2' }
+                            }
+                        }
+                    }
+                ]
+            });
+
+            const result = await readMta(projectPath, mockLogger);
+
+            expect(result).toEqual(['service1']);
+        });
+    });
+
+    describe('buildVcapServicesFromResources', () => {
+        const spaceGuid = 'space-guid-123';
+
+        test('returns empty object when resources is undefined or empty', async () => {
+            const resultUndefined = await buildVcapServicesFromResources(undefined, spaceGuid, mockLogger);
+            expect(resultUndefined).toEqual({});
+            expect(mockGetServiceKeyCredentialsWithTags).not.toHaveBeenCalled();
+
+            const resultEmpty = await buildVcapServicesFromResources([], spaceGuid, mockLogger);
+            expect(resultEmpty).toEqual({});
+            expect(mockGetServiceKeyCredentialsWithTags).not.toHaveBeenCalled();
+        });
+
+        test('skips resources without service or service-name and excludes html5-apps-repo and portal', async () => {
+            const resources = [
+                { name: 'r1', parameters: { service: 'xsuaa', 'service-name': 'my-xsuaa', 'service-plan': 'app' } },
+                { name: 'r2', parameters: { service: 'xsuaa' } },
+                { name: 'r3', parameters: { 'service-name': 'only-name' } },
+                { name: 'r4', parameters: { service: 'html5-apps-repo', 'service-name': 'repo', 'service-plan': '' } },
+                { name: 'r5', parameters: { service: 'portal', 'service-name': 'p', 'service-plan': '' } }
+            ];
+
+            const mockCreds = {
+                label: 'xsuaa',
+                name: 'my-xsuaa',
+                tags: [],
+                plan: 'app',
+                credentials: {}
+            };
+            mockGetServiceKeyCredentialsWithTags.mockResolvedValue(mockCreds as never);
+
+            const result = await buildVcapServicesFromResources(resources as never, spaceGuid, mockLogger);
+
+            expect(mockGetServiceKeyCredentialsWithTags).toHaveBeenCalledTimes(1);
+            expect(mockGetServiceKeyCredentialsWithTags).toHaveBeenCalledWith(
+                spaceGuid,
+                'xsuaa',
+                'my-xsuaa',
+                'app',
+                mockLogger
+            );
+            expect(result).toEqual({ xsuaa: [mockCreds] });
+        });
+
+        test('throws when getServiceKeyCredentialsWithTags returns data without credentials', async () => {
+            const resources = [
+                {
+                    name: 'r1',
+                    parameters: { service: 'xsuaa', 'service-name': 'my-xsuaa', 'service-plan': 'app' }
+                }
+            ];
+
+            mockGetServiceKeyCredentialsWithTags.mockResolvedValue({
+                label: 'xsuaa',
+                name: 'my-xsuaa',
+                tags: [],
+                plan: 'app',
+                credentials: undefined
+            });
+
+            await expect(buildVcapServicesFromResources(resources as never, spaceGuid, mockLogger)).rejects.toThrow(
+                "Credentials and tags for service 'xsuaa' ('my-xsuaa') not found"
+            );
+        });
+    });
+});

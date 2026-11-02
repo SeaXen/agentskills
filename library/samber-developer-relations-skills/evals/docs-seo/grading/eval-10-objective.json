@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to produce a single docs SEO health score out of 100",
+        "evidence": "\"A single 'docs SEO health: X/100' \u2014 not today. Zero pages have been inspected, so any number would be invented, not audited.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to produce a projected traffic lift percentage",
+        "evidence": "\"A projected traffic lift for the next two quarters \u2014 I won't produce this one under any data condition, not just today's.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that re-indexing, re-ranking and re-snippeting happen on the search engine's schedule, so ranking outcomes are reported as pending rather than promised",
+        "evidence": "\"Re-indexing, re-ranking, and snippet changes run on Google's schedule, and no one \u2014 not Search Console, not an SEO vendor, not me \u2014 can observe that schedule in advance.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Offers agreed numeric pass thresholds, set before the fix pass, as the substitute for the score",
+        "evidence": "The scorecard table with weighted pass conditions, plus: \"disclosed as such, adjust the weights with your board before you present the output as final\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists the report sections in order: verdict, coverage statement of what could not be verified, blocking defects, version and translation posture, page signals, internal linking, then the ranked fix list and thresholds",
+        "evidence": "The document's actual section order is Coverage \u2192 'The two numbers you asked for' \u2192 slide lines \u2192 scorecard \u2192 'Still open' \u2014 there is no Verdict header, no blocking-defects section, no version/translation-posture section, no page-signals section, and no internal-linking section.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the fix-list ordering as (pages affected x severity) divided by effort",
+        "evidence": "No fix list or ordering formula of this kind appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says out loud in the report that the ordering is a ratio and not a severity list",
+        "evidence": "Not present \u2014 there is no fix list or ratio discussion in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places blocking defects at the top of the fix list regardless of their effort score",
+        "evidence": "\"Blocking defects (robots/noindex conflicts, non-200 sitemap URLs, JS-only content) | veto | zero found... A blocking defect present zeroes the score regardless of the rest\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives every fix row a named owner plus the file or system that changes",
+        "evidence": "No fix list with owner/file columns exists in this transcript; only the scorecard's 'Source' column (e.g. 'crawl script', 'Search Console') is present.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names what the ratio starves, a fix that touches few pages and takes a week, and states that such a fix must be promoted by hand",
+        "evidence": "No such discussion appears anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Presents the numeric baselines as this skill's own defaults to be adjusted to the site rather than as industry standards",
+        "evidence": "\"this skill's baseline thresholds, converted to a weighted 0-100 scale \u2014 my construction, disclosed as such, adjust the weights with your board before you present the output as final\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps search-engine-enforced or spec-enforced requirements out of the negotiable threshold table and in the blocking-defects section",
+        "evidence": "The scorecard separates 'Blocking defects... veto... zero found' from the weighted negotiable rows (Indexation 25, Canonical integrity 20, etc.)",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Proposes re-running the crawl after the fixes land and diffing the two summaries as the proof that the work landed",
+        "evidence": "The transcript only proposes running the crawl once to get a baseline score; there is no mention of re-running post-fix and diffing summaries as proof.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to produce a single docs SEO health score out of 100",
+        "evidence": "'Docs SEO Health Score 54 / 100'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to produce a projected traffic lift percentage",
+        "evidence": "'+25% cumulative (range 15\u201335%)'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that re-indexing, re-ranking and re-snippeting happen on the search engine's schedule, so ranking outcomes are reported as pending rather than promised",
+        "evidence": "Notes lumpy re-crawl but still promises a lift figure.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Offers agreed numeric pass thresholds, set before the fix pass, as the substitute for the score",
+        "evidence": "Not offered.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Lists the report sections in order: verdict, coverage statement of what could not be verified, blocking defects, version and translation posture, page signals, internal linking, then the ranked fix list and thresholds",
+        "evidence": "Different structure: score table, lift model.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the fix-list ordering as (pages affected x severity) divided by effort",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says out loud in the report that the ordering is a ratio and not a severity list",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places blocking defects at the top of the fix list regardless of their effort score",
+        "evidence": "No blocking-defects concept is used.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives every fix row a named owner plus the file or system that changes",
+        "evidence": "No owners or files are named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names what the ratio starves, a fix that touches few pages and takes a week, and states that such a fix must be promoted by hand",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Presents the numeric baselines as this skill's own defaults to be adjusted to the site rather than as industry standards",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps search-engine-enforced or spec-enforced requirements out of the negotiable threshold table and in the blocking-defects section",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Proposes re-running the crawl after the fixes land and diffing the two summaries as the proof that the work landed",
+        "evidence": "Proposes swapping in GSC numbers instead.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,982 @@
+use std::{fs, path::Path, sync::Arc};
+
+use mirrord_agent_env::steal_tls::{
+    AgentClientConfig, AgentServerConfig, StealPortTlsConfig, TlsAuthentication, TlsClientIdentity,
+    TlsClientVerification, TlsServerVerification,
+};
+use mirrord_protocol::tcp::IncomingTrafficTransportType;
+use mirrord_tls_util::{CertIdentity, CertNames, DangerousNoVerifierServer, generate_cert};
+use pem::{EncodeConfig, LineEnding, Pem};
+use rcgen::{CertifiedKey, KeyPair};
+use rustls::{
+    ClientConfig, RootCertStore, ServerConfig,
+    crypto::CryptoProvider,
+    pki_types::{CertificateDer, PrivateKeyDer, ServerName},
+    server::WebPkiClientVerifier,
+};
+use tempfile::TempDir;
+use tokio::{
+    io::{AsyncReadExt, AsyncWriteExt},
+    net::{TcpListener, TcpStream},
+};
+use tokio_rustls::{TlsAcceptor, TlsConnector};
+
+use crate::{
+    incoming::tls::{
+        StealTlsHandlerStore,
+        error::{StealTlsSetupError, StealTlsSetupErrorInner},
+    },
+    util::path_resolver::InTargetPathResolver,
+};
+
+/// Identity backed by a file written with [`CertChainWithKey::to_file`], which holds both the
+/// certificate chain and the key.
+fn client_identity(name: &str) -> TlsClientIdentity {
+    TlsClientIdentity {
+        cert: format!("/{name}.pem").into(),
+        key: format!("/{name}.pem").into(),
+    }
+}
+
+pub struct CertChainWithKey {
+    pub key: PrivateKeyDer<'static>,
+    pub certs: Vec<CertificateDer<'static>>,
+}
+
+impl CertChainWithKey {
+    pub fn new(end_entity_name: &str, root_cert: Option<&CertifiedKey<KeyPair>>) -> Self {
+        let mut new_root = None;
+
+        let root = match root_cert {
+            Some(cert) => cert,
+            None => {
+                new_root.replace(generate_cert("root", None, true).unwrap());
+                new_root.as_ref().unwrap()
+            }
+        };
+
+        let issuer = generate_cert("issuer", Some(root), true).unwrap();
+        let cert = generate_cert(end_entity_name, Some(&issuer), false).unwrap();
+
+        Self {
+            key: cert.signing_key.serialize_der().try_into().unwrap(),
+            certs: vec![
+                cert.cert.into(),
+                issuer.cert.into(),
+                root.cert.der().clone(),
+            ],
+        }
+    }
+
+    pub fn to_file(&self, path: &Path) {
+        let mut pems = Vec::with_capacity(self.certs.len() + 1);
+
+        pems.push(Pem::new("PRIVATE KEY", self.key.secret_der()));
+        for cert in &self.certs {
+            pems.push(Pem::new("CERTIFICATE", cert.as_ref()));
+        }
+
+        let content =
+            pem::encode_many_config(&pems, EncodeConfig::new().set_line_ending(LineEnding::LF));
+        fs::write(path, content).unwrap();
+    }
+}
+
+async fn assert_can_talk(acceptor: TlsAcceptor, connector: TlsConnector, server_name: &str) {
+    let listener = TcpListener::bind("127.0.0.1:0").await.unwrap();
+    let server_addr = listener.local_addr().unwrap();
+    let server_name = ServerName::try_from(server_name.to_owned()).unwrap();
+
+    tokio::spawn(async move {
+        let stream = TcpStream::connect(server_addr).await.unwrap();
+        let mut stream = connector.connect(server_name, stream).await.unwrap();
+
+        stream.write_all(b"hello there").await.unwrap();
+        stream.shutdown().await.unwrap();
+    });
+
+    let stream = listener.accept().await.unwrap().0;
+    let mut stream = acceptor.accept(stream).await.unwrap();
+
+    let mut message = String::new();
+    stream.read_to_string(&mut message).await.unwrap();
+    assert_eq!(message, "hello there");
+}
+
+async fn assert_cannot_talk(acceptor: TlsAcceptor, connector: TlsConnector, server_name: &str) {
+    let listener = TcpListener::bind("127.0.0.1:0").await.unwrap();
+    let server_addr = listener.local_addr().unwrap();
+    let server_name = ServerName::try_from(server_name.to_owned()).unwrap();
+
+    tokio::spawn(async move {
+        let stream = TcpStream::connect(server_addr).await.unwrap();
+        let mut stream = connector.connect(server_name, stream).await.unwrap();
+
+        stream.write_all(b"hello there").await.unwrap();
+        stream.shutdown().await.unwrap();
+    });
+
+    let stream = listener.accept().await.unwrap().0;
+    acceptor.accept(stream).await.unwrap_err();
+}
+
+/// Verifies that agent's TLS server correctly authenticates itself to the clients.
+#[rstest::rstest]
+#[case::client_trusts_agent_root(true, true)]
+#[case::client_does_not_trust_agent_root(false, false)]
+#[tokio::test]
+async fn server_authentication(
+    #[case] client_trusts_agent_root: bool,
+    #[case] expect_accepted: bool,
+) {
+    let _ = CryptoProvider::install_default(rustls::crypto::aws_lc_rs::default_provider());
+
+    let root_dir = tempfile::tempdir().unwrap();
+    let server_pem = root_dir.path().join("auth.pem");
+
+    let chain = CertChainWithKey::new("mirrord-agent", None);
+    chain.to_file(&server_pem);
+
+    let store = StealTlsHandlerStore::new(
+        vec![StealPortTlsConfig {
+            port: 443,
+            agent_as_server: AgentServerConfig {
+                authentication: TlsAuthentication {
+                    cert_pem: "/auth.pem".into(),
+                    key_pem: "/auth.pem".into(),
+                },
+                alpn_protocols: Default::default(),
+                verification: None,
+            },
+            agent_as_client: AgentClientConfig {
+                identities: Default::default(),
+                authentication: None,
+                verification: TlsServerVerification {
+                    server_name: None,
+                    accept_any_cert: true,
+                    trust_roots: Default::default(),
+                },
+            },
+        }],
+        InTargetPathResolver::with_root_path(root_dir.path().to_path_buf()),
+    );
+    let handler = store.get(443).await.unwrap().unwrap();
+
+    let connector = {
+        let mut root_store = RootCertStore::empty();
+
+        if client_trusts_agent_root {
+            root_store.add(chain.certs.last().unwrap().clone()).unwrap();
+        } else {
+            let cert = generate_cert("dummy root", None, true).unwrap();
+            root_store.add(cert.cert.into()).unwrap();
+        }
+
+        let client_config = ClientConfig::builder()
+            .with_root_certificates(root_store)
+            .with_no_client_auth();
+        TlsConnector::from(Arc::new(client_config))
+    };
+
+    if expect_accepted {
+        assert_can_talk(handler.acceptor(), connector, "mirrord-agent").await;
+    } else {
+        assert_cannot_talk(handler.acceptor(), connector, "mirrord-agent").await;
+    }
+}
+
+/// Verifies that agent's TLS server correctly verifies clients.
+#[rstest::rstest]
+#[case::known_root_accepted(false, true, false, false, true)]
+#[case::anonymous_client_rejected(true, false, false, false, false)]
+#[case::unknown_root_rejected(false, false, false, false, false)]
+#[case::anonymous_client_accepted_with_allow_anonymous(true, false, true, false, true)]
+#[case::unknown_cert_accepted_with_accept_any_cert(false, false, false, true, true)]
+#[tokio::test]
+async fn client_verification(
+    #[case] anonymous_client: bool,
+    #[case] good_client_root: bool,
+    #[case] allow_anonymous: bool,
+    #[case] accept_any_cert: bool,
+    #[case] expect_client_accepted: bool,
+) {
+    let _ = CryptoProvider::install_default(rustls::crypto::aws_lc_rs::default_provider());
+
+    let root_dir = tempfile::tempdir().unwrap();
+
+    let chain = CertChainWithKey::new("mirrord-agent", None);
+    let auth_pem = root_dir.path().join("auth.pem");
+    chain.to_file(&auth_pem);
+
+    let trusted_root = generate_cert("root", None, true).unwrap();
+    let root_pem = root_dir.path().join("root.pem");
+    fs::write(&root_pem, trusted_root.cert.pem()).unwrap();
+
+    let store = StealTlsHandlerStore::new(
+        vec![StealPortTlsConfig {
+            port: 443,
+            agent_as_server: AgentServerConfig {
+                authentication: TlsAuthentication {
+                    cert_pem: "/auth.pem".into(),
+                    key_pem: "/auth.pem".into(),
+                },
+                alpn_protocols: Default::default(),
+                verification: Some(TlsClientVerification {
+                    allow_anonymous,
+                    accept_any_cert,
+                    trust_roots: vec!["/root.pem".into()],
+                }),
+            },
+            agent_as_client: AgentClientConfig {
+                identities: Default::default(),
+                authentication: None,
+                verification: TlsServerVerification {
+                    server_name: None,
+                    accept_any_cert: true,
+                    trust_roots: Default::default(),
+                },
+            },
+        }],
+        InTargetPathResolver::with_root_path(root_dir.path().to_path_buf()),
+    );
+    let handler = store.get(443).await.unwrap().unwrap();
+
+    let connector = {
+        let mut root_store = RootCertStore::empty();
+        root_store.add(chain.certs.last().unwrap().clone()).unwrap();
+        let builder = ClientConfig::builder().with_root_certificates(root_store);
+        let config = if anonymous_client {
+            builder.with_no_client_auth()
+        } else if good_client_root {
+            let cert_chain = CertChainWithKey::new("client", Some(&trusted_root));
+            builder
+                .with_client_auth_cert(cert_chain.certs, cert_chain.key)
+                .unwrap()
+        } else {
+            let cert_chain = CertChainWithKey::new("client", None);
+            builder
+                .with_client_auth_cert(cert_chain.certs, cert_chain.key)
+                .unwrap()
+        };
+        TlsConnector::from(Arc::new(config))
+    };
+
+    if expect_client_accepted {
+        assert_can_talk(handler.acceptor(), connector, "mirrord-agent").await;
+    } else {
+        assert_cannot_talk(handler.acceptor(), connector, "mirrord-agent").await;
+    }
+}
+
+/// Verifies that agent's TLS client correctly authenticates itself to the server,
+/// when configured.
+#[rstest::rstest]
+#[case::server_trusts_agent_root(true, true)]
+#[case::server_does_not_trust_agent_root(false, false)]
+#[tokio::test]
+async fn client_authentication(
+    #[case] server_trusts_agent_root: bool,
+    #[case] expect_accepted: bool,
+) {
+    let _ = CryptoProvider::install_default(rustls::crypto::aws_lc_rs::default_provider());
+
+    let root_dir = tempfile::tempdir().unwrap();
+
+    let agent_chain = CertChainWithKey::new("mirrord-agent", None);
+    let auth_pem = root_dir.path().join("auth.pem");
+    agent_chain.to_file(&auth_pem);
+
+    let store = StealTlsHandlerStore::new(
+        vec![StealPortTlsConfig {
+            port: 443,
+            agent_as_server: AgentServerConfig {
+                authentication: TlsAuthentication {
+                    cert_pem: "/auth.pem".into(),
+                    key_pem: "/auth.pem".into(),
+                },
+                alpn_protocols: Default::default(),
+                verification: None,
+            },
+            agent_as_client: AgentClientConfig {
+                identities: Default::default(),
+                authentication: Some(TlsAuthentication {
+                    cert_pem: "/auth.pem".into(),
+                    key_pem: "/auth.pem".into(),
+                }),
+                verification: TlsServerVerification {
+                    server_name: None,
+                    accept_any_cert: true,
+                    trust_roots: Default::default(),
+                },
+            },
+        }],
+        InTargetPathResolver::with_root_path(root_dir.path().to_path_buf()),
+    );
+    let handler = store.get(443).await.unwrap().unwrap();
+
+    let acceptor = {
+        let mut root_store = RootCertStore::empty();
+
+        if server_trusts_agent_root {
+            root_store
+                .add(agent_chain.certs.last().unwrap().clone())
+                .unwrap();
+        } else {
+            let cert = generate_cert("dummy root", None, true).unwrap();
+            root_store.add(cert.cert.into()).unwrap();
+        }
+
+        let verifier = WebPkiClientVerifier::builder(root_store.into())
+            .build()
+            .unwrap();
+        let server_chain = CertChainWithKey::new("server", None);
+        let config = ServerConfig::builder()
+            .with_client_cert_verifier(verifier)
+            .with_single_cert(server_chain.certs, server_chain.key)
+            .unwrap();
+        TlsAcceptor::from(Arc::new(config))
+    };
+
+    let connector = TlsConnector::from(handler.client_config);
+
+    if expect_accepted {
+        assert_can_talk(acceptor, connector, "server").await;
+    } else {
+        assert_cannot_talk(acceptor, connector, "server").await;
+    }
+}
+
+/// Verifies that agent's TLS client correctly verifies the server.
+#[rstest::rstest]
+#[case::accept_any_cert_trusted(true, false, true)]
+#[case::accept_any_cert_not_trusted(true, true, true)]
+#[case::trusted(false, true, true)]
+#[case::not_trusted(false, false, false)]
+#[tokio::test]
+async fn server_verification(
+    #[case] accept_any_cert: bool,
+    #[case] server_uses_trusted_root: bool,
+    #[case] expect_accepted: bool,
+) {
+    let _ = CryptoProvider::install_default(rustls::crypto::aws_lc_rs::default_provider());
+
+    let root_dir = tempfile::tempdir().unwrap();
+
+    let agent_chain = CertChainWithKey::new("mirrord-agent", None);
+    let auth_pem = root_dir.path().join("auth.pem");
+    agent_chain.to_file(&auth_pem);
+
+    let trusted_root = generate_cert("root", None, true).unwrap();
+    let root_pem = root_dir.path().join("root.pem");
+    fs::write(root_pem, trusted_root.cert.pem()).unwrap();
+
+    let store = StealTlsHandlerStore::new(
+        vec![StealPortTlsConfig {
+            port: 443,
+            agent_as_server: AgentServerConfig {
+                authentication: TlsAuthentication {
+                    cert_pem: "/auth.pem".into(),
+                    key_pem: "/auth.pem".into(),
+                },
+                alpn_protocols: Default::default(),
+                verification: None,
+            },
+            agent_as_client: AgentClientConfig {
+                identities: Default::default(),
+                authentication: Some(TlsAuthentication {
+                    cert_pem: "/auth.pem".into(),
+                    key_pem: "/auth.pem".into(),
+                }),
+                verification: TlsServerVerification {
+                    server_name: None,
+                    accept_any_cert,
+                    trust_roots: vec!["/root.pem".into()],
+                },
+            },
+        }],
+        InTargetPathResolver::with_root_path(root_dir.path().to_path_buf()),
+    );
+    let handler = store.get(443).await.unwrap().unwrap();
+
+    let acceptor = {
+        let mut root_store = RootCertStore::empty();
+        root_store
+            .add(agent_chain.certs.last().unwrap().clone())
+            .unwrap();
+        let verifier = WebPkiClientVerifier::builder(root_store.into())
+            .build()
+            .unwrap();
+        let issuer = server_uses_trusted_root.then_some(&trusted_root);
+        let server_chain = CertChainWithKey::new("server", issuer);
+        let config = ServerConfig::builder()
+            .with_client_cert_verifier(verifier)
+            .with_single_cert(server_chain.certs, server_chain.key)
+            .unwrap();
+        TlsAcceptor::from(Arc::new(config))
+    };
+
+    let connector = TlsConnector::from(handler.client_config);
+
+    if expect_accepted {
+        assert_can_talk(acceptor, connector, "server").await;
+    } else {
+        assert_cannot_talk(acceptor, connector, "server").await;
+    }
+}
+
+/// Verifies that agent uses original SNI and ALPN protocol when making a passthrough connection.
+#[tokio::test]
+async fn agent_connects_with_original_params() {
+    let _ = CryptoProvider::install_default(rustls::crypto::aws_lc_rs::default_provider());
+
+    let mut setup = SimpleStore::new(443, &["h2", "http/1.1"]).await;
+
+    let connector = {
+        setup.client_config.alpn_protocols.push(b"http/1.1".into());
+        TlsConnector::from(Arc::new(setup.client_config))
+    };
+
+    let acceptor = TlsAcceptor::from(Arc::new(setup.server_config));
+
+    let listener = TcpListener::bind("127.0.0.1:0").await.unwrap();
+    let addr = listener.local_addr().unwrap();
+
+    let _client_handle = tokio::spawn(async move {
+        let client_agent = TcpStream::connect(addr).await.unwrap();
+        connector
+            .connect(
+                ServerName::try_from("server".to_owned()).unwrap(),
+                client_agent,
+            )
+            .await
+    });
+
+    let handler = setup.store.get(443).await.unwrap().unwrap();
+    let agent_client = listener.accept().await.unwrap().0;
+    let agent_client = handler.acceptor().accept(agent_client).await.unwrap();
+    assert_eq!(
+        agent_client.get_ref().1.alpn_protocol(),
+        Some(b"http/1.1".as_slice())
+    );
+    assert_eq!(agent_client.get_ref().1.server_name(), Some("server"));
+
+    let server_handle = tokio::spawn(async move {
+        let server_agent = listener.accept().await.unwrap().0;
+        acceptor.accept(server_agent).await.unwrap()
+    });
+
+    let agent_server = TcpStream::connect(addr).await.unwrap();
+    let _agent_server = handler
+        .connector(agent_client.get_ref().1)
+        .connect(addr.ip(), None, agent_server)
+        .await
+        .unwrap();
+
+    let server_agent = server_handle.await.unwrap();
+    assert_eq!(
+        server_agent.get_ref().1.alpn_protocol(),
+        Some(b"http/1.1".as_slice())
+    );
+    assert_eq!(server_agent.get_ref().1.server_name(), Some("server"));
+}
+
+/// Verifies that a configured `server_name` is what the agent verifies the original destination
+/// against when the original client sent no SNI, and that an SNI the client did send wins.
+#[rstest::rstest]
+#[case::configured(Some("server"), None, Some("server"), true)]
+#[case::not_configured(None, None, None, false)]
+#[case::sni_wins(Some("configured.invalid"), Some("server"), Some("server"), true)]
+#[tokio::test]
+async fn configured_server_name_fills_in_for_missing_sni(
+    #[case] server_name: Option<&str>,
+    #[case] client_sni: Option<&str>,
+    #[case] expected_name: Option<&str>,
+    #[case] expect_accepted: bool,
+) {
+    let _ = CryptoProvider::install_default(rustls::crypto::aws_lc_rs::default_provider());
+
+    let root_dir = tempfile::tempdir().unwrap();
+
+    let trusted_root = generate_cert("root", None, true).unwrap();
+    let root_pem = root_dir.path().join("root.pem");
+    fs::write(root_pem, trusted_root.cert.pem()).unwrap();
+
+    let agent_chain = CertChainWithKey::new("server", Some(&trusted_root));
+    let auth_pem = root_dir.path().join("auth.pem");
+    agent_chain.to_file(&auth_pem);
+
+    let store = StealTlsHandlerStore::new(
+        vec![StealPortTlsConfig {
+            port: 443,
+            agent_as_server: AgentServerConfig {
+                authentication: TlsAuthentication {
+                    cert_pem: "/auth.pem".into(),
+                    key_pem: "/auth.pem".into(),
+                },
+                alpn_protocols: Default::default(),
+                verification: None,
+            },
+            agent_as_client: AgentClientConfig {
+                identities: Default::default(),
+                authentication: None,
+                verification: TlsServerVerification {
+                    server_name: server_name.map(str::to_owned),
+                    accept_any_cert: false,
+                    trust_roots: vec!["/root.pem".into()],
+                },
+            },
+        }],
+        InTargetPathResolver::with_root_path(root_dir.path().to_path_buf()),
+    );
+    let handler = store.get(443).await.unwrap().unwrap();
+
+    let listener = TcpListener::bind("127.0.0.1:0").await.unwrap();
+    let addr = listener.local_addr().unwrap();
+
+    // Without an SNI of its own, the original client connects by IP.
+    let client_sni = client_sni.map(str::to_owned);
+    let _client_handle = tokio::spawn(async move {
+        let mut client_config = ClientConfig::builder()
+            .dangerous()
+            .with_custom_certificate_verifier(Arc::new(DangerousNoVerifierServer))
+            .with_no_client_auth();
+        client_config.enable_sni = client_sni.is_some();
+        let name = match client_sni {
+            Some(name) => ServerName::try_from(name).unwrap(),
+            None => ServerName::from(addr.ip()),
+        };
+        let client_agent = TcpStream::connect(addr).await.unwrap();
+        TlsConnector::from(Arc::new(client_config))
+            .connect(name, client_agent)
+            .await
+    });
+
+    let agent_client = listener.accept().await.unwrap().0;
+    let agent_client = handler.acceptor().accept(agent_client).await.unwrap();
+
+    let acceptor = {
+        let server_chain = CertChainWithKey::new("server", Some(&trusted_root));
+        let config = ServerConfig::builder()
+            .with_no_client_auth()
+            .with_single_cert(server_chain.certs, server_chain.key)
+            .unwrap();
+        TlsAcceptor::from(Arc::new(config))
+    };
+    let server_handle = tokio::spawn(async move {
+        let server_agent = listener.accept().await.unwrap().0;
+        acceptor.accept(server_agent).await
+    });
+
+    let connector = handler.connector(agent_client.get_ref().1);
+    let expected_name = expected_name.map(|name| ServerName::try_from(name.to_owned()).unwrap());
+    assert_eq!(connector.server_name(), expected_name.as_ref());
+
+    let agent_server = TcpStream::connect(addr).await.unwrap();
+    let result = connector.connect(addr.ip(), None, agent_server).await;
+    assert_eq!(result.is_ok(), expect_accepted, "{result:?}");
+
+    if expect_accepted {
+        server_handle.await.unwrap().unwrap();
+    }
+}
+
+/// Verifies that when passing through a connection, the agent presents the configured client
+/// certificate with the same identity as the original client, and falls back to the default
+/// certificate when there is no match.
+#[rstest::rstest]
+#[case::matching_identity(Some("client-b"), "client-b")]
+#[case::no_matching_identity(Some("client-c"), "mirrord-agent")]
+#[case::anonymous_client(None, "mirrord-agent")]
+#[tokio::test]
+async fn agent_presents_matching_identity(
+    #[case] original_client: Option<&str>,
+    #[case] expected_identity: &str,
+) {
+    let _ = CryptoProvider::install_default(rustls::crypto::aws_lc_rs::default_provider());
+
+    let root_dir = tempfile::tempdir().unwrap();
+
+    let trusted_root = generate_cert("root", None, true).unwrap();
+    fs::write(root_dir.path().join("root.pem"), trusted_root.cert.pem()).unwrap();
+    for name in ["mirrord-agent", "client-a", "client-b"] {
+        CertChainWithKey::new(name, Some(&trusted_root))
+            .to_file(&root_dir.path().join(format!("{name}.pem")));
+    }
+    let authentication = |name: &str| TlsAuthentication {
+        cert_pem: format!("/{name}.pem").into(),
+        key_pem: format!("/{name}.pem").into(),
+    };
+
+    let store = StealTlsHandlerStore::new(
+        vec![StealPortTlsConfig {
+            port: 443,
+            agent_as_server: AgentServerConfig {
+                authentication: authentication("mirrord-agent"),
+                alpn_protocols: Default::default(),
+                verification: Some(TlsClientVerification {
+                    allow_anonymous: true,
+                    accept_any_cert: false,
+                    trust_roots: vec!["/root.pem".into()],
+                }),
+            },
+            agent_as_client: AgentClientConfig {
+                authentication: Some(authentication("mirrord-agent")),
+                identities: vec![client_identity("client-a"), client_identity("client-b")],
+                verification: TlsServerVerification {
+                    server_name: None,
+                    accept_any_cert: true,
+                    trust_roots: Default::default(),
+                },
+            },
+        }],
+        InTargetPathResolver::with_root_path(root_dir.path().to_path_buf()),
+    );
+    let handler = store.get(443).await.unwrap().unwrap();
+
+    let mut root_store = RootCertStore::empty();
+    root_store.add(trusted_root.cert.der().clone()).unwrap();
+    let root_store = Arc::new(root_store);
+
+    let listener = TcpListener::bind("127.0.0.1:0").await.unwrap();
+    let addr = listener.local_addr().unwrap();
+
+    // The original client's certificate is not the one configured in the agent,
+    // only its identity is the same.
+    let client_config = {
+        let builder = ClientConfig::builder().with_root_certificates(root_store.clone());
+        match original_client {
+            Some(name) => {
+                let chain = CertChainWithKey::new(name, Some(&trusted_root));
+                builder
+                    .with_client_auth_cert(chain.certs, chain.key)
+                    .unwrap()
+            }
+            None => builder.with_no_client_auth(),
+        }
+    };
+    let _client_handle = tokio::spawn(async move {
+        let client_agent = TcpStream::connect(addr).await.unwrap();
+        TlsConnector::from(Arc::new(client_config))
+            .connect(ServerName::try_from("mirrord-agent").unwrap(), client_agent)
+            .await
+    });
+    let agent_client = listener.accept().await.unwrap().0;
+    let agent_client = handler.acceptor().accept(agent_client).await.unwrap();
+
+    let acceptor = {
+        let verifier = WebPkiClientVerifier::builder(root_store).build().unwrap();
+        let server_chain = CertChainWithKey::new("server", Some(&trusted_root));
+        let config = ServerConfig::builder()
+            .with_client_cert_verifier(verifier)
+            .with_single_cert(server_chain.certs, server_chain.key)
+            .unwrap();
+        TlsAcceptor::from(Arc::new(config))
+    };
+    let server_handle = tokio::spawn(async move {
+        let server_agent = listener.accept().await.unwrap().0;
+        acceptor.accept(server_agent).await.unwrap()
+    });
+
+    let connector = handler.connector(agent_client.get_ref().1);
+    let IncomingTrafficTransportType::TlsV2 {
+        client_identity, ..
+    } = connector.transport_type(&"1.30.0".parse().unwrap())
+    else {
+        panic!("expected TlsV2 transport");
+    };
+    assert_eq!(
+        client_identity.map(|identity| identity.subject),
+        original_client.map(|name| {
+            CertNames::from_der(generate_cert(name, None, false).unwrap().cert.der())
+                .unwrap()
+                .subject
+        }),
+    );
+
+    let agent_server = TcpStream::connect(addr).await.unwrap();
+    connector
+        .connect(addr.ip(), None, agent_server)
+        .await
+        .unwrap();
+
+    let server_agent = server_handle.await.unwrap();
+    let presented = server_agent
+        .get_ref()
+        .1
+        .peer_certificates()
+        .unwrap()
+        .first()
+        .unwrap()
+        .clone();
+    let expected = generate_cert(expected_identity, None, false).unwrap();
+    assert_eq!(
+        CertIdentity::from_der(&presented),
+        CertIdentity::from_der(expected.cert.der()),
+    );
+}
+
+/// The identity of a client whose certificate was not verified cannot be trusted, so
+/// `agentAsClient.identities` cannot be used without client verification.
+#[rstest::rstest]
+#[case::no_verification(None)]
+#[case::accept_any_cert(Some(TlsClientVerification {
+    allow_anonymous: false,
+    accept_any_cert: true,
+    trust_roots: Default::default(),
+}))]
+#[tokio::test]
+async fn identities_require_client_verification(
+    #[case] verification: Option<TlsClientVerification>,
+) {
+    let root_dir = tempfile::tempdir().unwrap();
+    for name in ["mirrord-agent", "client-a"] {
+        CertChainWithKey::new(name, None).to_file(&root_dir.path().join(format!("{name}.pem")));
+    }
+
+    let store = StealTlsHandlerStore::new(
+        vec![StealPortTlsConfig {
+            port: 443,
+            agent_as_server: AgentServerConfig {
+                authentication: TlsAuthentication {
+                    cert_pem: "/mirrord-agent.pem".into(),
+                    key_pem: "/mirrord-agent.pem".into(),
+                },
+                alpn_protocols: Default::default(),
+                verification,
+            },
+            agent_as_client: AgentClientConfig {
+                authentication: None,
+                identities: vec![client_identity("client-a")],
+                verification: TlsServerVerification {
+                    server_name: None,
+                    accept_any_cert: true,
+                    trust_roots: Default::default(),
+                },
+            },
+        }],
+        InTargetPathResolver::with_root_path(root_dir.path().to_path_buf()),
+    );
+
+    let error = store.get(443).await.unwrap_err();
+    assert!(
+        matches!(
+            error,
+            StealTlsSetupError::ClientSetupError(
+                StealTlsSetupErrorInner::IdentitiesWithoutClientVerification
+            )
+        ),
+        "{error:?}"
+    );
+}
+
+/// With `accept_any_cert`, anyone can present a certificate with any identity, so the identity
+/// is not passed to the agent's clients.
+#[tokio::test]
+async fn unverified_client_identity_is_not_reported() {
+    let _ = CryptoProvider::install_default(rustls::crypto::aws_lc_rs::default_provider());
+
+    let root_dir = tempfile::tempdir().unwrap();
+    CertChainWithKey::new("mirrord-agent", None)
+        .to_file(&root_dir.path().join("mirrord-agent.pem"));
+
+    let store = StealTlsHandlerStore::new(
+        vec![StealPortTlsConfig {
+            port: 443,
+            agent_as_server: AgentServerConfig {
+                authentication: TlsAuthentication {
+                    cert_pem: "/mirrord-agent.pem".into(),
+                    key_pem: "/mirrord-agent.pem".into(),
+                },
+                alpn_protocols: Default::default(),
+                verification: Some(TlsClientVerification {
+                    allow_anonymous: false,
+                    accept_any_cert: true,
+                    trust_roots: Default::default(),
+                }),
+            },
+            agent_as_client: AgentClientConfig {
+                authentication: None,
+                identities: Default::default(),
+                verification: TlsServerVerification {
+                    server_name: None,
+                    accept_any_cert: true,
+                    trust_roots: Default::default(),
+                },
+            },
+        }],
+        InTargetPathResolver::with_root_path(root_dir.path().to_path_buf()),
+    );
+    let handler = store.get(443).await.unwrap().unwrap();
+
+    let listener = TcpListener::bind("127.0.0.1:0").await.unwrap();
+    let addr = listener.local_addr().unwrap();
+
+    let self_signed = CertChainWithKey::new("client-a", None);
+    let client_config = ClientConfig::builder()
+        .dangerous()
+        .with_custom_certificate_verifier(Arc::new(DangerousNoVerifierServer))
+        .with_client_auth_cert(self_signed.certs, self_signed.key)
+        .unwrap();
+    let _client_handle = tokio::spawn(async move {
+        let client_agent = TcpStream::connect(addr).await.unwrap();
+        TlsConnector::from(Arc::new(client_config))
+            .connect(ServerName::try_from("mirrord-agent").unwrap(), client_agent)
+            .await
+    });
+    let agent_client = listener.accept().await.unwrap().0;
+    let agent_client = handler.acceptor().accept(agent_client).await.unwrap();
+    assert!(agent_client.get_ref().1.peer_certificates().is_some());
+
+    let connector = handler.connector(agent_client.get_ref().1);
+    let IncomingTrafficTransportType::TlsV2 {
+        client_identity, ..
+    } = connector.transport_type(&"1.30.0".parse().unwrap())
+    else {
+        panic!("expected TlsV2 transport");
+    };
+    assert_eq!(client_identity, None);
+}
+
+/// Clients older than [`mirrord_protocol::tcp::TLS_CLIENT_IDENTITY_VERSION`] cannot decode
+/// [`IncomingTrafficTransportType::TlsV2`], so they get the original client's identity only when
+/// their version allows it.
+#[rstest::rstest]
+#[case::old_client("1.29.1", false)]
+#[case::new_client("1.30.0", true)]
+#[tokio::test]
+async fn transport_type_depends_on_protocol_version(
+    #[case] protocol_version: &str,
+    #[case] expect_client_identity: bool,
+) {
+    let setup = SimpleStore::new(443, &["h2"]).await;
+    let client_connector = setup.connector(Some("h2"));
+
+    let listener = TcpListener::bind("127.0.0.1:0").await.unwrap();
+    let addr = listener.local_addr().unwrap();
+    let _client_handle = tokio::spawn(async move {
+        let client_agent = TcpStream::connect(addr).await.unwrap();
+        client_connector
+            .connect(ServerName::try_from("server").unwrap(), client_agent)
+            .await
+    });
+
+    let handler = setup.store.get(443).await.unwrap().unwrap();
+    let agent_client = listener.accept().await.unwrap().0;
+    let agent_client = handler.acceptor().accept(agent_client).await.unwrap();
+    let connector = handler.connector(agent_client.get_ref().1);
+
+    let transport = connector.transport_type(&protocol_version.parse().unwrap());
+    assert_eq!(
+        matches!(transport, IncomingTrafficTransportType::TlsV2 { .. }),
+        expect_client_identity,
+        "{transport:?}",
+    );
+    assert_eq!(transport.alpn_protocol(), Some(b"h2".as_slice()));
+    assert_eq!(transport.server_name(), Some("server"));
+    assert_eq!(
+        transport.client_identity().is_some(),
+        expect_client_identity
+    );
+}
+
+pub struct SimpleStore {
+    _certs_dir: TempDir,
+    pub store: StealTlsHandlerStore,
+    pub client_config: ClientConfig,
+    pub server_config: ServerConfig,
+}
+
+impl SimpleStore {
+    pub async fn new(port: u16, alpn_protocols: &[&str]) -> Self {
+        let _ = CryptoProvider::install_default(rustls::crypto::aws_lc_rs::default_provider());
+
+        let root_dir = tempfile::tempdir().unwrap();
+
+        let trusted_root = generate_cert("root", None, true).unwrap();
+        let root_pem = root_dir.path().join("root.pem");
+        fs::write(root_pem, trusted_root.cert.pem()).unwrap();
+
+        let agent_chain = CertChainWithKey::new("server", Some(&trusted_root));
+        let auth_pem = root_dir.path().join("auth.pem");
+        agent_chain.to_file(&auth_pem);
+
+        let store = StealTlsHandlerStore::new(
+            vec![StealPortTlsConfig {
+                port,
+                agent_as_server: AgentServerConfig {
+                    authentication: TlsAuthentication {
+                        cert_pem: "/auth.pem".into(),
+                        key_pem: "/auth.pem".into(),
+                    },
+                    alpn_protocols: alpn_protocols
+                        .iter()
+                        .map(ToString::to_string)
+                        .collect::<Vec<_>>(),
+                    verification: Some(TlsClientVerification {
+                        allow_anonymous: false,
+                        accept_any_cert: false,
+                        trust_roots: vec!["/root.pem".into()],
+                    }),
+                },
+                agent_as_client: AgentClientConfig {
+                    identities: Default::default(),
+                    authentication: Some(TlsAuthentication {
+                        cert_pem: "/auth.pem".into(),
+                        key_pem: "/auth.pem".into(),
+                    }),
+                    verification: TlsServerVerification {
+                        server_name: None,
+                        accept_any_cert: false,
+                        trust_roots: vec!["/root.pem".into()],
+                    },
+                },
+            }],
+            InTargetPathResolver::with_root_path(root_dir.path().to_path_buf()),
+        );
+
+        let mut root_store = RootCertStore::empty();
+        root_store.add(trusted_root.cert.der().clone()).unwrap();
+        let root_store = Arc::new(root_store);
+
+        let client_config = {
+            let chain = CertChainWithKey::new("client", Some(&trusted_root));
+            ClientConfig::builder()
+                .with_root_certificates(root_store.clone())
+                .with_client_auth_cert(chain.certs, chain.key)
+                .unwrap()
+        };
+
+        let server_config = {
+            let verifier = WebPkiClientVerifier::builder(root_store).build().unwrap();
+            let server_chain = CertChainWithKey::new("server", Some(&trusted_root));
+            let mut config = ServerConfig::builder()
+                .with_client_cert_verifier(verifier)
+                .with_single_cert(server_chain.certs, server_chain.key)
+                .unwrap();
+            config.alpn_protocols = alpn_protocols
+                .iter()
+                .map(|p| p.as_bytes().to_vec())
+                .collect();
+            config
+        };
+
+        Self {
+            _certs_dir: root_dir,
+            store,
+            client_config,
+            server_config,
+        }
+    }
+
+    pub fn connector(&self, alpn_protocol: Option<&str>) -> TlsConnector {
+        let mut client_config = self.client_config.clone();
+        if let Some(alpn) = alpn_protocol {
+            client_config.alpn_protocols = vec![alpn.as_bytes().to_vec()];
+        }
+        TlsConnector::from(Arc::new(client_config))
+    }
+
+    pub fn acceptor(&self) -> TlsAcceptor {
+        TlsAcceptor::from(Arc::new(self.server_config.clone()))
+    }
+}

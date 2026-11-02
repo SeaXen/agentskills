@@ -1,0 +1,382 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-attendee-email-sequences",
+  "scenarios": 9,
+  "expectations_total": 109,
+  "expectations_subjective": 0,
+  "expectations_objective": 109,
+  "pass_rate_with_skill_pct": 92.7,
+  "pass_rate_without_skill_pct": 30.3,
+  "delta_pp": 62.4,
+  "uplift_multiplier": 3.06,
+  "trigger_accuracy_pct": 76.9,
+  "trigger_queries": 104,
+  "trigger_positive_fire_rate": 0.788,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": null,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "The default plan is the five-send core arc: announcement, registration confirmation, know-before-you-go, day-before nudge, post-event thank-you"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "If an agenda-release email is included, it is marked optional or first-to-cut, not core"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Schedules the last-call for Saturday, the day before the Sunday 23:59 cutoff"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The code of conduct section is kept despite the instruction to cut it, with a link, the stated enforcement consequence, and a contact route"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The refusal is explained: code of conduct and accessibility decide whether someone attends at all, so they are never a length trade-off"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "An accessibility section appears covering the given provisions (step-free north-entrance lift, live captioning), what must be requested and by when, and who to ask"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The nursing/parents' room absence is stated explicitly in the email rather than silently omitted"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "That forward-looking sentence is kept deliberately - it is what stops the later practical email being mistaken for marketing"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Rejects the 8-10 touch nurture sequence instead of building it, and proposes roughly 2 to 4 reminder sends across the pre-event arc"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Rejects open/click branching as structurally wrong for an event (a fixed, dated arc that ends on one day), not merely as a tooling limitation"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Every send in the proposed plan fires on a calendar date; none is conditioned on a recipient's open, click, or inactivity"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Presents the thin cadence as what event organizers actually send, not as a budget or reduced version of a real sequence"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The default plan is the five-send core arc: announcement, registration confirmation, know-before-you-go, day-before nudge, post-event thank-you"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "No re-engagement or win-back email appears in the plan for this edition's own registrants"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Asks where the 1,200 addresses came from, per source, rather than assuming the whole list is mailable"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Maps sends onto the fixed dates given (April 2 announcement, May 6 agenda, June 18 doors) without moving any of them"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Restates the handed-down dates back to the user rather than re-deriving or adjusting them"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "If an agenda-release email is included, it is marked optional or first-to-cut, not core"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The know-before-you-go lands roughly one week before doors and the day-before nudge the evening before"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Produces exactly one last-call email and declines the Thursday-plus-Sunday double send: one cutoff, one email"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Refuses to extend or quietly move the early-bird deadline; the cutoff is treated as fixed and owned by pricing, not by email performance"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Schedules the last-call for Saturday, the day before the Sunday 23:59 cutoff"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Targets only the not-yet-registered, cross-referenced against the registered list so no ticket holder receives it"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The copy states what changes and exactly when, letting the date carry the urgency - no 'last chance', 'don't miss out', countdown, or scarcity phrasing"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The subject names TidePool Conf and the deadline plainly, roughly in the 40-60 character range"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The body carries one CTA and one link"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Does not propose a 'deadline extended' follow-up email as an alternative tactic"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that buying a ticket to CairnStack 2026 is not consent to be marketed to for 2027; the 1,900 ticket-export addresses are not mailable without a documented opt-in"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States what the ticket transaction did consent to: the confirmation, the practical information, and changes to it - not promotional sends"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names the exposure as irreversible: the kind of mistake that can force a list deletion the event never recovers from, not merely poor practice"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The code of conduct section is kept despite the instruction to cut it, with a link, the stated enforcement consequence, and a contact route"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The refusal is explained: code of conduct and accessibility decide whether someone attends at all, so they are never a length trade-off"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "An accessibility section appears covering the given provisions (step-free north-entrance lift, live captioning), what must be requested and by when, and who to ask"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The nursing/parents' room absence is stated explicitly in the email rather than silently omitted"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The reason is present: an unannounced, differently-branded automated email gets reported as phishing or ignored as spam"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The email opens with event name, exact dates, and the daily opening time - no teaser or hook opener"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Sections with no supplied facts (transit, parking, airport directions, evening events) are marked not applicable or flagged as facts to obtain - never invented"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "A completeness check is run or reported: every section present or explicitly not applicable, with a partial pass treated as a fail"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Explains the cost in list terms: each extra send trains recipients to stop opening the one that matters"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends the week-before know-before-you-go plus a short day-before nudge as the reminder pair"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Cites the 30-50% signup-to-attendance drop-off for free events as what makes the reminders load-bearing"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Does not compute or recommend an overbooking or over-registration number"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Reminder emails are presented as this plan's lever against no-shows, while overbooking, waitlists, deposits and seat-release are named as structural fixes owned by a separate no-show process"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Send caps are counted per segment, not across the whole list"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The day-before nudge carries only when-and-where plus a link back to the week-before email - no new information"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Rejects the lowercase two-or-three-word colleague-disguise subject approach"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Gives the inversion reason: those tactics disguise an unsolicited sender, while a registrant is searching their inbox for this event's email"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Subject lines name TelaForge Assemble (and the date where relevant) plainly"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Subjects sit roughly in the 40-60 character range for mobile truncation"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that a first-name personalization token is welcome here, inverting the cold-email finding"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Refuses to put the workshop promo block inside the registration confirmation"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Gives the reason: mixing promotional content into a transactional send is how the transactional exemption stops applying"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The confirmation draft carries what was registered for, the dates, a ticket or order reference, and one sentence saying a practical-information email arrives about a week before the event"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "That forward-looking sentence is kept deliberately - it is what stops the later practical email being mistaken for marketing"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Each drafted email carries one primary CTA"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Rejects the resend-to-non-openers plan rather than adopting or deferring it"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The rejection is structural: every send moment is a calendar date, never a per-recipient behaviour"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends the role split at the week-before send as the default segmentation"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that a field once collected cannot be un-collected before endorsing any collection of it"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Attribute segmentation (first-timer vs returning, etc.) is presented as the high-effort top rung with named promotion conditions, not the default for a two-volunteer team"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The recommendation is re-ranked against the stated team: two volunteers with basic filters get at most the role split plus registration-state, not full attribute segmentation"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Only the attendee variant of the week-before email is owned here; speaker, sponsor and volunteer variants are left to whoever owns those audiences"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "No send in the final plan targets an opened, clicked, or gone-quiet state"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Behavioural segmentation is not parked as a future upgrade pending better tooling; it is treated as a different mechanic that does not belong to a dated arc"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Refuses the industry open-rate comparison: no open- or click-rate benchmark exists for event attendee email"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Does not substitute a numeric open- or click-rate target of its own for next year"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names know-before-you-go completeness - every section present or explicitly not applicable - as a binary pre-send gate"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names cap compliance as the second binary gate, counted per segment rather than per list"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Proposes tracking late-arriving dietary and accessibility requests, read as the email asking too late rather than recipients being careless"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Unsubscribes and complaints per send are named as the real cadence guardrail, with any rise meaning the caps were exceeded"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The 3 unsubscribes are interpreted through that guardrail, not answered with a re-engagement or win-back send"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Proposes day-of arrival timing against the stated check-in window as a signal"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Recommends picking two signals and writing down what each would change next edition, recorded before the event"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Does not build the requested multi-email sequence; states the arc does not apply because a no-registration event has no attendee list"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Declines to add the signup form whose purpose is to make a sequence possible - no constructing a list to make the arc apply"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Recommends publishing the practical information once on the event's own page"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Plus a single public announcement through channels that already exist"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Presents this as the correct output for the no-registration posture, not a reduced or inferior version of a real program"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Treats 'no registration, just turn up' as a legitimate, established posture and does not push to add registration"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "The send to the 4,000-address release-notes list is one announcement, not the start of a reminder sequence"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "The announcement carries event name, date, city and venue, who it is for in one line, and a single link with nothing competing"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "No reminder, day-before, or know-before-you-go email is scheduled to any list"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Identifies the registration posture as the deciding axis: with registration the arc would exist, without it there is nothing to sequence"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Does not propose collecting addresses through another mechanic (RSVP, waitlist, 'get updates' form) as a workaround to run reminders for this edition"
+      }
+    ]
+  }
+}

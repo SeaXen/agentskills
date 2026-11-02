@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rewrites (1) as 'not planned', carrying the reason product approved, the best workaround, and what would change the decision.",
+        "evidence": "\"won't build configurable retry counts. The reason:... the workaround is <link>... That is what would reopen this.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Bans 'on our radar' and gives the reason: it reads as yes to the asker and as evasion to everyone watching, so the request returns every month.",
+        "evidence": "\"It's a no, but it reads as a yes to the asker and as evasion to everyone else.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes 'Q2' from (2), because product has not published a date.",
+        "evidence": "\"Drop 'Q2' unless product commits to it\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that 'next cycle', a cycle number or a quarter counts as a date and is treated the same way.",
+        "evidence": "No statement treats 'next cycle' or a cycle number as a date.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rewrites (2) as 'planned': product committed to solving the problem, no date published yet, record updated when one is and when it ships.",
+        "evidence": "\"Product has committed to SSO... No date is published yet.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to close (3) silently and uses the planned-now-not-planned reply: what changed and why, the best workaround or 'none exists', an apology, and the record kept open for use cases that would change it again.",
+        "evidence": "\"I'm sorry for the reversal. <record link> stays open\"; \"Name the reversal plainly\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Posts each reply in the channel where the requester asked (Discord, support) as well as on the record.",
+        "evidence": "\"Post it again in the channel where the requester asked\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason: tracker notifications reach subscribers only; a developer who asked in chat or support learns nothing otherwise.",
+        "evidence": "\"Board notifications reach only board subscribers\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Has product approve the public reason for each decision before it is posted.",
+        "evidence": "\"Product must approve the reasons before you post.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Batches the decided-status replies into one pass in the week after the review.",
+        "evidence": "\"Post all three in one batch, in the week after the review.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the published status vocabulary to received, under review, needs discovery, planned, not planned, shipped, duplicate.",
+        "evidence": "Uses only planned and not planned, with no invented statuses.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not promise the replay endpoint as coming; mentions it only as product's approved reason, with no date.",
+        "evidence": "\"Don't write 'replay is coming'.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not copy support ticket text into any public reply.",
+        "evidence": "\"Ticket text is never copied\" in spirit; \"Keep customer names and revenue out of the reason.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Assigns support the job of telling the requesters who came through support tickets.",
+        "evidence": "\"Ask support to send it, as the contract says support tells its own requesters.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rewrites (1) as 'not planned', carrying the reason product approved, the best workaround, and what would change the decision.",
+        "evidence": "\"We're not going to add configurable retry counts... replay endpoint... If you have a concrete case where retries aren't enough, reply here.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Bans 'on our radar' and gives the reason: it reads as yes to the asker and as evasion to everyone watching, so the request returns every month.",
+        "evidence": "\"Reads as a maybe, but the decision is no. People will wait, then feel misled.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes 'Q2' from (2), because product has not published a date.",
+        "evidence": "The revised draft says \"we're aiming for Q2 2027\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that 'next cycle', a cycle number or a quarter counts as a date and is treated the same way.",
+        "evidence": "Not stated. It keeps a quarter as a target.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rewrites (2) as 'planned': product committed to solving the problem, no date published yet, record updated when one is and when it ships.",
+        "evidence": "It keeps a Q2 2027 target.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to close (3) silently and uses the planned-now-not-planned reply: what changed and why, the best workaround or 'none exists', an apology, and the record kept open for use cases that would change it again.",
+        "evidence": "Draft 3 explains what changed, says \"We should have told you sooner\", and invites use cases.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Posts each reply in the channel where the requester asked (Discord, support) as well as on the record.",
+        "evidence": "\"Discord: post a short version... Support tickets: reply to the linked tickets.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason: tracker notifications reach subscribers only; a developer who asked in chat or support learns nothing otherwise.",
+        "evidence": "\"Most of the original asks came from Discord and support tickets, and those people never read the board.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Has product approve the public reason for each decision before it is posted.",
+        "evidence": "Only asks whether the team approves naming the connector work.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Batches the decided-status replies into one pass in the week after the review.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the published status vocabulary to received, under review, needs discovery, planned, not planned, shipped, duplicate.",
+        "evidence": "Not addressed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not promise the replay endpoint as coming; mentions it only as product's approved reason, with no date.",
+        "evidence": "Draft 1 says \"We'd rather build a replay endpoint\", which signals it is coming. Its internal approval is left as a question.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not copy support ticket text into any public reply.",
+        "evidence": "The drafts contain no ticket text.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Assigns support the job of telling the requesters who came through support tickets.",
+        "evidence": "The drafts do not assign this to support.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

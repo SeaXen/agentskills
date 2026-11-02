@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Assigns a legal basis per purpose: aggregate results on legitimate interest with an opt-out; follow-up contact, panel enrolment, raw-data release and the sensitive items each on separate unticked consent.",
+        "evidence": "Section 2 table: legitimate interest for aggregate results; explicit consent for gender/disability; consent for follow-up contact.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies Kestrelworks as a joint controller because it co-designs and uses the results, and requires writing down who answers rights requests and who publishes what.",
+        "evidence": "'treat them as joint controllers (Art. 26)... Write down who answers rights requests... who publishes what'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses sending the newsletter list to Kestrelworks; each party mails its own list, and the notice names the partner as a source.",
+        "evidence": "'Don't send it. You email your own list yourselves'; notice: 'Kestrelworks sent you this link from its own mailing list.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Puts the gender identity and disability items behind a separate explicit consent block that is unticked by default and skips past the block when declined, each with 'Prefer not to say' and self-describe text, reported in aggregate only.",
+        "evidence": "Identity block: unticked box, 'skipping jumps past the block', 'Prefer to self-describe', 'Prefer not to say', 'only as totals for groups of 10 or more'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Raises the age floor to 18 because sensitive items are asked, and places the age gate right after the notice and before question 1.",
+        "evidence": "The main gate stays at 16+ and only the identity block is 18+; it admits this is 'my interpretation'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Instructs asking the data-protection contact whether an impact assessment is required, given sensitive items and a microdata release.",
+        "evidence": "'a DPIA likely. Ask your data-protection contact.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes all open-text answers from the open-data release and publishes coded themes instead.",
+        "evidence": "'Release coded themes plus vetted quotes... Don't release verbatim text'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Applies the under-10 suppression floor to every combination of quasi-identifiers in the open data, and runs the three tests (single out, link, infer), coarsening bands until all three fail.",
+        "evidence": "Three tests listed; 'Apply the 10-person floor to every combination'; coarsen until all three fail.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rewrites the rights sentence: without identifiers in the response table, answers cannot be retrieved or deleted after submission (GDPR Art. 11), while contact details in the separate form can be.",
+        "evidence": "'We don't know who you are... GDPR Art. 11'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Produces a data map with at least the response table, the contact form, platform logs and invitation tokens, each with who can read it and when it is deleted.",
+        "evidence": "Section 3 table covers response table, contact form, platform logs, invitation tokens, open dataset.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets retention: identifiable raw answers deleted once cleaning and analysis finish, with only the anonymised extract carried into the next edition.",
+        "evidence": "'Raw rows by <close + 60 days>. Anonymised extract kept.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the survey platform as a processor needing a data-processing contract and instructs turning off IP logging where the platform allows.",
+        "evidence": "'Processor contract with the survey tool... switch off IP logging'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Releases open-data rows only for respondents who agreed, under the explicit licence.",
+        "evidence": "The dataset is released as anonymised for all respondents; per-row consent is not recommended.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the pack is a checklist, not legal advice, and routes sign-off to the organisation's data-protection contact.",
+        "evidence": "'Not legal advice. Have your data-protection contact sign off before launch.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Assigns a legal basis per purpose: aggregate results on legitimate interest with an opt-out; follow-up contact, panel enrolment, raw-data release and the sensitive items each on separate unticked consent.",
+        "evidence": "The table gives a basis for core answers, the sensitive items and email. Raw-data release and panel enrolment are not on separate consent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies Kestrelworks as a joint controller because it co-designs and uses the results, and requires writing down who answers rights requests and who publishes what.",
+        "evidence": "Only conditional: 'if they get individual-level data, you are joint controllers'. The notice is written as sole controller.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses sending the newsletter list to Kestrelworks; each party mails its own list, and the notice names the partner as a source.",
+        "evidence": "'Newsletter list to Kestrelworks: don't... Kestrelworks mails its own 60k list.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Puts the gender identity and disability items behind a separate explicit consent block that is unticked by default and skips past the block when declined, each with 'Prefer not to say' and self-describe text, reported in aggregate only.",
+        "evidence": "There is an unticked box and 'prefer not to say', but no skip-past logic and no self-describe text.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Raises the age floor to 18 because sensitive items are asked, and places the age gate right after the notice and before question 1.",
+        "evidence": "'make the survey 16+, with the age gate'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Instructs asking the data-protection contact whether an impact assessment is required, given sensitive items and a microdata release.",
+        "evidence": "'DPIA (Art. 35). Required... Do this first.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes all open-text answers from the open-data release and publishes coded themes instead.",
+        "evidence": "Free text is dropped, but 'reviewed, opt-in quotes' are allowed and coded themes are not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Applies the under-10 suppression floor to every combination of quasi-identifiers in the open data, and runs the three tests (single out, link, infer), coarsening bands until all three fail.",
+        "evidence": "Suppression covers aggregate groups of at least 10 and a k-anonymity check; the single-out/link/infer tests are absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rewrites the rights sentence: without identifiers in the response table, answers cannot be retrieved or deleted after submission (GDPR Art. 11), while contact details in the separate form can be.",
+        "evidence": "It uses response-code lookup and does not cite Art. 11 or the retrieval limits without identifiers.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces a data map with at least the response table, the contact form, platform logs and invitation tokens, each with who can read it and when it is deleted.",
+        "evidence": "No data map is provided.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets retention: identifiable raw answers deleted once cleaning and analysis finish, with only the anonymised extract carried into the next edition.",
+        "evidence": "'Raw responses: until [date]' is set, but no anonymised-extract carry-forward is stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the survey platform as a processor needing a data-processing contract and instructs turning off IP logging where the platform allows.",
+        "evidence": "'Processor agreements (Art. 28) with the survey platform'; 'Don't store IPs.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Releases open-data rows only for respondents who agreed, under the explicit licence.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the pack is a checklist, not legal advice, and routes sign-off to the organisation's data-protection contact.",
+        "evidence": "'I'm not a lawyer. Have Dutch privacy counsel review this before launch.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

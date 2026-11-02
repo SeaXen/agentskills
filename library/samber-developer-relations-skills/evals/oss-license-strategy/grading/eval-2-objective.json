@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that AGPL obliges a network operator to publish source but does not stop a well-resourced competitor who complies",
+        "evidence": "\"No license stops a well-resourced competitor willing to comply \u2014 copyleft redirects competition into compliance work, it doesn't prevent it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names Google's published policy that AGPL-licensed code must not be used at Google, extending to installs on company machines without Open Source Programs Office authorization",
+        "evidence": "The transcript cites \"code licensed under the GNU Affero General Public License (AGPL) MUST NOT be used at Google,\" down to laptop installs\" but never mentions the Open Source Programs Office or authorization exception.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to give a percentage or share of enterprises that ban AGPL, and says no credible aggregate figure exists",
+        "evidence": "\"No industry-wide figure exists for how common this is \u2014 name-check the actual policies of your three accounts, don't assume.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks whether the specific accounts this project needs sit behind such a written ban",
+        "evidence": "\"Does your bank, your retailer, or the account in procurement have a blanket AGPL ban\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says explicitly that it is in brainstorming mode and that no recommendation has been made yet",
+        "evidence": "The document opens with a direct recommendation: \"AGPL-3.0 is the right license family for the problem you named... A straight MIT\u2192AGPL swap is not the right move.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Presents two or three candidate postures rather than a single option",
+        "evidence": "\"## Postures considered (never just one option)\" listing A, B, C.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Describes each posture as a bundle of license family, contribution policy, and what it forecloses in two years",
+        "evidence": "Posture descriptions (A/B/C) discuss license and consequences but no per-posture contribution-policy bundle or explicit two-year foreclosure horizon.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that every release already published stays MIT forever and can be forked from the last MIT commit",
+        "evidence": "\"the last MIT release is forkable by anyone, forever, starting the day you announce this\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that relicensing needs the consent of every copyright holder whose code is still present, since no contributor agreement pre-granted it",
+        "evidence": "\"every outside contributor whose code is still present must consent to the relicense.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names hosting the software themselves as a model that needs no licensing lever, and raises it before recommending a restriction",
+        "evidence": "\"A \u2014 Stay MIT, monetize by hosting/support/enterprise features.\" listed first, before postures B and C.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires naming the specific competitor the restriction defends against as a test the decision must pass",
+        "evidence": "\"it passes the one test that justifies pulling this lever at all: a plausible, *named* competitor (your two hyperscalers) actually attempting the thing AGPL targets.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines to state whether any specific architecture triggers AGPL's network clause, routing that to counsel",
+        "evidence": "\"Whether that counts as 'interacting through a computer network' under AGPL \u00a713 is a real, contested reading, not something this analysis (or any non-lawyer) should assert. Put this in front of counsel\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that AGPL obliges a network operator to publish source but does not stop a well-resourced competitor who complies",
+        "evidence": "The transcript says compliance is 'trivial' and that 'Copyleft only bites someone who redistributes *modified* code' \u2014 this describes avoidance of the AGPL trigger, but never explicitly states AGPL's actual obligation (that a network operator running modified code must publish source). It conflates general copyleft redistribution triggers with AGPL's network-use clause rather than stating the specific obligation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names Google's published policy that AGPL-licensed code must not be used at Google, extending to installs on company machines without Open Source Programs Office authorization",
+        "evidence": "No mention of Google, its internal OSS policy, or an Open Source Programs Office anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to give a percentage or share of enterprises that ban AGPL, and says no credible aggregate figure exists",
+        "evidence": "The transcript asserts 'AGPL trips blanket bans in regulated-industry legal review' and calls it 'a common standing policy' without citing a percentage, but it never explicitly refuses to give a figure or states that no credible aggregate figure exists \u2014 it simply omits a number.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks whether the specific accounts this project needs sit behind such a written ban",
+        "evidence": "The transcript asserts rather than asks: 'Your bank account and the deal in procurement right now are the two most exposed relationships in the company to this exact risk' and instructs to 'pull the actual contracts' \u2014 it never poses a direct question to the user about whether those specific accounts have a written AGPL ban.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says explicitly that it is in brainstorming mode and that no recommendation has been made yet",
+        "evidence": "The transcript opens with 'Verdict: No \u2014 not as a full-project relicense' and closes with 'One-line board answer: don't relicense the core to AGPL' \u2014 a firm recommendation is given throughout, the opposite of stating no recommendation has been made.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Presents two or three candidate postures rather than a single option",
+        "evidence": "The 'What actually works, and what to bring instead' section lists open-core split, trademark policy, managed cloud offering, and a BUSL fallback as a single bundled recommended plan ('bring instead'), not as alternative postures for the user to choose between.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Describes each posture as a bundle of license family, contribution policy, and what it forecloses in two years",
+        "evidence": "No discussion of contribution/CLA policy per option or a two-year foreclosure horizon appears anywhere in the transcript's recommendations.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that every release already published stays MIT forever and can be forked from the last MIT commit",
+        "evidence": "\"MIT is irrevocable for every release already shipped. Your 4,000 installs \u2014 and anyone else, including a hyperscaler \u2014 can fork the last MIT commit and maintain a permissive continuation forever.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that relicensing needs the consent of every copyright holder whose code is still present, since no contributor agreement pre-granted it",
+        "evidence": "\"Contributor rights. Unless every external contributor signed a CLA assigning copyright (or you're 100% in-house authored), you may not legally be able to relicense their code at all.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names hosting the software themselves as a model that needs no licensing lever, and raises it before recommending a restriction",
+        "evidence": "The managed-cloud-offering point is listed as item 3, after item 1 (open-core license split) and item 2 ('Trademark policy... Restrict use of your project name/branding'), both of which are restrictions/levers \u2014 so it is not raised before a restriction.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires naming the specific competitor the restriction defends against as a test the decision must pass",
+        "evidence": "No requirement or test asking the user to name a specific competitor appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines to state whether any specific architecture triggers AGPL's network clause, routing that to counsel",
+        "evidence": "The transcript's only counsel referral is about contract material-terms review ('get counsel to confirm a license change isn't a material-terms problem mid-negotiation') \u2014 it never raises or declines the separate question of whether the project's specific architecture triggers AGPL's network clause.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Reads the form-B pass-rate jump against a flat form A as the first leak signal, or as tasks now solvable unattended by agents, rather than as improved candidates.",
+        "evidence": "'Form A flat at about 60% is the best clue'; candidate causes include a leak and 'Agents solving the tasks unattended'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Follows the incident runbook in order: detect, contain, investigate, decide, recover, record.",
+        "evidence": "Contain and investigate come first, then decide and recover by cause, but there is no record step.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Contains by pulling form B and switching to reserve forms before investigating.",
+        "evidence": "'Take form B out of live use and serve form A or a reserve form.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Investigates with item exposure data and candidate statements before any sanction.",
+        "evidence": "'pass rate per task variant and per task'; 'Leave all badges untouched until the checks above are done.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the blanket reset of every Q3 form-B pass; revokes only per the candidate agreement, with an appeals path.",
+        "evidence": "'Don't reset them... Revoke only on proven grounds... individually, with notice and appeal.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names proxy sitting as the threat because the reseller partners pay for seats, and counters it with spot live verification or a short defence on a sample of passes.",
+        "evidence": "'Your partner tier pays for seats, so one strong engineer sitting for colleagues is the named threat'; '15-minute live call'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects switching to proctored multiple-choice, stating that recall items are what assistants answer best and what leaks worst.",
+        "evidence": "'Recall is what assistants answer best.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the strict no-AI rule for an unproctored sitting because it cannot be detected, and offers the 'allowed' policy with a human-attributable step instead.",
+        "evidence": "'A strict no-AI rule can't be enforced'; 'allow them and reword the claim as \"works competently with their own tools\"'. Adds the live explanation step.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the hands-on format and adds a sampled live or recorded explanation announced in the candidate agreement.",
+        "evidence": "'Keep the hands-on format'; the sampled live-explanation clause is checked in the agreement and added for new sittings.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recovers by writing replacement task variants, re-equating, and filing takedown requests if a dump site is found.",
+        "evidence": "It covers rotating variants and re-equating, but no takedown requests for dump sites.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds item exposure analysis as a standing control: retire tasks whose success rate jumps, and monitor pass rate per item and per form.",
+        "evidence": "'add item-exposure monitoring'; 'rotate variants, retire the exposed tasks'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Records what changed so the next leak is caught sooner.",
+        "evidence": "It freezes logs for the investigation, but there is no record or lessons-learned step.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Reads the form-B pass-rate jump against a flat form A as the first leak signal, or as tasks now solvable unattended by agents, rather than as improved candidates.",
+        "evidence": "'Form A is your control. It stayed at ~60%, so the cause is probably specific to form B.' 'Form B leaked' is listed first.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Follows the incident runbook in order: detect, contain, investigate, decide, recover, record.",
+        "evidence": "It uses a different structure of causes, data pulls and branches.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Contains by pulling form B and switching to reserve forms before investigating.",
+        "evidence": "'Announce nothing until step 3.' It does not pull form B.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Investigates with item exposure data and candidate statements before any sanction.",
+        "evidence": "'Item-level pass rate Q1 vs Q3... A few tasks jumped = leak.' Sanctions come after the data.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the blanket reset of every Q3 form-B pass; revokes only per the candidate agreement, with an appeals path.",
+        "evidence": "'Reset all Q3 form B badges: don't... Check your certification agreement first... Revoke only on fail or no-show.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names proxy sitting as the threat because the reseller partners pay for seats, and counters it with spot live verification or a short defence on a sample of passes.",
+        "evidence": "'Proxy or AI test-taking. Partners may have an incentive'; re-verification offered.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects switching to proctored multiple-choice, stating that recall items are what assistants answer best and what leaks worst.",
+        "evidence": "'MCQ measures recall, not operating skill'; 'Keep hands-on tasks.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the strict no-AI rule for an unproctored sitting because it cannot be detected, and offers the 'allowed' policy with a human-attributable step instead.",
+        "evidence": "It rejects the rule and offers 'allow it', but there is no human-attributable step.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the hands-on format and adds a sampled live or recorded explanation announced in the candidate agreement.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recovers by writing replacement task variants, re-equating, and filing takedown requests if a dump site is found.",
+        "evidence": "It mentions randomization and a task pool, but no re-equating or takedown.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds item exposure analysis as a standing control: retire tasks whose success rate jumps, and monitor pass rate per item and per form.",
+        "evidence": "It is used only for the investigation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Records what changed so the next leak is caught sooner.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

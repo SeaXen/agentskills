@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Writes the elimination rules against this event's own gaming path rather than copying a generic list from another event",
+        "evidence": "The Quillmark-track knockout list targets the bolt-on pattern this event actually saw. The internal notes say last year's single-call second-place entry 'fails the gate and never reaches the ladder'. The knockout conditions cover that pattern directly: removing the API changes nothing a user can see; the API is called once at startup or in the background and its result is logged, shown as decoration or ignored; or a hardcoded value or another provider would give the same result. A removal test backs these up, with a required code-location field and a key-revoke check. It also names a lesser ev",
+        "score": 4,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Writes the elimination rules against this event's own gaming path rather than copying a generic list from another event",
+        "evidence": "The disqualifying rules target the specific exploit this event faces: an API bolted on with one clean call in the last hour, as with last edition's second-place team. Four rules are built against that path: (1) the core feature must break without the API rather than fall back to a mock; (2) a midpoint check-in at hour 24 needs a working commit, and teams with no logged key usage before it leave the track; (3) judges may revoke the API key during judging as a removal test; (4) a jump from near zero to a few calls in the final 3 hours gets extra scrutiny. The draft also rejects call counts as a ",
+        "score": 4,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

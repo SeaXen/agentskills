@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Runs the gate and the sunset table before answering, rather than accepting deletion on the marketing lead's say-so",
+        "evidence": "\"Don't delete the list... the gate fails today\"; gate table and sunset table both run.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Fires the list-silent-more-than-six-months trigger and prescribes a re-permission issue first, suppressing non-responders",
+        "evidence": "\"List silent more than 6 months (fires now) | Send one re-permission issue. Suppress non-responders.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not use the 12% open rate as evidence that nobody reads it",
+        "evidence": "\"12% opens: don't use it for this decision.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reads the 0.7-1.1% click series against the list's own trend as flat rather than falling",
+        "evidence": "\"0.9% average (0.7\u20131.1%), flat across six issues... with no decay.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Presents the roughly 1% software-sender median click rate as context, never as a target",
+        "evidence": "\"Software senders' median is about 1.15%... You sit just under it\"; the threshold is set separately as a house rule.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Counts the 2-5 replies per issue as demand evidence",
+        "evidence": "\"2\u20135 per issue (0.06\u20130.16%) are humans writing back.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the owner condition as the gate condition that fails, since no owner or backup exists",
+        "evidence": "\"Named owner and backup... \u274c failed | Ruth left; nobody is named\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the Discord and the changelog feed under the 'need moved' trigger and prescribes closing with a final issue that points readers to the replacement",
+        "evidence": "The need-moved trigger is not in the sunset table; the final issue pointing to feed and Discord is tied to re-permission failure or no owner, and Discord overlap is called unknown.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a downgrade to feed only means one final issue pointing at the feed, then no further sends",
+        "evidence": "\"Branch B... send one final issue pointing to the feed and Discord, then no more sends.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend deleting the list without a final issue",
+        "evidence": "\"keep the suppression record... Don't wipe it.\"; final issue precedes stopping.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States who holds the sending account, list export and archive after closure, assigning them to the organisation",
+        "evidence": "\"Moving the list export to a company account\"; \"the sending account, list export, domain and archive must belong to the company\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Runs the gate and the sunset table before answering, rather than accepting deletion on the marketing lead's say-so",
+        "evidence": "'Don't delete it yet. Run one cheap test, then decide.' It sets keep, sunset and shrink rules in advance.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Fires the list-silent-more-than-six-months trigger and prescribes a re-permission issue first, suppressing non-responders",
+        "evidence": "It prescribes a re-engagement email with 'Keep me subscribed'. Non-responders are warmed up in batches and are not suppressed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not use the 12% open rate as evidence that nobody reads it",
+        "evidence": "'Opens (12%): treat as an upper bound.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reads the 0.7-1.1% click series against the list's own trend as flat rather than falling",
+        "evidence": "'stable across six issues, so it isn't a decline.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Presents the roughly 1% software-sender median click rate as context, never as a target",
+        "evidence": "There is no median framing. 'Keep: clicks are at or above about 1% of delivered' is used as a threshold.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Counts the 2-5 replies per issue as demand evidence",
+        "evidence": "'Replies are the highest-intent signal... People wrote back'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the owner condition as the gate condition that fails, since no owner or backup exists",
+        "evidence": "It calls the departure 'a staffing gap' and says 'If no one can, that is your real answer'. The owner condition is not named as failing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats the Discord and the changelog feed under the 'need moved' trigger and prescribes closing with a final issue that points readers to the replacement",
+        "evidence": "'Discord and RSS don't replace it.' The final email appears only as a failure branch.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a downgrade to feed only means one final issue pointing at the feed, then no further sends",
+        "evidence": "The sunset branch sends a final email but is not framed as a downgrade to feed only.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend deleting the list without a final issue",
+        "evidence": "It advises against deleting, and sunset includes a 'final we're stopping email'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States who holds the sending account, list export and archive after closure, assigning them to the organisation",
+        "evidence": "Only 'archive the list, and keep the suppression records' appears, with no organisational assignment.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Produces a label-usage count and a queue baseline before proposing any label list",
+        "evidence": "'47 labels for 2 maintainers with ~4 hours/week... 35 new issues/week... 912 open issues' stated in 'Reading the numbers back first' before 'The new label set (target state)' section.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reads the baseline numbers back in plain language before recommending changes",
+        "evidence": "'47 labels for 2 maintainers with ~4 hours/week combined (best case) is already past what either of you can keep straight from memory...'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Makes an explicit per-item-versus-clustering call for the 912-issue backlog, naming grouping by shared root cause under a tracking issue as the alternative to item-by-item triage",
+        "evidence": "No mention of grouping issues by shared root cause under a tracking issue anywhere; only 'Worth a separate pass on intake... when you have another hour.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Computes weekly triage capacity as triagers x sessions per week x minutes per session divided by minutes per item, using the stated two maintainers and two hours each",
+        "evidence": "No such formula appears; only qualitative '~4 hours/week combined' is stated, never decomposed into sessions/minutes-per-item.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that capacity is below the stated inflow of roughly 35 issues a week and that no label scheme closes that gap",
+        "evidence": "'35 new issues/week against ~4 hours/week of triage capacity is a capacity problem, not a labels problem \u2014 relabeling won't shrink 912 open issues on its own.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not use RICE, ICE, or an impact-versus-effort scoring matrix anywhere in the answer",
+        "evidence": "No such scoring framework appears anywhere in the transcript.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Organises labels into named orthogonal axes including at least type, state, priority and area, with at most one value per axis on any item",
+        "evidence": "Only State, Type, Priority, Contributor-facing axes are defined; area is explicitly deferred: 'add a proper area/* family then \u2014 don't half-build it tonight.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends renaming labels into an axis before deleting any, and states that deleting erases the label from every past item and any saved view built on it",
+        "evidence": "Renaming is preferred ('keep history via rename rather than delete-and-recreate'), but no statement connects deletion to erasing saved views built on the label.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends deleting the 19 single-use labels, on the grounds that a label nobody applies twice is a private note",
+        "evidence": "'The 19 single-use labels \u2014 default to delete; a label applied to exactly one issue over the project's life is a private note, not a taxonomy value.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps priority to at most two or three values, or omits priority entirely, rather than importing a four-level scheme",
+        "evidence": "'priority/now, priority/later... Two values only \u2014 a third tier just starts arguments at this team size.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires labels, intake forms, saved views and automation to be migrated in one pass rather than labels tonight and the rest later",
+        "evidence": "'In the same sitting, update anything that references the old names: saved/filtered views, issue templates, any bot or Action config \u2014 a half-migrated label set is worse than the old mess.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Presents the taxonomy for the maintainers' approval before any tracker change is made",
+        "evidence": "The document moves straight into '## Doing the migration tonight' execution steps with no request for sign-off before changes.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Delivers the labels as a change list where each entry carries one sentence of definition and names its axis",
+        "evidence": "Tables under 'State', 'Type', 'Priority', 'Contributor-facing' headers each list Label | Definition with one-sentence definitions.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Produces a label-usage count and a queue baseline before proposing any label list",
+        "evidence": "\"4 small, mostly-exclusive facets instead of a flat pile of 47... 35 issues land against ~4 person-hours/week of total maintainer time\" stated before any label table appears.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reads the baseline numbers back in plain language before recommending changes",
+        "evidence": "\"your real constraint isn't taxonomy quality \u2014 it's that 35 issues land against ~4 person-hours/week of total maintainer time\" is plain-language restatement preceding the label tables.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Makes an explicit per-item-versus-clustering call for the 912-issue backlog, naming grouping by shared root cause under a tracking issue as the alternative to item-by-item triage",
+        "evidence": "No mention of a 912-issue backlog or clustering-by-root-cause anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Computes weekly triage capacity as triagers x sessions per week x minutes per session divided by minutes per item, using the stated two maintainers and two hours each",
+        "evidence": "Only '~4 person-hours/week' is stated as a given; no formula decomposing it into triagers \u00d7 sessions \u00d7 minutes/item is shown.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that capacity is below the stated inflow of roughly 35 issues a week and that no label scheme closes that gap",
+        "evidence": "\"35 in/week vs. 4 hours/week available \u2014 the label alone just marks the issue, it doesn't reclaim your time.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not use RICE, ICE, or an impact-versus-effort scoring matrix anywhere in the answer",
+        "evidence": "No RICE/ICE/impact-effort matrix terminology appears anywhere in the transcript.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Organises labels into named orthogonal axes including at least type, state, priority and area, with at most one value per axis on any item",
+        "evidence": "\"Type \u2014 exactly one per issue\", \"Status \u2014 zero or one\", \"Priority \u2014 one tier only\", \"Area\" are all explicit named axes.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends renaming labels into an axis before deleting any, and states that deleting erases the label from every past item and any saved view built on it",
+        "evidence": "Text says \"deleting a label only strips it, the issue and its history stay intact\" \u2014 no mention of saved views being erased at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends deleting the 19 single-use labels, on the grounds that a label nobody applies twice is a private note",
+        "evidence": "\"Delete the 19 singleton labels outright. One issue each isn't worth preserving as a filterable category; the context lives in the issue body regardless.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps priority to at most two or three values, or omits priority entirely, rather than importing a four-level scheme",
+        "evidence": "\"Priority \u2014 one tier only\" with just `priority: critical` defined.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires labels, intake forms, saved views and automation to be migrated in one pass rather than labels tonight and the rest later",
+        "evidence": "\"Area labels last \u2014 this is the part safe to push past tonight if you run out of time\" explicitly stages the migration across time.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Presents the taxonomy for the maintainers' approval before any tracker change is made",
+        "evidence": "The document moves straight into \"Tonight's rollout order\" with concrete gh/GitHub actions, no approval step requested.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Delivers the labels as a change list where each entry carries one sentence of definition and names its axis",
+        "evidence": "Each label table (Type, Status, Community offload, Priority, Area) has Label/Color/Meaning columns with one-sentence meanings, grouped under named axis headers.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

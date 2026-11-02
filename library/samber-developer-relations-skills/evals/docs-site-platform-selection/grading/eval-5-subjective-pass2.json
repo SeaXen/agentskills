@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The response derives weights or requirements from Brindlewick's own needs rather than generic ones",
+        "evidence": "The response labels nearly every requirement 'ASSUMED' and says it doesn't know Brindlewick's authors, build owner, constraints, API spec, versions or locales. A few rows draw on details in the user's message: K5 uses the 220-page site, cost uses the 12-editor count, and it suggests game-studio rows (Unity/Unreal, SDK downloads) and NDA'd studio content. The weights themselves (3/3/2/1/2) are generic defaults with no Brindlewick reasoning behind them. The response puts off the real Brindlewick-specific derivation until the user answers the interview questions. That process is sound, but the de",
+        "score": 2,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The response derives weights or requirements from Brindlewick's own needs rather than generic ones",
+        "evidence": "Each weight is tied to Brindlewick's context. Versioning (25) cites the Unity, Unreal and Godot release cycles. i18n (15) cites international studios in Korea, Japan, China and the EU. SSO (10) applies only if docs are gated for NDA'd studio customers. AI search is linked to the 220 pages. The tie-break steps add team-fit checks: C#/C++ highlighting, Git or Markdown workflow, and import from current docs. The score is not 5 because the weights are the assistant's own inference ('Weights are my judgment for dev tools aimed at game studios'). They are not taken from Brindlewick's stated requirem",
+        "score": 4,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses the '$102,000 saved annually' headline because annualising a one-month result is not permitted.",
+        "evidence": "'the skill's number discipline is explicit: don't annualize a one-month result.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the Graviton runner migration and the two deleted flaky test suites as other changes inside the same window, and states them in the study rather than crediting the product alone for the improvement.",
+        "evidence": "'In the same month the team also moved its runner fleet to Graviton and retired two flaky test suites, either of which would independently cut compute spend.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies the build queue figures as measured, naming the Buildkite dashboard as the instrument and the six weeks before and three weeks after as the windows.",
+        "evidence": "'Build queue wait: 22 min \u2192 6 min median | Measured | Buildkite dashboard | Before: 6 wks pre-cutover / After: 3 wks post-cutover'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the untracked support-ticket claim as directional: drops any number and uses the speaker's own words.",
+        "evidence": "'\"Support tickets are way down\" | Directional | None \u2014 untracked... Drop any number; it's an opinion, not a metric'; draft attributes it as 'their impression, not a measured result.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags 'over 70% faster builds' as a figure computed rather than confirmed by the customer, and requires it be put back to them before it ships.",
+        "evidence": "The transcript only corrects the scope ('the underlying number is *queue wait*, not build time... Say \"build queue wait,\" not \"builds.\"') \u2014 it never asks that the percentage itself be re-confirmed with Orbit Cargo before shipping.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Expresses the CI bill change as a ratio, for example cutting CI spend by roughly half, instead of publishing the absolute dollar figures, noting absolute infrastructure costs are predictably struck in review.",
+        "evidence": "The draft publishes 'Orbit Cargo's monthly CI bill dropped from $18,400 to $9,900' \u2014 absolute dollars, not a ratio; the ratio framing ('CI spend down ~46%') only appears as a fallback if marketing objects to losing $102k.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places each number's instrument and window next to the number rather than in a footnote.",
+        "evidence": "'Median build queue wait fell from 22 minutes to 6 minutes \u2014 a 73% drop \u2014 measured on Orbit Cargo's Buildkite dashboard. The before-figure is the median over the six weeks before cutover...' stated inline.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the results section to between two and four numbers rather than publishing every figure available.",
+        "evidence": "Draft results section contains exactly two hard numbers (queue wait, CI bill) plus one flagged non-metric (support tickets).",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that two well-sourced numbers beat six loose ones.",
+        "evidence": "No such statement appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes cycle-time figures travel further to a reader than raw volume or absolute spend, because they can be compared without knowing the customer's scale.",
+        "evidence": "No statement comparing cycle-time comparability across readers appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Every published number carries a value before, a value after, the instrument that produced it, and the measurement window.",
+        "evidence": "The CI-bill figure ships in the draft ('dropped from $18,400 to $9,900... a reported figure') with no instrument stated; the ledger itself flags 'Not stated \u2014 confirm (invoice? cloud billing console?)' as still unresolved.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses the '$102,000 saved annually' headline because annualising a one-month result is not permitted.",
+        "evidence": "The flagged reasoning is confounding variables ('the $8,500/month figure is being credited entirely to the cutover, but it's really the combined effect of three simultaneous changes'), not the statistical impropriety of annualizing a single month.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the Graviton runner migration and the two deleted flaky test suites as other changes inside the same window, and states them in the study rather than crediting the product alone for the improvement.",
+        "evidence": "\"In the same month as the cutover, Orbit Cargo also moved its runner fleet to Graviton and deleted two flaky test suites... Safer: attribute the savings to 'the move' as a bundle.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies the build queue figures as measured, naming the Buildkite dashboard as the instrument and the six weeks before and three weeks after as the windows.",
+        "evidence": "\"Orbit Cargo's median wait time in the Buildkite queue dropped from 22 minutes to 6 minutes... The before figure reflects the six weeks prior to cutover; the after figure reflects the three weeks since.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the untracked support-ticket claim as directional: drops any number and uses the speaker's own words.",
+        "evidence": "\"'Our support tickets are way down,' said [VP name/title]... This is a directional, self-reported observation \u2014 no ticket volume was tracked before or after, so it's included as color, not as a measured result.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags 'over 70% faster builds' as a figure computed rather than confirmed by the customer, and requires it be put back to them before it ships.",
+        "evidence": "The fix offered is a direct rewording ('Cut build queue wait time by 73%'), not a request to confirm the phrasing with the customer.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Expresses the CI bill change as a ratio, for example cutting CI spend by roughly half, instead of publishing the absolute dollar figures, noting absolute infrastructure costs are predictably struck in review.",
+        "evidence": "The draft publishes exact figures ('$18,400 to $9,900', '$8,500/month', 'roughly $102,000/year') with no recommendation to replace them with a ratio.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places each number's instrument and window next to the number rather than in a footnote.",
+        "evidence": "The CI spend figures ('$18,400 to $9,900... in the first full month after the move') carry a window but no named instrument anywhere in the text.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the results section to between two and four numbers rather than publishing every figure available.",
+        "evidence": "The Results section contains exactly two quantitative headline metrics (queue wait, CI spend) plus one non-numeric directional note.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that two well-sourced numbers beat six loose ones.",
+        "evidence": "No such statement appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes cycle-time figures travel further to a reader than raw volume or absolute spend, because they can be compared without knowing the customer's scale.",
+        "evidence": "No such comparative claim about cycle-time versus absolute-spend portability appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Every published number carries a value before, a value after, the instrument that produced it, and the measurement window.",
+        "evidence": "The CI spend figures have before/after values and a window but no named instrument, so not every published number meets all four elements.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

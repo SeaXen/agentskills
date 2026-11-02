@@ -1,0 +1,354 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-sponsor-value-proposition",
+  "scenarios": 8,
+  "expectations_total": 92,
+  "expectations_subjective": 2,
+  "expectations_objective": 90,
+  "pass_rate_with_skill_pct": 79.3,
+  "pass_rate_without_skill_pct": 37.0,
+  "delta_pp": 42.3,
+  "uplift_multiplier": 2.14,
+  "trigger_accuracy_pct": 73.2,
+  "trigger_queries": 82,
+  "trigger_positive_fire_rate": 0.756,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 2,
+        "expectation": "Asks which single segment to start with rather than drafting every segment at once"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that What Before captures the status quo the segment uses today without the event"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that Alternatives names the competing events, channels or sponsorship products fighting for the same budget line"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Offers the organizers' own track record as a first-edition substitute"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Labels each claim in the draft as evidenced or aspirational"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Does not invent a sponsor testimonial, customer count or past-edition statistic"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names product feedback as the co-lead category for this segment"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes that this sponsor routes the feedback internally to product or engineering rather than to sales"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Flags the compliance cost of the pipeline category: a consent flow, a data-protection review, and a contractual limit on the sponsor's reuse of the data"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes that handing a sponsor attendee contact details is irreversible and cannot be recalled"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends computing the returning-sponsor rate from the existing sponsor roster"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Justifies both as near-zero effort because they only count records the organizer already holds"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that the deep attendee survey tops both the value and the effort axes, so efficiency never selects it by default"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States the efficiency ordering of the instruments explicitly rather than leaving it implied by list order"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States the promotion condition: the sponsor is drawn from the community's own membership or strategically depends on the ecosystem"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Re-ranks the value categories because of the seven-week revenue deadline and says which answer moved which category"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names brand exposure and community goodwill as the compounding categories deprioritized by that deadline"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Proposes self-set observables instead, selecting two or three rather than all of them"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Declines to deliver the result as one block, requiring explicit approval section by section"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Classifies Nordwind DevDays at the community-run pole and states which pole the benefit claims assume"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Refuses to include an attendee contact list or any attendee contact data as a sponsor benefit"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Refuses the purchased keynote slot, stating that sponsorship buys placement and access but never a program slot"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Deletes the pipeline value category outright rather than demoting it, parking it lower in the menu, or reserving it for later"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Gives a reason for deleting rather than demoting: a demoted pipeline promise reappears later as scope in the prospectus"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Substitutes aggregate attendee demographics for lead data"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names brand exposure as the default anchor category for this event"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Identifies the marketing director as a brand buyer segment rather than writing one statement for Kestrel Cloud as a company"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Refuses to produce a single blended statement covering all sponsor buyer types"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Explains that a blended statement dilutes into generic exposure claims no budget holder can route internally"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Declines the value-proposition-canvas structure as the drafting frame"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Gives a reason the canvas is rejected: it starts from the offer side and maps several segments at once"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Proposes the six-part template instead and names all six parts: Who, Why, What Before, How, What After, Alternatives"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Keeps the six parts in that order"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Defines Who as a named budget-holding role, not a company"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names distinct sponsor segments to draft separately, including at minimum product-feedback buyer, recruiting buyer and brand buyer"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Asks which single segment to start with rather than drafting every segment at once"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that What Before captures the status quo the segment uses today without the event"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that Alternatives names the competing events, channels or sponsorship products fighting for the same budget line"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that this category has no published conversion benchmark to quote"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Offers the organizers' own track record as a first-edition substitute"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that no returning-sponsor rate, no prior post-event report and no prior attendee demographics exist for a first edition"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Labels each claim in the draft as evidenced or aspirational"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Identifies the buyer as a product-feedback buyer from the developer-advocacy title"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names product feedback as the co-lead category for this segment"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes that this sponsor routes the feedback internally to product or engineering rather than to sales"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Flags the compliance cost of the pipeline category: a consent flow, a data-protection review, and a contractual limit on the sponsor's reuse of the data"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes that handing a sponsor attendee contact details is irreversible and cannot be recalled"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Justifies both as near-zero effort because they only count records the organizer already holds"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends adding role, seniority band and company-size band fields to the registration form before it opens"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Identifies registration-form demographics as the instrument that compounds edition over edition"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Caps the added registration fields at roughly two to three, naming form friction as a real cost"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that the deep attendee survey tops both the value and the effort axes, so efficiency never selects it by default"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names the condition that would promote the deep survey anyway: courting an anchor or presenting-tier sponsor whose diligence asks about buying influence, or a vendor-pole event where composition claims carry the price"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States the efficiency ordering of the instruments explicitly rather than leaving it implied by list order"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names community goodwill as the lead category for this segment rather than a residual or filler benefit"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States the promotion condition: the sponsor is drawn from the community's own membership or strategically depends on the ecosystem"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Describes goodwill value concretely as standing inside the community, maintained relationships with existing users, and market intelligence"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Treats community goodwill as a value category distinct from pipeline, not a softer version of it"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names alternatives she is weighing, such as open-source project sponsorship or meetup hosting"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes that those alternatives may complement rather than substitute, and says so honestly if this event is not her best channel"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Fills the six-part statement for this one segment only"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Re-ranks the value categories because of the seven-week revenue deadline and says which answer moved which category"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names brand exposure and community goodwill as the compounding categories deprioritized by that deadline"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names the alternatives this buyer uses today, such as career fairs or sponsored job-board placement, and why each falls short for this job"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Describes the After as a self-selected shortlist that has already met the sponsor's team"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names the sponsor's fully loaded cost - fee, booth build, travel, staff days - rather than staying silent on it"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Refuses to supply an industry-standard sponsor conversion rate or any external benchmark figure"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that value-proposition framing cannot be measured against an industry conversion figure"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Proposes self-set observables instead, selecting two or three rather than all of them"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names first-call coverage as an observable, tied to whether sponsor calls open with questions the statement already answers"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names an objection log as an observable, with objections tagged by segment"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that a recurring objection is a defect in that segment's statement rather than a sales problem"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names statement reuse as an observable: whether the downstream documents quote the statements near-verbatim"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Writes down the revision each chosen observable would trigger, before outreach starts"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that sponsor renewal rate reads on the whole relationship - delivery, report quality, relationship - and is not attributable to the value proposition alone"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Declines to deliver the result as one block, requiring explicit approval section by section"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Hands the finished statements and proof-point inventory off to the prospectus and rate-card steps rather than packaging or pricing them here"
+      }
+    ]
+  }
+}

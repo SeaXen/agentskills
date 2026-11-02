@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to delete the 1.x docs; moves 1.x to `frozen` as a static snapshot removed from the build, which also removes the 6-minute build cost",
+        "evidence": "\"Serve 1.x as a prebuilt static snapshot... This is the 6-minute saving.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses the catch-all 301 to `/docs/`; redirects go per page to the nearest current equivalent and only at the `removed` step",
+        "evidence": "\"never wholesale to the docs home\"; per-page redirects only at the removed step.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reads 3% of downloads as pinned readers still installing 1.x, and does not dismiss it as bots or CI caches without data",
+        "evidence": "\"The 'CI caches and bots' claim is unchecked.\" It cites pinned dependents.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets a retirement threshold labelled baseline, for example under 1% of views and of downloads for two quarters, and states that no project publishes one",
+        "evidence": "\"No project publishes a docs retirement threshold... under 1%... for two quarters.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the python-future 0.04% figure as a runtime-support decision, analogous at most, not a docs-retirement precedent",
+        "evidence": "\"runtime support, not docs... analogous threshold\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Orders the procedure: snapshot, frozen banner, out of the build, `archived` once the threshold holds, `removed` only with no measurable readers",
+        "evidence": "Retirement steps run snapshot/frozen, then archived, then removed only with no measurable readers.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes the `frozen` banner with a status word, the consequence, and a same-page link to current",
+        "evidence": "\"1.x is no longer supported and this page is a static snapshot. Upgrade, and see this page for the current version\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps 1.x's own search entry only while downloads stay above the threshold and the docs SEO posture allows it, handing the posture to samber/developer-relations-skills@docs-seo",
+        "evidence": "\"keeps an entry only while downloads stay above the threshold... docs-seo writes the canonical tags\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Announces the retirement in the changelog and on the archive index page",
+        "evidence": "\"note the freeze and the later retirement in the changelog and on the archive index.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Moves 1.x from the main dropdown into an 'Older versions' group while frozen, and to the archive index page once archived",
+        "evidence": "\"'Older versions' link\"; \"drop 1.x from the switcher and list it on an archive index page.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Uses per-version page views alongside downloads as the two evidence sources before any transition, asking for the views figure if missing",
+        "evidence": "\"Pull 1.x docs page views and referrers\"; \"1.x docs views are unmeasured.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the per-version share of views and downloads as a quarterly KPI read against the threshold",
+        "evidence": "\"1.x share of docs views and downloads | read each quarter against the 1% threshold\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to delete the 1.x docs; moves 1.x to `frozen` as a static snapshot removed from the build, which also removes the 6-minute build cost",
+        "evidence": "\"Go ahead\"; the static alternative is explicitly skipped.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses the catch-all 301 to `/docs/`; redirects go per page to the nearest current equivalent and only at the `removed` step",
+        "evidence": "Keeps `/1.x/* /docs/ 301` as the final rule.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reads 3% of downloads as pinned readers still installing 1.x, and does not dismiss it as bots or CI caches without data",
+        "evidence": "\"Those are real users stuck on 1.x.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets a retirement threshold labelled baseline, for example under 1% of views and of downloads for two quarters, and states that no project publishes one",
+        "evidence": "No threshold is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the python-future 0.04% figure as a runtime-support decision, analogous at most, not a docs-retirement precedent",
+        "evidence": "\"The python-future precedent doesn't support the argument.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Orders the procedure: snapshot, frozen banner, out of the build, `archived` once the threshold holds, `removed` only with no measurable readers",
+        "evidence": "Goes straight to deletion.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes the `frozen` banner with a status word, the consequence, and a same-page link to current",
+        "evidence": "Only a stub page.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps 1.x's own search entry only while downloads stay above the threshold and the docs SEO posture allows it, handing the posture to samber/developer-relations-skills@docs-seo",
+        "evidence": "No docs-seo mention.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Announces the retirement in the changelog and on the archive index page",
+        "evidence": "Changelog note only; no archive index page.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Moves 1.x from the main dropdown into an 'Older versions' group while frozen, and to the archive index page once archived",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Uses per-version page views alongside downloads as the two evidence sources before any transition, asking for the views figure if missing",
+        "evidence": "Pre-flight checks pull 90 days of page views and the crates.io download trend.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the per-version share of views and downloads as a quarterly KPI read against the threshold",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

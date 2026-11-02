@@ -1,0 +1,670 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "devrel-webinar-program",
+  "scenarios": 11,
+  "expectations_total": 149,
+  "expectations_subjective": 1,
+  "expectations_objective": 148,
+  "pass_rate_with_skill_pct": 71.8,
+  "pass_rate_without_skill_pct": 23.5,
+  "delta_pp": 48.3,
+  "uplift_multiplier": 3.06,
+  "trigger_accuracy_pct": 50.0,
+  "trigger_queries": 124,
+  "trigger_positive_fire_rate": 0.065,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Routes reminder copy and timing to samber/dev-event-organizer-skills@event-attendee-email-sequences"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Checks whether the slot sits inside registrants' working day and the gap between registration and session"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Sets Tier A routing within 1 business day and marks that a baseline"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Requires the form to disclose engagement tracking used for both parties' follow-up"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Assigns who answers an access or deletion request and within how long"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that a partner who only speaks and never sees registration data needs only a speaker release"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Ranks the gating options by efficiency as ungated chaptered copy > ungated copy plus clips > gate the bundle only > gate everything"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Ranks the gating options by developer reach as ungated copy plus clips > ungated chaptered copy > gate the bundle only > gate everything"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Publishes the ungated chaptered copy within 48 hours, marked baseline, with chapters from the outline and code and tagged links in the description"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends two or three clips per episode, marked baseline, and routes the clip script to samber/developer-relations-skills@technical-video-script"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that replay reach must be measured per series rather than assumed to outdraw live, noting ON24's 43-52% and Goldcast's 15.9% use different denominators and neither counts a public video copy"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Books 30-45 minutes per episode and 45-60 for a lab, marked baseline, instead of 60 minutes"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Cites Goldcast's 77-minute technology-webinar average against measured viewing of about 29-49 minutes"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Adds one or two follow-along labs per season because the job is activation and a free tier exists, naming interview answers Q1 and Q4 as what moved it"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Sets the season at 4-6 episodes, citing Goldcast's median of 4"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires a full season of topics before the series is announced"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Anchors the slot in the North American working day, states its Central European late-afternoon equivalent, and announces the shifted local time in weeks when US and EU clocks change on different dates"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Picks the weekday from the series' own data, citing Tuesday's roughly one-point lead in Goldcast's data as the only vendor signal"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Marks everything past the first season as provisional"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Retitles every topic by the developer's problem rather than the product or release name"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Ranks topic sources as repeated community questions > onboarding friction > engineering war stories > releases"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Breaks ties toward the longer replay life"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Ranks speaker sources as internal engineers > community members > partners > customers"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Caps customer stories at one per season"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Briefs each speaker with the no-pitch rule and the handoff wording they may say on air"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Holds a full season of topics before announcing it"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Orders the fix for criterion 1 as topic and format first, slot second, cadence third - not promotion"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Marks criterion 3 failed because replays miss the 48-hour deadline, and prescribes cutting cadence until production keeps up"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Produces the deliverable in order - charter, season plan, topic backlog, handoff contract, episode log - with no diagnosis section since the user brought no numbers"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Excludes LinkedIn impressions from the sheet as a figure outside the series' signals"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Counts anonymous public-replay viewers only through tagged links, never inside a tier"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Points the sheet into samber/developer-relations-skills@devrel-metrics as the DevRel-wide framework it reports into"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Cites Livestorm's channel figures - email 86%, organic social 43%, community and newsletter 33%, paid 20% - and labels them reported drivers, not measured lift"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Hands the six-episode all-Q&A season to samber/developer-relations-skills@developer-office-hours-program because every planned episode is a Q&A episode"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Offers the alternating engineer-conversation and live-demo default as the mix that keeps the season a webinar series"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Routes platform choice and chat moderation staffing to samber/dev-event-organizer-skills@virtual-event-production without improvising that advice"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Routes the guest slot on the partner's webinar to samber/developer-relations-skills@tech-podcast-interview-prep"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Repeats a lab in the India and Singapore time zone because that region holds a quarter or more of users, marked baseline"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Serves the second region with the replay for the non-lab formats"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Tests any second slot only on two episodes of the same format"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Re-runs evergreen labs as scheduled replays labelled as recorded"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Writes every sibling reference in owner/repo@skill form rather than as a bare skill name"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Declines to use the \"35-45% average attendance\" figure as a benchmark and states it traces to no study"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Declines the \"3+ reminders lift attendance 20%\" claim as having no source"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Computes total reach as live attendees plus on-demand viewing within 30 days across both the platform and YouTube"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Labels the YouTube counts an upper bound because they are views, not unique viewers"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Compares the three episodes against the series' own earlier episodes before any vendor figure"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Places the series in the small-host, mostly paid or partner registrants band of 20-35%"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Cites at least one population-matched source with its figure, such as Demio's 22% or 28% or BrightTALK's 34%"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names the first fix as investing in the replay and giving live a reason, not adding reminder emails"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Routes reminder copy and timing to samber/dev-event-organizer-skills@event-attendee-email-sequences"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Checks whether the slot sits inside registrants' working day and the gap between registration and session"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Places the diagnosis before the charter in the deliverable order"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Refuses the \"38% of attendees become MQLs\" figure and states it traces to no study"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Produces a handoff contract with four tiers A to D keyed on behaviour, never on attendance alone"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Defines Tier A as a hand-raise - a demo, pricing or contact request, or a pricing or demo CTA click - routed to sales with the episode and the question asked"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Sets Tier A routing within 1 business day and marks that a baseline"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Defines Tier B as an engaged attendee at an account with an open opportunity, with the account owner notified and no cold call"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Routes Tier C to product activation nurture only for registrants who ticked the marketing box"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Routes Tier D to the replay email only"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Defines \"engaged\" as roughly the top third of attendees, set from the first two episodes' distributions"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names a sales owner who signs the contract and sets a sales acceptance bar read back after every episode"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Cuts the form to name, email and at most one qualifying field"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Requires a recorded legitimate-interest assessment before sales calls or account notes based on webinar behaviour"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Writes a retention period for registrant and engagement data into the contract"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Classifies Fjordline as a joint controller because it decides registration fields and follow-up, citing EDPB Guidelines 07/2020"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Requires a written joint-controller arrangement under GDPR Art. 26 before the partner's logo goes on the page"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Requires the form to disclose engagement tracking used for both parties' follow-up"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Assigns who answers an access or deletion request and within how long"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Rejects the \"the partner co-hosted, they get the list\" rationalization explicitly"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that a partner who only speaks and never sees registration data needs only a speaker release"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Ranks the gating options by efficiency as ungated chaptered copy > ungated copy plus clips > gate the bundle only > gate everything"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Ranks the gating options by developer reach as ungated copy plus clips > ungated chaptered copy > gate the bundle only > gate everything"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Cites the Stack Overflow 2026 survey figures that developers learn from documentation at 58.9% and video at 41.1%"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Publishes the ungated chaptered copy within 48 hours, marked baseline, with chapters from the outline and code and tagged links in the description"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends two or three clips per episode, marked baseline, and routes the clip script to samber/developer-relations-skills@technical-video-script"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires captions on every live session and a transcript published with every replay"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Reads Goldcast's 91% on-demand versus 74% live completion as intent-rich viewers, not as viewers worth more per head"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that replay reach must be measured per series rather than assumed to outdraw live, noting ON24's 43-52% and Goldcast's 15.9% use different denominators and neither counts a public video copy"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Defaults to monthly and allows bi-weekly only when the backlog holds a full season and every slot has a backup speaker"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Books 30-45 minutes per episode and 45-60 for a lab, marked baseline, instead of 60 minutes"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Cites Goldcast's 77-minute technology-webinar average against measured viewing of about 29-49 minutes"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Defaults the format mix to alternating engineer conversations and live demos"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Adds one or two follow-along labs per season because the job is activation and a free tier exists, naming interview answers Q1 and Q4 as what moved it"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Sets the season at 4-6 episodes, citing Goldcast's median of 4"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Writes the continue bar into the charter before episode one, including the stop rule of two seasons failing the job metric"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires a full season of topics before the series is announced"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Anchors the slot in the North American working day, states its Central European late-afternoon equivalent, and announces the shifted local time in weeks when US and EU clocks change on different dates"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Picks the weekday from the series' own data, citing Tuesday's roughly one-point lead in Goldcast's data as the only vendor signal"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Marks everything past the first season as provisional"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Prices the season in money - platform, paid promotion, lab infrastructure, captioning, honoraria - as a charter line separate from staff hours"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Retitles every topic by the developer's problem rather than the product or release name"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Keeps release and launch episodes under a third of the season"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Ranks topic sources as repeated community questions > onboarding friction > engineering war stories > releases"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Scores each candidate 0-2 on job fit, developers affected, speaker exists and replay life past a quarter, and sorts by total"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Breaks ties toward the longer replay life"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Rejects the advocates-only lineup: DevRel hosts while engineers, customers and community members speak"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Ranks speaker sources as internal engineers > community members > partners > customers"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States customer approval takes 6-8 weeks, marked baseline, so the customer cannot appear in a slot 3 weeks out"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Deletes the panel because no one can moderate it with preparation time"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Caps customer stories at one per season"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Books a named backup speaker for every episode"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Requires a recording release from every speaker, staff included"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Briefs each speaker with the no-pitch rule and the handoff wording they may say on air"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Holds a full season of topics before announcing it"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Applies the four pass-threshold criteria one by one with a verdict on each"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Marks criterion 1 failed because live attendance and returning share sit below the earlier median for three consecutive episodes"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Orders the fix for criterion 1 as topic and format first, slot second, cadence third - not promotion"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Marks criterion 2 failed because the job metric has not moved in attendees' favour, and prescribes shifting the format mix toward the job's top-value format, the follow-along lab for activation"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Marks criterion 3 failed because replays miss the 48-hour deadline, and prescribes cutting cadence until production keeps up"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Marks criterion 4 failed because the backlog cannot fill a season, and prescribes one season of community-question topics or stopping"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that a job metric flat across the equivalent of two seasons meets the stop rule, and that stopping means an announced last episode"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Restructures the series into seasons of 4-6 episodes with a continue bar written before the next season starts"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Rejects doubling paid promotion, placing paid last in the promotion order"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Enters the past episodes into the episode log as the pilot baseline"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Reports total reach - live plus 30-day on-demand - alongside live attendance, never registrations on their own"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Lists every inferred interview answer at the top of the deliverable as an open decision, each marked \"assumed\""
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Assumes activation as the series' first job because the request names a free tier"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Produces the deliverable in order - charter, season plan, topic backlog, handoff contract, episode log - with no diagnosis section since the user brought no numbers"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Ships the series without a sales route because sales refuses a written handoff rule, routes attendee data to product nurture only, and logs that as an open decision"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Charter carries job, audience, format mix, cadence, slot, speaker pool, replay policy, budget, data retention, season dates and continue bar"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Season plan rows carry format, problem-titled topic, speaker, backup, slot and replay type"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Topic backlog is scored and extends a full season ahead"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Episode log carries the measurement columns with past rows empty and future rows empty"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Replay policy publishes an ungated chaptered copy within 48 hours with captions and a transcript"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Handoff contract still shows every registrant an unticked marketing opt-in box and routes marketing email on the box alone"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Routes marketing email on the unticked box rather than on a US or UK notice-plus-opt-out reading, because the form rarely knows the registrant's country"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Labels every item past season one - dates, topics, speakers - provisional, with only season one committed"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Format mix alternates engineer conversations and live demos with at least one follow-along lab on the free tier"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Season holds 4-6 episodes and names the continue bar before episode one"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Refuses the \"20-40% of attendees become qualified leads\" benchmark as traceable to no named study"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Excludes LinkedIn impressions from the sheet as a figure outside the series' signals"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Builds the sheet with total reach, live over registrants, returning-attendee share, live and replay completion, questions per 10 live attendees, the job metric, Tier A handoffs with sales acceptance, and replay within 48 hours plus next season's speakers booked"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Defines the activation job metric as 30-day first meaningful action (first index) for attendees versus matched non-attendees, pooled over the season"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Proposes holding back a random 10-20% of the 11,000-developer list from invitations for one season as the causal read, marked baseline"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Sets any attendee-to-opportunity target from the series' own season-one median under the company's own opportunity definition"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Counts anonymous public-replay viewers only through tagged links, never inside a tier"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Cites Goldcast 2026 completion figures of 74% live and 91% on demand as the trend reference"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Sets the live-attendance target at or above the series' own pilot median, falling back to the population band only when no history exists"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Points the sheet into samber/developer-relations-skills@devrel-metrics as the DevRel-wide framework it reports into"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Ranks promotion as own users and newsletter > community channels > speakers' own audiences > organic social > paid, by registrant intent rather than volume"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Cites Livestorm's channel figures - email 86%, organic social 43%, community and newsletter 33%, paid 20% - and labels them reported drivers, not measured lift"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Opens registration 3-4 weeks ahead, marked baseline, instead of 10 weeks out"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Cites Livestorm's 49.6% of registrations arriving in the final 7 days and 15.3% on the day"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Puts most promotion effort into the final week"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Declines to write the reminder emails, routing copy and timing to samber/dev-event-organizer-skills@event-attendee-email-sequences while keeping the window decision here"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Tags every link in the replay description and follow-up email by episode"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Hands the six-episode all-Q&A season to samber/developer-relations-skills@developer-office-hours-program because every planned episode is a Q&A episode"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Explains that the Q&A episode ranks below the live demo despite lower effort because its value depends on a standing question backlog"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Offers the alternating engineer-conversation and live-demo default as the mix that keeps the season a webinar series"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Routes platform choice and chat moderation staffing to samber/dev-event-organizer-skills@virtual-event-production without improvising that advice"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Routes the guest slot on the partner's webinar to samber/developer-relations-skills@tech-podcast-interview-prep"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Repeats a lab in the India and Singapore time zone because that region holds a quarter or more of users, marked baseline"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Tests any second slot only on two episodes of the same format"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Re-runs evergreen labs as scheduled replays labelled as recorded"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Writes every sibling reference in owner/repo@skill form rather than as a bare skill name"
+      }
+    ]
+  }
+}

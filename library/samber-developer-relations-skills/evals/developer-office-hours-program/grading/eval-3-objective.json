@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Reads two bars separately: a demand bar that decides continue or stop and an operating bar that decides what to fix",
+        "evidence": "Charter has Demand bar and Operating bar; review: \"Operating bar fails: fix the rotation first. It never decides whether to stop.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places median askers of 1 and zero docs fixes under the demand bar and recommends dropping to an async thread for a quarter and re-testing demand",
+        "evidence": "\"Run an async question thread for one quarter... Re-test live demand after that.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the silent September cancellation and the late write-ups as operating-bar failures that decide what to fix, never whether to stop",
+        "evidence": "Table flags September silent cancellation and ~7-day write-up lag; \"Operating bar fails: fix the rotation first.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects going weekly, and puts slot and promotion changes before any cadence change",
+        "evidence": "\"Do not go weekly\"; \"Check the promotion and the docs placement before adding live time.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects YouTube views as the reported metric, names it the viewer-vanity failure, and counts distinct askers and docs fixes instead",
+        "evidence": "\"Do not report YouTube views as the metric. Views are viewer vanity... Report distinct askers... docs fixes.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that no organization publishes an attendance benchmark for office hours and that 3 askers per cycle is a self-set baseline, not an industry figure",
+        "evidence": "\"No organization publishes office-hours attendance targets. It is a baseline this skill sets.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that a monthly program's pilot is two quarters or at least six sessions, and that three sessions under the bar bring the pilot review forward",
+        "evidence": "States three sessions under bar bring review forward, but the pilot is three 4-week cycles; no two-quarters/six-session note.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the rule the September session broke: the named backup engineer takes it, and a cancellation is announced only when engineer and backup are both out",
+        "evidence": "Only notes \"1 engineer, no backup\"; the backup-takes-it, cancel-only-if-both-out rule is not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the write-up deadline as 2 business days (baseline) and marks a week late as a miss",
+        "evidence": "\"Write-up lag ~7 days... The target is 2 business days.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Opens a docs ticket for the repeated SDK init order question because it has been seen more than once",
+        "evidence": "\"open one docs ticket titled 'SDK init order'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the same engineer rotation during the async quarter and publishes the repeat answers as docs so the re-test is fair",
+        "evidence": "\"Run an async question thread for one quarter with the same engineers\"; docs ticket and posted answer.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the closure protocol if the live session stops: a closure post where sessions were announced, a pointer to the async thread, and every calendar entry removed",
+        "evidence": "\"Announce the change wherever the AMA was announced... questions go in the thread\"; \"Remove the active calendar entries.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels resulting issues and docs changes (for example 'Office Hours') so the next review can count them",
+        "evidence": "\"Label resulting issues and docs changes 'Office Hours' so the review can count them.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Reads two bars separately: a demand bar that decides continue or stop and an operating bar that decides what to fix",
+        "evidence": "No two-bar framing; one verdict plus a metric table.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places median askers of 1 and zero docs fixes under the demand bar and recommends dropping to an async thread for a quarter and re-testing demand",
+        "evidence": "Proposes a 6-week redesign with a monthly written AMA; no demand bar or quarter-long async retest.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the silent September cancellation and the late write-ups as operating-bar failures that decide what to fix, never whether to stop",
+        "evidence": "Mentions the sick-day failure and 7-day write-up but not as operating-bar items that cannot decide stopping.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects going weekly, and puts slot and promotion changes before any cadence change",
+        "evidence": "Rejects weekly but proposes a format change, not slot or promotion changes first.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects YouTube views as the reported metric, names it the viewer-vanity failure, and counts distinct askers and docs fixes instead",
+        "evidence": "\"YouTube views. Views are a reach metric\"; table tracks docs changes shipped and questions submitted.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that no organization publishes an attendance benchmark for office hours and that 3 askers per cycle is a self-set baseline, not an industry figure",
+        "evidence": "\"'3 askers is the benchmark.' This is folklore. I know of no measured source... label it a hypothesis\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that a monthly program's pilot is two quarters or at least six sessions, and that three sessions under the bar bring the pilot review forward",
+        "evidence": "Not mentioned; uses a 6-week redesign and a 2-cycle kill rule.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the rule the September session broke: the named backup engineer takes it, and a cancellation is announced only when engineer and backup are both out",
+        "evidence": "Only says \"Name a backup answerer\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the write-up deadline as 2 business days (baseline) and marks a week late as a miss",
+        "evidence": "\"publish within 48 hours\"; \"Days from session to write-up | Currently about 7; target 2\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Opens a docs ticket for the repeated SDK init order question because it has been seen more than once",
+        "evidence": "\"Today to day 2: ship the init-order fix. Write or rewrite the SDK init-order section\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the same engineer rotation during the async quarter and publishes the repeat answers as docs so the re-test is fair",
+        "evidence": "No async-quarter rotation commitment.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the closure protocol if the live session stops: a closure post where sessions were announced, a pointer to the async thread, and every calendar entry removed",
+        "evidence": "Kill rule only says \"stop the AMA\"; no closure post, pointer or calendar removal.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels resulting issues and docs changes (for example 'Office Hours') so the next review can count them",
+        "evidence": "No label is specified.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

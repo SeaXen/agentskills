@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Does not log all 412 requests; clusters them into problems and logs only the largest clusters before the first review, capped at what that review can decide.",
+        "evidence": "\"Cluster the 412 into problems. Write full records only for the biggest clusters (\u226410)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Marks the remaining requests received, with an honest note that they wait for the next cycle.",
+        "evidence": "\"Mark them 'received' with a note that they wait for the next cycle.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats Anika's 'take a look' as an informal receiver: runs the leak trace and the contract first, with intake designed in parallel while the contract is agreed.",
+        "evidence": "\"Agree a one-page contract with her first.\" The re-ranking block and calendar set up intake while the contract is agreed.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that an informal receiver is a contract waiting to be written, not a substitute for one.",
+        "evidence": "\"An informal receiver is a contract waiting to be written.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the 38-label scheme and keeps three single-valued label axes: type, area, status.",
+        "evidence": "\"3 labels plus 2 per-requester fields.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Makes customer tier a per-requester segment field rolled up into counts on the record, not a record label.",
+        "evidence": "\"Customer tier... segment | per requester, rolled up\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Makes severity a per-requester field rolled up into counts.",
+        "evidence": "\"P0-P3 | severity | per requester, rolled up\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes source channel from the labels and makes it a field on the record, because one record collects several channels.",
+        "evidence": "\"Source is a field because one record collects several channels.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes priority P0-P3 and effort S/M/L from DevRel's label set, because weighing priority and effort is product's decision.",
+        "evidence": "\"Priority and effort are Anika's calls.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cuts the weekly digest and replaces it with a decision review scheduled before planning.",
+        "evidence": "\"Weekly digests to Anika | Cut. One decision review before planning\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes each record problem-first with the requested fix in a separate field.",
+        "evidence": "\"Title: <problem in the developer's words, never the feature>\"; \"Requested fix: <verbatim, kept separate>\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes the contract clause that every agenda record leaves with a status and 'revisit next cycle' is allowed at most twice.",
+        "evidence": "\"Every record on the agenda leaves with a status. 'Revisit next cycle' at most twice per record\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sends 'under review' replies to the requesters of every agenda record when the agenda is frozen, before the review.",
+        "evidence": "\"Agenda frozen and sent. 'Under review' replies to every agenda record's requesters.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names a product receiver with a backup and a review cadence chaired by product in the contract.",
+        "evidence": "\"Product receiver: Anika..., backup <name>\"; \"Per planning cycle, 60 min, chaired by Anika\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Does not log all 412 requests; clusters them into problems and logs only the largest clusters before the first review, capped at what that review can decide.",
+        "evidence": "\"Bulk-import all 412 via CSV or API\", with a shortlist of 25-30 later.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Marks the remaining requests received, with an honest note that they wait for the next cycle.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats Anika's 'take a look' as an informal receiver: runs the leak trace and the contract first, with intake designed in parallel while the contract is agreed.",
+        "evidence": "Anika is only asked to size items. No leak trace or contract appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that an informal receiver is a contract waiting to be written, not a substitute for one.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the 38-label scheme and keeps three single-valued label axes: type, area, status.",
+        "evidence": "The schema is four facets: source, tier, area, and priority/effort.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Makes customer tier a per-requester segment field rolled up into counts on the record, not a record label.",
+        "evidence": "Tier is a per-request field filled by script, with no per-requester rollup.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Makes severity a per-requester field rolled up into counts.",
+        "evidence": "No severity field.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Removes source channel from the labels and makes it a field on the record, because one record collects several channels.",
+        "evidence": "\"Make these tracker fields, not free-text labels\", with Source as a fact field.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes priority P0-P3 and effort S/M/L from DevRel's label set, because weighing priority and effort is product's decision.",
+        "evidence": "DevRel sets \"P0\u2013P3 on the shortlist\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cuts the weekly digest and replaces it with a decision review scheduled before planning.",
+        "evidence": "It keeps a lightweight weekly digest and no decision review.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes each record problem-first with the requested fix in a separate field.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes the contract clause that every agenda record leaves with a status and 'revisit next cycle' is allowed at most twice.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sends 'under review' replies to the requesters of every agenda record when the agenda is frozen, before the review.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names a product receiver with a backup and a review cadence chaired by product in the contract.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

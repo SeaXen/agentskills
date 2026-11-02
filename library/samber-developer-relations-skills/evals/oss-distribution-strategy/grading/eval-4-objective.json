@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to build the requested case that supply-chain work will increase downloads.",
+        "evidence": "\"the literal ask \u2014 'prove this grows downloads' \u2014 isn't supportable, and I'm not going to fabricate a download-lift case.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the link from Scorecard scores, artifact signing or SLSA provenance to downloads or adoption is unestablished.",
+        "evidence": "'No evidence supports that' and 'nothing in the published research links signing or SBOMs to adoption volume'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reframes the ask as risk mitigation and procurement enablement rather than a growth channel.",
+        "evidence": "\"Sell it internally as procurement enablement.\" / 'Pitch it as unblocking the growth you already have.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that Sigstore's published totals have no control group, and that maturity and funding confound any apparent correlation.",
+        "evidence": "'Sigstore's own adoption numbers have no control group' is stated, but no mention of maturity/funding as confounding variables appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes download counts are gameable, making them a weak outcome measure for this work.",
+        "evidence": "No statement about download counts being gameable appears in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels the 'Scorecard above 7' target as an adopted bar for enterprise review rather than a published standard, and says so when reporting it.",
+        "evidence": "'this is a self-set procurement bar this skill... adopts for enterprise review, not a published standard and not an adoption forecast.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names 'pitching trust work as growth' as a failure mode that sets up a failure the next security ask will pay for.",
+        "evidence": "'Pitching signing/SBOM/Scorecard as a growth initiative sets up the next security budget ask to fail when the download graph doesn't move.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Points out that the stated audience of banks and insurers is a company-adoption path where trust signals rank near the top of value, even though they rank low on efficiency for individual adoption.",
+        "evidence": "Transcript emphasizes the mechanism for banks/insurers but never contrasts this against trust signals ranking low on efficiency for individual adoption.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the observable signal as enterprise evaluations that stop stalling, not as a download figure.",
+        "evidence": "'Stalled evaluations that resume... that's your real before/after signal.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that publishing a disclosure path means owing a disclosure SLA, an ongoing obligation rather than a one-time cost.",
+        "evidence": "SECURITY.md/SLA is described as 'cheap' and part of the one-time setup; the separate recurring-cost paragraph lists only 'signing keys, SBOM generation and the Scorecard score', not the disclosure SLA.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes trust signals carry a concentrated entry cost and a low recurring cost, and states which of the two it means when quoting a cost.",
+        "evidence": "'this is a concentrated one-time setup, but signing keys, SBOM generation and the Scorecard score all need low-but-nonzero recurring maintenance after the two weeks \u2014 minutes to a couple hours per release, not zero.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Mentions that EU Cyber Resilience Act obligations bind manufacturers rather than upstream maintainers, with pressure arriving as fix requests from downstream companies.",
+        "evidence": "'Those obligations bind manufacturers... OpenSSF's own framing... predicts this lands on upstream maintainers as a wave of fix-request and SBOM-request pressure from exactly these downstream companies, not as direct legal liability.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Promises no download lift anywhere in the recommendation.",
+        "evidence": "\"This won't move our download count \u2014 nothing in the published research links signing or SBOMs to adoption volume, and I'm not going to claim it will.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to build the requested case that supply-chain work will increase downloads.",
+        "evidence": "'Don't promise a download-count lift. Nobody can causally attribute a % of Maven Central pulls to a Scorecard score.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the link from Scorecard scores, artifact signing or SLSA provenance to downloads or adoption is unestablished.",
+        "evidence": "'Nobody can causally attribute a % of Maven Central pulls to a Scorecard score, and a VP of Engineering will smell an unfalsifiable claim immediately.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reframes the ask as risk mitigation and procurement enablement rather than a growth channel.",
+        "evidence": "'framed as defending the existing 180k/month against a regulatory-driven churn risk, and removing an automated elimination gate on new adoption, not as a marketing campaign.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that Sigstore's published totals have no control group, and that maturity and funding confound any apparent correlation.",
+        "evidence": "Sigstore adoption totals, control groups, and confounds are never discussed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes download counts are gameable, making them a weak outcome measure for this work.",
+        "evidence": "The memo calls downloads 'too noisy and too lagging' but never calls them gameable.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels the 'Scorecard above 7' target as an adopted bar for enterprise review rather than a published standard, and says so when reporting it.",
+        "evidence": "The 4.2-to-7+ target is presented via a check-weighting table without any caveat distinguishing it from a published standard.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names 'pitching trust work as growth' as a failure mode that sets up a failure the next security ask will pay for.",
+        "evidence": "No such framing of a compounding failure mode across future asks appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Points out that the stated audience of banks and insurers is a company-adoption path where trust signals rank near the top of value, even though they rank low on efficiency for individual adoption.",
+        "evidence": "No individual-vs-company adoption efficiency contrast is drawn; the memo stays entirely within the enterprise/procurement frame.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the observable signal as enterprise evaluations that stop stalling, not as a download figure.",
+        "evidence": "'Whether any specific stalled enterprise adoption (if you know of one) unblocks.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that publishing a disclosure path means owing a disclosure SLA, an ongoing obligation rather than a one-time cost.",
+        "evidence": "SECURITY.md is listed simply as '`SECURITY.md` \u2014 trivial' with no discussion of an ongoing SLA obligation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes trust signals carry a concentrated entry cost and a low recurring cost, and states which of the two it means when quoting a cost.",
+        "evidence": "The memo quotes 'Two engineer-weeks' as a single cost without distinguishing entry cost from recurring cost.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Mentions that EU Cyber Resilience Act obligations bind manufacturers rather than upstream maintainers, with pressure arriving as fix requests from downstream companies.",
+        "evidence": "'Even where CRA exempts individual OSS maintainers directly, it obligates the commercial software your bank/insurer users ship \u2014 which means their compliance teams push the SBOM requirement down onto every dependency, girder included.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Promises no download lift anywhere in the recommendation.",
+        "evidence": "'Don't promise a download-count lift' and 'It won't be provable in the direct sense' \u2014 no download-lift promise appears anywhere.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,606 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "tech-press-relations",
+  "scenarios": 15,
+  "expectations_total": 167,
+  "expectations_subjective": 2,
+  "expectations_objective": 165,
+  "pass_rate_with_skill_pct": 74.3,
+  "pass_rate_without_skill_pct": 41.9,
+  "delta_pp": 32.4,
+  "uplift_multiplier": 1.77,
+  "trigger_accuracy_pct": 50.0,
+  "trigger_queries": 146,
+  "trigger_positive_fire_rate": 0.027,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.236 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Names the funding trap: the amount alone is a form, not news, unless the size or the backer is unusual"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Declines to write a press release and states there is no news to announce"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Offers the no-news alternatives: proprietary data, a defensible position, being a source, or publishing the primary artefact"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Warns that a vendor-run comparison against named competitors gets challenged within hours unless the harness is public and reproducible"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that recommending no pitch is a legitimate outcome of the work rather than a failure"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes that a benchmark republished on a schedule becomes a citable recurring event"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Gives each candidate angle its trade-off plus a recommendation, then waits for a decision before writing anything"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Deletes the practitioner angle because nobody is clearable to speak on record"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Deletes the underdog angle because no public rerunnable comparison exists"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that a fixed near date deletes the number and the underdog and promotes the shift and the practitioner"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States the efficiency ordering of the angle shapes out loud: the shift, then the practitioner, then the broken system, then the number, then the underdog"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "If a broken-system angle is offered, names the enemy as a practice or norm and refuses to aim it at a named competitor"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires methodology, hardware, software versions, the dataset or its anonymised form, and a harness a stranger can rerun"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Applies the scoring rubric with beat match weighted heaviest, then audience fit and responsiveness, then recency"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Produces three tiers: tier 1 bespoke and eligible for an exclusive or embargo, tier 2 adapted and sent after tier 1 answers, tier 3 not pitched"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Includes a do-not-pitch list in the artefact"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Labels the weights and cut-offs as a working baseline rather than an industry standard"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes the map is as valuable for the sends it prevents as for the ones it produces"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Removes the first-time contact from the embargo and gives them the news at lift time instead"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends a tarball or private preview rather than early repository access"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires deciding explicitly who internally knows the date"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that if anyone breaks the embargo it lifts for everyone immediately, so honest outlets are not punished"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires the owned post and press page live at lift time with community channels hit in the same minute"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Records the exclusive in the media map or pitch tracker so it cannot be double-promised"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Cites the Terraform move to the Business Source License in August 2023, the OpenTF manifesto endorsed by more than 140 companies and over 700 individuals, and the Linux Foundation's OpenTofu fork launched on 20 September 2023"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires the timeline, blast radius, fix, and what changed in the process so it does not recur"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names the prerequisite that a monitored private security contact must have been published beforehand"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Produces a subject line of roughly 50 characters that lets the reporter predict the headline"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Leads the subject line with the specific number, name or decision, prefixed honestly where a prefix applies"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Recommends running the pitch through a humanizer pass before sending"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Sets the follow-up ladder at day 3 with new information, day 7 with a fresh hook, then stop, and rejects 'bumping this'"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Forbids making the first comment on the thread"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Requires handled items to be marked off in a shared channel"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Requires the owned post and press page live at lift time, with coverage pointing to the owned post rather than the reverse"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Distinguishes a briefing - vendor-initiated, usually open to non-clients, no advice back, no promise of coverage - from an inquiry, which is a client asking the analyst a question"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Keeps analyst relations scoped to a handful of briefings a year rather than a standing programme"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Requires every claim to be one the company will repeat in a procurement conversation"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Frames the outcome as a correct mental model inside buyer conversations rather than coverage"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Ranks the coverage-worth signals, with sales or procurement conversations citing the article strongest, and reach or impressions counted as audience size rather than effect"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Treats referral clicks from the article as a floor rather than a total"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Tracks the machine as well: pitches sent, reply rate, briefings booked, coverage per announcement, and time from news to first placement"
+      },
+      {
+        "eval_id": 15,
+        "expectation": "Requires a coverage list, most recent first, and warns that a page whose latest entry is years old reads as a dead company"
+      },
+      {
+        "eval_id": 15,
+        "expectation": "Requires the press page to be live before the first pitch goes out"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Cites the developer tool-selection finding (Larios Vargas et al., ESEC/FSE 2020, 115 survey respondents) that maturity, usability and documentation outweigh visibility signals"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Reframes what coverage buys as credibility with non-developers - buyers, executives, candidates, investors, analysts, other reporters - plus durable discoverability and citation surface"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Proposes replacement success measures drawn from the coverage-worth signals rather than signups, naming sales or procurement conversations citing the article as the strongest"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Requires a pre-announcement baseline - branded search, direct traffic, referring domains, repository and docs traffic, signups - captured before October 14"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Treats the round as the occasion and builds the hook around what the money makes possible or the category thesis the investors are betting on"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names the funding trap: the amount alone is a form, not news, unless the size or the backer is unusual"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Confirms investor-communication and any disclosure obligation set the date before an exclusive is offered"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Lists the funding-specific pack items: round size, lead, participating investors, prior total, and what changes operationally"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Runs the five qualification tests - newness, consequence, evidence, conflict or shift, tellability - before drafting anything"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Works the schedule backwards from October 14, deciding exclusive-versus-embargo about two weeks out and opening the embargo about a week out"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Declines to write a press release and states there is no news to announce"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Runs the five qualification tests against the current situation and reports at least two failures"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Offers the no-news alternatives: proprietary data, a defensible position, being a source, or publishing the primary artefact"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Warns that a vendor-run comparison against named competitors gets challenged within hours unless the harness is public and reproducible"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names the consent and anonymisation review the dataset needs before publication"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that recommending no pitch is a legitimate outcome of the work rather than a failure"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes that a benchmark republished on a schedule becomes a citable recurring event"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Presents two or three candidate angles for the same facts rather than drafting against the co-founder's first idea"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Gives each candidate angle its trade-off plus a recommendation, then waits for a decision before writing anything"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Deletes the practitioner angle because nobody is clearable to speak on record"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Deletes the underdog angle because no public rerunnable comparison exists"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Says explicitly which angles it deleted and why, rather than silently omitting them"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that a fixed near date deletes the number and the underdog and promotes the shift and the practitioner"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States the efficiency ordering of the angle shapes out loud: the shift, then the practitioner, then the broken system, then the number, then the underdog"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Warns that a benchmark naming the two incumbents is a comparative claim that invites a challenge which cannot be unpublished"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Applies the pressure test: if the product did not exist, would the reporter still want to write this"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that the default efficiency order starves the number, so this is a deliberate override rather than the normal ranking"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires methodology, hardware, software versions, the dataset or its anonymised form, and a harness a stranger can rerun"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires a stated limitations section shipped with the data"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names the compliance cost of the number: a consent and anonymisation review before publication"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Rejects the purchased database and the recycled listicle as the source of the list"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires recording stated pitch preferences, including any refusal of pitches or embargoes"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Applies the scoring rubric with beat match weighted heaviest, then audience fit and responsiveness, then recency"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Produces three tiers: tier 1 bespoke and eligible for an exclusive or embargo, tier 2 adapted and sent after tier 1 answers, tier 3 not pitched"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Includes a do-not-pitch list in the artefact"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Applies the stated weights: beat match 3x, audience fit 2x, responsiveness 2x, recency 1x"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Moves S. Abara to the do-not-pitch list with the reason that they left the outlet in January"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Reports the tier cut-offs used: 30 and above for tier 1, 18 to 29 for tier 2, below 18 for tier 3"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Labels the weights and cut-offs as a working baseline rather than an industry standard"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes the map is as valuable for the sends it prevents as for the ones it produces"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends a tarball or private preview rather than early repository access"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires deciding explicitly who internally knows the date"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires the owned post and press page live at lift time with community channels hit in the same minute"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Recommends offering the exclusive to one outlet at a time, with a deadline for their answer"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Records the exclusive in the media map or pitch tracker so it cannot be double-promised"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names the acquisition hook: what happens to the open-source project, the pricing, the API and the team"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names the acquisition trap: silence on the parts users fear turns the unanswered question into the headline"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Requires commitments with dates, who stays, what the licence and roadmap do, and the migration path for anything sunsetting"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Notes that reporters at major tech outlets single out botched exclusives and embargoes as what they resent most"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States the economics honestly in numbers, including the four reselling vendors as the trigger"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Cites the Terraform move to the Business Source License in August 2023, the OpenTF manifesto endorsed by more than 140 companies and over 700 individuals, and the Linux Foundation's OpenTofu fork launched on 20 September 2023"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Requires the old and new licences, the conversion or grant terms, and a fork-and-vendor FAQ in the pack"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Expects fork announcements and plans for them"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Routes the underlying licence decision to samber/developer-relations-skills@oss-license-strategy"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires advisory, affected versions, patched versions, workarounds and detection guidance in the pack"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires the timeline, blast radius, fix, and what changed in the process so it does not recur"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that this announcement class is judged on candour and speed alone"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names the prerequisite that a monitored private security contact must have been published beforehand"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Produces a pitch body under roughly 150 words rather than the requested 500"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Produces a subject line of roughly 50 characters that lets the reporter predict the headline"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Leads the subject line with the specific number, name or decision, prefixed honestly where a prefix applies"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States the story in one sentence and states why her readers care from the readership's side"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Recommends running the pitch through a humanizer pass before sending"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Sets the follow-up ladder at day 3 with new information, day 7 with a fresh hook, then stop, and rejects 'bumping this'"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Forbids the company submitting its own content to a community aggregator"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Forbids making the first comment on the thread"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Requires handled items to be marked off in a shared channel"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Applies 'conveying without convincing' - the audience is the silent majority reading the thread, not the antagonist in it"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Warns that the comment-edit window is short, recording the two-hour limit on Hacker News, so a wrong number posted in haste is close to permanent"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Requires the owned post and press page live at lift time, with coverage pointing to the owned post rather than the reverse"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Distinguishes a briefing - vendor-initiated, usually open to non-clients, no advice back, no promise of coverage - from an inquiry, which is a client asking the analyst a question"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Splits the firm families into practitioner-focused analysts and buyer-side research firms and matches them to the enterprise, top-down buying motion described"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Gives the briefing agenda: a short pre-read, bringing the engineer who made the decisions, most of the time on the problem and the adoption evidence rather than the demo, and asking what they are seeing in the category"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Names the analyst's category view as the value the user takes home from the briefing"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Keeps analyst relations scoped to a handful of briefings a year rather than a standing programme"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "States that named customers, deployment scale, compliance posture and analyst framing carry an enterprise story"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Requires every claim to be one the company will repeat in a procurement conversation"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Frames the outcome as a correct mental model inside buyer conversations rather than coverage"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Refuses to produce an advertising value equivalency figure"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Cites AMEC's Barcelona Principles, agreed in 2010 by practitioners from 33 countries and revised in 2015 and 2020, and the position that AVEs are not the value of public relations"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Declines to quote an industry-average reply rate or an industry-standard pitch volume"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Compares the company against its own baseline instead of an invented industry average"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "States that 11 pitches is too small a sample to read a pattern from, and gives roughly thirty pitches as the working minimum"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Labels the thirty-pitch figure as a self-set working baseline rather than a researched or industry figure"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Ranks the coverage-worth signals, with sales or procurement conversations citing the article strongest, and reach or impressions counted as audience size rather than effect"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Treats referral clicks from the article as a floor rather than a total"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Warns that branded search and direct traffic comparisons are useless if another launch overlaps the window"
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Tracks the machine as well: pitches sent, reply rate, briefings booked, coverage per announcement, and time from news to first placement"
+      },
+      {
+        "eval_id": 15,
+        "expectation": "Refuses to help with the paid sponsored-editorial placements and names them as advertising, with different rules and different disclosure"
+      },
+      {
+        "eval_id": 15,
+        "expectation": "Names the PESO model (Gini Dietrich, Spin Sucks, 2014) and places Paid outside this scope while Earned and the Owned surfaces serving it are inside"
+      },
+      {
+        "eval_id": 15,
+        "expectation": "States that a response time should be published only if it will be honoured, and that an unmonitored press address is worse than none"
+      },
+      {
+        "eval_id": 15,
+        "expectation": "Requires copy-paste descriptions at three lengths"
+      },
+      {
+        "eval_id": 15,
+        "expectation": "Requires founding facts, bios and high-resolution headshots downloadable without a form"
+      },
+      {
+        "eval_id": 15,
+        "expectation": "Requires a coverage list, most recent first, and warns that a page whose latest entry is years old reads as a dead company"
+      },
+      {
+        "eval_id": 15,
+        "expectation": "Adds the technical proof pack, including a running artefact available now rather than on request"
+      },
+      {
+        "eval_id": 15,
+        "expectation": "Requires a comparison table that includes the rows where the product loses, plus known limitations and an unambiguous licence and pricing statement"
+      },
+      {
+        "eval_id": 15,
+        "expectation": "Requires the press page to be live before the first pitch goes out"
+      }
+    ]
+  }
+}

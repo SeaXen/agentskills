@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Keeps all-time star totals out of the scorecard as a comparison row.",
+        "evidence": "Scorecard includes row \"GitHub stars *(vanity \u2014 cumulative, can only rise)* | 2,050 | 24,100 | 9,600 | 4,300\" \u2014 the total is placed directly in the comparison table.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps total follower counts out of the scorecard as a comparison row.",
+        "evidence": "Scorecard includes row \"X followers *(vanity \u2014 cumulative, can only rise)* | 1,900 | 18,400 | 7,200 | 3,100\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps total community member counts out of the scorecard as a comparison row.",
+        "evidence": "Scorecard includes row \"Discord members *(proxy for community size)* | 640 | 31,000 | 12,000 | 2,800\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason that a number which can only rise carries no trend information.",
+        "evidence": "\"GitHub stars, Discord members and X followers are cumulative totals \u2014 they only go up, so a snapshot shows *size*, not *momentum* or *mindshare capture*.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Offers a period delta or a rate in place of each of those totals.",
+        "evidence": "\"added the one rate the snapshot legitimately supports\" and rows \"Discord members per 1,000 stars *(rate, computed)*\" / \"X followers per 1,000 stars *(rate, computed)*\"; also flags need for \"deltas (30/90-day growth rate)\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names fake-star campaigns as a distortion of the star signal.",
+        "evidence": "\"GitHub star counts specifically carry a documented fake-star risk (an ICSE 2026 study identified roughly 6 million suspected fake stars platform-wide)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Attributes the roughly six million suspected fake stars to the published study rather than presenting it as this analysis's own estimate.",
+        "evidence": "\"(an ICSE 2026 study identified roughly 6 million suspected fake stars platform-wide) \u2014 not saying that's happening here\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Proposes median time to first reply and staff share of replies in place of the member totals.",
+        "evidence": "No mention of \"median time to first reply\" or \"staff share of replies\" anywhere in the section; next steps listed are \"a timed quickstart... a documentation-mode coverage check... a 12-month forge release/response pull\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Proposes median time to first response on issues or pull requests in place of the star totals.",
+        "evidence": "The \"forge release/response pull\" is mentioned only as a general next collection step, not explicitly proposed as a substitute for the star-count row.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines to declare an overall mindshare winner from the pasted totals.",
+        "evidence": "\"'Who's winning mindshare' can't be answered from these three fields alone... Verdict: **ignore this framing** until deltas... or an actual behavioral surface... is added.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Keeps all-time star totals out of the scorecard as a comparison row.",
+        "evidence": "\"GitHub stars | 24,100 (\ud83e\udd47 60.2%) | 9,600 (24.0%) | 4,300 (10.7%) | 2,050 (5.1%, #4)\" is a raw all-time totals row.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps total follower counts out of the scorecard as a comparison row.",
+        "evidence": "\"X followers | 18,400 ... | 1,900 (6.2%, #4)\" is included as a totals row.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps total community member counts out of the scorecard as a comparison row.",
+        "evidence": "\"Discord members | 31,000 ... | 640 (1.4%, #4)\" is included as a totals row.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason that a number which can only rise carries no trend information.",
+        "evidence": "No such reasoning appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Offers a period delta or a rate in place of each of those totals.",
+        "evidence": "Only totals and cross-metric ratios (e.g. 'Discord \u00f7 stars') are used, no time-based deltas.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names fake-star campaigns as a distortion of the star signal.",
+        "evidence": "No mention of fake stars or star-buying anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Attributes the roughly six million suspected fake stars to the published study rather than presenting it as this analysis's own estimate.",
+        "evidence": "No mention of any fake-star count or study.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Proposes median time to first reply and staff share of replies in place of the member totals.",
+        "evidence": "No such metric is proposed; Discord is only measured by raw member count and ratios.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Proposes median time to first response on issues or pull requests in place of the star totals.",
+        "evidence": "No such metric is proposed; GitHub is only measured by star count.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines to declare an overall mindshare winner from the pasted totals.",
+        "evidence": "\"### Verdict: Beacontree is winning developer mindshare, by a wide margin\" explicitly declares a winner.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

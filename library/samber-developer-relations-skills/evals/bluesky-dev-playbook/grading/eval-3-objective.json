@@ -1,0 +1,118 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Warns that changing the handle or display name removes the blue check until the account is re-verified.",
+        "evidence": "\"I expect the badge to drop until you're re-verified.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that moving to a domain handle counts as a handle change for verification.",
+        "evidence": "\"Moving to a domain handle counts as a change.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends finalizing both handle and display name before asking Bluesky for re-verification.",
+        "evidence": "\"Apply for verification through Bluesky's form only after both are final.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains the domain handle is set through a DNS TXT record on _atproto or a /.well-known/atproto-did file.",
+        "evidence": "\"DNS TXT record `_atproto.nimbuscloud.com` ... or serve `/.well-known/atproto-did`\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States followers and posts are kept through the change because the account identity is its DID.",
+        "evidence": "\"Followers stay, because identity is the DID.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Mentions that the old .bsky.social name is reserved or that old mentions keep resolving.",
+        "evidence": "\"Old mentions keep resolving, and `nimbusdb.bsky.social` stays reserved\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses registering competitor-name handles, citing handle-squatting or brand impersonation rules.",
+        "evidence": "\"Competitor-name handles are banned. The Community Guidelines prohibit handle-squatting and impersonating brands.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not claim the blue check increases reach or ranking.",
+        "evidence": "No reach claim; \"Don't promise anyone the badge will come back.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Suggests staff subdomain handles under nimbuscloud.com.",
+        "evidence": "\"Use `name.nimbuscloud.com` handles for the people who post.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Warns that changing the handle or display name removes the blue check until the account is re-verified.",
+        "evidence": "\"Changing the display name, and probably the handle, will likely drop the check. Bluesky would then have to re-verify you.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that moving to a domain handle counts as a handle change for verification.",
+        "evidence": "The check-loss warning is tied to the move to nimbuscloud.com: \"A handle switch alone is the less risky of the two changes.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends finalizing both handle and display name before asking Bluesky for re-verification.",
+        "evidence": "Order of operations asks for re-verification first, and the display name is changed later.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains the domain handle is set through a DNS TXT record on _atproto or a /.well-known/atproto-did file.",
+        "evidence": "\"Add the DNS TXT record `_atproto.nimbuscloud.com`... or serve `/.well-known/atproto-did`.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States followers and posts are kept through the change because the account identity is its DID.",
+        "evidence": "\"Changing the handle keeps your DID, so followers, posts and mentions all survive.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Mentions that the old .bsky.social name is reserved or that old mentions keep resolving.",
+        "evidence": "Says the old handle is free for anyone to register, and links to it will break.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses registering competitor-name handles, citing handle-squatting or brand impersonation rules.",
+        "evidence": "\"Competitor-name handles: don't... looks like squatting and impersonation.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not claim the blue check increases reach or ranking.",
+        "evidence": "No such claim.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Suggests staff subdomain handles under nimbuscloud.com.",
+        "evidence": "Suggests `support.nimbuscloud.com`, `status.nimbuscloud.com` and `careers.nimbuscloud.com`, i.e. subdomain handles for functions. It does not mention staff handles specifically.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

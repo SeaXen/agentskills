@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Identifies moving already-open features into a paid tier as the reputational event",
+        "evidence": "\"It's the *reversal* case \u2014 moving an already-open feature into a paid tier \u2014 which the skill's own evidence table... treats as the single most expensive move a company can make\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that adding new features above the line is not the reputational event, distinguishing it from moving existing ones down",
+        "evidence": "No statement distinguishing new-feature-paid-gating from moving-existing-features-down appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites the 2017 rename of docker/docker to moby/moby as evidence that governance surprise is priced on its own",
+        "evidence": "\"Docker/moby is not a loose analogy here, it's the same event... The lesson the skill draws from that case is specific: communities price governance surprise on its own, independent of what actually changed.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that in that case no license changed and no code was withdrawn, and the backlash was still severe",
+        "evidence": "\"no license change, no code withdrawn, 'purely cosmetic' \u2014 and it drew a PR sitting at 7 upvotes against 110 downvotes.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that the rename alone carries reversal cost even though nothing is being taken away",
+        "evidence": "\"'Nothing legal changed' is not a defense against that, it's Docker's own belief going in.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends announcing any boundary change before it lands, with the reasoning and the effective version",
+        "evidence": "\"Announce before it lands, with the reasoning and the effective version \u2014 the cheapest of the five commitments in this framework's list, and the one you're currently skipping.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Proposes a published non-reversal commitment including never moving an already-open feature into a paid tier",
+        "evidence": "The proposed commitment is 'this is the last feature we move out of community edition without a stated notice window' \u2014 a notice-window pledge, not a blanket never-move-a-feature-to-paid commitment.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names at least two further commitments from: no artificial limits on repositories, users, size or throughput; no re-licensing away from an OSI-approved license; shipping tests alongside open features; pre-announcing boundary changes",
+        "evidence": "Only 'announce before it lands' (pre-announcing) is clearly proposed as a going-forward commitment; none of the other three listed categories are explicitly proposed as commitments.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Pairs each promise with the role that has standing to break it",
+        "evidence": "\"Who can approve pulling a feature back, by role \u2014 and whether that person is also the one who'll answer for it publicly...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that hiding where the line sits is the credibility failure, not having a line",
+        "evidence": "\"...is what converts this from 'they're narrowing the free tier' into 'they drew a line, once, and published it.' That's the GitLab move, not the HashiCorp one\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names an exception path with a single named approver and a pre-release announcement",
+        "evidence": "\"Who can approve pulling a feature back, by role... decide it before the announcement, not after the backlash.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that fork speed is the real cost signal, with forks appearing within days in the documented reversal cases",
+        "evidence": "The word 'fork' never appears anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Identifies moving already-open features into a paid tier as the reputational event",
+        "evidence": "\"This is the open-core 'rug pull' pattern, even without a license change... you're taking away something that's been free for ~2 years, not withholding something new. The community reacts to what's removed, not to what's technically permitted.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that adding new features above the line is not the reputational event, distinguishing it from moving existing ones down",
+        "evidence": "\"you're taking away something that's been free for ~2 years, not withholding something new\" \u2014 explicitly distinguishes removal from withholding-new.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites the 2017 rename of docker/docker to moby/moby as evidence that governance surprise is priced on its own",
+        "evidence": "No mention of Docker or Moby anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that in that case no license changed and no code was withdrawn, and the backlash was still severe",
+        "evidence": "Not present; the Docker/Moby case is never discussed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that the rename alone carries reversal cost even though nothing is being taken away",
+        "evidence": "The rename risks discussed are technical/practical (redirects, module paths, squatting), and the trust-cost point is only raised for the combination with the paywall change, not the rename in isolation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends announcing any boundary change before it lands, with the reasoning and the effective version",
+        "evidence": "\"Give real notice, don't ship-and-changelog it. A 60-90 day public heads-up with a migration path lands very differently than someone noticing it in a diff.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Proposes a published non-reversal commitment including never moving an already-open feature into a paid tier",
+        "evidence": "No forward-looking published commitment/policy is proposed; the document addresses only this one instance.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names at least two further commitments from: no artificial limits on repositories, users, size or throughput; no re-licensing away from an OSI-approved license; shipping tests alongside open features; pre-announcing boundary changes",
+        "evidence": "None of these specific commitments are enumerated as a list.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Pairs each promise with the role that has standing to break it",
+        "evidence": "No such pairing exists in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that hiding where the line sits is the credibility failure, not having a line",
+        "evidence": "\"Burying it there, if noticed, reads as intentional concealment, which costs more trust than the paywall change itself.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names an exception path with a single named approver and a pre-release announcement",
+        "evidence": "No such exception path is described.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that fork speed is the real cost signal, with forks appearing within days in the documented reversal cases",
+        "evidence": "Fork risk is discussed generally (\"someone can fork the last version that has it\") but no time-frame or documented case citation is given.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Makes no open-derived metric (open rate, click-to-open, open-based reach) a primary metric or target",
+        "evidence": "\"Open rate, click-to-open | ... | None.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports opens and click-to-open as directional only",
+        "evidence": "\"Report as directional. No target.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets clicks per delivered email, unique clickers across the last N issues, unsubscribes and complaints, and replies as the primary signals",
+        "evidence": "Dashboard Primary tier rows for each of these.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Picks feature adoption from newsletter links as the outcome signal, matching the retention funding reason",
+        "evidence": "\"Outcome | Feature adoption from newsletter links\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not pick signups from non-users or submissions per issue as the outcome signal",
+        "evidence": "Only feature adoption is chosen.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Attributes the jump from 1.3% to 6% clicks to corporate mail gateways following links on arrival, and excludes those machine clicks",
+        "evidence": "\"Corporate mail gateways follow every link on arrival to scan it, so this is most likely machine clicks\"; \"Do not report 6% as engagement until filtered.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names a concrete filter: the platform's bot-click filter, or discarding clicks within seconds of delivery and sends where every link was clicked",
+        "evidence": "\"Enable the platform's bot-click filter\"; discard \"clicks within seconds of delivery\" and \"sends where the recipient clicked every link\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the report to state which bot-click filter was used",
+        "evidence": "\"Record which filter you used and report it next to every click figure.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains the rise from 0.1% to 0.25% unsubscribes as consistent with one-click unsubscribe under the 2024 bulk-sender rules, so not alone a content signal",
+        "evidence": "\"MailerLite attributes to Gmail's easier unsubscribe under the 2024 bulk-sender rules\"; \"Not alone a content signal.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets a quarterly review against the list's own trend rather than against platform benchmarks",
+        "evidence": "\"Review quarterly against the list's own trend.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels every threshold set as a house rule",
+        "evidence": "\"House rule, not an industry target\"; \"Proposed house rule: investigate any issue above 2x\"; \"The 14-day window is a house rule.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces 'reach' with unique clickers across the last N issues rather than an open-based multi-issue reach figure",
+        "evidence": "\"Unique human clickers across the last 3 issues, divided by delivered subscribers.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Makes no open-derived metric (open rate, click-to-open, open-based reach) a primary metric or target",
+        "evidence": "'Reported as diagnostics (no target, not counted as metrics)': open rate, click-to-open.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports opens and click-to-open as directional only",
+        "evidence": "'it overstates human reading' and 'unreliable', shown as labelled diagnostics.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets clicks per delivered email, unique clickers across the last N issues, unsubscribes and complaints, and replies as the primary signals",
+        "evidence": "The primary metric is 'Featured-feature adoption lift'. Unique clickers are absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Picks feature adoption from newsletter links as the outcome signal, matching the retention funding reason",
+        "evidence": "The 'Driver' is feature use, and metric 1 is featured-feature adoption within 14 days.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not pick signups from non-users or submissions per issue as the outcome signal",
+        "evidence": "None are proposed.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Attributes the jump from 1.3% to 6% clicks to corporate mail gateways following links on arrival, and excludes those machine clicks",
+        "evidence": "'corporate mail gateways pre-scan links, and their scans register as clicks.' A bot filter is specified.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names a concrete filter: the platform's bot-click filter, or discarding clicks within seconds of delivery and sends where every link was clicked",
+        "evidence": "'click lands within seconds of delivery', 'several distinct links are hit in the same few seconds', 'Check... ESP already offers bot filtering'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the report to state which bot-click filter was used",
+        "evidence": "It says only 'publish the filtered figure alongside it'. It does not require naming the filter.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains the rise from 0.1% to 0.25% unsubscribes as consistent with one-click unsubscribe under the 2024 bulk-sender rules, so not alone a content signal",
+        "evidence": "It attributes the rise to the enterprise cohort or consent and scanners. The bulk-sender rules are not mentioned for this.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets a quarterly review against the list's own trend rather than against platform benchmarks",
+        "evidence": "'Quarterly: decisions on format...'; 'No published benchmark applies'; baselines are own history.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels every threshold set as a house rule",
+        "evidence": "Thresholds are tagged 'baseline' or 'hypothesis'. 'House rule' is never used.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Replaces 'reach' with unique clickers across the last N issues rather than an open-based multi-issue reach figure",
+        "evidence": "'Account coverage' is defined as accounts with a click or reply in the trailing 90 days, not unique clickers over N issues.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

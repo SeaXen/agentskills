@@ -1,0 +1,142 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "developer-event-followup",
+  "scenarios": 7,
+  "expectations_total": 77,
+  "expectations_subjective": 0,
+  "expectations_objective": 77,
+  "pass_rate_with_skill_pct": 97.4,
+  "pass_rate_without_skill_pct": 71.4,
+  "delta_pp": 26.0,
+  "uplift_multiplier": 1.36,
+  "trigger_accuracy_pct": 51.5,
+  "trigger_queries": 66,
+  "trigger_positive_fire_rate": 0.121,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": null,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.309 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Treats UK contacts with personal or unknown-type addresses as individual subscribers needing consent or soft opt-in"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends agreeing retention with the privacy owner, deleting raffle data once the prize ships"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Keeps the config email free of promotion or newsletter subscription"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Sets the A follow-up within about two working days and gives memory of the conversation as the reason, not a lead-response study"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Routes to sales only records whose notes show a stated buying need"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Defines an event cohort tag and an activation event to measure at 30, 60 and 90 days"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Treats UK contacts with personal or unknown-type addresses as individual subscribers needing consent or soft opt-in"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Matches the scans against the CRM so existing customers go to their account owner and earlier unsubscribes win"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes the speed study was co-authored by or tied to a lead-response software vendor (InsideSales)"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Includes a day-30 check-in for teams still building"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Compares the cohort with a non-event baseline or labels any target as self-set"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States the '80% of trade-show leads are never followed up' figure has no traceable original study"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Limits B and C contacts to at most one message unless they respond"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Proposes a public recap as the track for C contacts"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Sets a per-batch spam-complaint stop rule instead of waiting for the domain-level 0.10% Postmaster rate to react"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Labels any conversion threshold as self-set or derived from the company's own data, not a published benchmark"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Hands only the 200-seat pricing request to sales"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Makes the sales handoff an introduction in the same thread, not a cold sequence"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Tells the user to tell the organizer the sheet was shared without a sponsor-sharing notice"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends a suppression list for people who object"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Treats Brazil and Japan as prior-consent until the privacy owner names the local rule"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Mails EU and UK attendees on the organizer list only where their consent named the company, not generic sponsors or partners wording"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Loads the records into the CRM as non-marketing contacts and enrols only those the gate allows"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Defines an event cohort tag and activation readings at 30, 60 and 90 days"
+      }
+    ]
+  }
+}

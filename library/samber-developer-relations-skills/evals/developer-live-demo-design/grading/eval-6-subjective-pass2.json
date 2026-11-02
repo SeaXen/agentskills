@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Delivers an audit of the existing plan rather than an unrequested full redesign",
+        "evidence": "The response is structured as a critique of the user's existing 5-step demo plan: a 'Verdict' section, then 'Findings, ranked by likelihood \u00d7 how visibly it breaks' with nine numbered items that each point at a specific element of the user's plan (step 2 depends on step 1's scaffold, step 3 needs step 2's deploy URL, step 5 is an unrelated fourth topic, four desk rehearsals aren't cold/offline/resolution-tested). It does not rewrite the demo or substitute a new plan; where it proposes changes they are scoped fixes attached to the diagnosed weakness ('give each step its own restore point', 'rec",
+        "score": 5,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Delivers an audit of the existing plan rather than an unrequested full redesign",
+        "evidence": "The response is structured as a critique of the user's existing 5-step demo plan, organized by severity (Critical/High/Medium), with each item naming a specific weakness in the plan as written ('Single point of failure: live network', 'No checkpoints', 'No time budget per step', 'Live typing on stage', 'Ending on the pricing page'). Fixes are scoped mitigations attached to the identified risks (backup video, hotspot, pre-staged project, manual-refresh fallback, time markers), not a replacement plan. The original sequence (init \u2192 deploy \u2192 preview URL \u2192 edit config \u2192 hot reload) is preserved and",
+        "score": 5,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that high karma buys no ranking advantage on a submission",
+        "evidence": "\"830 karma buys no ranking advantage.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies 500 karma as the downvote threshold rather than a trust or ranking threshold",
+        "evidence": "\"500 is the downvote threshold, unrelated to ranking\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that Launch HN is available only to YC companies and is editorially curated, so a non-YC funded startup cannot elect into it",
+        "evidence": "\"Launch HN is YC-only and editorially curated... Raising $6M and having a Series A doesn't unlock it; only YC batch membership does.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes the Launch HN process involves a form, a staff decision within about two weeks, and one per startup",
+        "evidence": "\"startups apply, staff select within two weeks, one per startup\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that no first-party guidance on posting hours exists, and that hardcoded US-morning windows circulating in launch guides are invented",
+        "evidence": "\"HN publishes no first-party guidance on posting hour, and hardcoded US-morning windows in launch guides are invented\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Derives the posting hour from the German and Dutch audience's working day rather than US Eastern time",
+        "evidence": "\"If your users are almost entirely in Germany and the Netherlands... Post Tuesday, 08:00\u201309:00 CEST instead\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the post mid-week and early in that audience's working day",
+        "evidence": "\"Tuesday itself is fine (mid-week, standard advice)\" and \"08:00\u201309:00 CEST... the start of the DACH/Benelux workday\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes the superlative \"fastest\" from the title",
+        "evidence": "\"'Fastest' is a bare superlative \u2014 moderators rewrite these\" leading to \"Show HN: Sablefish \u2013 an open-source columnar cache with <specific mechanism>\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes the funding reference from the title, and states that a funding announcement is not a Show HN",
+        "evidence": "\"a funding announcement is not a Show HN and doesn't belong in the title at all\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rewrites the title to the plain \"Show HN: <Name> - <what it does>\" shape with no marketing adjectives",
+        "evidence": "\"**Strong pattern:** `Show HN: <Name> \u2013 <plain description of what it does>`\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that ranking divides points by a power of elapsed time, so the first hours decide the outcome",
+        "evidence": "\"Ranking divides points by a power of elapsed time, so the engagement your post gets in its first hour or two decides whether it survives\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that the comment edit window closes after two hours, so drafts must be reviewed before posting",
+        "evidence": "No mention of a comment edit window anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that high karma buys no ranking advantage on a submission",
+        "evidence": "'830 karma... clears the \"500+ = posts get more initial trust\" threshold... You don't need to do anything to \"build up\" trust before posting \u2014 that's already handled' implies no further benefit accrues once the threshold is cleared.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies 500 karma as the downvote threshold rather than a trust or ranking threshold",
+        "evidence": "The transcript explicitly frames 500 as a '\"posts get more initial trust\" threshold', not the downvote-capability threshold the rubric expects.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that Launch HN is available only to YC companies and is editorially curated, so a non-YC funded startup cannot elect into it",
+        "evidence": "'Launch HN isn't really a menu option you pick because you're funded \u2014 it's normally arranged directly with HN... and is associated with YC-backed company launches.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes the Launch HN process involves a form, a staff decision within about two weeks, and one per startup",
+        "evidence": "No mention of a form, a ~two-week staff decision window, or a one-per-startup limit.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that no first-party guidance on posting hours exists, and that hardcoded US-morning windows circulating in launch guides are invented",
+        "evidence": "'that's still the standard advice and it holds' treats the 6-9am PT window as established, not as unverified/invented folklore.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Derives the posting hour from the German and Dutch audience's working day rather than US Eastern time",
+        "evidence": "'don't re-time the post around Germany/Netherlands work hours hoping your own users carry the launch \u2014 optimize for the US window' \u2014 explicitly the opposite.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the post mid-week and early in that audience's working day",
+        "evidence": "9am ET = 3pm CEST is explicitly described as 'mid-afternoon on a workday for them,' not early in their working day, and the post is kept on US timing on purpose.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Removes the superlative \"fastest\" from the title",
+        "evidence": "Rewrite: 'Show HN: Sablefish \u2013 an open-source columnar cache' drops 'the fastest'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes the funding reference from the title, and states that a funding announcement is not a Show HN",
+        "evidence": "'funding isn't something to try, and pairing it with Show HN signals PR, not craft' plus reference to the skill's bad example 'Show HN: My startup just raised $5M'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rewrites the title to the plain \"Show HN: <Name> - <what it does>\" shape with no marketing adjectives",
+        "evidence": "'Show HN: Sablefish \u2013 an open-source columnar cache' matches the plain shape with no adjectives.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that ranking divides points by a power of elapsed time, so the first hours decide the outcome",
+        "evidence": "Only states 'HN's ranking algorithm cares about volume and velocity in the first 1\u20132 hours' \u2014 no mention of a power-law time-decay mechanism.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that the comment edit window closes after two hours, so drafts must be reviewed before posting",
+        "evidence": "No mention of a comment edit window or its time limit.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,458 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-comms-channels",
+  "scenarios": 8,
+  "expectations_total": 109,
+  "expectations_subjective": 1,
+  "expectations_objective": 108,
+  "pass_rate_with_skill_pct": 79.8,
+  "pass_rate_without_skill_pct": 25.7,
+  "delta_pp": 54.1,
+  "uplift_multiplier": 3.11,
+  "trigger_accuracy_pct": 82.1,
+  "trigger_queries": 106,
+  "trigger_positive_fire_rate": 0.849,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "States the app tops the effort ordering (setup plus standing operations) while losing to the announcement list on reach, so the efficiency ordering never selects it."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Lists or asks for the message classes the edition will actually send before fixing any channel roster."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Asks whether anything signed (sponsor deliverable, venue system, umbrella platform) forces a channel before closing the decision."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Asks about the effort ceiling - organizer hours before the event and who can watch each channel during it - before adding any channel beyond the list."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Establishes the page as the single canonical surface that every other channel points at rather than restates."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names writer operability as the deciding axis: a volunteer must route a message correctly on the first try with nobody to ask."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Rejects the mirrored Telegram group outright rather than keeping it as a secondary channel: a second chat platform running the same job doubles moderation and halves each announcement's audience."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Places the routing rule where the writers are, not in a document opened once."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Does not promote the full routing matrix with escalation tiers, since nothing in the brief says the edition is recorded or livestreamed."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Removes the rejected options from the plan entirely rather than demoting them to a lower priority or a backup role."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States the scale rule in both directions: a minutes-scale message never rides an hours-scale channel, and an hours-scale message never rides the disruption path, because the second desensitizes the channel that must not be missed."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires the deletion date to be announced on the channel itself ahead of time, saying what will be exported and what will not."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States why the bank works: a frozen template beats a human who drifts, on the messages that actually go out during the event."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "If a named owner per channel is proposed, states its cost: a slower message whenever the owner is away."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends a humanizing or readability pass on attendee-facing template copy."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Keeps every other channel silent on the incident rather than restating, teasing, or acknowledging the statement in parallel."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Removes #team-formation and #carpool-search: they exist because hackathon attendees must organize each other before the event, and a conference attendee arrives with nothing to form."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States staff coordination never routes onto an attendee channel."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Warns that a roster sized for a multi-day overnight event goes silent at a one-day conference, and a quiet channel later carries the one message that mattered."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Lists the message classes the conference will actually send before finalizing the roster."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Challenges whether the chat space itself is warranted at a one-day single-track event, against its promotion conditions: overnight, multi-day, remote participation, or attendees needing to reach each other."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States the chat space's real cost: moderation is a standing job for the whole lifecycle with a code-of-conduct duty identical to the one in the room, not an hour of setup."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Rejects the vendor's 80% install figure, stating no adoption figure exists for community-run events and a vendor's number is not to be accepted."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names the app's promotion conditions - a signed commitment forcing one, three or more concurrent rooms with a schedule grid changing more than once a day, or an already-owned app with sunk content cost - and finds none applies here."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States the app tops the effort ordering (setup plus standing operations) while losing to the announcement list on reach, so the efficiency ordering never selects it."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Grounds the recommendation in reach and effort rather than in the $4,800 price."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "If a push-speed channel is judged necessary at all, proposes the chat space over the app, since chat matches the app on speed at lower effort."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Asks whether anything signed (sponsor deliverable, venue system, umbrella platform) forces a channel before closing the decision."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Asks about the effort ceiling - organizer hours before the event and who can watch each channel during it - before adding any channel beyond the list."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Gives every channel retained one stated job and one named owner."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Presents the ranking as a default and re-ranks it against what the event already owns, naming the existing registration email list as the asset that anchors the roster."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Rejects the operational/degraded/major severity taxonomy for the event's status page."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States why the taxonomy fails: an event's disruptions are discrete and human-scale, and classifying adds a step during the minutes with least to spare - message classes replace the tiers."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Rejects the subscribe-for-updates form as assuming a long service relationship nobody has with a two-day conference."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Rejects the public post-mortem and routes the written incident note to the internal debrief instead, because a public cause writeup is a liability when the cause is frequently a person or a supplier."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States the status page is never a push channel: nobody checks it unprompted, and it only works with a push on another channel pointing at it."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Establishes the page as the single canonical surface that every other channel points at rather than restates."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Does not write the severity definitions the user asked for."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States the operability reason: segment membership is a fresh judgement call on every message, and writers resolve it by cross-posting, which rebuilds the noise the segments were meant to remove."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends the two-channel split - one broadcast channel the event posts on, one open channel where attendees talk - as the default for this shape."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States per-segment channels are legitimate only when segments are genuinely disjoint and stable for the whole event."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names writer operability as the deciding axis: a volunteer must route a message correctly on the first try with nobody to ask."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Removes direct messages as a routing tier, because a DM leaves no record for the next shift, cannot be escalated, and makes the sender the channel."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Rejects the mirrored Telegram group outright rather than keeping it as a secondary channel: a second chat platform running the same job doubles moderation and halves each announcement's audience."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Routes speaker-facing communication out of the attendee roster to the event's speaker-management function rather than keeping a #speakers channel here."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Handles sponsor messaging as its own message class - batched on email or a dedicated sponsor channel - and never one message per sponsor on the broadcast channel."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Suggests checking whether the chat platform offers a post-only or broadcast mode, which implements the two-channel split at no extra channel cost."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Places the routing rule where the writers are, not in a document opened once."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Gives each surviving channel one stated job and one named owner."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Does not promote the full routing matrix with escalation tiers, since nothing in the brief says the edition is recorded or livestreamed."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Removes the rejected options from the plan entirely rather than demoting them to a lower priority or a backup role."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Treats the venue change as a class that also goes out publicly, while leaving platform choice and post copy to the public-broadcast or social function."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends one canonical page or surface for venue updates that every other channel points at rather than restates."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Drafts or specifies a venue-change message that opens with an instruction to read it before travelling and states the new address explicitly against the old one."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Puts the new fact before any apology in the message."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Includes a next-update time or a pointer to where further updates will land, since the situation may still change."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires repeated, timestamped updates at a fixed interval during the outage even when nothing has changed."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Fixes that interval now, before the event, rather than leaving it to be chosen during an outage."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Specifies the livestream outage message commits to posting again by a stated time whether or not the stream is fixed, and notes recordings will still be published."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States the scale rule in both directions: a minutes-scale message never rides an hours-scale channel, and an hours-scale message never rides the disruption path, because the second desensitizes the channel that must not be missed."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends counting every message that has to be re-sent on a second channel because the first did not reach, as a routing or staffing signal, with the ceiling fixed before the event rather than after the data arrives."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States a one-off's member list is a liability with no next edition to spend it on."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires the deletion date to be announced on the channel itself ahead of time, saying what will be exported and what will not."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States a hand-off to a community space requires both a compounding series and a named person committed to running the receiving space, and neither holds here."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Declines to state a GDPR retention period or any jurisdiction-specific rule, and routes the retention decision to the organizer's own counsel."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Hands counsel a review list covering the lawful basis for keeping the member list, how long it may be kept, whether moving people requires new consent, the platform's export terms, who holds the ongoing moderation duty, and whether attendees included minors."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Limits the export to what there is a basis to keep: the member list only with such a basis, plus decisions taken, unanswered questions, and post-event content links."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Stores the export under the same basis as the original data and records who can reach it."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Verifies the deletion actually happened, since a scheduled deletion nobody checked is leave-open with paperwork."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Posts a final message with a forwarding address - where to go next and who to contact - and sends the wind-down notice on every channel being closed plus email."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Flags that the code-of-conduct duty on the space has been live and unstaffed for the five weeks since the event ended."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names the conditions that would justify editorial sign-off - a recorded, livestreamed or press-covered edition, a sponsor contract fixing verbatim wording, or most writers never having seen the register - rather than dismissing it flat."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Escalates to a pre-written message bank because two writers have never written for this event before."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Specifies the bank covers the predictable classes: delay, room change, last call, closing, and similar."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States why the bank works: a frozen template beats a human who drifts, on the messages that actually go out during the event."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "For the three recurring clock-based messages, prescribes writing the whole day's script against literal timestamps in advance rather than keeping templates on standby."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Removes the per-channel personalities: a channel-local register invented by whoever writes that channel is deleted, because the event's identity is fixed and only its expression modulates."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Treats the existing voice guide as the fixed register to execute and does not originate a new one."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "If a named owner per channel is proposed, states its cost: a slower message whenever the owner is away."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends a humanizing or readability pass on attendee-facing template copy."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Keeps the templates as field sets to be voiced in the register, not finished copy."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States a public statement after an incident has exactly one authorized publisher, and nobody else posts about it on any channel."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Allows no exception for speed: being faster does not authorize a second publisher."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States the statement's deadline is set by that authority, not by the comms team or the social media cycle."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Keeps every other channel silent on the incident rather than restating, teasing, or acknowledging the statement in parallel."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Rejects adding an anonymous #incident-reports channel to the comms roster, because incident reporting paths, including anonymous ones, belong to the code-of-conduct function and are excluded from this roster."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires confirming that the existing reporting path covers the Discord, without designing the path itself."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Does not draft the public statement's copy."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes the code of conduct applies inside the Discord and must be stated at the join point, with someone on duty to act on reports - including overnight at an overnight event."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Does not pick which public platform the eventual statement goes out on."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Removes #team-formation and #carpool-search: they exist because hackathon attendees must organize each other before the event, and a conference attendee arrives with nothing to form."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Removes or reassigns #ask-mentors and #mentors-internal: they presuppose a mentor population, and the conference's equivalent population is speakers, whose communication belongs to the speaker-management function."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Keeps the transferable discipline: one stated job per channel and a minimum roster stated up front rather than grown organically."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Keeps the attendee-facing ask-organizers channel separate from organizer coordination, and moves #admin off the attendee-facing roster to the operations side."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States staff coordination never routes onto an attendee channel."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Warns that a roster sized for a multi-day overnight event goes silent at a one-day conference, and a quiet channel later carries the one message that mattered."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Lists the message classes the conference will actually send before finalizing the roster."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Challenges whether the chat space itself is warranted at a one-day single-track event, against its promotion conditions: overnight, multi-day, remote participation, or attendees needing to reach each other."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States the chat space's real cost: moderation is a standing job for the whole lifecycle with a code-of-conduct duty identical to the one in the room, not an hour of setup."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Requires the code of conduct to be stated at the join point of the chat space, not only on the event website."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Specifies the directory's content per channel: its name, one-line job, who answers on it, the hours it is watched, and what it is not for with a pointer to the channel that is."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Notes the what-it-is-not-for line is the one most directories omit and the one that routes awkward messages correctly."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Chooses the wind-down for every channel now, before the event, and publishes its date on the channels themselves."
+      }
+    ]
+  }
+}

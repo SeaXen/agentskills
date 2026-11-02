@@ -1,0 +1,338 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-sponsor-prospectus",
+  "scenarios": 8,
+  "expectations_total": 96,
+  "expectations_subjective": 2,
+  "expectations_objective": 94,
+  "pass_rate_with_skill_pct": 83.3,
+  "pass_rate_without_skill_pct": 40.6,
+  "delta_pp": 42.7,
+  "uplift_multiplier": 2.05,
+  "trigger_accuracy_pct": 62.8,
+  "trigger_queries": 86,
+  "trigger_positive_fire_rate": 0.698,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Caps the document at roughly 10-12 pages"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Delivers a reusable per-edition refresh checklist rather than only a one-off fix list"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Treats the 2-3 page guidance as one real input rather than a fixed rule, and validates page count and page order with the organizer"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Declines to set or estimate tier prices as part of this task"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Routes the price, cap and a-la-carte rate work to the sponsorship rate-card step before any drafting"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Declines to invent the 'why sponsor' value claims"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Routes the per-segment value statements, the not-offered list and the proof-point inventory to the sponsor value-proposition step"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that this document presents content produced upstream and never originates prices or value claims itself"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Asks whether the event sits at the community-run or vendor/foundation-run pole before deciding what the document may print"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Asks when the first outreach must send, whether the document is a one-off or a compounding annual asset, and what the effort ceiling is"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Does not output a tier table containing invented euro figures"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Offers a section-by-section outline to validate once the upstream inputs arrive"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Warns that selling sponsor benefits harder than the attendee experience is a signal diligent sponsors are told to watch for"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States explicitly that general offer-construction advice pushes guarantees and that this domain rejects that advice"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Includes a per-edition freshness check run before each edition's first send"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Writes down the revision each chosen measure triggers"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Removes the attendee-list export and badge-scanning perk, stating that a community-run event gives out no attendee contact data"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Offers aggregate audience demographics as the honest substitute for the removed lead-data perk"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Refuses the 'we guarantee your team at least 40 qualified leads' line and states that no guarantee of any type belongs in the document"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Refuses to lead the document with the pricing page"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Section order runs cover, brand imagery, event facts, value proposition, proof, tier table, add-ons, logistics, named contacts"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Places the testimonials or proof section immediately before the tier table"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Caps the document at roughly 10-12 pages"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Closes the document with named organizers and a contact email rather than a generic enquiry form"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Recommends an in-page tier-table web page rather than a full illustrated PDF kit"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names the 12-day outreach deadline and the absence of photo and testimonial assets as the reason that rung wins"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Refuses to substitute stock photography of another event for real assets"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Refuses to invent role, industry or company-size percentages"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Keeps a proof element above the tier grid even in the compressed layout"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Compressed layout runs facts paragraph, then value-proposition paragraph, then tier grid, then contact email"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Prints a max-available row only for the genuinely real cap of 4 booth tables"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Places the contact email on the same page as the tier grid"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Delivers a reusable per-edition refresh checklist rather than only a one-off fix list"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that the year-over-year difference between archived editions is evidence of growth a returning sponsor can be shown"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The price row leads the tier table"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Rejects the 1-to-5 star rating and uses a plain mark for inclusion and a blank cell for exclusion"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Reserves numeric cells for genuine quantities such as ticket counts and discount percentages"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Moves the three single-exclusive surfaces out of the grid into named a-la-carte add-on cards"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Each add-on card carries an icon, a name, a price and one line of description"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names each perk with a container word that signals its format instead of describing it generically"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Places a custom-tier invitation and the contact call to action on the same page as the table rather than a page later"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Identifies that promise as functionally a guarantee even though the word 'guarantee' never appears in it"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Offers conversation-based recruiting formats such as resume-critique office hours, a recruiter fair space, or on-site interviews in a private room as the printable alternative"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Moves the sponsor workshop off the final morning to early in the event"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Gives participant exhaustion before the submission deadline as the reason for moving the workshop"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Broadens the over-specified prize track toward a general 'Best Use of <product>' shape that preserves hacker creativity"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Flags the EUR 10,000 sponsor track against the EUR 2,000 grand prize as overshadowing the organizer's own prizes and brings the values into line"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Treats the 2-3 page guidance as one real input rather than a fixed rule, and validates page count and page order with the organizer"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes that fuller multi-page hackathon kits are also real, so neither depth is assumed by default"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Adds a monitored sponsor chat channel and an on-site sponsor mentor as perks that answer the package-value concern"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Declines to set or estimate tier prices as part of this task"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Routes the price, cap and a-la-carte rate work to the sponsorship rate-card step before any drafting"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Declines to invent the 'why sponsor' value claims"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Routes the per-segment value statements, the not-offered list and the proof-point inventory to the sponsor value-proposition step"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that this document presents content produced upstream and never originates prices or value claims itself"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Asks whether the event sits at the community-run or vendor/foundation-run pole before deciding what the document may print"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Asks which caps are genuinely real"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Asks what real assets from past editions exist, such as photos, logos, testimonials or press mentions"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Asks what audience data is actually verified"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Asks when the first outreach must send, whether the document is a one-off or a compounding annual asset, and what the effort ceiling is"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Does not output a tier table containing invented euro figures"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Offers a section-by-section outline to validate once the upstream inputs arrive"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Rejects the 90-day money-back guarantee and states that no guarantee of any type belongs in a sponsorship prospectus"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Allows marking genuinely sold-out surfaces as filled"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Warns that selling sponsor benefits harder than the attendee experience is a signal diligent sponsors are told to watch for"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Spends the first half of the document on the event's own credibility before any package appears"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States explicitly that general offer-construction advice pushes guarantees and that this domain rejects that advice"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Has the reply-to-ask questions logged by document section, through the sponsor outreach step"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Includes forwardability: the document surviving being forwarded to the budget holder without the organizer on the thread"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Includes a per-edition freshness check run before each edition's first send"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Writes down the revision each chosen measure triggers"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Moves the PDF onto the event's own domain and links it from the event's sponsor page"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Emails the identical versioned file in outreach so every prospect reads the same document"
+      }
+    ]
+  }
+}

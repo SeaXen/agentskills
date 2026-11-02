@@ -1,0 +1,374 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-growth-strategy",
+  "scenarios": 8,
+  "expectations_total": 89,
+  "expectations_subjective": 0,
+  "expectations_objective": 89,
+  "pass_rate_with_skill_pct": 86.5,
+  "pass_rate_without_skill_pct": 21.3,
+  "delta_pp": 65.2,
+  "uplift_multiplier": 4.06,
+  "trigger_accuracy_pct": 51.2,
+  "trigger_queries": 80,
+  "trigger_positive_fire_rate": 0.1,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": null,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 3,
+        "expectation": "Forces the reach-versus-intimacy choice explicitly and warns that drifting into a middle size serves neither"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends application plus lottery specifically when the cap is about who is in the room, not just how many"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes the waitlist doubles as the standing demand instrument while capacity holds"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Identifies the event as the free, volunteer-run posture where the financial axes of the growth menu collapse"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Cites the documented free event that scaled to 8,000+ visitors and 79 tracks with no registration at all"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names the documented cost of that model: chronic room overcrowding, because the capacity problem relocates from the gate to each room"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States the free-event lever ordering holds only because there is no ticket revenue and no per-head financial risk, so it does not transfer to a ticketed conference"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Asks clarifying interview questions one at a time rather than as a single batch"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that the market-wide contraction is not evidence this event mismanaged its growth"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Distinguishes legitimate volume-gated early-bird tiers, a pricing mechanism such as a first-N-tickets tier, from batching engineered for sellout optics"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes that any event's historical sellout speed must be checked for batch manufacturing before the signal is believed"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Recommends exactly one discrete lever for the next edition if growth is chosen"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Applies a demand-headroom gate and states its signals must repeat across editions, so a single fast-sellout edition is insufficient evidence"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Notes the first edition's three-week sellout means the sub-hour sellout has not yet repeated, which is why the gate fails here"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States the gate's composite threshold: sellout well under an hour, a waitlist around 30-50% of capacity, and unsolicited sponsor inbound, all required together"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Labels the headroom heuristic a research synthesis rather than a published industry standard"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends venue squeeze (extracting more capacity from the current venue via layout changes) as the default next rung"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Notes squeeze headroom is bounded by occupancy or fire-code sign-off"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Warns that 900 seats sizes to aspiration and that any future step-up must be sized to the proven number plus a modest buffer"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Mentions attrition or food-and-beverage minimum penalties owed even when attendance falls short of the commitment"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Checks or asks whether the 25-minute sellout was manufactured through batch ticket releases before trusting the signal"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends exactly one growth lever for the next edition rather than several at once"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Pairs the recommendation with a warning-sign watch built on the four reversal benchmarks (sellout speed slowing, no-show rate rising, single-sponsor revenue share, organizers reporting the work unpleasant), each with an owner and a check date"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States the rule of one discrete lever per edition"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Treats the jump from 350 to a 1,200-cap venue as a deleted option removed from the menu entirely, not an option ranked last"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "References the documented case of a roughly 300-person event leaping to a roughly 1,300-person format in one edition and drawing 'does not scale' verdicts from its own community"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Identifies the anniversary milestone plus the anchor sponsor's 40k EUR as exactly the pressure that quietly resurrects the deleted leap, and resists it"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Orders growth steps by adjacency, track then day then satellite city, each step small enough that credibility and playbook transfer"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Applies a whole-product check to any venue step-up: AV, networking infrastructure, and the volunteer bench must scale along with the seats"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Recommends exactly one lever for edition 10 and names the rejected rungs explicitly"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Pairs any track or day addition with the documented mitigation of recording everything and protecting unstructured time"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Requires the pricing posture to be decided before scaling, not after"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Runs the financial risk gate on any venue-touching lever, covering deposits, attrition and food-and-beverage minimum penalties, and the 9-18 month lead time"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Presents deliberate shrink as a documented, legitimate strategy rather than an admission of failure"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes the documented shrink case accepted roughly a 50% production-budget cut as the price of going back down"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that in documented cases organizer burnout preceded any financial or operational trigger, making it a leading indicator"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Forces the reach-versus-intimacy choice explicitly and warns that drifting into a middle size serves neither"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Presents allocation mechanisms from the non-growth menu: hold the cap, group-purchase ban, application plus lottery, deliberate shrink"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names the documented bias of first-come-first-served allocation: it favors those with time and money"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends application plus lottery specifically when the cap is about who is in the room, not just how many"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Treats any shrink as a pricing event too, adjusting the price to the smaller product instead of letting the old price ride"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Does not propose hiring staff or delegating as a way to push growth to 400 through the burnout signal"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes the waitlist doubles as the standing demand instrument while capacity holds"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Identifies the event as the free, volunteer-run posture where the financial axes of the growth menu collapse"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends adding tracks or rooms as the natural default lever for a free event"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends against introducing registration with a hard cap as the primary fix"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Cites the documented free event that scaled to 8,000+ visitors and 79 tracks with no registration at all"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names the documented cost of that model: chronic room overcrowding, because the capacity problem relocates from the gate to each room"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends room-level control, staffing the door and using full-room signs, rather than gate-level caps"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States the free-event lever ordering holds only because there is no ticket revenue and no per-head financial risk, so it does not transfer to a ticketed conference"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Pairs track addition with the mitigation of recording sessions and protecting unstructured time"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names hallway-track dilution as the universal documented trade-off of track addition"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Asks clarifying interview questions one at a time rather than as a single batch"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Identifies the year-over-year sellout slowdown from 6 weeks to 10 weeks at flat-or-lower attendance as a firing reversal benchmark"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that a fired reversal benchmark means hold or shrink the next edition, never push through with growth"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Runs a ceiling diagnostic distinguishing saturation, channel decay, and quality collapse before discussing any lever"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Routes the channel-decay problem to samber/dev-event-organizer-skills@event-marketing-plan rather than to a capacity lever"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Reads the attendance decline against the documented market-wide contraction, with independent in-person events running 30-40% below pre-pandemic attendance per a 2023 industry write-up"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that the market-wide contraction is not evidence this event mismanaged its growth"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Routes the soft demand back to samber/dev-event-organizer-skills@event-market-fit for a fresh demand read before any growth work"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Warns that buying a bigger commitment ahead of proven demand loses money even at attendance that looks respectable"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends the default posture of a public community-price commitment: individual prices held, funded by sponsorship cross-subsidy"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Cites the documented case that held individual prices flat while cutting student tickets around 40% across five years of venue growth"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States the pricing posture must be decided before the scaling, not after"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Presents a supporter-tier cross-subsidy, a premium tier whose surplus funds other attendees' access, as distinct from a VIP upsell"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names the dependency the public commitment creates: it is only as durable as the sponsor base funding it, so the sponsor-concentration watch matters more once it is public"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Sets a self-set single-sponsor revenue-share threshold declared before the growth push as a reversal benchmark"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Routes exact price-setting mechanics to samber/dev-event-organizer-skills@event-ticket-pricing"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Confirms the demand gate passes here on repeated sub-hour sellouts, a waitlist around 40% of capacity, and unsolicited sponsor inbound"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Runs the financial risk gate on the venue move: deposits typically 25-50% at signing, attrition and food-and-beverage minimum penalties, 9-18 month lead time, and post-pandemic venues rarely renegotiating"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Sizes the new capacity to the proven number plus a modest buffer rather than an aspirational one"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Hands venue search and negotiation execution to samber/dev-event-organizer-skills@event-venue-sourcing"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that ticket drops engineered to manufacture sellout optics are deleted from the menu entirely, not merely discouraged"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires the genuine headroom gate instead: organic sellout well under an hour, a waitlist around 30-50% of capacity, and unsolicited sponsor inbound, repeated across editions"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Distinguishes legitimate volume-gated early-bird tiers, a pricing mechanism such as a first-N-tickets tier, from batching engineered for sellout optics"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes that any event's historical sellout speed must be checked for batch manufacturing before the signal is believed"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Flags the company-run substitutions as judgment calls rather than established event-industry practice"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Translates sponsor-concentration risk into budget-owner risk: the budget owner changing their mind"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States the venue-contract exposure still applies in full despite the funding model, covering deposits, attrition and food-and-beverage minimums, and lead time"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Still requires the demand-headroom evidence, repeated fast sellouts with a waitlist share and inbound interest, before choosing a lever"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Recommends exactly one discrete lever for the next edition if growth is chosen"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Installs the warning-sign watch with trigger values declared before the sale opens"
+      }
+    ]
+  }
+}

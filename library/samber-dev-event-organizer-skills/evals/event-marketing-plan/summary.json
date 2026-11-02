@@ -1,0 +1,330 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-marketing-plan",
+  "scenarios": 9,
+  "expectations_total": 106,
+  "expectations_subjective": 1,
+  "expectations_objective": 105,
+  "pass_rate_with_skill_pct": 89.6,
+  "pass_rate_without_skill_pct": 43.4,
+  "delta_pp": 46.2,
+  "uplift_multiplier": 2.06,
+  "trigger_accuracy_pct": 50.0,
+  "trigger_queries": 98,
+  "trigger_positive_fire_rate": 0.102,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "A final-two-weeks surge is described as the normal shape of the curve, not a red flag."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The one-week registration close is flagged as hackathon-specific rather than generalized into a conference rule."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The full spread is identified as fitting a company-run event with a standing marketing budget line and someone whose actual job is reporting on it."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The full spread and concentrated bet are noted to trigger finance or treasurer sign-off, while a capped test budget clears under one organizer's own discretion."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "School contacts and local business or professional networks are tracked as two separate referrer pools, not one undifferentiated local list."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The response declines to draft the reminder email copy itself."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Email execution is routed to the sibling that writes attendee email sequences, handing over weight, phase and send dates."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The response declines to build the two weeks of LinkedIn posts or a social content calendar."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Social execution is routed to the sibling that owns the event's social presence, with its weight, phase and dates handed over."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The two denominators are named as different things: an attendance goal versus expected sales net of comps."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Email frequency is kept limited and the content informative, to maintain list engagement."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "The early-bird close (June 15) checkpoint is set at roughly 15% of net expected sales, approximately 55-60 tickets."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The speaker announcement adds roughly another 10%, putting the cumulative target near 90-95 tickets (~25%)."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The one-month-out checkpoint is 40-50% of the 375 net target, roughly 150-190 tickets."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "A final-two-weeks surge is described as the normal shape of the curve, not a red flag."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The first sales week is checked for the presence of any real spike, with its absence named as the earliest warning that no audience exists."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Each checkpoint carries a pre-decided response to a miss, chosen before launch."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The target line is expressed as percent of the attendance goal at fixed calendar offsets (2 weeks, 1 week), not as percent of ticket sales at marketing moments."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The signup-to-attendance drop-off is stated as the 30-50% range, not as a single figure."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "100% of the attendance goal (about 600 signups) is targeted two weeks before the event."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Registration close is set at one week before the event, tied to the partner-event requirement (pre-event email preparation and a bad-actor check)."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The one-week registration close is flagged as hackathon-specific rather than generalized into a conference rule."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The position is computed as roughly 27% of expected sales and compared against the one-month checkpoint."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "40-50% of expected sales at one month out is named as the on-track band."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "27% is placed in the 25-30% band characteristic of a team that skipped or delayed its visibility push - an execution shortfall, not a demand verdict."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "It checks whether the 380 figure is net of comps (sponsor, speaker, organizer, volunteer tickets) before trusting the percentage."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "It checks whether program or speaker announcements ran later than planned."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "It checks whether the theme is narrow enough to exclude part of the intended audience."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "It checks whether the messaging ever actually said who is welcome, named as a funnel problem rather than a vague promote-more diagnosis."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Healthy reach and healthy conversion is named as a genuine demand read belonging to the demand-fit diagnosis and the event's own scope-downgrade decision, not to a bigger campaign."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The 40% price cut and track cancellation are not endorsed as a first response before the diagnosis."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The percentage split is explicitly labeled as a B2B/B2C SaaS marketing convention, not an event-industry standard or benchmark."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Barter-only plus a fixed test budget is recommended as the default posture."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "No cash is allocated to partner swaps, because that channel trades in reciprocal visibility rather than money."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The fixed test is one capped amount, on one paid channel, answering one question decided in advance."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The bulk of the money is held behind a decision point (released against a checkpoint), not committed in week one."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "A concentrated bet is gated on a checkpoint miss combined with an existing tracked referral signal; a miss alone is named as a reason to diagnose, not to spend."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Owned channels (mailing list, comms hub, social) are costed in organizer hours, not cash."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The plan states it assumes the community-run pole before allocating anything."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The full spread and concentrated bet are noted to trigger finance or treasurer sign-off, while a capped test budget clears under one organizer's own discretion."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The event's own social presence is kept low-weight, on the grounds that community events struggle to reach people since audiences dispersed from Twitter."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Outreach extends beyond the home campus, applying the rule of inviting at least 3 schools within 6 hours, without overlooking community colleges."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "A comms hub (one page centralizing every channel, shareable by QR code) is included as a one-time build that converts reach rather than creating it."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "School contacts and local business or professional networks are tracked as two separate referrer pools, not one undifferentiated local list."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The ranking is presented as a default re-ranked for this organizer's context, not as a fixed law."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The response refuses to extend or move the May 30 early-bird date inside the marketing plan."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "It explains the cutoff is owned by the pricing decision: moving it changes the price ladder and revenue, and the pricing checkpoint no longer measures what it did."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The campaign is planned around May 30 as a fixed date, with the reminder push timed before it."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The response declines to draft the reminder email copy itself."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Email execution is routed to the sibling that writes attendee email sequences, handing over weight, phase and send dates."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The response declines to build the two weeks of LinkedIn posts or a social content calendar."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Social execution is routed to the sibling that owns the event's social presence, with its weight, phase and dates handed over."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The early-bird close is identified as a sales-spike moment carrying the roughly-15% checkpoint on the ladder."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The slipped speaker announcement is flagged as a communication cause to check when reading the next checkpoint, since late announcements are an execution risk."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The launch spike is read as measuring reach, not demand."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Week two is identified as when the campaign pattern becomes readable."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Per-channel tracked links or registration codes are named as something decided before launch that cannot be added retroactively, which is why the existing 66 registrations are unattributable."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The 'how did you hear about us' field is flagged as undercounting owned channels and double-counting whatever the registrant saw last."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Progress is measured against the chosen spine's checkpoint line, not against day-over-day counts."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "What each tracked signal would trigger is written down before the pushes launch; a miss alone triggers diagnosis, not spend."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The spine is picked by the failure that would actually hurt this event - empty seats versus unsold seats - reasoning from the nominal fee and the hard capacity cap."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Exactly one spine is run as the plan's only target line."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The other spine's checkpoint is used only as a secondary sanity check that never enters a target or a go/no-go decision."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The two denominators are named as different things: an attendance goal versus expected sales net of comps."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "A halfway miss is answered with diagnosis (reach versus conversion signals) and re-weighting of owned and barter channels, not with spending."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "That segment is named as one other channels never reach."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Last year's own week-by-week curve is overlaid as the primary target line, with the published checkpoint ladder as the fallback, because an event's own prior curve beats any published ladder."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "The pace index is defined as tickets-to-date divided by curve-expected, times 100."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Above 100 is read as running hot and below 100 as a gap with a size and a deadline attached."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Email frequency is kept limited and the content informative, to maintain list engagement."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "The plan records for the next edition: the spine chosen, the net-of-comps target, channel weights with their segments, the fixed dates, the budget posture, and planned-versus-actual at each checkpoint."
+      }
+    ]
+  }
+}

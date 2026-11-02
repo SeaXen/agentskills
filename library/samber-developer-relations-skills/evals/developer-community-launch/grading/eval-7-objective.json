@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the \"below 40% lurkers\" target and states that around 90% of members never posting is the baseline condition, not a launch defect",
+        "evidence": "'\"Get non-posters below 40%\" is the wrong target \u2014 don't ship it.' ... 'roughly 90% of members never post, 9% post occasionally, 1% account for most activity. Lurking is the baseline condition of every online community, not a defect to fix.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Attributes the 90-9-1 participation-inequality finding to Jakob Nielsen at NN/g rather than presenting it as an unsourced rule of thumb",
+        "evidence": "\"Jakob Nielsen's 90-9-1 rule (NN/g, 2006, the most-replicated finding in community measurement)\" with source link to nngroup.com/articles/participation-inequality/",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that the beta group's four-in-five read-only share is at or better than that baseline rather than a problem to fix",
+        "evidence": "\"Read against that baseline, the beta's 'four in five just read' (80% lurk) is already better than typical \u2014 most communities never get below 90%.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the 2,000-member target as a joins counter rather than a health signal",
+        "evidence": "Table row: \"2,000 members by day 90 | Keep, but report as context only | Member count is a joins counter, not a health signal \u2014 a well-marketed room can hit 2,000 with 20 weekly posters and still be a failed launch\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets targets on the number of active members and on ratio signals instead",
+        "evidence": "\"Replacement: target the count and rate of active members directly, not the inverse of the lurker share.\" and \"\u2265 20% of members active in the trailing 30 days (\u2248400 people at 2,000 members), reported as an absolute count alongside the ratio\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Proposes day-90 pass thresholds covering at least: answered within 24 hours, non-staff share of posts, new members posting within 7 days, monthly active share, threads with at least one reply, and top-five engagement concentration",
+        "evidence": "Table in \u00a73 lists all six: \"Questions answered within 24h\", \"Posts written by non-staff\", \"New members posting within 7 days\", \"Monthly active / total members\", \"Threads with \u2265 1 reply\", \"Engagement share of top 5 members\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels which thresholds are published findings and which are baselines offered as a starting hypothesis to recalibrate",
+        "evidence": "\"Metric definitions are published practice; cutoff values are practitioner baselines to recalibrate once Palebright has its own trailing data \u2014 treat them as a starting hypothesis, not a standard.\" with each table row's Basis column marked \"Baseline practice\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the thresholds be written down before launch rather than assessed afterwards, and says why",
+        "evidence": "\"## 6. Fold-back criteria (set now, not at day 90)\" and \"Decision owner: name this person now. Whoever owns the day-90 read should also be the one authorized to pull the trigger \u2014 otherwise the fold-back becomes a debate instead of a decision.\" plus \u00a74's rationale: \"A single day-90 check means the first time anyone looks, it's too late in the quarter to fix anything cheaply.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends publishing a response-time commitment and places it inside a 48-hour window",
+        "evidence": "The transcript cites 48h evidence only as rationale (\"contributors who got a response within 48h returned and contributed again at a much higher rate\") and sets an internal metric of 24h (\"Questions answered within 24h\") plus a day-30 checkpoint of \"under a few hours\" \u2014 no explicit recommendation to publish a public response-time commitment/SLA set at 48 hours.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites the 48-hour responsiveness evidence as a published finding rather than an invented target",
+        "evidence": "\"Source for the day-30 rule and the 48h-response evidence: Mozilla study cited in GitHub's Open Source Guides \u2014 contributors who got a response within 48h returned and contributed again at a much higher rate... [opensource.guide/building-community]\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the \"below 40% lurkers\" target and states that around 90% of members never posting is the baseline condition, not a launch defect",
+        "evidence": "The transcript treats the 40% target as a given to measure precisely (defining member/lurker metrics) rather than rejecting it or citing a ~90% baseline norm.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Attributes the 90-9-1 participation-inequality finding to Jakob Nielsen at NN/g rather than presenting it as an unsourced rule of thumb",
+        "evidence": "No reference to Jakob Nielsen, NN/g, or the 90-9-1 rule appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that the beta group's four-in-five read-only share is at or better than that baseline rather than a problem to fix",
+        "evidence": "The beta 80% figure is discussed only for comparability concerns: \"The beta 80% baseline probably isn't comparable... Use beta as directional context, not a strict baseline\" \u2014 not framed as already meeting a known-good baseline.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the 2,000-member target as a joins counter rather than a health signal",
+        "evidence": "The 2,000-member target is kept as the headline metric throughout (\"Members (headline definition) vs. 2,000 target\") rather than rejected.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets targets on the number of active members and on ratio signals instead",
+        "evidence": "Weekly active posters is added as a supplementary metric alongside, not instead of, the 2,000-member cumulative target.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Proposes day-90 pass thresholds covering at least: answered within 24 hours, non-staff share of posts, new members posting within 7 days, monthly active share, threads with at least one reply, and top-five engagement concentration",
+        "evidence": "Only first-reply time (\"target: <24h\") maps to this list; non-staff share, 7-day posting rate, monthly active share, thread-reply rate, and top-five concentration are all absent from the metric table.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels which thresholds are published findings and which are baselines offered as a starting hypothesis to recalibrate",
+        "evidence": "No such labeling distinction appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the thresholds be written down before launch rather than assessed afterwards, and says why",
+        "evidence": "The 'write down before launch' reasoning is applied only to the member *definition* (\"Log this in writing before launch \u2014 if it's decided post hoc, the day-90 number can be reverse-engineered\"), not to pass/fail thresholds.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends publishing a response-time commitment and places it inside a 48-hour window",
+        "evidence": "The transcript's response-time guardrail is \"First-reply time to a new poster's first post (target: <24h)\" \u2014 a 24-hour window, not 48.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites the 48-hour responsiveness evidence as a published finding rather than an invented target",
+        "evidence": "The 24h response target is presented as an internal recommendation with no citation to any published finding.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

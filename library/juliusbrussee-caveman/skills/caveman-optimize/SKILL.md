@@ -4,7 +4,6 @@ description: >
   Turn a Caveman optimization observation into an operator-chosen candidate
   with a paired baseline evaluation. Use when asked to inspect or evaluate a
   Caveman optimization report. Needs explicit approval.
-category: code-quality-refactoring
 ---
 
 # Evaluate an optimization observation

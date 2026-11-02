@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States explicitly that this is a B2C case rather than leaving the buyer implicit",
+        "evidence": "\"You're B2C. This skill is explicit that consumer companies almost never open the consumer product itself\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that consumer companies open source, but almost never the consumer product itself",
+        "evidence": "\"consumer companies almost never open the consumer product itself\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the B2C moat as data, network effects and brand, none of which the code carries",
+        "evidence": "\"the moat is data, network effects and brand, none of which the code carries\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Redirects to realistic consumer-company motives: talent, trust, and cost sharing on infrastructure the company already runs",
+        "evidence": "\"the realistic motives here are talent, trust and cost-sharing on infrastructure, judged on hiring and reputation, not on adoption of what you opened.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the decision should be judged on hiring and reputation signals, never on adoption of the opened component",
+        "evidence": "\"judged on hiring and reputation, not on adoption of what you opened\" and later \"never on adoption of what you opened.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects free contributors as a motive, noting most published repositories never receive an external contribution",
+        "evidence": "\"it's the specific version this skill's own literature flags as the one that fails most often: most published repositories never receive an external contribution.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Runs the value-capture gate on the recommendation engine and identifies the proprietary data and network effects as the question it turns on",
+        "evidence": "\"Name what still stops Booking.com... Nothing does. Hosting, trademark and support don't apply to an algorithm; only the training data and live traffic do, and those don't ship with the code.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends an infrastructure component the company already runs as a better candidate than the consumer-facing recommendation engine",
+        "evidence": "\"Run the same five gates on the **enabling layer** (framework, feature-store scaffolding, eval harness, stripped of your trained weights...): it passes.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declares the success objective per asset at decision time rather than retrofitting one later",
+        "evidence": "The 'The metric' section lays out quarterly tracked signals (recruiting funnel, retention, reputation, program health) as part of the brief itself, delivered now rather than deferred.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that no widely adopted framework exists for judging whether one specific open-sourcing decision succeeded",
+        "evidence": "No such statement appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that community-health metric vocabularies measure health, not strategic return",
+        "evidence": "No such statement appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not propose stars or downloads as the success metric",
+        "evidence": "\"Explicitly **do not** report stars, forks or download counts to the CEO as success evidence\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States explicitly that this is a B2C case rather than leaving the buyer implicit",
+        "evidence": "The transcript references \"Booking and Expedia\" and consumer travel context but never explicitly labels the situation as B2C.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that consumer companies open source, but almost never the consumer product itself",
+        "evidence": "No such general principle is stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the B2C moat as data, network effects and brand, none of which the code carries",
+        "evidence": "The moat is itemized differently: \"proprietary training data... the feature pipeline... the live feedback loop... integration depth\" \u2014 not the data/network-effects/brand triad.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Redirects to realistic consumer-company motives: talent, trust, and cost sharing on infrastructure the company already runs",
+        "evidence": "Talent (hiring funnel) and trust/credibility are covered, but cost sharing on existing infrastructure is never mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the decision should be judged on hiring and reputation signals, never on adoption of the opened component",
+        "evidence": "\"Engineering hiring funnel... Explicit non-metrics: GitHub stars, forks, Twitter followers, one-time HN front page. These correlate with nothing you can take to the board.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects free contributors as a motive, noting most published repositories never receive an external contribution",
+        "evidence": "It rejects the motive for a structural reason (\"External contributors can't run your online A/B tests\") rather than citing the general statistic about most repos never receiving contributions.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Runs the value-capture gate on the recommendation engine and identifies the proprietary data and network effects as the question it turns on",
+        "evidence": "\"None of that ships in a GitHub repo of ranking code. So you can very likely open source the *ranking framework/algorithm*... without exposing the part that actually drives your conversion edge\" \u2014 identifies proprietary data as the retained value-capture asset.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends an infrastructure component the company already runs as a better candidate than the consumer-facing recommendation engine",
+        "evidence": "No alternative infrastructure component is proposed; the recommendation is to split the ranking framework itself, not substitute a different asset.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declares the success objective per asset at decision time rather than retrofitting one later",
+        "evidence": "\"Set the threshold and horizon before launch, in writing: e.g. 'if by month 12, at least one external contribution clears all three bars, the technical claim is validated.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that no widely adopted framework exists for judging whether one specific open-sourcing decision succeeded",
+        "evidence": "Not stated anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that community-health metric vocabularies measure health, not strategic return",
+        "evidence": "No discussion of community-health metric vocabularies (e.g., CHAOSS) appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not propose stars or downloads as the success metric",
+        "evidence": "\"Explicit non-metrics: GitHub stars, forks, Twitter followers, one-time HN front page.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

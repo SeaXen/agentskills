@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to treat the hub's catalogue size as a market size.",
+        "evidence": "'Verdict: invalid as a population estimate. All three numbers measure something other than \"ML engineers,\" and none of them can be summed or eyeballed into a headcount.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that publishing on these hubs is free and unreviewed, so the counts measure publishing activity.",
+        "evidence": "Table row for 2.1M models: 'Not safe to claim: population; publishing is free and unreviewed.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites the finding that the large majority of published models have fewer than a couple of hundred lifetime downloads.",
+        "evidence": "'85.6% of published models have fewer than 200 lifetime downloads.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites that a tiny fraction of repositories accounts for almost all downloads on such a hub.",
+        "evidence": "'1.5% of repositories account for 99.2% of all downloads.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that \"millions of models exist\" and \"millions of models are used\" differ by roughly two orders of magnitude.",
+        "evidence": "The transcript computes 'roughly 300K of your 2.1M models... show any real usage' \u2014 about a 7x reduction, and nowhere frames this as 'roughly two orders of magnitude.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to treat package-registry downloads as human users, naming CI re-downloads as a dominant contributor.",
+        "evidence": "'CI runs, container rebuilds and repeat installs inflate registry download counts' and 'repeat installs per pipeline run dominate most registry download graphs.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States what hub and registry data can legitimately support: the shape of the practitioner niche, such as which tasks, formats or base models the segment works with.",
+        "evidence": "'Safe to claim: the shape of the niche: formats, base models, task types in play.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Returns a range with a method, a date and a confidence tier rather than a single figure.",
+        "evidence": "'ML/AI developers, global: ~4M\u201310M ... as of: waves through ~2025, unverified for 2026 confidence: inferred'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a cross-check against a source of a different class.",
+        "evidence": "Heading 'Segment size, cross-checked against an independent source class' combines SlashData/CNCF population data with Stack Overflow role-category splits.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels any figure with no data behind it as inferred and names the lookup that would upgrade it.",
+        "evidence": "'confidence: hypothesis segment, below the evidence floor... To upgrade this from inferred to estimated: Grant WebSearch/WebFetch and pull SlashData's current AI/ML sector sizing report...'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to treat the hub's catalogue size as a market size.",
+        "evidence": "'2.1M models on the hub \u2014 this is a cumulative artifact count since 2016, not a headcount' and 'None of the three is a count of people.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that publishing on these hubs is free and unreviewed, so the counts measure publishing activity.",
+        "evidence": "No statement that publishing on these hubs is free and unreviewed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites the finding that the large majority of published models have fewer than a couple of hundred lifetime downloads.",
+        "evidence": "No citation of a statistic about the majority of models having under a couple hundred downloads.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites that a tiny fraction of repositories accounts for almost all downloads on such a hub.",
+        "evidence": "No citation that a tiny fraction of repositories account for almost all downloads.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that \"millions of models exist\" and \"millions of models are used\" differ by roughly two orders of magnitude.",
+        "evidence": "No explicit 'two orders of magnitude' comparison between models existing and models used.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to treat package-registry downloads as human users, naming CI re-downloads as a dominant contributor.",
+        "evidence": "'PyPI download counts count every pip install, including CI/CD reinstalls (no default local cache on ephemeral runners \u2192 every build re-pulls), Docker rebuilds, and mirrors.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States what hub and registry data can legitimately support: the shape of the practitioner niche, such as which tasks, formats or base models the segment works with.",
+        "evidence": "No statement of what hub/registry data can legitimately support, such as task, format, or base-model shape of the niche.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Returns a range with a method, a date and a confidence tier rather than a single figure.",
+        "evidence": "TAM/SAM/SOM are given as ranges with a method, but no calendar date is stated anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a cross-check against a source of a different class.",
+        "evidence": "Recommends replacing layer percentages 'with real figures from Stack Overflow / GitHub Octoverse / SlashData Developer Nation... and a genAI-adoption survey (LangChain State of AI, Menlo Ventures, a16z, or Retool).'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels any figure with no data behind it as inferred and names the lookup that would upgrade it.",
+        "evidence": "'These developer-population and adoption-rate figures are working estimates from general market knowledge, not numbers I pulled live just now' and names the specific sources that would upgrade them.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

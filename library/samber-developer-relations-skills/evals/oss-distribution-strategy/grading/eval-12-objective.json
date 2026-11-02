@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Presents two or three candidate mixes rather than a single plan, and recommends one with a stated reason.",
+        "evidence": "'Three shapes, ranked on the skill's standard axes... **Recommended: Ecosystem-depth, with trust-signal foundation work pulled forward.**'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives each mix a cost in hours per month, the adopter type it serves, and what it gives up.",
+        "evidence": "The mix table only has 'Efficiency | Effort | Individual value | Company value' columns \u2014 no hours/month cost, adopter-type, or give-up column.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ranks the mixes out loud on efficiency, effort, and value for individual and company adoption separately, rather than letting presentation order imply a ranking.",
+        "evidence": "Table explicitly ranks 'Coverage-first | 1st | lowest | 2nd | 2nd' etc. across all four axes.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the family efficiency ordering out loud rather than implying it through list order.",
+        "evidence": "No general statement ordering all channel families by efficiency appears; only the mix-level table and dependency-position praise are given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sequences the plan in three stages: foundation in weeks 1-4, passive discovery over months 1-3, active seeding ongoing.",
+        "evidence": "Sequence table instead uses 'Weeks 1\u20138' for foundation, 'Weeks 6\u201316' for passive discovery, and 'Active seeding \u2014 Not scheduled', deviating from the standard windows and marking stage 3 unscheduled rather than ongoing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places active seeding last and gates it on stages 1 and 2 holding first.",
+        "evidence": "Stage 3 is listed last but marked 'Not scheduled. See Refused' with reopening tied to 'a dated milestone... with added capacity', not to stages 1/2 succeeding.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Drops or demotes creator and newsletter seeding on the stated compounding mandate, because its payoff stops when the pitching stops.",
+        "evidence": "\"the compounding mandate ('something that keeps paying without us re-spending') rules it out on its own \u2014 its payoff stops the day the pitching stops.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes the open horizon with no hard date favours compounding families over fast-acting ones, and names which interview answer moved which family.",
+        "evidence": "'Q11 (what changes next two quarters): nothing declared... Treated as open horizon' combined with 'Reopens only against a dated milestone... not against this plan's open horizon.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Checks the two unresolved downstream-packaging conditions - release hygiene sufficient for a third-party packager, and maintainer acceptance of irreversibility - before promoting that family, given the standalone-binary install unit and the company-adoption goal.",
+        "evidence": "'Ranks first for company-adoption value, but two of its four promotion conditions aren't met: release hygiene isn't yet proven, and irreversibility hasn't been explicitly accepted.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Runs the adoption test on every candidate channel: recurring cost, decay behaviour, observable signal, kill date.",
+        "evidence": "Test ring table gives 'Recurring cost', 'Decay if neglected', 'Observable signal', 'Kill date' rows for both T1 and T2.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ships the trust posture inside stage 1 because company adoption is a declared goal, rather than adding it later in the sequence.",
+        "evidence": "'Minimum trust posture (~4\u20136h) \u2014 required because company adoption is a declared goal' listed under Foundation ring.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Produces the plan under the named section headings: Position today, Adopter, Foundation ring, Sequence, Test ring, Core channel, Refused, Release rhythm, Review, Threshold check.",
+        "evidence": "Headings present: '## Position today', '## Adopter', '## Foundation ring', '## Sequence', '## Test ring', '## Core channel', '## Refused', '## Release rhythm', '## Review sweep', '## Threshold check'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Presents the sections one at a time for agreement rather than delivering the whole plan in a single pass.",
+        "evidence": "The entire plan is delivered in a single continuous response, not incrementally section-by-section.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reports the threshold check explicitly, keeping total recurring cost at or below 60% of the 12-hour capacity and labelling the self-set thresholds as adopted bars rather than industry standards.",
+        "evidence": "'Recurring cost \u226460% of 12h capacity (\u22647.2h/month) | Pass, projected...' combined with 'Self-set bar: >20/month by kill date (derive from current ~7,900 downloads baseline, not copied from another project).'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Presents two or three candidate mixes rather than a single plan, and recommends one with a stated reason.",
+        "evidence": "Only a single five-phase plan is presented; no alternative candidate mixes are offered.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives each mix a cost in hours per month, the adopter type it serves, and what it gives up.",
+        "evidence": "N/A \u2014 no multiple mixes exist to compare in this way.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ranks the mixes out loud on efficiency, effort, and value for individual and company adoption separately, rather than letting presentation order imply a ranking.",
+        "evidence": "N/A \u2014 single plan, no such explicit ranking discussion.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the family efficiency ordering out loud rather than implying it through list order.",
+        "evidence": "No explicit statement of a family efficiency ordering; phases are sequenced without stating a generalized ordering rule.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sequences the plan in three stages: foundation in weeks 1-4, passive discovery over months 1-3, active seeding ongoing.",
+        "evidence": "The plan uses five numbered Phases spanning months 1-3 without being organized under these three named stage labels.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places active seeding last and gates it on stages 1 and 2 holding first.",
+        "evidence": "Phase 4 (dependent outreach) comes later in the sequence, but no explicit gating language ties it to Phases 1-3 'holding' first.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Drops or demotes creator and newsletter seeding on the stated compounding mandate, because its payoff stops when the pitching stops.",
+        "evidence": "No newsletter/creator seeding channel is discussed or demoted anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes the open horizon with no hard date favours compounding families over fast-acting ones, and names which interview answer moved which family.",
+        "evidence": "No discussion of a hard date vs. open horizon, or of any interview answer moving a family, appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Checks the two unresolved downstream-packaging conditions - release hygiene sufficient for a third-party packager, and maintainer acceptance of irreversibility - before promoting that family, given the standalone-binary install unit and the company-adoption goal.",
+        "evidence": "Phase 1 promotes Homebrew/Nix/container packaging without explicitly checking release-hygiene sufficiency or maintainer acceptance of irreversibility.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Runs the adoption test on every candidate channel: recurring cost, decay behaviour, observable signal, kill date.",
+        "evidence": "Hours and some recurring costs are given per item (e.g. '~1-2h once, ~5 min per release after') but not the full four-part test including decay behaviour and kill date.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ships the trust posture inside stage 1 because company adoption is a declared goal, rather than adding it later in the sequence.",
+        "evidence": "No SBOM/SECURITY.md/signing trust posture is discussed anywhere in this transcript; Phase 1 covers only packaging (binaries, brew, container, Nix).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces the plan under the named section headings: Position today, Adopter, Foundation ring, Sequence, Test ring, Core channel, Refused, Release rhythm, Review, Threshold check.",
+        "evidence": "Headings used are 'Diagnosis first,' 'Design constraint,' 'Phase 1-5,' 'Explicitly cut,' 'Steady state,' 'Watch monthly,' 'Open decisions' \u2014 none match the required named headings.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Presents the sections one at a time for agreement rather than delivering the whole plan in a single pass.",
+        "evidence": "The entire plan (Phases 1-5, cuts, steady state, metrics, open decisions) is delivered in one single response with no interactive checkpoints.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reports the threshold check explicitly, keeping total recurring cost at or below 60% of the 12-hour capacity and labelling the self-set thresholds as adopted bars rather than industry standards.",
+        "evidence": "The transcript gives a final recurring-cost figure ('Roughly 30-60 min/month... returns ~11 of your 12 hours to actual maintenance') but never frames it against a stated 60% ceiling or labels it as a self-set threshold.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

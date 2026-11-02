@@ -5,7 +5,6 @@ description: >
   terms verbatim. Invoke only with /megacave or /caveman wenyan. Stays on until
   "stop caveman" or "normal mode".
 disable-model-invocation: true
-category: code-quality-refactoring
 ---
 
 # megacave

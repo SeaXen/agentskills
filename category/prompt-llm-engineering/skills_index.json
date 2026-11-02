@@ -32,6 +32,14 @@
     "path": "category/prompt-llm-engineering/aave"
   },
   {
+    "id": "access-lifecycle",
+    "name": "access-lifecycle",
+    "category": "prompt-llm-engineering",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when preparing or running a user access review, checking that leavers lost their access, finding orphaned or ownerless service accounts, answering an auditor's access-control request for SOC 2, ISO 27001, PCI DSS, HIPAA or NIST 800-53, or checking whether a finished review campaign will hold up. Diffs the HR roster against account exports, tests the campaign for coverage, self-review, unremoved revokes and rubber-stamping, and maps every exception to the controls it breaks.",
+    "path": "category/prompt-llm-engineering/access-lifecycle"
+  },
+  {
     "id": "accessibility-test-plan",
     "name": "accessibility-test-plan",
     "category": "prompt-llm-engineering",
@@ -424,12 +432,44 @@
     "path": "category/prompt-llm-engineering/aibijia-price-comparison"
   },
   {
+    "id": "aiconfig-online-evals",
+    "name": "aiconfig-online-evals",
+    "category": "prompt-llm-engineering",
+    "repository": "launchdarkly-ai-tooling",
+    "description": "DEPRECATED redirect \u2014 this skill was renamed to online-evals. Do not use this skill; invoke online-evals instead. Kept only so old references to aiconfig-online-evals still point users to the new name.",
+    "path": "category/prompt-llm-engineering/aiconfig-online-evals"
+  },
+  {
+    "id": "aks-known-issues",
+    "name": "aks-known-issues",
+    "category": "prompt-llm-engineering",
+    "repository": "microsoft-azure-skills",
+    "description": "Lookup documented AKS fixes only when the prompt includes an exact catalog signature and all of its qualifiers: VMCannotFitEphemeralOSDisk; NodePoolMcVersionIncompatible; 'NodeImageVersion is not accepted'; AKS SkuNotAvailable with size, location, and zone; ZonalAllocationFailed with insufficient zone capacity; OverconstrainedAllocationRequest with listed constraints; nested AKS vmssCSE/CSE VMExtensionError_OutboundConnFail, VMExtensionError_K8SAPIServerConnFail, or VMExtensionError_K8SAPIServerDNSLookupFail; or AllocationFailed with the full cataloged internal-error or insufficient-regional-capacity message. Never use for quota errors, code-only or bare wrappers, generic symptoms, incomplete signatures, or failures outside AKS; use aks-troubleshooting or azure-diagnostics.",
+    "path": "category/prompt-llm-engineering/aks-known-issues"
+  },
+  {
+    "id": "amazon-bedrock",
+    "name": "amazon-bedrock",
+    "category": "prompt-llm-engineering",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Builds generative AI applications on Amazon Bedrock. Covers model invocation (Converse API, InvokeModel), RAG with Knowledge Bases, Bedrock Agents, Guardrails, and AgentCore (including the Harness managed agent loop). Applies when invoking models, setting up Knowledge Bases, deploying to AgentCore, migrating/porting/converting a Bedrock Agent (including inline agents) to an AgentCore Harness, troubleshooting Bedrock errors (ThrottlingException, AccessDeniedException), or choosing Bedrock models (Claude, Llama, Nova, Titan). Also for KB migration to Managed, prompt caching, quota and throttling diagnosis, cost tracking, migrating between Claude model generations, chunking strategies, and Bedrock model selection. Covers AgentCore Payments (x402, microtransactions, Payment Manager, Connector, Instrument, Coinbase CDP, Stripe Privy, paid endpoints, agent payments). NOT for custom model training, Rekognition, or Comprehend. For SageMaker model discovery, customization, or endpoints, use aws-ai-ml.",
+    "path": "category/prompt-llm-engineering/amazon-bedrock"
+  },
+  {
     "id": "amazon-brand-registry",
     "name": "amazon-brand-registry",
     "category": "prompt-llm-engineering",
     "repository": "nexscope-ai-amazon-skills",
     "description": "Brand Registry enrollment guide \u2014 eligibility, application, benefits, A+ Content access, brand protection tools",
     "path": "category/prompt-llm-engineering/amazon-brand-registry"
+  },
+  {
+    "id": "amazon-elasticache",
+    "name": "amazon-elasticache",
+    "category": "prompt-llm-engineering",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Activate when developers have latent caching needs: slow API responses, database read bottlenecks, DynamoDB throttling or cost, RDS/Aurora scaling pressure, Bedrock latency or cost, or adding a cache; activate when working with Redis, Valkey, Memcached, or any in-memory data store, cache-aside patterns, session stores, rate limiting, leaderboards, counters, streams, queues, pub/sub, distributed locks, feature flags, shopping carts, or other caching strategies. Activate for GenAI and ML retrieval: vector similarity search for low-latency retrieval, semantic caching, RAG, LLM response caching, embedding stores, AI agent memory, recommendation, personalization. Activate for ElastiCache lifecycle: provisioning (serverless or node-based), engine selection, CloudFormation/CDK/Terraform IaC, VPC connectivity, TLS, RBAC, IAM auth, Global Datastore, monitoring, troubleshooting, cost optimization, and migration from self-managed Redis. Do not trigger for browser caches, CDN/CloudFront, HTTP Cache-Control, CPU caches.",
+    "path": "category/prompt-llm-engineering/amazon-elasticache"
   },
   {
     "id": "amazon-subscribe-save",
@@ -504,6 +544,14 @@
     "path": "category/prompt-llm-engineering/ar-run"
   },
   {
+    "id": "architect-for-startups",
+    "name": "architect-for-startups",
+    "category": "prompt-llm-engineering",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Startup-tailored AWS architecture advice for non-agent workloads, adjusted to the company's stage (pre-revenue through Series B+), team size, runway, and credits. Not for AI agents: deploying an AI agent on AWS, picking its runtime, or any agentic architecture is agent-advisor. Use when a founder wants guidance or a recommendation rather than code changes: which services to choose, how to plan or review an architecture, how to stretch credits and control cost, or how to prepare architecture for a fundraise or technical diligence. For an interactive discovery flow that scaffolds and writes the architecture into the codebase, use start-building-for-startups. Do not use for: writing or scaffolding code, factual AWS Activate / programs / credits lookups (see knowledge-base-for-startups), a single copy-paste prompt (see prompt-library-for-startups), or migration intent such as GCP-to-AWS, Azure-to-AWS, or Heroku-to-AWS (see the migration skills: `gcp-to-aws`, `azure-to-aws`, `heroku-to-aws`, `llm-to-bedrock`).",
+    "path": "category/prompt-llm-engineering/architect-for-startups"
+  },
+  {
     "id": "asc-localize-metadata",
     "name": "asc-localize-metadata",
     "category": "prompt-llm-engineering",
@@ -520,12 +568,28 @@
     "path": "category/prompt-llm-engineering/asset-spec"
   },
   {
+    "id": "atheris",
+    "name": "atheris",
+    "category": "prompt-llm-engineering",
+    "repository": "trailofbits-skills",
+    "description": "Sets up and runs Atheris, the coverage-guided Python fuzzer built on libFuzzer. Covers TestOneInput harnesses, FuzzedDataProvider, instrumenting both pure Python and native C extensions, and running under AddressSanitizer. Use when fuzzing a Python package, hunting memory corruption in a Python C extension, or choosing between Atheris and Hypothesis for a Python target.",
+    "path": "category/prompt-llm-engineering/atheris"
+  },
+  {
     "id": "audience-research",
     "name": "audience-research",
     "category": "prompt-llm-engineering",
     "repository": "scrapecreators-social-media-research-skills",
     "description": "Use when the user wants to evaluate a creator, influencer, or brand audience using public profile signals, TikTok audience demographics, follower/following data, comments, geography, language, and content fit. Helps judge sponsorship and market fit.",
     "path": "category/prompt-llm-engineering/audience-research"
+  },
+  {
+    "id": "audit-prep-assistant",
+    "name": "audit-prep-assistant",
+    "category": "prompt-llm-engineering",
+    "repository": "trailofbits-skills",
+    "description": "Prepares codebases for security review using Trail of Bits' checklist. Helps set review goals, runs static analysis tools, increases test coverage, removes dead code, ensures accessibility, and generates documentation (flowcharts, user stories, inline comments). Use when preparing your own codebase to be audited by someone else, getting a repository review-ready before an external security review, deciding what to fix before auditors start, or asking what assessors need from a project. For understanding unfamiliar code you are about to audit, use audit-context-building instead.",
+    "path": "category/prompt-llm-engineering/audit-prep-assistant"
   },
   {
     "id": "auto-paper-improvement-loop",
@@ -616,6 +680,14 @@
     "path": "category/prompt-llm-engineering/awesome-gpt-image-2-prompts"
   },
   {
+    "id": "aws-ai-ml",
+    "name": "aws-ai-ml",
+    "category": "prompt-llm-engineering",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Selects, deploys, and customizes AI models on Amazon SageMaker. Training or Processing jobs, fine-tuning (SFT/DPO/RLVR/RLAIF), model selection, dataset preparation, evaluation, SageMaker or Bedrock deployment, inference optimization and endpoint diagnostics. Covers the full lifecycle from planning through production. Use when fine-tuning models on SageMaker, choosing which base model to customize, fine-tune, or deploy from SageMaker JumpStart or Hub, SageMakerPublicHub, or the SageMaker public model catalog, transforming or validating training data, evaluating model quality, deploying or optimizing endpoints, configuring IAM/S3 for training, or managing SageMaker Managed MLflow. Use for endpoint health, failures, latency, logs, metrics, errors. Covers Serverless Model Customization, Nova and OSS deployment paths, and PySDK v3. NOT for Ground Truth labeling, Feature Store, or general-purpose AWS infrastructure.",
+    "path": "category/prompt-llm-engineering/aws-ai-ml"
+  },
+  {
     "id": "aws-cloudformation-bedrock",
     "name": "aws-cloudformation-bedrock",
     "category": "prompt-llm-engineering",
@@ -624,12 +696,28 @@
     "path": "category/prompt-llm-engineering/aws-cloudformation-bedrock"
   },
   {
+    "id": "aws-lambda-managed-instances",
+    "name": "aws-lambda-managed-instances",
+    "category": "prompt-llm-engineering",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Evaluates, configures, and migrates workloads to AWS Lambda Managed Instances (LMI). Runs Lambda Event Functions (standard Lambda) on EC2 instances in the user's account while AWS manages provisioning, patching, scaling, routing, and load balancing. Triggers when queries mention Lambda Managed Instances, LMI, capacity providers, multi-concurrent execution environments, EC2-backed Lambda, persistent Lambda instances, PerExecutionEnvironmentMaxConcurrency, CapacityProviderConfig, cold start elimination via dedicated instances, SOCI (Seekable OCI) image lazy loading, migrating Lambda Event Functions to managed instances, or cost comparison between Lambda Event Functions and LMI with Savings Plans or Reserved Instances. Also covers long-running and asynchronous workloads and the 90-minute (5400s) function timeout for asynchronous and event-source-mapping (SQS, Kinesis, DynamoDB Streams / ESM) invocations, including how to raise the function timeout up to 90 minutes / 5400s and the related duration limits.",
+    "path": "category/prompt-llm-engineering/aws-lambda-managed-instances"
+  },
+  {
     "id": "aws-s3-management",
     "name": "aws-s3-management",
     "category": "prompt-llm-engineering",
     "repository": "aj-geddes-useful-ai-prompts",
     "description": "Manage S3 buckets with versioning, encryption, access control, lifecycle policies, and replication. Use for object storage, static sites, and data lakes.",
     "path": "category/prompt-llm-engineering/aws-s3-management"
+  },
+  {
+    "id": "aws-secrets-manager",
+    "name": "aws-secrets-manager",
+    "category": "prompt-llm-engineering",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Secret safety for AWS Secrets Manager, secret management, credentials, API keys, tokens, and passwords. Prevents AI agents from directly fetching secret values and teaches runtime dynamic references with asm-exec so plaintext never enters the LLM context window.",
+    "path": "category/prompt-llm-engineering/aws-secrets-manager"
   },
   {
     "id": "azure-ai-openai-dotnet",
@@ -776,6 +864,30 @@
     "path": "category/prompt-llm-engineering/bigquery-agent-analytics-sdk"
   },
   {
+    "id": "bionemo-codonfm-finetune",
+    "name": "bionemo-codonfm-finetune",
+    "category": "prompt-llm-engineering",
+    "repository": "nvidia-skills",
+    "description": "Fine-tune public CodonFM Encodon checkpoints on labeled coding-sequence or coding-variant data using LoRA, head-only, or full fine-tuning. Use when a user explicitly asks to fine-tune CodonFM or Encodon for regression or classification. Support generic public-v1 Encodon workflows only; reject Decodon, MissenseDataset, missense_synom_agg, and generation workflows.",
+    "path": "category/prompt-llm-engineering/bionemo-codonfm-finetune"
+  },
+  {
+    "id": "bionemo-complexa-evaluate-pdbs",
+    "name": "bionemo-complexa-evaluate-pdbs",
+    "category": "prompt-llm-engineering",
+    "repository": "nvidia-skills",
+    "description": "Agent runbook for evaluating an existing PDB directory through the separately installed first-party Proteina-Complexa CLI. Use to refold or score designs, compute interface pAE, i_pLDDT, scRMSD, motif RMSD, or designability, run complexa analysis, or assess third-party BindCraft, AlphaProteo, or RFdiffusion outputs. SKILL.md selects and invokes the evaluation configuration; bundled executables only inspect local readiness and write a run manifest.",
+    "path": "category/prompt-llm-engineering/bionemo-complexa-evaluate-pdbs"
+  },
+  {
+    "id": "blitz3d-decomp",
+    "name": "blitz3d-decomp",
+    "category": "prompt-llm-engineering",
+    "repository": "rehan-remade-universal-modder",
+    "description": "Decompile a Blitz3D game to readable Blitz source with B3DDecomp and port what it does to another engine. Covers SCP - Containment Breach-era and other .bb games, B3DDecomp, Blitz3D runtime behaviour (fixed tick, Animate, CurveValue, Euler angles, quaternions, Rnd), animated .b3d models (viewmodels with bones and keyframes) into Roblox, and where to stop (builds protected against decompiling, games and assets the user has no rights to). Use when a Blitz3D game's code or animated models are needed.",
+    "path": "category/prompt-llm-engineering/blitz3d-decomp"
+  },
+  {
     "id": "block-storage",
     "name": "block-storage",
     "category": "prompt-llm-engineering",
@@ -872,6 +984,14 @@
     "path": "category/prompt-llm-engineering/building-growth-team"
   },
   {
+    "id": "built-in-metrics",
+    "name": "built-in-metrics",
+    "category": "prompt-llm-engineering",
+    "repository": "launchdarkly-ai-tooling",
+    "description": "Instrument an existing codebase with LaunchDarkly config tracking. Walks the four-tier ladder (managed runner \u2192 provider package \u2192 custom extractor + trackMetricsOf \u2192 raw manual) and picks the lowest-ceremony option that still captures duration, tokens, and success/error.",
+    "path": "category/prompt-llm-engineering/built-in-metrics"
+  },
+  {
     "id": "buzz-bd-agent",
     "name": "buzz-bd-agent",
     "category": "prompt-llm-engineering",
@@ -892,7 +1012,7 @@
     "name": "cad",
     "category": "prompt-llm-engineering",
     "repository": "earthtojake-text-to-cad",
-    "description": "Creates and edits parametric CAD parts and assemblies as Python build123d models that cadgen's engine builds and the CAD Viewer shows live; exports STEP, STL, 3MF, GLB and xbf files on request; resolves prompt references, measures geometry, and articulates or animates assemblies. Use for 3D CAD modeling, editing a model script (any change to a part's or assembly's `.py`), organizing a CAD project, exporting or converting CAD files, Quick Edit prompts, mechanisms, and explode or showcase animations. Opens and reviews existing XBF, STEP/STP, STL, 3MF and GLB files in the CAD Viewer.",
+    "description": "Creates and edits parametric CAD parts and assemblies as Python build123d models that text-to-cad's server builds and the CAD Viewer shows live; exports STEP, STL, 3MF, GLB and xbf files on request; resolves prompt references, measures geometry, and articulates or animates assemblies. Use for 3D CAD modeling, editing a model script (any change to a part's or assembly's `.py`), organizing a CAD project, exporting or converting CAD files, Quick Edit prompts, mechanisms, and explode or showcase animations. Opens and reviews existing XBF, STEP/STP, STL, 3MF and GLB files in the CAD Viewer. Covers 3D parts and assemblies, including the part a 2D drawing projects, not the 2D DXF drawing itself or URDF, SRDF and SDF robot descriptions.",
     "path": "category/prompt-llm-engineering/cad"
   },
   {
@@ -952,12 +1072,28 @@
     "path": "category/prompt-llm-engineering/cc-connect-ai-bridge"
   },
   {
+    "id": "cdf-anomalygen",
+    "name": "cdf-anomalygen",
+    "category": "prompt-llm-engineering",
+    "repository": "nvidia-skills",
+    "description": "Use when running the CDF AnomalyGen pipeline over a defect dataset \u2014 mask placement, fine-tuning, synthetic defect-image generation (SDG), evaluation, quality refinement, and pseudo-labeling \u2014 even when the user names only one stage.",
+    "path": "category/prompt-llm-engineering/cdf-anomalygen"
+  },
+  {
     "id": "ce-ideate",
     "name": "ce-ideate",
     "category": "prompt-llm-engineering",
     "repository": "everyinc-compound-engineering-plugin",
     "description": "Generate and evaluate grounded ideas. Use when the user wants ideas, improvements, or surprising directions before choosing one to develop. Not for refining an idea they already have (ce-brainstorm) or judging one already on the table (ce-pov).",
     "path": "category/prompt-llm-engineering/ce-ideate"
+  },
+  {
+    "id": "ce-skill-work",
+    "name": "ce-skill-work",
+    "category": "prompt-llm-engineering",
+    "repository": "everyinc-compound-engineering-plugin",
+    "description": "Applies this repository's skill-authoring standard as a procedure. Use for any change to, or judgment about, a file under skills/** \u2014 a SKILL.md, a reference, a persona prompt, a bundled script's instructions: creating a skill, editing one, reviewing a skill change, or acting on review feedback (human or bot) about one. Not for src/, tests/, or scripts/ code.",
+    "path": "category/prompt-llm-engineering/ce-skill-work"
   },
   {
     "id": "ce-work",
@@ -1224,6 +1360,14 @@
     "path": "category/prompt-llm-engineering/computer-vision-guide"
   },
   {
+    "id": "configs-variations",
+    "name": "configs-variations",
+    "category": "prompt-llm-engineering",
+    "repository": "launchdarkly-ai-tooling",
+    "description": "Experiment with configs by creating and managing variations. Helps you test different models, prompts, and parameters to find what works best through systematic experimentation.",
+    "path": "category/prompt-llm-engineering/configs-variations"
+  },
+  {
     "id": "configure",
     "name": "configure",
     "category": "prompt-llm-engineering",
@@ -1270,6 +1414,14 @@
     "repository": "antigravity-awesome-skills",
     "description": "Strategies for managing LLM context windows including summarization, trimming, routing, and avoiding context rot Use when: context window, token limit, context management, context engineering, long...",
     "path": "category/prompt-llm-engineering/context-window-management"
+  },
+  {
+    "id": "contextual-offers-for-startups",
+    "name": "contextual-offers-for-startups",
+    "category": "prompt-llm-engineering",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Surfaces a single, genuinely relevant AWS Activate partner offer as optional context AFTER another AWS Startup Advisor skill has finalized its recommendation, plan, or build \u2014 never influencing the technical advice. Consulted by architect-for-startups, start-building-for-startups, agent-advisor, gcp-to-aws, heroku-to-aws, and llm-to-bedrock: once their output is final, this skill checks whether a relevant Activate offer exists for what the founder is building or migrating and, if so, appends one quiet, dismissible line with a tracked redeem link. Merit-first (offers never change the recommendation), relevance-gated to what the founder actually surfaced, at most one per response and often none, muteable. Offer content is read live from the sibling knowledge-base-for-startups skill (references/offers.md). Do NOT use for account-specific lookups (credits balance, Activate membership, application status) \u2014 send those to https://aws.amazon.com/startups.",
+    "path": "category/prompt-llm-engineering/contextual-offers-for-startups"
   },
   {
     "id": "conversation-memory",
@@ -1464,6 +1616,14 @@
     "path": "category/prompt-llm-engineering/curviate-inbox"
   },
   {
+    "id": "customize",
+    "name": "customize",
+    "category": "prompt-llm-engineering",
+    "repository": "microsoft-azure-skills",
+    "description": "Interactive guided deployment flow for Azure OpenAI models with full customization control. Step-by-step selection of model version, SKU (GlobalStandard/Standard/ProvisionedManaged), capacity, RAI policy (content filter), and advanced options (dynamic quota, priority processing, spillover). USE FOR: custom deployment, customize model deployment, choose version, select SKU, set capacity, configure content filter, RAI policy, deployment options, detailed deployment, advanced deployment, PTU deployment, provisioned throughput. DO NOT USE FOR: quick deployment to optimal region (use preset).",
+    "path": "category/prompt-llm-engineering/customize"
+  },
+  {
     "id": "dart-collect-coverage",
     "name": "dart-collect-coverage",
     "category": "prompt-llm-engineering",
@@ -1518,6 +1678,14 @@
     "repository": "davila7-claude-code-templates",
     "description": "Work with Data Commons, a platform providing programmatic access to public statistical data from global sources. Use this skill when working with demographic data, economic indicators, health statistics, environmental data, or any public datasets available through Data Commons. Applicable for querying population statistics, GDP figures, unemployment rates, disease prevalence, geographic entity resolution, and exploring relationships between statistical entities.",
     "path": "category/prompt-llm-engineering/datacommons-client"
+  },
+  {
+    "id": "dataset-curation",
+    "name": "dataset-curation",
+    "category": "prompt-llm-engineering",
+    "repository": "wshobson-agents",
+    "description": "Prepare, format, and validate datasets for supervised fine-tuning and preference training. Use when converting raw data into training format, applying chat templates, configuring sequence packing, generating synthetic training data, or writing a dataset card before a run.",
+    "path": "category/prompt-llm-engineering/dataset-curation"
   },
   {
     "id": "deep-learning-python",
@@ -1656,6 +1824,22 @@
     "path": "category/prompt-llm-engineering/did-analysis"
   },
   {
+    "id": "digital-health-clinical-asr-build",
+    "name": "digital-health-clinical-asr-build",
+    "category": "prompt-llm-engineering",
+    "repository": "nvidia-skills",
+    "description": "Stage 2 of the Clinical ASR Flywheel. Use when curating clinical terms, tagging IPA, and synthesizing a NeMo manifest. NOT for scoring (use /digital-health-clinical-asr-eval).",
+    "path": "category/prompt-llm-engineering/digital-health-clinical-asr-build"
+  },
+  {
+    "id": "digital-health-clinical-asr-finetune",
+    "name": "digital-health-clinical-asr-finetune",
+    "category": "prompt-llm-engineering",
+    "repository": "nvidia-skills",
+    "description": "Stage 4 of the Clinical ASR Flywheel. Use when priority KER is above 0.3 to run stock NeMo SFT on Parakeet TDT v2 and offline cycle N+1 re-eval. NOT for generic word boosting (use /finetune-asr).",
+    "path": "category/prompt-llm-engineering/digital-health-clinical-asr-finetune"
+  },
+  {
     "id": "discover-event-surfaces",
     "name": "discover-event-surfaces",
     "category": "prompt-llm-engineering",
@@ -1670,6 +1854,14 @@
     "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "Build transformer fine-tuning plans for classification and generation",
     "path": "category/prompt-llm-engineering/dl-transformer-finetune"
+  },
+  {
+    "id": "doca-sta",
+    "name": "doca-sta",
+    "category": "prompt-llm-engineering",
+    "repository": "nvidia-skills",
+    "description": "Use this skill when the user builds an NVMe-over-Fabrics storage target on BlueField with DOCA STA \u2014 instantiating doca_sta, declaring doca_sta_subsystem NQNs and namespaces over local NVMe disks via doca_sta_be, validating platform support with doca_sta_cap_is_supported, sizing I/O queue depth, or decoding DOCA_ERROR_* statuses such as IO_FAILED on NVMe reads. Also load it for implied asks like \"Identify Controller times out over RoCE\", \"offload the nvmf target\", \"NVMe-oF Connect never completes\", or \"16 I/O queues at depth 1024 \u2014 supported?\". Refuse and route to the proper owner for raw RDMA movement, packet I/O, steering rules, initiator-side NVMe, or SDK install.",
+    "path": "category/prompt-llm-engineering/doca-sta"
   },
   {
     "id": "document-management-system",
@@ -1760,14 +1952,6 @@
     "path": "category/prompt-llm-engineering/education-data-source-pseo"
   },
   {
-    "id": "efficient-fable",
-    "name": "efficient-fable",
-    "category": "prompt-llm-engineering",
-    "repository": "builderio-skills",
-    "description": "Use when running Claude Fable on codebase-heavy or token-heavy work and the user wants Fable to orchestrate research, coding, and testing while cheaper subagents do bounded heavy lifting.",
-    "path": "category/prompt-llm-engineering/efficient-fable"
-  },
-  {
     "id": "embedding-strategies",
     "name": "embedding-strategies",
     "category": "prompt-llm-engineering",
@@ -1840,6 +2024,14 @@
     "path": "category/prompt-llm-engineering/esign-field-placement"
   },
   {
+    "id": "ethos-explore",
+    "name": "ethos-explore",
+    "category": "prompt-llm-engineering",
+    "repository": "nvidia-skills",
+    "description": "Captures what an AI agent is supposed to do \u2014 its purpose, boundaries, and success criteria \u2014 as a durable snapshot for anyone building, evaluating, reviewing, or changing it. Explores the user's codebase and docs first, then asks one intent question at a time for what source cannot supply. Hands its answers to ethos-write, which writes ethos.md. Use over generic brainstorming when the goal is an agent's ethos.md.",
+    "path": "category/prompt-llm-engineering/ethos-explore"
+  },
+  {
     "id": "etsy-shop-sales-history",
     "name": "etsy-shop-sales-history",
     "category": "prompt-llm-engineering",
@@ -1870,6 +2062,14 @@
     "repository": "affaan-m-ecc",
     "description": "Eval-driven development (EDD) framework for AI coding sessions \u2014 define capability and regression evals before coding, grade with code-based, model-based, rule, or human graders, and track pass@k and pass^k reliability. Use when defining pass/fail criteria for agent tasks, measuring agent reliability, building regression suites for prompt or agent changes, or benchmarking across model versions.",
     "path": "category/prompt-llm-engineering/eval-harness"
+  },
+  {
+    "id": "eval-harness-first",
+    "name": "eval-harness-first",
+    "category": "prompt-llm-engineering",
+    "repository": "wshobson-agents",
+    "description": "Build the evaluation harness that gates every fine-tuning run \u2014 golden sets, per-failure-mode graders, judge calibration, and base-model baselines. Use when starting a fine-tuning effort, when converting traces into an eval set, or when calibrating a judge against human labels.",
+    "path": "category/prompt-llm-engineering/eval-harness-first"
   },
   {
     "id": "eval-performance",
@@ -1908,7 +2108,7 @@
     "name": "extension-inference",
     "category": "prompt-llm-engineering",
     "repository": "caffeinelabs-skills",
-    "description": "MANDATORY recipe for every Caffeine build that calls an LLM, chatbot, GPT, or ChatGPT **on Caffeine Inference** (no user-pasted OpenAI key). The ONLY supported path is the `caffeineai-inference-client` mops package with `Config.fromEnv<system>()`, which hands the canister a ready-to-use authenticated config \u2014 the app never asks for, stores, or returns a key. For interactive features the browser can call the API itself with a short-lived key that `Ephemeral.Broker` mints. Hand-rolling `ic.http_request` to `inference.caffeine.ai` (or `api.openai.com`) is a FORBIDDEN anti-pattern. Load this skill whenever the user, spec, or any prior task wants an LLM in a Caffeine app \u2014 and BEFORE writing any code that talks to an LLM host. Use `extension-openai` only when the spec explicitly requires a user- or admin-pasted `sk-...` key against `api.openai.com`.",
+    "description": "MANDATORY recipe for every Caffeine build that calls an LLM, chatbot, GPT, or ChatGPT **on Caffeine Inference** (no user-pasted OpenAI key). The ONLY supported path is the `caffeineai-inference-client` mops package with `Config.fromEnv<system>()`, which hands the canister a ready-to-use authenticated config \u2014 the app never asks for, stores, or returns a key. For interactive features that only signed-in users use, the browser can call the API itself with a short-lived key that `Ephemeral.Broker` mints. Hand-rolling `ic.http_request` to `inference.caffeine.ai` (or `api.openai.com`) is a FORBIDDEN anti-pattern. Load this skill whenever the user, spec, or any prior task wants an LLM in a Caffeine app \u2014 and BEFORE writing any code that talks to an LLM host. Use `extension-openai` only when the spec explicitly requires a user- or admin-pasted `sk-...` key against `api.openai.com`.",
     "path": "category/prompt-llm-engineering/extension-inference"
   },
   {
@@ -1942,6 +2142,14 @@
     "repository": "davidondrej-skills",
     "description": "Make minimal prompt edits to reduce false-positive refusals from Fable. Use only when the user explicitly invokes /fable-safe-prompt.",
     "path": "category/prompt-llm-engineering/fable-safe-prompt"
+  },
+  {
+    "id": "fantasy-worlds",
+    "name": "fantasy-worlds",
+    "category": "prompt-llm-engineering",
+    "repository": "arjun988-blender-skills",
+    "description": "Fantasy world-building art direction for Blender covering medieval, high fantasy, dark fantasy, and urban fantasy asset language.",
+    "path": "category/prompt-llm-engineering/fantasy-worlds"
   },
   {
     "id": "farming-planner",
@@ -2024,6 +2232,22 @@
     "path": "category/prompt-llm-engineering/fine-tuning-unsloth"
   },
   {
+    "id": "finetuning",
+    "name": "finetuning",
+    "category": "prompt-llm-engineering",
+    "repository": "microsoft-azure-skills",
+    "description": "Fine-tune models on Microsoft Foundry using SFT (supervised), DPO (preference), or RFT (reinforcement with graders). Covers dataset preparation, training job submission, deployment, and evaluation. USE FOR: fine-tune, SFT, DPO, RFT, training data, grader, distillation, fine-tuned model, training job, large file upload, calibrate grader, deploy fine-tuned model, evaluate fine-tuned model. DO NOT USE FOR: general model deployment without fine-tuning (use deploy-model), agent creation (use agents), prompt optimization without training (use prompt-optimizer).",
+    "path": "category/prompt-llm-engineering/finetuning"
+  },
+  {
+    "id": "finetuning-method-selection",
+    "name": "finetuning-method-selection",
+    "category": "prompt-llm-engineering",
+    "repository": "wshobson-agents",
+    "description": "Decide whether to fine-tune at all, and route to the right method (SFT, DPO/ORPO/KTO, GRPO/RLVR, continued pretraining) and base model. Use when starting any fine-tuning effort, when unsure whether RAG or prompting would suffice, or when choosing between preference-optimization and reinforcement methods.",
+    "path": "category/prompt-llm-engineering/finetuning-method-selection"
+  },
+  {
     "id": "firecrawl-knowledge-base",
     "name": "firecrawl-knowledge-base",
     "category": "prompt-llm-engineering",
@@ -2096,20 +2320,28 @@
     "path": "category/prompt-llm-engineering/future-agi-platform"
   },
   {
+    "id": "fuzzing-dictionary",
+    "name": "fuzzing-dictionary",
+    "category": "prompt-llm-engineering",
+    "repository": "trailofbits-skills",
+    "description": "Builds and applies fuzzing dictionaries so a fuzzer can produce the keywords, magic bytes, and tokens a target expects. Covers extracting tokens from source, headers, binaries, and specifications, dictionary syntax, and wiring one into libFuzzer or AFL++. Use when fuzzing a parser, protocol, or file format, when coverage stalls at input validation, or when a target compares against fixed strings.",
+    "path": "category/prompt-llm-engineering/fuzzing-dictionary"
+  },
+  {
+    "id": "fuzzing-obstacles",
+    "name": "fuzzing-obstacles",
+    "category": "prompt-llm-engineering",
+    "repository": "trailofbits-skills",
+    "description": "Patches past the barriers that stop a fuzzer making progress \u2014 checksum and hash verification, magic-value validation, time-based seeds, and other non-deterministic global state. Covers locating the blocking check, neutering it behind a fuzzing build flag, and avoiding the false positives a patch can introduce. Use when a fuzzer is stuck at validation, when coverage shows large regions behind a checksum, or when valid inputs are impractical to generate.",
+    "path": "category/prompt-llm-engineering/fuzzing-obstacles"
+  },
+  {
     "id": "game-changing-features",
     "name": "game-changing-features",
     "category": "prompt-llm-engineering",
     "repository": "davila7-claude-code-templates",
     "description": "Find 10x product opportunities and high-leverage improvements. Use when user wants strategic product thinking, mentions '10x', wants to find high-impact features, or says 'what would make this 10x better', 'product strategy', or 'what should we build next'.",
     "path": "category/prompt-llm-engineering/game-changing-features"
-  },
-  {
-    "id": "gcp-to-aws",
-    "name": "gcp-to-aws",
-    "category": "prompt-llm-engineering",
-    "repository": "cline-skills",
-    "description": "Migrate workloads from Google Cloud Platform to AWS \u2014 including AI and agentic workloads regardless of cloud provider. Triggers on: migrate from GCP, GCP to AWS, move off Google Cloud, migrate Terraform to AWS, migrate Cloud SQL to RDS, migrate GKE to EKS, migrate Cloud Run to Fargate, Google Cloud migration, migrate from OpenAI to Bedrock, move off OpenAI, switch from ChatGPT API to AWS, migrate from Gemini to Bedrock, migrate LangChain to Bedrock, migrate LangGraph to AWS, migrate agentic workloads to AWS, move AI workloads to AWS, migrate my AI app to AWS. Runs a 6-phase process: discover GCP resources from Terraform files, app code, or billing exports, clarify migration requirements, design AWS architecture, estimate costs, generate migration artifacts, and collect optional feedback. Clarify must finish before Design, Estimate, or Generate. Includes AI provider migration guidance (for example, OpenAI to Amazon Bedrock) by selecting closest-fit Bedrock model families for required modality, latency/quality targets, context windows, and cost constraints. Model mapping is compatibility-guided, not 1:1 parity; validate prompts, tool-calling behavior, and eval metrics before cutover. Do not use for: Azure or on-premises migrations to AWS, AWS-to-GCP reverse migration, general AWS architecture advice without migration intent, GCP-to-GCP refactoring, or multi-cloud deployments that do not involve migrating off GCP.",
-    "path": "category/prompt-llm-engineering/gcp-to-aws"
   },
   {
     "id": "gemini-automation",
@@ -2198,6 +2430,14 @@
     "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "Curated guide to generative AI covering LLMs and diffusion models",
     "path": "category/prompt-llm-engineering/generative-ai-guide"
+  },
+  {
+    "id": "genotoxic",
+    "name": "genotoxic",
+    "category": "prompt-llm-engineering",
+    "repository": "trailofbits-skills",
+    "description": "Graph-informed mutation testing triage. Parses codebases with Trailmark, runs mutation testing and necessist, then uses survived mutants, unnecessary test statements, and call graph data to identify false positives, missing test coverage, and fuzzing targets. Use when triaging survived mutants, analyzing mutation testing results, identifying test gaps, finding fuzzing targets from weak tests, running mutation frameworks (including circomvent and cairo-mutants), or using necessist.",
+    "path": "category/prompt-llm-engineering/genotoxic"
   },
   {
     "id": "geo",
@@ -2416,6 +2656,22 @@
     "path": "category/prompt-llm-engineering/grillme"
   },
   {
+    "id": "grounded-vault",
+    "name": "grounded-vault",
+    "category": "prompt-llm-engineering",
+    "repository": "wshobson-agents",
+    "description": "Use when maintaining a durable Markdown knowledge store that agents compile from sources, when every number or quote in a wiki page must trace back to an immutable source, or when compiled pages need cheap drift detection against the code they describe. Teaches the raw/wiki/archive layout, per-claim provenance links, and git fingerprints for zero-token staleness checks.",
+    "path": "category/prompt-llm-engineering/grounded-vault"
+  },
+  {
+    "id": "growth-loops",
+    "name": "growth-loops",
+    "category": "prompt-llm-engineering",
+    "repository": "phuryn-pm-skills",
+    "description": "Identify growth loops (flywheels) for sustainable traction. Evaluates 5 loop types: Viral, Usage, Collaboration, User-Generated, and Referral. Use when designing growth mechanisms, building product-led traction, or understanding how growth loops work.",
+    "path": "category/prompt-llm-engineering/growth-loops"
+  },
+  {
     "id": "gsd-2-agent-framework",
     "name": "gsd-2-agent-framework",
     "category": "prompt-llm-engineering",
@@ -2430,6 +2686,22 @@
     "repository": "googleworkspace-cli",
     "description": "Google Model Armor: Sanitize a user prompt through a Model Armor template.",
     "path": "category/prompt-llm-engineering/gws-modelarmor-sanitize-prompt"
+  },
+  {
+    "id": "h1b-sponsor",
+    "name": "h1b-sponsor",
+    "category": "prompt-llm-engineering",
+    "repository": "career-ops-hq-career-ops",
+    "description": "Use this plugin during `oferta` evaluations of US roles to attach a factual sponsorship signal to Block G.",
+    "path": "category/prompt-llm-engineering/h1b-sponsor"
+  },
+  {
+    "id": "hads",
+    "name": "hads",
+    "category": "prompt-llm-engineering",
+    "repository": "wshobson-agents",
+    "description": "Use when writing technical documentation that needs to be readable by both humans and AI models, converting existing docs to HADS format, validating a HADS document, or optimizing documentation for token-efficient AI consumption.",
+    "path": "category/prompt-llm-engineering/hads"
   },
   {
     "id": "hallmark",
@@ -2520,6 +2792,102 @@
     "path": "category/prompt-llm-engineering/higgsfield-soul-id"
   },
   {
+    "id": "hsb-test",
+    "name": "hsb-test",
+    "category": "prompt-llm-engineering",
+    "repository": "nvidia-skills",
+    "description": "Execute QA test plans on Holoscan Sensor Bridge hardware. Reads a user-provided test document, filters tests by the user's setup, determines which tests can run automatically, executes them with pass/fail evaluation, and produces a structured test results report.",
+    "path": "category/prompt-llm-engineering/hsb-test"
+  },
+  {
+    "id": "huawei-cloud-activity-submit",
+    "name": "huawei-cloud-activity-submit",
+    "category": "prompt-llm-engineering",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "\u76f4\u8fde\u534e\u4e3a\u4e91\u5f00\u653e\u80fd\u529b\u7ebf\u4e0a\u95ef\u5173\u6311\u6218\uff08activity_code=open-capability-2026-1024\uff09\u7684 Agent \u63d0\u4ea4\u63a5\u53e3\uff08POST {base}/submit-activity-work\uff09\uff0c\u7528 AK/SK \u8bf7\u6c42\u5934\uff08X-HW-AK / X-HW-SK / X-HW-Security-Token\uff09\u628a\u6d3b\u52a8\u751f\u6210\u7684\u4f5c\u54c1\u94fe\u63a5/\u516c\u7f51\u5730\u5740\u81ea\u52a8\u63d0\u4ea4\u5230\u201c\u6c99\u7bb1\u90e8\u7f72\u201d\uff08milestone=beginner\uff09\u4e0e\u201cECS \u6301\u4e45\u5316\u90e8\u7f72\u201d\uff08milestone=intermediate\uff09\u4e24\u6b65\uff0c\u5e76\u5728\u6210\u529f\u540e\u56de\u62a5\u9884\u8ba1\u53ef\u5f97\u79ef\u5206\uff08\u4ee5\u6210\u957f\u4f53\u7cfb\u5b9e\u9645\u53d1\u653e\u4e3a\u51c6\uff0c\u4ec5\u53d1\u653e\u4e00\u6b21\uff09\uff1b\u6c99\u7bb1\u90e8\u7f72\uff08beginner\uff09\u5b8c\u6210\u540e**\u59cb\u7ec8**\u8be2\u95ee\u7528\u6237\u662f\u5426\uff08\u53ef\u9009\uff09\u5c06\u4f5c\u54c1\u53d1\u5e03\u5230\u5f00\u53d1\u8005\u4f5c\u54c1\u5c55\u89c8\u9986\u7684\u95ef\u5173\u6d3b\u52a8\uff1b\u82e5\u6b64\u65f6\u672a\u53d1\u5e03\u5219\u5728 ECS\uff08intermediate\uff09\u5b8c\u6210\u540e\u518d\u8be2\u95ee\u4e00\u6b21\uff0c\u82e5\u5df2\u53d1\u5e03\u5219 ECS \u9636\u6bb5\u4e0d\u518d\u8be2\u95ee\uff08npx skills add ... publish-work-to-gallery\uff09\u3002Use when the user asks to \u63d0\u4ea4\u4f5c\u54c1\u3001\u63d0\u4ea4\u95ef\u5173\u6210\u679c\u3001\u81ea\u52a8\u63d0\u4ea4\u6d3b\u52a8\u6210\u679c\u3001\u63d0\u4ea4\u6c99\u7bb1\u94fe\u63a5/\u516c\u7f51\u5730\u5740, or when a generated sandbox URL needs to be submitted for the \u534e\u4e3a\u4e91\u5f00\u653e\u80fd\u529b\u95ef\u5173\u6311\u6218\u3002\u672c skill \u56fa\u5b9a\u4f7f\u7528**\u751f\u4ea7\u73af\u5883**\uff08\u73b0\u7f51\uff09\u63a5\u53e3\uff0c\u65e0\u9700\u4e5f**\u4e0d\u8981**\u5207\u6362\u73af\u5883\u3002\u4ec5\u7528\u4e8e\u8c03\u7528\u63a5\u53e3\uff0c\u4e0d\u6d89\u53ca\u4efb\u4f55\u9875\u9762/\u6d4f\u89c8\u5668\u64cd\u4f5c.",
+    "path": "category/prompt-llm-engineering/huawei-cloud-activity-submit"
+  },
+  {
+    "id": "huawei-cloud-cloudrobo-resource",
+    "name": "huawei-cloud-cloudrobo-resource",
+    "category": "prompt-llm-engineering",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Query CloudRobo resource quotas and resource pools \u2014 list workspace-level and Domain-level quotas with CCE/ModelArts isolation (CCE: cpu/memory/gpu, ModelArts: npu), list resource pools with multi-condition filtering (type/sub-type/pool-type/usages), and show resource pool details with node-level information (name, status, resources, labels). Provides compute capacity visibility for training, evaluation, and inference workloads. Triggers include: resource quota query, resource pool query, resource pool list, resource pool detail, quota list, Domain quota aggregation, CCE quota, ModelArts quota, \u8d44\u6e90\u914d\u989d\u67e5\u8be2, \u8d44\u6e90\u6c60\u67e5\u8be2, \u8d44\u6e90\u6c60\u5217\u8868, \u8d44\u6e90\u6c60\u8be6\u60c5, \u914d\u989d\u67e5\u8be2.",
+    "path": "category/prompt-llm-engineering/huawei-cloud-cloudrobo-resource"
+  },
+  {
+    "id": "huawei-cloud-cloudrobo-train",
+    "name": "huawei-cloud-cloudrobo-train",
+    "category": "prompt-llm-engineering",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Manage CloudRobo model training tasks and simulation reinforcement learning (SimRL) tasks \u2014 create pretrain (TRAIN_FROM_SCRATCH) and finetune (MODEL_TUNING) tasks with FFT/SFT/LORA/QLORA/DEEPSPEED methods; manage the full task lifecycle (create/read/update/delete/stop/restart/resume/draft); save and resubmit draft configs; count tasks by status; monitor execution stages, resource usage, training logs, signed URLs, and events; diagnose failures. SimRL tasks (simulation reinforcement learning) are managed via the same CLI with a --sim-rl flag and cover the same CRUD + lifecycle + monitoring surface (except resume, which is train-only). Triggers include: model training, fine-tuning, pretraining, training task, training stages, resource usage, training logs, training events, draft task, restart training, stop training, resume training, task stats, simulation reinforcement learning, SimRL, \u4eff\u771f\u5f3a\u5316\u5b66\u4e60, \u6a21\u578b\u8bad\u7ec3, \u6a21\u578b\u5fae\u8c03, \u8bad\u7ec3\u4efb\u52a1, \u8bad\u7ec3\u9636\u6bb5, \u8d44\u6e90\u4f7f\u7528, \u8bad\u7ec3\u65e5\u5fd7, \u8bad\u7ec3\u4e8b\u4ef6, \u8349\u7a3f\u4efb\u52a1, \u91cd\u542f\u8bad\u7ec3, \u514b\u9686\u8bad\u7ec3, \u505c\u6b62\u8bad\u7ec3, \u7eed\u8bad\u8bad\u7ec3, \u4efb\u52a1\u7edf\u8ba1.",
+    "path": "category/prompt-llm-engineering/huawei-cloud-cloudrobo-train"
+  },
+  {
+    "id": "huawei-cloud-ecs-query",
+    "name": "huawei-cloud-ecs-query",
+    "category": "prompt-llm-engineering",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "\u67e5\u8be2\u534e\u4e3a\u4e91ECS\u5f39\u6027\u4e91\u670d\u52a1\u5668\u4fe1\u606f\u3002\u4ec5\u7528\u4e8e\u67e5\u8be2\uff0c\u4e0d\u5305\u542b\u521b\u5efa/\u5220\u9664/\u89c4\u683c\u53d8\u66f4\u7b49\u5199\u64cd\u4f5c\u3002\u5f53\u7528\u6237\u9700\u8981\u67e5\u770b\u534e\u4e3a\u4e91ECS\u5b9e\u4f8b\u5217\u8868\u3001\u5b9e\u4f8b\u8be6\u60c5\u3001\u5b9e\u4f8b\u72b6\u6001\u65f6\u4f7f\u7528\u3002\u652f\u6301AK/SK\u548cToken\u4e24\u79cd\u8ba4\u8bc1\u65b9\u5f0f\uff0c\u652f\u6301\u8868\u683c\u548cJSON\u4e24\u79cd\u8f93\u51fa\u683c\u5f0f\uff0c\u652f\u6301\u591a\u533a\u57df\u67e5\u8be2\u3002\u89e6\u53d1\u6761\u4ef6\uff1a\u7528\u6237\u8981\u6c42\"\u67e5\u8be2\u4e91\u670d\u52a1\u5668\u5217\u8868\"\u3001\"\u67e5\u770bECS\u5b9e\u4f8b\u8be6\u60c5\"\u3001\"ECS\u8fd0\u884c\u72b6\u6001\"\u3001\"\u5217\u51faECS\"\u3001\"\u67e5\u770b\u670d\u52a1\u5668\u72b6\u6001\"\uff0c\u6216\u8bf7\u6c42\u4e2d\u5e26 update/\u4fee\u6539/\u521b\u5efa/\u5220\u9664 ECS \u4ee5\u5916\u7684\u53ea\u8bfb\u67e5\u8be2\u610f\u56fe\u65f6\uff08\u5982\u67e5 flavor\u3001\u53ef\u7528\u533a\u3001\u955c\u50cf\u7b49 ECS \u5c5e\u6027\uff09\u4f7f\u7528\u3002\u5199\u64cd\u4f5c\u8bf7\u6c42\uff08\u521b\u5efa\u3001\u5220\u9664\u3001\u89c4\u683c\u53d8\u66f4\u3001\u5f00\u673a/\u5173\u673a\uff09\u8bf7\u4f7f\u7528\u5176\u4ed6\u6280\u80fd\u3002",
+    "path": "category/prompt-llm-engineering/huawei-cloud-ecs-query"
+  },
+  {
+    "id": "huawei-cloud-evs-disk-create",
+    "name": "huawei-cloud-evs-disk-create",
+    "category": "prompt-llm-engineering",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Skill specialized for creating EVS disks on Huawei Cloud. Use this skill when users need to create cloud disks (EVS), set disk types, configure disk size, select availability zones, or need guidance on the disk creation process. Trigger conditions: \"\u521b\u5efa\u4e91\u786c\u76d8\", \"\u534e\u4e3a\u4e91EVS\", \"\u521b\u5efa\u78c1\u76d8\", \"\u521b\u5efa\u4e91\u76d8\", \"create EVS disk\", \"Huawei Cloud disk\", \"EVS disk\", \"cloud disk\", \"volume create\", \"\u4e91\u786c\u76d8\u521b\u5efa\" or when setting up Huawei Cloud block storage.",
+    "path": "category/prompt-llm-engineering/huawei-cloud-evs-disk-create"
+  },
+  {
+    "id": "huawei-cloud-lts-log-inspector",
+    "name": "huawei-cloud-lts-log-inspector",
+    "category": "prompt-llm-engineering",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Huawei Cloud LTS (Log Tank Service) log traffic statistics, log context query, host group and access config inspection, collection status patrol, and OBS transfer management for batch log export. Covers log histogram query, TOP-N traffic statistics, timeline traffic statistics, single-log context retrieval, host group listing, access config query, host collection status inspection, OBS transfer create/list/delete, and diagnostic workflows for traffic surge, collection break, and log flooding. Triggers include: \u65e5\u5fd7\u6d41\u91cf\u5f02\u5e38\u6392\u67e5, \u65e5\u5fd7\u91c7\u96c6\u6545\u969c\u5de1\u68c0, \u6545\u969c\u6df1\u5ea6\u5b9a\u4f4d, \u65e5\u5fd7\u6279\u91cf\u5bfc\u51fa, LTS\u6d41\u91cf\u7edf\u8ba1, \u65e5\u5fd7\u4e0a\u4e0b\u6587\u67e5\u8be2, \u91c7\u96c6\u65ad\u6d41, \u65e5\u5fd7\u5237\u5c4f, log traffic anomaly, collection inspection, log context, LTS patrol, log flooding diagnose, offline log export, OBS transfer.",
+    "path": "category/prompt-llm-engineering/huawei-cloud-lts-log-inspector"
+  },
+  {
+    "id": "huawei-cloud-modelarts-vllm-ascend-model-deploy",
+    "name": "huawei-cloud-modelarts-vllm-ascend-model-deploy",
+    "category": "prompt-llm-engineering",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "\u6307\u5bfc\u5728\u534e\u4e3a\u4e91 ModelArts \u63a8\u7406\u5e73\u53f0\u901a\u8fc7 vLLM-Ascend \u63a8\u7406\u6846\u67b6\u90e8\u7f72\u5f00\u6e90\u5927\u8bed\u8a00\u6a21\u578b(GLM/Qwen/DeepSeek/Llama \u7b49)\u4e3a\u6607\u817e NPU \u5728\u7ebf\u63a8\u7406\u670d\u52a1\u7684\u5b8c\u6574\u6d41\u7a0b\u3002\u8986\u76d6:\u786e\u8ba4\u6a21\u578b\u540e\u6309 vllm-ascend \u793e\u533a\u6587\u6863\u4e0e\u7528\u6237\u786e\u8ba4\u90e8\u7f72\u5f62\u5f0f(\u5355\u8282\u70b9/\u591a\u8282\u70b9/PD\u5206\u79bb/PD\u5171\u7f6e 4 \u79cd\u5f62\u5f0f,\u7edf\u4e00\u5355\u90e8\u7f72\u5355\u5143\u627f\u8f7d),\u4ece HuggingFace/ModelScope \u4e0b\u8f7d\u6a21\u578b\u6743\u91cd\u5e76\u4e0a\u4f20 OBS\u3001\u4ece Quay.io \u62c9\u53d6 vllm-ascend \u955c\u50cf\u5e76\u63a8\u9001 SWR\u3001\u6309\u786e\u8ba4\u7684\u90e8\u7f72\u5f62\u5f0f\u9009\u7528\u4e13\u7528\u811a\u672c\u6a21\u677f(\u5355\u8282\u70b9/\u591a\u8282\u70b9/PD/PD\u5171\u7f6e \u56db\u5957,\u811a\u672c\u5185\u4e0d\u505a\u90e8\u7f72\u5f62\u5f0f\u8fd0\u884c\u65f6\u5206\u652f)\u751f\u6210\u542f\u52a8/\u63a2\u9488/\u89d2\u8272\u8bc6\u522b\u811a\u672c\u5e76\u4e0a\u4f20 OBS\u3001\u6309 ModelArts \u5e73\u53f0\u9002\u914d\u8981\u70b9(\u7aef\u53e3 8080\u3001OBS \u6302\u8f7d\u3001bash \u6570\u7ec4\u3001\u63a2\u9488\u547d\u4ee4\u68c0\u67e5\u3001\u8d85\u8282\u70b9\u4eb2\u548c\u7ec4)\u901a\u8fc7\u65b0\u7248\u5728\u7ebf\u670d\u52a1\u90e8\u7f72(\u4e8c\u9009\u4e00: \u65b9\u5f0fA \u8c03\u7528 CreateInferService API(POST /v2/{project_id}/services)\u81ea\u52a8\u90e8\u7f72 / \u65b9\u5f0fB \u5728 ModelArts \u63a7\u5236\u53f0\u6309\u4e00\u6b65\u6b65\u70b9\u51fb\u6307\u5bfc\u624b\u52a8\u90e8\u7f72;\u4e0d\u518d\u521b\u5efa AI \u5e94\u7528\u2014\u2014\u8be5\u6a21\u5757\u5df2\u5e9f\u5f03)\u3001\u901a\u8fc7 OpenAI \u517c\u5bb9 API \u8c03\u7528\u9a8c\u8bc1\u3002Triggers include: \\\"ModelArts \u90e8\u7f72\u5927\u6a21\u578b/\u5f00\u6e90\u6a21\u578b\\\", \\\"vllm-ascend\\\", \\\"\u6607\u817e NPU \u63a8\u7406\\\", \\\"HuggingFace/ModelScope \u6a21\u578b\u4e0a\u4e91\\\", \\\"OBS/SWR \u955c\u50cf\u8fc1\u79fb\\\", \\\"\u5927\u6a21\u578b\u5728\u7ebf\u670d\u52a1\\\", \\\"\u591a\u673a\u90e8\u7f72\\\", \\\"\u591a\u526f\u672c\u90e8\u7f72\\\", \\\"PD \u5206\u79bb\u90e8\u7f72\\\", \\\"PD \u5171\u7f6e\u90e8\u7f72\\\", \\\"\u8d85\u8282\u70b9\u4eb2\u548c\u7ec4\\\", \\\"\u65b0\u7248\u5728\u7ebf\u670d\u52a1\\\", \\\"CreateInferService\\\", \\\"\u63a7\u5236\u53f0\u624b\u52a8\u90e8\u7f72\u5728\u7ebf\u670d\u52a1\\\"\u3002\u5f53\u7528\u6237\u63d0\u5230\u4ee5\u4e0a\u4efb\u4e00\u573a\u666f\u65f6\u90fd\u5e94\u4f7f\u7528\u672c\u6280\u80fd,\u5373\u4f7f\u6ca1\u6709\u660e\u786e\u8bf4\u51fa'\u90e8\u7f72'\u4e8c\u5b57\u3002",
+    "path": "category/prompt-llm-engineering/huawei-cloud-modelarts-vllm-ascend-model-deploy"
+  },
+  {
+    "id": "huawei-cloud-msmodelslim-model-adapt",
+    "name": "huawei-cloud-msmodelslim-model-adapt",
+    "category": "prompt-llm-engineering",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Create basic Transformers model adapters for msModelSlim. Implements required interfaces and completes a four-step verification workflow: generate test model -> full fallback quantization -> weight verification -> quantization description validation. Use this skill when the user wants to: (1) create msModelSlim adapters for decoder-only LLM, (2) adapt understanding VLM text backbones for quantization, (3) implement W8A8/W4A16 quantization workflow for new models. Trigger: user mentions \"msModelSlim\", \"adapter\", \"model adapter\",\"quantization\", \"W8A8\",\"W4A16\", \"transformers\", \"LLM\", \"VLM\", \"adapter creation\", \"\u9002\u914d\u5668\",\"\u6a21\u578b\u9002\u914d\", \"\u91cf\u5316\", \"\u6a21\u578b\u9002\u914d\u5668\", \"LLM\u91cf\u5316",
+    "path": "category/prompt-llm-engineering/huawei-cloud-msmodelslim-model-adapt"
+  },
+  {
+    "id": "huawei-cloud-msmodelslim-model-analysis",
+    "name": "huawei-cloud-msmodelslim-model-analysis",
+    "category": "prompt-llm-engineering",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Analyze candidate models before adapter implementation. Determine model implementation source (transformers or model-local), structural features, layer-by-layer loading requirements, and MoE fused weight risks. Use this skill when the user wants to: (1) assess model adaptation feasibility before creating msModelSlim adapters, (2) analyze model structure and type classification, (3) evaluate MoE compatibility for quantization. Trigger: user mentions \"model analysis\", \"msModelSlim\", \"adapter\", \"transformers\", \"MoE\", \"layer-by-layer\", \"model assessment\", \"feasibility\", \"\u6a21\u578b\u5206\u6790\", \"\u9002\u914d\u53ef\u884c\u6027\", \"\u6a21\u578b\u8bc4\u4f30\", \"MoE\u5206\u6790",
+    "path": "category/prompt-llm-engineering/huawei-cloud-msmodelslim-model-analysis"
+  },
+  {
+    "id": "huawei-cloud-obs-lifecycle-management",
+    "name": "huawei-cloud-obs-lifecycle-management",
+    "category": "prompt-llm-engineering",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Manage Huawei Cloud OBS (Object Storage Service) lifecycle policies: list/get lifecycle rules, list bucket objects, diagnose why a lifecycle rule is not taking effect, analyze lifecycle-vs-storage-cost trade-offs, dry-run preview which objects a rule would affect, and create/update/delete lifecycle rules (R2/R1 require preview + user confirmation). All operations run through the hcloud CLI OBS module (obsutil passthrough). Use when the user wants to: check why objects are not being transitioned or expired (lifecycle not working), list or query OBS lifecycle rules, create/update/delete lifecycle rules, preview the object scope a rule would affect before applying it, or estimate cost savings from transitioning objects to colder storage classes. Triggers include: \"OBS\u751f\u547d\u5468\u671f\", \"\u751f\u547d\u5468\u671f\u89c4\u5219\", \"\u751f\u547d\u5468\u671f\u7b56\u7565\", \"\u4e0d\u751f\u6548\", \"\u672a\u751f\u6548\", \"\u8fc7\u671f\u5220\u9664\", \"\u8f6c\u50a8\", \"\u5f52\u6863\", \"\u4f4e\u9891\", \"lifecycle\", \"lifecycle rule\", \"lifecycle policy\", \"expiration\", \"transition\", \"storage class\", \"OBS lifecycle not working\", \"obs lifecycle diagnose\", \"dry-run\", \"preview lifecycle rule\".",
+    "path": "category/prompt-llm-engineering/huawei-cloud-obs-lifecycle-management"
+  },
+  {
+    "id": "huawei-cloud-obs-stats",
+    "name": "huawei-cloud-obs-stats",
+    "category": "prompt-llm-engineering",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Query Huawei Cloud OBS (Object Storage Service) statistics: list buckets with capacity and object counts, query extranet/intranet download traffic with month-over-month comparison, and query total requests with month-over-month comparison. Use this skill when the user wants to: (1) list OBS buckets and check their storage capacity and object count, (2) query download traffic with MoM comparison, (3) query request counts with MoM comparison. Trigger: user mentions \"OBS\", \"object storage\", \"bucket list\", \"bucket capacity\", \"download traffic\", \"total requests\", \"request count\", \"month-over-month\", \"OBS stats\", \"OBS management\", \"\u5bf9\u8c61\u5b58\u50a8\", \"\u6876\u5217\u8868\", \"\u6876\u5bb9\u91cf\", \"\u4e0b\u8f7d\u6d41\u91cf\", \"\u8bf7\u6c42\u603b\u6570\", \"\u6708\u73af\u6bd4\", \"OBS\u76d1\u63a7",
+    "path": "category/prompt-llm-engineering/huawei-cloud-obs-stats"
+  },
+  {
     "id": "hub-init",
     "name": "hub-init",
     "category": "prompt-llm-engineering",
@@ -2598,6 +2966,46 @@
     "repository": "reason-machines-trending-skills",
     "description": "name: hyperagents-self-improving",
     "path": "category/prompt-llm-engineering/hyperagents-self-improving"
+  },
+  {
+    "id": "i4h-workflow-dataset-annotate",
+    "name": "i4h-workflow-dataset-annotate",
+    "category": "prompt-llm-engineering",
+    "repository": "nvidia-skills",
+    "description": "Grade or filter workflow HDF5 episodes with an OpenAI-compatible vision model. Use for visual success labels; do not use for replay, policy evaluation, or recordings without frames.",
+    "path": "category/prompt-llm-engineering/i4h-workflow-dataset-annotate"
+  },
+  {
+    "id": "i4h-workflow-dataset-replay",
+    "name": "i4h-workflow-dataset-replay",
+    "category": "prompt-llm-engineering",
+    "repository": "nvidia-skills",
+    "description": "Replay a workflow HDF5 episode through its original Scene. Use for visual trajectory and recording verification; do not use for policy evaluation or LeRobot data.",
+    "path": "category/prompt-llm-engineering/i4h-workflow-dataset-replay"
+  },
+  {
+    "id": "i4h-workflow-dataset-teleop",
+    "name": "i4h-workflow-dataset-teleop",
+    "category": "prompt-llm-engineering",
+    "repository": "nvidia-skills",
+    "description": "Record demonstrations through a workflow's teleop Task into workflow HDF5. Use for keyboard, leader, VR, or bus input; do not use for policy evaluation or autonomous rule-based Tasks.",
+    "path": "category/prompt-llm-engineering/i4h-workflow-dataset-teleop"
+  },
+  {
+    "id": "i4h-workflow-train-rl",
+    "name": "i4h-workflow-train-rl",
+    "category": "prompt-llm-engineering",
+    "repository": "nvidia-skills",
+    "description": "Use when training, evaluating, or exporting Workflow policies with online RSL-RL or RLinf, including RL checkpoint and Workflow handoff.",
+    "path": "category/prompt-llm-engineering/i4h-workflow-train-rl"
+  },
+  {
+    "id": "identify-assumptions-new",
+    "name": "identify-assumptions-new",
+    "category": "prompt-llm-engineering",
+    "repository": "phuryn-pm-skills",
+    "description": "Identify risky assumptions for a new product idea across 8 risk categories including Go-to-Market, Strategy, and Team. Use when evaluating startup risks, assessing a new product concept, or mapping assumptions for a new venture.",
+    "path": "category/prompt-llm-engineering/identify-assumptions-new"
   },
   {
     "id": "identity-federation",
@@ -2712,12 +3120,20 @@
     "path": "category/prompt-llm-engineering/infsh-cli"
   },
   {
-    "id": "interrogate",
-    "name": "interrogate",
+    "id": "interview-cheatsheet",
+    "name": "interview-cheatsheet",
     "category": "prompt-llm-engineering",
-    "repository": "backnotprop-pstack",
-    "description": "Use for \\\"interrogate\\\", \\\"adversarial review\\\", \\\"multi-model review\\\", \\\"challenge this\\\", \\\"stress test this code\\\", \\\"find blind spots\\\", or \\\"tear this apart\\\". Multiple LLM reviewers challenge changes from independent angles.",
-    "path": "category/prompt-llm-engineering/interrogate"
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Generate a long-form Chinese interview-prep cheat sheet on a specific ML/LLM topic \u2014 formulas with derivations, from-scratch PyTorch code, comparison tables, and 25 \u9ad8\u9891\u9762\u8bd5\u9898 (L1 \u5fc5\u4f1a / L2 \u8fdb\u9636 / L3 \u9876\u7ea7 lab). Use when the user says '\u5199\u9762\u8bd5 cheat sheet', '\u5199\u4e00\u4efd X \u6559\u7a0b', '\u5e2e\u6211\u51c6\u5907 Y \u9762\u8bd5\u9898', '\u51fa\u4e00\u4efd X \u901f\u67e5', or wants a 600-1000 line Chinese tutorial on a specific ML topic.",
+    "path": "category/prompt-llm-engineering/interview-cheatsheet"
+  },
+  {
+    "id": "isaac-mission-control-showcase",
+    "name": "isaac-mission-control-showcase",
+    "category": "prompt-llm-engineering",
+    "repository": "nvidia-skills",
+    "description": "Run and validate an end-to-end Mission Control showcase with a locally installed Isaac Sim launched in its GUI window, driven through the isaac-sim-remote Python server, with Nova Carter SIL. Use for demos, showcase replays, Mission Control driving a simulated robot, or diagnosing the integrated small-warehouse scenario. Detect existing Isaac Sim installations without modifying them, automatically select a usable runtime without prompting whenever compatibility can be confirmed, and delegate requested installation or version changes to isaac-sim-installation. Defaults to a canonical Isaac 6.1 warehouse and deterministic circular route when the user does not specify another scenario.",
+    "path": "category/prompt-llm-engineering/isaac-mission-control-showcase"
   },
   {
     "id": "iv-estimation",
@@ -2726,6 +3142,30 @@
     "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "Econometrics skill for instrumental variables and treatment effect estimation. Activates when the user asks about: \"instrumental variables\", \"IV estimation\", \"2SLS\", \"two-stage least squares\", \"endogeneity\", \"weak instruments\", \"first stage\", \"Sargan test\", \"overidentification\", \"propensity score matching\", \"PSM\", \"average treatment effect\", \"ATT\", \"LATE\", \"local average treatment effect\", \"endogenous regressor\", \"instrument validity\", \"\u5de5\u5177\u53d8\u91cf\", \"\u4e24\u9636\u6bb5\u6700\u5c0f\u4e8c\u4e58\", \"\u5185\u751f\u6027\", \"\u5f31\u5de5\u5177\u53d8\u91cf\", \"\u503e\u5411\u5f97\u5206\u5339\u914d\", \"\u5e73\u5747\u5904\u7406\u6548\u5e94\", \"\u5904\u7406\u6548\u5e94\", \"\u5c40\u90e8\u5e73\u5747\u5904\u7406\u6548\u5e94",
     "path": "category/prompt-llm-engineering/iv-estimation"
+  },
+  {
+    "id": "jetson-diagnostic",
+    "name": "jetson-diagnostic",
+    "category": "prompt-llm-engineering",
+    "repository": "nvidia-skills",
+    "description": "Read-only Jetson health snapshot for identity, memory, GPU, thermal, power, storage, services, and top processes.",
+    "path": "category/prompt-llm-engineering/jetson-diagnostic"
+  },
+  {
+    "id": "jetson-llm-serve",
+    "name": "jetson-llm-serve",
+    "category": "prompt-llm-engineering",
+    "repository": "nvidia-skills",
+    "description": "Stand up vLLM or SGLang serving on Jetson, using upstream vLLM on Thor and Orin JetPack 7.2+, and NVIDIA-AI-IOT vLLM on older Orin.",
+    "path": "category/prompt-llm-engineering/jetson-llm-serve"
+  },
+  {
+    "id": "jetson-speculative-decoding",
+    "name": "jetson-speculative-decoding",
+    "category": "prompt-llm-engineering",
+    "repository": "nvidia-skills",
+    "description": "Add EAGLE-3 or draft-model speculative decoding to a Jetson vLLM server when TPOT is the bottleneck.",
+    "path": "category/prompt-llm-engineering/jetson-speculative-decoding"
   },
   {
     "id": "job-description-analyzer",
@@ -2782,6 +3222,14 @@
     "repository": "aaron-he-zhu-aaron-marketing-skills",
     "description": "Use when the user asks to \"find keywords\", \"\u6316\u8bcd\", or \"\u641c\u4ec0\u4e48\u8bcd\"; prioritizes search volume, keyword difficulty, intent, and topic clusters from provided or connected data. Not for competitor-relative coverage gaps \u2014 use content-gap-analysis. \u5173\u952e\u8bcd\u7814\u7a76/\u5185\u5bb9\u9009\u9898",
     "path": "category/prompt-llm-engineering/keyword-research"
+  },
+  {
+    "id": "knowledge-base-for-startups",
+    "name": "knowledge-base-for-startups",
+    "category": "prompt-llm-engineering",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "AWS Startups reference content \u2014 Activate FAQ, credits guide, programs, partner offers, sample architectures, and hundreds of learn articles spanning generative AI, cloud architecture, cost optimization, security, fundraising, go-to-market, and real-world startup case studies. Use when the user asks factual questions about AWS Activate (eligibility, credits, programs, providers), wants a sample architecture or solution guide, or needs an AWS-curated learn article on a specific startup topic. For copy-paste AI prompts (RAG chatbot, MVP scaffold, security baseline, GPU quota, etc.), see the prompt-library-for-startups skill. Do not use for: account-specific lookups (credits balance, Activate membership status, application status), real-time event listings beyond the events stub, or content not present in the bundled `references/` tree.",
+    "path": "category/prompt-llm-engineering/knowledge-base-for-startups"
   },
   {
     "id": "knowledge-graph-construction",
@@ -2936,6 +3384,14 @@
     "path": "category/prompt-llm-engineering/launch-readiness-auditor"
   },
   {
+    "id": "launchdarkly-flag-drift",
+    "name": "launchdarkly-flag-drift",
+    "category": "prompt-llm-engineering",
+    "repository": "launchdarkly-ai-tooling",
+    "description": "Detect and reconcile drift between a feature flag's in-code SDK fallback default and its LaunchDarkly default rule (fallthrough). Use when a flag's default rule changed, when the user asks to detect flag drift, check whether a hardcoded default still matches LaunchDarkly, sync an in-code default, or open a PR reconciling a fallback value, without removing the flag or its evaluation.",
+    "path": "category/prompt-llm-engineering/launchdarkly-flag-drift"
+  },
+  {
     "id": "lean-theorem-proving-guide",
     "name": "lean-theorem-proving-guide",
     "category": "prompt-llm-engineering",
@@ -2944,12 +3400,28 @@
     "path": "category/prompt-llm-engineering/lean-theorem-proving-guide"
   },
   {
+    "id": "let-fate-decide",
+    "name": "let-fate-decide",
+    "category": "prompt-llm-engineering",
+    "repository": "trailofbits-skills",
+    "description": "Draws the 12 Houses of the Zodiac Tarot spread to inject entropy into planning when prompts are vague, ambiguous, or casually delegated. Interprets the spread to guide next steps. Use when the user says 'let fate decide', 'YOLO', 'whatever', 'idk', or other nonchalant phrases, makes Yu-Gi-Oh references, or when you are about to arbitrarily pick between multiple reasonable approaches. Prefer over asking clarifying questions when the user's tone is casual or playful rather than precision-seeking.",
+    "path": "category/prompt-llm-engineering/let-fate-decide"
+  },
+  {
     "id": "lgbt-prompt",
     "name": "lgbt-prompt",
     "category": "prompt-llm-engineering",
     "repository": "reason-machines-trending-skills",
     "description": "I'm not going to create a skill file for this project.",
     "path": "category/prompt-llm-engineering/lgbt-prompt"
+  },
+  {
+    "id": "libfuzzer",
+    "name": "libfuzzer",
+    "category": "prompt-llm-engineering",
+    "repository": "trailofbits-skills",
+    "description": "Sets up and runs libFuzzer, the coverage-guided fuzzer built into LLVM, on C/C++ code that compiles with Clang. Covers harness structure, -fsanitize=fuzzer builds, corpus and dictionary management, sanitizer integration, and campaign triage. Use when writing or debugging an LLVMFuzzerTestOneInput harness, starting fuzzing on a C/C++ library, choosing between libFuzzer and AFL++, or working out why a libFuzzer run finds nothing.",
+    "path": "category/prompt-llm-engineering/libfuzzer"
   },
   {
     "id": "link-relevance-evaluator",
@@ -3184,6 +3656,14 @@
     "path": "category/prompt-llm-engineering/llm-structured-output"
   },
   {
+    "id": "llm-to-bedrock",
+    "name": "llm-to-bedrock",
+    "category": "prompt-llm-engineering",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Use when the user wants to migrate code that calls OpenAI, Gemini/Google AI, or the Anthropic API to Amazon Bedrock \u2014 a pure model/SDK rewrite. End-to-end: assesses the codebase, rewrites SDK calls, evaluates output quality against Bedrock, and delivers a ready-to-merge git branch. Also has an access-only mode for checking or enabling Bedrock model access for specific models (e.g. 'request access to Claude on Bedrock', 'which models do I turn on') with no code migration \u2014 it checks each model and walks the right access step, then stops. Not for agent runtime selection or agent migration planning (use agent-advisor), nor standalone cost estimates or infra-only migration. The full migration REQUIRES gcp-to-aws OR azure-to-aws installed alongside this skill (gcp-to-aws preferred when both are present); access-only mode needs neither.",
+    "path": "category/prompt-llm-engineering/llm-to-bedrock"
+  },
+  {
     "id": "llm-trading-agent-security",
     "name": "llm-trading-agent-security",
     "category": "prompt-llm-engineering",
@@ -3240,12 +3720,12 @@
     "path": "category/prompt-llm-engineering/long-horizon-prompting"
   },
   {
-    "id": "lookdev",
-    "name": "lookdev",
+    "id": "lora-qlora-recipes",
+    "name": "lora-qlora-recipes",
     "category": "prompt-llm-engineering",
-    "repository": "sickn33-agentic-awesome-skills",
-    "description": "Human-in-the-loop web studio to tune AI-generated output by eye. Stand up a local interactive studio (sliders, pickers, drag handles) or an inline edit/highlight/comment annotation studio for prose & media, instead of guessing values or shipping a static comparison grid.",
-    "path": "category/prompt-llm-engineering/lookdev"
+    "repository": "wshobson-agents",
+    "description": "Configure LoRA and QLoRA supervised fine-tuning with current best-practice hyperparameters. Use when writing or reviewing a LoRA/QLoRA training configuration, choosing rank/alpha/target modules, or deciding between LoRA, QLoRA, and full fine-tuning.",
+    "path": "category/prompt-llm-engineering/lora-qlora-recipes"
   },
   {
     "id": "lorem-ipsum",
@@ -3318,6 +3798,14 @@
     "repository": "deanpeters-product-manager-skills",
     "description": "Map a market's segments, players, substitutes, and whitespace with cited evidence. Use when entering or re-evaluating a market before sizing, positioning, or picking competitors to study.",
     "path": "category/prompt-llm-engineering/market-landscape-scan"
+  },
+  {
+    "id": "market-sizing",
+    "name": "market-sizing",
+    "category": "prompt-llm-engineering",
+    "repository": "phuryn-pm-skills",
+    "description": "Estimate market size using TAM, SAM, and SOM with top-down and bottom-up approaches. Use when sizing a market opportunity, estimating addressable market, preparing for investor pitches, or evaluating market entry.",
+    "path": "category/prompt-llm-engineering/market-sizing"
   },
   {
     "id": "markit-markdown-converter",
@@ -3608,6 +4096,70 @@
     "path": "category/prompt-llm-engineering/negotiating-compensation"
   },
   {
+    "id": "nemo-automodel-recipe-development",
+    "name": "nemo-automodel-recipe-development",
+    "category": "prompt-llm-engineering",
+    "repository": "nvidia-skills",
+    "description": "Create and modify NeMo AutoModel training and evaluation recipes, including YAML structure, builders, and execution flow.",
+    "path": "category/prompt-llm-engineering/nemo-automodel-recipe-development"
+  },
+  {
+    "id": "nemo-mbridge-perf-moe-dispatcher-selection",
+    "name": "nemo-mbridge-perf-moe-dispatcher-selection",
+    "category": "prompt-llm-engineering",
+    "repository": "nvidia-skills",
+    "description": "Choose the right MoE token dispatcher (`alltoall`, DeepEP, or HybridEP) for the hardware, EP degree, and optimization stage. Summarizes patterns from DSV3, Qwen3, Qwen3-Next, and VLM bring-up work.",
+    "path": "category/prompt-llm-engineering/nemo-mbridge-perf-moe-dispatcher-selection"
+  },
+  {
+    "id": "nemo-mbridge-perf-moe-hardware-configs",
+    "name": "nemo-mbridge-perf-moe-hardware-configs",
+    "category": "prompt-llm-engineering",
+    "repository": "nvidia-skills",
+    "description": "Representative, point-in-time MoE training playbooks by hardware and model family. Use them as candidate seeds, then revalidate the exact runtime, semantics, topology, and steady-state throughput.",
+    "path": "category/prompt-llm-engineering/nemo-mbridge-perf-moe-hardware-configs"
+  },
+  {
+    "id": "nemo-mbridge-perf-sequence-packing",
+    "name": "nemo-mbridge-perf-sequence-packing",
+    "category": "prompt-llm-engineering",
+    "repository": "nvidia-skills",
+    "description": "Validate and use packed sequences and long-context training in Megatron-Bridge, including offline LLM packing, collate-time VLM packing, Energon online packing, and CP constraints.",
+    "path": "category/prompt-llm-engineering/nemo-mbridge-perf-sequence-packing"
+  },
+  {
+    "id": "nemo-relay-instrument-calls",
+    "name": "nemo-relay-instrument-calls",
+    "category": "prompt-llm-engineering",
+    "repository": "nvidia-skills",
+    "description": "Use this skill when an application owns tool or LLM/provider call sites and needs to wrap them with NeMo Relay scopes and managed execution APIs for lifecycle events, middleware, or guardrails.",
+    "path": "category/prompt-llm-engineering/nemo-relay-instrument-calls"
+  },
+  {
+    "id": "nemo-relay-plugin-adaptive-tuning",
+    "name": "nemo-relay-plugin-adaptive-tuning",
+    "category": "prompt-llm-engineering",
+    "repository": "nvidia-skills",
+    "description": "Use this skill when baseline NeMo Relay instrumentation exists and the user wants to configure or evaluate adaptive plugin behavior, including telemetry, state, adaptive_hints, tool_parallelism, ACG, hint consumption, or measured rollout.",
+    "path": "category/prompt-llm-engineering/nemo-relay-plugin-adaptive-tuning"
+  },
+  {
+    "id": "nemoclaw-user-guide",
+    "name": "nemoclaw-user-guide",
+    "category": "prompt-llm-engineering",
+    "repository": "nvidia-skills",
+    "description": "Guides human users' AI agents to the NemoClaw docs MCP server and canonical Fern documentation in Markdown form. Use when users ask how to install, configure, operate, troubleshoot, secure, or learn NemoClaw with an AI coding assistant. Trigger keywords - nemoclaw docs, use nemoclaw with ai agent, nemoclaw mcp docs, nemoclaw install help, nemoclaw quickstart, nemoclaw markdown docs, llms.txt, agent skills.",
+    "path": "category/prompt-llm-engineering/nemoclaw-user-guide"
+  },
+  {
+    "id": "nemotron-asr-finetune",
+    "name": "nemotron-asr-finetune",
+    "category": "prompt-llm-engineering",
+    "repository": "nvidia-skills",
+    "description": "Orchestration skill for NVIDIA Nemotron Speech (Riva) / NeMo ASR domain and language adaptation. Given a goal like \"improve/fine-tune ASR for my domain or language\", it scopes the task, picks the cheapest sufficient path (word boosting \u2192 n-gram LM \u2192 fine-tuning), delegates each stage to the right sub-skill (data generation, training, evaluation, deployment), and answers cost/time/data questions along the way.",
+    "path": "category/prompt-llm-engineering/nemotron-asr-finetune"
+  },
+  {
     "id": "neon-ai-gateway",
     "name": "neon-ai-gateway",
     "category": "prompt-llm-engineering",
@@ -3784,6 +4336,14 @@
     "path": "category/prompt-llm-engineering/om-judge-agent-session"
   },
   {
+    "id": "online-evals",
+    "name": "online-evals",
+    "category": "prompt-llm-engineering",
+    "repository": "launchdarkly-ai-tooling",
+    "description": "Attach judges to config variations for automatic LLM-as-a-judge evaluation. Create custom judges, configure sampling rates, and monitor quality scores.",
+    "path": "category/prompt-llm-engineering/online-evals"
+  },
+  {
     "id": "openai",
     "name": "openai",
     "category": "prompt-llm-engineering",
@@ -3934,6 +4494,14 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Paragraph Keyword Optimizer. Use when working with paragraph and target keyword.",
     "path": "category/prompt-llm-engineering/paragraph-keyword-optimizer"
+  },
+  {
+    "id": "patent-novelty-check",
+    "name": "patent-novelty-check",
+    "category": "prompt-llm-engineering",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "Assess patent novelty and non-obviousness against prior art. Use when user says \\\"\u4e13\u5229\u67e5\u65b0\\\", \\\"patent novelty\\\", \\\"\u53ef\u4e13\u5229\u6027\u8bc4\u4f30\\\", \\\"patentability check\\\", or wants to evaluate if an invention is patentable.",
+    "path": "category/prompt-llm-engineering/patent-novelty-check"
   },
   {
     "id": "paywall-upgrade-cro",
@@ -4124,7 +4692,7 @@
     "name": "principle-explain-the-number",
     "category": "prompt-llm-engineering",
     "repository": "backnotprop-pstack",
-    "description": "Apply before you trust, report, or act on a number you measured: a speedup, a regression, a throughput, a latency, or an eval result. Find what limits it, and rule out that it measured something other than the work you think.",
+    "description": "Apply before you measure, and before you trust, report, or act on a number you measured: a speedup, a regression, a throughput, a latency, or an eval result. Find what limits it, and rule out that it measured something other than the work you think.",
     "path": "category/prompt-llm-engineering/principle-explain-the-number"
   },
   {
@@ -4272,6 +4840,14 @@
     "path": "category/prompt-llm-engineering/prompt-library"
   },
   {
+    "id": "prompt-library-for-startups",
+    "name": "prompt-library-for-startups",
+    "category": "prompt-llm-engineering",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "AWS-curated copy-paste prompts for AI coding agents (MVP scaffolding, RAG chatbot with Claude on Bedrock, security baseline evaluation, cost anomaly detection, GPU quota requests, EKS deployment, Well-Architected review, etc.) plus downloadable installable agents (Multi-Account Transition Advisor, Bill Shock Preventer, Service Quota Agent, Bedrock Model Availability Agent, AWS DB Advisor). Use when the user asks for a prompt to do X on AWS, wants an installable agent for multi-account / cost monitoring / quota management / Bedrock model availability / database selection, or asks how to use AWS prompts. For migration intent (GCP to AWS, Azure to AWS, OpenAI/Gemini to Bedrock), route to the migration skills in this plugin (`gcp-to-aws`, `azure-to-aws`, `heroku-to-aws`, `llm-to-bedrock`). Do not use for: factual AWS Activate / programs / credits questions, learn articles, sample architectures, or for prompts that are not in the bundled `references/prompt-library/` tree.",
+    "path": "category/prompt-llm-engineering/prompt-library-for-startups"
+  },
+  {
     "id": "prompt-master",
     "name": "prompt-master",
     "category": "prompt-llm-engineering",
@@ -4416,6 +4992,14 @@
     "path": "category/prompt-llm-engineering/rag-engineer"
   },
   {
+    "id": "rag-eval",
+    "name": "rag-eval",
+    "category": "prompt-llm-engineering",
+    "repository": "nvidia-skills",
+    "description": "Filesystem RAG benchmarks: corpus/, train.json, evaluate_rag.py (RAGAS quality). Not for prod monitoring, latency/throughput benchmarking (use rag-perf), or evals outside this repo layout.",
+    "path": "category/prompt-llm-engineering/rag-eval"
+  },
+  {
     "id": "rag-faiss",
     "name": "rag-faiss",
     "category": "prompt-llm-engineering",
@@ -4454,6 +5038,14 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Monitor and evaluate RAG systems with retrieval quality metrics, groundedness",
     "path": "category/prompt-llm-engineering/rag-observability-evals"
+  },
+  {
+    "id": "rag-perf",
+    "name": "rag-perf",
+    "category": "prompt-llm-engineering",
+    "repository": "nvidia-skills",
+    "description": "Performance benchmarking for a deployed NVIDIA RAG Blueprint server: profiling pass + aiperf load test driven by a single YAML config. Not for accuracy / RAGAS scoring (use rag-eval) or for deploying / repairing services (use rag-blueprint).",
+    "path": "category/prompt-llm-engineering/rag-perf"
   },
   {
     "id": "rag-sentence-transformers",
@@ -4632,6 +5224,22 @@
     "path": "category/prompt-llm-engineering/run-learning-retrospective"
   },
   {
+    "id": "runai-get-utilization-overview",
+    "name": "runai-get-utilization-overview",
+    "category": "prompt-llm-engineering",
+    "repository": "nvidia-skills",
+    "description": "GPU efficiency check for a Run:ai cluster: are the GPUs that projects, departments, and node pools hold actually computing? Classifies holders as WELL_UTILIZED, UNDER_UTILIZED, or IDLE from average and p95 GPU utilization over one window of any length (default 7 days), quantifies idle GPUs and GPU-hours, and names idle workloads. Use for \"which projects hold GPUs but aren't using them?\", \"GPU utilization by project or department\", \"where are we wasting GPU cycles?\", \"is llm-serving actually busy? its GPU memory is full\", \"is project X actually using its GPUs?\", \"which workloads in project X are idle?\", \"which node pool wastes the most GPUs?\", or \"idle GPU-hours per project last quarter\". For \"find the idle GPUs and stop them\" it answers the read part only. Not for quota fairness, cluster health or free capacity, one workload's status, comparing windows, forecasts, or prices.",
+    "path": "category/prompt-llm-engineering/runai-get-utilization-overview"
+  },
+  {
+    "id": "ruzzy",
+    "name": "ruzzy",
+    "category": "prompt-llm-engineering",
+    "repository": "trailofbits-skills",
+    "description": "Sets up and runs Ruzzy, Trail of Bits' coverage-guided Ruby fuzzer and the only production-ready one for the language. Covers harness structure, fuzzing pure Ruby and the native C extensions in gems, and sanitizer builds. Use when fuzzing a Ruby library or gem, testing a Ruby C extension for memory safety, or asking how to fuzz Ruby at all.",
+    "path": "category/prompt-llm-engineering/ruzzy"
+  },
+  {
     "id": "safety-alignment-nemo-guardrails",
     "name": "safety-alignment-nemo-guardrails",
     "category": "prompt-llm-engineering",
@@ -4678,6 +5286,14 @@
     "repository": "anthropics-knowledge-work",
     "description": "Search across all connected sources in one query. Trigger with \"find that doc about...\", \"what did we decide on...\", \"where was the conversation about...\", or when looking for a decision, document, or discussion that could live in chat, email, cloud storage, or a project tracker.",
     "path": "category/prompt-llm-engineering/search"
+  },
+  {
+    "id": "secure-workflow-guide",
+    "name": "secure-workflow-guide",
+    "category": "prompt-llm-engineering",
+    "repository": "trailofbits-skills",
+    "description": "Guides through Trail of Bits' 5-step secure development workflow. Runs Slither scans, checks special features (upgradeability/ERC conformance/token integration), generates visual security diagrams, helps document security properties for fuzzing/verification, and reviews manual security areas. Use when securing a smart contract end to end rather than hunting one bug, checking a project on every check-in or before deployment, triaging a Slither report, or asking where to start on smart contract security.",
+    "path": "category/prompt-llm-engineering/secure-workflow-guide"
   },
   {
     "id": "self-improvement-loops",
@@ -4800,6 +5416,14 @@
     "path": "category/prompt-llm-engineering/signal-discovery"
   },
   {
+    "id": "signing-in-to-aws",
+    "name": "signing-in-to-aws",
+    "category": "prompt-llm-engineering",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Gets AWS credentials for CLI/SDK access via `aws login`. Activates when a developer needs to authenticate to AWS for local development, when an AWS operation fails due to missing or expired credentials, or when someone asks about setting up AWS access. Triggers: \"set up AWS\", \"configure AWS\", \"aws login\", \"get credentials\", \"authenticate\", \"session expired\", \"token expired\", \"no credentials\", \"AccessDeniedException\" with no configured credentials.",
+    "path": "category/prompt-llm-engineering/signing-in-to-aws"
+  },
+  {
     "id": "skill-designer",
     "name": "skill-designer",
     "category": "prompt-llm-engineering",
@@ -4856,12 +5480,28 @@
     "path": "category/prompt-llm-engineering/skillclaw-skill-evolution"
   },
   {
+    "id": "skills-codex-gemini-review",
+    "name": "skills-codex-gemini-review",
+    "category": "prompt-llm-engineering",
+    "repository": "wanshuiyin-auto-claude-code-research-in-sleep",
+    "description": "",
+    "path": "category/prompt-llm-engineering/skills-codex-gemini-review"
+  },
+  {
     "id": "slides-style-prompt-studio",
     "name": "slides-style-prompt-studio",
     "category": "prompt-llm-engineering",
     "repository": "reason-machines-trending-skills",
     "description": "name: slides-style-prompt-studio",
     "path": "category/prompt-llm-engineering/slides-style-prompt-studio"
+  },
+  {
+    "id": "snippets",
+    "name": "snippets",
+    "category": "prompt-llm-engineering",
+    "repository": "launchdarkly-ai-tooling",
+    "description": "Create and manage prompt snippets \u2014 reusable text blocks referenced inside config variation prompts. Keeps common instructions, personas, and guardrails consistent across multiple configs.",
+    "path": "category/prompt-llm-engineering/snippets"
   },
   {
     "id": "snowflake-cortex-ai",
@@ -4894,6 +5534,14 @@
     "repository": "giuseppe-trisciuoglio-developer-kit",
     "description": "Provides Spring Boot MCP server patterns that create Model Context Protocol servers with Spring AI by defining tool handlers, exposing resources, configuring prompt templates, and setting up transports for AI function calling and tool calling. Use when building MCP servers to extend AI capabilities with Spring's official AI framework, implementing AI tools, custom function calling, or MCP client integration.",
     "path": "category/prompt-llm-engineering/spring-ai-mcp-server-patterns"
+  },
+  {
+    "id": "start-building-for-startups",
+    "name": "start-building-for-startups",
+    "category": "prompt-llm-engineering",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Interactive discovery + implementation workflow that gathers requirements through picker-based questions (intent, scope, constraints, preferences), scans the codebase for what it can already infer, then writes an AWS architectural scaffold and implementation directly into the project. Use when the user wants to build a new app, scaffold a project, or expand/refactor an existing one on AWS \u2014 anything that calls for a structured discovery flow followed by code changes, not a one-off lookup. Do not use for: factual lookups about AWS Activate / programs / credits, requests for a single copy-paste prompt, non-AWS architectural work, architecture advice/recommendations without code changes (see architect-for-startups), a new idea centered on an AI agent \u2014 runtime selection, agentic architecture, or an agent POC (see agent-advisor), or migrating an existing GCP/Azure/Heroku workload or an LLM SDK rewrite (see gcp-to-aws / azure-to-aws / heroku-to-aws / llm-to-bedrock).",
+    "path": "category/prompt-llm-engineering/start-building-for-startups"
   },
   {
     "id": "startup-analysis",
@@ -4966,6 +5614,110 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Install and use the official Talking Avatar Video package, pinned by digest, for paid hosted work on the Beatra service.",
     "path": "category/prompt-llm-engineering/talking-avatar-video"
+  },
+  {
+    "id": "tao-finetune-anomalygennext",
+    "name": "tao-finetune-anomalygennext",
+    "category": "prompt-llm-engineering",
+    "repository": "nvidia-skills",
+    "description": "Validate a user AnomalyGenNext dataset and recipe, freeze its validation set, and prepare a canonical texture fine-tuning recipe. Use when AnomalyGenNext task weights do not yet exist. Do not use for ordinary defect generation.",
+    "path": "category/prompt-llm-engineering/tao-finetune-anomalygennext"
+  },
+  {
+    "id": "tao-finetune-clip",
+    "name": "tao-finetune-clip",
+    "category": "prompt-llm-engineering",
+    "repository": "nvidia-skills",
+    "description": "CLIP vision-language model for image-text retrieval, zero-shot classification, embedding extraction, ONNX",
+    "path": "category/prompt-llm-engineering/tao-finetune-clip"
+  },
+  {
+    "id": "tao-finetune-cosmos-embed",
+    "name": "tao-finetune-cosmos-embed",
+    "category": "prompt-llm-engineering",
+    "repository": "nvidia-skills",
+    "description": "Cosmos-Embed1 video-text embedding for text-to-video retrieval, video-to-video search, semantic deduplication, and fine-tuning. Use when the user asks to \"fine-tune Cosmos-Embed1\", \"run cosmos-embed inference\", \"export Cosmos-Embed1\", \"embed videos\", or \"search videos with text\".",
+    "path": "category/prompt-llm-engineering/tao-finetune-cosmos-embed"
+  },
+  {
+    "id": "tao-finetune-huggingface-model",
+    "name": "tao-finetune-huggingface-model",
+    "category": "prompt-llm-engineering",
+    "repository": "nvidia-skills",
+    "description": "Fine-tune any HuggingFace CV / VLM / LLM model on local NVIDIA GPUs inside an NGC PyTorch container when no dedicated TAO model skill matches. Use when the user wants to fine-tune a HuggingFace model (full or LoRA), train a vision / VLM / LLM model end-to-end, generate a reproducible HF training pipeline, smoke-test a HuggingFace model locally before scale-up, push a fine-tuned model to the HF Hub with a model card, or emit a self-contained rerun skill for an existing HuggingFace finetune. Supports image classification, object detection, semantic / instance / panoptic segmentation, depth estimation, image-text-to-text VLM (SFT / LoRA), and LLM SFT / DPO / GRPO. Six-step workflow: inspect and qualify, hardware and NGC image, research, generate and smoke, train + eval + infer, push and emit rerun skill. Do not use for any Hugging Face model ID claimed by a dedicated `skills/models/*` skill; the model skill and its declared execution environment take precedence.",
+    "path": "category/prompt-llm-engineering/tao-finetune-huggingface-model"
+  },
+  {
+    "id": "tao-finetune-kumo-anomaly",
+    "name": "tao-finetune-kumo-anomaly",
+    "category": "prompt-llm-engineering",
+    "repository": "nvidia-skills",
+    "description": "Kumo-Anomaly \u2014 diffusion-based anomaly detection and fine-tuning for multivariate time series. Use when the user asks to \"fine-tune Kumo-Anomaly\", \"run Kumo-Anomaly inference\", \"detect anomalies with diffusion\", \"time series anomaly detection\", \"finetune Kumo-Anomaly\", \"use perform_anomaly_analysis_with_diffusion\", \"automl Kumo-Anomaly\", \"hyperparameter search Kumo-Anomaly\", \"hyperparameter optimization\" or mentions \"curriculum_medium.yaml\", \"final_model.pth\", \"kumo-anomaly\", \"sdk/anomaly_analysis\", or \"TSDiffuser_Generic\".",
+    "path": "category/prompt-llm-engineering/tao-finetune-kumo-anomaly"
+  },
+  {
+    "id": "tao-finetune-kumo-forecast",
+    "name": "tao-finetune-kumo-forecast",
+    "category": "prompt-llm-engineering",
+    "repository": "nvidia-skills",
+    "description": "Kumo-Forecast \u2014 transformer-based multivariate time series forecasting with DARR (context-enhanced kNN retrieval), interpretability, and fine-tuning. Use when the user asks to \"forecast with Kumo-Forecast\", \"run forecasting inference\", \"use perform_forecasting\", \"DARR mode\", \"context-enhanced forecasting\", \"lag horizon attribution\", \"interpretability\", \"fine-tune forecasting\", \"fine-tune forecasting with automl\", \"hyper-parameter optimization with forecasting\", or mentions \"kumo-forecast\", \"moment_head_512_6hr\", or \"run8_best_model_cr\".",
+    "path": "category/prompt-llm-engineering/tao-finetune-kumo-forecast"
+  },
+  {
+    "id": "tao-finetune-video-clip",
+    "name": "tao-finetune-video-clip",
+    "category": "prompt-llm-engineering",
+    "repository": "nvidia-skills",
+    "description": "InternVideo2-CLIP L14 (TAO video_clip) for video-text retrieval, zero-shot classification, embedding extraction, LoRA fine-tuning, ONNX export, and TensorRT deployment. Use when the user asks to \"fine-tune IV2CLIP\", \"run video_clip train/evaluate/inference/export\", \"build a Video-CLIP TensorRT engine\", \"InternVideo2-CLIP on KPI chunks\", or \"TAO video_clip on vadr1_chunks JSON\".",
+    "path": "category/prompt-llm-engineering/tao-finetune-video-clip"
+  },
+  {
+    "id": "tao-generate-video-reasoning-annotations",
+    "name": "tao-generate-video-reasoning-annotations",
+    "category": "prompt-llm-engineering",
+    "repository": "nvidia-skills",
+    "description": "Multi-step video annotation pipeline that turns raw videos into Chain-of-Thought training data \u2014 multi-level captions, structured descriptions, and QA pairs (MCQ, binary, open-ended) with reasoning traces, via VLM/LLM distillation. Use when the user wants to \"create video training data\", \"generate video QA datasets\", \"build CoT reasoning traces from videos\", \"auto-label videos\", or run the video_reasoning_annotation pipeline. Triggers include \"video annotation\", \"video CoT\", \"video QA\", \"chain-of-thought\", \"video captioning pipeline\", \"video distillation\".",
+    "path": "category/prompt-llm-engineering/tao-generate-video-reasoning-annotations"
+  },
+  {
+    "id": "tao-run-deft-object-detection",
+    "name": "tao-run-deft-object-detection",
+    "category": "prompt-llm-engineering",
+    "repository": "nvidia-skills",
+    "description": "Run the full DEFT smart-data-augmentation loop for NVIDIA TAO Grounding DINO object detection: zero-shot baseline inference, KPI analysis, per-class gap analysis, SigLIP embedding of weak images, unique-neighbor mining against a source pool, ODVG dataset staging, and retraining \u2014 repeated for a fixed number of iterations. Also prepares the source pool the loop mines from, as a separate run: Co-DETR pseudo-labeling, folding to the target classes, KITTI\u2192COCO\u2192ODVG conversion, and embedding. Use for prompts like \"run the DEFT OD loop\", \"run smart data augmentation for grounding dino\", \"mine and retrain my detection model\", \"improve OD mAP with gap analysis and mining\", \"prep the source pool\", or \"pseudo-label my unlabeled images for mining\"; do not use for standalone TAO training, one-off inference, or gap analysis alone.",
+    "path": "category/prompt-llm-engineering/tao-run-deft-object-detection"
+  },
+  {
+    "id": "tao-run-dinov3-ssl-deft",
+    "name": "tao-run-dinov3-ssl-deft",
+    "category": "prompt-llm-engineering",
+    "repository": "nvidia-skills",
+    "description": "Run iterative DINOv3 SSL DEFT data selection and retraining from an unlabeled pool, using GRIT or multi-task weakness and fixed-encoder retrieval. Use for active-learning-style DINOv3 mining, not plain pretraining/fine-tuning (tao-train-dinov3) or AOI/PAS DEFT.",
+    "path": "category/prompt-llm-engineering/tao-run-dinov3-ssl-deft"
+  },
+  {
+    "id": "tao-train-mask-auto-encoder",
+    "name": "tao-train-mask-auto-encoder",
+    "category": "prompt-llm-engineering",
+    "repository": "nvidia-skills",
+    "description": "Masked Auto-Encoder (MAE) for self-supervised pretraining and fine-tuning. Masks random patches and reconstructs",
+    "path": "category/prompt-llm-engineering/tao-train-mask-auto-encoder"
+  },
+  {
+    "id": "tao-train-single-step",
+    "name": "tao-train-single-step",
+    "category": "prompt-llm-engineering",
+    "repository": "nvidia-skills",
+    "description": "Standard single-step train/eval/export workflow for any TAO model. Use when training a TAO model on a dataset",
+    "path": "category/prompt-llm-engineering/tao-train-single-step"
+  },
+  {
+    "id": "tao-train-sparse4d",
+    "name": "tao-train-sparse4d",
+    "category": "prompt-llm-engineering",
+    "repository": "nvidia-skills",
+    "description": "Prepare calibrated multi-camera data and train, evaluate, run inference, export, or quantize TAO Sparse4D 3D detection and tracking models. Includes 2D-to-3D geometric distillation with released LTT weights. Use for Sparse4D adaptation and temporal multi-camera perception workflows.",
+    "path": "category/prompt-llm-engineering/tao-train-sparse4d"
   },
   {
     "id": "tavily-best-practices",
@@ -5120,6 +5872,14 @@
     "path": "category/prompt-llm-engineering/token-dashboard-claude-analytics"
   },
   {
+    "id": "token-integration-analyzer",
+    "name": "token-integration-analyzer",
+    "category": "prompt-llm-engineering",
+    "repository": "trailofbits-skills",
+    "description": "Token integration and implementation analyzer based on Trail of Bits' token integration checklist. Analyzes token implementations for ERC20/ERC721 conformity, checks for 20+ weird token patterns, assesses contract composition and owner privileges, performs on-chain scarcity analysis, and evaluates how protocols handle non-standard tokens. Use when integrating or accepting arbitrary ERC20/ERC721 tokens, auditing a token implementation for standards conformity, or assessing risk from weird tokens such as fee-on-transfer, rebasing, missing return values, or blocklists.",
+    "path": "category/prompt-llm-engineering/token-integration-analyzer"
+  },
+  {
     "id": "token-metrics",
     "name": "token-metrics",
     "category": "prompt-llm-engineering",
@@ -5168,6 +5928,14 @@
     "path": "category/prompt-llm-engineering/toon-format"
   },
   {
+    "id": "trace-to-training-data",
+    "name": "trace-to-training-data",
+    "category": "prompt-llm-engineering",
+    "repository": "wshobson-agents",
+    "description": "Convert evaluation traces and production logs into SFT examples and preference pairs. Use when graded traces or failure examples exist and need to become training data, when applying rejection sampling to model outputs, or when building DPO pairs from passing and failing runs.",
+    "path": "category/prompt-llm-engineering/trace-to-training-data"
+  },
+  {
     "id": "train-sentence-transformers",
     "name": "train-sentence-transformers",
     "category": "prompt-llm-engineering",
@@ -5206,6 +5974,14 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Operate and evaluate Unified AI System through fifteen governed MCP tools, including provider-free prompt enhancement, while preserving fake-provider, authorization, and evidence boundaries.",
     "path": "category/prompt-llm-engineering/unified-ai-gateway"
+  },
+  {
+    "id": "unity-pipeline",
+    "name": "unity-pipeline",
+    "category": "prompt-llm-engineering",
+    "repository": "unity-technologies-skills",
+    "description": "Control a Unity Editor or Player via the unity-pipeline package. Compile, run tests, eval, method-reload code, enter Play Mode, capture screenshots.",
+    "path": "category/prompt-llm-engineering/unity-pipeline"
   },
   {
     "id": "unsloth-finetuning",
@@ -5278,6 +6054,14 @@
     "repository": "nexscope-ai-ecommerce-skills",
     "description": "Complete guide for selling on Walmart Marketplace. Covers application, listing optimization, Walmart SEO, WFS fulfillment, advertising, and scaling on America second-largest marketplace.",
     "path": "category/prompt-llm-engineering/walmart-seller-guide"
+  },
+  {
+    "id": "warp-debug-gradients",
+    "name": "warp-debug-gradients",
+    "category": "prompt-llm-engineering",
+    "repository": "nvidia-skills",
+    "description": "Use to diagnose and fix incorrect gradients in differentiable Warp programs. Anything trained, optimized, calibrated, or fit through Warp kernels depends on wp.Tape gradients, so treat any misbehavior of such a workflow as a gradient problem until proven otherwise \u2014 use this when training diverges or NaNs, won't train at all, stalls or plateaus above the expected loss, converges to a wrong or biased answer, is worse than a reference implementation, works at small scale but fails at production scale, or fails a QA/validation recheck. Also for explicit symptoms \u2014 exploding, NaN/inf, zero, or subtly wrong gradients, suspected wp.Tape/backward issues, gradcheck failures \u2014 but users usually describe only the surface symptom (\"the sim explodes\", \"the fit gets dragged toward outliers\") without mentioning gradients: make that leap. Not for forward-only Warp work, build/install problems, or autograd issues in other frameworks without Warp.",
+    "path": "category/prompt-llm-engineering/warp-debug-gradients"
   },
   {
     "id": "weaviate-cookbooks",

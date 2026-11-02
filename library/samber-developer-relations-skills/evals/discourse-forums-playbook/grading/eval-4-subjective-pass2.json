@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Labels claims by source (Google versus Discourse versus practitioner) rather than presenting all as fact",
+        "evidence": "The answer defines a three-way legend up front: '[Discourse] means Discourse docs or source, [Google] means Search Central, [practitioner] means community-manager experience.' It applies the labels consistently to the key claims. Examples: 'Google states no preference between subfolder and subdomain [Google]. Discourse recommends a subdomain [Discourse]', 'Solved already puts Q&A markup on every topic... [Discourse]', 'most common cause of exactly zero traffic [practitioner]', 'Above about 10% means staffing is the defect [practitioner]', and 'Forum search traffic swings with core updates [pra",
+        "score": 4,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Labels claims by source (Google versus Discourse versus practitioner) rather than presenting all as fact",
+        "evidence": "Several key claims are tied to a source. Google: \"Google says it treats subdomains and subfolders as equivalent\" and \"Google's scaled-content-abuse policy\". Practitioner: \"The 'subfolders rank better' claim is anecdotal and comes from case studies with survivorship bias\". Discourse: \"Discourse already emits `DiscussionForumPosting` markup\" and \"`DISCOURSE_RELATIVE_URL_ROOT`... a recurring upgrade-pain point\". Many other claims carry no source and read as plain fact: \"expect a temporary ranking dip\", \"Fewer than ~50 indexable, substantive threads is normal\", \"Google has also been cutting back o",
+        "score": 3,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

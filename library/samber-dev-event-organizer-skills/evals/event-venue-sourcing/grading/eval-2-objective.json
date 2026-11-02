@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Declines to supply an upstream bandwidth figure.",
+        "evidence": "\"I can't give you bandwidth or camera numbers\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines to supply a camera, encoder or rigging equipment list.",
+        "evidence": "\"I didn't invent an equipment list, a bandwidth figure or camera positions.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that translating a hybrid format choice into venue-side technical specifications sits outside this skill's scope.",
+        "evidence": "It says the placeholders come from \"a decision that sits outside venue sourcing\", but never says the technical specification itself is out of scope.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Converts the requirement into a written question the venue must answer, asking what sustained upstream bandwidth it can guarantee in that room, on what circuit, and with what fallback.",
+        "evidence": "Q4 \"What upstream bandwidth can you guarantee... guaranteed number\"; Q6 \"second, independent path to the internet\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the specification itself to samber/dev-event-organizer-skills@event-production.",
+        "evidence": "`event-production` is cited only for \"capture posture per room\", not as the owner of the specification.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the format-side decision to samber/dev-event-organizer-skills@event-format-selection.",
+        "evidence": "\"Remote audience size and whether it's two-way. These come from `event-format-selection`.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the venue's answer in writing rather than verbally.",
+        "evidence": "\"written answers requested by [date]\"; \"Please answer each numbered point individually.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a technical walkthrough rather than a working walkthrough, on the grounds that the format is hybrid or livestreamed.",
+        "evidence": "\"Ask for a technical walkthrough with the venue's AV lead before signing. For a hybrid format the skill treats this as the right depth.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Specifies that the technical walkthrough brings the production or A/V lead and is timed at the event's own day and hour.",
+        "evidence": "It mentions the AV leads, but nothing about visiting at the event's own day and hour.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps uplink redundancy, rigging points and control-room space framed as questions put to the venue rather than as specifications supplied by the organizer.",
+        "evidence": "Q6 (second path), Q10 (rigging points), Q14 (production position space) are all questions to the venue.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not invent a figure in order to meet the Friday deadline.",
+        "evidence": "The only number is the labelled 4-devices upper bound; no bandwidth figure is given.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Declines to supply an upstream bandwidth figure.",
+        "evidence": "\"minimum 100 Mbps up / 100 Mbps down\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines to supply a camera, encoder or rigging equipment list.",
+        "evidence": "Gives camera positions, mic counts and a switcher.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that translating a hybrid format choice into venue-side technical specifications sits outside this skill's scope.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Converts the requirement into a written question the venue must answer, asking what sustained upstream bandwidth it can guarantee in that room, on what circuit, and with what fallback.",
+        "evidence": "Only \"Please confirm the contracted bandwidth\" inside a spec list.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the specification itself to samber/dev-event-organizer-skills@event-production.",
+        "evidence": "No routing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the format-side decision to samber/dev-event-organizer-skills@event-format-selection.",
+        "evidence": "No routing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the venue's answer in writing rather than verbally.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends a technical walkthrough rather than a working walkthrough, on the grounds that the format is hybrid or livestreamed.",
+        "evidence": "Mentions only load-in and a tech rehearsal.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Specifies that the technical walkthrough brings the production or A/V lead and is timed at the event's own day and hour.",
+        "evidence": "Not present.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps uplink redundancy, rigging points and control-room space framed as questions put to the venue rather than as specifications supplied by the organizer.",
+        "evidence": "Supplied as specs: \"Second, independent uplink\", \"Control position about 3 m \u00d7 3 m\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not invent a figure in order to meet the Friday deadline.",
+        "evidence": "Invents 100 Mbps, 500 Mbps\u20131 Gbps and an AP count.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

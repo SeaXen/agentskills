@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Recommends against adding FAQPage structured data to the troubleshooting entries",
+        "evidence": "\"FAQPage structured data \u2014 drop it.\" ... \"Don't put it in the ticket.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the FAQ rich result no longer appears in search results, so the markup buys nothing",
+        "evidence": "\"Google's FAQ rich result stopped appearing in search entirely on 7 May 2026 (Google Search Central removed the documentation in June 2026).\" ... \"Marking Saltbox's 34 entries as FAQPage costs engineering time to implement and QA, for zero search real estate.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not present FAQPage markup as a low-cost hedge worth doing anyway",
+        "evidence": "The transcript only states costs and zero benefit, concluding \"Don't put it in the ticket\" with no hedge language suggesting it's cheap enough to include regardless.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects question-shaped headings in favour of the emitted error string",
+        "evidence": "\"Rewriting headings as questions \u2014 drop this too.\" followed by \"The fix that actually earns the ranking-and-landing behavior marketing wants: put the verbatim error string \u2014 the exact text or code Saltbox emits \u2014 in the title, the first heading, and the body of each entry.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that readers arrive by pasting an exact string rather than by browsing or asking a question",
+        "evidence": "\"A developer hitting a Saltbox timeout doesn't type a question \u2014 they paste what's in front of them: the exact error string, an exit code, a stack trace line.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the error string verbatim in the title, the first heading and the body",
+        "evidence": "\"put the verbatim error string \u2014 the exact text or code Saltbox emits \u2014 in the title, the first heading, and the body of each entry. If Saltbox emits FUNCTION_TIMEOUT or a 502 with a specific body, that string is the heading.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines the site-wide crawl, canonical and internal-linking work as outside this job",
+        "evidence": "The whole-site crawl audit, canonical cleanup, and internal-linking redesign are assigned to a separate \"Track B\" with a different owner (\"SEO contractor\"), explicitly split from Track A's docs job: \"The remaining four items split cleanly across two different skills with two different owners.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the site-wide SEO work to a documentation SEO skill rather than performing it",
+        "evidence": "Table entry: \"Track B \u2014 Site mechanics ... Owner: SEO contractor ... Skill: docs-seo\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not claim that FAQ markup improves AI assistant or LLM citation odds as a substitute justification",
+        "evidence": "The transcript's justification for dropping FAQPage markup is limited to Google's rich-result removal (\"stopped appearing in search entirely\"); no mention of AI assistants, LLMs, or citation odds appears anywhere in the transcript.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names at least one product-side wiring that outperforms the markup, such as shipping a documentation URL in the error payload or an explain path in the CLI",
+        "evidence": "\"Wire the pages back to the product once both tracks have stable URLs: a doc_url-style link in Saltbox's own error payloads, or an explain <code> path if there's a CLI. This is the step that actually moves ticket volume, and it's independent of both the FAQ-schema and heading-wording ideas marketing pitched.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Recommends against adding FAQPage structured data to the troubleshooting entries",
+        "evidence": "\"Ship the markup anyway \u2014 it's good hygiene, it helps AI answer engines...\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the FAQ rich result no longer appears in search results, so the markup buys nothing",
+        "evidence": "States rich results are largely gone but concludes the markup still has value: \"Ship the markup anyway\" rather than saying it buys nothing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not present FAQPage markup as a low-cost hedge worth doing anyway",
+        "evidence": "Explicitly presents it that way: \"Ship the markup anyway... Just reset the 'why' from 'get rich results' to 'improve machine-readability and AI-citation odds.'\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects question-shaped headings in favour of the emitted error string",
+        "evidence": "\"Rewrite headings to match real query phrasing... ('Why is my function timing out?' not just a generic reformat)\" \u2014 recommends question-shaped headings.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that readers arrive by pasting an exact string rather than by browsing or asking a question",
+        "evidence": "No such statement; the plan is built around 'real query phrasing' assuming question-style search behavior.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the error string verbatim in the title, the first heading and the body",
+        "evidence": "No such requirement; headings are to be rewritten in question form with the ranking keyword embedded, not the verbatim error string.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines the site-wide crawl, canonical and internal-linking work as outside this job",
+        "evidence": "Fully plans this work: \"Phase 1 \u2014 Crawl audit + canonical cleanup (own ticket, sitewide, ships first)\" and \"Phase 4 \u2014 Internal linking redesign\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the site-wide SEO work to a documentation SEO skill rather than performing it",
+        "evidence": "Performs the full sequencing and planning itself rather than deferring to a skill.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not claim that FAQ markup improves AI assistant or LLM citation odds as a substitute justification",
+        "evidence": "\"it helps AI answer engines (ChatGPT, Perplexity, AI Overviews) lift your Q&A directly... improve machine-readability and AI-citation odds.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names at least one product-side wiring that outperforms the markup, such as shipping a documentation URL in the error payload or an explain path in the CLI",
+        "evidence": "No mention of shipping a doc URL in error payloads or a CLI explain path anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

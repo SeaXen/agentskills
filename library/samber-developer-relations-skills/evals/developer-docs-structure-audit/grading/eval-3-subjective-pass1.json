@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Gives every queue item an action that ships alone and improves the docs by itself",
+        "evidence": "Every one of the 10 queue rows is a concrete, reader-facing deliverable with its own 'Reader need fixed' column \u2014 merge the duplicate, re-point nav entries, relabel sections, split a table per page, write one how-to. None is a scaffold, empty section, re-platform, or 'do more analysis' placeholder, and the transcript states this explicitly ('Nothing above proposes new empty sections or a re-platform; every row ships and improves the docs on its own'). The prerequisite nav-coupling check is deliberately kept outside the queue as a five-minute gate, and the coupled-case branch gives row 3 a ship",
+        "score": 4,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Gives every queue item an action that ships alone and improves the docs by itself",
+        "evidence": "Four of the five numbered items are self-contained, independently shippable deliverables that leave the docs better on their own: item 1 (rewrite one canonical IAM page + stub/banner the duplicate, 'Neither URL gets deleted'), item 3 (new Terraform tutorial at a new URL, 'no breakage risk'), item 4 (either flip the section field per page, or \u2014 in the URL-baked branch \u2014 'keep old URL alive as-is, and add a link to it from the correct section's index page'), and item 5 (per-page split at ~1-1.5 hr/page, steps stay on the existing URL, both directions cross-linked). Sequencing is soft ('start thi",
+        "score": 4,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

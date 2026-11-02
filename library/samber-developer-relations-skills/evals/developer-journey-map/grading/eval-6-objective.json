@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Nominates exactly one leak, not three.",
+        "evidence": "'## Leak\\n\\n**Nominated: Onboarding.**' is the only stage nominated as the leak.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Nominates onboarding rather than advocacy.",
+        "evidence": "'47% of quickstart starters reach first success \u2014 the worst conversion among the stages that are both instrumented and owned, and the earliest one.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the earliest leaking stage with an owner able to change it wins, because every downstream fix is diluted by the losses above it.",
+        "evidence": "The doc states '\"Earliest wins\" only applies among stages someone can actually move' but never gives the dilution rationale ('every downstream fix is diluted by the losses above it').",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ranks the candidate stages by developers recovered per unit of fix effort before applying the earliest-and-owned tiebreak.",
+        "evidence": "No such ranking or 'recovered per fix effort' language appears anywhere in the leak reasoning.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explicitly names what that ordering starves: a late stage with a large payoff and a heavy fix, here advocacy.",
+        "evidence": "No 'starves' framing or equivalent statement about what the ordering sacrifices appears in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the conditions that would promote advocacy anyway: the earliest leaking stage being unowned, its fix already in flight, or advocacy being the funded end state.",
+        "evidence": "'A late stage only outranks an early owned one when the early stage is unowned, already being fixed, or is itself the funded end state \u2014 none of those hold here.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not apply B=MAP or any motivation analysis before the leak stage is chosen.",
+        "evidence": "The Leak section picks Onboarding using only conversion-rate and ownership reasoning; B=MAP/Fogg discussion appears only later, applied to advocacy.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Applies B=MAP only to the chosen stage, naming motivation, ability and prompt.",
+        "evidence": "B=MAP-style levers (Prompt, Ability, Motivation/incentive) are applied to Advocacy, not to the chosen leak stage (Onboarding), which never receives an explicit motivation/ability/prompt breakdown.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Attributes B=MAP to BJ Fogg.",
+        "evidence": "'Fogg's own model argues against leading with incentives: \"motivation is unreliable. Luckily, ability is not.\"'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that B=MAP explains one stage and cannot rank stages against each other.",
+        "evidence": "The closest statement, 'B=MAP only earns trust once a stage has actually cleared the leak diagnosis,' addresses sequencing but never explicitly states B=MAP cannot be used to rank stages against each other.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines to deliver a motivation or incentive strategy for advocacy.",
+        "evidence": "The doc still offers a concrete motivation/incentive idea \u2014 'public recognition (a \"who's running Quillbore in production\" page) rather than swag or cash' \u2014 rather than declining outright.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names ability as the default branch for a developer audience and directs effort at raising ability rather than pumping motivation.",
+        "evidence": "'Ability. Lower the cost of the act itself: a one-click \"built with Quillbore\" badge...' framed as a cheaper, likelier lever than 'Motivation/incentive... the weakest of the three levers per Fogg.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags that the awareness stage has no owner as a finding in its own right.",
+        "evidence": "'Awareness has no owner and no signal. This is likely your single biggest unknown, sitting upstream of everything else on the map'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Nominates exactly one leak, not three.",
+        "evidence": "Onboarding is singled out as 'the single largest absolute leak in the entire table' while the other two fixes are framed as metric-redefinition and enablement-building, not competing leaks.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Nominates onboarding rather than advocacy.",
+        "evidence": "'Fix Onboarding's 47% first-success rate. This is the single largest absolute leak in the entire table.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the earliest leaking stage with an owner able to change it wins, because every downstream fix is diluted by the losses above it.",
+        "evidence": "'It already has an owner (docs team). Every account that dies here also dies as a future Integration account, Production account, and advocate \u2014 fixing this multiplies every downstream number.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ranks the candidate stages by developers recovered per unit of fix effort before applying the earliest-and-owned tiebreak.",
+        "evidence": "No per-effort or per-stage recovery ranking is computed; Onboarding is picked directly via 'largest absolute leak' and ownership reasoning.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explicitly names what that ordering starves: a late stage with a large payoff and a heavy fix, here advocacy.",
+        "evidence": "The text says 'None of this means ignore Advocacy' but never frames advocacy as something being starved by the prioritization.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the conditions that would promote advocacy anyway: the earliest leaking stage being unowned, its fix already in flight, or advocacy being the funded end state.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not apply B=MAP or any motivation analysis before the leak stage is chosen.",
+        "evidence": "B=MAP appears only under 'The Advocacy stage' section, after Onboarding has already been nominated as fix #2 in the priority list above it.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Applies B=MAP only to the chosen stage, naming motivation, ability and prompt.",
+        "evidence": "'Behavior = Motivation \u00d7 Ability \u00d7 Prompt \u2014 all three have to be present... What's missing is Ability... and Prompt' applied specifically to the Advocacy stage.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Attributes B=MAP to BJ Fogg.",
+        "evidence": "No attribution to BJ Fogg appears anywhere in the text.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that B=MAP explains one stage and cannot rank stages against each other.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines to deliver a motivation or incentive strategy for advocacy.",
+        "evidence": "A full advocacy program is delivered, including a 'Recognition, not cash' motivational section and referral-credit incentives.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names ability as the default branch for a developer audience and directs effort at raising ability rather than pumping motivation.",
+        "evidence": "'Fixing motivation alone, with the other two still at zero, changes nothing' followed by dedicated 'Ability' and 'Prompt' build sections.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags that the awareness stage has no owner as a finding in its own right.",
+        "evidence": "'*Worth flagging, not spending a slot on:* Awareness has no owner and no instrumentation... Fine to leave unowned for one more quarter, not two.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

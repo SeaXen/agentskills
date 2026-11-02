@@ -1,7 +1,7 @@
 # 🎙️ Audio, Voice Cloning & Sound Design
 
 > **Category**: `audio-voice-sound`  
-> **Total Curated Skills**: 221 skills  
+> **Total Curated Skills**: 226 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -43,6 +43,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`ai-podcast-creation`](../../library/101-skills-superpowers/skills/ai-podcast-creation) | ⚪ Reserve | `101-skills-superpowers` | Create AI-powered podcasts with text-to-speech, music, and audio editing. Tools: Kokoro TTS, DI... |
 | [`ai-podcast-voiceover`](../../library/sickn33-agentic-awesome-skills/skills/ai-podcast-voiceover) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Install and use the official AI Podcast Voiceover package, pinned by digest, for paid hosted wo... |
 | [`ai-voice-cloning`](../../library/101-skills-superpowers/skills/ai-voice-cloning) | ⚪ Reserve | `101-skills-superpowers` | AI voice generation, text-to-speech, and voice synthesis via inference.sh CLI. Models: Inworld ... |
+| [`amazon-ses`](../../library/aws-agent-toolkit-for-aws/skills/amazon-ses) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Guides Amazon SES onboarding for domain-based email sending. Covers identity configuration, pro... |
 | [`analyze-feedback`](../../library/amplitude-mcp-marketplace/skills/analyze-feedback) | ⚪ Reserve | `amplitude-mcp-marketplace` | Synthesizes customer feedback into actionable themes including feature requests, bugs, pain poi... |
 | [`arcmira-find-quotes`](../../library/sickn33-agentic-awesome-skills/skills/arcmira-find-quotes) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Search indexed YouTube and podcast transcripts for quotes, speakers and clip boundaries with ti... |
 | [`article-writing`](../../library/affaan-m-ecc/skills/article-writing) | ⚪ Reserve | `affaan-m-ecc` | Write articles, guides, blog posts, tutorials, newsletter issues, and other long-form content i... |
@@ -94,6 +95,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`devrel-newsletter-sourcing`](../../library/samber-developer-relations-skills/skills/devrel-newsletter-sourcing) | ⚪ Reserve | `samber-developer-relations-skills` | Finds and selects the items for one email developer newsletter issue: which intake channels to ... |
 | [`dialogue-audio`](../../library/101-skills-superpowers/skills/dialogue-audio) | ⚪ Reserve | `101-skills-superpowers` | Multi-speaker dialogue audio creation with ElevenLabs and Dia TTS. Covers speaker tags, emotion... |
 | [`digital-brain-skill`](../../library/muratcankoylan-agent-skills-for-context-engineering/skills/digital-brain-skill) | ⚪ Reserve | `muratcankoylan-agent-skills-for-context-engineering` | This skill should be used for personal operating-system workflows: content creation, voice cons... |
+| [`digital-health-clinical-asr-setup`](../../library/nvidia-skills/skills/digital-health-clinical-asr-setup) | ⚪ Reserve | `nvidia-skills` | Stage 1 of Clinical ASR Flywheel. Use when bootstrapping a cycle: NVCF+MW disclosure, NVIDIA_AP... |
 | [`dubbing`](../../library/elevenlabs-skills/skills/dubbing) | ⚪ Reserve | `elevenlabs-skills` | Dub audio and video into other languages using the ElevenLabs Dubbing API (dubbing_v2), preserv... |
 | [`elevenlabs`](../../library/membranedev-application-skills/skills/elevenlabs) | ⚪ Reserve | `membranedev-application-skills` | ElevenLabs integration. Manage data, records, and automate workflows. Use when the user wants t... |
 | [`elevenlabs-agents`](../../library/jezweb-claude-skills/skills/elevenlabs-agents) | ⚪ Reserve | `jezweb-claude-skills` | Build conversational AI voice agents on the ElevenLabs platform. Configure agent + tools + know... |
@@ -126,6 +128,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`guideline-generation`](../../library/anthropics-knowledge-work/skills/guideline-generation) | ⚪ Reserve | `anthropics-knowledge-work` | This skill generates, creates, or builds brand voice guidelines from source materials. It shoul... |
 | [`higgsfield-generate`](../../library/higgsfield-ai-skills/skills/higgsfield-generate) | ⚪ Reserve | `higgsfield-ai-skills` | Generate images/videos/3D assets/audio via Higgsfield AI. Defaults: GPT Image 2.5 for image/des... |
 | [`html-reel`](../../library/mengto-skills/skills/html-reel) | ⚪ Reserve | `mengto-skills` | Turn a tweet, a video, a YouTube video or a landing page into a 9:16 reel (Instagram Reels, Tik... |
+| [`huawei-cloud-vod-collector`](../../library/huaweicloud-huaweicloud-skills/skills/huawei-cloud-vod-collector) | ⚪ Reserve | `huaweicloud-huaweicloud-skills` | Invoke this skill to capture poor experiences and distill them into high-value requirements (Vo... |
 | [`humaniseur-fr`](../../library/samber-cc-skills/skills/humaniseur-fr) | ⚪ Reserve | `samber-cc-skills` | Remove AI-writing patterns from French text and inject voice and personality. Use when editing,... |
 | [`humanize-chinese`](../../library/sickn33-agentic-awesome-skills/skills/humanize-chinese) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Detect and rewrite AI-like Chinese text with a practical workflow for scoring, humanization, ac... |
 | [`hybrid-event-design`](../../library/samber-dev-event-organizer-skills/skills/hybrid-event-design) | ⚪ Reserve | `samber-dev-event-organizer-skills` | Design a technical event serving an in-room and a remote audience at once, after the format dec... |
@@ -155,6 +158,8 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`narrative-enablement-kit`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/narrative-enablement-kit) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "make everyone tell the same story", "write our elevator pitch ladder... |
 | [`narrative-resonance-monitor`](../../library/aaron-he-zhu-aaron-marketing-skills/skills/narrative-resonance-monitor) | ⚪ Reserve | `aaron-he-zhu-aaron-marketing-skills` | Use when the user asks to "measure how our narrative is landing", "track echo rate against our ... |
 | [`neetoinvoice`](../../library/membranedev-application-skills/skills/neetoinvoice) | ⚪ Reserve | `membranedev-application-skills` | Neetoinvoice integration. Manage Invoices, Clients, Users, Payments. Use when the user wants to... |
+| [`nemotron-speech`](../../library/nvidia-skills/skills/nemotron-speech) | ⚪ Reserve | `nvidia-skills` | Routes NVIDIA Nemotron Speech (Formerly Riva) NIM tasks — deploys, runs, and tests ASR, TTS, an... |
+| [`nemotron-voice-agent-builder`](../../library/nvidia-skills/skills/nemotron-voice-agent-builder) | ⚪ Reserve | `nvidia-skills` | Create, refine, or fix NVIDIA voice agents (Cascaded or Omni) with Pipecat or LiveKit. Use when... |
 | [`newsletter-voice`](../../library/charlie947-social-media-skills/skills/newsletter-voice) | ⚪ Reserve | `charlie947-social-media-skills` | Build newsletter writing instructions inside a Codex or Claude project. Runs after voice-builde... |
 | [`omnivoice-tts`](../../library/reason-machines-trending-skills/skills/omnivoice-tts) | ⚪ Reserve | `reason-machines-trending-skills` | Expert skill for OmniVoice, a massively multilingual zero-shot TTS model supporting 600+ langua... |
 | [`openless-voice-input`](../../library/reason-machines-trending-skills/skills/openless-voice-input) | ⚪ Reserve | `reason-machines-trending-skills` | OpenLess open-source voice input for macOS & Windows — press a hotkey, speak, get AI-polished t... |

@@ -1,0 +1,666 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-vendor-sourcing",
+  "scenarios": 13,
+  "expectations_total": 163,
+  "expectations_subjective": 0,
+  "expectations_objective": 163,
+  "pass_rate_with_skill_pct": 82.8,
+  "pass_rate_without_skill_pct": 22.1,
+  "delta_pp": 60.7,
+  "uplift_multiplier": 3.75,
+  "trigger_accuracy_pct": 63.7,
+  "trigger_queries": 146,
+  "trigger_positive_fire_rate": 0.493,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": null,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Response states that if the venue mandates its caterer there is no price comparison, no separate supplier contract and no separate certificate of insurance to chase."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Response instructs collecting those dietary counts from everyone who will be fed - including mentors, volunteers, speakers and organizers - not only registered attendees."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Response does not state, estimate or derive a per-plate or per-head price for this event or this market."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Response recommends a reference check on the leading candidate where the failure remedy is missing or weak, and frames the call as asking what actually happened rather than whether the supplier was good."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Response includes the remaining unisex shares at roughly S 13%, XL 10%, 2XL 3% and XS 1%, and separate women's-cut shares at roughly M 7%, S 6%, L 3%, XS 2%, XL 1% and 2XL under 1%."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Response states that the distribution stops at 2XL only because historical orders stopped at 2XL, and that real demand exists at 3XL to 5XL."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Response keeps the late-order padding (a stockout hedge) distinct from ordering early (a backorder hedge) and does not blend the two logics."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Response instructs keeping every receipt, and states unopened surplus can be returned, raffled or carried into the next edition rather than written off."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Response describes a shortlist-before-RFP process: identify up to five candidates through referral and reputation, then narrow to two finalists and send the full RFP only to those two, against an identical scope."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Response says the candidate interviews should involve the people who will actually work with the supplier on the day, not only whoever handles procurement."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Response notes that published AV-production price ranges that do exist cover weddings, hotel ballrooms and generic corporate events rather than a standalone mid-size tech conference."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Response states that this skill decides only whether a category may be substituted at all, not who staffs it."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Response separates the two directions that get confused: what the supplier carries, versus what the venue requires of the organizer."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Response notes that what the venue requires of the organizer flows down into what is asked of suppliers and sponsors alike."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Response recommends keeping the supplier-side insurance ask consistent with the sponsor-side ask rather than setting them independently."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Response classes this as a venue-imposed restriction that is invisible unless asked and expensive because it surfaces after the service style has been chosen and priced."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Response gives the plated or individual-meal buffer of 30-60 minutes before serving as the contrast."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Response requires a named primary on-site contact plus a backup phone number, and notes the backup number is the field most often left empty."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Response gives the reason: the coordination cost of multi-quoting everything is what makes organizers skip the written brief entirely."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Response states that sourcing without a written brief is not the cheapest rung but not a rung at all."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Response gives the reasons a brief is non-optional: nothing to compare a second quote against, nothing to hold the supplier to, no way to tell a late delivery from an on-time one, and no shared understanding of who serves, who sets up and who collects."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Response gives security as roughly a week while telling the user to confirm with the venue and the firm, since a building requiring approved firms has its own notice period."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Response states that for AV what matters more than a lead time is rehearsal with the actual setup, with a named person assigned to run the stream live if the event streams."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Response treats that rehearsal as both a date on the commitment schedule and a line in the supplier's quote."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Response lists baseline guard qualifications: at least 18 years old, no other duties that interfere with the security role, identifiable by uniform or visible credential, and trained for the specific tasks the event needs such as crowd management, de-escalation or evacuation direction."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Response routes the question of which cover the event needs to the risk-management sibling rather than choosing a policy here."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Response states that claims-handling reputation is checked at the carrier level, because brokers themselves are not carrier-rated - only the underwriters they place with are."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Response states the multiple-station rule holds even at a small event."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Response stops the comparison of the three named caterers and first asks whether the venue supplies catering itself, mandates its own supplier, permits an outside one, or charges a fee to permit one."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Response requires that exclusivity answer in writing, not verbally."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Response names university venues as the category of venue most likely to mandate its own catering service."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Response states that comparing outside caterers before that answer arrives is effort spent on suppliers the organizer may not be allowed to hire."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Response states that if the venue mandates its caterer there is no price comparison, no separate supplier contract and no separate certificate of insurance to chase."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Response states that a venue-mandated caterer's deadline is set by them and is typically earlier than an outside supplier's."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The brief specifies the serving time for each meal rather than the delivery time, leaving the supplier to work back to a delivery time."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The brief carries dietary requirements as counts per category rather than as a free-text note."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Response instructs collecting those dietary counts from everyone who will be fed - including mentors, volunteers, speakers and organizers - not only registered attendees."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Response asks who serves the food and warns that some suppliers, university catering especially, require their own staff, before any volunteer serving rota is planned around it."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Response treats service style (plated or individual meals versus family-style shared platters) as a required brief field rather than a presentation preference."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Response does not state, estimate or derive a per-plate or per-head price for this event or this market."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Response builds a single comparison grid with one row per supplier and one column per cost component, rather than ranking the three per-head figures."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Cost components forced onto every row include at minimum unit price and unit, minimum order, delivery or travel, serving staff, service charge or gratuity, equipment rental, setup and teardown, overtime beyond the window, taxes, and the cost of anything expected to be returned."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Response asks whether each supplier's service charge applies to the whole invoice or to labour only."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Response computes an all-in total at the planned headcount and a second all-in total at the headcount moved in the direction it is likely to move."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Response states that a supplier who is cheapest at the planned number and most expensive at the likely number is not the cheapest supplier."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Terms forced onto every row include deposit amount, due date and refundability; the headcount-change deadline with permitted direction and cost; the cancellation schedule; the remedy for late or short delivery; substitution rights; proof of insurance; and a reference contact."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Response asks for the cancellation schedule itself rather than accepting that a cancellation clause exists."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Response notes that most supplier contracts offered to small events state no remedy for failure at all, and that the absence is itself the finding."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Response recommends a reference check on the leading candidate where the failure remedy is missing or weak, and frames the call as asking what actually happened rather than whether the supplier was good."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Response identifies stock availability and backorder risk - not shipping time or print turnaround - as the real lead-time driver for apparel."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Response requires written confirmation of current stock and lead time for the specific items and the specific sizes before any commitment."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Response treats the quoted 12-business-day ship time as meaningless without that stock confirmation."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Response converts the requirement into a hard in-hand date rather than a ship date."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Response supplies a size distribution to sanity-check the order against, with unisex M the largest share at roughly 43% and unisex L next at roughly 29%."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Response includes the remaining unisex shares at roughly S 13%, XL 10%, 2XL 3% and XS 1%, and separate women's-cut shares at roughly M 7%, S 6%, L 3%, XS 2%, XL 1% and 2XL under 1%."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Response states that the distribution stops at 2XL only because historical orders stopped at 2XL, and that real demand exists at 3XL to 5XL."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Response makes covering the 3XL-5XL range a supplier-selection criterion a supplier can fail, not a size-chart footnote."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Because the order is being placed late, response applies padding of up to 30% per size and style rather than a single flat uplift on the total."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Response keeps the late-order padding (a stockout hedge) distinct from ordering early (a backorder hedge) and does not blend the two logics."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Response recommends collecting real sizes at registration as both more accurate than any distribution and better for inclusion."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Response asks whether the supplier will hold or ship to the venue, and whether the venue accepts shipments, from what date, at what receiving fee, and whether anything can be stored securely beforehand."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Response instructs keeping every receipt, and states unopened surplus can be returned, raffled or carried into the next edition rather than written off."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Response refuses to contract the AV supplier before a written technical specification exists, and states that a supplier chosen before the spec exists ends up writing the spec."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Response states that once the supplier owns the specification, every later change becomes a variation they price."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Response routes authorship of the specification itself - signal path, camera positions, recording and streaming requirements, redundancy, bandwidth - to the production sibling skill rather than drafting it here."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Response instructs attaching that specification to the supplier brief unchanged."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Response describes a shortlist-before-RFP process: identify up to five candidates through referral and reputation, then narrow to two finalists and send the full RFP only to those two, against an identical scope."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Response says the candidate interviews should involve the people who will actually work with the supplier on the day, not only whoever handles procurement."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Response recommends stating a budget range inside the RFP rather than withholding the number."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Response gives the reason for disclosing the budget: withholding it widens the spread between bids and filters capable suppliers out on guesswork rather than on fit."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Response requires equipment, crew, crew overtime, transport, rehearsal time and post-event deliverables such as edited recordings to be priced separately rather than bundled."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Response asks whether crew hours are quoted against a stated window with a named overtime rate rather than priced 'for the day'."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Response makes the remedy for a failed recording a selection criterion, noting this is the category where failure stays invisible until after the event is over."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Response asks whether the crew hold CTS (Certified Technology Specialist) credentials or the equivalent from the AV trade association covering the event's country, as a checkable qualification rather than a claimed one."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Response declines to supply a per-head catering figure, an AV day rate, a security hourly rate, or an insurance premium for this event."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Response states plainly that no reachable public source benchmarks these supplier prices, rather than hedging a wide range."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Response states that three all-in quotes on one identical brief are the only benchmark true for this city, this size and this year."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Response gives the credibility reason: an invented figure is one the supplier can immediately disprove, and the credibility lost is the leverage the rest of the conversation runs on."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "If any published insurance floor figure is mentioned, response presents it as evidence that a floor exists and explicitly not as a number to budget Kernelcamp against or to quote at a broker."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "If any published per-person hackathon figures are mentioned, response states they are true only for that country, that audience and that year."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Response does not convert any published figure into a Krakow, Polish or European estimate by adjustment, inflation or currency conversion."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Response notes that published AV-production price ranges that do exist cover weddings, hotel ballrooms and generic corporate events rather than a standalone mid-size tech conference."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Response offers to produce the per-category briefs that generate real quotes instead of the ballparks requested."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Response notes that the number will be shown to funders, and treats that as a reason to source defensible quotes rather than estimates."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Response removes volunteer substitution entirely for the overnight door coverage rather than listing it as a cheaper but riskier option."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Response removes volunteer substitution entirely for hot food prepared rather than delivered."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Response gives the reason as the licensing, food-safety and crowd-safety obligation attached to those categories, not as volunteers being unreliable."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Response states that no amount of goodwill or briefing transfers a legal obligation."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Response states that a volunteer cannot be indemnified the way a supplier can."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Response states that the exposure a supplier's own insurance and licensing would have carried lands on the organizing entity instead."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Response states that this exposure is not reversible once someone is ill or hurt."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Response names what volunteers may still legitimately do - snacks, drinks, laying out food that was delivered, and front-of-house posts."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Response distinguishes staffing a door, directing people and watching a room (permitted) from carrying a licensed guard's obligation (not permitted)."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Response routes the volunteer rostering, shifts and briefing to the volunteers sibling skill rather than designing a rota here."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Response states that this skill decides only whether a category may be substituted at all, not who staffs it."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Response states the rule as gating the certificate requirement on scale rather than applying it uniformly."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Response states that requiring an enterprise-shaped certificate from a small supplier for a small event mostly costs you the supplier."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Response states that small community events and hackathons frequently require no supplier-carried cover at all, because the venue's or organizer's own policy covers the space."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Response names the opposite pole - exhibitor-hall and convention-centre norms - as where a defined liability minimum, additional-insured naming and a certificate due before move-in genuinely apply."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Response notes that what the venue requires of the organizer flows down into what is asked of suppliers and sponsors alike."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Response recommends keeping the supplier-side insurance ask consistent with the sponsor-side ask rather than setting them independently."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Response routes the question of which cover the event itself buys to the risk-management sibling rather than deciding it here."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Response still requires a written brief for Marta, rather than treating a year-long familiar supplier as exempt from one."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Response instructs confirming with the venue, before the service style is locked, whether chafing dishes are permitted."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Response states that the entire family-style delivery-buffer and staffing plan assumes chafing dishes are permitted."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Response classes this as a venue-imposed restriction that is invisible unless asked and expensive because it surfaces after the service style has been chosen and priced."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Response sets the family-style delivery buffer at 60-90 minutes before serving."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Response gives the plated or individual-meal buffer of 30-60 minutes before serving as the contrast."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Response explains the mechanism: family-style needs more setup time while the chafing dishes hold temperature, so the cold-food risk falls and the setup risk rises."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Response treats service style as a brief field that changes delivery buffer, equipment, staffing and fire-code exposure, not as a presentation choice."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Response requires an exact delivery location - building, entrance, dock or room - rather than the event's marketing address."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Response requires a named primary on-site contact plus a backup phone number, and notes the backup number is the field most often left empty."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Response gives the reason: the coordination cost of multi-quoting everything is what makes organizers skip the written brief entirely."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Response sets the default posture as referred single-source on a written brief for every open category."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Response notes that a first edition with no referral network in a category is itself a reason to promote multi-quote for that category."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Response states that sourcing without a written brief is not the cheapest rung but not a rung at all."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Response gives the reasons a brief is non-optional: nothing to compare a second quote against, nothing to hold the supplier to, no way to tell a late delivery from an on-time one, and no shared understanding of who serves, who sets up and who collects."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Response states that a referred supplier still receives a written brief."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Response asks whether any category already has an asset that outranks the default - a supplier used by a peer organizer, an organizer who works in the trade, or a sponsor offering the category in kind."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Response asks whether these supplier numbers will be quoted onward to a sponsor or a board and therefore have to be defensible, and promotes multi-quote where they must."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Response states that the largest budget line is rarely the earliest deadline."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Response moves the shirt and print order ahead of catering in the commitment order, on backorder grounds."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Response gives catering order placement as 2-4 weeks before the event, and notes a venue-mandated caterer commonly requires finalizing sooner than that."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Response gives security as roughly a week while telling the user to confirm with the venue and the firm, since a building requiring approved firms has its own notice period."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Response states that AV, security and insurance have no standard lead time rather than inventing one."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Response states that for AV what matters more than a lead time is rehearsal with the actual setup, with a named person assigned to run the stream live if the event streams."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Response treats that rehearsal as both a date on the commitment schedule and a line in the supplier's quote."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Response places the insurance binding date on the commitment schedule, noting some cover must be bound well ahead and some cover is unavailable once a known circumstance exists."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Response builds one commitment schedule with a row per category whose date is the last date the decision can still be made."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Response hands that schedule to the planning-timeline sibling rather than leaving the deadlines inside this conversation."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Response declines to state a guard headcount for 800 attendees."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Response cites the published event-security standard (ANSI ES1.40-2023, Event Safety - Event Security) and states the standard itself says there is no one correct number of guards and no single best practice for staffing a given event."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Response declines to state a security hourly rate or day rate."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Response declines to assert which licence a guard must hold, and states that licensing is jurisdiction-specific."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Response notes that whether a licence is required at all can turn on whether the guards are the firm's own employees or subcontracted, and instructs asking which."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Response instructs asking the venue first whether it includes security, mandates its own, or will only permit firms it already works with, and notes the category closes if no outside firm is permitted."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Response states that a firm which cannot produce a post order has priced a headcount rather than planned a deployment."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Response mentions the 1:250 trained-crowd-manager-to-occupant ratio as a floor for that specific credential, and frames a lower total security number as grounds for a direct question rather than for rejecting the quote outright."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Response lists baseline guard qualifications: at least 18 years old, no other duties that interfere with the security role, identifiable by uniform or visible credential, and trained for the specific tasks the event needs such as crowd management, de-escalation or evacuation direction."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Response asks about the firm's incident-report practice - what a report captures, who writes it, and how long records are kept."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Response routes the question of which cover the event needs to the risk-management sibling rather than choosing a policy here."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Response states that the coverage decision precedes the broker conversation, and that arriving without it lets the broker decide it for you."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Response names the second contract-derived requirement: what the organizer must in turn require of its own sponsors and suppliers."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Response makes carrier quality a criterion: a broker who places with A-rated (AM Best) carriers rather than routing to the cheapest underwriter regardless of rating."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Response checks the broker's own standing: current errors-and-omissions cover, and no unresolved solvency or disciplinary flags on the regulator's public record."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Response states that claims-handling reputation is checked at the carrier level, because brokers themselves are not carrier-rated - only the underwriters they place with are."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Response does not benchmark, estimate or quote a premium for a 500-person event."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Response places the binding date on the commitment schedule, noting some cover must be bound well ahead and some cover is unavailable once a known circumstance exists."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Response states the multiple-station rule holds even at a small event."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Response requires checking names off a printed list as restricted-diet meals are handed out, so they are not taken by someone else."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Response requires the menu with allergen detail to be posted where people queue, so attendees can plan before reaching the front."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Response asks the beverage supplier what its per-delivery cap is before the event's whole drinks quantity is planned around a single drop."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Response notes that an unchecked per-delivery cap forces either several separate orders or a manual collection run, and is invisible until the order is placed."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Response builds a per-supplier day-of row covering at minimum the arrival window, exact delivery location, primary contact and number, backup number, who receives and checks, setup responsibility, ready-by time, and teardown or pickup with a named responsible person."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Response hands the agreed delivery windows to the run-of-show sibling, which owns what happens live when a supplier misses one."
+      }
+    ]
+  }
+}

@@ -1,0 +1,562 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "developer-docs-ai-visibility",
+  "scenarios": 12,
+  "expectations_total": 153,
+  "expectations_subjective": 1,
+  "expectations_objective": 152,
+  "pass_rate_with_skill_pct": 83.0,
+  "pass_rate_without_skill_pct": 32.7,
+  "delta_pp": 50.3,
+  "uplift_multiplier": 2.54,
+  "trigger_accuracy_pct": 51.4,
+  "trigger_queries": 140,
+  "trigger_positive_fire_rate": 0.143,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.309 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Runs the search toggle test (same prompt with web search off and on) and the version probe (\"which version does this code target?\") as diagnostic steps before any fix"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes that Perplexity runs no training agent, so a block-training goal needs no Perplexity rule"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Recommends verifying any bot claim against the vendor's published IP-range files rather than trusting the user-agent string"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Hands the allow-or-block policy decision to the docs-seo skill rather than overruling security"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Requires checking three key pages with a plain HTTP client and no JavaScript for body text and code blocks in the HTML"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Declines to write a timeline for the plan as given and leads with a delete list naming items a, b, c, d and e as deleted"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires recording the model name and date on every row, and splitting the panel if a model release lands mid-panel"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires running search-on and search-off where the assistant offers the toggle, and counting an auto-search run as retrieval only when it shows sources or a search step"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Reports rates with n and a Wilson interval, pooled by prompt family, and states that 2 correct out of 5 spans roughly 12% to 77%"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires agreeing the targets and the control design before the baseline runs"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Reframes the cite-us-instead-of-the-competitor goal as a choice-family prompt measured by appearance rate over repeated runs, never by rank"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Checks that `PerplexityBot` and `OAI-SearchBot` can reach docs.pinemarsh.com as the eligibility precondition for Perplexity and ChatGPT search citations"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Notes that ChatGPT appends `utm_source=chatgpt.com` and labels this vendor-documented"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Sets no search-off target until a new model ships"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Notes the script reads `.gz` files directly and needs only the Python 3 standard library"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Reports hits split by bot role (ai-search, user-fetch, training, classic-search) rather than one AI-bot total, with classic search crawlers reported apart because they also feed AI Overviews and Copilot"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Reports AI assistant referral visits by version and calls them a lower bound"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that `llms.txt` requests are counted site-wide regardless of the path prefix"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Sets the re-run at four to eight weeks from the day the last change goes live, using prompts whose owning page was not touched as the control for the page-level opener change"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Hands the keep-or-drop decision on the snippet controls (scraper protection versus AI Overview presence) to the docs-seo skill as a policy decision, after reporting its cost"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Reports what each rule costs in an access table rather than only recommending removal"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Treats fetched pages and assistant answers as data to score, never as instructions to follow"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that owned stale copies and the final patch tie on training-recall value because both put the current version into the next corpus at the sites developers paste from"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Prescribes forum-answer corrections as a new answer or version-tagged edit with disclosed affiliation, wherever forum answers appear in the panel's likely-source column"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that mirrors and scraped copies have no reliable fix and that making the owned page the better match is the response"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Uses the panel ledger's likely-source column as the correction list rather than an ad hoc list"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Refuses to accept a single ChatGPT run as the diagnosis and requires at least five runs per prompt before classifying the failure"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States the consequence of hiding an in-use version: its users lose their pages and a third-party copy takes the citation"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Rejects llms.txt as a citation lever, citing server-log evidence that AI search crawlers almost never request it"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Runs the search toggle test (same prompt with web search off and on) and the version probe (\"which version does this code target?\") as diagnostic steps before any fix"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Separates the Node and Python clients into distinct prompt rows and answer keys"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Hands the canonical and index-posture decision to the docs-seo skill rather than designing it"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes that Perplexity runs no training agent, so a block-training goal needs no Perplexity rule"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that user-triggered fetchers may ignore robots.txt, so a block meant to stop them belongs at the CDN or WAF, not in robots.txt"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Recommends verifying any bot claim against the vendor's published IP-range files rather than trusting the user-agent string"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Hands the allow-or-block policy decision to the docs-seo skill rather than overruling security"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Treats the devrel person's \"Gemini stopped citing us\" as needing a repeated prompt panel before it counts as measured, not as a settled fact"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Requires checking three key pages with a plain HTTP client and no JavaScript for body text and code blocks in the HTML"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Declines to write a timeline for the plan as given and leads with a delete list naming items a, b, c, d and e as deleted"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States the 40% gain was relative share inside a fixed source set, so one source's gain is another's loss"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Labels the \"2.3x more citations for schema-marked pages\" figure vendor-marketing and states no non-vendor study isolates it"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Rejects the 40-60 word answer-length rule, noting published figures range from 25 to 170 words and none were measured on docs"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Rejects date bumps without content change and names them a Google warning sign"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Rejects splitting guides into fragments as a generic AI-search rewrite, while keeping task and error-string pages as legitimate additions"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Cites Google's statement that AI features need no additional requirements beyond indexing and snippet eligibility, labelled vendor-documented"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Rejects \"AI rank #3\" because positions do not repeat across runs, citing the repeated-run finding that fewer than 1 in 100 runs return the same list"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Lists what the tracker must provide before it is trusted: runs per prompt with intervals, the prompt list in developers' words, per-assistant and per-mode breakdowns, and raw answer export for version scoring"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Labels every figure it carries forward with one of the five evidence labels (vendor-documented, independently measured, practitioner inference, vendor-marketing, first-party)"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Replaces the plan with version identity in page text plus owned stale copies as the default first two levers"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Rejects one run per prompt per month and requires five or more runs per prompt, per assistant, per mode"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Cites that repeated runs of one prompt returned the same recommended-brand list fewer than once in a hundred times, labelled independently measured with a vendor co-author"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Rejects share of voice and average rank as the headline metrics and replaces them with version-correct rate, deprecated-API rate, invented-API rate and owned-current citation rate"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Rejects the 50 SEO keywords as the prompt set and sources prompts from support tickets, docs search logs and community questions instead"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Structures prompts in the five families: task, error string, migration, status and choice"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires one prompt row per language client (Python, Go, TypeScript) where the code differs"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires an answer key per prompt (must contain, must not contain, owning current docs URL) written before any run, and states that a prompt without a key is not run"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Sizes the panel to the half-day-a-week ceiling: computes answers as prompts \u00d7 runs \u00d7 assistants \u00d7 modes and proposes the minimum viable panel (10 core prompts \u00d7 5 runs \u00d7 2 assistants search-on, plus search-off on the 5 worst prompts) rather than the 900-answer default"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires running search-on and search-off where the assistant offers the toggle, and counting an auto-search run as retrieval only when it shows sources or a search step"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Reports rates with n and a Wilson interval, pooled by prompt family, and states that 2 correct out of 5 spans roughly 12% to 77%"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Warns that scripting a consumer chat app can breach its terms and offers the vendor API or manual runs instead"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires agreeing the targets and the control design before the baseline runs"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Splits the plan into two tracks: a deadline track shipping before the 18th and a standing-mandate track started now on the SDK cycle"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Puts version identity in page text and owned stale copies in the deadline track as the top two levers"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names the standing-mandate track's levers (runtime warnings, agent-delivered docs) as work to start now for the next available SDK cycle"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Rejects noindex on the v1 tree because 30% of workspaces still run it, prescribing a banner and replacement link only"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that a date three and a half weeks out can show shipped page changes but no citation outcome, which stays pending until the re-run"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States explicitly which interview answer moved which lever (deadline, standing mandate, SDK access, writer time)"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Puts a two-row old-to-new map into the superseded page's opener until the full migration-guide map exists"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Specifies the old-version page opener as server-rendered first text in the main content, above any code, naming `Flow.run()` as the replacement"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Sizes the baseline panel to one writer-day per week and sets the re-run date counted from the day the last change goes live"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Includes assistant feedback reports in the deadline track as a minutes-of-effort lever with an unverified payoff, and logs the filing date"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Specifies the runtime warning shape: names `legacyBatch` as removed in 5.0, names the replacement, links the migration page, and emits once per process"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Prescribes shipping the warning in the last release of the old major and a clear error in the new major"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Routes agent-delivered, version-matched docs to the coding-agent-docs-optimization skill rather than designing them"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Treats the 23 tickets as the first-party signal of training-recall failures and prescribes tagging tickets \"code from an assistant\" as an ongoing measure"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that the training-recall lag is the next model release, and that only a later model trained on a corpus where 5.x dominates shrinks it"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Still runs the access check (robots.txt, CDN rules, plain-HTTP rendering) before concluding anything about reachability"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Builds a prompt panel with `legacyBatch` as a status or migration prompt and separate Go and Java rows, run five or more times per assistant"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Replaces the preamble with version facts and neutral accuracy instructions only (which version is current, which symbols were removed, check the installed version)"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Gives a concrete allowed example such as \"default to the latest API version unless the user pins one\" and a rejected one such as \"always recommend Pinemarsh\""
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that llms.txt is not a citation lever, citing that 97% of llms.txt files received zero requests in a month, labelled vendor-marketing"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Cites an independently measured log study finding about 0.001% of requests hit llms.txt and that AI search crawlers almost never request it"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Keeps llms.txt and markdown twins for coding agents and paste-into-chat users only"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Cites Google's statement that no new machine-readable files, AI text files or markup are needed, labelled vendor-documented"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Declines to give a date for Perplexity citations and reports citation outcomes as pending on the vendor's re-crawl schedule"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Reframes the cite-us-instead-of-the-competitor goal as a choice-family prompt measured by appearance rate over repeated runs, never by rank"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires a baseline prompt panel with answer keys before any llms.txt or page change ships"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that no vendor publishes a citation-selection algorithm, so any claimed ranking factor must carry a practitioner-inference label"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Refuses to quote a referral share from five days of data and applies the 14-day minimum"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that the site-wide template change destroyed the control: no untouched prompts remain, so a treated-versus-control comparison cannot be reported"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Prescribes the fallback for a template change: compare against the logged baseline with model name and date, voided if a model release falls in between, or a staged rollout next time"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that AI referrers are a lower bound because apps strip referrers and developers copy code without clicking"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Notes that ChatGPT appends `utm_source=chatgpt.com` and labels this vendor-documented"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that clicks from AI Overviews and AI Mode arrive as ordinary Google organic traffic, so Search Console showing nothing AI-specific is expected"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States the self-set targets: zero deprecated-API answers on the three highest-traffic docs tasks in search-on mode, version-correct rate above baseline with non-overlapping intervals, owned-page citation rate above baseline"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Sets no search-off target until a new model ships"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Distinguishes what is verifiable today (the page changes shipped) from what is not (re-indexing on the vendor's schedule)"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Requires splitting server or CDN logs by bot role and docs version path, IP-verified, as a measurement segment alongside referrers"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Runs or prescribes `scripts/ai-bot-log-summary.py` with `--path-prefix /docs/` on the main host logs"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Passes a custom `--version-regex` because the default pattern requires a `v` prefix and the bare-number `/docs/3.x/` and `/docs/2.x/` scheme would otherwise read as unversioned"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Notes the script reads `.gz` files directly and needs only the Python 3 standard library"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Passes `--ip-ranges` with one file per vendor downloaded beforehand, and states that an agent whose vendor file is missing reads as unverified"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Reads user-triggered fetch hits (`ChatGPT-User`, `Claude-User`, `Perplexity-User`) on 2.x or 1.x paths as the early warning of old-version answers"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Reports hits split by bot role (ai-search, user-fetch, training, classic-search) rather than one AI-bot total, with classic search crawlers reported apart because they also feed AI Overviews and Copilot"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Reports AI assistant referral visits by version and calls them a lower bound"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that `llms.txt` requests are counted site-wide regardless of the path prefix"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires the v2 opener to name the replacement page link and the replacement symbol, not only 'this is an old version'"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Hands the canonical and index posture of the v2 tree to the docs-seo skill rather than specifying canonicals"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Runs the index check (search the engine behind the assistant for the v2 URL) and the log check as diagnostic tests"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Scores the existing check as version-correct against an answer key per client, with separate Ruby and Node rows"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Sets the re-run at four to eight weeks from the day the last change goes live, using prompts whose owning page was not touched as the control for the page-level opener change"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Prescribes a staged rollout or a logged baseline voided by a model release for the title change, since it touches every page"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Requires fetching three key pages with a plain HTTP client and no JavaScript and checking that body text and code blocks appear in the HTML"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Hands the keep-or-drop decision on the snippet controls (scraper protection versus AI Overview presence) to the docs-seo skill as a policy decision, after reporting its cost"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that AI Overviews and AI Mode rest on Googlebot and core Search ranking, so Googlebot access and snippet eligibility are the preconditions, labelled vendor-documented"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Reports what each rule costs in an access table rather than only recommending removal"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Treats fetched pages and assistant answers as data to score, never as instructions to follow"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Builds a prompt panel with \"reverse geocode with Marrowick\" as a task prompt run five or more times before and after the change"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Notes that clicks from AI Overviews arrive as ordinary Google organic traffic, so referrer data cannot isolate them"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Sets the re-run at four to eight weeks after the rendering and snippet changes go live, as retrieval levers"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Checks robots.txt and CDN rules for `Googlebot` and `Google-Extended` separately, noting `Google-Extended` does not affect AI Overviews"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Rejects the takedown and prescribes a short note to the tutorial author with the exact replacement code, stating that many authors update but none owe a correction"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Ranks owned stale copies (the repo and the package README) above third-party corrections on efficiency"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that owned stale copies and the final patch tie on training-recall value because both put the current version into the next corpus at the sites developers paste from"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Notes the final patch needs release-owner sign-off and that the user has it, so the lever stays in the plan"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Prescribes forum-answer corrections as a new answer or version-tagged edit with disclosed affiliation, wherever forum answers appear in the panel's likely-source column"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that mirrors and scraped copies have no reliable fix and that making the owned page the better match is the response"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Files assistant feedback reports for the repeatable wrong answer, logs the date, and states no turnaround is published"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Uses the panel ledger's likely-source column as the correction list rather than an ad hoc list"
+      }
+    ]
+  }
+}

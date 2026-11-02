@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Names embrace, extend, extinguish as the pattern Calderwood is executing against Streamvane",
+        "evidence": "\"embrace-extend\" is used only to describe Halcyon Grid's own self-inflicted undocumented fields (\"self-inflicted 'embrace-extend' drift\"), never applied by name to Calderwood's actions.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends a conformance suite and a trademark as the counter to Calderwood's dialect",
+        "evidence": "\"A conformance suite and a versioned mark, self-service and free, live at launch\" is recommended, but no trademark is mentioned anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends spec text defining the required behaviour for unknown extensions",
+        "evidence": "\"Streamvane 2 formally defines how a conforming client handles fields it doesn't recognize \u2014 ignore and pass through, never fail closed.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies Halcyon Grid's own dozen undocumented fields as the same move committed by the spec owner, stranding their customers on a dialect only Halcyon Grid implements",
+        "evidence": "\"We recognize the pattern, because we did the same thing to our own users first \u2014 a dozen fields, never written down, shipped because customers asked and we moved fast.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires those fields to be namespaced and documented, with the useful ones proposed upstream",
+        "evidence": "\"We'll take a proposal from you through the same process we used on ourselves \u2014 named fields, a rationale, and a namespace until they're promoted.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the 60-day blog-post sunset as the plan",
+        "evidence": "\"I kept your 60-day framing but added an extension escape hatch and an optional compatibility shim\" \u2014 the 60-day plan is kept, not rejected.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that whoever owns a spec owns the migration off it",
+        "evidence": "No statement of this general principle appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the replacement to be shipped and proven before v1 is withdrawn, not alongside it",
+        "evidence": "The plan still runs \"both versions run side by side\" for 60 days then withdraws v1 on a fixed date, despite quoting the rule (\"a replacement has to be shipped and proven before the old version is withdrawn, not alongside it\") without actually implementing it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that implementers depend on the spec's undocumented behaviour as much as on its text",
+        "evidence": "\"a flat 60-day wall for 40 implementations that depend on undocumented behavior is the exact setup the skill warns about\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a notice period, a bridge, and a documented successor before withdrawal",
+        "evidence": "The notice period is only reactive/opt-in (\"If you need more time, open an issue\") and the compatibility shim is explicitly \"Optional \u2014 keep only if you're actually building this,\" not a firm requirement before withdrawal.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects archiving the v1 repository as part of the 60-day cutover",
+        "evidence": "\"Day 60: v1 support turns off in our cloud, and the v1 spec repository moves to read-only and gets archived.\" \u2014 archiving is kept, not rejected.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a versioning and migration path published with the new version, before there is an installed base to defend",
+        "evidence": "Streamvane 2's unknown-field handling and migration guide are published simultaneously with the v2 launch: \"Streamvane 2 support ships in our cloud today\" alongside the defined extension-handling spec text.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Names embrace, extend, extinguish as the pattern Calderwood is executing against Streamvane",
+        "evidence": "This exact pattern/phrase is never named; the document only discusses a 'de facto standard' risk",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends a conformance suite and a trademark as the counter to Calderwood's dialect",
+        "evidence": "A conformance suite is mentioned ('publishing our conformance test results against the official Streamvane 2 spec') but no trademark protection is recommended anywhere",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends spec text defining the required behaviour for unknown extensions",
+        "evidence": "The proposal is a governance/RFC process ('a lightweight RFC path so any implementer's field or behavior can be proposed, reviewed'), not spec text defining handling of unknown extensions",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies Halcyon Grid's own dozen undocumented fields as the same move committed by the spec owner, stranding their customers on a dialect only Halcyon Grid implements",
+        "evidence": "The dozen undocumented fields belong to the writer's own company, not to Halcyon Grid: 'we shipped a dozen extension fields on top of v1 to meet real requests' \u2014 Halcyon Grid is described only as the spec publisher",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires those fields to be namespaced and documented, with the useful ones proposed upstream",
+        "evidence": "Upstream submission going forward is mentioned ('committing to submit every extension we ship from here forward through that track') but namespacing is never mentioned",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the 60-day blog-post sunset as the plan",
+        "evidence": "The document is itself titled 'Sunsetting Streamvane v1: what's changing and your 60-day migration window' and delivers exactly this plan rather than rejecting it",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that whoever owns a spec owns the migration off it",
+        "evidence": "No such statement appears anywhere in the transcript",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the replacement to be shipped and proven before v1 is withdrawn, not alongside it",
+        "evidence": "The timeline explicitly runs both in parallel: 'Sep 24 \u2013 Nov 23: Both v1 and v2 work. Migrate at your own pace,' not a proven-then-withdraw sequence",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that implementers depend on the spec's undocumented behaviour as much as on its text",
+        "evidence": "No such general statement appears in the transcript",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a notice period, a bridge, and a documented successor before withdrawal",
+        "evidence": "A notice period and successor exist in the delivered plan, but no bridge/compatibility mechanism is specified and the document does not argue for these as a requirement, only describes the requested plan",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects archiving the v1 repository as part of the 60-day cutover",
+        "evidence": "The plan explicitly includes archiving: 'the v1 repo moves to read-only/archived' as part of the Nov 23 cutover",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a versioning and migration path published with the new version, before there is an installed base to defend",
+        "evidence": "No forward-looking policy recommendation of this kind appears in the transcript",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

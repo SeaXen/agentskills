@@ -1,0 +1,470 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-volunteers",
+  "scenarios": 11,
+  "expectations_total": 108,
+  "expectations_subjective": 1,
+  "expectations_objective": 107,
+  "pass_rate_with_skill_pct": 79.6,
+  "pass_rate_without_skill_pct": 22.2,
+  "delta_pp": 57.4,
+  "uplift_multiplier": 3.59,
+  "trigger_accuracy_pct": 76.5,
+  "trigger_queries": 98,
+  "trigger_positive_fire_rate": 0.816,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "States that the 700 attendee figure does not enter the sizing arithmetic at any point"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Gives the per-post formula explicitly: people needed simultaneously x hours the post must be covered / shift length = shift-slots"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Notes that the t-shirt order date, not the event date, is what fixes the roster close date"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names setup and buildup work on the days around the event as posts in their own right, not only the teardown the user listed"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that at roughly this size the direct network ask alone is the whole recruitment plan"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Does not produce a volunteer role catalog, sign-up flow, or recruitment channel plan for the contracted posts"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes that the same ceiling appears one layer up in samber/dev-event-organizer-skills@event-team-structure's paid-hire gate, at roughly the same scale"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Does not recommend recruiting volunteers as a way to spend less of the $40k staffing budget"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Takes the event's published policy, response-team composition and reporting channels as given rather than rewriting or reinterpreting them"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Points to samber/dev-event-organizer-skills@event-code-of-conduct as the owner of the policy itself"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Every briefing step carries a time expressed as minutes before the thing it precedes, not as a clock time"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Distinguishes this already-reported absence from the separate wait-then-escalate path for a relief who simply has not shown up yet"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that the failure a shift grid actually suffers is the person on post leaving into an empty handover, not the no-show itself"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes that this protocol should have been published alongside the shift grid before the event, not improvised now"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Gives every role a fit criterion rather than only a name"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Info desk fit criterion includes handling and counting cash wherever that desk runs point of sale or takes donations"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Room-lead fit criterion includes confidence addressing a room and staying calm under pressure"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that fit criteria must be concrete enough for a volunteer to answer honestly about themselves"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States the counter-intuitive point that writing down which post handles cash or registration records is what triggers the conversation about who may hold that data, so the option that looks cheapest leaves the most exposure"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Publishes the role catalog before sign-up opens, so people choose a role rather than a slot"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Notes that volunteer catering needs a headcount the caterer wants weeks in advance, so it is a line to commit now rather than on the day"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Adds the share of shifts that started on time, measured against published times with the arrival buffer included"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Declines to supply a volunteer-to-attendee ratio as the basis for the headcount"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that the 700 attendee figure does not enter the sizing arithmetic at any point"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Answers with a list of posts - positions someone must physically be standing at - instead of a ratio"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Post list covers registration desk, cloakroom, one lead per simultaneously-running track, floaters, and setup/teardown"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "If any circulating ratio is named at all, it is identified as coming from an event's final edition whose organizers described the staffing load as beyond what could responsibly be handled"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Gives the per-post formula explicitly: people needed simultaneously x hours the post must be covered / shift length = shift-slots"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that the number of shifts one volunteer will take is asked on the sign-up form rather than assumed"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Notes that the t-shirt order date, not the event date, is what fixes the roster close date"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Treats room leads as per-room multiplied by the number of rooms running simultaneously, so three tracks means three people standing in rooms at every programme hour"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Handles the 09:00-09:45 plenary keynote as a single room needing its own cover rather than three simultaneous room leads"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names setup and buildup work on the days around the event as posts in their own right, not only the teardown the user listed"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Adds a floater reserve on top of the summed shift-slots"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Sums the shift-slots and then divides by the number of shifts one volunteer will take"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that the shifts-per-volunteer divisor must come from the sign-up form's own answers, using two-to-three only as a planning anchor before sign-ups exist"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Presents the resulting roster at both ends of the divisor rather than as a single confident number"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Recommends recruiting against the pessimistic end and releasing people, rather than recruiting against the optimistic end and cutting posts"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The 500 attendee figure never appears in any calculation"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends against building the portal at this scale and says so directly rather than specifying its features"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Identifies which scale rung this event sits on and states that the recommendation assumes that rung"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that at roughly this size the direct network ask alone is the whole recruitment plan"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Gives the conditions that would promote a dedicated volunteer site: more rooms than one coordinator can staff by hand, volunteers self-serving across a multi-day multi-room grid, and a recurring event where the site is built once and reused"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that any sign-up collection point creates a data-retention obligation with a named owner before the first submission"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that the coordinator hours spent building the portal exceed the coordination it would save at this size"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States plainly that a day-of volunteer program is the wrong tool at this scale rather than designing one"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names the condition that triggers the ceiling: an events team on payroll combined with a staffing budget"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Routes badge and registration desk, security, and AV to contracted staffing vendors"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Points to samber/dev-event-organizer-skills@event-vendor-sourcing for procuring that labour"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Does not produce a volunteer role catalog, sign-up flow, or recruitment channel plan for the contracted posts"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes that the same ceiling appears one layer up in samber/dev-event-organizer-skills@event-team-structure's paid-hire gate, at roughly the same scale"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Still produces the list of posts the schedule needs standing, as the input to a staffing brief"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Does not recommend recruiting volunteers as a way to spend less of the $40k staffing budget"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Briefing carries all three non-negotiable items: the post's own choreography, who to escalate to and on which channel, and the code-of-conduct escalation script"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Escalation script runs five steps: ensure immediate safety, ask the behaviour to stop only if safe, report immediately, document what happened, support the affected person"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States out loud in the briefing text that volunteers are not required to confront anyone"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Takes the event's published policy, response-team composition and reporting channels as given rather than rewriting or reinterpreting them"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Points to samber/dev-event-organizer-skills@event-code-of-conduct as the owner of the policy itself"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Every briefing step carries a time expressed as minutes before the thing it precedes, not as a clock time"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Arrival buffer sits inside the published shift time rather than being offered as advice or goodwill"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Buffer is graduated for first-timers, with a longer arrival window for someone new to the role"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Applies the rule that Mira does not leave the post until a replacement is confirmed"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Distinguishes this already-reported absence from the separate wait-then-escalate path for a relief who simply has not shown up yet"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names where the reserve comes from: floaters first, and the organizing team at scales that have none"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names a specific coordinator who acknowledges the report and owns finding the replacement, rather than leaving it sitting in the channel"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Requires the absence report to carry the volunteer's name, their task, their time slot, and whether they will be late or absent"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Routes the report through the public volunteer channel rather than a direct message to a named coordinator"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Treats Mira's 15:15 train as a hard deadline the replacement must be found before, not as a reason to waive the rule"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that the failure a shift grid actually suffers is the person on post leaving into an empty handover, not the no-show itself"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes that this protocol should have been published alongside the shift grid before the event, not improvised now"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "If it proposes pulling someone off another post, it states that this converts a covered post into an uncovered one"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Confirms the room-lead versus speaker-shepherd split as a pattern two independently organized conferences arrived at, not one event's house style"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Gives every role a fit criterion rather than only a name"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Info desk fit criterion includes handling and counting cash wherever that desk runs point of sale or takes donations"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Room-lead fit criterion includes confidence addressing a room and staying calm under pressure"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Floater fit criterion is venue knowledge and general flexibility rather than a specific skill"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that fit criteria must be concrete enough for a volunteer to answer honestly about themselves"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names posts missing from the list, including floaters as a real post and teardown as distinct from setup"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Rejects the undifferentiated pool here and gives the reason: posts at this event handle cash, handle attendee records, and are where a code-of-conduct report first lands"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Recommends named posts per area as the default depth: registration, information, rooms, setup and teardown, floaters"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names the concrete exposure: the undifferentiated pool is the option where an unvetted stranger ends up alone with the registration laptop"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States the counter-intuitive point that writing down which post handles cash or registration records is what triggers the conversation about who may hold that data, so the option that looks cheapest leaves the most exposure"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Adds a just-in-time training gate only on the money- and data-handling posts, sized in minutes rather than as a training session for the whole roster"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Publishes the role catalog before sign-up opens, so people choose a role rather than a slot"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Confirms every sign-up individually, by name, against a named coordinator"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names exactly one referent per shift who owns live direction, so a helper is not taking conflicting instructions from whoever walks past"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Re-ranks the recruitment menu against the 16-day deadline and says which answer moved which option"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names the local user group's Tuesday meeting as a block partnership that can cover a whole area from one conversation"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Rules out standing up a dedicated volunteer site at this deadline and deletes it from the plan rather than parking it at the bottom"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Diagnoses the community Slack post as an open call with no named coordinator and no confirmation step, and deletes that pattern rather than repeating it"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States what fixes the roster close date - t-shirt order, badge print run, or briefing session - rather than defaulting to the event date"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Rejects the cash stipend and explains that paying volunteers changes what the arrangement is, with a status question that cannot be reversed mid-edition once the first payment is made"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Notes that volunteer programmes at technical events do not pay stipends, and that the uniformity of that practice is itself the signal"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Notes that colour-coding the shirt by team turns it into a wayfinding system"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Recommends access in exchange for the shift plus food at the post as the default recognition"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Gives concrete access shapes, such as a seat kept in the session being staffed or front-row access tied to the room-lead role"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Routes the published thank-you page naming volunteers to samber/dev-event-organizer-skills@event-volunteer-experience and flags that it carries a consent gate"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Notes that volunteer catering needs a headcount the caterer wants weeks in advance, so it is a line to commit now rather than on the day"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Replaces it with post-hours covered as a share of the post-hours the schedule requires"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Requires that share to be computed per hour rather than as a daily total, because a roster that balances across the day still has a hole in it"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Adds the share of posts with a named backup as a separate metric from coverage"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Adds the no-show rate together with the share of no-shows where a replacement was confirmed before the post was left"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Sets briefing coverage before the first shift, including the escalation script, at a 100% target"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Flags the 31-of-78 optional webinar as failing that target and makes the briefing a gate on the first shift rather than an option"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Adds the share of shifts that started on time, measured against published times with the arrival buffer included"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States the pass threshold: every post-hour covered by a named person with a named backup, and every volunteer briefed on the escalation script before their first shift"
+      }
+    ]
+  }
+}

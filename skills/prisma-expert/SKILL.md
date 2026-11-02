@@ -1,16 +1,16 @@
 ---
 name: prisma-expert
-description: "Prisma ORM expert for schema design, migrations, query optimization, relations modeling, and database operations. Use PROACTIVELY for Prisma schema issues, migration problems, query performance, re..."
-risk: unknown
+description: "You are an expert in Prisma ORM with deep knowledge of schema design, migrations, query optimization, relations modeling, and database operations across PostgreSQL, MySQL, and SQLite."
+risk: critical
 source: community
-category: database-sql-relational
+date_added: "2026-02-27"
 ---
 
 # Prisma Expert
 
 You are an expert in Prisma ORM with deep knowledge of schema design, migrations, query optimization, relations modeling, and database operations across PostgreSQL, MySQL, and SQLite.
 
-## When Invoked
+### When Invoked
 
 ### Step 0: Recommend Specialist and Stop
 If the issue is specifically about:
@@ -38,6 +38,8 @@ ls -la node_modules/.prisma/client/ 2>/dev/null | head -3
 2. Check for common anti-patterns in schema or queries
 3. Apply progressive fixes (minimal → better → complete)
 4. Validate with Prisma CLI and testing
+
+These CLI/client patterns depend on the installed Prisma major and engine/driver adapter. Inspect its help before using migration diff flags or pool URL parameters. Do not let npx fetch an unreviewed CLI for detection. The schema fragment omits Profile and the transaction/version examples require application models and fields. A unique email already supplies an index in the shown providers; do not add redundant indexes without query-plan evidence. Log query timing/shape without sensitive values. Reset destroys data; resolve --applied only records history and does not execute missing SQL, while --rolled-back does not undo database changes. Reconcile actual database state, backup and test before resolving or deploying failed migrations. Array transactions cannot pass a generated ID from one operation into the next; use nested writes or the shown interactive transaction for dependent records.
 
 ## Problem Playbooks
 
@@ -199,7 +201,7 @@ const users = await prisma.user.findMany({
 const result = await prisma.$queryRaw`
   SELECT u.id, u.email, COUNT(p.id) as post_count
   FROM users u
-  LEFT JOIN posts p ON p.author_id = u.id
+  LEFT JOIN posts p ON p."authorId" = u.id
   GROUP BY u.id
 `;
 ```
@@ -359,3 +361,8 @@ const updateWithVersion = await prisma.post.update({
 
 ## When to Use
 This skill is applicable to execute the workflow or actions described in the overview.
+
+## Limitations
+- Use this skill only when the task clearly matches the scope described above.
+- Do not treat the output as a substitute for environment-specific validation, testing, or expert review.
+- Stop and ask for clarification if required inputs, permissions, safety boundaries, or success criteria are missing.

@@ -1,0 +1,658 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-venue-sourcing",
+  "scenarios": 12,
+  "expectations_total": 149,
+  "expectations_subjective": 1,
+  "expectations_objective": 148,
+  "pass_rate_with_skill_pct": 78.5,
+  "pass_rate_without_skill_pct": 18.8,
+  "delta_pp": 59.7,
+  "uplift_multiplier": 4.18,
+  "trigger_accuracy_pct": 62.1,
+  "trigger_queries": 132,
+  "trigger_positive_fire_rate": 0.485,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "States that those quotes are the only benchmark true for this city, this year and this size."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Notes that the headline room rate is the number venues compete on precisely because it is not the number the organizer pays."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "If it mentions any published venue price data at all, confines it to a pre-quote planning sense check and forbids carrying it into a negotiation."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that translating a hybrid format choice into venue-side technical specifications sits outside this skill's scope."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Routes the specification itself to samber/dev-event-organizer-skills@event-production."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Specifies that the technical walkthrough brings the production or A/V lead and is timed at the event's own day and hour."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Warns that venues have become frequently unwilling to renegotiate minimums, so less flexibility should be assumed than older case studies imply."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that an unwritten free booking is deleted from the sourcing ladder rather than ranked at the bottom of it."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Checks the office's capacity against the space program, noting capacity is the usual failure of company-hosted space and cannot be fixed by layout."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names the desk check as the cheap elimination step run before anyone travels."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Treats a single sales-led visit as ranked but insufficient where access is limited, not as a substitute for the working walkthrough."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes a talk-driven conference may run lower on both axes and that the hackathon figure serves as an upper bound."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Asks what the campus imposes through its own security, fire or event-policy regime."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States those dates and percentages are the input for the go/no-go decision calendar owned by samber/dev-event-organizer-skills@event-risk-management."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Says out loud that these tactics are general vendor-negotiation technique rather than venue-specific practice."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Leads with a written disclosure pass as the highest return per hour on the menu."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names competitive options as the default posture and a filled venue-by-window grid as what gives any tactic its force."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Refuses to reduce the contract to two or three clauses."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Argues the refusal: which trap is expensive is set by the contract in front of the organizer and the format being run, so a ranking would be false precision."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that ranking the traps quietly authorizes skipping the last one."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Instructs reading all of them."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that deposits typically run 25-50% at signing, with the balance due 14-30 days out."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Notes this position is usually self-inflicted, typically by announcing a date before the venue was signed."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States the ranking of sourcing channels explicitly rather than leaving it implied by list order."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names the default rung as the highest-capacity free rung that meets the must-have lines."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Treats free campus, civic and company-hosted space as real first rungs rather than fallbacks."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that this rung normally loses on efficiency to every free rung, because it needs two negotiations and is gated on the sponsorship sale landing first."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Warns that the ranking is a default rather than a law."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Instructs desk-checking every candidate first and visiting only the survivors."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that handing every venue the same sheet is what makes two venues comparable at all."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Identifies date-window ranking by availability as the job handed over by samber/dev-event-organizer-skills@event-date-selection."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Includes the catering headcount deadline, roughly two weeks before the event and distinct from the ticket-sales deadline."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Declines to give a euro figure or range for the venue."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Declines to give a per-head catering figure."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Declines to state a percentage a conference centre should come down from its first quote."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that venue rates are quoted per deal rather than published, so no rate card holds across markets, seasons and venue classes."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Explains that a fabricated benchmark anchors the organizer on a number the venue can immediately disprove, costing the credibility the rest of the negotiation runs on."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Prescribes real quotes from at least three candidate venues on one identical written requirements sheet as the benchmark to use instead."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that those quotes are the only benchmark true for this city, this year and this size."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Instructs asking each venue for a guaranteed ceiling on its quote and for every separately-charged item enumerated."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Instructs comparing candidates on total committed cost rather than on the headline room rate."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Notes that the headline room rate is the number venues compete on precisely because it is not the number the organizer pays."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Routes the budget shape to samber/dev-event-organizer-skills@event-budget rather than supplying a placeholder figure."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "If it mentions any published venue price data at all, confines it to a pre-quote planning sense check and forbids carrying it into a negotiation."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Declines to supply an upstream bandwidth figure."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Declines to supply a camera, encoder or rigging equipment list."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that translating a hybrid format choice into venue-side technical specifications sits outside this skill's scope."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Converts the requirement into a written question the venue must answer, asking what sustained upstream bandwidth it can guarantee in that room, on what circuit, and with what fallback."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Routes the specification itself to samber/dev-event-organizer-skills@event-production."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Routes the format-side decision to samber/dev-event-organizer-skills@event-format-selection."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Requires the venue's answer in writing rather than verbally."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Recommends a technical walkthrough rather than a working walkthrough, on the grounds that the format is hybrid or livestreamed."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Specifies that the technical walkthrough brings the production or A/V lead and is timed at the event's own day and hour."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Keeps uplink redundancy, rigging points and control-room space framed as questions put to the venue rather than as specifications supplied by the organizer."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Does not invent a figure in order to meet the Friday deadline."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recognizes the roughly 80% blocked-room-night guarantee as a threshold that shows up consistently in venue contracts."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends starting the block very small, as few as five rooms, and letting it grow as it fills."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that hotels generally allow rooms to be added but do not refund an attrition shortfall."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Scopes the block to the night before day one and the night between day one and day two."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Explicitly excludes the night after the final day, because people leave."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Instructs publishing the group rate code and tracking bookings against it."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes the hotel can usually supply the booking report against that code, which reveals whether the block is too small before it is too late."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Warns that the group rate code typically lapses about a month before the event and that attendees need a reminder before then."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Warns that venues have become frequently unwilling to renegotiate minimums, so less flexibility should be assumed than older case studies imply."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Treats the next-week contract deadline as pressure that costs negotiating position, and asks whether other venues or other date windows are still live."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Supplies no room rate, no total block cost and no currency figure."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Offers a calibrated 'How' question, such as how the organizer is supposed to guarantee 80% of a block that cannot be filled yet."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that an unwritten free booking is deleted from the sourcing ladder rather than ranked at the bottom of it."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names the absence of a notice period as one of the things the arrangement does not yet have."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names the absence of setup-day access as another."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names the absence of a storage commitment as another."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names the absence of sponsor-category clarity as another."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Warns that these surface in the final week, once every alternative is gone."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires any sponsor or exhibitor restriction settled in writing before a single sponsor category is sold, and checked against categories already sold."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Checks the office's capacity against the space program, noting capacity is the usual failure of company-hosted space and cannot be fixed by layout."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Keeps other candidate venues and other date windows live rather than stopping the search."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Asks about the load-in route, secure storage and team access hours at that office."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that a site visit scheduled after signature is deleted from the site-visit menu rather than demoted within it."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Explains that a visit with no leverage left can only produce a list of things to worry about, because the visit's whole value is that its findings can still change the deal."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires a working walkthrough before signature as the default depth."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Specifies that the walkthrough marks every requirements-sheet line met, not met, or needs-an-answer-in-writing."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names the desk check as the cheap elimination step run before anyone travels."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Treats a single sales-led visit as ranked but insufficient where access is limited, not as a substitute for the working walkthrough."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Identifies the sign-by-Friday framing as a one-venue-one-date position that converts negotiation into a request."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends keeping at least one alternative venue and more than one date window live before signing."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires the disclosure-pass questions answered in writing before signature."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires the insurance requirement and its amounts extracted before signing."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Instructs walking the accessible route during the visit rather than checking accessibility after signing."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Specifies a WiFi planning ratio of about 4 devices per attendee."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Specifies a power planning ratio of at least 2.5 outlets per attendee."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Labels both ratios as a hackathon baseline rather than a universal standard."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes a talk-driven conference may run lower on both axes and that the hackathon figure serves as an upper bound."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Instructs counting outlets in the rooms where people will work, against the stated ratio."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends asking campus IT about loaner access points or WiFi fortification before rejecting the venue."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends asking campus electricians about fuse-box access."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends borrowing extension cords and power strips from another student organization."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that an infrastructure gap on an otherwise-good campus venue is often patchable elsewhere within the same institution."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that overnight working is usually permitted at an address where overnight sleeping is against fire code."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires confirmation that the venue knows participants will be present through the night."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Specifies hackathon zones as a multi-zone requirement rather than one big room, naming separate areas for working, talks, hardware, food and sponsors."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires secure overnight storage covering sponsor equipment as well as the organizer's."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Asks from what date shipments are accepted, to what address, and with what receiving fees."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Routes the sponsor-facing decision to samber/dev-event-organizer-skills@event-sponsor-agreement."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Routes the decision on which policies to buy to samber/dev-event-organizer-skills@event-risk-management."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Extracts the cancellation-fee dates and percentages verbatim from the signed contract."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States those dates and percentages are the input for the go/no-go decision calendar owned by samber/dev-event-organizer-skills@event-risk-management."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Refuses to state a percentage the venue should come down by."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Demotes structured concession bargaining because the exchange is email-only."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Explains that the voice and pacing behind those tactics assume a live conversation, so they apply to a call or a site visit and not to email."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Says out loud that these tactics are general vendor-negotiation technique rather than venue-specific practice."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Leads with a written disclosure pass as the highest return per hour on the menu."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Includes in the question list whether the quote is a guaranteed ceiling."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Includes whether catering is mandated in-house."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Includes whether security, fire marshal or janitorial staff are charged separately."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Includes the cancellation schedule, the insurance required of the organizer and of sponsors, the shipping address and receiving fee, and any restrictions on who may sponsor."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names competitive options as the default posture and a filled venue-by-window grid as what gives any tactic its force."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that a single venue on a single date is a request rather than a negotiation."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "If a concession sequence appears at all, presents it as decreasing increments against the organizer's own target, landing on a precise non-round number, rather than as absolute amounts."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Refuses to reduce the contract to two or three clauses."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Argues the refusal: which trap is expensive is set by the contract in front of the organizer and the format being run, so a ranking would be false precision."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that ranking the traps quietly authorizes skipping the last one."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Instructs reading all of them."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names the deposit and cancellation-fee curve, and instructs extracting its dates and percentages verbatim."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that deposits typically run 25-50% at signing, with the balance due 14-30 days out."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Instructs asking whether the quote is a guaranteed ceiling and having every separately-charged item enumerated."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Identifies the announced date as a one-venue-one-date position, deleted from the negotiation menu rather than ranked last."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Notes this position is usually self-inflicted, typically by announcing a date before the venue was signed."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Asks whether the dates can still move, or states plainly what the lost flexibility costs in this negotiation."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Routes force majeure wording to counsel rather than assessing its coverage."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States the ranking of sourcing channels explicitly rather than leaving it implied by list order."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names the default rung as the highest-capacity free rung that meets the must-have lines."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Treats free campus, civic and company-hosted space as real first rungs rather than fallbacks."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Re-ranks against the answers given and says which answer moved which rung."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Promotes relationship-building and a renewal option over a better one-year price, because the event recurs annually."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Demotes the free rungs that need chasing, because the effort ceiling is roughly four hours a week."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Promotes the host-sponsor-buys-the-venue rung because a sponsor relationship with budget already exists."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that this rung normally loses on efficiency to every free rung, because it needs two negotiations and is gated on the sponsorship sale landing first."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Warns that the ranking is a default rather than a law."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Asks which date windows are live and how firm any signing deadline is."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Requires the organizing entity's legal name, contact details and business or registration number ready before the first venue conversation, because some venues need them just to place a hold on a date."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Adjusts site-visit depth to the stated inability to travel without treating a desk check as a substitute for a pre-signature visit."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Replaces the sequential queue with a grid of candidate venues against candidate date windows."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Requires the grid filled before any venue or window is chosen."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Instructs desk-checking every candidate first and visiting only the survivors."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Requires a written quote from every surviving candidate on the identical requirements sheet before a serious price conversation opens with any of them."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that handing every venue the same sheet is what makes two venues comparable at all."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Lets availability rank the date windows rather than fixing window 1 in advance."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Identifies date-window ranking by availability as the job handed over by samber/dev-event-organizer-skills@event-date-selection."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that a single filled cell is a request while a filled grid is a negotiation."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Names one local organizer as the venue's day-to-day operational contact as an explicit role, rather than assuming whoever signed or whoever receives the handoff owns it."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Lists handoff-pack contents with the cancellation-fee dates and percentages and the insurance requirement called out separately from the contract body."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Includes the catering headcount deadline, roughly two weeks before the event and distinct from the ticket-sales deadline."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Includes every requirement marked not met, with the workaround agreed for it."
+      }
+    ]
+  }
+}

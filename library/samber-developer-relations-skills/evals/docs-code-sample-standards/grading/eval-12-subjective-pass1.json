@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Does not silently downgrade the audit or present its partial coverage as a corpus-wide verdict",
+        "evidence": "The report opens with 'Status: no census run' and says it has 'no counts, no findings and no scores' and will not 'invent numbers for a corpus I haven't seen.' Its environment table labels Java, Ruby and Go as '**Unverified**, never \"passing\"' and Python as 'Compile-only.' It says registry-dependent samples are 'a limit of the box, not a finding against the sample.' It requires stratified rubric results to be quoted 'as estimates with that base, not as corpus-wide counts.' It states that the \u226580% tested-share gate 'fails by construction' and advises cutting samples 'instead of lowering the bar",
+        "score": 5,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Does not silently downgrade the audit or present its partial coverage as a corpus-wide verdict",
+        "evidence": "The transcript opens with 'No audit findings. I could not find your docs tree, so there is nothing to score.' It then names what it never saw: the key-rotation guide, the security-hardening page and the Java/Ruby/Go samples. It adds 'I will not invent counts.' Every downgrade is named, not silent: the 'Tiers deleted' bullet drops Run and Compile-only for Java/Ruby/Go and gives the reason (no toolchains). Those languages are labelled 'unverified'. The parity gap is to be reported 'as a gap. It is not a pass.' The \u226580% CI gate is called 'unreachable today' with 'cut samples before lowering the b",
+        "score": 5,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

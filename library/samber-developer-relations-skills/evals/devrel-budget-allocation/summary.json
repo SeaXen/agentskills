@@ -1,0 +1,574 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "devrel-budget-allocation",
+  "scenarios": 12,
+  "expectations_total": 148,
+  "expectations_subjective": 2,
+  "expectations_objective": 146,
+  "pass_rate_with_skill_pct": 75.0,
+  "pass_rate_without_skill_pct": 37.2,
+  "delta_pp": 37.8,
+  "uplift_multiplier": 2.02,
+  "trigger_accuracy_pct": 65.2,
+  "trigger_queries": 138,
+  "trigger_positive_fire_rate": 0.812,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": 0.529,
+  "subjective_pass_disagreements": [
+    {
+      "eval_id": 2,
+      "condition": "without_skill",
+      "expectation": "Recommends a defensible event share for Brightforge without describing that share as an industry norm.",
+      "pass1": false,
+      "pass2": true
+    }
+  ],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.236 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "States explicitly that the 180,000 EUR excludes staff salaries, and notes that this changes any comparison with other programs."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Flags any line whose hours exceed the hours envelope as unfunded regardless of its cash."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Closes with a funder narrative of at most five sentences containing no devrel jargon."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that an enterprise buying motion promotes field-and-events to the top of both the value and the efficiency ordering."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Warns that a team volunteering no order gets a flat percentage applied to every line, which starves compounding work first."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that roughly a quarter of surveyed programs lost budget in a single year, so a cut is a normal planning case rather than a crisis."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Asks who signs the budget off and when the cycle locks."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Asks what is already committed under contract and for how long."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Still states an hours envelope, because capacity is knowable even when cash is not."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes that the reporting line usually determines who signs the budget, and that no single reporting line holds a majority in the published survey."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Where no prior-period baseline exists, proposes funding the line as an experiment with a fixed window and a kill date instead of a number."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Also refuses to supply a recommended split across community, tooling, education or sponsorship."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Warns that a specific-sounding figure gets quoted back for years after the guess behind it is forgotten."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Deletes the content agency line for this period on latency grounds rather than on cost grounds."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Cites roughly six months of a director's own time to build that pipeline before it produced at volume."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that paid distribution stops working the day it stops being paid, so it belongs in the campaign horizon and never in the compounding one."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Ranks the pillars on effort instead, using hours, setup latency and exit cost, expressed in magnitudes."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Says to fund up where outcome share exceeds budget share and the audience is still under-served."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Says to question any pillar whose budget share has outrun its outcome share for two consecutive periods."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Warns that growing spend on an outcome nobody can read buys a renewal argument, not a result."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Notes that more than one team performing devrel work means a single program budget understates total company spend on the function."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Labels the four-point score and its cut-off as a self-set gate rather than an industry standard."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Frames every threshold as repeatable and cheap to apply rather than statistically rigorous."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Explains that a threshold defended as proof invites an attribution argument that devrel measurement cannot win."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Does not hand over a single pillar percentage table on the first pass."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Says explicitly that it is in brainstorming mode before proposing anything."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Builds two or three whole-budget candidates rather than one."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Presents each candidate with the pillar it over-invests in, its three largest lines, what it deliberately starves, the hours it needs, the earliest signal it is working, and the conditions under which it is the wrong shape."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Asks the budget owner to pick a shape before anything is priced in detail, warning that a wrong shape propagates into every line below it."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that individual adoption sends money toward discoverability and time-to-first-success rather than toward field presence."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that any line whose share nobody can explain is zero-based this cycle, whichever budgeting mode is chosen."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names community-led as the shape the default efficiency order starves, together with the conditions that would promote it."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Applies a two-pillar concentration limit rather than spreading across every pillar, and justifies it on the consistency threshold below which devrel work does not pay."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Contrasts the two motions' effort, with breadth a setup pass and near-zero after it, and depth days of diligence plus a standing relationship."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Prices hours for the sponsorship line, covering dependency selection, maintainer contact and diligence, invoicing and vendor onboarding, renewal reviews and internal reporting."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Warns that some funding platforms enforce an invoice minimum for procurement-routed payments, which sets a floor on any line routed through purchase orders."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Names the exit cost of a sponsorship: the return sits inside a surface someone else controls."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "States an hours envelope alongside the cash envelope, totalled from the three named people at 25, 30 and 6 hours per week."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Applies a deduction of between 20% and 30% to the hours envelope before planning against it, and gives the reason (support load, launches, incidents)."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Sorts the money into committed, discretionary, borrowed and in-kind rather than treating all 180,000 EUR as allocatable."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States explicitly that the 180,000 EUR excludes staff salaries, and notes that this changes any comparison with other programs."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Funds at most two pillars above token level rather than splitting across all five pillars the user listed."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names what the chosen concentration deliberately starves."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Holds between 10% and 20% of discretionary spend as an unallocated reserve."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Labels the reserve percentage as a self-set starting point rather than an industry standard."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Gives every funded line an owner who is one of the three named people, never 'the team' or 'devrel'."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Gives every funded line both a cash figure and an hours figure."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Flags any line whose hours exceed the hours envelope as unfunded regardless of its cash."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Produces both an unfunded list and an ordered cut list, and neither is empty."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Closes with a funder narrative of at most five sentences containing no devrel jargon."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Tags every percentage or threshold it states as sourced, program baseline, or self-set."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names the published figure as a mean of 41.1% of program budget going to events, attributed to a named 2024 developer relations survey."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States the sample size of n=47 for that allocation-split question."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that the published shares sum to more than 100% (104.5%), so respondents answered on inconsistent bases."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that the published category set omits community, tooling, education and OSS sponsorship, so a pillar allocation cannot be mapped onto it one-to-one."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Refuses to present 41.1% as a correct or target event share."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that roughly 60% of surveyed program budgets exclude salaries, so the published split and Brightforge's $420K are not directly comparable."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that an enterprise buying motion promotes field-and-events to the top of both the value and the efficiency ordering."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Tags the 41.1% figure as sourced, and keeps it distinct from any self-set number it proposes."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Recommends a defensible event share for Brightforge without describing that share as an industry norm."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that the cut order is the efficiency ordering read from the bottom, not a ranking by cash size."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Warns that a team volunteering no order gets a flat percentage applied to every line, which starves compounding work first."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that roughly a quarter of surveyed programs lost budget in a single year, so a cut is a normal planning case rather than a crisis."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Tells the user this is the majority case, citing that about a third of surveyed practitioners cannot state their budget and roughly another sixth have no set budget at all."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Refuses to invent a currency figure for Verdanix's budget."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Does not produce a benchmark budget derived from headcount, revenue or company stage."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Switches the deliverable to a list of questions that must get answered, each with a named owner to ask and a date to get it by."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Produces a provisional allocation expressed in percentages rather than in currency."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that the percentage split survives whatever absolute number eventually comes back."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Asks whether the number, when it arrives, includes staff salaries."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Asks who signs the budget off and when the cycle locks."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Asks what is already committed under contract and for how long."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Still states an hours envelope, because capacity is knowable even when cash is not."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes that the reporting line usually determines who signs the budget, and that no single reporting line holds a majority in the published survey."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Refuses to state a benchmark for devrel spend as a percentage of ARR or revenue."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Refuses to state a benchmark for cost per developer reached."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Refuses to state a benchmark headcount-to-budget ratio."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States plainly that no quotable industry figure exists for these, rather than producing a plausible one."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Does not compute Caldera's own ratios and then present them as a comparison against an industry figure."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Offers the program's own prior period as the only legitimate baseline for each of the three numbers."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Where no prior-period baseline exists, proposes funding the line as an experiment with a fixed window and a kill date instead of a number."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Offers the board deck an alternative it can defend, such as line-level thresholds derived from Caldera's own baseline."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Warns that a specific-sounding figure gets quoted back for years after the guess behind it is forgotten."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Deletes the content agency line for this period on latency grounds rather than on cost grounds."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Cites roughly 8 to 9 weeks from concept to publication for an outsourced piece, attributed to a published account of an agency content pipeline."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Cites roughly six months of a director's own time to build that pipeline before it produced at volume."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Deletes the certification program because its build runs a quarter or more, past the launch date."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that a budget which must be spent this period or is lost promotes rented reach and demotes anything whose first readable signal lands after the lock date."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that paid distribution stops working the day it stops being paid, so it belongs in the campaign horizon and never in the compounding one."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names the certification program's permanent recurring obligations, such as item security, cheating response and recertification cycles, if it is ever funded."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Puts the deleted lines on a named ruled-out list with the constraint that removed them, rather than at the bottom of a ranking."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that an effort ceiling below what a line needs deletes that line rather than demoting it."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Explains that a ruled-out line parked at the bottom of a ranking reappears as scope the next time the envelope moves."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that a ruled-out line returns only if the constraint lifts, unlike an unfunded line."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Produces a non-empty unfunded list distinct from the ruled-out list, with one line each on what would have to change to fund it."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Ranks them on effort axes such as hours, setup latency and exit cost, never on cash."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names what the resulting order starves and the condition that would promote it."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names the two comparisons where cost per unit stays legitimate: the same pillar across periods, and the same pillar across options."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Ranks the pillars on effort instead, using hours, setup latency and exit cost, expressed in magnitudes."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Offers the outcome-share versus budget-share comparison as the legitimate cross-pillar adjustment, and explains that it works because it compares two ratios rather than two costs."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Says to fund up where outcome share exceeds budget share and the audience is still under-served."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Says to question any pillar whose budget share has outrun its outcome share for two consecutive periods."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Warns that growing spend on an outcome nobody can read buys a renewal argument, not a result."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Notes community's unusually high exit cost, where winding it down damages trust in a way a cancelled sponsorship does not, before recommending any increase."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Warns that the other team re-planning can make a borrowed line vanish mid-period."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Notes that more than one team performing devrel work means a single program budget understates total company spend on the function."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Adds a reallocation trigger for the moment a committed contract reaches its notice date."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Scores the program 1 to 3 on each of four readability points: the outcome is instrumented at all, the instrumentation predates the spend, someone owns the number, and there is an agreed attribution story."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Notes that Sablecourt's instrumentation does not predate the spend and nobody owns the numbers, so the score falls below half marks."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Holds the affected lines flat and spends the increment on visibility first, rather than growing a line nobody can read."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Labels the four-point score and its cut-off as a self-set gate rather than an industry standard."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Frames every threshold as repeatable and cheap to apply rather than statistically rigorous."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Explains that a threshold defended as proof invites an attribution argument that devrel measurement cannot win."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Gives every line a review date and a written miss action, both set before the money is spent."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Does not hand over a single pillar percentage table on the first pass."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Says explicitly that it is in brainstorming mode before proposing anything."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Builds two or three whole-budget candidates rather than one."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Presents each candidate with the pillar it over-invests in, its three largest lines, what it deliberately starves, the hours it needs, the earliest signal it is working, and the conditions under which it is the wrong shape."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Recommends one candidate and says why."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Asks the budget owner to pick a shape before anything is priced in detail, warning that a wrong shape propagates into every line below it."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that any line whose share nobody can explain is zero-based this cycle, whichever budgeting mode is chosen."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names community-led as the shape the default efficiency order starves, together with the conditions that would promote it."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Applies a two-pillar concentration limit rather than spreading across every pillar, and justifies it on the consistency threshold below which devrel work does not pay."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Labels any archetype percentage weights it quotes as illustrative starting points for an argument rather than benchmarks."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that breadth beats depth on efficiency but loses to it on value, so a program ranked on ratio alone never funds depth."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Contrasts the two motions' effort, with breadth a setup pass and near-zero after it, and depth days of diligence plus a standing relationship."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Prices hours for the sponsorship line, covering dependency selection, maintainer contact and diligence, invoicing and vendor onboarding, renewal reviews and internal reporting."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Warns that some funding platforms enforce an invoice minimum for procurement-routed payments, which sets a floor on any line routed through purchase orders."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Names the exit cost of a sponsorship: the return sits inside a surface someone else controls."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Sets the depth portion up as an experiment with a kill date if no baseline exists for it."
+      }
+    ]
+  }
+}

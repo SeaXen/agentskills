@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Withholds a final channel plan until the audit findings and the adopter-type answer are in hand.",
+        "evidence": "The response does not withhold the plan \u2014 it delivers a complete, final channel plan in the same message as its unverified assumptions. It states up front that ecosystem, adopter type, goal, team capacity, and launch date are all assumed ('correct these and I'll adjust'), and marks two threshold items as '**pending**' audit ('Registry metadata 100% filled \u2014 **pending**', 'Stale listings fixed before new ones added \u2014 **pending** audit'). It also says 'run this before touching any new channel' and 'Fix what the audit finds before adding anything below.' But it then proceeds to commit to everythi",
+        "score": 1,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Withholds a final channel plan until the audit findings and the adopter-type answer are in hand.",
+        "evidence": "The response opens with a directive next action (\"block 2 hours this week, write one dev.to post\") and immediately commits to a complete, finalized channel plan: an hour-by-hour allocation of the 5-hour budget, a named list of 5 directories to submit to, 2 named subreddits with skip-lists (r/programming, r/webdev), and a 'Going forward (repeat monthly)' cadence. No audit of current state is run or requested \u2014 traffic/referrer data is only proposed as a 30-day *after-the-fact* check ('Check GitHub Insights \u2192 Traffic \u2192 Referrers ... in 30 days'), i.e. after the plan is already executed, not as a",
+        "score": 0,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

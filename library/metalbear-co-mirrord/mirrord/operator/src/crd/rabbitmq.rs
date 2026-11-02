@@ -1,0 +1,164 @@
+use std::{
+    collections::{BTreeMap, HashMap},
+    fmt,
+};
+
+use kube::CustomResource;
+use schemars::JsonSchema;
+use serde::{Deserialize, Serialize};
+
+use super::{
+    QueueConsumer, QueueId, QueueMessageFilter, QueueNameSource, QueueNameUpdate,
+    SplitQueueNameDetails,
+};
+
+#[derive(Clone, Debug, Deserialize, Eq, PartialEq, Serialize)]
+#[serde(rename_all = "camelCase")] // name_source -> nameSource in yaml.
+pub struct RmqQueueDetails {
+    /// Name of the `MirrordPropertiesList` that should be used to resolve cluster connection
+    /// options.
+    pub cluster_properties: String,
+
+    #[serde(flatten)]
+    pub name_details: SplitQueueNameDetails,
+
+    /// Name of the `MirrordPropertiesList` that should be used to resolve queue options.
+    pub queue_properties: Option<String>,
+
+    /// This is if your app auto-binds to exchanges, with this selector a new dummy exchange name
+    /// will be injected to replace any paramentes specified in this selector.
+    pub exchange_source: Option<QueueNameSource>,
+}
+
+#[derive(Clone, Debug, Default, Deserialize, Serialize, JsonSchema)]
+#[serde(rename = "RMQSplitDetails", rename_all = "camelCase")]
+pub struct RmqSplitDetails {
+    /// Queue ID -> old and new queue names.
+    pub queue_names: BTreeMap<QueueId, QueueNameUpdate>,
+
+    // A bit redundant, because the registry resource status has the mapping from env var name
+    // to queue id, and `queue_names` has the mapping from queue id to name update, but, saving
+    // it here in the form that is useful to reader, for simplicity and readability.
+    /// Env var name -> old and new queue names.
+    pub env_updates: BTreeMap<String, QueueNameUpdate>,
+}
+
+/// Representation of Sqs errors for the status of RMQ session resources.
+#[derive(Clone, Debug, Deserialize, Serialize, JsonSchema)]
+#[serde(rename_all = "camelCase")]
+pub struct RmqSessionError {
+    /// HTTP code for operator response.
+    pub status_code: u16,
+
+    /// Human-readable explanation of what went wrong.
+    pub reason: String,
+}
+
+impl fmt::Display for RmqSessionError {
+    fn fmt(&self, f: &mut fmt::Formatter) -> std::fmt::Result {
+        write!(f, "{}", self.reason)
+    }
+}
+
+#[derive(Clone, Debug, Deserialize, Serialize, JsonSchema)]
+#[serde(rename = "RMQSessionStatus")]
+pub enum RmqSessionStatus {
+    // kube-rs does not allow mixing unit variants with tuple/struct variants, so this variant
+    // has to be a tuple/struct too. If we leave the tuple empty, k8s complains about an object
+    // without any items, and kube-rs does not support internally tagged enums, so we actually
+    // have to put something in there, even if we don't actually care about that info.
+    Starting {
+        start_time_utc: String,
+    },
+    /// RMQ operator sets this status before it starts registering filters, so that if anything
+    /// fails during the registration of filters, we have all the queues we need to delete on
+    /// cleanup.
+    RegisteringFilters(RmqSplitDetails),
+    Ready(RmqSplitDetails),
+    StartError(RmqSessionError),
+    CleanupError {
+        error: RmqSessionError,
+        details: Option<RmqSplitDetails>,
+    },
+}
+
+impl RmqSessionStatus {
+    pub fn get_split_details(&self) -> Option<&RmqSplitDetails> {
+        match self {
+            RmqSessionStatus::RegisteringFilters(details) | RmqSessionStatus::Ready(details) => {
+                Some(details)
+            }
+            RmqSessionStatus::CleanupError { details, .. } => details.as_ref(),
+            _ => None,
+        }
+    }
+}
+
+/// The [`kube::runtime::wait::Condition`] trait is auto-implemented for this function.
+/// To be used in [`kube::runtime::wait::await_condition`].
+pub fn is_session_ready(session: Option<&MirrordRmqSession>) -> bool {
+    session
+        .and_then(|session| session.status.as_ref())
+        .map(|status| {
+            matches!(
+                status,
+                RmqSessionStatus::Ready(..)
+                    | RmqSessionStatus::StartError(..)
+                    | RmqSessionStatus::CleanupError { .. }
+            )
+        })
+        .unwrap_or_default()
+}
+
+/// The operator creates this object when a user runs mirrord against a target that is a queue
+/// consumer.
+#[derive(CustomResource, Clone, Debug, Deserialize, Serialize, JsonSchema)]
+#[kube(
+    group = "queues.mirrord.metalbear.co",
+    group_resolver = "crate::types::keyed_group",
+    version = "v1alpha",
+    kind = "MirrordRMQSession",
+    category = "mirrord",
+    root = "MirrordRmqSession", // for Rust naming conventions (Rmq, not RMQ)
+    status = "RmqSessionStatus",
+    printcolumn = r#"{"name":"Namespace", "type":"string", "description":"Namespace of the target workload.", "jsonPath":".spec.namespace"}"#,
+    printcolumn = r#"{"name":"Target Kind", "type":"string", "description":"Kind of the target workload.", "jsonPath":".spec.queueConsumer.workloadType"}"#,
+    printcolumn = r#"{"name":"Target Name", "type":"string", "description":"Name of the target workload.", "jsonPath":".spec.queueConsumer.name"}"#,
+    printcolumn = r#"{"name":"Session", "type":"string", "description":"mirrord session id that owns this split.", "jsonPath":".spec.sessionId", "priority":1}"#,
+    printcolumn = r#"{"name":"Age", "type":"date", "description":"Time since the resource was created.", "jsonPath":".metadata.creationTimestamp"}"#
+)]
+#[serde(rename_all = "camelCase")] // queue_filters -> queueFilters
+pub struct MirrordRmqSessionSpec {
+    /// Kubernetes namespace for the session (in workload clusters)
+    pub namespace: String,
+
+    /// For each queue_id, a mapping from attribute name, to attribute value regex.
+    /// The queue_id for a queue is determined at the queue registry. It is not (necessarily)
+    /// the name of the queue.
+    pub queue_filters: HashMap<QueueId, QueueMessageFilter>,
+
+    /// Specify jq programs that will be used to filter messages from queues.
+    /// For queues with a specified jq program, for every message the jq filter runs on a JSON
+    /// representation of the message: an object with `headers`, `properties`, and `payload`
+    /// fields.
+    ///
+    /// If the jq program outputs `true`, that message is considered as matching the filter.
+    #[serde(default, skip_serializing_if = "BTreeMap::is_empty")]
+    pub queue_jq_filters: BTreeMap<QueueId, String>,
+
+    /// The target of this session.
+    pub queue_consumer: QueueConsumer,
+
+    /// The id of the mirrord exec session, from the operator.
+    // The Kubernetes API can't deal with 64 bit numbers (with most significant bit set)
+    // so we save that field as a (HEX) string even though its source is a u64
+    pub session_id: String,
+
+    /// Multi-cluster coordination: explicit output queue names.
+    ///
+    /// Maps original queue names to their corresponding output queue names.
+    /// For multi-cluster: the default cluster creates temp queues and passes the exact names here.
+    /// Other clusters use these names directly instead of generating their own.
+    #[serde(default, skip_serializing_if = "HashMap::is_empty")]
+    pub output_queue_names: HashMap<String, String>,
+}

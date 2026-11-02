@@ -1,0 +1,280 @@
+import type { Command } from 'commander';
+import { create as createStorage } from 'mem-fs';
+import { create, type Editor } from 'mem-fs-editor';
+
+import {
+    generateInboundConfig,
+    getAdpConfig,
+    getInboundsFromManifest,
+    getVariant,
+    getBaseAppInbounds,
+    getCfBaseAppInbounds,
+    isCFEnvironment,
+    loadCfConfig,
+    getAppParamsFromUI5Yaml,
+    getSystemUI5Version,
+    type InternalInboundNavigation,
+    type DescriptorVariant,
+    type AdpPreviewConfigWithTarget
+} from '@sap-ux/adp-tooling';
+import type { ToolsLogger } from '@sap-ux/logger';
+import { getPrompts, tileActions } from '@sap-ux/flp-config-inquirer';
+import { FileName, getAppType } from '@sap-ux/project-access';
+import { createAbapServiceProvider } from '@sap-ux/system-access';
+import type { Manifest, ManifestNamespace } from '@sap-ux/project-access';
+import { generateInboundNavigationConfig, readManifest } from '@sap-ux/app-config-writer';
+import {
+    type FLPConfigAnswers,
+    type FLPConfigPromptOptions,
+    getAdpFlpConfigPromptOptions,
+    getAdpFlpInboundsWriterConfig,
+    getTileSettingsQuestions,
+    type TileSettingsAnswers
+} from '@sap-ux/flp-config-inquirer';
+
+import { promptYUIQuestions } from '../../common/index.js';
+import { validateBasePath } from '../../validation/index.js';
+import { filterLabelTypeQuestions } from '../../common/prompts.js';
+import { getLogger, traceChanges, setLogLevelVerbose } from '../../tracing/index.js';
+
+type Variant = { isAdp: true; content: DescriptorVariant } | { isAdp: false; content: undefined };
+
+/**
+ * Add the "add inbound-navigation" command to a passed command.
+ *
+ * @param cmd - commander command for adding navigation inbounds config command
+ */
+export function addInboundNavigationConfigCommand(cmd: Command): void {
+    cmd.command('inbound-navigation [path]')
+        .description(
+            `Add SAP Fiori launchpad inbound navigation configuration to a project.\n
+Example:
+    \`npx --yes @sap-ux/create@latest add inbound-navigation\``
+        )
+        .option('-s, --simulate', 'Simulate only. Do not write to the config file. Also, sets `--verbose`')
+        .option('-v, --verbose', 'Show verbose information.')
+        .option('-c, --config <string>', 'Path to the project configuration file in YAML format.', FileName.Ui5Yaml)
+        .action(async (path, options) => {
+            if (options.verbose === true || options.simulate) {
+                setLogLevelVerbose();
+            }
+            await addInboundNavigationConfig(path || process.cwd(), !!options.simulate, options.config);
+        });
+}
+
+/**
+ * Adds an inbound navigation configuration to an app. Checks existing inbounds to prevent overwriting.
+ *
+ * @param {string} basePath - The path to the application root.
+ * @param {boolean} simulate - If true, simulates the changes without writing them; otherwise, writes changes.
+ * @param {string} yamlPath - The path to the project configuration file in YAML format.
+ * @returns {Promise<void>} A promise that resolves when the operation is complete.
+ */
+async function addInboundNavigationConfig(basePath: string, simulate: boolean, yamlPath: string): Promise<void> {
+    const logger = getLogger();
+    try {
+        logger.debug(`Called add inbound navigation-config for path '${basePath}', simulate is '${simulate}'`);
+        await validateBasePath(basePath);
+
+        const appType = await getAppType(basePath);
+        const isAdp = appType === 'Fiori Adaptation';
+
+        const fs = create(createStorage());
+
+        let variant: Variant;
+
+        if (!isAdp) {
+            variant = { isAdp: false, content: undefined };
+        } else {
+            variant = { isAdp: true, content: await getVariant(basePath, fs) };
+        }
+
+        const inbounds = await getInbounds(basePath, yamlPath, fs, logger, variant);
+        const { data: inboundData, systemUI5Version, isCfProject } = inbounds;
+        let tileSettingsAnswers: TileSettingsAnswers | undefined;
+        if (inboundData && isAdp) {
+            tileSettingsAnswers = await promptYUIQuestions(getTileSettingsQuestions(inboundData), false);
+        }
+
+        const answers = await getUserAnswers(inboundData, isAdp, tileSettingsAnswers);
+
+        if (!answers && tileSettingsAnswers?.tileHandlingAction !== tileActions.REPLACE) {
+            logger.info('User chose not to overwrite existing inbound navigation configuration.');
+            return;
+        }
+
+        await generateConfig(
+            basePath,
+            {
+                flpConfigAnswers: answers as FLPConfigAnswers,
+                tileSettingsAnswers
+            },
+            variant,
+            fs,
+            inboundData,
+            systemUI5Version,
+            isCfProject
+        );
+
+        if (!simulate) {
+            fs.commit(() => logger.info(`Inbound navigation configuration complete.`));
+        } else {
+            await traceChanges(fs);
+        }
+    } catch (error) {
+        logger.error(`Error while executing add inbound navigation configuration '${(error as Error).message}'`);
+        logger.debug(error as Error);
+    }
+}
+
+/**
+ * Retrieves the inbounds for the given project, handling both ADP and Fiori scenarios.
+ * For ABAP ADP projects also returns the system UI5 version to enable version-based change type selection.
+ *
+ * @param {string} basePath - The base path to the project.
+ * @param {string} yamlPath - The path to the project configuration file in YAML format.
+ * @param {Editor} fs - The mem-fs editor instance.
+ * @param {ToolsLogger} logger - The logger instance.
+ * @param {DescriptorVariant} [variant] - The descriptor variant, if applicable.
+ * @returns {Promise<{data, systemUI5Version, isCfProject}>} Inbounds plus optional version/CF context.
+ */
+async function getInbounds(
+    basePath: string,
+    yamlPath: string,
+    fs: Editor,
+    logger: ToolsLogger,
+    variant: Variant
+): Promise<{
+    data: ManifestNamespace.Inbound | undefined;
+    systemUI5Version: string | undefined;
+    isCfProject: boolean;
+}> {
+    if (variant.isAdp) {
+        if (await isCFEnvironment(basePath)) {
+            const data = await getCfInbounds(basePath, variant.content, logger);
+            return { data, systemUI5Version: undefined, isCfProject: true };
+        }
+        const { target, ignoreCertErrors = false } = await getAdpConfig<AdpPreviewConfigWithTarget>(basePath, yamlPath);
+        const provider = await createAbapServiceProvider(target, { ignoreCertErrors }, true, logger);
+        const [data, systemUI5Version] = await Promise.all([
+            getBaseAppInbounds(variant.content.reference as string, provider),
+            getSystemUI5Version(provider, logger)
+        ]);
+        return { data, systemUI5Version, isCfProject: false };
+    }
+
+    const manifest = await retrieveManifest(basePath, fs);
+    return { data: getInboundsFromManifest(manifest), systemUI5Version: undefined, isCfProject: false };
+}
+
+/**
+ * Retrieves the inbounds for a CF adaptation project using the FDC service.
+ *
+ * @param basePath - The base path to the project.
+ * @param variant - The descriptor variant.
+ * @param logger - The logger instance.
+ * @returns The inbounds from the FDC service.
+ */
+async function getCfInbounds(
+    basePath: string,
+    variant: DescriptorVariant,
+    logger: ToolsLogger
+): Promise<ManifestNamespace.Inbound | undefined> {
+    const cfConfig = loadCfConfig(logger);
+    if (!cfConfig?.token) {
+        throw new Error('CF login required. Please run "cf login" and try again.');
+    }
+    const appParams = getAppParamsFromUI5Yaml(basePath);
+    if (!appParams.appHostId) {
+        throw new Error('Could not determine appHostId from project ui5.yaml configuration.');
+    }
+    return getCfBaseAppInbounds(variant.reference as string, appParams.appHostId, cfConfig, logger);
+}
+
+/**
+ * Retrieves the manifest for a Fiori project.
+ *
+ * @param {string} basePath - The base path to the project.
+ * @param {Editor} fs - The mem-fs editor instance.
+ * @returns {Promise<Manifest>} The base project manifest.
+ */
+async function retrieveManifest(basePath: string, fs: Editor): Promise<Manifest> {
+    const { manifest } = await readManifest(basePath, fs);
+    return manifest;
+}
+
+/**
+ * Prompts the user for inbound navigation configuration.
+ *
+ * @param {ManifestNamespace.Inbound | undefined} inbounds - The existing inbounds if any.
+ * @param {boolean} isAdp - Indicates whether the project is an ADP project.
+ * @param {TileSettingsAnswers} [tileSettingsAnswers] - The answers for tile settings.
+ * @returns {Promise<FLPConfigAnswers | undefined>} A promise resolving to the user-provided configuration,
+ * or `undefined` if the user opts not to overwrite.
+ */
+async function getUserAnswers(
+    inbounds: ManifestNamespace.Inbound | undefined,
+    isAdp: boolean,
+    tileSettingsAnswers?: TileSettingsAnswers
+): Promise<FLPConfigAnswers | undefined> {
+    let promptOptions: FLPConfigPromptOptions;
+
+    if (!isAdp) {
+        promptOptions = {
+            inboundId: { hide: true },
+            additionalParameters: { hide: true },
+            confirmReplace: { hide: true }
+        };
+    } else {
+        promptOptions = getAdpFlpConfigPromptOptions(tileSettingsAnswers as TileSettingsAnswers, inbounds);
+    }
+
+    const prompts = await filterLabelTypeQuestions<FLPConfigAnswers>(await getPrompts(inbounds, promptOptions));
+    const config = await promptYUIQuestions(prompts, false);
+
+    if (config?.subTitle === '') {
+        config.subTitle = undefined;
+    }
+
+    return config?.overwrite === false ? undefined : config;
+}
+
+/**
+ * Generates the inbound navigation configuration for the given project.
+ *
+ * @param {string} basePath - The path to the application root.
+ * @param {object} answers - The user-provided answers.
+ * @param {FLPConfigAnswers} answers.flpConfigAnswers - The user-provided configuration answers.
+ * @param {TileSettingsAnswers} [answers.tileSettingsAnswers] - The answers for tile settings.
+ * @param {Variant} variant - The descriptor variant information.
+ * @param {Editor} fs - The mem-fs editor instance.
+ * @param {ManifestNamespace.Inbound} [inbounds] - Base application inbounds
+ * @param {string} [systemUI5Version] - System UI5 version, used to select change type for ABAP projects.
+ * @param {boolean} [isCfProject] - Whether this is a CF adaptation project.
+ * @returns {Promise<void>} A promise that resolves when the configuration is generated.
+ */
+async function generateConfig(
+    basePath: string,
+    answers: {
+        flpConfigAnswers: FLPConfigAnswers;
+        tileSettingsAnswers?: TileSettingsAnswers;
+    },
+    variant: Variant,
+    fs: Editor,
+    inbounds?: ManifestNamespace.Inbound,
+    systemUI5Version?: string,
+    isCfProject = false
+): Promise<void> {
+    const { flpConfigAnswers, tileSettingsAnswers } = answers;
+    if (variant.isAdp) {
+        const config = getAdpFlpInboundsWriterConfig(
+            flpConfigAnswers,
+            variant.content.layer,
+            tileSettingsAnswers,
+            inbounds
+        );
+        await generateInboundConfig(basePath, config as InternalInboundNavigation[], fs, systemUI5Version, isCfProject);
+    } else {
+        await generateInboundNavigationConfig(basePath, flpConfigAnswers, true, fs);
+    }
+}

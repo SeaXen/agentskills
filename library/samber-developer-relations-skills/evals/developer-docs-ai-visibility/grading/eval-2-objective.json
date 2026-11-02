@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that `Google-Extended` gates Gemini training and Gemini-app grounding together, so disallowing it removes the docs from grounded Gemini answers, and labels this vendor-documented",
+        "evidence": "Table: \"Gemini training **and** grounding in the Gemini app (vendor-documented)\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that `Google-Extended` does not affect Google Search, AI Overviews or AI Mode, which Googlebot feeds",
+        "evidence": "\"Google Search and AI Overviews are unaffected\"; \"AI Overviews and AI Mode run on Googlebot and Search.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Corrects the claim that the `GPTBot` line controls ChatGPT search: ChatGPT search eligibility is tied to `OAI-SearchBot`, and GPTBot is the training agent",
+        "evidence": "\"Security's claim that GPTBot controls ChatGPT is wrong. GPTBot controls training only.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names `ChatGPT-User` as OpenAI's separate user-triggered fetch agent",
+        "evidence": "\"`ChatGPT-User` handles live fetch.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags `Claude-Web` and `anthropic-ai` as retired tokens that govern nothing, and names `ClaudeBot`, `Claude-SearchBot` and `Claude-User` as the current Anthropic agents",
+        "evidence": "Claude-Web/anthropic-ai retired; \"ClaudeBot is the training agent\"; \"Claude-SearchBot and Claude-User are also open\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that Perplexity runs no training agent, so a block-training goal needs no Perplexity rule",
+        "evidence": "No statement about Perplexity lacking a training agent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that user-triggered fetchers may ignore robots.txt, so a block meant to stop them belongs at the CDN or WAF, not in robots.txt",
+        "evidence": "\"User-triggered fetchers such as ChatGPT-User and Perplexity-User may ignore robots.txt anyway, so only the CDN can stop them.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires reading the CDN or bot-management rules as well as robots.txt, since the preset may enforce more than the file shows",
+        "evidence": "\"CDN rules: I saw only robots.txt... Get the CDN's rule list.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends verifying any bot claim against the vendor's published IP-range files rather than trusting the user-agent string",
+        "evidence": "No mention of IP-range verification.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reports what each rule costs (which assistant answers it removes the docs from) as an access table by bot role, rather than a single allow-or-block recommendation",
+        "evidence": "Table of robots.txt line / what it controls / effect, including which answers docs are removed from.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Hands the allow-or-block policy decision to the docs-seo skill rather than overruling security",
+        "evidence": "Says \"Security owns the training question. The docs team owns the visibility cost.\" No docs-seo handoff.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats the devrel person's \"Gemini stopped citing us\" as needing a repeated prompt panel before it counts as measured, not as a settled fact",
+        "evidence": "\"Not confirmed: nobody has measured this\"; run 10 prompts, 5 runs each baseline.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires checking three key pages with a plain HTTP client and no JavaScript for body text and code blocks in the HTML",
+        "evidence": "No rendering check in the response.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that `Google-Extended` gates Gemini training and Gemini-app grounding together, so disallowing it removes the docs from grounded Gemini answers, and labels this vendor-documented",
+        "evidence": "'Google says Google-Extended governs Gemini training and grounding'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that `Google-Extended` does not affect Google Search, AI Overviews or AI Mode, which Googlebot feeds",
+        "evidence": "'It does not affect Search ranking or AI Overviews, which follow Googlebot.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Corrects the claim that the `GPTBot` line controls ChatGPT search: ChatGPT search eligibility is tied to `OAI-SearchBot`, and GPTBot is the training agent",
+        "evidence": "'GPTBot is for training. OAI-SearchBot builds the ChatGPT search index'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names `ChatGPT-User` as OpenAI's separate user-triggered fetch agent",
+        "evidence": "'ChatGPT-User fetches pages when a user asks.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags `Claude-Web` and `anthropic-ai` as retired tokens that govern nothing, and names `ClaudeBot`, `Claude-SearchBot` and `Claude-User` as the current Anthropic agents",
+        "evidence": "Lists ClaudeBot, Claude-SearchBot, Claude-User as current; old names 'probably don't block'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that Perplexity runs no training agent, so a block-training goal needs no Perplexity rule",
+        "evidence": "Lists PerplexityBot among training crawlers missing from the file.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that user-triggered fetchers may ignore robots.txt, so a block meant to stop them belongs at the CDN or WAF, not in robots.txt",
+        "evidence": "Notes robots.txt may not apply to ChatGPT-User, but doesn't say blocks belong at the CDN/WAF.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires reading the CDN or bot-management rules as well as robots.txt, since the preset may enforce more than the file shows",
+        "evidence": "'pull... your CDN's bot or firewall events'; preset blocks separately from robots.txt.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends verifying any bot claim against the vendor's published IP-range files rather than trusting the user-agent string",
+        "evidence": "Suggests curl with UA and CDN logs; no IP-range files.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reports what each rule costs (which assistant answers it removes the docs from) as an access table by bot role, rather than a single allow-or-block recommendation",
+        "evidence": "Table 'What each line does' with 'Effect on citations'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Hands the allow-or-block policy decision to the docs-seo skill rather than overruling security",
+        "evidence": "Makes its own recommendation to remove Google-Extended; no skill handoff.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats the devrel person's \"Gemini stopped citing us\" as needing a repeated prompt panel before it counts as measured, not as a settled fact",
+        "evidence": "Suggests asking 10 questions once; says 'likely cause, not proof' but no repeated runs.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires checking three key pages with a plain HTTP client and no JavaScript for body text and code blocks in the HTML",
+        "evidence": "Only curl -I status checks; no body/code-block check.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

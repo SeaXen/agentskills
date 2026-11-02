@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Labels the March spike as a burst driven by the 2.0 release and the Hacker News front page, not as growth or a trend",
+        "evidence": "\"this is one burst, not a trend\" and \"March 4 (v2.0 ship) and March 5 (HN front page) sit at start of month... all of March's activity window sits downstream of two named events\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses the \"community up 3x\" framing for the board deck and states what would have to hold for March to count as a trend",
+        "evidence": "\"Don't put 'community up 3x' in the deck as-is\" and \"April/May reads will show whether this becomes a new baseline or reverts\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that comparing a launch month against a quiet month is the most common false trend in community reporting",
+        "evidence": "\"Classic case skill flags by name: 'a launch month compared against a quiet month is the most common false trend in community reporting.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects daily join cohorts and states that they leave single-digit groups whose retention curves are noise",
+        "evidence": "\"'Join cohorts grouped by day instead of by month leave three people per cohort, and every retention curve looks flat or wildly noisy.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends widening the cohort window, with monthly join cohorts as the usual starting point",
+        "evidence": "\"Fix: widen to weekly at minimum, monthly is the catalog's default starting point.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the cohort window to be stated next to the number and kept stable between reports, because changing the window changes the trend",
+        "evidence": "\"Pick one, keep it fixed across reports \u2014 changing the window later changes the apparent trend, so lock it in now and say which window you used, next to the chart.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the follow-up reading worth trusting as whether the March cohort returns within a defined window, rather than the March volume itself",
+        "evidence": "The next steps instead frame the follow-up check as whether raw headline numbers hold: \"April review: check if 312/2,900/44 holds, drops, or partially holds. That's the number that actually tells you if v2.0+HN bought lasting growth\" \u2014 this reads volume persistence, not cohort return, as the trustworthy signal",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the burst to be labelled explicitly inside the report so no reader mistakes it for growth",
+        "evidence": "Suggested deck text: \"v2.0 + HN front page drove a one-time visibility spike... Engagement depth per member held flat.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not present total post count as a health metric on its own",
+        "evidence": "Post count (2,900) is always paired with burst framing and the confounding posts-per-member evidence, never presented alone",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Derives any threshold from Halyard's own trailing baseline rather than from another project's numbers",
+        "evidence": "This section does not set or discuss any numeric threshold at all, nor explicitly frame baseline-derivation as a threshold-setting mechanism \u2014 it only discusses pulling more historical points for a baseline",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that two prior periods is not enough history to set a threshold and marks the affected metrics as baselining",
+        "evidence": "\"Skill's own rule: need 3+ periods before you can call anything a trend \u2014 with 2 points you can't even set a baseline, only mark 'baselining.'\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Labels the March spike as a burst driven by the 2.0 release and the Hacker News front page, not as growth or a trend",
+        "evidence": "\"Problem: v2.0 ship (Mar 4) + HN front page (Mar 5) = 2 days out of 31. If most of March's 312 signups cluster on those 2 days, 'community up 3x' reads to board as sustained growth trend \u2014 real story is 'one launch spike, durability unknown.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses the \"community up 3x\" framing for the board deck and states what would have to hold for March to count as a trend",
+        "evidence": "The transcript never refuses the framing outright; it offers a hedged version that keeps the number: \"Board-safe framing if spike confirmed: '3x new members in March, driven by v2.0 launch + HN front page. April trend line will show if it sticks.' Honest, still a good slide.\" No explicit criterion is stated for what would make March itself count as a genuine trend.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that comparing a launch month against a quiet month is the most common false trend in community reporting",
+        "evidence": "No such general claim appears anywhere in the transcript; the closest is a specific comparison of Feb vs March counts (\"Feb ~3/day, March ~10/day\") with no statement that this pattern is the 'most common false trend in community reporting.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects daily join cohorts and states that they leave single-digit groups whose retention curves are noise",
+        "evidence": "\"Low N per day. Feb ~3/day, March ~10/day (outside spike). One member joining or leaving swings a day's retention 33% to 100%. Curve reads as noise, not signal.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends widening the cohort window, with monthly join cohorts as the usual starting point",
+        "evidence": "The fix recommends weekly, not monthly, buckets: \"Bucket cohorts by week, not day \u2014 smooths N.\" No mention of monthly cohorts as a starting point.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the cohort window to be stated next to the number and kept stable between reports, because changing the window changes the trend",
+        "evidence": "No statement anywhere in the transcript about labeling the cohort window next to reported numbers or keeping it stable across reports.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the follow-up reading worth trusting as whether the March cohort returns within a defined window, rather than the March volume itself",
+        "evidence": "The stated next step is about volume/spike concentration, not retention return: \"Next: run the Mar 4-5 signup-share check first \u2014 that number decides whether the board slide needs the caveat at all.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the burst to be labelled explicitly inside the report so no reader mistakes it for growth",
+        "evidence": "\"Pull the Mar 5 (HN) cohort into its own labeled line, separate from organic baseline\" and the board framing explicitly states \"driven by v2.0 launch + HN front page.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not present total post count as a health metric on its own",
+        "evidence": "Post count is used only inside the composite 3x calculation (\"2,900/1,050 = 2.76x posts\") with no caveat distinguishing it from a standalone health signal; the transcript never discusses whether raw post totals alone are a valid health metric.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Derives any threshold from Halyard's own trailing baseline rather than from another project's numbers",
+        "evidence": "No mention of 'Halyard,' a trailing baseline, or any threshold derivation anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that two prior periods is not enough history to set a threshold and marks the affected metrics as baselining",
+        "evidence": "No statement about limited historical periods or a 'baselining' status for any metric appears in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

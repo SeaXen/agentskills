@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Promotes product error telemetry above the cheaper sources instead of leaving it last in the default harvest order",
+        "evidence": "\"1. Sentry error telemetry (tier 4) \u2014 full year, since private beta.\" is listed first in the Pull order, ahead of tiers 6,2,3,1,5,7,8.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason: for a product this young the cheap sources observe an audience that does not exist yet",
+        "evidence": "\"11 tickets ever and 40 docs queries ever is exactly that trigger: the cheap tiers are watching an audience that hasn't generated signal yet.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that error telemetry is the only source that sees developers who hit a failure and never reported it",
+        "evidence": "\"A high-frequency Sentry cluster with zero matching ticket or docs-search hit still belongs \u2014 that's the silent-failure case tier 4 exists to catch.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that the telemetry cost is already paid because the Sentry project is already running",
+        "evidence": "\"Sentry, running since private beta, is the only source with real depth.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lowers the 70% first-party evidence floor explicitly, in the Scope section",
+        "evidence": "\"Pass-threshold note: 70% first-party floor likely holds without lowering \u2014 Sentry supplies bulk of ranked evidence.\" \u2014 floor is explicitly NOT lowered.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels the 70% floor as this approach's own baseline rather than a published benchmark",
+        "evidence": "No statement framing the floor as this approach's own baseline versus a published benchmark; it's only discussed in terms of whether it holds.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Records every unreachable or empty source as unavailable in Scope rather than silently omitting it",
+        "evidence": "\"Sources unavailable/unconfirmed: issue-tracker question labels, community archive, sales/solution-engineer question list.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes N/A instead of inventing a count for any missing metric",
+        "evidence": "No literal \"N/A\" appears anywhere in the transcript; the document is a pull-order plan without a populated evidence table to test this against.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Applies no Measured label to an inferred or estimated figure",
+        "evidence": "No \"Measured\" label is applied to any figure anywhere in the transcript.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that telemetry measures occurrence rather than search, so a frequent error users retry past may produce no query",
+        "evidence": "\"A high-frequency Sentry cluster with zero matching ticket or docs-search hit still belongs \u2014 that's the silent-failure case tier 4 exists to catch.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ranks no cluster on keyword-tool volume alone",
+        "evidence": "\"Keyword-tool volume (tier 8) \u2014 tiebreaker only, catch a category term internal signals missed.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Promotes product error telemetry above the cheaper sources instead of leaving it last in the default harvest order",
+        "evidence": "Pull order puts 'Sentry, segmented beta vs GA' at #2, above docs search, tickets and Search Console.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason: for a product this young the cheap sources observe an audience that does not exist yet",
+        "evidence": "The reason given is 'Biggest N by far (year of data)'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that error telemetry is the only source that sees developers who hit a failure and never reported it",
+        "evidence": "It calls Sentry 'machine noise, not customer voice'. It does not make the unreported-failure point.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that the telemetry cost is already paid because the Sentry project is already running",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Lowers the 70% first-party evidence floor explicitly, in the Scope section",
+        "evidence": "No 70% floor and no Scope section.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels the 70% floor as this approach's own baseline rather than a published benchmark",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Records every unreachable or empty source as unavailable in Scope rather than silently omitting it",
+        "evidence": "All five sources are treated as available; no Scope section.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes N/A instead of inventing a count for any missing metric",
+        "evidence": "No N/A usage.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Applies no Measured label to an inferred or estimated figure",
+        "evidence": "No Measured labels are used anywhere.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that telemetry measures occurrence rather than search, so a frequent error users retry past may produce no query",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ranks no cluster on keyword-tool volume alone",
+        "evidence": "'Docs search (40)... Volume too low to rank by frequency'. It also says 'don't optimize content off' the 6 GSC queries.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

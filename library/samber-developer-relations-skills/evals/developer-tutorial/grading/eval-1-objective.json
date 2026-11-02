@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Classifies the requested artefact as a how-to guide, not a tutorial.",
+        "evidence": "\"is a **how-to guide** shape, not a tutorial.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Draws the distinction as learning-oriented (serving the reader at study) versus task-oriented (serving the reader at work).",
+        "evidence": "The transcript frames the distinction as 'a tutorial is a single guaranteed path; a how-to forks on the reader's real situation' \u2014 never uses 'learning-oriented/at study' vs 'task-oriented/at work' framing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Attributes the tutorial/how-to distinction to Di\u00e1taxis.",
+        "evidence": "\"Di\u00e1taxis calls this exact conflation the most common one in software docs\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that conflating the two is described as the single most common conflation made in software product documentation.",
+        "evidence": "\"Di\u00e1taxis calls this exact conflation the most common one in software docs\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names each of the four branch points in the request (cloud provider, Terraform versus console, Postgres versus MongoDB, workload tuning) as forks a tutorial cannot carry.",
+        "evidence": "\"AWS/GCP/Azure, Terraform/console, Postgres/MongoDB, plus a high-volume/low-volume closing section \u2014 is a **how-to guide** shape\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that every imported fork destroys the tutorial's single guaranteed path.",
+        "evidence": "\"a tutorial is a single guaranteed path... Five forks on one page would force the learner to resolve decisions before they understand the product, which is the tutorial's #1 failure mode\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Makes the scope call out loud instead of silently absorbing the request and producing a branching tutorial.",
+        "evidence": "Section heading \"## Scope call, out loud\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the branching artefact to a how-to guide, naming it as the owner of the other answer.",
+        "evidence": "\"**Two how-to guides** carry the coverage marketing actually asked for \u2014 that content is correctly a how-to guide's job\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites the ban on presenting choices in a tutorial (Di\u00e1taxis' don't-list: abstraction and generalisation, explanation, choices, excess information).",
+        "evidence": "No such don't-list (abstraction/explanation/choices/excess information) appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Any tutorial alternative it proposes pins exactly one environment: one cloud, one provisioning method, one database, with versions stated.",
+        "evidence": "\"AWS, Terraform \u22651.7, Postgres 13+ \u2014 pinned\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Produces no outline section shaped as \"if you use X\u2026 if you use Y\u2026\" on the main path.",
+        "evidence": "The outline's Steps 1-3 contain no conditional branching language, only a single sequential path.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the learning objective of any proposed tutorial as a demonstrable capability the learner performs, not as \"understand deployment\".",
+        "evidence": "\"By the end of this tutorial, you'll be able to: - Provision a Quillrail instance from a Terraform module - Point Quillrail at an external Postgres store...\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Classifies the requested artefact as a how-to guide, not a tutorial.",
+        "evidence": "The document is titled 'Deploy Quillrail to Production \u2014 Tutorial Outline' and the Format note explicitly commits to a tutorial format: 'Structure it as a decision-tree tutorial.' It is never reclassified as a how-to guide.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Draws the distinction as learning-oriented (serving the reader at study) versus task-oriented (serving the reader at work).",
+        "evidence": "No such distinction appears anywhere in the transcript; the outline moves directly from a format note into content sections with no framing of learning-oriented vs. task-oriented documentation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Attributes the tutorial/how-to distinction to Di\u00e1taxis.",
+        "evidence": "Di\u00e1taxis is never mentioned in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that conflating the two is described as the single most common conflation made in software product documentation.",
+        "evidence": "No claim of this kind appears; the transcript contains no discussion of documentation-type conflation at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names each of the four branch points in the request (cloud provider, Terraform versus console, Postgres versus MongoDB, workload tuning) as forks a tutorial cannot carry.",
+        "evidence": "The branch points are named, but as forks the tutorial explicitly CAN carry: 'Three independent choices (cloud, provisioning method, database)... Structure it as a decision-tree tutorial... Use tabs (AWS/GCP/Azure, Terraform/Console, Postgres/MongoDB).' This is the opposite of treating them as unsupportable forks.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that every imported fork destroys the tutorial's single guaranteed path.",
+        "evidence": "No statement to this effect exists; instead the doc argues tabs solve the branching problem ('rather than duplicating full prose per combination \u2014 3\u00d72\u00d72 = 12 combinations would bloat the page').",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Makes the scope call out loud instead of silently absorbing the request and producing a branching tutorial.",
+        "evidence": "The transcript silently absorbs the branching request and produces exactly the branching tutorial asked for, with no scope objection voiced anywhere in the outline.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the branching artefact to a how-to guide, naming it as the owner of the other answer.",
+        "evidence": "There is no mention of a how-to guide at all; the entire artefact remains labeled and structured as a single tutorial with tabs (Sections 5 and 6: 'Sub-tabs: AWS | GCP | Azure', 'Sub-tabs: Postgres | MongoDB').",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites the ban on presenting choices in a tutorial (Di\u00e1taxis' don't-list: abstraction and generalisation, explanation, choices, excess information).",
+        "evidence": "No such ban or list is cited anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Any tutorial alternative it proposes pins exactly one environment: one cloud, one provisioning method, one database, with versions stated.",
+        "evidence": "No single-environment tutorial alternative is proposed; the decision matrix in Section 2 explicitly keeps all options open (AWS/GCP/Azure, Terraform/Web console, Postgres/MongoDB) as reader-selectable rows, not a pinned single path with versions.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces no outline section shaped as \"if you use X\u2026 if you use Y\u2026\" on the main path.",
+        "evidence": "Sections 5 and 6 are exactly this shape, implemented as tabs on the main path: 'Sub-tabs: AWS | GCP | Azure... Repeat this shape identically for GCP and Azure' and 'Sub-tabs: Postgres | MongoDB.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the learning objective of any proposed tutorial as a demonstrable capability the learner performs, not as \"understand deployment\".",
+        "evidence": "No learning objective statement of any kind appears in the transcript; the closest analog, 'What You Built' (Section 10), is a recap of the outcome, not a stated objective, and no alternative single-path tutorial is proposed to have one.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

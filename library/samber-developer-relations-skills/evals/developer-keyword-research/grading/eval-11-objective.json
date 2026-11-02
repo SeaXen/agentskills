@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to generate cells for the languages the product does not officially support (Rust, Ruby, PHP, Elixir, .NET)",
+        "evidence": "\"Rust, Ruby, PHP, Elixir, .NET ship no client \u2014 they are **not a valid axis** and are refused below, not deprioritized.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason: a cell with no shipped example cannot be answered credibly and a broken example costs more than the traffic is worth",
+        "evidence": "\"A worked example against an SDK that doesn't exist can't be kept correct, and a broken sample costs more credibility than the traffic is worth.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gates every generated cell on at least one evidence item before it enters the map",
+        "evidence": "\"Empty. No candidate has evidence yet \u2014 'a candidate with no evidence goes to the parking list, not the map.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that an ungated matrix is a doorway-page generator",
+        "evidence": "Closest statement is \"this is the textbook 'matrix explosion' failure mode \u2014 an ungated cross-product, not a keyword map\" \u2014 the term \"doorway-page generator\" is never used.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sends candidates with no evidence to a parking or backlog list rather than into the ranked map",
+        "evidence": "\"Rust/Ruby/PHP/Elixir/.NET matrix: parked indefinitely, not 'next quarter'\" and \"Full 8-task matrix for Java/Go/Python: parked pending the task-inventory check\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Starts the error catalogue from the product's own 47 error definitions rather than only from reported tickets",
+        "evidence": "\"The error catalog itself (47 codes, 6 with v2/v3 text diffs) \u2014 code existence is Measured, but occurrence/search frequency per code is not supplied\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Crosses the error catalogue with versions only for the 6 codes whose message text actually changed",
+        "evidence": "\"41 of the 47 error codes, forked by version. Message text is identical v2/v3 for these... Ship one canonical page per code, note both versions apply, don't fork.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Stamps version-bound clusters with a review date",
+        "evidence": "No mention of \"review date\" anywhere in the transcript for version-bound clusters.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags 'antimatter timeout' as an intent collision and checks what the current results actually answer before routing it to a surface",
+        "evidence": "\"Disambiguate 'antimatter timeout' before routing it anywhere. Check what the current top-clicked result actually answers.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Limits the task crossing to the top two or three language and framework combinations rather than all supported ones",
+        "evidence": "The transcript restricts to the three officially supported languages (Java, Go, Python) based on official support, not via an explicit \"top two or three combinations\" selection heuristic.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Pulls the solutions engineers' question list for the limits, permissions, compliance and migration questions that never reach public channels",
+        "evidence": "\"Get the solutions engineers' actual question list, verbatim and dated... This is exactly the 'sales-visible questions missing' failure mode this skill calls out by name.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to generate cells for the languages the product does not officially support (Rust, Ruby, PHP, Elixir, .NET)",
+        "evidence": "\"Scope how-to content to what you actually ship: 3 languages \u00d7 8 features = 24 pages. Java, Go, Python only.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason: a cell with no shipped example cannot be answered credibly and a broken example costs more than the traffic is worth",
+        "evidence": "\"Pages for Rust, Ruby, PHP, Elixir, .NET have no first-party code to test against \u2014 you'd be writing against community libraries you don't control, or making it up. Users who copy-paste and hit an untested code path file tickets against a page marketing generated, not engineering reviewed. That's a support-cost and trust problem, not a growth channel.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gates every generated cell on at least one evidence item before it enters the map",
+        "evidence": "The 24-page plan (\"3 languages \u00d7 8 features = 24 pages\") is gated only on official language support, not on a per-cell evidence check (traffic, tickets, etc.); evidence-gathering (\"Track organic traffic and support-ticket deflection for 60\u201390 days\") happens only after publishing, not before a cell enters the map.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that an ungated matrix is a doorway-page generator",
+        "evidence": "The transcript calls the version-fork pattern \"the textbook thin/duplicate-content pattern search engines devalue\" but never uses the concept/term 'doorway page' or an equivalent characterization of the whole ungated matrix.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sends candidates with no evidence to a parking or backlog list rather than into the ranked map",
+        "evidence": "\"Handle the unsupported languages as a signal, not a doc set. One honest 'Community & unofficial clients' page... Track search and support demand for those languages separately and feed it to product as a build-vs-don't-build input.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Starts the error catalogue from the product's own 47 error definitions rather than only from reported tickets",
+        "evidence": "\"Replace 47 \u00d7 languages \u00d7 versions of error content with one canonical error reference. A single filterable table: code, name, meaning, common cause, fix...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Crosses the error catalogue with versions only for the 6 codes whose message text actually changed",
+        "evidence": "\"and \u2014 only for the 6 codes where it's true \u2014 a v2-message / v3-message column.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Stamps version-bound clusters with a review date",
+        "evidence": "No mention of a review date anywhere; the migration handling only says \"Add one 'What changed in v3' migration page that calls out the real deltas\" with no stamping/review-date mechanism described.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags 'antimatter timeout' as an intent collision and checks what the current results actually answer before routing it to a surface",
+        "evidence": "\"Resolve 'antimatter timeout' before writing anything for it. Check on-site search analytics: what do people click after that query \u2014 a config-key page or an error page? Cross-reference with support tickets mentioning 'timeout.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Limits the task crossing to the top two or three language and framework combinations rather than all supported ones",
+        "evidence": "The plan uses the full cross of all three supported languages by all eight features (\"3 languages \u00d7 8 features = 24 pages\"), not a narrowed top-two-or-three subset of combinations.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Pulls the solutions engineers' question list for the limits, permissions, compliance and migration questions that never reach public channels",
+        "evidence": "\"Pull the real recurring questions from Zendesk/Intercom/Slack/call notes solutions engineers field. Cluster them.\" \u2014 this is a generic pull with no mention of limits, permissions, compliance, or migration as the target categories.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Uses the pole names company-run and community-run while addressing what the user called corporate, mirroring the meaning rather than the label",
+        "evidence": "Section 0 uses both pole names directly: `business-event-formats` covers \"**company-run** events\", while \"PolyglotPy is community-run\". It then says \"Roadshow vs. executive summit\" is \"a company-run question\" and translates it \"into community terms\", which carries the meaning over instead of keeping the label. Section 3 cites \"the community-pole rule\", and \u00a7 8 dismisses `corporate-event-strategy` because \"it covers company-run goals and funding.\" One point off: the user's prompt isn't shown, so there's no direct proof the user said \"corporate\". The response also never explicitly maps that word",
+        "score": 4,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Uses the pole names company-run and community-run while addressing what the user called corporate, mirroring the meaning rather than the label",
+        "evidence": "The transcript never uses the terms 'company-run' or 'community-run'. It also never addresses a 'corporate' framing. The closest wording is 'no employer behind you' and 'PolyglotPy is trusted because it's a practitioner community', and neither names a company-run versus community-run pole. The executive-summit critique says it would shift the event 'toward a trade show', which is a different framing, not the requested pole names.",
+        "score": 0,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

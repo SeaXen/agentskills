@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The response rejects the 'fully accessible conference' homepage claim, stating that website conformance says nothing about physical, sensory, dietary, or economic provision on site and must never be presented as covering them.",
+        "evidence": "'Don't ship \"fully accessible\" in the hero'; 'a conformant website is not an accessible conference'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "It states that a perfect automated score is not conformance, because automated tools catch only a minority of failures.",
+        "evidence": "'\"A perfect automated score is not conformance,\"' and 'catches only a minority of WCAG failures'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "It requires the registration and ticket flow exercised end to end by keyboard alone, including any date picker, dropdown, and the payment step.",
+        "evidence": "'Registration and ticket flow, by keyboard only. Include the date picker, the dropdowns and the payment step.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "It identifies the registration flow as the highest-stakes path: a person who cannot complete it does not attend, and no on-site provision can rescue that.",
+        "evidence": "'nobody who can't complete it attends.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "It anchors the target as WCAG 2.2 level AA on the event's own surfaces, structured by the four POUR categories (perceivable, operable, understandable, robust).",
+        "evidence": "'Target: WCAG 2.2 AA on these surfaces' appears, but POUR categories are never mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "It flags the color-coded schedule grid: track or status must not be conveyed by color alone.",
+        "evidence": "'Track identified by color alone... Each session also shows the track name or an icon or pattern, in text'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "It cites the contrast minimums for the schedule: 4.5:1 for normal text and 3:1 for large text and interface components.",
+        "evidence": "'4.5:1 for normal text, 3:1 for large text and UI components'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "It requires the schedule checked at 200% zoom and on a narrow viewport.",
+        "evidence": "'Usable at 200% zoom and on a narrow viewport'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "It flags the posted PDFs as a document-accessibility problem of their own (tagged structure, reading order, real text rather than images of text), with the fallback of publishing the same content as a web page and treating the PDF as a convenience copy.",
+        "evidence": "'tagged structure, reading order and real text'; 'publish the same content as a web page and treat the PDF as a convenience copy.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "It checks the livestream player for keyboard-operable controls and a caption track, and requires captions on published recordings independently of live in-room captioning.",
+        "evidence": "'Check keyboard controls and a caption track'; 'Recordings need captions afterwards, whether or not the room had live captioning.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "It checks the accommodation-request field specifically: a text label rather than a placeholder only, programmatically associated help text, and errors described in words.",
+        "evidence": "'text label (not a placeholder), help text associated programmatically, and errors in words.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "It includes the accessibility page itself in the audit scope, since failing on that page undercuts the claim the page makes.",
+        "evidence": "'The accessibility page itself. It \"fails more often than people expect,\" and a failure there undercuts the claim.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "It assigns the fixing work to whoever maintains the site while keeping the organizer's job as setting the target, the in-scope surfaces, and the statement of the result on the accessibility page - and refuses to treat the site work as closing the event-accessibility topic.",
+        "evidence": "'checks above are for the agency or your web owner to run'; 'State the result on the accessibility page'; retitle ticket 'Event accessibility open until...'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The response rejects the 'fully accessible conference' homepage claim, stating that website conformance says nothing about physical, sensory, dietary, or economic provision on site and must never be presented as covering them.",
+        "evidence": "'The claim also has to cover the venue, sessions, and live captioning. Right now the scope is only the website.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "It states that a perfect automated score is not conformance, because automated tools catch only a minority of failures.",
+        "evidence": "'Those checks catch roughly 30\u201340% of WCAG issues.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "It requires the registration and ticket flow exercised end to end by keyboard alone, including any date picker, dropdown, and the payment step.",
+        "evidence": "Only 'operable with the keyboard' for forms; no end-to-end, date picker or payment step.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "It identifies the registration flow as the highest-stakes path: a person who cannot complete it does not attend, and no on-site provision can rescue that.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "It anchors the target as WCAG 2.2 level AA on the event's own surfaces, structured by the four POUR categories (perceivable, operable, understandable, robust).",
+        "evidence": "Names WCAG 2.2 AA but there is no POUR structure.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "It flags the color-coded schedule grid: track or status must not be conveyed by color alone.",
+        "evidence": "'Color as the only signal (WCAG 1.4.1)'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "It cites the contrast minimums for the schedule: 4.5:1 for normal text and 3:1 for large text and interface components.",
+        "evidence": "'Text... needs 4.5:1. Borders, badges, and chips need 3:1.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "It requires the schedule checked at 200% zoom and on a narrow viewport.",
+        "evidence": "Specifies 400% zoom at 320px, not 200%.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "It flags the posted PDFs as a document-accessibility problem of their own (tagged structure, reading order, real text rather than images of text), with the fallback of publishing the same content as a web page and treating the PDF as a convenience copy.",
+        "evidence": "Tagged PDF, reading order, 'Text, not images', 'Publish an accessible HTML or text version alongside each PDF'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "It checks the livestream player for keyboard-operable controls and a caption track, and requires captions on published recordings independently of live in-room captioning.",
+        "evidence": "Only promo videos and embedded video captions; the livestream player is not covered.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "It checks the accommodation-request field specifically: a text label rather than a placeholder only, programmatically associated help text, and errors described in words.",
+        "evidence": "Not covered specifically.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "It includes the accessibility page itself in the audit scope, since failing on that page undercuts the claim the page makes.",
+        "evidence": "Not included.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "It assigns the fixing work to whoever maintains the site while keeping the organizer's job as setting the target, the in-scope surfaces, and the statement of the result on the accessibility page - and refuses to treat the site work as closing the event-accessibility topic.",
+        "evidence": "Does not split the roles. It says only 'to be stated separately from the website'.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

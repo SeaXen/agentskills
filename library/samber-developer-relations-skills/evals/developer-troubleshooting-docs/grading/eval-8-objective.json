@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Recommends generating the catalog from one machine-readable source of truth before any per-code page is written",
+        "evidence": "\"Fix the source-of-truth problem first \u2014 this is an engineering ticket, not a writing task. Pick one canonical file (`internal/errs/codes.go` is the obvious pick... Generate the TS enum and the docs table from it.\" listed as step 1, before Tier A writing work in steps 4-5.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a hand-synced catalog drifts by default and that generation removes the failure mode rather than policing it",
+        "evidence": "\"3 declaration sites... means drift already happened \u2014 Confluence stuck at 90 codes proves it. Writing pages against the current mess just encodes the drift into a fourth place.\" and \"Retire the Confluence page once the generator ships \u2014 a hand-maintained fourth copy just re-creates the drift you're fixing.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the three declaration sites as evidence that the drift already exists",
+        "evidence": "\"3 declaration sites (`internal/errs/codes.go`, TS enum, Confluence) means drift already happened \u2014 Confluence stuck at 90 codes proves it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends diffing the documented wiki table against the codes the product can actually emit, and using the size of that diff as the business case",
+        "evidence": "The transcript only notes 'Confluence stuck at 90 codes proves it' as evidence of drift but never proposes computing/diffing the wiki table against the emitted codes or using that diff's size as a business case.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites at least one published implementation by name, such as PostgreSQL's errcodes file, Rust's rustc_error_codes, Twilio's error dictionary, or Stripe's error-code catalog",
+        "evidence": "\"Same pattern as PostgreSQL (`errcodes.txt` \u2192 C header + SGML docs) and Rust (`rustc_error_codes` \u2192 error index + `--explain`)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends that the source file carry, per code, a description, an erroneous example, an explanation and a fix",
+        "evidence": "The transcript only specifies a 'full 6-part entry (message, applies-to, cause, fix, confirm, still-stuck)' for written Tier A docs and a thin 'message + applies-to' stub for Tier B generated from source \u2014 it never specifies the source file itself should carry a description/erroneous-example/explanation/fix schema.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Attributes that four-field schema to Rust RFC 1567",
+        "evidence": "No mention of RFC 1567 or any four-field schema attribution anywhere in the transcript; Rust is cited only via 'rustc_error_codes \u2192 error index + --explain'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the work lands in the product repository, not the docs repository",
+        "evidence": "\"Owner: whoever owns `internal/errs`, not the docs team. Do not let this get folded into 'the docs project.'\" \u2014 ownership of the codes.go-based generator is placed with the team owning the product code, not docs.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names identifying the owning engineering team as a prerequisite to proposing it",
+        "evidence": "Listed under 'Before writers touch anything, get answers to': \"Who owns `internal/errs/codes.go`, and will they take the generator ticket?\" and closing line: \"Next: get the codes.go owner to commit to the generator ticket \u2014 that unblocks everything else.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Frames the change as a one-off engineering task rather than a docs task",
+        "evidence": "\"Fix the source-of-truth problem first \u2014 this is an engineering ticket, not a writing task.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explicitly rejects bundling the catalog generation with the Hugo-to-Docusaurus migration",
+        "evidence": "\"Run this fully separate. Different track, different owner, no shared deadline... Sequence: ship the generated catalog on the current Hugo site first... Migrate the site after content stabilizes.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not assign 140 hand-written pages across the two writers as the plan",
+        "evidence": "\"Don't assign 140 pages to 2 writers. Wrong shape of work.\" \u2014 the plan instead proposes a tiered treatment (Tier A written, Tier B generated stub) sized against real capacity, not 140 pages.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends carrying a documentation URL or deep link from the emitted error itself, in the payload or via an explain command",
+        "evidence": "The only mention of an explain-style mechanism is describing Rust's existing `--explain` flag as an analogy for the generator pattern ('rustc_error_codes \u2192 error index + `--explain`'); the transcript never recommends the product's own emitted errors carry a doc URL/deep link or explain command.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Recommends generating the catalog from one machine-readable source of truth before any per-code page is written",
+        "evidence": "\"Declare codes.go canonical\" and \"Write a generator that walks the const block and emits a manifest... Template-render the manifest into Docusaurus MDX pages\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a hand-synced catalog drifts by default and that generation removes the failure mode rather than policing it",
+        "evidence": "\"TS enum and wiki are downstream copies that already proved they rot\" and \"Kills the drift structurally, not just for this round.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the three declaration sites as evidence that the drift already exists",
+        "evidence": "\"codes.go, the TS enum, and the wiki (last synced at ~90 codes) have almost certainly diverged in more places than the count suggests\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends diffing the documented wiki table against the codes the product can actually emit, and using the size of that diff as the business case",
+        "evidence": "Recommends a three-way diff script for operational fixing ('Fix the diff findings in code/TS first'), but never frames the diff size as a business case.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites at least one published implementation by name, such as PostgreSQL's errcodes file, Rust's rustc_error_codes, Twilio's error dictionary, or Stripe's error-code catalog",
+        "evidence": "No named external implementation is cited anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends that the source file carry, per code, a description, an erroneous example, an explanation and a fix",
+        "evidence": "Recommends '(code, short message, likely cause, remediation, maybe a related-codes list)' \u2014 no 'erroneous example' field is included.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Attributes that four-field schema to Rust RFC 1567",
+        "evidence": "No mention of Rust RFC 1567 or any RFC anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the work lands in the product repository, not the docs repository",
+        "evidence": "\"Add structured doc-comments above each entry in codes.go ... This is the same discipline as Go doc comments \u2014 put it where it can't drift from the code.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names identifying the owning engineering team as a prerequisite to proposing it",
+        "evidence": "References only generic 'engineering' throughout, never a named owning team as a prerequisite.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Frames the change as a one-off engineering task rather than a docs task",
+        "evidence": "\"Write a generator... one script, one afternoon of engineering time, not writer time.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explicitly rejects bundling the catalog generation with the Hugo-to-Docusaurus migration",
+        "evidence": "\"Don't run the platform migration and the content build in the same window\" and \"Sequence, don't parallelize\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not assign 140 hand-written pages across the two writers as the plan",
+        "evidence": "\"Splitting 140 pages across 2 writers for 2 weeks... treats this as prose work. It isn't\" \u2014 rejects hand-authoring in favor of generation plus prose infill.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends carrying a documentation URL or deep link from the emitted error itself, in the payload or via an explain command",
+        "evidence": "No mention of embedding a doc URL/deep link in the error output or CLI anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

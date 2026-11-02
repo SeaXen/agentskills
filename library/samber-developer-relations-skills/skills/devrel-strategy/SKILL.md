@@ -4,7 +4,7 @@ description: Designs a company's developer relations program from the top - the 
 license: MIT
 metadata:
   author: Samuel Berthe
-  version: "1.0.2"
+  version: "1.0.3"
 ---
 
 # DevRel Strategy
@@ -121,6 +121,8 @@ Programs get funded for one of seven reasons (Revell's driver list, developerrel
 - employer brand
 
 Say which one is primary, in the funder's language, and which one is secondary. If the answer is "all of them", the program has a sponsor problem, not a strategy problem - say so.
+
+Whatever the driver, budget standing time for the DevRel teams at adjacent companies: shared meetups, guest posts, reviewing each other's docs. They are the shortest path to an integration, joint content and co-marketing, and the ask lands better on a peer than on a cold partner inbox.
 
 Translate the driver into goals with **AAARRRP** (Phil Leggetter, 2016):
 

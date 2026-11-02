@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Declines to write a timeline for the plan as given and leads with a delete list naming items a, b, c, d and e as deleted",
+        "evidence": "Writes a full two-sprint timeline; verdict says \"Four of the CMO's six items should not ship\" then deletes five.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Attributes the +40% figure to a benchmark on general web content (the GEO paper, KDD 2024) and states it is unreplicated on live commercial engines",
+        "evidence": "\"Aggarwal et al., KDD 2024... benchmark of general web queries... No independent replication on live engines\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the 40% gain was relative share inside a fixed source set, so one source's gain is another's loss",
+        "evidence": "\"relative share inside a fixed set of sources, so one source's gain is another's loss\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the \"2.3x more citations for schema-marked pages\" figure vendor-marketing and states no non-vendor study isolates it",
+        "evidence": "\"vendor-marketing from tool vendors... No independent study isolates schema\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the 40-60 word answer-length rule, noting published figures range from 25 to 170 words and none were measured on docs",
+        "evidence": "\"Sources range from 25 to 170 words, and none measured docs.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects date bumps without content change and names them a Google warning sign",
+        "evidence": "\"Google treats date bumps without content change as a warning sign (vendor-documented).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects splitting guides into fragments as a generic AI-search rewrite, while keeping task and error-string pages as legitimate additions",
+        "evidence": "Fragments deleted; \"Task and error pages are different and stay\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites Google's statement that AI features need no additional requirements beyond indexing and snippet eligibility, labelled vendor-documented",
+        "evidence": "\"Google says AI features need no special markup beyond indexing and snippet eligibility (vendor-documented).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects \"AI rank #3\" because positions do not repeat across runs, citing the repeated-run finding that fewer than 1 in 100 runs return the same list",
+        "evidence": "\"fewer than 1 in 100 runs returned the same brand list.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists what the tracker must provide before it is trusted: runs per prompt with intervals, the prompt list in developers' words, per-assistant and per-mode breakdowns, and raw answer export for version scoring",
+        "evidence": "Four requirements: runs with intervals, prompt list, per assistant/mode, raw answers export.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels every figure it carries forward with one of the five evidence labels (vendor-documented, independently measured, practitioner inference, vendor-marketing, first-party)",
+        "evidence": "Labels defined and applied throughout the table and tracker section.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces the plan with version identity in page text plus owned stale copies as the default first two levers",
+        "evidence": "Sprint 2 levers 1 and 2.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a baseline prompt panel before any change ships, so a later change can be shown to have worked",
+        "evidence": "Sprint 1 builds panel and baseline before Sprint 2 levers.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports any citation outcome as pending rather than promising a lift by a date",
+        "evidence": "\"Report citation outcomes as pending at the end of Sprint 2.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Declines to write a timeline for the plan as given and leads with a delete list naming items a, b, c, d and e as deleted",
+        "evidence": "Writes a full two-sprint timeline; only d and e are 'Do not do'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Attributes the +40% figure to a benchmark on general web content (the GEO paper, KDD 2024) and states it is unreplicated on live commercial engines",
+        "evidence": "'It did not measure citation rates for API docs on ChatGPT, Perplexity, or Google AI Overviews.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the 40% gain was relative share inside a fixed source set, so one source's gain is another's loss",
+        "evidence": "Says 'relative lift in visibility'; no zero-sum point.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels the \"2.3x more citations for schema-marked pages\" figure vendor-marketing and states no non-vendor study isolates it",
+        "evidence": "'I can't source the 2.3x claim... likely a correlation'; no vendor-marketing label.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the 40-60 word answer-length rule, noting published figures range from 25 to 170 words and none were measured on docs",
+        "evidence": "Calls band 'arbitrary'; no published range cited.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects date bumps without content change and names them a Google warning sign",
+        "evidence": "Says engines learn to ignore lastmod; no Google warning-sign statement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects splitting guides into fragments as a generic AI-search rewrite, while keeping task and error-string pages as legitimate additions",
+        "evidence": "Rejects fragments; only 'own page when query data shows demand'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites Google's statement that AI features need no additional requirements beyond indexing and snippet eligibility, labelled vendor-documented",
+        "evidence": "Not present.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects \"AI rank #3\" because positions do not repeat across runs, citing the repeated-run finding that fewer than 1 in 100 runs return the same list",
+        "evidence": "Says no stable rank; no repeated-run statistic.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Lists what the tracker must provide before it is trusted: runs per prompt with intervals, the prompt list in developers' words, per-assistant and per-mode breakdowns, and raw answer export for version scoring",
+        "evidence": "Only 'repeated-sample mention rate and citation share across a prompt set we control'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels every figure it carries forward with one of the five evidence labels (vendor-documented, independently measured, practitioner inference, vendor-marketing, first-party)",
+        "evidence": "No evidence labels used.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Replaces the plan with version identity in page text plus owned stale copies as the default first two levers",
+        "evidence": "Levers are answer-first intros, facts, H2s, schema.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a baseline prompt panel before any change ships, so a later change can be shown to have worked",
+        "evidence": "Sprint 1 days 2-5 manual baseline before pilot days 5-9.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports any citation outcome as pending rather than promising a lift by a date",
+        "evidence": "'Expect noisy results over two weeks. Report ranges'; no promised lift.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

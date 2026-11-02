@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Runs the quickstart's own command blocks verbatim in CI, rather than a hand-maintained parallel script.",
+        "evidence": "'Tag each copy-paste block in the quickstart source (e.g. a fenced-code attribute `quickstart-exec`) so an extractor script can pull and run them verbatim \u2014 no hand-copied duplicate that drifts from the real page.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Runs them against the published artefact - the released package and the public endpoint - not the repository working copy, because readers never have the working copy.",
+        "evidence": "'Run the same extracted commands nightly, resolving dependencies fresh (not from a lockfile) against the currently published Palisade version.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires executable blocks to be annotated in the page source so an extractor knows which blocks to run.",
+        "evidence": "'Annotate the command blocks... so an extractor script can pull and run them verbatim.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asserts the documented outputs, normalising volatile fragments such as ids, timestamps and durations with patterns rather than deleting the assertion.",
+        "evidence": "'diff output against the documented output (normalize IDs/timestamps with patterns, not deletion).'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Provisions a throwaway account or tenant per run so credential state never leaks between runs.",
+        "evidence": "'Throwaway credentials per run, both jobs \u2014 no shared state leaking between runs.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Runs on a schedule as well as on release, because upstream dependency and hosted-API changes break the page with no commit in the repository.",
+        "evidence": "'Scheduled drift job (catches the upstream default change)... An upstream package publishing a new default breaks this run the same day, with no commit on your side.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Fails the release on a failing run rather than filing a ticket.",
+        "evidence": "'Release blocks on failure.' and 'On failure, fail the build / page someone \u2014 never file-and-forget a ticket.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Justifies the hard failure by stating that an outdated quickstart is worse than a missing one, because it spends the reader's trust before it spends their time.",
+        "evidence": "The stated justification is 'A stale quickstart that still looks green cost you both incidents; loud failure is the whole point' \u2014 framed around incident cost, not the specific 'worse than missing / spends trust before time' claim.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Makes the shipping engineer the first-draft author for a quickstart tied to one SDK or feature, since at merge time they alone know the exact commands and output.",
+        "evidence": "'Shipping engineer writes the first draft, at merge time, on the same PR that changes the behavior \u2014 they're the only one who currently knows the real command and real output.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the writer in a review role and proposes a merge gate blocking pull requests without docs, so features get documented while fresh.",
+        "evidence": "'Writer reviews, doesn't author.' and 'Make the merge gate literal: the PR that renames a config key is required to update the quickstart's config-key references before merge.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks the team to agree a review cadence and a final-authority rule, rather than asserting a standard one already exists.",
+        "evidence": "The transcript asserts the rule directly rather than asking: 'Split final authority explicitly, don't leave it ambiguous: writer has final say on voice/structure/consistency; engineer has final say on technical accuracy... CI... has final say on whether it merges at all.'",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Runs the quickstart's own command blocks verbatim in CI, rather than a hand-maintained parallel script.",
+        "evidence": "\"Keep the quickstart as an actual file in the repo (`examples/quickstart/`), and have the docs page **embed** it (snippet-include), never copy-paste... you guarantee the thing you test is the thing customers read.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Runs them against the published artefact - the released package and the public endpoint - not the repository working copy, because readers never have the working copy.",
+        "evidence": "\"Floating run \u2014 install SDK `latest` and upstream deps unpinned, exactly how a new user's `npm install`/`go get` resolves today.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires executable blocks to be annotated in the page source so an extractor knows which blocks to run.",
+        "evidence": "The design makes the repo file the source of truth embedded wholesale into the page (snippet-include), so there is no annotation-based extraction of blocks from the page itself described anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asserts the documented outputs, normalising volatile fragments such as ids, timestamps and durations with patterns rather than deleting the assertion.",
+        "evidence": "\"Assert the test's output matches the literal success output shown on the page\" \u2014 no mention of normalising volatile fragments like ids or timestamps.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Provisions a throwaway account or tenant per run so credential state never leaks between runs.",
+        "evidence": "No mention of throwaway accounts/tenants or credential isolation anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Runs on a schedule as well as on release, because upstream dependency and hosted-API changes break the page with no commit in the repository.",
+        "evidence": "\"On a **daily schedule independent of your releases**, since upstream dependency drift has nothing to do with when you ship.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Fails the release on a failing run rather than filing a ticket.",
+        "evidence": "\"On every Palisade release (block or at minimum hard-flag the release if it breaks \u2014 a config rename shouldn't ship without someone seeing 'this breaks the quickstart' on the same PR).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Justifies the hard failure by stating that an outdated quickstart is worse than a missing one, because it spends the reader's trust before it spends their time.",
+        "evidence": "No such trust-vs-time justification appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Makes the shipping engineer the first-draft author for a quickstart tied to one SDK or feature, since at merge time they alone know the exact commands and output.",
+        "evidence": "\"Engineers own first-draft accuracy for anything they change. If a PR renames a config key, changes a default, or bumps a dependency that the quickstart touches, the PR must update the relevant doc/example in the same diff.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the writer in a review role and proposes a merge gate blocking pull requests without docs, so features get documented while fresh.",
+        "evidence": "The writer is kept in review (\"owns clarity, structure, consistency, and the final pass\"), but the only enforcement described is a narrower CI grep check for stale key references, not a general gate blocking PRs that lack docs.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks the team to agree a review cadence and a final-authority rule, rather than asserting a standard one already exists.",
+        "evidence": "\"This is the standard split at doc-led orgs (Stripe, Twilio): engineers draft accurate, writers make it read well\" \u2014 asserts an existing standard rather than asking the team to agree its own rule.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

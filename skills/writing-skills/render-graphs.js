@@ -13,9 +13,40 @@
  * Requires: graphviz (dot) installed on system
  */
 
-import * as fs from 'fs';
-import * as path from 'path';
-import { execFileSync } from 'child_process';
+const fs = require('fs');
+const path = require('path');
+const { execFileSync } = require('child_process');
+
+function sanitizePathSegments(pathValue) {
+  return String(pathValue ?? '').split(/[\\/]+/).filter(Boolean).map((segment) => {
+    const sanitized = /^[A-Za-z0-9_.-]+$/.test(segment) && !['.', '..'].includes(segment) ? segment : '';
+    if (sanitized !== segment || !sanitized) {
+      throw new Error(`Unsafe path segment: ${segment}`);
+    }
+    return sanitized;
+  });
+}
+
+function safeJoin(base, ...parts) {
+  const root = path.resolve(base);
+  const target = path.resolve(root, ...parts.flatMap(sanitizePathSegments));
+  const rel = path.relative(root, target);
+  if (rel.startsWith('..') || path.isAbsolute(rel)) {
+    throw new Error(`Path escapes skill directory: ${parts.join('/')}`);
+  }
+  return target;
+}
+
+function selfTest() {
+  const root = path.resolve('/tmp/skill');
+  if (safeJoin(root, 'diagrams', 'a.svg') !== path.resolve(root, 'diagrams', 'a.svg')) {
+    throw new Error('safeJoin failed valid path');
+  }
+  for (const bad of ['../x', 'diagrams/../../x']) {
+    try { safeJoin(root, bad); } catch { continue; }
+    throw new Error(`safeJoin accepted ${bad}`);
+  }
+}
 
 function extractDotBlocks(markdown) {
   const blocks = [];
@@ -70,6 +101,7 @@ ${bodies.join('\n\n')}
 function renderToSvg(dotContent) {
   try {
     return execFileSync('dot', ['-Tsvg'], {
+      timeout: 10000,
       input: dotContent,
       encoding: 'utf-8',
       maxBuffer: 10 * 1024 * 1024
@@ -83,6 +115,10 @@ function renderToSvg(dotContent) {
 
 function main() {
   const args = process.argv.slice(2);
+  if (args.includes('--self-test')) {
+    selfTest();
+    return;
+  }
   const combine = args.includes('--combine');
   const skillDirArg = args.find(a => !a.startsWith('--'));
 
@@ -98,19 +134,20 @@ function main() {
     process.exit(1);
   }
 
-  const skillDir = path.resolve(skillDirArg);
-  const skillFile = path.join(skillDir, 'SKILL.md');
-  const skillName = path.basename(skillDir).replace(/-/g, '_');
+  const requestedDir = path.resolve(skillDirArg);
+  if (fs.lstatSync(requestedDir).isSymbolicLink()) throw new Error('Skill directory must not be a symlink');
+  const skillDir = fs.realpathSync(requestedDir);
+  const skillFile = safeJoin(skillDir, 'SKILL.md');
+  const skillName = path.basename(skillDir).replace(/[^A-Za-z0-9_]/g, '_');
 
-  if (!fs.existsSync(skillFile)) {
+  if (!fs.existsSync(skillFile) || fs.lstatSync(skillFile).isSymbolicLink()) {
     console.error(`Error: ${skillFile} not found`);
     process.exit(1);
   }
 
-  // Check if dot is available. Run the binary directly rather than probing
-  // with `which`, which is not a command on Windows.
+  // Check if dot is available
   try {
-    execFileSync('dot', ['-V'], { stdio: 'ignore' });
+    execFileSync('dot', ['-V'], { encoding: 'utf-8', timeout: 10000, stdio: 'pipe' });
   } catch {
     console.error('Error: graphviz (dot) not found. Install with:');
     console.error('  brew install graphviz    # macOS');
@@ -128,7 +165,10 @@ function main() {
 
   console.log(`Found ${blocks.length} diagram(s) in ${path.basename(skillDir)}/SKILL.md`);
 
-  const outputDir = path.join(skillDir, 'diagrams');
+  const outputDir = safeJoin(skillDir, 'diagrams');
+  if (fs.existsSync(outputDir) && (fs.lstatSync(outputDir).isSymbolicLink() || !fs.statSync(outputDir).isDirectory())) {
+    throw new Error('Output directory must be a real directory');
+  }
   if (!fs.existsSync(outputDir)) {
     fs.mkdirSync(outputDir);
   }
@@ -138,27 +178,29 @@ function main() {
     const combined = combineGraphs(blocks, skillName);
     const svg = renderToSvg(combined);
     if (svg) {
-      const outputPath = path.join(outputDir, `${skillName}_combined.svg`);
-      fs.writeFileSync(outputPath, svg);
+      const outputPath = safeJoin(outputDir, `${skillName}_combined.svg`);
+      fs.writeFileSync(outputPath, svg, { flag: 'wx' });
       console.log(`  Rendered: ${skillName}_combined.svg`);
 
       // Also write the dot source for debugging
-      const dotPath = path.join(outputDir, `${skillName}_combined.dot`);
-      fs.writeFileSync(dotPath, combined);
+      const dotPath = safeJoin(outputDir, `${skillName}_combined.dot`);
+      fs.writeFileSync(dotPath, combined, { flag: 'wx' });
       console.log(`  Source: ${skillName}_combined.dot`);
     } else {
       console.error('  Failed to render combined diagram');
+      process.exitCode = 1;
     }
   } else {
     // Render each separately
     for (const block of blocks) {
       const svg = renderToSvg(block.content);
       if (svg) {
-        const outputPath = path.join(outputDir, `${block.name}.svg`);
-        fs.writeFileSync(outputPath, svg);
+        const outputPath = safeJoin(outputDir, `${block.name}.svg`);
+        fs.writeFileSync(outputPath, svg, { flag: 'wx' });
         console.log(`  Rendered: ${block.name}.svg`);
       } else {
         console.error(`  Failed: ${block.name}`);
+        process.exitCode = 1;
       }
     }
   }
@@ -166,4 +208,7 @@ function main() {
   console.log(`\nOutput: ${outputDir}/`);
 }
 
-main();
+try { main(); } catch (error) {
+  console.error(error.message);
+  process.exitCode = 1;
+}

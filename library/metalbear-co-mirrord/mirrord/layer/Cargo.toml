@@ -1,0 +1,82 @@
+[package]
+name = "mirrord-layer"
+version.workspace = true
+authors.workspace = true
+description.workspace = true
+documentation.workspace = true
+readme.workspace = true
+homepage.workspace = true
+repository.workspace = true
+license.workspace = true
+keywords.workspace = true
+categories.workspace = true
+publish.workspace = true
+edition.workspace = true
+
+[lints]
+workspace = true
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+mirrord-config = { path = "../config" }
+mirrord-protocol = { path = "../protocol" }
+mirrord-layer-core = { path = "./core" }
+mirrord-layer-macro = { path = "./macro" }
+mirrord-intproxy-protocol = { path = "../intproxy/protocol", features = [
+  "codec",
+] }
+mirrord-layer-lib = { path = "../layer-lib" }
+mirrord-progress = { path = "../progress" }
+
+base64.workspace = true
+bincode.workspace = true
+ctor.workspace = true
+dotenvy.workspace = true
+libc.workspace = true
+nix = { workspace = true, features = ["feature", "fs", "net", "process", "signal"] }
+null-terminated.workspace = true
+num-traits.workspace = true
+rand.workspace = true
+socket2.workspace = true
+tracing.workspace = true
+
+[target.'cfg(target_os = "linux")'.dependencies]
+object.workspace = true
+
+[target.'cfg(all(target_os = "linux", any(target_arch = "x86_64", target_arch = "aarch64")))'.dependencies]
+mirrord-layer-go = { path = "../layer-go" }
+
+[target.'cfg(target_os = "macos")'.dependencies]
+mirrord-sip = { path = "../sip" }
+
+exec.workspace = true
+objc2-core-foundation.workspace = true
+resolv-conf.workspace = true
+
+
+[dev-dependencies]
+mirrord-intproxy = { path = "../intproxy" }
+
+actix-codec.workspace = true
+futures.workspace = true
+rstest.workspace = true
+serde_json.workspace = true
+tempfile.workspace = true
+mirrord-layer-tests = { path = "../layer-tests", default-features = false }
+mirrord-test-utils = { path = "../../test-utils" }
+test-cdylib.workspace = true
+tokio = { workspace = true, features = [
+  "rt",
+  "net",
+  "macros",
+  "fs",
+  "rt-multi-thread",
+] }
+tracing-subscriber.workspace = true
+
+[target.'cfg(target_os = "macos")'.dev-dependencies]
+apple-codesign.workspace = true
+
+[lib]
+crate-type = ["cdylib"]

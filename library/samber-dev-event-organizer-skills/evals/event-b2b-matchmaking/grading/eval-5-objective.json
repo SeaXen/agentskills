@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects placing any meeting on an attendee's schedule without their explicit acceptance, even with a cancel option",
+        "evidence": "\"Pre-placing meetings on an attendee's agenda and letting them cancel is the one mechanic the skill deletes outright.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the consequence: a meeting nobody accepted is a no-show already on the schedule, manufacturing quota out of people's time",
+        "evidence": "\"A meeting nobody accepted is a no-show already on the schedule, so the count is guaranteed on paper only.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the hybrid shape but adds an acceptance step for every pre-assigned pair before it appears on any schedule",
+        "evidence": "\"Your hybrid shape is right... pre-assigned pairs are proposals, not bookings.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Confirms that pure self-service booking cannot guarantee a contracted count, which is why the pre-assigned half exists",
+        "evidence": "It never states that self-service alone cannot guarantee a contracted count.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes opting into the program from accepting a specific pairing: the profile opt-in does not authorize particular meetings",
+        "evidence": "\"'opted into the meeting program' is not enough\" and \"A pair reaches any agenda only after the attendee accepts it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires every pair on the published schedule to have been accepted by both sides before publication",
+        "evidence": "\"every pair on the published schedule was accepted by both sides before publication. Target is zero unconfirmed.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats an unwanted-meeting complaint as a defect of the matching or scheduling mechanic with a target of zero, not as attendee behaviour",
+        "evidence": "It lists \"unwanted-meeting complaints: zero\" as a gate but never frames a complaint as a defect of the mechanic.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies cancel-after-placement as opt-out rather than acceptance",
+        "evidence": "\"This is opt-out. A meeting on someone's schedule without their acceptance is the 'ambushed meeting' failure.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not state a meeting length or slot count for the grid",
+        "evidence": "It says \"Equal slots with gaps between them\" and gives no numbers.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names attendee control over their own day as a design axis alongside sponsor delivery",
+        "evidence": "The only nod is \"Fine, since autonomy is preserved\"; attendee control is not named as a design axis.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends recording per pair whether it was booked, held, empty, or replaced",
+        "evidence": "\"one row per pair (both-accepted, held, refilled, criteria checked)\" and \"empty-slot count\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not propose overbooking or double-placing meetings to protect the contracted numbers",
+        "evidence": "\"No overbooking. You have no measured held-vs-booked count\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects placing any meeting on an attendee's schedule without their explicit acceptance, even with a cancel option",
+        "evidence": "\"auto-confirms after 48h unless declined. You still count it\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the consequence: a meeting nobody accepted is a no-show already on the schedule, manufacturing quota out of people's time",
+        "evidence": "The consequence is framed as spam and annoyance, not as manufactured quota.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the hybrid shape but adds an acceptance step for every pre-assigned pair before it appears on any schedule",
+        "evidence": "Silence counts as acceptance (auto-confirm).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Confirms that pure self-service booking cannot guarantee a contracted count, which is why the pre-assigned half exists",
+        "evidence": "This is not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes opting into the program from accepting a specific pairing: the profile opt-in does not authorize particular meetings",
+        "evidence": "It treats opt-in as covering matching, with a consent-wording tweak only.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires every pair on the published schedule to have been accepted by both sides before publication",
+        "evidence": "There is no both-sides acceptance requirement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats an unwanted-meeting complaint as a defect of the matching or scheduling mechanic with a target of zero, not as attendee behaviour",
+        "evidence": "It treats complaints as something to expect: \"expect complaints\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies cancel-after-placement as opt-out rather than acceptance",
+        "evidence": "\"Opt-out default feels like spam... Cancelling also costs them a click.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not state a meeting length or slot count for the grid",
+        "evidence": "No grid slot length or count is given.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names attendee control over their own day as a design axis alongside sponsor delivery",
+        "evidence": "Only \"Attendee overload\" is raised, as a collision problem.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends recording per pair whether it was booked, held, empty, or replaced",
+        "evidence": "Status \"proposed \u2192 confirmed \u2192 cancelled \u2192 attended / no-show\"; \"Replaced meetings: count them once\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not propose overbooking or double-placing meetings to protect the contracted numbers",
+        "evidence": "There is no overbooking proposal.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

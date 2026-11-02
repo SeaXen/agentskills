@@ -4,7 +4,7 @@ description: Writes or audits a teaching tutorial for a developer product - one 
 license: MIT
 metadata:
   author: Samuel Berthe
-  version: "1.0.1"
+  version: "1.0.2"
 ---
 
 # Developer Tutorial
@@ -263,3 +263,4 @@ Identify which of three shapes you were given before answering. The wrong delive
 - See samber/developer-relations-skills@developer-education-strategy for curricula, courses and certification.
 - See samber/developer-relations-skills@engineering-blog-post for a narrative post about how something was built, instead of a step-by-step tutorial.
 - See samber/developer-relations-skills@developer-how-to-guide for the goal-oriented how-to a competent reader needs, instead of a tutorial.
+- See samber/developer-relations-skills@kaggle-playbook for publishing a tutorial as a Kaggle notebook that survives a fork.

@@ -4,7 +4,7 @@ description: Writes a developer community's code of conduct and the moderation p
 license: MIT
 metadata:
   author: Samuel Berthe
-  version: "1.0.2"
+  version: "1.0.4"
 ---
 
 # Developer Community Moderation
@@ -276,4 +276,6 @@ Cross-skill references:
 - samber/developer-relations-skills@oss-issue-triage - technical issue workflow (labels, templates, stale policy)
 - samber/developer-relations-skills@oss-governance - project decision rights and succession
 - samber/developer-relations-skills@oss-contributor-onboarding - first-contribution path
+- samber/developer-relations-skills@discord-community-playbook - Discord-native setup (Community mode, Rules Screening, Onboarding) and staff conduct in other servers
+- samber/developer-relations-skills@discourse-forums-playbook - configuring Discourse trust levels, approval queues and spam controls the ladder relies on
 - samber/dev-event-organizer-skills@event-code-of-conduct - for single-event conduct policy and on-site response; this skill covers the ongoing community, including events it runs as one surface among several

@@ -1,0 +1,81 @@
+{
+    "views": {
+        "client": "Client: {{client}}",
+        "systemType": {
+            "abapCloud": "ABAP Cloud"
+        }
+    },
+    "commands": {
+        "openSystemDetails": "Open Connection Manager for SAP Systems",
+        "quickpickPlaceholder": "Select an SAP system to view details"
+    },
+    "confirmationPrompt": {
+        "yes": "Yes",
+        "no": "No",
+        "delete": "Delete [{{- system}}]? Your Fiori application may not run locally anymore.",
+        "overwrite": "A connection [{{- system}}] with the same URL and Client already exists. Do you want to overwrite it?"
+    },
+    "info": {
+        "numServices": "This SAP System [{{- system}}] returned {{v2}} OData V2 and {{v4}} OData V4 services.",
+        "refreshingConnections": "Refreshing stored connections view.",
+        "connectionInfoUpdated": "Connection information updated.",
+        "connectionDeleted": "Connection [{{- system}}] deleted.",
+        "connectionExported": "Connection [{{- system}}] exported.",
+        "connectionSaved": "Connection [{{- system}}] saved.",
+        "connectionUpdated": "Connection [{{- system}}] updated.",
+        "serviceMetadata": "Service metadata retrieved successfully.",
+        "noServiceMetadata": "Service metadata not available.",
+        "serviceRequestCheckLogs": "{{- url}} returned service data. Check the debug logs for the full metadata."
+    },
+    "warn": {
+        "deletionCancelled": "Deletion cancelled for connection: [{{- system}}].",
+        "importCancelled": "Import cancelled."
+    },
+    "error": {
+        "deletingConnection": "An error occurred when deleting connection: [{{- system}}].",
+        "importConfigFailed": "Failed to import the connection configuration.",
+        "noConnectionsDefined": "No connections defined in the configuration file: {{- filePath}}",
+        "incompleteConfig": "Connection configuration is incomplete. A URL is required.",
+        "loadingConnections": "Failed to load stored connections.",
+        "connectionNotFound": "Connection [{{- backendKey}}] not found in the secure store. Please ensure the connection is saved correctly.",
+        "exportFailure": "Failed to export connection information: {{- error}}.",
+        "connectionInfo": "An error occurred during processing of the connection information: {{- error}}",
+        "updateFailure": "Failed to update the connection information: {{- error}}",
+        "creationFailure": "Failed to create the connection information: {{- error}}",
+        "noServices": "This SAP system failed to return any services.",
+        "cert": {
+            "urlValidation": "The connection URL uses {{certError}} security certificate.",
+            "expired": "an expired",
+            "selfSigned": "a self-signed",
+            "unknownOrInvalid": "an unknown or invalid",
+            "wrongHost": "a hostname or IP address not matching the",
+            "validationHelp": "Click here for details on how to use a self-signed security certificate.",
+            "gaPromptText": "Resolve this error",
+            "gaPromptSubText": "To fix this issue, follow Guided Answers steps."
+        },
+        "launchAppGen": "Failed to launch the SAP Fiori application generator for [{{- systemName}}].",
+        "catalogRequest": "The V{{version}} request failed with error: {{- error}}.",
+        "guidedAnswersCmd": "Error executing command to open the Guided Answers extension: {{- error}}",
+        "viewConnectionDetails": "An error occurred when executing the command to view the connection details.",
+        "noFileSelected": "No file selected for import.",
+        "panelActionDispatch": "Error dispatching panel action: {{- error}}",
+        "noneSelected": "No SAP system selected.",
+        "systemInfoUpdate": "Failed to add the system information to the backend system: {{- error}}",
+        "serviceRequest": "An error occurred while requesting the service metadata: {{- error}}"
+    },
+    "debug": {
+        "systemInfoRetrieved": "Successfully retrieved the system ID '{{- systemId}}' and client '{{client}}' from '/sap/bc/adt/core/http/systeminformation'.",
+        "systemInfoRetrievalFailure": "Failed to retrieve system information from '/sap/bc/adt/core/http/systeminformation': {{- error}}"
+    },
+    "validation": {
+        "provideUrl": "Please provide a valid URL to test the connection.",
+        "provideServicePath": "Please provide a service path to test the connection for a generic host.",
+        "connectionNameExists": "This connection name already exists. Choose a different name.",
+        "urlInvalid": "The URL '{{- url}}' provided is invalid"
+    },
+    "telemetry": {
+        "unknownOs": "Unknown",
+        "initializeError": "Error initializing telemetry settings: {{- error}}",
+        "sendError": "Error sending telemetry data: {{- error}}"
+    }
+}

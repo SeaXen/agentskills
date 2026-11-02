@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Proposes adding a required section to the existing RFC template rather than a release-checklist item or a writer assignment",
+        "evidence": "\"Add 'Migration' as a required RFC section\", filled before the RFC can move to Accepted\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the 'How we teach this' RFC section as a precedent and attributes it to Ember's RFC process",
+        "evidence": "\"This is Ember's 'How we teach this' and Rust RFC 1636's copy of it, and it works for the same reason it works there\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the Kubernetes KEP requirement for Upgrade / Downgrade Strategy and Version Skew Strategy sections as a second precedent",
+        "evidence": "The transcript only says \"this is the Kubernetes KEP move: an incomplete KEP is dropped at the enhancements freeze, not shipped with an IOU\" \u2014 it never names the specific KEP sections 'Upgrade / Downgrade Strategy' or 'Version Skew Strategy'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the gate must block the code from landing rather than merely requesting the documentation",
+        "evidence": "\"If the migration note has to ship in the same PR as the break \u2014 docs-as-code, not a follow-up ticket \u2014 the person who broke the API is the first drafter by construction... because it's a merge blocker, not a post-hoc chore.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that a gate on paper still needs enforcement, citing that a project which copied such a gate later admitted part of it was never carried out",
+        "evidence": "\"Rust's own retrospective on RFC 1636 admits the changelog half of the gate 'has not ever been done' \u2014 a required section with no enforcement decays into an optional one within two cycles.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the ownership split as the reason the guide goes missing, with the engineer who made the break owning the substance and a writer or advocate owning clarity and publication, each assuming the other is drafting",
+        "evidence": "\"the engineer proposing the break drafts the Migration section's technical content... DevRel/writer reviews it for clarity... and owns turning it into the published entry once the change lands. Nobody is left assuming the other person is drafting, because the section exists before either of them would otherwise start.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends shipping the migration note in the same pull request as the breaking change, which makes the person who broke the API the first drafter",
+        "evidence": "\"If the migration note has to ship in the same PR as the break \u2014 docs-as-code, not a follow-up ticket \u2014 the person who broke the API is the first drafter by construction\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that adding the RFC section converts every future break into a guide automatically, unlike a one-off fix for this release",
+        "evidence": "\"'If the project has an RFC, KEP or design-doc process, propose the section rather than the guide \u2014 it converts every future break into a guide automatically.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Answers that assuming a coding agent will execute the guide costs nothing and improves the document for human readers too",
+        "evidence": "\"Where this run fails, the fix is the same fix as always... so this doesn't add new work to the entry template\" combined with \"'See the blog post for the steps' stops a human for thirty seconds; it strands an agent restricted to the published surface entirely.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires error and warning strings to be quoted exactly, including punctuation, because agents and search boxes both match on the literal",
+        "evidence": "\"Exact error/warning text, quoted, not paraphrased. An agent (and a human search box) matches on the literal string.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires complete runnable snippets including their imports rather than fragments the reader must place correctly",
+        "evidence": "\"Complete, runnable before/after snippets with imports. A fragment the reader 'places correctly' is exactly where an agent invents surrounding code that doesn't exist.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires one canonical URL per version pair with stable per-change anchors, rather than a page rewritten in place each release",
+        "evidence": "\"stable per-change anchors on one canonical URL. An agent... a guide that moves each release breaks whatever the agent (or a support macro) has cached.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires version floors to be stated as machine-checkable comparisons rather than as prose",
+        "evidence": "\"Machine-checkable floors (Node >= 20.19, not \\\"a recent Node version\\\")\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the migration path itself to stay inside the guide rather than being delegated to a release blog post",
+        "evidence": "\"'See the blog post for the steps' stops a human for thirty seconds; it strands an agent restricted to the published surface entirely. Everything needed to act has to live on the guide page.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Proposes adding a required section to the existing RFC template rather than a release-checklist item or a writer assignment",
+        "evidence": "\"Add a fifth required RFC section: Migration.\" alongside Motivation, Design, Drawbacks, Alternatives \u2014 proposed as an RFC template addition, not merely a release-checklist item or writer assignment.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the 'How we teach this' RFC section as a precedent and attributes it to Ember's RFC process",
+        "evidence": "No mention of Ember or a 'How we teach this' RFC section anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the Kubernetes KEP requirement for Upgrade / Downgrade Strategy and Version Skew Strategy sections as a second precedent",
+        "evidence": "No mention of Kubernetes, KEPs, or Upgrade/Downgrade/Version Skew Strategy sections anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the gate must block the code from landing rather than merely requesting the documentation",
+        "evidence": "The transcript describes gating RFC approval ('reject \"Migration: TBD.\"') and blocking code freeze ('the migration doc must be merged and reviewed before code freeze'), but never states that code itself is blocked from landing/merging without the migration documentation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that a gate on paper still needs enforcement, citing that a project which copied such a gate later admitted part of it was never carried out",
+        "evidence": "No example or citation of another project's gate going unenforced appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the ownership split as the reason the guide goes missing, with the engineer who made the break owning the substance and a writer or advocate owning clarity and publication, each assuming the other is drafting",
+        "evidence": "The transcript only assigns a single owner ('An owner \u2014 the RFC author, by default, since they hold the context. Not \"whoever has time at release.\"'), with no engineer/writer split or mutual-assumption dynamic described.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends shipping the migration note in the same pull request as the breaking change, which makes the person who broke the API the first drafter",
+        "evidence": "The transcript only says a runtime deprecation warning is 'added in the same PR that introduces the replacement' and that the migration section is 'a living diff updated alongside the code' \u2014 it never states the migration note itself ships in the same PR as the breaking change, nor frames the breaking-change author as the first drafter.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that adding the RFC section converts every future break into a guide automatically, unlike a one-off fix for this release",
+        "evidence": "\"The reason it keeps happening: the RFC template has no line item for it, so it's structurally invisible until someone remembers at ship time. Fix the template, not the people,\" combined with 'Required whenever the RFC introduces a breaking change' frames the fix as structural/automatic for all future RFCs rather than a one-time release fix.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Answers that assuming a coding agent will execute the guide costs nothing and improves the document for human readers too",
+        "evidence": "\"The throughline: an agent-safe migration guide is a stricter version of a good migration guide, not a different document. Precision, explicit branching, and verifiable steps are best practice for humans too... Write to that stricter bar once, and both audiences benefit.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires error and warning strings to be quoted exactly, including punctuation, because agents and search boxes both match on the literal",
+        "evidence": "No mention of quoting error/warning strings exactly or of search-box literal matching anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires complete runnable snippets including their imports rather than fragments the reader must place correctly",
+        "evidence": "The transcript only requires 'A labeled before/after code block' for diffs; it never mentions imports or runnability as a requirement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires one canonical URL per version pair with stable per-change anchors, rather than a page rewritten in place each release",
+        "evidence": "No mention of URLs, version pairs, or anchors anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires version floors to be stated as machine-checkable comparisons rather than as prose",
+        "evidence": "No mention of version floors or machine-checkable version comparisons anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the migration path itself to stay inside the guide rather than being delegated to a release blog post",
+        "evidence": "No mention of a release blog post or delegating migration content away from the guide anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

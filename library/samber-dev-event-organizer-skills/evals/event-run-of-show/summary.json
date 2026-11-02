@@ -1,0 +1,518 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-run-of-show",
+  "scenarios": 11,
+  "expectations_total": 135,
+  "expectations_subjective": 0,
+  "expectations_objective": 135,
+  "pass_rate_with_skill_pct": 83.0,
+  "pass_rate_without_skill_pct": 29.6,
+  "delta_pp": 53.4,
+  "uplift_multiplier": 2.8,
+  "trigger_accuracy_pct": 64.4,
+  "trigger_queries": 118,
+  "trigger_positive_fire_rate": 0.593,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": null,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "States that more than one MC is a legitimate design rather than a fallback"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Has the room lead name what has happened at the room and start the clock"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that an unannounced change gets undone by the next person acting on the printed sheet"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Identifies the radio option as the only one carrying a review or compliance cost the chat-based options do not"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Puts the registration desk on the live channel only, because they are stationary and busy"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Does not frame the shift boundary as damage to be minimised, and states the rotation exists so no one person is the single point of failure for crisis decisions"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends against running live demos at the closing while judging is still concluding"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Offers browsing submitted or recorded material as the alternative to live demos"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names live demos as the expensive, failure-prone option rather than the default"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that setup and swap consume more than half of such a slot"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names the awkwardness of the filler activity directly rather than pretending it is not there, and states what will not happen"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States a ranking of the cue-sheet depth options out loud rather than listing them flat"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States the ranking is a default that shifts with context rather than a rule"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Ranks the options against the Thursday-midday print and briefing deadline, not against the Saturday event date"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that the word-for-word script tops the effort axis and is never the efficiency pick"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Deletes the attendee-facing published agenda as a staff document rather than offering it as a cheap option"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names the timed grid with named owners as the default depth the recommendation is being promoted from"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Describes scripted transitions as covering queue position, tech ownership and the spoken line"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends rehearsing the scripted opening rather than only writing it"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names the reason: popups, sign-in prompts and format surprises inside the transition window"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Writes the routine escalation path as routing to the organizer on duty on the organizer channel"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names the headcount cost honestly: at this scale the extra on-duty person is the organizing team itself"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States the rotation ranking is a default re-ranked against the answers given rather than a fixed rule"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Identifies that the schedule document arrived without a disruption priority order"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Says to obtain the disruption priority order from the programme or schedule side rather than authoring one here"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Assigns speaker introducer as a separate per-session role from the MC"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that more than one MC is a legitimate design rather than a fallback"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Assigns day-of roles to named individuals rather than to functions such as 'a volunteer'"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Defines a room lead per room and states explicitly what that role may decide alone versus what it must escalate"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Labels the room lead's authority as a convention this event sets rather than established published practice"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names an organizer on duty for every block and publishes that on the cue sheet where a staffed post can read it without asking anyone"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Builds the cue sheet with a row per segment and per transition rather than a row per hour"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Refuses to use the attendee-facing published schedule as the staff document, and removes it rather than offering it as a low-effort option"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Presents the document section by section for validation - roles, cue sheet, comms and escalation, rotation - before it is printed and briefed"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Has the room lead name what has happened at the room and start the clock"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Routes anything above the room lead's authority to the organizer on duty on the organizer channel"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Announces the change both out loud in the affected room and on the organizer channel"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that an unannounced change gets undone by the next person acting on the printed sheet"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Writes down which cue-sheet row was wrong on the written channel while the situation is still live, not afterwards"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that radio leaves no written record and pairs it with a written channel or a paper log"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Says to check whether the venue's existing net must be joined rather than talked over"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Identifies the radio option as the only one carrying a review or compliance cost the chat-based options do not"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that this radio discipline is the event's own convention rather than an industry standard"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Puts the registration desk on the live channel only, because they are stationary and busy"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States the MC is reachable but not monitoring, and names a person beside them who watches the channel"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Has room leads escalate to the organizer on duty rather than to each other"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States the overlap length is set by this event rather than taken from a published benchmark"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names failure states that look identical to a working setup, such as a flat radio battery, muted notifications, or never having been added to the channel"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Provides a separate, denser template for handing off in the middle of a live problem"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States what the mid-incident template must carry, including the pending decision and its deadline"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Advises holding the shift boundary until an active situation closes where that is possible"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Gives an async fallback for Dan's day-two departure: a written quick handoff, a short recorded walkthrough, and a named person who was there and is still reachable"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Says the handoff structure is borrowed from on-call or incident-response practice rather than presenting it as an events-industry norm"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Does not frame the shift boundary as damage to be minimised, and states the rotation exists so no one person is the single point of failure for crisis decisions"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends against running live demos at the closing while judging is still concluding"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Offers browsing submitted or recorded material as the alternative to live demos"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names live demos as the expensive, failure-prone option rather than the default"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that setup and swap consume more than half of such a slot"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Presents any per-team minute breakdown as one event's number for one format rather than as a general conference constant"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Gives the judging-deliberation window its own cue-sheet row rather than leaving it as a silent gap"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names the awkwardness of the filler activity directly rather than pretending it is not there, and states what will not happen"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Offers legitimate ways to opt out of the filler activity, such as staying seated or stepping out"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Puts the feedback survey into that captive window rather than emailing it after everyone has left"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Pre-announces that the closing is about to start rather than transitioning into it silently"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Puts results on slides rather than relying on live narration"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Collects the sponsors' announcement content in advance rather than taking it live"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Gives teardown its own timed row with a spoken countdown, and requires rooms cleared before the closing segment starts because nobody returns to them"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States a ranking of the cue-sheet depth options out loud rather than listing them flat"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States the ranking is a default that shifts with context rather than a rule"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Ranks the options against the Thursday-midday print and briefing deadline, not against the Saturday event date"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that the word-for-word script tops the effort axis and is never the efficiency pick"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Deletes the attendee-facing published agenda as a staff document rather than offering it as a cheap option"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names the timed grid with named owners as the default depth the recommendation is being promoted from"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Describes scripted transitions as covering queue position, tech ownership and the spoken line"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes that a single room needs little or no channel architecture and does not over-build comms for it"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Rules out speakers presenting from their own laptops"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names the reason: popups, sign-in prompts and format surprises inside the transition window"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Has the room lead or a per-session introducer introduce each speaker rather than the MC"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Writes the transition row with a time window rather than an instant"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names an escalation target and a pre-decided fallback for a speaker missing at the queue"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Starts the reset row while the current segment is still running rather than after it ends"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Writes staff-facing and participant-facing rows as two interleaved tracks rather than one column"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names the failure mode of assuming a room reset happens invisibly with no owner and no row"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Gives each reset row an escalation target like any other row"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Challenges whether the 30-minute lunch break actually covers three simultaneous resets rather than assuming the published break length is the budget"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Assigns a tech owner for the lobby flip where the stage riser and plenary AV are involved"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Gives two completeness gates that are checkable before doors open and carry no numeric threshold"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Gate: every staffed post can name the organizer on duty for their block without asking anyone"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Gate: every segment has a named owner, and every shift boundary has a handoff record with an entry or an explicit 'none' in each section"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Declines to supply an industry target number for dead air or transition adherence"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Counts transition dead air separately at transitions the cue sheet scripted and transitions it did not"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that the scripted-versus-unscripted comparison is what justifies the depth choice next edition"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Counts live changes made against the published disruption order separately from improvised ones, and names the improvised count as the one to drive down"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Tracks cue-sheet drift - rows that turned out wrong - as what a recurring edition's template inherits"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Tells the user to pick two or three metrics, write down the revision each would trigger, and record them before the day rather than after"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Captures what the document got wrong the same day rather than waiting for a later retrospective"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Declines to author the evacuation procedure and names risk management as the owner of the printed emergency plan"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that this document executes the printed emergency plan rather than rewriting which scenarios it covers"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires the printed emergency plan to exist with named contacts, and flags its absence as blocking"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Declines to re-lay the session grid and hands the clashing big talks back to schedule design"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Declines to engineer camera redundancy and hands it to production"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Still owns and specifies what the room lead does in the moments after the AV redundancy fails"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Declines to design the green room and hands it to speaker experience"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Accepts each speaker's arrival and timing constraints as an input to this document"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Takes the volunteer shift plan as an input rather than building or resizing it"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Does not silently absorb any of the four out-of-scope requests into the run of show"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Writes the incident escalation path as routing into the printed plan's contacts"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Writes the routine escalation path as routing to the organizer on duty on the organizer channel"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that it wears flexibility as a costume and that in practice one person ends up deciding everything"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Assigns a named organizer on duty for every block, published where staff can read it"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Promotes paired on duty and ties the promotion to the on-duty pool including the MC and two speakers"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names the headcount cost honestly: at this scale the extra on-duty person is the organizing team itself"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that the community-run versus vendor-run split holds for hosting"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Describes the community pole as distributing hosting among organizers with a separate speaker introducer per session"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that the split fails for the rest of the day, because a transition, a channel's reach and a handoff's context loss do not change with who paid for the venue"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Identifies the number of staffed posts running at once, and whether on-duty staff are also doing a job, as what actually changes the work"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Notes a single-track single-room event needs little channel architecture and does not over-build it"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States the rotation ranking is a default re-ranked against the answers given rather than a fixed rule"
+      }
+    ]
+  }
+}

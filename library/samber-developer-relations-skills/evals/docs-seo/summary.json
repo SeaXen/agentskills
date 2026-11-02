@@ -1,0 +1,486 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "docs-seo",
+  "scenarios": 13,
+  "expectations_total": 150,
+  "expectations_subjective": 0,
+  "expectations_objective": 150,
+  "pass_rate_with_skill_pct": 78.0,
+  "pass_rate_without_skill_pct": 48.7,
+  "delta_pp": 29.3,
+  "uplift_multiplier": 1.6,
+  "trigger_accuracy_pct": 50.7,
+  "trigger_queries": 134,
+  "trigger_positive_fire_rate": 0.03,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": null,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Rejects latest-only because 2.8 and 3.6 are still supported and carry roughly 40% of sessions"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that stable-canonical is the default recommendation being overridden here, rather than omitting it from consideration"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Describes per-version indexable as a standing job whose cost grows with every release, multiplying the indexable surface, the sitemap and the link mesh"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that reversing per-version indexable requires a per-page redirect map across every version already indexed"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Requires the sitemap, the canonical tags and the navigation or internal links to all point at the same target"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Asks the user to confirm the posture before any canonical rules are written"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Explains that a URL disallowed in robots.txt is never crawled, so its noindex directive and its canonical are never read"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes that self-hosted or per-branch preview environments usually do not send a noindex header by default, unlike managed platforms"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that per-page title rewrites come after the template fix and only for pages that carry traffic"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Limits SoftwareApplication or Organization markup to the product pages, applied once"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes that a sitemap index is itself capped at 50,000 sitemaps under the same byte ceiling"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Limits written meta descriptions to the highest-traffic reference entries and lets the rest fall back rather than generating filler"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Mentions unavailable_after as a directive that fits a version with a published end-of-life date"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Recommends an in-page banner telling readers which release they are on and what the current release is"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Lists the report sections in order: verdict, coverage statement of what could not be verified, blocking defects, version and translation posture, page signals, internal linking, then the ranked fix list and thresholds"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States the fix-list ordering as (pages affected x severity) divided by effort"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Says out loud in the report that the ordering is a ratio and not a severity list"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Gives every fix row a named owner plus the file or system that changes"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names what the ratio starves, a fix that touches few pages and takes a week, and states that such a fix must be promoted by hand"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Proposes re-running the crawl after the fixes land and diffing the two summaries as the proof that the work landed"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that those pages are usually the thinnest, least-linked and least-indexed pages on the site"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Requires descriptive anchor text and rejects 'here', 'this page' or 'read more'"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that generated Next and Previous pagination links do not count as contextual links"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Checks cannibalization against the company's own blog in the same pass and makes the losing surface link to the winner rather than deleting it"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Lists the groupable and filterable dimensions as country, device, page, query, searchAppearance, date and hour"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Rejects summing query rows into a site total, and says the visible tail should be treated as a floor"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Requires segmenting by path prefix, one filter set each for /docs/, /reference/ and /blog/, before reading anything"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Gives the reason for segmenting: a sitewide average hides opposite patterns per section, such as reference pages earning impressions without clicks while guides do the reverse"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Instructs reading the Pages report against the sitemap in both directions: in the sitemap but not indexed is the indexation gap, indexed but absent from the sitemap is the leak"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Places the rendering defect above title, description and internal-linking work in the fix order"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "States that Read the Docs can supply the canonical URL to the build, for example through READTHEDOCS_CANONICAL_URL"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Notes that the server-side rendering fix touches few pages and takes real engineering time, so a (pages affected x severity) divided by effort ordering starves it and it must be promoted by hand"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Starts the crawl set from the sitemap and treats any gap between the sitemap and reality as a finding in its own right"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Recommends the per-version indexable posture: one self-canonical page per version plus a version switcher"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that stable-canonical is deleted rather than ranked last, and names the routing freeze or the inability to mint a stable alias as the reason"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that stable-canonical is the default recommendation being overridden here, rather than omitting it from consideration"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Describes per-version indexable as a standing job whose cost grows with every release, multiplying the indexable surface, the sitemap and the link mesh"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that reversing per-version indexable requires a per-page redirect map across every version already indexed"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Requires the sitemap, the canonical tags and the navigation or internal links to all point at the same target"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Explains that conflicting signals are why Google picks its own canonical"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Asks the user to confirm the posture before any canonical rules are written"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Classifies the robots.txt plus noindex combination as a blocking defect rather than a ranked improvement"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that robots.txt may be used for the preview hosts only as a second layer, never as the only one"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Gives a command that checks the actual response header, such as curl -sI on a preview URL filtered for x-robots-tag, rather than trusting the platform's defaults"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes that self-hosted or per-branch preview environments usually do not send a noindex header by default, unlike managed platforms"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that blocking defects override any overall score the rest of the audit produces"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that Google specifies no limit on the length of a title element"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Explains that the title link is truncated in results to fit the device width, so a 50-60 character rule is lint rather than a pass/fail gate"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that per-page title rewrites come after the template fix and only for pages that carry traffic"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires a complete hreflang set in which each language version lists itself as well as all the others"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Identifies the Japanese launch without regenerating the French alternates as a return-link failure"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Instructs regenerating the whole hreflang mesh across every locale whenever a locale is added or removed, not just the new locale's pages"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Reports the hreflang breaches as defects rather than as optional suggestions or improvements"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends applying noindex to the unreviewed machine-translated Portuguese set"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Explains that unreviewed machine translation competes with the English page while satisfying nobody"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that a region code with no language prefix is invalid"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes that zh is valid but ambiguous and recommends an ISO 15924 script subtag such as zh-Hans or zh-Hant"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that HTML tags, HTTP headers and sitemap entries are equivalent delivery methods with no stated Google preference, large site or not"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "If it still recommends sitemap delivery, justifies it on operational grounds such as head weight on a locale by version tree, not on ranking or on a Google preference"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that correct titles plus breadcrumbs beat a schema campaign on a docs site"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Redirects the three sprints toward the title template and other page-signal work instead of the schema project"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes that a sitemap index is itself capped at 50,000 sitemaps under the same byte ceiling"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends stable id anchors per symbol so long reference pages can earn anchor-level results and be deep-linked from the product"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Limits written meta descriptions to the highest-traffic reference entries and lets the rest fall back rather than generating filler"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Separates the crawler controls into three categories: search-style discovery, user-directed fetch, and model training"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Instructs resolving each named agent's category against that vendor's own current crawler documentation rather than inferring the category from the agent name"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Reports the cost of each rule per agent instead of giving a single blanket allow or block recommendation"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Stops at crawler access and does not prescribe what to publish for assistants or how to earn citations"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Prescribes choosing a redirect target per page in the order: current equivalent, then nearest equivalent, then the version index only as a last resort"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that the redirects must be kept for at least one major release cycle"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Ties that retention to inbound traffic that outlives the version, such as external tutorials, cached answers and issue threads"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Warns against canonicalizing a removed or rewritten page to a current page that says something different, and prescribes a redirect to the nearest real equivalent instead"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Mentions unavailable_after as a directive that fits a version with a published end-of-life date"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Recommends an in-page banner telling readers which release they are on and what the current release is"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Refuses to produce a single docs SEO health score out of 100"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Refuses to produce a projected traffic lift percentage"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Explains that re-indexing, re-ranking and re-snippeting happen on the search engine's schedule, so ranking outcomes are reported as pending rather than promised"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Offers agreed numeric pass thresholds, set before the fix pass, as the substitute for the score"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Lists the report sections in order: verdict, coverage statement of what could not be verified, blocking defects, version and translation posture, page signals, internal linking, then the ranked fix list and thresholds"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States the fix-list ordering as (pages affected x severity) divided by effort"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Says out loud in the report that the ordering is a ratio and not a severity list"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Places blocking defects at the top of the fix list regardless of their effort score"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Gives every fix row a named owner plus the file or system that changes"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names what the ratio starves, a fix that touches few pages and takes a week, and states that such a fix must be promoted by hand"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Presents the numeric baselines as this skill's own defaults to be adjusted to the site rather than as industry standards"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Keeps search-engine-enforced or spec-enforced requirements out of the negotiable threshold table and in the blocking-defects section"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Proposes re-running the crawl after the fixes land and diffing the two summaries as the proof that the work landed"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names the company-evaluation page set explicitly: limits, security, compliance, self-hosting and migration pages"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that those pages are usually the thinnest, least-linked and least-indexed pages on the site"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Prescribes cross-mode links: tutorial to reference for the symbols it used, reference to how-to for the task it serves, troubleshooting to the guide where the failure happens"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Requires descriptive anchor text and rejects 'here', 'this page' or 'read more'"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that generated Next and Previous pagination links do not count as contextual links"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Checks cannibalization against the company's own blog in the same pass and makes the losing surface link to the winner rather than deleting it"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Lists the groupable and filterable dimensions as country, device, page, query, searchAppearance, date and hour"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that rowLimit accepts 1 to 25,000 and defaults to 1,000, so the default response is the head of the list only"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that the API does not guarantee returning all data rows, only top ones"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Explains that the withheld tail is exactly the long tail of error strings and symbol names that matters on a technical property"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Rejects summing query rows into a site total, and says the visible tail should be treated as a floor"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Rejects the keyword-tool volume comparison as a benchmark, noting that most technical queries report as zero and third-party estimates are directional at best"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Requires segmenting by path prefix, one filter set each for /docs/, /reference/ and /blog/, before reading anything"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Gives the reason for segmenting: a sitewide average hides opposite patterns per section, such as reference pages earning impressions without clicks while guides do the reverse"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Instructs reading the Pages report against the sitemap in both directions: in the sitemap but not indexed is the indexation gap, indexed but absent from the sitemap is the leak"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Prescribes choosing docs.ridgeline.sh as the primary domain, canonicalizing the readthedocs.io host at it, and redirecting where the platform allows"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Requires the sitemap to list the custom-domain URLs rather than the platform subdomain"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Places the rendering defect above title, description and internal-linking work in the fix order"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Prescribes fetching a page with JavaScript disabled to confirm the body text, the canonical link and the internal links are already present in the HTML"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Notes that a search widget owning navigation leaves whole sections with no crawlable anchor href path"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "States that Read the Docs can supply the canonical URL to the build, for example through READTHEDOCS_CANONICAL_URL"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Notes that the server-side rendering fix touches few pages and takes real engineering time, so a (pages affected x severity) divided by effort ordering starves it and it must be promoted by hand"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Starts the crawl set from the sitemap and treats any gap between the sitemap and reality as a finding in its own right"
+      }
+    ]
+  }
+}

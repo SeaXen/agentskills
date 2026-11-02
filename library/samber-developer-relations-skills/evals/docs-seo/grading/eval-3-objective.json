@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the 58-character trimming script",
+        "evidence": "\"Verdict: kill the contractor's script.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that Google specifies no limit on the length of a title element",
+        "evidence": "\"Google states there's no length limit on <title>\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that the title link is truncated in results to fit the device width, so a 50-60 character rule is lint rather than a pass/fail gate",
+        "evidence": "\"the truncation you see in results is a display constraint, not a ranking penalty for going over some cutoff\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the breadcrumb-shaped, brand-first title template as the reason Google is rewriting the title link",
+        "evidence": "\"Yours \u2014 Voltaic Docs - Guides - Webhooks - Sending a webhook \u2014 is the textbook case: four segments of navigation chrome before the one string a searcher actually typed. That shape, not the character count, is what's triggering the rewrite.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that shortening the titles will not stop the rewriting",
+        "evidence": "\"Trimming to 58 characters keeps the same shape... You'd pay for 1,240 rewrites and see no change in the rewrite rate.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prescribes a title template change in the Docusaurus config as one fix that reaches all 1,240 pages",
+        "evidence": "\"Rewrite the title template to {page} | Voltaic Docs | Docusaurus config / swizzled title component | ... | hours, one edit reaches all 1,240 pages\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the target template shape with the specific page subject or searched term first and the product or brand last, for example {page} | {product} {section}",
+        "evidence": "\"Target | Send a webhook | Voltaic Docs\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects adding the product name to the start of every h1, and explains that it stops the h1 describing the page and hands the rewriter another unhelpful source",
+        "evidence": "\"Prefixing \\\"Voltaic\\\" onto every h1 hands the rewriter more brand-first, boilerplate-shaped text to pull from... It also stops the h1 from doing its actual job: telling a reader (and Google) what the page is about.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names at least two of the sources Google may build a replacement title link from: headings, og:title, prominent styled text, other page text, inbound anchor text, or WebSite structured data",
+        "evidence": "\"Google will keep building its own title from your h1, headings, and anchor text, exactly as it does now.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that per-page title rewrites come after the template fix and only for pages that carry traffic",
+        "evidence": "No statement about doing per-page title rewrites after the template fix, scoped only to traffic-carrying pages, appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not propose hand-rewriting all 1,240 titles page by page",
+        "evidence": "The only prescribed fix is the template edit: \"one edit reaches all 1,240 pages\" \u2014 no per-page rewrite is proposed.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the 58-character trimming script",
+        "evidence": "'Trimming to 58 characters doesn't touch that cause... That's a regression, not a fix.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that Google specifies no limit on the length of a title element",
+        "evidence": "Says length is 'one signal among several'; it does not say Google sets no limit.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that the title link is truncated in results to fit the device width, so a 50-60 character rule is lint rather than a pass/fail gate",
+        "evidence": "Pixel-width truncation is not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the breadcrumb-shaped, brand-first title template as the reason Google is rewriting the title link",
+        "evidence": "'four breadcrumb segments stacked with separators... repetition... is what commonly triggers Google to substitute its own string'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that shortening the titles will not stop the rewriting",
+        "evidence": "'Google doesn't rewrite titles mainly because of length.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prescribes a title template change in the Docusaurus config as one fix that reaches all 1,240 pages",
+        "evidence": "'Docusaurus theme config, a titleDelimiter setting... One config change should propagate to all 1,240 pages'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the target template shape with the specific page subject or searched term first and the product or brand last, for example {page} | {product} {section}",
+        "evidence": "'Sending a webhook | Voltaic Docs'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects adding the product name to the start of every h1, and explains that it stops the h1 describing the page and hands the rewriter another unhelpful source",
+        "evidence": "'H1 is one of the sources Google draws from when it rewrites a title... awkward string is a candidate'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names at least two of the sources Google may build a replacement title link from: headings, og:title, prominent styled text, other page text, inbound anchor text, or WebSite structured data",
+        "evidence": "'often pulled from your H1 or body copy'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that per-page title rewrites come after the template fix and only for pages that carry traffic",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not propose hand-rewriting all 1,240 titles page by page",
+        "evidence": "'not a per-page script' and 'not a post-hoc character-trim pass'.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

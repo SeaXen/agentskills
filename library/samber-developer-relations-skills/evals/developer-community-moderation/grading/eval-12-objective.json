@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Ranks the controls by inflow stopped per moderator hour, not by how quickly each can be switched on",
+        "evidence": "The 'Why this order' table ranks Individual bans (effort 'Minutes each, forever') below Entry gates and Earned trust levels despite lower setup effort, because its value is low and recurring ('Removes one actor who can return under a new account'); Manual triage is ranked last as 'A standing job that grows with the server... prevents nothing.' This shows the order tracks ongoing value/cost rather than raw deploy speed.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Leads the efficiency order with rate and interaction limits",
+        "evidence": "Table's first row: 'Rate limits (slow mode) | Minutes, self-running | Cuts flood velocity at the source | Today', and step 1 of the action list is 'Turn on slow mode... nothing else on this list does that as fast.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places individual bans and manual triage of every item at the bottom of the efficiency order",
+        "evidence": "The table's last two rows are 'Individual bans' and 'Manual triage of everything', with manual triage described as 'What you're trying to exit.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the user's plan to start with bans because they are available today",
+        "evidence": "\"You framed this as 'bans today, planning later.' One correction before the list: bans are the *least* efficient control on the skill's own ranking... Banning is what you do while the real fixes aren't live yet, not the plan itself.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the effort tie between rate limits and automatic filters, justified by each being a single settings change nobody maintains",
+        "evidence": "Table rows list identical effort for both: 'Rate limits (slow mode) | Minutes, self-running' and 'Automatic filters | Minutes, self-running'; item 1 text also calls rate limits 'tied for the cheapest control that exists (one config change, self-running).'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags entry gates as costing real join conversion, to be traded deliberately rather than discovered afterwards",
+        "evidence": "Only the table notes 'One setting + ongoing join-friction cost' for entry gates \u2014 there is no discussion of lost signups/conversion being a deliberate trade-off decision versus something discovered later; no such framing appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags entry gates as carrying a real compliance cost, since email or identity verification collects personal data and can require a privacy notice, more so where minors are plausibly present",
+        "evidence": "\"Are minors plausibly present in an 11,000-member ORM community? Email/phone verification gates collect personal data, which changes both the moderation design and what you owe under privacy law.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the three-way compliance tie between rate limits, automatic filters and trust levels, justified by none of them storing anything the platform was not storing already",
+        "evidence": "No such comparison appears anywhere in the transcript; the only compliance discussion concerns entry gates collecting personal data (the 'minors plausibly present' bullet).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names earned trust levels as the highest-value control that the efficiency order starves, because they take about a week to design",
+        "evidence": "\"Don't park this at the bottom\" regarding trust levels, and the table describes it as 'Raises the floor permanently, the only one that scales past your two mods' while step 6 notes 'This is the one item here that takes real design time (roughly a week, per the skill), but you already meet both promotion conditions, so start now rather than after the next raid.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the condition that promotes earned trust levels: moderator load crossing the agreed cap, or the community surviving a second flood",
+        "evidence": "\"promote them the moment moderator load crosses the agreed cap, or after the community survives its second flood.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that individual bans remove one actor who returns under a new account",
+        "evidence": "Table: 'Individual bans | Minutes each, forever | Removes one actor who can return under a new account'; also earlier: 'a raid returns under new accounts, and spam returns from a new account too.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the ranking explicitly rather than leaving it implied by the order of a list",
+        "evidence": "The response includes an explicit labeled table titled 'Why this order (the skill's ranking, applied to your case)' with Control/Effort/Value/When-to-use columns spelling out the rationale for each control's position, rather than leaving it to be inferred from list order alone.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Ranks the controls by inflow stopped per moderator hour, not by how quickly each can be switched on",
+        "evidence": "The plan is explicitly organized as \"Today \u2014 30 min, zero planning\", \"This week \u2014 few hours\", \"This month \u2014 needs real planning\" \u2014 ranked by implementation speed, not inflow-per-hour.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Leads the efficiency order with rate and interaction limits",
+        "evidence": "No 'efficiency order' exists in this transcript at all \u2014 the ordering principle is stated explicitly as time-to-implement, not efficiency.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places individual bans and manual triage of every item at the bottom of the efficiency order",
+        "evidence": "No efficiency-ranked list exists; bans are only mentioned in passing (\"Ban queue still exists but shrinks hard\") without being placed in any ranking.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the user's plan to start with bans because they are available today",
+        "evidence": "No such user plan or rejection appears; the transcript only confirms the Discord platform assumption.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the effort tie between rate limits and automatic filters, justified by each being a single settings change nobody maintains",
+        "evidence": "Not stated anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags entry gates as costing real join conversion, to be traded deliberately rather than discovered afterwards",
+        "evidence": "No discussion of conversion cost for verification-level gates.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags entry gates as carrying a real compliance cost, since email or identity verification collects personal data and can require a privacy notice, more so where minors are plausibly present",
+        "evidence": "Not addressed anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the three-way compliance tie between rate limits, automatic filters and trust levels, justified by none of them storing anything the platform was not storing already",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names earned trust levels as the highest-value control that the efficiency order starves, because they take about a week to design",
+        "evidence": "Trust levels are only listed as one item under \"This month\" without being singled out as the highest-value starved control.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the condition that promotes earned trust levels: moderator load crossing the agreed cap, or the community surviving a second flood",
+        "evidence": "No such promotion condition is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that individual bans remove one actor who returns under a new account",
+        "evidence": "Not stated anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the ranking explicitly rather than leaving it implied by the order of a list",
+        "evidence": "No explicit efficiency ranking is ever stated; only a time-to-implement rollout order is given.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

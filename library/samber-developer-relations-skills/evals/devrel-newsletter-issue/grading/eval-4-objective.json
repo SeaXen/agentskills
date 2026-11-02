@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The recommended subject line names the TypeScript SDK 5.0 release.",
+        "evidence": "'TypeScript SDK 5.0: ESM-only, Node 18 dropped'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The recommended subject line is 45 characters or fewer.",
+        "evidence": "The response says 45 characters; my count agrees.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The recommended subject line does not consist of the newsletter name plus issue number or month.",
+        "evidence": "It removes '#37' and 'October Edition' from the subject.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response offers more than one subject line option, each with a stated trade-off.",
+        "evidence": "Only one subject is offered.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The preview text does not repeat the subject line's wording.",
+        "evidence": "The preview reads 'If you run Node 18 or build CommonJS, read this before you bump the version.' It only shares 'Node 18' with the subject.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The preview text is at least 90 characters long.",
+        "evidence": "The preview is about 100 characters, as the response states.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The first 35 characters of the preview text carry concrete news (for example ESM-only or Node 18), not a greeting or the newsletter name.",
+        "evidence": "'If you run Node 18 or build CommonJ...' names Node 18 and CommonJS.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response recommends dropping the intro, or reduces it to 25 words or fewer.",
+        "evidence": "'Drop it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response gives as the reason that nothing about the newsletter changed, so an editor's note adds nothing.",
+        "evidence": "'You said nothing changed, so a \"welcome to the October edition\" line is filler.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The polished output does not contain 'welcome to', 'exciting' or 'dive in'.",
+        "evidence": "The phrases appear only when quoting the removed draft text. The subject, preview and lead item are clean.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response proposes that the first body line or preview names the action readers must take (move off Node 18 or switch to ESM imports) and points to a migration guide.",
+        "evidence": "'If you run Node 18 or load the SDK from CommonJS, change that before you upgrade. [Migration guide]'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The recommended subject line names the TypeScript SDK 5.0 release.",
+        "evidence": "'Ferncastle Dev Digest #37: TypeScript SDK 5.0 is out (ESM-only)'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The recommended subject line is 45 characters or fewer.",
+        "evidence": "The subject is about 64 characters. The response says 'under about 70 characters'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The recommended subject line does not consist of the newsletter name plus issue number or month.",
+        "evidence": "It adds 'TypeScript SDK 5.0 is out (ESM-only)'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response offers more than one subject line option, each with a stated trade-off.",
+        "evidence": "The alternative is 'SDK 5.0 is ESM-only, Node 18 dropped'. The trade-off given is 'longer but gives readers on Node 18 a reason to open it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The preview text does not repeat the subject line's wording.",
+        "evidence": "The preview 'Version 5.0 ships ESM-only builds and drops Node 18' repeats the subject's '5.0' and 'ESM-only', and the alternative subject's 'Node 18'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The preview text is at least 90 characters long.",
+        "evidence": "'Version 5.0 ships ESM-only builds and drops Node 18. See what to check before you upgrade.' is about 90 characters.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The first 35 characters of the preview text carry concrete news (for example ESM-only or Node 18), not a greeting or the newsletter name.",
+        "evidence": "The preview opens 'Version 5.0 ships ESM-only builds...'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response recommends dropping the intro, or reduces it to 25 words or fewer.",
+        "evidence": "The intro is kept at about 55 words, including 'Hi everyone,' and 'Enjoy the October edition!'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response gives as the reason that nothing about the newsletter changed, so an editor's note adds nothing.",
+        "evidence": "The intro is rewritten rather than dropped, and no such reason is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The polished output does not contain 'welcome to', 'exciting' or 'dive in'.",
+        "evidence": "'Exciting' appears only in the changes list, quoting the old draft. The polished subject, preview and intro do not use it.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response proposes that the first body line or preview names the action readers must take (move off Node 18 or switch to ESM imports) and points to a migration guide.",
+        "evidence": "The intro says 'check your module setup and Node version before you upgrade'. The notes say 'ideally with a migration guide link.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

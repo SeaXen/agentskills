@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to reuse the study without re-verification, because it is past the roughly eighteen-month mark.",
+        "evidence": "'Published March 2024, ~30 months ago. Skill convention: re-verify anything past 18 months before reuse.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that eighteen months is a working convention rather than a measured shelf life, and should be shortened for adopters who ship fast or churn.",
+        "evidence": "Only 'Skill convention: re-verify anything past 18 months' is stated; no mention that the threshold should be shortened for fast-shipping or churn-prone adopters.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names what re-verification checks: whether the adopter migrated away, whether the numbers have moved, and whether the quoted engineer has left.",
+        "evidence": "Covers quoted engineer leaving ('He left Coastal Freight ~1 year ago'), numbers ('Nobody current can confirm the numbers still hold'), and instructs 're-verify the numbers and architecture with them.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags Sam Oduya's departure as a reason the quote and its attribution need re-confirming.",
+        "evidence": "'Byline now reads false (\"Staff Engineer, Coastal Freight\" \u2014 he isn't).'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the shaky renewal as a churn risk and states that publishing a study for a customer who churned is a reputational cost far larger than the study's value.",
+        "evidence": "'Rule from the skill: publishing a study for a customer who churns costs far more than the study is worth.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends unpublishing rather than leaving the study up if the customer has in fact churned.",
+        "evidence": "The transcript only recommends not further amplifying ('drop Coastal Freight from the promotion queue') \u2014 no statement about removing/unpublishing existing content if churn is confirmed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that republication in a paid or advertising context commonly needs its own permission, separate from the original approval.",
+        "evidence": "'Original 2024 approval almost never covers them \u2014 both explicitly need their own sign-off, separate from the blog post's original consent.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the homepage carousel as a separate surface that may need its own permission too.",
+        "evidence": "'paid ad and homepage carousel are new surfaces... both explicitly need their own sign-off.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses the Friday ship date outright or makes it conditional on the re-verification and the new permissions landing first.",
+        "evidence": "'No. Not Friday.' followed by a conditional path through CSM decision and re-verification.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends dating every study at publication and setting its re-verification date then, rather than discovering staleness at reuse time.",
+        "evidence": "The recommendation is scoped to this one study retroactively ('set a re-verification date on this study going forward'), not stated as a universal publication-time practice for all studies.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to reuse the study without re-verification, because it is past the roughly eighteen-month mark.",
+        "evidence": "\"The study is 2.5 years old... before running paid spend behind it, confirm the metrics/claims still hold \u2014 did the integration, product surface, or results change since 2024?\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that eighteen months is a working convention rather than a measured shelf life, and should be shortened for adopters who ship fast or churn.",
+        "evidence": "No eighteen-month convention or its rationale is mentioned anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names what re-verification checks: whether the adopter migrated away, whether the numbers have moved, and whether the quoted engineer has left.",
+        "evidence": "The engineer's departure is flagged (\"Sam Oduya no longer works there\"), numbers are questioned (\"confirm the metrics/claims still hold\"), and ongoing customer status is checked via the renewal-risk discussion.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags Sam Oduya's departure as a reason the quote and its attribution need re-confirming.",
+        "evidence": "\"Sam Oduya no longer works there. The quote is attributed to him by name and (presumably) title. Once he's gone, that attribution is a factual misrepresentation.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the shaky renewal as a churn risk and states that publishing a study for a customer who churned is a reputational cost far larger than the study's value.",
+        "evidence": "\"Renewal is shaky \u2014 this is the real blocker... If they churn shortly after the campaign launches, you're left with a public testimonial from a customer who just left.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends unpublishing rather than leaving the study up if the customer has in fact churned.",
+        "evidence": "No recommendation to unpublish an existing study upon confirmed churn appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that republication in a paid or advertising context commonly needs its own permission, separate from the original approval.",
+        "evidence": "\"worse in a paid ad than in organic content, since paid claims get more scrutiny... Most customer agreements tie logo/quote usage rights to being an active customer in good standing; worth a quick check before any paid placement.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the homepage carousel as a separate surface that may need its own permission too.",
+        "evidence": "The carousel is bundled with the paid ad throughout ('this week's ad/carousel slot') without being analyzed as a distinct permission surface.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses the Friday ship date outright or makes it conditional on the re-verification and the new permissions landing first.",
+        "evidence": "\"Don't put Coastal in market Friday. Swap in a different, stable customer story for this week's ad/carousel slot.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends dating every study at publication and setting its re-verification date then, rather than discovering staleness at reuse time.",
+        "evidence": "No forward-looking process for dating studies at publication is recommended anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Delivers a beat table rather than a narration-only script, despite the request for narration only.",
+        "evidence": "The transcript uses markdown chapter headers and prose narration blocks (e.g. '**[00:00 \u2014 Hook]** Someone on our team once shipped a query...') with occasional italicized asides like '*[on screen, not spoken: ...]*' \u2014 there is no table structure anywhere; it follows the 'Narration only, chaptered' brief rather than overriding it with a table.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives every beat a visual and an on-screen action kept in columns separate from the narration.",
+        "evidence": "There are no columns anywhere in the document \u2014 visuals appear only as inline italicized notes (e.g. '*[on screen, not spoken: `SELECT id, customer_id, total FROM orders...`]*'), and beats like [00:00 \u2014 Hook] and [03:50 \u2014 Wrap-up] have no on-screen/visual note at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ensures no beat's starting state depends on a previous beat's live output.",
+        "evidence": "The [02:50 \u2014 Type errors] beat chains two separate live demonstrations back-to-back ('I'll rename `total` to `total_amount`... *[rebuild, pause ~4s on the error]* ... Here's what happens next, when I pass a string where a number's expected. *[pause ~4s on the error]*') without resetting state between them, and the script never addresses or guards against beats depending on prior live results.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives every beat an estimated duration.",
+        "evidence": "Only a single aggregate estimate is given at the end ('~449 words \u00f7 150 wpm ... \u2248 3:12 total'); no per-beat duration figures appear next to any of the seven chapter entries.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Marks every beat core or cuttable.",
+        "evidence": "No beat carries a core/cuttable label; the only cut-related content is the separate 'Cut list' section naming two specific lines, not a per-beat marking scheme.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Splits any beat that could not be recorded in a single pass into two beats.",
+        "evidence": "The [02:50 \u2014 Type errors] beat contains two distinct rebuild-and-pause actions ('*[rebuild, pause ~4s on the error]*' and a second '*[pause ~4s on the error]*') that cannot be captured in one continuous take, yet it remains a single chapter/beat rather than being split.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces a cut plan naming which beats go first if the runtime overruns.",
+        "evidence": "The 'Cut list' section names specific lines to drop ('Drop the injection-gap line in the generated-SQL section and the \"someone found the hard way\" aside in the type-errors section'), not whole beats/chapters in priority order.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that cutting every cuttable beat still delivers the promise.",
+        "evidence": "'saves ~15s, promise still holds.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that the cut decision belongs in the script before recording rather than at edit time.",
+        "evidence": "The cut list simply states what to drop and the time saved with no explanation of why this decision should be made in the script versus during editing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives each segment a chapter title phrased as a task or outcome rather than \"Part 1\" or \"Step 2\".",
+        "evidence": "Chapter titles include 'Building the same query with the builder', 'Running it against the sample database', and 'The type errors it catches' \u2014 all task/outcome phrased, none use generic 'Part X'/'Step X' labeling.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes per-beat dead time such as query runs and page loads in the estimates instead of counting narration alone.",
+        "evidence": "'~449 words \u00f7 150 wpm (assumed rate \u2014 swap for your own measured pace) \u2248 3:00 speaking + ~12s scripted pauses \u2248 3:12 total' explicitly adds the scripted pauses (e.g. 'pause ~4s for the result', 'pause ~4s on the error' \u00d72) on top of narration time.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Delivers a beat table rather than a narration-only script, despite the request for narration only.",
+        "evidence": "It is a narration-only script with bracketed headers.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives every beat a visual and an on-screen action kept in columns separate from the narration.",
+        "evidence": "Actions are inline italics inside the narration, such as '*[type the fluent chain]*'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ensures no beat's starting state depends on a previous beat's live output.",
+        "evidence": "Starting states are never addressed. The beats chain from the previous query result.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives every beat an estimated duration.",
+        "evidence": "Each segment has a range, such as '[0:40\u20131:35]'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Marks every beat core or cuttable.",
+        "evidence": "No core/cuttable marking.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Splits any beat that could not be recorded in a single pass into two beats.",
+        "evidence": "No splitting is discussed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces a cut plan naming which beats go first if the runtime overruns.",
+        "evidence": "No cut plan.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that cutting every cuttable beat still delivers the promise.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that the cut decision belongs in the script before recording rather than at edit time.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives each segment a chapter title phrased as a task or outcome rather than \"Part 1\" or \"Step 2\".",
+        "evidence": "Titles such as 'The old way', 'Running it' and 'Close' are not task or outcome phrasing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes per-beat dead time such as query runs and page loads in the estimates instead of counting narration alone.",
+        "evidence": "The script is timed 'when read at a normal pace'. Query runs are not budgeted.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

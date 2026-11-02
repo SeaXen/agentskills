@@ -1,0 +1,118 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The response says recruiting agencies may not post in the Who is hiring thread; someone at the hiring company must post.",
+        "evidence": "\"The thread is for employers only [HN]. A recruiter posting on your behalf breaks that rule.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response says the company gets one post per thread, so the four roles go in a single comment.",
+        "evidence": "\"Who is hiring allows one post per company [HN]. Put all four roles in one comment.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response says job ads must not be submitted as regular stories.",
+        "evidence": "The standalone 'Northbeam is hiring' story is marked \"Drop\": no HN surface exists for it and it reads as promotion.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response rejects weekly reposting within the month.",
+        "evidence": "\"Repost every week | Drop... Weekly reposting is spam.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response says the thread is posted by the whoishiring account on the first weekday of the month.",
+        "evidence": "It says \"The thread opens the first weekday of the month\" but never names the whoishiring account.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response asks for a location line including REMOTE with a region qualifier such as REMOTE (EU).",
+        "evidence": "\"Location plus `REMOTE`, with the region (EU).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response says to explain what the company does if it is not a household name.",
+        "evidence": "\"What Northbeam does, in plain words.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response says to post only while actively hiring and to commit to replying to applicants.",
+        "evidence": "\"Post only while you are actively hiring\" and \"reply to every applicant\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response provides a Who is hiring structure or a labelled example for a different company, not a finished Northbeam post.",
+        "evidence": "A content checklist, plus the Fernwood Labs template: \"Treat it as a shape to rewrite\".",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The response says recruiting agencies may not post in the Who is hiring thread; someone at the hiring company must post.",
+        "evidence": "'An agency account posting for Northbeam breaks that rule.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response says the company gets one post per thread, so the four roles go in a single comment.",
+        "evidence": "'One top-level comment, not four... Put all four roles in one comment.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response says job ads must not be submitted as regular stories.",
+        "evidence": "'HN has no way to post job ads as ordinary stories.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response rejects weekly reposting within the month.",
+        "evidence": "'Drop the weekly reposts.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response says the thread is posted by the whoishiring account on the first weekday of the month.",
+        "evidence": "Says 'usually posted on the first weekday of the month' but never names the whoishiring account.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response asks for a location line including REMOTE with a region qualifier such as REMOTE (EU).",
+        "evidence": "Template: 'Northbeam (...) | Remote (EU) | Full-time'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response says to explain what the company does if it is not a household name.",
+        "evidence": "Template line exists, but no explicit instruction tied to the company not being well known.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response says to post only while actively hiring and to commit to replying to applicants.",
+        "evidence": "Covers answering questions, but not posting only while actively hiring.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response provides a Who is hiring structure or a labelled example for a different company, not a finished Northbeam post.",
+        "evidence": "The template is Northbeam-specific ('Northbeam is a feature-flag platform', Go, SRE roles).",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

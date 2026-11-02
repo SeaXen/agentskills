@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Sponsorship sales work is placed first in the recommended order.",
+        "evidence": "Route and short-list rung 1 are event-sponsor-value-proposition.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response explicitly ties that promotion to the closing sponsor budget window, stating that this deadline moved sponsorship off its default place.",
+        "evidence": "'Q6c (a closing sponsor window) promotes the sponsorship sale to rung 1.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "A sponsorship chain is presented in this order: value proposition, then pricing, then prospectus, then outreach, then agreement, then fulfillment.",
+        "evidence": "The chain ends at event-sponsor-agreement. Fulfillment is only in Not now.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The chain links are named as skills in owner/repo@skill form.",
+        "evidence": "Chain links are bare names such as `event-sponsor-pricing`.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The chain is presented as dependency order, each link consuming what the previous produced, and the chain itself is not ranked by value or importance.",
+        "evidence": "'Chain (dependency order)' with 'gives' hand-offs.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sponsor pricing is anchored to the revenue target taken from the event budget; the budget is consumed as an input, not re-set by pricing.",
+        "evidence": "'The rate card against the revenue target already on file. Reads the existing budget instead of remodelling it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The short-list contains between 5 and 8 entries.",
+        "evidence": "The table has 7 rows.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Each short-list entry names both the bottleneck it attacks and what the session costs.",
+        "evidence": "Table columns 'Bottleneck it attacks' and 'Session cost'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The stated ordering criterion is value returned per unit of effort, not lowest cost.",
+        "evidence": "'Short-list, by value per unit of effort'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "CFP design appears in the output (short-list or not-now) but is not ranked ahead of the sponsorship work.",
+        "evidence": "event-cfp-design is rung 6.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "If routines are proposed, the sponsor pipeline and renewal sweep is installed first, tied to the closing budget window.",
+        "evidence": "'Q6c installs the sponsor sweep first'; it stops at the budget window close.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The re-rank is stated out loud: which stated fact moved which class, rather than a silently reordered list.",
+        "evidence": "The 'How your answers moved the default order' bullets.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Sponsorship sales work is placed first in the recommended order.",
+        "evidence": "'1. Sponsorship, starting today. Everything else supports it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response explicitly ties that promotion to the closing sponsor budget window, stating that this deadline moved sponsorship off its default place.",
+        "evidence": "It says 'Sponsorship is 60% of cost, and its deadline is outside your control', but never says the fact moved sponsorship off its default place.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "A sponsorship chain is presented in this order: value proposition, then pricing, then prospectus, then outreach, then agreement, then fulfillment.",
+        "evidence": "Only a weekly plan is given, not a skill chain.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The chain links are named as skills in owner/repo@skill form.",
+        "evidence": "No skills are named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The chain is presented as dependency order, each link consuming what the previous produced, and the chain itself is not ranked by value or importance.",
+        "evidence": "No chain is presented.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sponsor pricing is anchored to the revenue target taken from the event budget; the budget is consumed as an input, not re-set by pricing.",
+        "evidence": "It mentions a revenue target ('60% of cost') but no skill chain or pricing anchored to the budget input.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The short-list contains between 5 and 8 entries.",
+        "evidence": "No short-list is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Each short-list entry names both the bottleneck it attacks and what the session costs.",
+        "evidence": "No short-list entries.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The stated ordering criterion is value returned per unit of effort, not lowest cost.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "CFP design appears in the output (short-list or not-now) but is not ranked ahead of the sponsorship work.",
+        "evidence": "'2. CFP, short version, opened by end of week 2' comes after sponsorship.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "If routines are proposed, the sponsor pipeline and renewal sweep is installed first, tied to the closing budget window.",
+        "evidence": "No routines are proposed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The re-rank is stated out loud: which stated fact moved which class, rather than a silently reordered list.",
+        "evidence": "There is a 'Why this order' section, but it does not say which fact moved which class.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

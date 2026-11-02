@@ -1,0 +1,342 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-attendee-experience",
+  "scenarios": 9,
+  "expectations_total": 105,
+  "expectations_subjective": 2,
+  "expectations_objective": 103,
+  "pass_rate_with_skill_pct": 89.5,
+  "pass_rate_without_skill_pct": 40.0,
+  "delta_pp": 49.5,
+  "uplift_multiplier": 2.24,
+  "trigger_accuracy_pct": 72.3,
+  "trigger_queries": 94,
+  "trigger_positive_fire_rate": 0.787,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 3,
+        "expectation": "Designs the one room for both purposes at once - decompression and confidential code-of-conduct intake - naming the failure mode where each function assumes the other solved it"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Includes the quiet room in the wayfinding set among the things people leave the programme for, and/or recommends recording whether the room was used and for which of its two purposes"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Signs the destination, not the geography: sign copy names the track and its location in plain terms rather than the raw codes VIA-A, VIA-B, LOFT-1, LOFT-2"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Explains why the entrance area goes unsigned by default: desk volunteers can answer verbally, until many people arrive at once"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Keeps the moment inside the register the culture work already set, asking which register was set rather than inventing a tone"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names what the posture costs so it is chosen deliberately: the headcount, the badge, the dietary match, and the identification the code of conduct leans on"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that with no gate the whole design collapses onto wayfinding and the help path, and reallocates effort there"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Keeps proactive channel updates as a complement with a named owner and buffer for follow-up questions, not as the help path itself"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends recording which questions the help point actually received, as input to the next edition"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Reads bad rows in clusters: adjacent bad rows usually share one cause, such as a single unsigned junction or a desk placed where two queues meet"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Designs against the bad rows only, noting a mostly-good table yields a signage list, not a redesign"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Corrects the badge sort to alphabetical by last name, then first name"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Requires walk-ins to complete the full registration form and rejects the shortened name-and-email form"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Justifies the full form by what the shortened one loses: the dietary answer and/or the consent record"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Keeps sponsor-ticket badges separate while building the split to tolerate attendees who do not know whether their own ticket is sponsor or regular"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Uses check-in as a data-repair point for fields missed at signup, and/or recommends recording the longest queue and the hour it happened as the measurement"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Accepts that the scanning posture is decided upstream by the signed sponsorship agreement rather than reopening whether to scan at all"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Rejects the UUID-plus-emailed-mapping-spreadsheet plan because the mapping file re-identifies everyone in the scan log"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States the absolute rule that attendee contact lists are never given or sold to sponsors"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes the delivery cannot be undone once the file is handed over, and/or that the UUID-only route carries the highest compliance exposure despite protecting the badge itself"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Requires an opt-out backed by a physical sticker that covers the code"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States why the sticker: an opt-out the attendee cannot enforce at the moment of scanning is not an opt-out"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Requires sponsors to be told in writing that scanning without consent is not permitted"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Moves the QR to the badge's back with two-point lanyard attachment, rejecting the single-clip front placement because a one-point lanyard spins and a front-facing code is scannable by anyone walking past"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Requires all four mitigations together rather than a subset"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States the completeness gate: every scan-capable badge has a recorded consent and a working opt-out, with no exceptions"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Locates the room off a secondary corridor, roughly one turn from a main route, reachable without crossing the main thoroughfare"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Also addresses intake reachability: reaching the room must not require a conspicuous walk past the whole event"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States the signage logic: the intake use is known to staff but unadvertised, and ordinary use of the room must look unremarkable"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Designs the one room for both purposes at once - decompression and confidential code-of-conduct intake - naming the failure mode where each function assumes the other solved it"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Applies the three-part check: a door, findable without crossing the main flow, and signage that keeps ordinary use unremarkable, with failing any one meaning the room serves one purpose, not two"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Includes the quiet room in the wayfinding set among the things people leave the programme for, and/or recommends recording whether the room was used and for which of its two purposes"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States the specific failure: a restricted meal sitting in the general line is taken by the wrong person, and the person it was ordered for goes without"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires restricted meals stored and served at a separate table"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires names checked off a printed list as restricted meals are handed out"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Refuses to rank the two fulfilment models, stating the catering contract picks one and ranking them would be false precision"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Rejects the single blanket announcement: staggers the call by room or table and closes with a final call once flow thins"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Places the check-off at the head of the line, where a restricted-diet attendee gets redirected to their own table"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names the honest fallbacks when the caterer cannot accommodate someone: a one-off meal from the same vendor, or a delivery gift card with the attendee told in advance"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that telling the attendee in advance is what separates a fallback from a failure"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Sets the fulfilment gate at zero misses: every attendee who declared a restriction receives the meal ordered for them, with no acceptable threshold above zero"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Designs from decision points counted on the floor plan, not from the room list or the square metres"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Signs the destination, not the geography: sign copy names the track and its location in plain terms rather than the raw codes VIA-A, VIA-B, LOFT-1, LOFT-2"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States why room codes fail: the attendee has never seen the code before and has to match it against a programme they are holding"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Puts the first sign before the first choice, at the spot immediately after the check-in desk where a newly badged attendee stands"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Explains why the entrance area goes unsigned by default: desk volunteers can answer verbally, until many people arrive at once"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Treats the accessible-route bar as handed to wayfinding from the accessibility work rather than inventing the standard here: showing the route is wayfinding's job"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Signs the things people leave the programme for - toilets, water, the quiet room, food, and the way back to the main hall - noting these are asked about more than session rooms"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Plans to count and keep every sign added by hand on the day as the audit of this design and the input to the next edition"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Converts orientation from opt-in to opt-out, stating that opt-in mechanics reach only the people who were already going to seek help"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Uses a default-reach mechanic such as a line on the badge back (or an offered lanyard colour) so orientation reaches those who would not ask"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Answers the three questions nobody asks aloud - where do I sit, is it acceptable to leave a talk partway, and what actually happens in the hallway track - and prints them at the cost of one side of one card"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Gives the first twenty minutes a destination: a named place with a person in it, targeting the gap between badge pickup and the first talk"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Surfaces the useful half of the statistic: the gap between roughly 40% of attendees reporting a peak moment and roughly 78% of organizers believing they deliver one"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends asking attendees after the event whether anything stood out, supplying the question to whoever owns the feedback survey, rather than assuming the moment landed"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Rejects the contributors-on-stage confetti finale as a moment designed for a subset: engineered for the front of the room, it is one more thing the rest of the room watched"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Locates any memorable moment inside a touchpoint that already exists (arrival, closing ceremony, a meal) rather than adding a competing activity, and designs one moment, not a programme of them"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Keeps the moment inside the register the culture work already set, asking which register was set rather than inventing a tone"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Labels the memorable-moment guidance as self-set defaults rather than established methodology"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names what the posture costs so it is chosen deliberately: the headcount, the badge, the dietary match, and the identification the code of conduct leans on"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Engages the stated condition for moving up a rung: the venue spanning multiple buildings, or the desk queueing behind lost property, justifies a split desk plus an on-call organizer"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends recording which questions the help point actually received, as input to the next edition"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States the row-quality bar: a useful row names a specific place, a cause, and a fix executable before doors open"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Rewrites or demonstrates at least one row to that standard, with a concrete location and an executable fix"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Specifically names the first wayfinding decision - the choice made immediately after the desk, usually the least-signed spot in the building - as a stage to add"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States why the walk matters: rows that fail on the physical walk but looked fine on paper are the valuable ones, the difference between the floor plan and the building"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Reads bad rows in clusters: adjacent bad rows usually share one cause, such as a single unsigned junction or a desk placed where two queues meet"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Designs against the bad rows only, noting a mostly-good table yields a signage list, not a redesign"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Holds the print until the floor-plan markup, badge design and signage list have been reviewed, because a printed sign with the wrong room number cannot be fixed on the morning of the event"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Extends the size range past 2XL to 3XL-5XL"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Pads ordered counts, up to roughly 30% per size and style, instead of ordering exactly 350, because running out reads worse to the person who gets nothing than the overage costs"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "At pickup, sorts stock by style and size and lets attendees self-report the size they ordered instead of volunteers looking each person up"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Refuses to extend the morning break: the schedule grid is owned elsewhere and a break is never moved or lengthened from this design"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Designs the swag distribution to work inside the existing scheduled gaps rather than changing the grid"
+      }
+    ]
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States the licence position as a fixed constraint before proposing any model, noting that the Apache-2.0 releases already published stay licensed that way permanently",
+        "evidence": "\"Licence: Apache-2.0, already shipped, permissive. Every install today runs it free forever, that's locked.\" (appears in Constraints, before Rejected models / Primary model)",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States where the software runs today (customer-side, self-hosted) as a fixed constraint",
+        "evidence": "\"Deployment: 100% self-hosted today. Nothing stops adding hosted option \u2014 that's reversible in a quarter, not a constraint against it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States who would sign the contract, distinguishing the DAG author from the engineering or platform leader who buys",
+        "evidence": "\"Buyer: 58% of installs run inside companies. Signer = platform/infra lead or engineering manager, not individual DAG author.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Walks the archetype space and marks options as possible, blocked, or premature instead of jumping straight to a single answer",
+        "evidence": "Rejected models table with nuanced verdicts: \"Deleted, not demoted\" vs \"Revisit only if...\" vs \"Not deleted forever: becomes the value metric once hosted service exists\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects dual licensing and names the permissive Apache-2.0 licence, which creates no forcing function, as the blocking constraint",
+        "evidence": "\"Dual licensing \u2014 Apache-2.0 already published, permissive. No forcing function. Deleted, not demoted.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects an ecosystem take-rate and names the absence of two-sided liquidity as the blocking constraint",
+        "evidence": "\"Ecosystem take-rate \u2014 no two-sided marketplace, no plugin liquidity mentioned. Premature by definition.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Presents two or three candidate models, never only one",
+        "evidence": "Primary (\"Hosted open source\") and Secondary (\"support/LTS\") both presented as active candidates",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the ranking order explicitly in the text rather than leaving it implied by the order candidates happen to be listed in",
+        "evidence": "\"One primary, one secondary: hosted open source primary, support/LTS secondary. Clean.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ranks candidates by value returned per unit of founder effort rather than by which is cheapest or easiest to start",
+        "evidence": "\"Why this over open core, given your specific team: two ex-SRE founders are the exact skill the operational burden needs, that expensive function is already half-paid-for in headcount you have.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives each candidate a validation experiment carrying both a named success criterion and a date",
+        "evidence": "Only the primary gets a dated target (\"Target: instrument within this quarter, first read within 60 days of hosted GA\"); the secondary (support/LTS) only gets an undated threshold (\"exceed ~3-5/month\") with no explicit validation experiment or date attached.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Commits to exactly one primary model with at most one secondary, and never leaves two primaries standing",
+        "evidence": "\"One primary, one secondary: hosted open source primary, support/LTS secondary. Clean.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the go-to-market consequence of the recommended model: the motion it forces and the functions that must be built or hired",
+        "evidence": "\"Self-serve first, no human required for early contracts... First three investments, in order: 1. Migration tooling... 2. Metering + spend caps... 3. Third on-call hire... Do not hire a salesperson yet.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States the licence position as a fixed constraint before proposing any model, noting that the Apache-2.0 releases already published stay licensed that way permanently",
+        "evidence": "Text says 'Don't touch the Apache-2.0 license on the core... don't retroactively restrict it' as advice, but never states that already-published releases remain Apache-2.0 forever regardless of future choices.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States where the software runs today (customer-side, self-hosted) as a fixed constraint",
+        "evidence": "Self-hosting is only inferred later ('running your own scheduler, metadata DB, HA, upgrades') as a pain point to sell against, never stated upfront as a fixed deployment constraint.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States who would sign the contract, distinguishing the DAG author from the engineering or platform leader who buys",
+        "evidence": "No distinction is drawn between the individual DAG author and a buying engineering/platform leader anywhere in the memo.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Walks the archetype space and marks options as possible, blocked, or premature instead of jumping straight to a single answer",
+        "evidence": "The table marks Cloud '\u2705 Best fit', enterprise features 'Layer in later, don't lead with it', and support contracts 'Fine as an opportunistic side-deal, not a strategy.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects dual licensing and names the permissive Apache-2.0 licence, which creates no forcing function, as the blocking constraint",
+        "evidence": "Dual licensing is never mentioned anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects an ecosystem take-rate and names the absence of two-sided liquidity as the blocking constraint",
+        "evidence": "No mention of an ecosystem take-rate model anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Presents two or three candidate models, never only one",
+        "evidence": "Table lists three paths: 'Hosted Cloud', 'Open-core enterprise features', and 'Support/SLA contracts'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the ranking order explicitly in the text rather than leaving it implied by the order candidates happen to be listed in",
+        "evidence": "'Lead with Cloud... Layer in later, don't lead with it... Fine as an opportunistic side-deal, not a strategy' explicitly states the order.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ranks candidates by value returned per unit of founder effort rather than by which is cheapest or easiest to start",
+        "evidence": "Support contracts are ranked last as 'Lowest leverage, most relationship-selling, worst match for a team that has never sold anything' \u2014 explicitly a leverage/effort judgment.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives each candidate a validation experiment carrying both a named success criterion and a date",
+        "evidence": "Only Cloud gets a dated validation plan (the 90-day table); open-core features and support contracts receive no dated success-criterion experiment.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Commits to exactly one primary model with at most one secondary, and never leaves two primaries standing",
+        "evidence": "'Lead with Cloud' is primary; enterprise features are explicitly secondary ('Layer in later'); support is downgraded to 'not a strategy', so only one primary stands.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the go-to-market consequence of the recommended model: the motion it forces and the functions that must be built or hired",
+        "evidence": "'GTM: product-led, not sales-led... Don't hire a VP Sales or an SDR yet \u2014 that's the wrong first hire for a PLG motion.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

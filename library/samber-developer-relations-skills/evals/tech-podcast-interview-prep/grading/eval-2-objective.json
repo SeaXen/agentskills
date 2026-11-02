@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Response allocates the two available hours to the message spine and the opening answer only.",
+        "evidence": "The time box allocates '0:55\u20131:40 \u2014 Hard questions' (45 minutes, the largest block) plus stories and recording-day card, not just spine and opening answer.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response explicitly names the steps it is dropping, so the user knows what they will be improvising.",
+        "evidence": "\"Dropped, in order of what I cut first: full show reconnaissance ... the rest of the sound-bite set beyond three, the promotion loop (that's a tomorrow-afternoon problem).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response does not make show reconnaissance or listening to back-catalogue episodes the first task.",
+        "evidence": "\"Real reconnaissance substitute (10 min, do this before you start, not instead of it): pull up Bytecode Weekly on Apple Podcasts...\" is placed before the Time box and instructed to be done before starting.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response still produces a disclosure line covering the user's employment at Tarnhelm Data and the fact that the company sells a Postgres tuning product.",
+        "evidence": "\"'I'm a staff engineer at Tarnhelm Data \u2014 we build a Postgres tuning product, so I've got a horse in this race...'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response still checks the material against an off-limits list of embargoes, customer names and unpublished numbers.",
+        "evidence": "\"Off-limits, my default until you tell me otherwise: no named customers, no unpublished benchmark numbers, no pricing specifics, nothing about deals in flight.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response states that the disclosure line and the off-limits check are never traded away for time, whatever the prep ceiling.",
+        "evidence": "No statement generalizing that disclosure/off-limits checks are never sacrificed regardless of time pressure appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The spine is delivered as one And-But-Therefore sentence.",
+        "evidence": "\"Teams plan for 40TB like it's a storage problem, and disk is genuinely cheap enough that it isn't, but autovacuum runs out of runway long before the disk does, therefore the thing to instrument isn't free space, it's how far behind vacuum is on your biggest tables.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response fixes three messages for the 45-minute episode, not more.",
+        "evidence": "Exactly three numbered messages are given under '## Messages'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Each message carries a claim, an evidence item and a so-what.",
+        "evidence": "Each message uses '**Claim:** ... **Evidence:** ... **So-what:** ...' format, e.g. message 1.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response does not deliver a full multi-step workflow or a fully populated prep brief covering stories, sound bites, promotion and measurement.",
+        "evidence": "\"Deferred to after recording (not tonight): send Priya a two-line bio, headshot, and 2-3 candidate timestamps before publication; that's the whole promotion loop this prep ceiling has room for.\" No measurement section appears at all.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Response allocates the two available hours to the message spine and the opening answer only.",
+        "evidence": "The 2-hour block spans mining war stories (0:00-0:30), building a six-card outline (0:30-1:00), anticipating landmines (1:00-1:30), full read-aloud (1:30-1:50), and logistics (1:50-2:00) \u2014 far beyond spine + opening answer.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response explicitly names the steps it is dropping, so the user knows what they will be improvising.",
+        "evidence": "No language identifies any step as intentionally dropped or left for improvisation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response does not make show reconnaissance or listening to back-catalogue episodes the first task.",
+        "evidence": "The first block is '0:00\u20130:30 \u2014 Mine your own war stories,' not any form of listening to the show's back catalogue.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response still produces a disclosure line covering the user's employment at Tarnhelm Data and the fact that the company sells a Postgres tuning product.",
+        "evidence": "The prepared line is vague: 'I spend my time helping teams find the tuning knobs on Postgres...' and explicitly instructs 'Don't name Tarnhelm until minute 40+, unless she asks directly' \u2014 no firm disclosure line naming the company/product is produced.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response still checks the material against an off-limits list of embargoes, customer names and unpublished numbers.",
+        "evidence": "No checklist for embargoes, customer names, or unpublished numbers appears anywhere in the response.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response states that the disclosure line and the off-limits check are never traded away for time, whatever the prep ceiling.",
+        "evidence": "No such statement appears; disclosure is instead treated as strategically delayed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The spine is delivered as one And-But-Therefore sentence.",
+        "evidence": "The 'one-sentence thesis' ('Everything about Postgres that's...becomes the thing that pages you...and almost none of it shows up in the documentation') has no explicit 'but' turn or 'therefore.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response fixes three messages for the 45-minute episode, not more.",
+        "evidence": "The response explicitly builds six segments: 'You don't need more than six real stories for 45 minutes,' plus a 7-row flight-plan table.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Each message carries a claim, an evidence item and a so-what.",
+        "evidence": "Content is structured as prompts and a segment table, not as claim-evidence-so-what units.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response does not deliver a full multi-step workflow or a fully populated prep brief covering stories, sound bites, promotion and measurement.",
+        "evidence": "The response delivers a fully populated brief covering stories, a flight-plan table, host-reading strategy, conflict-of-interest handling, and pre-loaded Q&A answers \u2014 a complete multi-step document.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

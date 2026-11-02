@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects 'Ask us anything, no question too small' and writes a scope card with three to five in-scope examples phrased as users would ask them and three to five out-of-scope items each with a destination",
+        "evidence": "Replaced the 'Ask us anything' draft; card has 5 Bring examples and Not-here items with destinations.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes account, billing and invoice questions to support",
+        "evidence": "\"Invoices, billing disputes, plan or contract questions \u2192 [support link]\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes a suspected vulnerability to the private security disclosure channel and states it is never raised live or in a public thread",
+        "evidence": "\"[security disclosure channel], privately. Never in the call, the chat or the thread.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declares live debugging of a user's own environment off topic under the no-access rule and asks for a minimal reproduction with secrets removed",
+        "evidence": "\"no live debugging. Bring a minimal reproduction with secrets and customer data removed.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes pricing and Enterprise-tier questions to the sales contact, and limits answers to what the public docs already say about paid features with nothing about roadmap or price",
+        "evidence": "\"We answer what the public docs already say about a paid feature. We say nothing about roadmap or price.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sends the enterprise customer's custom connector code to their support or account channel under the contract's confidentiality terms, while keeping their public-API how-to questions welcome",
+        "evidence": "\"Your custom carrier connector... \u2192 [support / account channel]. Public-API questions from the same team are welcome here.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes logs, configs and screenshots from the intake form and explains they carry secrets and customer data into a tool nobody reviews",
+        "evidence": "\"They carry secrets and customer data into a tool nobody reviews.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Limits the form to six fields: the question, what was tried and which docs page was read, product and version, recording consent (yes / anonymise / write-up only), optional time zone, optional contact with consent to keep the handle on a feature request",
+        "evidence": "\"Question form (six fields, nothing else)\" listing all six.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes a reproducible bug to the issue tracker with an offer to help write the report",
+        "evidence": "\"[issue tracker]. Bring it and we'll help you write the report.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Logs feature requests live in the feedback record and says the product team decides",
+        "evidence": "\"we log it live in [feedback record]. The product team decides.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prints the recording policy and the code of conduct link on the scope card",
+        "evidence": "Card has \"Recording: this call is [not recorded]...\" and \"Our code of conduct applies: [link]\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Pins a 'no logs, keys or customer data' rule at the top of the intake thread and gives moderators a redaction path",
+        "evidence": "\"Pin 'no logs, keys or customer data' at its top, and give moderators a redaction path.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reads the scope card at the start of each session together with the recording notice and the no-live-debugging line",
+        "evidence": "The opening line covers no live debugging, but reading the scope card with the recording notice at session start is not specified.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sorts pre-submitted questions into answer live, answer async, redirect, docs gap and log for product, most widely useful first, and never silently drops one",
+        "evidence": "Only a 'redirected' log rule; no triage buckets or ordering.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects 'Ask us anything, no question too small' and writes a scope card with three to five in-scope examples phrased as users would ask them and three to five out-of-scope items each with a destination",
+        "evidence": "Rejects the phrase but lists 7 \"Good fits\" examples, over the 3-5 limit.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes account, billing and invoice questions to support",
+        "evidence": "\"Invoices, charges, refunds, disputes, plan changes | Billing support\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes a suspected vulnerability to the private security disclosure channel and states it is never raised live or in a public thread",
+        "evidence": "\"Private report only... Never post it in the form, the chat, or live.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declares live debugging of a user's own environment off topic under the no-access rule and asks for a minimal reproduction with secrets removed",
+        "evidence": "\"Live debugging of your production system with full logs | Support ticket, or request a 1:1\"; \"Paste the smallest snippet\" with removals",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes pricing and Enterprise-tier questions to the sales contact, and limits answers to what the public docs already say about paid features with nothing about roadmap or price",
+        "evidence": "Only \"Contract terms, SLAs, custom pricing | Your account contact\"; no public-docs limit on paid-feature answers.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sends the enterprise customer's custom connector code to their support or account channel under the contract's confidentiality terms, while keeping their public-API how-to questions welcome",
+        "evidence": "\"Reviewing your own code... Enterprise customers: your account team\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes logs, configs and screenshots from the intake form and explains they carry secrets and customer data into a tool nobody reviews",
+        "evidence": "Keeps a \"Redacted excerpt\" field for \"one request, one response, or one config block\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Limits the form to six fields: the question, what was tried and which docs page was read, product and version, recording consent (yes / anonymise / write-up only), optional time zone, optional contact with consent to keep the handle on a feature request",
+        "evidence": "The form has 11 numbered fields.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes a reproducible bug to the issue tracker with an offer to help write the report",
+        "evidence": "No issue tracker route.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Logs feature requests live in the feedback record and says the product team decides",
+        "evidence": "No feature-request logging.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Prints the recording policy and the code of conduct link on the scope card",
+        "evidence": "Recording is only a placeholder line; no code of conduct.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Pins a 'no logs, keys or customer data' rule at the top of the intake thread and gives moderators a redaction path",
+        "evidence": "Not present.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reads the scope card at the start of each session together with the recording notice and the no-live-debugging line",
+        "evidence": "Not present.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sorts pre-submitted questions into answer live, answer async, redirect, docs gap and log for product, most widely useful first, and never silently drops one",
+        "evidence": "Not present.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

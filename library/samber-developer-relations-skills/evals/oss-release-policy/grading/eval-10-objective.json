@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Declines to approve the draft and lists each failing pass check by name",
+        "evidence": "\"not ready to merge\" with a table of 5 checks failing 4... each marked \u274c.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags 'Exclusions: TBD' as failing the check that the exclusion list has at least one entry, and supplies candidate exclusions for a Java client library",
+        "evidence": "\"Not covered: `*.internal.*` packages, log message text, `toString()` output\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags 'as long as people use it' on 2.x and 1.x as failing the check that every supported line has an end date or ending event",
+        "evidence": "\"1.x and 2.x read 'as long as people use it', which never ends.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks for the maintainers' monthly hours and the fixes-per-year and hours-per-backport inputs, or runs the arithmetic with stated assumptions, before accepting two maintenance lines",
+        "evidence": "Gives formula and example, and asks \"How many hours a month...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags that the supported-versions table pasted into both SECURITY.md and RELEASES.md will drift within a release, and requires one copy linked from the other",
+        "evidence": "\"Two copies drift within a release. Keep it in RELEASES.md and link to it from SECURITY.md.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the missing release-time check that tag, manifest version and changelog entry agree as a required pass item",
+        "evidence": "\"Add a release-time check. CI fails unless the tag, the `pom.xml` version and the changelog entry agree.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the missing Known past breaks and Changes to this policy sections as needing content or an explicit 'none'",
+        "evidence": "\"'Known past breaks' and 'Changes to this policy' are missing.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces 'Whenever' with a named cadence model, recommending feature-based with a maximum gap as the default, with security fixes out of band",
+        "evidence": "\"Use feature-based with a maximum gap... security fixes out of band.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags 'On request' as missing who decides on backports, which lines take them, and how backports are numbered",
+        "evidence": "\"Say which fixes get backported... to which lines, and who decides... how they're numbered.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags 3.5.0-FINAL because Maven 4 documentation discourages the final, ga, release and sp qualifiers, and recommends numbered release candidates such as 3.5.0-RC1",
+        "evidence": "\"Maven 4 also discourages `final`... Replace it with numbered candidates (`3.5.0-RC1`, `-RC2`\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the Java floor must be declared in package metadata and the drop rule written explicitly, because nothing in the Maven ecosystem enforces the floor",
+        "evidence": "\"The Maven ecosystem doesn't enforce a runtime floor... Name the metadata field... `maven.compiler.release`\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the single publisher as needing a stated fallback when unavailable, and points to samber/developer-relations-skills@oss-maintainer-sustainability",
+        "evidence": "\"one person with no fallback... The oss-maintainer-sustainability skill covers it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rewrites the deprecation section with a minimum window of at least one minor carrying the deprecation before a major removes it, plus a time component",
+        "evidence": "\"Remove only in the next major, no sooner than N months... at least two releases\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags 'We use semantic versioning' as insufficient without a declared public surface, requiring the shape and the sentence on what each segment means",
+        "evidence": "\"SemVer without a declared surface promises nothing.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Declines to approve the draft and lists each failing pass check by name",
+        "evidence": "Declines (\"Don't merge yet\") and lists issues, but not by named pass checks.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags 'Exclusions: TBD' as failing the check that the exclusion list has at least one entry, and supplies candidate exclusions for a Java client library",
+        "evidence": "\"A TBD in the central definition makes the whole policy unenforceable... whether internal or impl packages are excluded.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags 'as long as people use it' on 2.x and 1.x as failing the check that every supported line has an end date or ending event",
+        "evidence": "\"open-ended promise you can't verify... Give end dates, or a rule\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks for the maintainers' monthly hours and the fixes-per-year and hours-per-backport inputs, or runs the arithmetic with stated assumptions, before accepting two maintenance lines",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags that the supported-versions table pasted into both SECURITY.md and RELEASES.md will drift within a release, and requires one copy linked from the other",
+        "evidence": "\"The two copies will drift apart... Keep one source.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the missing release-time check that tag, manifest version and changelog entry agree as a required pass item",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the missing Known past breaks and Changes to this policy sections as needing content or an explicit 'none'",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Replaces 'Whenever' with a named cadence model, recommending feature-based with a maximum gap as the default, with security fixes out of band",
+        "evidence": "Suggests \"a minor release roughly every quarter\", not a feature-based model.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags 'On request' as missing who decides on backports, which lines take them, and how backports are numbered",
+        "evidence": "Covers who decides, eligible lines and how to request, but not how backports are numbered.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags 3.5.0-FINAL because Maven 4 documentation discourages the final, ga, release and sp qualifiers, and recommends numbered release candidates such as 3.5.0-RC1",
+        "evidence": "Flags FINAL ordering and recommends `3.5.0-RC.1` or `3.5.0-M1`.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the Java floor must be declared in package metadata and the drop rule written explicitly, because nothing in the Maven ecosystem enforces the floor",
+        "evidence": "Asks for a major-vs-minor rule, but does not mention metadata or the lack of enforcement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the single publisher as needing a stated fallback when unavailable, and points to samber/developer-relations-skills@oss-maintainer-sustainability",
+        "evidence": "Flags bus-factor risk and asks for a backup, but has no pointer to the skill.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rewrites the deprecation section with a minimum window of at least one minor carrying the deprecation before a major removes it, plus a time component",
+        "evidence": "\"at least one minor release and 6 months. Allow removal only in a major release.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags 'We use semantic versioning' as insufficient without a declared public surface, requiring the shape and the sentence on what each segment means",
+        "evidence": "Not flagged.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

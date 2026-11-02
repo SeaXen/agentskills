@@ -1,0 +1,690 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "oss-issue-triage",
+  "scenarios": 12,
+  "expectations_total": 156,
+  "expectations_subjective": 1,
+  "expectations_objective": 155,
+  "pass_rate_with_skill_pct": 66.7,
+  "pass_rate_without_skill_pct": 31.4,
+  "delta_pp": 35.3,
+  "uplift_multiplier": 2.12,
+  "trigger_accuracy_pct": 55.3,
+  "trigger_queries": 150,
+  "trigger_positive_fire_rate": 0.6,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": 0.2,
+  "subjective_pass_disagreements": [
+    {
+      "eval_id": 7,
+      "condition": "without_skill",
+      "expectation": "Keeps every surviving recommendation to changes one person can make in a single sitting",
+      "pass1": true,
+      "pass2": false
+    }
+  ],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.267 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Makes an explicit per-item-versus-clustering call for the 912-issue backlog, naming grouping by shared root cause under a tracking issue as the alternative to item-by-item triage"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Computes weekly triage capacity as triagers x sessions per week x minutes per session divided by minutes per item, using the stated two maintainers and two hours each"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Organises labels into named orthogonal axes including at least type, state, priority and area, with at most one value per axis on any item"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends renaming labels into an axis before deleting any, and states that deleting erases the label from every past item and any saved view built on it"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Presents the taxonomy for the maintainers' approval before any tracker change is made"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Presents 60 days idle plus 7 days to close as the stale action's own shipped default rather than as a recommendation fitted to this project"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Cites 20 days without a reporter response as a published Kubernetes clock"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Warns that a first live sweep over a backlog reaching back to 2022 can close hundreds of items and produce a notification storm that costs the project contributors"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that the sweep does not substitute for the capacity or intake decision"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names the underlying cause as the absence of a natural lifecycle for issues and pull requests, which the closure itself does not address"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Requires the new policy to name the published first-response target the project will hold after the close"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Requires the baseline to be re-run monthly for the first quarter rather than checked once"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Flags the isolation cost of security triage as a staffing consideration, since the work cannot be discussed with the wider project"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Publishes the security destination in the triage policy's statement of what belongs in the tracker"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that nothing merges without sign-off, tied to the licence provenance it records"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States the condition that promotes code review to first: a trusted repeat contributor sending a small change against an already-accepted issue"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Gives pull requests a tighter first-response target than issues, justified by the asymmetric cost of an unanswered pull request against hours already spent"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Counts externally authored pull requests as triage work while excluding the maintainers' own in-flight pull requests"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Routes by ownership before review so the wait sits on a named person rather than on the queue"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Stops the design and says so rather than producing a label taxonomy"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Does not produce a label taxonomy, priority scheme or triage rotation for this project"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Deletes adding triagers from the options entirely rather than listing it as a lower-ranked or future item, since nobody can be added"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Keeps every surviving recommendation to changes one person can make in a single sitting"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that shortening or changing an already-published target carries a contract-change cost where a contractual response obligation exists"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Sets the publicly visible target to one the team can hold in a bad month rather than a good one"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Writes the target into a published policy in the repository next to the contributing guide and links it from the intake forms"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names the class of items given a tighter target and the reason, rather than applying one target to everything"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Adds a review trigger for any month where the target was missed more often than met"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Explains that an automated greeting followed by weeks of silence makes the wait worse for the reporter"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Rejects total open issue count as a health metric"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Lists the mechanical automation that is safe: area label from changed paths, type from the intake form, review request to the owning team, and the staleness clock"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Requires disclosure inside any triage comment posted by an agent"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Recommends segmenting first response by first-time versus returning reporter"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Recommends tracking time to first response, untriaged share, queue age, and inflow versus outflow as the monthly set"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Refuses to create a usage-question issue form and states that usage questions should be routed rather than structured"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Deletes chooser routing from this pass because no off-tracker destination exists, rather than listing it as pending or future work"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Promotes validated forms to the first intake change because bug reports dominate the inflow at 70%"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Replaces the markdown templates with validated forms, stating that markdown templates enforce nothing because the reporter can delete the whole body"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Makes the version field a dropdown rather than free text, because free-text versions arrive as \"latest\""
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires a minimal reproduction using the project's own APIs rather than a third-party wrapper"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires logs or output rendered as a code block rather than screenshots of text"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Includes a search-first confirmation checkbox"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Orders the feature-request fields as problem statement, then proposed solution, then alternatives"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Disables blank issues only once the forms cover the real categories"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States the triage minutes each intake change is expected to save"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Designs a two-tier model: a long-term triage owner accountable per component plus a triage duty rotating on a stated shift length"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Automates who is on duty rather than what to decide, by syncing the tracker's triage-owner field from a rotation calendar"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Sets a stop rule where a session ends at its time box rather than at inbox zero"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Sets the session order as newest untriaged first, then items where the reporter replied, then a fixed backlog quota"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Grants triage-level permissions for labelling, closing and assigning rather than commit or push access"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Defines the escalation rule: what a triager decides alone, what waits for a maintainer, and how long that wait may be"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "For the recurring call, requires a dedicated queue view, asynchronous pre-triage, and decisions recorded as label or state changes rather than only in minutes"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Makes an explicit per-item-versus-clustering call for the 912-issue backlog, naming grouping by shared root cause under a tracking issue as the alternative to item-by-item triage"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Computes weekly triage capacity as triagers x sessions per week x minutes per session divided by minutes per item, using the stated two maintainers and two hours each"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends renaming labels into an axis before deleting any, and states that deleting erases the label from every past item and any saved view built on it"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Requires labels, intake forms, saved views and automation to be migrated in one pass rather than labels tonight and the rest later"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Presents the taxonomy for the maintainers' approval before any tracker change is made"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Restricts the automated sweep to the waiting-on-reporter state only, rather than running it repository-wide"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Refuses to auto-close items that are waiting on the maintainers, including confirmed bugs, and gives the reason that a bot-closed confirmed bug tells the reporter their evidence was worthless"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names an explicit exempt-state list covering at least confirmed or accepted, blocked, security and pinned items"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Requires the first pass to run in dry-run or debug-only mode with the resulting list read before anything fires"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Presents 60 days idle plus 7 days to close as the stale action's own shipped default rather than as a recommendation fitted to this project"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Cites 20 days without a reporter response as a published Kubernetes clock"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Anchors each clock to a named waiting party rather than to item age in the abstract"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Warns that a first live sweep over a backlog reaching back to 2022 can close hundreds of items and produce a notification storm that costs the project contributors"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that the sweep does not substitute for the capacity or intake decision"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Does not describe reopening by the reporter as sufficient protection against wrongly closed items"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that a mass close is legitimate exactly once, as the opening move of a new policy"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Refuses the proposed annual repetition and explains why a recurring bankruptcy is not a maintenance routine"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Requires the announcement, the new triage policy and the new intake to go live on the same day as the mass close"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Cites the documented outcome that mass-closing works once and the backlog returns to the same state within roughly six months"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names the underlying cause as the absence of a natural lifecycle for issues and pull requests, which the closure itself does not address"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Pairs the mass close with an intake change rather than presenting it standalone"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Warns that notification volume is the real cost of a bulk pass"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Requires a baseline measurement of the queue before the mass close so the effect is measurable afterwards"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Requires the new policy to name the published first-response target the project will hold after the close"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Requires the baseline to be re-run monthly for the first quarter rather than checked once"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Does not present a scheduled or calendared mass-close job as the deliverable"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Gates on reputation and submission volume rather than on whether the content looks machine-generated"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Warns that accusing a contributor of machine generation without proof creates a conduct incident on top of the original problem"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Subtracts the hours consumed by never-actionable submissions before comparing capacity against inflow"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Carries the prompt's own figures through the arithmetic, using six people at four hours each and 90 minutes with two people per junk report"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States plainly that no published response target survives the current valid share"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names removing or changing the submission incentive, including the monetary reward, as a lever that acts on the economics of submitting rather than the cost of evaluating"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Cites curl's confirmed-vulnerability rate falling from above 15% to below 5%, and the ending of its bounty programme, as the sourced precedent"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Sets a written volume-gating trigger, expressed as an inflow rate or valid-report share, together with the restriction it fires, decided now rather than during a crisis"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Lists gating options in rough order of reversibility, such as a reputation or contribution-history threshold, a cap on open submissions per author, and restricting who may create submissions"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Rejects a stricter template, a better classifier and a faster rotation as answers to a collapsed valid share"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States the asymmetry that generating a plausible-sounding report costs pennies in tokens while evaluating whether it is real still costs an hour of expert time"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Moves security reports off the public tracker entirely rather than adding a security label or a security issue form"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names all three pipeline elements: a private intake channel, a named size-capped response team, and an embargo mechanism for coordinated disclosure"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Keeps the response team size-capped and distinct from the general triage rota, citing the ten-member committee and three-working-day acknowledgement precedent"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Exempts security items from any staleness sweep"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Flags the isolation cost of security triage as a staffing consideration, since the work cannot be discussed with the wider project"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Publishes the security destination in the triage policy's statement of what belongs in the tracker"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States the coordinated-disclosure embargo as an explicit mechanism rather than an informal practice"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Treats sign-off (CLA or DCO) and CI permission for externally authored pull requests as automated preconditions rather than as ranked menu items"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that nothing merges without sign-off, tied to the licence provenance it records"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Justifies that order by rejections settled per minute of reviewer time rather than by which gate is cheapest"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Cites the finding that roughly two thirds of rejected agentic pull requests never needed the code read at all, from 353 manually inspected rejections"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names code-correctness review as the only gate that can accept a change, and the expensive pass the order exists to protect"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States the condition that promotes code review to first: a trusted repeat contributor sending a small change against an already-accepted issue"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Gives pull requests a tighter first-response target than issues, justified by the asymmetric cost of an unanswered pull request against hours already spent"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Counts externally authored pull requests as triage work while excluding the maintainers' own in-flight pull requests"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Routes by ownership before review so the wait sits on a named person rather than on the queue"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Stops the design and says so rather than producing a label taxonomy"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names the honest deliverable as a reduced intake plus a published maintenance-mode statement for the project"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Does not produce a label taxonomy, priority scheme or triage rotation for this project"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Deletes adding triagers from the options entirely rather than listing it as a lower-ranked or future item, since nobody can be added"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Refuses to publish a first-response target that 20 minutes a month cannot support"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Shows the arithmetic that the stated capacity cannot cover the stated inflow of roughly 12 issues a week"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the maintenance-mode notice must be published where reporters see it before opening an item"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Does not propose a stale bot as a substitute for the intake decision"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that shortening or changing an already-published target carries a contract-change cost where a contractual response obligation exists"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Defines first response as a human reply, explicitly not a fix and not a bot acknowledgement"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Writes the target into a published policy in the repository next to the contributing guide and links it from the intake forms"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Adds a review trigger for any month where the target was missed more often than met"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that a published target nobody can meet is worse than publishing none"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that first-response metrics exclude bot replies and author self-replies by definition"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Explains that an automated greeting followed by weeks of silence makes the wait worse for the reporter"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names at least two human-driven signals, including first response with bots and author self-replies excluded, and how many people could cover triage if one person left"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Rejects total open issue count as a health metric"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Rejects closed-per-week or closure ratio as a productivity target"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Lists the mechanical automation that is safe: area label from changed paths, type from the intake form, review request to the owning team, and the staleness clock"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Removes the autonomous auto-close and keeps any model assistance as a scoring and suggestion layer with a human as final decision-maker on accept, reject and close"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Requires disclosure inside any triage comment posted by an agent"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Recommends segmenting first response by first-time versus returning reporter"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Recommends tracking time to first response, untriaged share, queue age, and inflow versus outflow as the monthly set"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Refuses to create a usage-question issue form and states that usage questions should be routed rather than structured"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Deletes chooser routing from this pass because no off-tracker destination exists, rather than listing it as pending or future work"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Promotes validated forms to the first intake change because bug reports dominate the inflow at 70%"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Replaces the markdown templates with validated forms, stating that markdown templates enforce nothing because the reporter can delete the whole body"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Makes the version field a dropdown rather than free text, because free-text versions arrive as \"latest\""
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires a minimal reproduction using the project's own APIs rather than a third-party wrapper"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires logs or output rendered as a code block rather than screenshots of text"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Includes a search-first confirmation checkbox"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Orders the feature-request fields as problem statement, then proposed solution, then alternatives"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Disables blank issues only once the forms cover the real categories"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States the triage minutes each intake change is expected to save"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names the failure that documentation still implying coverage is worse than having had no rotation, citing the dormant volunteer triage team precedent"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Requires the rota to be retired loudly if it has lapsed, rather than left published while inactive"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Designs a two-tier model: a long-term triage owner accountable per component plus a triage duty rotating on a stated shift length"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Automates who is on duty rather than what to decide, by syncing the tracker's triage-owner field from a rotation calendar"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names a backup per shift"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Adds a liveness check: one metric that would visibly move if the rotation stopped"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Sets a stop rule where a session ends at its time box rather than at inbox zero"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Sets the session order as newest untriaged first, then items where the reporter replied, then a fixed backlog quota"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Grants triage-level permissions for labelling, closing and assigning rather than commit or push access"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Defines the escalation rule: what a triager decides alone, what waits for a maintainer, and how long that wait may be"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "For the recurring call, requires a dedicated queue view, asynchronous pre-triage, and decisions recorded as label or state changes rather than only in minutes"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that the strongest available evidence measures pull-request first response, not issue triage"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Describes that evidence as a binary at-or-under-one-day versus later split rather than a continuous relationship"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Notes that the reported deltas are descriptive rather than significance-tested"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Reports the newcomer effect as a median of roughly +15 percentage points and the existing-contributor effect as roughly +2 percentage points"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Declines to extend the pull-request finding into a general issue-triage service-level promise"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Sizes the pilot at roughly 15 to 20 real items and requires it to be run and timed against the new system"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Labels the untriaged-share-below-10%, target-met-on-90%, and net-inflow-at-or-below-zero figures as this approach's own starting baselines to be replaced by the project's measured trend"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Requires the baseline to be re-run monthly for the first quarter"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Recommends lowering the published promise to one the team can hold if the targets do not hold, rather than leaving an unmet number published"
+      }
+    ]
+  }
+}

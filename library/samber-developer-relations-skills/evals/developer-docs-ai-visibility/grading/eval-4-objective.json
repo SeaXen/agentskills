@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects one run per prompt per month and requires five or more runs per prompt, per assistant, per mode",
+        "evidence": "\"Run each prompt 5 times per assistant and mode.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites that repeated runs of one prompt returned the same recommended-brand list fewer than once in a hundred times, labelled independently measured with a vendor co-author",
+        "evidence": "\"under 1 of 100 runs... independently measured: 2,961 runs, with a vendor co-author.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects share of voice and average rank as the headline metrics and replaces them with version-correct rate, deprecated-API rate, invented-API rate and owned-current citation rate",
+        "evidence": "\"Rank position is the wrong metric\"; version-correct, deprecated, invented, owned-current citation rates.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the 50 SEO keywords as the prompt set and sources prompts from support tickets, docs search logs and community questions instead",
+        "evidence": "\"drawn from support tickets, docs search logs and community questions.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Structures prompts in the five families: task, error string, migration, status and choice",
+        "evidence": "Task, error strings, migration, status plus choice prompts column.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires one prompt row per language client (Python, Go, TypeScript) where the code differs",
+        "evidence": "\"one row per language client... Python, Go and TypeScript.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires an answer key per prompt (must contain, must not contain, owning current docs URL) written before any run, and states that a prompt without a key is not run",
+        "evidence": "\"A prompt without a key doesn't run.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sizes the panel to the half-day-a-week ceiling: computes answers as prompts \u00d7 runs \u00d7 assistants \u00d7 modes and proposes the minimum viable panel (10 core prompts \u00d7 5 runs \u00d7 2 assistants search-on, plus search-off on the 5 worst prompts) rather than the 900-answer default",
+        "evidence": "\"10 \u00d7 5 \u00d7 2 = 100, plus 5 \u00d7 5 = 25, so 125 answers\"; capacity computed.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects running from the work laptop's logged-in profile: requires a logged-out or fresh profile with no custom instructions, memory or connected tools, and records location and plan tier",
+        "evidence": "\"fresh logged-out profile, no memory, no custom instructions, no connected tools. Record model, date, location and plan tier\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires recording the model name and date on every row, and splitting the panel if a model release lands mid-panel",
+        "evidence": "Records model and date, but no instruction to split the panel if a release lands mid-panel.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires running search-on and search-off where the assistant offers the toggle, and counting an auto-search run as retrieval only when it shows sources or a search step",
+        "evidence": "Search-on/off is covered, but no rule about counting an auto-search run only when sources or a search step show.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reports rates with n and a Wilson interval, pooled by prompt family, and states that 2 correct out of 5 spans roughly 12% to 77%",
+        "evidence": "Wilson used (5 of 50 example) but never states that 2 of 5 spans roughly 12% to 77%.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that scripting a consumer chat app can breach its terms and offers the vendor API or manual runs instead",
+        "evidence": "\"Scripting a consumer chat app can breach its terms.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires agreeing the targets and the control design before the baseline runs",
+        "evidence": "Targets agreed before baseline, but control design is never mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects one run per prompt per month and requires five or more runs per prompt, per assistant, per mode",
+        "evidence": "5 runs per engine but web search always on; no per-mode split.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites that repeated runs of one prompt returned the same recommended-brand list fewer than once in a hundred times, labelled independently measured with a vendor co-author",
+        "evidence": "Not cited.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects share of voice and average rank as the headline metrics and replaces them with version-correct rate, deprecated-API rate, invented-API rate and owned-current citation rate",
+        "evidence": "Keeps share of voice and replaces rank with first-named rate.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the 50 SEO keywords as the prompt set and sources prompts from support tickets, docs search logs and community questions instead",
+        "evidence": "'Seed the buckets from your SEO keywords' then validate.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Structures prompts in the five families: task, error string, migration, status and choice",
+        "evidence": "Uses category/comparison/use case/stack/how-to buckets.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires one prompt row per language client (Python, Go, TypeScript) where the code differs",
+        "evidence": "Only a 'Stack-specific' bucket.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires an answer key per prompt (must contain, must not contain, owning current docs URL) written before any run, and states that a prompt without a key is not run",
+        "evidence": "No answer keys.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sizes the panel to the half-day-a-week ceiling: computes answers as prompts \u00d7 runs \u00d7 assistants \u00d7 modes and proposes the minimum viable panel (10 core prompts \u00d7 5 runs \u00d7 2 assistants search-on, plus search-off on the 5 worst prompts) rather than the 900-answer default",
+        "evidence": "Proposes 750 responses and an engineer ask.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects running from the work laptop's logged-in profile: requires a logged-out or fresh profile with no custom instructions, memory or connected tools, and records location and plan tier",
+        "evidence": "'work laptop is a contaminated test environment'; fresh account, memory off, fixed region.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires recording the model name and date on every row, and splitting the panel if a model release lands mid-panel",
+        "evidence": "'Store the raw response, model name and version, search on/off, date'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires running search-on and search-off where the assistant offers the toggle, and counting an auto-search run as retrieval only when it shows sources or a search step",
+        "evidence": "'Use the official APIs with web search on'; only tags responses.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reports rates with n and a Wilson interval, pooled by prompt family, and states that 2 correct out of 5 spans roughly 12% to 77%",
+        "evidence": "Uses bootstrap over prompts.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that scripting a consumer chat app can breach its terms and offers the vendor API or manual runs instead",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires agreeing the targets and the control design before the baseline runs",
+        "evidence": "Only a noise-floor rule.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

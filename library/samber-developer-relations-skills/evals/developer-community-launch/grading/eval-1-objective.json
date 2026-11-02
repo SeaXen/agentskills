@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Returns a do-not-launch verdict rather than a launch plan",
+        "evidence": "'## 1. Verdict: Do not launch a Discord right now'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Scores all five readiness gates by name - demand, owner, purpose, venue vacuum, seed supply - with a pass, weak or fail mark on each",
+        "evidence": "Table lists 'Demand | Fail', 'Owner | Fail', 'Purpose | Fail', 'Venue vacuum | Fail', 'Seed supply | Weak/fail' each with evidence in the third column.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Marks the demand gate as failing and cites the 6 tickets a month with no repeats as the evidence",
+        "evidence": "'Demand | **Fail** | ~6 tickets/month, none repeating, all one-off integration questions.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Marks the venue-vacuum gate as failing because the monitoring ecosystem Discord already hosts part of this audience",
+        "evidence": "'Venue vacuum | **Fail** | An ecosystem Discord for the monitoring space already exists, and at least 3 of your users are already in it. That space already serves this audience.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Marks the owner gate as failing and treats \"marketing said they'd keep an eye on it\" as an ownership gap rather than a staffing detail to settle later",
+        "evidence": "'Owner | **Fail** | No named person with protected weekly hours. \"Marketing will keep an eye on it\" is not ownership \u2014 it's the exact gap that produces a dead server.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States explicitly that competitors having a Discord is not accepted as evidence of demand",
+        "evidence": "'the two facts that triggered this (\"competitors have thousands of members,\" \"we should have one too\") are explicitly *not* evidence of readiness.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that the 40 named customers are what the seed-supply gate has to work with, and that coverage rather than headcount is what it tests",
+        "evidence": "'Seed supply | **Weak/fail** | 40 paying customers total, only 3 confirmed active anywhere community-adjacent. No named list of 20+ people you could invite with topic/time-zone coverage.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends participating in the existing ecosystem Discord instead of opening a new venue",
+        "evidence": "'**Pick one named person** ... to spend ~1 hour/week in the ecosystem Discord's relevant channel(s). ... Have that person answer integration questions there under the Kestrel Metrics name.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Produces no channel list or category tree for a new Discord",
+        "evidence": "The hypothetical list `#announcements #general #help ...` is presented only to be rejected: 'So: no channel list yet. The channels are the easy 30 minutes; keeping any of them alive is the actual cost.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names an observable re-decision trigger such as a repeat-question volume or users starting to answer each other, rather than a date to revisit",
+        "evidence": "'Not on a calendar date \u2014 on these triggers ... Repeat integration questions start showing up (same issue, different customer) ... Someone other than your team answers a question in the ecosystem Discord unprompted.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the verdict rule applied: three or fewer gates passing means do not launch",
+        "evidence": "The transcript only says 'The threshold for \"launch\" is 5, for \"launch late with mitigation\" is 4 \u2014 this doesn't clear \"do not launch.\"' It never states a numeric threshold (e.g., three or fewer) explicitly for the do-not-launch category itself.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Returns a do-not-launch verdict rather than a launch plan",
+        "evidence": "\"## Recommendation: Don't build a dedicated Discord yet. Show up in the one that already exists.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Scores all five readiness gates by name - demand, owner, purpose, venue vacuum, seed supply - with a pass, weak or fail mark on each",
+        "evidence": "The transcript discusses these concepts in prose sections (competitor mimicry, support tickets, ownership, venue) but never names or marks 'demand', 'owner', 'purpose', 'venue vacuum', 'seed supply' as formal gates with pass/weak/fail marks.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Marks the demand gate as failing and cites the 6 tickets a month with no repeats as the evidence",
+        "evidence": "\"Six a month, none repeating, all one-off integration questions. That's the opposite of the pattern a community solves.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Marks the venue-vacuum gate as failing because the monitoring ecosystem Discord already hosts part of this audience",
+        "evidence": "\"The one real signal: an ecosystem Discord for the monitoring space already has thousands of members, including at least three of your own customers. That's where the audience and the critical mass already live.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Marks the owner gate as failing and treats \"marketing said they'd keep an eye on it\" as an ownership gap rather than a staffing detail to settle later",
+        "evidence": "\"'Nobody owns this.' This is the actual blocker, not a detail to fix later. 'Marketing will keep an eye on it' is how every dead Discord starts.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States explicitly that competitors having a Discord is not accepted as evidence of demand",
+        "evidence": "\"Those competitors likely have thousands of *users* \u2014 free tier, OSS, self-serve signups \u2014 not thousands of paying customers. A community mirrors the top of your funnel, not the customer base.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that the 40 named customers are what the seed-supply gate has to work with, and that coverage rather than headcount is what it tests",
+        "evidence": "The transcript only uses the 40 customers to argue insufficient headcount (\"Even at 100% Discord opt-in, that's a server with 40 members and no critical mass\") \u2014 it never discusses coverage across topics/answerers.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends participating in the existing ecosystem Discord instead of opening a new venue",
+        "evidence": "\"Create one account, post a genuine intro (not a pitch), engage in #help-style channels for 2\u20134 weeks before mentioning Kestrel at all\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Produces no channel list or category tree for a new Discord",
+        "evidence": "The \"If leadership wants to launch anyway\" section includes an 8-channel table (#welcome, #announcements, #general, #help, #feature-requests, #show-and-tell, #introductions, #off-topic).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names an observable re-decision trigger such as a repeat-question volume or users starting to answer each other, rather than a date to revisit",
+        "evidence": "\"Support tickets start repeating \u2014 same question from multiple customers, which a community can absorb\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the verdict rule applied: three or fewer gates passing means do not launch",
+        "evidence": "No explicit numeric verdict rule (e.g., 'three or fewer gates passing') is stated anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

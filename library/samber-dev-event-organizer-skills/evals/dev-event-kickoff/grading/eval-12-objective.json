@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The finished-event answer reduces the current short-list to the after-and-between class alone.",
+        "evidence": "Short-list is feedback, debrief, repurposing, channel and community-building. The re-rank says 'Deleted, not demoted'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Marketing, sponsorship, on-the-day, and existence-check classes are deleted from the short-list, not listed at the bottom.",
+        "evidence": "Not now still lists event-sponsor-value-proposition, event-sponsor-fulfillment and the hackathon lane.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "A closing chain is presented in this order: event-feedback, then event-debrief, then event-content-repurposing, then event-continuous-improvement.",
+        "evidence": "'event-feedback \u2192 event-debrief \u2192 event-content-repurposing \u2192 event-continuous-improvement \u2192 event-growth-strategy'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The chain is framed as dependency order - each link handing its output to the next - and the chain itself is not ranked.",
+        "evidence": "'Dependency order, not efficiency order'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "event-feedback is kept as the first link despite the user's temptation to skip the survey, because the debrief and the trend read consume its output.",
+        "evidence": "'argues for a shorter, in-channel instrument, not no instrument'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "event-continuous-improvement is treated as reachable, with the recurring gate read from edition 5 having prior editions.",
+        "evidence": "'Edition 5. That opens the recurring gate'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The dormant standing talks channel is routed to samber/dev-event-organizer-skills@tech-podcast-youtube-channel.",
+        "evidence": "'tech-podcast-youtube-channel covers whether to sustain a standing channel'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The developer-content and documentation push is recommended to the samber/developer-relations-skills collection.",
+        "evidence": "'recommend samber/developer-relations-skills'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "That sibling-repo hand-off is framed as a recommendation, never a dependency; the collection stays usable standalone.",
+        "evidence": "'This is a recommendation, not a dependency.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The sponsor-API hackathon-challenge question is kept inside this collection and routed to hackathon-brief-design.",
+        "evidence": "'belongs to hackathon-brief-design'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response states the boundary: event operations wearing platform vocabulary stays here, while a genuine public-API, SDK, or sandbox surface question would go to samber/developer-platform-skills.",
+        "evidence": "'If you needed to build your own sandbox, SDK or test mode... samber/developer-platform-skills'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes are named in owner/repo@skill form.",
+        "evidence": "Only the main route and the routines use the full form. Most other skills are bare names.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "No skill name outside the collection's routing tables is offered as a route.",
+        "evidence": "The skills named are collection skills, with sibling candidates hedged as 'verify before you commit'.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The finished-event answer reduces the current short-list to the after-and-between class alone.",
+        "evidence": "Covers sponsorship, hackathon design, docs and YouTube work.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Marketing, sponsorship, on-the-day, and existence-check classes are deleted from the short-list, not listed at the bottom.",
+        "evidence": "Includes `developer-event-sponsorship`, `hackathon-sponsorship` and marketing skills.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "A closing chain is presented in this order: event-feedback, then event-debrief, then event-content-repurposing, then event-continuous-improvement.",
+        "evidence": "The sequence table uses other skills such as `events` and `devrel-metrics`.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The chain is framed as dependency order - each link handing its output to the next - and the chain itself is not ranked.",
+        "evidence": "No such chain.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "event-feedback is kept as the first link despite the user's temptation to skip the survey, because the debrief and the trend read consume its output.",
+        "evidence": "The survey is kept ('Don't skip the survey') but event-feedback is not named, and the thank-you email is first.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "event-continuous-improvement is treated as reachable, with the recurring gate read from edition 5 having prior editions.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The dormant standing talks channel is routed to samber/dev-event-organizer-skills@tech-podcast-youtube-channel.",
+        "evidence": "Routed to `youtube-devrel`.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The developer-content and documentation push is recommended to the samber/developer-relations-skills collection.",
+        "evidence": "Names individual skills such as `developer-docs-structure-audit` without recommending the collection.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "That sibling-repo hand-off is framed as a recommendation, never a dependency; the collection stays usable standalone.",
+        "evidence": "Not framed that way.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The sponsor-API hackathon-challenge question is kept inside this collection and routed to hackathon-brief-design.",
+        "evidence": "Routed to `events` and `hackathon-sponsorship`.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response states the boundary: event operations wearing platform vocabulary stays here, while a genuine public-API, SDK, or sandbox surface question would go to samber/developer-platform-skills.",
+        "evidence": "'A platform question (`developer-ecosystem-strategy`, then `developer-platform-skills`) applies when you decide to open your own product surfaces... The sponsor owns the platform decisions. You own the event.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes are named in owner/repo@skill form.",
+        "evidence": "Bare names throughout.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "No skill name outside the collection's routing tables is offered as a route.",
+        "evidence": "Offers `docs-seo`, `devrel-metrics`, `youtube-devrel` and others.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

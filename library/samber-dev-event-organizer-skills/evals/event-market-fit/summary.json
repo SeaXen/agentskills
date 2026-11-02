@@ -1,0 +1,262 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-market-fit",
+  "scenarios": 7,
+  "expectations_total": 86,
+  "expectations_subjective": 0,
+  "expectations_objective": 86,
+  "pass_rate_with_skill_pct": 91.9,
+  "pass_rate_without_skill_pct": 45.3,
+  "delta_pp": 46.6,
+  "uplift_multiplier": 2.03,
+  "trigger_accuracy_pct": 59.0,
+  "trigger_queries": 78,
+  "trigger_positive_fire_rate": 0.41,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": null,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "If a CFP probe is proposed, sets a 2-3:1 oversubscription target and labels it self-set, scaled down from flagship figures rather than an industry standard."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Prescribes weekly sales-pace instrumentation (pace index or checkpoint reads) for the remainder of the sale."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes that a surge in the final two weeks is normal, not a red flag."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Asks whether 72-hour post-event ROI reports were sent to sponsors, naming that report as the single highest-leverage renewal action."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Routes the roadshow-versus-conference format decision to a sibling skill as out of scope."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Proposes making the waitlist evidential going forward, via a refundable deposit or a conversion target declared before reading it, noting deposit-backed lists convert several times higher than free ones."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Prescribes weekly checkpoint or pace-index instrumentation for the remaining sale window."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Sets the first-edition attendance expectation by multiplying the best meetup draw (45) by 2-3, landing at roughly 90-135 seats, not 250."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Corrects the 5/12/45 community thresholds as a misquote and cites 7/13/50/90/150 as the verified ladder."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Treats any 'grow to N members before launching' rule as self-set rather than a validated launch gate for the 380-member Slack."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Cites the roughly 50% no-show rate on free RSVPs as the reason free interest counts are excluded from the evidence menu."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "If a CFP probe is proposed, sets a 2-3:1 oversubscription target and labels it self-set, scaled down from flagship figures rather than an industry standard."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Runs or prescribes a saturation scan of competing events and CFP listings before any go call, and treats it as capable only of ruling out, never proving demand."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Frames the demand question as a job statement of the form 'When [circumstance], I want to [progress], so I can [outcome]'."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Labels the numeric thresholds it uses with a confidence tag (sourced, synthesis, or self-set)."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Routes launch scoping and venue commitment to the first-edition sibling skill rather than delivering launch planning itself."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Declines to issue a demand verdict from day-5 data, stating that the launch window tests reach, not demand, and the real read starts around week two."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Routes any pricing change to the ticket-pricing sibling skill rather than prescribing the pricing fix itself."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Schedules the shortfall differential before any conclusion: marketing-execution gap versus price misfit versus genuine demand gap."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Describes the price-misfit signature as healthy event-page traffic with low conversion in the first two weeks, and notes that evidence has not been shown yet."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Prescribes weekly sales-pace instrumentation (pace index or checkpoint reads) for the remainder of the sale."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes that a surge in the final two weeks is normal, not a red flag."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Computes sponsor renewal as 9 of 16, roughly 56%, and flags it below the 70% per-edition aim."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes 44% attendee return clears the 30% floor, and treats 30% as a failing-grade-avoided floor a tight developer community should beat, not a success target."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Delivers hold-and-fix, not go or scale, despite two of three signals being green."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Justifies the veto by sponsor renewal's confidence: deliberate repeat-budget money, independent of ticket buzz."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Cites the documented pattern of an event dying on the sponsor axis while its attendee signals stayed green."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Asks whether 72-hour post-event ROI reports were sent to sponsors, naming that report as the single highest-leverage renewal action."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Checks whether the 9-day sellout involved batch ticket releases before reading it as organic demand."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Labels the two-of-three composite assembly as a synthesis, not an industry standard."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Labels the renewal (70%) and return (30%) thresholds as sourced figures."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Routes the sponsor value-proposition or fulfillment fix to a sibling skill instead of prescribing it here."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Substitutes registration-to-show-up rate for sellout speed, flagged as a reasoned stand-in rather than a measured equivalent."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Substitutes pipeline or adoption outcomes for sponsor renewal, flagged as a stand-in."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Contrasts paid-ticket show-up (90-97%) with free-event no-show rates as part of the read."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Routes the roadshow-versus-conference format decision to a sibling skill as out of scope."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States the differential rule: a shutdown counts as demand evidence only when the organizer's own account cites sales, sponsors, or attendance."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names non-consumption (staying home, existing channels) as the biggest competitor for a first edition."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Promotes paid probe events (a paid deep-dive or mini-hackathon measuring paid conversion, not RSVPs) as the fitting instrument when no meetup baseline exists."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Proposes a CFP probe with a pre-declared oversubscription target, or notes that CFP undersubscription would be a stop signal meaning stay at meetup scale."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Frames the job statement and the four forces (push, pull, anxiety, habit) on the ticket decision before leaning on instruments."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Reads the difficulty of recruiting co-organizers from outside one's own employer as an implicit early market test."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Reads the early-bird close at roughly 15% (55 of 360) as on-ladder for that checkpoint."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Reads the one-month-out position at roughly 27% (98 of 360) against the 40-50% checkpoint."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Routes the visibility-push work to the marketing-plan sibling skill."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Advises against a public discount because public cuts teach the audience to wait."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Distinguishes a post-sellout waitlist (high-intent evidence) from this pre-launch one."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Proposes making the waitlist evidential going forward, via a refundable deposit or a conversion target declared before reading it, noting deposit-backed lists convert several times higher than free ones."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Reads 31 proposals for 12 slots (about 2.6:1) as inside the 2-3:1 strong-signal band for a first local CFP, contradicting the 'weak' claim."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes the 2-3:1 target is scaled down from flagship figures (around 6.5:1) and is a self-set target, not an industry standard."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Classifies the hackathon oversubscription and return figures as self-set and directional, not bankable sourced evidence."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Asks the organizer to define the hackathon targets (participants, and how many return or keep contributing within three months) before reading those numbers."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Labels the figures used with confidence tags (sourced, synthesis, or self-set)."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends complementary pre-launch reads - the meetup-draw-times-2-3 baseline or a saturation scan - before sizing the conference."
+      }
+    ]
+  }
+}

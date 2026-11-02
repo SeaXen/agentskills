@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Counts the jump from 12 to 152 votes as one event traced to one outside link, noted in the record, not as 140 new requesters.",
+        "evidence": "\"A vote spike traced to one outside link is one event, not 140 independent requesters.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports votes and reactions as a separate signal beside the distinct requester count.",
+        "evidence": "\"Report votes beside the requester count, never inside it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Turns the DX audit into one record per friction point, six records.",
+        "evidence": "\"6 records, one per friction point, type 'DX friction'.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Counts the advocate as a requester on each friction record, alongside the Discord developers who confirmed the two matching points.",
+        "evidence": "\"The advocate is a requester on each\"; \"the advocate plus each distinct Discord person, counted once.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the three prospects the segment 'prospect', not 'Enterprise: 3 customers'.",
+        "evidence": "\"Segment is 'prospect', not enterprise and not customers.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the opportunity references private, off the public record.",
+        "evidence": "\"The opportunity reference stays private.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects ranking the agenda by votes plus mentions and orders it blockers first, then by distinct requesters.",
+        "evidence": "\"Rank blockers first, then distinct requesters.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Counts each person once per record across channels.",
+        "evidence": "\"Count a requester once per record, across channels.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Shows segment mix beside each record rather than folding it into one score.",
+        "evidence": "\"Show these columns beside each record: requesters, orgs, segment mix...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Fills representation (requesters divided by active developers in that segment) as a range, or leaves it blank for lack of a denominator.",
+        "evidence": "Representation is not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes an influence input: whether the requesters are maintainers, top answerers or integrators others copy.",
+        "evidence": "Influence is not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes channel bias on the multi-currency record, since every requester came through sales calls.",
+        "evidence": "No channel bias note for the sales-only requesters.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not hand product a single composite score.",
+        "evidence": "\"Product decides how to weigh them.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Counts the jump from 12 to 152 votes as one event traced to one outside link, noted in the record, not as 140 new requesters.",
+        "evidence": "\"12 organic votes, 140 from a newsletter referral spike\". The 140 came \"from a different population\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports votes and reactions as a separate signal beside the distinct requester count.",
+        "evidence": "Votes sit in their own column, but no distinct requester count is shown beside them.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Turns the DX audit into one record per friction point, six records.",
+        "evidence": "The audit stays \"6 findings\" on one agenda item.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Counts the advocate as a requester on each friction record, alongside the Discord developers who confirmed the two matching points.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the three prospects the segment 'prospect', not 'Enterprise: 3 customers'.",
+        "evidence": "\"They're prospects, not customers... '3 prospects asked'.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the opportunity references private, off the public record.",
+        "evidence": "It says to attach deal size and stage, with no privacy statement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects ranking the agenda by votes plus mentions and orders it blockers first, then by distinct requesters.",
+        "evidence": "It rejects the sum, but orders by pipeline link and evidence quality, not blockers first.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Counts each person once per record across channels.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Shows segment mix beside each record rather than folding it into one score.",
+        "evidence": "Not mentioned beyond the prospect wording.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Fills representation (requesters divided by active developers in that segment) as a range, or leaves it blank for lack of a denominator.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes an influence input: whether the requesters are maintainers, top answerers or integrators others copy.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes channel bias on the multi-currency record, since every requester came through sales calls.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not hand product a single composite score.",
+        "evidence": "\"Keep them in separate columns\", and a rubric score would show \"the raw counts next to the score\".",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

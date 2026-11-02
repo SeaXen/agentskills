@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Assigns 3.x the `maintained` docs state because it sits in the support table until November, and refuses to delete its docs while supported",
+        "evidence": "3.x row is `maintained`, static snapshot; \"Deleting its docs strands supported users.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a docs window narrower than the support window strands supported users",
+        "evidence": "\"Docs window narrower than support window.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Uses the 38% download share, not the 2% view share, as the evidence of version need, stating that downloads per version outrank docs traffic for this call",
+        "evidence": "\"Downloads decide retirement, not views.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the pinning web framework as the reason readers stay on 3.x and promotes the selector on that ground",
+        "evidence": "Names the framework pin but \"Rejected: selector over a live 3.x build.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites the pandas precedent, where about 2% of views on old-version paths was kept, against the user's reading of 2% as negligible",
+        "evidence": "\"pandas had the same shape: about 2% of views on old versions... The maintainers kept the docs.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Assigns 2.x the `frozen` state: static snapshot, banner, never rebuilt, not deletion",
+        "evidence": "2.x row is `frozen`, static snapshot, backport \"never\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the wholesale 301 to the 4.x home page; any redirect goes per page to the nearest current equivalent",
+        "evidence": "\"never to the docs home... soft 404s\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Orders retirement as freeze, banner, redirect, delete last, with `removed` only once no measurable readers remain",
+        "evidence": "\"The order is freeze, banner, redirect, then delete.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes a policy table with one row each for 4.x, 3.x and 2.x carrying product status, support end, docs state, next transition with trigger, and backport scope",
+        "evidence": "Table has rows for 4.x, 3.x and 2.x with status, support end, docs state, transition and backport.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Limits 3.x backports to security, legal exposure, data loss and upgrade-blocking steps, and prices them in minutes per month using the 10-20% and 10-30 minute figures labelled as baselines",
+        "evidence": "\"10 fixes \u00d7 15% \u00d7 1 version \u00d7 20 min = about 30 min/month (baseline).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the November support end as the trigger that moves 3.x from `maintained` to `frozen`",
+        "evidence": "\"`frozen` at support end\" with Nov 2027 (ASSUMED).",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Addresses the writer's load with the priced backport rule and by taking 2.x out of the build, not with deletion",
+        "evidence": "\"Remove both from the main build\"; standing cost \"about 30 min/month\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Hands 2.x's search-entry posture and the redirect list to samber/developer-relations-skills@docs-seo rather than deciding canonical or noindex tags",
+        "evidence": "\"the redirect map goes to the `docs-seo` pass\" and \"Search-entry intent (handed to `docs-seo`)\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Assigns 3.x the `maintained` docs state because it sits in the support table until November, and refuses to delete its docs while supported",
+        "evidence": "Refuses deletion but assigns \"Freeze 3.x docs\", not the maintained state.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a docs window narrower than the support window strands supported users",
+        "evidence": "\"Deleting docs for a supported version breaks the promise you published.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Uses the 38% download share, not the 2% view share, as the evidence of version need, stating that downloads per version outrank docs traffic for this call",
+        "evidence": "It argues many pinned users never open the docs and never states that downloads outrank views.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the pinning web framework as the reason readers stay on 3.x and promotes the selector on that ground",
+        "evidence": "Names the framework pin but only keeps 3.x in the dropdown labelled LTS and emails the maintainers.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites the pandas precedent, where about 2% of views on old-version paths was kept, against the user's reading of 2% as negligible",
+        "evidence": "No pandas mention.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Assigns 2.x the `frozen` state: static snapshot, banner, never rebuilt, not deletion",
+        "evidence": "\"Static archive: keep the pages with an 'End of life' banner and noindex, and remove them from the dropdown.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the wholesale 301 to the 4.x home page; any redirect goes per page to the nearest current equivalent",
+        "evidence": "\"Send only unmapped pages to the 4.x home page\"; warns that mass redirects to the home page become soft 404s.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Orders retirement as freeze, banner, redirect, delete last, with `removed` only once no measurable readers remain",
+        "evidence": "Plan order is freeze, banner, then per-page redirects and archive, with deletion scheduled last.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes a policy table with one row each for 4.x, 3.x and 2.x carrying product status, support end, docs state, next transition with trigger, and backport scope",
+        "evidence": "No policy table.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Limits 3.x backports to security, legal exposure, data loss and upgrade-blocking steps, and prices them in minutes per month using the 10-20% and 10-30 minute figures labelled as baselines",
+        "evidence": "No backport rule or pricing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the November support end as the trigger that moves 3.x from `maintained` to `frozen`",
+        "evidence": "November triggers deletion, not a move to frozen.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Addresses the writer's load with the priced backport rule and by taking 2.x out of the build, not with deletion",
+        "evidence": "Freeze and retirement relieve the load but no priced backport rule is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Hands 2.x's search-entry posture and the redirect list to samber/developer-relations-skills@docs-seo rather than deciding canonical or noindex tags",
+        "evidence": "Decides canonical and noindex itself.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

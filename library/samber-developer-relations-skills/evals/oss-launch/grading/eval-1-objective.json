@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that trademark clearance must cover phonetic, visual and conceptual similarity, not only identical matches",
+        "evidence": "\"Real clearance: USPTO TESS, EUIPO, WIPO Global Brand Database, plus common-law search (GitHub, Google, Product Hunt, SourceForge) for phonetic/visual/conceptual near-matches \u2014 'Migrator,' 'Migratrix,' etc.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Scopes the clearance search across every jurisdiction the project will be used in, not a single country",
+        "evidence": "\"USPTO TESS, EUIPO, WIPO Global Brand Database\" \u2014 covers US, EU and international registries, matching the stated mixed US/EU audience assumption.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the claim that free distribution removes trademark exposure, and states that distributing software over the internet at no charge can itself constitute use in commerce",
+        "evidence": "\"Free distribution still counts as use in commerce (*Planetary Motion v. Techsplosion*) \u2014 'we're giving it away' is not a defense.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites Planetary Motion v. Techsplosion (261 F.3d 1188) or equivalent authority for that point",
+        "evidence": "\"(*Planetary Motion v. Techsplosion*)\" cited directly in support of the use-in-commerce point.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the code-host organization and social handles to be secured before the name appears publicly, not only the domain and the package name",
+        "evidence": "\"Reserve GitHub org, npm name, X, LinkedIn company page today \u2014 before repo goes public\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the 3-week date against the roughly 8-week lead time that name and license clearance carry",
+        "evidence": "\"2 are compressed dangerously tight: name clearance (needs 8wk, has 3)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats any colorable conflict as a rename before launch rather than a risk carried into public visibility",
+        "evidence": "\"Any colorable conflict = rename now, before more assets lock the name in further, not a risk you carry into launch.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a rename after public visibility costs the URL, the accumulated search history and the announcement itself",
+        "evidence": "The transcript only says a late conflict \"forces rename after Series A press already used the name\" \u2014 it never names the URL, accumulated search history, or announcement as costs of a post-visibility rename.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Settles the CLA-versus-DCO position in the same pass as the license rather than deferring it",
+        "evidence": "\"Recommend DCO \u2014 lighter, Apache-2.0 already grants patent rights, no reason for a CLA on a 'free forever' project.\" / table: \"CLA/DCO | \ud83d\udd34 undecided | Recommend DCO, decide before first external PR\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that relicensing an already-adopted project reliably triggers a fork, naming a precedent such as HashiCorp's 2023 move to BSL and the resulting OpenTofu fork",
+        "evidence": "No mention of relicensing risk, HashiCorp, BSL, or OpenTofu anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not propose deferring the name check until after the project has traction",
+        "evidence": "\"Most urgent action, do today: start trademark search + reserve handles.\" \u2014 the opposite of deferring.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not accept the Series A date as fixed without stating the clearance conflict it creates",
+        "evidence": "\"Name clearance compressed to <8wk \u2014 late conflict forces rename after Series A press already used the name. Fix: search closes by Sep 29, before further asset lock-in.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that trademark clearance must cover phonetic, visual and conceptual similarity, not only identical matches",
+        "evidence": "Only says 'check no other schema-migration tool is already using \"Migratr\" or a confusing variant' \u2014 no mention of phonetic/visual/conceptual similarity as distinct clearance dimensions.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Scopes the clearance search across every jurisdiction the project will be used in, not a single country",
+        "evidence": "Recommends only 'USPTO TESS + EUIPO search' \u2014 a fixed two-jurisdiction check, not scoped to every jurisdiction the OSS project will actually be used in.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the claim that free distribution removes trademark exposure, and states that distributing software over the internet at no charge can itself constitute use in commerce",
+        "evidence": "Text says 'Domain + npm name-check \u2260 trademark clearance' but never addresses the free-distribution-as-use-in-commerce point.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites Planetary Motion v. Techsplosion (261 F.3d 1188) or equivalent authority for that point",
+        "evidence": "No case law or legal authority is cited anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the code-host organization and social handles to be secured before the name appears publicly, not only the domain and the package name",
+        "evidence": "'Also grab the GitHub org, Twitter/X handle, and check no other schema-migration tool is already using \"Migratr\"...' \u2014 goes beyond domain/npm to org+social handles.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the 3-week date against the roughly 8-week lead time that name and license clearance carry",
+        "evidence": "No lead-time figure (e.g. 8 weeks) is given; trademark work is instead described as a '30-minute TESS search' to do 'this week.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats any colorable conflict as a rename before launch rather than a risk carried into public visibility",
+        "evidence": "Only instructs to 'flag to legal if anything looks contested' \u2014 not a commitment to rename on any colorable conflict.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a rename after public visibility costs the URL, the accumulated search history and the announcement itself",
+        "evidence": "No discussion of the cost of a post-launch rename anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Settles the CLA-versus-DCO position in the same pass as the license rather than deferring it",
+        "evidence": "'Decide DCO vs CLA for external contributors? ... Pick one before the first external PR arrives.' \u2014 raises the question and leans toward DCO but explicitly leaves the decision to the user rather than settling it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that relicensing an already-adopted project reliably triggers a fork, naming a precedent such as HashiCorp's 2023 move to BSL and the resulting OpenTofu fork",
+        "evidence": "No mention of relicensing risk or any fork precedent (HashiCorp/OpenTofu or otherwise).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not propose deferring the name check until after the project has traction",
+        "evidence": "Trademark spot-check is placed in 'Week -3 (this week)', i.e. before launch, not deferred until after traction.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not accept the Series A date as fixed without stating the clearance conflict it creates",
+        "evidence": "The plan treats trademark/license checks as 'cheap to check now' within the existing 3-week window and only raises sequencing (press cannibalization), never a clearance-timing conflict with the fixed date.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

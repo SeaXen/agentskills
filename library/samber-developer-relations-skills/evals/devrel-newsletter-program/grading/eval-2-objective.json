@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Begins with the existing list's numbers and consent provenance, not with the redesign or the 'we're back' issue",
+        "evidence": "Opens with \"Next action... Ask Dario for a full list export\", then the \"Direct answer\" on timing, cadence and design; the list numbers come later.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Classifies consent before computing gate metrics, splitting the 9,000 checkbox signups from the 5,000 imported product accounts",
+        "evidence": "\"Consent was classified first. All numbers below use the lawful segment.\"; \"Checkbox, 9,000\" vs \"Imported, 5,000\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the EU and UK individual addresses in the imported segment have no lawful basis, because no opt-out was offered at signup so the soft opt-in does not apply",
+        "evidence": "\"no basis. The form offered no opt-out at collection, so soft opt-in fails. Suppress.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the US imported addresses mailable on a working opt-out, honest headers and a postal address",
+        "evidence": "\"keep only if the privacy owner confirms. It needs a working one-click opt-out... a postal address and honest headers.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Suppresses only the no-basis segment and invites it once through the product, never by email",
+        "evidence": "\"Re-invite once through the product... Do not use email.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Computes the gate's demand condition on the lawful segment, not on the whole 14,000",
+        "evidence": "\"clicks per delivered, bot-filtered, on the lawful segment, at or above the pre-pause baseline recomputed for that segment\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the sending account, list export, sending subdomain and archive to move from Dario's personal login and card to an organisation account before the restart",
+        "evidence": "Handoff checklist: account to company login and card, full export, DNS records, \"Templates, archive and tool credentials move to a company password vault\", \"before any send\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Counts the 15 forum answers as external supply because community members wrote them, even on the company's own forum",
+        "evidence": "\"Community forum answers count as external.\"; \"External evergreen: 15 forum answers\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Derives a monthly cadence from about 4 time-bound items per month (6 releases, 3 posts, 3 recordings per quarter) and rejects biweekly on supply",
+        "evidence": "\"Own items in 3 months: 12 ... about 4/month\"; \"Biweekly needs 10-14 items/month. The best case is about 9\"; \"Monthly, not biweekly.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects 50% opens as a target and reports opens as directional",
+        "evidence": "\"Drop 50% opens. Opens are inflated by mail-privacy pre-fetch, so report them as directional only.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Specifies that the restart issue states what changed: the new cadence, who writes it now, and how to unsubscribe",
+        "evidence": "\"Opening note: what changed. Monthly, who writes it, one-click unsubscribe.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not let the next-week date skip the account transfer or the consent classification",
+        "evidence": "\"Relaunch, but not next week and not as briefed... The blockers are owner, accounts and consent.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names a backup and a reviewer as gate conditions, marking the owner condition blocked with the missing name, its owner and a dated re-check if none is supplied",
+        "evidence": "\"Owner and backup: blocked... Owner of the answer: head of marketing. Re-check Wed 2026-10-28.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not design the redesign, header or visual refresh",
+        "evidence": "\"No full redesign. Use a fixed 5-section template. Redesign after issue 3 if clicks justify it.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Begins with the existing list's numbers and consent provenance, not with the redesign or the 'we're back' issue",
+        "evidence": "The transcript opens with 'Email Dario' and ownership transfer. Consent is the second blocker and the audit is step 2.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Classifies consent before computing gate metrics, splitting the 9,000 checkbox signups from the 5,000 imported product accounts",
+        "evidence": "'9,000 checkbox signups: probably fine' versus '5,000 product imports... Split them by region'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the EU and UK individual addresses in the imported segment have no lawful basis, because no opt-out was offered at signup so the soft opt-in does not apply",
+        "evidence": "'The UK soft opt-in requires an opt-out at collection, which you lacked.' EU/UK ~3,300: hold out.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the US imported addresses mailable on a working opt-out, honest headers and a postal address",
+        "evidence": "'legal under CAN-SPAM if you add an unsubscribe link, a postal address, and honest headers'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Suppresses only the no-basis segment and invites it once through the product, never by email",
+        "evidence": "'Do not send a please re-subscribe email'; reach via 'in-product or dashboard opt-in banner'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Computes the gate's demand condition on the lawful segment, not on the whole 14,000",
+        "evidence": "It only asks whether the imports 'may sit in your 44% and 1.1% figures'. It computes nothing on the lawful segment.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the sending account, list export, sending subdomain and archive to move from Dario's personal login and card to an organisation account before the restart",
+        "evidence": "It covers the account, DNS and exports. The archive is never mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Counts the 15 forum answers as external supply because community members wrote them, even on the company's own forum",
+        "evidence": "Forum answers appear only as a content item in issue #1 ('From the community'). They are not counted as supply.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Derives a monthly cadence from about 4 time-bound items per month (6 releases, 3 posts, 3 recordings per quarter) and rejects biweekly on supply",
+        "evidence": "'Go monthly at first. Biweekly needs a writer you haven't named.' The rejection is on writer capacity, not supply.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects 50% opens as a target and reports opens as directional",
+        "evidence": "'Drop 50% opens... Treat opens as a health signal only.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Specifies that the restart issue states what changed: the new cadence, who writes it now, and how to unsubscribe",
+        "evidence": "It specifies one line, 'We paused in July. Here's what you missed.' Cadence and author are not stated. Only Segment C gets an unsubscribe line.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not let the next-week date skip the account transfer or the consent classification",
+        "evidence": "'do not relaunch next week'; first send is Nov 10 after steps 1 and 2.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names a backup and a reviewer as gate conditions, marking the owner condition blocked with the missing name, its owner and a dated re-check if none is supplied",
+        "evidence": "'Name an owner and a backup' and the question 'Who writes issue #1?' appear, but there is no gate condition, reviewer or dated re-check.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not design the redesign, header or visual refresh",
+        "evidence": "'## 5. Redesign: not now' with no design work.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

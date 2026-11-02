@@ -1,0 +1,58 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Recognizes the user as a job-hunting candidate, not an employer, and says so briefly.",
+        "evidence": "\"The dev-event-hiring skill is the employer-side mirror, so I followed its candidate-side counterpart, dev-event-career\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes them to the candidate-side career skill (dev-event-career) for interview preparation.",
+        "evidence": "The same opening line names dev-event-career as the skill followed.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not build employer-side artefacts (scorecard, interview loop design, sourcing plan) for the candidate.",
+        "evidence": "The loop stages are framed as \"What the loop probably looks like\" and are used for candidate prep (portfolio, drills, questions to ask). No scorecard or sourcing plan is built.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Any salary discussion names its source (PCMA, BLS, or Glassdoor) instead of quoting one blended market figure.",
+        "evidence": "\"I won't blend sources into one number, so here is each source separately\", with a per-source table (PCMA, BLS, Glassdoor).",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Recognizes the user as a job-hunting candidate, not an employer, and says so briefly.",
+        "evidence": "The plan is candidate-oriented but never states the user is a candidate.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes them to the candidate-side career skill (dev-event-career) for interview preparation.",
+        "evidence": "No routing to a career skill.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not build employer-side artefacts (scorecard, interview loop design, sourcing plan) for the candidate.",
+        "evidence": "It contains a prep plan, portfolio, and salary negotiation. There is no scorecard, loop design or sourcing plan.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Any salary discussion names its source (PCMA, BLS, or Glassdoor) instead of quoting one blended market figure.",
+        "evidence": "It gives no figure and says \"Check Levels.fyi, Glassdoor, Blind... Record source, date... A blended average mixes different levels and is not a useful anchor.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

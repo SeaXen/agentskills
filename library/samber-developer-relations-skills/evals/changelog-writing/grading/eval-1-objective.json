@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Assigns the storage-engine rewrite the lowest tier, defined as no noticeable impact for most, rather than tier 1 or tier 2",
+        "evidence": "Storage engine rewrite | **4** \u2014 no noticeable impact for most | Same query results, same file format, same public API.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Assigns the flush_interval default change tier 2, on the grounds of noticeable impact on most users or required user action",
+        "evidence": "`flush_interval` 5s\u219260s default | **2** \u2014 noticeable impact on most, requires action for some",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States explicitly that the tier is set by expected reader impact and never by engineering effort",
+        "evidence": "Tiering runs on reader impact, not engineer-hours \u2014 quarter of invisible rewrite = tier 4, one-line default change hitting all ~4,000 installs = tier 2.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Contradicts the user's premise that the quarter-long rewrite is the headline",
+        "evidence": "Flip side of your instinct: featuring the rewrite on the mailing list or banner spends trust on a change nobody can observe \u2014 that's the exact failure this framework exists to catch.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Limits the storage rewrite to the changelog and the release body only",
+        "evidence": "Surfaces earned column for the rewrite: \"Changelog + release body only\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Grants the flush_interval change the changelog, release body, hosted page, email and in-product note",
+        "evidence": "Surfaces earned: \"Changelog, release body, hosted changelog page, mailing list, in-app banner\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends the in-app banner and the mailing list for the flush_interval change specifically because the change requires user action",
+        "evidence": "Tier reason \"requires action for some\" is directly tied to the surfaces-earned column listing mailing list and banner for that row.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes the flush_interval entry impact-first, naming the observable effect before the internal mechanism",
+        "evidence": "\"Raise the default `flush_interval` from 5s to 60s to reduce load on small backends ([#XXXX](url)). Metrics now surface up to 60s later by default\" \u2014 leads with the config change and rationale, states the staleness effect second.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the affected subset for the flush_interval change rather than stating it affects everyone",
+        "evidence": "\"Anyone doing near-real-time alerting/dashboards must edit config before upgrading\" and \"If your setup depends on near-real-time metrics... set flush_interval: 5s\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Claims no performance or memory figure for the rewrite, since no measurement was supplied",
+        "evidence": "\"Memory-churn reduction isn't measured, so it's not even a quantified perf claim.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not treat the rewrite as a launch or hand it to a launch plan",
+        "evidence": "\"pitch it to `engineering-blog-post` as a narrative piece; changelog tiering has no slot for effort\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Assigns the storage-engine rewrite the lowest tier, defined as no noticeable impact for most, rather than tier 1 or tier 2",
+        "evidence": "\"it changes nothing a user can observe or needs to do \u2014 same query results, same file format, same API. That's the textbook 'skip or minimize' case\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Assigns the flush_interval default change tier 2, on the grounds of noticeable impact on most users or required user action",
+        "evidence": "\"That's a runtime behavior change with a real durability/freshness tradeoff, on by default, for ~4,000 unattended agents... not because it's 'breaking' in the semver sense, but because most affected users will never read a changelog before or after upgrading.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States explicitly that the tier is set by expected reader impact and never by engineering effort",
+        "evidence": "\"Channel budget should track **user action/impact**, not engineering effort.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Contradicts the user's premise that the quarter-long rewrite is the headline",
+        "evidence": "\"By that measure, the two changes trade places from what the effort chart suggests\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Limits the storage rewrite to the changelog and the release body only",
+        "evidence": "The table grants the rewrite both channels: \"\u2705 headline entry\" (Changelog) and \"\u2705 headline, no action needed\" (Mailing list) \u2014 a distinct email channel, not merely a 'release body', with no separate 'release body' channel ever distinguished from the changelog.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Grants the flush_interval change the changelog, release body, hosted page, email and in-product note",
+        "evidence": "Only three channels are used throughout: \"Changelog\", \"Mailing list (~900 subscribers)\", and \"In-app banner\" \u2014 there is no separate 'release body' or 'hosted page' channel anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends the in-app banner and the mailing list for the flush_interval change specifically because the change requires user action",
+        "evidence": "The stated justification is impact/awareness-based, not action-based: \"it silently changes two things for every existing install... That's a runtime behavior change with a real durability/freshness tradeoff... not because it's 'breaking'... but because most affected users will never read a changelog before or after upgrading.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes the flush_interval entry impact-first, naming the observable effect before the internal mechanism",
+        "evidence": "The changelog entry states the change and its cause before impact: \"Default flush_interval changed from 5s to 60s. The old default was hammering small backends with frequent small writes. Impact: metrics become visible up to 60s later...\" \u2014 impact is labeled last, not first.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the affected subset for the flush_interval change rather than stating it affects everyone",
+        "evidence": "\"it silently changes two things for every existing install that hasn't set flush_interval explicitly\" \u2014 scoping impact to installs relying on the default, not all installs.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Claims no performance or memory figure for the rewrite, since no measurement was supplied",
+        "evidence": "\"Substantially lower memory churn under load\" and \"just a lot less memory churn internally\" \u2014 qualitative claims with no numeric figure given.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not treat the rewrite as a launch or hand it to a launch plan",
+        "evidence": "The rewrite is discussed purely as a changelog/release-communication item (\"No action needed on upgrade\"), with no mention of launch mechanics like Product Hunt, GTM, or a waitlist.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

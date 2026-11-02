@@ -41,7 +41,6 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`blocked-page-recovery`](../../library/nousresearch-hermes-skills/skills/blocked-page-recovery) | ⚪ Reserve | `nousresearch-hermes-skills` | Use when a fetch fails: 403/429, paywall, WAF, bot wall. |
 | [`blogwatcher`](../../library/nousresearch-hermes-optional-skills/skills/blogwatcher) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Monitor blogs and RSS/Atom feeds via blogwatcher-cli tool. |
 | [`chroma`](../../library/nousresearch-hermes-optional-skills/skills/chroma) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Embedding database for RAG and semantic search. |
-| [`claude-design`](../../library/nousresearch-hermes-skills/skills/claude-design) | ⚪ Reserve | `nousresearch-hermes-skills` | Design one-off HTML artifacts (landing, deck, prototype). |
 | [`cloudflare-temporary-deploy`](../../library/nousresearch-hermes-optional-skills/skills/cloudflare-temporary-deploy) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Deploy a Worker live, no account, via wrangler --temporary. |
 | [`codebase-inspection`](../../library/nousresearch-hermes-skills/skills/codebase-inspection) | ⚪ Reserve | `nousresearch-hermes-skills` | Inspect codebases w/ pygount: LOC, languages, ratios. |
 | [`comfyui`](../../library/nousresearch-hermes-optional-skills/skills/comfyui) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Generate images, video, and audio via diffusion workflows. |
@@ -86,6 +85,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`hermes-imports`](../../library/affaan-m-ecc/skills/hermes-imports) | ⚪ Reserve | `affaan-m-ecc` | Convert local Hermes operator workflows into sanitized ECC skills and release-pack artifacts. U... |
 | [`hermes-labyrinth-observability`](../../library/reason-machines-trending-skills/skills/hermes-labyrinth-observability) | ⚪ Reserve | `reason-machines-trending-skills` | Read-only observability dashboard plugin for Hermes Agent — journeys, crossings, guideposts, an... |
 | [`hermes-s6-container-supervision`](../../library/nousresearch-hermes-optional-skills/skills/hermes-s6-container-supervision) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Modify or debug s6 services in the Hermes Docker image. |
+| [`hermes-tweet`](../../library/wshobson-agents/skills/hermes-tweet) | ⚪ Reserve | `wshobson-agents` | Install and operate Hermes Tweet, a Hermes Agent plugin for X/Twitter research, timeline readin... |
 | [`hermes-web-ui`](../../library/reason-machines-trending-skills/skills/hermes-web-ui) | ⚪ Reserve | `reason-machines-trending-skills` | name: hermes-web-ui |
 | [`himalaya`](../../library/nousresearch-hermes-skills/skills/himalaya) | ⚪ Reserve | `nousresearch-hermes-skills` | Himalaya CLI: IMAP/SMTP email from terminal. |
 | [`honcho`](../../library/nousresearch-hermes-optional-skills/skills/honcho) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Configure and troubleshoot Honcho memory for Hermes. |

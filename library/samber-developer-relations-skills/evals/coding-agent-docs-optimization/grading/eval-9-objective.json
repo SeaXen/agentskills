@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Admits findings by task impact first: only findings touching a task that actually failed enter the list",
+        "evidence": "\"task impact decides what enters the queue, not how fast a fix is... Only these four have cold-run evidence behind them.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Excludes items 1, 3, 8, 10 and 12 from the findings list entirely rather than merely ranking them last",
+        "evidence": "backlog table lists items 1,2,3,5,8,10,11,12 separately from the \"## Findings\" section headed \"Backlog \u2014 no cold-run evidence yet, don't let them jump the queue\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the exclusion rule explicitly: a finding on a task no cold run failed does not make the list at all, however easy it would be to fix",
+        "evidence": "\"Your list was ranked by effort; I'm re-ranking by which findings actually caused one of your 4 cold-run failures, then by fixes-per-hour within that set.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Admits the billing-webhook fragment (4), the pagination ordering (9), and the dashboard-clicks SSO page (7) because each maps to a failed task",
+        "evidence": "Finding 1 \"Your item: #4\" (billing webhook failed); Finding 2 \"Your item: #9\" (pagination failed); Finding 4 \"Your item: #7\" (enterprise SSO failed)",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Orders the admitted findings by fixes-per-hour rather than by the user's speed-of-fix ranking",
+        "evidence": "\"Ordered by fixes-per-hour (value is roughly equal \u2014 each one closes a full task failure \u2014 so effort breaks the tie).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a page breaking a top revenue-driving task outranks ten cosmetic fixes because its value is higher, not because effort stopped counting",
+        "evidence": "\"task impact decides what enters the queue, not how fast a fix is\"; \"it's the security-relevant one \u2014 invented webhook-verification code is a defect that ships\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Fixes item 4 with a complete snippet carrying imports, client construction, the call, the awaited result, and the error branch",
+        "evidence": "\"Fix: full snippet \u2014 imports with version pin, client construction, the call, the awaited result with a comment on what it returns, the error branch.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Fixes item 9 by reordering the page to the working call, then what it returns, then the parameters, then the rationale",
+        "evidence": "\"Fix: reorder \u2014 working call, what it returns, parameters (as a table), rationale last.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Fixes item 7 by adding the equivalent command or API call while keeping the dashboard click path as the human alternative",
+        "evidence": "\"If yes: document it, keep the dashboard path as the human alternative.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats item 2 as a naming-discipline issue (one identifier per concept corpus-wide) and admits or excludes it on whether it touched a failed task",
+        "evidence": "\"Naming-discipline pattern, but not the named root cause of any failure.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Fixes item 6 by mapping the exact error text that reaches stderr to a cause, a fix, and a verification step",
+        "evidence": "\"Fix: for every error, the exact string as emitted, plus conditions \u2192 cause \u2192 fix \u2192 a verification step\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags that the rate-limit retry task failed but has no corresponding entry in the user's list, so a finding still needs to be written for it",
+        "evidence": "\"If rate-limit retry still fails after the exact-strings fix, that's a signal the root cause was something else (e.g., no runnable backoff sample) \u2014 don't declare it done on a page edit you haven't re-tested.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes each admitted finding naming the failing task, the page or spec field involved, and what the agent did instead",
+        "evidence": "each finding lists \"Task:\", \"Your item:\", \"What's wrong:\" describing agent behavior, e.g. \"an agent doesn't treat this as an excerpt, it pastes it verbatim and invents the missing setup\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Admits findings by task impact first: only findings touching a task that actually failed enter the list",
+        "evidence": "All 12 original items remain in the reprioritized list across \ud83d\udd34/\ud83d\udfe0/\ud83d\udfe2 tiers rather than being filtered to only cold-run-matching items.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Excludes items 1, 3, 8, 10 and 12 from the findings list entirely rather than merely ranking them last",
+        "evidence": "Items 1, 3, 8, 10, 12 are all explicitly retained and discussed in the \ud83d\udfe0/\ud83d\udfe2 tiers (e.g. '3. Changelog... Cheap, and it's a trust signal'), merely ranked last rather than excluded.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the exclusion rule explicitly: a finding on a task no cold run failed does not make the list at all, however easy it would be to fix",
+        "evidence": "No such rule is stated; instead reasoning like 'Not in the cold run, but load-bearing' justifies keeping non-matching items in the list.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Admits the billing-webhook fragment (4), the pagination ordering (9), and the dashboard-clicks SSO page (7) because each maps to a failed task",
+        "evidence": "'(4) Billing-webhook fragment... Matches a cold-run failure.' '(9) Pagination buried... Matches a cold-run failure.' '(7) Enterprise SSO is dashboard-only. Matches a cold-run failure.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Orders the admitted findings by fixes-per-hour rather than by the user's speed-of-fix ranking",
+        "evidence": "The explicit final ordering ('Order to actually work in') mixes diagnosis-first, then fast fixes, then scoping-needed items, then cheap trust-signal batches \u2014 not a stated fixes-per-hour ranking.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a page breaking a top revenue-driving task outranks ten cosmetic fixes because its value is higher, not because effort stopped counting",
+        "evidence": "No mention of revenue or value-vs-effort framing anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Fixes item 4 with a complete snippet carrying imports, client construction, the call, the awaited result, and the error branch",
+        "evidence": "Only 'Fast fix: add the imports and client init, same as every other page already does' is given \u2014 no actual code snippet is provided.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Fixes item 9 by reordering the page to the working call, then what it returns, then the parameters, then the rationale",
+        "evidence": "Only 'lead with the working call, move the cursor-design explanation below it' is stated \u2014 the specific four-part structure (call \u2192 returns \u2192 parameters \u2192 rationale) is not given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Fixes item 7 by adding the equivalent command or API call while keeping the dashboard click path as the human alternative",
+        "evidence": "Instead of proposing an API equivalent, the transcript says 'First confirm SSO is even settable through the API \u2014 if it isn't, no doc can fix this... Scope it before committing time.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats item 2 as a naming-discipline issue (one identifier per concept corpus-wide) and admits or excludes it on whether it touched a failed task",
+        "evidence": "Item 2 is kept in the \ud83d\udfe2 Cosmetic tier ('Consistency issue, not a functional one') despite not matching any cold-run failure, contradicting an admit/exclude-by-failure rule.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Fixes item 6 by mapping the exact error text that reaches stderr to a cause, a fix, and a verification step",
+        "evidence": "Only 'Fix alongside the webhook/retry work since you'll be touching error-handling context anyway' is given, with no cause/fix/verification mapping.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags that the rate-limit retry task failed but has no corresponding entry in the user's list, so a finding still needs to be written for it",
+        "evidence": "'rate-limit retry has no matching entry in your 12 problems... Go find it (or confirm it's missing) before touching anything else.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes each admitted finding naming the failing task, the page or spec field involved, and what the agent did instead",
+        "evidence": "Findings name the page and issue (e.g. billing-webhook fragment missing imports) but never describe what the agent actually did during the failed cold run.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

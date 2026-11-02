@@ -1,0 +1,602 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "devrel-metrics",
+  "scenarios": 12,
+  "expectations_total": 153,
+  "expectations_subjective": 0,
+  "expectations_objective": 153,
+  "pass_rate_with_skill_pct": 77.8,
+  "pass_rate_without_skill_pct": 31.4,
+  "delta_pp": 46.4,
+  "uplift_multiplier": 2.48,
+  "trigger_accuracy_pct": 68.1,
+  "trigger_queries": 138,
+  "trigger_positive_fire_rate": 0.522,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": null,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.267 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Names the conference-attendance count (9) as a record of effort rather than an outcome"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Labels each threshold with where it came from, using sourced, baseline or hypothesis"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Places reach last despite it being the cheapest tier to collect"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that value and collection effort both rise down the tier ladder, so the ladder alone does not answer what to build first"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Gives the efficiency ordering of methods as self-reported, then pre/post lift, then tagged links, then influenced pipeline"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names the bias of self-reported attribution: over-counts memorable touches, under-counts docs and search"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that the marginal effort of pre/post lift is recording the pre-period before the push, which is impossible afterwards"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Presents both defensible positions on the revenue question: no sales metrics on DevRel with the DevRel Qualified Lead as the alternative currency, and influenced pipeline explicitly shared"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States the deciding input for that choice is who owns the budget"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Cites the formulation that when a measure becomes a target it ceases to be a good measure, attributed to Marilyn Strathern's 1997 generalisation of Goodhart's law"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Applies the monotonic test to the candidate metrics"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Labels that 30-event floor as a borrowed rule of thumb rather than a DevRel-measured cutoff"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names why cross-company absolute comparison fails: differences in audience size, ecosystem and product maturity"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Sets targets as a direction and a range for the first two cycles rather than a point value"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Requires any surviving reach metric to have a named downstream partner in the same row's story or be dropped"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States explicitly that it is in brainstorming mode before offering anything"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names driver-anchored AAARRRP, journey-stage, and the awareness/enablement/engagement function split among the options"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Attributes AAARRRP to Phil Leggetter in 2016, adapted from Dave McClure's AARRR with a seventh element for developer products"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Attributes the awareness, enablement and engagement split to Mary Thengvall"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Attributes the developer-journey stage model to Matthew Revell"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Presents the framework one section at a time and seeks agreement before continuing"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Prefers a threshold that moves with the baseline, such as two standard deviations from a 30-day rolling mean, over a fixed line"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Labels the three-period, two-standard-deviation and 30-day-window figures as borrowed conventions rather than DevRel-measured values"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Uses the owner/repo@skill reference format when naming each routed skill"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Refuses to build cohort retention from a retroactively tagged cohort"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that a cohort must be defined before the period starts, not after"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Promotes engagement and enablement because the deadline sits inside one quarter"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that a metric taking two quarters to instrument does nothing for a budget review five weeks away"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Hands the resulting instrumentation gap to samber/developer-relations-skills@devrel-analytics"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Names which of the user's answers moved which tier"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Promotes business impact ahead of its efficiency ratio because the reader decides budget renewal and the program is funded from the marketing line"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Asks whether the user needs a one-off win at that date or a sheet that still reads in a year"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Specifies cohorts by month rather than by day"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Names a leading indicator to carry the interim for any lagging business-impact metric"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Identifies total GitHub stars (11,400) as a monotonic metric that cannot fall, and refuses it as a primary metric"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Applies the same monotonic objection to cumulative npm downloads (2.1M) and to the Twitter follower count (8,900)"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Every metric row carries all six fields: definition, source, baseline, threshold, owner and action"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that npm download counts are HTTP request counts including CI and mirror traffic, not people"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Includes a non-empty known-blind-spots section"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States a kill rule removing any metric that has not changed a decision in two consecutive review cycles"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Does not deliver tracking instrumentation, an event taxonomy or analytics code as the answer"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Labels each threshold with where it came from, using sourced, baseline or hypothesis"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States the build order is decided by value per unit of effort, not by cost of collection"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Gives the efficiency ordering as enablement, then engagement, then product impact, then business impact, then reach"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Deletes influenced pipeline outright because sales ops will not share data, rather than demoting it or ranking it last"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Records the deleted business-impact metric in the blind-spots section together with what it would take to obtain it"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Promotes enablement and product impact because product analytics is already instrumented"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names which answer from the user moved which tier"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that value and collection effort both rise down the tier ladder, so the ladder alone does not answer what to build first"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends self-reported attribution, a single question at signup, as the first method to stand up"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Gives the efficiency ordering of methods as self-reported, then pre/post lift, then tagged links, then influenced pipeline"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Restricts tagged links to comparing artifacts of the same type and forbids using them for program totals"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names the bias of self-reported attribution: over-counts memorable touches, under-counts docs and search"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Specifies exactly one question, with an option list held stable across quarters"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that a large direct bucket is normal rather than a tracking defect"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Cites roughly 70% of AI-assistant traffic arriving with no referrer, and marks the figure as directional rather than measured"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States the attribution rule must be written before the period starts, not after it"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that the marginal effort of pre/post lift is recording the pre-period before the push, which is impossible afterwards"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Refuses the word sourced and uses influenced throughout"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The rule names an explicit lookback window in days"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The rule names whether the touch must precede a specific pipeline stage"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States the rule is fixed for the fiscal year and that any mid-period change must be reported as a restatement"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Excludes any touch recorded after the opportunity was created"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Flags influenced pipeline as carrying the highest compliance cost because it joins a named person's community activity to a CRM record"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Presents both defensible positions on the revenue question: no sales metrics on DevRel with the DevRel Qualified Lead as the alternative currency, and influenced pipeline explicitly shared"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States the deciding input for that choice is who owns the budget"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Anchors the framework on the CHAOSS Starter Project Health metric set rather than inventing a metric list"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names all four CHAOSS starter metrics: time to first response, change-request closure ratio, contributor absence factor, release frequency"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Identifies the two-business-day first-response figure as VMware's internal guideline quoted inside a case study, not a CHAOSS standard"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Defines change-request closure ratio as closed, meaning merged plus rejected, divided by opened in the same window"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes that bot and automation activity distorts time to first response and change-request closure ratio"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that GitHub's repository traffic endpoints retain only 14 days of data and require write access, so snapshotting must start the day the metric enters the sheet"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Cuts the star count rather than keeping it as a primary metric, on the grounds that stars are gameable and not comparable across project types"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Pairs the blog-post count with organic entries per post"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Pairs signups with 30-day retention"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Cites the formulation that when a measure becomes a target it ceases to be a good measure, attributed to Marilyn Strathern's 1997 generalisation of Goodhart's law"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names the specific degradations the targets produce: thin posts, premature issue closes, low-value chatter and throwaway accounts"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Applies the so-what test by naming the action each surviving metric triggers, and cutting any metric with no action"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Applies the ownership test, asking whether this team's work can plausibly move the number within one review period"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Applies the monotonic test to the candidate metrics"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Caps the resulting sheet at no more than eight metrics"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Refuses to express the 11 versus 4 enterprise conversations as a percentage or rate, and requires the raw list with dates instead"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Applies the same treatment to the 6 versus 2 external pull requests"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States the small-N floor at roughly 30 events in a period, below which a rate should not be reported"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Labels that 30-event floor as a borrowed rule of thumb rather than a DevRel-measured cutoff"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires at least three prior periods of history before any threshold is set"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Sets targets as a direction and a range for the first two cycles rather than a point value"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States npm counts every HTTP 200 tarball response, including continuous integration and mirror traffic"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States PyPI excludes known mirrors by default, so the two registries are not measured on the same basis"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Flags the 240,000 Google Analytics docs sessions as a substantial undercount for a developer audience"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Cites the Plausible measurement of 58% of a tech audience blocking Google Analytics, 82.3% on Linux and 88.3% on Firefox"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Qualifies that measurement with its scope: one site, August 2021, traffic skewed toward Hacker News and Reddit"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Notes npm treats under roughly 50 downloads per day as mostly automation"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States explicitly that it is in brainstorming mode before offering anything"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Offers two or three whole spines rather than a single framework"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names driver-anchored AAARRRP, journey-stage, and the awareness/enablement/engagement function split among the options"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Attributes AAARRRP to Phil Leggetter in 2016, adapted from Dave McClure's AARRR with a seventh element for developer products"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Attributes the awareness, enablement and engagement split to Mary Thengvall"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Attributes the developer-journey stage model to Matthew Revell"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Presents each spine with what it makes visible, what it hides, who it is legible to, and the conditions under which it is the wrong pick"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Recommends one spine and states why"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Refuses to run AAARRRP and journey stages together, naming double-counting of the same work as the reason"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States the deciding criterion is the spine the funder can already read"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Ranks the tiers underneath the chosen spine instead of ranking the spines"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Does not write the metric sheet before the owner has picked a spine"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Presents the framework one section at a time and seeks agreement before continuing"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Labels the 20% monthly-active ratio as folklore"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Labels the 20-40% self-serve activation band as a practitioner claim rather than a study, covering the PM's 30% figure"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Labels the 24-hour first-response figure as folklore"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Refuses to set any of the four as a target"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires every threshold to be tagged sourced, baseline or hypothesis in the same cell as the number"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires at least three prior periods before any threshold is set"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that an exec who discovers one invented benchmark discounts every other figure on the page"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Sets targets as a direction and a range for the first two cycles rather than a point value"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Prefers a threshold that moves with the baseline, such as two standard deviations from a 30-day rolling mean, over a fixed line"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Labels the three-period, two-standard-deviation and 30-day-window figures as borrowed conventions rather than DevRel-measured values"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Routes the Discord health question to samber/developer-relations-skills@developer-community-health"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Routes the UTM and tool-disagreement question to samber/developer-relations-skills@devrel-analytics"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Routes the 40k booth return question to samber/developer-relations-skills@developer-event-sponsorship"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Keeps only the program-wide quarterly reporting question in scope for itself"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Does not produce an event taxonomy, UTM convention or tracking plan as its deliverable"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Does not produce a community-only health dashboard as its deliverable"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that choosing which metrics to report comes before instrumenting them"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Hands any metric the team cannot instrument to samber/developer-relations-skills@devrel-analytics as a gap rather than assuming it away"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Uses the owner/repo@skill reference format when naming each routed skill"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States the pre-conditions each metric needs before it can enter the sheet"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Calls a metric that fails its pre-conditions an instrumentation request rather than a metric"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Distinguishes deciding which metrics deserve a target from making them collectable"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Refuses to build cohort retention from a retroactively tagged cohort"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that a cohort must be defined before the period starts, not after"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Promotes engagement and enablement because the deadline sits inside one quarter"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Demotes or excludes anything requiring a pre-period that does not already exist"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that a metric taking two quarters to instrument does nothing for a budget review five weeks away"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Hands the resulting instrumentation gap to samber/developer-relations-skills@devrel-analytics"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Names which of the user's answers moved which tier"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Promotes business impact ahead of its efficiency ratio because the reader decides budget renewal and the program is funded from the marketing line"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Asks whether the user needs a one-off win at that date or a sheet that still reads in a year"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Specifies cohorts by month rather than by day"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Names a leading indicator to carry the interim for any lagging business-impact metric"
+      }
+    ]
+  }
+}

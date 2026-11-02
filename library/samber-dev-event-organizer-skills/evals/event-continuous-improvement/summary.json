@@ -1,0 +1,350 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-continuous-improvement",
+  "scenarios": 8,
+  "expectations_total": 102,
+  "expectations_subjective": 1,
+  "expectations_objective": 101,
+  "pass_rate_with_skill_pct": 95.1,
+  "pass_rate_without_skill_pct": 30.4,
+  "delta_pp": 64.7,
+  "uplift_multiplier": 3.13,
+  "trigger_accuracy_pct": 64.9,
+  "trigger_queries": 94,
+  "trigger_positive_fire_rate": 0.638,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 3,
+        "expectation": "Does not endorse Airtable or prescribe any other specific tool for the log."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Tells the user to come back for trend work after edition two's debrief is filed."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names the persisted log itself as a bus-factor mitigation."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends a continuing support channel from outgoing organizers (e.g. a support group of previous organizers), because the written record alone cannot carry a full rotation."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Given the near planning date, demotes or skips a written trend review document this cycle, keeping theme grouping as the method, and says the deadline is what moved it."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Labels the Room B projector failure, seen in editions 3 and 4, a candidate, not a pattern or trend."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Either holds the projector candidate for one more edition or justifies acting now only because the fix is cheap and reversible."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Counts the three edition-4 catering complaints as one occurrence (one edition), not three, and does not present catering as a recurring trend."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Proposes deliberate changes one at a time rather than bundling several simultaneous changes, or explicitly warns that bundled changes cannot be attributed next edition."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Writes each proposed change with three parts: what changes, why the evidence justifies it, and how the team will know next edition whether it worked."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Does not re-analyze or reconstruct any single edition's debrief; takes the four logs as given."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Presents the two-occurrence candidate / three-occurrence pattern bar as a convention the team adopts, not as established organizer practice."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Classifies the falling return rate and attendee decline as a demand signal outside this improvement process's operational scope."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Routes the retention and attendance trend to the demand-signal owner (event-market-fit) instead of treating it as an operational finding."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Classifies the two sponsor non-renewals as a demand signal to route, not an operational theme."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Does not deliver a list of operational changes presented as the fix for retention, despite the user asking for exactly that."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Keeps the 90-minute check-in as an operational trend this process owns, counted at 3 of 3 editions and labelled a pattern."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Hands over any link between check-in delays and retention as an observation for the demand owner to weigh, not as an established causal claim."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States the operational-versus-demand split explicitly at the handover."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Warns that operational fixes alone cannot be shown to reverse a demand trend - the event can run beautifully for an audience that has stopped coming, or equivalent reasoning."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Records the routing decision in the log entry itself so the hand-off stays traceable."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States the number of editions of records held (three) as the bound on every trend claim made."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Declines to produce a cross-edition trend analysis, stating that one edition of written records cannot support a trend claim."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Does not treat failures remembered from the organizers' other events (meetups, the hackathon) as recurrence evidence for ForgeFest."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends filing edition one's debrief entries through a signal gate and starting the persisted log now."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends a running dated appended document as the log format at this stage."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Does not recommend a structured multi-field record system or a numeric metrics series as the starting format."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Does not endorse Airtable or prescribe any other specific tool for the log."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Rejects 'the team' as the log's reader and asks for or names one specific person who opens the log before planning starts."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States explicitly that the trend half of the work becomes available only once a second edition of records exists."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Bounds every claim about recurrence by the record count: one edition of records held."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Does not import a periodic software-style review cadence (quarterly or monthly) for an annual event between its first and second editions."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Tells the user to come back for trend work after edition two's debrief is filed."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Applies a five-way classification - Keep, Update, Consolidate, Replace, Delete - across the log entries."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Classifies the partially-fixed queue entry (60 down to 25 minutes) as Update: the condition rewritten to the remaining problem with the occurrence history kept."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires the audit to cover every entry and finish in one sitting, warning that a half-audited log is worse than an unaudited one."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Applies the pass condition of zero unclassified entries: all 41 entries end with exactly one classification."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires each live entry to carry its theme and occurrence count after the pass."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Times the audit as a pass before planning opens, not a standing year-round or quarterly process."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Sets no numeric improvement targets beyond the binary zero-unclassified threshold; other measures are recorded as signals, not targets."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Routes the single-person invoicing dependency to the team-structure owner, carrying its three-edition recurrence count as the evidence."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Promotes the structured entry record over the appended-document default for persistence, tied explicitly to the full team rotation."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Promotes the written trend review for trend detection, tied to the incoming team not having witnessed the evidence."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Promotes a standing audit owner or an audit timed to the handover, tied to the rotation happening this cycle."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States explicitly which circumstance moved which menu option, rather than silently reordering the defaults."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The handover packet includes an explicit list of what was tried and did not work."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The handover packet includes the theme list with occurrence counts, every live entry, and the deliberate-change records with their outcomes."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names the persisted log itself as a bus-factor mitigation."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Routes the Fork & Flame rebook-or-not verdict to the vendor-sourcing owner rather than deciding it inside the improvement log."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Files the caterer finding on that vendor's own record, not only in the general log."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Labels the caterer lateness a candidate at 2 of 4 editions, using the word candidate."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Declines to recommend growing to 500 or capping at 350, stating the scale decision belongs to the growth-strategy owner."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Hands the roughly-350-attendee registration ceiling to growth strategy as evidence, without any recommendation about size."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Files the AV cost creep (8k, 11k, 15k, 19k) as a cross-edition theme in this log with its edition count."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Does not re-model the budget itself; single-edition money planning stays with the budget owner."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Every hand-off carries evidence rather than conclusions: observations with counts, not decisions made for the recipient."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States the ownership split explicitly at each hand-off - operational stays here, vendor, size and money route out."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Any operational change proposed is written with what changes, why the evidence justifies it, and an observable check."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Files the vendor hand-off in the same cycle as a first-class post-event task, not deferred to whenever sourcing reopens."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Files the speaker-laptop projector swap as expected work, not a candidate finding."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Keeps expected-work items in the record with a one-line reason instead of deleting them, and excludes them from recurrence counts."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Applies the three-part gate - current, reproducible in the event's own conditions, generalizing - when filing the items."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Records in the entry itself why the bar was dropped: a code-of-conduct or safety exposure does not wait for more editions of confirmation."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The change addressing the code-of-conduct gap carries an observable check defined before edition 4 ships."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Excludes the closed venue entry from any recurrence counting."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "No personal name (Tom\u00e1s or the registration lead) appears in any filed entry."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Treats the volunteer's improvisation as expected work while the uncovered single point of failure is the finding."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Explains that the laptop item fails the gate because the backup worked and nothing in the event's design produced it."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Gives each of the four items an explicit filing verdict (candidate, expected work, or closed)."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Runs the closure by appending two columns onto each change record - did this actually improve (yes or no), and why - instead of drafting a separate closure report."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Offers exactly two fixes for the sheet: make its output visible enough that skipping it is no longer possible, or simplify it down to what people actually do."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Rejects the consultant's quarterly review cadence as a calendar borrowed from a much shorter cycle that does not fit an annual event."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Keeps the filing and improvement discipline while dropping the borrowed calendar."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Declines to grow the per-change checks into a full OKR or objectives framework."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "With planning three weeks out, schedules the log audit as a kickoff pass to run now."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Given the near planning date, demotes or skips a written trend review document this cycle, keeping theme grouping as the method, and says the deadline is what moved it."
+      }
+    ]
+  }
+}

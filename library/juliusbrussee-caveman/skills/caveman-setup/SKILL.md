@@ -4,7 +4,6 @@ description: >
   Wire a repository through the Caveman Cloud gateway so every LLM request is
   measured, with no behavior change. Use for "set up caveman" or adding LLM
   spend observability.
-category: code-quality-refactoring
 ---
 
 You are wiring this repository through the Caveman gateway. Caveman is a

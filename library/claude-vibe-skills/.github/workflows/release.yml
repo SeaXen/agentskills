@@ -1,0 +1,129 @@
+name: Publish release
+
+# Tag push publishes the release. Build the artifact here rather than trusting
+# the committed one, so what ships is always built from the tagged source.
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+# One release at a time. Two tag pushes in quick succession must not race for
+# the same release; never cancel a publish in flight.
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+# No separate "CI passed for this commit" gate: CI here is validate.yml, which
+# runs only scripts/validate.sh, and this job runs that same script on the
+# tagged commit before building. The check CI would vouch for is re-proven
+# here, so waiting on the CI run would add latency and prove nothing new.
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    # Job-level permissions replace the workflow's, so contents: write is
+    # repeated. id-token and attestations sign the build provenance below.
+    permissions:
+      contents: write
+      id-token: write
+      attestations: write
+    steps:
+      # Pinned to a commit SHA: a version tag is mutable and can be repointed.
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          # Full history, so the tag can be checked against the default branch.
+          fetch-depth: 0
+          # This job publishes with GH_TOKEN and never pushes with git, so the
+          # credential has no reason to sit in .git/config while scripts run.
+          persist-credentials: false
+
+      # Without this, a tag on ANY commit publishes a release — including one on
+      # an unreviewed branch. Releases come from the default branch only.
+      - name: Verify the tag is on the default branch
+        env:
+          DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+        run: |
+          set -euo pipefail
+          if ! git rev-parse --verify "origin/$DEFAULT_BRANCH" >/dev/null 2>&1; then
+            echo "Cannot resolve origin/$DEFAULT_BRANCH — checkout needs fetch-depth: 0."
+            exit 1
+          fi
+          if ! git merge-base --is-ancestor "$GITHUB_SHA" "origin/$DEFAULT_BRANCH"; then
+            echo "Tag $GITHUB_REF_NAME points at $GITHUB_SHA, which is not on $DEFAULT_BRANCH."
+            echo "Releases are published from the default branch only."
+            echo "Delete the tag, merge the work, then re-tag the merge commit."
+            exit 1
+          fi
+          echo "OK: $GITHUB_REF_NAME is on $DEFAULT_BRANCH"
+
+      - name: Validate version consistency
+        run: bash scripts/validate.sh
+
+      - name: Verify tag matches VERSION
+        run: |
+          set -euo pipefail
+          tag="${GITHUB_REF_NAME#v}"
+          file="$(tr -d '[:space:]' < VERSION)"
+          if [ "$tag" != "$file" ]; then
+            echo "Tag $GITHUB_REF_NAME does not match VERSION ($file)."
+            echo "Delete the tag, fix the mismatch, and re-tag."
+            exit 1
+          fi
+          echo "OK: tag $GITHUB_REF_NAME matches VERSION $file"
+
+      - name: Build artifact
+        run: |
+          set -euo pipefail
+          bash scripts/build-skill.sh
+          unzip -l skills/dev-skills.skill
+
+      # A signed record that this dev-skills.skill was built by this workflow
+      # from the tagged commit. Users check it with:
+      #   gh attestation verify dev-skills.skill --repo darthrater78/claude-vibe-skills
+      - name: Attest build provenance
+        uses: actions/attest-build-provenance@4d101475d8b20a2381f78447822ac1eab6504dd8 # v4.2.2
+        with:
+          subject-path: skills/dev-skills.skill
+
+      - name: Extract release notes from CHANGELOG
+        run: |
+          set -euo pipefail
+          version="$(tr -d '[:space:]' < VERSION)"
+          awk -v v="$version" '
+            $0 ~ "^## \\[" v "\\]" { flag = 1; next }
+            flag && /^## \[/ { exit }
+            flag { print }
+          ' CHANGELOG.md > release-notes.md
+          if [ ! -s release-notes.md ]; then
+            echo "No CHANGELOG.md entry found for $version."
+            exit 1
+          fi
+          cat release-notes.md
+
+      # gh is preinstalled on GitHub runners — no third-party action, so the
+      # release path adds no supply-chain surface.
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          gh release create "$GITHUB_REF_NAME" \
+            skills/dev-skills.skill \
+            --title "$GITHUB_REF_NAME" \
+            --notes-file release-notes.md
+
+      - name: Verify the release has its asset
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          assets="$(gh release view "$GITHUB_REF_NAME" --json assets --jq '.assets[].name')"
+          echo "Assets: $assets"
+          echo "$assets" | grep -qx 'dev-skills.skill' || {
+            echo "Release published without dev-skills.skill attached."
+            echo "README download links point at this asset — that is a ship failure."
+            exit 1
+          }

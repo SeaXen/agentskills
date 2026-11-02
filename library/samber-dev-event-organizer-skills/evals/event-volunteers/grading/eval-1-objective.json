@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Declines to supply a volunteer-to-attendee ratio as the basis for the headcount",
+        "evidence": "\"I can't give you a standard ratio, because the skill I followed rules out sizing from one.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the 700 attendee figure does not enter the sizing arithmetic at any point",
+        "evidence": "700 appears only in the 1-per-40 comparison (\"For 700 attendees, 1 per 40 gives about 18 people\"). The transcript never says the figure stays out of the sizing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Answers with a list of posts - positions someone must physically be standing at - instead of a ratio",
+        "evidence": "The \"Provisional post list\" table covers registration, info, room leads, cloakroom, floaters and more.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Post list covers registration desk, cloakroom, one lead per simultaneously-running track, floaters, and setup/teardown",
+        "evidence": "Table rows: Registration desk, Room leads (one per track), Cloakroom, Floaters, Setup day before, Teardown.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not present the user's '1 per 40' figure as a validated or industry-standard number",
+        "evidence": "\"I also can't trace your 1-per-40 figure to a source.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "If any circulating ratio is named at all, it is identified as coming from an event's final edition whose organizers described the staffing load as beyond what could responsibly be handled",
+        "evidence": "JSConf EU 2019 was \"the event's final edition, and its closing statement said the load was beyond what the volunteer team could responsibly handle.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the per-post formula explicitly: people needed simultaneously x hours the post must be covered / shift length = shift-slots",
+        "evidence": "The table gives shift-slots per post. The only formula stated is total slots divided by shifts per volunteer, not people x hours / shift length.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the number of shifts one volunteer will take is asked on the sign-up form rather than assumed",
+        "evidence": "\"the sign-up form will tell you the real shifts-per-volunteer answer\"; two shifts is called a planning anchor.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Adds a floater reserve as a real post rather than as slack or padding",
+        "evidence": "The table has a \"Floaters | 2 | 08:00\u201318:30 | 7\" row.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that the t-shirt order date, not the event date, is what fixes the roster close date",
+        "evidence": "The transcript never says the shirt order date sets the roster close.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Declines to supply a volunteer-to-attendee ratio as the basis for the headcount",
+        "evidence": "It builds a bottom-up count, then states 'Ratio for 700 attendees: about 1:25 in unique volunteers, versus 1:40 on duty' and uses 1:40 as a cross-check.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the 700 attendee figure does not enter the sizing arithmetic at any point",
+        "evidence": "'1:40 gives 18 volunteers for 700 people' and the 1:25 ratio for 700 attendees both use the 700 figure.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Answers with a list of posts - positions someone must physically be standing at - instead of a ratio",
+        "evidence": "It gives a post table, but also presents ratios and checks the table against 1:40.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Post list covers registration desk, cloakroom, one lead per simultaneously-running track, floaters, and setup/teardown",
+        "evidence": "The table has registration, cloakroom, rooms, liaison, floaters and catering, but no setup/teardown post.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not present the user's '1 per 40' figure as a validated or industry-standard number",
+        "evidence": "'There's no authoritative standard. I can't point to a source for 1:40.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "If any circulating ratio is named at all, it is identified as coming from an event's final edition whose organizers described the staffing load as beyond what could responsibly be handled",
+        "evidence": "It only says quoted ratios 'run from about 1:20 to 1:50' and never names that origin.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the per-post formula explicitly: people needed simultaneously x hours the post must be covered / shift length = shift-slots",
+        "evidence": "It uses a rough '1.5\u00d7 the on-duty count' multiplier, not people \u00d7 hours / shift length.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the number of shifts one volunteer will take is asked on the sign-up form rather than assumed",
+        "evidence": "It assumes 'Volunteers work about 4\u20135 hours' and never mentions asking on the form.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds a floater reserve as a real post rather than as slack or padding",
+        "evidence": "'Floaters and info | 3 | Wayfinding and fixing problems.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that the t-shirt order date, not the event date, is what fixes the roster close date",
+        "evidence": "It says to order 30 shirts and collect sizes now, but never says the order date fixes the roster close date.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

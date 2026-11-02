@@ -1,0 +1,11 @@
+None are industry standards. All three come from one skill file (`developer-live-demo-design`), and it labels each one so you don't have to guess: sourced (real citation), convention (practitioner advice, not measured), or baseline (skill made it up because task needed a number). Your colleague quoted two baselines and one convention as if they were external rules.
+
+**"Three clean cold runs"** — baseline, skill's own invention. Reasoning given: two clean runs could be luck, three makes a flaky step likely to show itself. Not measured, not sourced. Tune it up if the demo has a genuinely non-deterministic step, tune it down never.
+
+**"Twenty seconds before bailing"** — also a baseline, not measured. Reasoning given: shorter than an audience's patience for silence, long enough for an obvious retry. The skill does cite a real chaos-engineering source (`jeffallan/claude-skills@chaos-engineer`, ~30s automated rollback) — but only as precedent for the *rule* "script the abort before the event, don't improvise it." The skill explicitly says not to treat that citation as where the 20-second figure comes from.
+
+**"24pt terminal is the standard"** — convention, not baseline, not measured either. Source: one specific checklist, `jonathimer/devmarketing-skills@developer-advocacy`. Practitioner advice that circulates, same tier as "10 rehearsals, 3 checkpoints, 1 recorded backup" from the same checklist. Real advice, worth following, just not an industry standard — no measurement backs the 24pt cutoff.
+
+One more mix-up worth flagging to her: "at least three checkpoints" (segments with restore points) and "three clean cold runs" (rehearsal pass criterion) are two different threes from two different places — the checkpoint count is the convention-sourced one, the cold-run count is the skill's own baseline. Easy to merge into one "rule of three," but they're unrelated.
+
+For the team policy doc: write these three as **defaults your team is adopting**, not as external standards — e.g. "we require 3 cold runs and a 20s abort window (our own bar, tune per event), and we follow the practitioner convention of 24pt+ terminal text." That's accurate and still gives the team a number to hold demos to.

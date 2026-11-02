@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Removes unscripted live typing from the options entirely rather than offering it with caveats, because the two-hour rehearsal ceiling cannot cover it",
+        "evidence": "\"'a low rehearsal ceiling deletes progressive construction and unscripted live typing outright rather than offering them.' You have ~2 hours total... unscripted live typing is the single riskiest demo tier.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes the progressive-construction arc for the same reason instead of ranking it last",
+        "evidence": "\"Rejected: progressive construction (no rehearsal budget for a live build), contrarian (no time to build attack-proof evidence), sparkline...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the principle that an option the speaker has no hours to rehearse is not presented at all",
+        "evidence": "Quoted skill rule: \"a low rehearsal ceiling deletes progressive construction and unscripted live typing outright rather than offering them.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a narrated screencast, or an equivalent pre-recorded demo, as the fidelity tier for this case",
+        "evidence": "\"Demo, specifically: record it tonight, don't perform it Thursday.\" and time budget: \"demo \u2014 pre-recorded screencast, seeded local cluster (kind/minikube), NOT staging, NOT live\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the efficiency ordering of demo fidelity tiers: narrated screencast > scripted live demo against a prepared environment > unscripted live typing",
+        "evidence": "\"Ranked by proof-per-hour of prep, a narrated screencast against a seeded local cluster beats a scripted live demo beats unscripted live typing...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the value ordering runs the opposite way, because unscripted live typing is the only tier an audience cannot suspect and a screencast asks the room to take the recording on trust",
+        "evidence": "No mention anywhere of a value ordering running opposite to the efficiency ordering, or of audience trust/suspicion regarding screencasts vs live typing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the condition that would promote unscripted live typing anyway: when liveness itself is the claim being made",
+        "evidence": "No such condition is named anywhere in the transcript; unscripted live typing is simply rejected outright with no promotion condition discussed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that every retake of a narrated screencast is free, which is what makes that tier cheap on effort",
+        "evidence": "The transcript mentions 'record 2-3 takes, keep the cleanest' but never states that retakes are free or uses that as the stated reason for the tier's low effort cost.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the compliance cost of demoing against a live staging cluster in a room that may be recorded",
+        "evidence": "\"\u26a0\ufe0f Compliance risk, not just talk-craft. 'My laptop, their wifi' against a real staging cluster, live, possibly recorded, means... any `kubectl get` against staging puts real internal hostnames/namespaces/config on a public \u2014 maybe recorded \u2014 screen.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends an arc built from material the speaker has already lived rather than one that must be constructed and verified, because of the three-day deadline",
+        "evidence": "\"You already own better material than a from-scratch build: the actual dead ends you hit *while building this for real*... it's cheaper to prep than a live build because it's recall, not construction.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says explicitly which answer moved which option - the rehearsal ceiling deleting the tiers, the deadline re-ranking the arcs",
+        "evidence": "\"Rehearsal ceiling... You have ~2 hours total. Progressive construction... is the single most expensive arc to rehearse, and unscripted live typing is the single riskiest demo tier\" ties the same ~2-hour constraint to deleting both the arc and the demo tier, and 'Efficiency/effort ranking for your timeline: incident and migration are recall... That's what fits 2 hours' ties it to the arc recommendation.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Surfaces the speaking.io position that the only way to win a live demo in front of hundreds of strangers is not to do one",
+        "evidence": "\"Holman's line applies directly here: 'Live demos are like Global Thermonuclear War: the only way to win is to not do a live demo in front of hundreds of strangers in the first place.'\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Removes unscripted live typing from the options entirely rather than offering it with caveats, because the two-hour rehearsal ceiling cannot cover it",
+        "evidence": "The transcript keeps live typing in the plan itself: 'Live-type only the part that teaches something: the actual `Validate()` handler logic (~40\u201360 lines)' and schedules two 'Live:' blocks (2:30\u20135:30, 5:30\u20138:30). It never frames this as removing an 'unscripted' option, nor invokes a 'two-hour rehearsal ceiling' as the reason to exclude anything \u2014 it instead mitigates live-typing risk via pre-baked scaffolding and checkpoint commits.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Removes the progressive-construction arc for the same reason instead of ranking it last",
+        "evidence": "The transcript explicitly preserves a (trimmed) progressive-construction arc: 'Live: HTTP server + `/validate` handler, no-op passthrough... ' then 'Live: real logic \u2014 reject Pods missing resources.limits...' followed by cluster wiring \u2014 a server-skeleton-to-full-logic progression is kept, just with boilerplate pre-baked, not removed or ranked last.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the principle that an option the speaker has no hours to rehearse is not presented at all",
+        "evidence": "No such principle appears anywhere; the closest is a time-budget section ('What to actually do with your 2 hours') that allocates rehearsal time rather than filtering options by rehearsal feasibility.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends a narrated screencast, or an equivalent pre-recorded demo, as the fidelity tier for this case",
+        "evidence": "A recording is proposed only as a break-glass fallback \u2014 'record a full successful run tonight... as an absolute fallback. If the cluster/demo dies on stage, play the recording and narrate over it' \u2014 not as the chosen fidelity tier for the talk; the primary recommendation remains a live demo against a local kind cluster.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the efficiency ordering of demo fidelity tiers: narrated screencast > scripted live demo against a prepared environment > unscripted live typing",
+        "evidence": "No such ordering or tier framework is stated anywhere in the transcript; it discusses risk mitigation (local cluster, pre-baking, checkpoints) rather than ranking fidelity tiers by efficiency.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the value ordering runs the opposite way, because unscripted live typing is the only tier an audience cannot suspect and a screencast asks the room to take the recording on trust",
+        "evidence": "The transcript never discusses audience trust/suspicion of recordings versus live typing; this concept is entirely absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the condition that would promote unscripted live typing anyway: when liveness itself is the claim being made",
+        "evidence": "No mention of 'liveness as the claim' or any equivalent condition anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that every retake of a narrated screencast is free, which is what makes that tier cheap on effort",
+        "evidence": "The transcript never discusses retake cost/economics of a screencast; it only says to record 'a full successful run tonight' once as a fallback, with no commentary on retakes being free.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the compliance cost of demoing against a live staging cluster in a room that may be recorded",
+        "evidence": "The staging cluster is discussed purely as a network-reliability risk ('a staging cluster reachable only over that wifi (auth, DNS, firewall rules, VPN) is a second coin flip') \u2014 no compliance, recording, or data-exposure concern is raised.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends an arc built from material the speaker has already lived rather than one that must be constructed and verified, because of the three-day deadline",
+        "evidence": "The transcript recommends the opposite: 'Write the whole thing end to end tonight, confirm it genuinely works once' \u2014 building and verifying new material from scratch \u2014 and never mentions a three-day deadline as a constraint.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says explicitly which answer moved which option - the rehearsal ceiling deleting the tiers, the deadline re-ranking the arcs",
+        "evidence": "No such explanatory statement exists; the transcript gives direct recommendations without attributing option changes to a rehearsal ceiling or a deadline re-ranking.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Surfaces the speaking.io position that the only way to win a live demo in front of hundreds of strangers is not to do one",
+        "evidence": "No reference to speaking.io or any equivalent claim appears; the transcript's stance is to make the live demo safer (local cluster, checkpoints, recorded fallback), not to avoid doing one.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

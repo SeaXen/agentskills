@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Classifies the falling return rate and attendee decline as a demand signal outside this improvement process's operational scope.",
+        "evidence": "\"Retention (45% \u2192 30%) and two sponsor non-renewals: these are demand signals. They belong to event-market-fit.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the retention and attendance trend to the demand-signal owner (event-market-fit) instead of treating it as an operational finding.",
+        "evidence": "Routing hand-offs list `event-market-fit` with return rate 45% then 30% and the flat inflow.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies the two sponsor non-renewals as a demand signal to route, not an operational theme.",
+        "evidence": "\"Two sponsors declined to renew | Same | not ours | ... routed to event-market-fit\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not deliver a list of operational changes presented as the fix for retention, despite the user asking for exactly that.",
+        "evidence": "\"Don't tell the team it will bring people back.\" The only change is CR-1 for check-in.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the 90-minute check-in as an operational trend this process owns, counted at 3 of 3 editions and labelled a pattern.",
+        "evidence": "\"Check-in about 90 min | ... | 3 of 3 editions | pattern\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Hands over any link between check-in delays and retention as an observation for the demand owner to weigh, not as an established causal claim.",
+        "evidence": "\"Check-in was about 90 min in all three editions. This is an observation, not a causal claim.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the operational-versus-demand split explicitly at the handover.",
+        "evidence": "The Bottom line separates \"ours to fix\" from the demand signals that \"belong to event-market-fit\"; the handover says \"The retention and sponsor questions are theirs to answer.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that operational fixes alone cannot be shown to reverse a demand trend - the event can run beautifully for an audience that has stopped coming, or equivalent reasoning.",
+        "evidence": "\"An operational fix aimed at the wrong target would give you a smooth event for an audience that has stopped coming.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Any check-in change proposed carries what changes, why the evidence justifies it, and an observable check.",
+        "evidence": "CR-1 has a Change menu, \"Because: the 90 min recurred unchanged\", and \"longest observed wait <= 20 min at peak, timed by a named observer\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Records the routing decision in the log entry itself so the hand-off stays traceable.",
+        "evidence": "The filed-entries table carries a routed-to label per entry and CR-1 has \"Routed to: event-planning-timeline\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not claim to have determined why attendance dropped.",
+        "evidence": "\"Possible causes include programme, price, audience fit and sponsor ROI\"; \"A constant can't explain a change.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the number of editions of records held (three) as the bound on every trend claim made.",
+        "evidence": "\"Everything here rests on three editions of records, which caps every claim at that evidence.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Classifies the falling return rate and attendee decline as a demand signal outside this improvement process's operational scope.",
+        "evidence": "It treats it as the core problem: 'Retention is the problem'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the retention and attendance trend to the demand-signal owner (event-market-fit) instead of treating it as an operational finding.",
+        "evidence": "No routing; it builds its own plan",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Classifies the two sponsor non-renewals as a demand signal to route, not an operational theme.",
+        "evidence": "It treats them as a sponsor retention workstream ('Sponsor retention, driven by the calls')",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not deliver a list of operational changes presented as the fix for retention, despite the user asking for exactly that.",
+        "evidence": "Title: 'operational changes to lift retention', followed by sections on community, loyalty pricing and sponsor reports",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the 90-minute check-in as an operational trend this process owns, counted at 3 of 3 editions and labelled a pattern.",
+        "evidence": "'Check-in took about 90 minutes in all three editions' is called a 'real, unfixed problem', never labelled a pattern",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Hands over any link between check-in delays and retention as an observation for the demand owner to weigh, not as an established causal claim.",
+        "evidence": "It says 'Check-in did not cause the drop' and does not hand anything over",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the operational-versus-demand split explicitly at the handover.",
+        "evidence": "No such split is stated",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that operational fixes alone cannot be shown to reverse a demand trend - the event can run beautifully for an audience that has stopped coming, or equivalent reasoning.",
+        "evidence": "No such warning; it sets a target to return to 45% retention",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Any check-in change proposed carries what changes, why the evidence justifies it, and an observable check.",
+        "evidence": "'15 minutes or less... Your notes show 90 minutes in every edition... Time it live and record it'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Records the routing decision in the log entry itself so the hand-off stays traceable.",
+        "evidence": "No routing and no log entry",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not claim to have determined why attendance dropped.",
+        "evidence": "'We don't know why people left.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the number of editions of records held (three) as the bound on every trend claim made.",
+        "evidence": "Mentions three editions only as data points, not as a bound on claims",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

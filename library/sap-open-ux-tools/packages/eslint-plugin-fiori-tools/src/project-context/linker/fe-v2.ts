@@ -1,0 +1,893 @@
+import type { MetadataElement } from '@sap-ux/odata-annotation-core';
+import type { LinkerContext, ConfigurationBase } from './types.js';
+import { getParsedServiceByName } from '../utils.js';
+import type { ParsedService } from '../parser/index.js';
+import type {
+    AnnotationNode,
+    ChartNode,
+    FieldGroupNode,
+    HeaderSectionNode,
+    TableNode,
+    TableSectionNode
+} from './annotations.js';
+import {
+    collectPageCharts,
+    collectHeaderSections,
+    collectSections,
+    collectTables,
+    getConfigurationKey
+} from './annotations.js';
+import type { FlexChange, MinUI5Version, ParsedApp, PropertyChangeConfig } from '../parser/types.js';
+import { isLowerThanMinimalUi5Version } from '../../utils/version.js';
+
+export interface FlexibleColumnLayoutSettings {
+    defaultTwoColumnLayoutType: string;
+    defaultThreeColumnLayoutType: string;
+}
+
+export type TableColumnVerticalAlignmentValues = 'Bottom' | 'Middle' | 'Top';
+export interface ApplicationSetting {
+    createMode: string;
+    statePreservationMode: string;
+    flexibleColumnLayout: FlexibleColumnLayoutSettings;
+    tableColumnVerticalAlignment: TableColumnVerticalAlignmentValues;
+    cloudDevAdaptationStatus: string;
+}
+export interface PageSetting {
+    createMode: string;
+    condensedTableLayout: boolean;
+    liveMode?: boolean;
+    inlineDelete: boolean;
+    multiSelect: boolean;
+}
+
+export type OrphanSection = ConfigurationBase<'orphan-section', TableSettings>;
+export type TableSection = AnnotationBasedNode<TableSectionNode, {}, Table>;
+export type HeaderSection = AnnotationBasedNode<HeaderSectionNode, {}, FieldGroup>;
+export type Section = TableSection | OrphanSection | HeaderSection;
+
+export interface TableSettings {
+    createMode: string;
+    tableType: string;
+    copy: boolean;
+    showPasteButton: boolean;
+    enableExport: boolean;
+    inlineDelete: boolean;
+    multiSelect: boolean;
+}
+
+export type FlexChangeProperty = 'enableExport' | 'showPasteButton' | 'useExportToExcel' | 'liveMode';
+
+export type OrphanTable = ConfigurationBase<'orphan-table', TableSettings>;
+export type Table = AnnotationBasedNode<TableNode, TableSettings>;
+export type FieldGroup = AnnotationBasedNode<FieldGroupNode, {}>;
+export type Chart = AnnotationBasedNode<ChartNode, {}>;
+
+export type Node = Section | Table | OrphanTable | FieldGroup | Chart;
+export type NodeLookup<T extends Node> = {
+    [K in T['type']]?: Extract<T, { type: K }>[];
+};
+
+export interface LinkedFeV2App extends ConfigurationBase<'fe-v2', ApplicationSetting> {
+    pages: FeV2PageType[];
+}
+
+export interface FeV2ListReport extends ConfigurationBase<'list-report-page', PageSetting> {
+    targetName: string;
+    componentName: 'sap.suite.ui.generic.template.ListReport' | 'sap.suite.ui.generic.template.AnalyticalListPage';
+    entitySetName: string;
+    entity: MetadataElement;
+    tables: (Table | OrphanTable)[];
+    lookup: NodeLookup<Table | OrphanTable | FieldGroup | Chart>;
+}
+
+export interface FeV2ObjectPage extends ConfigurationBase<'object-page', PageSetting> {
+    targetName: string;
+    componentName: 'sap.suite.ui.generic.template.ObjectPage';
+    entitySetName: string;
+    entity: MetadataElement;
+    sections: Section[];
+    lookup: NodeLookup<Table | Section | FieldGroup | Chart>;
+}
+
+export type FeV2PageType = FeV2ListReport | FeV2ObjectPage;
+
+export interface AnnotationBasedNode<
+    T extends AnnotationNode,
+    Configuration extends object = {},
+    Children = never
+> extends ConfigurationBase<T['type'], Configuration> {
+    annotation?: T;
+    label?: string;
+    children: Children[];
+}
+
+const createModeValues = ['creationRows', 'creationRowsHiddenInEditMode', 'newPage'];
+const tableTypeValues = ['Table', 'ResponsiveTable', 'AnalyticalTable', 'GridTable'];
+const statePreservationModeValues = ['persistence', 'discovery'];
+
+/**
+ * Returns property change config for given property.
+ *
+ * @param pageTableChanges - Changes related to the page.
+ * @param property - Property name
+ * @returns Property change or undefined if not found.
+ */
+const getPropertyChangeConfig = (
+    pageTableChanges: FlexChange[],
+    property: FlexChangeProperty
+): PropertyChangeConfig | undefined => {
+    const propertyChange = pageTableChanges.find((change: FlexChange) => change.content.property === property);
+    if (propertyChange) {
+        return {
+            property,
+            value: propertyChange.content.newValue,
+            selector: propertyChange.selector.id,
+            changeFileUri: propertyChange.changeFileUri
+        };
+    }
+};
+
+/**
+ * Creates table configuration object
+ *
+ * @param pathToPage
+ * @param pageTableChanges
+ * @param settings
+ * @param settings.createMode
+ * @param settings.tableType
+ * @param settings.copy
+ * @param settings.inlineDelete
+ * @param settings.multiSelect
+ * @param minUI5Version
+ */
+function createTableConfiguration(
+    pathToPage: string[],
+    pageTableChanges: FlexChange[],
+    settings: {
+        createMode?: string;
+        tableType?: string;
+        copy?: boolean;
+        inlineDelete?: boolean;
+        multiSelect?: boolean;
+    },
+    minUI5Version?: MinUI5Version
+) {
+    const exportProperty =
+        minUI5Version && isLowerThanMinimalUi5Version(minUI5Version, { major: 1, minor: 145 })
+            ? 'useExportToExcel'
+            : 'enableExport';
+    const enableExport = getPropertyChangeConfig(pageTableChanges, exportProperty);
+    const showPasteButton = getPropertyChangeConfig(pageTableChanges, 'showPasteButton');
+    return {
+        createMode: {
+            values: createModeValues,
+            configurationPath: [...pathToPage, 'component', 'settings', 'tableSettings', 'createMode'],
+            valueInFile: settings.createMode
+        },
+        tableType: {
+            values: tableTypeValues,
+            configurationPath: [...pathToPage, 'component', 'settings', 'tableSettings', 'type'],
+            valueInFile: settings.tableType
+        },
+        copy: {
+            values: [true, false],
+            configurationPath: [...pathToPage, 'component', 'settings', 'tableSettings', 'copy'],
+            valueInFile: settings.copy
+        },
+        enableExport: {
+            values: [true, false],
+            selector: enableExport?.selector ?? '',
+            valueInFile: enableExport?.value,
+            changeFileUri: enableExport?.changeFileUri ?? '',
+            configurationPath: []
+        },
+        showPasteButton: {
+            values: [true, false],
+            selector: showPasteButton?.selector ?? '',
+            valueInFile: showPasteButton?.value,
+            changeFileUri: showPasteButton?.changeFileUri ?? '',
+            configurationPath: []
+        },
+        inlineDelete: {
+            values: [true, false],
+            configurationPath: [...pathToPage, 'component', 'settings', 'tableSettings', 'inlineDelete'],
+            valueInFile: settings.inlineDelete
+        },
+        multiSelect: {
+            values: [true, false],
+            configurationPath: [...pathToPage, 'component', 'settings', 'tableSettings', 'multiSelect'],
+            valueInFile: settings.multiSelect
+        }
+    };
+}
+
+/**
+ * Creates section table configuration object
+ *
+ * @param pathToPage
+ * @param minUI5Version
+ * @param sectionKey
+ * @param createMode
+ * @param pageTableChanges
+ * @param settings
+ * @param settings.tableType
+ * @param settings.copy
+ * @param settings.inlineDelete
+ * @param settings.multiSelect
+ * @returns
+ */
+function createSectionTableConfiguration(
+    pathToPage: string[],
+    minUI5Version: MinUI5Version | undefined,
+    sectionKey: string,
+    createMode: string | undefined,
+    pageTableChanges: FlexChange[],
+    settings: {
+        tableType: string | undefined;
+        copy: boolean | undefined;
+        inlineDelete?: boolean;
+        multiSelect?: boolean;
+    }
+) {
+    const exportProperty =
+        minUI5Version && isLowerThanMinimalUi5Version(minUI5Version, { major: 1, minor: 145 })
+            ? 'useExportToExcel'
+            : 'enableExport';
+    const enableExport = getPropertyChangeConfig(pageTableChanges, exportProperty);
+    const showPasteButton = getPropertyChangeConfig(pageTableChanges, 'showPasteButton');
+    return {
+        createMode: {
+            values: createModeValues,
+            configurationPath: [...pathToPage, 'component', 'settings', 'sections', sectionKey, 'createMode'],
+            valueInFile: createMode
+        },
+        tableType: {
+            values: tableTypeValues,
+            configurationPath: [
+                ...pathToPage,
+                'component',
+                'settings',
+                'sections',
+                sectionKey,
+                'tableSettings',
+                'type'
+            ],
+            valueInFile: settings.tableType
+        },
+        copy: {
+            values: [true, false],
+            configurationPath: [
+                ...pathToPage,
+                'component',
+                'settings',
+                'sections',
+                sectionKey,
+                'tableSettings',
+                'copy'
+            ],
+            valueInFile: settings.copy
+        },
+        enableExport: {
+            values: [true, false],
+            selector: enableExport?.selector ?? '',
+            valueInFile: enableExport?.value,
+            changeFileUri: enableExport?.changeFileUri ?? '',
+            configurationPath: []
+        },
+        showPasteButton: {
+            values: [true, false],
+            selector: showPasteButton?.selector ?? '',
+            valueInFile: showPasteButton?.value,
+            changeFileUri: showPasteButton?.changeFileUri ?? '',
+            configurationPath: []
+        },
+        inlineDelete: {
+            values: [true, false],
+            configurationPath: [
+                ...pathToPage,
+                'component',
+                'settings',
+                'sections',
+                sectionKey,
+                'tableSettings',
+                'inlineDelete'
+            ],
+            valueInFile: settings.inlineDelete
+        },
+        multiSelect: {
+            values: [true, false],
+            configurationPath: [
+                ...pathToPage,
+                'component',
+                'settings',
+                'sections',
+                sectionKey,
+                'tableSettings',
+                'multiSelect'
+            ],
+            valueInFile: settings.multiSelect
+        }
+    };
+}
+
+/**
+ * Creates linked table for a section
+ *
+ * @param table - Table annotation node to link
+ * @param minUI5Version - Minimum UI5 version from the app manifest
+ * @param pathToPage - Manifest path segments leading to the page
+ * @param sectionSettings - Settings resolved from the manifest section configuration
+ * @param sectionSettings.sectionKey - Manifest section key (e.g. `to_Product::com.sap.vocabularies.UI.v1.LineItem`)
+ * @param sectionSettings.createMode - Create mode for the section table
+ * @param sectionSettings.tableType - Table type override for the section
+ * @param sectionSettings.copy - Whether copy action is enabled for the section table
+ * @param sectionSettings.inlineDelete - Whether inline delete is enabled for the section table
+ * @param sectionSettings.multiSelect - Whether multi-select is enabled for the section table
+ * @param pageTableChanges - Flex changes scoped to this page and section
+ * @returns Linked table node with configuration and annotation
+ */
+function createLinkedTableForSection(
+    table: TableNode,
+    minUI5Version: MinUI5Version | undefined,
+    pathToPage: string[],
+    sectionSettings: {
+        sectionKey: string;
+        createMode?: string;
+        tableType?: string;
+        copy?: boolean;
+        inlineDelete?: boolean;
+        multiSelect?: boolean;
+    },
+    pageTableChanges: FlexChange[]
+): Table {
+    return {
+        type: table.type,
+        annotation: table,
+        configuration: createSectionTableConfiguration(
+            pathToPage,
+            minUI5Version,
+            sectionSettings.sectionKey,
+            sectionSettings.createMode,
+            pageTableChanges,
+            {
+                tableType: sectionSettings.tableType,
+                copy: sectionSettings.copy,
+                inlineDelete: sectionSettings.inlineDelete,
+                multiSelect: sectionSettings.multiSelect
+            }
+        ),
+        children: []
+    };
+}
+
+/**
+ * Gets entity set and entity type from service
+ *
+ * @param service
+ * @param entitySetName
+ */
+function getEntityData(service: ParsedService, entitySetName: string) {
+    const entity = service.index.entitySets[entitySetName];
+    const entityType = entity?.structuredType;
+    return { entity, entityType };
+}
+
+/**
+ * Creates page configuration
+ *
+ * @param path
+ * @param name
+ * @param createMode
+ * @param condensedTableLayout
+ * @param pageChanges
+ * @param inlineDelete - page-level tableSettings inlineDelete (object page only)
+ * @param multiSelect - page-level tableSettings multiSelect (object page only)
+ */
+function createPageConfiguration(
+    path: string[],
+    name: string,
+    createMode: string | undefined,
+    condensedTableLayout: boolean | undefined,
+    pageChanges: FlexChange[],
+    inlineDelete?: boolean,
+    multiSelect?: boolean
+) {
+    const liveMode = getPropertyChangeConfig(pageChanges, 'liveMode');
+    return {
+        createMode: {
+            values: createModeValues,
+            configurationPath: [...path, name, 'component', 'settings', 'createMode'],
+            valueInFile: createMode
+        },
+        condensedTableLayout: {
+            values: [true, false],
+            configurationPath: [...path, name, 'component', 'settings', 'condensedTableLayout'],
+            valueInFile: condensedTableLayout
+        },
+        liveMode: {
+            values: [true, false],
+            selector: liveMode?.selector ?? '',
+            valueInFile: liveMode?.value,
+            changeFileUri: liveMode?.changeFileUri ?? '',
+            configurationPath: []
+        },
+        inlineDelete: {
+            values: [true, false],
+            configurationPath: [...path, name, 'component', 'settings', 'tableSettings', 'inlineDelete'],
+            valueInFile: inlineDelete
+        },
+        multiSelect: {
+            values: [true, false],
+            configurationPath: [...path, name, 'component', 'settings', 'tableSettings', 'multiSelect'],
+            valueInFile: multiSelect
+        }
+    };
+}
+
+/**
+ * Links Fiori Elements v2 application structure.
+ * Processes application settings and pages to create a linked model.
+ *
+ * @param context - Linker context containing parsed application data
+ * @returns Linked FE v2 application structure
+ */
+export function runFeV2Linker(context: LinkerContext): LinkedFeV2App {
+    const manifest = context.app.manifestObject;
+    const config = manifest['sap.ui.generic.app'];
+    const linkedApp = linkApplicationSettings(context);
+    const service = getParsedServiceByName(context.app);
+    if (!service) {
+        return linkedApp;
+    }
+    if (config) {
+        for (const [name, target] of Object.entries((config?.pages ?? {}) as Record<string, ManifestPageSettings>)) {
+            linkPage(context, service, linkedApp, ['sap.ui.generic.app', 'pages'], name, target);
+        }
+    }
+    return linkedApp;
+}
+
+interface ManifestPageSettings {
+    navigationProperty?: string;
+    entitySet?: string;
+    component?: {
+        name?: string;
+        settings?: {
+            createMode?: string;
+            condensedTableLayout?: boolean;
+            tableSettings?: {
+                createMode?: string;
+                type?: string;
+                copy?: boolean;
+                inlineDelete?: boolean;
+                multiSelect?: boolean;
+            };
+            sections?: {
+                [sectionKey: string]: {
+                    createMode?: string;
+                    tableSettings?: {
+                        type?: string;
+                        copy?: boolean;
+                        inlineDelete?: boolean;
+                        multiSelect?: boolean;
+                    };
+                };
+            };
+        };
+    };
+    pages?: { [name: string]: ManifestPageSettings };
+}
+
+interface ManifestApplicationSettings {
+    settings?: {
+        tableColumnVerticalAlignment?: TableColumnVerticalAlignmentValues;
+        tableSettings?: TableSettings;
+        statePreservationMode?: string;
+        flexibleColumnLayout?: FlexibleColumnLayoutSettings;
+    };
+}
+/**
+ * Links a list report page
+ *
+ * @param context
+ * @param service
+ * @param linkedApp
+ * @param path
+ * @param name
+ * @param target
+ * @param componentName
+ */
+function linkListReportPage(
+    context: LinkerContext,
+    service: ParsedService,
+    linkedApp: LinkedFeV2App,
+    path: string[],
+    name: string,
+    target: ManifestPageSettings,
+    componentName: 'sap.suite.ui.generic.template.ListReport' | 'sap.suite.ui.generic.template.AnalyticalListPage'
+): void {
+    const entitySetName = target.entitySet;
+    if (!entitySetName) {
+        return;
+    }
+
+    const { entity, entityType } = getEntityData(service, entitySetName);
+    if (!entity || !entityType) {
+        return;
+    }
+
+    const mainService = getParsedServiceByName(context.app);
+    if (!mainService) {
+        return;
+    }
+
+    const tables = collectTables('v2', entityType, mainService);
+    const createMode = target.component?.settings?.createMode;
+    const condensedTableLayout = target.component?.settings?.condensedTableLayout;
+
+    const pageChanges = getPageChanges(context.app.changes, { type: 'list-report-page', componentName, entitySetName });
+    const page: FeV2ListReport = {
+        type: 'list-report-page',
+        targetName: name,
+        componentName,
+        configuration: createPageConfiguration(path, name, createMode, condensedTableLayout, pageChanges),
+        entitySetName,
+        entity,
+        tables: [],
+        lookup: {}
+    };
+
+    linkListReportTable(page, [...path, name], tables, target, context.app);
+    collectPageCharts(page, mainService);
+    linkedApp.pages.push(page);
+}
+
+/**
+ * Links an object page
+ *
+ * @param context
+ * @param service
+ * @param linkedApp
+ * @param path
+ * @param name
+ * @param target
+ */
+function linkObjectPagePage(
+    context: LinkerContext,
+    service: ParsedService,
+    linkedApp: LinkedFeV2App,
+    path: string[],
+    name: string,
+    target: ManifestPageSettings
+): void {
+    const entitySetName = target.entitySet;
+    if (!entitySetName) {
+        return;
+    }
+
+    const { entity, entityType } = getEntityData(service, entitySetName);
+    if (!entity || !entityType) {
+        return;
+    }
+
+    const mainService = getParsedServiceByName(context.app);
+    if (!mainService) {
+        return;
+    }
+
+    const sections = collectSections('v2', entityType, mainService);
+    const createMode = target.component?.settings?.createMode;
+    const componentName = 'sap.suite.ui.generic.template.ObjectPage';
+    const inlineDelete = target.component?.settings?.tableSettings?.inlineDelete;
+    const multiSelect = target.component?.settings?.tableSettings?.multiSelect;
+    const page: FeV2ObjectPage = {
+        type: 'object-page',
+        targetName: name,
+        componentName,
+        configuration: createPageConfiguration(path, name, createMode, undefined, [], inlineDelete, multiSelect),
+        entitySetName,
+        entity,
+        sections: [],
+        lookup: {}
+    };
+    linkObjectPageSections(
+        page,
+        [...path, name],
+        entity,
+        mainService,
+        sections.filter((section) => section.type === 'table-section'),
+        target,
+        context.app
+    );
+    for (const section of sections.filter((section) => section.type === 'header-section')) {
+        collectHeaderSections(section, page);
+    }
+    collectPageCharts(page, mainService);
+    linkedApp.pages.push(page);
+}
+
+/**
+ * Links a page based on component type
+ *
+ * @param context
+ * @param service
+ * @param linkedApp
+ * @param path
+ * @param name
+ * @param target
+ */
+function linkPage(
+    context: LinkerContext,
+    service: ParsedService,
+    linkedApp: LinkedFeV2App,
+    path: string[],
+    name: string,
+    target: ManifestPageSettings
+): void {
+    const componentName = target?.component?.name;
+
+    if (
+        componentName === 'sap.suite.ui.generic.template.ListReport' ||
+        componentName === 'sap.suite.ui.generic.template.AnalyticalListPage'
+    ) {
+        linkListReportPage(context, service, linkedApp, path, name, target, componentName);
+    } else if (componentName === 'sap.suite.ui.generic.template.ObjectPage') {
+        linkObjectPagePage(context, service, linkedApp, path, name, target);
+    }
+
+    const pages = target.pages ?? {};
+    for (const [key, child] of Object.entries(pages)) {
+        linkPage(context, service, linkedApp, [...path, name, 'pages'], key, child);
+    }
+}
+
+/**
+ * Filters flex changes related to a given page.
+ *
+ * @param changes - All changes in the project
+ * @param page - Page to select changes for
+ * @param section
+ * @returns - An array of property changes in a page
+ */
+function getPageChanges(
+    changes: FlexChange[],
+    page: Pick<FeV2PageType, 'type' | 'componentName' | 'entitySetName'>,
+    section?: TableSectionNode
+): FlexChange[] {
+    // Examples:
+    // LR table change id: lrpv2products::sap.suite.ui.generic.template.ListReport.view.ListReport::SEPMRA_C_PD_Product--listReport
+    // OP table change id: lrpv2products::sap.suite.ui.generic.template.ObjectPage.view.Details::SEPMRA_C_PD_Product--ProductTextFacetID::Table
+    const { type, componentName, entitySetName } = page;
+    return changes.filter((change) => {
+        let changeIdSubstring;
+        if (type === 'object-page') {
+            changeIdSubstring = `::${componentName}.view.Details::${entitySetName}--${section?.id}`;
+        } else {
+            changeIdSubstring = `::${componentName}.view.${componentName.split('.').pop()}::${entitySetName}`;
+        }
+        return change.selector.id.includes(changeIdSubstring);
+    });
+}
+
+/**
+ * Links tables in a List Report page with their configuration.
+ * Creates linked table structures from annotation nodes and manifest settings.
+ *
+ * @param page - FE v2 List Report page
+ * @param pathToPage - Path to page in manifest structure
+ * @param tables - Array of table annotation nodes
+ * @param configuration - Manifest page settings containing table configuration
+ * @param app - Parsed app
+ */
+function linkListReportTable(
+    page: FeV2ListReport,
+    pathToPage: string[],
+    tables: TableNode[],
+    configuration: ManifestPageSettings,
+    app: ParsedApp
+): void {
+    const listReportTable = tables.find((table) => table.annotation.qualifier === undefined);
+    if (!listReportTable) {
+        return;
+    }
+    const tableSettingsConfig = configuration.component?.settings?.tableSettings ?? {};
+    const createMode = tableSettingsConfig.createMode;
+    const tableType = tableSettingsConfig.type;
+    const copy = tableSettingsConfig.copy;
+    const inlineDelete = tableSettingsConfig.inlineDelete;
+    const multiSelect = tableSettingsConfig.multiSelect;
+    const pageTableChanges = getPageChanges(app.changes, page);
+    const minUI5Version = app.manifest.minUI5Version;
+    const linkedTable: Table = {
+        type: 'table',
+        annotation: listReportTable,
+        configuration: createTableConfiguration(
+            pathToPage,
+            pageTableChanges,
+            { createMode, tableType, copy, inlineDelete, multiSelect },
+            minUI5Version
+        ),
+        children: []
+    };
+    page.lookup[linkedTable.type] ??= [];
+    (page.lookup[linkedTable.type]! as Extract<Table | OrphanTable, { type: typeof linkedTable.type }>[]).push(
+        linkedTable
+    );
+}
+
+/**
+ * Resolves the manifest section key by preferring the annotation-path-derived key and falling back to
+ * the section's facet ID when only the facet ID appears as a key in the manifest sections.
+ *
+ * @param configurationKey - Annotation-path-derived key (e.g. `to_Product::com.sap.vocabularies.UI.v1.LineItem`)
+ * @param sectionId - Facet ID from the section annotation (e.g. `Products`), if any
+ * @param sectionConfigurations - Manifest sections map to check against
+ * @returns The key to use for manifest section lookups and configuration paths
+ */
+function resolveManifestSectionKey(
+    configurationKey: string,
+    sectionId: string | undefined,
+    sectionConfigurations: Record<string, unknown>
+): string {
+    if (sectionId !== undefined && !(configurationKey in sectionConfigurations) && sectionId in sectionConfigurations) {
+        return sectionId;
+    }
+    return configurationKey;
+}
+
+/**
+ * Links object page sections with their tables and configurations for Fiori Elements V2.
+ *
+ * @param page - The object page being linked
+ * @param pathToPage - Configuration path segments to the page
+ * @param entity - The metadata element representing the entity
+ * @param service - The parsed OData service
+ * @param sections - Array of table section nodes to link
+ * @param configuration - Manifest page settings
+ * @param app - Parsed app
+ */
+function linkObjectPageSections(
+    page: FeV2ObjectPage,
+    pathToPage: string[],
+    entity: MetadataElement,
+    service: ParsedService,
+    sections: TableSectionNode[],
+    configuration: ManifestPageSettings,
+    app: ParsedApp
+): void {
+    const controls: Record<string, Section | Table> = {};
+    const knownSectionKeys = new Set<string>();
+    for (const section of sections) {
+        if (section.type !== 'table-section') {
+            continue;
+        }
+
+        const table = section.children[0];
+        if (table.type !== 'table') {
+            continue;
+        }
+
+        const configurationKey = getConfigurationKey(table.annotationPath);
+        const linkedSection: TableSection = {
+            type: section.type,
+            annotation: section,
+            configuration: {},
+            children: []
+        };
+        controls[`${section.type}|${configurationKey}`] = linkedSection;
+        knownSectionKeys.add(configurationKey);
+        if (section.id) {
+            knownSectionKeys.add(section.id);
+        }
+
+        const sectionConfigurations = configuration.component?.settings?.sections ?? {};
+        const manifestSectionKey = resolveManifestSectionKey(configurationKey, section.id, sectionConfigurations);
+        const sectionConfig = sectionConfigurations[manifestSectionKey];
+        const sectionSettings = {
+            sectionKey: manifestSectionKey,
+            createMode: sectionConfig?.createMode,
+            tableType: sectionConfig?.tableSettings?.type,
+            copy: sectionConfig?.tableSettings?.copy,
+            inlineDelete: sectionConfig?.tableSettings?.inlineDelete,
+            multiSelect: sectionConfig?.tableSettings?.multiSelect
+        };
+        const pageSectionTableChanges = getPageChanges(app.changes, page, section);
+        const linkedTable = createLinkedTableForSection(
+            table,
+            app.manifest.minUI5Version,
+            pathToPage,
+            sectionSettings,
+            pageSectionTableChanges
+        );
+        linkedSection.children.push(linkedTable);
+        controls[`${linkedTable.type}|${configurationKey}`] = linkedTable;
+    }
+
+    const configurations = configuration.component?.settings?.sections ?? {};
+    for (const [sectionKey, sectionConfig] of Object.entries(configurations)) {
+        const sectionControl = controls[`table-section|${sectionKey}`];
+        if (!sectionControl && !knownSectionKeys.has(sectionKey)) {
+            const createMode = sectionConfig.createMode;
+            const tableType = sectionConfig.tableSettings?.type;
+            const copy = sectionConfig.tableSettings?.copy;
+            const inlineDelete = sectionConfig.tableSettings?.inlineDelete;
+            const multiSelect = sectionConfig.tableSettings?.multiSelect;
+            const orphanedSection: OrphanSection = {
+                type: 'orphan-section',
+                configuration: createSectionTableConfiguration(
+                    pathToPage,
+                    app.manifest.minUI5Version,
+                    sectionKey,
+                    createMode,
+                    [],
+                    { tableType, copy, inlineDelete, multiSelect }
+                )
+            };
+            controls[`${orphanedSection.type}|${sectionKey}|`] = orphanedSection;
+        }
+    }
+
+    for (const control of Object.values(controls)) {
+        if (control.type === 'table-section') {
+            page.sections.push(control);
+        }
+        page.lookup[control.type] ??= [] as any;
+        (page.lookup[control.type] as any[]).push(control);
+    }
+}
+
+/**
+ * Links application-level settings from manifest configuration for Fiori Elements V2.
+ *
+ * @param context - Linker context containing parsed application data
+ * @returns A linked Fiori Elements V2 application object
+ */
+function linkApplicationSettings(context: LinkerContext): LinkedFeV2App {
+    const config: ManifestApplicationSettings = context.app.manifestObject['sap.ui.generic.app'] ?? {};
+    const createMode = config.settings?.tableSettings?.createMode;
+    const statePreservationMode = config.settings?.statePreservationMode;
+    const twoColumnLayoutValue = config.settings?.flexibleColumnLayout?.defaultTwoColumnLayoutType;
+    const threeColumnLayoutValue = config.settings?.flexibleColumnLayout?.defaultThreeColumnLayoutType;
+    const tableColumnVerticalAlignmentValue = config.settings?.tableColumnVerticalAlignment;
+    const cloudDevAdaptationStatus = context.app.manifestObject['sap.fiori']?.cloudDevAdaptationStatus;
+    const linkedApp: LinkedFeV2App = {
+        type: 'fe-v2',
+        pages: [],
+        configuration: {
+            createMode: {
+                values: createModeValues,
+                configurationPath: ['sap.ui.generic.app', 'settings', 'tableSettings', 'createMode'],
+                valueInFile: createMode
+            },
+            statePreservationMode: {
+                values: statePreservationModeValues,
+                configurationPath: ['sap.ui.generic.app', 'settings', 'statePreservationMode'],
+                valueInFile: statePreservationMode
+            },
+            flexibleColumnLayout: {
+                defaultTwoColumnLayoutType: {
+                    values: ['TwoColumnsBeginExpanded', 'TwoColumnsMidExpanded'],
+                    configurationPath: ['sap.ui.generic.app', 'flexibleColumnLayout', 'defaultTwoColumnLayoutType'],
+                    valueInFile: twoColumnLayoutValue
+                },
+                defaultThreeColumnLayoutType: {
+                    values: ['ThreeColumnsMidExpanded', 'ThreeColumnsEndExpanded'],
+                    configurationPath: ['sap.ui.generic.app', 'flexibleColumnLayout', 'defaultThreeColumnLayoutType'],
+                    valueInFile: threeColumnLayoutValue
+                }
+            },
+            tableColumnVerticalAlignment: {
+                values: ['Bottom', 'Middle', 'Top'],
+                configurationPath: ['sap.ui.generic.app', 'settings', 'tableColumnVerticalAlignment'],
+                valueInFile: tableColumnVerticalAlignmentValue
+            },
+            cloudDevAdaptationStatus: {
+                values: ['released', 'deprecated', 'obsolete'],
+                configurationPath: ['sap.fiori', 'cloudDevAdaptationStatus'],
+                valueInFile: cloudDevAdaptationStatus
+            }
+        }
+    };
+    return linkedApp;
+}

@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Applies a re-confirmation issue for a list silent this long (or names the programme's silent-list rule as the deciding fact), sent through the ramp with non-responders suppressed",
+        "evidence": "Fix 9: \"Put the re-confirmation ask in the v3.0 issue ... Non-responders are suppressed by the date the issue states.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that addresses dead during the silent months can have become recycled spam traps",
+        "evidence": "\"Addresses that died during the silence now act as traps.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a list-verification or cleaning service cannot reliably detect spam traps or prove readers still want the mail",
+        "evidence": "\"Verification can't see recycled spam traps or readers who no longer want the mail.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Proposes sending Tuesday's issue first to the most recently engaged cohort (for example recent clickers or newest signups)",
+        "evidence": "Ramp send 1: \"Tue 11-03 ... Most recent human clickers, or newest signups\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Describes growing cohorts over several sends (roughly doubling, or over weeks) rather than one send",
+        "evidence": "800, 1,600, 3,200, about 4,200 over Tue to Fri; \"roughly doubling ramp\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names concrete hold conditions between cohorts, such as user-unknown bounces around 2%, deferral spikes, or Gmail spam rate above 0.1%",
+        "evidence": "\"User-unknown bounces above about 2%... A deferral spike... Gmail spam rate above 0.1%.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the 2% bounce hold level as a house rule, not a provider rule",
+        "evidence": "Monitoring sheet: \"About 2% (house rule)\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the 1,600 addresses the cleaning service removed as unproven cold-cohort subscribers, not as bounces",
+        "evidence": "\"The 1,600 removed addresses are not bounces. Treat them as unproven\"; tagged \"unproven, held out\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sends the launch issue on Tuesday to the warm cohorts only and the rest over the following sending days",
+        "evidence": "\"Warm cohorts get v3.0 on launch day and the rest follow within the week.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks whether click history exists to order cohorts, or says to fall back to signup date when it does not",
+        "evidence": "Open question 4 and fix 7: \"or by signup date, newest first, if no click data exists\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends reading each send's raw bounce replies before the next cohort",
+        "evidence": "Fix 8: \"reading raw bounces and the spam rate before each step\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend buying a dedicated IP or switching platform for the launch",
+        "evidence": "\"The subdomain move, DMARC enforcement and any platform change wait until after launch.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Checks authentication (DKIM and DMARC alignment) of the sending domain before the restart",
+        "evidence": "Fix 3 with seed showing dkim=pass d= own domain and dmarc=pass; \"If #3 or #4 fails on Monday, fix it before any send.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Applies a re-confirmation issue for a list silent this long (or names the programme's silent-list rule as the deciding fact), sent through the ramp with non-responders suppressed",
+        "evidence": "It only suggests a reconnect line in the first line; no re-confirmation issue or suppression of non-responders.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that addresses dead during the silent months can have become recycled spam traps",
+        "evidence": "\"some addresses have gone dormant or been recycled into spam traps\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a list-verification or cleaning service cannot reliably detect spam traps or prove readers still want the mail",
+        "evidence": "It says verification only checks the mailbox exists and doesn't show consent, but never says it can't detect spam traps.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Proposes sending Tuesday's issue first to the most recently engaged cohort (for example recent clickers or newest signups)",
+        "evidence": "Wave 1: \"Most recent signups, plus anyone who clicked in the last send\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Describes growing cohorts over several sends (roughly doubling, or over weeks) rather than one send",
+        "evidence": "All waves run Tuesday through Wednesday morning, not over several sends.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names concrete hold conditions between cohorts, such as user-unknown bounces around 2%, deferral spikes, or Gmail spam rate above 0.1%",
+        "evidence": "\"Hard bounce rate: under 2%. Pause above that. Spam complaint rate: under 0.1%.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the 2% bounce hold level as a house rule, not a provider rule",
+        "evidence": "The 2% is stated with no house-rule label.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats the 1,600 addresses the cleaning service removed as unproven cold-cohort subscribers, not as bounces",
+        "evidence": "\"Risky is not invalid... Move them to a suppressed segment... Mail the rest later... in a small batch\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sends the launch issue on Tuesday to the warm cohorts only and the rest over the following sending days",
+        "evidence": "Waves 1-3 are all Tuesday (wave 3 \"Tue ~14:00 or Wed 9:00\").",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks whether click history exists to order cohorts, or says to fall back to signup date when it does not",
+        "evidence": "It orders by signup date and clicks without asking whether click history exists.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends reading each send's raw bounce replies before the next cohort",
+        "evidence": "It checks bounce rates only; no mention of raw replies.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend buying a dedicated IP or switching platform for the launch",
+        "evidence": "Neither is recommended.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Checks authentication (DKIM and DMARC alignment) of the sending domain before the restart",
+        "evidence": "\"SPF, DKIM and DMARC pass, aligned on the From domain.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

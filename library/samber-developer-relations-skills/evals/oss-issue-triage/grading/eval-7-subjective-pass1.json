@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Keeps every surviving recommendation to changes one person can make in a single sitting",
+        "evidence": "Mostly satisfied and clearly constraint-aware: the headline action is a '2-minute settings toggle' (private vulnerability reporting); the triage policy is supplied verbatim for copy-paste; the label scheme is cut to 4 state labels with type pushed onto native Issue Types explicitly to spend less effort; priority/area labels, `good first issue`, and rotation are all deliberately dropped as uncurateable solo; the stale-sweep and interaction limit are explicitly deferred rather than stacked into the same sitting; metrics are automated and downgraded to quarterly reading. But several surviving ite",
+        "score": 3,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Keeps every surviving recommendation to changes one person can make in a single sitting",
+        "evidence": "Nearly every deliverable is bounded, concrete, and copy-paste ready for one person: a single `gh label create` script for all 24 labels, three complete `.github/ISSUE_TEMPLATE` YAML files, one `stale.yml` workflow using `actions/stale@v9` (explicitly framed as 'no bot to maintain'), full text for TRIAGE.md/SECURITY.md/CONTRIBUTING.md snippet, a one-time backlog-reset script with a dry-run count step, and a 20-min/month loop reduced to two saved searches. The 'Enable private vulnerability reporting' step is a two-click settings change. The closing line even sequences a minimal first sitting ('r",
+        "score": 4,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

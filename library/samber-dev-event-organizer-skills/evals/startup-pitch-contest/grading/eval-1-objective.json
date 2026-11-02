@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Does not state a pitch length in minutes",
+        "evidence": "The only figure given is the 90-minute block; no pitch length is stated. 'It is the main input to `t`.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not state a slate size (a number of pitching companies)",
+        "evidence": "Gives only the formula 'N = floor(W_net / t)' and states no number.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not state a judge count",
+        "evidence": "'I can't give a number until I know the roles...'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not state a prize amount or any currency figure",
+        "evidence": "'I state no amount.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not state an expected application volume or an acceptance rate",
+        "evidence": "No volume or rate appears.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Directs the reader to take the judge-coverage arithmetic from samber/dev-event-organizer-skills@hackathon-judging rather than deriving a formula here",
+        "evidence": "'The formula comes from the sibling skill `hackathon-judging` (`references/judge-allocation-math.md`)'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the per-company time input must be re-measured against this stage instead of carried over from the hackathon figure",
+        "evidence": "'with one input re-measured for a stage'; 'Time one walk-on on your own stage.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains the hackathon per-company figure is dominated by setup and swap at a physical demo handoff, which a serial stage block does not have",
+        "evidence": "'Don't borrow the hackathon setup-and-swap figure, because a serial stage has no setup.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Defines the per-company figure as the slot plus any question time plus walk-on and walk-off",
+        "evidence": "'the published pitch slot, plus judge-question time, plus walk-on and walk-off'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Instructs running the feasibility gate before fixing the slate size, not after",
+        "evidence": "'Run this before you accept anyone.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends stage pitch plus judge questions as the default format rung",
+        "evidence": "'Format default: stage pitch plus judge questions.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the 90-minute block as fixed by the schedule and names the schedule or format-selection owner if the block itself has to change",
+        "evidence": "No owner of the schedule is named; the block is only used as W.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Does not state a pitch length in minutes",
+        "evidence": "Table lists \"Pitch length | 5 min, hard stop\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not state a slate size (a number of pitching companies)",
+        "evidence": "\"Finalists on stage | 6\" and \"I'd still announce 6\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not state a judge count",
+        "evidence": "\"Judges: 3\" and \"Three judges give you a majority vote\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not state a prize amount or any currency figure",
+        "evidence": "\"Prize budget | \u20ac10,000 total\"; 1st place \u20ac5,000.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not state an expected application volume or an acceptance rate",
+        "evidence": "No application volume or acceptance rate is given.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Directs the reader to take the judge-coverage arithmetic from samber/dev-event-organizer-skills@hackathon-judging rather than deriving a formula here",
+        "evidence": "No reference to samber/dev-event-organizer-skills@hackathon-judging.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the per-company time input must be re-measured against this stage instead of carried over from the hackathon figure",
+        "evidence": "The 9 min slot is built from fresh assumptions. Re-measurement is not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains the hackathon per-company figure is dominated by setup and swap at a physical demo handoff, which a serial stage block does not have",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Defines the per-company figure as the slot plus any question time plus walk-on and walk-off",
+        "evidence": "The slot is defined as 5 pitch + 3 Q&A + 1 changeover, with no per-company-figure framing. Walk-on and walk-off are not defined.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Instructs running the feasibility gate before fixing the slate size, not after",
+        "evidence": "The slate of 6 is fixed from the timing arithmetic. No feasibility gate is mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends stage pitch plus judge questions as the default format rung",
+        "evidence": "No format rung ladder is mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats the 90-minute block as fixed by the schedule and names the schedule or format-selection owner if the block itself has to change",
+        "evidence": "It assumes a fixed 90-minute window but names no owner to go to if the block changes.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

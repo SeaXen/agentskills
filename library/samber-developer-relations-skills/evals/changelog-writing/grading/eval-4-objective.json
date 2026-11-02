@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Names Google Play's 500-character limit and states that it applies per language",
+        "evidence": "\"more than **6\u00d7 over Google Play's hard 500-character-per-language cap**\" and table header \"500-char cap per language\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects starting from the 3,180-character English draft and translating it outward",
+        "evidence": "\"the Play text below was written first, as its own short master, not compressed from the long one\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Instructs writing the tightest-capped version first and expanding upward, rather than compressing a long version downward",
+        "evidence": "\"compressing 4,000 down to 500 degrades harder than expanding 500 up to 4,000\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that English typically needs roughly twice the characters of Korean or Japanese for the same meaning, so English breaks the Play cap first",
+        "evidence": "Only \"Romance languages typically run 30-40% longer\" and CJK \"usually compresses far below the cap\" are mentioned; no explicit English-vs-CJK ratio claim appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives an overflow procedure that drops the lowest-impact items first",
+        "evidence": "All nine locales are shown as \"OK\" under the cap; no overflow-handling procedure is described anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends enforcing the character count mechanically in CI rather than checking by eye",
+        "evidence": "Verification is described as \"verified with `wc -m`\" manually; no CI enforcement recommendation appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that a Play API upload fails outright on overflow and names the offending language",
+        "evidence": "\"Play's API rejects the upload outright on overflow, naming the offending language.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that Play's copy-from-previous-release action carries stale translations forward",
+        "evidence": "No mention of a copy-from-previous-release behavior anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags Apple's 4,000-character limit as reported rather than verified against Apple's own documentation",
+        "evidence": "\"Apple's 4,000-char cap is third-party-reported, not verified against Apple's own docs (per this skill's sourcing note)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Front-loads the single highest-impact change in the first sentence, citing the roughly 170-character visible fold",
+        "evidence": "No mention of a visible-fold character count (e.g., ~170 characters) appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that store notes are locked at submission and cannot be corrected without a new version",
+        "evidence": "No statement about notes being locked at submission appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends formal address as the default register for German, French, Spanish, Dutch and Italian",
+        "evidence": "\"formal register applied throughout (vous/Sie/usted/u/Lei, polite Japanese/Korean)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Uses at most three coarse sections such as New, Improved and Fixed rather than a full specification category set",
+        "evidence": "Play/App Store copy uses only \"NEW\"/\"New\" and \"FIXED\"/\"Fixed\" headings \u2014 two coarse categories throughout.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Names Google Play's 500-character limit and states that it applies per language",
+        "evidence": "Google Play Developer API | `releaseNotes[].text` (per language, on the track release) | **500 characters**",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects starting from the 3,180-character English draft and translating it outward",
+        "evidence": "So this can't be \"translate once, ship to both stores.\" It has to be: App Store version: full localized text... Play version: a condensed, separately-written \u2264500-char release note per language (not a mechanical truncation of the long version...)",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Instructs writing the tightest-capped version first and expanding upward, rather than compressing a long version downward",
+        "evidence": "The transcript only offers this as a question to the user ('Should I write the condensed Play version myself... or do you want to approve a condensed English version first, then I translate that into 9 languages?'), not as an instructed workflow of building the tightest version first and expanding upward.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that English typically needs roughly twice the characters of Korean or Japanese for the same meaning, so English breaks the Play cap first",
+        "evidence": "The transcript only discusses German and Finnish being 20-30% longer than English ('German and Finnish-style compounding languages also typically run 20\u201330% longer than English'); no mention of Korean or Japanese or English breaking the cap first.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives an overflow procedure that drops the lowest-impact items first",
+        "evidence": "No overflow/prioritization procedure is described anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends enforcing the character count mechanically in CI rather than checking by eye",
+        "evidence": "No mention of CI or automated/mechanical character-count enforcement anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that a Play API upload fails outright on overflow and names the offending language",
+        "evidence": "\"Google Play will reject the `edits.tracks.update` call outright if any `releaseNotes.text` exceeds 500 chars \u2014 this isn't a soft truncation, it's a validation error. German and Finnish-style compounding languages also typically run 20\u201330% *longer* than English...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that Play's copy-from-previous-release action carries stale translations forward",
+        "evidence": "No mention of a copy-from-previous-release feature or stale translations anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags Apple's 4,000-character limit as reported rather than verified against Apple's own documentation",
+        "evidence": "The 4,000-character Apple limit is stated flatly in the table ('Apple App Store Connect | `whatsNew` (per locale) | 4,000 characters') with no hedge indicating it is unverified or needs checking against Apple's documentation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Front-loads the single highest-impact change in the first sentence, citing the roughly 170-character visible fold",
+        "evidence": "The opening sentence is 'Two blockers before I can produce the actual 9-language deliverable \u2014 flagging them now rather than guessing:' with no mention of a visible fold or 170 characters anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that store notes are locked at submission and cannot be corrected without a new version",
+        "evidence": "No statement about store notes being locked at submission or requiring a new version to correct appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends formal address as the default register for German, French, Spanish, Dutch and Italian",
+        "evidence": "The transcript asks about Portuguese and Dutch locale variants but never discusses formal vs informal register/address for any language.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Uses at most three coarse sections such as New, Improved and Fixed rather than a full specification category set",
+        "evidence": "No section categorization scheme (New/Improved/Fixed or otherwise) is proposed anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

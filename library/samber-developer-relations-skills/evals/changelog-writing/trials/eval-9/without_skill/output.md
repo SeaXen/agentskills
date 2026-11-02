@@ -1,0 +1,1 @@
+I don't have confirmed access to the Northgate repo from here, and hunting for it via `gh` will cost time you don't have. Fastest path: paste the 22 auto-generated bullets (or the PR titles) here and I'll turn them into a clean release body right now.

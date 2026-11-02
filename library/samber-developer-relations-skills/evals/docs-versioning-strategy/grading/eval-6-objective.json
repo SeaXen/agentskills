@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Classifies Larkspur as 'hosted API, several callable versions' with the API date, not the SDK version, driving the docs switcher",
+        "evidence": "\"hosted API, several callable versions\"; \"Version the docs on one axis, the API date.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Caps versioned reference at three entries, the API's concurrent callable count, never the API-date \u00d7 SDK-version product",
+        "evidence": "\"The selector is capped at the API's concurrent-version count, which is 3.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Applies the selector to the reference only; tutorials and guides stay a single set with stamps or badges",
+        "evidence": "\"latest-only guides with stamps... plus a small inventory of date-variant pages\"; \"Rejected: Selector over all guides\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to rewrite tutorials per API-date and SDK-version pair, naming it as versioning content that does not differ between lines",
+        "evidence": "\"don't rewrite tutorials per pair\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Links the registry-hosted per-release SDK reference from every docs version instead of rebuilding SDK reference on the docs site",
+        "evidence": "\"SDK reference stays on the package registries. Link it from every version's pages\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the API date as the component that drives the switcher and publishes a compatibility matrix page (SDK version \u00d7 API date)",
+        "evidence": "\"A compatibility matrix page lists SDK \u00d7 version \u2192 supported API dates.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites Elastic's `applies_to` badges as the precedent for marking availability across components on one page",
+        "evidence": "Elastic is not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Offers a reference rendered for the caller's pinned version (as a logged-in payments API does) as the alternative to a dropdown over the three dates",
+        "evidence": "\"a logged-in dashboard user could land on their account's pinned date. Stripe tailors its reference per account (sourced).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the dated-version scheme and sunset rules to samber/developer-platform-skills@api-versioning-policy",
+        "evidence": "The skill is never named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Prices the standing hours of three live reference versions against the two-writer capacity before recommending",
+        "evidence": "\"about 2 hours of backports\" against the 8-hour ceiling; table notes \"for two writers\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the sunset of a dated API version as the trigger that removes its reference entry from the switcher",
+        "evidence": "\"The oldest date past its sunset leaves the build as a static snapshot.\" Sunset moves maintained to frozen.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the changelog as one unversioned set that carries per-date history",
+        "evidence": "\"Unversioned content: ... Changelog and blog.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Classifies Larkspur as 'hosted API, several callable versions' with the API date, not the SDK version, driving the docs switcher",
+        "evidence": "\"Version the docs by API date only.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Caps versioned reference at three entries, the API's concurrent callable count, never the API-date \u00d7 SDK-version product",
+        "evidence": "\"API date picker (3 values)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Applies the selector to the reference only; tutorials and guides stay a single set with stamps or badges",
+        "evidence": "\"The picker covers concepts, guides, tutorials, webhooks, and the API reference.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to rewrite tutorials per API-date and SDK-version pair, naming it as versioning content that does not differ between lines",
+        "evidence": "\"Tutorials rewritten per cell is not maintainable\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Links the registry-hosted per-release SDK reference from every docs version instead of rebuilding SDK reference on the docs site",
+        "evidence": "\"A link to the exact-version reference on the registry.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the API date as the component that drives the switcher and publishes a compatibility matrix page (SDK version \u00d7 API date)",
+        "evidence": "The \"Your combination\" lookup maps SDK version to API date.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites Elastic's `applies_to` badges as the precedent for marking availability across components on one page",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Offers a reference rendered for the caller's pinned version (as a logged-in payments API does) as the alternative to a dropdown over the three dates",
+        "evidence": "\"For logged-in customers, default to the date their account pins\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the dated-version scheme and sunset rules to samber/developer-platform-skills@api-versioning-policy",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Prices the standing hours of three live reference versions against the two-writer capacity before recommending",
+        "evidence": "Only \"days of work, not weeks\" per new date.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the sunset of a dated API version as the trigger that removes its reference entry from the switcher",
+        "evidence": "\"When a date is sunset, remove it from the picker.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the changelog as one unversioned set that carries per-date history",
+        "evidence": "It auto-generates a \"what changed between dates\" page and never says the changelog is unversioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

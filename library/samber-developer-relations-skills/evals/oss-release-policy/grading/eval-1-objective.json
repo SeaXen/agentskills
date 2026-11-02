@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that tagging v2.0.0 requires the module path in go.mod to end in /v2 and every import to be rewritten, and that Go rejects the v2 tag for a module with a go.mod otherwise",
+        "evidence": "\"Go rejects a `v2.0.0` tag unless `go.mod` says `module github.com/kestrelworks/tally/v2`\" and \"Rewrite every internal import to `/v2`.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes CalVer as an option for this Go module, stating that past v1 every year would need a new /vYYYY import path",
+        "evidence": "\"`v26.4.0` would need a `/v26` import path, and a new path every year after that.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not keep CalVer as a demoted or later option for the Go module; it is removed from the candidates",
+        "evidence": "\"Calendar versions: no.\" Dates go in the changelog and table instead.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the padded 26.04 spelling as invalid in Go rather than only advising against it",
+        "evidence": "\"`26.04` is padded, so Go rejects it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a Go major is a new import path that every dependent must rewrite, and that v1 and v2 types never mix",
+        "evidence": "Says \"A new major is a new package. v1 and v2 can be imported side by side\" but never says their types do not mix.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that dropping Go 1.22, a release Go itself no longer supports, may ship in a minor release by ecosystem convention, announced one release ahead",
+        "evidence": "\"Dropping a Go release the Go project no longer supports may ship in a minor. We announce it ... at least one minor release and four weeks before it ships.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says the go directive in go.mod is raised in the same release that drops Go 1.22",
+        "evidence": "\"Set `go.mod` to ... `go 1.23.0`\" for v2.0.0; table \"v2.x | Go 1.23 (`go 1.23.0`)\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that dropping a Go release upstream still supports would be breaking",
+        "evidence": "\"Raising it above the oldest Go release the Go project still supports is a breaking change and ships only in a new major.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the retract directive in go.mod as the withdrawal mechanism and states that the module proxy caches every published tag forever, so a deleted or moved tag never unpublishes",
+        "evidence": "\"the Go proxy caches them forever... add a `retract` directive to `go.mod`\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes the Go pre-release spelling as v2.0.0-rc.1 with the /v2 path already in place and numbered suffixes so rc.10 sorts after rc.9",
+        "evidence": "\"`vX.Y.Z-rc.N` (numbered, so `rc.10` sorts after `rc.9`)\"; tag `v2.0.0-rc.1`.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sizes any yearly LTS line against the 6 hours a month with the fixes-per-month times hours-per-backport arithmetic before writing it, or declines the LTS promise for lack of capacity",
+        "evidence": "Table: \"~0.5 | assumed 3 fixes/year \u00d7 2 h \u00f7 12\", total ~2.5 of 6.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists the default label separator (a default value) in the covered surface and records the v1.12 Go 1.20 drop under Known past breaks instead of proposing to restore it",
+        "evidence": "\"Put the two past breaks under Known past breaks... Both stay\"; \"Put the default label separator and the default values in the 'covered' list\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives users remaining on v1 a stated support window with an end date or ending event after v2 ships",
+        "evidence": "\"v1.x | maintenance | security only | 2027-10-27 (12 months after v2.0.0)\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that tagging v2.0.0 requires the module path in go.mod to end in /v2 and every import to be rewritten, and that Go rejects the v2 tag for a module with a go.mod otherwise",
+        "evidence": "\"Do not push v2.0.0 until go.mod says module .../tally/v2. Go rejects a v2.x tag on a module path with no /v2\"; step 2 updates every internal import.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes CalVer as an option for this Go module, stating that past v1 every year would need a new /vYYYY import path",
+        "evidence": "\"major 26 forces the import path .../tally/v26. Every year-numbered major would then break all 900 importers' imports.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not keep CalVer as a demoted or later option for the Go module; it is removed from the candidates",
+        "evidence": "\"Recommendation: stay on semver.\" and \"Calendar versions are not used.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the padded 26.04 spelling as invalid in Go rather than only advising against it",
+        "evidence": "\"26.04 is not valid semver, and v26.04.0 has a leading zero, so the Go tooling rejects it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a Go major is a new import path that every dependent must rewrite, and that v1 and v2 types never mix",
+        "evidence": "Import-path breakage is mentioned, but nothing says v1 and v2 types do not mix.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that dropping Go 1.22, a release Go itself no longer supports, may ship in a minor release by ecosystem convention, announced one release ahead",
+        "evidence": "Says the minimum \"changes only in a major release, never in a minor or patch.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says the go directive in go.mod is raised in the same release that drops Go 1.22",
+        "evidence": "Step 2 on main: \"Set module .../v2 and go 1.24\"; \"v2.0.0 requires Go 1.24 or newer.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that dropping a Go release upstream still supports would be breaking",
+        "evidence": "Only says to check whether Go 1.24 is still supported; never says dropping a supported release is breaking.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the retract directive in go.mod as the withdrawal mechanism and states that the module proxy caches every published tag forever, so a deleted or moved tag never unpublishes",
+        "evidence": "Names retract and \"Never move or delete a pushed tag\", but never says the proxy caches every tag forever.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes the Go pre-release spelling as v2.0.0-rc.1 with the /v2 path already in place and numbered suffixes so rc.10 sorts after rc.9",
+        "evidence": "Writes v2.0.0-rc.1 after the go.mod change, but never states the numbered-suffix sort rationale.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sizes any yearly LTS line against the 6 hours a month with the fixes-per-month times hours-per-backport arithmetic before writing it, or declines the LTS promise for lack of capacity",
+        "evidence": "\"An annual LTS is expensive at 6 hours a month\" with no arithmetic; still offers an optional capped LTS.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Lists the default label separator (a default value) in the covered surface and records the v1.12 Go 1.20 drop under Known past breaks instead of proposing to restore it",
+        "evidence": "Lists \"changed defaults, such as the label separator\" under MAJOR, but there is no Known past breaks record of the v1.12 drop.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives users remaining on v1 a stated support window with an end date or ending event after v2 ships",
+        "evidence": "\"The previous major gets security fixes only, for 6 months after the new major's GA.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

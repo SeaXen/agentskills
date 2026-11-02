@@ -1,0 +1,36 @@
+use schemars::JsonSchema;
+use serde::{Deserialize, Serialize};
+
+use super::{FAIL_PARSE_DEPLOYMENT_OR_POD, FromSplit};
+use crate::config::{self, ConfigError};
+
+#[derive(Serialize, Deserialize, Clone, Eq, PartialEq, Hash, Debug, JsonSchema)]
+#[serde(deny_unknown_fields)]
+#[schemars(extend("x-mirrord-plan" = crate::plan::Plan::Team))]
+pub struct CronJobTarget {
+    pub cron_job: String,
+    #[serde(default, skip_serializing_if = "Option::is_none")]
+    pub container: Option<String>,
+}
+
+impl FromSplit for CronJobTarget {
+    fn from_split(split: &mut std::str::Split<char>) -> config::Result<Self> {
+        let cron_job = split.next().ok_or_else(|| {
+            ConfigError::InvalidTargetPath(FAIL_PARSE_DEPLOYMENT_OR_POD.to_owned())
+        })?;
+
+        match (split.next(), split.next()) {
+            (Some("container"), Some(container)) => Ok(Self {
+                cron_job: cron_job.to_owned(),
+                container: Some(container.to_owned()),
+            }),
+            (None, None) => Ok(Self {
+                cron_job: cron_job.to_owned(),
+                container: None,
+            }),
+            _ => Err(ConfigError::InvalidTargetPath(
+                FAIL_PARSE_DEPLOYMENT_OR_POD.to_owned(),
+            )),
+        }
+    }
+}

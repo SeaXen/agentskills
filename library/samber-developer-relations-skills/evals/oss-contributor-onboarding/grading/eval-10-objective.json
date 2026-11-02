@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Declines to present these numbers as a proven trend, stating that at this volume they are anecdotes with dates attached rather than a dashboard",
+        "evidence": "\"a single quarter of data (n=3 total, one post-fix) is below the 4-per-quarter floor needed to call this a trend rather than an anecdote with a date attached.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the newsletter write-up and the conference talk as confounders that move these numbers more than a documentation change does",
+        "evidence": "\"a conference talk or a front-page mention moves contributor counts more than a documentation change does\" alongside the newsletter/conference confound box.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the ship date of each change to be recorded and the confounders annotated before any delta is read",
+        "evidence": "\"see confounder and pending-data notes below before repeating these numbers upward\" plus recorded dates like \"fix landed ~last week of quarter\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports second-contribution rate within 90 days as the retention number the whole path exists to move",
+        "evidence": "\"they're the metrics that would actually prove retention, not just a one-time bump\" referring to second-contribution rate among others.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the 90-day window as this skill's own default rather than a published standard",
+        "evidence": "\"90-day window are this skill's own self-set baselines, not published standards \u2014 say so if asked where they come from.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Excludes bot replies from median time to first human response",
+        "evidence": "Metric consistently labeled \"Median time to first human response\", distinguishing it from automated replies.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Compares that median against the 48-hour reference point and attributes it to practitioner guidance with no published dataset behind the figure",
+        "evidence": "Only states \"vs. GitHub OSS Guides' 48-hour published reference point: now inside it; was not.\" with no caveat about it being a practitioner figure with no published dataset.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Tracks external first-pull-request merge rate and median time to merge separately from maintainers' own pull requests",
+        "evidence": "Lists \"External first-PR merge rate & time-to-merge\" as pending but does not state it is tracked separately from maintainers' own PRs.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that maintainers' own pull requests are always faster and hide the number that matters",
+        "evidence": "Not stated in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Tracks contributor absence factor and states it should rise slowly, as the only signal here measuring whether the project got less fragile",
+        "evidence": "Only lists \"Contributor absence factor (CHAOSS) \u2014 needs a full post-fix year to move meaningfully\" without the \"rise slowly\"/\"only signal of fragility\" framing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Tracks setup support load - issues and messages that are really 'I could not build it' - as the fastest-visible win",
+        "evidence": "\"Setup-support load (the fastest-visible win) \u2014 not yet counted this cycle\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns against quoting another project's outcome figure in place of measuring this project's own funnel",
+        "evidence": "No such warning appears in section 10's text.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Declines to present these numbers as a proven trend, stating that at this volume they are anecdotes with dates attached rather than a dashboard",
+        "evidence": "The transcript builds and delivers the requested dashboard outright ('Here's the one-slide dashboard...'), and even labels the response-time metric as 'the strongest evidence the fix itself worked' \u2014 it never frames the numbers as anecdotes rather than a dashboard.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the newsletter write-up and the conference talk as confounders that move these numbers more than a documentation change does",
+        "evidence": "'Q3 also had an Aug. newsletter feature and a Sep. conference talk \u2014 both drive first-time contributor discovery independent of how easy contributing actually is.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the ship date of each change to be recorded and the confounders annotated before any delta is read",
+        "evidence": "The subtitle states 'Fix shipped Q2 2026 \u00b7 Reporting window Q1\u2013Q3 2026' at the top of the slide, and the contributor-count panel is tagged '\u25d0 Directional \u2014 confounded by two other events' directly beside its delta, before the reader reaches the caption explaining the numbers.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports second-contribution rate within 90 days as the retention number the whole path exists to move",
+        "evidence": "No mention of a second-contribution or retention metric anywhere in the transcript; the only metrics tracked are median first-response time and external contributor count.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the 90-day window as this skill's own default rather than a published standard",
+        "evidence": "No 90-day window or any discussion of standard vs. default windows appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Excludes bot replies from median time to first human response",
+        "evidence": "The transcript discusses 'median time to first maintainer response' with no mention of bots or filtering bot replies.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Compares that median against the 48-hour reference point and attributes it to practitioner guidance with no published dataset behind the figure",
+        "evidence": "The only comparison made is before/after (11 days vs. 2 days); no 48-hour reference point or attribution to practitioner guidance appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Tracks external first-pull-request merge rate and median time to merge separately from maintainers' own pull requests",
+        "evidence": "The dashboard tracks 'median time to first maintainer response' and 'external contributors by quarter' \u2014 no merge rate or time-to-merge metric, and no split between maintainer and external PRs, is present.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that maintainers' own pull requests are always faster and hide the number that matters",
+        "evidence": "No comparison between maintainer and external PR speed is made anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Tracks contributor absence factor and states it should rise slowly, as the only signal here measuring whether the project got less fragile",
+        "evidence": "No 'absence factor' or fragility metric is mentioned anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Tracks setup support load - issues and messages that are really 'I could not build it' - as the fastest-visible win",
+        "evidence": "No mention of setup/build support burden as a tracked metric anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns against quoting another project's outcome figure in place of measuring this project's own funnel",
+        "evidence": "The transcript contains no reference to any other project's figures at all, and thus no such warning.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,7 +1,7 @@
 # 🔬 Scientific, Bio-Informatics & Astrophysics
 
 > **Category**: `scientific-bio-data`  
-> **Total Curated Skills**: 100 skills  
+> **Total Curated Skills**: 119 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -19,8 +19,11 @@ python .agents/library/activate_skill.py activate <skill-name>
 
 | Skill Name | Status | Origin Repository | Description |
 | :--- | :---: | :--- | :--- |
+| [`03-K-Dense-AI-claude-scientific-skills`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/03-K-Dense-AI-claude-scientific-skills) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` |  |
+| [`04-K-Dense-AI-claude-scientific-writer`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/04-K-Dense-AI-claude-scientific-writer) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` |  |
 | [`2d-games`](../../library/davila7-claude-code-templates/skills/2d-games) | ⚪ Reserve | `davila7-claude-code-templates` | 2D game development principles. Sprites, tilemaps, physics, camera. |
 | [`3d-games`](../../library/davila7-claude-code-templates/skills/3d-games) | ⚪ Reserve | `davila7-claude-code-templates` | 3D game development principles. Rendering, shaders, physics, cameras. |
+| [`63-tondevrel-scientific-agent-skills`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/63-tondevrel-scientific-agent-skills) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` |  |
 | [`advertising-kickoff`](../../library/mbfinotti-advertising-skills/skills/advertising-kickoff) | ⚪ Reserve | `mbfinotti-advertising-skills` | Before starting any paid advertising work, before each recurring advertising review, and whenev... |
 | [`ai-scientist-v2-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/ai-scientist-v2-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Automated scientific discovery via agentic tree search by Sakana AI |
 | [`ask-matt`](../../library/mattpocock-skills/skills/ask-matt) | ⚪ Reserve | `mattpocock-skills` | Ask which skill or flow fits your situation. A router over the skills in this repo. |
@@ -28,6 +31,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`astropy`](../../library/davila7-claude-code-templates/skills/astropy) | ⚪ Reserve | `davila7-claude-code-templates` | Comprehensive Python library for astronomy and astrophysics. This skill should be used when wor... |
 | [`biomedical`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/biomedical) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | 24 biomedical research skills. Trigger: medical research, clinical trials, genomics, bioinforma... |
 | [`biomni`](../../library/davila7-claude-code-templates/skills/biomni) | ⚪ Reserve | `davila7-claude-code-templates` | Autonomous biomedical AI agent framework for executing complex research tasks across genomics, ... |
+| [`bionemo-nvmolkit-usage`](../../library/nvidia-skills/skills/bionemo-nvmolkit-usage) | ⚪ Reserve | `nvidia-skills` | Use when writing or debugging nvMolKit Python code for GPU-accelerated RDKit fingerprints, simi... |
 | [`chemgraph-agent-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/chemgraph-agent-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Automate molecular simulations with the ChemGraph agentic framework |
 | [`chemistry`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/chemistry) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | 9 chemistry skills. Trigger: chemical structure analysis, reaction prediction, molecular modeli... |
 | [`claude-scientific-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/claude-scientific-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Ready-to-use agent skills for scientific research and engineering |
@@ -46,8 +50,12 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`deepchem`](../../library/davila7-claude-code-templates/skills/deepchem) | ⚪ Reserve | `davila7-claude-code-templates` | Molecular machine learning toolkit. Property prediction (ADMET, toxicity), GNNs (GCN, MPNN), Mo... |
 | [`detecting-anomalies-in-industrial-control-systems`](../../library/mukul975-anthropic-cybersecurity-skills/skills/detecting-anomalies-in-industrial-control-systems) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Deploys anomaly detection for OT/ICS environments using machine learning on OT network baseline... |
 | [`developer-relations-kickoff`](../../library/samber-developer-relations-skills/skills/developer-relations-kickoff) | ⚪ Reserve | `samber-developer-relations-skills` | Before starting any developer-relations work - and again at the start of each new session on an... |
+| [`dicom-metadata-extract`](../../library/nvidia-skills/skills/dicom-metadata-extract) | ⚪ Reserve | `nvidia-skills` | Used for extracting selected metadata from one DICOM file and flagging standard-tag PHI presenc... |
+| [`dicom-series-preflight`](../../library/nvidia-skills/skills/dicom-series-preflight) | ⚪ Reserve | `nvidia-skills` | Used for header-only preflight of one DICOM series folder before conversion or inference. Not f... |
+| [`dicom-series-to-volume`](../../library/nvidia-skills/skills/dicom-series-to-volume) | ⚪ Reserve | `nvidia-skills` | Used for converting one CT DICOM series folder to a HU NIfTI volume with affine evidence. Not f... |
 | [`diffdock`](../../library/davila7-claude-code-templates/skills/diffdock) | ⚪ Reserve | `davila7-claude-code-templates` | Diffusion-based molecular docking. Predict protein-ligand binding poses from PDB/SMILES, confid... |
 | [`drchrono`](../../library/membranedev-application-skills/skills/drchrono) | ⚪ Reserve | `membranedev-application-skills` | DrChrono integration. Manage Patients, Appointments, ClinicalNotes, MedicationOrders, LabOrders... |
+| [`earth2studio-install`](../../library/nvidia-skills/skills/earth2studio-install) | ⚪ Reserve | `nvidia-skills` | Guide installing Earth2Studio via uv or pip, selecting model extras, and configuring the enviro... |
 | [`falsify`](../../library/sickn33-agentic-awesome-skills/skills/falsify) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | The scientific thinking protocol for AI agents. Use when facing complex, ambiguous, or high-sta... |
 | [`firecrawl-deep-research`](../../library/firecrawl-firecrawl-workflows/skills/firecrawl-deep-research) | ⚪ Reserve | `firecrawl-firecrawl-workflows` | Produce an intensive, cited analytical report: executive summary, multi-angle findings, contrar... |
 | [`folklore-variant-evidence`](../../library/k-dense-ai-scientific-agent-skills/skills/folklore-variant-evidence) | ⚪ Reserve | `k-dense-ai-scientific-agent-skills` | Retrieves ClinGen gene-disease validity assertions for a public gene or disease, and reviews so... |
@@ -63,8 +71,10 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`julia`](../../library/mindrally-skills/skills/julia) | ⚪ Reserve | `mindrally-skills` | Julia development guidelines covering multiple dispatch, type system, performance optimization,... |
 | [`lab-hardware-cad`](../../library/k-dense-ai-scientific-agent-skills/skills/lab-hardware-cad) | ⚪ Reserve | `k-dense-ai-scientific-agent-skills` | Designs custom laboratory hardware as parametric build123d models and exports fabrication artif... |
 | [`latex-drawing-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/latex-drawing-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | TikZ and PGFPlots techniques for publication-quality scientific figures |
+| [`launchdarkly-flag-create`](../../library/launchdarkly-ai-tooling/skills/launchdarkly-flag-create) | ⚪ Reserve | `launchdarkly-ai-tooling` | Create and configure LaunchDarkly feature flags in a way that fits the existing codebase. Use w... |
 | [`lifecycle-play-advisor`](../../library/deanpeters-product-manager-skills/skills/lifecycle-play-advisor) | ⚪ Reserve | `deanpeters-product-manager-skills` | Diagnose where a product sits in its lifecycle and which play fits — extend, replace, or retire... |
 | [`lifelines`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/lifelines) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Complete survival analysis library in Python. Handles right-censored data, Kaplan-Meier curves,... |
+| [`medtech-model-evidence-export`](../../library/nvidia-skills/skills/medtech-model-evidence-export) | ⚪ Reserve | `nvidia-skills` | Exports sanitized metadata, parameters, reproducibility details, quality metrics, and optional ... |
 | [`methodology`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/methodology) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | 13 research methodology skills. Trigger: study design, methodology selection, scientific reason... |
 | [`molecular-dynamics`](../../library/k-dense-ai-scientific-agent-skills/skills/molecular-dynamics) | ⚪ Reserve | `k-dense-ai-scientific-agent-skills` | Runs and analyzes molecular dynamics simulations with OpenMM and MDAnalysis. Sets up protein/sm... |
 | [`molecular-dynamics-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/molecular-dynamics-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Molecular dynamics simulation setup, execution, and trajectory analysis |
@@ -76,11 +86,19 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`nature-writing`](../../library/yuan1z0825-nature-skills/skills/nature-writing) | ⚪ Reserve | `yuan1z0825-nature-skills` | Draft or restructure scientific manuscript arguments, sections, and initial-submission material... |
 | [`nextflow-development`](../../library/anthropics-knowledge-work/skills/nextflow-development) | ⚪ Reserve | `anthropics-knowledge-work` | Run nf-core bioinformatics pipelines (rnaseq, sarek, atacseq) on sequencing data. Use when anal... |
 | [`numerical-methods-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/numerical-methods-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Apply numerical methods and scientific computing techniques |
+| [`nv-generate-mr-brain-finetune`](../../library/nvidia-skills/skills/nv-generate-mr-brain-finetune) | ⚪ Reserve | `nvidia-skills` | Used for finetuning NV-Generate-CTMR MR-Brain v1 for T1, T2, FLAIR, SWI, or MRA data from a NIf... |
+| [`nv-generate-vae-finetune`](../../library/nvidia-skills/skills/nv-generate-vae-finetune) | ⚪ Reserve | `nvidia-skills` | Used for finetuning the NV-Generate-CTMR MAISI VAE from CT/MRI NIfTI datalists. Not for clinica... |
+| [`nv-reason-ct`](../../library/nvidia-skills/skills/nv-reason-ct) | ⚪ Reserve | `nvidia-skills` | Run NV-Reason-CT inference on user-provided 3D NIfTI chest or abdominal CT volumes for engineer... |
+| [`nv-segment-ct-finetune`](../../library/nvidia-skills/skills/nv-segment-ct-finetune) | ⚪ Reserve | `nvidia-skills` | Runs standard or fixed-channel softmax finetuning of NV-Segment-CT VISTA3D on CT NIfTI image/la... |
+| [`nv-segment-ctmr`](../../library/nvidia-skills/skills/nv-segment-ctmr) | ⚪ Reserve | `nvidia-skills` | Used for running NV-Segment-CTMR on CT or MRI NIfTI volumes and recording label-map evidence. N... |
 | [`offer-comparison-analyzer`](../../library/davila7-claude-code-templates/skills/offer-comparison-analyzer) | ⚪ Reserve | `davila7-claude-code-templates` | Compare multiple job offers side-by-side with total compensation analysis. Use when the user ha... |
+| [`ovnewton-usage`](../../library/nvidia-skills/skills/ovnewton-usage) | ⚪ Reserve | `nvidia-skills` | Connect the Newton physics engine to an Omniverse simulation or ovstage with ovnewton. Use when... |
 | [`particle-physics-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/particle-physics-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Particle physics data analysis with ROOT, HEPData, and event processing |
 | [`pennylane`](../../library/davila7-claude-code-templates/skills/pennylane) | ⚪ Reserve | `davila7-claude-code-templates` | Cross-platform Python library for quantum computing, quantum machine learning, and quantum chem... |
 | [`physics`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/physics) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | 5 physics & astrophysics skills. Trigger: physics simulations, astronomical data, computational... |
 | [`physics-3d-collision`](../../library/unity-technologies-skills/skills/physics-3d-collision) | ⚪ Reserve | `unity-technologies-skills` | Diagnoses 3D PhysX collision and trigger problems. Use when OnCollisionEnter or OnTriggerEnter ... |
+| [`physics-sim`](../../library/arjun988-blender-skills/skills/physics-sim) | ⚪ Reserve | `arjun988-blender-skills` | Rigid body, soft body, and destruction setups in Blender including constraints, cell fracture d... |
+| [`physicsnemo-discover`](../../library/nvidia-skills/skills/physicsnemo-discover) | ⚪ Reserve | `nvidia-skills` | Official NVIDIA-authored guidance for navigating PhysicsNeMo — pick the model, datapipe, or exa... |
 | [`plotly-interactive-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/plotly-interactive-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Guide to Plotly.py for interactive scientific visualizations in Python |
 | [`policy-lookup`](../../library/anthropics-knowledge-work/skills/policy-lookup) | ⚪ Reserve | `anthropics-knowledge-work` | Find and explain company policies in plain language. Trigger with "what's our PTO policy", "can... |
 | [`pyhealth`](../../library/davila7-claude-code-templates/skills/pyhealth) | ⚪ Reserve | `davila7-claude-code-templates` | Comprehensive healthcare AI toolkit for developing, testing, and deploying machine learning mod... |
@@ -91,6 +109,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`rdkit`](../../library/davila7-claude-code-templates/skills/rdkit) | ⚪ Reserve | `davila7-claude-code-templates` | Cheminformatics toolkit for fine-grained molecular control. SMILES/SDF parsing, descriptors (MW... |
 | [`relsa-severity-assessment`](../../library/k-dense-ai-scientific-agent-skills/skills/relsa-severity-assessment) | ⚪ Reserve | `k-dense-ai-scientific-agent-skills` | Supports multivariate severity assessment and exploratory endpoint-time score forecasting for l... |
 | [`research-engineer`](../../library/antigravity-awesome-skills/skills/research-engineer) | ⚪ Reserve | `antigravity-awesome-skills` | An uncompromising Academic Research Engineer. Operates with absolute scientific rigor, objectiv... |
+| [`resilience-program-design`](../../library/aws-agent-toolkit-for-aws/skills/resilience-program-design) | ⚪ Reserve | `aws-agent-toolkit-for-aws` | Designs a resilience program: how to structure and standardize resilience policies across an or... |
 | [`results-analysis`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/results-analysis) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | This skill should be used when the user asks to "analyze experimental results", "run strict sta... |
 | [`satori`](../../library/sickn33-agentic-awesome-skills/skills/satori) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Clinically informed wisdom companion blending psychology and philosophy into a structured think... |
 | [`scientific-article-pdf`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/scientific-article-pdf) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Generate publication-ready scientific article PDFs from templates |

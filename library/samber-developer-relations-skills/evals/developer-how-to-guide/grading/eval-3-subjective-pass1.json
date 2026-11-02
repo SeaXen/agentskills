@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Orders variant coverage by share of readers times cost of getting it wrong.",
+        "evidence": "The transcript decides a shape for each variant (separate pages, tabs, inline conditional, out-of-scope line, delete), and it bases that choice on how different the steps are and whether the variant is supported. It never ranks the variants by reader share multiplied by error cost. The only share it cites is 'Windows (about 3%)', and it does not combine that with cost. It discusses cost of error separately, for production queues and the bare-metal tickets, but does not use it to order coverage. The run list treats all 6 cells plus EU/US as equal, with no prioritization.",
+        "score": 1,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Orders variant coverage by share of readers times cost of getting it wrong.",
+        "evidence": "The answer uses reader share and cost of error separately, but never combines them into a ranking. Share appears in 'At 3% of readers, don't add a third tab' and in 'pick the most common option as the first tab\u2026 Your analytics should tell you which that is.' Cost appears in the bare-metal note ('support will field those tickets') and the region callout ('tabs would hide it'). Coverage depth is set by content shape instead: whole swapped blocks get tabs, a one-flag difference gets a callout. No variant is ranked by share \u00d7 cost, and the 3% Windows case is never checked for a high cost of error ",
+        "score": 2,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

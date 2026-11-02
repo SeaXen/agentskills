@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that only one gate here has a measured comparator behind it and that the rest are self-set baselines",
+        "evidence": "Gives \"None published\" for the three numbers and calls the rest \"self-set baselines\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the deprecated-API rate staying below 43% as the gate with the measured comparator",
+        "evidence": "\"Don't present the 43% deprecated-API figure as a target... the skill uses it only as a gate.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Attributes 43% to Zhou and Walker (FSE 2016) as the deprecated-API rate measured in the Stack Overflow posts they investigated",
+        "evidence": "\"43% of the Stack Overflow posts investigated contained deprecated APIs... Zhou & Walker, FSE 2016\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that using that measured figure as a gate is a choice rather than something the authors proposed",
+        "evidence": "Says the skill uses it as a gate but not that this is the skill's choice rather than the authors'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels the target of 80% or more of the corpus tested as a self-set baseline rather than a published standard",
+        "evidence": "\"A self-set recommendation of \u226580%\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the 90% or higher parity coverage target as a self-set baseline",
+        "evidence": "\"A self-set recommendation of \u226590% parity coverage\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the 90% compile-or-run pass rate and its remediation trigger as self-set, noting that no vendor publishes that gate",
+        "evidence": "\"\u226590% compile/run pass rate... It is a baseline, not a standard.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites the MSR 2016 finding that roughly 1.00% of Stack Overflow Java snippets compile and the Gistable ICSME 2018 finding that 24.4% of public Python gists run out of the box as supporting evidence rather than as standards",
+        "evidence": "\"1.00% of Java snippets compile\" and \"24.4%... gists ran\"; \"not targets themselves\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to present any self-set baseline to the board as an industry standard",
+        "evidence": "\"The bar we are measured against (our own, not an industry mandate)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the requirement of integration tests for critical paths as the nearest thing to a public vendor requirement on sample verification",
+        "evidence": "\"The nearest public vendor requirement is Google Cloud's: integration tests for critical paths\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines to state a freshness-window number, explaining it depends on release cadence and must be set by the team",
+        "evidence": "Freshness windows are not addressed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends reporting the team's own measured baseline alongside every target",
+        "evidence": "\"the slide show 'we are at X% vs target Y%'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the P0, P1 and P2 severity model is adapted from general QA practice rather than being a published sample standard",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that only one gate here has a measured comparator behind it and that the rest are self-set baselines",
+        "evidence": "It says no numeric standard exists for any of the metrics.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the deprecated-API rate staying below 43% as the gate with the measured comparator",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Attributes 43% to Zhou and Walker (FSE 2016) as the deprecated-API rate measured in the Stack Overflow posts they investigated",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that using that measured figure as a gate is a choice rather than something the authors proposed",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels the target of 80% or more of the corpus tested as a self-set baseline rather than a published standard",
+        "evidence": "It recommends 100% and labels targets as Pellworth's choice, but never addresses the 80% figure.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels the 90% or higher parity coverage target as a self-set baseline",
+        "evidence": "Not addressed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels the 90% compile-or-run pass rate and its remediation trigger as self-set, noting that no vendor publishes that gate",
+        "evidence": "Not addressed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites the MSR 2016 finding that roughly 1.00% of Stack Overflow Java snippets compile and the Gistable ICSME 2018 finding that 24.4% of public Python gists run out of the box as supporting evidence rather than as standards",
+        "evidence": "Not cited.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to present any self-set baseline to the board as an industry standard",
+        "evidence": "'Call these targets Pellworth Systems chose, not industry benchmarks.' and 'A fabricated \"industry standard 95%\" would not [hold up].'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the requirement of integration tests for critical paths as the nearest thing to a public vendor requirement on sample verification",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines to state a freshness-window number, explaining it depends on release cadence and must be set by the team",
+        "evidence": "Freshness is not discussed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends reporting the team's own measured baseline alongside every target",
+        "evidence": "Only 'Set it from your own baseline' for one metric.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the P0, P1 and P2 severity model is adapted from general QA practice rather than being a published sample standard",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

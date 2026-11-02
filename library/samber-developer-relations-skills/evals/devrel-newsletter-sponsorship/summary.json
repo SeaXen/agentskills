@@ -1,0 +1,298 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "devrel-newsletter-sponsorship",
+  "scenarios": 7,
+  "expectations_total": 96,
+  "expectations_subjective": 0,
+  "expectations_objective": 96,
+  "pass_rate_with_skill_pct": 94.8,
+  "pass_rate_without_skill_pct": 39.6,
+  "delta_pp": 55.2,
+  "uplift_multiplier": 2.39,
+  "trigger_accuracy_pct": 57.3,
+  "trigger_queries": 96,
+  "trigger_positive_fire_rate": 0.542,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": null,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.309 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Does not offer 'Sponsored' alone as the fix, noting UK guidance advises against it"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "When no past sponsor exists, applies an ad discount to editorial clicks at the slot's position and labels it self-set"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Treats any cost per click the buyer states as buyer-supplied and discounts it"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Mentions classified lines or no sales as alternatives"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "If a dedicated send happens later, says its subject line must name the sponsor and its advertising nature"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Uses 'Ad' or 'Advertisement' as the label word, not 'Sponsored' alone"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Says the 'Thanks to our friends at' line may stay only next to the label, not instead of it"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Declines putting the sponsor name in the regular issue's subject line"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Explains that a promotional subject line can make the whole issue count as commercial email"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Mentions the German court practice that 'sponsored by'-style wording does not replace 'Anzeige'"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Does not offer 'Sponsored' alone as the fix, noting UK guidance advises against it"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Rejects pricing on the 52% open rate, saying opens are inflated by mail-privacy features"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Computes or asks for a cost-recovery floor that includes the seller's hours"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Uses published rate cards as a price-per-thousand-subscribers ratio, not as a dollar target"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Bases click value on clicks a sponsor unit would get, not total issue clicks"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "When no past sponsor exists, applies an ad discount to editorial clicks at the slot's position and labels it self-set"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Treats any cost per click the buyer states as buyer-supplied and discounts it"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States one quote rule: quote click value, capped near the band's top until the first sponsor reports, never under the floor"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Labels every number the user did not measure as self-set"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Marks the price provisional or blocked until click data is in, rather than inventing click numbers"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Mentions repricing after the first sponsor report"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Derives any ad discount from past clicks on a labelled unit, or else quotes the band's bottom until the first report instead of inventing a discount"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Runs a sellability check before discussing price"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Counts the evidence in issues, not months (six issues needed, four sent)"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Asks who would invoice, or whether a fiscal host or entity can receive the money"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends announcing sponsor content to existing subscribers in an issue before the first paid one"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Once the notice is fixed, offers a pilot booking with the missing click evidence disclosed to the sponsor in writing"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Prices any pilot at or above a cost-recovery floor, not simply accepting $300 without a basis"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Mentions classified lines or no sales as alternatives"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that ad networks and marketplaces mostly pass on lists of this size"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Requires labelling the section as an ad, not 'sponsored section' styling alone"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Declines bundling an editorial review with the paid slot"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Frames the review refusal as trust or house rule, not as something the law forbids outright"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes that liking the product does not change the refusal, since the editorial pick cannot be part of the price"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Says editorial coverage stays the editor's independent call outside the deal"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Explains that corporate mail gateways or scanners click links automatically, making raw counts meaningless"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Offers at most a floor on filtered human clicks, and only after several sponsor reports exist"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Offers the labelled slot instead"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Terms include a make-good for a failed send or broken link"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Terms include a pause clause that moves or refunds a slot if an issue is skipped"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Terms state the sponsor receives aggregate reports only, with no subscriber identities"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Declines a dedicated send to the main newsletter list"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Explains that EU or UK consent to the newsletter does not cover third-party marketing"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that the UK soft opt-in never covers third-party marketing"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Offers a labelled slot inside a normal issue as the alternative"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Offers a separate opt-in list for partner offers as the route to dedicated sends"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Raises the competitor or overlap question for the partner under a written acceptance policy"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "If a dedicated send happens later, says its subject line must name the sponsor and its advertising nature"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Adds 'Anzeige' or 'Werbung' to the label because readers are in Germany"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names the per-issue cap and who approves sponsors as decisions to settle first"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Flags that without a fiscal host or invoicing entity the project cannot sell yet"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Declines prepaying six months of issues the irregular schedule may skip"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends booking only issues the owner has committed to"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Writes or requires an acceptance policy before judging this sponsor"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Requires a named seller with hours to answer, approve copy and report, given the volunteer-when-time-allows schedule"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Does not deliver a final price as if the gate already passed"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Mentions taking payment before the copy deadline rather than long invoice terms for a small volunteer publisher, or prepay tied only to committed issues"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires a written tracking-dispute rule, settled on the publisher's own filtered click count"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Default competitor rule refuses a competing product even when it is a module of a broader product"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends logging the refusal with the rule that applied"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends a direct primary slot as the default sales route given the click history"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Prices from click value rather than per signup or per subscriber"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Uses the newsletter's filtered click history to set the flat fee"
+      }
+    ]
+  }
+}

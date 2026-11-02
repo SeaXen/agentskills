@@ -1,0 +1,42 @@
+import type { ErrorInfo, ReactNode } from 'react'
+import { Component } from 'react'
+
+interface Props {
+  children: ReactNode
+}
+
+interface State {
+  crashed: boolean
+}
+
+const CRASH_TITLE = 'mirrord UI crashed.'
+const CRASH_BODY = 'Please reload the page.'
+
+/**
+ * Outer crash guard for the whole site. Each feature (monitor, wizard) keeps its own inner
+ * boundary with feature-specific telemetry; this one is the last resort and has no dependency on
+ * either feature, so it can wrap both.
+ */
+export class ErrorBoundary extends Component<Props, State> {
+  override state: State = { crashed: false }
+
+  static getDerivedStateFromError(): State {
+    return { crashed: true }
+  }
+
+  override componentDidCatch(error: Error, info: ErrorInfo): void {
+    console.error('mirrord UI crashed:', error, info.componentStack)
+  }
+
+  override render(): ReactNode {
+    if (this.state.crashed) {
+      return (
+        <div style={{ padding: 24, fontFamily: 'system-ui' }}>
+          <h2>{CRASH_TITLE}</h2>
+          <p>{CRASH_BODY}</p>
+        </div>
+      )
+    }
+    return this.props.children
+  }
+}

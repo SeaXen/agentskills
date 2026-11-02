@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Proposes no more than 4 routines",
+        "evidence": "Exactly 3 routines proposed: release-tag documentation pass, CFP deadline sweep, kickoff re-invocation",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Proposes at least 2 routines",
+        "evidence": "3 routines \u2265 2",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Shows every proposed routine as a dry-run before creating anything",
+        "evidence": "\"## Routines \u2014 dry-run, nothing created yet\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives every proposed routine an explicit output channel",
+        "evidence": "Each block has an \"Output channel:\" line, e.g. \"Output channel: drafted GitHub Release body attached to the tag\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places the release-tag documentation pass at the first rung rather than the cheapest routine",
+        "evidence": "\"release-tag pass leads \u2014 it's the only one of the three whose output reaches users before the next Thursday's release ships\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not place the kickoff re-invocation first on the grounds that it costs almost nothing",
+        "evidence": "\"The kickoff re-invocation stays in, third, *not* first: it's the cheapest of the three, but cheap and first-in-line are different orderings\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the routine ranking out loud as value per unit of standing effort",
+        "evidence": "\"Ranked by **value per unit of standing effort**, not by cheapness\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes a periodic re-invocation of this kickoff among the proposed routines",
+        "evidence": "\"Routine: kickoff re-invocation ... Runs: samber/developer-relations-skills@developer-relations-kickoff\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Uses the tag-push event as the release routine's trigger rather than a weekly schedule",
+        "evidence": "\"Trigger: on push of a tag matching v* to the Plimsoll repo\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Promotes the CFP deadline sweep for the season because CFP season opens in three weeks",
+        "evidence": "\"promoted for the season: three weeks to opening, and a missed CFP window is gone for a year\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Withholds or demotes the issue and pull-request queue review because nobody owns the follow-through it generates",
+        "evidence": "\"**Withheld, not proposed:** an issue/PR **queue review** routine. It would normally sit here too, but installing a recurring review against a backlog nobody has agreed to own doesn't fix anything\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists routines already installed and retires obsolete ones before adding new ones",
+        "evidence": "\"No routines exist yet for Plimsoll (first kickoff run), so there's nothing to retire.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the skill each routine runs in `owner/repo@skill` form",
+        "evidence": "\"Runs: samber/developer-relations-skills@changelog-writing\", \"@conference-cfp-submission\", \"@developer-relations-kickoff\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Proposes no more than 4 routines",
+        "evidence": "Exactly four workflows are proposed: release.yml, cfp-tracker.yml, issue-triage.yml, weekly-digest.yml.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Proposes at least 2 routines",
+        "evidence": "Four routines are proposed, satisfying the \u22652 floor.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Shows every proposed routine as a dry-run before creating anything",
+        "evidence": "Full YAML workflow files are delivered directly with no dry-run/preview-and-confirm step.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives every proposed routine an explicit output channel",
+        "evidence": "release.yml posts to GitHub Release + Discord webhook; cfp-tracker.yml updates a pinned issue; issue-triage.yml applies labels/updates a pinned digest issue; weekly-digest.yml posts to Discord webhook.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places the release-tag documentation pass at the first rung rather than the cheapest routine",
+        "evidence": "\"tag pushes announce themselves immediately (time-sensitive)\" \u2014 release.yml is presented first, justified by urgency not cost.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not place the kickoff re-invocation first on the grounds that it costs almost nothing",
+        "evidence": "No kickoff re-invocation routine is proposed at all.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the routine ranking out loud as value per unit of standing effort",
+        "evidence": "No explicit 'value per unit of effort' framing is stated; only purpose-based justifications are given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes a periodic re-invocation of this kickoff among the proposed routines",
+        "evidence": "No such routine is proposed among the four.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Uses the tag-push event as the release routine's trigger rather than a weekly schedule",
+        "evidence": "\"on: push: tags: - 'v*.*.*'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Promotes the CFP deadline sweep for the season because CFP season opens in three weeks",
+        "evidence": "The '3-week' language refers to a fixed reminder threshold (\"days <= 21\"), not to CFP season opening in three weeks.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Withholds or demotes the issue and pull-request queue review because nobody owns the follow-through it generates",
+        "evidence": "issue-triage.yml is fully implemented as one of the four core proposed routines, including weekly digest and stale sweep.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Lists routines already installed and retires obsolete ones before adding new ones",
+        "evidence": "No discussion of pre-existing routines or retirement occurs; only a one-time 'Setup' section creating new labels/secrets.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the skill each routine runs in `owner/repo@skill` form",
+        "evidence": "No skill names appear anywhere; prompts are custom inline text passed to `claude -p`.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

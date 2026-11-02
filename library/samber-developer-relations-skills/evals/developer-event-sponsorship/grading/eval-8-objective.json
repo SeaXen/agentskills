@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses the single 'pipeline sourced from events' KPI applied across both events",
+        "evidence": "'Applying it to both forces a choice between two bad outcomes: report zero for Porto... or let someone backfill the number'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets the objective per event rather than per year, and says explicitly which event carries which objective",
+        "evidence": "'set the objective per event, not one for the year' with table assigning Awareness to Porto and Pipeline to Chicago",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Assigns the student hackathon an awareness or recruiting objective rather than pipeline, and the Chicago conference a pipeline objective",
+        "evidence": "'Objective: Awareness, with Adoption as the secondary signal' (Porto) vs 'Objective: Pipeline' (Chicago)",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that for the enterprise product the attendee is usually a champion rather than a signer, so the event's contribution is influence rather than source",
+        "evidence": "'the attendee is a champion, not a signer \u2014 the event influences a pipeline that closes quarters later, it rarely sources a deal on its own'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects sourced-revenue claims the CRM cannot support and keeps pipeline claims riding on the CRM",
+        "evidence": "'Sourced-revenue claims the CRM can't support \u2014 call it influenced, not sourced, unless first-touch CRM attribution genuinely credits the event'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "For the self-serve CLI, measures in-product - event-specific signup URL, promo or credit code, activation curve - rather than through a sales sequence",
+        "evidence": "'One event-specific signup URL + one promo/credit code, unique to Porto \u2014 never reused' and '30/60/90 days'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Makes the self-serve follow-up a product invitation rather than a sales sequence",
+        "evidence": "'Follow-up within 48 hours \u2014 a product invitation (trial extension, credit, onboarding help), never a sales sequence; this cohort has no sales contact by design'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names what must not be claimed per objective, including attributed revenue for an awareness objective and activations from anyone who merely saw the logo for an adoption objective",
+        "evidence": "Table names 'Attributed revenue, pipeline sourced' as not to claim for Porto, but no statement excludes claiming activations from anyone who 'merely saw the logo'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires one event-specific URL and one promo or credit code per event, never reused across events",
+        "evidence": "'One event-specific URL/code, distinct from Porto's' for Chicago",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a pre-event baseline of each event's primary metric captured one to four weeks before that event",
+        "evidence": "Porto states 'the 1\u20134 weeks prior' explicitly, but Chicago's baseline is 'your current opportunity-creation rate per AE per week' with no 1-4 week pre-event window stated",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Measures the event cohort at 30, 60 and 90 days, plus one pipeline check a full sales cycle out",
+        "evidence": "'Add one dedicated pipeline check timed to the sales cycle (~month 9 post-event)' for Chicago, 30/60/90 days for Porto",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Defines the event cohort as everyone arriving through the event's own URL, code, workshop signup or consented scan, tagged once and never merged into a generic campaign",
+        "evidence": "No explicit statement defining the cohort this way or stating it must never be merged into a generic campaign",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses the single 'pipeline sourced from events' KPI applied across both events",
+        "evidence": "\"The fix below keeps leadership's single KPI, but defines it so both motions can feed it honestly\" \u2014 explicitly preserves rather than refuses the single KPI.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets the objective per event rather than per year, and says explicitly which event carries which objective",
+        "evidence": "Both events are still folded into the same pipeline-dollar formula (self-serve ACV-equivalent for Porto, opportunity amount for Chicago) rather than being assigned distinct, explicitly stated objectives.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Assigns the student hackathon an awareness or recruiting objective rather than pipeline, and the Chicago conference a pipeline objective",
+        "evidence": "Porto still gets a computed 'Self-Serve ACV-Equivalent' pipeline dollar figure in the headline KPI rather than being assigned a non-pipeline objective outright.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that for the enterprise product the attendee is usually a champion rather than a signer, so the event's contribution is influence rather than source",
+        "evidence": "No statement about enterprise attendees typically being champions rather than signers appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects sourced-revenue claims the CRM cannot support and keeps pipeline claims riding on the CRM",
+        "evidence": "\"Never let a scan count as a lead, and never let a lead count as pipeline... this is the single most common way event ROI gets faked upward.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "For the self-serve CLI, measures in-product - event-specific signup URL, promo or credit code, activation curve - rather than through a sales sequence",
+        "evidence": "\"Event-specific promo/coupon code redeemable at signup... UTM on any pre/post-event link... Self-reported field at signup.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Makes the self-serve follow-up a product invitation rather than a sales sequence",
+        "evidence": "No specific self-serve follow-up messaging strategy is described in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names what must not be claimed per objective, including attributed revenue for an awareness objective and activations from anyone who merely saw the logo for an adoption objective",
+        "evidence": "Guardrails listed (never let scan=lead, never let lead=pipeline, never sum sourced+influenced) are general, not tied to specific per-objective claims like 'attributed revenue for awareness' or 'activations from logo viewers.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires one event-specific URL and one promo or credit code per event, never reused across events",
+        "evidence": "Event-specific codes and UTMs are used, but the transcript never states codes/URLs are never reused across events.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a pre-event baseline of each event's primary metric captured one to four weeks before that event",
+        "evidence": "No pre-event baseline capture requirement is discussed anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Measures the event cohort at 30, 60 and 90 days, plus one pipeline check a full sales cycle out",
+        "evidence": "\"Promo-code signups and 30/60/90-day activation retention\" for Porto, plus enterprise \"12 months rolling from event\" with \"first opps expected Q2\u2013Q3 2028\" aligned to the 9-month cycle.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Defines the event cohort as everyone arriving through the event's own URL, code, workshop signup or consented scan, tagged once and never merged into a generic campaign",
+        "evidence": "CRM schema locks `event_id` (\"Stable, never renamed\") and `original_source` (\"locked at creation... Never overwritten by later stage changes\").",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

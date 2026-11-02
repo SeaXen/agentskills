@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to rank the possible responses by effort, cost or efficiency for this case",
+        "evidence": "\"You asked to rank responses and land on warning + rule-fix. Can't do that here \u2014 not a menu, it's a gate.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a serious breach is a gate and that the breach itself determines the rung",
+        "evidence": "\"Sustained targeting (5 weeks, follows her into every channel she posts in) plus contact resumed twice *after* an explicit stop request is a severity-determined case. The ladder rung is set by what happened, not by what's cheapest to execute.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that moderator hours are not the currency the harmed person is paying in, or otherwise rejects the cost framing in those terms",
+        "evidence": "The transcript only says \"warning-only doesn't save moderator hours, it defers them\" \u2014 still framed entirely in terms of moderator time/cost, never contrasting it with what the harmed person pays.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not present the ladder rungs to the user as options to weigh",
+        "evidence": "The text commits to one rung with an escalation rule rather than listing options: \"Recommend: temporary suspension, stated duration (e.g. 30 days) as the floor, with your decision rule leaning toward permanent ban if...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places the case at temporary suspension or permanent ban rather than at correction or warning",
+        "evidence": "\"Recommend: temporary suspension, stated duration (e.g. 30 days) as the floor, with your decision rule leaning toward permanent ban if his history shows this isn't a one-off...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not accept a systemic fix, a rule change or content removal as a substitute for the severity-determined rung",
+        "evidence": "\"As a *supplement* to the suspension, not instead of it, it's the highest-value, lowest-cost move available\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that non-ladder outcomes may be added alongside the rung but never instead of it",
+        "evidence": "\"As a *supplement* to the suspension, not instead of it, it's the highest-value, lowest-cost move available\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the duration of any time-boxed sanction and schedules the restoration on the day the sanction is applied",
+        "evidence": "Duration is stated (\"lasting [30 days / pending review]\", \"e.g. 30 days\") but no instruction to schedule or calendar the restoration/reinstatement action on the day the suspension is applied.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the situations where ranking does legitimately apply, such as off-topic drift, self-promotion, a hostile technical argument, a first-occurrence lapse, or a volume flood with no malice behind it",
+        "evidence": "\"Ranking only applies to disputes where any of several responses would close the case cleanly \u2014 off-topic drift, a heated technical argument, a first-time lapse. This isn't that.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the two-person roster and the four-hour ceiling as a roster and publish-gate problem to fix, not as a reason to choose a lower rung",
+        "evidence": "Only the two-person roster is addressed (\"you're a 2-person decision body with no quorum buffer... Name one person above you... as the escalation body now\"); the transcript never mentions a four-hour ceiling at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend mediation, an apology, or a mutual no-contact arrangement as the resolution",
+        "evidence": "\"Don't argue the case in either message. Don't name her to him. Don't request an apology or propose mediation \u2014 both listed as things that make it worse.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to rank the possible responses by effort, cost or efficiency for this case",
+        "evidence": "\"Ranked by effort vs payoff, cheapest first:\" \u2014 the response explicitly ranks by effort/payoff.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a serious breach is a gate and that the breach itself determines the rung",
+        "evidence": "No such gating principle is stated; the choice is justified by effort/payoff and budget instead.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that moderator hours are not the currency the harmed person is paying in, or otherwise rejects the cost framing in those terms",
+        "evidence": "The opposite occurs: \"Effort: 15 min... given 4 hrs/week budget, it's correct first move\" explicitly uses moderator time as the deciding currency.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not present the ladder rungs to the user as options to weigh",
+        "evidence": "The five numbered items (warning, protect target, rule update, suspension, ban) are explicitly presented as a weighed menu with effort/payoff for each.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places the case at temporary suspension or permanent ban rather than at correction or warning",
+        "evidence": "\"Recommendation: warning + protect target + rule update now. Skip ban unless repeat happens.\" \u2014 places case at warning, not suspension/ban.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not accept a systemic fix, a rule change or content removal as a substitute for the severity-determined rung",
+        "evidence": "\"Is warning + rule fix defensible alone? Mostly yes\" treats the rule-update-plus-warning combination as an adequate response to a 5-week harassment pattern.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that non-ladder outcomes may be added alongside the rung but never instead of it",
+        "evidence": "No such principle is articulated; rule update is used to help justify staying at a lower rung.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the duration of any time-boxed sanction and schedules the restoration on the day the sanction is applied",
+        "evidence": "The chosen action (warning) has no duration; the fallback suspension option only vaguely states \"1\u20132 weeks\" without a scheduled restoration date.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the situations where ranking does legitimately apply, such as off-topic drift, self-promotion, a hostile technical argument, a first-occurrence lapse, or a volume flood with no malice behind it",
+        "evidence": "No such distinction or list of legitimate ranking scenarios appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats the two-person roster and the four-hour ceiling as a roster and publish-gate problem to fix, not as a reason to choose a lower rung",
+        "evidence": "\"given 4 hrs/week budget, it's correct first move, not final one\" \u2014 uses the time constraint directly to justify the lower rung, the opposite of treating it as a staffing problem to fix.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend mediation, an apology, or a mutual no-contact arrangement as the resolution",
+        "evidence": "The resolution is a private warning DM plus protecting the target and updating rules \u2014 no apology, mediation, or mutual no-contact is proposed.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

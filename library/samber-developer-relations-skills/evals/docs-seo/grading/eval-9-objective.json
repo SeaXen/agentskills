@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the blanket 301 of every /v2/ URL to the docs home",
+        "evidence": "\"A single rule 301ing everything under /v2/ to the docs root is the 'redirect to home' failure mode.\" followed by a prescribed fix building a redirect map instead.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a blanket redirect to the docs index is treated as a soft 404 and loses the page's accumulated history",
+        "evidence": "\"A blanket redirect of the whole tree to the homepage is treated as a soft 404 and throws away whatever standing each individual page had.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prescribes choosing a redirect target per page in the order: current equivalent, then nearest equivalent, then the version index only as a last resort",
+        "evidence": "\"choosing a redirect target per page, not per tree: current v3 equivalent \u2192 nearest equivalent \u2192 the docs index, in that order, with the index reserved for genuine leftovers\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prescribes 301 where an equivalent page exists",
+        "evidence": "\"301 is for content that has an equivalent\" and fix table item 2: \"per-page/per-pattern 301 map: successor \u2192 nearest equivalent \u2192 home as last resort\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prescribes 410 only for the roughly 160 pages whose subsystems are genuinely gone with no successor",
+        "evidence": "\"These 160 pages are the second case... Serve 410 Gone for these two subsystems' URL patterns instead\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects deferring the sitemap update to the following quarter and requires it in the same deploy as the redirects",
+        "evidence": "\"Deferring the sitemap update to next quarter contradicts 'same deploy.' Update the sitemap in the same deploy as the redirect\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the redirects must be kept for at least one major release cycle",
+        "evidence": "\"Keep the eventual redirects live for at least one major release cycle after the real retirement date\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ties that retention to inbound traffic that outlives the version, such as external tutorials, cached answers and issue threads",
+        "evidence": "\"external tutorials and cached answers keep sending traffic long after a version dies\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns against canonicalizing a removed or rewritten page to a current page that says something different, and prescribes a redirect to the nearest real equivalent instead",
+        "evidence": "\"routing them to the homepage compounds finding 2 with a redirect to content that says nothing related to what the page was about, which both users and Google discount\" combined with the prescribed successor\u2192nearest-equivalent redirect ordering",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Mentions unavailable_after as a directive that fits a version with a published end-of-life date",
+        "evidence": "No mention of the unavailable_after directive anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends an in-page banner telling readers which release they are on and what the current release is",
+        "evidence": "No in-page version banner is mentioned anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the blanket 301 of every /v2/ URL to the docs home",
+        "evidence": "'Single nginx rule sends all 1,900 URLs to the bare root'... 'wrong tool'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a blanket redirect to the docs index is treated as a soft 404 and loses the page's accumulated history",
+        "evidence": "'known trigger for Google to classify the redirect as a soft 404, which passes little to no ranking signal'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prescribes choosing a redirect target per page in the order: current equivalent, then nearest equivalent, then the version index only as a last resort",
+        "evidence": "Describes pattern-based mapping but gives no nearest-equivalent or last-resort-index ordering.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Prescribes 301 where an equivalent page exists",
+        "evidence": "'Build a redirect map... for every page with a real target.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prescribes 410 only for the roughly 160 pages whose subsystems are genuinely gone with no successor",
+        "evidence": "'Either serve 410 Gone... or redirect to a short-lived landing page' for the 160 pages.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects deferring the sitemap update to the following quarter and requires it in the same deploy as the redirects",
+        "evidence": "'Update the sitemap in the same change as the redirect cutover'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the redirects must be kept for at least one major release cycle",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ties that retention to inbound traffic that outlives the version, such as external tutorials, cached answers and issue threads",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns against canonicalizing a removed or rewritten page to a current page that says something different, and prescribes a redirect to the nearest real equivalent instead",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Mentions unavailable_after as a directive that fits a version with a published end-of-life date",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends an in-page banner telling readers which release they are on and what the current release is",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

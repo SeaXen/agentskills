@@ -8,6 +8,14 @@
     "path": "category/database-nosql-serverless/alloydb-basics"
   },
   {
+    "id": "amazon-dynamodb",
+    "name": "amazon-dynamodb",
+    "category": "database-nosql-serverless",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Designs, reviews, and debugs DynamoDB data layers from design axioms \u2014 enumerates access patterns, chooses partition/sort keys and GSIs, decides single-table vs. multi-table, configures Streams, Global Tables, TTL, vector indexes for similarity search, and zero-ETL integrations to OpenSearch/Redshift/SageMaker Lakehouse, and produces a defensible data-layer design with a monthly cost estimate and optional live validation. Applies whenever a user is designing, reviewing, or refactoring anything backed by DynamoDB \u2014 schemas, access patterns, GSIs, single- vs. multi-table choices, Streams consumers, transactional outboxes, Global Tables, zero-ETL pipelines, or storing embeddings and running semantic/vector similarity search with SearchVectors on items already in DynamoDB \u2014 even when they don't say \"axioms\" or \"design review.\" Also applies when debugging hot partitions, throttling, unbounded Scans, LWW conflicts, or surprise bills on DynamoDB workloads.",
+    "path": "category/database-nosql-serverless/amazon-dynamodb"
+  },
+  {
     "id": "arrowspace",
     "name": "arrowspace",
     "category": "database-nosql-serverless",
@@ -30,6 +38,14 @@
     "repository": "giuseppe-trisciuoglio-developer-kit",
     "description": "Provides AWS CloudFormation patterns for ElastiCache Redis or Memcached infrastructure, including subnet groups, parameter groups, security controls, and cross-stack outputs. Use when designing cache tiers, high-availability replication groups, encryption settings, or reusable CloudFormation templates for application caching.",
     "path": "category/database-nosql-serverless/aws-cloudformation-elasticache"
+  },
+  {
+    "id": "aws-database",
+    "name": "aws-database",
+    "category": "database-nosql-serverless",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Routes any task involving AWS databases \u2014 choosing, comparing, recommending, getting started with, or operating a database \u2014 to the correct service-specific skill. Supersedes general training-data knowledge with post-training service updates, corrected limitations, and decision procedures for relational (Aurora, DSQL, RDS), key-value (DynamoDB), wide-column (Keyspaces), document (DocumentDB), graph (Neptune), time-series (Timestream), and in-memory/caching (ElastiCache, MemoryDB) workloads. Activates when a user describes building an application on AWS that will store, retrieve, or manage data, even if they do not mention 'database' explicitly.",
+    "path": "category/database-nosql-serverless/aws-database"
   },
   {
     "id": "azure-ai",
@@ -168,12 +184,36 @@
     "path": "category/database-nosql-serverless/caching-strategy"
   },
   {
+    "id": "cdf-augmentation",
+    "name": "cdf-augmentation",
+    "category": "database-nosql-serverless",
+    "repository": "nvidia-skills",
+    "description": "Use when authoring or validating Cosmos Data Factory (CDF) augmentation YAML configs, or running remote Cosmos Transfer (including Cosmos3 WSM controls), Cosmos Predict, image-edit, or image-to-video inference.",
+    "path": "category/database-nosql-serverless/cdf-augmentation"
+  },
+  {
+    "id": "cdf-curation-and-retrieval",
+    "name": "cdf-curation-and-retrieval",
+    "category": "database-nosql-serverless",
+    "repository": "nvidia-skills",
+    "description": "NVIDIA CDF curation and retrieval. Cosmos Curator video and image pipelines (split, dedup, shard, annotate) with filtering, captioning, and embedding. Cosmos Dataset Search ingest, search, and capability qualification. TAO data mining embeddings and neighbor matching. Ships domain event catalogs, including workplace employee conduct monitoring, which requires legal review before use. Use when a request names Cosmos Curator, Cosmos Dataset Search, CDF, or their Make and CLI surfaces. Not for model training, orchestration, or unrelated dataset questions.",
+    "path": "category/database-nosql-serverless/cdf-curation-and-retrieval"
+  },
+  {
     "id": "cosmosdb-best-practices",
     "name": "cosmosdb-best-practices",
     "category": "database-nosql-serverless",
     "repository": "cline-skills",
     "description": "Azure Cosmos DB performance optimization and best practices guidelines for NoSQL, partitioning, queries, SDK usage, and vector search. Use when writing, reviewing, or refactoring code that interacts with Azure Cosmos DB, designing data models, optimizing queries, or implementing high-performance database operations.",
     "path": "category/database-nosql-serverless/cosmosdb-best-practices"
+  },
+  {
+    "id": "cost-analysis",
+    "name": "cost-analysis",
+    "category": "database-nosql-serverless",
+    "repository": "microsoft-azure-skills",
+    "description": "Analyze actual Azure spend, bill changes, and AKS or AI costs. WHEN: \\\"Azure cost breakdown\\\", \\\"most expensive resources\\\", \\\"why did my bill increase\\\", \\\"cost spike\\\", \\\"unexpected charge\\\", \\\"Cosmos DB charges\\\", \\\"Foundry model costs\\\", \\\"AKS cluster cost\\\", \\\"namespace cost\\\", \\\"enable AKS cost analysis\\\", \\\"idle AKS capacity\\\". DO NOT USE FOR: forecasts, pricing estimates, rightsizing, commitments, or budgets.",
+    "path": "category/database-nosql-serverless/cost-analysis"
   },
   {
     "id": "crash-analytics",
@@ -198,6 +238,14 @@
     "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "Open deep research alternative for private data with vector search",
     "path": "category/database-nosql-serverless/deep-searcher-guide"
+  },
+  {
+    "id": "evaluation-methodology",
+    "name": "evaluation-methodology",
+    "category": "database-nosql-serverless",
+    "repository": "wshobson-agents",
+    "description": "PluginEval quality methodology, covering dimensions, rubrics, and scoring formulas. Use this skill when understanding how plugin quality is measured, when interpreting a low score on a specific dimension, when deciding how to improve a skill's triggering accuracy or orchestration fitness, when setting score thresholds for your marketplace, or when explaining quality badges to external partners like Neon.",
+    "path": "category/database-nosql-serverless/evaluation-methodology"
   },
   {
     "id": "exploiting-nosql-injection-vulnerabilities",
@@ -320,6 +368,14 @@
     "path": "category/database-nosql-serverless/gcp-development"
   },
   {
+    "id": "huawei-cloud-mrs-redis-meta-check",
+    "name": "huawei-cloud-mrs-redis-meta-check",
+    "category": "database-nosql-serverless",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Checks Redis cluster metadata files (nodes-*.conf) for integrity, detecting 7 categories of metadata issues that cause Redis instance startup failures, connection anomalies, and fault alerts. \u6267\u884c7\u9879\u68c0\u67e5\uff1aslot\u69fd\u4f4d\u5b8c\u6574\u6027\u3001master/slave\u5b9e\u4f8b\u4e2a\u6570\u3001\u6587\u4ef6\u683c\u5f0f(4\u4e2a\u6a21\u5757)\u3001\u6587\u4ef6\u540d\u7aef\u53e3\u4e00\u81f4\u6027\u3001\u7aef\u53e3\u5173\u7cfb\u3001\u4e3b\u5907\u5173\u7cfb\u3001myself\u6807\u8bb0\u3002 Use this skill when the user mentions Redis metadata file checks, nodes-*.conf checks, or Redis cluster configuration checks. Use it whenever the user asks about Redis startup failures or connection anomalies. Trigger: \"Redis\u5143\u6570\u636e\u68c0\u67e5\", \"Redis nodes\u68c0\u67e5\", \"Redis cluster\u914d\u7f6e\u68c0\u67e5\", \"\u68c0\u67e5Redis\u5143\u6570\u636e\", \"Redis\u5143\u6570\u636e\u6821\u9a8c\", \"Redis\u542f\u52a8\u5931\u8d25\u6392\u67e5",
+    "path": "category/database-nosql-serverless/huawei-cloud-mrs-redis-meta-check"
+  },
+  {
     "id": "hunt-nosqli",
     "name": "hunt-nosqli",
     "category": "database-nosql-serverless",
@@ -404,16 +460,8 @@
     "name": "neon-auth",
     "category": "database-nosql-serverless",
     "repository": "neondatabase-agent-skills",
-    "description": "Add authentication to a new app. Use for \"add auth\", \"add login\", Neon Auth (Managed Better Auth), identity routing, sign-up, sign-in, password reset, email OTP, magic links, organizations, phone OTP, OAuth, passkeys, MFA, trusted domains, invalid domain, and @neondatabase/auth. No existing identity: default to Managed Better Auth. Keep working Better Auth, Clerk, Supabase Auth, or another IdP. User asked to migrate from Supabase Auth: Managed Better Auth. A required plugin outside Managed support: self-managed Better Auth on a Neon Function or the existing app host. Also use for auth APIs in @neondatabase/neon-js.",
+    "description": "Add authentication to a new app. Use for \"add auth\", \"add login\", Neon Auth (Managed Better Auth), identity routing, sign-up, sign-in, password reset, email OTP, magic links, organizations, phone OTP, OAuth, OAuth server for MCP or third-party OAuth clients, passkeys, MFA, trusted domains, invalid domain, and @neon/auth. No existing identity: default to Managed Better Auth. Keep working Better Auth, Clerk, Supabase Auth, or another IdP. User asked to migrate from Supabase Auth: Managed Better Auth. A required plugin outside Managed support: self-managed Better Auth on a Neon Function or the existing app host. Also use for auth APIs in @neon/neon-js.",
     "path": "category/database-nosql-serverless/neon-auth"
-  },
-  {
-    "id": "neon-functions",
-    "name": "neon-functions",
-    "category": "database-nosql-serverless",
-    "repository": "neondatabase-agent-skills",
-    "description": "Long-running, serverless Node.js HTTP functions deployed onto your Neon branch, with DATABASE_URL injected automatically and compute that runs next to your data. Use when a user wants to host an API, an AI agent with long streaming responses, a WebSocket or server-sent-events (SSE) server, a webhook handler, a Discord bot, an MCP server, or any request/response workload that risks timing out on short, lambda-style serverless functions \u2014 and wants it to branch with their database. Also use for Function Triggers: a cron or an object-storage event that POSTs to a function. Triggers include \"serverless function\", \"deploy an API\", \"long-running function\", \"streaming agent\", \"SSE server\", \"WebSocket server\", \"webhook handler\", \"MCP server\", \"cron\", \"scheduled function\", \"object storage trigger\", \"on upload\", \"function that won't time out\", \"function logs\", \"Neon Functions\", \"Neon Compute\", \"DDoS protection\", \"rate limiting\", and \"production hardening\". For live UIs over database rows, use neon-realtime.",
-    "path": "category/database-nosql-serverless/neon-functions"
   },
   {
     "id": "neon-object-storage",
@@ -430,6 +478,14 @@
     "repository": "membranedev-application-skills",
     "description": "Neon One integration. Manage data, records, and automate workflows. Use when the user wants to interact with Neon One data.",
     "path": "category/database-nosql-serverless/neon-one"
+  },
+  {
+    "id": "neon-retrofuturism",
+    "name": "neon-retrofuturism",
+    "category": "database-nosql-serverless",
+    "repository": "arjun988-blender-skills",
+    "description": "Neon, vaporwave, synthwave, and retrofuturistic mood/art direction for Blender with grid horizons, chrome, and dusk palettes.",
+    "path": "category/database-nosql-serverless/neon-retrofuturism"
   },
   {
     "id": "neonomics",
@@ -470,6 +526,22 @@
     "repository": "k-dense-ai-scientific-agent-skills",
     "description": "GPU-accelerates scientific Python on NVIDIA hardware and verifies that the result is correct and faster. Use for CUDA/GPU optimization; CPU-bound NumPy, SciPy, pandas, scikit-learn, NetworkX, scikit-image, vector-search, image-processing, graph, simulation, or file-I/O workloads; CuPy, cuDF, cuML, cuGraph, cuVS, cuCIM, KvikIO, Warp, Newton, Numba-CUDA, or RAFT questions; and profiling, memory-transfer, kernel, or multi-GPU bottlenecks. Also use when large data-parallel Python code is slow and GPU acceleration is a plausible option, even if the user does not name CUDA.",
     "path": "category/database-nosql-serverless/optimize-for-gpu"
+  },
+  {
+    "id": "paidf-cosmos-predict",
+    "name": "paidf-cosmos-predict",
+    "category": "database-nosql-serverless",
+    "repository": "nvidia-skills",
+    "description": "Prepare and run PAIDF Cosmos Predict video generation for DEFT media samples.",
+    "path": "category/database-nosql-serverless/paidf-cosmos-predict"
+  },
+  {
+    "id": "physical-ai-defect-image-generation",
+    "name": "physical-ai-defect-image-generation",
+    "category": "database-nosql-serverless",
+    "repository": "nvidia-skills",
+    "description": "Use when the user wants to orchestrate defect image generation with NVIDIA Cosmos AnomalyGen (Cosmos-Predict2-derived) on OSMO for PCBA, metal surface, and glass inspection. The Day 0 path handles cold-start with USD-to-ROI, image-edit augmentation, and AnomalyGen to create initial PCBA datasets. The Day 1 path performs inference and labeling on real images. This skill helps with first-time asset setup, creation of finetuning checkpoints, and configuring deployment.",
+    "path": "category/database-nosql-serverless/physical-ai-defect-image-generation"
   },
   {
     "id": "pufferlib",
@@ -576,6 +648,22 @@
     "path": "category/database-nosql-serverless/supabase-development"
   },
   {
+    "id": "tao-run-deft-aoi",
+    "name": "tao-run-deft-aoi",
+    "category": "database-nosql-serverless",
+    "repository": "nvidia-skills",
+    "description": "Run the full DEFT AOI improvement loop for NVIDIA TAO VisualChangeNet / ChangeNet PCB inspection models: baseline evaluate, RCA, Cosmos AnomalyGen / AMP synthetic defects, k-NN mining, retraining, and deployment gating against a customer-defined primary metric and optional constraints. Use only when the request identifies an AOI / automated-optical-inspection, PCB-defect, VisualChangeNet, or ChangeNet workflow. Supports air-gapped/offline runs with pre-staged assets. Never infer AOI from generic iterative-improvement language. Do not use for CLIP / SigLIP image retrieval, attribute-labelled image data, standalone TAO training, one-off inference, generic anomaly generation, or RCA-only analysis.",
+    "path": "category/database-nosql-serverless/tao-run-deft-aoi"
+  },
+  {
+    "id": "tao-run-deft-cr-its-mining",
+    "name": "tao-run-deft-cr-its-mining",
+    "category": "database-nosql-serverless",
+    "repository": "nvidia-skills",
+    "description": "Run the mining-based DEFT improvement workflow for ITS Cosmos-Reason binary video questions, focused on the non-reasoning classification/evaluation path. Use when the user asks for a DEFT CR ITS mining workflow, traffic-camera Cosmos Reason improvement loop, collision-identification workflow with data mining, or iterative Cosmos-RL refinement driven by gap analysis.",
+    "path": "category/database-nosql-serverless/tao-run-deft-cr-its-mining"
+  },
+  {
     "id": "turboquant-pytorch",
     "name": "turboquant-pytorch",
     "category": "database-nosql-serverless",
@@ -662,6 +750,14 @@
     "repository": "ruvnet-ruflo",
     "description": "First-run setup for ruvector@0.3.3 \u2014 installs ONNX/Brain/SONA add-ons, registers the MCP server, and verifies the install via `doctor`",
     "path": "category/database-nosql-serverless/vector-setup"
+  },
+  {
+    "id": "vector-style",
+    "name": "vector-style",
+    "category": "database-nosql-serverless",
+    "repository": "arjun988-blender-skills",
+    "description": "Vector-clean art direction for Blender with flat fills, sharp silhouettes, and UI-like graphic clarity.",
+    "path": "category/database-nosql-serverless/vector-style"
   },
   {
     "id": "vectorization",

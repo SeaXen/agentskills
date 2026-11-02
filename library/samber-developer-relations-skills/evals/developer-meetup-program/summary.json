@@ -1,0 +1,778 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "developer-meetup-program",
+  "scenarios": 12,
+  "expectations_total": 150,
+  "expectations_subjective": 1,
+  "expectations_objective": 149,
+  "pass_rate_with_skill_pct": 60.7,
+  "pass_rate_without_skill_pct": 17.3,
+  "delta_pp": 43.4,
+  "uplift_multiplier": 3.51,
+  "trigger_accuracy_pct": 50.0,
+  "trigger_queries": 138,
+  "trigger_positive_fire_rate": 0.0,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.274 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Prefers the group's own measured rate over CNCF's figure because six editions of door counts already exist"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Sizes the food order on expected door count rather than on RSVPs, and names catering the registration list as the most common budget mistake at this scale"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Frames the release request as freeing a seat for someone on the waitlist, not as guilt or a rebuke"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Specifies vegan and vegetarian options and allergen labelling for the food"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Presents an explicit efficiency ordering of the formats rather than a flat menu, leading with anchor + lightning"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Gives the ordering as anchor + lightning > study group > two-talk classic > open space > hands-on workshop"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Explains that the fixed 14 April date promotes formats needing no confirmed speaker, because speaker sourcing is the one lead time that cannot be compressed"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Emits effort and value as separate orderings rather than blending them into a single rank"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Justifies the effort tie between study group and open space: neither needs a confirmed speaker nor any organizer-prepared material"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Warns that a workshop run monthly by a two-person team breaks the cadence within a quarter"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that ten to fifteen attendees is a real first edition rather than setting a larger turnout target"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that vendor-affiliated user groups predate the independent volunteer model, citing SHARE founded in 1955, so independence is not a later stage"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that no efficiency ranking applies across all three models, because the model is settled by who is asking rather than chosen"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Identifies the one real choice available here as vendor-backed volunteer chapter versus company-staffed series"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Gives efficiency as vendor-backed volunteer chapter > company-staffed series"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Gives effort as company-staffed series > vendor-backed volunteer chapter"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Gives compliance cost as company-staffed series > vendor-backed volunteer chapter"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Explains the compliance line as the review each model triggers: a staffed series puts attendee data, the code of conduct and stage content under company legal and brand sign-off"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Warns that a baseline presented as an industry standard costs the user's credibility across the whole document"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names sourced figures safe to quote externally, including CNCF's 90-day inactivity threshold, its minimum of six meetings per calendar year, its bar of more than 10 attendees, and its 15-minute sponsor stage cap"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names DevOpsDays' published positions (no bought speaker slots, no distribution of attendee contact information) as quotable sourced material"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes the 1-in-3 room-sourced speaker target is deliberately ambitious against Nielsen's participation rates rather than a typical outcome"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Attributes the 90-9-1 participation inequality to Jakob Nielsen and 2006"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Tells the user to replace the baselines with the group's own trailing three-edition median now that nine editions exist"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Marks 18% repeat attendance as failing against a 40% target and identifies that 40% as a baseline, not an industry figure"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Declines to treat paid tickets as the no-show fix, pointing instead to overbooking, an auto-promoting waitlist and reminders"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that the restarted cadence must be one the remaining organizers can hold when tired, because a missed edition costs more trust than a slower cadence"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Scripts the direct ask around a short, named slot length, for example five minutes on what they built"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends a visible pipeline board tracking confirmed, provisional and prospect speakers per date"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends anchor + lightning so an edition needs one confirmed speaker instead of two, and so each lightning slot produces a candidate anchor speaker for a later edition"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes DevOpsDays holds its own sponsors to a shorter bar, a short elevator pitch on the order of a minute or two"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Tells the user to pick a cap, publish it, and hold it rather than negotiating it per sponsor"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Applies the code of conduct to sponsor staff, including recruiters"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Applies the pitch test: could this talk be given by someone who does not sell this product?"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Gives the repairs in order of preference: reframe around the problem keeping the product as setting, move the product content into a short sponsor slot, decline"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Recommends rotating venue hosts rather than staying with Nomatic indefinitely"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Books venue hosts a season at a time, roughly three editions, rather than a full year"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Rejects flat attendance of 34-38 as evidence the arrangement is harmless, and points at repeat attendance and new faces as the signals that move first"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Notes that regulars who stop coming over this will not say why"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Gives the ladder as attendee, regular, lightning speaker, volunteer, co-organizer"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States each rung is recruited from the one directly below it"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Maps the ladder onto the Orbit Model's four levels: Explorers, Participants, Contributors, Advocates"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Gives Orbit's gravity definition as love multiplied by reach"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Notes Orbit was published in 2019 and is no longer actively developed, citing it as a stable framework rather than a live product"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Recruits co-organizers publicly and on a low bar, approved when at least half the current organizers say yes"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Handles organizer departures publicly too, so a silent exit does not leave a ghost owner on the group's accounts"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Gives CNCF's Tuesday-to-Thursday evening after-work default, adjusted to local culture"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names CNCF's minimum of at least six meetings per calendar year for technical groups"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names CNCF's active-status bar as a quarterly event with more than 10 attendees, and states that the figure counts attendees rather than registrations"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that below quarterly a group has occasional events rather than a program"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Refuses to invent twelve editions of topics, speakers and sponsors"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Asks the gating interview questions before proposing a format, rather than producing a format on no information"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Asks one question at a time, multiple-choice where possible"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Gives the edition plan the columns date, format, speaker status, venue, sponsor status and promotion dates"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Presents the charter section by section and gets each validated before moving on"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Offers to store the charter, the venue and sponsor contacts and the edition log in persistent memory, gated on whether that capability is available"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Includes complete logistics: date, start and end time, address, door time, RSVP requirement and room capacity"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Gives the reminder schedule as announcement 3-4 weeks out, one week out, two days out, two hours out, and a day-after message"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Names the speaker's own network as the highest-yield promotion channel and asks Ana to share the slot once confirmed"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "States the no-show planning figure as roughly 30% of RSVPs and attributes it to CNCF Community Groups"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Rejects the 40-50% no-show figure explicitly as folklore with no named organization behind it"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Prefers the group's own measured rate over CNCF's figure because six editions of door counts already exist"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Uses the median of the group's trailing editions, not the mean, when setting the local rate"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Sizes the food order on expected door count rather than on RSVPs, and names catering the registration list as the most common budget mistake at this scale"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Puts the food budget near 60 people, not 118"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Includes a reminder roughly two hours before the event asking people who cannot come to release their spot"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Frames the release request as freeing a seat for someone on the waitlist, not as guilt or a rebuke"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Records the door count rather than the registration count in the edition log"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Specifies vegan and vegetarian options and allergen labelling for the food"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Presents an explicit efficiency ordering of the formats rather than a flat menu, leading with anchor + lightning"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Gives the ordering as anchor + lightning > study group > two-talk classic > open space > hands-on workshop"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Deletes the hands-on workshop outright rather than demoting it, citing the roughly 3 hours a month per organizer ceiling"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Deletes the open space outright rather than offering it as the zero-preparation option, because the room has never met each other"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Says explicitly which formats it deleted, not only which it recommends"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Explains that the fixed 14 April date promotes formats needing no confirmed speaker, because speaker sourcing is the one lead time that cannot be compressed"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Recommends a study group or anchor + lightning as the realistic pick for this first edition"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Emits effort and value as separate orderings rather than blending them into a single rank"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Justifies the effort tie between study group and open space: neither needs a confirmed speaker nor any organizer-prepared material"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Emits no compliance-cost axis for the format choice, since none of the formats changes what the group owes anyone"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Warns that a workshop run monthly by a two-person team breaks the cadence within a quarter"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that ten to fifteen attendees is a real first edition rather than setting a larger turnout target"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Rejects the framing that the three host models form a maturity ladder or a progression toward independence"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that vendor-affiliated user groups predate the independent volunteer model, citing SHARE founded in 1955, so independence is not a later stage"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that no efficiency ranking applies across all three models, because the model is settled by who is asking rather than chosen"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Identifies the one real choice available here as vendor-backed volunteer chapter versus company-staffed series"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Gives efficiency as vendor-backed volunteer chapter > company-staffed series"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Gives effort as company-staffed series > vendor-backed volunteer chapter"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Gives compliance cost as company-staffed series > vendor-backed volunteer chapter"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Explains the compliance line as the review each model triggers: a staffed series puts attendee data, the code of conduct and stage content under company legal and brand sign-off"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Promotes the company-staffed series for this case anyway, because the date is fixed and no local organizer exists yet"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States the irreversibility asymmetry: a staffed series can hand over to volunteers later, but a chapter cannot be un-handed"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Requires at least one speaker per edition with no stake in Corvex's product, or accepts that attendance decays to customers only"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Refuses to present the 70% show-up rate, the 40% repeat attendance, the 1-in-3 room-sourced speakers and the 2-editions-ahead figures as industry benchmarks"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Labels each of those four figures as a baseline rather than a measured industry figure"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Explains the 70% show-up rate is the direct arithmetic complement of CNCF's roughly 30% no-show figure, not an independent finding"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Tells the user to write \"our target\" instead of \"industry benchmark\" for any baseline"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names sourced figures safe to quote externally, including CNCF's 90-day inactivity threshold, its minimum of six meetings per calendar year, its bar of more than 10 attendees, and its 15-minute sponsor stage cap"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names DevOpsDays' published positions (no bought speaker slots, no distribution of attendee contact information) as quotable sourced material"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes the 1-in-3 room-sourced speaker target is deliberately ambitious against Nielsen's participation rates rather than a typical outcome"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Attributes the 90-9-1 participation inequality to Jakob Nielsen and 2006"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Says which kind each number is whenever one is quoted, rather than presenting a mixed list unlabelled"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Tells the user to replace the baselines with the group's own trailing three-edition median now that nine editions exist"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Flags the 118-day gap as past CNCF's 90-day inactivity threshold"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Flags that a single organizer is one job change from dead, and makes recruiting a second organizer the first action"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Sources that second organizer from the remaining regulars rather than from an open public call"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Gives the repair in order: recruit a co-organizer, fix a date and book the room, pick a no-speaker-needed fallback format, cap sponsor stage time, restart at a holdable cadence"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Tells the user to fix the date and book the room before finding a speaker, not after"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names a fallback format that needs no external speaker, such as a study group, demo night or open space"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Caps sponsor stage time at 15 minutes or less, publishes the cap, and holds it"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Marks 18% repeat attendance as failing against a 40% target and identifies that 40% as a baseline, not an industry figure"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Declines to treat paid tickets as the no-show fix, pointing instead to overbooking, an auto-promoting waitlist and reminders"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that the restarted cadence must be one the remaining organizers can hold when tired, because a missed edition costs more trust than a slower cadence"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Replaces the monthly open call with a standing call for proposals: a permanent form linked from every event page and every announcement"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Scripts the direct ask around a short, named slot length, for example five minutes on what they built"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends harvesting speakers from regional conferences, because an already-given talk repeats locally with no new preparation"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Says to ask conference speakers during or in the week of that conference, while it is fresh"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends trading speakers with neighbouring groups one city or one technology over, cross-promoting both audiences"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Sets the pipeline target at two confirmed editions ahead"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States the board's three states: two editions ahead is healthy, one ahead is a warning, zero ahead is a fire"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Rejects booking a panel because no speaker was found, naming it as a failure pattern rather than a fallback"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends anchor + lightning so an edition needs one confirmed speaker instead of two, and so each lightning slot produces a candidate anchor speaker for a later edition"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Refuses the guaranteed session in exchange for money outright, rather than negotiating its length down to 20 minutes"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Quotes DevOpsDays' position that no speaker spots can be bought by sponsors, ever"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Caps any sponsor stage time at 15 minutes as CNCF's published ceiling"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes DevOpsDays holds its own sponsors to a shorter bar, a short elevator pitch on the order of a minute or two"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Tells the user to pick a cap, publish it, and hold it rather than negotiating it per sponsor"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Refuses to export the RSVP list, including the tick-box-filtered subset handed over by the organizers"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States the sponsor earns contacts at their own table through an explicit opt-in, never through an organizer-supplied list"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Routes Trelix's solutions architect through the same content review as any other speaker, with no guaranteed slot"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Applies the code of conduct to sponsor staff, including recruiters"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Warns that a year of food funded by one sponsor raises the cost base, so losing them would cost the group rather than one edition's food"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends stating the conduct rules in writing before accepting anything from Trelix"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends rotating venue and food hosts rather than binding a full year to a single sponsor"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Applies the pitch test: could this talk be given by someone who does not sell this product?"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Gives the repairs in order of preference: reframe around the problem keeping the product as setting, move the product content into a short sponsor slot, decline"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Requires the title, the one-line takeaway and the slides in advance from every speaker including this one"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names the morning-of deck as how a group discovers on stage that the talk was a product demo"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Flags that two of three organizers from Nomatic breaches CNCF's cap of 50% of an organizer team from any one company"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Requires at least one speaker per edition with no stake in the host's product"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Books venue hosts a season at a time, roughly three editions, rather than a full year"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that roughly 90% lurking is normal rather than a failure of the program, citing Nielsen's 90-9-1 participation inequality"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Dates the 90-9-1 finding to 2006"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Gives the ladder as attendee, regular, lightning speaker, volunteer, co-organizer"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States each rung is recruited from the one directly below it"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Maps the ladder onto the Orbit Model's four levels: Explorers, Participants, Contributors, Advocates"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Gives Orbit's gravity definition as love multiplied by reach"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Notes Orbit was published in 2019 and is no longer actively developed, citing it as a stable framework rather than a live product"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Gives volunteers one or two real ownership areas each, such as food, A/V, emcee or socials, rather than ad-hoc help"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Recruits co-organizers publicly and on a low bar, approved when at least half the current organizers say yes"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Handles organizer departures publicly too, so a silent exit does not leave a ghost owner on the group's accounts"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Tells them to fix the slot, book the room, then fill the program, rather than letting the speaker set the date"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Explains that a fixed slot becomes a habit and removes one decision per edition"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Gives CNCF's Tuesday-to-Thursday evening after-work default, adjusted to local culture"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names CNCF's ideal cadence as monthly"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names CNCF's inactivity threshold: more than 90 days between events marks a chapter inactive"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names CNCF's minimum of at least six meetings per calendar year for technical groups"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names CNCF's active-status bar as a quarterly event with more than 10 attendees, and states that the figure counts attendees rather than registrations"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that below quarterly a group has occasional events rather than a program"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Warns that a missed edition costs more trust than a slower cadence, so they should not commit to monthly until the pipeline supports it"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Refuses to invent twelve editions of topics, speakers and sponsors"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Plans three editions deep and marks everything beyond edition three as provisional"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Asks the gating interview questions before proposing a format, rather than producing a format on no information"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Asks one question at a time, multiple-choice where possible"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Produces the program charter first, before any edition plan"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names exactly one primary outcome in the charter, not a list"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Uses CMX's SPACES model as the vocabulary for that single outcome because a company hosts, following its instruction to focus on one objective when starting out"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Delivers the artefacts in order: charter, three-edition plan, speaker pipeline board, edition log skeleton, scorecard baseline"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Gives the edition plan the columns date, format, speaker status, venue, sponsor status and promotion dates"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Fills the scorecard baseline with \"not measured yet\" where the group has no numbers, rather than inventing values"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Presents the charter section by section and gets each validated before moving on"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Offers to store the charter, the venue and sponsor contacts and the edition log in persistent memory, gated on whether that capability is available"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Rewrites the announcement to lead with the speaker and the topic rather than the pizza or the venue"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Demotes food to a logistics line instead of the headline"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Removes the sponsor from the headline, keeping them to a listing credit and a thank-you from the stage"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Removes \"come network with the community\" as the stated reason to attend"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Includes a concrete takeaway for the talk, not just its title"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Includes complete logistics: date, start and end time, address, door time, RSVP requirement and room capacity"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Adds an open lightning slot to the announcement so this month's post recruits next month's speaker"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Gives the reminder schedule as announcement 3-4 weeks out, one week out, two days out, two hours out, and a day-after message"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Puts the practical detail (address, door code, start time, food) in the two-days-out reminder and names it as the one that actually moves attendance"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Puts the release-your-spot request in the two-hours-out reminder"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Sends slides, recording and the next date in the day-after message"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Names the speaker's own network as the highest-yield promotion channel and asks Ana to share the slot once confirmed"
+      }
+    ]
+  }
+}

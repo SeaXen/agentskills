@@ -1,0 +1,214 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "devrel-newsletter-sourcing",
+  "scenarios": 6,
+  "expectations_total": 74,
+  "expectations_subjective": 1,
+  "expectations_objective": 73,
+  "pass_rate_with_skill_pct": 94.6,
+  "pass_rate_without_skill_pct": 48.6,
+  "delta_pp": 46.0,
+  "uplift_multiplier": 1.95,
+  "trigger_accuracy_pct": 78.4,
+  "trigger_queries": 74,
+  "trigger_positive_fire_rate": 0.811,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.309 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 2,
+        "expectation": "The output explains that rerunning April's post repeats an item readers already received."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The output presents the thin-issue options in a stated order (for example ship shorter before evergreen slot before skip)."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Every candidate carries a full YYYY-MM-DD date."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The Q4 branching roadmap teaser is cut as unannounced or off-limits."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "The output states the sourcing window as two explicit dates, the first being 2026-04-30 or the last issue's sourcing cutoff."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The Hacker News thread is not kept as its own item; it is cut or merged as commentary on the Node 6.0.0 change."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The output says that popularity (points, claps, replies or upvotes) does not by itself raise an item's position or earn inclusion."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The output explicitly states that this issue is thin."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The output ties the thin verdict to section minimums (fewer than half of the content sections reaching their minimum)."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The output recommends shipping a shorter issue as the default response."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The output does not include April's plugin-authoring post in this issue's item list."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The output explains that rerunning April's post repeats an item readers already received."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The output does not take items from TLDR or Console as this issue's content."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The output says other newsletters may serve only as a cross-check, or that their stories must be followed to the primary source."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The output presents the thin-issue options in a stated order (for example ship shorter before evergreen slot before skip)."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The Lisbon meetup is kept in Events with a note to confirm the date on the event's own page."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The output says that a second consecutive thin issue should trigger a cadence review rather than more padding."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The output states that empty sections are dropped for this issue rather than filled."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The thin verdict counts only sections with a minimum of one or more; the Events section (minimum 0) is not counted as reaching its minimum."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Orrin 1.9.0 (2026-06-09) is treated as inside this issue's window, after a check that the late-sent issue did not already carry it."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The output recommends checking last week's issue contents for overlap before including items."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Orrin Day Berlin is listed with the date 2026-07-09 from the meetup page, not 2026-07-02 from the calendar."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The output states that the event page's date takes precedence over the calendar's."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Every candidate carries a full YYYY-MM-DD date."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The output says to record this issue's sourcing cutoff so the next window starts from it."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The window boundaries are stated with a time and a time zone, not only dates."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "PR #4471 (replication slots UI) is held, not included, because it is merged but not yet released by the send date."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The held #4471 item carries an expiry or revisit point tied to its 2026-07-22 release or the next issue."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The output flags kept time-bound items (releases, the deprecation) to be re-checked before the send."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The empty forum export is reported as an empty channel or intake gap."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The devcompare comparison post is subject to a check (primary source, authenticity, or vendor bias) before inclusion."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The output asks for, or uses, the last issue's contents to rule out duplicates."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The output lists each candidate with a verdict (keep, hold or cut) rather than a bare paste-ready list."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The output gives each candidate a YYYY-MM-DD date or marks the date as unknown pending verification."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The output adds a sweep for breaking changes that lack a label or sit outside the main repository."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The output sets up a submission channel and says its inclusion rules should be published alongside it."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The output says community popularity breaks ties at most and is not the selection criterion."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The output treats other newsletters as a cross-check only, not as an item source."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The output says to record each issue's sourcing cutoff as the next issue's window start."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The output assigns each section or channel an owner and a backup."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The output includes a periodic review that drops channels producing no kept items."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The output tells Dario to answer each submitter with the verdict (kept, held or declined)."
+      }
+    ]
+  }
+}

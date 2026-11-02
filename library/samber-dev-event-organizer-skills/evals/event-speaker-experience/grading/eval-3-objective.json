@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that reimbursement filters the lineup by who can front the cost of a flight and wait, rather than treating it as a neutral admin preference",
+        "evidence": "'The skill warns this filters your lineup by who has spare cash.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends the event books and pays directly, or offers an advance, for at least the speakers travelling from India, Brazil and the US rather than reimbursing all nine uniformly",
+        "evidence": "The table shows 'Event books' for flights and hotel for India \u00d73, Brazil \u00d71 and US \u00d71.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Raises visa letters for the non-EU speakers, asks early whether one is needed and who signs it, and states no specific processing lead time as fact",
+        "evidence": "'Confirm who signs the invitation letter... I am not stating any lead times, because the skill says not to invent them.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Fixes the mechanism before the first message and states in one sentence in the packet whether the event books and pays or the speaker pays and claims",
+        "evidence": "Section 7: 'Hotel is booked by us... Flights: we book (long-haul) or you book within a cap and claim (EU).'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Specifies what is covered and what is not: flights or train, which nights of lodging, ground transport, meals, and a cap on each, rather than the phrase 'reasonable expenses'",
+        "evidence": "The budget table sets per-group flight caps and a hotel cap. Section 4 asks to define travel, airport transfers and the nights, and the packet states 'what is not covered'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States a claim deadline and a payment turnaround and commits to honouring both",
+        "evidence": "'By 17 Mar EU claim deadline... By 31 Mar EU reimbursements paid, payment turnaround honoured.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names a deletion date for passport or ID details, ticket numbers and bank details, decided at collection time and written into the packet",
+        "evidence": "'Write the deletion date in the packet, for example the week after the last return flight.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that travel and lodging concierge tops both effort and compliance cost, so an efficiency ranking on its own never selects it",
+        "evidence": "It mentions only the contact's hours: 'The skill says this is the real cost of the concierge rung'. Compliance cost is not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes anything beyond expense reimbursement, such as direct payments, taxes or contracts, through whoever handles the event's money rather than handling it inside speaker care",
+        "evidence": "The treasurer signs off on the mechanism and caps. The transcript never routes direct payments, taxes or contracts beyond reimbursement to the money handler.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Collects arrival and departure times as a dated material item rather than discovering them on the day",
+        "evidence": "'By mid-Feb Collect arrival and departure times and hand them to run-of-show.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not silently downgrade the promised 'travel and two nights' hotel' term to fit the 9,000 EUR budget, and escalates any shortfall to whoever made the promise",
+        "evidence": "'escalate to whoever made the promise... Do not quietly cut a night or lower a cap.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that reimbursement filters the lineup by who can front the cost of a flight and wait, rather than treating it as a neutral admin preference",
+        "evidence": "'Asking a speaker from India or Brazil to float roughly 1,000 EUR for 4+ months is a real barrier. Some will decline or drop out.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends the event books and pays directly, or offers an advance, for at least the speakers travelling from India, Brazil and the US rather than reimbursing all nine uniformly",
+        "evidence": "'Flights for India, Brazil and the US (5 speakers): you book, or you pay the airline directly.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Raises visa letters for the non-EU speakers, asks early whether one is needed and who signs it, and states no specific processing lead time as fact",
+        "evidence": "It says 'Send invitation letters now' and asserts 'The Schengen application window opens 6 months before travel'. It does not ask who signs and it states lead-time facts.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Fixes the mechanism before the first message and states in one sentence in the packet whether the event books and pays or the speaker pays and claims",
+        "evidence": "Step 1 sets the policy first. The draft states 'Hotel: we book it for you' and 'Flights: [we book it for you / book it yourself up to \u20acX...]'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Specifies what is covered and what is not: flights or train, which nights of lodging, ground transport, meals, and a cap on each, rather than the phrase 'reasonable expenses'",
+        "evidence": "The budget table gives flight caps and 2 hotel nights. The draft says 'Not covered: meals and local transport.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States a claim deadline and a payment turnaround and commits to honouring both",
+        "evidence": "A 14-day payment turnaround is given, but no claim submission deadline.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names a deletion date for passport or ID details, ticket numbers and bank details, decided at collection time and written into the packet",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that travel and lodging concierge tops both effort and compliance cost, so an efficiency ranking on its own never selects it",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes anything beyond expense reimbursement, such as direct payments, taxes or contracts, through whoever handles the event's money rather than handling it inside speaker care",
+        "evidence": "'one invoice paid by the treasurer'; 'Check with your accountant whether covering non-resident speakers has any Latvian tax or reporting implications.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Collects arrival and departure times as a dated material item rather than discovering them on the day",
+        "evidence": "The collection list is passport name, home airport, passport validity and ability to float a ticket. No arrival or departure times.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not silently downgrade the promised 'travel and two nights' hotel' term to fit the 9,000 EUR budget, and escalates any shortfall to whoever made the promise",
+        "evidence": "If the forecast exceeds 8,350 EUR it suggests 'cheaper hotel', 'tighter caps', or 'a remote talk' instead of escalating to whoever made the promise.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

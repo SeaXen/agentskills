@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Before/after snippets are complete enough to paste and use the same variable names in both halves",
+        "evidence": "Variable names match across every pair. The config pair uses the same four keys and values in both halves. The close() pair and the escape hatch both use `client`. The fetch() pair keeps `client`, `err`, `res`, `handleError` and `render`, and puts the error branch into `catch` with the same names. The snippets are not fully paste-ready, though. `client`, `logger`, `render` and `handleError` are never declared or imported. The `.cwickrc` 'Before' block is JSON but labelled ```ts. The fetch 'After' needs an enclosing async function, which only the Fix steps mention. Those gaps keep it from a 5.",
+        "score": 4,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Before/after snippets are complete enough to paste and use the same variable names in both halves",
+        "evidence": "Variable names match across every pair. The fetch pair uses `client`, `url`, `res`, `err`, `handle` and `use` in both halves. The config pair keeps identical keys and values (`plugins`, `retries`, `baseUrl`, `logLevel`). The close pair uses `client` in both. The config files are complete and can be pasted as-is. The code snippets are fragments, though: `client`, `url`, `handle` and `use` are never declared, nothing is imported, and the close 'after' adds a `log` object that is never defined. That falls short of fully paste-ready, so the score is lowered.",
+        "score": 4,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

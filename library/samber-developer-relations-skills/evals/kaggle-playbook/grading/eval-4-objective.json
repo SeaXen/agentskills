@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Recommends publishing under a Kaggle organization profile rather than a personal account",
+        "evidence": "'Publish it under an Synthora organization, not your personal account.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that organization profiles are requested by the user and approved by Kaggle",
+        "evidence": "'Request the organization now, since Kaggle must approve it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says a public Kaggle dataset has no email gate and downloads are anonymous, so the lead-capture form approach does not work as planned",
+        "evidence": "'A public Kaggle dataset has no email gate, and every download is anonymous to you.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends filling the dataset usability fields (subtitle, tags, description, cover image, licence, file and column descriptions)",
+        "evidence": "'Fill every field: subtitle, tags, cover image, source, licence, file and column descriptions, and a public notebook.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says a public starter notebook attached to the dataset raises its usability score or credibility",
+        "evidence": "The usability field list includes 'a public notebook', and the dataset page is told to 'Link the starter notebook'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes the 40 GB dataset fits under the 200 GB per-dataset limit",
+        "evidence": "'40 GB fits the 200 GB per-dataset cap [platform].'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends measuring downloads, forks and tagged-link signups rather than medals as the primary success metric",
+        "evidence": "'Measure forks, downloads and tagged-link signups instead of medals.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that a Kaggle Models listing is organised as variations combining framework, weights and licence",
+        "evidence": "'A Kaggle model variation is framework + weights + licence.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says an OSI licence such as Apache 2.0 or MIT allows the model to be used in Kaggle competitions",
+        "evidence": "'use an Apache 2.0 or MIT licence, so it is allowed in competitions.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Provides a filled dataset description template",
+        "evidence": "It gives a 'Dataset description' markdown block with About, Files and columns, Licence and Starter notebook sections.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns against a shared company user account on Kaggle (one account per person) and says content should come from named staff while the organization profile carries the brand",
+        "evidence": "The transcript never warns against a shared company account or states one account per person. It only assumes 'a named account'.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Recommends publishing under a Kaggle organization profile rather than a personal account",
+        "evidence": "Recommends a dedicated Synthora account and only asks whether an organization option exists.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that organization profiles are requested by the user and approved by Kaggle",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says a public Kaggle dataset has no email gate and downloads are anonymous, so the lead-capture form approach does not work as planned",
+        "evidence": "Says the gate 'may break Kaggle's rules' but does not say downloads are anonymous.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends filling the dataset usability fields (subtitle, tags, description, cover image, licence, file and column descriptions)",
+        "evidence": "Lists report and notebook content, not the usability fields.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says a public starter notebook attached to the dataset raises its usability score or credibility",
+        "evidence": "Benchmark notebook is mentioned for adoption, not as a usability-score or credibility factor.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes the 40 GB dataset fits under the 200 GB per-dataset limit",
+        "evidence": "Says 40GB is unusable and proposes a 1-2GB sample; no limit mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends measuring downloads, forks and tagged-link signups rather than medals as the primary success metric",
+        "evidence": "Funnel table: 'Unique downloads, notebooks that use the data' and 'a lead counts if the form came from the Kaggle UTM link'; 'Medals are fine as a side effect'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that a Kaggle Models listing is organised as variations combining framework, weights and licence",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says an OSI licence such as Apache 2.0 or MIT allows the model to be used in Kaggle competitions",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Provides a filled dataset description template",
+        "evidence": "None provided.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns against a shared company user account on Kaggle (one account per person) and says content should come from named staff while the organization profile carries the brand",
+        "evidence": "Recommends 'a dedicated Synthora account that your company controls', the opposite.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

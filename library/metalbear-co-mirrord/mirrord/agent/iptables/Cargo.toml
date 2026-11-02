@@ -1,0 +1,35 @@
+[package]
+name = "mirrord-agent-iptables"
+version.workspace = true
+authors.workspace = true
+description.workspace = true
+documentation.workspace = true
+readme.workspace = true
+homepage.workspace = true
+repository.workspace = true
+license.workspace = true
+keywords.workspace = true
+categories.workspace = true
+publish.workspace = true
+edition.workspace = true
+
+[features]
+
+
+[target.'cfg(target_os = "linux")'.dependencies]
+iptables.workspace = true
+nix = { workspace = true, features = ["user"] }
+caps.workspace = true
+mirrord-agent-env.path = "../env"
+
+async-trait.workspace = true
+enum_dispatch.workspace = true
+fancy-regex.workspace = true
+tokio = { workspace = true, features = ["fs", "macros", "process", "rt"] }
+tracing.workspace = true
+
+[target.'cfg(target_os = "linux")'.dev-dependencies]
+mockall.workspace = true
+
+[lib]
+doctest = false

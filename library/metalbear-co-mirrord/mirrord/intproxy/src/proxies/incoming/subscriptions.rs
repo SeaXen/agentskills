@@ -1,0 +1,580 @@
+use std::collections::{HashMap, hash_map::Entry};
+
+use futures::future::Either;
+use mirrord_intproxy_protocol::{
+    IncomingResponse, LayerId, ListeningOn, MessageId, PortSubscribe, PortUnsubscribe,
+    ProxyToLayerMessage,
+};
+use mirrord_protocol::{BlockedAction, ClientMessage, Port, RemoteResult, ResponseError};
+use semver::Version;
+use tracing::Level;
+
+use super::{IncomingProxyError, port_subscription_ext::PortSubscriptionExt};
+use crate::{
+    main_tasks::{ProxyMessage, ToLayer},
+    remote_resources::RemoteResources,
+};
+
+/// Represents a source of subscription - a `listen` call in the layer.
+#[derive(Debug)]
+struct Source {
+    layer: LayerId,
+    message: MessageId,
+    request: PortSubscribe,
+}
+
+/// Represents a port subscription in the agent.
+#[derive(Debug)]
+pub struct Subscription {
+    /// Previous sources of this subscription. Each of these was at some point active, but was
+    /// later overwritten.
+    queued_sources: Vec<Source>,
+    /// Latest source of this subscription.
+    active_source: Source,
+    /// Whether this subscription is confirmed.
+    confirmed: bool,
+    /// Deliveries accepted during this subscription lifetime.
+    hit_count: u64,
+}
+
+impl Subscription {
+    /// Creates a new subscription from the given [`Source`].
+    /// Additionally returns a message to be sent to the agent.
+    fn new(source: Source, protocol_version: Option<&Version>) -> (Self, ClientMessage) {
+        let message = source
+            .request
+            .subscription
+            .agent_subscribe(protocol_version);
+
+        (
+            Self {
+                queued_sources: Default::default(),
+                active_source: source,
+                confirmed: false,
+                hit_count: 0,
+            },
+            message,
+        )
+    }
+
+    /// Overwrites the active subscription [`Source`].
+    /// Returns a message to be sent to the layer.
+    /// Returns [`None`] if this subscription is still waiting for confirmation.
+    fn push_source(&mut self, source: Source) -> Option<ToLayer> {
+        let message = if self.confirmed {
+            // Agent already confirmed this subscription.
+            Some(ToLayer {
+                message_id: source.message,
+                layer_id: source.layer,
+                message: ProxyToLayerMessage::Incoming(IncomingResponse::PortSubscribe(Ok(()))),
+            })
+        } else {
+            // Waiting for agent confirmation.
+            None
+        };
+
+        let previous_source = std::mem::replace(&mut self.active_source, source);
+        self.queued_sources.push(previous_source);
+
+        message
+    }
+
+    /// Confirms this subscription.
+    /// Returns messages to be sent to the layers.
+    fn confirm(&mut self) -> Vec<ToLayer> {
+        if self.confirmed {
+            return vec![];
+        }
+
+        self.confirmed = true;
+
+        self.queued_sources
+            .iter()
+            .chain(std::iter::once(&self.active_source))
+            .map(|source| ToLayer {
+                layer_id: source.layer,
+                message_id: source.message,
+                message: ProxyToLayerMessage::Incoming(IncomingResponse::PortSubscribe(Ok(()))),
+            })
+            .collect()
+    }
+
+    /// Rejects this subscription with the given `reason`.
+    /// Returns messages to be sent to the layers.
+    /// Returns [`Err`] if this subscription was already confirmed.
+    fn reject(self, reason: ResponseError) -> Result<Vec<ToLayer>, Box<Self>> {
+        if self.confirmed {
+            return Err(Box::new(self));
+        }
+
+        let responses = self
+            .queued_sources
+            .into_iter()
+            .chain(std::iter::once(self.active_source))
+            .map(|source| ToLayer {
+                layer_id: source.layer,
+                message_id: source.message,
+                message: ProxyToLayerMessage::Incoming(IncomingResponse::PortSubscribe(Err(
+                    reason.clone(),
+                ))),
+            })
+            .collect();
+
+        Ok(responses)
+    }
+
+    /// Removed a source from this subscription.
+    /// If this source is the last one, returns [`Err`] with a message to be sent to the agent.
+    fn remove_source(mut self, listening_on: &ListeningOn) -> Result<Self, Box<ClientMessage>> {
+        let queue_size = self.queued_sources.len();
+        self.queued_sources
+            .retain(|source| source.request.listening_on != *listening_on);
+        if queue_size != self.queued_sources.len() {
+            return Ok(self);
+        }
+
+        if self.active_source.request.listening_on != *listening_on {
+            return Ok(self);
+        }
+
+        match self.queued_sources.pop() {
+            Some(next_in_queue) => {
+                self.active_source = next_in_queue;
+                Ok(self)
+            }
+            None => Err(Box::new(
+                self.active_source
+                    .request
+                    .subscription
+                    .wrap_agent_unsubscribe(),
+            )),
+        }
+    }
+
+    pub fn resubscribe_message(&mut self, protocol_version: Option<&Version>) -> ClientMessage {
+        self.confirmed = false;
+
+        self.active_source
+            .request
+            .subscription
+            .agent_subscribe(protocol_version)
+    }
+
+    pub fn add_new_hit(&mut self) -> u64 {
+        self.hit_count = self.hit_count.saturating_add(1);
+        self.hit_count
+    }
+
+    pub fn hit_count(&self) -> u64 {
+        self.hit_count
+    }
+}
+
+/// Manages port subscriptions across all connected layers.
+/// Logic of this struct is a bit complicated for several reasons:
+/// 1. Layer can subscribe to a single port multiple times (e.g. with `port_mapping`)
+/// 2. Layer can fork, thus duplicating the OS listener socket related to a subscription
+/// 3. Layer can be connected to multiple agents, each of which idependently responds to
+///    subscription requests
+/// 4. Subscription response from the agent most of the time cannot be tracked down to its
+///    subscription request
+#[derive(Default)]
+pub struct SubscriptionsManager {
+    remote_ports: RemoteResources<(Port, ListeningOn)>,
+    subscriptions: HashMap<Port, Subscription>,
+}
+
+impl SubscriptionsManager {
+    /// Returns active [`PortSubscribe`] request for the given [`Port`].
+    pub fn get(&self, port: Port) -> Option<&PortSubscribe> {
+        self.subscriptions
+            .get(&port)
+            .map(|sub| &sub.active_source.request)
+    }
+
+    pub fn hit_count(&self, port: Port) -> Option<u64> {
+        self.subscriptions.get(&port).map(Subscription::hit_count)
+    }
+
+    pub fn count_hit(&mut self, port: Port) -> Option<u64> {
+        self.subscriptions
+            .get_mut(&port)
+            .map(Subscription::add_new_hit)
+    }
+
+    /// Registers a new port subscription in this struct.
+    /// Optionally returns a message to be sent.
+    ///
+    /// Subsequent subscriptions of the same port will take precedence over previous ones, meaning
+    /// that new connections will be routed to the listener from the most recent [`PortSubscribe`]
+    /// request.
+    #[tracing::instrument(level = Level::INFO, skip(self), ret)]
+    pub fn layer_subscribed(
+        &mut self,
+        layer_id: LayerId,
+        message_id: MessageId,
+        request: PortSubscribe,
+        protocol_version: Option<&Version>,
+    ) -> Option<Either<ProxyMessage, ClientMessage>> {
+        self.remote_ports.add(
+            layer_id,
+            (request.subscription.port(), request.listening_on.clone()),
+        );
+
+        let port = request.subscription.port();
+        let source = Source {
+            layer: layer_id,
+            message: message_id,
+            request,
+        };
+
+        match self.subscriptions.entry(port) {
+            Entry::Occupied(mut e) => e
+                .get_mut()
+                .push_source(source)
+                .map(|m| Either::Left(ProxyMessage::ToLayer(m))),
+            Entry::Vacant(e) => {
+                let (subscription, message) = Subscription::new(source, protocol_version);
+                e.insert(subscription);
+                Some(Either::Right(message))
+            }
+        }
+    }
+
+    /// Unregisters a subscription from this struct.
+    /// Optionally returns a message to be sent to the agent.
+    #[tracing::instrument(level = Level::INFO, skip(self), ret)]
+    pub fn layer_unsubscribed(
+        &mut self,
+        layer_id: LayerId,
+        request: PortUnsubscribe,
+    ) -> Option<ClientMessage> {
+        let closed_in_all_forks = self
+            .remote_ports
+            .remove(layer_id, (request.port, request.listening_on.clone()));
+        if !closed_in_all_forks {
+            return None;
+        }
+
+        let subscription = self.subscriptions.remove(&request.port)?;
+
+        match subscription.remove_source(&request.listening_on) {
+            Ok(subscription) => {
+                self.subscriptions.insert(request.port, subscription);
+                None
+            }
+            Err(message) => Some(*message),
+        }
+    }
+
+    /// Notifies this struct about agent's response.
+    /// Returns messages to be sent to the layers.
+    #[tracing::instrument(level = Level::TRACE, ret, skip(self))]
+    pub fn agent_responded(
+        &mut self,
+        result: RemoteResult<Port>,
+    ) -> Result<Vec<ToLayer>, IncomingProxyError> {
+        match result {
+            Ok(port) => {
+                let Some(subscription) = self.subscriptions.get_mut(&port) else {
+                    return Ok(vec![]);
+                };
+
+                Ok(subscription.confirm())
+            }
+
+            Err(ResponseError::PortAlreadyStolen(port)) => {
+                let Some(subscription) = self.subscriptions.remove(&port) else {
+                    return Ok(vec![]);
+                };
+
+                match subscription.reject(ResponseError::PortAlreadyStolen(port)) {
+                    Ok(responses) => Ok(responses),
+                    Err(subscription) => {
+                        self.subscriptions.insert(port, *subscription);
+                        Ok(vec![])
+                    }
+                }
+            }
+
+            Err(
+                ref response_error @ (ResponseError::Forbidden {
+                    ref blocked_action, ..
+                }
+                | ResponseError::ForbiddenWithReason {
+                    ref blocked_action, ..
+                }),
+            ) => {
+                tracing::warn!(%response_error, "Port subscribe blocked by policy");
+
+                let port = match blocked_action {
+                    BlockedAction::Steal(steal_type) => steal_type.get_port(),
+                    BlockedAction::Mirror(port) => *port,
+                    BlockedAction::OutgoingTcp(addr) | BlockedAction::OutgoingUdp(addr) => {
+                        tracing::error!(
+                            ?addr,
+                            "This code is handling incoming policies - the operator shouldn't produce an outgoing blocked action at this point"
+                        );
+                        return Ok(vec![]);
+                    }
+                };
+
+                let Some(subscription) = self.subscriptions.remove(&port) else {
+                    return Ok(vec![]);
+                };
+
+                subscription
+                    .reject(response_error.clone())
+                    .map_err(|subscription| {
+                        tracing::error!(?subscription, "Subscription was confirmed before, then requested again and blocked by a policy.");
+                        IncomingProxyError::SubscriptionFailed(response_error.clone())
+                    })
+            }
+
+            Err(err) => Err(IncomingProxyError::SubscriptionFailed(err)),
+        }
+    }
+
+    /// Notifies this struct about layer closing.
+    /// Returns messages to be sent to the agent.
+    pub fn layer_closed(&mut self, layer_id: LayerId) -> Vec<ClientMessage> {
+        self.remote_ports
+            .remove_all(layer_id)
+            .filter_map(|(port, listening_on)| {
+                let subscription = self.subscriptions.remove(&port)?;
+                match subscription.remove_source(&listening_on) {
+                    Ok(subscription) => {
+                        self.subscriptions.insert(port, subscription);
+                        None
+                    }
+                    Err(message) => Some(*message),
+                }
+            })
+            .collect()
+    }
+
+    /// Notifies this struct about layer forking.
+    pub fn layer_forked(&mut self, parent: LayerId, child: LayerId) {
+        self.remote_ports.clone_all(parent, child);
+    }
+
+    pub fn iter_mut(&mut self) -> impl Iterator<Item = &mut Subscription> + '_ {
+        self.subscriptions.values_mut()
+    }
+}
+
+#[cfg(test)]
+mod test {
+    use mirrord_intproxy_protocol::PortSubscription;
+    use mirrord_protocol::tcp::{LayerTcp, MirrorType};
+
+    use super::*;
+
+    #[test]
+    fn with_double_subscribe() {
+        let listener_1: ListeningOn = "127.0.0.1:1111"
+            .parse::<std::net::SocketAddr>()
+            .unwrap()
+            .into();
+        let listener_2: ListeningOn = "127.0.0.1:2222"
+            .parse::<std::net::SocketAddr>()
+            .unwrap()
+            .into();
+
+        let mut manager = SubscriptionsManager::default();
+
+        let response = manager.layer_subscribed(
+            LayerId(0),
+            0,
+            PortSubscribe {
+                listening_on: listener_1.clone(),
+                subscription: PortSubscription::Mirror(MirrorType::All(80)),
+            },
+            None,
+        );
+        assert!(
+            matches!(
+                response,
+                Some(Either::Right(ClientMessage::Tcp(LayerTcp::PortSubscribe(
+                    80
+                ))))
+            ),
+            "{response:?}"
+        );
+
+        let response = manager.layer_subscribed(
+            LayerId(0),
+            1,
+            PortSubscribe {
+                listening_on: listener_2.clone(),
+                subscription: PortSubscription::Mirror(MirrorType::All(80)),
+            },
+            None,
+        );
+        assert!(response.is_none(), "{response:?}");
+
+        let mut responses = manager.agent_responded(Ok(80)).unwrap();
+        assert_eq!(responses.len(), 2, "{responses:?}");
+        responses.sort_by_key(|r| r.message_id);
+        for i in [0, 1] {
+            let response = responses.get(i).unwrap();
+            assert!(
+                matches!(
+                    response,
+                    ToLayer {
+                        layer_id: LayerId(0),
+                        message: ProxyToLayerMessage::Incoming(IncomingResponse::PortSubscribe(
+                            Ok(())
+                        )),
+                        message_id,
+                    } if *message_id == i as u64
+                ),
+                "{i}: {response:?}"
+            );
+        }
+        assert_eq!(manager.get(80).unwrap().listening_on, listener_2);
+
+        let response = manager.layer_unsubscribed(
+            LayerId(0),
+            PortUnsubscribe {
+                port: 80,
+                listening_on: listener_2,
+            },
+        );
+        assert!(response.is_none(), "{response:?}");
+        assert_eq!(manager.get(80).unwrap().listening_on, listener_1);
+
+        let response = manager.layer_unsubscribed(
+            LayerId(0),
+            PortUnsubscribe {
+                port: 80,
+                listening_on: listener_1,
+            },
+        );
+        assert!(matches!(
+            response,
+            Some(ClientMessage::Tcp(LayerTcp::PortUnsubscribe(80)))
+        ));
+        assert!(manager.get(80).is_none());
+    }
+
+    #[test]
+    fn with_fork() {
+        let listening_on: ListeningOn = "127.0.0.1:1111"
+            .parse::<std::net::SocketAddr>()
+            .unwrap()
+            .into();
+
+        let mut manager = SubscriptionsManager::default();
+
+        let response = manager.layer_subscribed(
+            LayerId(0),
+            0,
+            PortSubscribe {
+                listening_on: listening_on.clone(),
+                subscription: PortSubscription::Mirror(MirrorType::All(80)),
+            },
+            None,
+        );
+        assert!(
+            matches!(
+                response,
+                Some(Either::Right(ClientMessage::Tcp(LayerTcp::PortSubscribe(
+                    80
+                ))))
+            ),
+            "{response:?}"
+        );
+
+        let responses = manager.agent_responded(Ok(80)).unwrap();
+        assert_eq!(responses.len(), 1, "{responses:?}");
+        let response = responses.into_iter().next().unwrap();
+        assert!(
+            matches!(
+                response,
+                ToLayer {
+                    layer_id: LayerId(0),
+                    message: ProxyToLayerMessage::Incoming(IncomingResponse::PortSubscribe(Ok(()))),
+                    message_id: 0,
+                }
+            ),
+            "{response:?}"
+        );
+        assert_eq!(manager.get(80).unwrap().listening_on, listening_on);
+
+        manager.layer_forked(LayerId(0), LayerId(1));
+
+        let response = manager.layer_unsubscribed(
+            LayerId(0),
+            PortUnsubscribe {
+                port: 80,
+                listening_on: listening_on.clone(),
+            },
+        );
+        assert!(response.is_none(), "{response:?}");
+        assert_eq!(manager.get(80).unwrap().listening_on, listening_on);
+
+        let response = manager.layer_unsubscribed(
+            LayerId(1),
+            PortUnsubscribe {
+                port: 80,
+                listening_on,
+            },
+        );
+        assert!(matches!(
+            response,
+            Some(ClientMessage::Tcp(LayerTcp::PortUnsubscribe(80)))
+        ));
+        assert!(manager.get(80).is_none());
+    }
+
+    #[test]
+    fn with_double_response() {
+        let listening_on: ListeningOn = "127.0.0.1:1111"
+            .parse::<std::net::SocketAddr>()
+            .unwrap()
+            .into();
+
+        let mut manager = SubscriptionsManager::default();
+
+        let response = manager.layer_subscribed(
+            LayerId(0),
+            0,
+            PortSubscribe {
+                listening_on: listening_on.clone(),
+                subscription: PortSubscription::Mirror(MirrorType::All(80)),
+            },
+            None,
+        );
+        assert!(
+            matches!(
+                response,
+                Some(Either::Right(ClientMessage::Tcp(LayerTcp::PortSubscribe(
+                    80
+                ))))
+            ),
+            "{response:?}"
+        );
+
+        let responses = manager.agent_responded(Ok(80)).unwrap();
+        assert_eq!(responses.len(), 1, "{responses:?}");
+        let response = responses.into_iter().next().unwrap();
+        assert!(
+            matches!(
+                response,
+                ToLayer {
+                    layer_id: LayerId(0),
+                    message: ProxyToLayerMessage::Incoming(IncomingResponse::PortSubscribe(Ok(()))),
+                    message_id: 0,
+                }
+            ),
+            "{response:?}"
+        );
+        assert_eq!(manager.get(80).unwrap().listening_on, listening_on);
+
+        let responses = manager
+            .agent_responded(Err(ResponseError::PortAlreadyStolen(80)))
+            .unwrap();
+        assert!(responses.is_empty(), "{responses:?}");
+    }
+}

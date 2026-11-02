@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Cuts the template to five to seven sections in a fixed order",
+        "evidence": "\"Six sections, fixed order.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives every section a source, an owner, an item range and an empty-section rule",
+        "evidence": "Template table has all four for each of six rows.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces filler with either dropping the empty section or a named evergreen slot",
+        "evidence": "\"No filler\"; \"Run the next entry from the evergreen reserve\"; other sections \"Drop it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects 'the devrel team' as an owner and requires a named owner, a named backup and a reviewer, each with hours per issue",
+        "evidence": "\"'The devrel team' is not an owner.\"; hours table 4 / 1 / 0.5.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Moves the sending domain from the ex-contractor's registrar account to the organisation",
+        "evidence": "\"ask the contractor to initiate a transfer or push to a Marrowgate-owned registrar account.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes billing and security notices from the newsletter, keeping it a separate consented stream from transactional email",
+        "evidence": "\"Billing and security notices: out of the newsletter... send these on the transactional or account stream\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites that a message mixing commercial and transactional content counts as commercial when the transactional part does not come first or the subject line reads as commercial",
+        "evidence": "\"under CAN-SPAM, mixing commercial and transactional content makes the message commercial unless the transactional part comes first.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Decides whether each issue gets a public URL and names where the archive lives",
+        "evidence": "\"Every issue gets a public URL.\"; \"a page on the Marrowgate site or docs\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the running cost and the budget line that pays it",
+        "evidence": "\"Running cost. The platform tier, the domain and the editor hours need a named budget line.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names where the runbook lives and includes a handoff checklist",
+        "evidence": "\"Keep the runbook next to the release process, in a repo or wiki\"; \"Handoff checklist (run at any owner change)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Produces the template as a table with the columns Section, Source, Owner, Items, When empty",
+        "evidence": "Table header: | Section | Source | Owner | Items | When empty |",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Cuts the template to five to seven sections in a fixed order",
+        "evidence": "'I cut the nine sections to four... Shipped, Changing, Community, Next.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives every section a source, an owner, an item range and an empty-section rule",
+        "evidence": "Ranges and empty rules appear as comments on some sections. Source and owner are not given per section.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Replaces filler with either dropping the empty section or a named evergreen slot",
+        "evidence": "'Skip any section with no real item. Never pad it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects 'the devrel team' as an owner and requires a named owner, a named backup and a reviewer, each with hours per issue",
+        "evidence": "'The devrel team is the owning function, not the owner' and the roles are named, but no hours per issue are given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Moves the sending domain from the ex-contractor's registrar account to the organisation",
+        "evidence": "'Transfer the domain into a company-owned registrar account.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes billing and security notices from the newsletter, keeping it a separate consented stream from transactional email",
+        "evidence": "'Do not send these through the newsletter... Transactional' channel table.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites that a message mixing commercial and transactional content counts as commercial when the transactional part does not come first or the subject line reads as commercial",
+        "evidence": "Not cited.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Decides whether each issue gets a public URL and names where the archive lives",
+        "evidence": "Archive is public at '/newsletter/YYYY-MM', but the host is a placeholder 'https://<archive-host>'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the running cost and the budget line that pays it",
+        "evidence": "No cost or budget line is named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names where the runbook lives and includes a handoff checklist",
+        "evidence": "'internal runbook' is mentioned, with no location or checklist.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces the template as a table with the columns Section, Source, Owner, Items, When empty",
+        "evidence": "The template is markdown with comments, not a table.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

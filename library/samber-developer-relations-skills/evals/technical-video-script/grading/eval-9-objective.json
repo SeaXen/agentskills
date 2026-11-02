@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Diagnoses the script beat by beat instead of returning a rewritten script.",
+        "evidence": "The transcript delivers a full rewritten script with '## Promise', '## Beats' (all 9 beats with new narration/visuals), '## Chapters', '## Cut plan', '## Recording brief', and '## Runtime' sections \u2014 a complete production-ready rewrite, not a diagnostic pass over the original beats.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks what the format is - talking head, screencast, silent captioned clip - before judging the beats.",
+        "evidence": "The response opens immediately with 'Using technical-video-script to rewrite this' and states the format as a given: 'Shape: Changelog / release clip, run long (single breaking-change fix off a real release)' \u2014 no question about format is posed before proceeding.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Tables the beats with a number, topic, function and status per row.",
+        "evidence": "The Beats table columns are '#, Visual, On-screen action, Narration, Starting state, Est. s, Core/cut' \u2014 a production script table, not a diagnostic table with number/topic/function/status columns.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Grades each finding as high, medium or low risk rather than listing findings flat.",
+        "evidence": "The 'Fixes mapped to your seven notes' section lists items flatly numbered 1-7 plus an 'Unlisted but caught by the pass threshold' item, with no high/medium/low risk grading anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags beat 4 as a logic break with a missing bridging sentence between the new resolver and deterministic builds.",
+        "evidence": "\"4. The unearned jump is bridged: beat 3 states the actual mechanism (resolve from the config's own location), beat 4 *proves* determinism by re-running the exact same before/after demo instead of asserting it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags beat 3 as a density drop that repeats what the screen already showed.",
+        "evidence": "No mention ties beat 3 to a density drop or repetition of on-screen content; the repetition/redundancy note in the transcript instead targets beat 2: 'The three redundant sentences are gone \u2014 beat 2 states the cause once; nothing re-describes a file the viewer just watched fail.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags beat 5 as an unspeakable line, too long or tangled to read aloud in one breath.",
+        "evidence": "The only pronunciation/speakability note in the transcript is attached to beat 9, not beat 5: \"(Pronunciation note on beat 9: drop the stray 'it - kube control style' aside before recording...)\". Beat 5's narration is presented as a normal sentence with no speakability flag.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Shows the original line beside the proposed replacement rather than overwriting the contractor's text.",
+        "evidence": "The transcript explicitly states it cannot show originals: \"I don't have the contractor's literal file, only your seven beat descriptions \u2014 so config/resolver/CTA *wording* below is written to fix the named defect, not transcribed from an original I can't see. Swap in your real strings where marked.\" No side-by-side original/proposed presentation is given anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Checks whether the Windows path aside in beat 6 is load-bearing argument before recommending a cut.",
+        "evidence": "\"If long by ~15s:  drop beat 5 (Windows caveat) \u2014 bonus fix, not the core claim\" \u2014 explicitly reasons that the aside is not part of the core argument before recommending it be cut.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Leaves the 4x claim alone as the author's own, judging how it is said rather than whether it is true.",
+        "evidence": "The transcript disputes the claim's verifiability outright: \"The 4x claim is **not** carried through as stated. Pass-threshold criterion 7 requires every on-screen/narrated claim to be reproducible on the recording machine \u2014 a number with no attached benchmark fails that gate before it fails a style note,\" and beat 7 is marked '[UNCONFIRMED ...] Do not record a multiplier that hasn't been benchmarked on this machine.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Manufactures no findings against beats that are fine.",
+        "evidence": "\"2. Kept, verbatim, as the one-sentence diagnosis (beat 2).\" shows the response preserving a beat it judged already correct rather than inventing a complaint against it.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Offers the marked-up script as an optional next step instead of delivering a rewrite unasked.",
+        "evidence": "The response delivers the entire rewritten script directly as the answer (Promise/Beats/Chapters/Cut plan/Recording brief/Runtime sections) rather than offering it as an optional next step pending user confirmation.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Diagnoses the script beat by beat instead of returning a rewritten script.",
+        "evidence": "It returns a full rewritten 'Script v2'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks what the format is - talking head, screencast, silent captioned clip - before judging the beats.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Tables the beats with a number, topic, function and status per row.",
+        "evidence": "No table.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Grades each finding as high, medium or low risk rather than listing findings flat.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags beat 4 as a logic break with a missing bridging sentence between the new resolver and deterministic builds.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags beat 3 as a density drop that repeats what the screen already showed.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags beat 5 as an unspeakable line, too long or tangled to read aloud in one breath.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Shows the original line beside the proposed replacement rather than overwriting the contractor's text.",
+        "evidence": "Only the rewritten text is shown.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Checks whether the Windows path aside in beat 6 is load-bearing argument before recommending a cut.",
+        "evidence": "'Cut the Windows path bug' with only a stylistic reason.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Leaves the 4x claim alone as the author's own, judging how it is said rather than whether it is true.",
+        "evidence": "'Dropped the \"4x faster\" claim.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Manufactures no findings against beats that are fine.",
+        "evidence": "It changed the script wholesale and cut two elements without a beat-level diagnosis.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Offers the marked-up script as an optional next step instead of delivering a rewrite unasked.",
+        "evidence": "The rewrite is delivered unasked.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

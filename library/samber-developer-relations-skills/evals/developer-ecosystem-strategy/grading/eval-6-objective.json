@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Recommends vendor-built integrations as the rung to execute for the Meridian deadline, because it is the only rung whose delivery Halyard controls.",
+        "evidence": "\"Build the SAP work-order connector yourselves, on a version-controlled internal API, to hit the 6 March deadline.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the 6 March renewal as the answer that promoted vendor-built integrations up the ranking.",
+        "evidence": "\"Meridian Power, $430k ARR, renewal 6 March: written procurement statement that renewal depends on a working SAP work-order integration.\" tied directly into the bottom-line recommendation.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes installable third-party apps and the runtime platform because there is no security review function, and says so explicitly.",
+        "evidence": "\"'Not staffing a security review function' deletes installable third-party apps and a runtime platform \u2014 both require running someone else's code inside your boundary.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes every rung above the documented public API because Halyard will not sign an obligation it cannot withdraw from, and says so explicitly.",
+        "evidence": "\"'Not signing anything we can't withdraw from' deletes partner-built integrations listed by you \u2014 the one rung where another company's revenue starts depending on your surface.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names partner-built integrations as the first rung that cannot be walked back, because another company's revenue would then ride on Halyard's surface.",
+        "evidence": "\"the one rung where another company's revenue starts depending on your surface, making withdrawal public breakage rather than an edit.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Presents two or three candidate rungs rather than one.",
+        "evidence": "\"What's left, and the two candidates worth presenting: 1. Vendor-built integration only... 2. Vendor-built SAP connector now, architected as a documented internal API...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the efficiency ordering of the candidates out loud rather than leaving it implied by the order they are listed in.",
+        "evidence": "No explicit \"efficiency order\" statement appears; the text only gives \"Recommendation: option 2. It costs nothing extra now...\" without ranking language.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Expresses effort as standing team, weekly coordination and reversibility, never as a budget or currency figure.",
+        "evidence": "Effort is described via \"Name an owner now (a borrowed senior engineer, not a hire) with a fraction of ongoing capacity reserved,\" with no dollar figure attached to engineering effort.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Parks no deleted rung at the bottom of the recommendation as a later phase.",
+        "evidence": "\"Reopen condition for the deleted rung (partner-built, listed): revisit only if... Don't design toward it before then.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes the condition that would promote Halyard to a higher rung as an observable event rather than a roadmap date.",
+        "evidence": "\"revisit only if demand crosses eight distinct complements requested by five or more customers, or a named systems integrator asks in writing to build against you \u2014 and only if the CTO's stance on unwithdrawable obligations changes.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that vendor-built integrations carry zero leverage by definition and that their effort grows with every connector added.",
+        "evidence": "No general statement of this kind appears; instead the plan explicitly relies on customers' internal IT teams for connectors 3-4 to reduce further build effort.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that vendor-built integrations are nonetheless the cheapest instrument for discovering which of the three asset-management connectors customers actually adopt.",
+        "evidence": "\"Don't start asset-management connector #3 or #4 if, two quarters after #2 ships, fewer than 2 of the 5 asking accounts have adopted it.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Recommends vendor-built integrations as the rung to execute for the Meridian deadline, because it is the only rung whose delivery Halyard controls.",
+        "evidence": "'Build one versioned, documented API + sandbox, and let Meridian's own SAP team (or their integrator) build the SAP-side adapter against it... you cannot become SAP integration experts in that window, and you don't need to.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the 6 March renewal as the answer that promoted vendor-built integrations up the ranking.",
+        "evidence": "'You have 22 people and 9 weeks \u2014 you cannot become SAP integration experts in that window,' tying the deadline directly to the choice of building the API and delegating the connector.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes installable third-party apps and the runtime platform because there is no security review function, and says so explicitly.",
+        "evidence": "The transcript never names 'installable third-party apps' or 'runtime platform' as concepts being deleted; it only discusses the SAP connector vs. API choice.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes every rung above the documented public API because Halyard will not sign an obligation it cannot withdraw from, and says so explicitly.",
+        "evidence": "'Do not pursue SAP Certified/Endorsed App status now. That's a multi-year partnership commitment with SAP... No exclusivity, no data residency promise, no multi-year term extension.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names partner-built integrations as the first rung that cannot be walked back, because another company's revenue would then ride on Halyard's surface.",
+        "evidence": "No statement identifies partner-built integrations as the first irreversible rung tied to another company's revenue.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Presents two or three candidate rungs rather than one.",
+        "evidence": "The document gives a single governing recommendation ('The one decision that governs everything... Build one versioned, documented API + sandbox') rather than multiple candidates.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the efficiency ordering of the candidates out loud rather than leaving it implied by the order they are listed in.",
+        "evidence": "Since only one recommendation is given, no explicit ordering of multiple candidates is stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Expresses effort as standing team, weekly coordination and reversibility, never as a budget or currency figure.",
+        "evidence": "Effort is expressed as '22 people and 9 weeks,' '1\u20132 backend engineers full-time,' and '90-minute meeting per connector' \u2014 no dollar figures appear anywhere.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Parks no deleted rung at the bottom of the recommendation as a later phase.",
+        "evidence": "SAP certification, exclusivity, and multi-year vendor deals are listed under 'What not to do' with no 'revisit later' framing attached to them.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes the condition that would promote Halyard to a higher rung as an observable event rather than a roadmap date.",
+        "evidence": "'Decide whether a dedicated integrations role is justified only after Meridian proves the pattern holds and the pipeline of five materializes into signed work \u2014 don't staff ahead of evidence.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that vendor-built integrations carry zero leverage by definition and that their effort grows with every connector added.",
+        "evidence": "The transcript argues the opposite: 'The next five customers' own IT teams or integrators self-serve against it \u2014 you're not scoping five bespoke projects,' implying leverage, not growing effort.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that vendor-built integrations are nonetheless the cheapest instrument for discovering which of the three asset-management connectors customers actually adopt.",
+        "evidence": "No such discovery-instrument framing appears regarding the three EAM systems.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

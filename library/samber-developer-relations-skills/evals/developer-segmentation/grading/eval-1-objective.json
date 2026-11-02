@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States it is in brainstorming mode and does not produce a finished segment map.",
+        "evidence": "The transcript delivers a complete deliverable including 'The map', Primary/Secondary/Anti-segment scoring, Hypotheses, Implications, Review date, and a self-graded 'Quality gate' section \u2014 the opposite of a brainstorming-only, unfinished response.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explicitly removes the buying-mode cut from the candidate set because no purchase exists, rather than ranking it last.",
+        "evidence": "'Buying-mode cut (deleted, not ranked) \u2014 no purchase exists for anyone, at any size. The skill deletes this cut outright when question 4 answers \"no purchase at all,\" and it does here.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names that removal in writing rather than silently omitting the cut.",
+        "evidence": "The same 'Cuts considered' section explicitly labels it '(deleted, not ranked)' with the stated reason, in writing.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "For each surviving candidate cut, lists the segments it produces, the artefact each segment would need, and who the cut makes unreachable.",
+        "evidence": "Cuts #2 and #3 ('Sector/workload cut (rejected)' and 'Firmographic \u00d7 role-in-decision') get only a one-paragraph rejection each, with no segments, artefacts, or unreachable-audience listed \u2014 only cut #4 (chosen) gets that treatment in 'The map'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "For each surviving candidate cut, states what evidence must exist before anyone can be placed on one side of the line, and how much of that evidence the team already holds.",
+        "evidence": "Only cut #3 gets a partial evidence note ('the approver-side evidence lives in sales notes and interviews you don't have'); cut #2 and the chosen cut #4 never state an evidence requirement/holding in this form.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "For each surviving candidate cut, states the condition under which that cut would be the wrong one.",
+        "evidence": "The 'Review' section only gives reversal conditions for the chosen primary/segment call ('the founders' no-monetization stance changes...'), not a wrongness condition for each of the three surviving candidate cuts.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ranks the surviving candidates out loud on effort, value and efficiency rather than implying an order by list position.",
+        "evidence": "The cuts are only ranked 'on evidence cost given your \"next quarter\" deadline' \u2014 no explicit value or efficiency ranking is given for the candidate cuts themselves (only for segments later, via ratios like '16', '7.5', '3.3').",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Expresses effort as an order of magnitude of research work (hours, a week, a quarter) and never as a budget or currency figure.",
+        "evidence": "'pushing it into weeks of research you don't have time for this horizon' and 'Near-zero incremental research cost' \u2014 no currency figures used for effort anywhere in the document.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines to answer \"indie developers or enterprise platform teams\" directly, on the grounds that the question presumes a cut nobody has chosen.",
+        "evidence": "The document opens with a direct verdict: 'Verdict: build for solo & small-team builders this quarter. Enterprise platform teams are the explicit anti-segment.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends one candidate cut and leaves the decision to the person accountable before sizing anything.",
+        "evidence": "The document proceeds to fully size and score every segment (e.g. '~5M-9M developers, estimated', ratio '16') without pausing for accountable-person confirmation before sizing.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States it is in brainstorming mode and does not produce a finished segment map.",
+        "evidence": "Transcript opens with '## Verdict' and 'Indie developers, next quarter. Not enterprise platform teams.' \u2014 a definitive recommendation, not a statement of brainstorming mode, and includes a full execution plan.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explicitly removes the buying-mode cut from the candidate set because no purchase exists, rather than ranking it last.",
+        "evidence": "No 'buying-mode cut' or candidate set is named; the piece frames the whole question as indie vs. enterprise directly.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names that removal in writing rather than silently omitting the cut.",
+        "evidence": "No removal of any named cut is written down anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "For each surviving candidate cut, lists the segments it produces, the artefact each segment would need, and who the cut makes unreachable.",
+        "evidence": "There is no per-candidate-cut breakdown of segments/artefacts/unreachable populations; only one path (indie) is elaborated with tactics.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "For each surviving candidate cut, states what evidence must exist before anyone can be placed on one side of the line, and how much of that evidence the team already holds.",
+        "evidence": "No evidence-floor or 'what must exist before placement' discussion appears anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "For each surviving candidate cut, states the condition under which that cut would be the wrong one.",
+        "evidence": "Only one condition for reversal is given, in the single 'Tripwire' section, for the chosen path only \u2014 not per surviving candidate cut.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ranks the surviving candidates out loud on effort, value and efficiency rather than implying an order by list position.",
+        "evidence": "No explicit ranking on 'effort, value and efficiency' dimensions; reasons are listed as narrative points instead.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Expresses effort as an order of magnitude of research work (hours, a week, a quarter) and never as a budget or currency figure.",
+        "evidence": "'Quarter' appears only as 'the team spends a quarter on it' and 'that's not a quarter of work' \u2014 describing execution effort, not research effort for evaluating cuts.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines to answer \"indie developers or enterprise platform teams\" directly, on the grounds that the question presumes a cut nobody has chosen.",
+        "evidence": "The piece directly answers the framed question: 'Indie developers, next quarter. Not enterprise platform teams.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends one candidate cut and leaves the decision to the person accountable before sizing anything.",
+        "evidence": "The assistant makes the call itself and hands over an execution plan, rather than deferring the decision to an accountable person before sizing.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

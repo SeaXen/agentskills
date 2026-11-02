@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to rewrite the 43 historical releases",
+        "evidence": "\"You want history rewritten anyway; noted, will follow your call, not the spec's default.\" \u2014 explicitly agrees to follow the user's rewrite instruction rather than refusing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that rewriting history breaks every deep link into the file",
+        "evidence": "\"Common Changelog spec itself says **never rewrite historical releases** \u2014 deep links break.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Starts the new format at the next release and leaves past releases as shipped",
+        "evidence": "The transcript says it \"will follow your call\" to rewrite history rather than proposing to leave past releases untouched.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Provides the Keep a Changelog to Common Changelog category mapping for use going forward only",
+        "evidence": "No mapping is provided; the transcript is blocked awaiting repo access.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Maps Deprecated to Changed with the replacement and removal version carried into the entry text",
+        "evidence": "Not present anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Maps Security to Fixed with the advisory or CVE carried into the entry text",
+        "evidence": "Not present anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that Common Changelog has no Unreleased section",
+        "evidence": "Not mentioned in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that Common Changelog requires a commit reference on every entry and recommends a pull-request reference too",
+        "evidence": "Not mentioned in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends stating the chosen specification at the top of the file",
+        "evidence": "Not mentioned in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Confirms that a library whose readers diff versions supports Common Changelog as the right choice",
+        "evidence": "No format decision is confirmed; the transcript is blocked asking for the repo location or pasted file content.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to rewrite the 43 historical releases",
+        "evidence": "The transcript does not refuse on principle; it explicitly commits to doing the rewrite once given the file: 'Once I have the real file, I'll convert all 43 releases to Common Changelog format in one consistent pass.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that rewriting history breaks every deep link into the file",
+        "evidence": "No mention of deep links or link breakage anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Starts the new format at the next release and leaves past releases as shipped",
+        "evidence": "The transcript instead proposes converting 'all 43 releases to Common Changelog format in one consistent pass,' the opposite of leaving past releases as-is.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Provides the Keep a Changelog to Common Changelog category mapping for use going forward only",
+        "evidence": "No category mapping table or list is given; only a vague future promise to collapse 'Deprecated/Security into the appropriate Changed/Fixed-style entries.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Maps Deprecated to Changed with the replacement and removal version carried into the entry text",
+        "evidence": "No specific mapping or mention of replacement/removal version text; only the generic phrase 'collapsing Deprecated/Security into the appropriate Changed/Fixed-style entries.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Maps Security to Fixed with the advisory or CVE carried into the entry text",
+        "evidence": "No advisory or CVE reference is mentioned; Security and Deprecated are lumped together generically with no CVE handling specified.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that Common Changelog has no Unreleased section",
+        "evidence": "The transcript never discusses the Unreleased section at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that Common Changelog requires a commit reference on every entry and recommends a pull-request reference too",
+        "evidence": "No mention of commit or PR references anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends stating the chosen specification at the top of the file",
+        "evidence": "No recommendation about declaring the spec at the top of the file is present.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Confirms that a library whose readers diff versions supports Common Changelog as the right choice",
+        "evidence": "The transcript never validates or discusses whether Common Changelog is the right spec choice; it only links to https://common-changelog.org/ as the format to convert into.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

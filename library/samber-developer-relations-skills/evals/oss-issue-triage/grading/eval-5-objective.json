@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Treats the already-public report as an emergency to move to a private channel immediately rather than triaging it in the open",
+        "evidence": "'You have a live emergency, not a triage backlog problem... route it to the private channel immediately rather than triaging in the open.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Moves security reports off the public tracker entirely rather than adding a security label or a security issue form",
+        "evidence": "'Enable GitHub Private Vulnerability Reporting'; 'Minimize the public issue immediately... lock the conversation'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names all three pipeline elements: a private intake channel, a named size-capped response team, and an embargo mechanism for coordinated disclosure",
+        "evidence": "'1. A private intake channel... 2. A named, size-capped response team... 3. An embargo mechanism'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends the code host's private vulnerability reporting as the default given that no security list exists",
+        "evidence": "'it's the correct default when, as you said, there's no security list.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites the guidance never to enter details of security vulnerabilities in a project's public bug tracker",
+        "evidence": "'Apache's own instruction to committers is to never put vulnerability details in a public tracker.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the response team size-capped and distinct from the general triage rota, citing the ten-member committee and three-working-day acknowledgement precedent",
+        "evidence": "'Kubernetes caps this at ten, acknowledges within three business days.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places the security destination as a contact link in the template chooser rather than as an issue template",
+        "evidence": "`contact_links:` block in `config.yml`; 'the thing a reporter sees in your issue chooser is a contact link, not a data-collecting template'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Exempts security items from any staleness sweep",
+        "evidence": "'explicitly exempted from any staleness sweep you add later, alongside confirmed/blocked/pinned.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the isolation cost of security triage as a staffing consideration, since the work cannot be discussed with the wider project",
+        "evidence": "No statement anywhere about the work being undiscussable with the wider project as a staffing/isolation cost.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not fold security response into the project's general first-response target",
+        "evidence": "No general first-response target is discussed at all in this section, so none is folded together with security handling.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend public triage or public discussion of unconfirmed vulnerabilities",
+        "evidence": "'Do not \"handle it fast\" by publicly acknowledging severity or fix status in the open issue \u2014 that itself is disclosure.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Publishes the security destination in the triage policy's statement of what belongs in the tracker",
+        "evidence": "No 'what belongs in the tracker' policy doc is produced; SECURITY.md/CONTRIBUTING.md integration is listed as an open item still to be filled in later.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the coordinated-disclosure embargo as an explicit mechanism rather than an informal practice",
+        "evidence": "'An embargo mechanism \u2014 a plain statement that you'll coordinate a disclosure date with the reporter before going public'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Treats the already-public report as an emergency to move to a private channel immediately rather than triaging it in the open",
+        "evidence": "\"\ud83d\udd34 First, the live issue: a working auth-bypass PoC has been sitting in a public issue for 40 minutes. Before anything else, get it out of public view.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Moves security reports off the public tracker entirely rather than adding a security label or a security issue form",
+        "evidence": "The response builds both a `security` label and a full `security_report.yml` issue form as \"your fallback for reports that arrive via the public tracker anyway.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names all three pipeline elements: a private intake channel, a named size-capped response team, and an embargo mechanism for coordinated disclosure",
+        "evidence": "Only the private intake channel is defined; no response team is named or sized, and no explicit embargo mechanism beyond an optional disclosure checkbox.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends the code host's private vulnerability reporting as the default given that no security list exists",
+        "evidence": "\"Since there's no security list yet, wire a lightweight alert instead of standing up infrastructure\" and \"turn on Settings \u2192 Security \u2192 Private vulnerability reporting.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites the guidance never to enter details of security vulnerabilities in a project's public bug tracker",
+        "evidence": "\"\u26a0\ufe0f If you have a working proof-of-concept or exploit, stop \u2014 do not post it here\" repeated across the template's markdown block and field descriptions.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the response team size-capped and distinct from the general triage rota, citing the ten-member committee and three-working-day acknowledgement precedent",
+        "evidence": "No response team, size cap, or ten-member/three-day precedent is mentioned anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places the security destination as a contact link in the template chooser rather than as an issue template",
+        "evidence": "`config.json` `contact_links`: \"\ud83d\udd12 Report a vulnerability privately\" pointing to the security advisories URL.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Exempts security items from any staleness sweep",
+        "evidence": "No staleness sweep is discussed in this transcript at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the isolation cost of security triage as a staffing consideration, since the work cannot be discussed with the wider project",
+        "evidence": "No mention of isolation cost or staffing implications of confidential security work.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not fold security response into the project's general first-response target",
+        "evidence": "No general first-response SLA is discussed or merged with security handling anywhere in this transcript.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend public triage or public discussion of unconfirmed vulnerabilities",
+        "evidence": "The entire response pushes to move discussion out of the public tracker via private reporting and a non-PoC public form.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Publishes the security destination in the triage policy's statement of what belongs in the tracker",
+        "evidence": "Only a one-line SECURITY.md pointer is suggested; no broader 'triage policy' document defining tracker scope is produced.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the coordinated-disclosure embargo as an explicit mechanism rather than an informal practice",
+        "evidence": "Only an optional checkbox (\"I'm open to coordinated disclosure and can wait for a fix\") is offered \u2014 an informal, non-binding practice, not an explicit embargo mechanism.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

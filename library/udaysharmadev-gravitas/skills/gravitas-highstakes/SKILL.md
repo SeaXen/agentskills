@@ -5,7 +5,6 @@ description: >
   migrations, file deletion, auth/security changes, production config,
   force-pushes). Use when a task risks hard-to-reverse damage.
 license: MIT
-category: database-sql-relational
 ---
 
 # GRAVITAS High-Stakes Skill

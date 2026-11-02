@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that the pass/fail decision cannot be outsourced to another body, while delivery can be subcontracted",
+        "evidence": "\"the education team authors items and delivers the course, it does not decide the threshold\" combined with proctoring handled by an external \"proctored delivery vendor (already decided)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the conflict in a body that sells the prep course also setting the pass/fail line, and requires showing the training does not compromise the certification's impartiality",
+        "evidence": "\"a body that also sells training must show that the training does not compromise the certification's impartiality... selling the course that guarantees the exam is exactly the conflict the standard polices\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names ISO/IEC 17024 as the international standard for bodies certifying persons",
+        "evidence": "\"This is the exact conflict ISO/IEC 17024 exists to police\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that most vendor devtool certifications are not accredited to it and do not need to be, while it remains the checklist the credential gets measured against",
+        "evidence": "\"Wrenmoor doesn't need accreditation, but the moment a customer, partner, or rejected candidate asks... there's no good answer under the current design.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists the documented scheme contents, including criteria for recertification and criteria for suspending and withdrawing a certification",
+        "evidence": "No explicit list of ISO/IEC 17024 scheme contents (recertification criteria, suspension/withdrawal criteria) appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends performance-based tasks over the 60 recall items, noting recall exams are the first to be devalued by leaked content",
+        "evidence": "The transcript names the leak risk but does not recommend switching: \"that's a legitimate cost trade-off given the stated budget, just one worth naming as a trade-off rather than a default.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that performance-based items carry the highest per-item build and hosting cost because each needs a disposable, deterministic environment",
+        "evidence": "No explanation of why performance-based items cost more (disposable, deterministic environments) appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names brain dumps as a permanent recurring operating cost rather than an incident to handle later",
+        "evidence": "The term \"brain dumps\" never appears; leak risk is instead handled via a contingent kill-rule trigger, not framed as a permanent recurring cost.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Lists at least two countermeasures among large rotating item banks, live proctoring with identity verification, item exposure analysis, and legal action against dump sites",
+        "evidence": "\"Proctoring... buys identity verification and session monitoring... What's genuinely missing and does need money eventually is a rotating item bank and exposure analysis.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to revoke the roughly 300 already-issued badges retroactively, on the grounds that it destroys trust in every future credential",
+        "evidence": "\"Do not revoke. The ~300 holders earned something real; invalidating it... undercuts the new program before it starts.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires announcing the badge program's end date before the last enrolment rather than after",
+        "evidence": "The transcript discusses announcing retirement banners \"before certification launch\" and before holders discover a revoked link, but does not address timing relative to the old program's last enrolment.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the retired badge content readable at a stable URL with a dated no-longer-maintained banner, or redirects it to the replacement",
+        "evidence": "\"Keep existing badge verification pages live at their current URLs, each with a clearly dated banner: 'This program closed in <launch month> 2026 and has been succeeded by...'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the unfunded items from the certification refusal checklist and either downgrades the recommendation or writes the missing item as the escalation trigger",
+        "evidence": "\"What's genuinely missing... is a rotating item bank and exposure analysis. I've written that gap into the kill rule below as an observable trigger\" leading to \"publicly downgrade the credential to a skill badge\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that the pass/fail decision cannot be outsourced to another body, while delivery can be subcontracted",
+        "evidence": "The doc only says 'This doesn't require taking pass/fail authority away from education. It requires making the process defensible' \u2014 it never frames pass/fail as non-outsourceable in contrast to delivery being subcontractable; \u00a74 discusses proctoring delivery options but no explicit pass/fail-vs-delivery distinction is made.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the conflict in a body that sells the prep course also setting the pass/fail line, and requires showing the training does not compromise the certification's impartiality",
+        "evidence": "'Conflict of interest. The team that writes and sells the $1,200 prep course also sets the passing score... this is the single biggest threat to the certification's credibility' and the required mitigations ('SME panel that includes engineers outside the education team', 'Publish the exam blueprint... publicly', 'Publicly disclose that the course and the exam are produced by the same team') function to demonstrate the training doesn't compromise impartiality.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names ISO/IEC 17024 as the international standard for bodies certifying persons",
+        "evidence": "No mention of ISO/IEC 17024 or any accreditation standard anywhere in the document.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that most vendor devtool certifications are not accredited to it and do not need to be, while it remains the checklist the credential gets measured against",
+        "evidence": "No discussion of accreditation status of vendor certifications appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Lists the documented scheme contents, including criteria for recertification and criteria for suspending and withdrawing a certification",
+        "evidence": "The doc discusses revocation for cheating (\u00a75) and revoke-vs-retire for the legacy badge (\u00a77), but there is no recertification criteria and no structured 'scheme document' contents list as required.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends performance-based tasks over the 60 recall items, noting recall exams are the first to be devalued by leaked content",
+        "evidence": "The doc keeps the format as '60 MCQ, single/multi-select' throughout (\u00a71, \u00a73) and never proposes performance-based tasks as a replacement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that performance-based items carry the highest per-item build and hosting cost because each needs a disposable, deterministic environment",
+        "evidence": "No mention of performance-based item costs or disposable/deterministic environments anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names brain dumps as a permanent recurring operating cost rather than an incident to handle later",
+        "evidence": "The term 'brain dump' never appears; leaked content is only referenced indirectly via pass-rate monitoring ('too high suggests the bar is too low or leaked') without framing it as a permanent recurring operating cost.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Lists at least two countermeasures among large rotating item banks, live proctoring with identity verification, item exposure analysis, and legal action against dump sites",
+        "evidence": "'Item bank: build at minimum 2\u20133x the live item count (120\u2013180 items) so forms can rotate' (\u00a73) and 'Live human proctor over an existing video tool (Zoom/Meet you already pay for) \u2014 ID check on camera, screen-share required' (\u00a74) together cover two of the listed countermeasures.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to revoke the roughly 300 already-issued badges retroactively, on the grounds that it destroys trust in every future credential",
+        "evidence": "\u00a77 refuses revocation ('Retire, don't revoke... Leave existing verification pages live but relabel them'), but the stated grounds are disproportionality and reputational harm to the ~300 individuals ('reads to that person... as \"the company decided their work no longer counts\"... disproportionate to the stated goal'), not that it would destroy trust in every future credential.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires announcing the badge program's end date before the last enrolment rather than after",
+        "evidence": "The doc requires stopping issuance 'immediately' (\u00a77) and announcing to holders 'before any public change, not after' (\u00a79), but this is about notifying existing holders before public changes, not about announcing an end date before a final enrolment window.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the retired badge content readable at a stable URL with a dated no-longer-maintained banner, or redirects it to the replacement",
+        "evidence": "'Leave existing verification pages live but relabel them clearly: \"Legacy Wrenmoor Badge (2024 program, retired [date]) \u2014 succeeded by Wrenmoor Certified Engineer.\" This solves the confusion problem without invalidating anyone's history.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the unfunded items from the certification refusal checklist and either downgrades the recommendation or writes the missing item as the escalation trigger",
+        "evidence": "There is no 'certification refusal checklist' referenced in the transcript; \u00a74/\u00a75 discuss zero-budget proctoring/security options generically but do not name unfunded checklist items or an escalation trigger in the framing this item requires.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

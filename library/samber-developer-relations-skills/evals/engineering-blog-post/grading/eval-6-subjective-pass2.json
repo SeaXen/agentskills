@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Leads with the engineering problem stated in terms an engineer outside Riverbend also has, rather than with the announcement",
+        "evidence": "The transcript rejects the 'Introducing Riverbend Autoscaling 2.0' announcement title because nothing remains once the product name is removed. It replaces it with a problem-first title: 'Why we stopped scaling on CPU: how Riverbend Autoscaling 2.0 reacts to queue depth'. The first content section, 'The problem: CPU is an indirect signal for queue workers', states a problem any engineer could have: I/O-bound workers sit at low CPU while the backlog grows, and scaling reacts late. The outline also puts the problem before the product. The score is not 5 for two reasons. First, the body opens wit",
+        "score": 4,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Leads with the engineering problem stated in terms an engineer outside Riverbend also has, rather than with the announcement",
+        "evidence": "The response explicitly moves the post away from 'Introducing\u2026'. The title opens with the engineering claim ('Why we scale on queue depth, not CPU') and puts the product name after the colon. The first full section, 'The failure: a backlog that CPU can't see', describes a generic problem any engineer with queue workers would know: I/O-bound workers sit at low CPU while the backlog grows. It ends with 'CPU measures how hard your workers are working. Your users care how long work waits.' One point off: the first sentence of the body still opens with the product ('**Autoscaling 2.0 adds workers w",
+        "score": 4,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

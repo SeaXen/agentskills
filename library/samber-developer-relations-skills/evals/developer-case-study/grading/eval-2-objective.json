@@ -1,0 +1,118 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Names the missing measured before-state as the qualification gate this story fails.",
+        "evidence": "'It fails the baseline gate outright: no legacy dashboards means no measured \"before\"'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the other gates (production not pilot, a named human who will talk, a decision a reader can reuse, a plausible path to approval) are satisfied, rather than treating the story as dead.",
+        "evidence": "'Helio Diagnostics clears four of the five qualification gates: production traffic... a named engineer willing to be quoted... a plausible path to approval.' Verdict is 'Publishable'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends publishing a scale or architecture story without a delta claim, rather than waiting for a baseline or killing the story.",
+        "evidence": "'Per this skill's own fallback for that exact failure: drop the delta claim, publish the scale/architecture story instead.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explicitly forbids constructing a before-and-after improvement figure out of the current numbers.",
+        "evidence": "'so any \"X% faster\" or \"cut errors by Y%\" claim is unsupportable.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not reconstruct, estimate or infer the legacy throughput or error rate.",
+        "evidence": "'Legacy throughput / error rate | **No evidence \u2014 drop** | None ever existed'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes the 99.97% delivery figure comes from vendor-side telemetry and needs someone at Helio to confirm and vouch for it.",
+        "evidence": "'Ask whether Helio's side independently confirms the delivery count... becomes mutually verified.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that every number coming from your own dashboards with nothing the customer can confirm is a disqualifying signal.",
+        "evidence": "The ledger only labels the numbers 'one-sided' and frames customer confirmation as 'worth one extra question' \u2014 no statement that unconfirmed vendor-only numbers are disqualifying.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not fall back to a testimonial or quote card, given that a named human and a production deployment both exist.",
+        "evidence": "Full multi-section draft is built (headline, adopter, before-state substitute, why-tech, what-built, results, cost, next, quote) rather than a bare testimonial.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names identifying who on Helio's side can confirm the published numbers as part of the plan.",
+        "evidence": "'If Marcus's team can cross-check received events against their own downstream count...'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Names the missing measured before-state as the qualification gate this story fails.",
+        "evidence": "\"The one thing you don't have (legacy throughput/error numbers) is itself a legitimate, honest data point: their old pipeline was never instrumented.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the other gates (production not pilot, a named human who will talk, a decision a reader can reuse, a plausible path to approval) are satisfied, rather than treating the story as dead.",
+        "evidence": "The response never itemizes that production-status, a named willing human, a reusable decision, and a plausible approval path are each satisfied \u2014 it only asserts three raw facts (2.1M events/day, 99.97%, five months) and leaves approval as an open to-do ('confirm before publishing').",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends publishing a scale or architecture story without a delta claim, rather than waiting for a baseline or killing the story.",
+        "evidence": "\"You don't need a before/after chart to prove reliability at scale... Below is the full draft, ready for Marcus's review.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explicitly forbids constructing a before-and-after improvement figure out of the current numbers.",
+        "evidence": "\"We're not showing a before/after comparison here, because one doesn't exist \u2014 Helio's legacy system was never instrumented enough to produce one.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not reconstruct, estimate or infer the legacy throughput or error rate.",
+        "evidence": "No legacy throughput or error-rate figure is invented anywhere in the draft; the copy repeatedly states 'no baseline exists.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes the 99.97% delivery figure comes from vendor-side telemetry and needs someone at Helio to confirm and vouch for it.",
+        "evidence": "No statement anywhere addresses the data provenance of the 99.97% figure or requests Helio-side confirmation of it specifically.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that every number coming from your own dashboards with nothing the customer can confirm is a disqualifying signal.",
+        "evidence": "No such warning appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not fall back to a testimonial or quote card, given that a named human and a production deployment both exist.",
+        "evidence": "The deliverable is a full page copy with meta title, headline, snapshot bar, Challenge/Solution/Result sections, and CTA \u2014 not a bare testimonial card.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names identifying who on Helio's side can confirm the published numbers as part of the plan.",
+        "evidence": "The closing checklist asks Marcus to confirm the quote and the integration detail, and asks for 'Helio's standard case-study/logo-use approval,' but nobody is asked to confirm the 2.1M/99.97% figures themselves.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

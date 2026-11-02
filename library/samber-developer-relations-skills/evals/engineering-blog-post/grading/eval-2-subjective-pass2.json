@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Does not present the migration decision as objectively correct independent of Halcyon's constraints",
+        "evidence": "The draft never says the migration was the right call. The claim ledger marks 'Go caused the gains' as Unsupported and says to 'Downgrade, or measure.' The Attribution note asks the team to separate gains from Go from gains from rewriting the code a second time. 'Where this doesn't apply' asks for checkable limits, for example 'If yours waits on the database, the win will be smaller.' 'Would we do it again?' asks for conditions both for and against, labelled as first-person opinion. 'Why Go' asks which alternatives lost and why. All of this ties the decision to the service's own conditions rat",
+        "score": 4,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Does not present the migration decision as objectively correct independent of Halcyon's constraints",
+        "evidence": "The draft never presents the migration decision as correct independent of Halcyon's situation. It frames the result as \"one data point from one service. Read it that way.\" It states \"We did not move it because of anything wrong with Ruby in general.\" A full section, 'When we wouldn't do this', ties the decision to specific conditions: the service is a bottleneck, the team has Go experience, the workload is not I/O-bound, and the code is stable. It flags the confound between the rewrite and the language change: \"some of the gain would have been available without leaving Ruby\". It lists untested",
+        "score": 5,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

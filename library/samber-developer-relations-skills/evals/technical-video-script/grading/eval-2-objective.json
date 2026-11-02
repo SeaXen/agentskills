@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Identifies that the entire payoff sits outside the first 30 seconds of the video.",
+        "evidence": "Beat table row '5 | 1:20 | First parse runs | Payoff | too late' and 'Payoff lands at 1:20, outside the window entirely.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the 30-second mark as the boundary the video platform's own retention report measures the intro against, not as a stylistic preference.",
+        "evidence": "\"Opening beat's four required jobs \u2014 zero delivered by 0:30... The platform's own retention metric is scored at exactly this boundary \u2014 you're handing it an empty beat.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Moves the working result into the first beat so a parse is already running on screen.",
+        "evidence": "New beat 1: 'Terminal, streaming parse mid-run against a large CSV | Row counter climbing live ... | Parse job pre-started, terminal cleared, sample CSV already present'; 'Start on the result already running.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the opening to name the problem in the viewer's own words.",
+        "evidence": "The diagnosis flags 'No problem named in the viewer's words' as a violation, but the replacement beat table's narration ('...streaming through Parsel, no full-file load.' / 'Memory stays flat because Parsel reads it as a stream, not all at once.') never frames a viewer-voiced problem statement \u2014 it jumps straight to describing the mechanism/result.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the opening to show the result actually running rather than promising it.",
+        "evidence": "\"Start on the result already running.\" paired with beat 1's visual 'streaming parse mid-run against a large CSV' and 'Row counter climbing live'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the opening to state the prerequisites so the wrong viewer leaves early instead of dropping minutes in.",
+        "evidence": "Beat 3 narration: \"You need `[unconfirmed \u2014 Node version]` and the sample CSV linked below.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the opening to state the runtime.",
+        "evidence": "Beat 3 narration: \"Next `[target runtime]` we wire this into your own project.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Caps ceremony - logo, music, greeting - at roughly five seconds.",
+        "evidence": "\"the minimum fix is: kill the logo+greeting to \u22645s, and hard-cut straight from 'welcome back' to the running parse\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Presents the roughly-five-second ceremony figure as a measured perception threshold rather than a hard cutoff.",
+        "evidence": "\"Perception threshold for ceremony reading as filler is ~5s. You're 4x over it before you've said what the video is.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Moves the npm install and project setup after the payoff or into a companion repository.",
+        "evidence": "\"Old beat 4 (install \u2192 paste config) becomes its own titled segment after the payoff, or gets replaced by a pre-supplied repo clone\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Invents no retention benchmark and promises no specific percentage the reshoot will reach.",
+        "evidence": "\"re-check the 30s retention number against this baseline (38%).\" \u2014 only references the existing measured 38% baseline, no new target percentage is promised.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Delivers the new opening as actual spoken narration lines paired with what is on screen, not as a list of advice.",
+        "evidence": "Beat table columns 'Visual | On-screen action | Narration' with quoted lines like \"'Memory stays flat because Parsel reads it as a stream, not all at once.'\" tied to specific visuals per beat.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Identifies that the entire payoff sits outside the first 30 seconds of the video.",
+        "evidence": "'Everything from 0:00 to 1:20 is overhead' and the 'first parse runs' at 1:20, after the '62% of viewers bail before 30 seconds'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the 30-second mark as the boundary the video platform's own retention report measures the intro against, not as a stylistic preference.",
+        "evidence": "It treats 30s as the drop-off point and never calls it the platform's measurement boundary.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Moves the working result into the first beat so a parse is already running on screen.",
+        "evidence": "'0:00-0:03 \u2014 Cold open on the result. Pull the footage ... at 1:20 ... to frame 1.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the opening to name the problem in the viewer's own words.",
+        "evidence": "The VO states the result and what they will learn. It never names the viewer's problem in their own words.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the opening to show the result actually running rather than promising it.",
+        "evidence": "'Show it working ... (screen: a multi-GB CSV streaming through, memory graph staying flat)'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the opening to state the prerequisites so the wrong viewer leaves early instead of dropping minutes in.",
+        "evidence": "'you just need Node and npm installed.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the opening to state the runtime.",
+        "evidence": "'Takes 5 minutes'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Caps ceremony - logo, music, greeting - at roughly five seconds.",
+        "evidence": "It cuts the logo to '~1-2s' and the greeting 'entirely'. It sets no five-second ceremony cap.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Presents the roughly-five-second ceremony figure as a measured perception threshold rather than a hard cutoff.",
+        "evidence": "No five-second figure is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Moves the npm install and project setup after the payoff or into a companion repository.",
+        "evidence": "Setup becomes a montage after the cold open, with 'link a starter repo/gist in the description'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Invents no retention benchmark and promises no specific percentage the reshoot will reach.",
+        "evidence": "The only figure is the user's own 62%. It promises no target retention.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Delivers the new opening as actual spoken narration lines paired with what is on screen, not as a list of advice.",
+        "evidence": "Provides 'VO: \"This is a 2GB CSV file...\"' paired with '(screen: ...)'.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

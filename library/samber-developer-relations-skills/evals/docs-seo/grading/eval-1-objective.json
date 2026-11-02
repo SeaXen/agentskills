@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Recommends the per-version indexable posture: one self-canonical page per version plus a version switcher",
+        "evidence": "'Fix: every locale self-canonicalizes'-style table shows 4.2/3.6/2.8 as self canonical + indexable, plus 'In-page version banner, on 1.9, 3.6 and 2.8 alike \u2014 Material's version-warning feature... covers this'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that stable-canonical is deleted rather than ranked last, and names the routing freeze or the inability to mint a stable alias as the reason",
+        "evidence": "\"Stable-canonical is not available to you, on two independent grounds. Mechanically, it requires a stable/latest alias path that every version canonicals to \u2014 that's a new path, which your routing freeze forbids outright.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects latest-only because 2.8 and 3.6 are still supported and carry roughly 40% of sessions",
+        "evidence": "The rejection cites only contract obligations and inbound links ('it would remove 2.8 and 3.6 from search entirely, contradicting a contract you're being paid to honor and burning four years of inbound links') \u2014 no session-share statistic like ~40% is mentioned anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the condition that promotes per-version indexable despite it being the highest-effort posture: supported LTS releases carrying real traffic, or a support commitment to serve each release's own page",
+        "evidence": "\"Promote [per-version indexable] anyway when supported LTS releases carry real traffic, or when a support commitment obliges you to serve each release's own page.\" 2.8 and 3.6 are both.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that stable-canonical is the default recommendation being overridden here, rather than omitting it from consideration",
+        "evidence": "The transcript discusses and rules out stable-canonical ('not available to you, on two independent grounds') but never explicitly frames it as this skill's default recommendation being overridden; it's presented as one of three ruled-out postures without a stated default status.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Describes per-version indexable as a standing job whose cost grows with every release, multiplying the indexable surface, the sitemap and the link mesh",
+        "evidence": "No mention of ongoing/compounding cost per future release; the doc only discusses the current 4-version setup and a 5-week plan.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that reversing per-version indexable requires a per-page redirect map across every version already indexed",
+        "evidence": "Not discussed anywhere in the transcript \u2014 no mention of reversal cost or redirect maps.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend applying noindex to 2.8 or 3.6",
+        "evidence": "Table lists 3.6 and 2.8 both as 'Indexable: yes', only 1.9 gets 'noindex'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the sitemap, the canonical tags and the navigation or internal links to all point at the same target",
+        "evidence": "Only sitemap and canonical agreement are required: \"Confirm the sitemap and canonical tags currently agree with each other, per version, before you touch anything\" \u2014 navigation/internal links consistency is never mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that conflicting signals are why Google picks its own canonical",
+        "evidence": "\"Google is 'picking whichever version it likes' because your four version trees currently send conflicting or absent canonical signals, not because per-version indexing is the wrong posture.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends an in-page banner telling the reader which release they are on and what the current release is",
+        "evidence": "\"In-page version banner, on 1.9, 3.6 and 2.8 alike \u2014 Material's version-warning feature (triggered off the mike \"latest\" alias comparison, customizable via the outdated block in main.html)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks the user to confirm the posture before any canonical rules are written",
+        "evidence": "The document presents the posture as a decided 'Verdict' and moves directly into implementation and a five-week ship plan; it only asks to 'negotiate' pass thresholds, not to confirm the posture itself before writing rules.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Recommends the per-version indexable posture: one self-canonical page per version plus a version switcher",
+        "evidence": "Recommends 'Self-referencing canonicals on every indexable version' but only mentions an existing 'version-switcher JS'; it never recommends a switcher.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that stable-canonical is deleted rather than ranked last, and names the routing freeze or the inability to mint a stable alias as the reason",
+        "evidence": "The freeze is mentioned only as a constraint on implementation; a stable alias or stable-canonical is never discussed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects latest-only because 2.8 and 3.6 are still supported and carry roughly 40% of sessions",
+        "evidence": "'Canonicalizing LTS versions into 4.2 would... break the thing you're paying LTS contracts to support' and 'contractual + ~session share requires independent ranking'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the condition that promotes per-version indexable despite it being the highest-effort posture: supported LTS releases carrying real traffic, or a support commitment to serve each release's own page",
+        "evidence": "'3.6 (LTS\u21922029) | contractual + ~session share requires independent ranking'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that stable-canonical is the default recommendation being overridden here, rather than omitting it from consideration",
+        "evidence": "Frames the override as against 'consolidate into one canonical' but never names stable-canonical as the default.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Describes per-version indexable as a standing job whose cost grows with every release, multiplying the indexable surface, the sitemap and the link mesh",
+        "evidence": "No discussion of ongoing cost or growth of the sitemap/link mesh.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that reversing per-version indexable requires a per-page redirect map across every version already indexed",
+        "evidence": "Reversal cost is never discussed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend applying noindex to 2.8 or 3.6",
+        "evidence": "Table: 2.8 and 3.6 'index, follow'; only 1.9 is noindex.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the sitemap, the canonical tags and the navigation or internal links to all point at the same target",
+        "evidence": "Sitemap and canonical are both covered but never stated as needing to align with navigation or internal links.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that conflicting signals are why Google picks its own canonical",
+        "evidence": "Attributes it to missing tags or a shared site_url, not to conflicting signals.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends an in-page banner telling the reader which release they are on and what the current release is",
+        "evidence": "'Add a real, server-rendered version banner link' stating the viewed version and linking to 4.2.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks the user to confirm the posture before any canonical rules are written",
+        "evidence": "Only asks to confirm whether 1.9 is EOL; it does not ask for confirmation of the posture.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects hand-collected estimates and requires measured figures, because maintainer counts, download volume and maintenance activity all have APIs",
+        "evidence": "'Verdict: don't publish 94%. Numbers not measured, they're guessed. Fix before printing.' plus 'npm downloads have a public API (api.npmjs.org/downloads/point/last-week/{pkg})' and instruction to 'Pull maintainer count from registry publish rights, not GitHub contributors graph.' Maintenance-activity-specific API justification is not present, so this is only partially grounded.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States repository contributors and registry publish rights are different populations, and that fragility depends on who can ship a release rather than on who has ever merged a commit",
+        "evidence": "'GitHub contributors graph counts anyone who ever merged a commit \u2014 one-time drivers, bots, employees. Sponsorship fragility depends on npm publish rights, different number, usually smaller.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the contributor graph overstates the maintainer count, so the 6-maintainer reading for slugsafe is not a usable fragility signal and should be checked against publish rights",
+        "evidence": "\"slugsafe's '6 maintainers' is likely this same trap \u2014 real publish-right count probably 1-2.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects marking unassessable packages as fine, and requires every candidate to resolve to assessed-fine, assessed-flagged, or not-assessable with a stated reason",
+        "evidence": "\"'Fine' is not a real assessment state ... Skill requires three buckets: assessed-fine, assessed-flagged, not-assessable-with-reason. Marisol collapsed 'couldn't find data' into 'fine.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a row with missing data is not a clean row",
+        "evidence": "\"some share of that 94% is 'couldn't find \u2192 called fine,' not 'verified covered'\" and next action to 'Re-tag every \"couldn't find\" row as not-assessable-with-reason, not fine.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the bare 94% and requires the denominator form, for example resolved N of 310 dependencies with K having no source repository",
+        "evidence": "\"94% has no denominator, so it's not an auditable number... Skill's required form: 'resolved X of 310; Y had no source repo, Z marked not-assessable.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Advises quoting figures verbatim from whatever produced them rather than rounding a score or a download count",
+        "evidence": "No mention anywhere in the transcript of quoting figures verbatim or avoiding rounding of scores/download counts.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends resolving the dependency graph from a lockfile, an SBOM or a public dependency-resolution API rather than from a manual list",
+        "evidence": "\"Resolve real dependency tree via deps.dev API (catches transitive deps too, not just the 310 direct ones Marisol listed).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends pulling a per-repository maintenance or health signal instead of a subjective judgement",
+        "evidence": "The next-action list only covers dependency resolution, maintainer counts, download numbers, and re-tagging \u2014 no per-repository maintenance/health signal (e.g. commit recency, scorecard) is recommended.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes eyeballed download figures have been wrong by orders of magnitude, including being reported as zero for a package moving well over a hundred million a week",
+        "evidence": "\"Skill's exact matching failure: 'zero downloads for a package moving 164 million a week.' An eyeballed number can be off by orders of magnitude.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the final answer to state what could not be checked rather than presenting a clean-looking list with a silent gap",
+        "evidence": "\"I tried to pull live npm registry + downloads + deps.dev data on slugsafe this session to give you a real number \u2014 network calls got blocked by sandbox permissions. Needs rerun with network access.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines to endorse publishing the 94% as it stands",
+        "evidence": "\"Verdict: don't publish 94%. Numbers not measured, they're guessed. Fix before printing.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects hand-collected estimates and requires measured figures, because maintainer counts, download volume and maintenance activity all have APIs",
+        "evidence": "\"'Eyeballed weekly downloads' has the same issue in miniature: a glance at a chart is not a reportable figure. The real number is a single API call away.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States repository contributors and registry publish rights are different populations, and that fragility depends on who can ship a release rather than on who has ever merged a commit",
+        "evidence": "\"npm maintainers = the accounts with publish rights on the registry... This is the number that actually matters... because it answers 'how many people could ship a malicious or compromised release,' not 'how many people have ever touched the code.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the contributor graph overstates the maintainer count, so the 6-maintainer reading for slugsafe is not a usable fragility signal and should be checked against publish rights",
+        "evidence": "\"'6 maintainers' pulled from GitHub is not evidence about npm publish risk \u2014 it needs to come from npm view slugsafe maintainers or the registry's own maintainers array.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects marking unassessable packages as fine, and requires every candidate to resolve to assessed-fine, assessed-flagged, or not-assessable with a stated reason",
+        "evidence": "\"Anything still unresolved after the re-check should be reported as 'unknown / needs follow-up,' not folded into the coverage percentage.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a row with missing data is not a clean row",
+        "evidence": "\"you don't currently know how much of that is real verification versus default-pass\" \u2014 framing missing-data rows as unverified rather than clean.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the bare 94% and requires the denominator form, for example resolved N of 310 dependencies with K having no source repository",
+        "evidence": "\"Ask Marisol for the raw split: how many of the 310 were actually found/verified vs. defaulted to 'fine' because she couldn't locate data.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Advises quoting figures verbatim from whatever produced them rather than rounding a score or a download count",
+        "evidence": "No statement about avoiding rounding of figures appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends resolving the dependency graph from a lockfile, an SBOM or a public dependency-resolution API rather than from a manual list",
+        "evidence": "Not addressed; the transcript focuses only on correcting maintainer-count and download-figure sourcing, not how the 310-package list itself was derived.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends pulling a per-repository maintenance or health signal instead of a subjective judgement",
+        "evidence": "No broader maintenance/health signal (e.g., commit activity or scorecard) is recommended; only maintainer counts and download figures are addressed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes eyeballed download figures have been wrong by orders of magnitude, including being reported as zero for a package moving well over a hundred million a week",
+        "evidence": "No such example or magnitude claim appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the final answer to state what could not be checked rather than presenting a clean-looking list with a silent gap",
+        "evidence": "\"I could not pull the live number myself \u2014 this sandbox has no outbound network access this session... I won't guess at slugsafe's actual maintainer count or download volume.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines to endorse publishing the 94% as it stands",
+        "evidence": "\"Bottom line: don't put 94% in the annual report.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

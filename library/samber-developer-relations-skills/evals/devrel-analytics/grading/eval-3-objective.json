@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to present the summed 500,000 figure as a count of developers or users.",
+        "evidence": "\"there is no legitimate reading of \\\"500K developers\\\" from the numbers you have today.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that npm counts HTTP 200 responses serving tarball files, so build servers, mirrors and analysis bots are counted deliberately.",
+        "evidence": "\"npm counts \\\"the number of HTTP 200 responses served that were tarball files\\\"\" and \"npm doesn't exclude mirrors, bots, or CI at all\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that PyPI excludes known mirrors by default and exposes with-mirrors and without-mirrors as separate series.",
+        "evidence": "\"PyPI excludes known mirrors by default and publishes a separate with-mirrors series\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States explicitly that the two registries measure different things and that their figures must never be summed.",
+        "evidence": "\"You can't sum two registries. npm and PyPI use different counting policies ... Adding them produces a number that isn't measuring one consistent thing\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends reporting each registry's trend against its own baseline, one series per registry with its counting definition written beside it.",
+        "evidence": "\"change the slide to \\\"500K package downloads/month\\\" (or split npm/PyPI with their own labels) before this goes out again\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes npm's retention limits when planning collection: 18 months of history, 365 days for bulk queries, 7 days per version.",
+        "evidence": "No mention of npm retention windows (18 months / 365 days / 7 days per version) appears anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes PyPI's 180-day time-series retention and recommends snapshotting into the team's own store.",
+        "evidence": "No mention of a 180-day PyPI retention figure or a snapshotting recommendation appears in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Mentions the guidance that below roughly 50 downloads per day the npm signal is mostly automation.",
+        "evidence": "\"npm's own guidance treats sub-~50/day as mostly automation\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Considers CI, mirror or automation behaviour as candidate causes of the 30% drop before drawing any conclusion about adoption.",
+        "evidence": "\"A 30% WoW move is easily explained by CI cadence, a version bump ... or one large downstream dependency changing its pin.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not offer a conversion ratio or divisor for turning downloads into a developer headcount.",
+        "evidence": "No divisor or ratio is proposed; instead: \"there is no legitimate reading of \\\"500K developers\\\" from the numbers you have today.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to present the summed 500,000 figure as a count of developers or users.",
+        "evidence": "\"the unit is wrong (downloads are events, developers are humans)... labeling it 'developers' was wrong. I'm fixing the slide.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that npm counts HTTP 200 responses serving tarball files, so build servers, mirrors and analysis bots are counted deliberately.",
+        "evidence": "The transcript discusses CI/mirrors/bots inflating counts but never states npm counts HTTP 200 tarball responses or that this is deliberate design.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that PyPI excludes known mirrors by default and exposes with-mirrors and without-mirrors as separate series.",
+        "evidence": "No mention of PyPI's mirror-exclusion behavior or separate with/without-mirrors series.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States explicitly that the two registries measure different things and that their figures must never be summed.",
+        "evidence": "\"Summing npm + PyPI compounds this twice: it double-counts polyglot teams... The sum is *less* meaningful than either input alone.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends reporting each registry's trend against its own baseline, one series per registry with its counting definition written beside it.",
+        "evidence": "The fix proposed keeps them combined but relabeled: \"'500K monthly downloads across npm + PyPI' \u2014 same number, honestly labeled\" \u2014 not split into two per-registry trend series.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes npm's retention limits when planning collection: 18 months of history, 365 days for bulk queries, 7 days per version.",
+        "evidence": "No mention of npm retention windows/limits anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes PyPI's 180-day time-series retention and recommends snapshotting into the team's own store.",
+        "evidence": "No mention of PyPI's retention window or a snapshotting recommendation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Mentions the guidance that below roughly 50 downloads per day the npm signal is mostly automation.",
+        "evidence": "No such threshold or guidance is mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Considers CI, mirror or automation behaviour as candidate causes of the 30% drop before drawing any conclusion about adoption.",
+        "evidence": "\"mirror sync artifacts... calendar effects (a holiday suppresses CI activity ecosystem-wide)... upstream CI changes at one large dependent\" listed as causes before any adoption conclusion.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not offer a conversion ratio or divisor for turning downloads into a developer headcount.",
+        "evidence": "\"30-150 downloads/month per developer... Applied to 500K/month, the honest read is that real unique humans are most likely one to two orders of magnitude lower\" \u2014 this is exactly such a conversion ratio.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

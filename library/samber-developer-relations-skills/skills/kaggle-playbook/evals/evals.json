@@ -1,0 +1,312 @@
+{
+  "skill_name": "kaggle-playbook",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I lead devrel at Vectorpine (open-source vector DB, Python client, has an embedded in-process mode). We just published a Kaggle notebook 'Semantic search with Vectorpine' and it has 4 upvotes after a week. Plan for this week: post the link in Kaggle's General discussion forum and in the comment threads of the 3 biggest active competitions with 'would love an upvote if this helps!', have our 9 engineers (most made Kaggle accounts this week) upvote it so it hits gold, and rerun it every morning so it stays at the top of the Code tab. Can you write the forum posts?",
+      "expected_output": "Refuses to write vote-request posts and the coordinated upvote plan; explains self-promotion is spam outside the Accomplishments forum, collusion risk, Novice votes not counting and rerun abuse; proposes earn-first forum answers and an Accomplishments post instead.",
+      "files": [],
+      "expectations": [
+        "States that Novice colleagues' votes start counting (retroactively) once they reach Contributor tier, so promoting the engineers to Contributor does not make their votes legitimate",
+        "States that linking your own work outside the Accomplishments forum counts as self-promotion or spam under Kaggle's rules",
+        "Names the Accomplishments forum as the place where announcing your own notebook is allowed",
+        "Says Accomplishments posts earn no discussion medals and should carry substance (what changed and why), not a vote request",
+        "Warns that a vote cluster from one company is what Kaggle's vote-manipulation enforcement targets, risking medal retraction or account suspension",
+        "Says repeated votes from the same few colleagues stop counting toward medals or that votes on posts older than about 90 days do not count",
+        "Warns that rerunning the notebook daily to stay on top is reportable abuse of the Hotness ranking",
+        "Gives the notebook medal thresholds of 5, 20 and 50 counted votes (bronze, silver, gold) or at least the 50-vote gold threshold",
+        "Proposes answering competition-forum questions in full without links as the earn-first alternative",
+        "Provides an example forum answer or Accomplishments post text rather than only describing one"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "We're Tracewell, an LLM observability SaaS (hosted only, you need an API key, 14-day trial then paid). There's a big Kaggle code competition running right now on LLM answer ranking with 2,000 teams. I want to publish a starter notebook in that competition's Code tab that logs every prompt to Tracewell. First cell is `os.environ['TRACEWELL_API_KEY'] = 'tw-xxxx'  # replace with yours`. Also want to post in the competition forum that Tracewell gives you an edge. Write me the notebook outline and the forum post.",
+      "expected_output": "Flags that the product cannot run in code-competition submissions (internet off, Secrets unavailable), that a placeholder key breaks forks and Secrets do not follow forks, that a paid tool raises the Reasonableness Standard, and that competition code shared publicly is OSI-licensed; redirects to a standalone notebook with Kaggle Secrets and no forum promotion.",
+      "files": [],
+      "expectations": [
+        "States that code-competition submissions run with internet off, so a hosted API cannot be called at submission time",
+        "Says Kaggle Secrets do not carry over to forks, so each user must add their own secret",
+        "Recommends reading the key from Kaggle Secrets under a named label instead of a hard-coded placeholder in the notebook",
+        "Notes Kaggle Secrets cannot be used in internet-off code-competition submissions",
+        "Says the competition host (with Kaggle), not the vendor, decides whether a paid tool meets the Reasonableness Standard",
+        "Notes that a time-limited trial is a problem for competitors over the competition period",
+        "States that code shared publicly in a competition is deemed licensed under an OSI-approved open-source license",
+        "Advises against the competition-forum post claiming Tracewell gives an edge, as self-promotion",
+        "Recommends a standalone notebook outside the code competition (or on a public dataset) as the better surface for an API-only product",
+        "Recommends testing the notebook by having one colleague fork it once from their own account (not a second account, not the whole team, since forks count as votes)"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Labelforge (data labeling platform) wants to host a Kaggle competition next quarter: medical image segmentation, $15,000 prize pool, we provide the labeled data. Goals: attract Kaggle Grandmasters, get medals on the line so top people show up, and keep the winning models proprietary so our ML team can productize them. Budget is the $15k only, no extra. Our own ML engineers would love to compete too. How do we set this up?",
+      "expected_output": "Explains Community Competition is self-serve and free but typically awards no points or medals, so Grandmaster pull is weak; host pays and ships prizes; winner license must be stated and proprietary intent must be explicit; staff excluded from prizes; medals usually need a Featured or Research competition run with Kaggle at a negotiated cost.",
+      "files": [],
+      "expectations": [
+        "Identifies the Community Competition as the self-serve, no-cost hosting track fitting a $15,000-only budget",
+        "States that Community Competitions typically do not award Kaggle points or medals",
+        "Concludes that without medals the competition is less likely to attract Grandmasters, and resets expectations accordingly",
+        "Says medals usually require a Featured or Research competition run with Kaggle, whose cost is negotiated rather than published",
+        "States that in a Community Competition the host itself pays and distributes the prizes, including tax handling",
+        "Explains that each competition sets a winner license type in its rules (for example an OSI license, CC-BY 4.0, or write-up only)",
+        "Warns that the default open-source winner licenses conflict with keeping winning models proprietary, and that the rules must state the license chosen",
+        "Recommends that Labelforge employees, contractors and judges be ineligible for prizes",
+        "Mentions the prize cap for community prediction competitions (about $25,000) and that $15,000 fits under it",
+        "Recommends staffing the competition forum throughout the run",
+        "Includes a rules block or text covering prizes, winner license and staff eligibility"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "I'm the only devrel at Synthora, we sell synthetic tabular data. Idea: publish a 40GB synthetic credit-card fraud dataset on Kaggle under my personal account, put a form link in the description so people give us their email before getting the 'full' version, and measure success by medals. Then do the same model on Kaggle Models. What do you think?",
+      "expected_output": "Moves the dataset under an organization profile, explains public datasets cannot gate downloads so lead capture belongs in the product, fills usability fields, adds a starter notebook, picks a license, measures downloads/forks/signups instead of medals, and notes Kaggle Models variation and licence rules.",
+      "files": [],
+      "expectations": [
+        "Recommends publishing under a Kaggle organization profile rather than a personal account",
+        "States that organization profiles are requested by the user and approved by Kaggle",
+        "Says a public Kaggle dataset has no email gate and downloads are anonymous, so the lead-capture form approach does not work as planned",
+        "Recommends filling the dataset usability fields (subtitle, tags, description, cover image, licence, file and column descriptions)",
+        "Says a public starter notebook attached to the dataset raises its usability score or credibility",
+        "Notes the 40 GB dataset fits under the 200 GB per-dataset limit",
+        "Recommends measuring downloads, forks and tagged-link signups rather than medals as the primary success metric",
+        "Explains that a Kaggle Models listing is organised as variations combining framework, weights and licence",
+        "Says an OSI licence such as Apache 2.0 or MIT allows the model to be used in Kaggle competitions",
+        "Provides a filled dataset description template",
+        "Warns against a shared company user account on Kaggle (one account per person) and says content should come from named staff while the organization profile carries the brand"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Head of DevRel at Gatekeep, we do CI/CD pipeline security scanning (GitHub Actions, GitLab). Our CMO read that Kaggle has 20M+ users and wants a Kaggle strategy this quarter: notebooks, a hackathon, the works. I have 4 hours a week. Give me the plan.",
+      "expected_output": "Gives a skip or minimal verdict because the product does not run in a data/ML notebook workflow, explains the fit test, and points the user to channels where their developers are, rather than producing a full Kaggle plan.",
+      "files": [],
+      "expectations": [
+        "Applies an explicit fit test about whether the product runs inside a notebook or a data/ML workflow",
+        "Gives a Skip (or do-not-invest) verdict for a CI/CD security scanner on Kaggle",
+        "Suggests redirecting the effort to channels where CI/CD or security developers already are",
+        "States that Kaggle's account count is mostly data scientists and ML practitioners, not CI/CD or security engineers"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Small team at Quillsort (open-source gradient boosting library, pip install quillsort, CPU-only, MIT). I have about 6 hours a week for Kaggle for the next two months and want adoption among competitive data scientists. Where do I start and in what order? We have no Kaggle presence at all; my own account is Novice.",
+      "expected_output": "Ranks Kaggle surfaces by value per hour with an explicit ordering, starts with earn-first forum answers and a standalone notebook, promotes competition starter notebooks because the library runs offline, explains offline install via an attached dataset, names the starved staff-competitor option, and lays out a week-by-week cadence.",
+      "files": [],
+      "expectations": [
+        "Gives an explicit efficiency ranking of Kaggle surfaces (for example with '>' ordering or a ranked table), not a flat list",
+        "Starts with earn-first full answers in competition forums before any own-work link",
+        "Recommends a standalone notebook as the first published asset",
+        "Promotes competition starter notebooks because the library runs offline in code competitions",
+        "Recommends installing the package offline (Kaggle's Dependency Manager or the wheels attached as a Kaggle dataset) for code competitions",
+        "Mentions requesting preinstallation via the Kaggle docker-python repository and that the bar is high",
+        "Names staff competing under the company name as the starved high-value, high-effort option, conditioned on using only the public release any competitor can install",
+        "Gives a week-by-week cadence over roughly eight weeks",
+        "Recommends requesting an organization profile",
+        "Recommends getting the Novice account to Contributor tier early (complete profile, phone verification, a submission, a comment, a vote)",
+        "Recommends forks or copy-and-edit counts as a success metric"
+      ]
+    }
+  ],
+  "trigger_queries": [
+    {
+      "query": "our kaggle notebook showing our vector db got 4 upvotes in a week, how do we get it seen without breaking kaggle's rules?",
+      "should_trigger": true
+    },
+    {
+      "query": "We want to host a Kaggle competition with a $20k prize for our labeling platform. Community competition or featured? What do we owe winners?",
+      "should_trigger": true
+    },
+    {
+      "query": "should we publish our benchmark dataset on Kaggle under an org account? what makes kaggle datasets rank in search?",
+      "should_trigger": true
+    },
+    {
+      "query": "Write a starter notebook plan for the current Kaggle code competition that uses our open-source boosting library",
+      "should_trigger": true
+    },
+    {
+      "query": "is it ok if our engineers upvote our company's Kaggle notebooks?",
+      "should_trigger": true
+    },
+    {
+      "query": "how do devtool companies use Kaggle for developer relations? we sell an ML experiment tracker",
+      "should_trigger": true
+    },
+    {
+      "query": "Our CMO wants a Kaggle strategy, we're a data quality SaaS with a python SDK. Where do we start?",
+      "should_trigger": true
+    },
+    {
+      "query": "can I post a link to my company's kaggle dataset in a competition discussion thread?",
+      "should_trigger": true
+    },
+    {
+      "query": "Kaggle notebook keeps failing for people who fork it because of our API key cell - how should we handle keys?",
+      "should_trigger": true
+    },
+    {
+      "query": "we're thinking about hiring Kaggle grandmasters to compete under our brand, is that worth it vs just writing notebooks?",
+      "should_trigger": true
+    },
+    {
+      "query": "plan an 8-week kaggle presence for our embeddings library, 5 hours a week",
+      "should_trigger": true
+    },
+    {
+      "query": "Kaggle Community Hackathon for our LLM eval tool - who pays the prizes and what are the rules?",
+      "should_trigger": true
+    },
+    {
+      "query": "how do kaggle medals and tiers work and do they matter for a vendor's devrel team credibility?",
+      "should_trigger": true
+    },
+    {
+      "query": "We published our model weights on Kaggle Models, how do variations and licences affect use in competitions?",
+      "should_trigger": true
+    },
+    {
+      "query": "our kernel got flagged for plagiarism on kaggle, we forked a popular notebook and added our SDK",
+      "should_trigger": true
+    },
+    {
+      "query": "is a paid SaaS tool allowed in Kaggle competitions? we want competitors to use ours",
+      "should_trigger": true
+    },
+    {
+      "query": "reach data scientists where they practice - our feature store has a local mode, what's the play on the big notebook competition site?",
+      "should_trigger": true
+    },
+    {
+      "query": "can we gate our Kaggle dataset behind an email form for lead gen?",
+      "should_trigger": true
+    },
+    {
+      "query": "what's the Accomplishments forum on Kaggle and when should our devrel post there?",
+      "should_trigger": true
+    },
+    {
+      "query": "How do we get our python package preinstalled in Kaggle notebooks so it works with internet off?",
+      "should_trigger": true
+    },
+    {
+      "query": "kaggle org profile vs personal account for publishing company notebooks?",
+      "should_trigger": true
+    },
+    {
+      "query": "Measure ROI of our Kaggle notebooks - votes, forks, or signups?",
+      "should_trigger": true
+    },
+    {
+      "query": "we sponsor a featured kaggle competition next year, what should devrel do in the forum during the run?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our dataset vendor team wants Kaggle as a distribution channel. Usability score tips?",
+      "should_trigger": true
+    },
+    {
+      "query": "does kaggle's hotness ranking favour recent votes? our notebook dropped off the code tab",
+      "should_trigger": true
+    },
+    {
+      "query": "Publish our open-weights model on the Hugging Face Hub with a model card and gated access",
+      "should_trigger": false
+    },
+    {
+      "query": "Write a step-by-step tutorial for our Python SDK's quickstart page",
+      "should_trigger": false
+    },
+    {
+      "query": "help me win the current Kaggle tabular playground competition, my CV is 0.81",
+      "should_trigger": false
+    },
+    {
+      "query": "How do I convert my Jupyter notebook to marimo?",
+      "should_trigger": false
+    },
+    {
+      "query": "Plan our sponsorship of MLH hackathons this season, booth and prizes",
+      "should_trigger": false
+    },
+    {
+      "query": "We're organizing a 48-hour in-person hackathon, how do we pay out cash prizes and handle taxes?",
+      "should_trigger": false
+    },
+    {
+      "query": "Post our launch on Hacker News as a Show HN",
+      "should_trigger": false
+    },
+    {
+      "query": "Cross-post our engineering blog to dev.to with canonical URLs",
+      "should_trigger": false
+    },
+    {
+      "query": "Publish our Python package to PyPI with trusted publishing",
+      "should_trigger": false
+    },
+    {
+      "query": "Design a developer community Discord server for our ML library",
+      "should_trigger": false
+    },
+    {
+      "query": "How do I use the Kaggle API CLI to download a competition dataset?",
+      "should_trigger": false
+    },
+    {
+      "query": "set up a GPU notebook on Google Colab for fine-tuning",
+      "should_trigger": false
+    },
+    {
+      "query": "Build a student ambassador program at universities for our data platform",
+      "should_trigger": false
+    },
+    {
+      "query": "write a technical blog post about our new gradient boosting release",
+      "should_trigger": false
+    },
+    {
+      "query": "Which DevRel metrics should we report to our exec team this quarter?",
+      "should_trigger": false
+    },
+    {
+      "query": "Answer questions on Stack Overflow about our SDK without getting flagged",
+      "should_trigger": false
+    },
+    {
+      "query": "Create a Hugging Face Space demo for our model with ZeroGPU",
+      "should_trigger": false
+    },
+    {
+      "query": "design the judging rubric for our company hackathon",
+      "should_trigger": false
+    },
+    {
+      "query": "Write a jupyter notebook example for Milvus hybrid search",
+      "should_trigger": false
+    },
+    {
+      "query": "Plan our YouTube channel for ML tutorials",
+      "should_trigger": false
+    },
+    {
+      "query": "how do I get my personal kaggle account to Grandmaster in competitions?",
+      "should_trigger": false
+    },
+    {
+      "query": "find public datasets for training a fraud detection model",
+      "should_trigger": false
+    },
+    {
+      "query": "Run a Reddit r/MachineLearning launch for our open-source library",
+      "should_trigger": false
+    },
+    {
+      "query": "Should our devtool start an open-source benchmark leaderboard on GitHub?",
+      "should_trigger": false
+    },
+    {
+      "query": "build a kaggle-style competition platform for our internal data science team",
+      "should_trigger": false
+    }
+  ]
+}

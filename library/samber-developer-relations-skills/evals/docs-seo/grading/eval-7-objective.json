@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects blanket-noindexing the generated reference tree",
+        "evidence": "\"Do not noindex the resulting tree. Let the resource-level pages index normally.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the generated reference pages are the highest-intent pages on the domain even though they are the thinnest",
+        "evidence": "\"API reference pages are usually the highest-intent, highest-converting organic entry point a docs site has \u2014 someone searching the exact field or endpoint name is closer to using your product than someone reading a blog post,\" discussed directly against the consultant's thin-content noindex rationale.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Instructs splitting to one page per resource or command rather than one page per field",
+        "evidence": "\"Merge field-level pages into one page per resource/endpoint. Fields become <h2>/<h3> sections on that page with stable id anchors\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a single shared prose page with a language switcher instead of one URL per SDK language, given the prose does not differ per language",
+        "evidence": "\"Merge the 6 SDK-language pages into one page with a language switcher. Since the prose is identical and only the code block differs, this is a pure win\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the sitemaps.org limit of 50,000 URLs per sitemap file",
+        "evidence": "\"The sitemaps.org protocol caps a single sitemap file at 50,000 URLs and 50MB uncompressed\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the 50MB uncompressed byte ceiling per sitemap file",
+        "evidence": "\"50MB uncompressed (52,428,800 bytes)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that gzip is allowed but the uncompressed size is what counts, so serving a 4MB gzipped file does not bring the 71MB sitemap into spec",
+        "evidence": "\"Gzipping to 4MB doesn't help: the uncompressed size is what the spec measures\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Instructs splitting the sitemap into a sitemap index",
+        "evidence": "\"Fix: split into a sitemap index (sitemap-index.xml) referencing multiple child sitemaps, each under 50,000 URLs and 50MB uncompressed.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that a sitemap index is itself capped at 50,000 sitemaps under the same byte ceiling",
+        "evidence": "No mention anywhere that the sitemap index file itself is capped at 50,000 child sitemaps / same byte ceiling.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Classifies the out-of-spec sitemap as a defect rather than as a negotiable threshold",
+        "evidence": "Header: \"## Blocking defect: the sitemap is out of spec, independent of the noindex question\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends stable id anchors per symbol so long reference pages can earn anchor-level results and be deep-linked from the product",
+        "evidence": "\"Fields become <h2>/<h3> sections on that page with stable id anchors, so a specific field can still earn an anchor-level search result and still be deep-linked from elsewhere in the docs\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Limits written meta descriptions to the highest-traffic reference entries and lets the rest fall back rather than generating filler",
+        "evidence": "Descriptions/meta descriptions are never discussed anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects blanket-noindexing the generated reference tree",
+        "evidence": "'Blanket noindex on /reference/ is the wrong call'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the generated reference pages are the highest-intent pages on the domain even though they are the thinnest",
+        "evidence": "'API reference is high-intent developer search'; per-field pages 'genuinely thin'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Instructs splitting to one page per resource or command rather than one page per field",
+        "evidence": "'One URL per endpoint/resource/schema, not per field.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a single shared prose page with a language switcher instead of one URL per SDK language, given the prose does not differ per language",
+        "evidence": "'Language selection becomes a client-side tab'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the sitemaps.org limit of 50,000 URLs per sitemap file",
+        "evidence": "'50,000 URLs per sitemap file.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the 50MB uncompressed byte ceiling per sitemap file",
+        "evidence": "'50MB uncompressed per sitemap file.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that gzip is allowed but the uncompressed size is what counts, so serving a 4MB gzipped file does not bring the 71MB sitemap into spec",
+        "evidence": "'The limit applies to the decompressed content, not the 4MB you serve'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Instructs splitting the sitemap into a sitemap index",
+        "evidence": "'Reference them from a sitemap_index.xml.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that a sitemap index is itself capped at 50,000 sitemaps under the same byte ceiling",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Classifies the out-of-spec sitemap as a defect rather than as a negotiable threshold",
+        "evidence": "'invalid by spec, not just large'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends stable id anchors per symbol so long reference pages can earn anchor-level results and be deep-linked from the product",
+        "evidence": "Mentions fields as '#anchor' sections but does not discuss stable ids or anchor-level results.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Limits written meta descriptions to the highest-traffic reference entries and lets the rest fall back rather than generating filler",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

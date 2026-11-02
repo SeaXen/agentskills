@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rewrites the one-liner to the shape \"<name> is a <category> for <audience> that <capability the alternatives lack>\", leading with the category",
+        "evidence": "\"**Strong shape:** `Basalt is an open-source ETL runtime for data engineering teams that <capability Airflow lacks>.`\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes the superlatives, including \"revolutionary\", \"blazing-fast\" and \"game-changer\"",
+        "evidence": "\"Three superlatives (revolutionary, blazing-fast, reimagines)... HN moderators rewrite titles like this\" and weak first comment's \"game-changer\" dropped from the strong rewrite.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States what the project will not do, so the one-liner is limiting as well as short",
+        "evidence": "The strong one-liner shape given (\"Basalt is an open-source ETL runtime for data engineering teams that <capability Airflow lacks>.\") contains no \"does not\" clause.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rewrites the comparison table with comparable dimensions and real numbers rather than yes/no adjectives",
+        "evidence": "Strong table rows: \"Deployment model\", \"Time to first pipeline\", \"[Your actual measured perf axis]\", \"Ecosystem / integrations\", \"Best when\" with numeric/measured placeholders.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes at least one row where Basalt loses to Airflow",
+        "evidence": "\"Ecosystem / integrations | [real count] | 90+ provider packages, 10 years of operators\" plus \"Concede ecosystem/maturity to Airflow explicitly \u2014 you will lose that row no matter what you write\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names where Airflow is genuinely better, not only where Basalt wins",
+        "evidence": "\"Best when | [your real sweet spot] | Teams already invested in Airflow's operator ecosystem\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the all-green table because a reader who sees every row favour the author stops believing the whole page",
+        "evidence": "\"Per the skill: 'every row favors you, so a reader stops believing the whole page.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the 6x benchmark to ship with hardware, versions, method and a reproduction command, or to be dropped",
+        "evidence": "\"publish the benchmark method and a reproduction command in the repo... If the method can't be made public and reproducible before launch day, drop the number for this launch entirely\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that an unreproducible benchmark number becomes the top comment in the thread",
+        "evidence": "\"With no answer, that reply becomes the top comment and the launch is now defending a number instead of showing the project.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rewrites the first comment around four moves: who is speaking and why the project exists, the technical decision worth discussing, the real limitations, and a specific invitation",
+        "evidence": "\"following the four things the reference calls out (who's speaking, a technical hook, disclosed limits, a specific invitation)\" followed by the matching draft.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes the request for feedback and support from the first comment",
+        "evidence": "Weak comment's \"love your feedback and support!\" is absent from the strong rewrite, replaced by \"Happy to go deep on [specific technical area].\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Discloses up front that a company is behind the project and that a managed version is sold, including what stays open",
+        "evidence": "\"Basalt is built and maintained by [Company]. The core is [license] and stays that way; we sell a hosted version.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the final draft through a humanizer pass before publishing",
+        "evidence": "No mention of a humanizer pass anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rewrites the one-liner to the shape \"<name> is a <category> for <audience> that <capability the alternatives lack>\", leading with the category",
+        "evidence": "Rewrite 'Basalt is an open-source ETL runtime for building and running data pipelines \u2014 self-host it free, or let us run it for you' leads with category but names no audience and no capability-the-alternatives-lack clause, only a business model.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Removes the superlatives, including \"revolutionary\", \"blazing-fast\" and \"game-changer\"",
+        "evidence": "None of 'revolutionary', 'blazing-fast', or 'game-changer' appear in any of the rewritten one-liner, table, or HN comment.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States what the project will not do, so the one-liner is limiting as well as short",
+        "evidence": "The rewritten one-liner states only what Basalt is/offers, with no statement of what it will not do.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rewrites the comparison table with comparable dimensions and real numbers rather than yes/no adjectives",
+        "evidence": "New table swaps 'Fast/Modern/Easy/Scalable: yes/no' for 'Pipeline definition, Deployment footprint, Managed option, License' \u2014 checkable facts instead of adjectives.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes at least one row where Basalt loses to Airflow",
+        "evidence": "Every row in the rewritten table (pipeline definition, deployment footprint, managed option, license) favors or is neutral toward Basalt; none shows Airflow winning.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names where Airflow is genuinely better, not only where Basalt wins",
+        "evidence": "'Airflow runs at real scale at plenty of large companies' explicitly acknowledges a genuine Airflow strength.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the all-green table because a reader who sees every row favour the author stops believing the whole page",
+        "evidence": "'going 4-for-4 in your own favor reads as dishonest before anyone even checks the claims... can discredit the whole table, and by extension the launch.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the 6x benchmark to ship with hardware, versions, method and a reproduction command, or to be dropped",
+        "evidence": "'publish the benchmark as its own page with full methodology (hardware, dataset, exact Airflow version/config, code to reproduce it)'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that an unreproducible benchmark number becomes the top comment in the thread",
+        "evidence": "'an unpublished number turns your top comment thread into a methodology interrogation instead of a product discussion.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rewrites the first comment around four moves: who is speaking and why the project exists, the technical decision worth discussing, the real limitations, and a specific invitation",
+        "evidence": "Rewrite includes 'one of the people building Basalt' + backstory, 'concrete sentences on what's actually different architecturally', 'Self-reported vendor benchmarks deserve skepticism', and 'Happy to answer questions about the architecture, the benchmark, or anything else.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes the request for feedback and support from the first comment",
+        "evidence": "Rewritten comment ends with 'Happy to answer questions...' with no 'we'd love your feedback and support' language.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Discloses up front that a company is behind the project and that a managed version is sold, including what stays open",
+        "evidence": "'It's fully open source ([license]); we also run a managed version for teams that don't want to operate it themselves.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the final draft through a humanizer pass before publishing",
+        "evidence": "No mention of a humanizer pass anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

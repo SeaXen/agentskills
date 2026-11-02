@@ -1,0 +1,94 @@
+import React from 'react';
+import type { ReactElement } from 'react';
+import type { ConnectionType, SystemType } from '@sap-ux/store';
+import type { SystemInfo as ISystemInfo } from '../../../../types/index.js';
+import { ConnectionName } from './ConnectionName.js';
+import { ConnectionTypes } from './ConnectionTypes.js';
+import { OnPremSystem } from './OnPremSystem.js';
+import { CloudSystem } from './CloudSystem.js';
+
+import '../../../../styles/SystemMain.scss';
+
+interface SystemInfoProps {
+    systemInfo?: ISystemInfo;
+    addNewSapSystem?: boolean;
+    setName: (name: string | undefined) => void;
+    setConnectionType: (connType: ConnectionType) => void;
+    setUrl: (url: string | undefined) => void;
+    setServicePath: (servicePath: string | undefined) => void;
+    setClient: (client: string | undefined) => void;
+    setUsername: (username: string) => void;
+    setPassword: (password: string) => void;
+    setIsDetailsUpdated: (isUpdated: boolean) => void;
+    setIsDetailsValid: (isValid: boolean) => void;
+}
+
+/**
+ * Renders the system information input fields based on the system type.
+ *
+ * @param props - system information props
+ * @param props.systemInfo - the system information
+ * @param props.addNewSapSystem - flag indicating if a new SAP system is being added
+ * @param props.setConnectionType - function to set the connection type
+ * @param props.setName - function to set the system name
+ * @param props.setUrl - function to set the URL
+ * @param props.setServicePath - function to set the service path (only for generic host connection type)
+ * @param props.setClient - function to set the client
+ * @param props.setUsername - function to set the username
+ * @param props.setPassword - function to set the password
+ * @param props.setIsDetailsUpdated - function to set the details updated flag
+ * @param props.setIsDetailsValid - function to set the details valid flag
+ * @returns - the system information JSX element
+ */
+export function SystemInfo({
+    systemInfo,
+    addNewSapSystem,
+    setName,
+    setConnectionType,
+    setUrl,
+    setServicePath,
+    setClient,
+    setUsername,
+    setPassword,
+    setIsDetailsUpdated,
+    setIsDetailsValid
+}: Readonly<SystemInfoProps>): ReactElement {
+    const systemType = systemInfo?.systemType as SystemType;
+    return (
+        <div>
+            {!!systemType && (
+                <ConnectionName
+                    connectionName={systemInfo?.name}
+                    setName={setName}
+                    setIsDetailsUpdated={setIsDetailsUpdated}
+                />
+            )}
+
+            {addNewSapSystem && !!systemType && (
+                <ConnectionTypes connectionType={systemInfo?.connectionType} setConnectionType={setConnectionType} />
+            )}
+
+            {systemType === 'OnPrem' && (
+                <OnPremSystem
+                    systemInfo={systemInfo}
+                    setUrl={setUrl}
+                    setServicePath={setServicePath}
+                    setClient={setClient}
+                    setUsername={setUsername}
+                    setPassword={setPassword}
+                    setIsDetailsUpdated={setIsDetailsUpdated}
+                    setIsDetailsValid={setIsDetailsValid}
+                />
+            )}
+            {systemType === 'AbapCloud' && (
+                <CloudSystem
+                    systemInfo={systemInfo}
+                    setUrl={setUrl}
+                    setServicePath={setServicePath}
+                    setIsDetailsUpdated={setIsDetailsUpdated}
+                    setIsDetailsValid={setIsDetailsValid}
+                />
+            )}
+        </div>
+    );
+}

@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Does not produce a finished grid before gathering the missing inputs",
+        "evidence": "Section 5 produces a full two-day grid with slot IDs before asking for room and speaker data.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks for room names, seated capacities and walking minutes between rooms",
+        "evidence": "\"Room names, seated capacities, and walking minutes between rooms.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks what the venue contract fixed: doors open and close, catering windows, room-hire start and end, and any part-day room",
+        "evidence": "\"Venue contract windows: doors, catering, room hire times.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks for every speaker's availability window, including all co-speakers on multi-speaker sessions, before laying anything out",
+        "evidence": "Asked, but only after the grid was laid out.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks one question at a time rather than delivering the whole list at once",
+        "evidence": "Six questions delivered as one list under \"What I need from you\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Standardizes session lengths into a small set of slot lengths before assigning anything",
+        "evidence": "Slot standard table: Standard, Lightning, Keynote, each 50 min.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Chooses a grid time resolution that can express the 15-minute lightning talk",
+        "evidence": "No resolution discussion; lightning talks are packed inside a 50-minute slot.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a coarse resolution such as 30 minutes cannot express a short talk plus a separate gap as two distinct things",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Records the 25-minute AV recalibration as an internal blocker rather than a published break",
+        "evidence": "\"AV recalibration, internal blocker, not on the programme\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the distinction: breaks are publicly visible grid items, blockers reserve grid space without being published",
+        "evidence": "\"attendees see only 'Lunch'... this block is internal-only and goes into the staff version of the run-of-show, not the public grid.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the grid will be presented section by section for validation before it goes public",
+        "evidence": "No such statement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks what physically changes between two consecutive sessions in each room, such as AV reset, furniture or staging",
+        "evidence": "Not asked; only asks about the AV recalibration.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Does not produce a finished grid before gathering the missing inputs",
+        "evidence": "Opens with \"All 42 talks are placed\" and a full grid.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks for room names, seated capacities and walking minutes between rooms",
+        "evidence": "Assumes rooms A to D; asks only about AV rooms.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks what the venue contract fixed: doors open and close, catering windows, room-hire start and end, and any part-day room",
+        "evidence": "Only \"confirm... the venue's opening hours\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks for every speaker's availability window, including all co-speakers on multi-speaker sessions, before laying anything out",
+        "evidence": "Not asked.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks one question at a time rather than delivering the whole list at once",
+        "evidence": "Delivers a list of gaps.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Standardizes session lengths into a small set of slot lengths before assigning anything",
+        "evidence": "Standard 45, keynote 45, lightning 15 in a 45-minute block.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Chooses a grid time resolution that can express the 15-minute lightning talk",
+        "evidence": "The grid is built on 45-minute cells; lightning talks are packed inside one cell.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a coarse resolution such as 30 minutes cannot express a short talk plus a separate gap as two distinct things",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Records the 25-minute AV recalibration as an internal blocker rather than a published break",
+        "evidence": "\"Internal only (not on the public programme)... AV recalibration (25 min)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the distinction: breaks are publicly visible grid items, blockers reserve grid space without being published",
+        "evidence": "Shows the example but does not state the distinction.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the grid will be presented section by section for validation before it goes public",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks what physically changes between two consecutive sessions in each room, such as AV reset, furniture or staging",
+        "evidence": "Not asked.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

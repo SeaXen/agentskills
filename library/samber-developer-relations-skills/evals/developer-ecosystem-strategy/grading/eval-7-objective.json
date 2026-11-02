@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Declines to review or extend the sandbox architecture and redirects to whether a runtime platform is the right rung at all.",
+        "evidence": "\"Don't build the gVisor/quotas/metering platform yet... Before signing up for that, test whether the customer's code can run in *their* environment instead of yours.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names all three conditions required to promote a runtime platform: the complements genuinely cannot run outside the execution context, a dedicated platform team is funded indefinitely rather than borrowed, and the team would actually run the shutdown migration it is signing up for.",
+        "evidence": "The stated reopen conditions are \"(a) demand broadens... requesting hosted execution specifically, (b) you can name a dedicated, funded platform owner for four quarters running \u2014 not borrowed time..., and (c) you're willing to sign the BAA/vendor-risk obligations...\" \u2014 condition (c) is about compliance sign-off, not willingness to run a shutdown migration.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the requested validation logic can run outside Brightwell's execution context - for example as an outbound call to customer-hosted code - so the first condition fails.",
+        "evidence": "\"Documented ingestion contract + customer-hosted execution... the requesting customers' own data engineers, running their own Python in their own environment.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that eight engineers in total is a borrowed team, not a dedicated platform team funded indefinitely.",
+        "evidence": "\"you can name a dedicated, funded platform owner for four quarters running \u2014 not borrowed time from the 8.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the runtime platform loses on value per unit of effort every time, because it carries the largest permanent obligation on the ladder.",
+        "evidence": "\"Efficiency order: 1 > 2 > 3. Value order is the reverse, which is exactly why it's tempting and exactly why it needs gating before committing a quarter to it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that shutting down a runtime platform is a migration event for every complementor.",
+        "evidence": "\"No walk-back once a bank and a healthcare group depend on it; shutting it down is a migration event for regulated customers.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends the highest rung Brightwell can actually staff instead of the runtime platform.",
+        "evidence": "\"Candidate 1 (recommended) \u2014 Documented ingestion contract + customer-hosted execution *(rung 1/2 territory...)*\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes the condition that would promote Brightwell back to a runtime platform as an observable event.",
+        "evidence": "\"Reopen rung 6 only if all three hold: (a) demand broadens... (b) you can name a dedicated, funded platform owner... (c) you're willing to sign the BAA/vendor-risk obligations...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that two requesting customers is below the counted-demand threshold, and names what would resolve it and how long that takes.",
+        "evidence": "\"G1 Counted demand | **Fail**... **Resolver:** check the backlog for other unbuilt-rule requests in the last 2 quarters\" \u2014 no elapsed time or date is attached to completing this resolver.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that each in-product extension point permanently freezes an internal seam.",
+        "evidence": "Candidate 2: \"What it forecloses: the internal seam (the check contract) is now permanent \u2014 moderate, not severe.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Adds every published surface to a liability register, and states that this register rather than the architecture diagram is what tells Brightwell whether its next refactor is affordable.",
+        "evidence": "No mention of a \"liability register\" or similar concept appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Declines to review or extend the sandbox architecture and redirects to whether a runtime platform is the right rung at all.",
+        "evidence": "The transcript gives detailed architecture recommendations ('Add network egress allowlisting and memory/disk/wall-clock limits... Build the audit trail and kill-switch') rather than declining to engage with the architecture.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names all three conditions required to promote a runtime platform: the complements genuinely cannot run outside the execution context, a dedicated platform team is funded indefinitely rather than borrowed, and the team would actually run the shutdown migration it is signing up for.",
+        "evidence": "The transcript touches on ongoing cost and team burden but never states a shutdown-migration condition, and does not enumerate all three as an explicit checklist.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the requested validation logic can run outside Brightwell's execution context - for example as an outbound call to customer-hosted code - so the first condition fails.",
+        "evidence": "'Push execution outward instead of pulling code inward... An agent model \u2014 customer runs a small connector in their own VPC, you orchestrate and ingest results \u2014 eliminates the multi-tenant execution problem entirely.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that eight engineers in total is a borrowed team, not a dedicated platform team funded indefinitely.",
+        "evidence": "'for a team of 8 who also run the core product, likely means the compliance/observability/incident-response pieces get cut to hit the deadline.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the runtime platform loses on value per unit of effort every time, because it carries the largest permanent obligation on the ladder.",
+        "evidence": "No general rule of this kind is stated; the analysis stays specific to this scenario.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that shutting down a runtime platform is a migration event for every complementor.",
+        "evidence": "No mention of a shutdown/migration event for complementors.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends the highest rung Brightwell can actually staff instead of the runtime platform.",
+        "evidence": "'extending the rule builder with a formula/expression mode likely covers it at a fraction of the risk and cost \u2014 and stays useful to all 120 accounts, not 2.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes the condition that would promote Brightwell back to a runtime platform as an observable event.",
+        "evidence": "'If it turns out to be genuinely open-ended logic that only a general-purpose language supports, that's a real signal to keep building toward sandboxed execution \u2014 but get that signal from customer conversations.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that two requesting customers is below the counted-demand threshold, and names what would resolve it and how long that takes.",
+        "evidence": "'Two accounts out of 120 want this... Spend a week getting concrete requirements from both customers and pricing out a rented-isolation or restricted-DSL alternative.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that each in-product extension point permanently freezes an internal seam.",
+        "evidence": "No such statement appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds every published surface to a liability register, and states that this register rather than the architecture diagram is what tells Brightwell whether its next refactor is affordable.",
+        "evidence": "No liability register concept is mentioned anywhere.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

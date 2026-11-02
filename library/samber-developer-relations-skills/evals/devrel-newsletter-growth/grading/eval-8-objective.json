@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The response splits the churn reading by subscriber tenure",
+        "evidence": "1. Tenure. What share of unsubscribes happened within three issues of signup?",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response identifies unsubscribes concentrated in the first issues as a mismatch between the signup promise and the issues",
+        "evidence": "The signup box makes a promise the newsletter doesn't keep... they leave within one to three issues.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response quotes or names the specific mismatch: weekly performance tips promised versus monthly product updates delivered",
+        "evidence": "'Weekly Go performance tips from our engineers.' What arrives is a monthly product-update email.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response recommends rewriting the signup copy to match the cadence and content the newsletter actually holds",
+        "evidence": "Rewrite the box to match what you actually send: Monthly, from the Fernhollow team...",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response recommends linking a real recent issue on the signup form",
+        "evidence": "Read the latest issue first; Promise... links the latest issue",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response advises against increasing cadence to weekly as the fix for churn",
+        "evidence": "Don't go weekly to 'stay top of mind.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response routes the cadence decision to the newsletter programme work rather than deciding it inside the growth plan",
+        "evidence": "Cadence and format are the newsletter programme's call; Route to devrel-newsletter-program",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response reads spam complaints alongside unsubscribes",
+        "evidence": "Complaints alongside unsubscribes. Pull spam complaints per send.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response checks whether an inbox-provider unsubscribe feature launched within the window before blaming content",
+        "evidence": "Did Gmail or Yahoo one-click unsubscribe... launch inside the window?",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response proposes an early-churn metric (share of a cohort gone within its first issues) to track the fix",
+        "evidence": "Early churn: share of a cohort gone within three issues.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response recommends splitting churn by source as well as tenure",
+        "evidence": "2. Source. Split by form or source.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The response splits the churn reading by subscriber tenure",
+        "evidence": "\"split by subscriber tenure (1\u20133 issues vs 4+)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response identifies unsubscribes concentrated in the first issues as a mismatch between the signup promise and the issues",
+        "evidence": "\"People who leave after 1\u20133 issues are expectation mismatches.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response quotes or names the specific mismatch: weekly performance tips promised versus monthly product updates delivered",
+        "evidence": "\"weekly Go performance tips\" vs \"monthly product update\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response recommends rewriting the signup copy to match the cadence and content the newsletter actually holds",
+        "evidence": "\"Change it to say 'Monthly product updates from the Fernhollow team'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response recommends linking a real recent issue on the signup form",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response advises against increasing cadence to weekly as the fix for churn",
+        "evidence": "\"Don't go weekly yet.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response routes the cadence decision to the newsletter programme work rather than deciding it inside the growth plan",
+        "evidence": "The response decides cadence itself.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response reads spam complaints alongside unsubscribes",
+        "evidence": "\"Check complaints and unsubscribe reasons\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response checks whether an inbox-provider unsubscribe feature launched within the window before blaming content",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response proposes an early-churn metric (share of a cohort gone within its first issues) to track the fix",
+        "evidence": "\"If new-cohort rate is high and old-cohort rate is flat\" using 1\u20133 issue tenure.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response recommends splitting churn by source as well as tenure",
+        "evidence": "Splits by tenure and signup month only.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

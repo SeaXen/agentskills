@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Proposes a written qualification threshold expressed as a single sentence the team can apply without interpretation.",
+        "evidence": "The transcript explicitly delivers a 'One-sentence rule to hand your head of sales' as a pull-quote: 'An account becomes qualified when it has 2+ active developers and 2+ weeks of production CI usage, or when anyone in it hits a limit or opens a billing/security page.' The threshold itself is concrete, countable, and directly applicable (two numeric conditions joined by AND, plus an OR-branch of named boundary events), and it is paired with an explicit negative rule ('Accounts below the threshold get product and docs only \u2014 no human contact') plus a closing directive to 'write that down as a r",
+        "score": 4,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Proposes a written qualification threshold expressed as a single sentence the team can apply without interpretation.",
+        "evidence": "The answer does propose gating criteria \u2014 \"Gate the Slack alert on ICP signals you already have: 1. Business email domain (skip gmail/outlook/edu) 2. Team size >1, if you collect it at signup 3. Immediate high-intent action (multiple repos connected, real project name vs 'test')\" \u2014 but this is a three-item list, not a single applicable sentence, and it omits the combining logic (must all three hold, or any one?). Two of the three items require judgment rather than mechanical application: \"if you collect it at signup\" is conditional on unknown data availability, and \"real project name vs 'test'",
+        "score": 2,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

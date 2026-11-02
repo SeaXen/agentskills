@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Replaces 'archive this week' with the default freeze-then-archive path: maintenance-only with security fixes through a notice period, then an archive with an explicit end statement.",
+        "evidence": "'Archive this week \u2192 freeze, then archive in about a quarter.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Corrects the user's safety claim precisely: freeze-then-archive and archive-now tie on supply-chain risk because an archived package ships nothing, but archive-now loses on unpatched-vulnerability risk because known flaws stay unfixed.",
+        "evidence": "'An archived package ships nothing new, so no malicious release. But known flaws stay unfixed forever... Archiving trades supply-chain risk for unpatched-vulnerability risk.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Presents the exit ranking per axis (value to users, effort, supply-chain risk, unpatched-vulnerability risk) rather than one blended verdict.",
+        "evidence": "No per-axis ranking across value, effort, supply-chain and vulnerability risk.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets a notice period of about a quarter or more because the package is a transitive dependency of large projects.",
+        "evidence": "Announcement 2026-10-29, archive 2027-02-01; 'a quarter or more'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Instructs the user to tell the two frameworks' maintainers privately a few days before the public notice, naming them the likeliest custodians.",
+        "evidence": "'Send them the private note a few days before you post.' (10-26 vs 10-29)",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Re-opens the custodian path if either framework's organization offers custody with more than one admin.",
+        "evidence": "'If a framework offers custody (more than one admin)... switch to the dual-track wording'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not set PyPI's archived status now; sets it only on the archive date because it blocks new uploads and would make the promised security fixes impossible.",
+        "evidence": "'Setting PyPI `archived` blocks all uploads. If you set it this week, you can't ship the security fix'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Publishes a final release whose README states the status before the archive date, and treats the registry signal as a step separate from the README notice.",
+        "evidence": "'Ship a final release with the status in its README' and a separate PyPI `archived` step on 2027-02-01.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites Miller et al. (ICSE 2025): only 18.1% of active dependents removed an abandoned package, and removal was significantly faster when the end-of-life was stated explicitly.",
+        "evidence": "It cites '(Miller et al., ICSE 2025)' for stated end-of-life, without the 18.1% figure.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes the announcement with all of: status, why, what still works (published versions stay installable), license permission to fork, alternatives, timeline, and that no security fixes follow the archive date.",
+        "evidence": "The announcement covers what changes, what keeps working, who is affected, fork license, alternative, timeline and security reports.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States who, if anyone, can still publish an emergency fix after the date.",
+        "evidence": "'after 2027-02-01, nobody will publish new versions under the name `cobblestone`.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the PyPI and GitHub accounts with two-factor authentication and a recovery contact, revokes CI and personal tokens only, and notes that PEP 541 never reassigns a name against a reachable owner.",
+        "evidence": "Accounts and 2FA are covered, and only CI and personal tokens are revoked. PEP 541 is never mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Archives the repository last, after the notice period.",
+        "evidence": "'PyPI `archived` and GitHub archive done on 2027-02-01, last.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the decision as final: says a forge archive can be reversed but users who migrated will not come back, so decide once.",
+        "evidence": "There is no such statement; it offers 'If you want a shorter notice, say so.'",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Replaces 'archive this week' with the default freeze-then-archive path: maintenance-only with security fixes through a notice period, then an archive with an explicit end statement.",
+        "evidence": "\"Safer sequence\" and a timeline with security fixes only, then archive.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Corrects the user's safety claim precisely: freeze-then-archive and archive-now tie on supply-chain risk because an archived package ships nothing, but archive-now loses on unpatched-vulnerability risk because known flaws stay unfixed.",
+        "evidence": "\"Archived PyPI projects stay installable... Archiving removes your ability to patch... doesn't remove those risks.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Presents the exit ranking per axis (value to users, effort, supply-chain risk, unpatched-vulnerability risk) rather than one blended verdict.",
+        "evidence": "No ranking table.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets a notice period of about a quarter or more because the package is a transitive dependency of large projects.",
+        "evidence": "Suggests end of life 2027-04-30.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Instructs the user to tell the two frameworks' maintainers privately a few days before the public notice, naming them the likeliest custodians.",
+        "evidence": "Tells them privately as \"the real blast radius\", but never names them as likely custodians.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Re-opens the custodian path if either framework's organization offers custody with more than one admin.",
+        "evidence": "\"archive only after the frameworks have dropped you or taken over\"; handover needs two release holders.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not set PyPI's archived status now; sets it only on the archive date because it blocks new uploads and would make the promised security fixes impossible.",
+        "evidence": "Timeline: \"[DATE] Repository archived on GitHub. PyPI project marked archived.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Publishes a final release whose README states the status before the archive date, and treats the registry signal as a step separate from the README notice.",
+        "evidence": "Final release with DeprecationWarning; README banner.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites Miller et al. (ICSE 2025): only 18.1% of active dependents removed an abandoned package, and removal was significantly faster when the end-of-life was stated explicitly.",
+        "evidence": "Not cited.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes the announcement with all of: status, why, what still works (published versions stay installable), license permission to fork, alternatives, timeline, and that no security fixes follow the archive date.",
+        "evidence": "It lacks license permission to fork and an explicit statement that published versions stay installable. It does say security fixes run until the date.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States who, if anyone, can still publish an emergency fix after the date.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the PyPI and GitHub accounts with two-factor authentication and a recovery contact, revokes CI and personal tokens only, and notes that PEP 541 never reassigns a name against a reachable owner.",
+        "evidence": "Keeps 2FA only until the archive. No PEP 541, no recovery contact.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Archives the repository last, after the notice period.",
+        "evidence": "Archive is the final row of the timeline.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the decision as final: says a forge archive can be reversed but users who migrated will not come back, so decide once.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

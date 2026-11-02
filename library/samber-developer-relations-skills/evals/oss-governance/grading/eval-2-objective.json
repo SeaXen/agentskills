@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Uses the term 'contributor absence factor' and attributes the metric definition to CHAOSS, or notes it was formerly called bus factor.",
+        "evidence": "\"contributor absence factor \u2014 the CHAOSS metric formerly called bus factor\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the definition as the smallest number of contributors responsible for 50% of contributions.",
+        "evidence": "\"smallest number of contributors responsible for 50% of contributions, 12-month window\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Excludes the bot author from the calculation and says why.",
+        "evidence": "\"Drop renovate[bot] (1240). It's an automated dependency bot, not a contributor.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Excludes Priya's 610 merge commits and says why, namely that the integrator otherwise looks like the author.",
+        "evidence": "\"She runs the merge queue, and 610 of her 980 commits are merges, not authorship.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports a corrected project-wide absence factor of 3.",
+        "evidence": "\"Contributor absence factor = 3 (Tomas + Priya + Ines), not 4.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the claimed figure of 4.",
+        "evidence": "\"**No.** Recomputed properly... the number is **3, not 4**\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Shows the arithmetic: the corrected total, the 50% threshold, and the accumulation that crosses it.",
+        "evidence": "Table shows cumulative 430\u2192800\u21921150 \"\u2190 crosses 900\" against a corrected total of 1800 (half=900).",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the factor must be computed per governed area as well as project-wide.",
+        "evidence": "\"compute concentration per governed area as well as project-wide\" (quoted from playbook).",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports the Windows backend as an area with an absence factor of 1, and names a single-owner subsystem as what actually breaks on a departure.",
+        "evidence": "\"Windows backend: absence factor of 1. Karl is the only person who has touched it in two years.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the measure should also run on reviews, issue responses and documentation, not commits alone.",
+        "evidence": "No mention anywhere in the transcript of extending the measure to reviews, issue responses, or documentation as alternate data sources.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces a separate inventory of privileged credentials rather than treating code access as the binding constraint.",
+        "evidence": "\"Code access is rarely the binding constraint \u2014 the credentials are\" followed by the credential-specific findings.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags Priya alone holding the npm token and the signing key as a single point of failure, and calls for two current holders on every credential row.",
+        "evidence": "\"Priya alone holds the npm token and the release signing key\" and \"Second key holder for npm + signing\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the 'at least 2, and two holders per credential' figure as a self-set baseline rather than a published standard.",
+        "evidence": "\"The self-set baseline this skill uses (published-findings.md) is explicit...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns against publishing per-person contribution league tables and recommends reporting aggregates.",
+        "evidence": "The transcript recommends reporting \"three separate numbers\" to the board but never explicitly warns against publishing the per-person ranking table it itself produced for internal analysis.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Uses the term 'contributor absence factor' and attributes the metric definition to CHAOSS, or notes it was formerly called bus factor.",
+        "evidence": "The transcript uses only 'bus factor' throughout and never mentions CHAOSS or 'contributor absence factor'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the definition as the smallest number of contributors responsible for 50% of contributions.",
+        "evidence": "The transcript instead defines it as 'how many people can disappear before something breaks irrecoverably' \u2014 a different definition, no 50% threshold stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Excludes the bot author from the calculation and says why.",
+        "evidence": "The bot exclusion is only mentioned as a generic future fix ('Exclude bot commits and separate merge commits from authored commits before ranking anyone by \"contribution.\"') without the actual bus-factor-1 conclusion depending on it or a stated reason specific to bots.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Excludes Priya's 610 merge commits and says why, namely that the integrator otherwise looks like the author.",
+        "evidence": "'610 of Priya's 980 commits are merge-queue merges \u2014 mechanical clicks, not authored changes. Her actual authorship volume is ~370... A raw commit count treats a one-line merge commit the same as a deep authored change.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports a corrected project-wide absence factor of 3.",
+        "evidence": "The transcript reports 'the real number is 1, not 4', not 3.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the claimed figure of 4.",
+        "evidence": "'So the real number is 1, not 4 \u2014 and it's 1 for two independent reasons.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Shows the arithmetic: the corrected total, the 50% threshold, and the accumulation that crosses it.",
+        "evidence": "No arithmetic or threshold accumulation is shown; the reasoning is entirely about single points of failure, not a percentage-of-contributions calculation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the factor must be computed per governed area as well as project-wide.",
+        "evidence": "'Compute bus factor per subsystem (git blame / ownership by directory, not just aggregate commits), since Windows backend and \"everything else\" are clearly not the same population.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports the Windows backend as an area with an absence factor of 1, and names a single-owner subsystem as what actually breaks on a departure.",
+        "evidence": "'Windows backend: bus factor 1 (Karl). Nobody else has touched it in two years. If Karl leaves, that subsystem has zero people who understand it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the measure should also run on reviews, issue responses and documentation, not commits alone.",
+        "evidence": "The transcript only discusses commits (authored vs merge vs bot); reviews, issue responses, and documentation are never mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces a separate inventory of privileged credentials rather than treating code access as the binding constraint.",
+        "evidence": "'Treat credentials/access (signing key, npm token, deploy keys, admin on CI) as their own bus-factor dimension \u2014 a person can be replaceable on code and still be a single point of failure on shipping.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags Priya alone holding the npm token and the signing key as a single point of failure, and calls for two current holders on every credential row.",
+        "evidence": "'She's the sole holder of the npm token and the signing key... get the signing key/npm token into a second pair of hands (or a shared secrets/CI-managed release flow) before either becomes an incident.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the 'at least 2, and two holders per credential' figure as a self-set baseline rather than a published standard.",
+        "evidence": "No such labeling of the recommendation as a self-set baseline versus a standard appears anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns against publishing per-person contribution league tables and recommends reporting aggregates.",
+        "evidence": "No mention of league tables or a recommendation to report aggregates instead of named individuals.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

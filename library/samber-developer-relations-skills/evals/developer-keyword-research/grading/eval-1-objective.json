@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Keeps the three zero-volume entries (WEBHOOK_SIGNATURE_MISMATCH, 429 too many requests, replay failed webhook) as candidates rather than dropping them because the tool reports zero",
+        "evidence": "\"Reversing that drop is the single highest-value move in this map.\" All three appear as P1 rows in the Ranked clusters table despite Tier 8: 0/mo.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a reported volume of zero is a statement about the tool's index, not about developer demand",
+        "evidence": "\"that's a statement about the tool's index, ... never a statement about whether a Hookline customer is stuck right now.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that reported volume averages roughly twelve months, merges a keyword with its close variants, and is rounded",
+        "evidence": "Only states \"Keyword Planner merges and rounds close variants\" \u2014 merging and rounding are mentioned but no statement that reported volume averages roughly twelve months.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites that roughly 93% of a major tool's U.S. keyword database sits below ten monthly searches",
+        "evidence": "\"Ahrefs' own numbers: ~93% of its database sits below 10 monthly searches\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats keyword-tool volume as a tiebreaker only and ranks no cluster on volume alone",
+        "evidence": "\"No cluster is ranked on tool volume alone \u2014 the three zero-volume branded errors outrank the 18,000/mo definitional term on family and intent, not the reverse.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not place the head category terms ('webhook delivery service', 'what is a webhook') at the top of the ranking on volume grounds",
+        "evidence": "'what is a webhook' (18,000/mo) is placed in \"Do not target\" as \"Do not target as a flagship page\"; 'webhook delivery service' (2,400/mo) is \"demoted\" to P2.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Directs the harvest at the Search Console export, docs-search logs and Zendesk export before ranking anything",
+        "evidence": "\"Fix first\" only instructs a Search Console pull (\"Export the Search Console query report...\"); no equivalent action items are given for docs-search logs or the Zendesk export, and ranking in the table above already occurred using tier-8 data.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Tags every evidence item as Measured, User-provided, or Estimated",
+        "evidence": "\"Every ranked cluster carries at least one dated, sourced, labeled evidence item \u2014 tier 8 for all seven (label: Estimated, tool-vendor figures...)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes N/A for any metric it cannot obtain and names the source it could not reach, rather than supplying a number",
+        "evidence": "\"every tier 1\u20133 cell below is N/A \u2014 pull pending, not a guess\" with sources named (Search Console, Zendesk, docs-search).",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Output carries the sections Scope, Ranked clusters, Company-adoption set, Fix first, Do not target, and Backlog",
+        "evidence": "All six headers appear: \"## Scope\", \"## Ranked clusters\", \"## Company-adoption set\", \"## Fix first\", \"## Do not target\", \"## Backlog\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The Do not target list is non-empty",
+        "evidence": "Two entries: \"what is a webhook\" and \"webhook testing tool\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports the 70% first-party evidence floor as this approach's own baseline rather than an industry standard",
+        "evidence": "\"70% tier 1\u20134 floor: fails... Lower this floor explicitly if you want to ship on tier-8-plus-domain-reasoning alone\" \u2014 presented as the process's own gate, not an external benchmark.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Keeps the three zero-volume entries (WEBHOOK_SIGNATURE_MISMATCH, 429 too many requests, replay failed webhook) as candidates rather than dropping them because the tool reports zero",
+        "evidence": "Item #1 in the build order: 'KB pages: WEBHOOK_SIGNATURE_MISMATCH, 429 too many requests, replay failed webhook' with 'Ship this week.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a reported volume of zero is a statement about the tool's index, not about developer demand",
+        "evidence": "It says zero is 'expected, correct reading for this content type' and that a keyword tool 'can't see' support cost. It never says zero describes the tool's index.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that reported volume averages roughly twelve months, merges a keyword with its close variants, and is rounded",
+        "evidence": "No discussion of how the tool computes or rounds volume.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites that roughly 93% of a major tool's U.S. keyword database sits below ten monthly searches",
+        "evidence": "No such statistic appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats keyword-tool volume as a tiebreaker only and ranks no cluster on volume alone",
+        "evidence": "'Treat \"drop the bottom three, build the top four\" as the wrong axis. The right axis is buyer stage + cost to produce + who's already asking, not raw search volume.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not place the head category terms ('webhook delivery service', 'what is a webhook') at the top of the ranking on volume grounds",
+        "evidence": "'What Is a Webhook?' (18,000/mo) is ranked #5 with 'Biggest number on the sheet, worst fit'. 'Webhook Delivery Service' is #3.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Directs the harvest at the Search Console export, docs-search logs and Zendesk export before ranking anything",
+        "evidence": "'Before you lock this, pull three things': Zendesk (12 months), Docs search logs (6 months), Search Console.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Tags every evidence item as Measured, User-provided, or Estimated",
+        "evidence": "No evidence tags anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes N/A for any metric it cannot obtain and names the source it could not reach, rather than supplying a number",
+        "evidence": "It writes 'KD n/a (no SERP = no competition...)' but does not name an unreachable source or use the N/A discipline.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Output carries the sections Scope, Ranked clusters, Company-adoption set, Fix first, Do not target, and Backlog",
+        "evidence": "Sections are 'Prioritized build order', 'Before you lock this, pull three things' and 'Sequencing', not Scope, Ranked clusters, Company-adoption set, Fix first, Do not target, Backlog.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The Do not target list is non-empty",
+        "evidence": "There is no Do not target list. 'What Is a Webhook?' is ranked #5 and not excluded.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reports the 70% first-party evidence floor as this approach's own baseline rather than an industry standard",
+        "evidence": "No mention of a 70% floor.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

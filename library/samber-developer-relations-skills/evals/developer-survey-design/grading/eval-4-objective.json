@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Presents the incentive ranking with efficiency, effort, value and compliance-cost axes stated out loud, and names 'none, with results shared first with respondents' as the default.",
+        "evidence": "No efficiency/effort/value/compliance axes are laid out and 'none, with results shared first' is never named as the default; it only ranks donation above raffle.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ranks the prize draw low on compliance cost, naming contact data, a separate store and sweepstakes rules per jurisdiction.",
+        "evidence": "'contact data, a separate store and per-jurisdiction rules apply.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that prize-draw effects on completes are small and inconsistent.",
+        "evidence": "'The skill finds draw effects \"small and inconsistent\"'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses adding an email field to the survey response table and requires any contact collection in a separate form under its own consent.",
+        "evidence": "'Do not add an email field to the survey... separate form with no join key'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a fixed donation per complete as the next rung before paid responses, given the near date and the shortfall.",
+        "evidence": "'A donation ranks above a raffle... The cheaper version (recommended)'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that any public incentive draws bots and machine-written answers and requires switching on fraud checks before announcing: an attention or consistency check, a trap option nobody can have used, and detection of templated open text.",
+        "evidence": "Lists an attention check, a trap option and a salted IP hash, but does not mention templated open text detection.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the salted IP hash as the proportionate duplicate check: separate column, declared in the notice, dropped at cleaning.",
+        "evidence": "Notice line on salted hash; 'Drop the IP hash column at cleaning.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps results posted to every recruitment channel before any press release as part of the incentive design.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags EU-based respondents and a French organisation as making the privacy pack a release blocker and pushing the prize draw to the bottom of the incentive list.",
+        "evidence": "'Answer 9 (French organisation, EU and US respondents): prize draw demoted... Step 7 becomes a release blocker'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend paid responses as the first move.",
+        "evidence": "Recommends donation, not paid responses.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not promise that the raffle will raise completes.",
+        "evidence": "'The raffle will not close the gap.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists at least one recruitment lever from the channel ranking (one reminder to the same random draw, partner-sent invitations, targeted outreach) before reaching for an incentive.",
+        "evidence": "'If you can reach a random slice of Brackenmoor users through the dashboard or CLI, do that before the raffle'.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Presents the incentive ranking with efficiency, effort, value and compliance-cost axes stated out loud, and names 'none, with results shared first with respondents' as the default.",
+        "evidence": "No ranking is given. The transcript goes straight to the raffle.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ranks the prize draw low on compliance cost, naming contact data, a separate store and sweepstakes rules per jurisdiction.",
+        "evidence": "The compliance burden is listed but the draw is not ranked low; the transcript proceeds with it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that prize-draw effects on completes are small and inconsistent.",
+        "evidence": "'A single big prize usually lifts response rates. It rarely lifts them 9\u00d7.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses adding an email field to the survey response table and requires any contact collection in a separate form under its own consent.",
+        "evidence": "'Don't put the email field inside the survey form... separate entry form... no shared ID.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a fixed donation per complete as the next rung before paid responses, given the near date and the shortfall.",
+        "evidence": "No donation option is mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that any public incentive draws bots and machine-written answers and requires switching on fraud checks before announcing: an attention or consistency check, a trap option nobody can have used, and detection of templated open text.",
+        "evidence": "Only an attention check and minimum time are mentioned. There is no trap option or templated-text detection.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the salted IP hash as the proportionate duplicate check: separate column, declared in the notice, dropped at cleaning.",
+        "evidence": "Duplicates are handled only through normalized email.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps results posted to every recruitment channel before any press release as part of the incentive design.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags EU-based respondents and a French organisation as making the privacy pack a release blocker and pushing the prize draw to the bottom of the incentive list.",
+        "evidence": "It advises counsel review but does not make the privacy pack a blocker or demote the draw.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend paid responses as the first move.",
+        "evidence": "Paid responses are not recommended.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not promise that the raffle will raise completes.",
+        "evidence": "'The raffle probably won't close the gap.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists at least one recruitment lever from the channel ranking (one reminder to the same random draw, partner-sent invitations, targeted outreach) before reaching for an incentive.",
+        "evidence": "The raffle goes first; 'partner or newsletter push' appears only as a later fallback.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

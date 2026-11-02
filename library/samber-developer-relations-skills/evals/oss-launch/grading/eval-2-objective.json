@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Separates the open items into blockers that move the date and boosters that never do",
+        "evidence": "\"## Explicitly not blockers \u2014 don't spend the 20 days here\" section explicitly separates demo video/docs site from the blocker table above.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies the missing SECURITY.md as a blocker rather than a nice-to-have",
+        "evidence": "\"### \u274c SECURITY.md \u2014 non-negotiable given what this project is\" / table row \"Security contact | \u274c Open | No SECURITY.md \u2014 mandatory, cheap, no excuse\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies the untested Windows install instructions as a blocker, because the README claims that platform",
+        "evidence": "\"### \u26a0\ufe0f Windows install \u2014 untested is a fail, not a maybe ... an untested Windows path means the README is currently making a claim you haven't verified.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires scanning the full git history, not only the current tree, for keys, tokens, internal hostnames, customer data or proprietary code",
+        "evidence": "\"Run a secrets scanner (gitleaks or trufflehog) across the **full history**, not just HEAD, and grep commit messages/diffs for internal hostnames, service names, and ticket IDs\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies the unreproducible staging-cluster benchmark as a blocker on the defensible-claims check",
+        "evidence": "\"### \u26a0\ufe0f Benchmark numbers \u2014 staging-cluster numbers are a liability, not an asset\" / table row \"Claims | \u26a0\ufe0f Open | Staging-cluster benchmarks aren't defensible as-is\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies registry publication plus a release tag and release notes as a blocker for distribution",
+        "evidence": "Table row \"Distribution | \u274c Open | Nothing published anywhere \u2014 must close\" and punch list \"publish to the registry, tag a release\" cover registry+tag, but release notes are never mentioned anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Classifies the missing demo video and documentation site as boosters that must not move the date",
+        "evidence": "\"**No demo video.** ... it does not gate the date.\" and \"**No docs site.** ... don't build one to feel more ready.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that every blocker must pass before a date is set, and that one open blocker moves the launch",
+        "evidence": "\"If clearance comes back clean this week, everything else below is very achievable by Oct 14. If it doesn't, that's the conversation to force now, not on Oct 10.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Proposes a go-with-reduced-scope path, such as dropping the benchmark claim or the Windows support statement, instead of slipping the entire launch",
+        "evidence": "\"If it doesn't pass in time, cut it: pull Windows from the README and ship Linux/macOS only for launch. That's a **reduced-scope** move, not a failure\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats an open issue tracker, a named communication channel and basic contributor guidance as pre-announcement items rather than post-launch cleanup",
+        "evidence": "\"Add a `CONTRIBUTING.md` and name a communication channel (even just \"open an issue\") \u2014 an hour of work\" placed in the \"Next week\" punch-list, before Oct 14.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not declare the project ready on the basis that most items are done",
+        "evidence": "Verdict is \"Go, with reduced scope\" with multiple \u26a0\ufe0f/\u274c items still open, not a blanket readiness claim.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend building a documentation site before this launch date",
+        "evidence": "\"A good README is correct at this stage \u2014 don't build one to feel more ready.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Returns an explicit verdict of go, go with reduced scope, or not ready with the open blockers listed",
+        "evidence": "\"# Corvid Launch Readiness \u2014 Verdict: **Go, with reduced scope**\" followed by the blocker table.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Separates the open items into blockers that move the date and boosters that never do",
+        "evidence": "Response uses '\ud83d\udd34 Fix before the repo goes public', '\ud83d\udfe0 Should fix, not launch-blocking', and '\ud83d\udfe2 Fine to skip for launch day' as three explicit tiers.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies the missing SECURITY.md as a blocker rather than a nice-to-have",
+        "evidence": "'4. No SECURITY.md. This is infrastructure sitting in the request path \u2014 you need a private vulnerability-disclosure channel live before launch.' listed under the \ud83d\udd34 blocker section.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies the untested Windows install instructions as a blocker, because the README claims that platform",
+        "evidence": "'2. Windows install instructions are untested. Test on a real clean Windows VM this week... a keynote-driven install failure generates issues faster than you can triage them.' under \ud83d\udd34.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires scanning the full git history, not only the current tree, for keys, tokens, internal hostnames, customer data or proprietary code",
+        "evidence": "'Run gitleaks/trufflehog over the *entire* history (`--all`, not just HEAD) for secrets, internal hostnames, employee emails, tickets, or references to other internal Fennmark projects.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies the unreproducible staging-cluster benchmark as a blocker on the defensible-claims check",
+        "evidence": "Benchmark methodology is listed under '\ud83d\udfe0 Should fix, not launch-blocking', not the \ud83d\udd34 blocker tier.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Classifies registry publication plus a release tag and release notes as a blocker for distribution",
+        "evidence": "Item 3 covers only registry/binary publication ('docker pull / helm install / release binary') as a blocker; release tag and release notes are never mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Classifies the missing demo video and documentation site as boosters that must not move the date",
+        "evidence": "'\ud83d\udfe2 Fine to skip for launch day ... No demo video, no docs site \u2014 don't spend the remaining runway here ... Backfill both post-launch.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that every blocker must pass before a date is set, and that one open blocker moves the launch",
+        "evidence": "Verdict opens with 'No \u2014 not yet. Four real blockers, all closeable in 20 days,' framing the date as contingent on clearing all four \ud83d\udd34 items.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Proposes a go-with-reduced-scope path, such as dropping the benchmark claim or the Windows support statement, instead of slipping the entire launch",
+        "evidence": "'If you run out of time, cut the Windows section rather than ship instructions you haven't verified' and 'Add hardware/version/command details, or pull the numbers until you can defend them.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats an open issue tracker, a named communication channel and basic contributor guidance as pre-announcement items rather than post-launch cleanup",
+        "evidence": "Contributor guidance items are listed under \ud83d\udfe0 non-blocking, and no 'named communication channel' is mentioned at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not declare the project ready on the basis that most items are done",
+        "evidence": "'No \u2014 not yet. Four real blockers, all closeable in 20 days.' \u2014 explicitly refuses a 'ready' verdict despite most items presumably being done.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend building a documentation site before this launch date",
+        "evidence": "'a solid README covers v0.1 without a docs site. Backfill both post-launch.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Returns an explicit verdict of go, go with reduced scope, or not ready with the open blockers listed",
+        "evidence": "'**Verdict: repost HN tomorrow...**' style opening: 'No \u2014 not yet. Four real blockers, all closeable in 20 days' followed by the numbered blocker list.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

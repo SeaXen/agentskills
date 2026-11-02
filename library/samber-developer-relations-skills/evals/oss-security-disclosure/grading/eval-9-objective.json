@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects both the $100 offer and the extortion threat, and sends one templated reply stating the project runs no bounty, pays for no reports, and will assess the claim on its merits through the named channel",
+        "evidence": "\"Do neither. Send one templated reply: no bounty, here is how to report.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the reply is sent once and that no amount is negotiated afterwards",
+        "evidence": "\"Send the reply below once. Don't send a second one.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks once for a proof of concept against a released version plus the affected version and component, and closes with reasoning if nothing arrives by a stated date",
+        "evidence": "Reply asks for version, component, PoC; table: \"Nothing found, no reply... Close it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not dismiss the email because it reads as generic or machine-generated, and judges only the evidence provided",
+        "evidence": "\"Treat the claim as pending until you reproduce it\"; code read anyway.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Opens a private advisory draft recording the report with verdict need-info and a date it must resolve by, visible to a second responder",
+        "evidence": "No private advisory draft or need-info verdict with resolve-by date; only internal note by email.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Prepares the fast-track contingency: if the sender publishes and the claim proves real, fix and release the same day, and do not argue in public",
+        "evidence": "\"If the sender goes public, fix, release and advisory happen the same day.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes continued threats or harassment to the code host's reporting channel and the project's conduct process rather than to the police as a first step",
+        "evidence": "\"report to the blog or code host and to whoever handles conduct.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Adds the no-bounty statement to SECURITY.md in the retrospective if it is missing, stating that it removes the payment negotiation before it starts",
+        "evidence": "No SECURITY.md retrospective item.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the full reasoning in the private advisory draft and nothing about the incident in shared or committed memory",
+        "evidence": "\"Don't write about it in memory files or notes either.\"; private notes of reasoning.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a Maven Central release cannot be removed once published and may take time to sync, so confirming the artifact resolves precedes any advisory",
+        "evidence": "No Maven Central removal/sync statement.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects both the $100 offer and the extortion threat, and sends one templated reply stating the project runs no bounty, pays for no reports, and will assess the claim on its merits through the named channel",
+        "evidence": "\"We don't run a bounty program, and we can't pay for an undisclosed report.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the reply is sent once and that no amount is negotiated afterwards",
+        "evidence": "\"Reply once, politely, with no money and no threats.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks once for a proof of concept against a released version plus the affected version and component, and closes with reasoning if nothing arrives by a stated date",
+        "evidence": "Requests details but sets no close date.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not dismiss the email because it reads as generic or machine-generated, and judges only the evidence provided",
+        "evidence": "\"this looks like a mass-mailed template\" and \"A blank claim plus a deadline is a pressure tactic.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Opens a private advisory draft recording the report with verdict need-info and a date it must resolve by, visible to a second responder",
+        "evidence": "Not proposed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Prepares the fast-track contingency: if the sender publishes and the claim proves real, fix and release the same day, and do not argue in public",
+        "evidence": "If they publish without details, \"post a short statement\"; no same-day fix plan.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes continued threats or harassment to the code host's reporting channel and the project's conduct process rather than to the police as a first step",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds the no-bounty statement to SECURITY.md in the retrospective if it is missing, stating that it removes the payment negotiation before it starts",
+        "evidence": "Suggests adding a SECURITY.md but not a no-bounty statement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the full reasoning in the private advisory draft and nothing about the incident in shared or committed memory",
+        "evidence": "Not addressed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a Maven Central release cannot be removed once published and may take time to sync, so confirming the artifact resolves precedes any advisory",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

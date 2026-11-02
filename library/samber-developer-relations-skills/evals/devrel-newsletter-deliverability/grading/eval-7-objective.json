@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Recommends Spamhaus's own lookup page rather than DNS queries through public resolvers, or warns that public-resolver lookups return misleading codes",
+        "evidence": "\"confirm on Spamhaus's own lookup page\"; fix 4 \"re-check Spamhaus on its own lookup page\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines to give tricks for escaping Promotions, noting they risk complaints",
+        "evidence": "\"Tricks to force Primary raise complaints and put the sender at risk.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Suggests the only sanctioned lever is asking readers to move the message or reply",
+        "evidence": "\"The only supported move is to ask readers to move one issue to Primary or reply to it\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says most lists flagged by mass blocklist checkers are irrelevant to Gmail and Outlook placement",
+        "evidence": "\"The skill says to ignore checkers that report dozens of minor lists\"; \"Spamhaus is the list that matters most\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies Spamhaus (and its domain list) as the listing that matters, and notes it is clean here",
+        "evidence": "\"Spamhaus is the list that matters most, and it is clean.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains Gmail Postmaster Tools spam rate below 0.1% as the target figure to check",
+        "evidence": "Fix 3: \"Spam rate is visible, below 0.1%.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that delisting requests are made by the sender, free of charge, after fixing the cause",
+        "evidence": "\"Spamhaus removal is free\"; \"Fix the cause, then request removal yourself from each list.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains seed or placement tests are directional because seed inboxes have no engagement history",
+        "evidence": "\"directional snapshot... Seed inboxes have no engagement history\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends Gmail Postmaster Tools spam rate as the real placement evidence",
+        "evidence": "\"Use Postmaster Tools spam rate, raw headers and reader reports.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says requesting delisting before fixing the cause leads to being listed again",
+        "evidence": "\"Delisting before the cause is fixed gets you relisted.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not claim the newsletter is in the spam folder based on the Promotions placement",
+        "evidence": "\"Promotions is an inbox category, not a spam verdict.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Checks or asks about authentication and one-click unsubscribe status before concluding all is fine",
+        "evidence": "Fix 1 and 2 check Authentication-Results and one-click GET/POST test.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Recommends Spamhaus's own lookup page rather than DNS queries through public resolvers, or warns that public-resolver lookups return misleading codes",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines to give tricks for escaping Promotions, noting they risk complaints",
+        "evidence": "It gives tactics: plain text, no images, 2-3 links, person-like sender.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Suggests the only sanctioned lever is asking readers to move the message or reply",
+        "evidence": "It lists those levers alongside other formatting tricks, not as the only one.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says most lists flagged by mass blocklist checkers are irrelevant to Gmail and Outlook placement",
+        "evidence": "\"Major mailbox providers mostly ignore UCEPROTECT and similar small lists.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies Spamhaus (and its domain list) as the listing that matters, and notes it is clean here",
+        "evidence": "\"Spamhaus is the list that matters, and it shows nothing.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains Gmail Postmaster Tools spam rate below 0.1% as the target figure to check",
+        "evidence": "\"Spam-complaint rate in Postmaster Tools is below 0.1%.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that delisting requests are made by the sender, free of charge, after fixing the cause",
+        "evidence": "\"Most delist free after 7 to 14 days of clean sending\"; delisting is the ESP's job if it's their range.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains seed or placement tests are directional because seed inboxes have no engagement history",
+        "evidence": "\"Seed accounts are not real recipients. They carry no engagement history.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends Gmail Postmaster Tools spam rate as the real placement evidence",
+        "evidence": "\"That is real Gmail data, which MXToolbox is not.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says requesting delisting before fixing the cause leads to being listed again",
+        "evidence": "Not said.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not claim the newsletter is in the spam folder based on the Promotions placement",
+        "evidence": "\"Promotions is not spam and it is not a delivery failure.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Checks or asks about authentication and one-click unsubscribe status before concluding all is fine",
+        "evidence": "\"SPF, DKIM and DMARC all pass and align\"; keep List-Unsubscribe and one-click.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that posting the new venue only in Discord is insufficient because the people who need it are not watching chat, with only about a third of registrants active there.",
+        "evidence": "\"About a third of 600 is roughly 200 people on Discord... Up to about 400 registrants may not know\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the venue change to the channel that reaches every registrant: email to the full registration list.",
+        "evidence": "\"Email all 600 registrants today. The list is the only channel that reaches every registrant by construction.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the venue change as a class that also goes out publicly, while leaving platform choice and post copy to the public-broadcast or social function.",
+        "evidence": "\"Say 'this goes out publicly'... event-social-media owns platform and copy.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends one canonical page or surface for venue updates that every other channel points at rather than restates.",
+        "evidence": "\"Every other channel points at it instead of restating it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Drafts or specifies a venue-change message that opens with an instruction to read it before travelling and states the new address explicitly against the old one.",
+        "evidence": "\"'Read this before you travel'... now at [address], not [old address].\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Puts the new fact before any apology in the message.",
+        "evidence": "\"Open with the new fact\"; template has no preceding apology.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes a next-update time or a pointer to where further updates will land, since the situation may still change.",
+        "evidence": "\"Full details and updates: [status page URL].\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the stay-quiet-until-fixed policy for livestream outages.",
+        "evidence": "\"'Stay quiet until fixed' fails remote viewers\"; \"The 'stay quiet' part is dropped\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that silence during an outage reads as abandonment, while a still-working-on-it post with a stated next-update time does not.",
+        "evidence": "\"silence during an outage reads as abandonment.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires repeated, timestamped updates at a fixed interval during the outage even when nothing has changed.",
+        "evidence": "\"Add timestamped lines at the fixed interval, including 'still working on it, no change'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Fixes that interval now, before the event, rather than leaving it to be chosen during an outage.",
+        "evidence": "\"Set the interval now, before the event... chosen mid-outage is chosen badly.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Specifies the livestream outage message commits to posting again by a stated time whether or not the stream is fixed, and notes recordings will still be published.",
+        "evidence": "\"will post here again by [time] whether or not it is fixed. Recordings will still be published.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the scale rule in both directions: a minutes-scale message never rides an hours-scale channel, and an hours-scale message never rides the disruption path, because the second desensitizes the channel that must not be missed.",
+        "evidence": "Only \"Email is an hours-scale channel and this is a minutes-scale message\"; reverse direction not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends counting every message that has to be re-sent on a second channel because the first did not reach, as a routing or staffing signal, with the ceiling fixed before the event rather than after the data arrives.",
+        "evidence": "\"Repeat rate: share of messages you had to re-send on a second channel... thresholds self-set, fixed before the event.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that posting the new venue only in Discord is insufficient because the people who need it are not watching chat, with only about a third of registrants active there.",
+        "evidence": "\"Only about 200 of your 600 registrants are active there\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the venue change to the channel that reaches every registrant: email to the full registration list.",
+        "evidence": "\"Email all 600 registrants\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the venue change as a class that also goes out publicly, while leaving platform choice and post copy to the public-broadcast or social function.",
+        "evidence": "It tells the user to post on Discord and social channels itself.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends one canonical page or surface for venue updates that every other channel points at rather than restates.",
+        "evidence": "It lists several sources of truth to fix, not one page the others point at.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Drafts or specifies a venue-change message that opens with an instruction to read it before travelling and states the new address explicitly against the old one.",
+        "evidence": "No message is drafted; it only suggests a subject line.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Puts the new fact before any apology in the message.",
+        "evidence": "Not addressed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes a next-update time or a pointer to where further updates will land, since the situation may still change.",
+        "evidence": "Not in the venue-change message.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the stay-quiet-until-fixed policy for livestream outages.",
+        "evidence": "\"Staying silent until it's fixed is the riskiest option\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that silence during an outage reads as abandonment, while a still-working-on-it post with a stated next-update time does not.",
+        "evidence": "\"Silence looks identical to 'nobody noticed'\"; message says \"Next update in 15 min\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires repeated, timestamped updates at a fixed interval during the outage even when nothing has changed.",
+        "evidence": "It says \"Keep it to one message\" and offers one more status line after 15 minutes. It does not require repeated updates at a fixed interval.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Fixes that interval now, before the event, rather than leaving it to be chosen during an outage.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Specifies the livestream outage message commits to posting again by a stated time whether or not the stream is fixed, and notes recordings will still be published.",
+        "evidence": "It offers recordings as an alternative but does not commit to posting again by a stated time whether or not the stream is fixed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the scale rule in both directions: a minutes-scale message never rides an hours-scale channel, and an hours-scale message never rides the disruption path, because the second desensitizes the channel that must not be missed.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends counting every message that has to be re-sent on a second channel because the first did not reach, as a routing or staffing signal, with the ceiling fixed before the event rather than after the data arrives.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

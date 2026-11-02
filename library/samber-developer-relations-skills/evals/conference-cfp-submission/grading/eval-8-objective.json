@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that no event publishes per-format acceptance data",
+        "evidence": "\"No conference \u2014 Ferrolane Devcon included, as far as I can find \u2014 publishes a per-format acceptance-rate breakdown, so there's no real number to give you.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines to give an acceptance rate difference between lightning and main track",
+        "evidence": "\"This isn't a gap in my research; it's a documented gap in what these events disclose at all.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that the lightning format is widely treated as the easiest entry point while making clear this is not a measured claim",
+        "evidence": "\"Lightning slots are widely treated as the easier entry point because... That's a structural reason to expect a softer bar, not a measured one.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cuts the scope to one idea for the 5-minute slot",
+        "evidence": "\"Chosen angle: the consumer group bug... Format-to-scope rule for lightning is explicit: one idea, one takeaway.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Produces exactly one takeaway for the lightning format",
+        "evidence": "\"One only \u2014 this is a lightning slot.\" with a single bullet under Takeaways.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Starts that takeaway with an action verb",
+        "evidence": "\"Check XPENDING / pending-entries idle time before trusting a Redis Streams consumer group's delivery guarantee in production.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a long list of takeaways signals to a reviewer that none of them will land",
+        "evidence": "The dilution argument ('nothing lands... the classic reviewer pattern-match for generic') is made about the eight content threads generally, not specifically about a long takeaways list.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Offers the longer format as the alternative if the user wants to keep the wider scope",
+        "evidence": "\"the full backlog\u2192Streams migration story, the dashboard build... are a legitimate 25-30 minute session or a blog post.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Produces an outline with minute estimates that fits inside the lightning slot",
+        "evidence": "\"0:00\u20130:45... 4:15\u20135:00\" outline fits inside 5 minutes.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not carry all eight listed items into the proposal",
+        "evidence": "\"Redis Streams becomes one sentence of context, not a section... Metrics, dashboard, on-call rota change, and cost savings get compressed into a single 'what changed' beat\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that no event publishes per-format acceptance data",
+        "evidence": "'Some conferences publish CFP acceptance rates in a retro blog post or the organizers will just tell you if you ask' \u2014 this states the opposite, that some do publish.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines to give an acceptance rate difference between lightning and main track",
+        "evidence": "'anywhere from \"main track is 3x harder to get into\" at large well-known events, to \"barely different\" at smaller/regional conferences' gives a quantified illustrative gap.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that the lightning format is widely treated as the easiest entry point while making clear this is not a measured claim",
+        "evidence": "'What\u2019s true in general, industry-wide, and worth calibrating on instead of a fabricated number: - Lightning-talk slots are almost always easier than main-track, for structural reasons.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cuts the scope to one idea for the 5-minute slot",
+        "evidence": "The script covers backlog problem, tool choice, the bug, metrics, dashboard, on-call rota, cost savings, and lessons learned \u2014 far more than one idea.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces exactly one takeaway for the lightning format",
+        "evidence": "The close bundles multiple lessons: 'we\u2019d write the reaper on day one...And we\u2019d have built the per-group dashboard before launch...that\u2019s your action item \u2014 go check.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Starts that takeaway with an action verb",
+        "evidence": "The closing lines are embedded in narrative sentences ('we\u2019d write the reaper...', 'that\u2019s your action item \u2014 go check') rather than a clean verb-first bullet.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a long list of takeaways signals to a reviewer that none of them will land",
+        "evidence": "No such statement appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Offers the longer format as the alternative if the user wants to keep the wider scope",
+        "evidence": "No mention of a longer-format alternative appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces an outline with minute estimates that fits inside the lightning slot",
+        "evidence": "Timestamped sections from '[0:00\u20130:15] Hook' through '[4:40\u20135:00] What we\u2019d do differently + close' sum to 5:00.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not carry all eight listed items into the proposal",
+        "evidence": "The 8-slide list includes backlog, why Redis Streams, the bug, the fix, dashboard, before/after \u2014 all major content items are carried through, matching the 'Slide count: 7\u20138 max' list of 8 slides.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

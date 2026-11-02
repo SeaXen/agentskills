@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses the word sourced and uses influenced throughout",
+        "evidence": "\"Sourced revenue is not something this team measures.\" and \"Claim is always 'influenced pipeline value'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that Marketing and Sales may claim the same opportunities and that shared credit is inherent to the metric",
+        "evidence": "\"Claim is always 'influenced pipeline value'; Sales and Marketing may claim the same opportunities.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The rule names which touch types count as a program touch",
+        "evidence": "\"Qualifying touches: (a) workshop attendance; (b) question answered by DevRel in a public community venue; (c) self-reported first touch naming a program surface; (d) conversation logged by a DevRel member within 14 days.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The rule names an explicit lookback window in days",
+        "evidence": "\"Lookback: 365 days before stage 2\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The rule names whether the touch must precede a specific pipeline stage",
+        "evidence": "\"Stage condition: touch precedes stage 2.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the rule is fixed for the fiscal year and that any mid-period change must be reported as a restatement",
+        "evidence": "\"Fixed for FY26. Any change is an announced restatement, never silent edit.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Excludes any touch recorded after the opportunity was created",
+        "evidence": "\"touches logged after an opportunity exists never count, for anyone.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the metric over-counts by construction because engaged accounts were already more likely to buy, and that this is stated once rather than re-argued each quarter",
+        "evidence": "\"Stated once, not re-litigated: accounts that engage are already more likely to buy; the rule cannot separate influence from selection.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names a leading indicator to carry the interim, given enterprise cycles push the pipeline answer two to four quarters out",
+        "evidence": "\"Qualified conversations and progression carry the interim\" and \"Role: leading indicator carrying the 8-month pipeline lag.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags influenced pipeline as carrying the highest compliance cost because it joins a named person's community activity to a CRM record",
+        "evidence": "\"No person-to-account identity map for community activity. Building one joins public community activity to CRM records \u2014 privacy review, hard to unbuild. Deliberately deferred. Cost: ~2 engineering days plus review.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Presents both defensible positions on the revenue question: no sales metrics on DevRel with the DevRel Qualified Lead as the alternative currency, and influenced pipeline explicitly shared",
+        "evidence": "The transcript commits solely to influenced pipeline given the CRO's demand (\"Do not refuse the revenue number. CRO will have one either way\"); no \"DevRel Qualified Lead\" alternative or \"no sales metrics on DevRel\" position is presented.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the deciding input for that choice is who owns the budget",
+        "evidence": "No alternative choice is presented, so no statement frames budget ownership as the deciding input between two options.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses the word sourced and uses influenced throughout",
+        "evidence": "The doc explicitly defines both: '**Sourced**: a DevRel activity is the first recorded touch...' and '**Influenced**: at least one qualifying DevRel touch...' \u2014 sourced is used, not refused.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that Marketing and Sales may claim the same opportunities and that shared credit is inherent to the metric",
+        "evidence": "'Sales, Marketing, and DevRel may each claim the same closed dollar under their own definitions. Summing department claims is prohibited \u2014 the total exceeds 100% by construction.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The rule names which touch types count as a program touch",
+        "evidence": "'(community, event, content) counts as a qualifying touch' and 'Activity must exist as a CRM campaign object with member status \"attended.\"'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The rule names an explicit lookback window in days",
+        "evidence": "\u00a75 only says 'Touches eligible from account first touch to close. No quarter-boundary cuts' \u2014 no numeric day-based lookback window is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The rule names whether the touch must precede a specific pipeline stage",
+        "evidence": "The window is defined as 'any time between account first touch and close,' not relative to a named pipeline stage like opportunity creation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the rule is fixed for the fiscal year and that any mid-period change must be reported as a restatement",
+        "evidence": "The doc uses quarterly freeze/versioning ('Freeze: numbers lock one reporting cycle after adjudication'), not a fiscal-year lock.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Excludes any touch recorded after the opportunity was created",
+        "evidence": "The opposite is stated: 'at least one qualifying DevRel touch... any time between account first touch and close' allows touches after opportunity creation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the metric over-counts by construction because engaged accounts were already more likely to buy, and that this is stated once rather than re-argued each quarter",
+        "evidence": "\u00a710 Known limitations: 'Influenced is correlation: presence on winning journeys, not proof the deal dies without us' \u2014 stated once in the versioned document's limitations section.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names a leading indicator to carry the interim, given enterprise cycles push the pipeline answer two to four quarters out",
+        "evidence": "'DevRel-sourced pipeline created this quarter (leading indicator)' in the quarterly one-pager format, alongside the lag note '1-4 quarters earlier.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags influenced pipeline as carrying the highest compliance cost because it joins a named person's community activity to a CRM record",
+        "evidence": "Identity matching is discussed ('Attendee must match the account by work domain...') but never framed as 'compliance cost' or ranked highest among tiers.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Presents both defensible positions on the revenue question: no sales metrics on DevRel with the DevRel Qualified Lead as the alternative currency, and influenced pipeline explicitly shared",
+        "evidence": "The document goes straight into building the attribution methodology; no 'no sales metrics' / DQL alternative is presented.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the deciding input for that choice is who owns the budget",
+        "evidence": "Not discussed, since the alternative-positions framing in item 11 is absent.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

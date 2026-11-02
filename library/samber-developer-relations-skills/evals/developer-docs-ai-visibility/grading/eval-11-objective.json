@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Requires fetching three key pages with a plain HTTP client and no JavaScript and checking that body text and code blocks appear in the HTML",
+        "evidence": "\"Fetch three key pages with `curl` and no JavaScript.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that code inside tabs loaded by script on click is invisible to fetchers that do not run scripts",
+        "evidence": "\"Many AI fetchers do not [run JavaScript], and on-click loading hides content even from renderers that do.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Hands the keep-or-drop decision on the snippet controls (scraper protection versus AI Overview presence) to the docs-seo skill as a policy decision, after reporting its cost",
+        "evidence": "No docs-seo handoff; it recommends removal directly.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that `data-nosnippet` on code blocks removes that code from AI Overviews and AI Mode",
+        "evidence": "\"`data-nosnippet` on every code block carves the code out\" of AI Overviews.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that `max-snippet:0` on the reference section removes those pages from AI Overviews and AI Mode",
+        "evidence": "\"`max-snippet:0` is equivalent to `nosnippet`... stops Google using the page's text in snippets and in AI features.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that AI Overviews and AI Mode rest on Googlebot and core Search ranking, so Googlebot access and snippet eligibility are the preconditions, labelled vendor-documented",
+        "evidence": "\"AI Overviews run on Google's Search index\"; \"page must be indexed and snippet-eligible... vendor-documented.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports what each rule costs in an access table rather than only recommending removal",
+        "evidence": "Gives a fix-plan table, not a cost-per-rule access table.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Builds a prompt panel with \"reverse geocode with Marrowick\" as a task prompt run five or more times before and after the change",
+        "evidence": "\"how do I reverse geocode with Marrowick\"... \"5 or more times per assistant\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that clicks from AI Overviews arrive as ordinary Google organic traffic, so referrer data cannot isolate them",
+        "evidence": "\"Clicks from AI Overviews arrive as ordinary Google organic traffic.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets the re-run at four to eight weeks after the rendering and snippet changes go live, as retrieval levers",
+        "evidence": "\"Re-run the same panel 4 to 8 weeks after the last change goes live.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Checks robots.txt and CDN rules for `Googlebot` and `Google-Extended` separately, noting `Google-Extended` does not affect AI Overviews",
+        "evidence": "\"disallows `Google-Extended`... Googlebot and AI Overviews are unaffected by that token.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Requires fetching three key pages with a plain HTTP client and no JavaScript and checking that body text and code blocks appear in the HTML",
+        "evidence": "Uses Search Console live test and curl -I headers.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that code inside tabs loaded by script on click is invisible to fetchers that do not run scripts",
+        "evidence": "'A sample fetched from a JSON endpoint on click never enters the rendered DOM'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Hands the keep-or-drop decision on the snippet controls (scraper protection versus AI Overview presence) to the docs-seo skill as a policy decision, after reporting its cost",
+        "evidence": "Directs removal itself.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that `data-nosnippet` on code blocks removes that code from AI Overviews and AI Mode",
+        "evidence": "'nosnippet, data-nosnippet, max-snippet... apply to AI Overviews and AI Mode'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that `max-snippet:0` on the reference section removes those pages from AI Overviews and AI Mode",
+        "evidence": "'max-snippet:0 is equivalent to nosnippet' and applies to AI Overviews.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that AI Overviews and AI Mode rest on Googlebot and core Search ranking, so Googlebot access and snippet eligibility are the preconditions, labelled vendor-documented",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reports what each rule costs in an access table rather than only recommending removal",
+        "evidence": "No table.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Builds a prompt panel with \"reverse geocode with Marrowick\" as a task prompt run five or more times before and after the change",
+        "evidence": "None.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that clicks from AI Overviews arrive as ordinary Google organic traffic, so referrer data cannot isolate them",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets the re-run at four to eight weeks after the rendering and snippet changes go live, as retrieval levers",
+        "evidence": "Only 'expect weeks'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Checks robots.txt and CDN rules for `Googlebot` and `Google-Extended` separately, noting `Google-Extended` does not affect AI Overviews",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

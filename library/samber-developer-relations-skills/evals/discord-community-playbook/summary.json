@@ -1,0 +1,250 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "discord-community-playbook",
+  "scenarios": 6,
+  "expectations_total": 78,
+  "expectations_subjective": 1,
+  "expectations_objective": 77,
+  "pass_rate_with_skill_pct": 89.7,
+  "pass_rate_without_skill_pct": 44.9,
+  "delta_pp": 44.8,
+  "uplift_multiplier": 2.0,
+  "trigger_accuracy_pct": 50.0,
+  "trigger_queries": 62,
+  "trigger_positive_fire_rate": 0.258,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.309 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 2,
+        "expectation": "Notes that content posted before the rollout dates is not covered"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Routes launch posts to dedicated showcase channels such as Reactiflux #i-built-this"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Proposes an earn-first period of answering without product links before launch-related posts"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes Reactiflux's cap on episodic or repeated content (about once every two weeks)"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Advises against 'grew 157%' member count as the headline result"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends exporting Insights to CSV monthly going forward"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Defines Visitor and Communicator as Discord does (viewed a channel vs sent a message or spoke)"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Offers a revised slide title tied to activity rather than headcount"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Refuses or advises against the invite leaderboard with hoodies and credits"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Cites Discord's policy naming 'invite rewards' (or join-for-join / induced engagement) as banned membership inflation"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Offers an alternative that rewards helping (answers, talks, contributions) rather than invite counts"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that the Verified server program now covers games only, so a devtools company cannot get it"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Mentions the moderator two-factor authentication requirement for Discovery"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Mentions that Discoverable status brings a public Server Web Page and web indexing, a privacy decision to announce to members"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Labels claims by source (Discord policy vs practitioner) rather than asserting all as fact"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that Channel Messages on the web are off by default for members in the EU/EEA (or names Germany/France/Netherlands as default-off)"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Concludes that most individual answers from this server will not appear in web search unless members opt in"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Distinguishes Channel Summaries (from 2026-11-16) from individual Channel Messages (from mid-December 2026)"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes that Channel Summaries are AI-generated and Discord warns they may be inaccurate"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes that content posted before the rollout dates is not covered"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes that private or role-restricted channels never appear on the web"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Recommends announcing Web Presence to members, naming which channels feed the web"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Mentions that members control their own setting under User Settings > Data & Privacy"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Labels the web-page facts as Discord-published and date-bound, suggesting re-checking the support articles"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that Channel Summaries are controlled by admins only and are not gated by the member setting, so EU members' conversations can still be summarised"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that Reactiflux's rules forbid DMing someone without permission granted in the server"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that Python Discord bans pasting answers from ChatGPT or similar AI tools"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that Python Discord bans unapproved advertising"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Proposes an earn-first period of answering without product links before launch-related posts"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes Reactiflux's cap on episodic or repeated content (about once every two weeks)"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Lists the Community-mode requirements: verified-email verification level, explicit media filter, rules channel and a moderator-only updates channel"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that Discord's own guidance advises removing bot verification steps in favour of Onboarding and Raid Protection"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Uses Discord Onboarding and proposes a starting channel set that meets its minimum of 7 default channels with 5 writable by everyone"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Cites Discord's guidance of about 4-5 channels per category or its warning that too many channels spread conversation thin"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names an owner per weekday for answering help posts, covering US and EU time zones"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends Server Guide first tasks (3-5) for newcomers"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Hands code-of-conduct writing to the moderation skill rather than drafting the enforcement ladder in full"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Adds a help-channel rule against pasting API keys, tokens or customer data"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that above 2,500 members, members cannot get a mobile push for every message, while mentions and role pings still push"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that @everyone, @here and role mentions are stripped in following servers"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes a channel can follow at most 10 announcement channels, or that edits propagate and deletions leave a note"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Advises against 'grew 157%' member count as the headline result"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Proposes communicators as a share of members or visitors as a headline metric"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Cites Discord's benchmark of about 30% communicators"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Proposes new-member retention after one week (Discord's definition) as a metric"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that Server Insights keeps about 120 days of history for non-partner servers"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Concludes a year-over-year chart cannot be pulled from Insights unless data was exported earlier"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends exporting Insights to CSV monthly going forward"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Defines Visitor and Communicator as Discord does (viewed a channel vs sent a message or spoke)"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Offers a revised slide title tied to activity rather than headcount"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes that Insights counts are partial (alpha feature, members can opt out) so the slide should not present them as exact totals"
+      }
+    ]
+  }
+}

@@ -1,0 +1,19 @@
+use kube::{Client, Resource, api::GroupVersionKind, discovery};
+use tracing::Level;
+
+use crate::crd::MirrordOperatorCrd;
+
+#[tracing::instrument(level = Level::TRACE, skip_all, ret, err)]
+pub async fn operator_installed(client: &Client) -> kube::Result<bool> {
+    let gvk = GroupVersionKind {
+        group: MirrordOperatorCrd::group(&()).into_owned(),
+        version: MirrordOperatorCrd::version(&()).into_owned(),
+        kind: MirrordOperatorCrd::kind(&()).into_owned(),
+    };
+
+    match discovery::oneshot::pinned_kind(client, &gvk).await {
+        Ok(..) => Ok(true),
+        Err(kube::Error::Api(response)) if response.code == 404 => Ok(false),
+        Err(error) => Err(error),
+    }
+}

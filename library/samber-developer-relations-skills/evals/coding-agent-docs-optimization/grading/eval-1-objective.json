@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to produce an AI-readiness score or a yes/no verdict before an access check and a cold run exist",
+        "evidence": "\"don't replace that zero with a guessed number either. Run a same-day baseline (below) and report the real first-attempt success rate instead\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places the crawler access check before any page-content audit, stating content findings are meaningless behind a blocked fetch",
+        "evidence": "\"Every row above is worth nothing until the access gate is confirmed open \u2014 that's not a caveat, it's the actual finding. Building an llms.txt behind a 403 produces a tidy file no agent ever reaches.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Specifies fetching both a docs page and the index with each agent user-agent string of interest, recording the HTTP status code per user-agent",
+        "evidence": "curl commands vary UA only against the homepage \"/\"; llms.txt is checked once with a single default-UA command (`curl -sI https://docs.halyard.io/llms.txt`), not across the same UA matrix",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Specifies running those fetches from outside Halyard's own network",
+        "evidence": "only says \"Run these from a shell with real internet access\" \u2014 no mention of running from outside Halyard's own network",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the failure is silent: the audit sees a well-built site while the agent sees a challenge page",
+        "evidence": "\"pages that load fine for a human... is the exact signature of a CDN bot-management ruleset challenging or blocking non-browser HTTP clients\"; \"'Traffic looks normal' is consistent with this theory, not evidence against it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes signalling (per-agent robots.txt rules) from enforcement (WAF, bot management, paid-crawl gate), noting signalling is honour-system and only edge controls actually stop a fetch",
+        "evidence": "only labels robots.txt as \"Signalling layer - separate from enforcement, check both\" without stating signalling is honour-system or that only edge controls stop a fetch",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the CDN's default bot-protection setting as the prime suspect, i.e. a dashboard change rather than a documentation change",
+        "evidence": "\"In your CDN dashboard, look specifically for: a 'Block AI Bots' / 'AI Scrapers and Crawlers' managed rule, Bot Fight Mode or Super Bot Fight Mode...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that every surface scores zero until a fetch returns 200, so the audit cannot tell a good corpus from a bad one",
+        "evidence": "\"the access gate fails, so first-attempt agent success is effectively 0% regardless of content quality \u2014 no page rewrite fixes a request that never lands.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats admitting a crawler as a policy decision with sign-off outside the docs team rather than a docs-team edit",
+        "evidence": "text only instructs \"In your CDN dashboard, look specifically for...\" addressed directly to the docs lead, with no mention of escalation or sign-off outside the docs team",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes the asymmetry that the dashboard setting is reversible while the crawling that already happened is not",
+        "evidence": "no mention of reversibility of the setting versus irreversibility of past crawl misses anywhere in the transcript",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not accept \"pages load fine for me\" or \"analytics traffic looks normal\" as evidence that agents can fetch",
+        "evidence": "\"'Traffic looks normal' is consistent with this theory, not evidence against it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes training crawlers from search-and-fetch agents as separately nameable user-agents, so one can be admitted while the other is denied",
+        "evidence": "\"Partial allowlist exists for known crawlers but not for tool-initiated fetches \u2014 the more damaging gap, since it's live coding-agent sessions doing the fetching, not just training crawlers.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Delivers the access check as a named report section listing which user-agents can fetch which surfaces with status codes, not as prose reassurance",
+        "evidence": "structured \"## Confirm it \u2014 run these today, before anything else\" section with a curl command block and a \"Read the results this way\" table of UA/status patterns",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to produce an AI-readiness score or a yes/no verdict before an access check and a cold run exist",
+        "evidence": "Headline reads 'Score: 29 / 100 \u2014 Not AI-Readable (Access Blocked)' and calls it 'a diagnosis, not a lab result' \u2014 a score and verdict are given before any live check was run.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places the crawler access check before any page-content audit, stating content findings are meaningless behind a blocked fetch",
+        "evidence": "'Access is the gate. Nothing below it can be scored higher than it lets through... those dimensions are capped, not zeroed, until access is fixed,' with the Verification test section preceding the Scorecard section.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Specifies fetching both a docs page and the index with each agent user-agent string of interest, recording the HTTP status code per user-agent",
+        "evidence": "The curl block tests only a single real doc page ('not just the homepage') per UA; no fetch of an index/llms.txt page is specified alongside it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Specifies running those fetches from outside Halyard's own network",
+        "evidence": "No instruction anywhere in the verification test to run curl from an external network/host rather than Halyard's own infrastructure.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the failure is silent: the audit sees a well-built site while the agent sees a challenge page",
+        "evidence": "'That challenge page is what your Discord users are actually hitting \u2014 the tool reports \"can't find\" because it got an interstitial, not your docs.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes signalling (per-agent robots.txt rules) from enforcement (WAF, bot management, paid-crawl gate), noting signalling is honour-system and only edge controls actually stop a fetch",
+        "evidence": "robots.txt row only says 'Moot while the edge blocks upstream of robots.txt' \u2014 precedence is noted but the honour-system/voluntary-compliance distinction is never articulated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the CDN's default bot-protection setting as the prime suspect, i.e. a dashboard change rather than a documentation change",
+        "evidence": "'the managed bot-protection ruleset your CDN migration left switched on is intercepting non-browser HTTP requests at the edge' plus fix list item 'Change the bot-management action on the docs. subdomain from Block to Log.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that every surface scores zero until a fetch returns 200, so the audit cannot tell a good corpus from a bad one",
+        "evidence": "Scorecard explicitly gives non-zero provisional scores to other dimensions (e.g. 12/20, 5/10) and states they are 'capped, not zeroed' \u2014 the opposite of scoring everything zero.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats admitting a crawler as a policy decision with sign-off outside the docs team rather than a docs-team edit",
+        "evidence": "Fix list frames it as 'Have an engineer run this' / dashboard fixes with no mention of a policy sign-off process outside the docs team.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes the asymmetry that the dashboard setting is reversible while the crawling that already happened is not",
+        "evidence": "No statement anywhere about irreversibility of past missed crawls versus the reversibility of the CDN setting.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not accept \"pages load fine for me\" or \"analytics traffic looks normal\" as evidence that agents can fetch",
+        "evidence": "'Normal-looking analytics is exactly what you'd see even with 100% of bot/agent traffic being blocked' explicitly rejects analytics as evidence of agent access.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes training crawlers from search-and-fetch agents as separately nameable user-agents, so one can be admitted while the other is denied",
+        "evidence": "GPTBot, ClaudeBot, PerplexityBot, Google-Extended, Bingbot are all listed together for a blanket 'Allow' with no separation between training crawlers and live-fetch agents.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Delivers the access check as a named report section listing which user-agents can fetch which surfaces with status codes, not as prose reassurance",
+        "evidence": "The 'Verification test' section is a distinct, named section with concrete curl commands per UA and explicit status-code interpretation ('200 for browser, 403/429/503... for the others').",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

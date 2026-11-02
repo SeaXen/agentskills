@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Proposes a written qualification threshold expressed as a single sentence the team can apply without interpretation.",
+        "evidence": "The answer supplies an explicit, quotable rule under 'One-sentence rule to hand your head of sales': \"An account becomes qualified when it has **2+ active developers** and **2+ weeks of production CI usage**, or when **anyone in it hits a limit or opens a billing/security page**.\" That is a single sentence with concrete defaults, supported elsewhere by an account-rollup definition (workspace/org, API key, or email domain \u2014 combine at least two) and by the three named signal classes (depth, spread, boundary contact), plus a paired below-threshold rule ('no human contact'). Two things keep it sh",
+        "score": 4,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Proposes a written qualification threshold expressed as a single sentence the team can apply without interpretation.",
+        "evidence": "The answer does address gating ('Don't fire on all 2,300... Gate the Slack alert on ICP signals you already have') and lists three criteria: '1. Business email domain (skip gmail/outlook/edu) 2. Team size >1, if you collect it at signup 3. Immediate high-intent action (multiple repos connected, real project name vs \"test\")'. But this is a three-item list, not a single applicable sentence, and it omits the combinator \u2014 a rep cannot tell whether one, two, or all three signals must be present to trigger. Two of the three are explicitly interpretive or conditional: 'if you collect it at signup' le",
+        "score": 2,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

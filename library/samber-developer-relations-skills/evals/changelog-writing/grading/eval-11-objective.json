@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Treats the advisory, not the entry, as the unit of communication",
+        "evidence": "The whole deliverable is one \"Enterprise Release Advisory\" document with a single Advisory ID and numbered sections covering all four items together.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends stable identifiers per change that a customer can quote in a ticket",
+        "evidence": "Only a single document-level Advisory ID (RGW-2026-{{NNN}}) and a CVE-ID for the security section exist; no distinct quotable identifier is given per individual change (LDAP, deprecation, cadence).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that narrative or friendly voice has negative value for this reader",
+        "evidence": "No explicit statement about narrative or friendly voice's value for this reader appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes affected-version ranges for the entries",
+        "evidence": "\"**Affected versions:** {{version range}}\" field in \u00a73, and the Applicability table (\u00a72) with version ranges 12.3.x, 12.1.x\u201312.2.x, 11.x.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes a required-action statement per entry",
+        "evidence": "Each section has a \"**Required action:**\" field, e.g. in \u00a73, \u00a74, \u00a75, and the summary table's \"Action required\" column.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes upgrade preconditions where an entry has them",
+        "evidence": "\"Before upgrading, confirm your LDAP server's certificate and network path are current \u2014 a sync that previously failed open... will now block role updates\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the move to a twice-yearly cadence as its own release-note entry rather than a footnote",
+        "evidence": "\"## 6. Lifecycle Change: Release Cadence\" is its own full section with sub-details, not a footnote, and appears as item #4 in the summary table.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Structures the output as a versioned document with chapters such as new features, deprecated features and known issues",
+        "evidence": "Document uses numbered chapters including \"## 5. Deprecated: {{Feature name}}\" and \"### Known issues\" within \u00a78's Change Log.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a machine-consumable form of the security advisory for vulnerability-database ingestion",
+        "evidence": "No mention of a machine-consumable security-advisory format (e.g., CSAF/VEX) appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that readers arriving months later search by symptom or CVE, so the breaking set must be complete and pinned at the top",
+        "evidence": "No such rationale statement appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Treats the advisory, not the entry, as the unit of communication",
+        "evidence": "Section 1 states: 'This document lists every customer-impacting change in Ridgeway 12.4 LTS... Each item states what changed, why, who is affected, and what action is required before and after upgrade, so this document can be attached to a change record without further clarification from Ridgeway support.' The summary table is only an index; full advisory-grade content (Description, Remediation, Interim mitigation, Verification, etc.) lives in the dedicated per-change sections (\u00a74-7), showing each change is written as a self-contained advisory rather than a bare line item.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends stable identifiers per change that a customer can quote in a ticket",
+        "evidence": "The Change Summary table assigns a stable ID column ('CHG-1', 'CHG-2', 'CHG-3', 'CHG-4') to every change, and each subsequent section is titled with that same ID (e.g. '## 4. CHG-1 \u2014 Security Fix'), giving a quotable identifier independent of the CVE number.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that narrative or friendly voice has negative value for this reader",
+        "evidence": "The introductory note states the document follows a recognizable vendor-bulletin structure 'because matching a genre they already know how to process is what prevents the \"please provide detail\" reply \u2014 not adding more prose,' explicitly asserting that additional prose/narrative does not help (and structure, not friendliness, is what avoids follow-up).",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes affected-version ranges for the entries",
+        "evidence": "CHG-1's field table includes 'Affected versions | `[e.g. 12.0.0 through 12.3.x; 11.x is not affected because ...]`', explicitly structuring a version-range field for the entry.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes a required-action statement per entry",
+        "evidence": "Each CHG has an explicit action: CHG-1 'Remediation. Upgrade to 12.4 or later.'; CHG-2 'Required pre-upgrade action. 1. Export current effective group membership...'; CHG-3 'Migration steps. 1. `[step]` 2. `[step]`'; CHG-4 'Action for your change-management calendar... Update internal patch-planning schedules accordingly.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes upgrade preconditions where an entry has them",
+        "evidence": "Section 8's 'Pre-upgrade checklist' states 'Complete the CHG-2 directory audit (\u00a75.5)' as a precondition tied directly to the CHG-2 entry, and CHG-2 itself lists a 3-step required pre-upgrade action (export membership, compare, get sign-off) before the sync may run.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the move to a twice-yearly cadence as its own release-note entry rather than a footnote",
+        "evidence": "The cadence change is a full numbered entry, '## 7. CHG-4 \u2014 Release Cadence Change', with its own Summary/Why/support-lifecycle table, and the closing note explicitly argues against demoting it: 'the twice-yearly cadence announcement (CHG-4) is the one item here that isn't a code change, and it's tempting to drop it into a cover email instead. Keep it in the formal notes.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Structures the output as a versioned document with chapters such as new features, deprecated features and known issues",
+        "evidence": "While the document has a 'Revision 1.0' field, its chapters are Document Control, Purpose/Scope, Change Summary, per-CHG sections, Upgrade Path, Testing Evidence, Rollback, and Support \u2014 there is no 'New Features' or 'Known Issues' chapter, and the document explicitly departs from that changelog convention: it is 'written for change-approval-board intake rather than as a developer changelog.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends a machine-consumable form of the security advisory for vulnerability-database ingestion",
+        "evidence": "No mention anywhere of a machine-readable/structured export (e.g. CSAF, CVRF, JSON feed) for vulnerability-database ingestion; the CVE/CVSS fields in \u00a74 are presented only as a human-readable table.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that readers arriving months later search by symptom or CVE, so the breaking set must be complete and pinned at the top",
+        "evidence": "The document gives no discussion of future readers searching by symptom or CVE, nor any instruction to keep a complete, pinned breaking-change set at the top; the stated rationale for structure is matching a genre bank/insurer reviewers already recognize, not long-term searchability.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

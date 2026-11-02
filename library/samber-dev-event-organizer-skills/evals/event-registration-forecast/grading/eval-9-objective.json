@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Overwriting the milestone forecasts is refused; each one is kept as it was made",
+        "evidence": "'Replacing the old milestone numbers... don't'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Signed error is computed per milestone against the final 492: about -17% at 60 days, -8% at 30 days, -4.5% at 14 days, with the negative sign meaning under-forecast",
+        "evidence": "-16.7%, -7.5%, -4.5%",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Three editions of under-forecast with the same sign are named as bias, with the fix being the reference choice or alignment, not only a wider band",
+        "evidence": "'three under-forecasts is bias, not noise... Widening alone leaves the bias in place'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "A scattered sign would instead be called noise, with the fix being to widen the band",
+        "evidence": "'a scattered sign means widen the band'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Next year's --error-band is taken from this year's own recorded error at the matching days-out, not from a single global percentage",
+        "evidence": "0.20 / 0.10 / 0.08 by days out",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Averaging the three editions' curves into one reference is refused; each edition runs as its own reference",
+        "evidence": "'Averaging... don't'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The 2026 edition is named the preferred reference, with the 2024 and 2025 editions flagged for booking-window drift",
+        "evidence": "'prefer the most recent edition when booking windows drift'; 2026 primary",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Band coverage is computed per milestone (492 outside the 60-day band, inside the 30-day and 14-day bands), with the note that a band that never misses is too wide to commit against",
+        "evidence": "Coverage per milestone given, but no note that a band that never misses is too wide",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The own show rate is computed on the same basis as the registrations: (418 minus 36) over 492, about 78%, with comps removed from both sides",
+        "evidence": "'382 attended out of 492, which is 77.6%'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Attendance by ticket type against the check-in count is recommended so next edition's types file carries own-data rates",
+        "evidence": "'Put your own rates in next year's --types file as own-data'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The reference set, each milestone forecast with its date, each commit figure with its band end, and the final are recorded, in persistent memory where the harness has one",
+        "evidence": "Only sheet columns suggested; reference set and commit figures not recorded",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Each milestone's forecast is compared to the final, never to a later forecast",
+        "evidence": "'forecast at the milestone against the final'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Overwriting the milestone forecasts is refused; each one is kept as it was made",
+        "evidence": "\"Don't overwrite the old milestone numbers.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Signed error is computed per milestone against the final 492: about -17% at 60 days, -8% at 30 days, -4.5% at 14 days, with the negative sign meaning under-forecast",
+        "evidence": "Reports \"+20%, +8%, +5%\" actual vs mid, not -17/-8/-4.5%.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Three editions of under-forecast with the same sign are named as bias, with the fix being the reference choice or alignment, not only a wider band",
+        "evidence": "Names bias but the fix is shifting and widening the band.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "A scattered sign would instead be called noise, with the fix being to widen the band",
+        "evidence": "Not addressed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Next year's --error-band is taken from this year's own recorded error at the matching days-out, not from a single global percentage",
+        "evidence": "Band is built from three years' 14-day errors.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Averaging the three editions' curves into one reference is refused; each edition runs as its own reference",
+        "evidence": "Recommends \"Average those shares across the three years\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The 2026 edition is named the preferred reference, with the 2024 and 2025 editions flagged for booking-window drift",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Band coverage is computed per milestone (492 outside the 60-day band, inside the 30-day and 14-day bands), with the note that a band that never misses is too wide to commit against",
+        "evidence": "Table shows in-band but no too-wide note.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The own show rate is computed on the same basis as the registrations: (418 minus 36) over 492, about 78%, with comps removed from both sides",
+        "evidence": "\"Non-comp show rate: 382 / 492 = 77.6%.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Attendance by ticket type against the check-in count is recommended so next edition's types file carries own-data rates",
+        "evidence": "Not recommended.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The reference set, each milestone forecast with its date, each commit figure with its band end, and the final are recorded, in persistent memory where the harness has one",
+        "evidence": "No recording.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Each milestone's forecast is compared to the final, never to a later forecast",
+        "evidence": "Table compares each milestone mid to 492.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -4,12 +4,12 @@ description: Before starting any developer-relations work - and again at the sta
 license: MIT
 metadata:
   author: Samuel Berthe
-  version: "1.0.20"
+  version: "1.0.35"
 ---
 
 # Developer Relations Kickoff
 
-You are the router for the 64-skill developer-relations-skills collection. Route the current DevRel task to exactly one sibling skill - or say plainly that none fits - and leave the next session warm instead of cold. Never perform a sibling's job yourself; everything else in this file serves the routing.
+You are the router for the 65-skill developer-relations-skills collection. Route the current DevRel task to exactly one sibling skill - or say plainly that none fits - and leave the next session warm instead of cold. Never perform a sibling's job yourself; everything else in this file serves the routing.
 
 Run this skill at every project start, even when the collection's skills are already in daily use elsewhere - a new project is a new context. On later sessions of the same project, re-run it to resummarize and re-route, never to re-interview.
 
@@ -59,6 +59,7 @@ These tables are deliberately unranked, and must stay that way - inside a block 
 | `samber/developer-relations-skills@devrel-budget-allocation`     | Split the budget across pillars into line items with a return threshold and a cut list                                                                              |
 | `samber/developer-relations-skills@devrel-metrics`               | Which KPIs deserve a target - tiered framework, attribution rule, baselines, vanity cuts                                                                            |
 | `samber/developer-relations-skills@devrel-analytics`             | The tracking plan that instruments the surfaces - event taxonomy, identity spine, UTM discipline                                                                    |
+| `samber/developer-relations-skills@devrel-exec-reporting`        | The exec-facing report from an agreed framework - one-page value story, claim labels, leading indicators, misses, budget-defense case with cut tiers |
 | `samber/developer-relations-skills@developer-survey-design`      | A recurring developer or "State of" survey - question cuts, recruitment and calibration sample, privacy, defensible published percentages                            |
 | `samber/developer-relations-skills@developer-journey-map`        | Map the journey stage by stage - discover, try, adopt, contribute, advocate as a working spine, not a published framework - and locate the single leak worth fixing |
 | `samber/developer-relations-skills@developer-segmentation`       | Cut the developer audience into named, sized, ranked segments plus an anti-segment                                                                                  |
@@ -94,6 +95,7 @@ These tables are deliberately unranked, and must stay that way - inside a block 
 | `samber/developer-relations-skills@coding-agent-docs-optimization` | Make docs machine-readable so a coding agent can integrate unattended                          |
 | `samber/developer-relations-skills@docs-localization-strategy`     | Whether and how to translate the docs - locale evidence, page set, drift pins, locale ownership |
 | `samber/developer-relations-skills@docs-versioning-strategy`       | How the docs track several versions - docs state per version, switcher or latest-only, backports, banners, retirement |
+| `samber/developer-relations-skills@docs-site-platform-selection`   | Which platform the docs site runs on - whether to switch, requirements register, platform class, pilot, standing and exit cost |
 
 **Search demand for technical content:**
 
@@ -133,7 +135,11 @@ These tables are deliberately unranked, and must stay that way - inside a block 
 | `samber/developer-relations-skills@developer-live-demo-design`  | Make a demo survive the stage - fidelity tier, checkpoints, fallbacks, runbook          |
 | `samber/developer-relations-skills@developer-meetup-program`    | Run a recurring meetup or user group - format, cadence, speakers, venue sponsor, health |
 | `samber/developer-relations-skills@devrel-webinar-program`      | Run a recurring online webinar series - formats, seasons, replay, sales handoff contract |
+| `samber/developer-relations-skills@developer-workshop-program`  | Hands-on workshops for one customer or prospect account - grant rule, lab catalog, lab environments, instructor certification, next step |
 | `samber/developer-relations-skills@developer-event-sponsorship` | Buy sponsorship - which events, which tier, which activation, what ROI proof            |
+| `samber/developer-relations-skills@developer-booth-playbook` | Work a booth already bought - crew, shifts, floor scripts, lead capture and grading, swag, exhibitor rules |
+| `samber/developer-relations-skills@developer-event-followup` | After the event closes - badge scans, raffle and sign-up lists, who may be emailed, follow-up messages, routing, cohort activation |
+| `samber/developer-relations-skills@devrel-field-events` | Host a private dinner, roundtable or reception beside someone else's conference - rules, guest list, compliance, follow-up |
 
 **Community:**
 
@@ -141,8 +147,11 @@ These tables are deliberately unranked, and must stay that way - inside a block 
 | ------------------------------------------------------------------ | ------------------------------------------------------------------------------------------- |
 | `samber/developer-relations-skills@developer-community-launch`     | Whether, where and when to open a community, plus seeding and the first 90 days             |
 | `samber/developer-relations-skills@developer-community-moderation` | Code of conduct, enforcement ladder, reporting channels, incident runbook, moderator roster |
+| `samber/developer-relations-skills@discord-community-playbook` | Discord itself - own-server setup, onboarding, forum help, announcements, Discovery and web pages, staff posting in others' servers |
 | `samber/developer-relations-skills@developer-champions`            | A champions or ambassador program - intake, criteria, obligations, perks, terms, scorecard  |
+| `samber/developer-relations-skills@student-developer-programs`     | A student or university program - one job, student offer, faculty kit, campus champions, interns |
 | `samber/developer-relations-skills@developer-community-health`     | Measure the community - activity, responsiveness, contributor funnel, sentiment, thresholds |
+| `samber/developer-relations-skills@discourse-forums-playbook`      | Run the vendor's own Discourse forum - categories and tags, trust levels, spam controls, seeding, Solved, Hot/Top/digest, forum SEO |
 | `samber/developer-relations-skills@developer-feedback-loop`        | Route developer feedback to product and back - record of truth, decision review, status replies, saying no |
 | `samber/developer-relations-skills@developer-office-hours-program` | Run recurring office hours or an AMA - format, time-zone slot, engineer rotation, scope card, write-up loop |
 
@@ -152,8 +161,14 @@ These tables are deliberately unranked, and must stay that way - inside a block 
 | --------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
 | `samber/developer-relations-skills@engineering-blog-post`       | Write or edit a technical post for a skeptical developer reader                     |
 | `samber/developer-relations-skills@devto-playbook`              | Run the vendor's or maintainer's dev.to presence - organization, canonical cross-posting, tag rules, AI disclosure, earn-first cadence |
+| `samber/developer-relations-skills@dailydev-playbook`           | Run the vendor's or maintainer's daily.dev presence - entry path, reputation, Squads and posting gates, content policy, Boost and ads vs organic |
+| `samber/developer-relations-skills@medium-playbook`             | Run the vendor's or maintainer's Medium presence - named authors vs company publication, canonical import, established publications, distribution tiers and Boost, paywall trade-off, leaving Medium |
+| `samber/developer-relations-skills@bluesky-dev-playbook`        | Run the vendor's, advocate's or maintainer's Bluesky presence - go or skip, people-first accounts, domain handles, starter packs, dev feeds, bot and cross-posting rules |
+| `samber/developer-relations-skills@kaggle-playbook`             | Run a data or ML-tooling vendor's Kaggle presence - fork-proof notebooks, datasets, models, competition forums, hosting a competition |
 | `samber/developer-relations-skills@developer-case-study`        | Turn a customer deployment into a technical case study engineers believe            |
 | `samber/developer-relations-skills@technical-video-script`      | A shooting-ready screencast or motion design explainer script - beat sheet, chapters, cut list |
+| `samber/developer-relations-skills@devrel-youtube-channel`      | The company's own YouTube channel as a VOD program - whether to run one, pillars, presenter bench and ownership, cadence, Shorts, creators, metrics |
+| `samber/developer-relations-skills@devrel-live-streaming`       | A recurring live show on Twitch, YouTube Live, LinkedIn Live or X - host or guest, home platform, format, moderation, raids, clips, metrics |
 | `samber/developer-relations-skills@tech-podcast-interview-prep` | Prepare to be the guest on someone else's podcast, interview or livestream          |
 | `samber/developer-relations-skills@devrel-content-calendar`     | Plan a quarter of content around fixed anchors, capacity and mix                    |
 | `samber/developer-relations-skills@devrel-newsletter-program`   | A developer newsletter as a programme - start, keep or stop, cadence, template, owner and backup, sunset |
@@ -177,10 +192,10 @@ Disambiguate before routing wherever clusters collide on keywords:
 
 - **Docs authoring** - five skills that all look like "write a getting-started page"
 - **Release communication** - changelog vs migration guide
-- **Measurement** - metrics vs analytics vs community health vs survey
+- **Measurement** - metrics vs analytics vs exec reporting vs community health vs survey
 - **OSS visibility** - launch vs distribution vs build-in-public
 - **Sponsorship** - two skills that differ only by which side pays
-- **Community** - four skills on one timeline
+- **Community** - four skills on one timeline, plus the Discourse forum playbook beside it
 - **Strategy** - five skills that all answer "what should we do"
 - **Speaking** - a sequence, not a competition
 - **Employer brand** - the strategy for attracting engineers vs. one post, one profile page, or the candidate's own side of the table
@@ -189,22 +204,22 @@ Disambiguate strictly from each skill's declared scope - never from a guess abou
 
 Name the gap explicitly when the task needs something no skill covers. Collection v1 has no skill for:
 
-- the exec-facing DevRel report
 - a third-party trademark _usage and enforcement_ policy - who holds the trademark, domains and registry accounts belongs to `oss-governance`; registering the name before selling anything is a step in `oss-monetization`
-- organizing your own conference or hackathon, conference booth operations, or post-event follow-up
-- student and campus programs
+- organizing your own conference or hackathon (working the booth itself is `developer-booth-playbook`, post-event follow-up is `developer-event-followup`)
 - writing exam items or running exam delivery (the credential program itself is `developer-certification-program`)
-- choosing a docs platform, or brand-mention monitoring, including brand share in AI answers (docs cited at the right version is covered by `developer-docs-ai-visibility`)
-- per-community playbooks for Reddit, Lobsters, X or LinkedIn (Hacker News is covered by `hackernews-playbook`)
+- brand-mention monitoring, including brand share in AI answers (docs cited at the right version is covered by `developer-docs-ai-visibility`)
+- per-community playbooks for Reddit, Lobsters, X or LinkedIn (Hacker News is covered by `hackernews-playbook`, Discord by `discord-community-playbook`, daily.dev by `dailydev-playbook`, Medium by `medium-playbook`, Bluesky by `bluesky-dev-playbook`, Kaggle by `kaggle-playbook`, a company YouTube channel by `devrel-youtube-channel`, live shows on X or LinkedIn by `devrel-live-streaming`); Discord bots, apps and App Directory listings
 - writing the slides, editing the video, or legal sign-off on anything
 
 Say "the collection has no skill for this" - never promise a skill exists or invent one.
 
 Some tasks that land here aren't a true gap - they belong to the same owner's sibling collections:
 
-- Public API surface design, webhooks, the public CLI wrapping the API, an Agent Skill shipped inside an SDK or CLI repo and versioned with its releases, SDK portfolios, package and CLI binary publishing to any registry or channel, sample-app portfolios, public roadmaps, API preview, beta and design-partner programs, developer-portal design, OAuth for third-party apps, connector-marketplace operations, a repository's engagement on GitHub after launch (Discussions, release notifications, topics, star policy), a vendor's product tag on Stack Overflow (staff answering, disclosure, backlog triage), the vendor's official GitHub Action and CI integrations (orbs, GitLab components), the vendor's own Zapier integration (triggers, Platform CLI code, review and beta, Zap templates, versioning), the vendor's own Salesforce AppExchange listing (ISV packaging, security review, PADA and payment path, re-reviews), the vendor's own Slack app on the Slack Marketplace (install gate, scope review, submission packet, delisting rules), and the vendor's own Terraform/OpenTofu provider (build, signed Registry releases, deprecation) belong to `samber/developer-platform-skills`.
+- Public API surface design, webhooks, the public CLI wrapping the API, an Agent Skill shipped inside an SDK or CLI repo and versioned with its releases, SDK portfolios, package and CLI binary publishing to any registry or channel, sample-app portfolios, public roadmaps, API preview, beta and design-partner programs, developer-portal design (including an owned forum's single sign-on, embedding forum topics in docs, and the forum API), OAuth for third-party apps, connector-marketplace operations, a repository's engagement on GitHub after launch (Discussions, release notifications, topics, star policy), a vendor's product tag on Stack Overflow (staff answering, disclosure, backlog triage), the vendor's official GitHub Action and CI integrations (orbs, GitLab components), the vendor's own Zapier integration (triggers, Platform CLI code, review and beta, Zap templates, versioning), the vendor's own Salesforce AppExchange listing (ISV packaging, security review, PADA and payment path, re-reviews), the vendor's own Slack app on the Slack Marketplace (install gate, scope review, submission packet, delisting rules), and the vendor's own Terraform/OpenTofu provider (build, signed Registry releases, deprecation) belong to `samber/developer-platform-skills`.
 - Endpoint-level API reference completeness belongs to `samber/developer-platform-skills@api-reference-quality`; a hosted API's versioning and deprecation policy belongs to `samber/developer-platform-skills@api-versioning-policy`; finding the deployed integrations still on a deprecated surface and chasing their owners before the sunset belongs to `samber/developer-platform-skills@integration-health-monitoring`; a breaking-change CI gate and an API changelog generated from spec diffs belong to `samber/developer-platform-skills@api-changelog-automation`. A package's or project's release policy stays here, in `samber/developer-relations-skills@oss-release-policy`.
-- Organizing your own event - venue, ticketing, sponsor sales, run of show, speaker sourcing as the organizer - belongs to `samber/dev-event-organizer-skills`.
+- Listing the product in third-party marketplaces and catalogs - SaaS app stores, integration directories, cloud marketplaces, browser and IDE extension stores, model hubs - belongs to `samber/developer-platform-skills`. Start at `samber/developer-platform-skills@developer-platform-kickoff`, which routes to the per-marketplace playbook.
+- Each shipped integration is also a co-marketing asset: the partner's audience, newsletter, blog and marketplace spotlights reach developers your own channels miss. The joint post stays here with `engineering-blog-post`, its slot with `devrel-content-calendar`.
+- Organizing your own event - venue, ticketing, sponsor sales, run of show, speaker sourcing as the organizer - belongs to `samber/dev-event-organizer-skills`. So does an organizer's own standing podcast or video channel between editions (`samber/dev-event-organizer-skills@tech-podcast-youtube-channel`); a devtools company's channel stays with `samber/developer-relations-skills@devrel-youtube-channel`.
 
 Recommend installing the sibling collection instead of stretching a devrel skill onto the task, and never treat a sibling as a dependency this collection needs to function. See [references/skill-routing.md](./references/skill-routing.md) § Sibling-collection recommendations for the detection signals and the boundary per topic.
 
@@ -226,9 +241,9 @@ The user's question at that moment is never "which of these 64 exists" but "whic
 1. **Diagnosis** - `developer-journey-map`, `developer-docs-structure-audit`, `devrel-competitor-analysis`, `developer-keyword-research`. Buys a named, evidenced answer to which class below is actually the problem, instead of a hunch. Costs one session over docs and signals already available; needs no engineering time and publishes nothing.
 2. **First-run surfaces** - `readme-optimization`, `developer-quickstart-guide`, `oss-contributor-onboarding`, `github-profile-optimization`, `docs-code-sample-standards`. Buys the bail-fast funnel for every developer who arrives after it ships: fewer abandonments between landing and first successful call. Costs an editing session plus one merged pull request, and it is reversible by another commit.
 3. **Release and support cadence** - `changelog-writing`, `version-migration-guide`, `developer-troubleshooting-docs`, `oss-issue-triage`, `oss-security-disclosure`, `oss-release-policy`, `docs-versioning-strategy`, `oss-maintainer-sustainability`. Buys users who can upgrade and self-serve their own errors instead of opening an issue. Costs a pass per release and a maintainer answering what the triage surfaces - it never finishes; it is a standing job, not a fix.
-4. **Content and visibility** - `engineering-blog-post`, `devto-playbook`, `developer-tutorial`, `developer-how-to-guide`, `technical-video-script`, `developer-case-study`, `docs-seo`, `developer-docs-ai-visibility`, `docs-localization-strategy`, `devrel-content-calendar`, `devrel-newsletter-program`, `devrel-newsletter-issue`, `devrel-newsletter-sourcing`, `devrel-newsletter-deliverability`, `devrel-newsletter-growth`, `devrel-newsletter-sponsorship`, `build-in-public`, `oss-launch`, `producthunt-playbook`, `hackernews-playbook`, `oss-distribution-strategy`, `tech-press-relations`, `tech-podcast-interview-prep`. Buys reach that compounds - a post or a registry listing keeps earning for years. Costs a full production cycle per artefact plus review, and the payoff arrives a quarter after the work, not the week of it.
-5. **Community and events** - `developer-community-launch`, `developer-community-moderation`, `developer-champions`, `developer-community-health`, `developer-meetup-program`, `developer-office-hours-program`, `devrel-webinar-program`, `developer-feedback-loop`, `developer-event-sponsorship`, `conference-cfp-submission`, `tech-talk-outline`, `developer-live-demo-design`, `oss-sponsors-fundraising`, `oss-sponsors-brand-strategy`. Buys the relationships nothing else in the collection produces. Costs the longest lead time here - a calendar someone else controls, a standing moderation duty, and months between opening a space and it being worth reading.
-6. **Program and company foundations** - `devrel-strategy`, `developer-segmentation`, `devrel-metrics`, `devrel-analytics`, `developer-survey-design`, `devrel-budget-allocation`, `devrel-team-structure`, `developer-education-strategy`, `developer-certification-program`, `devtools-business-model`, `devtools-pricing-strategy`, `developer-first-gtm`, `open-source-company-strategy`, `developer-ecosystem-strategy`, `open-standards-strategy`, `oss-governance`, `oss-license-strategy`, `oss-monetization`, `tech-employer-branding`. Buys the rule every later session is decided against: what the program is judged on, who may merge, what the company gives away. Costs sign-off outside DevRel - engineering, legal, exec - and most of it is reversible only by another negotiation.
+4. **Content and visibility** - `engineering-blog-post`, `devto-playbook`, `medium-playbook`, `bluesky-dev-playbook`, `kaggle-playbook`, `dailydev-playbook`, `developer-tutorial`, `developer-how-to-guide`, `technical-video-script`, `devrel-youtube-channel`, `devrel-live-streaming`, `developer-case-study`, `docs-seo`, `developer-docs-ai-visibility`, `docs-localization-strategy`, `devrel-content-calendar`, `devrel-newsletter-program`, `devrel-newsletter-issue`, `devrel-newsletter-sourcing`, `devrel-newsletter-deliverability`, `devrel-newsletter-growth`, `devrel-newsletter-sponsorship`, `build-in-public`, `oss-launch`, `producthunt-playbook`, `hackernews-playbook`, `oss-distribution-strategy`, `tech-press-relations`, `tech-podcast-interview-prep`. Buys reach that compounds - a post or a registry listing keeps earning for years. Costs a full production cycle per artefact plus review, and the payoff arrives a quarter after the work, not the week of it.
+5. **Community and events** - `developer-community-launch`, `developer-community-moderation`, `discord-community-playbook`, `developer-champions`, `student-developer-programs`, `developer-community-health`, `developer-meetup-program`, `developer-office-hours-program`, `devrel-webinar-program`, `developer-workshop-program`, `developer-feedback-loop`, `developer-event-sponsorship`, `devrel-field-events`, `developer-booth-playbook`, `conference-cfp-submission`, `tech-talk-outline`, `developer-live-demo-design`, `oss-sponsors-fundraising`, `oss-sponsors-brand-strategy`. Buys the relationships nothing else in the collection produces. Costs the longest lead time here - a calendar someone else controls, a standing moderation duty, and months between opening a space and it being worth reading.
+6. **Program and company foundations** - `devrel-strategy`, `developer-segmentation`, `devrel-metrics`, `devrel-analytics`, `devrel-exec-reporting`, `developer-survey-design`, `devrel-budget-allocation`, `devrel-team-structure`, `developer-education-strategy`, `developer-certification-program`, `devtools-business-model`, `devtools-pricing-strategy`, `developer-first-gtm`, `open-source-company-strategy`, `developer-ecosystem-strategy`, `open-standards-strategy`, `oss-governance`, `oss-license-strategy`, `oss-monetization`, `tech-employer-branding`, `docs-site-platform-selection`. Buys the rule every later session is decided against: what the program is judged on, who may merge, what the company gives away. Costs sign-off outside DevRel - engineering, legal, exec - and most of it is reversible only by another negotiation.
 
 `devrel-career` and `devrel-radar` sit outside this ladder, not at the bottom of it. They answer a personal-practice or stay-current question, not a program question; when that _is_ the goal they are rung 1 by definition, and otherwise they don't belong on the short-list at all.
 

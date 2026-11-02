@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to ship the 6.2 MB full-corpus bundle as it stands",
+        "evidence": "\"Sizing bug 1 \u2014 llms-full.txt at 6.2 MB... this bundle truncates mid-page on every real use.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a truncated bundle is worse than no bundle, because the agent believes it read everything",
+        "evidence": "\"Agent believes it read everything it didn't. Worse than no bundle at all.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that past the working context budget the bundle crowds out the user's own code",
+        "evidence": "\"No current agent context window holds that plus developer's own code \u2014 this bundle truncates mid-page on every real use.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends deleting the bundle outright, or splitting it per product line, rather than ranking it last or moving it to a backlog",
+        "evidence": "\"Fix, one of: Split per product line... Or drop it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the reason for deleting rather than deferring: a bundle parked at the bottom of a plan is a defect waiting for someone with spare time",
+        "evidence": "no such framing appears; the transcript gives sizing/truncation reasons only, not the \"parked plan = defect waiting\" argument",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the 180,000-character index as past the split threshold of roughly 100,000 characters",
+        "evidence": "\"Sizing bug 2 \u2014 llms.txt at 180,000 characters. Self-set split threshold: ~100K characters. You're 80% over.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends splitting the index into child indexes and linking those, so an agent can descend instead of truncating",
+        "evidence": "\"root llms.txt (project name, one-line summary, links to 4 child indexes) + one child index per product line\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the docs footer as sufficient advertising and requires the README, the docs navigation, and response headers or link relations",
+        "evidence": "\"Footer link alone changes nothing measurable... Footer covers 'docs navigation,' one of three required spots. Add: 1. Root README... 2. Response headers...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that an agent typically fetches these surfaces because a human, a rules file, or a tool pointed at them, not through passive discovery",
+        "evidence": "only states \"agent fetches these because something points at them\" without naming human/rules-file/tool as the specific pointer types",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ranks markdown endpoints above both the index file and the full-corpus bundle on efficiency",
+        "evidence": "\"Markdown endpoints (clean .md per page) are the highest-value-per-hour surface in this skill\"; \"Per-page markdown endpoints for all ~1,400 pages \u2014 actual highest-value fix here\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes the index and the full-corpus bundle tie on effort because both generate from the navigation source in one build step, while tying on no other axis",
+        "evidence": "only the index's generation is mentioned (\"Generate all 5 from docs nav source at build time\"); no comparison of generation effort against the full-corpus bundle",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the index changes nothing measurable until the surfaces it points at exist",
+        "evidence": "no equivalent statement appears in section 10; the closest content addresses advertising, not the index's dependency on target-surface existence",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to ship the 6.2 MB full-corpus bundle as it stands",
+        "evidence": "'Ship llms-full.txt split per product line, with version/date headers' \u2014 the unsplit flat 6.2MB file is not recommended for shipping as-is.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a truncated bundle is worse than no bundle, because the agent believes it read everything",
+        "evidence": "No such statement appears; concerns raised are about cost/latency impracticality, not false completeness belief.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that past the working context budget the bundle crowds out the user's own code",
+        "evidence": "No mention of a coding agent's context budget or crowding out user code anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends deleting the bundle outright, or splitting it per product line, rather than ranking it last or moving it to a backlog",
+        "evidence": "'Ship llms-full.txt split per product line, with version/date headers. Mechanical, low-risk, do it now' is listed as action item #1 this week.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the reason for deleting rather than deferring: a bundle parked at the bottom of a plan is a defect waiting for someone with spare time",
+        "evidence": "No such reasoning is stated anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the 180,000-character index as past the split threshold of roughly 100,000 characters",
+        "evidence": "The transcript cites reference implementations at '2\u201320K characters' and '~10x larger,' never a ~100,000-character threshold.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends splitting the index into child indexes and linking those, so an agent can descend instead of truncating",
+        "evidence": "'/llms.txt \u2014 root index... Links to four child indexes... /edge/llms.txt, /fleet/llms.txt, /historian/llms.txt, /studio/llms.txt \u2014 per-line curated indexes.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the docs footer as sufficient advertising and requires the README, the docs navigation, and response headers or link relations",
+        "evidence": "The footer link is treated as sufficient once files are ready: 'Link the footer once both are in their final shape, not before' \u2014 no README/nav/header requirement is added.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that an agent typically fetches these surfaces because a human, a rules file, or a tool pointed at them, not through passive discovery",
+        "evidence": "No such statement about discovery mechanics appears anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ranks markdown endpoints above both the index file and the full-corpus bundle on efficiency",
+        "evidence": "Markdown endpoints are recommended as a complementary structural fix ('Serve clean markdown at predictable URLs') but never explicitly ranked above the index/bundle on efficiency.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes the index and the full-corpus bundle tie on effort because both generate from the navigation source in one build step, while tying on no other axis",
+        "evidence": "No such effort-tie statement appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the index changes nothing measurable until the surfaces it points at exist",
+        "evidence": "The closest statement ('Blocking them silently makes the whole exercise a no-op') is tied to robots.txt access blocking, not to the child-index surfaces needing to exist.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

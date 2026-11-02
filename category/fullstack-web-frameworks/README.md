@@ -1,7 +1,7 @@
 # 🌐 Fullstack Web Frameworks & Apps
 
 > **Category**: `fullstack-web-frameworks`  
-> **Total Curated Skills**: 27 skills  
+> **Total Curated Skills**: 28 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -37,6 +37,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`nextjs-supabase-auth`](../../library/antigravity-awesome-skills/skills/nextjs-supabase-auth) | ⚪ Reserve | `antigravity-awesome-skills` | Expert integration of Supabase Auth with Next.js App Router Use when: supabase auth next, authe... |
 | [`react-router-v7`](../../library/mindrally-skills/skills/react-router-v7) | ⚪ Reserve | `mindrally-skills` | React Router v7 framework mode conventions for route modules, data loaders, actions, and progre... |
 | [`reference-design-contract`](../../library/nexu-io-open-design/skills/reference-design-contract) | ⚪ Reserve | `nexu-io-open-design` | Turn vague taste, screenshots, URLs, product notes, or "make it feel like this" references into... |
+| [`rtx-remix-modding`](../../library/nvidia-skills/skills/rtx-remix-modding) | ⚪ Reserve | `nvidia-skills` | Mod or remaster a game with RTX Remix - open and edit projects, swap textures and models. Conne... |
 | [`sentry-nextjs-sdk`](../../library/getsentry-sentry-for-ai/skills/sentry-nextjs-sdk) | ⚪ Reserve | `getsentry-sentry-for-ai` | Full Sentry SDK setup for Next.js. Use when asked to "add Sentry to Next.js", "install @sentry/... |
 | [`sentry-react-sdk`](../../library/getsentry-sentry-for-ai/skills/sentry-react-sdk) | ⚪ Reserve | `getsentry-sentry-for-ai` | Full Sentry SDK setup for React. Use when asked to "add Sentry to React", "install @sentry/reac... |
 | [`sentry-tanstack-start-sdk`](../../library/getsentry-sentry-for-ai/skills/sentry-tanstack-start-sdk) | ⚪ Reserve | `getsentry-sentry-for-ai` | Full Sentry SDK setup for TanStack Start React. Use when asked to "add Sentry to TanStack Start... |

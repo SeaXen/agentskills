@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Fails the entry gate explicitly, naming the cluster deployment and the platform engineer's approval as mandatory steps between arrival and first value.",
+        "evidence": "\"First value requires a platform engineer to review and apply an admission controller into their cluster. That is a real approval step and a real infrastructure step.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a failing entry gate rules out bottom-up self-serve outright.",
+        "evidence": "\"Gate 1 failing for the core product is decisive: bottom-up self-serve is not available as the revenue motion.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Fails or partially fails the value gate, naming that value only appears once three or more services are onboarded, which is team-scale rather than single-developer.",
+        "evidence": "\"Value \u2014 fail, for the enforcement product, exactly as you described: worthless below three services\" and \"A single self-serve user gets close to nothing.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a failing value or spread gate means a hybrid motion - developer entry with a human-assisted or platform-level conversion - not a pure bottom-up one.",
+        "evidence": "\"It is available, narrowly, as a lead-gen wedge \u2014 worth building, wrong to fund the board number with\" leading to the primary motion combining a free CLI entry with a paid, human-run pilot.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes top-down with developer proof on the no-new-headcount constraint.",
+        "evidence": "\"Top-down with developer proof \u2014 rejected for this year. The no-new-headcount ceiling deletes it outright\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes ecosystem-mediated on the refusal to give up margin.",
+        "evidence": "\"Ecosystem-mediated \u2014 rejected, directly, by the no-margin mandate.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Records each deleted motion together with the specific constraint that ruled it out.",
+        "evidence": "Each of the three rejected motions lists its own disqualifying constraint (headcount, margin, gates 1&2) under \"Rejected motions.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to leave a ruled-out motion parked at the bottom of the menu as a lesser option.",
+        "evidence": "\"that's the trigger to hire the first AE and promote this motion back onto the table explicitly, not slide into it by accident.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that developer-influenced sales has nothing to convert here because no base of free accounts exists yet.",
+        "evidence": "Section 5 never rejects developer-influenced sales this way; it is instead chosen as the primary motion via a paid pilot, not rejected for lack of a free base.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Surfaces that the stated constraints eliminate every available motion, and names which constraint must be relaxed rather than silently picking one anyway.",
+        "evidence": "The memo finds a viable primary motion (developer-influenced sales via paid pilot) within existing constraints rather than declaring all motions eliminated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Presents two or three candidate motions rather than a single recommendation.",
+        "evidence": "The memo evaluates and presents a primary motion (developer-influenced sales) plus a secondary motion (bottom-up lead gen CLI), alongside three explicitly rejected motions.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Commits to at most one primary motion and at most one secondary motion.",
+        "evidence": "\"## Primary motion\" (developer-influenced sales) and \"## Secondary motion \u2014 bottom-up lead gen\" \u2014 exactly one each.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend 'PLG' or a free tier without first addressing the failed entry gate.",
+        "evidence": "Friction gates (entry fail) are analyzed before the CLI/free lead-gen wedge is proposed as secondary.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Fails the entry gate explicitly, naming the cluster deployment and the platform engineer's approval as mandatory steps between arrival and first value.",
+        "evidence": "\"Platform-engineer approval gate \u2014 a human has to sign off before the product can even run. No amount of self-serve signup removes that gate; it's organizational, not a UX problem.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a failing entry gate rules out bottom-up self-serve outright.",
+        "evidence": "\"None of those vendors got meaningful revenue from bottom-up individual signup in under a year... Trying to compress that into 10 weeks with no new headcount isn't an aggressive PLG plan, it's a category error.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Fails or partially fails the value gate, naming that value only appears once three or more services are onboarded, which is team-scale rather than single-developer.",
+        "evidence": "\"Value only appears after 3+ services onboarded \u2014 the 'aha moment' is a multi-week integration project, not a five-minute API call... Parapet's aha moment is organizational and cumulative.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a failing value or spread gate means a hybrid motion - developer entry with a human-assisted or platform-level conversion - not a pure bottom-up one.",
+        "evidence": "\"this quarter is a sales-led expansion motion with a self-serve technical-proof artifact bolted on \u2014 not PLG.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes top-down with developer proof on the no-new-headcount constraint.",
+        "evidence": "The transcript instead adopts a sales-led/top-down-style motion using existing staff (\"repurpose existing sales/CS/eng time\") rather than deleting it for lack of headcount.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes ecosystem-mediated on the refusal to give up margin.",
+        "evidence": "\"Cloud marketplace listings. Explicitly excluded by the no-margin constraint... Reseller/SI channel. Same constraint, same conclusion.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Records each deleted motion together with the specific constraint that ruled it out.",
+        "evidence": "Kill list ties each rejected item to a constraint, e.g. \"New devrel/growth hires or a new self-serve billing stack. No headcount.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to leave a ruled-out motion parked at the bottom of the menu as a lesser option.",
+        "evidence": "Section titled \"Kill list \u2014 reject these for this cycle\" decisively rejects rather than deprioritizes each item.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that developer-influenced sales has nothing to convert here because no base of free accounts exists yet.",
+        "evidence": "No discussion of 'developer-influenced sales' as a named motion or of lacking a free-account base to convert.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Surfaces that the stated constraints eliminate every available motion, and names which constraint must be relaxed rather than silently picking one anyway.",
+        "evidence": "Instead of stating every motion is eliminated, the transcript constructs a workable hybrid plan ('audit mode') that fits within the stated constraints.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Presents two or three candidate motions rather than a single recommendation.",
+        "evidence": "Only one motion is proposed throughout: \"product-assisted expansion, not product-led acquisition.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Commits to at most one primary motion and at most one secondary motion.",
+        "evidence": "The plan commits to exactly one primary motion (\"sales-led expansion motion with a self-serve technical-proof artifact\") with no secondary motion proposed.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend 'PLG' or a free tier without first addressing the failed entry gate.",
+        "evidence": "\"Building a hosted free tier now\" is explicitly killed, and PLG is deferred: \"PLG becomes real next year, funded by the revenue this motion proves.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

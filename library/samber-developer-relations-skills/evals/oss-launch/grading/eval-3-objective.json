@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects Priya's run as evidence, because she could ask the maintainer and is not a cold reader unfamiliar with the project",
+        "evidence": "\"a single colleague's run, unlogged, isn't the pass condition. Priya already knows you and roughly what the project does \u2014 she's a friendlier read than the protocol's target (a stranger...)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats Priya's question about the Go version as a defect in the README rather than a non-issue",
+        "evidence": "\"Priya broke that rule by pinging you. That's not a workaround, that's the protocol's failure signal firing exactly as designed.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that every hesitation is a defect to fix, and that the run is repeated with a different reader afterwards",
+        "evidence": "Only states \"a version guessed\" and \"a missing prerequisite\" are defects by definition; no instruction anywhere to repeat the cold run with a different reader.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Specifies a clean environment and the repository URL only, with nothing else supplied to the reader",
+        "evidence": "No such specification appears; the closest is \"Send me the repo (URL or local path)\", which is about the assistant's own next step, not a description of what a reader should be given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Forbids maintainer help during the run, with the maintainer watching silently and taking notes",
+        "evidence": "\"it explicitly forbids the reader from asking the maintainer \u2014 the maintainer is supposed to watch silently.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects \"five minutes is the industry standard\" and sets the budget from what this project's own README promises",
+        "evidence": "\"There is no industry standard... The number that actually matters is whatever *Tilde's own README* promises\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the pass condition as an unaided cold reader reaching first success inside the claimed budget with zero blocking hesitations",
+        "evidence": "The transcript only says what is NOT the pass condition (\"a single colleague's run, unlogged, isn't the pass condition\") without ever articulating the full positive definition of what counts as passing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that if the assistant runs the protocol itself in place of a human reader, the plan must say that substitute was used",
+        "evidence": "No mention anywhere of the assistant substituting itself for a human reader or any disclosure requirement for that.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Counts any moment that required inspecting the source code as a hesitation",
+        "evidence": "No statement connects inspecting source code specifically to the definition of a hesitation; only the go.mod/version-guessing case is discussed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not accept the maintainer's own opinion of README quality as settling the gate",
+        "evidence": "\"**Verdict: not \"go\" yet.** Not because the README is bad \u2014 because two of the claims in your message don't hold up\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects Priya's run as evidence, because she could ask the maintainer and is not a cold reader unfamiliar with the project",
+        "evidence": "'n=1, biased sample. Priya know you. She may have asked you direct instead of reading close, or already know Go CLI conventions cold users don't.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats Priya's question about the Go version as a defect in the README rather than a non-issue",
+        "evidence": "'Go version ping = real gap, not a non-gap. She had to ask despite go.mod having answer \u2014 proves README doesn't surface it where reader look.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that every hesitation is a defect to fix, and that the run is repeated with a different reader afterwards",
+        "evidence": "No statement of a general 'every hesitation is a defect' policy nor any instruction to repeat the run with a different reader.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Specifies a clean environment and the repository URL only, with nothing else supplied to the reader",
+        "evidence": "No protocol for what to supply a future reader is given at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Forbids maintainer help during the run, with the maintainer watching silently and taking notes",
+        "evidence": "No mention of a silent-observation protocol for a future run.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects \"five minutes is the industry standard\" and sets the budget from what this project's own README promises",
+        "evidence": "'\"Five-minute industry standard\" \u2014 no such standard exist... Real bar: could stranger with zero context install + run first command, no Slack ping.' \u2014 rejects the claim but substitutes a qualitative bar, not a budget derived from the README's own promise.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the pass condition as an unaided cold reader reaching first success inside the claimed budget with zero blocking hesitations",
+        "evidence": "'Real bar: could stranger with zero context install + run first command, no Slack ping' omits any time budget or explicit 'zero hesitations' condition.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that if the assistant runs the protocol itself in place of a human reader, the plan must say that substitute was used",
+        "evidence": "No mention of the assistant standing in for a human reader.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Counts any moment that required inspecting the source code as a hesitation",
+        "evidence": "The go.mod detail is mentioned as evidence of a gap but never generalized into 'inspecting source code counts as a hesitation.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not accept the maintainer's own opinion of README quality as settling the gate",
+        "evidence": "'Can't read your actual README... Paste README content or repo path, I check rest against checklist' \u2014 insists on independent verification rather than taking the maintainer's word for it.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

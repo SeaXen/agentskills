@@ -1,0 +1,118 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Says teaser posts that send readers to the docs for the full content break dev.to's substantial-content rule or attract trusted-member downvotes",
+        "evidence": "\"The terms ban posts that 'merely reference an external link that contains the full post'... Canonical URLs don't fix this.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends publishing the full content on dev.to (with canonical if it lives elsewhere)",
+        "evidence": "\"Turn each docs page into a full post that stands alone on DEV\" and \"`canonical_url` set only if the original lives elsewhere.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that public reaction types weigh the same, so unicorn requests do not add ranking",
+        "evidence": "\"All public reactions score the same, so unicorns don't outrank hearts.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that reactions solicited from Discord members count as engagement manipulation, or that reactions from accounts under about 10 days old carry almost no weight",
+        "evidence": "\"Your Discord members' new accounts also get zero reaction weight, ramping to full over 10 days... matches that pattern.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says ranking weight concentrates in the first few days after publishing",
+        "evidence": "\"recency bonuses for 96 hours, then cuts reaction points to half after 4 days and an eighth after 7.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends measuring reactions and comments at around day 4 rather than at month end",
+        "evidence": "\"Per post, at day 4, not day 30: reactions and comments.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends replying to comments and hearting good comments on their own posts",
+        "evidence": "The table notes \"An author's reaction to a comment on their own post counts five times\". The plan only recommends answering comments within 24 hours and never tells them to heart good comments.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends earn-first commenting on other people's posts in the target tags",
+        "evidence": "\"Substantive comments in your tags (earn-first)\" and \"Each person comments substantively on 3-5 posts in your tags, with no links.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels at least one ranking claim as published by the platform versus practitioner evidence",
+        "evidence": "The labelling scheme is stated up front: \"[platform]... [code default]... [practitioner]\". The diagnosis table's Source column applies it, e.g. \"platform\", \"code default\".",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Says teaser posts that send readers to the docs for the full content break dev.to's substantial-content rule or attract trusted-member downvotes",
+        "evidence": "Calls them poor feed content but cites no rule or downvote risk.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends publishing the full content on dev.to (with canonical if it lives elsewhere)",
+        "evidence": "\"Put the whole answer on dev.to, with working code.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that public reaction types weigh the same, so unicorn requests do not add ranking",
+        "evidence": "Says unicorn asks come from people who already know you, not that reaction types are equal.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that reactions solicited from Discord members count as engagement manipulation, or that reactions from accounts under about 10 days old carry almost no weight",
+        "evidence": "\"Begging for unicorns can also read as engagement farming.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says ranking weight concentrates in the first few days after publishing",
+        "evidence": "Only advises \"Be present in the first hour\" for replies. It makes no ranking-window claim.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends measuring reactions and comments at around day 4 rather than at month end",
+        "evidence": "Recommends weekly tracking instead.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends replying to comments and hearting good comments on their own posts",
+        "evidence": "\"Publish when one of you can reply to every comment within 60 minutes.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends earn-first commenting on other people's posts in the target tags",
+        "evidence": "\"Engage before you publish. Spend 15 minutes, 3 times a week, leaving substantive comments on posts in your tags.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels at least one ranking claim as published by the platform versus practitioner evidence",
+        "evidence": "Only a generic \"I haven't checked dev.to's current feed ranking\" caveat, with no platform-versus-practitioner labelling.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

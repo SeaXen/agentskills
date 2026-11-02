@@ -1,0 +1,393 @@
+use std::collections::BTreeMap;
+
+use k8s_openapi::{
+    DeepMerge,
+    api::core::v1::{
+        Capabilities, Container, HostPathVolumeSource, LocalObjectReference, Pod, PodSpec,
+        SecurityContext, Volume, VolumeMount,
+    },
+};
+use kube::api::ObjectMeta;
+use mirrord_agent_env::{envs, mesh::MeshVendor};
+use mirrord_config::agent::AgentConfig;
+
+use super::util::agent_env;
+use crate::api::{
+    container::{
+        ContainerParams, ContainerVariant,
+        util::{AGENT_COMMAND, DEFAULT_TOLERATIONS, agent_base_args, get_capabilities},
+    },
+    runtime::RuntimeData,
+};
+
+/// The `targetless` agent variant is created by this, see its [`PodVariant::as_update`].
+pub struct PodVariant<'c> {
+    agent: &'c AgentConfig,
+    args: Vec<String>,
+    params: &'c ContainerParams,
+}
+
+impl<'c> PodVariant<'c> {
+    pub fn new(agent: &'c AgentConfig, params: &'c ContainerParams) -> Self {
+        let mut args = agent_base_args(agent, params);
+
+        args.push("targetless".to_owned());
+
+        PodVariant::with_args(agent, params, args)
+    }
+
+    fn with_args(agent: &'c AgentConfig, params: &'c ContainerParams, args: Vec<String>) -> Self {
+        PodVariant {
+            agent,
+            args,
+            params,
+        }
+    }
+}
+
+impl ContainerVariant for PodVariant<'_> {
+    type Update = Pod;
+
+    fn agent_config(&self) -> &AgentConfig {
+        self.agent
+    }
+
+    fn params(&self) -> &ContainerParams {
+        self.params
+    }
+
+    fn as_update(&self) -> Pod {
+        let PodVariant {
+            agent,
+            args,
+            params,
+            ..
+        } = self;
+
+        let resources = agent.resources.clone().unwrap_or_else(|| {
+            serde_json::from_value(serde_json::json!({
+                "requests":
+                {
+                    "cpu": "1m",
+                    "memory": "1Mi"
+                },
+                "limits":
+                {
+                    "cpu": "1",
+                    "memory": "100Mi"
+                },
+            }))
+            .expect("Should be valid ResourceRequirements json")
+        });
+
+        let env = agent_env(agent, params);
+        let image_pull_secrets = agent.image_pull_secrets.as_ref().map(|secrets| {
+            secrets
+                .iter()
+                .map(|secret| LocalObjectReference {
+                    name: secret.name.to_string(),
+                })
+                .collect()
+        });
+        let node_selector = agent
+            .node_selector
+            .clone()
+            .map(BTreeMap::from_iter)
+            .unwrap_or_default();
+
+        let mut labels = BTreeMap::from([("app".to_owned(), "mirrord".to_owned())]);
+
+        if agent.disable_mesh_sidecar_injection {
+            labels.insert("kuma.io/sidecar-injection".into(), "disabled".into());
+        }
+
+        Pod {
+            metadata: ObjectMeta {
+                annotations: agent.disable_mesh_sidecar_injection.then(|| {
+                    [
+                        ("sidecar.istio.io/inject".to_owned(), "false".to_owned()),
+                        ("linkerd.io/inject".to_owned(), "disabled".to_owned()),
+                    ]
+                    .into()
+                }),
+                labels: Some(labels),
+                ..Default::default()
+            },
+            spec: Some(PodSpec {
+                restart_policy: Some("Never".to_owned()),
+                image_pull_secrets,
+                tolerations: agent.tolerations.clone(),
+                node_selector: Some(node_selector),
+                service_account_name: agent.service_account.clone(),
+                containers: vec![Container {
+                    name: "mirrord-agent".to_owned(),
+                    image: Some(agent.image().to_owned()),
+                    image_pull_policy: Some(agent.image_pull_policy.clone()),
+                    command: Some(vec![AGENT_COMMAND.into()]),
+                    args: Some(args.clone()),
+                    env: Some(env),
+                    // Add requests to avoid getting defaulted https://github.com/metalbear-co/mirrord/issues/579
+                    resources: Some(resources),
+                    ..Default::default()
+                }],
+                security_context: agent.security_context.clone().map(Into::into),
+                priority_class_name: agent.priority_class.clone(),
+                ..Default::default()
+            }),
+            ..Default::default()
+        }
+    }
+}
+
+/// The `targeted` agent variant is created by this.
+///
+/// It builds on top of [`PodVariant`], merging spec, etc from there. See
+/// [`PodTargetedVariant::as_update`].
+pub struct PodTargetedVariant<'c> {
+    inner: PodVariant<'c>,
+    runtime_data: &'c RuntimeData,
+}
+
+impl<'c> PodTargetedVariant<'c> {
+    pub fn new(
+        agent: &'c AgentConfig,
+        params: &'c ContainerParams,
+        runtime_data: &'c RuntimeData,
+    ) -> Self {
+        let mut args = agent_base_args(agent, params);
+
+        args.extend([
+            "targeted".to_owned(),
+            "--container-id".to_owned(),
+            runtime_data.container_id.to_string(),
+            "--container-runtime".to_owned(),
+            runtime_data.container_runtime.to_string(),
+        ]);
+
+        let inner = PodVariant::with_args(agent, params, args);
+
+        PodTargetedVariant {
+            inner,
+            runtime_data,
+        }
+    }
+}
+
+impl ContainerVariant for PodTargetedVariant<'_> {
+    type Update = Pod;
+
+    fn agent_config(&self) -> &AgentConfig {
+        self.inner.agent_config()
+    }
+
+    fn params(&self) -> &ContainerParams {
+        self.inner.params()
+    }
+
+    fn as_update(&self) -> Pod {
+        let PodTargetedVariant { runtime_data, .. } = self;
+
+        let agent = self.agent_config();
+        let params = self.params();
+
+        let tolerations = agent.tolerations.as_ref().unwrap_or(&DEFAULT_TOLERATIONS);
+
+        let env = self.runtime_data.mesh.map(|mesh_vendor| {
+            let mut env = vec![envs::IN_SERVICE_MESH.as_k8s_spec(&true)];
+            if matches!(mesh_vendor, MeshVendor::IstioCni) {
+                env.push(envs::ISTIO_CNI.as_k8s_spec(&true));
+            }
+            env
+        });
+
+        let update = Pod {
+            spec: Some(PodSpec {
+                restart_policy: Some("Never".to_owned()),
+                tolerations: Some(tolerations.clone()),
+                host_pid: Some(true),
+                volumes: Some(vec![
+                    Volume {
+                        name: "hostrun".to_owned(),
+                        host_path: Some(HostPathVolumeSource {
+                            path: "/run".to_owned(),
+                            ..Default::default()
+                        }),
+                        ..Default::default()
+                    },
+                    Volume {
+                        name: "hostvar".to_owned(),
+                        host_path: Some(HostPathVolumeSource {
+                            path: "/var".to_owned(),
+                            ..Default::default()
+                        }),
+                        ..Default::default()
+                    },
+                ]),
+                containers: vec![Container {
+                    name: "mirrord-agent".to_owned(),
+                    security_context: Some(SecurityContext {
+                        run_as_group: Some(params.gid.into()),
+                        privileged: Some(agent.privileged),
+                        capabilities: Some(Capabilities {
+                            add: Some(
+                                get_capabilities(agent)
+                                    .iter()
+                                    .map(ToString::to_string)
+                                    .collect(),
+                            ),
+                            ..Default::default()
+                        }),
+                        ..Default::default()
+                    }),
+                    env,
+                    volume_mounts: Some(vec![
+                        VolumeMount {
+                            mount_path: "/host/run".to_owned(),
+                            name: "hostrun".to_owned(),
+                            ..Default::default()
+                        },
+                        VolumeMount {
+                            mount_path: "/host/var".to_owned(),
+                            name: "hostvar".to_owned(),
+                            ..Default::default()
+                        },
+                    ]),
+                    ..Default::default()
+                }],
+                ..Default::default()
+            }),
+            ..Default::default()
+        };
+
+        let mut pod = self.inner.as_update();
+        pod.merge_from(update);
+
+        if let Some(spec) = pod.spec.as_mut() {
+            if let Some(node_hostname) = runtime_data.node_hostname.as_ref() {
+                spec.node_name = None;
+                spec.node_selector
+                    .get_or_insert_with(BTreeMap::new)
+                    .insert("kubernetes.io/hostname".to_owned(), node_hostname.clone());
+            } else {
+                spec.node_name = Some(runtime_data.node_name.clone());
+            }
+        }
+
+        pod
+    }
+}
+
+#[cfg(test)]
+mod test {
+    use mirrord_config::{
+        agent::AgentFileConfig,
+        config::{ConfigContext, MirrordConfig},
+    };
+
+    use crate::api::{
+        container::{
+            ContainerParams, ContainerVariant,
+            pod::{PodTargetedVariant, PodVariant},
+        },
+        runtime::{ContainerRuntime, RuntimeData},
+    };
+
+    #[test]
+    fn agent_priority_class() -> Result<(), Box<dyn std::error::Error>> {
+        let mut config_context = ConfigContext::default();
+        let mut agent = AgentFileConfig::default().generate_config(&mut config_context)?;
+        agent.priority_class = Some("test-priority-profile".to_owned());
+        let params = ContainerParams {
+            name: "foobar".to_owned(),
+            port: 3000,
+            gid: 13,
+            tls_cert: None,
+            pod_ips: None,
+            steal_tls_config: Default::default(),
+            idle_ttl: Default::default(),
+        };
+
+        let update = PodVariant::new(&agent, &params).as_update();
+        assert_eq!(
+            update.spec.unwrap().priority_class_name.unwrap(),
+            "test-priority-profile"
+        );
+
+        let update = PodTargetedVariant::new(
+            &agent,
+            &params,
+            &RuntimeData {
+                mesh: None,
+                pod_name: "some-pod".to_owned(),
+                pod_ips: vec![],
+                host_ips: vec![],
+                pod_namespace: "default".to_owned(),
+                node_name: "some-node".to_owned(),
+                node_hostname: None,
+                container_id: "container".to_owned(),
+                container_runtime: ContainerRuntime::Docker,
+                container_name: "some-container".to_owned(),
+                guessed_container: false,
+                share_process_namespace: false,
+                containers_probe_ports: vec![],
+                container_ports: vec![],
+            },
+        )
+        .as_update();
+        assert_eq!(
+            update.spec.unwrap().priority_class_name.unwrap(),
+            "test-priority-profile"
+        );
+        Ok(())
+    }
+
+    #[test]
+    fn targeted_uses_node_hostname_selector_when_resolved() -> Result<(), Box<dyn std::error::Error>>
+    {
+        let mut config_context = ConfigContext::default();
+        let agent = AgentFileConfig::default().generate_config(&mut config_context)?;
+        let params = ContainerParams {
+            name: "foobar".to_owned(),
+            port: 3000,
+            gid: 13,
+            tls_cert: None,
+            pod_ips: None,
+            steal_tls_config: Default::default(),
+            idle_ttl: Default::default(),
+        };
+
+        let update = PodTargetedVariant::new(
+            &agent,
+            &params,
+            &RuntimeData {
+                mesh: None,
+                pod_name: "some-pod".to_owned(),
+                pod_ips: vec![],
+                host_ips: vec![],
+                pod_namespace: "default".to_owned(),
+                node_name: "some-node-name".to_owned(),
+                node_hostname: Some("some-node-hostname".to_owned()),
+                container_id: "container".to_owned(),
+                container_runtime: ContainerRuntime::Docker,
+                container_name: "some-container".to_owned(),
+                guessed_container: false,
+                share_process_namespace: false,
+                containers_probe_ports: vec![],
+                container_ports: vec![],
+            },
+        )
+        .as_update();
+
+        let spec = update.spec.expect("targeted pod should include spec");
+        assert_eq!(spec.node_name, None);
+        assert_eq!(
+            spec.node_selector
+                .as_ref()
+                .and_then(|labels| labels.get("kubernetes.io/hostname"))
+                .map(String::as_str),
+            Some("some-node-hostname")
+        );
+
+        Ok(())
+    }
+}

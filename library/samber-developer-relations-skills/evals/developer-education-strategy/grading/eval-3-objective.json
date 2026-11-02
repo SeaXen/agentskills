@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Returns a gate verdict that education is not the right fix for the evidence presented",
+        "evidence": "\"Gate verdict: No.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that verdict in one sentence with the evidence behind it",
+        "evidence": "\"**Gate verdict: No.** None of your four signals is a competence gap \u2014 the thing a developer academy is built to fix.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names documentation information architecture as the fix for answers that exist but cannot be found",
+        "evidence": "\"The answer already exists, on page 4 of the API reference. This is \\\"users cannot find an answer that exists\\\" \u2014 docs information architecture, not education.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names quickstart and onboarding as the fix for users failing at first success, rather than a course",
+        "evidence": "\"This is \\\"users fail at first success\\\" \u2014 quickstart and activation, not a curriculum.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names product and error-message design as the fix for the expired-token case, on the grounds the API could refuse the misuse",
+        "evidence": "\"This is \\\"users misuse an API that could refuse misuse\\\" \u2014 product and error-message design, not education.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a live workshop plus a recording, not a curriculum, for the single team that asked once",
+        "evidence": "\"This is \\\"one team asked once\\\" \u2014 a live workshop and a recording, not a program.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes procedural support questions from conceptual misunderstandings, and notes only the conceptual cluster would justify a program",
+        "evidence": "\"None of these is 'the same conceptual misunderstanding dominating support,' 'deals blocked on trained staff,' or 'a repeatable sequence people must learn in order' \u2014 the actual triggers for a structured program.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not produce a competency map or module list",
+        "evidence": "\"Not applicable \u2014 no curriculum is being built... this skill doesn't write lesson content.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend a badge or a certification",
+        "evidence": "\"Completion or skill badge \u2014 deleted... Proctored certification \u2014 deleted hardest.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not propose buying or evaluating an LMS",
+        "evidence": "\"Platform: none needed... workshop notes stay in the docs repo, not a new LMS.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the docs and quickstart fixes to the named sibling skills rather than performing them here",
+        "evidence": "\"route to `developer-docs-structure-audit`\" and \"route to `developer-quickstart-guide`\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names at least one observable condition that would re-open the education gate later",
+        "evidence": "\"reopen this gate only if... the two ticket clusters haven't dropped materially, or... two or more additional, distinct customers or partners request training in a single quarter\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Returns a gate verdict that education is not the right fix for the evidence presented",
+        "evidence": "'two of your four signals aren't training problems, and building an academy won't fix them.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that verdict in one sentence with the evidence behind it",
+        "evidence": "The verdict is spread across a multi-sentence paragraph and a table, and is not a single evidence-bearing sentence.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names documentation information architecture as the fix for answers that exist but cannot be found",
+        "evidence": "'Docs discoverability failure... Fix information architecture, not content.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names quickstart and onboarding as the fix for users failing at first success, rather than a course",
+        "evidence": "'Build a real 5-minute quickstart + activation instrumentation' plus an onboarding checklist and empty-state fix.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names product and error-message design as the fix for the expired-token case, on the grounds the API could refuse the misuse",
+        "evidence": "It fixes the error message ('Replace the generic 400 with 401 token_expired'). It does not argue the API could refuse or prevent the misuse.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends a live workshop plus a recording, not a curriculum, for the single team that asked once",
+        "evidence": "It proposes a live pilot session with office hours but never a recording.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes procedural support questions from conceptual misunderstandings, and notes only the conceptual cluster would justify a program",
+        "evidence": "It contrasts 'deep structured learning' with 'a working error message and a findable page', but never draws the procedural versus conceptual distinction.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not produce a competency map or module list",
+        "evidence": "The plan lists quickstart, checklist and guides, and no competency map or module list.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend a badge or a certification",
+        "evidence": "'Do not build yet: certification program, video course library, dedicated LMS...'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not propose buying or evaluating an LMS",
+        "evidence": "'No new platform spend, no LMS purchase'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the docs and quickstart fixes to the named sibling skills rather than performing them here",
+        "evidence": "It performs the fixes inline, including drafting the JSON error body and the quickstart structure.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names at least one observable condition that would re-open the education gate later",
+        "evidence": "'Revisit... only if... activation rate has moved and ticket volume has not fallen proportionally.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

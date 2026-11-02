@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Treats this as a live incident and stabilises the case before writing any policy document",
+        "evidence": "\"This is a live incident, not a policy-drafting exercise \u2014 stabilize first, write the missing policy after.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not open by drafting a code of conduct or an enforcement ladder",
+        "evidence": "The transcript opens with \"Do these now, in this order\" and a numbered stabilization sequence (archive evidence, suspend delete power, recuse Ilya, etc.), not a CoC or enforcement ladder.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes the reported maintainer from the alias, the inbox and the case material before the case is discussed further",
+        "evidence": "Recusal only covers discussion/decision/\"further confidential material\" (\"He's the accused, so he's excluded from discussion, from the decision, and from any further confidential material\"); removing him from the maintainers@ alias/inbox itself is deferred to the closing structural-fix section (\"Stand up a second path today... Do this before the next report arrives, not after this case closes\"), not enacted as an immediate pre-discussion step.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Preserves the evidence immediately, archiving or screenshotting the linked threads before anything is removed or edited",
+        "evidence": "\"Archive the two chat threads before anything else. Have someone who is *not* Ilya screenshot and export both linked threads in full... Do this before you send a single reply to anyone.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explicitly addresses the risk that the reported person can delete the chat messages that are the evidence",
+        "evidence": "\"Suspend Ilya's ability to delete in those spaces for the duration of the investigation... so no one \u2014 including him \u2014 can alter them\"; intro notes \"he holds delete power over two-thirds of the evidence.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Blocks the reported maintainer from replying directly to the reporter",
+        "evidence": "\"Tell him no \u2014 he does not reply to her directly. Not to explain, not to 'clear up the misrepresentation.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Acknowledges the reporter and names the acknowledgment window the team is holding",
+        "evidence": "\"Acknowledge the reporter today, from one of the other three... Confirm receipt... give her a timeline\"; case-record step adds \"set an acknowledgment target and a decision deadline now, e.g. 10 business days, and put both in a calendar.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Assigns a case code and code names so the case can be discussed in team notes without identities",
+        "evidence": "\"Open the case record immediately: case code, code names for everyone involved...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the decision to people with no hard conflict, escalating to a named body if no eligible members remain",
+        "evidence": "\"Check whether any of the remaining three maintainers also have a conflict... If two of three are also conflicted, you don't have a quorum that can be trusted, and you need a body above this team... an external investigator is a legitimate call if internal impartiality can't be established.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the no-retaliation position and does not disclose the reporter's identity to the reported person",
+        "evidence": "The only related text is \"contact from someone she just reported carries retaliation risk. If he does it anyway, log it in the case record\" \u2014 this flags a risk to log, but never states an affirmative no-retaliation policy/assurance, and the transcript never addresses withholding her identity from Ilya.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Afterwards closes the missing alternate-reporting-path gap, publishing the alternate path in the same paragraph as the primary channel and naming the people behind each address",
+        "evidence": "\"Stand up a second path today \u2014 even a plain stopgap (two named people, or one trusted outside contact, published on your README/SECURITY page) \u2014 for reports about anyone on the primary alias.\" This proposes a generic stopgap but does not specify publishing it in the same paragraph as the primary channel, nor actually name the people behind each address.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes policy afterwards from what the case exposed, rather than in place of handling it",
+        "evidence": "The closing section \"The structural bug this exposed \u2014 fix it right after\" derives the alias-fix directly from the case (\"That's the exact failure mode of 'the only reporting address belongs to the person being reported'\") and places it after all the stabilization steps, not instead of them.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Treats this as a live incident and stabilises the case before writing any policy document",
+        "evidence": "\"## Immediate actions (next few minutes \u2014 before anything else)\" opens the response, with policy discussion deferred to the end.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not open by drafting a code of conduct or an enforcement ladder",
+        "evidence": "The response opens with evidence preservation and access lockdown, not a CoC draft; a CoC is only referenced later as a check/follow-up.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes the reported maintainer from the alias, the inbox and the case material before the case is discussed further",
+        "evidence": "\"The other three maintainers own this, fully, starting now\" and \"One of the three replies to her today, from a thread that doesn't include Ilya.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Preserves the evidence immediately, archiving or screenshotting the linked threads before anything is removed or edited",
+        "evidence": "\"Preserve the two chat-server threads now, and do it without Ilya. Have one of the other three maintainers export or fully screenshot both threads.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explicitly addresses the risk that the reported person can delete the chat messages that are the evidence",
+        "evidence": "\"Lock down his ability to alter that record. If the platform allows it, temporarily pull Ilya's delete/manage-messages permission on those channels.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Blocks the reported maintainer from replying directly to the reporter",
+        "evidence": "\"Tell Ilya directly: he does not reply to her. Not to explain, not to clarify, not 'just to give context.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Acknowledges the reporter and names the acknowledgment window the team is holding",
+        "evidence": "\"One of the three maintainers replies to her today\" names a same-day acknowledgment window.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Assigns a case code and code names so the case can be discussed in team notes without identities",
+        "evidence": "No case code or anonymization scheme is mentioned anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the decision to people with no hard conflict, escalating to a named body if no eligible members remain",
+        "evidence": "\"The other three maintainers own this, fully, starting now. Ilya recuses from reviewing, deciding, or responding.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the no-retaliation position and does not disclose the reporter's identity to the reported person",
+        "evidence": "No explicit no-retaliation statement is articulated in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Afterwards closes the missing alternate-reporting-path gap, publishing the alternate path in the same paragraph as the primary channel and naming the people behind each address",
+        "evidence": "The fix is generic (\"set up a conduct-reporting address that excludes whoever a complaint concerns, with a defined fallback\") without naming people or specifying co-location with the primary channel.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes policy afterwards from what the case exposed, rather than in place of handling it",
+        "evidence": "\"If it doesn't exist, this incident is the reason to write one... but that's follow-up work, not today's priority.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

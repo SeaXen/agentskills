@@ -1,0 +1,157 @@
+import React from 'react';
+import type { IButton, IButtonProps as IBaseButtonProps, IButtonStyles } from '@fluentui/react';
+import { IconButton } from '@fluentui/react';
+
+import { UIContextualMenu } from '../UIContextualMenu/index.js';
+import type { UIIContextualMenuProps } from '../UIContextualMenu/index.js';
+import { handleMenuKeyDown, mergeButtonRef } from './utils.js';
+import type { UIBaseButtonProps } from './UIBaseButton.types.js';
+
+export enum UIIconButtonSizes {
+    Default = 'Default',
+    Wide = 'Wide'
+}
+
+export interface ButtonProps extends IBaseButtonProps, UIBaseButtonProps {
+    sizeType?: UIIconButtonSizes;
+    menuProps?: UIIContextualMenuProps;
+}
+
+/**
+ * UIIconButton component.
+ * based on https://developer.microsoft.com/en-us/fluentui#/controls/web/button
+ *
+ * @exports
+ * @class UIIconButton
+ * @extends {React.Component<ButtonProps, {}>}
+ */
+export class UIIconButton extends React.Component<ButtonProps, {}> {
+    private readonly _buttonRef: React.MutableRefObject<IButton | null> = { current: null };
+
+    /**
+     * Initializes component properties.
+     *
+     * @param {ButtonProps} props
+     */
+    public constructor(props: ButtonProps) {
+        super(props);
+    }
+
+    /**
+     * Method which returns button interaction background with including fallback for old VSCode or BAS versions.
+     *
+     * @param {string} color First choise color.
+     * @returns {string} CSS value for background color with fallback.
+     */
+    private getButtonInteractionBackgroundColor(color: string): string {
+        return `var(${color}, var(--vscode-menubar-selectionBackground))`;
+    }
+
+    protected setStyle = (props: ButtonProps): IButtonStyles => {
+        const sizeType = props.sizeType ?? UIIconButtonSizes.Default;
+        const width = sizeType === UIIconButtonSizes.Default ? 16 : 26;
+        return {
+            root: {
+                minWidth: 'initial',
+                height: 16,
+                width: width,
+                boxSizing: 'content-box',
+                padding: 3,
+                backgroundColor: 'transparent',
+                borderRadius: 'var(--vscode-cornerRadius-small, 4px)',
+                selectors: {
+                    // Focus through tab navigation
+                    '.ms-Fabric--isFocusVisible &:focus:after': {
+                        outline: '1px solid var(--vscode-focusBorder)'
+                    }
+                }
+            },
+            rootDisabled: {
+                backgroundColor: 'transparent',
+                opacity: '0.4'
+            },
+            rootHasMenu: {
+                width: width
+            },
+            rootHovered: {
+                backgroundColor: this.getButtonInteractionBackgroundColor('--vscode-toolbar-hoverBackground'),
+                outline: '1px dashed var(--vscode-contrastActiveBorder)',
+                borderRadius: 'var(--vscode-cornerRadius-small, 4px)'
+            },
+            rootPressed: {
+                backgroundColor: this.getButtonInteractionBackgroundColor('--vscode-toolbar-activeBackground')
+            },
+            rootExpanded: {
+                backgroundColor: this.getButtonInteractionBackgroundColor('--vscode-toolbar-hoverBackground'),
+                width: width
+            },
+            rootExpandedHovered: { backgroundColor: 'transparent' },
+            flexContainer: {
+                width: '100%',
+                height: '100%',
+                pointerEvents: 'none'
+            },
+            icon: {
+                height: 16,
+                width: width,
+                lineHeight: 16,
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+            },
+            iconHovered: {
+                backgroundColor: 'transparent'
+            },
+            menuIconExpanded: {
+                display: 'none'
+            },
+            menuIcon: {
+                display: 'none'
+            },
+            rootChecked: {
+                backgroundColor: 'var(--vscode-button-background)',
+                color: 'var(--vscode-button-foreground)',
+                outline: '1px solid var(--vscode-contrastActiveBorder)',
+                selectors: {
+                    // Move focus border otside of root box, because selection background covers inner border
+                    '.ms-Fabric--isFocusVisible &:focus:after': {
+                        inset: '-1px'
+                    }
+                }
+            },
+            rootCheckedHovered: {
+                backgroundColor: 'var(--vscode-button-background)',
+                outline: '1px dashed var(--vscode-contrastActiveBorder)'
+            },
+            iconChecked: {
+                color: 'var(--vscode-button-foreground)',
+                selectors: {
+                    // Inherit color from icon
+                    '> svg *': {
+                        fill: 'currentColor'
+                    }
+                }
+            }
+        };
+    };
+
+    /**
+     * @returns {JSX.Element}
+     */
+    render(): JSX.Element {
+        const { propagateMenuOpenKeyDown = true, componentRef: externalRef, ...props } = this.props;
+        return (
+            <IconButton
+                {...props}
+                componentRef={mergeButtonRef(this._buttonRef, externalRef)}
+                onKeyDown={
+                    propagateMenuOpenKeyDown
+                        ? (ev) => handleMenuKeyDown(ev, this._buttonRef, props.onKeyDown, props.menuProps)
+                        : props.onKeyDown
+                }
+                styles={this.setStyle(props)}
+                menuAs={UIContextualMenu}
+            />
+        );
+    }
+}

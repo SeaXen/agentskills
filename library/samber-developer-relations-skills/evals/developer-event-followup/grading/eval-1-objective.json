@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that the nurture sequence must not be sent to all 412 scans",
+        "evidence": "\"don't enrol the 412 scans in the nurture\"; \"0 of the 412 scans qualify for the nurture on scan alone.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says legitimate interest does not authorise marketing email in Germany, and in the rest of the EU only where a member-state rule allows it, citing ePrivacy prior consent or EDPB Guidelines 1/2024",
+        "evidence": "\"ePrivacy art. 13, which requires prior consent. GDPR legitimate interest is not the basis\"; cites EDPB guidelines 1/2024; France allows some prospecting under conditions.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says a scanned badge is not consent for email advertising in Germany (UWG s.7 or equivalent wording)",
+        "evidence": "\"UWG s.7 requires prior express consent, business recipients included. A scanned badge is not consent.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sends the demo config to every scanned contact, including those with no conversation notes",
+        "evidence": "\"The config is owed to every scan, C included.\"; \"All 412 get the demo config.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the config email free of promotion or newsletter subscription",
+        "evidence": "\"It has no newsletter link, no demo-booking call to action and no 'latest features.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says the scanner's purpose line ('demo config') limits marketing even for UK or US contacts",
+        "evidence": "\"The promise doesn't allow it, so those contacts get no nurture either.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sends personal notes to the noted A conversations from the engineer who had the conversation",
+        "evidence": "\"Personal note (A), from the engineer who met them\"; \"Send from the person's own address\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets the A follow-up within about two working days and gives memory of the conversation as the reason, not a lead-response study",
+        "evidence": "\"the target is two working days after the event closed\"; \"Send A notes fast because memory fades\"; the 'respond within the hour' studies are rejected.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes to sales only records whose notes show a stated buying need",
+        "evidence": "Routing table: \"Asked about pricing, procurement or a buyer conversation | Sales\"; \"Company size or cluster count alone is not a buying signal.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends loading contacts into the CRM without enrolling them in the nurture unless the gate allows it",
+        "evidence": "\"Import into HubSpot as non-marketing contacts... Enrolling in any marketing flow needs the gate's yes.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Defines an event cohort tag and an activation event to measure at 30, 60 and 90 days",
+        "evidence": "Cohort tag `evt-kubeconeu-2026`; activation event \"first cluster connected with cost data flowing\"; \"Activated by day 30 / 60 / 90\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats UK contacts with personal or unknown-type addresses as individual subscribers needing consent or soft opt-in",
+        "evidence": "The UK is covered only by \"PECR doesn't cover corporate subscribers\". Personal or unknown-type addresses are never treated as individual subscribers.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Matches the scans against the CRM so existing customers go to their account owner and earlier unsubscribes win",
+        "evidence": "\"Match them against HubSpot. An existing customer goes to the account owner... an earlier unsubscribe wins\".",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that the nurture sequence must not be sent to all 412 scans",
+        "evidence": "\"Don't load all 412 scans into the 6-email nurture.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says legitimate interest does not authorise marketing email in Germany, and in the rest of the EU only where a member-state rule allows it, citing ePrivacy prior consent or EDPB Guidelines 1/2024",
+        "evidence": "\"Marketing email is also governed by the ePrivacy rules... Those rules override a general legitimate-interest argument.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says a scanned badge is not consent for email advertising in Germany (UWG s.7 or equivalent wording)",
+        "evidence": "\"UWG \u00a77 requires prior express consent... A badge scan is not a sale.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sends the demo config to every scanned contact, including those with no conversation notes",
+        "evidence": "\"Scan-only, all countries | about 380 | The promised demo config email\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the config email free of promotion or newsletter subscription",
+        "evidence": "The Monday email includes \"one unticked opt-in: 'Want a 6-part series...'\" and a free tier signup link.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says the scanner's purpose line ('demo config') limits marketing even for UK or US contacts",
+        "evidence": "US fallback: \"you'd still be breaking the scanner's promise\"; \"The scanner's promise undercuts the balancing test.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sends personal notes to the noted A conversations from the engineer who had the conversation",
+        "evidence": "\"A personal email from the engineer who spoke with them.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets the A follow-up within about two working days and gives memory of the conversation as the reason, not a lead-response study",
+        "evidence": "No timing or memory rationale is given for the personal follow-ups.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes to sales only records whose notes show a stated buying need",
+        "evidence": "No sales routing is described.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends loading contacts into the CRM without enrolling them in the nurture unless the gate allows it",
+        "evidence": "\"Import them as non-marketing contacts until they opt in... Enroll in the 6-email workflow only on confirmed opt-in.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Defines an event cohort tag and an activation event to measure at 30, 60 and 90 days",
+        "evidence": "Only a source tag is set; no activation measurement is defined.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats UK contacts with personal or unknown-type addresses as individual subscribers needing consent or soft opt-in",
+        "evidence": "Only mentions sole traders/partnerships and corporate subscribers; no personal-address handling.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Matches the scans against the CRM so existing customers go to their account owner and earlier unsubscribes win",
+        "evidence": "\"Dedupe against existing HubSpot contacts and customers\" with no account-owner routing or unsubscribe precedence.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

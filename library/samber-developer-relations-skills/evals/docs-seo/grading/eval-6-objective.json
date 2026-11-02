@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Advises against building HowTo structured data and states that Google removed the HowTo rich result in August 2023",
+        "evidence": "\"HowTo (310 pages) | Rich result removed August 2023. Documentation deleted. | Zero uplift possible\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Advises against building FAQPage structured data and states that it stopped appearing entirely, having been narrowed to government and health sites in 2023",
+        "evidence": "\"FAQPage (94 pages) | Narrowed to gov/health 2023, stopped appearing entirely 7 May 2026. | Zero uplift possible\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the quoted rich-result uplift for HowTo and FAQPage as unavailable",
+        "evidence": "\"Quoted rich-result uplift does not exist... Whatever numbers the agency quoted for uplift, they can't come from Google Search as it exists today.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends BreadcrumbList markup instead and notes that it still renders",
+        "evidence": "\"BreadcrumbList markup. Still renders as a rich result.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason BreadcrumbList is worth it on a docs site: docs have a real hierarchy to express",
+        "evidence": "\"Docs have a real hierarchy to express it. Sitewide, one implementation.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Describes TechArticle or Article markup as harmless but low value, with no docs-specific rich result",
+        "evidence": "\"Article (remaining ~1,400) | No docs-specific rich result ever existed for this type. | Harmless, low value\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Limits SoftwareApplication or Organization markup to the product pages, applied once",
+        "evidence": "SoftwareApplication and Organization markup are never mentioned anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that correct titles plus breadcrumbs beat a schema campaign on a docs site",
+        "evidence": "\"What actually moves the needle on 1,800 Mintlify pages\" lists title template + BreadcrumbList + linking as the redirect for \"three sprints of a writer's time\" that the schema campaign would have consumed, framing them as the superior use of the same budget.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Redirects the three sprints toward the title template and other page-signal work instead of the schema project",
+        "evidence": "\"Redirect the three sprints here \u2014 these are template-level changes, so each one reaches every page, not just 404\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not offer HowTo or FAQPage as a reduced-scope or partial option",
+        "evidence": "Both are marked \"Zero uplift possible\" with no partial/reduced-scope alternative offered; the recommendation is a full redirect of budget away from them.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Advises against building HowTo structured data and states that Google removed the HowTo rich result in August 2023",
+        "evidence": "'Google killed HowTo rich results entirely... Announced 2023-08-08.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Advises against building FAQPage structured data and states that it stopped appearing entirely, having been narrowed to government and health sites in 2023",
+        "evidence": "'restricted FAQPage rich results to well-known, authoritative government and health websites'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the quoted rich-result uplift for HowTo and FAQPage as unavailable",
+        "evidence": "'Agency quoting rich-result uplift... uses stale pre-2023 CTR data'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends BreadcrumbList markup instead and notes that it still renders",
+        "evidence": "'still fully supported, drives real SERP breadcrumb display'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason BreadcrumbList is worth it on a docs site: docs have a real hierarchy to express",
+        "evidence": "'for deep docs URLs'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Describes TechArticle or Article markup as harmless but low value, with no docs-specific rich result",
+        "evidence": "'Article sprint: real but small... doesn't produce a distinctive SERP rich result'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Limits SoftwareApplication or Organization markup to the product pages, applied once",
+        "evidence": "'Organization + WebSite schema, homepage only, once.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that correct titles plus breadcrumbs beat a schema campaign on a docs site",
+        "evidence": "Titles are never mentioned as the better investment.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Redirects the three sprints toward the title template and other page-signal work instead of the schema project",
+        "evidence": "Redirects effort to AI-citation content structure and llms.txt, not title or page-signal work.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not offer HowTo or FAQPage as a reduced-scope or partial option",
+        "evidence": "Rejects sprints 1 and 2 outright.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

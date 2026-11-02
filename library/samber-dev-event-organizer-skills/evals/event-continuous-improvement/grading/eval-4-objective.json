@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Applies a five-way classification - Keep, Update, Consolidate, Replace, Delete - across the log entries.",
+        "evidence": "\"Each entry gets exactly one of Keep, Update, Consolidate, Replace or Delete\" with a verdict table.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies the duplicated paragraph (entries 7 and 23) as Delete, removing one copy as a duplicate that was never a finding.",
+        "evidence": "\"Delete 23 (keep 7)... A verbatim paste is a duplicate, not a finding.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the user's instinct to delete everything resolved or outdated: resolved real findings are closed with a reason, not deleted.",
+        "evidence": "\"Don't delete everything resolved or outdated... Resolved or outdated findings get closed with a reason.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Closes the Harbour Hall loading-dock entry as no longer current, recording the venue change as the reason, rather than deleting it or leaving it live.",
+        "evidence": "\"Close it with the reason 'venue changed after ed. 3'. Do not delete it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Consolidates entry 15 and entry 31 into one check-in/registration theme.",
+        "evidence": "\"Consolidate: Merge into one theme, 'check-in throughput'.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The merged entry keeps the earliest first-seen edition, edition 2.",
+        "evidence": "\"Keep the earliest first-seen edition, which is 2.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The merged occurrence count is recounted by edition as 3 (editions 2, 3 and 4), not 4 from summing the two entries' counts.",
+        "evidence": "\"The union is editions 2, 3 and 4... adding the two counts to get 4 would be double-counting.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies the partially-fixed queue entry (60 down to 25 minutes) as Update: the condition rewritten to the remaining problem with the occurrence history kept.",
+        "evidence": "\"18 | Update... The condition changed: the queue went from about 60 to about 25 minutes. The theme stays live.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies the superseded app theory (entry 9) as Replace: pointed at entry 33 and closed, never left live beside its successor.",
+        "evidence": "\"9 \u2192 33 | Replace | Point 9 at 33 and close 9.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the audit to cover every entry and finish in one sitting, warning that a half-audited log is worse than an unaudited one.",
+        "evidence": "\"done in one sitting. A half-audited log is worse than an unaudited one.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Applies the pass condition of zero unclassified entries: all 41 entries end with exactly one classification.",
+        "evidence": "\"the only target the skill sets is zero unclassified entries after the pass.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires each live entry to carry its theme and occurrence count after the pass.",
+        "evidence": "\"Each live entry must also carry a theme and an occurrence count.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Times the audit as a pass before planning opens, not a standing year-round or quarterly process.",
+        "evidence": "\"Planning opens next month, so run the kickoff pass now.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets no numeric improvement targets beyond the binary zero-unclassified threshold; other measures are recorded as signals, not targets.",
+        "evidence": "\"Pick the target yourself. The 30-minute figure in the skill is only an example.\" The only threshold set is zero unclassified.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Applies a five-way classification - Keep, Update, Consolidate, Replace, Delete - across the log entries.",
+        "evidence": "Uses Status values Open/Mitigated/Resolved/Superseded/Retired instead",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Classifies the duplicated paragraph (entries 7 and 23) as Delete, removing one copy as a duplicate that was never a finding.",
+        "evidence": "'Delete 23, keep 7'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the user's instinct to delete everything resolved or outdated: resolved real findings are closed with a reason, not deleted.",
+        "evidence": "'Don't delete everything resolved or outdated'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Closes the Harbour Hall loading-dock entry as no longer current, recording the venue change as the reason, rather than deleting it or leaving it live.",
+        "evidence": "'Mark Retired, scope = Harbour Hall, move to Archive... The constraint is gone'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Consolidates entry 15 and entry 31 into one check-in/registration theme.",
+        "evidence": "'Merge into one record'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The merged entry keeps the earliest first-seen edition, edition 2.",
+        "evidence": "'15 gives you 2 and 4'; editions seen 2, 3, 4",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The merged occurrence count is recounted by edition as 3 (editions 2, 3 and 4), not 4 from summing the two entries' counts.",
+        "evidence": "'Edition 4 appears in both, so count it once.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies the partially-fixed queue entry (60 down to 25 minutes) as Update: the condition rewritten to the remaining problem with the occurrence history kept.",
+        "evidence": "Marked 'Mitigated, not resolved' but the condition is not rewritten to the remaining problem",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Classifies the superseded app theory (entry 9) as Replace: pointed at entry 33 and closed, never left live beside its successor.",
+        "evidence": "'Fold 9 into 33, mark 9 Superseded, with a redirect'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the audit to cover every entry and finish in one sitting, warning that a half-audited log is worse than an unaudited one.",
+        "evidence": "No warning that a half-audited log is worse than an unaudited one",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Applies the pass condition of zero unclassified entries: all 41 entries end with exactly one classification.",
+        "evidence": "Not stated",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires each live entry to carry its theme and occurrence count after the pass.",
+        "evidence": "Fields are Status, Scope, Editions seen, Owner, with no theme or count",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Times the audit as a pass before planning opens, not a standing year-round or quarterly process.",
+        "evidence": "Not framed that way",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets no numeric improvement targets beyond the binary zero-unclassified threshold; other measures are recorded as signals, not targets.",
+        "evidence": "'Set an explicit edition 6 target, such as \"under 10 minutes\"'",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

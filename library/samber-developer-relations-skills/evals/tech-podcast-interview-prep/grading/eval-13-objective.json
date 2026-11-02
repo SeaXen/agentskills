@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Response distinguishes a topic from an angle and rejects \"observability at scale\" as an angle.",
+        "evidence": "The transcript treats 'observability at scale' as the base subject for generating candidates ('Candidates on \"observability at scale\"...') but never explicitly states it is a topic, not yet an angle.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response generates at least three candidate angles the user could defend from their own experience.",
+        "evidence": "Four candidate angles are listed in the table (rows 1-4).",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response discards any candidate the show's back catalogue already covers twice, naming the OpenTelemetry migration episodes as the reason.",
+        "evidence": "The OTel reference is attached to angle 2, which is only demoted ('Weak, not dead'), not discarded; the only outright 'Discard' (angle 4) cites 'the log-cost episode', not OpenTelemetry.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response deletes the April outage war story outright rather than ranking it last, because the incident review is under NDA until January.",
+        "evidence": "\"**Removed.** The incident review is under NDA until January. Per the angle-selection rule, an incident still under embargo removes the war-story shape entirely...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response gives the reason for deleting rather than demoting: shortlisting a ruled-out shape makes the user rehearse an angle they cannot use.",
+        "evidence": "The stated reason is avoiding it 'getting shortlisted and hedged around live', not a statement about wasted rehearsal of an angle that cannot be used.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response presents the surviving candidates with trade-offs and a recommendation.",
+        "evidence": "Table's 'Why it survives or dies' column plus \"**Recommendation: Angle 1.**\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response ranks the angle shapes - war story, practical how-we-do-it, contrarian thesis - by audience moved per hour of preparation.",
+        "evidence": "No ranking by 'audience moved per hour of preparation' metric appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response names the contrarian thesis as the highest-value and most expensive shape, and states the condition that promotes it.",
+        "evidence": "Not present; no such explicit statement about contrarian thesis being highest-value/most expensive.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response notes that the contrarian thesis carries the highest compliance cost when it takes a public position against a named competitor or a standard.",
+        "evidence": "Not present anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response does not draft messages, sound bites or an opening answer before the angle is chosen.",
+        "evidence": "The spine and one sound bite are built only after \"**Recommendation: Angle 1.**\", and the response explicitly defers the rest: \"To take this further into a full recording-day brief (messages, story bank, sound bites, hard-question table, opening answer), I'd need the show format basics\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Response distinguishes a topic from an angle and rejects \"observability at scale\" as an angle.",
+        "evidence": "No discussion of topic-vs-angle distinction or rejection of a generic 'observability at scale' label appears anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response generates at least three candidate angles the user could defend from their own experience.",
+        "evidence": "Only one angle is presented and developed: 'Your angle: don't pitch the outage \u2014 pitch the failure mode... The observability paradox.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response discards any candidate the show's back catalogue already covers twice, naming the OpenTelemetry migration episodes as the reason.",
+        "evidence": "'The show has covered \"how to get OTel data flowing\" (2x) and \"how to keep it affordable\" (1x). Nobody's covered what happens after that work is done.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response deletes the April outage war story outright rather than ranking it last, because the incident review is under NDA until January.",
+        "evidence": "The outage story is not deleted \u2014 it is used as the centerpiece: 'I've got a real one from this April, and I can walk through the architecture failure and everything we rebuilt since.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response gives the reason for deleting rather than demoting: shortlisting a ruled-out shape makes the user rehearse an angle they cannot use.",
+        "evidence": "Since the story isn't deleted, no such reasoning is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response presents the surviving candidates with trade-offs and a recommendation.",
+        "evidence": "Only one candidate is presented; no comparative trade-off analysis across multiple angles occurs.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response ranks the angle shapes - war story, practical how-we-do-it, contrarian thesis - by audience moved per hour of preparation.",
+        "evidence": "Not present.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response names the contrarian thesis as the highest-value and most expensive shape, and states the condition that promotes it.",
+        "evidence": "Not present.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response notes that the contrarian thesis carries the highest compliance cost when it takes a public position against a named competitor or a standard.",
+        "evidence": "Not present.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response does not draft messages, sound bites or an opening answer before the angle is chosen.",
+        "evidence": "The response drafts a full pitch line ('One-line pitch you can send the host') and a 'Suggested working title' in the same pass as selecting the single angle, with no prior deliberation over alternatives.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

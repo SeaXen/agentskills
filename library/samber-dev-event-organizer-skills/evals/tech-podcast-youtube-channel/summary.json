@@ -1,0 +1,490 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "tech-podcast-youtube-channel",
+  "scenarios": 9,
+  "expectations_total": 115,
+  "expectations_subjective": 4,
+  "expectations_objective": 111,
+  "pass_rate_with_skill_pct": 82.6,
+  "pass_rate_without_skill_pct": 20.9,
+  "delta_pp": 61.7,
+  "uplift_multiplier": 3.95,
+  "trigger_accuracy_pct": 51.0,
+  "trigger_queries": 102,
+  "trigger_positive_fire_rate": 0.118,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Treats the existing Vimeo page and blog as evidence that the derivatives already have somewhere to publish"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Deletes the open pitch from the menu while no vetting owner exists, rather than ranking it"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that a path counts as EXISTS only when a mechanism carries a person or a file, not because a link exists"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Writes the feed relationship in both directions, one line per path"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Marks every path in the map EXISTS or ASPIRATIONAL"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Includes event-to-channel paths covering finished recordings, the speaker pool to book from, and a reason to publish around an edition"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Includes channel-to-event paths covering a warm first contact with a prospective speaker, cross-promotion inventory a swap can use, and a surface that keeps working in the gap"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Does not decide here whether the channel is worth keeping in the portfolio, routing that to samber/dev-event-organizer-skills@event-portfolio-strategy"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Invents no overlap length, transfer window or notice period"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that the 14 audio cuts are samber/dev-event-organizer-skills@event-content-repurposing's artifact, not a channel"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Derives any rhythm from the stated three hours a week and the two-month recovery window rather than from a generic publishing convention"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Deliberately under-promises, on the grounds that the argued failure is a property that stops rather than one that publishes rarely"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Declines to set a subscriber growth target"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Declines the three-misses-in-a-row rule, stating that no numeric miss threshold is sourced"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Enters brainstorming mode with two or three candidate shapes and their trade-offs, rather than issuing a single verdict, because the team disagrees on whether to run the channel at all"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Asks questions one at a time and validates each section before moving to the next"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that efficiency never picks the heavy-cadence rung, because it tops reach, effort and compliance cost together"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that the dominance result is vacuous by construction here and is never a pass, so the ratios must be challenged directly"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names what the heavy rung is one step from becoming: a media operation with its own staffing question that no skill in this collection covers"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Distinguishes standing roles filled for a stated period, one each for booking, recording, editing and publishing, from per-episode improvisation"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Does not deliver a fortnightly episode plan or publishing calendar as the answer"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends the no-channel posture, or archive-only, rather than an original-content channel"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that no channel is a real answer and a legitimate outcome, not a failure to plan"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Deletes both original-content rungs from the menu rather than ranking or demoting them, on the grounds that nobody is named for the quiet months"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Identifies the absence of a named owner for the months between editions as the blocking fact"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Treats the existing Vimeo page and blog as evidence that the derivatives already have somewhere to publish"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names announcing a cadence nobody agreed to as a deleted option rather than a cheaper version of running a channel"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Invents no episode interval, publishing frequency or subscriber figure of its own"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that the decline should be written down, with the condition that would reopen the question"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Asks whether a portfolio decision to have a recurring media property was ever made, or routes that question to samber/dev-event-organizer-skills@event-portfolio-strategy"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Explicitly includes the host and the co-organizer Priya among those who must sign"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that releases are collected before recording, so the four already-recorded episodes cannot publish until the releases exist"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Distinguishes the two instruments by what each covers: a talk delivered to a room in a stated format with a stated opt-out, versus a conversation recorded for publication on a standing property"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Routes the release's actual wording to the organizer's own counsel rather than drafting enforceable terms"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names no jurisdiction and quotes no retention period"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names a single custodian who holds the episode release records"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Deletes the sponsor-supplied guest slot from the sourcing menu rather than ranking it low or listing it as a cheap option"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that a guest slot given because a sponsor asked for it converts the property into sponsor inventory"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Routes any sponsored episode to samber/dev-event-organizer-skills@event-sponsor-value-proposition as a sponsorship decision made there"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Deletes the open pitch from the menu while no vetting owner exists, rather than ranking it"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Produces a vetting bar made of checkable questions rather than desirable attributes such as engaging or well-known"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Routes the conduct half of the bar to samber/dev-event-organizer-skills@event-code-of-conduct instead of restating a policy"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States the promotion conditions for cold outbound rather than recommending it unconditionally"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Reuses the qualification and outreach craft from samber/dev-event-organizer-skills@event-speaker-sourcing and samber/dev-event-organizer-skills@event-speaker-cold-outreach instead of rebuilding it for the show"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Marks the show-notes-to-ticket-page path ASPIRATIONAL rather than EXISTS"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that a path counts as EXISTS only when a mechanism carries a person or a file, not because a link exists"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Writes the feed relationship in both directions, one line per path"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Marks every path in the map EXISTS or ASPIRATIONAL"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Includes event-to-channel paths covering finished recordings, the speaker pool to book from, and a reason to publish around an edition"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Includes channel-to-event paths covering a warm first contact with a prospective speaker, cross-promotion inventory a swap can use, and a surface that keeps working in the gap"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Argues reach and relationship value in place of a registration claim"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Does not decide here whether the channel is worth keeping in the portfolio, routing that to samber/dev-event-organizer-skills@event-portfolio-strategy"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that the property becomes unrecoverable the day that personal account closes"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Does not recommend the named-successor-with-overlap rung as the default, since no successor exists"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Invents no overlap length, transfer window or notice period"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Presents folding into a closed archive as a live option, given 61 episodes and nobody named for the quiet months"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States what a closing note must carry if the show folds: that it ended, the date, where the back-catalogue stays reachable, who holds the account, and where the audience should go instead"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names letting the feed lapse silently with no notice as a deleted option rather than a cheap version of the archive"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires the guest-release records to get a named custodian with the retention decision restated rather than assumed inherited"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires confirming that every published episode still resolves at its own address after the transfer, before the outgoing owner stops being reachable"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires the handover document to be dated and to fix a date for re-checking it on a schedule"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires recording what the show committed to publicly, so the incoming holder inherits the promise rather than discovering it"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Declines to recommend specific microphones, recorders or editing software"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Routes signal path, microphone count, redundancy and editing execution to samber/dev-event-organizer-skills@event-production"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that the 14 audio cuts are samber/dev-event-organizer-skills@event-content-repurposing's artifact, not a channel"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that a derivative becomes an episode only once a property with its own format and cadence exists to receive it"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Runs interview questions about the posture, the quiet-month owner and the gap between editions before producing a plan"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Proposes the archive-only feed as the default posture, given derivatives already exist"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that an archive-only feed needs a durable address, a purpose line a stranger can read, and a named holder of the account"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that the archive-only feed makes no cadence promise"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Does not substitute a naming or branding exercise for the posture decision"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Promises no publishing rhythm for the interview episodes"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Writes a cadence sentence carrying all four elements: what the show publishes, on what rhythm, who owns that rhythm, and what happens when a cycle is missed"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names Tomas as the owner inside the sentence"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Does not produce an unowned rhythm promise of the 'new episodes every other week' shape"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Derives any rhythm from the stated three hours a week and the two-month recovery window rather than from a generic publishing convention"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Deliberately under-promises, on the grounds that the argued failure is a property that stops rather than one that publishes rarely"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Declines the listener-to-ticket conversion rate as a measure, stating that no sourced figure ties channel activity to registrations"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Declines to set a subscriber growth target"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Declines the three-misses-in-a-row rule, stating that no numeric miss threshold is sourced"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Treats a repeated miss as a demotion signal on the existence-posture menu rather than as a discipline problem"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Reports pipeline depth as a count of guests named and agreed ahead of the next publish date, never as a rate"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Includes the release-coverage gate: every published episode has an episode-specific release from every participant, on file with a named holder"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Includes the named-quiet-month-owner gate, with the public cadence matching the one that person agreed to"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Includes the handover-readiness gate: a dated handover document naming a living holder for the platform account, the feed and the release records"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States the pass threshold as all three gates with zero exceptions"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Does not broker or negotiate the Platform Weekly barter"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Routes the Platform Weekly exchange to samber/dev-event-organizer-skills@event-media-partnerships"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Identifies the organizer guesting on Platform Weekly's podcast as an appearance on someone else's show, distinct from this property"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Routes the RustFest Iberia swap negotiation to samber/dev-event-organizer-skills@cross-event-promotion"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that this side supplies the episode or the date for such a swap and does not negotiate its terms"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Routes the Discord to samber/dev-event-organizer-skills@event-community-building"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that publishing at people is not a space they belong to"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names the need for a member list, replies or moderation as the signal that the object has become the community's rather than the show's"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Does not produce a moderation plan, membership retention duty or member-list design"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Keeps a new-episode notice as content that can cross into that space"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Keeps guests or topics surfaced in that space as input this side still sources and vets"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Enters brainstorming mode with two or three candidate shapes and their trade-offs, rather than issuing a single verdict, because the team disagrees on whether to run the channel at all"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Asks questions one at a time and validates each section before moving to the next"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States the heavy-cadence rung's promotion conditions as a set that must all hold, not as a single test"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names the funded-or-committed owner condition, the in-house editor or co-organizer who already hosts a show condition, and the compounding condition"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Identifies the retained editor and Ines's existing weekly show as satisfying the in-house asset condition, and says which answer moved which rung"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Requires the one-off versus compounding answer before promoting the heavy rung"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Rejects 'it reaches the most people' as sufficient grounds, on the basis that reach tracks effort exactly across the menu"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that efficiency never picks the heavy-cadence rung, because it tops reach, effort and compliance cost together"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Reports zero strict-dominance relations across the menu's pairs, so no rung dominates another"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that the dominance result is vacuous by construction here and is never a pass, so the ratios must be challenged directly"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names what the heavy rung is one step from becoming: a media operation with its own staffing question that no skill in this collection covers"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Distinguishes standing roles filled for a stated period, one each for booking, recording, editing and publishing, from per-episode improvisation"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that one person holding every role is the low-cadence rung with an unsustainable rhythm attached, not the heavy rung"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Presents the outcome section by section, with approval sought per section"
+      }
+    ]
+  }
+}

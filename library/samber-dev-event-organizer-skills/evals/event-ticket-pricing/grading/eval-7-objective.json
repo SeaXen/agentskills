@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that regional and currency price parity for one format run in several countries has no established method, and declines to produce a purchasing-power formula as though it were a standard.",
+        "evidence": "\"I can't give you a purchasing-power-adjusted grid, because the skill says there's no established method\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Leaves the per-market price decision with the organizer rather than resolving it with an invented conversion.",
+        "evidence": "\"The city factor is your choice\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rebuilds each market's floor from that market's own per-attendee cost and posture rather than converting the Seattle prices.",
+        "evidence": "\"Set the floor from cost, not from Seattle\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not apply an exchange-rate or purchasing-power multiplier to the $850 / $420 / $120 figures to generate the three new grids.",
+        "evidence": "Provides columns \u00d70.75, \u00d70.50, \u00d70.35 applied to $850/$420/$120",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that anchoring and decoy ordering is unconfirmed for event tickets and should not be imported from software pricing.",
+        "evidence": "\"The anchoring advice is unconfirmed for tickets\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that published registration pages list personas in plain reading order rather than in an anchoring order.",
+        "evidence": "\"real registration pages list personas in plain reading order\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks for the payer mix in each market as the axis that sets each ladder's shape.",
+        "evidence": "\"The payer mix per city. It decides the shape of each ladder\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Checks the existing Seattle top-to-floor ratio - roughly 7:1 from $850 to $120 - against the published range of about 1.7:1 to 6.5:1 and flags that it sits above it.",
+        "evidence": "\"7.1 : 1... steeper than both\"; sourced up to 6.5",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Transposes ratios rather than amounts between markets.",
+        "evidence": "\"Keep the ratios as the template\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sanity-checks each market's top rung against what an employer in that market approves without a purchase order.",
+        "evidence": "\"Sanity-check each top rung locally\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires each market's own ticket revenue target from its own budget before any price is set.",
+        "evidence": "Requires a budget with a ticket-revenue target; \"Everything above stays provisional\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels every new figure it produces as self-set rather than sourced.",
+        "evidence": "\"The numbers are self-set, not sourced\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that regional and currency price parity for one format run in several countries has no established method, and declines to produce a purchasing-power formula as though it were a standard.",
+        "evidence": "Presents a PPP formula as method.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Leaves the per-market price decision with the organizer rather than resolving it with an invented conversion.",
+        "evidence": "Produces final grids.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rebuilds each market's floor from that market's own per-attendee cost and posture rather than converting the Seattle prices.",
+        "evidence": "Converts Seattle prices; only suggests break-even check.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not apply an exchange-rate or purchasing-power multiplier to the $850 / $420 / $120 figures to generate the three new grids.",
+        "evidence": "Seattle price times (local price level \u00f7 US price level) raised to a weight.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that anchoring and decoy ordering is unconfirmed for event tickets and should not be imported from software pricing.",
+        "evidence": "Says anchoring is standard and fine.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that published registration pages list personas in plain reading order rather than in an anchoring order.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks for the payer mix in each market as the axis that sets each ladder's shape.",
+        "evidence": "Does not ask; assumes Bangalore buyers are mostly individuals.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Checks the existing Seattle top-to-floor ratio - roughly 7:1 from $850 to $120 - against the published range of about 1.7:1 to 6.5:1 and flags that it sits above it.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Transposes ratios rather than amounts between markets.",
+        "evidence": "Converts amounts.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sanity-checks each market's top rung against what an employer in that market approves without a purchase order.",
+        "evidence": "Not done.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires each market's own ticket revenue target from its own budget before any price is set.",
+        "evidence": "Only break-even per city.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels every new figure it produces as self-set rather than sourced.",
+        "evidence": "Labels price-level ratios 'approximate' but not prices as self-set.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

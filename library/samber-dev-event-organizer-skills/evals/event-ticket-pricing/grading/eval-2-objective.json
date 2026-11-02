@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Caps public price points at two per persona and rejects the four-phase Super Early Bird / Early Bird / Regular / Last Chance time ladder.",
+        "evidence": "Keeps three price points per persona: \"Early Bird \u2192 Regular \u2192 Last Chance. This is one more than any sourced event runs\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a third phase is legitimate only as a late surcharge, never as a third discount step.",
+        "evidence": "\"A third phase works only as a late surcharge, never as another discount step\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that extra discount steps read as pressure tactics and train buyers to wait for the next one.",
+        "evidence": "\"A stack of discounts teaches buyers to wait for the next one\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Builds the persona split from the stated payer mix - 55% employer-funded, 35% self-funded, 10% student - rather than from event size or city.",
+        "evidence": "Revenue check uses 55% Corporate / 35% Individual / 10% Student",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets the floor price from the 47 EUR per-attendee cost and the chosen posture, not from a comparable event's floor price.",
+        "evidence": "\"Student, 85 EUR: 38 EUR above your 47 EUR cost\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Applies a top-to-floor ratio drawn from a published range of roughly 1.7:1 to 6.5:1 and reports it as a range rather than as one canonical number.",
+        "evidence": "EuroPython \"1.67\u20131.78, 2.1\u20132.2 and 3.7\u20133.8\"; PyCon \"1.9, 3.4 and 6.5\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names which comparable's ratio it transposed and justifies the pick on matching payer mix rather than matching city or headcount.",
+        "evidence": "Names EuroPython but justifies by \"community funding model is closer to yours\", not payer mix",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States explicitly whether the single time step is an expiring discount or a surcharge that lands.",
+        "evidence": "\"Last Chance... Surcharge of 1.25\u00d7 Regular\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the time gate as a published calendar date, or as a first-N-tickets count, announced from the day tickets go on sale.",
+        "evidence": "\"First 120 tickets... or until [D1]\"; \"Publish all three prices and both dates from day one\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels each price it produces as sourced or self-set.",
+        "evidence": "Floors (self-set), Surcharge 1.25\u00d7 (self-set), ratios (sourced)",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not copy absolute ticket prices from any named conference into the Ferrite Conf grid.",
+        "evidence": "\"Neither event's amounts were copied\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Confirms the ticket revenue target comes from the budget before allocating it across the tiers.",
+        "evidence": "Allocates the grid first, then \"I can't confirm this clears your revenue target\"",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Caps public price points at two per persona and rejects the four-phase Super Early Bird / Early Bird / Regular / Last Chance time ladder.",
+        "evidence": "Builds four-phase Super Early Bird/Early Bird/Regular/Last Chance.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a third phase is legitimate only as a late surcharge, never as a third discount step.",
+        "evidence": "Uses three discount steps.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that extra discount steps read as pressure tactics and train buyers to wait for the next one.",
+        "evidence": "No such warning.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Builds the persona split from the stated payer mix - 55% employer-funded, 35% self-funded, 10% student - rather than from event size or city.",
+        "evidence": "The 55% who expense it ... The 35% who pay themselves; 231/147/42.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets the floor price from the 47 EUR per-attendee cost and the chosen posture, not from a comparable event's floor price.",
+        "evidence": "Computes margin over 47 but floors are not derived from cost.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Applies a top-to-floor ratio drawn from a published range of roughly 1.7:1 to 6.5:1 and reports it as a range rather than as one canonical number.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names which comparable's ratio it transposed and justifies the pick on matching payer mix rather than matching city or headcount.",
+        "evidence": "No comparable named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States explicitly whether the single time step is an expiring discount or a surcharge that lands.",
+        "evidence": "Multiple discount steps and a premium; no single-step statement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the time gate as a published calendar date, or as a first-N-tickets count, announced from the day tickets go on sale.",
+        "evidence": "Phase dates deferred: 'give me the event date and I'll set the calendar.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels each price it produces as sourced or self-set.",
+        "evidence": "No labels.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not copy absolute ticket prices from any named conference into the Ferrite Conf grid.",
+        "evidence": "No named conference prices appear.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Confirms the ticket revenue target comes from the budget before allocating it across the tiers.",
+        "evidence": "Revenue check compares to last year, no budget target.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

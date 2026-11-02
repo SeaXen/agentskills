@@ -1,0 +1,153 @@
+import { jest } from '@jest/globals';
+
+const mockLogger = {
+    info: jest.fn(),
+    warn: jest.fn(),
+    error: jest.fn(),
+    debug: jest.fn()
+};
+
+jest.unstable_mockModule('@sap-ux/logger', () => ({
+    ToolsLogger: jest.fn().mockImplementation(() => mockLogger)
+}));
+
+const mockWriteFile = jest.fn() as jest.Mock;
+jest.unstable_mockModule('node:fs/promises', () => ({
+    writeFile: mockWriteFile
+}));
+
+describe('download readme from npmjs', () => {
+    const testPackageName = '@sap/ux-ui5-tooling';
+    const testReadmeContent = '# Test README';
+
+    beforeAll(() => {
+        process.argv = ['node', 'script.js', testPackageName];
+    });
+
+    beforeEach(() => {
+        jest.clearAllMocks();
+        jest.resetModules();
+    });
+
+    it('should download readme from npmjs', async () => {
+        global.fetch = jest.fn<typeof fetch>().mockResolvedValue({
+            ok: true,
+            json: jest.fn().mockResolvedValue({
+                readme: testReadmeContent
+            })
+        } as any);
+
+        const script = await import('../src/scripts/load-readme-from-npm.js');
+        await script.execution;
+
+        expect(mockLogger.info).toHaveBeenCalledWith(`Fetching README for ${testPackageName}...`);
+        expect(mockLogger.info).toHaveBeenCalledWith(`Successfully saved README to './data_local'`);
+        const expectedFileName = `${testPackageName.split('/').pop()}-README.md`;
+        expect(mockWriteFile).toHaveBeenCalledWith(
+            expect.stringContaining(expectedFileName),
+            `\n--------------------------------\n${testReadmeContent}`,
+            'utf-8'
+        );
+    });
+
+    it('should handle fetch error', async () => {
+        global.fetch = jest.fn<typeof fetch>().mockResolvedValue({
+            ok: false,
+            statusText: 'Not Found'
+        } as any);
+
+        const script = await import('../src/scripts/load-readme-from-npm.js');
+        await script.execution;
+
+        expect(mockLogger.error).toHaveBeenCalledWith(`Failed to fetch package: Not Found.`);
+        expect(mockLogger.error).toHaveBeenCalledWith(`Could not fetch README for ${testPackageName}.`);
+    });
+
+    it('should handle fetch throwing an exception', async () => {
+        const fetchError = new Error('Network error');
+        global.fetch = jest.fn<typeof fetch>().mockRejectedValue(fetchError);
+
+        const script = await import('../src/scripts/load-readme-from-npm.js');
+        await script.execution;
+
+        expect(mockLogger.error).toHaveBeenCalledWith(
+            `Error fetching README for ${testPackageName}: ${fetchError.message}`
+        );
+        expect(mockLogger.error).toHaveBeenCalledWith(`Could not fetch README for ${testPackageName}.`);
+    });
+
+    it('should handle missing readme content', async () => {
+        global.fetch = jest.fn<typeof fetch>().mockResolvedValue({
+            ok: true,
+            json: jest.fn().mockResolvedValue({})
+        } as any);
+
+        const script = await import('../src/scripts/load-readme-from-npm.js');
+        await script.execution;
+
+        expect(mockLogger.error).toHaveBeenCalledWith(`Could not find README content for ${testPackageName}.`);
+        expect(mockLogger.error).toHaveBeenCalledWith(`Could not fetch README for ${testPackageName}.`);
+    });
+
+    it('should handle writeFile error', async () => {
+        global.fetch = jest.fn<typeof fetch>().mockResolvedValue({
+            ok: true,
+            json: jest.fn().mockResolvedValue({
+                readme: testReadmeContent
+            })
+        } as any);
+        mockWriteFile.mockRejectedValue(new Error('Permission denied'));
+
+        const script = await import('../src/scripts/load-readme-from-npm.js');
+        await script.execution;
+
+        const expectedFileName = `${testPackageName.split('/').pop()}-README.md`;
+        expect(mockLogger.error).toHaveBeenCalledWith(
+            `Error writing README file for ${expectedFileName}: Error: Permission denied.`
+        );
+    });
+
+    it('should reject package names containing double-dot traversal', async () => {
+        process.argv = ['node', 'script.js', '..'];
+        global.fetch = jest.fn<typeof fetch>().mockResolvedValue({
+            ok: true,
+            json: jest.fn().mockResolvedValue({
+                readme: testReadmeContent
+            })
+        } as any);
+
+        const script = await import('../src/scripts/load-readme-from-npm.js');
+        await script.execution;
+
+        expect(mockLogger.error).toHaveBeenCalledWith(expect.stringContaining('Invalid package name'));
+        expect(mockWriteFile).not.toHaveBeenCalled();
+    });
+
+    it('should reject package names containing backslash traversal', async () => {
+        process.argv = ['node', 'script.js', 'foo\\..\\bar'];
+        global.fetch = jest.fn<typeof fetch>().mockResolvedValue({
+            ok: true,
+            json: jest.fn().mockResolvedValue({
+                readme: testReadmeContent
+            })
+        } as any);
+
+        const script = await import('../src/scripts/load-readme-from-npm.js');
+        await script.execution;
+
+        expect(mockLogger.error).toHaveBeenCalledWith(expect.stringContaining('Invalid package name'));
+        expect(mockWriteFile).not.toHaveBeenCalled();
+    });
+
+    it('should handle no package name error', async () => {
+        //this test should always be the last one because we are overriding process.argv
+        process.argv = ['node', 'script.js'];
+        const mockExit = jest.spyOn(process, 'exit').mockImplementation((() => {}) as any);
+
+        const script = await import('../src/scripts/load-readme-from-npm.js');
+        await script.execution;
+
+        expect(mockLogger.error).toHaveBeenCalledWith(`Please provide a package name as an argument.`);
+        expect(mockExit).toHaveBeenCalledWith(1);
+    });
+});

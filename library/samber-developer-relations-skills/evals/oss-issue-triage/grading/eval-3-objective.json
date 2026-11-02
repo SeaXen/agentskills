@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that a mass close is legitimate exactly once, as the opening move of a new policy",
+        "evidence": "'Mass-closing everything past a threshold (\"backlog bankruptcy\") is legitimate exactly once, as the opening move of a new policy'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses the proposed annual repetition and explains why a recurring bankruptcy is not a maintenance routine",
+        "evidence": "'Repeating it every January is the documented failure mode, not a fix... it resets the count once a year while inflow keeps outpacing throughput the other eleven months.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the announcement, the new triage policy and the new intake to go live on the same day as the mass close",
+        "evidence": "'legitimate exactly once, as the opening move of a new policy \u2014 paired with that policy and a new intake going live the same day.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites the documented outcome that mass-closing works once and the backlog returns to the same state within roughly six months",
+        "evidence": "'A maintainer who tried this on a six-month cadence reported: \"it works once,\" then found the backlog back in the same state...'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the underlying cause as the absence of a natural lifecycle for issues and pull requests, which the closure itself does not address",
+        "evidence": "Only 'the underlying issue \u2014 no lifecycle rule for issues \u2014 was never fixed by the closure itself' is stated; pull requests are never mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the close message to carry an explanation and an open invitation to reopen",
+        "evidence": "'If this still applies to a current fernweb release, reopen it \u2014 no justification needed.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Pairs the mass close with an intake change rather than presenting it standalone",
+        "evidence": "'paired with that policy and a new intake going live the same day' / one-time pass explicitly tied to 'the new triage policy going live the same day'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Excludes confirmed or accepted items and security items from the mass close",
+        "evidence": "`EXEMPT_LABELS = {\"accepted\", \"needs-owner\", \"blocked\", \"security\", \"pinned\"}`",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that notification volume is the real cost of a bulk pass",
+        "evidence": "`--batch-sleep`, 'seconds between closes, avoids a notification storm'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a baseline measurement of the queue before the mass close so the effect is measurable afterwards",
+        "evidence": "'Run triage-baseline.py against a real export before the bankruptcy pass \u2014 it'll tell you what share of those 2,100 is actually untriaged...'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the new policy to name the published first-response target the project will hold after the close",
+        "evidence": "No first-response target number is specified anywhere in the transcript; capacity numbers are flagged as missing instead.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the baseline to be re-run monthly for the first quarter rather than checked once",
+        "evidence": "No mention of a monthly re-run cadence anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not present a scheduled or calendared mass-close job as the deliverable",
+        "evidence": "The bankruptcy script is a manual dry-run-then---live CLI tool, not a cron job; only the separate needs-info sweep is scheduled.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that a mass close is legitimate exactly once, as the opening move of a new policy",
+        "evidence": "Script is described as \"cadence-agnostic: ... safe whether it's invoked manually once a year or on a monthly schedule,\" not framed as a one-time opening move.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses the proposed annual repetition and explains why a recurring bankruptcy is not a maintenance routine",
+        "evidence": "\"it satisfies 'run it every January' literally, while I'd still recommend wiring it to run monthly ... so the backlog never gets to 2,100 again\" \u2014 endorses recurring repetition rather than refusing it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the announcement, the new triage policy and the new intake to go live on the same day as the mass close",
+        "evidence": "No mention of a new intake process or same-day announcement requirement anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites the documented outcome that mass-closing works once and the backlog returns to the same state within roughly six months",
+        "evidence": "No such citation or six-month outcome claim appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the underlying cause as the absence of a natural lifecycle for issues and pull requests, which the closure itself does not address",
+        "evidence": "No discussion of a missing lifecycle as root cause; focus is on avoiding backlash from a blunt hard-close.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the close message to carry an explanation and an open invitation to reopen",
+        "evidence": "Close comment: \"This isn't a judgment that the report was wrong... open a fresh issue (or comment here)... we'll take another look.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Pairs the mass close with an intake change rather than presenting it standalone",
+        "evidence": "No intake/reporting-process change is proposed; only the stale-then-close mechanism itself.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Excludes confirmed or accepted items and security items from the mass close",
+        "evidence": "`EXEMPT_LABELS = {\"security\", \"pinned\", \"no-stale\", \"help-wanted\", \"bug:confirmed\"}`.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that notification volume is the real cost of a bulk pass",
+        "evidence": "Only rate-limit/API-call cost is warned about (\"will likely hit GitHub's hourly rate limit\"), not notification volume to contributors.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a baseline measurement of the queue before the mass close so the effect is measurable afterwards",
+        "evidence": "The 2,100 count is mentioned as context but no baseline-for-comparison methodology or post-close remeasurement is described.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the new policy to name the published first-response target the project will hold after the close",
+        "evidence": "No first-response target is discussed anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the baseline to be re-run monthly for the first quarter rather than checked once",
+        "evidence": "No re-run-monthly requirement stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not present a scheduled or calendared mass-close job as the deliverable",
+        "evidence": "The deliverable includes `.github/workflows/issue-triage.yml` with `cron: \"0 9 1 1 *\"` (or monthly) explicitly running the close script \u2014 exactly a calendared mass-close job.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

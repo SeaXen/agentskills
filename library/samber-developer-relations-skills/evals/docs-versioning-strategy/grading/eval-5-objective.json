@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Prices the 'keeping current in step' term as doc fixes \u00d7 share touching released behaviour \u00d7 minutes per copy, and shows it is non-zero because `current` builds from the release branch while main carries `next`",
+        "evidence": "\"24 \u00d7 20 min | 8\" because \"`current` builds from a release branch while main carries `next`.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Computes that term at about 30 \u00d7 80% \u00d7 10-30 minutes, roughly 4-12 hours per month, and states it alone exceeds the 3-hour ceiling",
+        "evidence": "Uses only 20 min (8 h). It says the total exceeds the ceiling, not that this term alone does.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Prices the maintained term as fixes \u00d7 share qualifying \u00d7 2 maintained versions \u00d7 minutes per backport, using the 10-20% and 10-30 minute figures labelled as baselines",
+        "evidence": "\"30 \u00d7 10\u201320% \u00d7 2 versions \u00d7 20 min = 2\u20134 h/month\"; the figures are called baselines.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the draft 'every applicable fix to every supported version' policy by showing its priced cost against the 3-hour ceiling",
+        "evidence": "\"Even the best case is 2\u00d7 over.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends building `current` from main and marking unreleased 5.3 content inline ('coming in 5.3') instead of running a separate `next` build, because 5.3 is additive",
+        "evidence": "\"Build 5.x `current` from main. Mark unreleased content inline: 'coming in 5.3'.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that once main starts 6.0, `current` branches from the release tag and the first term is priced again",
+        "evidence": "\"Reprice when main starts 6.0... branch `current` from the 5.x release tag.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes the rule: every released-behaviour fix to `current`; 4.x and 3.x only for security, legal exposure, data loss, or a step that blocks upgrading; `frozen` never",
+        "evidence": "Security, legal exposure, data loss, upgrade-blocking only; \"Never fix frozen or archived versions.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires each doc pull request to carry its backport targets at review time, not after merge, and puts that field in the PR template",
+        "evidence": "\"Tag backport targets in the PR at review time\"; the template has a Backport section.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the baseline figures are replaced with measured ones after one month",
+        "evidence": "\"Measure for one month, then replace the baselines with real numbers.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Compares the priced total with the 3-hour standing ceiling and, if over, freezes 3.x early or switches to per-major frozen",
+        "evidence": "\"if two months in a row exceed 3 h, freeze 3.x early.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the Django practice (latest stable branch only) and the GitLab exception (older releases rarely: legal, security, upgrade-blocking, data loss) as the precedents the rule combines",
+        "evidence": "\"The rule combines Django's (latest stable only) and GitLab's\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that an unpriced rule decays into 'backport nothing' within two releases",
+        "evidence": "\"An unpriced rule decays into 'backport nothing' within two releases.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Adds to the release checklist that 'coming in 5.3' marks convert to 'added in 5.3' at the release cut",
+        "evidence": "The conversion appears only in the policy table. The release-cut checklist line omits it.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Prices the 'keeping current in step' term as doc fixes \u00d7 share touching released behaviour \u00d7 minutes per copy, and shows it is non-zero because `current` builds from the release branch while main carries `next`",
+        "evidence": "\"The fix PR targets 5.x, so 5.x costs nothing extra.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Computes that term at about 30 \u00d7 80% \u00d7 10-30 minutes, roughly 4-12 hours per month, and states it alone exceeds the 3-hour ceiling",
+        "evidence": "Computes 48 backports at about 8 hours/month, not the current-branch term.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Prices the maintained term as fixes \u00d7 share qualifying \u00d7 2 maintained versions \u00d7 minutes per backport, using the 10-20% and 10-30 minute figures labelled as baselines",
+        "evidence": "Budget table: Tier A share \u00d7 2 branches \u00d7 10 min, labelled \"my assumption, not your data\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the draft 'every applicable fix to every supported version' policy by showing its priced cost against the 3-hour ceiling",
+        "evidence": "\"About 8 hours/month against 3.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends building `current` from main and marking unreleased 5.3 content inline ('coming in 5.3') instead of running a separate `next` build, because 5.3 is additive",
+        "evidence": "Keeps a separate main/next branch with forward-merge.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that once main starts 6.0, `current` branches from the release tag and the first term is priced again",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes the rule: every released-behaviour fix to `current`; 4.x and 3.x only for security, legal exposure, data loss, or a step that blocks upgrading; `frozen` never",
+        "evidence": "Tier A is broader (wrong defaults, errors, samples) and the rule never says frozen is never backported.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires each doc pull request to carry its backport targets at review time, not after merge, and puts that field in the PR template",
+        "evidence": "The template has \"Which versions does this affect?\" and backport labels.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the baseline figures are replaced with measured ones after one month",
+        "evidence": "\"Measure it for one month.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Compares the priced total with the 3-hour standing ceiling and, if over, freezes 3.x early or switches to per-major frozen",
+        "evidence": "Suggests a backport bot instead of freezing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the Django practice (latest stable branch only) and the GitLab exception (older releases rarely: legal, security, upgrade-blocking, data loss) as the precedents the rule combines",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that an unpriced rule decays into 'backport nothing' within two releases",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds to the release checklist that 'coming in 5.3' marks convert to 'added in 5.3' at the release cut",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

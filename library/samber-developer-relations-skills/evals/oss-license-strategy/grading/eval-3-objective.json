@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that MIT and BSD carry no patent grant while Apache-2.0, GPL-3.0 and MPL-2.0 do",
+        "evidence": "\"Confirmed patent-grant licenses: Apache-2.0, GPL-3.0, MPL-2.0. Confirmed silent: MIT, BSD.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends checking whether the project's own license already carries a patent grant before adding an agreement for that reason",
+        "evidence": "\"MIT text is silent on patents. No grant, no denial, just silence.\" followed by the recommendation to move license rather than add a CLA.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends moving the project to Apache-2.0 as the answer to the patent question rather than adding a CLA",
+        "evidence": "\"Move the outbound license to Apache-2.0 (or dual-license MIT/Apache-2.0). It carries an explicit patent grant plus patent retaliation\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Starts the contribution-policy ladder at the DCO rather than at 'nothing' or at a CLA",
+        "evidence": "The transcript never mentions a DCO at all; only CLA vs. no-CLA is discussed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Quotes or paraphrases that a DCO is 'probably the minimum amount of CLA a free software project should adopt', attributed to Karl Fogel's Producing Open Source Software",
+        "evidence": "No DCO quote appears; only \"Fogel's own point\" is referenced without this specific quote.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the rule that you move up a rung only for a right the license does not already grant",
+        "evidence": "\"Justify a CLA only if quillsort needs a right the (now Apache-2.0) license doesn't already grant\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names relicensing, dual licensing and selling a commercial license of contributed code as the rights that actually justify a CLA",
+        "evidence": "The list given is \"dual-licensing plan, a foundation donation, a specific hyperscaler-fork fear\" \u2014 not the specified trio of relicensing/dual licensing/selling a commercial license.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes copyright assignment from the menu for this project and says why, citing Fogel's recommendation against it for new projects",
+        "evidence": "Copyright assignment is never mentioned in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a CLA on a project with no commercial plan reads as reserving the right to change the deal and costs drive-by contributions at the signature wall",
+        "evidence": "Only the cost part appears (\"a signature wall costs you PRs at the door for no benefit\"); no framing of it as 'reserving the right to change the deal'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns against requiring both a CLA and a DCO, since it doubles friction for one marginal gain",
+        "evidence": "No such warning; DCO is not discussed at all in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires an automated check on every incoming change, stating that a policy enforced by memory is not enforced",
+        "evidence": "No mention of an automated CLA/DCO check anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the contributor recovery commands for a missing sign-off, `git commit --amend -s` for one commit or `git rebase --signoff` for several",
+        "evidence": "Not present; the transcript only mentions `git log --follow`/blame for finding surviving contributions.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that existing history is grandfathered and retroactive sign-off is never demanded on merged work",
+        "evidence": "Not addressed; the transcript discusses relicensing consent, not DCO sign-off grandfathering.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that MIT and BSD carry no patent grant while Apache-2.0, GPL-3.0 and MPL-2.0 do",
+        "evidence": "The transcript only says 'MIT text carry no patent clause at all' and names Apache-2.0 as having a patent grant ('Apache-2.0 has explicit patent grant (Section 3)'); it never mentions BSD, GPL-3.0, or MPL-2.0.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends checking whether the project's own license already carries a patent grant before adding an agreement for that reason",
+        "evidence": "The transcript's central argument is built on checking this: 'MIT text carry no patent clause at all \u2014 no grant, no defense clause. Adding CLA don't touch MIT text. Users still get bare MIT, same gap as today,' used to argue against a CLA-only fix.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends moving the project to Apache-2.0 as the answer to the patent question rather than adding a CLA",
+        "evidence": "'1. Relicense to Apache-2.0 (recommend). Gives explicit patent grant to every user, going forward and retroactively once done. Direct answer to \"has a patent grant.\"'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Starts the contribution-policy ladder at the DCO rather than at 'nothing' or at a CLA",
+        "evidence": "No ladder is presented; DCO is only mentioned once at the end ('a lightweight DCO ... is enough') without framing a nothing\u2192DCO\u2192CLA\u2192assignment progression.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Quotes or paraphrases that a DCO is 'probably the minimum amount of CLA a free software project should adopt', attributed to Karl Fogel's Producing Open Source Software",
+        "evidence": "No mention of Karl Fogel or Producing Open Source Software anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the rule that you move up a rung only for a right the license does not already grant",
+        "evidence": "This general rule is never articulated; the transcript only applies the logic implicitly to the single patent-grant case, not as a stated principle.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names relicensing, dual licensing and selling a commercial license of contributed code as the rights that actually justify a CLA",
+        "evidence": "The transcript lists 'Relicense to Apache-2.0', 'Dual-license MIT/Apache-2.0', and 'Keep MIT, add CLA... skip license change' as options, but never mentions selling a commercial license of contributed code, nor frames these as general justifications for a CLA.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes copyright assignment from the menu for this project and says why, citing Fogel's recommendation against it for new projects",
+        "evidence": "Copyright assignment is never mentioned in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a CLA on a project with no commercial plan reads as reserving the right to change the deal and costs drive-by contributions at the signature wall",
+        "evidence": "No such statement appears; the transcript's critique of CLA is limited to it not fixing the patent-grant gap, not about signaling or drive-by contribution costs.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns against requiring both a CLA and a DCO, since it doubles friction for one marginal gain",
+        "evidence": "Not discussed; the transcript only contrasts 'Full CLA bot' vs 'lightweight DCO' as alternatives, not a warning against requiring both simultaneously.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires an automated check on every incoming change, stating that a policy enforced by memory is not enforced",
+        "evidence": "No mention of automated enforcement or checks on incoming changes anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the contributor recovery commands for a missing sign-off, `git commit --amend -s` for one commit or `git rebase --signoff` for several",
+        "evidence": "No git commands for sign-off recovery are given; the only git command mentioned is 'git shortlog -sne' for listing contributors.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that existing history is grandfathered and retroactive sign-off is never demanded on merged work",
+        "evidence": "Not mentioned; the transcript discusses retroactive patent grant via relicensing consent, but says nothing about grandfathering sign-off requirements on merged history.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

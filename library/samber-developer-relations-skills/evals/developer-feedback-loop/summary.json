@@ -1,0 +1,566 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "developer-feedback-loop",
+  "scenarios": 12,
+  "expectations_total": 159,
+  "expectations_subjective": 1,
+  "expectations_objective": 158,
+  "pass_rate_with_skill_pct": 84.9,
+  "pass_rate_without_skill_pct": 33.3,
+  "delta_pp": 51.6,
+  "uplift_multiplier": 2.55,
+  "trigger_accuracy_pct": 51.9,
+  "trigger_queries": 108,
+  "trigger_positive_fire_rate": 0.185,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.309 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Advises holding the portal purchase and names product's existing idea or backlog space, wherever product already reads, as the default record of truth."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names the 'organise it and they will come around' plan as the tool-first failure mode: a feedback portal bought before anyone agreed to decide."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Reads the corrected result back to the user and asks for confirmation before proposing any tool, label set or process."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Labels the five-minute line as a planning figure this skill sets, not a benchmark."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States the default order (product's existing space first) and why it is overridden here: open-source SDKs whose developers already file issues in public, where a private record splits the conversation in two."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that this loop owns feature-request issues' decision and reply while the issue-queue process owns their other labels."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Rewrites the title as the problem in the developer's words, not 'Add GraphQL support'."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Includes an Evidence field with a verbatim quote and a link to the source message."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes channel bias in the record when every requester came through Discord and the forum."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Introduces the clause that 'revisit next cycle' may be used at most twice per record, after which the record becomes not planned with a reason."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that 'next cycle', a cycle number or a quarter counts as a date and is treated the same way."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Gives each metric an owner and the action it triggers, in a sheet with the columns metric, definition, owner, baseline from the leak trace, self-set target, action if it slips."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that first-response time has only correlational evidence, from open-source code contributions (Hasan et al., MSR 2023), and is a direction rather than a target."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that capture rate comes from the quarterly re-trace and moves four times a year, and adds the next re-trace date."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Makes shipped-from-feedback the single line for the VP, with the leak trace before and after as the evidence behind it."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Does not build the roadmap page or the all-hands slide."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that DevRel ranking the roadmap makes it an unpaid product manager without the authority or engineering capacity behind the role."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Routes the roadmap's posture and commitment vocabulary to samber/developer-platform-skills@public-roadmap-strategy for when statuses exist."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Merges the requester counts of #88 and #103 after deduplicating people, rather than reporting them as separate totals."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Counts the change under shipped-from-feedback only if record #88 existed before the work was scheduled and is linked from the release note."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Routes writing the release note itself to samber/developer-relations-skills@changelog-writing."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Fills representation (requesters divided by active developers in that segment) as a range, or leaves it blank for lack of a denominator."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Includes an influence input: whether the requesters are maintainers, top answerers or integrators others copy."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Notes channel bias on the multi-currency record, since every requester came through sales calls."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Does not deliver an intake pipeline, label taxonomy or weekly digest design."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Delivers a leak-trace plan sampling 20-30 requests from the last 60-90 days."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Requires at least three requests per channel in the sample, including support tickets and GitHub issues, taken as the most recent per channel rather than the memorable ones."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Lists the leak-trace columns: captured in a record, reached product, decision recorded, requester told, days to first staff reply."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Delivers a contract pitch to the PMs framed as one review per planning cycle, about an hour, with the agenda already deduplicated and discovery contacts offered."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Includes bringing one traced leak (a request that arrived through several channels and reached nobody) as part of the pitch."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Advises holding the portal purchase and names product's existing idea or backlog space, wherever product already reads, as the default record of truth."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names the contract clauses product must agree to: a named receiver per area with a backup, review cadence and chair, every agenda record leaves with a status, and revisit allowed at most twice."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States the fallback if product declines any standing review: send the leak trace to the product lead's manager as a one-page finding and offer one review per quarter on the top five records."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Schedules the first decision review before the Q3 planning cycle, not after it."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Rejects selecting the 24 most-reacted requests and requires the most recent requests per channel instead."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Requires at least three rows from sales calls even though that channel is low-volume."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Puts the four duplicate rows back into the sample, marked as duplicates, and states the duplicate rate is itself a finding."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Excludes community moderators' replies from first staff reply, counting only replies from staff."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Resolves the tie toward the decision stage because the receiver is informal (Ruth reads DMs when pinged), so the contract with product comes first."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Reads the 100% told rate as a symptom, not a strength: only requests with a built-in reply path reached a decision at all."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Reads the corrected result back to the user and asks for confirmation before proposing any tool, label set or process."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Opens the intake spec with a re-ranking block stating which interview answer moved which option."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Labels the five-minute line as a planning figure this skill sets, not a benchmark."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Deletes the Friday digest rather than demoting it."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Restricts logging on behalf to paying accounts and blockers, with its own line in the hour budget."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Makes redirect-to-record (a reply with a link) the primary capture move for Discord."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Promotes one decision review before the board review and schedules it before Tomas's planning, not after."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Sequences the quarterly voice-of-developer report after two review cycles, tied to the wants-it-to-last answer."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States the both-at-once rule: the near date governs the first cycle, and the slow options start after two review cycles have run."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Produces a routing table with the columns channel, weekly volume, capture move, owner, notes."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States the default order (product's existing space first) and why it is overridden here: open-source SDKs whose developers already file issues in public, where a private record splits the conversation in two."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Writes the staleness exemption into the contract with product."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that this loop owns feature-request issues' decision and reply while the issue-queue process owns their other labels."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Posts status replies for Discord requesters in Discord as well as on the record, because tracker notifications reach subscribers only."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Rewrites the title as the problem in the developer's words, not 'Add GraphQL support'."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Keeps 'GraphQL support' as the requested fix in its own field, verbatim."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Instructs asking the requesters 'what were you trying to do when you needed this?' before logging, because the request arrived as a solution."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Reports the 31 reactions as a separate signal beside the requester count, never merged into it."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Moves Brightwater Logistics' name, the $120k figure and the March renewal into a private section or linked private record, off the public record."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Splits the input into two records, one for the problem behind the Discord asks and one for typed schemas, because different problems behind the same request are separate records."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Fills severity as per-requester counts (blocker, slows down, cosmetic), not one value for the record."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Fills requesters by segment (for example free, paid, enterprise), with the enterprise account counted once as an org."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Includes an Evidence field with a verbatim quote and a link to the source message."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Includes a Workaround field valued none, painful or acceptable."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Refuses to assign a single score out of 10 and hands product the weighting inputs instead."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Includes representation (requesters divided by active developers in that segment) as a range, or leaves it blank for lack of a denominator."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes channel bias in the record when every requester came through Discord and the forum."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Pitches the review to product as an hour per cycle, agenda sent ahead, records already deduplicated."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Orders the review agenda blockers first, then by distinct requesters, never newest first or by who asked loudest."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that a meeting ending with notes and no status changes did not happen, or is not a decision."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Introduces the clause that 'revisit next cycle' may be used at most twice per record, after which the record becomes not planned with a reason."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Provides the five-part review agenda: shipped since last review, revisit items, new records, signals without a record, statuses to publish and who drafts each reply."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Includes a missed-review clause: agenda records keep 'under review' with a public note that the review moved, and after two misses DevRel raises it with the product lead's manager."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Defers the planning seat until the decision review has run two cycles and product has seen records ship."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Removes 'Q2' from (2), because product has not published a date."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that 'next cycle', a cycle number or a quarter counts as a date and is treated the same way."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Rewrites (2) as 'planned': product committed to solving the problem, no date published yet, record updated when one is and when it ships."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Has product approve the public reason for each decision before it is posted."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Batches the decided-status replies into one pass in the week after the review."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Keeps the published status vocabulary to received, under review, needs discovery, planned, not planned, shipped, duplicate."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Does not promise the replay endpoint as coming; mentions it only as product's approved reason, with no date."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Assigns support the job of telling the requesters who came through support tickets."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Removes feedback volume as a success metric and states that more requests is not better or worse by itself."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names the metric set: time to first staff reply, capture rate, decision rate, closure rate, shipped-from-feedback."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Gives each metric an owner and the action it triggers, in a sheet with the columns metric, definition, owner, baseline from the leak trace, self-set target, action if it slips."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Labels every target self-set, derived from the team's own leak trace, and cites no industry benchmark."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that first-response time has only correlational evidence, from open-source code contributions (Hasan et al., MSR 2023), and is a direction rather than a target."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that capture rate comes from the quarterly re-trace and moves four times a year, and adds the next re-trace date."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Makes shipped-from-feedback the single line for the VP, with the leak trace before and after as the evidence behind it."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Uses the starting targets of a two-business-day capture window and requester told within five business days of a status change, labelled as starting points to replace with the team's own trend."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Does not log all 412 requests; clusters them into problems and logs only the largest clusters before the first review, capped at what that review can decide."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Marks the remaining requests received, with an honest note that they wait for the next cycle."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Treats Anika's 'take a look' as an informal receiver: runs the leak trace and the contract first, with intake designed in parallel while the contract is agreed."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that an informal receiver is a contract waiting to be written, not a substitute for one."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Rejects the 38-label scheme and keeps three single-valued label axes: type, area, status."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Makes customer tier a per-requester segment field rolled up into counts on the record, not a record label."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Makes severity a per-requester field rolled up into counts."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Removes priority P0-P3 and effort S/M/L from DevRel's label set, because weighing priority and effort is product's decision."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Cuts the weekly digest and replaces it with a decision review scheduled before planning."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Writes each record problem-first with the requested fix in a separate field."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Includes the contract clause that every agenda record leaves with a status and 'revisit next cycle' is allowed at most twice."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Sends 'under review' replies to the requesters of every agenda record when the agenda is frozen, before the review."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names a product receiver with a backup and a review cadence chaired by product in the contract."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Does not build the roadmap page or the all-hands slide."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States the move when product declines a standing review: do not build the pipeline yet, run the leak trace."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Sends the leak trace to the product lead's manager as a one-page finding."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Offers product the smallest version: one review per quarter on the top five records."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Refuses a public roadmap before two review cycles have produced statuses, because a roadmap built before decisions exist is a list of hopes."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names 'the community wants X' as feedback used as ammunition and replaces it with distinct requester counts by segment, including who does not want it."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Replaces the 480 upvotes with distinct requesters, with votes reported beside the count as a separate signal."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that DevRel ranking the roadmap makes it an unpaid product manager without the authority or engineering capacity behind the role."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Frames the pitch around what product gets: an hour per cycle, deduplicated records, discovery contacts, and one traced leak."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names the cost of not deciding in the pitch: every unanswered request is a public thread where the company looks like it is not listening."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Routes the roadmap's posture and commitment vocabulary to samber/developer-platform-skills@public-roadmap-strategy for when statuses exist."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Posts the shipped reply in each channel where the nine requesters originally asked, as well as on the record."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Closes #103 toward #88 as a duplicate with a link, so its three requesters follow the canonical record, rather than posting a separate 'done'."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Merges the requester counts of #88 and #103 after deduplicating people, rather than reporting them as separate totals."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Attributes the 'shipped' status to product, with DevRel relaying it."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Counts the change under shipped-from-feedback only if record #88 existed before the work was scheduled and is linked from the release note."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Routes writing the release note itself to samber/developer-relations-skills@changelog-writing."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Reports votes and reactions as a separate signal beside the distinct requester count."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Turns the DX audit into one record per friction point, six records."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Counts the advocate as a requester on each friction record, alongside the Discord developers who confirmed the two matching points."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Keeps the opportunity references private, off the public record."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Rejects ranking the agenda by votes plus mentions and orders it blockers first, then by distinct requesters."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Counts each person once per record across channels."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Shows segment mix beside each record rather than folding it into one score."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Fills representation (requesters divided by active developers in that segment) as a range, or leaves it blank for lack of a denominator."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Includes an influence input: whether the requesters are maintainers, top answerers or integrators others copy."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Notes channel bias on the multi-currency record, since every requester came through sales calls."
+      }
+    ]
+  }
+}

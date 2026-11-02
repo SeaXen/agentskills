@@ -1,0 +1,634 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "developer-office-hours-program",
+  "scenarios": 10,
+  "expectations_total": 133,
+  "expectations_subjective": 0,
+  "expectations_objective": 133,
+  "pass_rate_with_skill_pct": 72.9,
+  "pass_rate_without_skill_pct": 16.5,
+  "delta_pp": 56.4,
+  "uplift_multiplier": 4.42,
+  "trigger_accuracy_pct": 69.1,
+  "trigger_queries": 110,
+  "trigger_positive_fire_rate": 0.6,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": null,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Gives the daylight-saving dates: EU on the last Sundays of March and October, US on the second Sunday of March and the first Sunday of November"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that between those dates the Europe-to-US gap shrinks by one hour for two to three weeks in spring and about a week in autumn"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Refuses the alternate-week European slot now because Europe at 22% sits under the second-slot trigger of 25% of active users, and labels 25% as a baseline"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends one slot plus async intake as the default coverage pattern and states the efficiency ordering with it first"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Says to poll the audience before fixing the slot and to re-run the regional split after the pilot before adding any second slot"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Declines to propose a format before the gating interview questions are answered, asking them one at a time and multiple-choice where possible"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Applies the engineer cap: at most one session per engineer per month, about 75 minutes each, labelled baseline with Kubernetes' 1 hour per month as the precedent"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Stores the interview answers in devrel-context.md or the harness memory system, with a date on task entries"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that a monthly program's pilot is two quarters or at least six sessions, and that three sessions under the bar bring the pilot review forward"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States the rule the September session broke: the named backup engineer takes it, and a cancellation is announced only when engineer and backup are both out"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Reads the scope card at the start of each session together with the recording notice and the no-live-debugging line"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Sorts pre-submitted questions into answer live, answer async, redirect, docs gap and log for product, most widely useful first, and never silently drops one"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Gives the compliance-cost ordering with the livestream panel highest and booked slots second"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Warns from the discontinued Kubernetes 1:1 Hour that pairs spent the hour choosing tools, and requires a script and a ready environment sent before each booked slot"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Deletes the raw session log once the write-up is published, after copying consented handles onto logged feature requests"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Gives the efficiency ordering: async thread only > drop-in call > livestream panel > booked slots > staffed queue"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Gives the value ordering: livestream panel > staffed queue > drop-in call > async thread only > booked slots"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Gives the effort ordering: staffed queue > livestream panel > booked slots > drop-in call > async thread only"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Gives the compliance-cost ordering and justifies the tie between async thread and staffed queue: both are text posted under published rules with no voice or face recorded"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Gives order-of-magnitude effort per cycle: drop-in call about half a staff-day, livestream panel about a day, staffed queue a standing job"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Says the ranking is a default rather than a law and re-ranks against what the team already has"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names the goodwill-rotation failure: engineers invited in a kickoff and gone by week four or five"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Replaces goodwill with a cap in sessions: at most one session per engineer per month (baseline), about 75 minutes each"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names a backup host so the program does not die on the host's first holiday, and gives note-taking to someone other than the host"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Labels resulting issues and docs changes so the pilot review can count them, citing GitLab's 'Office Hours' label"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Links the latest write-up in the next announcement and pins the intake thread the moment the write-up is published"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names well-attended sessions with no docs change as the answer-and-forget failure: the session is wasted if the same question comes back next month"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Assigns note-taking to someone other than the host so a log exists to write up from"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Refuses to invent twelve months of sessions with named engineers, books the rotation one quarter ahead, and marks everything past the pilot as provisional"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Asks the gating interview questions (job, five unanswered questions, user regions, staffing with manager agreement, start date and standing versus one-off, recording constraints) before proposing a format, one at a time and multiple-choice where possible"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Produces the deliverables in order: charter, slot plan, rotation calendar, scope card, session log and write-up skeletons, measurement table"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that the one-off v4 launch AMA is not a standing program, says so, and offers only the scope card and the room-handling material for it rather than folding it into the pilot"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Offers to store the charter, rotation and session log in persistent memory, gated on the capability being available"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Asks about customer type, support, sales and security channels, and promotion channels before writing the scope card, because the card needs their destinations"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Sends each participant a script and a ready environment before the slot, citing the discontinued Kubernetes 1:1 Hour where pairs spent the hour choosing tools"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Acknowledges that booked slots rank last on value in the default ordering and names the contributor-growth job as the condition that promotes them"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Treats the US as the single largest region and anchors the slot in US Eastern time with both coasts inside 09:00-18:00, for example 12:00 ET / 09:00 PT"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that the anchored slot lands at 17:00 Lisbon, inside the hosts' working day, so no late day is needed"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names India and the 6% elsewhere as the audience outside its working window at that slot and gives them the async intake as a named path rather than the recording alone"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Publishes the slot in US Eastern with a calendar link, and gives a UTC time only next to a specific date"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Rejects the '15:00 Lisbon time / 14:00 UTC' wording as a slot anchored in host time"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Gives the daylight-saving dates: EU on the last Sundays of March and October, US on the second Sunday of March and the first Sunday of November"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that between those dates the Europe-to-US gap shrinks by one hour for two to three weeks in spring and about a week in autumn"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Tells them to anchor the slot in the audience time zone and let the hosts' local time move"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Refuses the alternate-week European slot now because Europe at 22% sits under the second-slot trigger of 25% of active users, and labels 25% as a baseline"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends one slot plus async intake as the default coverage pattern and states the efficiency ordering with it first"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Says to poll the audience before fixing the slot and to re-run the regional split after the pilot before adding any second slot"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Declines to propose a format before the gating interview questions are answered, asking them one at a time and multiple-choice where possible"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Applies the demand gate: fewer than five questions from the last month that the docs did not answer means every live format is deleted for now"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Recommends running an async intake thread first and fixing the docs it surfaces before any live session"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names the plan as the launch-weekly failure pattern: a weekly live slot before anyone has asked anything"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Deletes the livestream panel because the rotation holds fewer than three engineers"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Applies the engineer cap: at most one session per engineer per month, about 75 minutes each, labelled baseline with Kubernetes' 1 hour per month as the precedent"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Does the cap arithmetic: weekly needs about six engineers (sessions per month plus one spare), so two engineers cannot staff it"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Rejects engineers who 'said they're happy to join when they can' as a staffing plan and requires written manager agreement with the session counted in their review"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Requires a named backup host as well as a host"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Requires a pilot of at least six sessions with the continue bar written into the charter before the first session"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Refuses recordings piling up as content as a reason to pick the livestream, and counts distinct askers and docs fixes rather than recording views"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Stores the interview answers in devrel-context.md or the harness memory system, with a date on task entries"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Says which interview answer moved which format option: the demand gate and the rotation size"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Keeps async intake in the design whatever live format is chosen later"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Reads two bars separately: a demand bar that decides continue or stop and an operating bar that decides what to fix"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Places median askers of 1 and zero docs fixes under the demand bar and recommends dropping to an async thread for a quarter and re-testing demand"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names the silent September cancellation and the late write-ups as operating-bar failures that decide what to fix, never whether to stop"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Rejects going weekly, and puts slot and promotion changes before any cadence change"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that a monthly program's pilot is two quarters or at least six sessions, and that three sessions under the bar bring the pilot review forward"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States the rule the September session broke: the named backup engineer takes it, and a cancellation is announced only when engineer and backup are both out"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Keeps the same engineer rotation during the async quarter and publishes the repeat answers as docs so the re-test is fair"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Gives the closure protocol if the live session stops: a closure post where sessions were announced, a pointer to the async thread, and every calendar entry removed"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Labels resulting issues and docs changes (for example 'Office Hours') so the next review can count them"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Rejects 'Ask us anything, no question too small' and writes a scope card with three to five in-scope examples phrased as users would ask them and three to five out-of-scope items each with a destination"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Routes pricing and Enterprise-tier questions to the sales contact, and limits answers to what the public docs already say about paid features with nothing about roadmap or price"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Removes logs, configs and screenshots from the intake form and explains they carry secrets and customer data into a tool nobody reviews"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Limits the form to six fields: the question, what was tried and which docs page was read, product and version, recording consent (yes / anonymise / write-up only), optional time zone, optional contact with consent to keep the handle on a feature request"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Routes a reproducible bug to the issue tracker with an offer to help write the report"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Logs feature requests live in the feedback record and says the product team decides"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Prints the recording policy and the code of conduct link on the scope card"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Pins a 'no logs, keys or customer data' rule at the top of the intake thread and gives moderators a redaction path"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Reads the scope card at the start of each session together with the recording notice and the no-live-debugging line"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Sorts pre-submitted questions into answer live, answer async, redirect, docs gap and log for product, most widely useful first, and never silently drops one"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Refuses to record the booked 30-minute slots; internal notes only"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Keeps the livestream recorded and captioned, with destination and retention announced and a camera-off, chat-only and anonymised-reading path offered"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Writes a notice stating where the recording is published, within how many days, how long it is kept and the no-record path, and says it before recording starts and again when it begins"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Prints the per-format recording policy on the scope card"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Gives the compliance-cost ordering with the livestream panel highest and booked slots second"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Keeps booked slots as the right format for partners whose questions need their own code on screen"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Warns from the discontinued Kubernetes 1:1 Hour that pairs spent the hour choosing tools, and requires a script and a ready environment sent before each booked slot"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Honours every 'don't read my name' request from the intake form"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Treats async text as its own record and says so on the scope card"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Deletes the raw session log once the write-up is published, after copying consented handles onto logged feature requests"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Runs an async intake whatever live format is chosen, and chooses at most one live format"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Gives the efficiency ordering: async thread only > drop-in call > livestream panel > booked slots > staffed queue"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Gives the value ordering: livestream panel > staffed queue > drop-in call > async thread only > booked slots"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Gives the effort ordering: staffed queue > livestream panel > booked slots > drop-in call > async thread only"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Gives the compliance-cost ordering and justifies the tie between async thread and staffed queue: both are text posted under published rules with no voice or face recorded"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Promotes the drop-in call because the stated job is product feedback, and says that interview answer moved it"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Deletes the Discord one-hour-response queue because no support team owns it, naming its effort as a paid support rota rather than a DevRel slot"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names the livestream panel as what the efficiency order starves and gives its promotion condition: drop-in sessions regularly running out of time with a rotation of three or more"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Gives order-of-magnitude effort per cycle: drop-in call about half a staff-day, livestream panel about a day, staffed queue a standing job"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Confirms the demand gate is met by the roughly 30 unanswered forum questions"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States the default of async intake plus drop-in call"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Says the ranking is a default rather than a law and re-ranks against what the team already has"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Checks biweekly staffing against the cap: two sessions a month plus a spare needs three or four engineers, so the four fit"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Replaces goodwill with a cap in sessions: at most one session per engineer per month (baseline), about 75 minutes each"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Flags Dario at three sessions in four weeks as over the cap"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Does the cap arithmetic: weekly needs about six engineers (four sessions a month plus a spare), so five engineers cannot hold weekly, and moves to biweekly or recruits"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires each engineer's manager to agree to the cap in writing and to count the session as work in their review"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Books the rotation a quarter ahead with a named backup per session, the month's spare engineer serving as that backup"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names a backup host so the program does not die on the host's first holiday, and gives note-taking to someone other than the host"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Credits the engineer and their team by name in the session and in the write-up, citing Kubernetes thanking donating employers on air"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Sends each engineer a prep brief with the pre-submitted questions and the scope card 48 hours before the session"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Announces the next engineer by name and area in promotion, because users come for a person who knows their problem"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names the engineer pool as the single point of failure, citing Kubernetes pausing an edition when panelists ran out"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Tracks engineer sessions per month in the session log with the target of no engineer over one"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Opens a docs ticket the second time a question family appears, in a session or any channel, and groups the lock-timeout variants into one family with each sighting added to its ticket"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Routes the lock-timeout family, as an error, to the troubleshooting-docs sibling skill to write the page"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Opens a docs ticket for the token-scoping question because it has been seen twice"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Rejects a recording link as the write-up and gives the write-up sections: answered, answered here not live, redirected, logged for the product team, docs we are fixing, next session and submit link"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Publishes the write-up within 2 business days (baseline) where the intake thread lives"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Deletes the raw session log after the write-up is published"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Labels resulting issues and docs changes so the pilot review can count them, citing GitLab's 'Office Hours' label"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Links the latest write-up in the next announcement and pins the intake thread the moment the write-up is published"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Sets the target of at least one merged docs fix or feedback record per two sessions and reads the current value as zero"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names well-attended sessions with no docs change as the answer-and-forget failure: the session is wasted if the same question comes back next month"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Assigns note-taking to someone other than the host so a log exists to write up from"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Refuses to invent twelve months of sessions with named engineers, books the rotation one quarter ahead, and marks everything past the pilot as provisional"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Asks the gating interview questions (job, five unanswered questions, user regions, staffing with manager agreement, start date and standing versus one-off, recording constraints) before proposing a format, one at a time and multiple-choice where possible"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Produces the deliverables in order: charter, slot plan, rotation calendar, scope card, session log and write-up skeletons, measurement table"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Writes a one-page charter with job, audience, format, slot, staffing, scope card, recording policy, outputs, pilot dates, demand bar and operating bar"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Presents the charter section by section for validation, or, with no validation available, delivers it whole with the open decisions listed at the top"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Sets the pilot at a minimum of six sessions and writes the continue bar before the first session"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Puts both bars in the charter: the demand bar (askers per cycle, docs fixes plus feedback records per two sessions) and the operating bar (no silent cancellation, no engineer over the cap, write-ups on time in all but one session)"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that the one-off v4 launch AMA is not a standing program, says so, and offers only the scope card and the room-handling material for it rather than folding it into the pilot"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Offers to store the charter, rotation and session log in persistent memory, gated on the capability being available"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Asks about customer type, support, sales and security channels, and promotion channels before writing the scope card, because the card needs their destinations"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Promotes booked pairing slots on starter issues because the job is contributor growth, and says that interview answer moved the format choice"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Chooses booked slots as the single live format instead of adding them beside a monthly public call"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Measures first merged contributions per cycle instead of how many people show up"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Writes the demand bar in the charter in first merged contributions, with the fallback format named below it"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Hands the contributor onboarding path to the contributor-onboarding sibling skill"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Never records the booked pairing slots, keeping internal notes only"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Sends each participant a script and a ready environment before the slot, citing the discontinued Kubernetes 1:1 Hour where pairs spent the hour choosing tools"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Keeps an async intake thread taking questions all week"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Caps each core dev at one session per month (baseline) and sizes the bookable slots per month to that cap with one spare"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires a pilot of at least six sessions with the continue bar written before the first one"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that no organization publishes attendance or repeat-attendance benchmarks for office hours, so any target is self-set"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Acknowledges that booked slots rank last on value in the default ordering and names the contributor-growth job as the condition that promotes them"
+      }
+    ]
+  }
+}

@@ -1,0 +1,112 @@
+import { latestVersionString } from '@sap-ux/ui5-info';
+import { existsSync } from 'node:fs';
+import { join } from 'node:path';
+import { coerce, gte } from 'semver';
+import { defaultProjectNumber, t } from '../i18n.js';
+import {
+    promptNames,
+    type AddDeployPromptOptions,
+    type UI5ApplicationCommonPromptOptions,
+    type UI5ApplicationPromptOptions,
+    type UI5ApplicationQuestion
+} from '../types.js';
+import type { CdsUi5PluginInfo } from '@sap-ux/project-access';
+
+/**
+ * Tests if a directory with the specified `appName` exists at the path specified by `targetPath`.
+ *
+ * @param appName directory name of application
+ * @param targetPath directory path where application directory would be created
+ * @returns true, if the combined path exists otherwise false
+ */
+export function appPathExists(appName: string, targetPath?: string): boolean | string {
+    return existsSync(join(targetPath ?? process.cwd(), appName.trim()));
+}
+/**
+ * Generate a default application name that does not exist at the specified path.
+ *
+ * @param targetPath the target path where the application directory would be created
+ * @param baseAppName optional base name to use instead of the default i18n name; when provided and the path already exists, an incrementing numeric suffix is appended starting at 1 (e.g. `myapp1`, `myapp2`, …)
+ * @returns a suggested application name that can be created at the specified target path
+ */
+export function defaultAppName(targetPath: string, baseAppName?: string): string {
+    let defProjNum = defaultProjectNumber;
+    let defaultName = baseAppName || t('prompts.name.default');
+    while (appPathExists(`${defaultName}`, targetPath)) {
+        if (baseAppName) {
+            defaultName = `${baseAppName}${defProjNum++}`;
+        } else {
+            defaultName = t('prompts.name.default', { defaultProjectNumber: ++defProjNum });
+        }
+        // Dont loop forever, user will need to provide input otherwise
+        if (defProjNum > 999) {
+            break;
+        }
+    }
+    return defaultName;
+}
+
+/**
+ * Checks if the specified semantic version string is greater than or equal to the minimum version.
+ * If the specified version is not a parsable semantic version, returns true.
+ *
+ * @param version the version to test
+ * @param minVersion the minimum version to test against
+ * @returns - true if the specified version is greater than or equal to the minimum version, or the version is not a coercible semver
+ */
+export function isVersionIncluded(version: string, minVersion: string): boolean {
+    // Extract a usable version, `snapshot`, `latest` etc will be ignored
+    const ui5SemVer = coerce(version);
+    if (ui5SemVer) {
+        return gte(ui5SemVer, minVersion);
+    }
+    return version === latestVersionString;
+}
+
+/**
+ * Will remove prompts from the specified prompts based on prompt options
+ * and applicability in the case of CAP projects. Removing prompts is preferable to using `when()`
+ * conditions when prompts are used in a UI to prevent continuous re-evaluation.
+ *
+ * @param prompts Keyed prompts object containing all possible prompts
+ * @param promptOptions prompt options
+ * @param capCdsInfo CDS UI5 plugin information
+ * @returns the updated questions
+ */
+export function hidePrompts(
+    prompts: Record<promptNames, UI5ApplicationQuestion>,
+    promptOptions?: UI5ApplicationPromptOptions,
+    capCdsInfo?: CdsUi5PluginInfo
+): UI5ApplicationQuestion[] {
+    const questions: UI5ApplicationQuestion[] = [];
+    const isCapProject = !!capCdsInfo;
+    if (promptOptions ?? isCapProject) {
+        Object.keys(prompts).forEach((key) => {
+            const promptKey = key as keyof typeof promptNames;
+            // Narrow the type as we are only dealing with `hide` options
+            const promptOpt = promptOptions?.[promptKey] as UI5ApplicationCommonPromptOptions | AddDeployPromptOptions;
+
+            const hidePrompt =
+                typeof promptOpt?.hide === 'function' ? promptOpt.hide(isCapProject) : (promptOpt?.hide ?? false);
+            if (
+                !hidePrompt &&
+                // Target directory is determined by the CAP project. `enableEsLint` and `targetFolder` are not available for CAP projects
+                !(
+                    [promptNames.targetFolder, promptNames.enableEslint].includes(promptNames[promptKey]) &&
+                    isCapProject
+                ) &&
+                // `enableTypeScript` and `enableVirtualEndpoints` should not be shown for certain CAP projects i.e CAP Java
+                !(
+                    [promptNames.enableTypeScript, promptNames.enableVirtualEndpoints].includes(
+                        promptNames[promptKey]
+                    ) && (capCdsInfo ? !capCdsInfo?.hasMinCdsVersion : false)
+                )
+            ) {
+                questions.push(prompts[promptKey]);
+            }
+        });
+    } else {
+        questions.push(...Object.values(prompts));
+    }
+    return questions;
+}

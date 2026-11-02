@@ -1,5 +1,13 @@
 [
   {
+    "id": "16-hsantanna88-clo-author",
+    "name": "16-hsantanna88-clo-author",
+    "category": "security-compliance-auth",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "",
+    "path": "category/security-compliance-auth/16-hsantanna88-clo-author"
+  },
+  {
     "id": "access-control-rbac",
     "name": "access-control-rbac",
     "category": "security-compliance-auth",
@@ -142,6 +150,22 @@
     "repository": "rohitg00-agentmemory",
     "description": "Set up and diagnose local agentmemory, including MCP, environment variables, ports, and feature flags. Use when getting started, checking a connection, enabling a feature, configuring auth, or explaining why a feature is off by default.",
     "path": "category/security-compliance-auth/agentmemory-config"
+  },
+  {
+    "id": "agents-connect",
+    "name": "agents-connect",
+    "category": "security-compliance-auth",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Use when connecting your agent to external APIs, tools, or services via Gateway, or restricting tool access with Cedar policies. Handles gateway setup, target types, outbound auth (OAuth, API key, IAM), credentials, and Cedar policy authoring. Triggers on: \"connect to API\", \"add gateway\", \"connect to MCP server\", \"Lambda tools\", \"OpenAPI\", \"gateway target\", \"Cedar policy\", \"restrict tools\", \"policy engine\", \"gateway auth error\", \"store API key\", \"outbound credential\", \"env var API key\", \"API key None after deploy\", \"credential not available after deploy\", \"should this be a gateway target\", \"give my agent tools\", \"add tools to agent\". Not for inbound auth (who can call your agent) \u2014 use agents-harden. Not for debugging agent behavior \u2014 use agents-debug. Not for VPC networking errors (agent can't reach APIs due to VPC) \u2014 use agents-build. Not for creating or hosting a new MCP server project \u2014 use agents-get-started.",
+    "path": "category/security-compliance-auth/agents-connect"
+  },
+  {
+    "id": "agents-harden",
+    "name": "agents-harden",
+    "category": "security-compliance-auth",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Use when preparing your agent for production \u2014 IAM scoping, inbound auth (JWT, SigV4), secrets management, cold start optimization, session lifecycle, rate limiting, input validation, and quota guidance. Triggers on: \"production checklist\", \"harden agent\", \"production ready\", \"secure agent\", \"inbound auth\", \"going live\", \"cold start optimization\", \"session lifecycle\", \"StopRuntimeSession\", \"quota\", \"throttling\", \"maxVms\", \"rate limit\", \"security audit of outbound API calls\", \"gateway target audit for production\", \"restrict who can call\", \"lock down endpoint\", \"only our app can call\". Not for Cedar tool-restriction policies \u2014 use agents-connect. Not for quality measurement \u2014 use agents-optimize. Not for outbound credential storage or API key wiring \u2014 use agents-connect. Not for A2A agent-to-agent auth \u2014 use agents-build. Cold start observation and diagnosis (not optimization) routes to agents-debug.",
+    "path": "category/security-compliance-auth/agents-harden"
   },
   {
     "id": "ai-act-readiness",
@@ -312,6 +336,14 @@
     "path": "category/security-compliance-auth/asc-apple-ads"
   },
   {
+    "id": "assured-workloads-basics",
+    "name": "assured-workloads-basics",
+    "category": "security-compliance-auth",
+    "repository": "google-skills",
+    "description": "Provisions, inspects, updates, and deletes Google Cloud Assured Workloads V1 compliant folders, CMEK settings, Sovereign Controls by Partners, and service usage restrictions. Use when creating, listing, describing, updating, or deleting an Assured Workloads workload for any compliance regime or data boundary (FedRAMP, DoD IL2/IL4/IL5, ITAR, CJIS, Healthcare, Sovereign Controls by Partners, or Regional Data Boundaries). Don't use for brownfield assessments or custom frameworks (use assuredworkloads-environment-assessor or assuredworkloads-frameworks-*), or non-compliant folders.",
+    "path": "category/security-compliance-auth/assured-workloads-basics"
+  },
+  {
     "id": "assuredworkloads-environment-assessor",
     "name": "assuredworkloads-environment-assessor",
     "category": "security-compliance-auth",
@@ -456,6 +488,14 @@
     "path": "category/security-compliance-auth/authlete"
   },
   {
+    "id": "authoring-mwaa-workflow",
+    "name": "authoring-mwaa-workflow",
+    "category": "security-compliance-auth",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Authors and deploys MWAA workflow artifacts: Python Airflow DAGs for provisioned environments or YAML workflow files for Serverless. Covers operator selection, timeout design, retry strategy, scheduling, failure notifications, idempotency, and MWAA Serverless schema compliance. Deploys the artifact (S3 DAG upload or Serverless CreateWorkflow/UpdateWorkflow), creates an environment inline when approved, and redeploys fixes, then optionally hands off to testing-mwaa-workflow. Triggers on: create a DAG, write a pipeline, build a workflow, orchestrate tasks, Airflow DAG, data pipeline, schedule a job, deploy a DAG, deploy a workflow, YAML workflow. Not applicable to converting or migrating existing DAGs between provisioned and serverless (conversion is out of scope), running or smoke-testing a deployed workflow (handled by testing-mwaa-workflow) or diagnosing a failed run (handled by debugging-mwaa-workflow).",
+    "path": "category/security-compliance-auth/authoring-mwaa-workflow"
+  },
+  {
     "id": "autonomous-agent-patterns",
     "name": "autonomous-agent-patterns",
     "category": "security-compliance-auth",
@@ -470,6 +510,30 @@
     "repository": "reason-machines-trending-skills",
     "description": "AutoTeam-F is a ChatGPT Team account rotation and authentication sync tool with batch free account generation, OAuth management, and a Web dashboard.",
     "path": "category/security-compliance-auth/autoteam-f-chatgpt-team-rotation"
+  },
+  {
+    "id": "aws-auth",
+    "name": "aws-auth",
+    "category": "security-compliance-auth",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Adds user authentication to web and mobile apps with Amazon Cognito (user pools and identity pools) and the AWS Amplify client auth libraries. Covers sign-up/sign-in flows and the login page (Cognito-hosted UI / managed login), MFA, password policies, OAuth 2.0 / OIDC flows (auth-code + PKCE, client credentials), social/SAML federation, tokens (ID/access/refresh, rotation, revocation, storage), Cognito Lambda triggers, identity pools (temp AWS creds), and gating API Gateway (or ALB) routes to signed-in users via Cognito/JWT authorizers. Applies when adding a login or sign-up page, configuring a user pool or app client, choosing user pool vs identity pool, wiring social/SAML, refreshing tokens, requiring sign-in on an API Gateway or ALB, or debugging redirect_uri/token/MFA/CORS/federation errors. Does NOT cover Amplify Gen2 backend definitions (defineAuth, npx ampx \u2192 aws-amplify), IAM/STS/Identity Center (\u2192 aws-iam), or API Gateway/Lambda resource config beyond the authorizer (\u2192 aws-serverless).",
+    "path": "category/security-compliance-auth/aws-auth"
+  },
+  {
+    "id": "aws-cleanrooms",
+    "name": "aws-cleanrooms",
+    "category": "security-compliance-auth",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Troubleshoots and debugs AWS Clean Rooms collaboration issues related to IAM roles, S3 bucket policies, KMS keys, Lake Formation permissions, and CloudWatch logging for custom ML model training and inference jobs. Use when a customer reports permission failures, access errors, or log publishing issues in Clean Rooms.",
+    "path": "category/security-compliance-auth/aws-cleanrooms"
+  },
+  {
+    "id": "aws-cloudformation",
+    "name": "aws-cloudformation",
+    "category": "security-compliance-auth",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Authors, validates, and troubleshoots AWS CloudFormation templates. Covers template authoring with secure defaults, local validation with either cfn-lint or cloudformation-validate, cfn-guard security and compliance checks as a recommended default, account-aware CloudFormation service pre-deployment validation, CloudFormation Express mode for faster deployments, and root-cause diagnosis of failed stacks using CloudFormation events and CloudTrail correlation. Also covers author-time template intelligence with the CloudFormation Language Server and published cloudformation-validate libraries.",
+    "path": "category/security-compliance-auth/aws-cloudformation"
   },
   {
     "id": "aws-cloudformation-ec2",
@@ -496,6 +560,14 @@
     "path": "category/security-compliance-auth/aws-cloudformation-security"
   },
   {
+    "id": "aws-compute",
+    "name": "aws-compute",
+    "category": "security-compliance-auth",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Provisions, scales, and operates Amazon EC2 virtual-machine workloads: instance-type selection (Graviton/Arm64, burstable T credits, GPU, instance store vs EBS), launch templates, Auto Scaling groups (scaling policies, instance refresh, mixed instances, Spot, warm pools, lifecycle hooks), IMDSv2, placement groups, Elastic IPs, AMI lifecycle, and Systems Manager fleet operations (Session Manager, Run Command, Patch Manager). Applies to EC2 instance and fleet questions, InsufficientInstanceCapacity, CPU-credit/surplus charges, IMDSv2 401s, instances stuck in Pending:Wait, ASG not replacing unhealthy instances, status-check failures, SSH refused/timed out, or instances missing as SSM managed nodes. For a single secure instance launch, the launching-ec2-instance-with-best-practices skill is more appropriate; for instance profiles, see setting-up-ec2-instance-profiles; for Image Builder, see amazon-ec2-image-builder. Does NOT cover Lambda, ECS/Fargate, EKS, VPC/ALB/NLB design, or IAM policy authoring.",
+    "path": "category/security-compliance-auth/aws-compute"
+  },
+  {
     "id": "aws-ec2-setup",
     "name": "aws-ec2-setup",
     "category": "security-compliance-auth",
@@ -504,12 +576,28 @@
     "path": "category/security-compliance-auth/aws-ec2-setup"
   },
   {
-    "id": "aws-iam",
-    "name": "aws-iam",
+    "id": "aws-fault-injection-service",
+    "name": "aws-fault-injection-service",
     "category": "security-compliance-auth",
-    "repository": "sickn33-agentic-awesome-skills",
-    "description": "Manage IAM users, roles, and policies. Implement least-privilege access",
-    "path": "category/security-compliance-auth/aws-iam"
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Plans, builds, runs, and analyzes fault injection experiments with AWS Fault Injection Service (AWS FIS) to validate application resilience through chaos engineering. Covers experiment templates (actions, targets, stop conditions), the FIS actions catalog and action selection, the scenario library (AZ power interruption, cross-Region connectivity, EC2/EKS/EBS stress), experiment lifecycle and monitoring, logging and reports, multi-account experiments, the experiment IAM role, and blast-radius safety. Applies when a user mentions AWS FIS or fault injection, asks what experiment to run for a failure mode (AZ, Region, API errors/throttling, instance/pod/DB/cache failure, latency, packet loss), wants to author an experiment template or CLI/CloudFormation, or needs to safely run chaos experiments in pre-production or production. For the broader resilience program across Resilience Hub and ARC, see aws-resilience-lifecycle; for ARC routing controls and zonal shift, see recovery-controller-setup.",
+    "path": "category/security-compliance-auth/aws-fault-injection-service"
+  },
+  {
+    "id": "aws-network-monitoring",
+    "name": "aws-network-monitoring",
+    "category": "security-compliance-auth",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Installs, configures, and troubleshoots Network Flow Monitor agents on EC2 instances to monitor network path health. Covers agent installation, IAM permissions, monitoring network paths, and troubleshooting agents reporting no metrics, HTTP 403 errors, or connectivity failures.",
+    "path": "category/security-compliance-auth/aws-network-monitoring"
+  },
+  {
+    "id": "aws-social-messaging",
+    "name": "aws-social-messaging",
+    "category": "security-compliance-auth",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Manages WhatsApp messaging through AWS End User Messaging Social. Covers managing templates (create, update, delete, library), sending messages (utility/marketing/auth templates and freeform), uploading and managing media, configuring event destinations for delivery tracking, and troubleshooting delivery failures. Applicable when a user needs to send WhatsApp messages, create or manage templates, upload media, configure delivery notifications, or diagnose messaging issues.",
+    "path": "category/security-compliance-auth/aws-social-messaging"
   },
   {
     "id": "azure-compliance",
@@ -558,6 +646,14 @@
     "repository": "binance-binance-skills-hub",
     "description": "Use binance-cli for Binance Spot, Futures (USD-S), and Convert. Requires auth.",
     "path": "category/security-compliance-auth/binance"
+  },
+  {
+    "id": "bionemo-complexa-sweep",
+    "name": "bionemo-complexa-sweep",
+    "category": "security-compliance-auth",
+    "repository": "nvidia-skills",
+    "description": "Agent runbook for Proteina-Complexa parameter sweeps through the separately installed first-party CLI and config generator. Use for cartesian-product hyperparameter scans, sweeper YAML authoring, configuration comparisons, ablations, tuning, success-rate ranking, or Pareto searches over quality and wall-clock cost. Do not use for a single existing-job launch or SLURM submission template. SKILL.md performs the orchestration; bundled executables only inspect local readiness and write a run manifest.",
+    "path": "category/security-compliance-auth/bionemo-complexa-sweep"
   },
   {
     "id": "bmad-party-mode",
@@ -654,6 +750,14 @@
     "repository": "starchild-ai-agent-official-skills",
     "description": "Connect a ChatGPT or Codex subscription via OAuth device-code login.",
     "path": "category/security-compliance-auth/chatgpt-codex-onboarding"
+  },
+  {
+    "id": "chrome-web-store-playbook",
+    "name": "chrome-web-store-playbook",
+    "category": "security-compliance-auth",
+    "repository": "samber-developer-platform-skills",
+    "description": "Gets a B2B SaaS or developer-tools vendor's companion Chrome extension through Chrome Web Store review and keeps it published - permission scoping, reviewer access to login-gated features, the Privacy practices tab, violation IDs such as Purple Potassium, permission changes in updates, rollout and rollback, publisher-account security, per-customer and enterprise distribution. Use whenever a vendor mentions publishing a Chrome extension, a Chrome Web Store rejection or takedown, the item limit, or white-label builds for customers. Vendor side only: not IT admins, Firefox AMO, Edge Add-ons or code. Do NOT use for VS Code or JetBrains extensions (use samber/developer-platform-skills@ide-extension-offering) or listing copy (use samber/developer-platform-skills@integration-listing-optimization).",
+    "path": "category/security-compliance-auth/chrome-web-store-playbook"
   },
   {
     "id": "ciso-review",
@@ -928,6 +1032,14 @@
     "path": "category/security-compliance-auth/confluence-expert"
   },
   {
+    "id": "connecting-lambda-to-dynamodb",
+    "name": "connecting-lambda-to-dynamodb",
+    "category": "security-compliance-auth",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Connects an AWS Lambda function to DynamoDB with IAM roles, stream event source mapping, and read/write permissions. Use when setting up Lambda-DynamoDB integration, processing DynamoDB stream events, or deploying serverless event-driven architectures.",
+    "path": "category/security-compliance-auth/connecting-lambda-to-dynamodb"
+  },
+  {
     "id": "connection-auth-rules",
     "name": "connection-auth-rules",
     "category": "security-compliance-auth",
@@ -1000,6 +1112,22 @@
     "path": "category/security-compliance-auth/create-auth"
   },
   {
+    "id": "creating-data-lake-table",
+    "name": "creating-data-lake-table",
+    "category": "security-compliance-auth",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Create managed Iceberg tables using Amazon S3 Tables (s3tables API namespace) with automatic compaction and snapshot management. Sets up table bucket, namespace, table, schema, Glue catalog registration, partitioning, IAM access control. Triggers on: create table, data lake table, analytics table, structured data storage, S3 Tables, Iceberg, Athena table, partitioning strategy, access permissions. Do NOT use  for: importing files (use ingesting-into-data-lake), vector storage (use storing-and-querying-vectors), querying existing tables (use querying-data-lake), or locating existing table (use finding-data-lake-assets).",
+    "path": "category/security-compliance-auth/creating-data-lake-table"
+  },
+  {
+    "id": "creating-secrets-using-best-practices",
+    "name": "creating-secrets-using-best-practices",
+    "category": "security-compliance-auth",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Creates and manages secrets in AWS Secrets Manager following security best practices. Always use this skill when creating secrets \u2014 it sets up dedicated KMS encryption keys, automatic rotation, least-privilege IAM policies, CloudTrail auditing, and lifecycle management that are essential for production-grade secret handling.",
+    "path": "category/security-compliance-auth/creating-secrets-using-best-practices"
+  },
+  {
     "id": "creator-registry",
     "name": "creator-registry",
     "category": "security-compliance-auth",
@@ -1038,6 +1166,14 @@
     "repository": "ljagiello-ctf-skills",
     "description": "Provides web exploitation techniques for CTF challenges. Use when the target is primarily an HTTP application, API, browser client, template engine, identity flow, or smart-contract frontend/backend surface, including XSS, SQLi, SSTI, SSRF, XXE, JWT, auth bypass, file upload, request smuggling, OAuth/OIDC, SAML, prototype pollution, and similar web bugs. Do not use it for native binary memory corruption, reverse engineering of standalone executables, disk or memory forensics, or pure cryptanalysis unless the web flaw is still the main path to the flag.",
     "path": "category/security-compliance-auth/ctf-web"
+  },
+  {
+    "id": "cudaq-guide",
+    "name": "cudaq-guide",
+    "category": "security-compliance-auth",
+    "repository": "nvidia-skills",
+    "description": "Use for CUDA-Q setup, simulation targets, QPU access, and @cudaq.kernel authoring guidance.",
+    "path": "category/security-compliance-auth/cudaq-guide"
   },
   {
     "id": "customs-trade-compliance",
@@ -1176,6 +1312,14 @@
     "path": "category/security-compliance-auth/digital-forensics"
   },
   {
+    "id": "digital-health-clinical-asr-eval",
+    "name": "digital-health-clinical-asr-eval",
+    "category": "security-compliance-auth",
+    "repository": "nvidia-skills",
+    "description": "Stage 3 of Clinical ASR Flywheel. Score a NeMo manifest, produce the five-section KER leaderboard (by-ipa_source diagnostic). Not for ASR auth (/riva-asr).",
+    "path": "category/security-compliance-auth/digital-health-clinical-asr-eval"
+  },
+  {
     "id": "django-access-review",
     "name": "django-access-review",
     "category": "security-compliance-auth",
@@ -1198,6 +1342,22 @@
     "repository": "jeffallan-claude-skills",
     "description": "Use when configuring Django to store static and media files on AWS S3 with django-storages. Invoke when working with the STORAGES setting, S3 buckets, presigned URLs, CloudFront, or boto3-backed file storage in settings.py. Configures the Django 4.2+ STORAGES dict, public/private custom backends, presigned GET/POST URLs, IAM policies, and S3 mocking for tests. Trigger terms: django-storages, S3, boto3, S3Boto3Storage, STORAGES, presigned URL, CloudFront, media files, collectstatic, AWS_STORAGE_BUCKET_NAME.",
     "path": "category/security-compliance-auth/django-storages-s3"
+  },
+  {
+    "id": "doca-aes-gcm",
+    "name": "doca-aes-gcm",
+    "category": "security-compliance-auth",
+    "repository": "nvidia-skills",
+    "description": "Use this skill when the user is doing hands-on DOCA AES-GCM work on a BlueField DPU or ConnectX NIC \u2014 configuring `doca_aes_gcm_task_encrypt` / `_task_decrypt`, querying `doca_aes_gcm_cap_*` for per-key-type (only `DOCA_AES_GCM_KEY_128` / `_256` \u2014 AES-192 not supported) and per-task support, sizing plaintext against the max-buf cap, setting source / destination mmap permissions, validating with a NIST GCMVS or RFC 5288 vector, or debugging DOCA_ERROR_* including the security-critical tag-verification-failed outcome on decrypt. Trigger even when the user does not explicitly mention \"DOCA AES-GCM\" or \"AEAD\" \u2014 typical implicit phrasings: \"decrypt completion IO_FAILED\", \"auth tag isn't verifying\", \"NOT_PERMITTED on my encrypt buffer\", \"is AES-192-GCM on this BlueField\" (no), or \"encrypted record came back tampered\". Refuse and route elsewhere for non-GCM AES modes (CBC / CTR / XTS \u2014 CPU OpenSSL), key management (KMS / HSM / rotation), SHA (doca-sha), or general AEAD background.",
+    "path": "category/security-compliance-auth/doca-aes-gcm"
+  },
+  {
+    "id": "doca-dma",
+    "name": "doca-dma",
+    "category": "security-compliance-auth",
+    "repository": "nvidia-skills",
+    "description": "Use this skill when the user is doing hands-on DOCA DMA programming \u2014 bringing up a doca_dma context, configuring the single doca_dma_task_memcpy task type, sizing buffers via the doca_dma_cap_task_memcpy_* queries, setting LOCAL_READ_ONLY / LOCAL_READ_WRITE permissions on source / destination doca_mmap regions (plus doca_mmap_export_* for cross-peer copies), driving the progress engine, or debugging DOCA_ERROR_* returns. Trigger even when the user does not explicitly mention \"DOCA DMA\" or \"doca_mmap\" \u2014 typical implicit phrasings include \"memcpy host buffer to BlueField without using the CPU\", \"offload a bulk copy to the DPU\", \"copy returns NOT_PERMITTED on first submit\", \"buffer too big for one DMA task\", \"task submitted but no completion\", or \"scatter-gather copy between two memory regions\". Refuse and route elsewhere for cross-network copies (DOCA RDMA), producer/consumer messaging (DOCA Comch), DOCA Core / progress-engine internals, or DOCA install \u2014 those belong to other skills.",
+    "path": "category/security-compliance-auth/doca-dma"
   },
   {
     "id": "domain-authority-simulator",
@@ -1680,6 +1840,14 @@
     "path": "category/security-compliance-auth/gke-workload-identity"
   },
   {
+    "id": "golang-swagger",
+    "name": "golang-swagger",
+    "category": "security-compliance-auth",
+    "repository": "samber-cc-skills-golang",
+    "description": "Golang OpenAPI/Swagger documentation with swaggo/swag \u2014 annotation comments (@Summary, @Param, @Success, @Router, @Security), swag init code generation, framework integrations (gin, echo, fiber, chi, net/http), security definitions (Bearer/JWT, OAuth2, API key), and struct tags (swaggertype, enums, example, swaggerignore). Apply when adding or maintaining Swagger/OpenAPI docs in a Go project, or when the codebase imports github.com/swaggo/swag, github.com/swaggo/gin-swagger, github.com/swaggo/echo-swagger, github.com/swaggo/http-swagger, or github.com/swaggo/files.",
+    "path": "category/security-compliance-auth/golang-swagger"
+  },
+  {
     "id": "google-cloud-auth",
     "name": "google-cloud-auth",
     "category": "security-compliance-auth",
@@ -1718,6 +1886,14 @@
     "repository": "google-skills",
     "description": "Remediates Google Cloud Security Command Center findings, including IAM permission fixes, cloud resource misconfigurations, vulnerabilities, and Toxic Combinations. Use when asked to fix, remediate, or mitigate a Security Command Center finding or address attack paths. Don't use for general IAM policy querying without a Security Command Center finding. For runtime threat detections, this skill provides containment and investigation guidance rather than automated configuration fixes.",
     "path": "category/security-compliance-auth/google-cloud-scc-remediation"
+  },
+  {
+    "id": "google-cloud-storage-diagnostic",
+    "name": "google-cloud-storage-diagnostic",
+    "category": "security-compliance-auth",
+    "repository": "google-skills",
+    "description": "Troubleshoots and diagnoses Cloud Storage on Google Cloud (also known colloquially as GCS) access and permission denials (403 Permission Denied or Insufficient Permission) and access control conflicts. Use whenever a user encounters or asks to analyze a 403 error on a bucket or object \u2014 including analysis-only questions where no commands are run \u2014 or needs help with IAM bindings, fine-grained ACLs, Uniform Bucket-Level Access (UBLA), getIamPolicy inspection denials and least-privilege inspection roles, browser storage.cloud.google.com Cookieauth and Data Access Audit Logging conflicts, Signed URL SignatureDoesNotMatch errors, VPC Service Controls (VPC-SC) perimeters, explicit IAM Deny policies, Bucket IP Filtering, Requester Pays, Retention Policy locks, Compute Engine VM access scopes, Application Default Credentials (ADC) mismatches, recursive delete permissions, or recreated service accounts. Don't use for creating buckets, routine uploads/downloads, proactive security audits, or Cloud Storage FUSE mounts.",
+    "path": "category/security-compliance-auth/google-cloud-storage-diagnostic"
   },
   {
     "id": "google-cloud-waf-security",
@@ -1798,6 +1974,110 @@
     "repository": "affaan-m-ecc",
     "description": "HIPAA-specific entrypoint for healthcare privacy and security work. Use when a task is explicitly framed around HIPAA, PHI handling, covered entities, BAAs, breach posture, or US healthcare compliance requirements.",
     "path": "category/security-compliance-auth/hipaa-compliance"
+  },
+  {
+    "id": "huawei-cloud-account-onboarding",
+    "name": "huawei-cloud-account-onboarding",
+    "category": "security-compliance-auth",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Huawei Cloud real-name authentication guidance (BSS): query real-name auth status and get the face-recognition QR code URL via huaweicloudsdkbss. Read-only, no identity data collected, no auth performed on the user's behalf. Use when the user asks about \u5b9e\u540d\u8ba4\u8bc1 / \u8ba4\u8bc1\u72b6\u6001 / \u5b9e\u540d / \u8d26\u53f7\u8ba4\u8bc1 / \u4f01\u4e1a\u8ba4\u8bc1 / \u4e2a\u4eba\u8ba4\u8bc1 / real-name verification / \u8ba4\u8bc1\u4e8c\u7ef4\u7801 / \u4eba\u8138\u8ba4\u8bc1 / \u626b\u7801\u8ba4\u8bc1 on Huawei Cloud (not AWS/Azure/alibaba/other clouds).",
+    "path": "category/security-compliance-auth/huawei-cloud-account-onboarding"
+  },
+  {
+    "id": "huawei-cloud-cc-instance-query",
+    "name": "huawei-cloud-cc-instance-query",
+    "category": "security-compliance-auth",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Queries Huawei Cloud Cloud Connect (CC) resources via hcloud CLI. Covers cloud connection instances (single + list), bandwidth packages (single + list), inter-region bandwidths (single + list), network instances (single + list), cloud connection routes (single + list), and cross-account authorisations (granted + received). No write operations. Use this skill when the user needs to inspect cross-cloud connectivity topology, check bandwidth package status, review inter-region bandwidth allocation, query network instances attached to a cloud connection, troubleshoot routing in Cloud Connect, or audit cross-account authorisation relationships (who authorised whom). Triggers: \u4e91\u8fde\u63a5, CC, Cloud Connect, \u5e26\u5bbd\u5305, bandwidth package, \u57df\u95f4\u5e26\u5bbd, inter-region bandwidth, \u7f51\u7edc\u5b9e\u4f8b, network instance, \u8def\u7531\u67e5\u8be2, cloud connection route, \u8de8\u4e91\u7f51\u7edc, cross-cloud connectivity, \u6388\u6743, authorisation, \u88ab\u6388\u6743, permission, \u8de8\u8d26\u53f7, cross-account.",
+    "path": "category/security-compliance-auth/huawei-cloud-cc-instance-query"
+  },
+  {
+    "id": "huawei-cloud-cloudrobo-asset",
+    "name": "huawei-cloud-cloudrobo-asset",
+    "category": "security-compliance-auth",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Manage the full lifecycle of CloudRobo assets \u2014 query repositories and catalogs, create/list/show/update/delete assets and versions, batch-delete, tag management, predefined tag discovery, Action CRUD, permission checks, marketplace search, official/community asset listing, asset lineage, and local-to-OBS import/export. Triggers include: asset import, asset export, asset version management, tag management, Action configuration, permission check, marketplace search, lineage query, repository listing, catalog listing, publication asset discovery, \u8d44\u4ea7\u7ba1\u7406, \u8d44\u4ea7\u5bfc\u5165\u5bfc\u51fa, \u7248\u672c\u7ba1\u7406, \u6807\u7b7e\u7ba1\u7406, Action\u914d\u7f6e, \u6743\u9650\u6821\u9a8c, \u5e7f\u573a\u641c\u7d22, \u8840\u7f18\u5173\u7cfb, \u8d44\u4ea7\u4ed3\u5e93, \u76ee\u5f55\u67e5\u8be2.",
+    "path": "category/security-compliance-auth/huawei-cloud-cloudrobo-asset"
+  },
+  {
+    "id": "huawei-cloud-cts-trace-management",
+    "name": "huawei-cloud-cts-trace-management",
+    "category": "security-compliance-auth",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Huawei Cloud CTS (Cloud Trace Service / \u4e91\u5ba1\u8ba1\u670d\u52a1) management and audit analysis via the hcloud CLI. Covers tracker lifecycle (list/create/delete), audit trace query and analysis (filter by time/user/service), cloud service operation listing, key event notifications, trace resources, and retention compliance analysis (7-day default vs LTS long retention vs OBS delivery). Query and Analyze actions run automatically (R3); Create/Delete actions require preview and explicit user confirmation (R2/R1). Trigger words: CTS, cts, Cloud Trace Service, \u4e91\u5ba1\u8ba1\u670d\u52a1, audit log, \u5ba1\u8ba1\u65e5\u5fd7, tracker, \u8ffd\u8e2a\u5668, trace, \u5ba1\u8ba1\u4e8b\u4ef6, query, \u67e5\u8be2, list, \u5217\u8868, create, \u521b\u5efa, delete, \u5220\u9664, \u5ba1\u8ba1, audit, retention, \u4fdd\u7559\u7b56\u7565. Service keywords: cts, CTS, cloud trace service, Cloud Trace Service, \u4e91\u5ba1\u8ba1\u670d\u52a1, audit, \u5ba1\u8ba1, tracker, \u8ffd\u8e2a\u5668, trace, \u5ba1\u8ba1\u4e8b\u4ef6, operation record, \u64cd\u4f5c\u8bb0\u5f55, notification, \u901a\u77e5\u89c4\u5219, retention, \u4fdd\u7559\u7b56\u7565, compliance, \u5408\u89c4, KooCLI, hcloud.",
+    "path": "category/security-compliance-auth/huawei-cloud-cts-trace-management"
+  },
+  {
+    "id": "huawei-cloud-dcs-failover",
+    "name": "huawei-cloud-dcs-failover",
+    "category": "security-compliance-auth",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Huawei Cloud DCS master-slave failover (AZ power-off) drill tool. One-click pipeline: prepare (checks + risk assessment) -> execute (failover) -> report. Queries DCS master-slave instance, checks IAM permissions, architecture hard-gate (ha + cross-AZ + RUNNING), safely executes master-slave failover (ChangeMasterStandby), polls for completion, data consistency check, three-dimensional scoring (failover/data/business, written to execution_result.json), generates HTML report. prepare phase includes built-in risk assessment (instance health, master-slave nodes, memory/CPU/connections/latency load, backup safety net, etc.). Critical risks block failover by default (user must confirm to proceed). Supports Redis master-slave instances. Triggers: DCS\u4e3b\u5907\u5012\u6362, \u4e3b\u5907\u5012\u6362\u6f14\u7ec3, DCS\u6545\u969c\u6f14\u7ec3, \u4e3b\u5907\u5207\u6362, \u5012\u6362\u5b9e\u9a8c, dcs failover, DCS failover, \u9ad8\u53ef\u7528\u6f14\u7ec3, \u9ad8\u53ef\u7528\u9a8c\u8bc1, DCS HA\u5207\u6362, AZ\u65ad\u7535\u6f14\u7ec3, \u4e3b\u5907\u4e92\u6362, DCS switchover, Redis\u6545\u969c\u6f14\u7ec3, DCS\u5bb9\u707e\u6f14\u7ec3\u3002",
+    "path": "category/security-compliance-auth/huawei-cloud-dcs-failover"
+  },
+  {
+    "id": "huawei-cloud-dli-manage",
+    "name": "huawei-cloud-dli-manage",
+    "category": "security-compliance-auth",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Manages Huawei Cloud DLI (Data Lake Insight) full lifecycle operations: compute queue management (create/scale/plan/delete), batch jobs (SQL/Spark submit, cancel, status, logs, result export), Flink stream jobs (submit, start/stop, batch delete, metrics), database and table metadata governance (create/delete/owner/privileges/partitions/preview), enhanced cross-source connections (create/update/delete, queue binding, connectivity checks), resource packages (JAR/Py/File upload), global variables, SQL/Flink/Spark job templates, permission authorization, and CU usage patrol. Produces structured inspection reports and change snapshots, detects over-high CU usage and cross-source connectivity failures. High-risk operations require double confirmation; cloud-side operations only, no autonomous business SQL overwrite.",
+    "path": "category/security-compliance-auth/huawei-cloud-dli-manage"
+  },
+  {
+    "id": "huawei-cloud-ecs-passwordless-login",
+    "name": "huawei-cloud-ecs-passwordless-login",
+    "category": "security-compliance-auth",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Configure passwordless SSH login to Huawei Cloud ECS instances using COC (Cloud Operations Center). Automates IAM agency authorization, SSH key pair generation, COC script deployment to one or many target ECS instances (batch), SSH connection testing, and automatic security cleanup after 60 seconds (removing keys from both local and remote). \u89e6\u53d1\u8bcd: \u514d\u5bc6\u767b\u5f55, COC SSH, ECS key login, SSH key deployment, passwordless SSH",
+    "path": "category/security-compliance-auth/huawei-cloud-ecs-passwordless-login"
+  },
+  {
+    "id": "huawei-cloud-iam-diagnose",
+    "name": "huawei-cloud-iam-diagnose",
+    "category": "security-compliance-auth",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Invoke this skill to check whether a Huawei Cloud IAM user likely has permission to perform an action/resource \u2014 \u534e\u4e3a\u4e91 IAM \u53c2\u8003\u6027\u6743\u9650\u5206\u6790/\u8bca\u65ad. Given a user name and a target action (e.g. ecs:servers:list) / resource, it expands the user's permission chains (direct attached policies + user-group inheritance + agencies), parses policy document Allow/Deny statements and outputs a \"\u5927\u6982\u7387\u6709\u6743\u9650/\u65e0\u6743\u9650\" reference verdict with a confidence grade and full chain trace. Group/agency permissions are cross-validated with the real IAM check interfaces. Read-only, R3 auto-execute. Honest boundary: no user-level policy-simulation API exists on Huawei Cloud, so results are reference-only, never an authoritative auth decision; custom policy + Condition + agency-stacking are flagged \"\u4ec5\u4f9b\u53c2\u8003\". Triggers include: \u6743\u9650\u5206\u6790, \u6743\u9650\u8bca\u65ad, \u6743\u9650\u8bc4\u4f30, \u662f\u5426\u6709\u6743\u9650, \u67e5\u6743\u9650, IAM \u6743\u9650, \u6743\u9650\u94fe\u8def, \u8c01\u80fd\u8bbf\u95ee, \u53c2\u8003\u6027\u6743\u9650\u5206\u6790, \u6743\u9650\u68c0\u67e5, permission diagnosis, permission analysis, check permission, IAM permission, permission chain, has permission, policy analysis, who has access, role permission, access denied \u6392\u67e5, unauthorized \u6392\u67e5.",
+    "path": "category/security-compliance-auth/huawei-cloud-iam-diagnose"
+  },
+  {
+    "id": "huawei-cloud-iam-manage",
+    "name": "huawei-cloud-iam-manage",
+    "category": "security-compliance-auth",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Manages Huawei Cloud IAM identity configuration (write-capable companion to the read-only IAM query capability). Covers full lifecycle of IAM users, groups, policies, agencies, permanent AK/SK \u2014 with every write action (R2/R1) preview + explicit confirmation; deletes enumerate impacted resources first; high-authority grants and external-account agencies show explicit warnings; the Secret Access Key is returned once and never persisted or logged; includes read-only queries (R3) as pre-checks and analysis. Provides 20 huawei_* actions: huawei_list_iam_users, huawei_list_iam_groups, huawei_list_iam_policies, huawei_list_iam_agencies, huawei_list_iam_custom_policies, huawei_analyze_iam_least_privilege, huawei_analyze_iam_password_compliance, huawei_create_iam_user, huawei_create_iam_group, huawei_attach_iam_policy, huawei_detach_iam_policy, huawei_create_iam_agency, huawei_create_iam_ak_sk, huawei_create_iam_custom_policy, huawei_config_iam_login, huawei_delete_iam_user, huawei_delete_iam_group, huawei_delete_iam_agency, huawei_delete_iam_ak_sk, huawei_delete_iam_custom_policy. Triggers include: IAM, \u7528\u6237, \u7528\u6237\u7ec4, \u7b56\u7565, \u59d4\u6258, \u6743\u9650, AK/SK, MFA, \u767b\u5f55\u4fdd\u62a4, \u521b\u5efa\u7528\u6237, \u5220\u9664\u7528\u6237, identity, policy, agency, access key, create user, create group, delete.",
+    "path": "category/security-compliance-auth/huawei-cloud-iam-manage"
+  },
+  {
+    "id": "huawei-cloud-iam-query",
+    "name": "huawei-cloud-iam-query",
+    "category": "security-compliance-auth",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Queries Huawei Cloud identity and access management resources (IAM) via read-only Python SDK. Covers users, groups, policies, agencies, AK/SK, MFA devices, login/password/ACL policies, security compliance, and account quotas. No write operations. Use this skill when the user needs to query IAM identity info, check policies/permissions, view agency details, or inspect AK/SK/MFA status. Triggers: IAM, \u7528\u6237, \u7528\u6237\u7ec4, \u7b56\u7565, \u59d4\u6258, \u6743\u9650, AK/SK, MFA, \u5bc6\u7801\u7b56\u7565, \u5b89\u5168\u5408\u89c4, \u8eab\u4efd\u67e5\u8be2, \u8eab\u4efd\u8ba4\u8bc1, identity, policy, agency.",
+    "path": "category/security-compliance-auth/huawei-cloud-iam-query"
+  },
+  {
+    "id": "huawei-cloud-obs-bucket-create",
+    "name": "huawei-cloud-obs-bucket-create",
+    "category": "security-compliance-auth",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Skill specialized for creating buckets on Huawei Cloud OBS. Use this skill when users need to create OBS buckets, set bucket properties, configure access permissions, or need guidance on the bucket creation process. Trigger conditions: \"\u521b\u5efaOBS\u6876\", \"\u534e\u4e3a\u4e91\u5b58\u50a8\u6876\", \"\u5b58\u50a8\u7a7a\u95f4\u521b\u5efa\", \"create OBS bucket\", \"Huawei Cloud storage bucket\", \"OBS bucket\", \"Huawei Cloud bucket\", \"storage creation\" or when setting up Huawei Cloud object storage.",
+    "path": "category/security-compliance-auth/huawei-cloud-obs-bucket-create"
+  },
+  {
+    "id": "huawei-cloud-optv-evolve-management",
+    "name": "huawei-cloud-optv-evolve-management",
+    "category": "security-compliance-auth",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Huawei Cloud algorithm auto-design (LLM4AD) skill. Performs the full lifecycle through KooCLI (command-line entry `hcloud`): algorithm project management, file upload, evolve task CRUD, status polling, result retrieval, and log inspection; also uses KooCLI's `hcloud IAM` subcommand to create the trust agency and grant algorithm design module bucket permissions. Trigger words: code evolution, evolve task, LLM4AD, algorithm optimization, upload algorithm file, create evolve task, start evolve task, fetch evolve result, evolve log, \u4ee3\u7801\u6f14\u5316, \u6f14\u5316\u4efb\u52a1, LLM4AD, code evolution, \u7b97\u6cd5\u4f18\u5316, \u4e0a\u4f20\u7b97\u6cd5\u6587\u4ef6, \u521b\u5efa\u6f14\u5316\u4efb\u52a1, \u542f\u52a8\u6f14\u5316\u4efb\u52a1, \u62c9\u53d6\u6f14\u5316\u7ed3\u679c, \u6f14\u5316\u65e5\u5fd7",
+    "path": "category/security-compliance-auth/huawei-cloud-optv-evolve-management"
+  },
+  {
+    "id": "huawei-cloud-ucs-policy-governor",
+    "name": "huawei-cloud-ucs-policy-governor",
+    "category": "security-compliance-auth",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Huawei Cloud UCS (Ubiquitous Cloud Native Service) policy governance and compliance management skill using hcloud CLI. Use this skill when the user wants to: (1) manage UCS policy instances - create/update/query/delete, (2) manage UCS policy definitions - query/list, (3) enable/disable policies on clusters or fleet groups, (4) check policy enforcement job status, (5) audit fleet compliance and review policy enforcement status. Trigger: user mentions \"UCS policy\", \"UCS \u7b56\u7565\", \"UCS governance\", \"UCS \u6cbb\u7406\", \"UCS compliance\", \"UCS \u5408\u89c4\", \"policy instance\", \"\u7b56\u7565\u5b9e\u4f8b\", \"policy definition\", \"\u7b56\u7565\u5b9a\u4e49\", \"enable policy\", \"\u542f\u7528\u7b56\u7565\", \"disable policy\", \"\u7981\u7528\u7b56\u7565\", \"fleet compliance\", \"\u8230\u961f\u5408\u89c4\", \"policy audit\", \"\u7b56\u7565\u5ba1\u8ba1\", \"UCS \u7b56\u7565\u7ba1\u7406\", \"UCS \u5408\u89c4\u6cbb\u7406\", \"policy governance\", \"\u7b56\u7565\u6cbb\u7406",
+    "path": "category/security-compliance-auth/huawei-cloud-ucs-policy-governor"
   },
   {
     "id": "hubspot-integration",
@@ -2224,6 +2504,22 @@
     "path": "category/security-compliance-auth/java-architect"
   },
   {
+    "id": "jetson-init-target",
+    "name": "jetson-init-target",
+    "category": "security-compliance-auth",
+    "repository": "nvidia-skills",
+    "description": "Author a new Jetson target-platform profile (reference_devkit + optional custom_carrier) and update the active pointer. Use to create a target; not for switching existing profiles.",
+    "path": "category/security-compliance-auth/jetson-init-target"
+  },
+  {
+    "id": "jetson-set-target",
+    "name": "jetson-set-target",
+    "category": "security-compliance-auth",
+    "repository": "nvidia-skills",
+    "description": "Switch the active Jetson target-platform pointer to an existing profile YAML. Use before customize/build/flash to change target; not for authoring profiles \u2014 use jetson-init-target instead.",
+    "path": "category/security-compliance-auth/jetson-set-target"
+  },
+  {
     "id": "jwt-oauth-token-attacks",
     "name": "jwt-oauth-token-attacks",
     "category": "security-compliance-auth",
@@ -2238,6 +2534,22 @@
     "repository": "mindrally-skills",
     "description": "Guidelines for implementing JWT authentication with security best practices for token creation, validation, and storage",
     "path": "category/security-compliance-auth/jwt-security"
+  },
+  {
+    "id": "korean-privacy-terms",
+    "name": "korean-privacy-terms",
+    "category": "security-compliance-auth",
+    "repository": "nomadamas-k-skill",
+    "description": "kimlawtech/korean-privacy-terms (Apache-2.0) \uc5c5\uc2a4\ud2b8\ub9bc\uc744 \uacbd\uc720\ud574 Next.js \ud504\ub85c\uc81d\ud2b8\uc5d0 \ud55c\uad6d \ubc95\ub839(\uac1c\uc778\uc815\ubcf4\ubcf4\ud638\ubc95\u00b7\uc57d\uad00\uaddc\uc81c\ubc95\u00b7\uc804\uc790\uc0c1\uac70\ub798\ubc95) \uae30\ubc18 \uac1c\uc778\uc815\ubcf4\ucc98\ub9ac\ubc29\uce68\u00b7\uc774\uc6a9\uc57d\uad00\u00b7\ucfe0\ud0a4 \ubc30\ub108\u00b7\ub3d9\uc758 \ubaa8\ub2ec\uc744 \uc0dd\uc131\ud558\ub294 thin wrapper \uc2a4\ud0ac.",
+    "path": "category/security-compliance-auth/korean-privacy-terms"
+  },
+  {
+    "id": "korean-slang-writing",
+    "name": "korean-slang-writing",
+    "category": "security-compliance-auth",
+    "repository": "nomadamas-k-skill",
+    "description": "Use curated Korean trending-slang candidates plus best-effort Namu Wiki lookups to write witty Korean text with up-to-date slang, with conservative safety and freshness guardrails.",
+    "path": "category/security-compliance-auth/korean-slang-writing"
   },
   {
     "id": "kotlin-ktor-patterns",
@@ -2270,6 +2582,22 @@
     "repository": "aaron-he-zhu-aaron-marketing-skills",
     "description": "Use when the user asks to \"run my launch day\", \"build a launch day runbook / war room\", or \"decide CONTINUE or ROLLBACK after the push\"; produces a pre-conditions gate check (launch-readiness-auditor SHIP verdict + the authoritative date in launch-registry \u2014 missing either stops the skill), a dated hour-blocked runbook with owners (morning irreversible pushes, daytime monitoring loop, evening consolidation), a forced observation-window verdict after every irreversible action against pre-declared kill criteria, a P0-P3 incident ladder with rollback playbooks, and T-0 status lines for the registry proposal protocol. Not for channel submission content and platform rules \u2014 use community-launch-runner; not for media replies \u2014 use press-media-relations. \u53d1\u5e03\u65e5runbook/\u4f5c\u6218\u5ba4/\u89c2\u5bdf\u7a97/\u56de\u6eda\u88c1\u51b3/\u53d1\u5e03\u65e5\u6307\u6325",
     "path": "category/security-compliance-auth/launch-day-conductor"
+  },
+  {
+    "id": "launchdarkly-metric-choose",
+    "name": "launchdarkly-metric-choose",
+    "category": "security-compliance-auth",
+    "repository": "launchdarkly-ai-tooling",
+    "description": "Choose the right metrics for a LaunchDarkly experiment, guarded rollout, or release policy. Use when the user wants to know which metrics to use, which is the primary metric for an experiment, what guardrails to add, or which events to monitor in a rollout. Surfaces what will auto-attach from existing release policies before making additional recommendations.",
+    "path": "category/security-compliance-auth/launchdarkly-metric-choose"
+  },
+  {
+    "id": "launching-ec2-instance-with-best-practices",
+    "name": "launching-ec2-instance-with-best-practices",
+    "category": "security-compliance-auth",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Launches an EC2 instance with secure, cost-efficient defaults including AMI selection, burstable instance sizing, least-privilege IAM roles, hardened security groups, encrypted EBS volumes, and comprehensive tagging. Use when deploying new EC2 instances following AWS best practices for security and cost optimization.",
+    "path": "category/security-compliance-auth/launching-ec2-instance-with-best-practices"
   },
   {
     "id": "law",
@@ -2360,6 +2688,38 @@
     "path": "category/security-compliance-auth/managed-airflow-dag-authoring"
   },
   {
+    "id": "managing-amazon-kinesis-data-streams",
+    "name": "managing-amazon-kinesis-data-streams",
+    "category": "security-compliance-auth",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Operates Amazon Kinesis Data Streams (KDS). Covers streaming tables and Amazon S3 delivery - serverless, fully managed delivery from a KDS stream to Apache Iceberg tables on S3 Tables or to general-purpose S3 buckets. Includes channel setup, IAM, schemas, output key templates, CloudWatch metrics and alarms, DLQ handling, quotas, and troubleshooting. For all other KDS topics and questions, search AWS documentation and blogs instead. Triggers: Kinesis Data Streams, KDS, streaming tables, stream to S3, stream to Iceberg, stream to S3 Tables, KDS delivery, KDS channel, CreateChannel, data channel, data freshness, dead-letter queue, KDS lakehouse, serverless Kinesis delivery, Firehose alternative for KDS, zero-ops Kinesis to S3. DO NOT USE for Kinesis Data Firehose, Kinesis Video Streams, or Managed Service for Apache Flink \u2014 use dedicated skills or search documentation instead.",
+    "path": "category/security-compliance-auth/managing-amazon-kinesis-data-streams"
+  },
+  {
+    "id": "managing-data-asset-access",
+    "name": "managing-data-asset-access",
+    "category": "security-compliance-auth",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Grants, requests, audits and removes access to data assets in an AWS data catalog (the Amazon SageMaker Catalog supported by Amazon DataZone) through catalog subscriptions over published listings. Covers requesting a subscription, approving or rejecting requests with a recorded decision, sharing a listing with a project, revoking one or many subscriptions, and confirming grant settlement. Triggers on: give another team access to a table, request access to a dataset, approve or reject an access request, share a listing with a project, who has access to this table, revoke access, bulk revoke, is the access actually gone, subscription grant status. Not for: IAM roles, policies or STS (use aws-iam), S3 bucket policies (use securing-s3-buckets), Clean Rooms permissions (use aws-cleanrooms), or writing catalog metadata, glossaries and forms, publishing listings, or retiring or deleting an asset that other teams are subscribed to and the order of operations that needs (use managing-data-catalog)",
+    "path": "category/security-compliance-auth/managing-data-asset-access"
+  },
+  {
+    "id": "mcp-configure",
+    "name": "mcp-configure",
+    "category": "security-compliance-auth",
+    "repository": "launchdarkly-ai-tooling",
+    "description": "Configure the LaunchDarkly hosted MCP server during onboarding. Use when the parent LaunchDarkly onboarding skill reaches the MCP offer, after the first flag works. Supports Cursor, Claude Code, Windsurf, GitHub Copilot, and other MCP-compatible agents. OAuth authentication; no API keys for the hosted server.",
+    "path": "category/security-compliance-auth/mcp-configure"
+  },
+  {
+    "id": "mcp-oauth-triage",
+    "name": "mcp-oauth-triage",
+    "category": "security-compliance-auth",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when an MCP connector that used to authenticate now fails (tool calls 401 after a good token exchange, breaks after refresh, returns another account's data), before changing code. Classifies the fault with oauth_triage.py.",
+    "path": "category/security-compliance-auth/mcp-oauth-triage"
+  },
+  {
     "id": "mdr-745-specialist",
     "name": "mdr-745-specialist",
     "category": "security-compliance-auth",
@@ -2430,6 +2790,22 @@
     "repository": "msw-git-msw-ai-coding-plugins-official",
     "description": "Authors MSW `.behaviourtree` files end-to-end and maintains the project-specific authoring spec (`.behaviourDocs/bt-spec.md`). Scans every `.codeblock` whose paired `.mlua` extends `ActionNode`/`DecoratorNode`/`CompositeNode` to build a compact catalog of custom action/decorator/composite UUIDs, propertyKey names, and version-stamped MODNativeType strings. Then generates the full tree: RootNode \u2192 Nodes graph, Blackboard variables, nodeProperties wiring, and self-validates parent/child consistency. Triggers: 'create behaviourtree', 'new BT', 'add a behaviour tree', 'BT node graph', '\ube44\ud5e4\uc774\ube44\uc5b4 \ud2b8\ub9ac \ub9cc\ub4e4\uc5b4', '.behaviourtree \uc0dd\uc131', 'SequenceNode SelectorNode', 'Blackboard variable', 'definitionId codeblock', 'startNodeId', 'build BT spec', 'refresh bt-spec', 'generate behaviourtree catalog', 'BT \uc2a4\ud399 \uc0dd\uc131', 'bt-spec.md \ub9cc\ub4e4\uc5b4', 'rescan BT nodes'.",
     "path": "category/security-compliance-auth/msw-behaviourtree"
+  },
+  {
+    "id": "natural-writing",
+    "name": "natural-writing",
+    "category": "security-compliance-auth",
+    "repository": "flutter-agent-plugins",
+    "description": "Contains well-defined rules for creating natural, accurate, and readable writing. Use whenever authoring longer text, like analysis documents, PR or CL descriptions, or documentation.",
+    "path": "category/security-compliance-auth/natural-writing"
+  },
+  {
+    "id": "nemotron-policy-generator",
+    "name": "nemotron-policy-generator",
+    "category": "security-compliance-auth",
+    "repository": "nvidia-skills",
+    "description": "Generates BYO custom safety policies for NVIDIA Nemotron content-safety guardrails \u2014 Nemotron-Content-Safety-Reasoning-4B (text) and multimodal Nemotron-3-Content-Safety. Produces a Markdown policy, JSON taxonomy, and drop-in inference prompts. Maps rough words or an existing policy to V2 categories, adding custom categories or topic-following rules.",
+    "path": "category/security-compliance-auth/nemotron-policy-generator"
   },
   {
     "id": "neverapply",
@@ -2542,6 +2918,14 @@
     "repository": "forcedotcom-sf-skills",
     "description": "Salesforce Industries Common Core (OmniStudio/Vlocity) Apex callable generation and review skill with 120-point scoring. Use when creating, reviewing, or migrating Industries callable Apex implementations. TRIGGER when: user creates or reviews System.Callable classes, migrates VlocityOpenInterface or VlocityOpenInterface2, or builds Industries callable extensions used by OmniStudio, Integration Procedures, or DataRaptors. DO NOT TRIGGER when: generic Apex classes or triggers (use platform-apex-generate), building Integration Procedures (use omnistudio-integration-procedure-generate), authoring OmniScripts (use omnistudio-omniscript-generate), configuring Data Mappers (use omnistudio-datamapper-generate), or analyzing namespace/dependency issues (use omnistudio-dependencies-analyze).",
     "path": "category/security-compliance-auth/omnistudio-callable-apex-generate"
+  },
+  {
+    "id": "omniverse-usd-performance-tuning",
+    "name": "omniverse-usd-performance-tuning",
+    "category": "security-compliance-auth",
+    "repository": "nvidia-skills",
+    "description": "Top-level workflow skill for USD performance diagnosis and optimization. Handles slow loading, high memory, low FPS, and broad scene-optimization requests; delegates auth/runtime setup to Phase 0 owners.",
+    "path": "category/security-compliance-auth/omniverse-usd-performance-tuning"
   },
   {
     "id": "onboarding-optimization",
@@ -2760,12 +3144,28 @@
     "path": "category/security-compliance-auth/phone"
   },
   {
+    "id": "physicsnemo-shard-tensor",
+    "name": "physicsnemo-shard-tensor",
+    "category": "security-compliance-auth",
+    "repository": "nvidia-skills",
+    "description": "Official NVIDIA-authored guidance for PhysicsNeMo ShardTensor domain parallelism \u2014 integrate domain parallelism into training/inference scripts (new or existing) with DDP or FSDP2, write and register shard patches to enable new layers/ops, and bootstrap multi-GPU correctness tests. Use when working with ShardTensor, scatter_tensor, domain parallelism, sequence/spatial sharding, ring attention, DeviceMesh + DDP/FSDP2 hybrid parallelism, or physicsnemo.domain_parallel. Do NOT use for generic PyTorch DDP/FSDP setup without domain parallelism, picking a PhysicsNeMo model or example (use physicsnemo-discover), or non-distributed training questions.",
+    "path": "category/security-compliance-auth/physicsnemo-shard-tensor"
+  },
+  {
     "id": "plaid-fintech",
     "name": "plaid-fintech",
     "category": "security-compliance-auth",
     "repository": "antigravity-awesome-skills",
     "description": "Expert patterns for Plaid API integration including Link token flows, transactions sync, identity verification, Auth for ACH, balance checks, webhook handling, and fintech compliance best practices...",
     "path": "category/security-compliance-auth/plaid-fintech"
+  },
+  {
+    "id": "platform-apex-anonymous-run",
+    "name": "platform-apex-anonymous-run",
+    "category": "security-compliance-auth",
+    "repository": "forcedotcom-sf-skills",
+    "description": "Runs anonymous Apex against the connected org (.apex file or pasted snippet), capturing the debug log, surfacing errors. Triggers on \\\"run this anonymous apex\\\", \\\"execute this script against my org\\\", \\\"what does this code return\\\", or \\\"execute scripts/foo.apex\\\". Wraps scripts in savepoint+rollback; warns before running in production. DO NOT TRIGGER for authoring .cls/.trigger files (platform-apex-generate), Apex unit tests (platform-apex-test-run), or debug-log analysis (platform-apex-logs-debug).",
+    "path": "category/security-compliance-auth/platform-apex-anonymous-run"
   },
   {
     "id": "platform-custom-object-generate",
@@ -2782,6 +3182,14 @@
     "repository": "forcedotcom-sf-skills",
     "description": "Generates correct, deployable Salesforce permission set metadata (PermissionSet XML) with object, field, user, and app permissions. Use this skill when creating or editing permission set metadata, object permissions, field-level security (FLS), tab visibility, or deploying permission sets.",
     "path": "category/security-compliance-auth/platform-permission-set-generate"
+  },
+  {
+    "id": "platform-policy-rule-generate",
+    "name": "platform-policy-rule-generate",
+    "category": "security-compliance-auth",
+    "repository": "forcedotcom-sf-skills",
+    "description": "THE skill for creating a Data Cloud / Data Governance access policy \u2014 authors and deploys a PolicyRuleDefinitionSet + PolicyRuleDefinition pair (CRUD) covering OLS, FLS, RLS, masking/transform, and tag/classification-based access for the DATACLOUD or ALL consumer. TRIGGER when the user wants to create/write/author a Data Cloud or Data Governance policy, access policy, or policy rule, or to grant access to a Data Cloud object THROUGH A POLICY \u2014 a Data Cloud policy-create request routes here, not to the tag/classification surface. Resolves every reference via Data 360 MCP. SCOPE: Data Cloud policies only (not Security Center, DSAR, or User Access Policies). DO NOT TRIGGER to create tags/classifications, or to grant object/dataspace access via a PERMISSION SET / RBAC grant (use platform-dataspace-access-configure). For a vague object-access ask, surface both skills and ASK the permission-set way vs the policy way; if unsure the object is Data Cloud, ask which first.",
+    "path": "category/security-compliance-auth/platform-policy-rule-generate"
   },
   {
     "id": "platform-sharing-rules-generate",
@@ -2840,6 +3248,14 @@
     "path": "category/security-compliance-auth/portfolio-monitoring"
   },
   {
+    "id": "pptx-slide-specification",
+    "name": "pptx-slide-specification",
+    "category": "security-compliance-auth",
+    "repository": "wshobson-agents",
+    "description": "Use when authoring or repairing a coordinate-explicit JSON specification for an editable PPTX deck.",
+    "path": "category/security-compliance-auth/pptx-slide-specification"
+  },
+  {
     "id": "prediction-market-risk-review",
     "name": "prediction-market-risk-review",
     "category": "security-compliance-auth",
@@ -2872,6 +3288,22 @@
     "path": "category/security-compliance-auth/privacy-parser-pii-extraction"
   },
   {
+    "id": "privacy-policy",
+    "name": "privacy-policy",
+    "category": "security-compliance-auth",
+    "repository": "phuryn-pm-skills",
+    "description": "Draft a detailed privacy policy covering data types, jurisdiction, GDPR and compliance considerations, and clauses needing legal review. Use when creating a privacy policy, updating data protection documentation, or preparing for compliance.",
+    "path": "category/security-compliance-auth/privacy-policy"
+  },
+  {
+    "id": "production-code-audit",
+    "name": "production-code-audit",
+    "category": "security-compliance-auth",
+    "repository": "active",
+    "description": "Audit an explicitly scoped codebase for evidenced security, correctness and performance issues; implement authorized targeted repairs and report validation plus residual readiness gaps.",
+    "path": "category/security-compliance-auth/production-code-audit"
+  },
+  {
     "id": "propelauth",
     "name": "propelauth",
     "category": "security-compliance-auth",
@@ -2886,6 +3318,14 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Agent governance skill for MCP tool calls \u2014 Cedar policy authoring, shadow-to-enforce rollout, and Ed25519 receipt verification.",
     "path": "category/security-compliance-auth/protect-mcp-governance"
+  },
+  {
+    "id": "protect-mcp-setup",
+    "name": "protect-mcp-setup",
+    "category": "security-compliance-auth",
+    "repository": "wshobson-agents",
+    "description": "Configure Cedar policy enforcement and Ed25519 signed receipts for Claude Code tool calls. Use when setting up projects that need cryptographic audit trails, policy-gated tool execution, or compliance-ready evidence of agent actions.",
+    "path": "category/security-compliance-auth/protect-mcp-setup"
   },
   {
     "id": "pwn-chain",
@@ -2944,6 +3384,14 @@
     "path": "category/security-compliance-auth/radio-sdr"
   },
   {
+    "id": "rds-sqlserver",
+    "name": "rds-sqlserver",
+    "category": "security-compliance-auth",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Provides connectivity, authentication, and troubleshooting guidance for Amazon RDS for SQL Server. Applicable when users ask about SSMS times out connecting from EC2, Cannot generate SSPI context with Windows auth, connect RDS SQL Server from Lambda with pymssql, auth_scheme shows NTLM instead of KERBEROS on ECS Fargate, SSM tunnel to RDS SQL Server from laptop, port 1433 security group, TrustServerCertificate=True for localhost tunnels, SPN MSSQLSvc, AWS Managed Microsoft AD, CNAME not RDS endpoint for Kerberos, tds_version='7.4', encryption='require', port-as-string for pymssql, Secrets Manager credential caching in Lambda, error 18456 login failed. Covers Python (pymssql, pyodbc), .NET (Microsoft.Data.SqlClient), Java (JDBC mssql-jdbc), Node.js (tedious), IAM auth via RDS Proxy, and VPC/ECS/EKS/Lambda deployment.",
+    "path": "category/security-compliance-auth/rds-sqlserver"
+  },
+  {
     "id": "reactivation-specialist",
     "name": "reactivation-specialist",
     "category": "security-compliance-auth",
@@ -2966,6 +3414,14 @@
     "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "Redistricting analysis in R using the redistverse ecosystem. Use whenever the user is working with redist, redistmetrics, ggredist, geomander, adj, alarmdata, PL94171, censable, easycensus, tinytiger, baf, rict, or redistio. Covers the complete pipeline: Census and spatial data loading, adjacency graph construction, SMC/MCMC simulation, constraints (population balance, county splits, VRA compliance), convergence diagnostics, plan metrics (compactness, partisan fairness, splits), visualization, summary tables, and interactive plan drawing. Invoke whenever the user mentions redistricting, gerrymandering, district plans, simulation ensembles, or any redistverse package by name.",
     "path": "category/security-compliance-auth/redistricting-analysis"
+  },
+  {
+    "id": "redshift-guide",
+    "name": "redshift-guide",
+    "category": "security-compliance-auth",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Amazon Redshift is NOT PostgreSQL; corrects LLM mistakes; covers SQL, metadata, connectivity/auth, storage, query performance, and operations. Applies ONLY to Redshift (provisioned or Serverless). Pushes back on: CREATE INDEX, string_agg, pg_catalog, text type, SERIAL, stl_query. Triggers on: Redshift SQL, Redshift CREATE TABLE, Redshift COPY/UNLOAD, slow or suddenly slow Redshift query, EXPLAIN plan, queue wait, stale statistics/ANALYZE, result cache, Redshift permission denied, Redshift disk full, storage growth, snapshot/backup cost, ghost rows/bloat, VACUUM, spill to disk, distribution skew, Redshift system views, QUALIFY, PIVOT, MERGE, materialized views, Redshift Data API (Python/boto3), Redshift workload management (WLM), concurrency scaling, Redshift resize, Spectrum, awsdatacatalog, connection failures (SSL/TLS, ODBC/JDBC, connection limit), IAM/SAML federation, IAM Identity Center, datashares. Does NOT apply to: S3 policies, Athena, Glue/Iceberg outside Redshift, Aurora, RDS, DynamoDB.",
+    "path": "category/security-compliance-auth/redshift-guide"
   },
   {
     "id": "referral-abuse-guardrails",
@@ -3016,6 +3472,14 @@
     "path": "category/security-compliance-auth/replica-deploy"
   },
   {
+    "id": "resilience-hub-multi-account",
+    "name": "resilience-hub-multi-account",
+    "category": "security-compliance-auth",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Configures AWS Resilience Hub v2 for multi-account resilience management across an AWS Organization. Covers the per-service cross-account permission model, cross-account IAM roles, and centralized assessment from a single account. Applies when the user wants to set up org-wide resilience or assess workloads that span multiple AWS accounts.",
+    "path": "category/security-compliance-auth/resilience-hub-multi-account"
+  },
+  {
     "id": "reverse-skill-router",
     "name": "reverse-skill-router",
     "category": "security-compliance-auth",
@@ -3030,6 +3494,14 @@
     "repository": "dimillian-skills",
     "description": "Parallel read-only multi-agent review of a current git diff or explicit file scope to find behavioral regressions, security or privacy risks, performance or reliability issues, and contract or test coverage gaps. Use when the user asks for a review swarm, parallel review, diff review, regression review, security review, or wants high-signal issues plus a prioritized fix path without editing files.",
     "path": "category/security-compliance-auth/review-swarm"
+  },
+  {
+    "id": "review-team",
+    "name": "review-team",
+    "category": "security-compliance-auth",
+    "repository": "active",
+    "description": "Use when assigned a review or when an authored review boundary is reached.",
+    "path": "category/security-compliance-auth/review-team"
   },
   {
     "id": "rig-bundles-and-shareable-artifacts",
@@ -3132,7 +3604,7 @@
     "name": "security-and-hardening",
     "category": "security-compliance-auth",
     "repository": "addyosmani-agent-skills",
-    "description": "Hardens code against vulnerabilities. Use when auditing an input handler for vulnerabilities, when handling user input, authentication, data storage, or external integrations, or when checking a login flow is safe against the OWASP Top Ten. Use when building any feature that accepts untrusted data, manages user sessions, or interacts with third-party services. Use when auditing dependencies for known vulnerabilities, triaging package-manager audit findings, or assessing supply-chain risk in a new package. Use when personal data or privacy compliance (GDPR, CCPA) is involved.",
+    "description": "Hardens code against vulnerabilities. Use when auditing an input handler for vulnerabilities, when handling user input, authentication, data storage, or external integrations, or when checking a login flow is safe against the OWASP Top Ten. Use when building any feature that accepts untrusted data, manages user sessions or session cookies, or interacts with third-party services. Use when auditing dependencies for known vulnerabilities, triaging package-manager audit findings, or assessing supply-chain risk in a new package. Use when personal data or privacy compliance (GDPR, CCPA) is involved.",
     "path": "category/security-compliance-auth/security-and-hardening"
   },
   {
@@ -3328,12 +3800,36 @@
     "path": "category/security-compliance-auth/session-management"
   },
   {
+    "id": "setting-up-ec2-instance-profiles",
+    "name": "setting-up-ec2-instance-profiles",
+    "category": "security-compliance-auth",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Configures EC2 instances to securely call AWS services by creating and attaching IAM roles via instance profiles, eliminating hardcoded credentials. Use when an EC2 instance needs permissions to access AWS services like S3, DynamoDB, SQS, or CloudWatch through temporary credentials.",
+    "path": "category/security-compliance-auth/setting-up-ec2-instance-profiles"
+  },
+  {
+    "id": "setup-security-agent",
+    "name": "setup-security-agent",
+    "category": "security-compliance-auth",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Configure AWS Security Agent for the current workspace \u2014 provision or reuse an agent space, IAM service role, and S3 bucket. Use when the user asks to \"set up security agent\", \"configure security scanner\", \"is security agent configured\", or on first-time use before any scan or pentest.",
+    "path": "category/security-compliance-auth/setup-security-agent"
+  },
+  {
     "id": "setup-zoom-oauth",
     "name": "setup-zoom-oauth",
     "category": "security-compliance-auth",
     "repository": "anthropics-knowledge-work",
     "description": "Implement Zoom authentication correctly. Use when setting up app credentials, choosing an OAuth grant, requesting scopes, handling token refresh, or debugging auth failures.",
     "path": "category/security-compliance-auth/setup-zoom-oauth"
+  },
+  {
+    "id": "shieldadvanced",
+    "name": "shieldadvanced",
+    "category": "security-compliance-auth",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Configures AWS Shield Advanced for enhanced Distributed Denial of Service (DDoS) protection: subscribing accounts and adding resource protections, enabling automatic application layer (layer 7) mitigation through AWS WAF, configuring health-based detection with Route 53 health checks, setting up Shield Response Team (SRT) access and proactive engagement, reviewing DDoS events and requesting cost protection credits, and aggregating resources into protection groups. Applicable when the user wants stronger DDoS protection for internet-facing resources (CloudFront, Application or Network Load Balancers, Elastic IP addresses, Global Accelerator, or Route 53 hosted zones), wants expert help during an attack, or wants to recover attack-driven scaling charges. Routes to the right per-task procedure in references. Not applicable for authoring AWS WAF rules (waf skill), creating Route 53 health checks (route53 skill), or org-wide Shield Advanced rollout with Firewall Manager (firewallmanager skill).",
+    "path": "category/security-compliance-auth/shieldadvanced"
   },
   {
     "id": "shipping-velocity",
@@ -3500,7 +3996,7 @@
     "name": "srdf",
     "category": "security-compliance-auth",
     "repository": "earthtojake-text-to-cad",
-    "description": "MoveIt2 SRDF authoring, validation, and planning-semantics workflow. Use when creating, editing, inspecting, or validating `.srdf` files, MoveIt planning groups, virtual joints, passive joints, end effectors, group states, disabled collisions, URDF-paired planning semantics, or SRDF handoff for live review. Use the URDF skill for robot structure and the SDF skill for simulator descriptions. Open and visually review existing SRDF files in CAD Viewer.",
+    "description": "MoveIt2 SRDF authoring, validation, and planning-semantics workflow. Use when creating, editing, inspecting, or validating `.srdf` files, MoveIt planning groups, virtual joints, passive joints, end effectors, group states, disabled collisions, URDF-paired planning semantics, or SRDF handoff for live review. Covers MoveIt planning semantics, not the robot's structure (URDF) or simulator descriptions (SDF). Open and visually review existing SRDF files in CAD Viewer.",
     "path": "category/security-compliance-auth/srdf"
   },
   {
@@ -3592,6 +4088,14 @@
     "path": "category/security-compliance-auth/tailscale-setup"
   },
   {
+    "id": "tao-train-optical-inspection",
+    "name": "tao-train-optical-inspection",
+    "category": "security-compliance-auth",
+    "repository": "nvidia-skills",
+    "description": "Optical Inspection for defect detection using Siamese networks. Compares image pairs to detect manufacturing",
+    "path": "category/security-compliance-auth/tao-train-optical-inspection"
+  },
+  {
     "id": "tax-register",
     "name": "tax-register",
     "category": "security-compliance-auth",
@@ -3672,6 +4176,22 @@
     "path": "category/security-compliance-auth/transaction-management"
   },
   {
+    "id": "troubleshooting-efs",
+    "name": "troubleshooting-efs",
+    "category": "security-compliance-auth",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Diagnoses and resolves Amazon EFS issues including mount failures, NFS timeouts, permission errors, throughput problems, and burst credit exhaustion. Use when the user has an EFS file system that is not mounting, returning errors, performing slowly, or showing access denied.",
+    "path": "category/security-compliance-auth/troubleshooting-efs"
+  },
+  {
+    "id": "troubleshooting-s3-files",
+    "name": "troubleshooting-s3-files",
+    "category": "security-compliance-auth",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Diagnoses and resolves Amazon S3 Files issues including mount failures, permission errors, synchronization problems, and performance issues. Use when the user has an S3 file system that is not mounting, returning access denied, not syncing changes to S3, showing files in lost+found, or performing slower than expected.",
+    "path": "category/security-compliance-auth/troubleshooting-s3-files"
+  },
+  {
     "id": "twoFactor",
     "name": "twoFactor",
     "category": "security-compliance-auth",
@@ -3724,7 +4244,7 @@
     "name": "urdf",
     "category": "security-compliance-auth",
     "repository": "earthtojake-text-to-cad",
-    "description": "URDF robot description authoring and validation. Use when creating, editing, inspecting, validating, or debugging `.urdf` files, robot links, joints, limits, inertials, visual/collision geometry, mesh references, frame conventions, or robot-description artifacts. Use the SRDF skill for MoveIt2 semantic groups and IK/path-planning semantics; use the CAD skill for STEP/STL/3MF/DXF/GLB outputs. Open and visually review existing URDF files in CAD Viewer.",
+    "description": "URDF robot description authoring and validation. Use when creating, editing, inspecting, validating, or debugging `.urdf` files, robot links, joints, limits, inertials, visual/collision geometry, mesh references, frame conventions, or robot-description artifacts. Covers the robot's structure, not MoveIt2 semantic groups or IK/path-planning semantics (SRDF), and not the STEP/STL/3MF/DXF/GLB files its meshes come from. Open and visually review existing URDF files in CAD Viewer.",
     "path": "category/security-compliance-auth/urdf"
   },
   {

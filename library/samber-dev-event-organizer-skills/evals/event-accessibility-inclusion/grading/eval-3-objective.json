@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The response removes the quiet room, reserved seating, and all-gender restrooms from the booking form, stating these work walk-up and that requiring a request filters out the people least willing to disclose.",
+        "evidence": "'These three work walk-up. Booking them filters out the people least willing to disclose.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "It states that shrinking the set of provisions needing a request at all is free and comes before any channel design decision.",
+        "evidence": "The walk-up split appears as Fix 4, after the channel design in Fix 3. It is never called free or a precondition.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "It limits the request channel to provisions that must actually be booked, such as interpretation, childcare, a nursing room, equipment rental, or a grant.",
+        "evidence": "'Needs a request: interpretation, childcare, nursing room, equipment rental, grants.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "It rejects the required disclosure dropdown, replacing it with an optional open question about what the attendee needs to attend, never a mandatory disability selection.",
+        "evidence": "'One optional free-text field about needs, not conditions'; 'Optional, never required.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "It warns that a registration-platform field deposits health and disability data into a third-party platform's records by default, where retention is the platform's choice, not the organizer's.",
+        "evidence": "'The hosted platform decides retention, not you'; 'the data sits in the platform's records.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "It rejects routing responses to the info@ role alias, requiring a named person who reads and answers requests.",
+        "evidence": "'A role alias has no accountable person'; 'Do not use `info@`.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "It requires a retention rule stated on the form itself, with deletion tied to a stated date after the event and actually performed at the debrief.",
+        "evidence": "Field copy: 'only until [event date + 2 weeks]... delete it after that'; 'delete them at the debrief'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "It requires the data-handling posture decided before the channel opens, covering retention, who can access requests, and the reply turnaround as the published minimum.",
+        "evidence": "'Write the data-handling posture before the channel opens: retention, access, turnaround...'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The posture also covers where the data lives and who decides a decline with the reason written down.",
+        "evidence": "'where the data lives, who decides a decline'; 'Name one person who decides a decline, and write the reason down.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "It states a published reply turnaround that applies to declines as well as acceptances.",
+        "evidence": "'replies within [M] days, including if the answer is no'; 'Reply to every request, declines included'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "It explains the trade the registration-field route makes: it surfaces the most needs, which is exactly what generates months of triage - effort counted as triage generated, not setup minutes.",
+        "evidence": "Says only 'The field reaches more people than an inbox does. The price is that the data sits in the platform's records.' There is no mention of triage burden.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "It includes concrete examples of askable things in the request question copy (such as a step-free route, interpretation, dietary needs, childcare), because attendees do not know what is askable.",
+        "evidence": "'For example a step-free route, captioning or interpretation, a nursing room, dietary needs, or childcare.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "It flags unanswered jurisdictional data rules as a question for counsel, and on that ground favors a channel the organizer controls over the platform field, rather than answering the legal question itself.",
+        "evidence": "'Questions for counsel (Q6)'; 'If you cannot answer them, use the inbox only'; 'Hold the data where you can delete it'.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The response removes the quiet room, reserved seating, and all-gender restrooms from the booking form, stating these work walk-up and that requiring a request filters out the people least willing to disclose.",
+        "evidence": "Keeps 'Reserved seating' and 'Quiet room (I may use it)' as checkboxes. Only restrooms are removed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "It states that shrinking the set of provisions needing a request at all is free and comes before any channel design decision.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "It limits the request channel to provisions that must actually be booked, such as interpretation, childcare, a nursing room, equipment rental, or a grant.",
+        "evidence": "The channel includes walk-up items such as quiet room and seating.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "It rejects the required disclosure dropdown, replacing it with an optional open question about what the attendee needs to attend, never a mandatory disability selection.",
+        "evidence": "Makes it optional but replaces it with checkboxes and explicitly 'Don't offer a free-text box'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "It warns that a registration-platform field deposits health and disability data into a third-party platform's records by default, where retention is the platform's choice, not the organizer's.",
+        "evidence": "Only asks platform checks; offers 'or leave them on the platform' as acceptable.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "It rejects routing responses to the info@ role alias, requiring a named person who reads and answers requests.",
+        "evidence": "'Use a separate follow-up address, not info@... owned by one or two named people.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "It requires a retention rule stated on the form itself, with deletion tied to a stated date after the event and actually performed at the debrief.",
+        "evidence": "Consent text: 'we delete them 30 days after the event'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "It requires the data-handling posture decided before the channel opens, covering retention, who can access requests, and the reply turnaround as the published minimum.",
+        "evidence": "Covers retention and access, but no reply turnaround.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The posture also covers where the data lives and who decides a decline with the reason written down.",
+        "evidence": "No decline decision process.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "It states a published reply turnaround that applies to declines as well as acceptances.",
+        "evidence": "No turnaround.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "It explains the trade the registration-field route makes: it surfaces the most needs, which is exactly what generates months of triage - effort counted as triage generated, not setup minutes.",
+        "evidence": "Not discussed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "It includes concrete examples of askable things in the request question copy (such as a step-free route, interpretation, dietary needs, childcare), because attendees do not know what is askable.",
+        "evidence": "Checkbox list: step-free access, reserved seating, captions or sign-language interpreter, dietary needs.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "It flags unanswered jurisdictional data rules as a question for counsel, and on that ground favors a channel the organizer controls over the platform field, rather than answering the legal question itself.",
+        "evidence": "Answers GDPR itself and says 'This is not legal advice', but does not favor an organizer-controlled channel on that ground.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,190 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Replaces the Accept-Language auto-redirect with a dismissible language suggestion plus a persistent switcher that remembers the reader's choice",
+        "evidence": "\"dismissible language suggestion plus a persistent switcher that remembers\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that auto-redirect traps readers and that crawlers send no language preference",
+        "evidence": "\"traps readers in a locale. Crawlers send no language preference\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Restores CLI flags to their source form (--dry-run), stating that identifiers, CLI flags, HTTP headers, config keys and product names are never translated",
+        "evidence": "\"Revert every flag, identifier, header, and config key to the original.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires error messages quoted verbatim as the product prints them, with the Spanish translation alongside, so the reader can search the string they see",
+        "evidence": "\"Quote errors verbatim... with the Spanish explanation beside them.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Restores heading anchors to the source language with explicit IDs so links from support replies and other locales survive",
+        "evidence": "`## Webhooks {#retry-policy}`",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends cutting the API reference translation back to top-traffic pages only or none, citing the precedent of guides translated into 16 languages with reference left untranslated",
+        "evidence": "\"Facebook for Developers translated guides into 16 languages and left reference untranslated.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks which variant the audience needs (es-ES or es-419) or states the variant decision explicitly",
+        "evidence": "\"is the target es-ES or es-419?\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a translation label on every page naming how it was translated, stating the English page is authoritative, with a one-click link to it and a way to report a translation problem",
+        "evidence": "Label text in step 2 with authoritative English, link, report link",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a new locale is exposed to search only after its first review pass, not on launch day",
+        "evidence": "\"noindex on /es/ until the first review pass is done\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Adds a glossary recording every do-not-translate term with the decision and who made it",
+        "evidence": "Glossary with do-not-translate decisions is required, but who made each decision is not recorded.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks whether every page carries a source-commit pin and whether a drift check runs",
+        "evidence": "It assumes \"no pins exist today\" and prescribes them rather than asking.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Defers screenshots and diagrams rather than translating them",
+        "evidence": "Screenshots and diagrams are not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes hreflang and canonical mechanics to samber/developer-relations-skills@docs-seo rather than fixing them inline",
+        "evidence": "\"belong to `samber/developer-relations-skills@docs-seo`\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes security, authentication and billing pages (a payments SDK) to human review before publication",
+        "evidence": "Step 4: \"get human review before the pages return to search\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks for two named Spanish-fluent reviewers and a named person allowed to pull the locale before treating it as launched",
+        "evidence": "Step 6 and the question \"Who reviews the Spanish pages\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Replaces the Accept-Language auto-redirect with a dismissible language suggestion plus a persistent switcher that remembers the reader's choice",
+        "evidence": "\"Show a dismissible 'Ver en espa\u00f1ol' banner. Never redirect deep links. Remember the user's choice in a cookie.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that auto-redirect traps readers and that crawlers send no language preference",
+        "evidence": "Covers reader annoyance but never says crawlers send no language preference.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Restores CLI flags to their source form (--dry-run), stating that identifiers, CLI flags, HTTP headers, config keys and product names are never translated",
+        "evidence": "\"Restore flags, error strings, fields, endpoints and code to the real values.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires error messages quoted verbatim as the product prints them, with the Spanish translation alongside, so the reader can search the string they see",
+        "evidence": "Restore real error strings; Spanish only in explanations.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Restores heading anchors to the source language with explicit IDs so links from support replies and other locales survive",
+        "evidence": "\"## Firma de webhooks {#webhook-signature}\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends cutting the API reference translation back to top-traffic pages only or none, citing the precedent of guides translated into 16 languages with reference left untranslated",
+        "evidence": "Recommends leaving reference in English, no precedent cited.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks which variant the audience needs (es-ES or es-419) or states the variant decision explicitly",
+        "evidence": "Not addressed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a translation label on every page naming how it was translated, stating the English page is authoritative, with a one-click link to it and a way to report a translation problem",
+        "evidence": "Only a 'Ver en espa\u00f1ol' suggestion and a translated-from version; no authority label or report link.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a new locale is exposed to search only after its first review pass, not on launch day",
+        "evidence": "\"Add noindex to pages that are stale or only partly translated until they're reviewed.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Adds a glossary recording every do-not-translate term with the decision and who made it",
+        "evidence": "No glossary.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks whether every page carries a source-commit pin and whether a drift check runs",
+        "evidence": "Proposes a freshness process but does not ask about pins.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Defers screenshots and diagrams rather than translating them",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes hreflang and canonical mechanics to samber/developer-relations-skills@docs-seo rather than fixing them inline",
+        "evidence": "Fixes inline.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes security, authentication and billing pages (a payments SDK) to human review before publication",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks for two named Spanish-fluent reviewers and a named person allowed to pull the locale before treating it as launched",
+        "evidence": "Not asked.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

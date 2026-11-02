@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Gives pull requests their own gate order rather than reusing the issue triage process",
+        "evidence": "'The skill's PR gate order (Step 6) splits review into cheap, mandatory gates... and an expensive gate' with its own numbered steps 1-4.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats sign-off (CLA or DCO) and CI permission for externally authored pull requests as automated preconditions rather than as ranked menu items",
+        "evidence": "'Sign-off + CI status \u2014 0 maintainer-minutes. Automated precondition, not a menu item.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that nothing merges without sign-off, tied to the licence provenance it records",
+        "evidence": "No mention of 'licence' or 'provenance' anywhere; only 'Anything failing here needs zero review time until the author fixes it.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ranks the direction check ahead of the size-based risk label and ahead of code-correctness review",
+        "evidence": "Steps listed: '2. Direction check' before '3. Size-based risk label' and '4. Code-correctness review'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Justifies that order by rejections settled per minute of reviewer time rather than by which gate is cheapest",
+        "evidence": "Direction check (1-2 min, not the cheapest \u2014 size label is 0 min) is placed second because 'two-thirds never needed the code read at all \u2014 resolved by description/CI/scope alone', an efficiency argument not a pure cost order.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites the finding that roughly two thirds of rejected agentic pull requests never needed the code read at all, from 353 manually inspected rejections",
+        "evidence": "'The MSR 2026 Mining Challenge (353 manually inspected rejected agentic PRs) found 35.7%... + 31.2%... \u2248 two-thirds never needed the code read at all'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names code-correctness review as the only gate that can accept a change, and the expensive pass the order exists to protect",
+        "evidence": "'splits review into cheap, mandatory gates that run on all 230 first, and an expensive gate that should only run on what survives them.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the condition that promotes code review to first: a trusted repeat contributor sending a small change against an already-accepted issue",
+        "evidence": "No such promotion condition appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives pull requests a tighter first-response target than issues, justified by the asymmetric cost of an unanswered pull request against hours already spent",
+        "evidence": "Asymmetric cost is cited for prioritization order ('oldest-first... stale-PR cost as asymmetric') but no explicit tighter numeric target for PRs vs issues is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Counts externally authored pull requests as triage work while excluding the maintainers' own in-flight pull requests",
+        "evidence": "No mention of excluding maintainers' own PRs from the count anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires verifying the claim against the diff rather than against the description",
+        "evidence": "'verify the claim in the description against the actual diff (per the response playbook... since agents are good at plausible descriptions)'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes by ownership before review so the wait sits on a named person rather than on the queue",
+        "evidence": "No mention of routing PRs to a named owner anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not present a raw diff-size or line-count threshold as an accept-or-reject rule",
+        "evidence": "'Size-based risk label \u2014 0 incremental minutes. Computed from the diff automatically. It's a sort key for step 4, not a review.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Gives pull requests their own gate order rather than reusing the issue triage process",
+        "evidence": "A dedicated \"Pass 1 \u2014 Triage\" / \"Pass 2 \u2014 Full review\" structure is built specifically for PRs (CI status, conflicts, duplicate, scope, then size-based review).",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats sign-off (CLA or DCO) and CI permission for externally authored pull requests as automated preconditions rather than as ranked menu items",
+        "evidence": "No mention of CLA/DCO or CI-permission preconditions anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that nothing merges without sign-off, tied to the licence provenance it records",
+        "evidence": "No statement about sign-off or licence provenance.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ranks the direction check ahead of the size-based risk label and ahead of code-correctness review",
+        "evidence": "\"Check if it's still in scope (API may have moved on)\" sits in Pass 1's bucketing checklist, which precedes Pass 2's size-based full review and correctness checks.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Justifies that order by rejections settled per minute of reviewer time rather than by which gate is cheapest",
+        "evidence": "Justification given is \"Triage first so full-review time only goes to PRs that can actually merge\" \u2014 a cheapest-gate-first rationale, not a rejections-per-minute framing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites the finding that roughly two thirds of rejected agentic pull requests never needed the code read at all, from 353 manually inspected rejections",
+        "evidence": "No such statistic or citation appears anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names code-correctness review as the only gate that can accept a change, and the expensive pass the order exists to protect",
+        "evidence": "No explicit statement framing code-correctness review as the sole accept-capable gate.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the condition that promotes code review to first: a trusted repeat contributor sending a small change against an already-accepted issue",
+        "evidence": "No such promotion condition is described.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives pull requests a tighter first-response target than issues, justified by the asymmetric cost of an unanswered pull request against hours already spent",
+        "evidence": "No first-response SLA for PRs is given at all in this section.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Counts externally authored pull requests as triage work while excluding the maintainers' own in-flight pull requests",
+        "evidence": "No distinction between externally authored and maintainer-authored PRs is made.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires verifying the claim against the diff rather than against the description",
+        "evidence": "\"Whether it actually reproduces and fixes the linked issue locally \u2014 don't take 'looks right' as verification\" plus checking for \"Unrelated refactors bundled with the actual fix, hiding the real diff.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes by ownership before review so the wait sits on a named person rather than on the queue",
+        "evidence": "No ownership-based routing is described anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not present a raw diff-size or line-count threshold as an accept-or-reject rule",
+        "evidence": "Size categories (\"Docs/trivial\", \"Small bug fix\", \"Medium feature\", \"Large or architectural\") are used only to estimate review time, never as accept/reject cutoffs.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

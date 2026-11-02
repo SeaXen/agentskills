@@ -2,7 +2,11 @@
 
 # Component Creation Reference
 
-Complete guide for Phase 3: building components with variant matrices, variable bindings, component properties, and documentation.
+Guide to building components with variant matrices, variable bindings, component properties, and optional documentation. The scope selected in the main skill determines which sections apply.
+
+> **Design files only.** Every snippet here (including `figma.createPage()`) targets Figma Design files (`figma.com/design/...`). `figma.createPage()` throws in both FigJam (`figma.com/board/...`) and Slides (`figma.com/slides/...`).
+>
+> **Every text mutation in this file follows the [canonical text-edit recipe](../../figma-use/references/gotchas.md#canonical-text-edit-recipe-font-load--await--mutate--return-ids):** load font → `await` → mutate → return affected IDs. Examples use `Inter` because it's available everywhere; `loadFontAsync` is required for every (family, style) pair you mutate, including non-Inter brand fonts.
 
 ---
 
@@ -18,7 +22,7 @@ Tier 1 (molecules): Button, Checkbox, Toggle, Input, Select
 Tier 2 (organisms): Card, Dialog, Menu, Navigation, Form
 ```
 
-If a component embeds an instance of another component, the embedded component must be created first. Build your dependency graph during Phase 0 and encode the creation order in the plan.
+If a component embeds an instance of another component, create that dependency first. Build the relevant dependency graph during discovery and encode the creation order in the plan.
 
 ### Building Blocks Sub-Components (M3 Pattern)
 
@@ -54,58 +58,50 @@ _Label/Direction // documentation annotation helper
 
 ## 2. Creating the Component Page
 
-Each component lives on its own dedicated page (one page per component is the default). The page contains: a documentation frame at top-left and the component set positioned to its right or below.
+For a full library, each component usually lives on a dedicated page with documentation and its component set. For a scoped component task, match the file's existing organization and create a page or documentation only when the selected scope requires it.
 
 ```javascript
-(async () => {
-  try {
-    // Create or find the component page
-    let page = figma.root.children.find(p => p.name === 'Button');
-    if (!page) {
-      page = figma.createPage();
-      page.name = 'Button';
-    }
-    await figma.setCurrentPageAsync(page);
+// Create or find the component page
+let page = figma.root.children.find(p => p.name === 'Button');
+if (!page) {
+  page = figma.createPage();
+  page.name = 'Button';
+}
+await figma.setCurrentPageAsync(page);
 
-    // Documentation frame — positioned at (40, 40)
-    const docFrame = figma.createFrame();
-    docFrame.name = 'Button / Documentation';
-    docFrame.x = 40;
-    docFrame.y = 40;
-    docFrame.resize(600, 400);
-    docFrame.fills = [{ type: 'SOLID', color: { r: 1, g: 1, b: 1 } }];
-    docFrame.layoutMode = 'VERTICAL';
-    docFrame.primaryAxisSizingMode = 'AUTO';
-    docFrame.counterAxisSizingMode = 'FIXED';
-    docFrame.paddingTop = 40;
-    docFrame.paddingBottom = 40;
-    docFrame.paddingLeft = 40;
-    docFrame.paddingRight = 40;
-    docFrame.itemSpacing = 16;
+// Documentation frame — positioned at (40, 40)
+const docFrame = figma.createFrame();
+docFrame.name = 'Button / Documentation';
+docFrame.x = 40;
+docFrame.y = 40;
+docFrame.resize(600, 400);
+docFrame.fills = [{ type: 'SOLID', color: { r: 1, g: 1, b: 1 } }];
+docFrame.layoutMode = 'VERTICAL';
+docFrame.primaryAxisSizingMode = 'AUTO';
+docFrame.counterAxisSizingMode = 'FIXED';
+docFrame.paddingTop = 40;
+docFrame.paddingBottom = 40;
+docFrame.paddingLeft = 40;
+docFrame.paddingRight = 40;
+docFrame.itemSpacing = 16;
 
-    // Title text node
-    await figma.loadFontAsync({ family: 'Inter', style: 'Bold' });
-    const title = figma.createText();
-    title.fontName = { family: 'Inter', style: 'Bold' };
-    title.fontSize = 32;
-    title.characters = 'Button';
-    docFrame.appendChild(title);
+// Title text node
+await figma.loadFontAsync({ family: 'Inter', style: 'Bold' });
+const title = figma.createText();
+title.fontName = { family: 'Inter', style: 'Bold' };
+title.fontSize = 32;
+title.characters = 'Button';
+docFrame.appendChild(title);
 
-    // Description text node
-    await figma.loadFontAsync({ family: 'Inter', style: 'Regular' });
-    const desc = figma.createText();
-    desc.fontName = { family: 'Inter', style: 'Regular' };
-    desc.fontSize = 14;
-    desc.characters = 'Buttons allow users to take actions and make choices with a single tap.';
-    docFrame.appendChild(desc);
+// Description text node
+await figma.loadFontAsync({ family: 'Inter', style: 'Regular' });
+const desc = figma.createText();
+desc.fontName = { family: 'Inter', style: 'Regular' };
+desc.fontSize = 14;
+desc.characters = 'Buttons allow users to take actions and make choices with a single tap.';
+docFrame.appendChild(desc);
 
-    // Tag docFrame with pluginData for idempotency
-    docFrame.setPluginData('dsb_run_id', RUN_ID);
-    docFrame.setPluginData('dsb_key', 'doc/button');
-
-    figma.closePlugin(JSON.stringify({ docFrameId: docFrame.id, pageId: page.id }));
-  } catch (e) { figma.closePluginWithFailure(e.toString()); }
-})();
+return { docFrameId: docFrame.id, pageId: page.id };
 ```
 
 ---
@@ -120,86 +116,76 @@ The base component is the template from which all variants are cloned. It must h
 ### Complete Button Base Component Example
 
 ```javascript
-(async () => {
-  try {
-    const RUN_ID = 'ds-build-2024-001'; // replace with your actual run ID
-    await figma.setCurrentPageAsync(
-      figma.root.children.find(p => p.name === 'Button')
-    );
+const page = await figma.getNodeByIdAsync('PAGE_ID_FROM_STATE');
+if (!page || page.type !== 'PAGE') throw new Error('Expected the selected component page');
+await figma.setCurrentPageAsync(page);
 
-    // Rehydrate variables from IDs stored in state ledger
-    const bgVar     = await figma.variables.getVariableByIdAsync('VAR_ID_color_bg_primary');
-    const textVar   = await figma.variables.getVariableByIdAsync('VAR_ID_color_text_on_primary');
-    const paddingVar = await figma.variables.getVariableByIdAsync('VAR_ID_spacing_md');
-    const radiusVar = await figma.variables.getVariableByIdAsync('VAR_ID_radius_md');
-    const gapVar    = await figma.variables.getVariableByIdAsync('VAR_ID_spacing_sm');
+// Rehydrate variables from IDs stored in state ledger
+const bgVar     = await figma.variables.getVariableByIdAsync('VAR_ID_color_bg_primary');
+const textVar   = await figma.variables.getVariableByIdAsync('VAR_ID_color_text_on_primary');
+const paddingVar = await figma.variables.getVariableByIdAsync('VAR_ID_spacing_md');
+const radiusVar = await figma.variables.getVariableByIdAsync('VAR_ID_radius_md');
+const gapVar    = await figma.variables.getVariableByIdAsync('VAR_ID_spacing_sm');
 
-    // --- Base component frame ---
-    const comp = figma.createComponent();
-    comp.name = 'Size=Medium, Style=Primary, State=Default';
-    comp.layoutMode = 'HORIZONTAL';
-    comp.primaryAxisSizingMode = 'AUTO';
-    comp.counterAxisSizingMode = 'AUTO';
-    comp.counterAxisAlignItems = 'CENTER';
-    comp.primaryAxisAlignItems = 'CENTER';
+// --- Base component frame ---
+const comp = figma.createComponent();
+comp.name = 'Size=Medium, Style=Primary, State=Default';
+comp.layoutMode = 'HORIZONTAL';
+comp.primaryAxisSizingMode = 'AUTO';
+comp.counterAxisSizingMode = 'AUTO';
+comp.counterAxisAlignItems = 'CENTER';
+comp.primaryAxisAlignItems = 'CENTER';
 
-    // Padding — bound to spacing variables
-    comp.setBoundVariable('paddingTop',    paddingVar);
-    comp.setBoundVariable('paddingBottom', paddingVar);
-    comp.setBoundVariable('paddingLeft',   paddingVar);
-    comp.setBoundVariable('paddingRight',  paddingVar);
-    comp.setBoundVariable('itemSpacing',   gapVar);
+// Padding — bound to spacing variables
+comp.setBoundVariable('paddingTop',    paddingVar);
+comp.setBoundVariable('paddingBottom', paddingVar);
+comp.setBoundVariable('paddingLeft',   paddingVar);
+comp.setBoundVariable('paddingRight',  paddingVar);
+comp.setBoundVariable('itemSpacing',   gapVar);
 
-    // Corner radius — bound to radius variable
-    comp.setBoundVariable('topLeftRadius',     radiusVar);
-    comp.setBoundVariable('topRightRadius',    radiusVar);
-    comp.setBoundVariable('bottomLeftRadius',  radiusVar);
-    comp.setBoundVariable('bottomRightRadius', radiusVar);
+// Corner radius — bound to radius variable
+comp.setBoundVariable('topLeftRadius',     radiusVar);
+comp.setBoundVariable('topRightRadius',    radiusVar);
+comp.setBoundVariable('bottomLeftRadius',  radiusVar);
+comp.setBoundVariable('bottomRightRadius', radiusVar);
 
-    // Background fill — bound to color variable
-    const bgPaint = figma.variables.setBoundVariableForPaint(
-      { type: 'SOLID', color: { r: 0, g: 0, b: 0 } },
-      'color',
-      bgVar
-    );
-    comp.fills = [bgPaint];
+// Background fill — bound to color variable
+const bgPaint = figma.variables.setBoundVariableForPaint(
+  { type: 'SOLID', color: { r: 0, g: 0, b: 0 } },
+  'color',
+  bgVar
+);
+comp.fills = [bgPaint];
 
-    // --- Label text node ---
-    await figma.loadFontAsync({ family: 'Inter', style: 'Medium' });
-    const label = figma.createText();
-    label.name = 'label';
-    label.fontName = { family: 'Inter', style: 'Medium' };
-    label.fontSize = 14;
-    label.characters = 'Button';
-    label.layoutSizingHorizontal = 'HUG';
-    label.layoutSizingVertical = 'HUG';
+// --- Label text node ---
+await figma.loadFontAsync({ family: 'Inter', style: 'Medium' });
+const label = figma.createText();
+label.name = 'label';
+label.fontName = { family: 'Inter', style: 'Medium' };
+label.fontSize = 14;
+label.characters = 'Button';
 
-    // Text fill — bound to color variable
-    const textPaint = figma.variables.setBoundVariableForPaint(
-      { type: 'SOLID', color: { r: 1, g: 1, b: 1 } },
-      'color',
-      textVar
-    );
-    label.fills = [textPaint];
-    comp.appendChild(label);
+// Text fill — bound to color variable
+const textPaint = figma.variables.setBoundVariableForPaint(
+  { type: 'SOLID', color: { r: 1, g: 1, b: 1 } },
+  'color',
+  textVar
+);
+label.fills = [textPaint];
+comp.appendChild(label);
+label.layoutSizingHorizontal = 'HUG';
+label.layoutSizingVertical = 'HUG';
 
-    // --- Icon placeholder (Rectangle for now — will be INSTANCE_SWAP) ---
-    const iconBox = figma.createFrame();
-    iconBox.name = 'icon';
-    iconBox.resize(16, 16);
-    iconBox.fills = [];
-    iconBox.layoutSizingHorizontal = 'FIXED';
-    iconBox.layoutSizingVertical = 'FIXED';
-    comp.appendChild(iconBox);
+// --- Icon placeholder (Rectangle for now — will be INSTANCE_SWAP) ---
+const iconBox = figma.createFrame();
+iconBox.name = 'icon';
+iconBox.resize(16, 16);
+iconBox.fills = [];
+iconBox.layoutSizingHorizontal = 'FIXED';
+iconBox.layoutSizingVertical = 'FIXED';
+comp.appendChild(iconBox);
 
-    // Tag for idempotency
-    comp.setPluginData('dsb_run_id', RUN_ID);
-    comp.setPluginData('dsb_phase', 'phase3');
-    comp.setPluginData('dsb_key', 'component/button/base');
-
-    figma.closePlugin(JSON.stringify({ baseCompId: comp.id }));
-  } catch (e) { figma.closePluginWithFailure(e.toString()); }
-})();
+return { baseCompId: comp.id };
 ```
 
 **ALL of these must be variable-bound (never hardcoded):**
@@ -245,83 +231,76 @@ For Button with Size × State = 15 combinations, add Style as a variant axis onl
 Build each variant by cloning the base component and adjusting the variable bindings that differ per variant. Pass in the base component ID from the previous call's state.
 
 ```javascript
-(async () => {
-  try {
-    const RUN_ID = 'ds-build-2024-001';
-    const BASE_COMP_ID = 'BASE_ID_FROM_STATE'; // from state ledger
+const BASE_COMP_ID = 'BASE_ID_FROM_STATE'; // from state ledger
 
-    await figma.setCurrentPageAsync(
-      figma.root.children.find(p => p.name === 'Button')
-    );
+const page = await figma.getNodeByIdAsync('PAGE_ID_FROM_STATE');
+if (!page || page.type !== 'PAGE') throw new Error('Expected the selected component page');
+await figma.setCurrentPageAsync(page);
 
-    const base = await figma.getNodeByIdAsync(BASE_COMP_ID);
+const base = await figma.getNodeByIdAsync(BASE_COMP_ID);
 
-    // Variable IDs from state ledger
-    const vars = {
-      // Primary style
-      bg_primary:    await figma.variables.getVariableByIdAsync('VAR_ID_color_bg_primary'),
-      text_primary:  await figma.variables.getVariableByIdAsync('VAR_ID_color_text_on_primary'),
-      // Secondary style
-      bg_secondary:  await figma.variables.getVariableByIdAsync('VAR_ID_color_bg_secondary'),
-      text_secondary: await figma.variables.getVariableByIdAsync('VAR_ID_color_text_secondary'),
-      // Disabled
-      bg_disabled:   await figma.variables.getVariableByIdAsync('VAR_ID_color_bg_disabled'),
-      text_disabled: await figma.variables.getVariableByIdAsync('VAR_ID_color_text_disabled'),
-      // Sizes
-      padding_sm: await figma.variables.getVariableByIdAsync('VAR_ID_spacing_sm'),
-      padding_md: await figma.variables.getVariableByIdAsync('VAR_ID_spacing_md'),
-      padding_lg: await figma.variables.getVariableByIdAsync('VAR_ID_spacing_lg'),
-    };
+// Variable IDs from state ledger
+const vars = {
+  // Primary style
+  bg_primary:    await figma.variables.getVariableByIdAsync('VAR_ID_color_bg_primary'),
+  text_primary:  await figma.variables.getVariableByIdAsync('VAR_ID_color_text_on_primary'),
+  // Secondary style
+  bg_secondary:  await figma.variables.getVariableByIdAsync('VAR_ID_color_bg_secondary'),
+  text_secondary: await figma.variables.getVariableByIdAsync('VAR_ID_color_text_secondary'),
+  // Disabled
+  bg_disabled:   await figma.variables.getVariableByIdAsync('VAR_ID_color_bg_disabled'),
+  text_disabled: await figma.variables.getVariableByIdAsync('VAR_ID_color_text_disabled'),
+  // Sizes
+  padding_sm: await figma.variables.getVariableByIdAsync('VAR_ID_spacing_sm'),
+  padding_md: await figma.variables.getVariableByIdAsync('VAR_ID_spacing_md'),
+  padding_lg: await figma.variables.getVariableByIdAsync('VAR_ID_spacing_lg'),
+};
 
-    const axes = {
-      Size:  ['Small', 'Medium', 'Large'],
-      Style: ['Primary', 'Secondary'],
-      State: ['Default', 'Hover', 'Disabled'],
-    };
+const axes = {
+  Size:  ['Small', 'Medium', 'Large'],
+  Style: ['Primary', 'Secondary'],
+  State: ['Default', 'Hover', 'Disabled'],
+};
 
-    const paddingBySize = { Small: vars.padding_sm, Medium: vars.padding_md, Large: vars.padding_lg };
+const paddingBySize = { Small: vars.padding_sm, Medium: vars.padding_md, Large: vars.padding_lg };
 
-    const components = [];
+const components = [];
 
-    for (const size of axes.Size) {
-      for (const style of axes.Style) {
-        for (const state of axes.State) {
-          const clone = base.clone();
-          clone.name = `Size=${size}, Style=${style}, State=${state}`;
+for (const size of axes.Size) {
+  for (const style of axes.Style) {
+    for (const state of axes.State) {
+      const clone = base.clone();
+      clone.name = `Size=${size}, Style=${style}, State=${state}`;
 
-          // Bind padding by size
-          clone.setBoundVariable('paddingTop',    paddingBySize[size]);
-          clone.setBoundVariable('paddingBottom', paddingBySize[size]);
-          clone.setBoundVariable('paddingLeft',   paddingBySize[size]);
-          clone.setBoundVariable('paddingRight',  paddingBySize[size]);
+      // Bind padding by size
+      clone.setBoundVariable('paddingTop',    paddingBySize[size]);
+      clone.setBoundVariable('paddingBottom', paddingBySize[size]);
+      clone.setBoundVariable('paddingLeft',   paddingBySize[size]);
+      clone.setBoundVariable('paddingRight',  paddingBySize[size]);
 
-          // Bind fill by style + state
-          const isDisabled = state === 'Disabled';
-          const bgVar  = isDisabled ? vars.bg_disabled  : (style === 'Primary' ? vars.bg_primary  : vars.bg_secondary);
-          const txtVar = isDisabled ? vars.text_disabled : (style === 'Primary' ? vars.text_primary : vars.text_secondary);
+      // Bind fill by style + state
+      const isDisabled = state === 'Disabled';
+      const bgVar  = isDisabled ? vars.bg_disabled  : (style === 'Primary' ? vars.bg_primary  : vars.bg_secondary);
+      const txtVar = isDisabled ? vars.text_disabled : (style === 'Primary' ? vars.text_primary : vars.text_secondary);
 
-          const bgPaint = figma.variables.setBoundVariableForPaint(
-            { type: 'SOLID', color: { r: 0, g: 0, b: 0 } }, 'color', bgVar
-          );
-          clone.fills = [bgPaint];
+      const bgPaint = figma.variables.setBoundVariableForPaint(
+        { type: 'SOLID', color: { r: 0, g: 0, b: 0 } }, 'color', bgVar
+      );
+      clone.fills = [bgPaint];
 
-          const labelNode = clone.findOne(n => n.name === 'label');
-          const textPaint = figma.variables.setBoundVariableForPaint(
-            { type: 'SOLID', color: { r: 1, g: 1, b: 1 } }, 'color', txtVar
-          );
-          labelNode.fills = [textPaint];
+      const labelNode = clone.findOne(n => n.name === 'label');
+      const textPaint = figma.variables.setBoundVariableForPaint(
+        { type: 'SOLID', color: { r: 1, g: 1, b: 1 } }, 'color', txtVar
+      );
+      labelNode.fills = [textPaint];
 
-          clone.setPluginData('dsb_run_id', RUN_ID);
-          clone.setPluginData('dsb_key', `component/button/variant/${size}/${style}/${state}`);
 
-          components.push(clone);
-        }
-      }
+      components.push(clone);
     }
+  }
+}
 
-    figma.closePlugin(JSON.stringify({ variantIds: components.map(c => c.id) }));
-  } catch (e) { figma.closePluginWithFailure(e.toString()); }
-})();
+return { variantIds: components.map(c => c.id) };
 ```
 
 ---
@@ -389,78 +368,72 @@ for (let i = 0; i < rowLabels.length; i++) {
 ### Grid layout code
 
 ```javascript
-(async () => {
-  try {
-    const VARIANT_IDS = ['ID1', 'ID2', '...']; // from state ledger
-    const PAGE_ID = 'PAGE_ID'; // from state ledger
+const VARIANT_IDS = ['ID1', 'ID2', '...']; // from state ledger
+const PAGE_ID = 'PAGE_ID'; // from state ledger
 
-    await figma.setCurrentPageAsync(await figma.getNodeByIdAsync(PAGE_ID));
+await figma.setCurrentPageAsync(await figma.getNodeByIdAsync(PAGE_ID));
 
-    // Collect component nodes
-    const components = await Promise.all(
-      VARIANT_IDS.map(id => figma.getNodeByIdAsync(id))
-    );
+// Collect component nodes
+const components = await Promise.all(
+  VARIANT_IDS.map(id => figma.getNodeByIdAsync(id))
+);
 
-    // Combine as variants
-    const cs = figma.combineAsVariants(components, figma.currentPage);
-    cs.name = 'Button';
+// Combine as variants
+const cs = figma.combineAsVariants(components, figma.currentPage);
+cs.name = 'Button';
 
-    // Grid layout: position each variant based on its property values
-    // Determine column axis (State) and row axes (Size × Style)
-    const axes = {
-      Size:  ['Small', 'Medium', 'Large'],
-      Style: ['Primary', 'Secondary'],
-      State: ['Default', 'Hover', 'Disabled'],
-    };
-    const COL_AXIS = 'State';  // columns
-    const ROW_AXES = ['Size', 'Style']; // rows (Size changes fastest)
+// Grid layout: position each variant based on its property values
+// Determine column axis (State) and row axes (Size × Style)
+const axes = {
+  Size:  ['Small', 'Medium', 'Large'],
+  Style: ['Primary', 'Secondary'],
+  State: ['Default', 'Hover', 'Disabled'],
+};
+const COL_AXIS = 'State';  // columns
+const ROW_AXES = ['Size', 'Style']; // rows (Size changes fastest)
 
-    const gap = 16;
-    const padding = 40;
+const gap = 16;
+const padding = 40;
 
-    // Measure child dimensions (all should be same height within Size tier)
-    // Use the first child as reference for column width
-    const childWidth  = 120; // approximate; refine after first screenshot
-    const childHeight = 40;
+// Measure child dimensions (all should be same height within Size tier)
+// Use the first child as reference for column width
+const childWidth  = 120; // approximate; refine after first screenshot
+const childHeight = 40;
 
-    cs.children.forEach(child => {
-      const props = {};
-      child.name.split(', ').forEach(part => {
-        const [k, v] = part.split('=');
-        props[k] = v;
-      });
+cs.children.forEach(child => {
+  const props = {};
+  child.name.split(', ').forEach(part => {
+    const [k, v] = part.split('=');
+    props[k] = v;
+  });
 
-      const colIdx = axes[COL_AXIS].indexOf(props[COL_AXIS]);
-      // Row = Size index * number of styles + Style index
-      const rowIdx = axes.Size.indexOf(props.Size) * axes.Style.length
-                   + axes.Style.indexOf(props.Style);
+  const colIdx = axes[COL_AXIS].indexOf(props[COL_AXIS]);
+  // Row = Size index * number of styles + Style index
+  const rowIdx = axes.Size.indexOf(props.Size) * axes.Style.length
+               + axes.Style.indexOf(props.Style);
 
-      child.x = padding + colIdx * (childWidth  + gap);
-      child.y = padding + rowIdx * (childHeight + gap);
-    });
+  child.x = padding + colIdx * (childWidth  + gap);
+  child.y = padding + rowIdx * (childHeight + gap);
+});
 
-    // Resize component set to fit all children + padding
-    let maxX = 0, maxY = 0;
-    for (const child of cs.children) {
-      maxX = Math.max(maxX, child.x + child.width);
-      maxY = Math.max(maxY, child.y + child.height);
-    }
-    cs.resizeWithoutConstraints(maxX + padding, maxY + padding);
+// Resize component set to fit all children + padding
+let maxX = 0, maxY = 0;
+for (const child of cs.children) {
+  maxX = Math.max(maxX, child.x + child.width);
+  maxY = Math.max(maxY, child.y + child.height);
+}
+cs.resizeWithoutConstraints(maxX + padding, maxY + padding);
 
-    // Style the component set frame
-    cs.fills = [{ type: 'SOLID', color: { r: 0.95, g: 0.95, b: 0.98 } }];
-    cs.cornerRadius = 8;
+// Style the component set frame
+cs.fills = [{ type: 'SOLID', color: { r: 0.95, g: 0.95, b: 0.98 } }];
+cs.cornerRadius = 8;
 
-    // Position component set on page (to the right of doc frame)
-    cs.x = 680;
-    cs.y = 40;
+// Position component set on page (to the right of doc frame)
+cs.x = 680;
+cs.y = 40;
 
-    cs.setPluginData('dsb_run_id', 'ds-build-2024-001');
-    cs.setPluginData('dsb_key', 'componentset/button');
 
-    figma.closePlugin(JSON.stringify({ componentSetId: cs.id }));
-  } catch (e) { figma.closePluginWithFailure(e.toString()); }
-})();
+return { componentSetId: cs.id };
 ```
 
 **Critical rules for combineAsVariants:**
@@ -478,15 +451,15 @@ Add TEXT, BOOLEAN, and INSTANCE_SWAP properties to the ComponentSet (not to indi
 ### TEXT Properties
 
 Expose editable text in instances:
-
 ```javascript
 // On the ComponentSetNode (cs):
 const labelKey = cs.addComponentProperty('Label', 'TEXT', 'Button');
 // labelKey is now something like "Label#0:1"
-
 // Wire to the label child in each variant:
 for (const child of cs.children) {
-  const labelNode = child.findOne(n => n.name === 'label');
+  const labelNode = child.findOne(
+    n => n.name === 'label' && 'characters' in n,
+  );
   if (labelNode) {
     labelNode.componentPropertyReferences = { characters: labelKey };
   }
@@ -531,47 +504,40 @@ for (const child of cs.children) {
 INSTANCE_SWAP needs a real Component ID as its default value. Before wiring INSTANCE_SWAP, you need at least one icon component. Here's how to create icons from SVG:
 
 ```javascript
-(async () => {
-  try {
-    // Create a simple icon component from SVG
-    const svgNode = figma.createNodeFromSvg(
-      '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">' +
-      '<path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>' +
-      '</svg>'
+// Create a simple icon component from SVG
+const svgNode = figma.createNodeFromSvg(
+  '<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">' +
+  '<path d="M9 18l6-6-6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>' +
+  '</svg>'
+);
+
+// Wrap in a component
+const iconComp = figma.createComponent();
+iconComp.name = 'Icon/ChevronRight';
+iconComp.resize(24, 24);
+iconComp.clipsContent = true;
+
+// Move SVG children into the component
+for (const child of [...svgNode.children]) {
+  iconComp.appendChild(child);
+}
+svgNode.remove();
+
+// Bind the icon fill to a color variable (so it respects themes)
+// Find vector children and bind their fills
+iconComp.findAllWithCriteria({ types: ['VECTOR'] }).forEach(vec => {
+  // For stroke-based icons:
+  if (vec.strokes.length > 0) {
+    const strokePaint = figma.variables.setBoundVariableForPaint(
+      { type: 'SOLID', color: { r: 0, g: 0, b: 0 } }, 'color', iconColorVar
     );
+    vec.strokes = [strokePaint];
+  }
+});
 
-    // Wrap in a component
-    const iconComp = figma.createComponent();
-    iconComp.name = 'Icon/ChevronRight';
-    iconComp.resize(24, 24);
-    iconComp.clipsContent = true;
 
-    // Move SVG children into the component
-    for (const child of [...svgNode.children]) {
-      iconComp.appendChild(child);
-    }
-    svgNode.remove();
-
-    // Bind the icon fill to a color variable (so it respects themes)
-    // Find vector children and bind their fills
-    iconComp.findAll(n => n.type === 'VECTOR').forEach(vec => {
-      // For stroke-based icons:
-      if (vec.strokes.length > 0) {
-        const strokePaint = figma.variables.setBoundVariableForPaint(
-          { type: 'SOLID', color: { r: 0, g: 0, b: 0 } }, 'color', iconColorVar
-        );
-        vec.strokes = [strokePaint];
-      }
-    });
-
-    iconComp.setPluginData('dsb_run_id', RUN_ID);
-    iconComp.setPluginData('dsb_key', 'icon/chevron-right');
-
-    figma.closePlugin(JSON.stringify({ iconCompId: iconComp.id }));
-  } catch (e) { figma.closePluginWithFailure(e.toString()); }
-})();
+return { iconCompId: iconComp.id };
 ```
-
 **Then use the returned `iconCompId` as the default value for INSTANCE_SWAP:**
 ```javascript
 const iconKey = cs.addComponentProperty('Icon', 'INSTANCE_SWAP', ICON_COMP_ID);
@@ -580,12 +546,13 @@ const iconKey = cs.addComponentProperty('Icon', 'INSTANCE_SWAP', ICON_COMP_ID);
 **Constraining swap options with `preferredValues`:**
 After adding the INSTANCE_SWAP property, you can optionally limit which components appear in the swap picker:
 ```javascript
-// Get the property definitions to find the exact key
-const props = cs.componentPropertyDefinitions;
+const propertyOwner = cs?.type === 'COMPONENT' && cs.parent?.type === 'COMPONENT_SET' ? cs.parent : cs;
+if (!propertyOwner || !['COMPONENT', 'COMPONENT_SET'].includes(propertyOwner.type)) throw new Error('Expected a component set or non-variant component');
+const props = propertyOwner.componentPropertyDefinitions;
 const iconPropKey = Object.keys(props).find(k => k.startsWith('Icon'));
 
 // Set preferred values (array of component keys or instance IDs)
-cs.editComponentProperty(iconPropKey, {
+propertyOwner.editComponentProperty(iconPropKey, {
   preferredValues: [
     { type: 'COMPONENT', key: chevronRightComp.key },
     { type: 'COMPONENT', key: chevronLeftComp.key },
@@ -608,46 +575,7 @@ The `componentPropertyReferences` object maps a node's own property to a compone
 
 ---
 
-## 7. `pluginData` Tagging for Idempotency
-
-Tag EVERY created node immediately after creation. This enables safe cleanup, resumability, and idempotency checks.
-
-```javascript
-// After creating any node:
-node.setPluginData('dsb_run_id', RUN_ID);   // identifies the build run
-node.setPluginData('dsb_phase', 'phase3');  // which phase created it
-node.setPluginData('dsb_key', KEY);         // unique logical key for this entity
-
-// Reading back:
-const runId = node.getPluginData('dsb_run_id'); // '' if not set
-const key   = node.getPluginData('dsb_key');
-```
-
-**Key naming convention:** use `/`-separated logical paths that mirror the entity hierarchy:
-```
-'component/button/base'
-'component/button/variant/Medium/Primary/Default'
-'componentset/button'
-'doc/button'
-'page/button'
-```
-
-**Idempotency check before creating:** before creating a node, scan the current page for an existing node with the same `dsb_key`:
-
-```javascript
-const existing = figma.currentPage.findAll(n =>
-  n.getPluginData('dsb_key') === 'componentset/button'
-);
-if (existing.length > 0) {
-  // Skip creation — already done. Return existing node's ID.
-  figma.closePlugin(JSON.stringify({ componentSetId: existing[0].id }));
-  return;
-}
-```
-
----
-
-## 8. Documentation
+## 7. Documentation
 
 ### Page title + description frame
 
@@ -683,13 +611,13 @@ cs.documentationLinks = [
 
 ---
 
-## 9. Validation
+## 8. Validation
 
 Always validate after creating or modifying a component before proceeding to the next one.
 
 ### `get_metadata` structural checks
 
-After creating the component set, call `get_metadata` on the ComponentSet node and verify:
+After creating the component set, call `get_metadata` on the `COMPONENT_SET` node ID (never an individual variant component ID) and verify:
 - `variantGroupProperties` lists the expected axes with the correct value arrays
 - `componentPropertyDefinitions` contains the expected TEXT/BOOLEAN/INSTANCE_SWAP properties
 - `children.length` equals the expected variant count (e.g., 18 for 3×2×3)
@@ -697,17 +625,17 @@ After creating the component set, call `get_metadata` on the ComponentSet node a
 
 ### `get_screenshot` — Visual Validation (Critical)
 
-`get_screenshot` returns an **image** of the specified node. Call it on the **component page node** (not the component set) to see the full page including documentation and grid labels.
+`get_screenshot` returns an **image** of the specified node. When documentation is in scope, capture the component page or documentation container. Otherwise capture the component set or its containing frame so validation does not require a new page.
 
 ```
 Tool: get_screenshot
-Args: { nodeId: "PAGE_NODE_ID", fileKey: "FILE_KEY" }
+Args: { nodeId: "COMPONENT_SET_OR_CONTAINER_ID", fileKey: "FILE_KEY" }
 ```
 
 **How to use the screenshot:**
 
-1. **Display it to the user** — this is the primary purpose. Show the screenshot as part of the user checkpoint: "Here's the Button component. Does it look right?"
-2. **Analyze it yourself** — if you have vision capabilities, check the visual checklist below. If you don't (text-only agent), fall back to structural validation only via `get_metadata` and describe what you created textually.
+1. **Display it to the user** as validation evidence for the completed component.
+2. **Analyze it yourself** — if you have vision capabilities, check the visual checklist below. If you don't (text-only agent), fall back to structural validation via `get_metadata` and describe what you created.
 
 **Visual validation checklist** (check each item when viewing the screenshot):
 
@@ -720,7 +648,7 @@ Args: { nodeId: "PAGE_NODE_ID", fileKey: "FILE_KEY" }
 | 5 | **Spacing/padding** | Interior padding visible, components aren't "shrink-wrapped" | Components look cramped or have no visible internal space |
 | 6 | **State differentiation** | Hover/Pressed variants have visible color differences from Default | All states look identical (state-specific fills not applied) |
 | 7 | **Disabled state** | Lower opacity or muted colors compared to active states | Disabled looks identical to Default |
-| 8 | **Documentation frame** | Title + description text visible above or beside the component grid | No documentation, or it overlaps the component set |
+| 8 | **Documentation frame, if included** | Title + description text visible above or beside the component grid | Included documentation is missing or overlaps the component set |
 | 9 | **Grid labels** | Row/column headers visible around the component set (if added) | Labels overlap the grid or are missing |
 | 10 | **Component set boundary** | Gray background frame wraps all variants with even padding | Frame is too small (variants clipped) or way too large |
 
@@ -730,37 +658,33 @@ Args: { nodeId: "PAGE_NODE_ID", fileKey: "FILE_KEY" }
 |-----------------|-----------|------------|
 | All variants stacked top-left | Grid layout wasn't applied after `combineAsVariants` | Re-run the grid layout script (§5) |
 | Everything black/same color | Variable bindings failed or variables don't have values for the active mode | Re-run variable binding, check mode values |
-| No text visible | Font wasn't loaded, or text fill is same color as background | Check `loadFontAsync` was called; bind text fill to `color/text/*` variable |
+| No text visible | Font wasn't loaded, or text fill is same color as background | Call `listAvailableFontsAsync()` to verify the font exists, then check `loadFontAsync` was called before text writes; bind text fill to `color/text/*` variable |
 | Variants all same size | Padding/height not bound to size variables | Re-run `bindVariablesToComponent` with size-specific tokens |
 | Component set frame tiny | `resizeWithoutConstraints` wasn't called or used wrong dimensions | Re-calculate bounds from children and resize |
-| Doc frame overlaps components | Component set positioned at same x,y as doc frame | Move component set: `cs.x = docFrame.x + docFrame.width + 60` |
+| Included doc frame overlaps components | Component set positioned at same x,y as doc frame | Move component set: `cs.x = docFrame.x + docFrame.width + 60` |
 
 **When visual analysis isn't available:**
 If your model can't process images (text-only mode), validate structurally instead:
 1. Call `get_metadata` on the component set — verify child count, property definitions, variant names
 2. Run an `use_figma` that samples key properties:
 ```javascript
-(async () => {
-  try {
-    const cs = await figma.getNodeByIdAsync(CS_ID);
-    const sample = cs.children.slice(0, 3).map(c => ({
-      name: c.name,
-      width: c.width, height: c.height,
-      x: c.x, y: c.y,
-      fills: c.fills?.map(f => f.type === 'SOLID' ?
-        { r: f.color.r.toFixed(2), g: f.color.g.toFixed(2), b: f.color.b.toFixed(2), boundVar: f.boundVariables?.color?.id } : f.type
-      ),
-    }));
-    figma.closePlugin(JSON.stringify({ sampleVariants: sample, totalChildren: cs.children.length }));
-  } catch (e) { figma.closePluginWithFailure(e.toString()); }
-})();
+const cs = await figma.getNodeByIdAsync(CS_ID);
+const sample = cs.children.slice(0, 3).map(c => ({
+  name: c.name,
+  width: c.width, height: c.height,
+  x: c.x, y: c.y,
+  fills: c.fills?.map(f => f.type === 'SOLID' ?
+    { r: f.color.r.toFixed(2), g: f.color.g.toFixed(2), b: f.color.b.toFixed(2), boundVar: f.boundVariables?.color?.id } : f.type
+  ),
+}));
+return { sampleVariants: sample, totalChildren: cs.children.length };
 ```
 This gives you positions (grid working?), dimensions (size differentiation?), and fill info (bindings working?) without needing vision.
 
 **When to take a screenshot:**
-- After EVERY completed component (mandatory — part of the user checkpoint)
-- After creating the foundations documentation page
-- After final QA (screenshot every page)
+- After each completed component or coherent component family in the selected scope
+- After creating a foundations documentation page, when included
+- During final QA for a full library
 - Do NOT screenshot after every intermediate step (wastes tool calls)
 
 ### Common issues
@@ -777,88 +701,76 @@ This gives you positions (grid working?), dimensions (size differentiation?), an
 
 ---
 
-## 10. Complete Worked Example: Button Component
+## 9. Complete Worked Example: Button Component
 
-This shows the full sequence of `use_figma` calls for a Button component, including state passing between calls. Replace `RUN_ID` and variable IDs with your actual values from the state ledger.
+This shows the full-library presentation sequence, including state passing between calls. For a scoped component in an existing component area, skip Calls 1–2, use that area's page ID, and begin at Call 3. Replace variable IDs with actual values from the state ledger.
 
-### Call 1: Create the component page
+### Call 1: Create the component page (full library or requested showcase only)
 
 **Goal:** Create (or find) the Button page.
 **State input:** None
 **State output:** `{ pageId }`
 
 ```javascript
-(async () => {
-  try {
-    let page = figma.root.children.find(p => p.name === 'Button');
-    if (!page) { page = figma.createPage(); page.name = 'Button'; }
-    page.setPluginData('dsb_run_id', 'ds-build-2024-001');
-    page.setPluginData('dsb_key', 'page/button');
-    figma.closePlugin(JSON.stringify({ pageId: page.id }));
-  } catch (e) { figma.closePluginWithFailure(e.toString()); }
-})();
+let page = figma.root.children.find(p => p.name === 'Button');
+if (!page) { page = figma.createPage(); page.name = 'Button'; }
+return { pageId: page.id };
 ```
 
-### Call 2: Create documentation frame
+### Call 2: Create documentation frame (when selected scope includes it)
 
 **Goal:** Add title + description frame.
 **State input:** `{ pageId }`
 **State output:** `{ docFrameId }`
 
 ```javascript
-(async () => {
-  try {
-    const PAGE_ID = 'PAGE_ID_FROM_STATE';
-    const page = await figma.getNodeByIdAsync(PAGE_ID);
-    await figma.setCurrentPageAsync(page);
+const PAGE_ID = 'PAGE_ID_FROM_STATE';
+const page = await figma.getNodeByIdAsync(PAGE_ID);
+await figma.setCurrentPageAsync(page);
 
-    // Idempotency check
-    const existing = page.findAll(n => n.getPluginData('dsb_key') === 'doc/button');
-    if (existing.length > 0) {
-      figma.closePlugin(JSON.stringify({ docFrameId: existing[0].id }));
-      return;
-    }
+const existing = page
+  .findAllWithCriteria({ types: ['FRAME'] })
+  .filter(n => n.name === 'Button / Documentation');
+if (existing.length > 0) {
+  return { docFrameId: existing[0].id };
+}
 
-    await figma.loadFontAsync({ family: 'Inter', style: 'Bold' });
-    await figma.loadFontAsync({ family: 'Inter', style: 'Regular' });
+await figma.loadFontAsync({ family: 'Inter', style: 'Bold' });
+await figma.loadFontAsync({ family: 'Inter', style: 'Regular' });
 
-    const docFrame = figma.createFrame();
-    docFrame.name = 'Button / Documentation';
-    docFrame.x = 40; docFrame.y = 40;
-    docFrame.layoutMode = 'VERTICAL';
-    docFrame.primaryAxisSizingMode = 'AUTO';
-    docFrame.counterAxisSizingMode = 'FIXED';
-    docFrame.resize(560, 100);
-    docFrame.paddingTop = 40; docFrame.paddingBottom = 40;
-    docFrame.paddingLeft = 40; docFrame.paddingRight = 40;
-    docFrame.itemSpacing = 16;
-    docFrame.fills = [{ type: 'SOLID', color: { r: 1, g: 1, b: 1 } }];
+const docFrame = figma.createFrame();
+docFrame.name = 'Button / Documentation';
+docFrame.x = 40; docFrame.y = 40;
+docFrame.layoutMode = 'VERTICAL';
+docFrame.primaryAxisSizingMode = 'AUTO';
+docFrame.counterAxisSizingMode = 'FIXED';
+docFrame.resize(560, 100);
+docFrame.paddingTop = 40; docFrame.paddingBottom = 40;
+docFrame.paddingLeft = 40; docFrame.paddingRight = 40;
+docFrame.itemSpacing = 16;
+docFrame.fills = [{ type: 'SOLID', color: { r: 1, g: 1, b: 1 } }];
 
-    const title = figma.createText();
-    title.fontName = { family: 'Inter', style: 'Bold' };
-    title.fontSize = 32;
-    title.characters = 'Button';
-    docFrame.appendChild(title);
+const title = figma.createText();
+title.fontName = { family: 'Inter', style: 'Bold' };
+title.fontSize = 32;
+title.characters = 'Button';
+docFrame.appendChild(title);
 
-    const desc = figma.createText();
-    desc.fontName = { family: 'Inter', style: 'Regular' };
-    desc.fontSize = 14;
-    desc.characters = 'Buttons allow users to take actions with a single tap. Use Primary for the highest-emphasis action on a page, Secondary for supporting actions.';
-    desc.layoutSizingHorizontal = 'FILL';
-    docFrame.appendChild(desc);
+const desc = figma.createText();
+desc.fontName = { family: 'Inter', style: 'Regular' };
+desc.fontSize = 14;
+desc.characters = 'Buttons allow users to take actions with a single tap. Use Primary for the highest-emphasis action on a page, Secondary for supporting actions.';
+docFrame.appendChild(desc);
+desc.layoutSizingHorizontal = 'FILL';
 
-    docFrame.setPluginData('dsb_run_id', 'ds-build-2024-001');
-    docFrame.setPluginData('dsb_key', 'doc/button');
 
-    figma.closePlugin(JSON.stringify({ docFrameId: docFrame.id }));
-  } catch (e) { figma.closePluginWithFailure(e.toString()); }
-})();
+return { docFrameId: docFrame.id };
 ```
 
 ### Call 3: Create base component
 
 **Goal:** Create the base component with auto-layout and all variable bindings.
-**State input:** `{ pageId }` + variable IDs from Phase 1
+**State input:** `{ pageId }` + verified or newly created foundation variable IDs
 **State output:** `{ baseCompId }`
 
 *(See Section 3 for full code — substituting the actual variable IDs from the state ledger.)*
@@ -870,77 +782,73 @@ This shows the full sequence of `use_figma` calls for a Button component, includ
 **State output:** `{ variantIds: ['id1', 'id2', ..., 'id18'] }`
 
 ```javascript
-(async () => {
-  try {
-    const RUN_ID = 'ds-build-2024-001';
-    const BASE_ID = 'BASE_COMP_ID_FROM_STATE';
-    const PAGE_ID = 'PAGE_ID_FROM_STATE';
-    // Variable IDs from state ledger:
-    const VAR = {
-      bg_primary:     'VAR_ID_1',
-      text_primary:   'VAR_ID_2',
-      bg_secondary:   'VAR_ID_3',
-      text_secondary: 'VAR_ID_4',
-      bg_disabled:    'VAR_ID_5',
-      text_disabled:  'VAR_ID_6',
-      padding_sm:     'VAR_ID_7',
-      padding_md:     'VAR_ID_8',
-      padding_lg:     'VAR_ID_9',
-    };
+const BASE_ID = 'BASE_COMP_ID_FROM_STATE';
+const PAGE_ID = 'PAGE_ID_FROM_STATE';
+// Variable IDs from state ledger:
+const VAR = {
+  bg_primary:     'VAR_ID_1',
+  text_primary:   'VAR_ID_2',
+  bg_secondary:   'VAR_ID_3',
+  text_secondary: 'VAR_ID_4',
+  bg_disabled:    'VAR_ID_5',
+  text_disabled:  'VAR_ID_6',
+  padding_sm:     'VAR_ID_7',
+  padding_md:     'VAR_ID_8',
+  padding_lg:     'VAR_ID_9',
+};
 
-    const page = await figma.getNodeByIdAsync(PAGE_ID);
-    await figma.setCurrentPageAsync(page);
+const page = await figma.getNodeByIdAsync(PAGE_ID);
+await figma.setCurrentPageAsync(page);
 
-    const base = await figma.getNodeByIdAsync(BASE_ID);
+const base = await figma.getNodeByIdAsync(BASE_ID);
 
-    // Load all variables
-    const vars = {};
-    for (const [k, v] of Object.entries(VAR)) {
-      vars[k] = await figma.variables.getVariableByIdAsync(v);
+// Load all variables in parallel — sequential awaits in the loop would
+// serialize one IPC round-trip per variable.
+const varEntries = Object.entries(VAR);
+const fetched = await Promise.all(
+  varEntries.map(([, id]) => figma.variables.getVariableByIdAsync(id))
+);
+const vars = {};
+varEntries.forEach(([k], i) => { vars[k] = fetched[i]; });
+
+const axes = {
+  Size:  ['Small', 'Medium', 'Large'],
+  Style: ['Primary', 'Secondary'],
+  State: ['Default', 'Hover', 'Disabled'],
+};
+const paddingMap = { Small: vars.padding_sm, Medium: vars.padding_md, Large: vars.padding_lg };
+
+const components = [];
+for (const size of axes.Size) {
+  for (const style of axes.Style) {
+    for (const state of axes.State) {
+      const clone = base.clone();
+      clone.name = `Size=${size}, Style=${style}, State=${state}`;
+
+      clone.setBoundVariable('paddingTop',    paddingMap[size]);
+      clone.setBoundVariable('paddingBottom', paddingMap[size]);
+      clone.setBoundVariable('paddingLeft',   paddingMap[size]);
+      clone.setBoundVariable('paddingRight',  paddingMap[size]);
+
+      const isDisabled = state === 'Disabled';
+      const bgV  = isDisabled ? vars.bg_disabled  : (style === 'Primary' ? vars.bg_primary  : vars.bg_secondary);
+      const txV  = isDisabled ? vars.text_disabled : (style === 'Primary' ? vars.text_primary : vars.text_secondary);
+
+      clone.fills = [figma.variables.setBoundVariableForPaint(
+        { type: 'SOLID', color: { r: 0, g: 0, b: 0 } }, 'color', bgV
+      )];
+
+      const labelNode = clone.findOne(n => n.name === 'label');
+      labelNode.fills = [figma.variables.setBoundVariableForPaint(
+        { type: 'SOLID', color: { r: 1, g: 1, b: 1 } }, 'color', txV
+      )];
+
+      components.push(clone);
     }
+  }
+}
 
-    const axes = {
-      Size:  ['Small', 'Medium', 'Large'],
-      Style: ['Primary', 'Secondary'],
-      State: ['Default', 'Hover', 'Disabled'],
-    };
-    const paddingMap = { Small: vars.padding_sm, Medium: vars.padding_md, Large: vars.padding_lg };
-
-    const components = [];
-    for (const size of axes.Size) {
-      for (const style of axes.Style) {
-        for (const state of axes.State) {
-          const clone = base.clone();
-          clone.name = `Size=${size}, Style=${style}, State=${state}`;
-
-          clone.setBoundVariable('paddingTop',    paddingMap[size]);
-          clone.setBoundVariable('paddingBottom', paddingMap[size]);
-          clone.setBoundVariable('paddingLeft',   paddingMap[size]);
-          clone.setBoundVariable('paddingRight',  paddingMap[size]);
-
-          const isDisabled = state === 'Disabled';
-          const bgV  = isDisabled ? vars.bg_disabled  : (style === 'Primary' ? vars.bg_primary  : vars.bg_secondary);
-          const txV  = isDisabled ? vars.text_disabled : (style === 'Primary' ? vars.text_primary : vars.text_secondary);
-
-          clone.fills = [figma.variables.setBoundVariableForPaint(
-            { type: 'SOLID', color: { r: 0, g: 0, b: 0 } }, 'color', bgV
-          )];
-
-          const labelNode = clone.findOne(n => n.name === 'label');
-          labelNode.fills = [figma.variables.setBoundVariableForPaint(
-            { type: 'SOLID', color: { r: 1, g: 1, b: 1 } }, 'color', txV
-          )];
-
-          clone.setPluginData('dsb_run_id', RUN_ID);
-          clone.setPluginData('dsb_key', `component/button/variant/${size}/${style}/${state}`);
-          components.push(clone);
-        }
-      }
-    }
-
-    figma.closePlugin(JSON.stringify({ variantIds: components.map(c => c.id) }));
-  } catch (e) { figma.closePluginWithFailure(e.toString()); }
-})();
+return { variantIds: components.map(c => c.id) };
 ```
 
 ### Call 5: combineAsVariants + grid layout
@@ -958,48 +866,46 @@ This shows the full sequence of `use_figma` calls for a Button component, includ
 **State output:** `{ componentSetId, properties: { labelKey, showIconKey, iconKey } }`
 
 ```javascript
-(async () => {
-  try {
-    const CS_ID = 'CS_ID_FROM_STATE';
-    const DEFAULT_ICON_ID = 'ICON_COMP_ID_FROM_STATE';
-    const page = figma.root.children.find(p => p.name === 'Button');
-    await figma.setCurrentPageAsync(page);
+const CS_ID = 'CS_ID_FROM_STATE';
+const DEFAULT_ICON_ID = 'ICON_COMP_ID_FROM_STATE';
+const PAGE_ID = 'PAGE_ID_FROM_STATE';
+const page = await figma.getNodeByIdAsync(PAGE_ID);
+if (!page || page.type !== 'PAGE') throw new Error('Expected the selected component page');
+await figma.setCurrentPageAsync(page);
 
-    const cs = await figma.getNodeByIdAsync(CS_ID);
-    cs.description = 'Buttons allow users to take actions and make choices with a single tap.';
-    cs.documentationLinks = [{ uri: 'https://your-storybook.com/button' }];
+const cs = await figma.getNodeByIdAsync(CS_ID);
+cs.description = 'Buttons allow users to take actions and make choices with a single tap.';
+cs.documentationLinks = [{ uri: 'https://your-storybook.com/button' }];
+// Add properties — save returned keys
+const labelKey    = cs.addComponentProperty('Label', 'TEXT', 'Button');
+const showIconKey = cs.addComponentProperty('Show Icon', 'BOOLEAN', true);
+const iconKey     = cs.addComponentProperty('Icon', 'INSTANCE_SWAP', DEFAULT_ICON_ID);
+// Wire to children
+for (const child of cs.children) {
+  const labelNode = child.findOne(
+    n => n.name === 'label' && 'characters' in n,
+  );
+  if (labelNode) labelNode.componentPropertyReferences = { characters: labelKey };
 
-    // Add properties — save returned keys
-    const labelKey    = cs.addComponentProperty('Label', 'TEXT', 'Button');
-    const showIconKey = cs.addComponentProperty('Show Icon', 'BOOLEAN', true);
-    const iconKey     = cs.addComponentProperty('Icon', 'INSTANCE_SWAP', DEFAULT_ICON_ID);
+  const iconNode = child.findOne(n => n.name === 'icon');
+  if (iconNode) {
+    iconNode.componentPropertyReferences = {
+      visible: showIconKey,
+      ...(iconNode.type === 'INSTANCE' ? { mainComponent: iconKey } : {}),
+    };
+  }
+}
 
-    // Wire to children
-    for (const child of cs.children) {
-      const labelNode = child.findOne(n => n.name === 'label');
-      if (labelNode) labelNode.componentPropertyReferences = { characters: labelKey };
-
-      const iconNode = child.findOne(n => n.name === 'icon');
-      if (iconNode) {
-        iconNode.componentPropertyReferences = {
-          visible: showIconKey,
-          ...(iconNode.type === 'INSTANCE' ? { mainComponent: iconKey } : {}),
-        };
-      }
-    }
-
-    figma.closePlugin(JSON.stringify({
-      componentSetId: cs.id,
-      properties: { labelKey, showIconKey, iconKey },
-    }));
-  } catch (e) { figma.closePluginWithFailure(e.toString()); }
-})();
+return {
+  componentSetId: cs.id,
+  properties: { labelKey, showIconKey, iconKey },
+};
 ```
 
 ### Call 7: Validate with get_metadata
 
 **Goal:** Structural check — variant count, properties, axes.
-**Action:** Call `get_metadata` on the ComponentSet node ID (from state). Verify in the result:
+**Action:** Call `get_metadata` on the `COMPONENT_SET` node ID from state, not on any child variant component. Verify in the result:
 - `children.length === 18`
 - `variantGroupProperties` has `Size`, `Style`, `State` keys with correct value arrays
 - `componentPropertyDefinitions` has `Label`, `Show Icon`, `Icon` entries
@@ -1007,8 +913,8 @@ This shows the full sequence of `use_figma` calls for a Button component, includ
 ### Call 8: Validate with get_screenshot
 
 **Goal:** Visual check — layout, colors, text.
-**Action:** Call `get_screenshot` on the Button page. Inspect the screenshot. If variants are stacked, re-run Call 5. If colors look wrong, inspect variable bindings.
+**Action:** Call `get_screenshot` on the component set or containing frame; use the Button page when documentation is in scope. Inspect the screenshot. If variants are stacked, re-run Call 5. If colors look wrong, inspect variable bindings.
 
-### Checkpoint
+### Completion check
 
-After Call 8: show the screenshot to the user. Ask: "Here's the Button component with 18 variants. Does this look correct?" Do not proceed to the next component until the user approves.
+After Call 8, inspect and show the screenshot as validation evidence. Repair defects in the selected scope; when its definition of done passes, stop or continue to the next in-scope component.

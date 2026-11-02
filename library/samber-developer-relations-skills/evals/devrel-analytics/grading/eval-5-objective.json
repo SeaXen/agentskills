@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Declines to supply or endorse a docs-conversion or activation target borrowed from other companies.",
+        "evidence": "\"I'm not going to bless 25%, and I'd be doing you a disservice if I quietly built a plan that \\\"proves\\\" it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the 20-40% activation band as resting on repetition rather than on a measured cohort, and refuses it by name.",
+        "evidence": "\"The 20\u201340% activation band that circulates in developer-marketing content rests on repetition rather than on a measured cohort.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a healthy conversion rate is a property of one program's own audience and surface mix, so any target must come from the program's own trailing baseline.",
+        "evidence": "\"Q4: commit to a conversion-rate target set from that baseline, not before.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the target-setting question to samber/developer-relations-skills@devrel-metrics rather than answering it here.",
+        "evidence": "No mention of routing to 'devrel-metrics' or any named skill appears anywhere in this transcript; instead the assistant answers with its own Q3/Q4 OKR proposal.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Offers a baseline-capture plan that would produce a real target, instead of refusing without an alternative.",
+        "evidence": "The entire \"Marrowfield Data \u2014 docs\u2192signup tracking plan\" section is a concrete instrumentation plan offered in place of the refused target.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Starts the plan from a decision list, naming the decisions the data should change and the question that settles each one.",
+        "evidence": "\"## Decisions this plan serves\" table with \"Question that settles it\" column.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that an event tracing to no decision on that list is deleted rather than deferred.",
+        "evidence": "\"an event with no decision behind it gets cut, not parked \\\"for later.\\\"\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that five weeks of client-side docs data on a developer audience is a biased and partial denominator for any conversion rate.",
+        "evidence": "\"If your five weeks of docs analytics is a client-side script, your visitor count is a floor, not a total\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not invent a substitute benchmark figure of its own and present it as typical for the category.",
+        "evidence": "No replacement percentage is offered anywhere; the plan explicitly withholds a rate until \"the identity spine is traced end to end.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels any threshold it does propose explicitly as a self-set starting point the user may move.",
+        "evidence": "\"Join coverage | \u226580% of primary conversions resolve to a first touch (this skill's floor, movable)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines to frame the deliverable as a plan that proves a pre-chosen number was hit.",
+        "evidence": "\"I'd be doing you a disservice if I quietly built a plan that \\\"proves\\\" it.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Declines to supply or endorse a docs-conversion or activation target borrowed from other companies.",
+        "evidence": "\"Benchmarks for content-to-signup (docs, blog, landing pages) for dev tools typically run **1\u20138%**, with best-in-class quickstart pages reaching maybe 10\u201315%.\" \u2014 this is itself a borrowed external benchmark being endorsed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the 20-40% activation band as resting on repetition rather than on a measured cohort, and refuses it by name.",
+        "evidence": "The critique of 20-40% is that it's the wrong funnel stage (\"signup \u2192 first key action\", not \"visitor \u2192 signup\"), not that the figure rests on unsubstantiated repetition.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a healthy conversion rate is a property of one program's own audience and surface mix, so any target must come from the program's own trailing baseline.",
+        "evidence": "\"use the five weeks of data you already have to compute a real baseline, then set Q3 as a relative lift over baseline, not an absolute number borrowed from a different metric.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the target-setting question to samber/developer-relations-skills@devrel-metrics rather than answering it here.",
+        "evidence": "The transcript answers the question directly with its own analysis and plan; no routing to any external skill/address occurs.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Offers a baseline-capture plan that would produce a real target, instead of refusing without an alternative.",
+        "evidence": "Section \"2. Baseline first, then set the target\" gives a concrete 4-step plan to compute B and propose a target.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Starts the plan from a decision list, naming the decisions the data should change and the question that settles each one.",
+        "evidence": "The plan is organized by metric definition, baseline, event schema, segmentation, implementation, and reporting cadence \u2014 not by a decision list.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that an event tracing to no decision on that list is deleted rather than deferred.",
+        "evidence": "No discussion of pruning events based on decision-relevance appears anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that five weeks of client-side docs data on a developer audience is a biased and partial denominator for any conversion rate.",
+        "evidence": "The only caveat about the five weeks is statistical thinness (\"five weeks is thin enough that a second data pull may shift B meaningfully\"), not client-side tracking bias from a developer audience.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not invent a substitute benchmark figure of its own and present it as typical for the category.",
+        "evidence": "\"Benchmarks for content-to-signup...typically run 1\u20138%, with best-in-class quickstart pages reaching maybe 10\u201315%\" is presented as a typical-for-category figure.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels any threshold it does propose explicitly as a self-set starting point the user may move.",
+        "evidence": "The B\u00d71.1\u20131.3 target is presented as a recommendation to defend to the CEO, not explicitly framed as an adjustable starting point.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines to frame the deliverable as a plan that proves a pre-chosen number was hit.",
+        "evidence": "The whole response rejects building toward the pre-chosen 25% and substitutes a baseline-driven relative-lift target instead.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

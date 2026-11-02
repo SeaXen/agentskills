@@ -4,7 +4,7 @@ description: Writes or edits a technical blog post a skeptical developer audienc
 license: MIT
 metadata:
   author: Samuel Berthe
-  version: "1.0.3"
+  version: "1.0.5"
 ---
 
 # Engineering Blog Post
@@ -256,6 +256,7 @@ The craft above is identical everywhere. What changes is the surrounding obligat
 
 - **Company engineering blog.** Disclose the commercial interest in the post, not in a footer: the product being sold, the open-core boundary, who funded the work. Clear the post with whoever owns security and customer confidentiality when it touches either. Attribute the work to named engineers - an unsigned corporate post starts at a trust deficit.
 - **Cross-posted to dev.to.** Publish the full post with a canonical URL home, never a teaser; organization, tag and AI-disclosure rules live in `samber/developer-relations-skills@devto-playbook`.
+- **Cross-posted to Medium.** Import the full post under the named engineer with the canonical link home, never a teaser; distribution, publication and AI-disclosure rules live in `samber/developer-relations-skills@medium-playbook`.
 - **Personal blog.** No disclosure machinery, but state your relationship to what you are writing about (employer, maintainer, competitor) whenever it could look hidden later.
 - **Sales-led B2B developer audiences** - a buyer or architect is often evaluating. Name the alternatives, say where they are better, and expect the post to be read by their engineers too.
 - **Product-led (PLG) B2B developer audiences** - the reader is a developer who will later champion the product inside a company. The post feeds the developer-champion, not the buyer. Call-to-action and proof-loaded sections land differently: optimise for "try it now" and outcome velocity, not "contact sales".
@@ -386,6 +387,7 @@ Do not attribute revenue to a single post. Overclaiming attribution costs credib
 - See `samber/developer-relations-skills@developer-case-study` for customer stories.
 - See `samber/developer-relations-skills@oss-launch` for launch announcements and their channel mechanics.
 - See `samber/developer-relations-skills@devrel-content-calendar` for scheduling this post alongside other content.
+- See `samber/developer-relations-skills@dailydev-playbook` for distributing the finished post on daily.dev.
 - See [./references/post-patterns.md](./references/post-patterns.md) for each pattern's section order, proportions and specific traps.
 - See [./references/worked-examples.md](./references/worked-examples.md) for a filled claim ledger, a benchmark disclosure block, before/after rewrites of a marketing-voice draft, a limitations section, and an edit-mode fix list.
 - See [./references/failure-modes.md](./references/failure-modes.md) for the symptom/cause/fix lookup table.

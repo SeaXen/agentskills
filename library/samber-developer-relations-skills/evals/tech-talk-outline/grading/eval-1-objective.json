@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Asks clarifying questions before producing any outline, one question per message rather than a single batched questionnaire",
+        "evidence": "The response opens with 'Built on what you gave me' and immediately delivers the full outline (Arrow, Arc, Pillars, Time budget, Slide skeleton) in the same message, with a batched list under 'Confirm or these defaults stand:' rather than asking one question at a time before producing anything.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not deliver a finished talk outline in the first response",
+        "evidence": "The single response contains a complete outline: Arrow, Arc, Pillars, Realization, Time budget, Slide skeleton, Cut checkpoints, and Rehearsal plan, all delivered together.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Presents 2-3 candidate narrative arcs and waits for the speaker to choose before continuing, rather than selecting one silently",
+        "evidence": "Two arcs are presented ('That leaves two real candidates') but the response marks one '(recommended)' and immediately builds the entire rest of the outline (pillars, time budget, slides) on that arc without pausing for the speaker's choice.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that arcs the available material, the audience's starting belief, or the slot length make infeasible are deleted from the menu entirely, not ranked last",
+        "evidence": "\"Gate first. Incident is ruled out: there's no outage or failure timeline in your material... Sparkline and Contrarian are ruled out too: a 25-minute platform-track session isn't a keynote, and nothing in the abstract suggests the room holds an opposing belief strong enough...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ranks the surviving arcs by belief moved per hour of preparation and names a recommended leader",
+        "evidence": "\"Problem \u2192 dead ends \u2192 insight \u2192 proof (recommended) \u2014 ranks higher on value because it transfers a technique... Migration (before/after) \u2014 cheaper to draft (pure recall, no dead-end material needed)...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names what that ranking starves - a high-value, high-effort arc that loses on ratio - and the condition that would promote it anyway",
+        "evidence": "\"What this ranking starves: Migration's natural honesty about cost. Fold that in anyway...\" names what's starved but never states a condition under which Migration would be promoted as the leading arc; Migration is also framed as cheaper, not higher-effort.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces a single-sentence arrow and states that it is reused verbatim as the closing line",
+        "evidence": "\"'The wire protocol was never the bottleneck...' Reused verbatim as the closing line.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Carries the accepted abstract's own promise (deciding whether raw protocol access is worth it, and how to measure it) into the outline instead of substituting a different takeaway",
+        "evidence": "\"it transfers a technique, which is exactly what your abstract promises: 'decide whether raw protocol access is worth it... and how to measure it.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Proposes 2-3 pillars and names a concrete piece of evidence for each one, drawn from the benchmark harness, the flame graphs, or the migration diff",
+        "evidence": "Pillar 1 evidence: 'the *before* flame graph'; Pillar 3 evidence: 'the migration diff... the *after* flame graph... and the benchmark harness'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places a moment of realization at a named minute and ties it to a specific belief that flips",
+        "evidence": "\"Minute ~0:08-0:09, end of pillar 1: 'We used to think the network was the tax. Then we flame-graphed the client... Now we think: profile the client stack before you blame the server.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reserves 10-15% of the 25-minute slot as unused buffer and states the buffer amount explicitly",
+        "evidence": "\"Buffer: 3 minutes (12% of 25), absorbed across pillars 1-3...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Instructs the speaker to state in the first minute that they maintain the client being presented, and to name where it is the wrong choice",
+        "evidence": "Disclosure is slide 6, part of the 0:02-0:04 time block (after hook 0:00-0:02 and promise/scope), not within the first minute; no text ties it explicitly to 'the first minute'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets no target slide count and prescribes no slides-per-minute ratio",
+        "evidence": "The 25-slide skeleton is presented without any stated target count or ratio rule; slide count is simply the outcome of the content listed.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Asks clarifying questions before producing any outline, one question per message rather than a single batched questionnaire",
+        "evidence": "The transcript is a complete outline with no clarifying questions. It even says 'Swap in your actual language/runtime specifics... wherever you see `[stack]`' instead of asking.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not deliver a finished talk outline in the first response",
+        "evidence": "It delivers a full outline: thesis, timing budget, 10 sections, cut list, rehearsal plan and logistics checklist.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Presents 2-3 candidate narrative arcs and waits for the speaker to choose before continuing, rather than selecting one silently",
+        "evidence": "No arcs are offered. A single arc is chosen silently: 'Lead with the number... 340ms \u2192 61ms'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that arcs the available material, the audience's starting belief, or the slot length make infeasible are deleted from the menu entirely, not ranked last",
+        "evidence": "There is no arc menu, so no arcs are deleted. The only cuts are in the 'Cut list' of section content, not arcs.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ranks the surviving arcs by belief moved per hour of preparation and names a recommended leader",
+        "evidence": "No ranking of arcs or belief-per-prep-hour ratio appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names what that ranking starves - a high-value, high-effort arc that loses on ratio - and the condition that would promote it anyway",
+        "evidence": "There is no ranking, so nothing is named as starved and no promotion condition is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces a single-sentence arrow and states that it is reused verbatim as the closing line",
+        "evidence": "The 'Thesis (one breath)' paragraph is longer than one sentence. The closing line is a different 'Example shape' ('We didn't set out to write a Postgres client...'), and nothing says the thesis is reused verbatim.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Carries the accepted abstract's own promise (deciding whether raw protocol access is worth it, and how to measure it) into the outline instead of substituting a different takeaway",
+        "evidence": "The thesis promises 'a decision framework plus a way to measure it on their own stack'. Sections 7 'Decision framework' and 8 'Measure it yourself' are marked 'Never cut'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Proposes 2-3 pillars and names a concrete piece of evidence for each one, drawn from the benchmark harness, the flame graphs, or the migration diff",
+        "evidence": "The outline is organized as 10 sections, not 2-3 pillars. Evidence such as flame graphs, the harness and diff snippets is mentioned, but it is not tied to named pillars.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places a moment of realization at a named minute and ties it to a specific belief that flips",
+        "evidence": "The outline has a 'wait, that's not the query, that's us' finding in section 3 (4:30\u20138:00). It names no specific minute for the realization and no belief that flips.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reserves 10-15% of the 25-minute slot as unused buffer and states the buffer amount explicitly",
+        "evidence": "The timing table fills the full 25:00 ('25:00 hard stop'). The only mention of buffer is the rehearsal target 'target 22 minutes to leave buffer', which is neither a stated buffer amount nor 10-15%.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Instructs the speaker to state in the first minute that they maintain the client being presented, and to name where it is the wrong choice",
+        "evidence": "The cold open says 'I deleted our ORM's driver' and does not disclose maintainership. The OSS pointer is deferred to the close (24:00\u201325:00), and the counter-signals sit in section 7 at 19:00.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets no target slide count and prescribes no slides-per-minute ratio",
+        "evidence": "Slides are described per section ('Slide: just the two numbers', 'One slide, one diagram'), but no total slide count or slides-per-minute ratio is set.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

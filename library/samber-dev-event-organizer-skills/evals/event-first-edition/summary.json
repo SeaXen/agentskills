@@ -1,0 +1,266 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-first-edition",
+  "scenarios": 8,
+  "expectations_total": 85,
+  "expectations_subjective": 1,
+  "expectations_objective": 84,
+  "pass_rate_with_skill_pct": 87.1,
+  "pass_rate_without_skill_pct": 48.2,
+  "delta_pp": 38.9,
+  "uplift_multiplier": 1.81,
+  "trigger_accuracy_pct": 64.5,
+  "trigger_queries": 76,
+  "trigger_positive_fire_rate": 0.711,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Demand validation and edition sizing are distinguished as two sequential, different decisions: an event with real demand can still over-scope or under-scope its launch."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Full-footprint is not silently discarded: the condition that would promote it (committed budget plus evidence-backed audience of several hundred) is stated."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The user is asked to validate the scope-tier choice before the plan proceeds."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "A solo or two-person launch is not offered as an acceptable fallback."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The content of the code of conduct is routed to the code-of-conduct sibling skill or explicitly marked out of scope, rather than drafted inline as the main deliverable."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The reason the date never moves is given: extending the timeline burns speaker, sponsor, and attendee trust an unknown first-edition event does not yet have."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Risks are placed on an urgency ladder distinguishing launch-blocking, fast-follow (solvable within about 30 days after the event), and track-only."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Fast-follow risks are explicitly handed to the post-event debrief and edition 2, never solved by delaying edition 1."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The cross-organization neutrality credibility channel is flagged as unavailable to a company-run event, with the existing customer or user base substituting as the audience baseline."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The launch brief is structured as why the event exists (mission and convictions), how it differs from what exists (signature choices), and what a day of it concretely looks like."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "A success measure for the edition is fixed before the event (for example a post-event survey scored against a rubric agreed in advance), not defined after it runs."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "The response does not deliver the requested complete launch plan (venue, program, budget, marketing) in this turn."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Demand validation is required before any launch planning, with the user routed to a demand-validation step or the event-market-fit sibling skill."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The rejected growth metrics are redirected to their proper home (growing an established event / the event-growth-strategy sibling), not merely deleted."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Demand validation and edition sizing are distinguished as two sequential, different decisions: an event with real demand can still over-scope or under-scope its launch."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The two-colleague, single-company founding team is flagged against the floor of at least three organizers from at least three different organizations for a community-run event."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "A scope tier is recommended from a named menu of edition-1 shapes (single-focus standalone, borrowed edition, full-footprint edition), with 2-3 candidate shapes presented with trade-offs and a recommendation."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Full-footprint is not silently discarded: the condition that would promote it (committed budget plus evidence-backed audience of several hundred) is stated."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The user is asked to validate the scope-tier choice before the plan proceeds."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The team gate is acknowledged as passed: five organizers from four companies meets the three-organizers-from-three-organizations floor."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The team gate is stated: at least three organizers from at least three different organizations before venue or date is locked."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Two organizers from the same single company is explicitly identified as failing that gate."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The gate's purpose is given: it blocks single-company vanity events and protects the cross-organization neutrality a community-run event's credibility rests on."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The inability to recruit outside co-organizers is read as an early demand or market warning signal, not merely a staffing inconvenience."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recruiting the missing organizers is sequenced before venue lock - the user's 'recruit after the venue is locked' order is reversed."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The 180 paid pre-registrations are acknowledged as strong validation evidence, while making clear that passing the validation gate does not waive the team gate."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The CoC is identified as the earliest hard administrative gate in the launch sequence - ahead of venue and ahead of date."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The reason for the alias is stated: a personal or company address makes one organizer or their employer look like the event's owner, damaging a community-run event's neutrality."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "A shared credential vault for vendor, social, and ticketing logins is prescribed rather than one organizer's personal password manager."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Joining a peer-organizer network for cross-event mentorship is recommended."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The response notes a first public listing needs only organizer names, city, and a coming-soon notice - no date or venue is required for it."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The content of the code of conduct is routed to the code-of-conduct sibling skill or explicitly marked out of scope, rather than drafted inline as the main deliverable."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The borrowed-venue lever is promoted because of the offered auditorium, with the reasoning that venue search is the longest lead item in the conference timeline (starting around T-12 months)."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The invited-speaker lever is presented with its stated cost: the submission volume and program quality a long CFP buys, plus the community-openness signal."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The invited-speaker cost is weighed against the user's stated annual compounding-asset ambition, rather than the lever being recommended cost-free."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The reason the date never moves is given: extending the timeline burns speaker, sponsor, and attendee trust an unknown first-edition event does not yet have."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The review applies the Tigers / Paper Tigers / Elephants categorization by name."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "'Nobody shows up because we're unknown' is reclassified as a paper tiger, not treated as the top risk."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The paper-tiger verdict is justified by the existing-community attendance baseline: a first edition draws its floor of attendees from the community it grew out of."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The draft is critiqued structurally: a pre-mortem where every risk is external and none is about the team itself has skipped its most valuable category."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Every launch-blocking risk is assigned a named owner and a decision date."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Owners are drawn from the delegation roles already stood up (for example the logistics owner takes the venue risk, the sponsorship owner the payment-timing risk); no separate risk-owner role is invented."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Risks are placed on an urgency ladder distinguishing launch-blocking, fast-follow (solvable within about 30 days after the event), and track-only."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Fast-follow risks are explicitly handed to the post-event debrief and edition 2, never solved by delaying edition 1."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The pre-mortem is scheduled for a revisit at the one-month-out checkpoint the timeline already carries."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "An evidence ladder is applied, ranking opinion below stated interest below deposits or claimed tickets below actually showing up, with the waitlist signups and post reactions placed at stated interest."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Real claimed registrations are named as the required evidence before committing spend beyond the Good tier."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Committing Best-tier budget on stated-interest evidence is called out as premature scaling with a contract attached (or equivalent framing)."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Budget-tier movement is keyed to written downgrade dates triggered by sponsorship revenue actually received by each date, not to waitlist size."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The sponsorship-heavy funding model is used in the reasoning: with the bulk of budget targeted from sponsorship (around 80%+), viability is decoupled from ticket-sale velocity."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Ticket-sale pace checkpoints are treated as a trend to watch, not a go/no-go gate for the launch itself."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Budget is identified as the binding constraint for a company-run event, replacing volunteer bandwidth."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The cross-organization neutrality credibility channel is flagged as unavailable to a company-run event, with the existing customer or user base substituting as the audience baseline."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The launch brief is structured as why the event exists (mission and convictions), how it differs from what exists (signature choices), and what a day of it concretely looks like."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "A success measure for the edition is fixed before the event (for example a post-event survey scored against a rubric agreed in advance), not defined after it runs."
+      }
+    ]
+  }
+}

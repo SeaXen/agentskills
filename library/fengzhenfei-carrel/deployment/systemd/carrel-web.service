@@ -1,0 +1,28 @@
+# Installed from __CARREL_HOME__/deployment/systemd by scripts/install-systemd.sh; the path marks which checkout owns this unit.
+[Unit]
+Description=Carrel: web console (enrollment, progress, LLM registry)
+After=network-online.target
+# When a broken config makes the service crash on start, do not restart every 3 seconds forever and flood the
+# log: stop after 5 times / 60 seconds and leave the unit in failed so it gets noticed. (These two belong to
+# the [Unit] section.)
+StartLimitIntervalSec=60
+StartLimitBurst=5
+
+[Service]
+Type=simple
+WorkingDirectory=__CARREL_HOME__/app
+Environment=KB_LOCAL_BASE_DIR=__CARREL_HOME__
+Environment=KB_ENV_FILE=__CARREL_HOME__/config/knowledge-base.env
+ExecStart=__CARREL_HOME__/app/.venv/bin/python -m kb_server
+Restart=always
+RestartSec=3
+# Under memory pressure the kernel picks its victim by oom_score_adj plus memory use: user units default to
+# 200 and containers to 0, so whichever process was growing, the always-on console and search service were
+# killed first. A user unit cannot go below 100 (the user manager's own value; lower needs privileges). The
+# batch units (parsing, graph builds, cleanups) are set to 200, so they are killed before the always-on
+# services; each of them has its own retry or resume.
+OOMScoreAdjust=100
+Environment=PYTHONUNBUFFERED=1
+
+[Install]
+WantedBy=default.target

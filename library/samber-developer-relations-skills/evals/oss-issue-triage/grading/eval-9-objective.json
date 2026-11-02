@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses the auto-greeting bot as a way to improve first-response numbers and recommends removing or discounting it",
+        "evidence": "'Recompute time-to-first-response with the welcome bot's account excluded. That's the real number.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that first-response metrics exclude bot replies and author self-replies by definition",
+        "evidence": "'CHAOSS's own metric definitions... exclude bot replies and author self-replies by definition'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that an automated greeting followed by weeks of silence makes the wait worse for the reporter",
+        "evidence": "No statement connects the greeting bot to a worsened silent wait for the reporter anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that closure ratio and time-to-close can improve while real maintainer burden rises, which matches the triagers' reported exhaustion",
+        "evidence": "'under machine-generated volume, closure ratios and time-to-close can improve while real maintainer burden rises... Your two triagers reporting burnout while the board slide looks great is not a contradiction'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires every count metric to be paired with a human-driven signal",
+        "evidence": "'Add the pairing metric this framework requires for every count metric: how many issues get a genuine human reply, and how many people could cover triage...'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names at least two human-driven signals, including first response with bots and author self-replies excluded, and how many people could cover triage if one person left",
+        "evidence": "'how many issues get a genuine human reply, and how many people could cover triage if one of your two left' plus the bot-excluded first-response recomputation.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects total open issue count as a health metric",
+        "evidence": "Open issue count as a metric is never discussed or rejected in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects closed-per-week or closure ratio as a productivity target",
+        "evidence": "'The 40% closure-ratio increase... is not a productivity gain, it's an accounting change'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists the mechanical automation that is safe: area label from changed paths, type from the intake form, review request to the owning team, and the staleness clock",
+        "evidence": "Lists area label, review request, and staleness sweep, but never mentions a 'type' label auto-applied from the intake form.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Removes the autonomous auto-close and keeps any model assistance as a scoring and suggestion layer with a human as final decision-maker on accept, reject and close",
+        "evidence": "'Downgrade auto-close to auto-suggest... apply a possible-duplicate label... A triager confirms with one click.' / 'never an autonomous accept, reject, or close.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires disclosure inside any triage comment posted by an agent",
+        "evidence": "No mention of AI-disclosure requirements for triage comments anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends segmenting first response by first-time versus returning reporter",
+        "evidence": "No such segmentation is proposed anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends tracking time to first response, untriaged share, queue age, and inflow versus outflow as the monthly set",
+        "evidence": "No such four-metric monthly tracking set is proposed; only ad hoc metrics discussed in the diagnosis.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses the auto-greeting bot as a way to improve first-response numbers and recommends removing or discounting it",
+        "evidence": "\"Split 'time to first response' into bot vs. human. Report both, label them\" \u2014 discounts the bot from the human metric.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that first-response metrics exclude bot replies and author self-replies by definition",
+        "evidence": "Only bot exclusion is discussed (\"median time-to-first-human-comment, excluding the welcome bot\"); author self-replies are never mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that an automated greeting followed by weeks of silence makes the wait worse for the reporter",
+        "evidence": "No statement about the reporter experience being worsened by a false-reassurance greeting.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that closure ratio and time-to-close can improve while real maintainer burden rises, which matches the triagers' reported exhaustion",
+        "evidence": "\"The LLM auto-close-as-duplicate step inflates the numerator with zero triager effort... That's plausibly where the fatigue is coming from.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires every count metric to be paired with a human-driven signal",
+        "evidence": "Recommendations pair first-response with human/bot split, and closure ratio with reopen rate/rework metric, in \"What to report to the board instead.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names at least two human-driven signals, including first response with bots and author self-replies excluded, and how many people could cover triage if one person left",
+        "evidence": "Only bot-excluded first response and reopen/complaint rate are named; no bus-factor ('how many people could cover triage') metric appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects total open issue count as a health metric",
+        "evidence": "Total open issue count is never discussed as a metric at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects closed-per-week or closure ratio as a productivity target",
+        "evidence": "Closure ratio is refined (\"net of reopens within 30 days\") and kept as a reported metric, not rejected outright.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Lists the mechanical automation that is safe: area label from changed paths, type from the intake form, review request to the owning team, and the staleness clock",
+        "evidence": "Safe automations listed are \"Required-field gate,\" \"Stale needs-info auto-close,\" \"Draft-reply assist,\" \"Auto-label/route by component,\" \"Priority-sorted queue\" \u2014 does not match the specific four-item list (no changed-paths area label, no owning-team review request).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Removes the autonomous auto-close and keeps any model assistance as a scoring and suggestion layer with a human as final decision-maker on accept, reject and close",
+        "evidence": "\"Keep auto-close only for near-certain matches (identical title/error signature)\" \u2014 autonomous auto-close is narrowed, not fully removed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires disclosure inside any triage comment posted by an agent",
+        "evidence": "No disclosure requirement for agent-posted comments is mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends segmenting first response by first-time versus returning reporter",
+        "evidence": "No first-time vs. returning reporter segmentation is proposed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends tracking time to first response, untriaged share, queue age, and inflow versus outflow as the monthly set",
+        "evidence": "The reporting set given is bot/human split, closure ratio net of reopens, and a new rework metric \u2014 not the untriaged-share/queue-age/inflow-outflow set.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

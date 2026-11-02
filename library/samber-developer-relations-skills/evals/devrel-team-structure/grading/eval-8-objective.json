@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States explicitly that it is in brainstorming mode before recommending anything.",
+        "evidence": "The brief says it was built 'without running the full interview this skill normally requires' and never says it is in brainstorming mode.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Builds two or three whole candidate structures, each combining a reporting line, a shape and a coverage split as one set.",
+        "evidence": "Candidates A (centralized under Marketing, organized by pillar), B (split Marketing + Platform Engineering, 4/7) and C (hub-and-spoke) each set a line, a shape and a split of the work.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the headcount each candidate assumes.",
+        "evidence": "A: 'Headcount assumed: 11 (9 FTE + 2 contractors)'. B: '11, split 4/7'. C: '11, at the shape's minimum floor'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the weekly coordination each candidate adds and what undoing it would take.",
+        "evidence": "Coordination is only 'moderate' (A), 'permanent' (B) and 'a full management layer plus a standing forum' (C). There are no weekly figures, and only C says anything about unwinding ('a quarter to unwind').",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States what each candidate makes easy and what it makes hard.",
+        "evidence": "Each candidate has 'Makes easy' and 'Makes hard' lines.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the first thing that would break under each candidate.",
+        "evidence": "Each candidate has a 'First thing that breaks' line, e.g. 'the SDK/DX group's closeness to the eng roadmap' for A.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the conditions under which each candidate is the wrong pick.",
+        "evidence": "Each candidate has a 'Wrong when' line, e.g. 'you need a decision in two weeks and an operating structure immediately after' for C.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Orders the candidates by efficiency - value per unit of effort - and says the ordering out loud rather than implying it by row order.",
+        "evidence": "No efficiency ordering is stated. The candidates are listed A, B, C and A is recommended without any value-per-effort ranking.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends one candidate and gives the reason.",
+        "evidence": "'Recommendation: Candidate A. One funded driver, one team, no new management layer, nothing that needs a quarter to stand up.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Leaves the choice to the accountable person before detailing anything below the recommendation.",
+        "evidence": "It carries on straight into Reporting line, Shape, Coverage, Roles, Interlocks, Budget and Transition, all built on Candidate A, without waiting for the user to choose.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Presents the brief one section at a time and seeks agreement before writing the next section.",
+        "evidence": "The whole brief is delivered in one go, with no pause for agreement between sections.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites that around 43.6% of surveyed teams already have more than one team doing developer-relations work, with the year attached, and treats redrawing boundaries around existing owners as the starting condition.",
+        "evidence": "'43.6% of surveyed DevRel programs already have more than one team doing this work (State of Developer Relations 2024...)'. The brief starts from the 11 people already spread across three homes.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the contracted docs work still needs one internal accountable owner, or it disappears the day the contract ends.",
+        "evidence": "'Bus-factor-one risk: docs. Contractor coverage with no named internal backup is an outage waiting for a contract non-renewal'; the fix is an internal backup writer or converting a contractor to FTE.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States explicitly that it is in brainstorming mode before recommending anything.",
+        "evidence": "The transcript opens directly with '## Recommendation' and never mentions brainstorming mode.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Builds two or three whole candidate structures, each combining a reporting line, a shape and a coverage split as one set.",
+        "evidence": "Candidates A/B/C differ only on 'Shape'. The reporting line is a separate template section, and the coverage split is not tied to each candidate.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the headcount each candidate assumes.",
+        "evidence": "The table gives no per-candidate headcount. 'You grow past about 15' appears only as a wrong-pick condition.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the weekly coordination each candidate adds and what undoing it would take.",
+        "evidence": "'Coordination: Low / A standing forum and approval flow / High, permanent' and 'Undo cost: Moderate / A quarter to unwind / None'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States what each candidate makes easy and what it makes hard.",
+        "evidence": "The 'Easy' and 'Hard' rows cover all three candidates.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the first thing that would break under each candidate.",
+        "evidence": "'First failure: Platform engineers pulled back into roadmap work / Hub approves instead of enabling / Docs falls between groups again'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the conditions under which each candidate is the wrong pick.",
+        "evidence": "'Wrong pick if: Exec team won't move headcount / You grow past about 15 / Signups stop being the funded driver'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Orders the candidates by efficiency - value per unit of effort - and says the ordering out loud rather than implying it by row order.",
+        "evidence": "No efficiency or value-per-effort ordering is stated. A is labelled 'recommended' and the rows are not ranked.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends one candidate and gives the reason.",
+        "evidence": "'Consolidate all 11 people into one DevRel team under you' followed by a 'Why' section.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Leaves the choice to the accountable person before detailing anything below the recommendation.",
+        "evidence": "It goes straight into pods, reporting line, interlocks, transition and exec decisions without asking for a choice.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Presents the brief one section at a time and seeks agreement before writing the next section.",
+        "evidence": "The whole proposal is delivered in one document.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites that around 43.6% of surveyed teams already have more than one team doing developer-relations work, with the year attached, and treats redrawing boundaries around existing owners as the starting condition.",
+        "evidence": "'43.6% of teams have more than one group doing DevRel work (DevRel Agency, State of Developer Relations 2024, 310 respondents)'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the contracted docs work still needs one internal accountable owner, or it disappears the day the contract ends.",
+        "evidence": "'Convert at least one contractor seat to a full-time owner, or name an internal owner of the docs site. A surface run only by contractors disappears when the contract ends.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

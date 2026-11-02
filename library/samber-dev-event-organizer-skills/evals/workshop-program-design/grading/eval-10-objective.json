@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Separates the attendee-side network failure, which it owns, from the dropped camera feed, which it does not.",
+        "evidence": "Triage table assigns network to this skill and camera to event-production.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the unusable recording to the event's production work.",
+        "evidence": "\"event-production\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the two sessions ending 15 minutes apart to schedule design.",
+        "evidence": "\"event-schedule-design\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the question of charging separately for the day to the format decision and does not re-argue it.",
+        "evidence": "\"don't re-argue it in this debrief.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks what specifically broke on the network - sustained bandwidth, a blocked protocol, a blocked device class, or the venue never answering - before proposing a fix.",
+        "evidence": "\"Don't write a fix yet... Answer these six questions.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats that answer as the promotion condition for next edition's network posture rather than jumping straight to a remedy.",
+        "evidence": "Prior-edition network failure is \"the trigger to remove the live dependency\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not propose more bandwidth as the fix without first establishing whether the cause was policy.",
+        "evidence": "Candidate causes are listed and no bandwidth fix is proposed.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Produces a per-session delivery sheet for the parts it owns, covering the hands-on commitment, the capacity and which ceiling bound it, coverage with its sizing basis, prerequisites, the network posture, the materials and their window, and the revision trigger per choice.",
+        "evidence": "Only offers \"I'll turn the answers into the per-session delivery sheet\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Presents that output section by section for validation rather than as a single block.",
+        "evidence": "Only a future intention; no sheet is presented.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Records for the next edition which ceiling bound capacity, the prerequisite sheet as shipped, what actually broke on the day, and the venue's written network answer.",
+        "evidence": "No record of the binding ceiling, shipped prerequisite sheet, what broke, or the venue's answer.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not re-decide whether the workshop day should exist.",
+        "evidence": "Pricing routed to event-format-selection.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Separates the attendee-side network failure, which it owns, from the dropped camera feed, which it does not.",
+        "evidence": "Says 'The network and camera failures may share a cause' rather than separating ownership.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the unusable recording to the event's production work.",
+        "evidence": "Handles the recording itself ('Record locally to disk').",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the two sessions ending 15 minutes apart to schedule design.",
+        "evidence": "Fixes it in this transcript ('align session ends... Add a marshal').",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the question of charging separately for the day to the format decision and does not re-argue it.",
+        "evidence": "Argues it at length, including 'If the data doesn't support a change, keep the pricing'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks what specifically broke on the network - sustained bandwidth, a blocked protocol, a blocked device class, or the venue never answering - before proposing a fix.",
+        "evidence": "Asks venue versus own gear and whether workshops needed internet, not bandwidth versus protocol versus device class.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats that answer as the promotion condition for next edition's network posture rather than jumping straight to a remedy.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not propose more bandwidth as the fix without first establishing whether the cause was policy.",
+        "evidence": "Proposes 'a capacity commitment' before the cause is known.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces a per-session delivery sheet for the parts it owns, covering the hands-on commitment, the capacity and which ceiling bound it, coverage with its sizing basis, prerequisites, the network posture, the materials and their window, and the revision trigger per choice.",
+        "evidence": "None produced.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Presents that output section by section for validation rather than as a single block.",
+        "evidence": "Presented as one block.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Records for the next edition which ceiling bound capacity, the prerequisite sheet as shipped, what actually broke on the day, and the venue's written network answer.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not re-decide whether the workshop day should exist.",
+        "evidence": "Discusses pricing and bundling, recommending to 'keep the pricing' if the data doesn't support a change.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

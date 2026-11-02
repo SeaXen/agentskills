@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Explains that corporate mail gateways filter separately from consumer Gmail, so a good Postmaster Tools reading says nothing about them",
+        "evidence": "\"It rules out a complaint problem at Gmail, not at corporate filters.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names Microsoft Defender's Bulk Complaint Level and its default threshold of 7 moving bulk mail to Junk",
+        "evidence": "\"The default threshold of 7 sends it to Junk.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Mentions that the Strict preset uses threshold 5 and quarantines, which fits regulated enterprises such as banks",
+        "evidence": "\"Strict quarantines from 5\"; fits \"banks and Fortune 500s\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that the Standard preset uses threshold 6",
+        "evidence": "\"The Standard preset uses 6\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Mentions that company admins can lower the bulk threshold",
+        "evidence": "\"Admins can lower the thresholds further.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends asking an affected reader for the message headers (for example X-Forefront-Antispam-Report with BCL) before acting",
+        "evidence": "Fix 1 and monitoring: `X-Forefront-Antispam-Report`, BCL recorded.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Advises against switching platforms as the fix, noting a switch resets signals and needs a warm-up",
+        "evidence": "\"It also resets your tracking and IP signals and needs a full warm-up (about six weeks)\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends publishing allow-listing instructions for readers' IT teams naming the sending domain and DKIM d= rather than IPs",
+        "evidence": "Fix 6: \"sending domain and DKIM `d=`\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a consistent branded HTTPS tracking domain or no tracking",
+        "evidence": "Fix 5: \"branded HTTPS tracking domain on your own domain, or send without tracking\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Offers a feed or web archive fallback for readers whose company junks bulk mail",
+        "evidence": "Fix 7: \"Offer an archive or feed link\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Mentions that Google Workspace corporate recipients fall outside Gmail's sender rules and follow their admins' policies",
+        "evidence": "\"Gmail's sender rules and Postmaster don't cover Google Workspace or Microsoft 365 tenants\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that gateway link scanning can inflate clicks and recommends filtering them",
+        "evidence": "Cause 3 and fix 4: \"Filter scanner clicks\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not treat the corporate Junk placement as a list-quality or consent problem without evidence",
+        "evidence": "Cause 1 most likely bulk scoring at gateways; list/volume event \"unverified\".",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Explains that corporate mail gateways filter separately from consumer Gmail, so a good Postmaster Tools reading says nothing about them",
+        "evidence": "\"This is Google's view only. It says nothing about Microsoft 365, Proofpoint, Mimecast or Barracuda.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names Microsoft Defender's Bulk Complaint Level and its default threshold of 7 moving bulk mail to Junk",
+        "evidence": "BCL threshold not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Mentions that the Strict preset uses threshold 5 and quarantines, which fits regulated enterprises such as banks",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that the Standard preset uses threshold 6",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Mentions that company admins can lower the bulk threshold",
+        "evidence": "It only says some banks quarantine external bulk mail by default, not that admins can lower the bulk threshold.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends asking an affected reader for the message headers (for example X-Forefront-Antispam-Report with BCL) before acting",
+        "evidence": "\"Get one bounced or quarantined message from a bank reader... full headers\"; X-Forefront-Antispam-Report.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Advises against switching platforms as the fix, noting a switch resets signals and needs a warm-up",
+        "evidence": "It advises against switching but gives no reset-of-signals or warm-up reason.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends publishing allow-listing instructions for readers' IT teams naming the sending domain and DKIM d= rather than IPs",
+        "evidence": "\"allowlist your sending domain and IP\" includes IPs and does not name DKIM d=.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends a consistent branded HTTPS tracking domain or no tracking",
+        "evidence": "\"Custom tracking and link domain on your own subdomain.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Offers a feed or web archive fallback for readers whose company junks bulk mail",
+        "evidence": "\"Offer a plain-text or web-archive version for readers behind strict gateways.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Mentions that Google Workspace corporate recipients fall outside Gmail's sender rules and follow their admins' policies",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that gateway link scanning can inflate clicks and recommends filtering them",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not treat the corporate Junk placement as a list-quality or consent problem without evidence",
+        "evidence": "Attributes it to the receiving filter and says \"Everything below depends on that evidence.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

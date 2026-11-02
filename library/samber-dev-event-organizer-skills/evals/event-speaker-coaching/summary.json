@@ -1,0 +1,502 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-speaker-coaching",
+  "scenarios": 9,
+  "expectations_total": 115,
+  "expectations_subjective": 0,
+  "expectations_objective": 115,
+  "pass_rate_with_skill_pct": 77.4,
+  "pass_rate_without_skill_pct": 23.5,
+  "delta_pp": 53.9,
+  "uplift_multiplier": 3.29,
+  "trigger_accuracy_pct": 55.1,
+  "trigger_queries": 98,
+  "trigger_positive_fire_rate": 0.347,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": null,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.309 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Sends the offer to everyone before any individual reply to a speaker's draft, so no reply reads as targeted help"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Replaces 'practise 10 more times' with the distinction that solo runs are practice and only a listener run meets the gate, with about five to seven full out-loud runs typical for a beginner"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that any small change after the gate run is re-timed solo and out loud against the same mark, and a structural change needs another listener run"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Adds a live cut list: one section Priyanka drops on the day if a timing signal arrives early, marked in her speaker notes"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Classifies the 11pt whole-file code as a Change, not Blocking, states that no authoritative minimum font size exists, and prescribes the back-row or projector test plus showing only the lines discussed"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Uses the written review template: Keep, Blocking, Change, Optional, with a header stating 20 minutes talk time, 5 minutes Q&A, review 1 of 2, and the abstract's promise"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Carries the abstract's promise (migration path, three traps) into the review and asks whether the deck delivers the three traps rather than ignoring the abstract"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that Blocking notes go to Tomas first, and escalation to the program chair happens only if he declines or cannot fix them by 2 March, with Tomas told before any escalation"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Anchors on 9 November, the captioner deadline, as the content freeze D, giving about 17 days, and not on the 18 November event date"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Deletes the paired-mentor rung because no milestones remain, and promotes one-to-one timed runs because they schedule faster than a group"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Says plainly, in the offer, that this edition offers polish only, and sends that offer to all nine speakers in the same words"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Keeps a stage walk-through before doors on 18 November for the in-person speakers, and hands the equipment tech check to the speaker-experience skill"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Runs each group session with the Critical Response Process in order: statements of meaning, the speaker's own questions, neutral questions, opinions only by permission"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Has the facilitator read the brief aloud at the start of each session and write each speaker's summary within a day: keeps first, then at most three changes"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names the four parts of the minimum viable program (kit with the offer, group dry runs, accessibility checklist on every deck, stage walk-through) and states that anything less is a kit with no listener"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Does not comment on beta blockers or any medication and does not diagnose; given the sleep loss and thoughts of withdrawing, suggests a professional and keeps his slot open"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Offers the 'I am excited' reappraisal line as a cheap option, not a promise, noting the evidence is mixed"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Rehearses two questions out loud in the dry run, one the talk answers and one it does not, including 'I don't know, I'll find out and post it with the slides' as a complete answer"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States the expected shortfall (roughly two requests per mentor) and the time cost of about four to six mentor hours per speaker, so each mentor takes one or at most two speakers"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Sends any speaker left unmatched to the group dry run and tells them why"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Keeps worries from intake private to the mentor and passes access needs only to the speaker contact with the speaker's agreement"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Deletes the intake answers after the event: access needs went to the speaker contact with the speaker's agreement and worries only to the mentor; nothing is kept for next year"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Notes that a speaker who opted out of the dry run was covered only by the day's timing signals and live cut list"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Reports the timed-run gate and the accessibility gate as the objective, and labels overruns, coaching usefulness and return rate as self-set"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Tracks return rate, coached first-timers who speak or mentor again within two editions, and states this only means something because the edition recurs"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Runs one short debrief with each coached speaker: what worked, what to try next time"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Rejects a scheme addressed only to the six first-timers and sends one coaching offer, in identical wording, to all 15 accepted speakers including the keynote"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that an offer targeted at first-timers tells them the organizer expects them to struggle and is declined by exactly the people it was meant for"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Makes the dry-run slot the opt-out default for every speaker and states in the offer that skipping it changes nothing about their slot"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Uses the six checkbox answers only to order the work, such as earlier dry-run dates, never to decide who is offered what"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Anchors the calendar on 18 March, the captioner deadline, as the content freeze rather than on the 26 March event date"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Places milestones working back from 18 March: an outline check about six weeks before, a first out-loud run about four weeks before, a slide and accessibility review about three weeks before, and a timed dry run about two weeks before"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Sends the offer to everyone before any individual reply to a speaker's draft, so no reply reads as targeted help"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Attaches intake questions that are optional for everyone and required only for mentor requests, with the 'first talk at an event this size' question asked of every speaker rather than taken from the CFP checkbox"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The offer includes two or three dry-run date options, a 'reply mentor' opt-in line, a code-of-conduct line with a no-reason-needed re-pairing contact, the slot length and Q&A format, and the 18 March final-slides date"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Sends every speaker a rehearsal kit with the offer covering their dates, how to time a run, the accessibility Blocking items, the Q&A format and the stage walk-through"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Shows the user the offer text and the dated calendar for approval before anything is sent"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that any reminder goes to everyone who has not answered, never only to the six first-timers"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Corrects the talk time to 25 minutes (30-minute slot minus 5 minutes of Q&A), says the clock was set wrong at 30, and states the pass mark as about 22 to 23 minutes"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Quantifies the gap: the 31-minute run is about 6 minutes over the full talk time and about 8 to 9 minutes over the mark"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Removes the 'speed up' note and replaces it with a cut list of whole sections, naming the migration history as the first candidate, and states that talking faster loses the room"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Removes the 'sound more confident' note as a trait with no fix, and removes the accent note entirely"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Keeps the opening outage story rather than trimming it, on the rule that cuts come from the middle while the opening and closing stay"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Caps the written notes at three changes plus keeps and parks the remaining notes for the next round rather than sending all nine"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Labels the overrun as a Change note with a cut list, not a Blocking note, and states that Blocking applies only if the run still exceeds 25 minutes after the agreed cuts"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Writes each change as an observation anchored to a moment (slide 14, minute 18, the migration section), its effect on the room, and one request or question"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Replaces 'practise 10 more times' with the distinction that solo runs are practice and only a listener run meets the gate, with about five to seven full out-loud runs typical for a beginner"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that any small change after the gate run is re-timed solo and out loud against the same mark, and a structural change needs another listener run"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Adds a live cut list: one section Priyanka drops on the day if a timing signal arrives early, marked in her speaker notes"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Flags the strobing GIF on slide 9 as Blocking under the no-more-than-three-flashes-per-second rule (WCAG 2.2 SC 2.3.1)"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Classifies the 11pt whole-file code as a Change, not Blocking, states that no authoritative minimum font size exists, and prescribes the back-row or projector test plus showing only the lines discussed"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Keeps the round to three changes including the three Blocking items, and parks the font size, QR and title notes for review 2 or lists them under Optional, never as a fourth Change"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Uses the written review template: Keep, Blocking, Change, Optional, with a header stating 20 minutes talk time, 5 minutes Q&A, review 1 of 2, and the abstract's promise"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Does not require a summary slide; treats it as Optional at most, since the talk is coached against its own promise and not a house style"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that Blocking notes go to Tomas first, and escalation to the program chair happens only if he declines or cannot fix them by 2 March, with Tomas told before any escalation"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States the next milestone with its date: review 2 of 2 before the 2 March slide deadline"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Rejects the full program (outline reviews, mentors, two dry runs each) because fewer than three weeks remain to D: one timed dry run per speaker as early as possible plus the accessibility checklist"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Deletes the paired-mentor rung because no milestones remain, and promotes one-to-one timed runs because they schedule faster than a group"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Says plainly, in the offer, that this edition offers polish only, and sends that offer to all nine speakers in the same words"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Delivers what the August acceptance email promised, rehearsal support and slide feedback, rather than shrinking it, and tells speakers the depth changed instead of going silent"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that a structural change after the content freeze is an unrehearsed talk: cut, do not rebuild"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Runs Mateus's dry run on the event's own video tool, sets his recording deadline before 9 November, and hands the production side to the virtual-event production skill"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that an overrun found after 9 November, when captioners hold the deck, is fixed by skipping whole sections, never by editing slides, with the skipped slide numbers sent to the captioners"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Runs the accessibility Blocking checklist (contrast, flashing, colour-only meaning) on every deck before 9 November, about ten minutes each"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Books the coaching hours as named tasks in the calendar so the program cannot silently vanish again"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Keeps a stage walk-through before doors on 18 November for the in-person speakers, and hands the equipment tech check to the speaker-experience skill"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Shows the user the offer text and the dated calendar before anything goes out"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Computes the listening cost per speaker as talk time plus about 20 minutes of feedback (10 for a lightning talk) plus 5 minutes of changeover, plus about 10 minutes per deck for the accessibility checklist"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Arrives at roughly 19 hours needed (about 12h50 for the 14 talks, 2h40 for the 8 lightning talks, 3h40 for 22 decks) against 12 hours available, and says the plan does not fit as proposed"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Replaces universal one-to-one rehearsals with group dry-run sessions as the default rung, and states that a 3-hour session holds three 30-minute talks or about eight lightning talks"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Rejects first-come-first-served because it rewards the most confident responders, and orders dry-run places by the intake answer to 'is this your first talk at an event this size', then by lottery, with the kit going to the rest"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States the allocation rule in the offer itself, and still sends the same offer in the same words to all 22 speakers"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Schedules the dry-run sessions in the two weeks before 27 November and the accessibility checklist on every deck before that date"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that the Ignite talks cannot be cut by section: they cut words per slide and rehearse with the auto-advance on"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Sets the dry-run clock to 30 minutes for the talks (no Q&A to subtract) and 5 minutes for the Ignite talks, with the pass mark at about 90% of talk time"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Runs each group session with the Critical Response Process in order: statements of meaning, the speaker's own questions, neutral questions, opinions only by permission"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Has the facilitator read the brief aloud at the start of each session and write each speaker's summary within a day: keeps first, then at most three changes"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names the four parts of the minimum viable program (kit with the offer, group dry runs, accessibility checklist on every deck, stage walk-through) and states that anything less is a kit with no listener"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Tells the user plainly which speakers will get only the kit if hours still run short, rather than calling it a program for everyone"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Gives him the real room: a stage walk-through in the 300-seat hall before doors and a photo of the room sent in advance"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names what will happen: audience size, who introduces him, the timing signals, what happens if a demo fails, and the Q&A format"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Offers the 'I am excited' reappraisal line as a cheap option, not a promise, noting the evidence is mixed"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Agrees a recovery move for a blank: pause, look at the notes, say 'let me come back to that', move to the next section"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Seats a friendly face, the host or a mentor, where he can see them"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Proposes to whoever owns the schedule that the 10-minute no-host open floor become host-moderated or written-question Q&A, rather than changing it unilaterally, and tells Yusuf the format before his dry run"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Rehearses two questions out loud in the dry run, one the talk answers and one it does not, including 'I don't know, I'll find out and post it with the slides' as a complete answer"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Briefs the host, through the run-of-show, on the three moves: closing a comment that is not a question, closing a hostile question under the code of conduct, and ending Q&A on time"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Does not assign Lotte or anyone to Petra, who did not ask; keeps her dry-run slot open and sends one reminder to everyone who has not answered rather than a message only to her"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States the expected shortfall (roughly two requests per mentor) and the time cost of about four to six mentor hours per speaker, so each mentor takes one or at most two speakers"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Sends any speaker left unmatched to the group dry run and tells them why"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Scopes Niko's mentoring to a written slide review in Keep / Blocking / Change / Optional form, and adds no outline call or dry run he did not ask for"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "For Diego, allows pace and clarity notes anchored to a moment and the room, forbids accent notes, and offers a scripted opening and closing, fuller speaker notes, and key terms on the slides"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Sends all three mentors the same brief before first contact, stating that the talk belongs to the speaker and is never rewritten, that coaching is against the accepted abstract and slot, keeps first with at most three changes per round, no notes on accent, pitch, appearance or confidence, the code of conduct and privacy of what the speaker shares, the milestone time box, and one check-in if the speaker goes quiet"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Introduces each pair by email with the calendar, attaching the speaker's intake answers only with the speaker's agreement"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Schedules a midpoint check-in asking whether the pairing is working and re-pairs quietly, no reason needed, if not"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Keeps worries from intake private to the mentor and passes access needs only to the speaker contact with the speaker's agreement"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Treats Lena's drift from the abstract as not a Blocking note; tells Lena first, then the schedule owner, and updates the published abstract with her agreement rather than re-opening acceptance"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Tells Rafael which rule the joke may cross (the code of conduct) and passes it to the program chair only if the passage stays, rather than removing the slide or escalating first"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Distinguishes harassment-grade content, which goes to the chair at once, from a passage that may cross the code of conduct, which goes to the speaker first"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Asks Omar once whether the dashboard with real account names is cleared by his employer and leaves clearance with him, routing any legal question to the separate content reviewer"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Still offers the same coaching to all 18 external speakers in the same words"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that any escalation to the chair happens only after the speaker has been told"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Does not rewrite Lena's talk or Rafael's slide; each change is the speaker's own to make"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Does not send raw star averages and full comment dumps; relays audience ratings with the feedback protocol: keeps first, at most three themes per speaker"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Replaces the NPS survey with one question to each coached speaker, 'What in the coaching changed your talk?', and reads the answers rather than scoring them"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Deletes the dry-run recordings after the event rather than keeping an example library: each was recorded on that speaker's yes and shared with nobody"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Deletes the intake answers after the event: access needs went to the speaker contact with the speaker's agreement and worries only to the mentor; nothing is kept for next year"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Counts the three overruns on the day against a target of zero and checks whether each overrunning speaker had a listener run that ended by about 90% of talk time and was re-timed after any later change"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Notes that a speaker who opted out of the dry run was covered only by the day's timing signals and live cut list"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Reports the timed-run gate and the accessibility gate as the objective, and labels overruns, coaching usefulness and return rate as self-set"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Tracks return rate, coached first-timers who speak or mentor again within two editions, and states this only means something because the edition recurs"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Runs one short debrief with each coached speaker: what worked, what to try next time"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Records for this edition who opted in, which rung each used, the overruns and who returns, to re-rank next edition's coaching menu"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Recruits next year's mentors from this edition's coached speakers first"
+      }
+    ]
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects averaging the 40-60% free-event no-show band with the 30-50% drop-off range, and states that the two figures measure different things.",
+        "evidence": "\"Your colleague's two numbers measure different things... Averaging them gives a number that answers no question.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the single figure used for the multiplier - the roughly 50% show-up trendline stated as an operational instruction - rather than a blended rate.",
+        "evidence": "\"The MLH guide says about 50% of people who register for a free event show up (323 events). It says to aim for double your target\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the scope of the figure it uses (free-registration events).",
+        "evidence": "\"Your event is free, so you're in the free band.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Uses 180 as the binding hard capacity rather than the 195 on the fire certificate.",
+        "evidence": "\"The venue contract's 180 is the binding number. The fire certificate's 195... gives you no extra seats.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Shows the ceiling arithmetic as explicit lines: hard capacity, aimed attendance, expected show-up rate, resulting registration ceiling.",
+        "evidence": "Table rows: Hard capacity 180, Show-up rate 50%, Sourced ceiling 180 \u00f7 0.5 = 360 registrations",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States a registration ceiling of 360 registrations for the 180-seat room and does not exceed double the aimed attendance.",
+        "evidence": "\"Treat 360 as the absolute maximum, never a target.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that the current 341 registrations sit under the 360 ceiling, so the form does not have to close immediately.",
+        "evidence": "The plan says \"Close the registration form now at 341\", the opposite of this item.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that 341 registrations imply roughly 170 expected show-ups, below the 180-seat capacity.",
+        "evidence": "\"341 \u00d7 0.5 \u2248 171\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives catering the expected-show-up number rather than the registration count of 341 or the ceiling of 360.",
+        "evidence": "\"171 covers. This is expected show-ups, not the 341 registrations.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the overbooking buffer separately as the gap between the registration ceiling and the expected show-up number.",
+        "evidence": "Table row \"No-show buffer | about 170 | named separately\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names a specific person or role who closes the registration form when the ceiling is reached.",
+        "evidence": "\"name one person who closes the form and owns the number.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects averaging the 40-60% free-event no-show band with the 30-50% drop-off range, and states that the two figures measure different things.",
+        "evidence": "'The two guide figures count different things... Averaging two ranges from different definitions doesn't produce an estimate.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the single figure used for the multiplier - the roughly 50% show-up trendline stated as an operational instruction - rather than a blended rate.",
+        "evidence": "Says 'Don't use 45%' and tells the user to use their own history; no single sourced ~50% figure is named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the scope of the figure it uses (free-registration events).",
+        "evidence": "The scope of any figure is never stated as free-registration events.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Uses 180 as the binding hard capacity rather than the 195 on the fire certificate.",
+        "evidence": "'Use 180 as the hard cap... The 195 on the fire certificate is a legal safety ceiling'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Shows the ceiling arithmetic as explicit lines: hard capacity, aimed attendance, expected show-up rate, resulting registration ceiling.",
+        "evidence": "No hard capacity / aimed attendance / show rate / ceiling lines are given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States a registration ceiling of 360 registrations for the 180-seat room and does not exceed double the aimed attendance.",
+        "evidence": "No registration ceiling is stated; the form moves to a waitlist.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that the current 341 registrations sit under the 360 ceiling, so the form does not have to close immediately.",
+        "evidence": "It recommends switching the form to waitlist now.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that 341 registrations imply roughly 170 expected show-ups, below the 180-seat capacity.",
+        "evidence": "Computes 188 at 45% and a 136\u2013239 range, not about 170.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives catering the expected-show-up number rather than the registration count of 341 or the ceiling of 360.",
+        "evidence": "'multiply [confirmed count] by the show rate... cap the result at 180. Give the caterer that number.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the overbooking buffer separately as the gap between the registration ceiling and the expected show-up number.",
+        "evidence": "Only a '5% buffer' on the catering number; no ceiling-to-expected gap.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names a specific person or role who closes the registration form when the ceiling is reached.",
+        "evidence": "No person or role is named.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

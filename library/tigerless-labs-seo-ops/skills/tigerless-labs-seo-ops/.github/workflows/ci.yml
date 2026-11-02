@@ -1,0 +1,101 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  check:
+    # Run macOS too: that is the second platform actually in use (~/Documents may be
+    # redirected by iCloud). Windows is unsupported, so we don't pretend to have tested it.
+    strategy:
+      fail-fast: false
+      matrix:
+        # Pinned: ubuntu-latest moved to an image with no Python 3.9 build, and the floor is what CI must run on
+        os: [ubuntu-24.04, macos-latest]
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: bash
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.9"          # the documented floor; CI runs on the floor
+      - run: pip install -r scripts/requirements.txt
+
+      # ── offline guards ───────────────────────────────────
+      - name: Syntax
+        run: python -m compileall -q scripts
+
+      - name: Checklist and script in sync + config.example matches defaults
+        run: python scripts/run.py --verify-only
+
+      # ── directory resolution: the two defaults must land under home, and apart ──
+      - name: Default directory resolution (the two must be separate)
+        run: |
+          python - <<'PY'
+          import sys, pathlib
+          sys.path.insert(0, "scripts")
+          import config as c
+          state, cfg, home = c.state_dir(), c.config_dir(), pathlib.Path.home()
+          print("state_dir :", state)
+          print("config_dir:", cfg)
+          assert state.name == "seo-ops" and cfg.name == "seo-ops", (state, cfg)
+          # Secrets must not land in the output directory — Documents is often cloud-synced / shared folder-wide
+          assert cfg != state and state not in cfg.parents, (state, cfg)
+          for p in (state, cfg):
+              assert home in p.parents or p.is_absolute(), p
+          PY
+
+      - name: Placeholder guard (another agent copying ${...} must error, never silently land wrong)
+        run: |
+          set +e
+          python scripts/run.py --state-dir '${CLAUDE_PROJECT_DIR}/.seo-ops' \
+            --target http://127.0.0.1:9 >/dev/null 2>&1
+          test $? -eq 1 || { echo "::error::the unsubstituted variable was not caught"; exit 1; }
+          echo "✅ guard works"
+
+      # ── end to end: self-hosted static site, no external network ─────────
+      # No example.com-style real sites for smoke — one wobble of an external site turns
+      # CI red, and this repo's own stance is "a false red is more dangerous than running
+      # slow". A local site is both deterministic and fast.
+      - name: Smoke (local static site, local mode)
+        run: |
+          # All temporary artifacts land in $RUNNER_TEMP — not one byte touches the
+          # workspace, so the later "clean" assertion is a real assertion, not
+          # "created then deleted".
+          SITE="$RUNNER_TEMP/site"; OUT="$RUNNER_TEMP/out"; LOG="$RUNNER_TEMP/run.txt"
+          mkdir -p "$SITE"
+          cat > "$SITE/index.html" <<'HTML'
+          <!doctype html><html lang="en"><head><meta charset="utf-8">
+          <meta name="viewport" content="width=device-width,initial-scale=1">
+          <title>ci smoke</title><meta name="description" content="ci smoke page">
+          <link rel="canonical" href="http://127.0.0.1:8000/">
+          </head><body><h1>ci smoke</h1></body></html>
+          HTML
+          printf 'User-agent: *\nAllow: /\n' > "$SITE/robots.txt"
+          python -m http.server 8000 --directory "$SITE" &>/dev/null &
+          for i in $(seq 20); do curl -sf http://127.0.0.1:8000/ >/dev/null && break; sleep 0.5; done
+
+          # Explicit --state-dir: CI wants an assertable landing spot, not the user default
+          python scripts/run.py --target http://127.0.0.1:8000 \
+            --state-dir "$OUT" --page-sample 2 --max-pages 2 --sleep 0 | tee "$LOG"
+
+          grep -q "⚠️  drift" "$LOG" && { echo "::error::drift detected"; exit 1; }
+          test -f "$OUT/out/checks.db" || { echo "::error::outputs did not land under --state-dir"; exit 1; }
+          echo "✅ smoke passed"
+
+      - name: Workspace left clean (reports and keys must never enter the repo)
+        if: matrix.os == 'ubuntu-24.04'
+        run: |
+          # No intermediate file — the previous version used `git status | tee dirty.txt`,
+          # and the dirty.txt tee created was seen by that same git status: the guard was
+          # its own pollution source, guaranteed red.
+          dirty=$(git status --porcelain)
+          test -z "$dirty" || {
+            echo "$dirty"; echo "::error::workspace dirty after the checker run"; exit 1; }
+          echo "✅ workspace clean"

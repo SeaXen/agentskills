@@ -4,7 +4,6 @@ description: >
   Inspect Caveman Cloud's experiment lifecycle and block unsafe execution. Use
   when asked to start, approve, cancel, promote or roll back a Caveman
   experiment.
-category: code-quality-refactoring
 ---
 
 # Manage eval-gated experiments

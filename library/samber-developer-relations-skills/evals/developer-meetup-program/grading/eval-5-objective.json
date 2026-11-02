@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses the bigger venue, the keynote and the rebrand as the reset, and says to fix the failing lines before adding any scale",
+        "evidence": "\"Verdict: don't book the auditorium or the keynote. This plan spends your last reserves of trust on the wrong bet.\" plus rejection of the rebrand as \"a reward for health, not a rescue for a dying one\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the 118-day gap as past CNCF's 90-day inactivity threshold",
+        "evidence": "\"Gap since last edition | 118 days | Fail \u2014 past 90-day inactivity line, program has stopped\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags that a single organizer is one job change from dead, and makes recruiting a second organizer the first action",
+        "evidence": "\"Organizers | 1 / 1 | Fail \u2014 one job change from dead\" and \"1. This week: ask 2-3 known regulars to co-organize\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sources that second organizer from the remaining regulars rather than from an open public call",
+        "evidence": "\"1. Recruit second organizer from remaining regulars.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the repair in order: recruit a co-organizer, fix a date and book the room, pick a no-speaker-needed fallback format, cap sponsor stage time, restart at a holdable cadence",
+        "evidence": "\"1. Recruit second organizer... 2. Fix a date, book a room... 3. Pick a fallback format... 4. Cap sponsor time at 15 min... 5. Restart at a cadence one-then-two people can actually hold.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Tells the user to fix the date and book the room before finding a speaker, not after",
+        "evidence": "\"2. Fix a date, book a room, before finding a speaker.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names a fallback format that needs no external speaker, such as a study group, demo night or open space",
+        "evidence": "\"3. Pick a fallback format needing no external speaker (study group, demo night).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Connects the 30-minute sponsor demo to the 18% repeat attendance as cause rather than coincidence",
+        "evidence": "\"Sponsor blew past the 15-minute cap by 2x \u2014 most likely cause of your repeat-attendance collapse.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Caps sponsor stage time at 15 minutes or less, publishes the cap, and holds it",
+        "evidence": "\"15-minute cap stated on the listing up front, no pitch slot\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Marks 18% repeat attendance as failing against a 40% target and identifies that 40% as a baseline, not an industry figure",
+        "evidence": "18% marked \"Fail\" and 40% appears later as a graduation threshold, but 40% is never explicitly labeled \"a baseline, not an industry figure.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines to treat paid tickets as the no-show fix, pointing instead to overbooking, an auto-promoting waitlist and reminders",
+        "evidence": "Only states \"No ticket price for the restart. Free, RSVP required, plan ~30% no-show\" \u2014 no explicit overbooking, waitlist, or reminder mechanism named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the restarted cadence must be one the remaining organizers can hold when tired, because a missed edition costs more trust than a slower cadence",
+        "evidence": "States \"Restart at a cadence one-then-two people can actually hold\" but never ties this to \"a missed edition costs more trust than a slower cadence.\"",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses the bigger venue, the keynote and the rebrand as the reset, and says to fix the failing lines before adding any scale",
+        "evidence": "'Treat \"Scala Vienna Conf\" as a 2\u20133 solid-meetups-later goal, not the immediate move' and 'The keynote and the auditorium aren't bad ideas \u2014 they're the right move for 6\u201312 months from now, after the retention leak is patched.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the 118-day gap as past CNCF's 90-day inactivity threshold",
+        "evidence": "'118-day gaps kill the habit loop' \u2014 no CNCF or 90-day threshold cited.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags that a single organizer is one job change from dead, and makes recruiting a second organizer the first action",
+        "evidence": "Co-organizer recruitment is listed as step 3 of 5 ('3. Recruit at least one co-organizer before scaling up'), not the first action; step 1 is talking to the 18%.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sources that second organizer from the remaining regulars rather than from an open public call",
+        "evidence": "No sourcing method for the co-organizer is specified.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the repair in order: recruit a co-organizer, fix a date and book the room, pick a no-speaker-needed fallback format, cap sponsor stage time, restart at a holdable cadence",
+        "evidence": "Actual order is: talk to the 18%, fix sponsor terms + cadence, recruit co-organizer, run a normal-sized event, treat conf as a later goal \u2014 a different sequence.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Tells the user to fix the date and book the room before finding a speaker, not after",
+        "evidence": "No such date/room-before-speaker sequencing is discussed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names a fallback format that needs no external speaker, such as a study group, demo night or open space",
+        "evidence": "No fallback format (study group, demo night, open space) is mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Connects the 30-minute sponsor demo to the 18% repeat attendance as cause rather than coincidence",
+        "evidence": "'A 30-minute paid product pitch is a bait-and-switch... That's a classic cause of a cliff in repeat attendance.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Caps sponsor stage time at 15 minutes or less, publishes the cap, and holds it",
+        "evidence": "'Cap sponsor time hard (5\u201310 min, lightning format)' \u2014 caps time but never says to publish or hold the cap as policy.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Marks 18% repeat attendance as failing against a 40% target and identifies that 40% as a baseline, not an industry figure",
+        "evidence": "No 40% target or baseline framing appears anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines to treat paid tickets as the no-show fix, pointing instead to overbooking, an auto-promoting waitlist and reminders",
+        "evidence": "Directly contradicted: '\u20ac10 tickets: keep it... paid tickets reduce no-shows and self-select for people who actually want to be there.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the restarted cadence must be one the remaining organizers can hold when tired, because a missed edition costs more trust than a slower cadence",
+        "evidence": "Only 'commit to a fixed, boring cadence (e.g., first Tuesday, every 6 weeks)' is stated, without this specific reasoning.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

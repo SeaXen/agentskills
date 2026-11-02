@@ -1,0 +1,446 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "engineering-blog-post",
+  "scenarios": 11,
+  "expectations_total": 129,
+  "expectations_subjective": 3,
+  "expectations_objective": 126,
+  "pass_rate_with_skill_pct": 79.8,
+  "pass_rate_without_skill_pct": 44.2,
+  "delta_pp": 35.6,
+  "uplift_multiplier": 1.81,
+  "trigger_accuracy_pct": 50.0,
+  "trigger_queries": 114,
+  "trigger_positive_fire_rate": 0.0,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 0.676,
+  "subjective_pass_disagreements": [
+    {
+      "eval_id": 6,
+      "condition": "without_skill",
+      "expectation": "Leads with the engineering problem stated in terms an engineer outside Riverbend also has, rather than with the announcement",
+      "pass1": false,
+      "pass2": true
+    }
+  ],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.309 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Orders the fix-list items by trust damage rather than by their position in the document"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Gives preserving the author's voice as the reason for not rewriting the whole draft"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that benchmark readers start from disbelief, so the post is guilty until proven innocent"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Rejects a single run per side and requires multiple runs with their variance reported"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that the public post is derived from the internal review and never a copy of it"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires the post to end on a lesson that generalises beyond this bug rather than on the fix"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that the topic as given passes none of the filters"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names the principle of writing from what was hard rather than from what is already mastered"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Predicts that a post written from mastery will be accurate and unread"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Does not deliver a finished explainer of the authorization code flow with PKCE"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Asks what surprised, confused or cost the author time across those eight years in order to find an angle"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Warns against opening the post with a definition"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires every concept the post leans on to be either a stated prerequisite or introduced earlier in the post"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Selects the Non-markety Product Perspectives pattern"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Gives the largest share of the post to how the mechanism actually works rather than to a feature list"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Asks what an engineer who will never buy Riverbend takes home from the post"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes that a marketing sign-off requirement raises this pattern's effort and lowers its rank"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Declines to combine two of the three into one post, and recommends publishing separately and linking them"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Runs the six credibility-gate checks before handing the post over and reports the result of each"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Iterates until every check passes rather than reporting failures and stopping"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Previews the post in the publishing system before the metadata step, because code blocks and tables break in the CMS rather than in the draft"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Places the metadata work (title tag, meta description, slug, link targets, alt text, tags) after that preview"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Returns a handoff list of what still needs a human, such as unrun benchmarks, unreviewed technical claims, a legal or security read, or missing diagrams"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Confirms the snippets are version-pinned, the post dated, and the full version linked"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that a reviewer's pass is not a licence to rewrite the draft"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Recommends tracking inbound mentions of the post in job applications when the post is recruiting-oriented"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "States that it is working in edit mode because a draft already exists, and says so before starting work"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Returns a fix list grouped into three tiers labelled blocking, strong, and optional"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Orders the fix-list items by trust damage rather than by their position in the document"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Quotes the specific offending line for each item instead of paraphrasing it"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Reports the draft against the six credibility-gate checks and names which ones fail"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that only the passages the user approves will be rewritten"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Gives preserving the author's voice as the reason for not rewriting the whole draft"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Declines to produce a finished post until the \"what went wrong\" material exists, rather than drafting around its absence"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that a migration post without that section reads as a press release"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Asks whether the before and after latency figures were produced by the same measurement method on both sides"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Requires the alternatives that were considered and why they lost"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Classifies the post as benchmarketing because it compares the author's own product against a competitor, and states that class owes the most disclosure"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that benchmark readers start from disbelief, so the post is guilty until proven innocent"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Requires the methodology to appear before the results rather than in an appendix"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Requires at least one chart rather than a table alone"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that the public post is derived from the internal review and never a copy of it"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Runs a redaction pass before drafting anything"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Treats the 118 customers and 1.2M failed requests figures as a deliberate publish-or-not decision rather than carrying them across automatically"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Adds a reason for a reader who was not affected to keep reading, which the internal document never has to supply"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Selects the Bug Hunt pattern"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that the wrong turns and dead ends of the investigation are the value of this pattern, and asks for them"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires the post to end on a lesson that generalises beyond this bug rather than on the fix"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires a security and customer-confidentiality review before publishing"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Tests the topic against the topic filters before drafting and names them"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that the topic as given passes none of the filters"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names the principle of writing from what was hard rather than from what is already mastered"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Predicts that a post written from mastery will be accurate and unread"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Does not deliver a finished explainer of the authorization code flow with PKCE"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Asks what surprised, confused or cost the author time across those eight years in order to find an angle"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names at least one specific filter a reworked angle could pass, such as counter-intuitive, counter-narrative, surprising capability, elegant articulation or recognition"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires a misconceptions section covering what people get wrong and why the wrong model is tempting, if the Explainer pattern is kept"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Warns against opening the post with a definition"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires every concept the post leans on to be either a stated prerequisite or introduced earlier in the post"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Leads with the engineering problem stated in terms an engineer outside Riverbend also has, rather than with the announcement"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Applies the test that deleting every product name must still leave something behind, and says so"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Asks what an engineer who will never buy Riverbend takes home from the post"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes that a marketing sign-off requirement raises this pattern's effort and lowers its rank"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States the ranking of the surviving options explicitly rather than implying it by order"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names the hard date as the answer that promotes Bug Hunt and Thoughts on Trends"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends the outage write-up, as a Bug Hunt, as the highest surviving option"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Gives the reason that the internal incident review already exists, which makes this post near-zero effort"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes that Thoughts on Trends rests on the weakest evidence class and buys a reach spike with a short shelf life"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires a steelman of the opposing view if the eBPF opinion is written"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Declines to combine two of the three into one post, and recommends publishing separately and linking them"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names the conditions under which the benchmark would be worth promoting anyway"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Runs the six credibility-gate checks before handing the post over and reports the result of each"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Iterates until every check passes rather than reporting failures and stopping"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Preserves the title unchanged"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Previews the post in the publishing system before the metadata step, because code blocks and tables break in the CMS rather than in the draft"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Places the metadata work (title tag, meta description, slug, link targets, alt text, tags) after that preview"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Confirms the snippets are version-pinned, the post dated, and the full version linked"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names the four revision passes in order: core, clarity, components, consumability"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Recommends shortening the review chain rather than keeping all six reviewers"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that routing a draft past many approvers makes the post vaguer as each one removes specifics"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Recommends two reads: an engineer who worked on the system for accuracy, and someone outside the team for insider vocabulary"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Specifies what the brief contains: what to check, the background the reviewer lacks, and any blocker question"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Treats legal or marketing review as triggered by the post's content rather than applied by default"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Declines to attribute revenue or pipeline to the single post"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that overclaiming attribution costs credibility with exactly the audience this post serves"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Recommends tracking referrals from developer surfaces such as aggregators, community threads and newsletters"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Recommends tracking click-through to the artefacts the post links, such as the repository, docs or benchmark scripts"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Counts qualitative replies, such as engineers sending their own numbers or corrections, as signal that outweighs a traffic spike"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Recommends tracking inbound mentions of the post in job applications when the post is recruiting-oriented"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Refuses to produce the single combined post as requested"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that two patterns in one post produce a piece that satisfies neither reader"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Routes the v1-to-v2 breaking-change content to a version migration guide instead of writing it here"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Routes the build-your-first-integration walkthrough to a tutorial instead of writing it here"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Keeps only the auth-layer redesign story in scope for the engineering blog post"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Proposes linking to the migration guide and the tutorial from the post rather than containing them"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that writing those companion artefacts is outside this scope"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names the pattern for the surviving auth-layer material, such as How We Built It"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Asks for the decisions and trade-offs behind the auth redesign rather than a feature list"
+      }
+    ]
+  }
+}

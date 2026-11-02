@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Scores the existing draft before rewriting any of it",
+        "evidence": "The transcript moves directly from naming two flagged issues to presenting the rewritten abstract and takeaways; no scoring of the original draft appears anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Scores it on all four axes: Content, Originality, Relevance and Speaker",
+        "evidence": "No axis scoring table or scores are present in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives each axis a score on a 1-5 scale",
+        "evidence": "No numeric scores appear anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives a written reason for each axis score",
+        "evidence": "Since no scores are given, no reasons for scores exist.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the speaker-centric framing - \"I'll walk you through our journey\" - as a rejection pattern",
+        "evidence": "\"your abstract opened with \"I'll walk you through\" (flagged as Speaker-centric abstract)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces every \"Understand\", \"Learn about\" and \"Appreciate\" takeaway with an action the attendee performs afterwards",
+        "evidence": "\"two takeaways used \"Understand\"/\"Appreciate\" (flagged as Understand-verbs)\" replaced with \"Evaluate CI/CD trade-offs...\", \"Spot the failure modes...\", \"Choose a pipeline design...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Starts every rewritten takeaway with an action verb",
+        "evidence": "\"Evaluate CI/CD trade-offs...\", \"Spot the failure modes...\", \"Choose a pipeline design...\" all begin with verbs.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cuts the takeaway list to between two and four items",
+        "evidence": "Exactly three takeaways are given.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the absence of any specific number, system or scale the speaker can source, and asks the user for one",
+        "evidence": "\"if you have a real number (services migrated, downtime avoided, pipeline count, time saved), give it to me and I'll fold it into the hook or payoff\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not invent a metric to fill that gap",
+        "evidence": "No fabricated number appears in the rewritten abstract; the gap is explicitly left open and flagged.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports the rewritten abstract's character count against the 1,000-character cap",
+        "evidence": "\"Abstract (540/1,000 chars \u2014 460 to spare)\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Scores the existing draft before rewriting any of it",
+        "evidence": "The transcript opens directly with 'Total is 268 + 149 = 417 characters... Here\u2019s the tightened version' with no scoring of the original draft shown.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Scores it on all four axes: Content, Originality, Relevance and Speaker",
+        "evidence": "No axis-based scoring appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives each axis a score on a 1-5 scale",
+        "evidence": "No numeric scores of any kind are given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives a written reason for each axis score",
+        "evidence": "No axis reasoning is present; only 'Cuts made:' notes at the end.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the speaker-centric framing - \"I'll walk you through our journey\" - as a rejection pattern",
+        "evidence": "The text mentions dropping 'In this talk I\u2019ll walk you through' as 'throat-clearing' but never labels it a 'rejection pattern.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Replaces every \"Understand\", \"Learn about\" and \"Appreciate\" takeaway with an action the attendee performs afterwards",
+        "evidence": "The rewritten takeaways ('How CI fits into your stack', 'The trade-offs between pipeline designs', 'Why build automation matters', 'How to judge the right choices for your own team') are not framed as attendee actions, and no original 'Understand/Learn about/Appreciate' wording is shown to confirm a replacement occurred.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Starts every rewritten takeaway with an action verb",
+        "evidence": "Takeaways start with 'How', 'The', 'Why', 'How' \u2014 none begin with an action verb.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cuts the takeaway list to between two and four items",
+        "evidence": "Exactly four bullet takeaways are listed.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the absence of any specific number, system or scale the speaker can source, and asks the user for one",
+        "evidence": "No such flag or request for a specific number/system/scale appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not invent a metric to fill that gap",
+        "evidence": "The rewritten abstract and takeaways contain no numeric or fabricated metrics.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports the rewritten abstract's character count against the 1,000-character cap",
+        "evidence": "'Total is 268 + 149 = 417 characters \u2014 well under the 1,000 cap.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Does not deliver an intake pipeline, label taxonomy or weekly digest design.",
+        "evidence": "\"Do not build the intake pipeline yet... I am not delivering the label taxonomy or the PM digest.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the reason: nobody on the product side has agreed to receive feedback and decide on it, so an intake pipe feeding nobody produces a better-organized pile.",
+        "evidence": "\"Intake feeding nobody gives you a better-organized pile.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Delivers a leak-trace plan sampling 20-30 requests from the last 60-90 days.",
+        "evidence": "\"Sample 25 requests from the last 60\u201390 days.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires at least three requests per channel in the sample, including support tickets and GitHub issues, taken as the most recent per channel rather than the memorable ones.",
+        "evidence": "Discord 12, support 6, GitHub 6 (3 Node, 3 Go); \"Take the most recent ones, never the memorable ones.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists the leak-trace columns: captured in a record, reached product, decision recorded, requester told, days to first staff reply.",
+        "evidence": "Table has Captured in a record?, Reached product?, Decision recorded?, Requester told?, Days to first staff reply.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Delivers a contract pitch to the PMs framed as one review per planning cycle, about an hour, with the agenda already deduplicated and discovery contacts offered.",
+        "evidence": "\"You are asking for an hour... One 45-minute review... already deduplicated\"; \"interviewees you don't have to recruit\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes bringing one traced leak (a request that arrived through several channels and reached nobody) as part of the pitch.",
+        "evidence": "\"show the one traced request from the trace, asked in 2+ channels and decided by nobody.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Advises holding the portal purchase and names product's existing idea or backlog space, wherever product already reads, as the default record of truth.",
+        "evidence": "The portal is treated as arriving anyway; the record of truth is \"<the portal, or product's existing idea space - decide in the pitch>\", with no default.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the contract clauses product must agree to: a named receiver per area with a backup, review cadence and chair, every agenda record leaves with a status, and revisit allowed at most twice.",
+        "evidence": "\"<PM name> per area..., backup\"; \"chaired by product\"; \"revisit next cycle - max twice\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the fallback if product declines any standing review: send the leak trace to the product lead's manager as a one-page finding and offer one review per quarter on the top five records.",
+        "evidence": "Week 3: \"send the trace to the PMs' manager as a one-page finding. Offer the smallest version, one review on the top five records.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Schedules the first decision review before the Q3 planning cycle, not after it.",
+        "evidence": "\"one 45-minute review before Q3 planning\"; \"Week 6 | Review 1, before planning.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the 'organise it and they will come around' plan as the tool-first failure mode: a feedback portal bought before anyone agreed to decide.",
+        "evidence": "It names the vote-count failure mode (\"Voted, then they will come around\"), not a portal bought before anyone agreed to decide.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Does not deliver an intake pipeline, label taxonomy or weekly digest design.",
+        "evidence": "Sections 2, 3 and 4 deliver an intake pipeline, a five-facet label taxonomy and a 250-word weekly digest template.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the reason: nobody on the product side has agreed to receive feedback and decide on it, so an intake pipe feeding nobody produces a better-organized pile.",
+        "evidence": "\"A voting board with no one setting statuses turns into a graveyard... Everything below makes it cheap for the PMs to engage.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Delivers a leak-trace plan sampling 20-30 requests from the last 60-90 days.",
+        "evidence": "No leak trace appears. The plan backtests the taxonomy on 4 weeks of #feature-requests.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires at least three requests per channel in the sample, including support tickets and GitHub issues, taken as the most recent per channel rather than the memorable ones.",
+        "evidence": "No per-channel sampling rule is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Lists the leak-trace columns: captured in a record, reached product, decision recorded, requester told, days to first staff reply.",
+        "evidence": "No leak-trace columns are listed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Delivers a contract pitch to the PMs framed as one review per planning cycle, about an hour, with the agenda already deduplicated and discovery contacts offered.",
+        "evidence": "The ask in section 6 is a named person who sets statuses, 20 minutes a week, not a review per cycle.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes bringing one traced leak (a request that arrived through several channels and reached nobody) as part of the pitch.",
+        "evidence": "The section 6 pitch cites no traced leak.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Advises holding the portal purchase and names product's existing idea or backlog space, wherever product already reads, as the default record of truth.",
+        "evidence": "It proceeds with the portal launch and never suggests holding it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the contract clauses product must agree to: a named receiver per area with a backup, review cadence and chair, every agenda record leaves with a status, and revisit allowed at most twice.",
+        "evidence": "Only a single named status owner is requested. There are no cadence, chair, backup or revisit clauses.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the fallback if product declines any standing review: send the leak trace to the product lead's manager as a one-page finding and offer one review per quarter on the top five records.",
+        "evidence": "The fallback is to launch anyway and raise the lack of replies to the manager after three digests. No leak trace and no quarterly review are offered.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Schedules the first decision review before the Q3 planning cycle, not after it.",
+        "evidence": "No decision review exists. Only a Q3 brief is handed over a week before planning.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the 'organise it and they will come around' plan as the tool-first failure mode: a feedback portal bought before anyone agreed to decide.",
+        "evidence": "\"Your plan assumes the PMs will come around once requests are organised and voted on. I wouldn't count on it.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

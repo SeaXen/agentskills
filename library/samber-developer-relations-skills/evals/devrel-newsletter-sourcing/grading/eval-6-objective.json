@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The output presents the intake channels in an explicitly stated ranked order.",
+        "evidence": "\"reader value ranks: ecosystem feeds \u2248 own feed > community scan ...\" plus a numbered channel table 1-7.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The project's own release feed or changelog plus a saved merged-PR query is ranked at or near the top.",
+        "evidence": "Channel 1: \"Own release feed and changelog, a saved merged-PR query, and an unlabelled-merge sweep\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output adds a sweep for breaking changes that lack a label or sit outside the main repository.",
+        "evidence": "\"unlabelled-merge sweep (all Lattice repos, including satellites)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output includes ecosystem release or security-advisory feeds for the dependencies readers use.",
+        "evidence": "Channel 2: \"Ecosystem release and advisory feeds for what Lattice users run\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output sets up a submission channel and says its inclusion rules should be published alongside it.",
+        "evidence": "\"Add a short form and a reply-to address. Publish the inclusion and exclusion rules next to them.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output keeps a community scan (Hacker News, Twitter or forums) but caps its time within Dario's 3 hours.",
+        "evidence": "\"Community scan: HN, Reddit, X ... 45 min cap\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output says community popularity breaks ties at most and is not the selection criterion.",
+        "evidence": "\"Stars, votes and points break only a remaining tie, and never raise an item a rung.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output treats other newsletters as a cross-check only, not as an item source.",
+        "evidence": "\"Channel 7 is a cross-check only... It is never the source.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output defines one candidate log with fixed fields that include primary link, date, verdict and reason.",
+        "evidence": "\"Fields: title, primary link, link state, channel, YYYY-MM-DD date, rung, verdict, reason, submitter.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output says to record each issue's sourcing cutoff as the next issue's window start.",
+        "evidence": "\"Record the new cutoff and the hold list in the log\"; \"Open the candidate log and read the last cutoff. That's the window start.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output assigns each section or channel an owner and a backup.",
+        "evidence": "Runbook table has \"Owner (backup)\" column; \"Name a backup for every row.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output includes a periodic review that drops channels producing no kept items.",
+        "evidence": "\"Review the channel list quarterly. Drop any channel that produced no kept item in three issues\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output tells Dario to answer each submitter with the verdict (kept, held or declined).",
+        "evidence": "\"Answer every submitter within the week as kept, held until a date, or declined with the gate that failed.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The output presents the intake channels in an explicitly stated ranked order.",
+        "evidence": "Tier 1 first party, Tier 2 ecosystem, Tier 3 social, Tier 4 reader-supplied.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The project's own release feed or changelog plus a saved merged-PR query is ranked at or near the top.",
+        "evidence": "Tier 1: \"Lattice GitHub: releases, merged PRs, roadmap issues\"; \"docs changelog\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output adds a sweep for breaking changes that lack a label or sit outside the main repository.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The output includes ecosystem release or security-advisory feeds for the dependencies readers use.",
+        "evidence": "Tier 2: \"GitHub release feed for a watchlist of ecosystem repos: drivers, ORMs, clients...\" Security advisories are not named.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output sets up a submission channel and says its inclusion rules should be published alongside it.",
+        "evidence": "It has a submission form but never says to publish inclusion rules.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The output keeps a community scan (Hacker News, Twitter or forums) but caps its time within Dario's 3 hours.",
+        "evidence": "\"Tier 3: social (capped at 30 min)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output says community popularity breaks ties at most and is not the selection criterion.",
+        "evidence": "Not stated; ties go to the less-represented source tier.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The output treats other newsletters as a cross-check only, not as an item source.",
+        "evidence": "Tier 2 uses \"5\u20138 adjacent newsletters and blogs... via RSS\" as an item source.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The output defines one candidate log with fixed fields that include primary link, date, verdict and reason.",
+        "evidence": "\"date found | title | URL | source tier | ... | decision | issue # | reject reason\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output says to record each issue's sourcing cutoff as the next issue's window start.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The output assigns each section or channel an owner and a backup.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The output includes a periodic review that drops channels producing no kept items.",
+        "evidence": "Week 8 checks \"whether any tier produced nothing\" but never says to drop channels.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The output tells Dario to answer each submitter with the verdict (kept, held or declined).",
+        "evidence": "Only \"Log each one and credit the sender.\"",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

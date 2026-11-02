@@ -1,0 +1,242 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "devrel-newsletter-growth",
+  "scenarios": 9,
+  "expectations_total": 104,
+  "expectations_subjective": 0,
+  "expectations_objective": 104,
+  "pass_rate_with_skill_pct": 96.2,
+  "pass_rate_without_skill_pct": 56.7,
+  "delta_pp": 39.5,
+  "uplift_multiplier": 1.7,
+  "trigger_accuracy_pct": 56.0,
+  "trigger_queries": 100,
+  "trigger_positive_fire_rate": 0.3,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": null,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.309 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 3,
+        "expectation": "The response does not deliver a finished referral tier design and launch email as the recommended plan"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The response suggests looking for a peer newsletter with the same primary reader (backend or Go developers)"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The response does not present the +39% list-size growth as the headline growth figure"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "The response names a platform field for canonical links such as dev.to's canonical_url"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "The response refuses printing a signup prompt after `hmig migrate` or other default CLI output"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The response checks that each signup form records a source value (a source tag per surface) before opening new channels"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The response presents growth channels in an explicitly stated ranking with signup links on owned surfaces (docs, README, changelog, quickstart) ranked first"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The response names at least one channel deleted because it does not fit the roughly 6 hours a month, such as a referral programme, swaps or paid acquisition"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The response rejects total list size as the reported growth metric"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Each kept channel has an owner, a source tag and a date or done-when"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The response says consent in the EU or Germany must name the sending organisation, which badge scans collected for the event do not"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The response recommends keeping those addresses on a suppression list so they are not re-imported later"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The response says product users among them can be reached through an in-product invite rather than email"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The response does not deliver a finished referral tier design and launch email as the recommended plan"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The response ranks the referral programme against other channels in a stated efficiency order"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The response places the referral programme at or near the bottom of the efficiency order"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The response states that the 5-hour monthly ceiling rules out a referral programme"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The response names the referral programme's ongoing cost of fraud screening or fake signups"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The response states a condition under which a referral programme would be promoted, such as readers already forwarding the issue"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The response recommends signup links on owned surfaces as the default channel"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The response recommends a public archive and a one-line share or forward prompt in each issue instead of rewards"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The response notes that swag-tier rewards are a consumer-newsletter mechanic or that Morning Brew is a consumer newsletter"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The response recommends source tagging so forwarding or referral signups can be measured before deciding"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The response replaces a single press release with a short item pitch written per curator"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The response states that the linked page must end with a signup line carrying its own source tag for the pitch to grow the newsletter"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The response mentions that This Week in Rust's project or tooling updates section no longer accepts pull requests, or that its route differs by section"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The response states that KubeWeekly excludes gated content or press releases"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The response notes that Cooperpress titles publish no selection criteria or that the user should check each curator's current page"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The pitch includes a disclosure line that the sender works on the project"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The response limits pitching to one pitch per curator per real piece of news"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The response predicts that subscribers from a non-overlapping swap leave early or churn within their first issues"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The response recommends a distinct source tag for swap signups"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The response recommends testing one swap and comparing confirmed signups or retention after about 30 days before repeating"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The response states that no regime requires double opt-in by name, or that EU, UK and Canadian rules require proof of consent rather than a confirmation step"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The response says single opt-in with a full consent record is defensible only for a form behind a verified login"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The response specifies that the confirmation email carries only the confirm action, with no promotion"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The response does not present the +39% list-size growth as the headline growth figure"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The response states that gross list size includes unconfirmed, inactive or screened-out addresses"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The response rejects open rate as a growth metric"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The response proposes net confirmed growth as a metric"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The response proposes an early-churn metric for new cohorts"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The response recommends a screening rule for the paid network at or above organic first-month behaviour, or stopping it if its cohort underperforms"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The response recommends linking a real recent issue on the signup form"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The response routes the cadence decision to the newsletter programme work rather than deciding it inside the growth plan"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The response checks whether an inbox-provider unsubscribe feature launched within the window before blaming content"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The response recommends splitting churn by source as well as tenure"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "The response states that curators refuse gated links or that developers read gating as lead capture"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "The response names a platform field for canonical links such as dev.to's canonical_url"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "The response ranks republishing below owned-surface signup links on efficiency or notes it costs effort every issue"
+      }
+    ]
+  }
+}

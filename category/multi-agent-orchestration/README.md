@@ -1,7 +1,7 @@
 # 🤖 Multi-Agent Systems & Swarms
 
 > **Category**: `multi-agent-orchestration`  
-> **Total Curated Skills**: 108 skills  
+> **Total Curated Skills**: 117 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -24,7 +24,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`agent-development`](../../library/anthropics-claude-plugins-official/skills/agent-development) | ⚪ Reserve | `anthropics-claude-plugins-official` | This skill should be used when the user asks to "create an agent", "add an agent", "write a sub... |
 | [`agent-flow-visualization`](../../library/reason-machines-trending-skills/skills/agent-flow-visualization) | ⚪ Reserve | `reason-machines-trending-skills` | VS Code extension for real-time visualization of Claude Code agent orchestration as interactive... |
 | [`agent-harness-fault-injection`](../../library/sickn33-agentic-awesome-skills/skills/agent-harness-fault-injection) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Use when an agent workflow needs deterministic recovery evidence for sandbox, MCP/tool, worker,... |
-| [`agent-orchestration`](../../library/davidondrej-skills/skills/agent-orchestration) | ⚪ Reserve | `davidondrej-skills` | Tools for managing BB services via CLI and developing custom plugins, agent tools, and provider... |
+| [`agent-orchestration`](../../library/davidondrej-skills/skills/agent-orchestration) | ⚪ Reserve | `davidondrej-skills` |  |
 | [`agent-orchestration-multi-agent-optimize`](../../library/antigravity-awesome-skills/skills/agent-orchestration-multi-agent-optimize) | ⚪ Reserve | `antigravity-awesome-skills` | Optimize multi-agent systems with coordinated profiling, workload distribution, and cost-aware ... |
 | [`agent-orchestrator`](../../library/sickn33-agentic-awesome-skills/skills/agent-orchestrator) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Meta-skill que orquestra todos os agentes do ecossistema. Scan automatico de skills, match por ... |
 | [`agent-squad`](../../library/sickn33-agentic-awesome-skills/skills/agent-squad) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Main agent orchestrator that coordinates a specialized squad of agents |
@@ -63,9 +63,13 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`distributed-training-ray-train`](../../library/davila7-claude-code-templates/skills/distributed-training-ray-train) | ⚪ Reserve | `davila7-claude-code-templates` | Distributed training orchestration across clusters. Scales PyTorch/TensorFlow/HuggingFace from ... |
 | [`econfin-idea-finder`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/econfin-idea-finder) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | 公司金融实证研究的"漏斗式选题查找器"。互动开场先后询问 (1) 研究方向、(2) 候选标题数量 N， 再扫描全球文献（已出版英文学术期刊 + SSRN working paper + 全球... |
 | [`edict-multi-agent-orchestration`](../../library/reason-machines-trending-skills/skills/edict-multi-agent-orchestration) | ⚪ Reserve | `reason-machines-trending-skills` | Install and use the Edict (三省六部) multi-agent orchestration system with 12 specialized AI agents... |
-| [`efficient-frontier`](../../library/builderio-skills/skills/efficient-frontier) | ⚪ Reserve | `builderio-skills` | Apply the same orchestration as `/efficient-fable` to any high-cost frontier model: delegate re... |
+| [`efficient-fable`](../../library/builderio-skills/skills/efficient-fable) | ⚪ Reserve | `builderio-skills` | Alias for /efficient-orchestrator. Run only when the user explicitly invokes /efficient-fable; ... |
+| [`efficient-frontier`](../../library/builderio-skills/skills/efficient-frontier) | ⚪ Reserve | `builderio-skills` | Alias for /efficient-orchestrator. Run only when the user explicitly invokes /efficient-frontie... |
+| [`efficient-orchestrator`](../../library/builderio-skills/skills/efficient-orchestrator) | ⚪ Reserve | `builderio-skills` | Run only when the user explicitly invokes /efficient-orchestrator (or the /efficient-frontier a... |
 | [`egm-review`](../../library/google-elephant-goldfish-model/skills/egm-review) | ⚪ Reserve | `google-elephant-goldfish-model` | Orchestrates the EGM Goldfish Review Protocol. Used as part of the EGM process to perform desig... |
+| [`ethos-orchestrate`](../../library/nvidia-skills/skills/ethos-orchestrate) | ⚪ Reserve | `nvidia-skills` | Entry point for an AI agent's ETHOS.md: a durable snapshot of what the agent is for, what it mu... |
 | [`event-description-generator`](../../library/amplitude-mcp-marketplace/skills/event-description-generator) | ⚪ Reserve | `amplitude-mcp-marketplace` | Orchestrate event description audits by delegating chunk work to the event-descriptions-worker ... |
+| [`experiment-queue`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/experiment-queue) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | SSH job queue for multi-seed/multi-config ML experiments with OOM-aware retry, stale-screen cle... |
 | [`fabro-workflow-factory`](../../library/reason-machines-trending-skills/skills/fabro-workflow-factory) | ⚪ Reserve | `reason-machines-trending-skills` | Skill for using Fabro, the open source AI coding workflow orchestrator that lets you define age... |
 | [`founder-consumer`](../../library/jakeschincariol-founder-skill/skills/founder-consumer) | ⚪ Reserve | `jakeschincariol-founder-skill` | The consumer panel. Spins up a swarm of buyer sub-agents (default 100, --quick for 20) trained ... |
 | [`full-stack-orchestration-full-stack-feature`](../../library/antigravity-awesome-skills/skills/full-stack-orchestration-full-stack-feature) | ⚪ Reserve | `antigravity-awesome-skills` | Use when working with full stack orchestration full stack feature |
@@ -76,6 +80,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`grow-website`](../../library/wondelai-skills/skills/grow-website) | ⚪ Reserve | `wondelai-skills` | Guided journey from a website with traffic it under-converts to a research-driven growth engine... |
 | [`harmonist-agent-orchestration`](../../library/reason-machines-trending-skills/skills/harmonist-agent-orchestration) | ⚪ Reserve | `reason-machines-trending-skills` | name: harmonist-agent-orchestration |
 | [`hivemind`](../../library/alirezarezvani-claude-skills/skills/hivemind) | ⚪ Reserve | `alirezarezvani-claude-skills` | Orchestrate free opencode workers from Claude Code to cut token costs. Use when delegating grun... |
+| [`huawei-cloud-cloudrobo-dispatch`](../../library/huaweicloud-huaweicloud-skills/skills/huawei-cloud-cloudrobo-dispatch) | ⚪ Reserve | `huaweicloud-huaweicloud-skills` | Manage CloudRobo embodied-agent task dispatch (robo-dispatcher) — create embodied tasks that dr... |
 | [`hunt-dispatch`](../../library/elementalsouls-claude-bughunter/skills/hunt-dispatch) | ⚪ Reserve | `elementalsouls-claude-bughunter` | Skill-set loader for /hunt orchestrator. Fingerprints the target, picks the right platform atta... |
 | [`idea-evaluator`](../../library/sickn33-agentic-awesome-skills/skills/idea-evaluator) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Evaluates an idea by hosting a multi-turn debate between a Pro and Con agent, delivering a fina... |
 | [`implementing-soar-automation-with-phantom`](../../library/mukul975-anthropic-cybersecurity-skills/skills/implementing-soar-automation-with-phantom) | ⚪ Reserve | `mukul975-anthropic-cybersecurity-skills` | Implements Security Orchestration, Automation, and Response (SOAR) workflows |
@@ -104,6 +109,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`polis-protocol`](../../library/sickn33-agentic-awesome-skills/skills/polis-protocol) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Coordinate multi-vendor AI agents as a self-improving team — a learning router assigns work by ... |
 | [`poteto-mode`](../../library/backnotprop-pstack/skills/poteto-mode) | ⚪ Reserve | `backnotprop-pstack` | poteto's agent style for concise, detailed responses, deliberate subagents, unslopped prose, si... |
 | [`principle-guard-the-context-window`](../../library/backnotprop-pstack/skills/principle-guard-the-context-window) | ⚪ Reserve | `backnotprop-pstack` | Apply when context is filling up: large outputs, long files, repeated reads, fan-out planning. ... |
+| [`proof-orchestrator`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/proof-orchestrator) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Manage a stateful, run-directory-based proof project: continuation across runs, run-local sourc... |
 | [`qoder-delegate`](../../library/sickn33-agentic-awesome-skills/skills/qoder-delegate) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Delegate coding tasks to the Qoder CLI (`qodercli`) only when the user |
 | [`rebelytics-one-skill-to-rule-them-all`](../../library/rebelytics-one-skill-to-rule-them-all/skills/rebelytics-one-skill-to-rule-them-all) | ⚪ Reserve | `rebelytics-one-skill-to-rule-them-all` | Monitors task execution for skill improvement opportunities: logs patterns, user corrections an... |
 | [`review-loop`](../../library/2dmurali-review-loop-skill/skills/review-loop) | ⚪ Reserve | `2dmurali-review-loop-skill` | Iterative worker-reviewer cycle that spawns a critic subagent to score work 1-10 and provide ac... |
@@ -113,14 +119,17 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`service-itsm-teams-coordinate`](../../library/forcedotcom-sf-skills/skills/service-itsm-teams-coordinate) | ⚪ Reserve | `forcedotcom-sf-skills` | End-to-end autopilot orchestrator for setting up Microsoft Teams integration in Salesforce Serv... |
 | [`skill-stocktake`](../../library/affaan-m-ecc/skills/skill-stocktake) | ⚪ Reserve | `affaan-m-ecc` | Use when auditing Claude skills and commands for quality. Supports Quick Scan (changed skills o... |
 | [`slfg`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/slfg) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Full autonomous research workflow using swarm mode for parallel execution |
+| [`slicing-code-context`](../../library/trailofbits-skills/skills/slicing-code-context) | ⚪ Reserve | `trailofbits-skills` | Selects bounded, graph-informed source slices with Trailmark and delegates focused code analysi... |
 | [`social-orchestrator`](../../library/sickn33-agentic-awesome-skills/skills/social-orchestrator) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Orquestrador unificado de canais sociais — coordena Instagram, Telegram e WhatsApp em um unico ... |
 | [`subagent-driven-development`](../../skills/subagent-driven-development) | 🟢 Active | `active` | Use when executing implementation plans with independent tasks in the current session |
 | [`subagent-driven-review`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/subagent-driven-review) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Use parallel subagents for large-scale paper screening and deep dive analysis |
 | [`subagent-orchestrator`](../../library/sickn33-agentic-awesome-skills/skills/subagent-orchestrator) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Coordinate quota-aware parallel subagents for large, multi-file Antigravity tasks. |
+| [`tao-setup`](../../library/nvidia-skills/skills/tao-setup) | ⚪ Reserve | `nvidia-skills` | One-time session setup and orchestration map for the TAO skill bank. Run this first when the TA... |
 | [`team-level`](../../library/donchitos-claude-code-game-studios/skills/team-level) | ⚪ Reserve | `donchitos-claude-code-game-studios` | Orchestrate the level team — level-designer, narrative-director, world-builder, art-director, s... |
 | [`team-live-ops`](../../library/donchitos-claude-code-game-studios/skills/team-live-ops) | ⚪ Reserve | `donchitos-claude-code-game-studios` | Orchestrate the live-ops team — live-ops-designer, economy-designer, analytics-engineer, commun... |
 | [`team-narrative`](../../library/donchitos-claude-code-game-studios/skills/team-narrative) | ⚪ Reserve | `donchitos-claude-code-game-studios` | Orchestrate the narrative team — narrative-director, writer, world-builder, level-designer — fo... |
 | [`temporal-python-pro`](../../library/antigravity-awesome-skills/skills/temporal-python-pro) | ⚪ Reserve | `antigravity-awesome-skills` | Master Temporal workflow orchestration with Python SDK. Implements |
+| [`tilegym-cutile-python`](../../library/nvidia-skills/skills/tilegym-cutile-python) | ⚪ Reserve | `nvidia-skills` | Expert cuTile programming assistant. Write high-performance GPU kernels using cuTile's tile-bas... |
 | [`vibe-delegate`](../../library/sickn33-agentic-awesome-skills/skills/vibe-delegate) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Delegate coding tasks to the Mistral Vibe CLI (`vibe`) only when the |
 | [`warp-delegate`](../../library/sickn33-agentic-awesome-skills/skills/warp-delegate) | ⚪ Reserve | `sickn33-agentic-awesome-skills` | Delegate coding tasks to the Warp Agent CLI (`oz`) only when the user |
 | [`web-research`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/web-research) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Searches multiple web sources, synthesizes findings, and produces cited research reports using ... |

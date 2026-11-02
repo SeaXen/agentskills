@@ -43,12 +43,12 @@ async function inspectFileStructure() {
   }
 
   // --- Variable collections ---
-  const collections = figma.variables.getLocalVariableCollections()
+  const collections = await figma.variables.getLocalVariableCollectionsAsync()
   for (const coll of collections) {
-    const variableNames = coll.variableIds
-      .map((id) => figma.variables.getVariableById(id))
-      .filter(Boolean)
-      .map((v) => v.name)
+    const variables = await Promise.all(
+      coll.variableIds.map((id) => figma.variables.getVariableByIdAsync(id)),
+    )
+    const variableNames = variables.filter(Boolean).map((v) => v.name)
 
     result.variableCollections.push({
       id: coll.id,
@@ -66,29 +66,28 @@ async function inspectFileStructure() {
   for (const page of figma.root.children) {
     await figma.setCurrentPageAsync(page)
 
-    const componentSetsOnPage = page.findAllWithCriteria({ types: ['COMPONENT_SET'] })
-    for (const cs of componentSetsOnPage) {
-      result.componentSets.push({
-        id: cs.id,
-        name: cs.name,
-        variantCount: cs.children.length,
-        pageId: page.id,
-        pageName: page.name,
-      })
-    }
-
-    // Also capture standalone components (not inside a component set)
-    const standaloneComponents = page
-      .findAllWithCriteria({ types: ['COMPONENT'] })
-      .filter((c) => c.parent && c.parent.type !== 'COMPONENT_SET')
-    for (const comp of standaloneComponents) {
-      result.componentSets.push({
-        id: comp.id,
-        name: comp.name,
-        variantCount: 1,
-        pageId: page.id,
-        pageName: page.name,
-      })
+    // findAllWithCriteria.types accepts an array — one indexed scan returns
+    // both COMPONENT_SET and standalone COMPONENT nodes.
+    const found = page.findAllWithCriteria({ types: ['COMPONENT_SET', 'COMPONENT'] })
+    for (const node of found) {
+      if (node.type === 'COMPONENT_SET') {
+        result.componentSets.push({
+          id: node.id,
+          name: node.name,
+          variantCount: node.children.length,
+          pageId: page.id,
+          pageName: page.name,
+        })
+      } else if (node.parent && node.parent.type !== 'COMPONENT_SET') {
+        // Standalone component (not a variant inside a COMPONENT_SET)
+        result.componentSets.push({
+          id: node.id,
+          name: node.name,
+          variantCount: 1,
+          pageId: page.id,
+          pageName: page.name,
+        })
+      }
     }
   }
 

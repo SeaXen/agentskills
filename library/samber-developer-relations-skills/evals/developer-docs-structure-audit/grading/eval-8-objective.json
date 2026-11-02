@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Fixes the evidence scope before promising measures, stating that a live site yields the rendered navigation and the sitemap only",
+        "evidence": "The transcript is a brief closing summary with no statement about evidence scope being limited to rendered navigation and sitemap.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Diffs sitemap.xml against the rendered navigation to produce orphan candidates",
+        "evidence": "No mention of sitemap.xml diffing anywhere in the given text.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names Mintlify's navigation source as the navigation key in docs.json, with mint.json on older projects",
+        "evidence": "No mention of Mintlify, docs.json, or mint.json in the given text.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that anything unlisted in a Mintlify navigation is unreachable",
+        "evidence": "Not present in the given text.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Drops the staleness measure from the scorecard rather than estimating it, because last-modified dates are not visible",
+        "evidence": "The text only vaguely says '1 dead' measure without naming staleness or the reason (last-modified dates not visible).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Drops the orphan measure from the scorecard as well, because drafts, hidden pages and front matter cannot be seen",
+        "evidence": "Not named or explained in the given text.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States in the report which measures were dropped and why",
+        "evidence": "The text gives only counts ('8 of 11... 2 with caveats, 1 dead') without naming specific measures or reasons.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels the inventory as nav-only",
+        "evidence": "No such label appears in the given text.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Downgrades structural recommendations from validated to proposed, since no user testing is available",
+        "evidence": "Not mentioned in the given text.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Substitutes top 404s, zero-result site searches and high-exit landing pages as partial signals",
+        "evidence": "Not mentioned in the given text.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not report an orphan count or a staleness percentage as if it had been measured",
+        "evidence": "The given text reports no specific orphan count or staleness percentage at all, so no fabricated measurement is presented.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Fixes the evidence scope before promising measures, stating that a live site yields the rendered navigation and the sitemap only",
+        "evidence": "The document claims '~85-90% of a full audit is executable' using many more sources than nav+sitemap: Mintlify search analytics, GSC, Ahrefs, Wayback Machine, deploy history, etc.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Diffs sitemap.xml against the rendered navigation to produce orphan candidates",
+        "evidence": "'Diff it against sitemap.xml and against your own crawl \u2014 mismatches surface orphan pages, noindex pages, and hidden/unlisted pages without touching the repo.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names Mintlify's navigation source as the navigation key in docs.json, with mint.json on older projects",
+        "evidence": "Only 'docs.json (navigation + redirects config)' is mentioned; mint.json for older projects is never named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that anything unlisted in a Mintlify navigation is unreachable",
+        "evidence": "No explicit general statement that unlisted pages are unreachable; orphan detection is only discussed via the llms-full.txt/sitemap diff method.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Drops the staleness measure from the scorecard rather than estimating it, because last-modified dates are not visible",
+        "evidence": "Freshness is kept with a 'Partial' label rather than dropped: 'Content Quality... Audited (freshness: Partial if Last-updated footer is off).'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Drops the orphan measure from the scorecard as well, because drafts, hidden pages and front matter cannot be seen",
+        "evidence": "Orphan detection is kept as part of Technical Foundation (~90% coverage), not dropped.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States in the report which measures were dropped and why",
+        "evidence": "No measures are stated as dropped, since none actually were.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels the inventory as nav-only",
+        "evidence": "The inventory explicitly draws on crawl data, analytics, sitemap, and llms-full.txt together, never labeled 'nav-only.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Downgrades structural recommendations from validated to proposed, since no user testing is available",
+        "evidence": "Site Architecture / IA is rated '100%... Nothing \u2014 rendered nav is the ground truth users experience,' treated as fully audited, not downgraded.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Substitutes top 404s, zero-result site searches and high-exit landing pages as partial signals",
+        "evidence": "Zero-result search queries and broken-link reports are mentioned, but 'high-exit landing pages' is never named as a substitute signal.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not report an orphan count or a staleness percentage as if it had been measured",
+        "evidence": "The document is a feasibility/methodology plan with a template scorecard (score cells shown as '[x]'), not actual measured orphan/staleness percentages presented as fact.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

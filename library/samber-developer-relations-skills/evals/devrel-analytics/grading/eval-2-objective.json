@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that the forge's traffic endpoints retain only 14 days of data.",
+        "evidence": "\"keep a rolling 14-day window only\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States plainly that the nine months of history requested cannot be recovered and that backfill is impossible.",
+        "evidence": "\"9 months of visitor/clone history does not exist ... No workaround recovers it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Instructs scheduling a daily export appended into the team's own store, and explains that a monthly or weekly export loses most of the window.",
+        "evidence": "\"Run daily, not monthly \u2014 a monthly export loses half the 14-day window. Append each pull to your own store (a CSV committed to a private repo is enough at this scale).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that traffic endpoint data is readable only for repositories where the caller holds write access.",
+        "evidence": "\"readable only by repo collaborators with write access\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that clone counts include CI systems and mirrors and are not people.",
+        "evidence": "Only CI is mentioned (\"Clones \u2260 people. CI runs clone on every build.\"); mirrors are never mentioned in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that stars only ever increase, and recommends converting to stars-per-period if reported at all, never as a headline.",
+        "evidence": "\"Stars are also gameable and monotonic \u2014 report stars-per-period, never cumulative stars, if it goes in front of investors.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that referrers into a repository are largely stripped, the same way web referrers are.",
+        "evidence": "\"Referrers are mostly stripped already. Expect \\\"(direct)\\\" as the largest bucket even in a clean 14-day window \u2014 normal, not a tracking gap.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names issue or pull-request API signals worth collecting alongside traffic, such as first-time contributor count, time to first response, or external pull requests merged.",
+        "evidence": "\"First-time contributor count ... Time to first response on issues/PRs ... External PRs merged\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Records today's values as a dated baseline before any further instrumentation work.",
+        "evidence": "The document only urges snapshotting (\"Snapshot today's 14-day traffic window right now\") but contains no actual dated baseline table of recorded values.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not propose reconstructing the missing traffic history from git history, a third-party mirror, or an archive as an equivalent substitute.",
+        "evidence": "\"that public event stream covers stars/forks/pushes/issues/PRs, never views or clones. No workaround recovers it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Frames the deliverable as a collection recipe plus a snapshot job with a named owner and schedule, rather than as a traffic analysis.",
+        "evidence": "\"Name an owner for this job today.\" plus the curl recipe and GitHub Actions workflow snippet.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that the forge's traffic endpoints retain only 14 days of data.",
+        "evidence": "\"GitHub's Traffic panel...is a **rolling 14-day window**, server-side, full stop.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States plainly that the nine months of history requested cannot be recovered and that backfill is impossible.",
+        "evidence": "\"the actual weekly visitor/clone history since March is gone and unrecoverable.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Instructs scheduling a daily export appended into the team's own store, and explains that a monthly or weekly export loses most of the window.",
+        "evidence": "The recommended cron is weekly (\"cron: '0 6 * * 1'   # weekly, Monday\"), not daily, and no explanation is given that weekly/monthly loses most of the window.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that traffic endpoint data is readable only for repositories where the caller holds write access.",
+        "evidence": "\"UI: **Insights \u2192 Traffic** (requires push access \u2014 not public).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that clone counts include CI systems and mirrors and are not people.",
+        "evidence": "No mention of clone counts being inflated by CI/mirrors anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that stars only ever increase, and recommends converting to stars-per-period if reported at all, never as a headline.",
+        "evidence": "The text buckets stars \"by ISO week \u2192 your weekly growth chart\" but never states stars are monotonic/cumulative or warns against using them as a headline.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that referrers into a repository are largely stripped, the same way web referrers are.",
+        "evidence": "No discussion of referrer stripping for GitHub traffic referrers.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names issue or pull-request API signals worth collecting alongside traffic, such as first-time contributor count, time to first response, or external pull requests merged.",
+        "evidence": "\"median time-to-first-response, median time-to-close, open vs. closed ratio. Investors read this as maintenance quality...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Records today's values as a dated baseline before any further instrumentation work.",
+        "evidence": "Step 1, \"Grab what's left (last 14 days only)\", pulls the current snapshot and says \"Label this in the deck as a snapshot, not a trend line\" before the reconstruction/fix steps.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not propose reconstructing the missing traffic history from git history, a third-party mirror, or an archive as an equivalent substitute.",
+        "evidence": "GH Archive is suggested only as a cross-check, with explicit caveat: \"Won't help with clones or page views though \u2014 those were never public events, so they're not in there either.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Frames the deliverable as a collection recipe plus a snapshot job with a named owner and schedule, rather than as a traffic analysis.",
+        "evidence": "A scheduled workflow (cron) is given but no owner is named anywhere in the yaml or surrounding text.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

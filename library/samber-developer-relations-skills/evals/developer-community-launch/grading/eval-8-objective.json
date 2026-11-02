@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Names the buyer and user split explicitly: the room fills with data engineers while renewal depends on VPs of Data who never post",
+        "evidence": "Section 2: \"Primary audience: data engineers at the 55 customer accounts \u2014 the people who'd actually run into tuning problems and want to compare notes. Not the VP of Data buyers, who sign the renewal but won't post.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a separate signal path to the buyer rather than assuming community activity reaches them",
+        "evidence": "Section 2: \"Section 5 below carries a separate signal path to the VP, since the community itself will never reach them directly.\" Section 5: \"A path to the VP of Data. Since the buyer won't post, build a separate, lightweight artifact instead: a quarterly one-pager per account...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes the rented public space and forge-native discussions as venue classes, because both are public by construction and the bank and insurer users cannot post publicly",
+        "evidence": "Section 3: \"Rented public space and forge-native discussions \u2014 both deleted outright. The skill's own rule: ...deletes the rented public space and forge-native discussions, both public by construction. Your banked/insured customers can't participate in either...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats those as deletions rather than demotions, and records the trigger that would reopen each",
+        "evidence": "Section 3: \"Deleted by constraint, with the reopening trigger: Rented public space \u2014 reopens only if the regulated-employer constraint stops applying...; Forge-native discussions \u2014 same trigger...; Owned real-time chat \u2014 reopens if the outcome pivots...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not grant the three requested private per-customer channels as a community feature",
+        "evidence": "Section 5: \"What does not go in this venue: The three accounts asking for a dedicated private channel.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that private per-customer channels fragment the community and drift into support contracts",
+        "evidence": "Section 5: \"Per the B2B pattern this skill flags directly: private per-customer channels fragment the community and drift into support contracts.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gates any per-customer channel on contract value and staffs it as support rather than as community",
+        "evidence": "Section 5: \"Gate them on contract value (e.g., top-ACV tier) and staff them as CS-owned support, out of Marcus's 10h/week and out of the shared forum's scope entirely.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Adjusts the day-90 percentage thresholds for a deliberately small, high-value room and proposes absolute counts alongside them",
+        "evidence": "Section 7: \"Day-90 thresholds, set as absolute counts \u2014 per the skill's own guidance for a small, high-value B2B room... adapting the skill's published-baseline percentage table (>50% non-staff posts, >80% threads with a reply) down to counts a ~60-120-person B2B room can actually produce.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the reasoning for that threshold adjustment in the brief instead of silently changing the numbers",
+        "evidence": "Section 7 'Basis:' paragraph: \"the topic-coverage and account-breadth rows are set here for this room's size, adapting the skill's published-baseline percentage table... The response-time row descends from the Mozilla 48-hour finding GitHub's Open Source Guides cites, tightened to 24h to match a paid-support relationship.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Expects weekday business-hours activity rather than evenings and weekends",
+        "evidence": "Section 5: \"Published response-time commitment: replies within 24 business hours \u2014 matched to a weekday-business-hours B2B cadence\"; Section 7: \"Median first response under a few hours during weekday business hours.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Raises data residency, privacy or moderation obligations as a constraint to check before committing to a venue",
+        "evidence": "Section 3: \"Not verified in this session \u2014 check before committing: ... whether the hosted plans offer EU (or other) data-residency options if any of your banks/insurers require it.\"; Section 9: \"Data residency (\u00a73) \u2014 if any of the bank/insurer accounts have a stated residency requirement, confirm Discourse's hosting options satisfy it before signing anything\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends exactly one primary venue",
+        "evidence": "Section 3: \"Chosen: Owned async forum, invite-only, closed to the public internet... This is the only venue class left standing once the constraints below are applied\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Names the buyer and user split explicitly: the room fills with data engineers while renewal depends on VPs of Data who never post",
+        "evidence": "\"the 30 named invitees (data engineers only, no VPs)\" and \"VPs of Data won't post here, so the channel isn't a renewal lever by itself.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a separate signal path to the buyer rather than assuming community activity reaches them",
+        "evidence": "\"Make it one indirectly: Marcus's monthly note feeds CS/AE prep for QBRs \u2014 'your engineers asked about X, here's the answer we gave, here's what two other accounts are doing differently.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes the rented public space and forge-native discussions as venue classes, because both are public by construction and the bank and insurer users cannot post publicly",
+        "evidence": "Only \"Public forum/Discourse/Discord: ruled out\" is addressed explicitly; GitHub/forge-native discussions are never separately analyzed or ruled out as a venue class.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats those as deletions rather than demotions, and records the trigger that would reopen each",
+        "evidence": "No reopen trigger is recorded for the ruled-out public forum/Discord option, and forge-native discussions aren't addressed at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not grant the three requested private per-customer channels as a community feature",
+        "evidence": "\"Three dedicated 1:1 Slack Connect channels for the three accounts that asked... Respect that ask; don't force them into a shared room to save yourself a channel.\" \u2014 the request is explicitly granted.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that private per-customer channels fragment the community and drift into support contracts",
+        "evidence": "No such warning appears; the per-customer channels are framed positively as respecting customer requests, not as fragmentation risk.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gates any per-customer channel on contract value and staffs it as support rather than as community",
+        "evidence": "The three dedicated channels are staffed by Marcus as part of his community hours (\"2h \u2014 tend the three dedicated channels: proactive tips, check-ins\"), not gated on contract value or framed as support.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adjusts the day-90 percentage thresholds for a deliberately small, high-value room and proposes absolute counts alongside them",
+        "evidence": "No percentage thresholds are discussed at all; the expansion criteria use only counts/behaviors (\"distinct accounts posting/answering... drop in repeat support tickets\") without any percentage-threshold discussion to adjust.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the reasoning for that threshold adjustment in the brief instead of silently changing the numbers",
+        "evidence": "Since no threshold adjustment is present, no such reasoning is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Expects weekday business-hours activity rather than evenings and weekends",
+        "evidence": "No discussion of expected activity timing (business hours vs. evenings/weekends) appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Raises data residency, privacy or moderation obligations as a constraint to check before committing to a venue",
+        "evidence": "\"no pasting logs, schemas, credentials, or customer data \u2014 discuss config patterns and abstractions only. Get this in writing from each invited account's security contact before they join\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends exactly one primary venue",
+        "evidence": "\"One Slack workspace, three channel types\" \u2014 the entire build is contained within a single Slack-based platform.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

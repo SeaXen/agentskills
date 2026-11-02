@@ -1,0 +1,190 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rewrites the title to vulnerability class plus affected API (SSRF in `Dial`/`DialContext` broker URL handling) and removes the metadata-endpoint payload",
+        "evidence": "\"SSRF via unvalidated broker URL in Dial and DialContext\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces the single `< 2.3.4` range with one range per supported line, such as `>= 2.0.0, < 2.3.4` for v2 and `>= 1.0.0, < 1.9.12` for v1, stating that the single range would mark the patched v1 release as vulnerable",
+        "evidence": "\"A single < 2.3.4 would also mark 1.9.12 as vulnerable.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists `github.com/pelmont/marrowq` and `github.com/pelmont/marrowq/v2` as separate advisory entries because each module path is its own package",
+        "evidence": "Separate entries for marrowq/v2 and marrowq.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a patched 1.x release (1.9.12) tagged in the same window as 2.3.4, not later",
+        "evidence": "Tag v2.3.4 and v1.9.12 in release checklist, same Tuesday.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the end-of-life 0.x line in the advisory as affected and unsupported, with no fix and no separate identifier",
+        "evidence": "\"0.x: affected, end of life, no fix\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces the 'High' label with a full CVSS 3.1 base vector plus a precondition in prose",
+        "evidence": "Candidate vectors; incident record precondition: app passes untrusted broker URL.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces 'Workarounds: None' with a real usage or configuration workaround (such as validating or allow-listing the broker URL before calling `Dial`) or the explicit 'none - upgrade', stating that 'none' must not be the default",
+        "evidence": "\"Never write 'none' by default\"; allow-list broker hosts.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes the PoC gist from the references until users have had time to upgrade",
+        "evidence": "\"PoC gist in References. Remove it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires asking the reporter for consent and spelling before naming them, and assigns credit roles (finder or reporter, remediation developer, remediation reviewer)",
+        "evidence": "Asks credit wording and consent; roles only reporter and remediation developer, no reviewer, no spelling.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Fills the affected-functions field with `Dial` and `DialContext` so govulncheck can use symbol-level reachability instead of flagging every dependent",
+        "evidence": "\"fill the symbols Dial and DialContext... Otherwise govulncheck flags every dependent.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reorders the plan so merging, tagging both module paths and confirming `go list -m <module>@<version>` serves each version all precede publishing the advisory, rejecting advisory-first",
+        "evidence": "Checklist steps 2\u20135 order; go list -m for both modules.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects tagging over the weekend from a working branch and the Friday 6pm publication, requiring exact semver tags on every module path and a release time when the reporter and downstreams are around",
+        "evidence": "Tag Tue 10:00 Paris; use private fork, exact tags v2.3.4/v1.9.12.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that scanner alerts only fire after the code-host database reviews the advisory, which can take days to weeks, and requires announcing through release notes and the project's own channels on release day",
+        "evidence": "\"Alerts start only after the code-host database reviews the advisory... days to weeks.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Describes the Go `retract` directive as optional and requiring another release, with the vulnerability database and govulncheck as the primary signal",
+        "evidence": "\"It is optional... A separate retract release is extra work.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that publishing the advisory deletes the temporary private fork so the fix must be merged first, and schedules checking the Go vulnerability database import for correct ranges and symbols at close-out",
+        "evidence": "Does not state publishing deletes the private fork.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rewrites the title to vulnerability class plus affected API (SSRF in `Dial`/`DialContext` broker URL handling) and removes the metadata-endpoint payload",
+        "evidence": "\"SSRF via unvalidated broker URL in `Dial()` and `DialContext()`\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces the single `< 2.3.4` range with one range per supported line, such as `>= 2.0.0, < 2.3.4` for v2 and `>= 1.0.0, < 1.9.12` for v1, stating that the single range would mark the patched v1 release as vulnerable",
+        "evidence": "`< 2.3.4` and `<= 1.9.11` have no lower bounds, and it never says the single range would mark patched v1 as vulnerable.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Lists `github.com/pelmont/marrowq` and `github.com/pelmont/marrowq/v2` as separate advisory entries because each module path is its own package",
+        "evidence": "\"Each module needs its own entry\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a patched 1.x release (1.9.12) tagged in the same window as 2.3.4, not later",
+        "evidence": "\"I recommend a small 1.9.12 backport\" tagged alongside 2.3.4.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the end-of-life 0.x line in the advisory as affected and unsupported, with no fix and no separate identifier",
+        "evidence": "\"0.x is end of life, was not assessed, and will not be patched. Treat it as vulnerable.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces the 'High' label with a full CVSS 3.1 base vector plus a precondition in prose",
+        "evidence": "\"High, with the CVSS vector you compute\" \u2014 no vector given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Replaces 'Workarounds: None' with a real usage or configuration workaround (such as validating or allow-listing the broker URL before calling `Dial`) or the explicit 'none - upgrade', stating that 'none' must not be the default",
+        "evidence": "\"validate or allowlist the broker URL before calling `Dial()`\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes the PoC gist from the references until users have had time to upgrade",
+        "evidence": "\"Drop it for now... Add the PoC 30 days or more after release.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires asking the reporter for consent and spelling before naming them, and assigns credit roles (finder or reporter, remediation developer, remediation reviewer)",
+        "evidence": "Asks the reporter about credit but assigns no roles.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Fills the affected-functions field with `Dial` and `DialContext` so govulncheck can use symbol-level reachability instead of flagging every dependent",
+        "evidence": "Functions are named in the title and description only, with no field and no govulncheck symbol reasoning.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reorders the plan so merging, tagging both module paths and confirming `go list -m <module>@<version>` serves each version all precede publishing the advisory, rejecting advisory-first",
+        "evidence": "Steps 5\u20137: tag, `go list -m ...@v2.3.4`, then publish.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects tagging over the weekend from a working branch and the Friday 6pm publication, requiring exact semver tags on every module path and a release time when the reporter and downstreams are around",
+        "evidence": "\"Tag from those reviewed commits, not from your working branch\"; \"Not Friday at 6pm.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that scanner alerts only fire after the code-host database reviews the advisory, which can take days to weeks, and requires announcing through release notes and the project's own channels on release day",
+        "evidence": "Not addressed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Describes the Go `retract` directive as optional and requiring another release, with the vulnerability database and govulncheck as the primary signal",
+        "evidence": "Treats retract as part of the plan; says it is not an alert but not that it is optional.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that publishing the advisory deletes the temporary private fork so the fix must be merged first, and schedules checking the Go vulnerability database import for correct ranges and symbols at close-out",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

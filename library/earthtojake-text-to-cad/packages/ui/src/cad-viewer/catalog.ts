@@ -1,0 +1,126 @@
+import type { CadEntry, CadWorkspaceService } from '@cad/core/client';
+import { isDocumentId } from '@cad/core/lib/cadRefs.js';
+import type { ClipboardPort } from '../host/types.js';
+import type { FileActions, FileMetadata, FileSource } from '../file-viewer/types.js';
+
+/**
+ * `@cad/ui/catalog`: CAD files as the viewer reads them, by absolute path, and documents the
+ * engine holds by their id alone (a model's), which have no file to browse. Pure — no React
+ * and no transport — so a host's adapters and their unit tests import it alone.
+ *
+ * A view shows one file and browses from its folder. The source a host hands the viewer
+ * (`createCadFileSource`) reads the file's catalog entry, lists a folder at a time and searches
+ * under one, all through a CAD client; the file menu (`createCadFileActions`) copies a file's
+ * path and reveals it. Every path is absolute, in forward slashes, in every app.
+ */
+
+/** `path` in the viewer's one spelling: forward slashes, and no trailing one but the top's (`/`, `C:/`). */
+export function normalizePath(path: string): string {
+  const slashed = String(path || '').trim().replace(/\\/g, '/');
+  const trimmed = slashed.replace(/\/+$/, '');
+  return trimmed === '' ? (slashed ? '/' : '') : /^[A-Za-z]:$/.test(trimmed) ? `${trimmed}/` : trimmed;
+}
+
+/** The last part of `path`: a file's name. */
+export function baseName(path: string): string {
+  const normal = normalizePath(path);
+  return normal.slice(normal.lastIndexOf('/') + 1) || normal;
+}
+
+/** `name` inside the folder `folder`. */
+export function joinPath(folder: string, name: string): string {
+  const base = normalizePath(folder);
+  return base.endsWith('/') ? `${base}${name}` : `${base}/${name}`;
+}
+
+/** Render-affecting revisions, not transient compiler progress, invalidate a document. */
+export function contentRevision(entry: CadEntry): string {
+  return JSON.stringify([entry.hash, entry.documentHash, entry.animationHash, entry.appearanceHash, entry.url, entry.relations, entry.articulation, entry.display, entry.mtime, entry.bytes]);
+}
+
+/**
+ * The files a view reads, through a CAD client: a file's metadata from its catalog entry, one
+ * folder's subfolders and CAD files, and a bounded search under a folder. A file's revision is its
+ * content's (`contentRevision`), never compiler progress. (A renderer follows its file's updates
+ * through the client itself.)
+ */
+export function createCadFileSource(client: Pick<CadWorkspaceService, 'resolveEntry' | 'folder' | 'search'>,
+  { id = 'local' }: { id?: string } = {}): FileSource {
+  return {
+    id,
+    async stat(path, { signal }): Promise<FileMetadata> {
+      const entry = await client.resolveEntry(path, { signal });
+      signal.throwIfAborted();
+      // A document known by its id alone (a model's) keeps its id for a path, is named by its
+      // function, and has no file to browse from (`navigationPath: null`); its file menu acts on
+      // the script that builds it (`sourceFile`). A source the envelope says is gone (a model's script
+      // moved or deleted, a file gone) is `sourceMissing`: its menu draws what acts on it disabled.
+      const byId = entry.sourcePath === null;
+      const file = byId ? entry.file : normalizePath(entry.file);
+      const name = entry.name || baseName(file);
+      const script = byId && typeof entry.script === 'string' && entry.script ? normalizePath(entry.script) : null;
+      return { path: file, name, ...(byId ? { navigationPath: null } : {}), ...(script ? { sourceFile: script } : {}),
+        ...(entry.sourcePresent === false ? { sourceMissing: true } : {}), kind: 'file', size: Number(entry.bytes || 0),
+        extension: byId ? 'xbf' : name.split('.').pop()?.toLowerCase() || '', mediaType: byId ? 'cad-document' : 'cad',
+        revision: contentRevision(entry) };
+    },
+    async list(directory, { signal }) {
+      const folder = await client.folder(directory, { signal });
+      return folder.entries.map(entry => ({ path: joinPath(folder.path, entry.name), name: entry.name, kind: entry.kind }));
+    },
+    async search(directory, query, { signal }) {
+      const found = await client.search(directory, query, { signal });
+      return { paths: found.results.map(normalizePath), truncated: found.truncated };
+    },
+  };
+}
+
+/**
+ * The file menu's host actions for a file on this machine: its path to the clipboard, and the
+ * file shown in the system's file manager where the host can reveal one.
+ */
+export function createCadFileActions({ platform, clipboard, reveal, openIn, link }: {
+  platform?: string; clipboard: Pick<ClipboardPort, 'writeText'>; reveal?: (path: string) => Promise<void>;
+  /**
+   * Copy link: the engine's origin (the page's own on the web, the launch's in the CAD app, never a
+   * tunnel's) and the client that makes a fresh link (`link()`, `GET /api/v1/local/link`) and names a
+   * file's document (`entryOf`). The link copied is `<origin>/<document id>?token=<fresh link>`, the
+   * page's own address. Without it, no Copy link.
+   */
+  link?: { origin: string | (() => string); client: Pick<CadWorkspaceService, 'link' | 'entryOf'> };
+  /**
+   * Open in's apps, through a CAD client (`openInApps`, `openIn`): a document is asked for by its id,
+   * a file's from the client's row of it (`entryOf`).
+   */
+  openIn?: Pick<CadWorkspaceService, 'openInApps' | 'openIn' | 'entryOf'>;
+}): FileActions {
+  const clientOf = openIn?.entryOf ? openIn : link?.client;
+  const idOf = (path: string, given?: string) => given || (isDocumentId(path) ? path : String(clientOf?.entryOf?.(normalizePath(path))?.id || '') || null);
+  return {
+    platform: platform === 'darwin' || platform === 'win32' || platform === 'linux' ? platform : 'linux',
+    perform: {
+      'copy-path': (entry: { path: string }) => clipboard.writeText(normalizePath(entry.path)),
+      ...(reveal ? { reveal: (entry: { path: string }) => reveal(normalizePath(entry.path)) } : {}),
+      ...(link ? { 'copy-link': async (entry: { path: string; id?: string }) => {
+        const id = idOf(entry.path, entry.id);
+        if (!id) throw new Error('This document has no page to link to yet.');
+        const origin = (typeof link.origin === 'function' ? link.origin() : link.origin).replace(/\/+$/, '');
+        // The address still on its way: a host's clipboard starts the write inside the press that
+        // asked for it (a browser refuses one begun after the link's request), then fills it in.
+        await clipboard.writeText(link.client.link().then(({ link: fresh }) =>
+          `${origin}/${encodeURIComponent(id)}?token=${encodeURIComponent(fresh)}`));
+      } } : {}),
+    },
+    ...(openIn ? {
+      apps: async (entry: { path: string }, options: { signal?: AbortSignal } = {}) => {
+        const id = idOf(entry.path);
+        return id ? openIn.openInApps(id, options) : null;
+      },
+      openApp: async (entry: { path: string }, target: string, app: string) => {
+        const id = idOf(entry.path);
+        if (!id) throw new Error('This document has no id to open it by.');
+        await openIn.openIn(id, target, app);
+      },
+    } : {}),
+  };
+}

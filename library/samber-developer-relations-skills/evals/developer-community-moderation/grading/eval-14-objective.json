@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Recommends version 3.0 over version 2.1 for a new document",
+        "evidence": "The transcript explicitly argues for staying on 2.1: \"Keeping 2.1 otherwise since you asked for it and it's genuinely the more battle-tested base (40,000+ projects, per opensource.guide) \u2014 this is a one-line fix, not a rewrite.\" The delivered document's Attribution section confirms: \"This Code of Conduct is adapted from the [Contributor Covenant][homepage], version 2.1\". No recommendation to use 3.0 is made anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason: 3.0 drops 2.1's line that a public apology may be requested",
+        "evidence": "\"Contributor Covenant 3.0 dropped this exact line for this exact reason,\" referring to the removed \"A public apology may be requested\" clause and citing Aurora & Gardiner's finding that compelled apologies destroy a useful signal.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the two versions do not share section names, and states which one the delivered document adapts",
+        "evidence": "The transcript never discusses section-naming differences between 2.1 and 3.0 at all. It does state which version is adapted (\"adapted from the Contributor Covenant..., version 2.1\"), but the required companion statement about section names not matching between versions is absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Maps at least one renamed section between the versions, such as 2.1's Our Standards splitting into Encouraged Behaviors and Restricted Behaviors, or Enforcement becoming Reporting an Issue",
+        "evidence": "No mapping of renamed sections between 2.1 and 3.0 appears anywhere in the transcript; the document uses only 2.1's own section names (Our Standards, Enforcement, etc.) without comparison to 3.0's terminology.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Renames the template role title to a title that actually exists in this project",
+        "evidence": "\"I left role titles as \\\"maintainers\\\" (reasonable default for a 6-week-old project) \u2014 change it if your actual structure differs.\" The generic template title was kept, not replaced with a real project-specific title.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rewrites the enforcement section to describe the procedure this team will really follow, rather than keeping the template wording",
+        "evidence": "The Enforcement section keeps the stock template language verbatim aside from inserting the email: \"Instances of abusive, harassing, or otherwise unacceptable behavior may be reported to the maintainers responsible for enforcement at **conduct@marrowgate.dev**. All complaints will be reviewed and investigated promptly and fairly. All maintainers are obligated to respect the privacy and security of the reporter...\" \u2014 no team-specific procedure was substituted.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Replaces generic virtue-list standards with concrete behaviours, on both sides, rather than shipping the template's examples untouched",
+        "evidence": "The Our Standards section is the unmodified Contributor Covenant boilerplate (\"Demonstrating empathy and kindness toward other people\", \"Being respectful of differing opinions...\", etc.); the assistant's own change list (items 1-3) does not mention touching this section at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Excludes \"assume good intent\" from the standards, with the reason that it redirects every discussion onto intentions and hands anyone acting in bad faith a reset",
+        "evidence": "There is no mention of \"assume good intent\" or any reasoning about intent-based discussion anywhere in the transcript or the delivered Standards section.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States an explicit off-platform stance instead of leaving the scope clause silent on it",
+        "evidence": "The Scope section's off-platform language is the unmodified template boilerplate (\"It also applies when an individual is officially representing the community in public spaces...\"); the assistant's listed change to Scope was only \"Named your three real surfaces\" \u2014 no explicit new stance on off-platform conduct is articulated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the surfaces one by one, covering the repository and issue tracker, the chat server and the mailing list, and names the categories of people covered",
+        "evidence": "Scope lists \"the Marrowgate GitHub organization \u2014 repositories, issues, pull requests, and discussions\", \"the Marrowgate Discord server\", and \"the Marrowgate mailing list\" individually, and the Pledge names categories of people: \"We as members, contributors, and leaders pledge...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not ship the document without a private reporting channel, a second path for a report about the primary recipient, an acknowledgment target, and a no-retaliation statement",
+        "evidence": "The document was shipped with only a single contact email and no acknowledgment timeframe or no-retaliation clause; the assistant itself flags this gap afterward rather than fixing it before shipping: \"conduct@marrowgate.dev needs to actually exist and reach named people, not one founder's inbox \u2014 if the report is about that person, there's no second path today.\"",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Recommends version 3.0 over version 2.1 for a new document",
+        "evidence": "\"Everything else below is Contributor Covenant v2.1, unmodified.\" \u2014 v3.0 is never mentioned or considered.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason: 3.0 drops 2.1's line that a public apology may be requested",
+        "evidence": "Not discussed; the delivered text keeps the 'public apology may be requested' line from v2.1 without any version comparison.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the two versions do not share section names, and states which one the delivered document adapts",
+        "evidence": "No version-naming comparison is made anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Maps at least one renamed section between the versions, such as 2.1's Our Standards splitting into Encouraged Behaviors and Restricted Behaviors, or Enforcement becoming Reporting an Issue",
+        "evidence": "Not present.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Renames the template role title to a title that actually exists in this project",
+        "evidence": "The document retains generic \"community leaders\" language throughout, unrevised for Marrowgate's actual maintainer structure.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rewrites the enforcement section to describe the procedure this team will really follow, rather than keeping the template wording",
+        "evidence": "\"Everything else below is Contributor Covenant v2.1, unmodified.\" \u2014 enforcement guidelines are kept verbatim from the template.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Replaces generic virtue-list standards with concrete behaviours, on both sides, rather than shipping the template's examples untouched",
+        "evidence": "The \"Our Standards\" section is shipped unmodified (\"Demonstrating empathy and kindness toward other people\", etc.).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Excludes \"assume good intent\" from the standards, with the reason that it redirects every discussion onto intentions and hands anyone acting in bad faith a reset",
+        "evidence": "No such exclusion or reasoning is discussed; the standards section is unmodified template text.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States an explicit off-platform stance instead of leaving the scope clause silent on it",
+        "evidence": "The Scope section is kept as unmodified generic template text with no explicit off-platform stance added.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the surfaces one by one, covering the repository and issue tracker, the chat server and the mailing list, and names the categories of people covered",
+        "evidence": "The Scope section remains generic (\"applies within all community spaces\") without naming specific surfaces.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not ship the document without a private reporting channel, a second path for a report about the primary recipient, an acknowledgment target, and a no-retaliation statement",
+        "evidence": "The document is prepared to ship pending only the contact-email placeholder, with no second reporting path for a report about the maintainer, no acknowledgment target, and no no-retaliation statement anywhere.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

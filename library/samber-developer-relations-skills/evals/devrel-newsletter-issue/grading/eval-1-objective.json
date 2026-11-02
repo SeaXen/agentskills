@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The Streams 2.0 item does not contain 'game-changer', 'game-changing', 'revolutionary', 'excited' or 'exciting'.",
+        "evidence": "Item reads 'Streams 2.0 is generally available on the Team and Enterprise plans.' The hype terms appear only in the 'What I cut' notes.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The draft does not state the 3x ingestion figure as a fact in the Shipped section or the subject line.",
+        "evidence": "The Shipped items and the subject lines never mention 3x. It appears only in the cut explanation.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response explains that the 3x figure has no published source to link or attribute to, and either cuts it or asks for a published post that states it.",
+        "evidence": "'The note is internal, and no post or changelog states it... send me the link. I'll add it as \"the post reports up to 3x faster ingestion\"'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The draft does not contain 'customers love it' or an equivalent unattributed customer-sentiment claim.",
+        "evidence": "The phrase appears only in the cut list, not in the draft.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The Streams 2.0 item states availability as GA for Team and Enterprise.",
+        "evidence": "'Streams 2.0 is generally available on the Team and Enterprise plans.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The Free-tier Q1 date is either omitted from the draft or explicitly flagged as needing confirmation that it is announced before it can be published.",
+        "evidence": "'\"Free tier gets it in Q1\": cut. A future plan or date goes in only if it is already announced publicly.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The Streams 2.0 item opens with a plain statement of what the user can now do, before availability.",
+        "evidence": "The item opens with availability ('Streams 2.0 is generally available on...'). The first-step placeholder comes after it, and there is no capability statement first.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response either gives a concrete first step taken from the user's material or asks for one / marks it as blocked; it does not invent a flag, command or setting for Streams 2.0.",
+        "evidence": "'Streams 2.0 first step | blocked: your PM's note names none, and I won't invent a flag'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The qs replay item is one or two lines and does not invent what the command's flags do.",
+        "evidence": "'The CLI has a new command, `qs replay`.' followed by a placeholder for what it does.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "At least one proposed subject line names Streams 2.0 and is 45 characters or fewer.",
+        "evidence": "'Streams 2.0 is GA for Team and Enterprise' (41 chars)",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "No proposed subject line is a generic label such as 'Quillstack Newsletter', 'Monthly update' or an issue number alone.",
+        "evidence": "All three options name Streams 2.0.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response states that it is not following the 'make it exciting' instruction, or explains that hype language was removed on purpose.",
+        "evidence": "'\"Make it exciting\": I did not do this. Developer readers punish release copy that reads as an ad'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The Streams 2.0 item does not contain 'game-changer', 'game-changing', 'revolutionary', 'excited' or 'exciting'.",
+        "evidence": "The Shipped section has no 'game-changer', 'revolutionary' or 'excited'. 'Game-changer' appears only in the notes, as a quoted phrase that was left out.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The draft does not state the 3x ingestion figure as a fact in the Shipped section or the subject line.",
+        "evidence": "Subject line: 'Streams 2.0 is live: 3x faster ingestion'. The Shipped copy says '**3x faster**' with only a bracketed confirm note.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response explains that the 3x figure has no published source to link or attribute to, and either cuts it or asks for a published post that states it.",
+        "evidence": "It says 'the changelog is only a version bump' and asks for 'a benchmark or an internal measurement'. It neither cuts the figure nor asks for a published post, and it keeps 3x in the subject line.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The draft does not contain 'customers love it' or an equivalent unattributed customer-sentiment claim.",
+        "evidence": "The note says 'I left it out.' The draft itself has no customer-sentiment claim.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The Streams 2.0 item states availability as GA for Team and Enterprise.",
+        "evidence": "'it's GA today for **Team and Enterprise** plans.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The Free-tier Q1 date is either omitted from the draft or explicitly flagged as needing confirmation that it is announced before it can be published.",
+        "evidence": "The draft keeps 'You get Streams 2.0 in Q1 [confirm: calendar Q1 2027?]'. The flag asks about the year, not whether the date is announced.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The Streams 2.0 item opens with a plain statement of what the user can now do, before availability.",
+        "evidence": "It opens 'Streams 2.0 is our biggest release of the year, and it's GA today', which is availability, not a user capability.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response either gives a concrete first step taken from the user's material or asks for one / marks it as blocked; it does not invent a flag, command or setting for Streams 2.0.",
+        "evidence": "'[Add upgrade step or link, e.g. \"Update to 2.0.0 and you're set.\"]' is a placeholder. No flags are invented.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The qs replay item is one or two lines and does not invent what the command's flags do.",
+        "evidence": "'I don't know what it does, so I haven't guessed.' The example is 'qs replay [example flags/args here]'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "At least one proposed subject line names Streams 2.0 and is 45 characters or fewer.",
+        "evidence": "'Streams 2.0 is live: 3x faster ingestion' is 40 characters.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "No proposed subject line is a generic label such as 'Quillstack Newsletter', 'Monthly update' or an issue number alone.",
+        "evidence": "All three subject options name the Streams 2.0 release.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response states that it is not following the 'make it exciting' instruction, or explains that hype language was removed on purpose.",
+        "evidence": "'I left it out too. Developers discount that phrase. The 3x figure and \"biggest release of the year\" carry the excitement better.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Runs an async intake whatever live format is chosen, and chooses at most one live format",
+        "evidence": "\"Drop-in call plus async intake (recommended)\"; async intake is permanent.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the efficiency ordering: async thread only > drop-in call > livestream panel > booked slots > staffed queue",
+        "evidence": "Ranking puts drop-in first and async second, and is not labelled as an efficiency ordering.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the value ordering: livestream panel > staffed queue > drop-in call > async thread only > booked slots",
+        "evidence": "No value ordering given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the effort ordering: staffed queue > livestream panel > booked slots > drop-in call > async thread only",
+        "evidence": "No effort ordering given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the compliance-cost ordering and justifies the tie between async thread and staffed queue: both are text posted under published rules with no voice or face recorded",
+        "evidence": "No compliance-cost ordering; only a note that livestream carries the heaviest compliance cost.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Promotes the drop-in call because the stated job is product feedback, and says that interview answer moved it",
+        "evidence": "\"Job is product feedback: the drop-in call is promoted, because follow-up questions in conversation produce the richest requests.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes the Discord one-hour-response queue because no support team owns it, naming its effort as a paid support rota rather than a DevRel slot",
+        "evidence": "\"This is a staffed queue, which is a standing support job. The skill says to delete it unless a support team owns it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the livestream panel as what the efficiency order starves and gives its promotion condition: drop-in sessions regularly running out of time with a rotation of three or more",
+        "evidence": "\"Promote it when drop-in sessions regularly run out of time, the rotation holds 3 or more people...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives order-of-magnitude effort per cycle: drop-in call about half a staff-day, livestream panel about a day, staffed queue a standing job",
+        "evidence": "Gives drop-in \"about half a staff-day per cycle\" but no livestream (about a day) or other figures.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Confirms the demand gate is met by the roughly 30 unanswered forum questions",
+        "evidence": "\"the demand gate (5 or more unanswered) passes, so live formats are allowed.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the default of async intake plus drop-in call",
+        "evidence": "\"The recommended program is an async intake thread plus a biweekly drop-in call.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says the ranking is a default rather than a law and re-ranks against what the team already has",
+        "evidence": "No such statement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Checks biweekly staffing against the cap: two sessions a month plus a spare needs three or four engineers, so the four fit",
+        "evidence": "\"4 engineers: cadence is capped at biweekly. Weekly needs about 6 engineers\"; rotation uses E4 as month spare.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Runs an async intake whatever live format is chosen, and chooses at most one live format",
+        "evidence": "Recommends weekly small-group sessions plus Discord channel plus later monthly livestream.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the efficiency ordering: async thread only > drop-in call > livestream panel > booked slots > staffed queue",
+        "evidence": "Ranking uses feedback value/cost/risk, not the required order.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the value ordering: livestream panel > staffed queue > drop-in call > async thread only > booked slots",
+        "evidence": "Not given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the effort ordering: staffed queue > livestream panel > booked slots > drop-in call > async thread only",
+        "evidence": "Not given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the compliance-cost ordering and justifies the tie between async thread and staffed queue: both are text posted under published rules with no voice or face recorded",
+        "evidence": "Not given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Promotes the drop-in call because the stated job is product feedback, and says that interview answer moved it",
+        "evidence": "Ranks sign-up-in-advance small-group sessions #2, behind a backlog sprint.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes the Discord one-hour-response queue because no support team owns it, naming its effort as a paid support rota rather than a DevRel slot",
+        "evidence": "Keeps Discord at rank 3 with a softened SLA.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the livestream panel as what the efficiency order starves and gives its promotion condition: drop-in sessions regularly running out of time with a rotation of three or more",
+        "evidence": "Only says revisit after ~8 weeks.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives order-of-magnitude effort per cycle: drop-in call about half a staff-day, livestream panel about a day, staffed queue a standing job",
+        "evidence": "Gives eng-hours figures, not half day / one day / standing job.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Confirms the demand gate is met by the roughly 30 unanswered forum questions",
+        "evidence": "Uses the backlog as a sprint target, not as a demand gate.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the default of async intake plus drop-in call",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says the ranking is a default rather than a law and re-ranks against what the team already has",
+        "evidence": "Assumptions section re-ranks on user count but does not call the ranking a default.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Checks biweekly staffing against the cap: two sessions a month plus a spare needs three or four engineers, so the four fit",
+        "evidence": "No monthly cap arithmetic.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

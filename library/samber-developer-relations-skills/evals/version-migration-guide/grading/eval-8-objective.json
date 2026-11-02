@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Every entry has a verb-prefixed heading using Removed, Changed, Renamed or Deprecated",
+        "evidence": "The first entry uses \"Moved:\", which is not one of the permitted verbs.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Every entry carries a stable anchor identifier",
+        "evidence": "{#moved-config-cwick-config-ts}, {#changed-close-rejects}, {#removed-fetch-callback}.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Every entry has an affects-you-if line giving a search pattern that locates the call sites in a codebase",
+        "evidence": "Each has \"Affects you if\" plus a Search pattern.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Every entry quotes the literal runtime error or warning text exactly, including punctuation, where one exists",
+        "evidence": "Quotes the fetch TypeError and flags missing text with CONFIRM markers.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reproduces 'TypeError: fetch() no longer accepts a callback; await the returned promise' verbatim in the Client.fetch entry",
+        "evidence": "\"TypeError: fetch() no longer accepts a callback; await the returned promise.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Caps each entry's rationale at three sentences",
+        "evidence": "Each rationale is 2-3 sentences.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Each rationale names the harm the old behaviour caused",
+        "evidence": "Config rationale gives a benefit (\"gives editors completion\"), not a harm.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Every entry has before/after code labelled with Before and After markers",
+        "evidence": "\"// Before (v6)\" / \"// After (v7)\" in each entry.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes the config move as a single entry covering all four moved keys rather than one entry per key",
+        "evidence": "One entry lists plugins, retries, baseUrl, logLevel.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the grouped config entry one anchor per fix rather than one anchor per moved symbol",
+        "evidence": "Only a single anchor for the entry; no per-fix anchors.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Records closeTolerant: true as the escape hatch on the Client.close entry",
+        "evidence": "\"pass `closeTolerant: true` to restore the v6 behaviour\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States explicitly that there is no escape hatch for the callback removal rather than leaving that part silent",
+        "evidence": "\"Escape hatch: none. v7 `fetch()` is promise-only.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Orders the six parts of each entry as heading, affects-you-if, rationale, before/after, fix, escape hatch",
+        "evidence": "Heading, affects, rationale, code, fix, escape hatch in each entry.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Every entry has a verb-prefixed heading using Removed, Changed, Renamed or Deprecated",
+        "evidence": "Headings are 'Client.fetch() no longer accepts a callback' and 'Configuration moved from .cwickrc to cwick.config.ts'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Every entry carries a stable anchor identifier",
+        "evidence": "There are no anchors.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Every entry has an affects-you-if line giving a search pattern that locates the call sites in a codebase",
+        "evidence": "There are 'Who is affected' lines with no search pattern. Only the fetch entry says to search for the TypeError message.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Every entry quotes the literal runtime error or warning text exactly, including punctuation, where one exists",
+        "evidence": "The fetch TypeError is quoted. The other two entries have no literal text given.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reproduces 'TypeError: fetch() no longer accepts a callback; await the returned promise' verbatim in the Client.fetch entry",
+        "evidence": "'TypeError: fetch() no longer accepts a callback; await the returned promise.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Caps each entry's rationale at three sentences",
+        "evidence": "Entries have no rationale section.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Each rationale names the harm the old behaviour caused",
+        "evidence": "There are no rationales. The close() entry only says it 'used to swallow errors'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Every entry has before/after code labelled with Before and After markers",
+        "evidence": "'**Before**' and '**After**' markers appear in every entry.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes the config move as a single entry covering all four moved keys rather than one entry per key",
+        "evidence": "One entry lists plugins, retries, baseUrl and logLevel.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the grouped config entry one anchor per fix rather than one anchor per moved symbol",
+        "evidence": "There are no anchors.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Records closeTolerant: true as the escape hatch on the Client.close entry",
+        "evidence": "'After (old behaviour): set closeTolerant: true.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States explicitly that there is no escape hatch for the callback removal rather than leaving that part silent",
+        "evidence": "The fetch entry is silent on an escape hatch.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Orders the six parts of each entry as heading, affects-you-if, rationale, before/after, fix, escape hatch",
+        "evidence": "The order is heading, description, who is affected, before/after, migration. There is no rationale or escape hatch part.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

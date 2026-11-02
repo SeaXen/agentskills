@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Identifies tagging internal links as the cause of the self-referral, and instructs stripping the tags from internal links.",
+        "evidence": "\"Root cause: you are tagging an internal link.\" and \"Strip utm_* params from every internal link, including docs\u2192pricing. No exceptions\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that an internal tag restarts the session and overwrites the real inbound source with the team's own.",
+        "evidence": "\"putting one on a link between two pages you already own restarts the session and overwrites the real source with your own domain.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Instructs excluding the team's own domains from source classification.",
+        "evidence": "\"Exclude your own domain(s) from source classification so a stray internal tag can never resolve to an external-looking source again.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a large direct bucket during launch week is the normal case rather than an instrumentation defect.",
+        "evidence": "\"A large direct bucket in launch week is the normal case, not proof anything is broken.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names referrer-stripping causes for the direct bucket, such as aggregators, chat clients, privacy browsers, PDFs or slide decks.",
+        "evidence": "\"aggregators, chat clients, privacy browsers, PDFs and slide decks all strip referrers\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites that roughly 70% of AI-assistant-driven traffic arrives with no referrer at all.",
+        "evidence": "\"roughly 70% of AI-assistant-driven traffic arrives with no referrer at all (Demand Curve #331)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that shorteners, redirect chains and OAuth hops kill the tag unless they preserve the query string, and instructs verifying that they do.",
+        "evidence": "\"Redirect chains and shorteners must forward the full query string to the final destination, or the tag dies at that hop ... Check the shortener's redirect config\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Answers the internal docs-page question with a first-party mechanism such as an event property or click property, rather than with campaign tags.",
+        "evidence": "\"Capture it as a property on the pricing-page-viewed event (e.g. referring_path or referring_docs_page ...) or as an internal click event (pricing_link_clicked with a source_page property).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a closed allowed-list vocabulary for source and medium, fixed before the next tagged link is published.",
+        "evidence": "No source/medium vocabulary table or closed-list requirement appears anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires every published tagged link to be registered in one table with owner and publish date.",
+        "evidence": "No link-registry requirement appears anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends tagging per artifact rather than per campaign when the point is comparing artifacts.",
+        "evidence": "No per-artifact vs per-campaign tagging recommendation appears anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Identifies tagging internal links as the cause of the self-referral, and instructs stripping the tags from internal links.",
+        "evidence": "\"You're tagging internal links with UTM parameters at all. This is a known anti-pattern... Fix: stop using `utm_source`/`utm_medium` for this.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that an internal tag restarts the session and overwrites the real inbound source with the team's own.",
+        "evidence": "\"a visitor who arrived via `google/cpc`...then clicked your `utm_source=docs` link to pricing, has their **real acquisition source overwritten** by 'docs'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Instructs excluding the team's own domains from source classification.",
+        "evidence": "\"Fix (GA4): Admin \u2192 Data Streams...'List unwanted referrals' \u2192 add the docs domain.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a large direct bucket during launch week is the normal case rather than an instrumentation defect.",
+        "evidence": "The transcript instead attributes the 78% direct entirely to \"two specific, now-identified technical gaps (shortener pass-through, OAuth redirect washout)\" \u2014 i.e., instrumentation defects, not normalcy.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names referrer-stripping causes for the direct bucket, such as aggregators, chat clients, privacy browsers, PDFs or slide decks.",
+        "evidence": "Only the shortener and OAuth redirect are named as causes; aggregators, chat clients, privacy browsers, PDFs, or slide decks are not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites that roughly 70% of AI-assistant-driven traffic arrives with no referrer at all.",
+        "evidence": "No such statistic or claim about AI-assistant traffic appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that shorteners, redirect chains and OAuth hops kill the tag unless they preserve the query string, and instructs verifying that they do.",
+        "evidence": "\"Most shorteners resolve to a fixed destination URL \u2014 they don't reliably forward whatever query string arrived...Fix: audit every conference short link now\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Answers the internal docs-page question with a first-party mechanism such as an event property or click property, rather than with campaign tags.",
+        "evidence": "\"Fire a custom event on click (`docs_cta_clicked` with a `docs_page` property)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a closed allowed-list vocabulary for source and medium, fixed before the next tagged link is published.",
+        "evidence": "No allowed-list vocabulary requirement for source/medium appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires every published tagged link to be registered in one table with owner and publish date.",
+        "evidence": "No link-registry table requirement appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends tagging per artifact rather than per campaign when the point is comparing artifacts.",
+        "evidence": "No general principle of tagging per artifact vs per campaign is stated.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

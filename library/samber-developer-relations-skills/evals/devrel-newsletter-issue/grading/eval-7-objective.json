@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The review flags the 40% cost claim as unsupported by the source.",
+        "evidence": "'\"cut costs by 40%\": the paragraph you pasted says nothing about cost.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The review flags 'latency by half' as unsupported by the source.",
+        "evidence": "'the source says the batch window fell from 6 hours to 40 minutes, which is a different measure'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The rewritten item uses the source's own figure (6 hours to 40 minutes) and attributes it to Selwyn.",
+        "evidence": "'Selwyn's team reports that... the batch window fell from 6 hours to 40 minutes'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The rewritten item does not contain 'simply', 'just', 'easy' or 'amazing'.",
+        "evidence": "The corrected item has none of these words.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The rewritten item does not use 'Read more' or 'click here' as link text.",
+        "evidence": "Link texts are the headline and 'Quarrytide streams docs'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The rewritten item puts the primary link on the headline or descriptive text.",
+        "evidence": "The headline is linked.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The rewritten item carries one primary link and at most one additional link.",
+        "evidence": "The post link and the docs aside.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The rewritten item credits the author or Selwyn as the source organisation.",
+        "evidence": "'[AUTHOR NAME] (Selwyn)'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The rewritten item summary is 1 to 3 sentences.",
+        "evidence": "Two sentences.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response presents its checks as pass, fail or blocked lines.",
+        "evidence": "Pre-send table with 'pass' and 'blocked' entries.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response marks the test send to Gmail and Outlook (light and dark) as something the user must do before noon, or as blocked.",
+        "evidence": "'Test send in Gmail, Apple Mail on a phone and classic Outlook, in light and dark mode | blocked on a human test send'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The review flags the 40% cost claim as unsupported by the source.",
+        "evidence": "'\"Cut costs by 40%\" appears nowhere in the paragraph you quoted.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The review flags 'latency by half' as unsupported by the source.",
+        "evidence": "'doesn't match the source. The source says the nightly batch window dropped from 6 hours to 40 minutes'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The rewritten item uses the source's own figure (6 hours to 40 minutes) and attributes it to Selwyn.",
+        "evidence": "'How Selwyn cut a 6-hour nightly batch to 40 minutes' and the quote 'In their words'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The rewritten item does not contain 'simply', 'just', 'easy' or 'amazing'.",
+        "evidence": "The replacement item contains none of those words.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The rewritten item does not use 'Read more' or 'click here' as link text.",
+        "evidence": "The link texts are 'Read Selwyn's write-up' and 'Quarrytide streams docs'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The rewritten item puts the primary link on the headline or descriptive text.",
+        "evidence": "The headline is bold, unlinked text. The links sit on a separate line below.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The rewritten item carries one primary link and at most one additional link.",
+        "evidence": "Two links in the replacement item.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The rewritten item credits the author or Selwyn as the source organisation.",
+        "evidence": "'Selwyn moved their nightly ETL job... In their words'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The rewritten item summary is 1 to 3 sentences.",
+        "evidence": "Three sentences: 'Selwyn moved...', 'In their words:...', 'These are results from their own workload...'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response presents its checks as pass, fail or blocked lines.",
+        "evidence": "Issues are marked with \u274c, \u26a0\ufe0f and \u2139\ufe0f symbols. They are not labelled pass, fail or blocked.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response marks the test send to Gmail and Outlook (light and dark) as something the user must do before noon, or as blocked.",
+        "evidence": "It says only 'Click both links in Buttondown's preview.' Gmail, Outlook and dark mode are not mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

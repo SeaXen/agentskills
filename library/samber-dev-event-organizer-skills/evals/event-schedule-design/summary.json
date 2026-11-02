@@ -1,0 +1,474 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-schedule-design",
+  "scenarios": 11,
+  "expectations_total": 124,
+  "expectations_subjective": 1,
+  "expectations_objective": 123,
+  "pass_rate_with_skill_pct": 74.2,
+  "pass_rate_without_skill_pct": 39.5,
+  "delta_pp": 34.7,
+  "uplift_multiplier": 1.88,
+  "trigger_accuracy_pct": 74.1,
+  "trigger_queries": 116,
+  "trigger_positive_fire_rate": 0.707,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Explains that the per-speaker check passed because it was run against Dario, the first-named speaker, alone"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States room adjacency as the second criterion, applied after size"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Suggests swapping which track holds the larger room at the day's midpoint, where tracks alternate between room sizes"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Labels the grouping and midpoint-swap moves as self-set rather than published practice"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Labels graded buffer consumption as borrowed from manufacturing production scheduling rather than as established event practice"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names slot-internal buffer, publishing slots longer than the talks they hold, as the low-effort default"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that room-capacity matching does not exist here: everyone is in the one room or the event is oversold"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Gives the reason a parked multi-track checklist is dangerous: it is how a second track quietly reappears as scope"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that the design load moves onto pacing, break placement and buffer"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Offers only in-scope levers such as session-length standardization, fixed-point placement and room assignment, without reopening the event's structure"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that versioned release costs the most to maintain because it is a standing job rather than a one-off task"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Describes staged reveal as buying a second announcement moment while leaving travel planning waiting on it"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Gives a concrete publication date"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that once published, every change costs an attendee who planned around the old grid"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names post-publication change count and last-change date as the measurement deciding whether versioning was worth its cost, and labels the threshold as self-set"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Does not make publication conditional on resolving the two unconfirmed talks or the unconfirmed keynote"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Declines to emit an efficiency ranking between synchronized and staggered starts"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Gives the reason: both cost one decision and one pass over the grid, so an ordering between them would be false precision"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the choice is determined by the venue rather than by a value-per-effort ratio"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Cites PyCon US's staggered starts across five main rooms as the precedent, with observed start times"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Distinguishes corridor throughput from clash avoidance and from room-capacity matching as a constraint no clash check looks at"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Does not assert a corridor-capacity or throughput figure it cannot source"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Cites the DevOpsDays gradient of structured talks, then Ignite talks, then self-organized Open Space as the published example"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Labels the earliest-due-date dispatching origin as a borrowed structuring analogy rather than an events rule"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Standardizes session lengths and places lunch and breaks before filling in the remaining sessions"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Does not produce a finished grid before gathering the missing inputs"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Asks for every speaker's availability window, including all co-speakers on multi-speaker sessions, before laying anything out"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Asks one question at a time rather than delivering the whole list at once"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Chooses a grid time resolution that can express the 15-minute lightning talk"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that a coarse resolution such as 30 minutes cannot express a short talk plus a separate gap as two distinct things"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that the grid will be presented section by section for validation before it goes public"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Asks what physically changes between two consecutive sessions in each room, such as AV reset, furniture or staging"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Names four distinct clash types rather than one generic conflict check"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that room-availability and speaker-availability conflicts fail silently, because nothing on the grid looks wrong"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that a multi-speaker session's valid window is the intersection of all co-speakers' availabilities"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Explains that the per-speaker check passed because it was run against Dario, the first-named speaker, alone"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends computing and recording the intersection as its own value before slotting rather than re-deriving it afterwards"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States expected audience size as the first matching criterion"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States room adjacency as the second criterion, applied after size"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States the failure is one-directional: a session turning people away at the door is public, while an over-large room only looks quiet"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names estimation sources available here, such as last edition's per-session counts, the topic's draw, a speaker with a following, or the track's share of the CFP"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Presents the audience-size estimate as the organizer's own rather than as a benchmark figure"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Suggests swapping which track holds the larger room at the day's midpoint, where tracks alternate between room sizes"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Suggests grouping consecutive same-topic slots in one room so attendees can stay put between sessions"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Labels the grouping and midpoint-swap moves as self-set rather than published practice"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Rules the zero-gap grid out entirely rather than listing it as a low-buffer option"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Does not carry over the 33% and 67% zone boundaries"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Does not carry over the 85% utilization target"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Keeps the graded buffer-consumption reading (comfortable, tightening, blown) while stating the thresholds are the organizer's own to set"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Labels graded buffer consumption as borrowed from manufacturing production scheduling rather than as established event practice"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names slot-internal buffer, publishing slots longer than the talks they hold, as the low-effort default"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that the speaker brief must give the talk length and the slot length as two separate numbers"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States speaker availability as the only live clash check here"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Gives the reason a parked multi-track checklist is dangerous: it is how a second track quietly reappears as scope"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that the design load moves onto pacing, break placement and buffer"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that one overrun propagates to the whole day rather than to a single track"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Refuses to add a fifth track or room as the fix for a grid that does not fit"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that track count is owned by the structure decision made before scheduling, not by the grid build"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names samber/dev-event-organizer-skills@event-format-selection as the owner of the track-count decision"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that adding a track mid-build silently changes the content mix the track count was coupled to"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Does not silently shorten sessions or introduce a new session format to absorb the overflow without naming it as a decision owned elsewhere"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Sends the accepted-talk count back to the selection or format owners rather than absorbing the overflow inside the grid"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names samber/dev-event-organizer-skills@event-talk-selection as the source of the accepted-talk list"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Offers only in-scope levers such as session-length standardization, fixed-point placement and room assignment, without reopening the event's structure"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Raises versioned release, carrying a visible marker of what changed, given a multi-day multi-track grid and changes landing after tickets were sold"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that versioned release costs the most to maintain because it is a standing job rather than a one-off task"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Describes staged reveal as buying a second announcement moment while leaving travel planning waiting on it"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that once published, every change costs an attendee who planned around the old grid"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends re-running clash detection on changes made after publication"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names post-publication change count and last-change date as the measurement deciding whether versioning was worth its cost, and labels the threshold as self-set"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Declines to emit an efficiency ranking between synchronized and staggered starts"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Gives the reason: both cost one decision and one pass over the grid, so an ordering between them would be false precision"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the choice is determined by the venue rather than by a value-per-effort ratio"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Cites PyCon US's staggered starts across five main rooms as the precedent, with observed start times"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names what staggering costs: the clean everything-starts-on-the-hour rule, and a fiddlier clash pass to read"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Keeps plenary sync points such as a keynote or lunch that pull every track into one room"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that a plenary moment resets whatever per-track drift accumulated before the next block starts"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Distinguishes corridor throughput from clash avoidance and from room-capacity matching as a constraint no clash check looks at"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Does not assert a corridor-capacity or throughput figure it cannot source"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Flags the last slot of the last day as empirically the worst-attended position at the conferences studied"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Attributes the worst-slot finding to a setting other than developer conferences and cites its direction rather than its magnitude"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Invents no attendance-drop, attention or engagement percentage"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Recommends format substitution over content substitution for the post-lunch slot"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Cites the DevOpsDays gradient of structured talks, then Ignite talks, then self-organized Open Space as the published example"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Labels the pacing read as judgment rather than a sourced fact"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Labels any levelled-production or heijunka reasoning as a manufacturing analogy rather than events practice"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Flags the Saturday day as carrying graveyard-slot risk at whole-day scale"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Recommends tracking no-show rate by slot position, across sessions and editions, to establish whether a slot is a graveyard slot at this event"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that the no-show-rate threshold is the organizer's own to set rather than a benchmark to hit"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Labels the earliest-due-date dispatching origin as a borrowed structuring analogy rather than an events rule"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Standardizes session lengths and places lunch and breaks before filling in the remaining sessions"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Produces a written priority order intended to live in the grid document in advance"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Puts protecting the plenary or keynote slot first in that order"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Puts protecting the headline commitment the audience showed up for second"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Puts minimizing how many other sessions the fix disturbs third"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Puts locking the revised grid for the remainder of the block fourth"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Hands live execution on the day to samber/dev-event-organizer-skills@event-run-of-show rather than writing the day-of playbook here"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Does not produce a finished grid before gathering the missing inputs"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Asks for room names, seated capacities and walking minutes between rooms"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Asks what the venue contract fixed: doors open and close, catering windows, room-hire start and end, and any part-day room"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Asks for every speaker's availability window, including all co-speakers on multi-speaker sessions, before laying anything out"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Asks one question at a time rather than delivering the whole list at once"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Chooses a grid time resolution that can express the 15-minute lightning talk"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that a coarse resolution such as 30 minutes cannot express a short talk plus a separate gap as two distinct things"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States the distinction: breaks are publicly visible grid items, blockers reserve grid space without being published"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that the grid will be presented section by section for validation before it goes public"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Asks what physically changes between two consecutive sessions in each room, such as AV reset, furniture or staging"
+      }
+    ]
+  }
+}

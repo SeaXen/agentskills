@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that response rate is undefined for the open-link channels (newsletter, docs banner, Discord) because they have no denominator.",
+        "evidence": "'Three of your four channels have no valid response rate... Newsletter, docs banner and Discord are open links'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the 20-30% threshold as having no methodological source, and states that response rate predicts bias poorly.",
+        "evidence": "'No methodological source backs it. Response rate predicts bias poorly.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports a funnel per channel instead: views where known, starts, completes, kept.",
+        "evidence": "'Report the funnel instead: views where known, starts, completes, kept.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the random first-launch prompt as the only channel with a denominator and reports its invited (2,000), started and completed (240) counts.",
+        "evidence": "'Calibration (random) | 240 | 2,000 invited, 240 completed (12%). Add started.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Uses the random group as a calibration sample, comparing its answers question by question with the self-selected respondents to measure drift.",
+        "evidence": "'Show the random group (n=240) beside the self-selected group (n=1,270) on every core question.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the random group's 12% completion still carries nonresponse bias, and that its invited-to-completed rate is printed beside any rung-2 number.",
+        "evidence": "'Always print the 12% beside the number. A random invitation with 88% non-completion still carries nonresponse bias.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Publishes the source mix (completes per channel) in the methodology.",
+        "evidence": "Funnel and source mix table with share of 1,510.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes a bias sentence naming who the sample over-represents (newsletter subscribers, engaged community members).",
+        "evidence": "'Respondents over-represent engaged Quillhaven community members: 84% came from our newsletter, docs and Discord.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend a gift card draw as the fix, noting that draw effects on completes are small and inconsistent and that the real cost is compliance and fraud screening.",
+        "evidence": "'Draw effects are small and inconsistent... compliance cost... attracts bots'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not declare the survey worthless; states that results are publishable at the respondents rung with n and wording.",
+        "evidence": "'The survey is usable.' and 'Rung 1, all respondents... Always allowed, with n and exact wording.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that self-selected and random-group results are shown apart wherever they differ.",
+        "evidence": "'Where they differ, show both and say so.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Restricts any 'X% of users' claim to the random group only, with its completion rate beside it.",
+        "evidence": "'X% of desktop-app users invited at random... Always print the 12%'; 'Never write \"X% of developers\", \"of our users\"'.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that response rate is undefined for the open-link channels (newsletter, docs banner, Discord) because they have no denominator.",
+        "evidence": "It computes a 2.0% newsletter rate from the sent list, while saying only docs banner and Discord have 'none'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the 20-30% threshold as having no methodological source, and states that response rate predicts bias poorly.",
+        "evidence": "'Response rate is a risk signal, not a validity test... A 70% rate from a biased frame is worse than a 12% rate from a random one.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports a funnel per channel instead: views where known, starts, completes, kept.",
+        "evidence": "The table has Invited, Completes and Rate only. There are no views, starts or kept counts.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the random first-launch prompt as the only channel with a denominator and reports its invited (2,000), started and completed (240) counts.",
+        "evidence": "It reports 2,000 invited and 240 completes but no started count.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Uses the random group as a calibration sample, comparing its answers question by question with the self-selected respondents to measure drift.",
+        "evidence": "'compare each channel to the random arm. Large gaps show where self-selection moves the answer.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the random group's 12% completion still carries nonresponse bias, and that its invited-to-completed rate is printed beside any rung-2 number.",
+        "evidence": "'Nonresponse is the bigger risk'; 'Among new desktop users, X% \u00b1 6 points, with 12% response'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Publishes the source mix (completes per channel) in the methodology.",
+        "evidence": "'Method and denominators. Add the table above', which lists completes per source.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes a bias sentence naming who the sample over-represents (newsletter subscribers, engaged community members).",
+        "evidence": "'three of four channels are self-selected and skew toward engaged users'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend a gift card draw as the fix, noting that draw effects on completes are small and inconsistent and that the real cost is compliance and fraud screening.",
+        "evidence": "'does not fix bias... attracts prize-seekers... duplicates and bots... legal overhead'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not declare the survey worthless; states that results are publishable at the respondents rung with n and wording.",
+        "evidence": "'Don't bin the survey'; the allowed claim is 'Among engaged newsletter readers, X%.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that self-selected and random-group results are shown apart wherever they differ.",
+        "evidence": "'Answer each question per source, never pooled.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Restricts any 'X% of users' claim to the random group only, with its completion rate beside it.",
+        "evidence": "'Not allowed: X% of the Quillhaven community'; the allowed claim for new desktop users carries '12% response'.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

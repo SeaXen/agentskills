@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Endorses scored ranking as the right mechanism here, given structured comparable profile data already collected on both sides",
+        "evidence": "\"Ship scored recommendations plus a two-sided accept step.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Blocks auto-scheduling: the score orders a candidate list and never creates a pair",
+        "evidence": "\"the score orders a candidate list and never creates a pair.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires both sides to accept before any pair exists or reaches a schedule",
+        "evidence": "\"A pair exists only after both sides accept.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes the appended firmographic data from scoring: score only fields the person entered themselves",
+        "evidence": "\"Retrain or reweight on self-entered fields only\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the scoring rule to be short enough to explain to a participant who asks why they were recommended someone, which the 14-feature model fails",
+        "evidence": "\"a scoring rule short enough to explain to someone who asks 'why was I recommended this vendor?'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps a manual override, with every override logged with a reason",
+        "evidence": "\"Keep a manual override and log a reason for every override.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Uses the override log as the detector for what the scoring rule is missing",
+        "evidence": "\"The log shows what the model misses.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Re-checks a sample of the rule's own top recommendations before anyone sees them",
+        "evidence": "\"read a sample of its own top recommendations before anyone sees them.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the sparse-matrix failure: a rule that recommends the same few people to everyone is fitted to sparse tags, not matching",
+        "evidence": "\"If it recommends the same ten vendors to everyone, it is fitted to a sparse tag matrix.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes scored ranking's compliance weight: it derives new facts about people and holds the largest data store of any mechanism",
+        "evidence": "It raises EU/UK notice obligations only for the enriched data. It never says scored ranking derives new facts about people or holds the largest data store of any mechanism.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not state an expected fill rate, acceptance rate, or meeting count for the launch",
+        "evidence": "The only numbers are the user's own (500 attendees, 40 teams) and the arithmetic on them; no expected rates are stated.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Endorses scored ranking as the right mechanism here, given structured comparable profile data already collected on both sides",
+        "evidence": "\"Using opted-in profile data to rank fit... That is the purpose people agreed to.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Blocks auto-scheduling: the score orders a candidate list and never creates a pair",
+        "evidence": "\"Don't ship it as described... auto-propose, then let people confirm.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires both sides to accept before any pair exists or reaches a schedule",
+        "evidence": "Only the attendee gets \"one-click accept or decline\"; vendor acceptance is not required.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Removes the appended firmographic data from scoring: score only fields the person entered themselves",
+        "evidence": "\"Drop the enriched features from the launch model.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the scoring rule to be short enough to explain to a participant who asks why they were recommended someone, which the 14-feature model fails",
+        "evidence": "\"You can't explain a match... With a GBM, you need per-match reasons.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps a manual override, with every override logged with a reason",
+        "evidence": "There is no override log.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Uses the override log as the detector for what the scoring rule is missing",
+        "evidence": "This is not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Re-checks a sample of the rule's own top recommendations before anyone sees them",
+        "evidence": "\"hand-review about 30 random attendees and their top-3\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the sparse-matrix failure: a rule that recommends the same few people to everyone is fitted to sparse tags, not matching",
+        "evidence": "This is not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes scored ranking's compliance weight: it derives new facts about people and holds the largest data store of any mechanism",
+        "evidence": "GDPR concerns are tied to the enrichment, not to ranking deriving new facts or holding the largest data store.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not state an expected fill rate, acceptance rate, or meeting count for the launch",
+        "evidence": "The ~70% threshold is a review check, not an expected rate. The 1,500 meetings is a capacity computation.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

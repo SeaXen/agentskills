@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that code-competition submissions run with internet off, so a hosted API cannot be called at submission time",
+        "evidence": "'Code competitions run submissions with internet off [platform, per rules]. Tracewell logging can't run in a submission'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says Kaggle Secrets do not carry over to forks, so each user must add their own secret",
+        "evidence": "'Forks do not inherit secrets'; 'Secrets don't follow forks [platform]'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends reading the key from Kaggle Secrets under a named label instead of a hard-coded placeholder in the notebook",
+        "evidence": "'UserSecretsClient().get_secret(\"TRACEWELL_API_KEY\")' and 'Add-ons > Secrets > add `TRACEWELL_API_KEY`'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes Kaggle Secrets cannot be used in internet-off code-competition submissions",
+        "evidence": "'secrets need internet on, so this notebook cannot run in code competitions.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says the competition host (with Kaggle), not the vendor, decides whether a paid tool meets the Reasonableness Standard",
+        "evidence": "'invites a ruling against it, and the host decides, not you.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that a time-limited trial is a problem for competitors over the competition period",
+        "evidence": "'A trial that expires mid-competition invites a ruling against it'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that code shared publicly in a competition is deemed licensed under an OSI-approved open-source license",
+        "evidence": "'Code shared publicly during a competition is deemed licensed under an OSI license that allows commercial use'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Advises against the competition-forum post claiming Tracewell gives an edge, as self-promotion",
+        "evidence": "'Linking or promoting your own work in a competition forum is spam and gets deleted [platform].'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a standalone notebook outside the code competition (or on a public dataset) as the better surface for an API-only product",
+        "evidence": "'Standalone notebook. A notebook on a public LLM-ranking dataset (not attached to the competition), internet on, key from Kaggle Secrets.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends testing the notebook by having one colleague fork it once from their own account (not a second account, not the whole team, since forks count as votes)",
+        "evidence": "'one colleague forks it from their own account and runs all cells. That fork counts as a vote, so one person only.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that code-competition submissions run with internet off, so a hosted API cannot be called at submission time",
+        "evidence": "'Code competitions usually require internet off in the submission run. The logging can't run live there.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says Kaggle Secrets do not carry over to forks, so each user must add their own secret",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends reading the key from Kaggle Secrets under a named label instead of a hard-coded placeholder in the notebook",
+        "evidence": "'UserSecretsClient().get_secret(\"TRACEWELL_API_KEY\")'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes Kaggle Secrets cannot be used in internet-off code-competition submissions",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says the competition host (with Kaggle), not the vendor, decides whether a paid tool meets the Reasonableness Standard",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that a time-limited trial is a problem for competitors over the competition period",
+        "evidence": "The 14-day trial is disclosed but not flagged as a problem for the competition period.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that code shared publicly in a competition is deemed licensed under an OSI-approved open-source license",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Advises against the competition-forum post claiming Tracewell gives an edge, as self-promotion",
+        "evidence": "'Drop \"gives you an edge\"... a promotional claim can get the post removed.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a standalone notebook outside the code competition (or on a public dataset) as the better surface for an API-only product",
+        "evidence": "Notebook is published in the competition's Code tab.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends testing the notebook by having one colleague fork it once from their own account (not a second account, not the whole team, since forks count as votes)",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Declines to produce a chapter list for a 75-second clip.",
+        "evidence": "The transcript explains the default would be no chapter list, but then produces one anyway because the user asked: 'The skill's default for a sub-90s changelog clip is *no* chapter list ... You explicitly asked for chapter markers, so I split the single claim into three genuine demonstration segments.' A full '## Chapters' section with three timestamps is delivered, so it does not decline.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that the clip falls under the platform's minimum of three chapter timestamps.",
+        "evidence": "'The skill's default for a sub-90s changelog clip is *no* chapter list (release clips usually don't clear the platform's 3-chapter minimum).'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the platform's chapter requirements: first timestamp 00:00, at least three timestamps, each chapter ten seconds or longer, listed in ascending order.",
+        "evidence": "'All three clear the platform's 10-second floor (20s / 15s / 40s), first entry is `00:00`, three entries, ascending.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes the platform revises these rules and that they should be re-checked before publishing, or says plainly that they were not re-verified.",
+        "evidence": "'[unconfirmed \u2014 re-verify the platform's current chapter rules before publish; this skill's reference wasn't re-checked live]'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Delivers the description and clip metadata in place of the chapter list.",
+        "evidence": "A Caption/description pack is provided ('Description opening (2 sentences): ...', 'Links to include: release post URL, in-app changelog entry.'), but it is delivered alongside the chapter list, not instead of it \u2014 the '## Chapters' section with three timestamps is still produced.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the clip to the single change, covering no second feature.",
+        "evidence": "'Still one change, one claim: the read-only expiring link.' The off-limits list also states 'no unreleased 4.2 features beyond this one.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Opens on the change working inside the product rather than on a title card, a logo or a feature list.",
+        "evidence": "Beat 1 opens with 'Kestrel Analytics dashboard, a saved view already open' and 'Cursor moves to toolbar, clicks the new Share icon', not a title card or logo.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sizes the production effort as roughly an hour over a changelog entry someone already wrote.",
+        "evidence": "No mention of production time estimate or effort sizing relative to an existing changelog entry appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes the clip is embargoed until the release actually ships on the 3rd.",
+        "evidence": "'release date (v4.2 ships \"the 3rd\" \u2014 confirm month before the clip goes live, since it can't publish ahead of the embargo).'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Marks each beat core or cuttable and names a starting state for each.",
+        "evidence": "The beat table includes a 'Core/cut' column (e.g., beat 1 'core', beat 5 'cuttable') and a 'Starting state' column populated for every beat (e.g., beat 5: 'Pre-staged \"expired\" screenshot or test account with an already-elapsed link').",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Declines to produce a chapter list for a 75-second clip.",
+        "evidence": "It produces 'CH.1 \u2014 HOOK' through 'CH.7 \u2014 OUT'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that the clip falls under the platform's minimum of three chapter timestamps.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the platform's chapter requirements: first timestamp 00:00, at least three timestamps, each chapter ten seconds or longer, listed in ascending order.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes the platform revises these rules and that they should be re-checked before publishing, or says plainly that they were not re-verified.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Delivers the description and clip metadata in place of the chapter list.",
+        "evidence": "No description or metadata is provided.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the clip to the single change, covering no second feature.",
+        "evidence": "The clip covers only 'Shareable Read-Only Links'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Opens on the change working inside the product rather than on a title card, a logo or a feature list.",
+        "evidence": "It opens on someone screenshotting a dashboard, with the feature revealed at 0:16 after a logo/title card.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sizes the production effort as roughly an hour over a changelog entry someone already wrote.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes the clip is embargoed until the release actually ships on the 3rd.",
+        "evidence": "It only prints 'LIVE OCT 3', with no embargo note.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Marks each beat core or cuttable and names a starting state for each.",
+        "evidence": "There are no per-beat markings. It gives only a cutdown note.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

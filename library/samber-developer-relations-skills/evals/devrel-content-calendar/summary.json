@@ -1,0 +1,370 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "devrel-content-calendar",
+  "scenarios": 8,
+  "expectations_total": 96,
+  "expectations_subjective": 2,
+  "expectations_objective": 94,
+  "pass_rate_with_skill_pct": 80.2,
+  "pass_rate_without_skill_pct": 35.4,
+  "delta_pp": 44.8,
+  "uplift_multiplier": 2.27,
+  "trigger_accuracy_pct": 50.0,
+  "trigger_queries": 86,
+  "trigger_positive_fire_rate": 0.07,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.274 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "States the efficiency ranking in words rather than leaving it implied by the order of rows or bullets."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Gives value inside the quarter and value a year out as two separate orderings rather than one blended rank."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that an event-led quarter planned against pending CFP outcomes would be a bet."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names the launch shape's compliance cost: an embargo, with product, legal and marketing each holding a veto that is exercised late."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Asks the user to choose a shape before placing dated slots."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Presents the plan section by section (anchors, mix ratios, capacity model, slot table, review ritual) for validation one section at a time rather than as one finished block."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes that review by someone who does not report to the content owner is a systematically underestimated lead time."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Offers cheaper-to-verify formats such as docs pages, changelog entries or troubleshooting pages as the substitution."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Asks for Mesomorph's own last-quarter shipped and slipped numbers rather than relying only on a published default."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that the agency cannot deliver the v5 launch post for week 5, because outside writing runs roughly 8 to 9 weeks from conception to publication."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Moves the timed launch post in-house and gives the agency the undated benchmark piece instead."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Warns that outsourcing does not relieve capacity this quarter, and that standing up an external pipeline costs roughly six months of a director's own time."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Schedules the ObserveCon derivatives as their own dated slots: recording, write-up, clips, and a docs update."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names what the individual-adoption slots sell: time-to-first-success and runnable demos."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Proposes testing the scheduler-rewrite idea in a cheaper format first, before it earns an expensive production slot."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Flags the timely-only mix, which resets the quarter to zero."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Flags that no slot carries a surface, pillar, journey stage or evergreen/timely label."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Declines to draft the news post, and says producing an individual piece belongs to a per-format skill rather than to the quarter plan."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Defines the monthly review's three questions (what shipped versus slotted, has the mix drifted, which pieces earned a follow-up) together with its kill and defer rules."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Presents three candidate quarter shapes: evergreen-compounding, launch-dominated and event-led."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States the efficiency ranking in words rather than leaving it implied by the order of rows or bullets."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Gives value inside the quarter and value a year out as two separate orderings rather than one blended rank."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends the launch-dominated shape and names the week-10 board review as what promotes it."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Deletes the event-led shape outright rather than keeping it as a third option to choose from."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Says explicitly which shape was deleted and why: CFP results undecided until week 6, and no approved travel budget."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that an event-led quarter planned against pending CFP outcomes would be a bet."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names the launch shape's compliance cost: an embargo, with product, legal and marketing each holding a veto that is exercised late."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Keeps some slots independent of the v4 date so a slipped release does not take the whole quarter with it."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Asks the user to choose a shape before placing dated slots."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Presents the plan section by section (anchors, mix ratios, capacity model, slot table, review ritual) for validation one section at a time rather than as one finished block."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Does not claim the evergreen-compounding shape produces results visible inside this quarter."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Estimates each format in passes rather than drafting hours, naming passes such as research, drafting, writing code that must run, technical review, assets, publishing and the post-publication reply load."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that reviewer passes, not writer hours, are what bind a developer-content plan."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Warns that a benchmark or migration guide fails late in the cycle."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes that review by someone who does not report to the content owner is a systematically underestimated lead time."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Holds the remaining capacity as named slack and says who may spend it."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Offers cheaper-to-verify formats such as docs pages, changelog entries or troubleshooting pages as the substitution."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Asks for Mesomorph's own last-quarter shipped and slipped numbers rather than relying only on a published default."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Attributes that figure to a single company's stated output before it built a content-scaling pipeline, not to an industry average."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States explicitly that the figure is a challenge tool and not a ceiling."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names the caveats on the figure: one company, security tooling, an SEO-led programme."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Points out that an advocate who also runs events and answers the community does not write four substantial posts a month."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Asks for Northwind's own last-quarter published numbers and says they beat any default figure."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that the agency cannot deliver the v5 launch post for week 5, because outside writing runs roughly 8 to 9 weeks from conception to publication."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Moves the timed launch post in-house and gives the agency the undated benchmark piece instead."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Warns that outsourcing does not relieve capacity this quarter, and that standing up an external pipeline costs roughly six months of a director's own time."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Schedules the ObserveCon derivatives as their own dated slots: recording, write-up, clips, and a docs update."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Treats those derivatives as consumed capacity rather than free extra output."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Keeps one canonical URL per topic, with the derivatives linking back to it."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that anchors are consumed capacity rather than opportunities."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Keeps the anchor-bound share bounded so a slipped v5 date does not take the quarter with it."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Records each anchor's class (release, conference, community event) and its owner."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Attributes the playground mindset to Ashley Faus."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Routes approver-facing evaluation material to an evaluation page rather than to a blog post."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that one blended piece answers neither audience."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names what the platform-team slots must answer: licence, security posture, release cadence, migration cost, support path."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Writes the mix as percentages of slots rather than of hours."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Identifies that ratio as circulating from creator-economy material that carries none of the review cost technical content carries."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Gives the mechanism instead: evergreen pieces keep earning search traffic and support deflection after the release that prompted them, which is what makes the next quarter cheaper."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Rejects Hero / Hub / Help, and says it is built for a brand's video channel rather than for docs and release notes."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States the novelty filter a bet slot must pass: counter-intuitive, counter-narrative, surprising, or an elegant articulation of something readers already feel."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Requires a written hypothesis on every bet slot and attached evidence on every demand-sourced slot."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Classifies the 34-ticket handshake timeout as a docs or product defect rather than merely a missing page, and says which of the two."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Contrasts that with a question asked three times, which is a missing page."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Routes the handshake timeout to a troubleshooting page keyed on the error string rather than to a blog post."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Proposes testing the scheduler-rewrite idea in a cheaper format first, before it earns an expensive production slot."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Does not attribute the cheapest-format-first idea to a named individual."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Flags 'content team' as neither an owner nor a named reviewer, and requires a named person in both roles on every row."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Flags the single-surface plan: thirteen blog slots, with no docs, changelog or video surface."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Flags the missing preparation slot and missing follow-up slot for the week-7 v6 GA."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Flags the timely-only mix, which resets the quarter to zero."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Flags the announcement and product-promotion share against a cap the user has to agree."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Flags that no slot carries a surface, pillar, journey stage or evergreen/timely label."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Flags slots carrying neither evidence nor a stated hypothesis, naming at least one such as '5 things you didn't know about feature flags' or 'Meet the team'."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that a reactive piece of that size lands once or twice a year and cannot be scheduled in advance."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Converts the CEO's request into unassigned slack instead, roughly 20% of capacity held open."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Reports mix drift: actual versus intended ratios, checked at the monthly review."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Reports anchor coverage: the share of anchors that got both a preparation and a follow-up slot."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Reports slot lead time, the days between 'ready for review' and published, as what exposes the bottleneck."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Declines to draft the news post, and says producing an individual piece belongs to a per-format skill rather than to the quarter plan."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Defines the monthly review's three questions (what shipped versus slotted, has the mix drifted, which pieces earned a follow-up) together with its kill and defer rules."
+      }
+    ]
+  }
+}

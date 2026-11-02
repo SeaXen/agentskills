@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Names maintainer time as the dominant cost line and the one usually left out of the budget",
+        "evidence": "No statement in this transcript calls maintainer time 'the dominant' line or notes it is 'usually left out of the budget'; it is simply one line among several in the cost table.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Breaks maintainer time down into review, releases, issue and pull-request response, and security-report handling",
+        "evidence": "The function table folds 'release review' and 'community and contribution engagement' into maintainer time, but security response is budgeted as a separate $5K line, not as part of the maintainer-time breakdown.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Lists further cost lines including legal review at release, inbound audit tooling, training, foundation memberships, community presence and security response",
+        "evidence": "Budget table lines: \"Legal (licensing sign-off, trademark upkeep, foundation agreement)\", \"Inbound OSS consumption policy (tooling + 4h/wk policy owner)\", \"Foundation membership\", \"Community presence (foundation events, minimal travel)\", \"Security response allowance\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the published foundation-membership band of roughly $5,000 to $250,000 or more per year as an order of magnitude",
+        "evidence": "\"Foundation membership (confirm real quote; TODO Group's own published band is $5K\u2013$250K+/yr, undated)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Directs the company to check the target foundation's current fee schedule before putting a number in the budget",
+        "evidence": "\"Get a real dues quote from the target foundation; the $50K point estimate is a planning placeholder, not a quote.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not state a single precise membership figure as though it were current and authoritative",
+        "evidence": "The $50K figure is explicitly flagged as a \"planning placeholder, not a quote\" rather than authoritative.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the annual total in the brief, inside a budget someone has agreed to",
+        "evidence": "\"~$225K/year ongoing (range $180K\u2013$270K), ~$235K in year one. Built up line by line below \u2014 not a single vendor quote, a sum of named cost lines someone owns.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Makes upstream-first a stated engineering default with a documented exception path",
+        "evidence": "\"an upstream-first default\" is stated but no documented exception path for departing from it is given anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the upstream-first reason: a private patch is re-paid at every upgrade while an upstreamed patch is maintained by the project",
+        "evidence": "\"Kestrel Grid is already spending ~$40K/year rebasing the 40-patch scheduler fork at every upstream release... it deletes the risk of the fork silently diverging further from upstream every release it isn't merged.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that skipping upstream-first invalidates the maintenance motive that justified the strategy",
+        "evidence": "No such statement appears in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that rigid inbound policies get circumvented, and that circumvention is where the security exposure appears",
+        "evidence": "The transcript warns about having NO inbound policy ('\"Engineers just pull what they need\" with no allowlist is a copyleft-license and supply-chain exposure'), not about rigid policies being circumvented.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Assigns all the program functions even if one person carries them part time, rather than leaving any unassigned",
+        "evidence": "\"**Function assignment** (all six TODO Group functions, assigned even at fractional headcount)\" followed by a table assigning all six.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ranks engagement depth by return per engineer-hour, leading with contributing fixes upstream, and does not count plain consumption as a rung",
+        "evidence": "\"dues alone are the lowest-return rung on the participation ladder... pair the membership with at least one of: reporting issues upstream, or holding a governance seat... Paying and disappearing gets you neither.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Names maintainer time as the dominant cost line and the one usually left out of the budget",
+        "evidence": "\"the honest answer is most of it was already being spent, invisibly, on patch maintenance\" \u2014 patch-carry labor is framed as the dominant, previously-hidden cost.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Breaks maintainer time down into review, releases, issue and pull-request response, and security-report handling",
+        "evidence": "The breakdown given is instead about patch rebasing/conflict resolution/regression testing, not review, releases, issue/PR response, and security-report handling.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Lists further cost lines including legal review at release, inbound audit tooling, training, foundation memberships, community presence and security response",
+        "evidence": "\"legal/counsel time $30K, policy rollout/training $8K\" plus \"Tooling: SBOM + license scanning... security scan for public repos \u2014 $60K\" and \"Foundation dues... $40K.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the published foundation-membership band of roughly $5,000 to $250,000 or more per year as an order of magnitude",
+        "evidence": "Only a single precise figure is given: \"Foundation dues (LF Energy Silver tier \u2014 fits grid-balancing domain directly) \u2014 $40K.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Directs the company to check the target foundation's current fee schedule before putting a number in the budget",
+        "evidence": "No such caveat is given; the $40K figure is presented directly in the budget table.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not state a single precise membership figure as though it were current and authoritative",
+        "evidence": "\"Foundation dues (LF Energy Silver tier...) \u2014 $40K\" is stated as a fixed line item without qualification.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the annual total in the brief, inside a budget someone has agreed to",
+        "evidence": "\"**CFO number: ~$680K year 1. ~$500K/year steady state (year 2+).**\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Makes upstream-first a stated engineering default with a documented exception path",
+        "evidence": "\"Upstream-first default on patches \u2014 eng director's call; OSPO lead tracks upstreaming rate quarterly.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the upstream-first reason: a private patch is re-paid at every upgrade while an upstreamed patch is maintained by the project",
+        "evidence": "\"40 patches, rebased every release, no upstreaming = recurring tax forever\" and the fix \"cuts ongoing carry roughly in half\" once upstreamed.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that skipping upstream-first invalidates the maintenance motive that justified the strategy",
+        "evidence": "Not stated anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that rigid inbound policies get circumvented, and that circumvention is where the security exposure appears",
+        "evidence": "Not discussed; the inbound-policy tiers described are about license type, with no discussion of circumvention risk.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Assigns all the program functions even if one person carries them part time, rather than leaving any unassigned",
+        "evidence": "\"OSPO lead (1 FTE) \u2014 owns policy, tooling, intake, foundation liaison... Dotted line to Legal for compliance sign-off.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ranks engagement depth by return per engineer-hour, leading with contributing fixes upstream, and does not count plain consumption as a rung",
+        "evidence": "No such ranked ladder of engagement depth appears.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

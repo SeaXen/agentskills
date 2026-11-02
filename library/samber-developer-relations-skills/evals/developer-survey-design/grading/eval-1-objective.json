@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Produces a decision table before any polished questionnaire, and does not return a final questionnaire as the first deliverable.",
+        "evidence": "The decision table comes first, but the title says 'decision table and final questionnaire' and the full questionnaire arrives in the same response, before any validation with owners.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Every kept row carries the original draft number, the decision it informs, the owner, and the answer that would change the decision.",
+        "evidence": "Table columns 'Orig', 'Decision', 'Owner', 'Answer that would change it' are filled for Q1-Q8.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cuts items 1 and 2 (name, work email) from the response table and moves contact collection to a separate form.",
+        "evidence": "'Name, work email | Identifiers stay out of the response table. Optional follow-up goes in a separate form.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cuts items 3 and 4 (version, OS) with the reason that opt-out telemetry already reports them.",
+        "evidence": "'Version, OS | Telemetry answers both.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Phrases every cut reason as 'no decision named' or 'telemetry answers this' or an equivalent traceable reason, never as 'bad question' or a quality judgment on the author.",
+        "evidence": "Reasons include 'No decision or owner named', 'Telemetry answers both', 'Praise in the stem, and no decision attached'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cuts or rewrites item 5 ('How much do you love Kelpline?'), naming praise in the stem and no decision attached.",
+        "evidence": "'Praise in the stem, and no decision attached.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cuts item 6 (agree/disagree 'faster than Flagpole'), stating that agree/disagree inflates agreement and that a performance claim needs a benchmark rather than opinions.",
+        "evidence": "'Agree/disagree inflates agreement. A speed claim needs a published benchmark, not opinions.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cuts items 7 and 8 ('Would you like more tutorials / better SDK docs?') as questions that return yes either way, and points to item 12's trade-off question as the replacement.",
+        "evidence": "'Wishlists return yes. Q4 and Q5 replace them with a trade-off.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cuts items 9 and 10 (budget, demo interest) as lead capture that turns the survey into marketing, and proposes linking the existing signup page from the thank-you screen under its own consent.",
+        "evidence": "'Lead capture makes the survey marketing... A link on the thank-you page replaces it'; thank-you page link is 'under its own consent'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps item 11 with randomised option order and an 'Other (please specify)' option.",
+        "evidence": "Q3 is 'multi-select, randomised, \"Other\" ... fixed at the bottom'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Adds a production-stage question (furthest stage reached in the last 12 months) to carry marketing's headline, marked `publish` in the table and assigned to the core module.",
+        "evidence": "Q1 row: 'Qualifier; production headline' ... 'publish | core'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Uses the deployment-target telemetry (self-hosted vs cloud) as a bias check rather than adding it as a survey question.",
+        "evidence": "It adds Q2 'How do you run Kelpline?' as a survey question, with telemetry only as a comparison.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Instructs booking a readout with Noor and the marketing owner before launch, or states that results with no meeting waiting for them go unused.",
+        "evidence": "No readout meeting is mentioned anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Proposes the production headline in rung-1 wording ('X% of the N respondents who ...') rather than 'X% of developers'.",
+        "evidence": "'X% of the N respondents who used Kelpline in the last 12 months run it in production...'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Produces a decision table before any polished questionnaire, and does not return a final questionnaire as the first deliverable.",
+        "evidence": "The transcript opens with the final questionnaire; no decision table appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Every kept row carries the original draft number, the decision it informs, the owner, and the answer that would change the decision.",
+        "evidence": "There is no table. The 'What I changed' bullets give no owner or decision-changing answer per item.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cuts items 1 and 2 (name, work email) from the response table and moves contact collection to a separate form.",
+        "evidence": "'Moved name and email to the end, optional, with consent' keeps them inside the survey (Q14), not in a separate form.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cuts items 3 and 4 (version, OS) with the reason that opt-out telemetry already reports them.",
+        "evidence": "'Dropped version and OS... Telemetry already reports both.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Phrases every cut reason as 'no decision named' or 'telemetry answers this' or an equivalent traceable reason, never as 'bad question' or a quality judgment on the author.",
+        "evidence": "'The original wording was leading' and 'would not survive a challenge' are quality judgments about the questions.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cuts or rewrites item 5 ('How much do you love Kelpline?'), naming praise in the stem and no decision attached.",
+        "evidence": "The rewrite is justified only as 'The original wording was leading'; it does not name praise in the stem or the missing decision.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cuts item 6 (agree/disagree 'faster than Flagpole'), stating that agree/disagree inflates agreement and that a performance claim needs a benchmark rather than opinions.",
+        "evidence": "Says it is 'leading and ties the survey to one competitor' but never says agree/disagree inflates agreement or that a benchmark is needed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cuts items 7 and 8 ('Would you like more tutorials / better SDK docs?') as questions that return yes either way, and points to item 12's trade-off question as the replacement.",
+        "evidence": "They are merged into Q10 as 'pick top two', and the transcript never points to the trade-off question as the replacement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cuts items 9 and 10 (budget, demo interest) as lead capture that turns the survey into marketing, and proposes linking the existing signup page from the thank-you screen under its own consent.",
+        "evidence": "Budget is kept as Q13 and demo interest as Q14 'Show me a demo of Kelpline Cloud'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps item 11 with randomised option order and an 'Other (please specify)' option.",
+        "evidence": "The Q9 options include 'Something else (please specify)' but randomisation is never mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds a production-stage question (furthest stage reached in the last 12 months) to carry marketing's headline, marked `publish` in the table and assigned to the core module.",
+        "evidence": "Q1 and Q2 cover production use, but there is no 'publish' marking, no core module, and no 'furthest stage in last 12 months' wording.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Uses the deployment-target telemetry (self-hosted vs cloud) as a bias check rather than adding it as a survey question.",
+        "evidence": "Telemetry is cited only to justify dropping questions, not as a bias check.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Instructs booking a readout with Noor and the marketing owner before launch, or states that results with no meeting waiting for them go unused.",
+        "evidence": "No readout is proposed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Proposes the production headline in rung-1 wording ('X% of the N respondents who ...') rather than 'X% of developers'.",
+        "evidence": "'the headline must read \"X% of survey respondents run Kelpline in production\", not \"of Kelpline users\"'.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

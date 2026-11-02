@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects \"the event ran fine\" as evidence the risk work was good, and states that an edition that ran without incident proves nothing about the quality of the register.",
+        "evidence": "\"'The event ran fine' says the edition survived. It says nothing about whether the register helped.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Measures surprise rate - risks that materialised with no corresponding register row - as a named metric.",
+        "evidence": "\"Surprise rate = incidents with no row \u00f7 incidents that fired.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats each of the three surprises as a taxonomy gap to close before the next edition rather than as bad luck.",
+        "evidence": "\"No row existed. That's a taxonomy gap. Add the row before the next edition.\"; Closing pass adds rows for the ones that didn't have one.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Maps the unpaid 12k EUR sponsor invoice to a sponsor-withdrawal row covering a signed sponsor that never pays.",
+        "evidence": "\"Unpaid sponsor \u2248 row 2 ('a signed sponsor never pays')\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Maps the ticketing-platform outage to a registration-platform breach, data-loss or outage row.",
+        "evidence": "\"Ticketing outage \u2248 taxonomy row 12 (platform outage at a critical moment)\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Measures owner and review-date coverage - the share of rows carrying both - and states that a row with neither is a note, not a managed risk.",
+        "evidence": "\"A row with neither is a note, not a managed risk.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Measures decision-date discipline: whether every internal go/no-go date landed before its contractual fee step-up, and whether each was held rather than skipped.",
+        "evidence": "\"Did you set internal go/no-go dates against the venue's fee step-ups, and hold each one?\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Measures re-score freshness: whether scores were actually revisited at each decision date.",
+        "evidence": "\"Was anything re-scored after February? Scores are time-phased\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Measures coverage-decision traceability: whether each declined coverage rung has a recorded reason, findable after the fact.",
+        "evidence": "\"Is there a written reason for each insurance rung bought or declined, including the communicable-disease buy-back?\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies \"opened it twice\" as the core failure and binds the re-score to the decision dates so it happens whether or not anyone remembers.",
+        "evidence": "\"Bind the re-score to dated checkpoints... This fixes 'opened twice'.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that any pass thresholds it offers are defaults this guidance sets rather than an event-industry benchmark, and invites the team to set its own bar.",
+        "evidence": "\"These are defaults the skill sets, not industry benchmarks. Set your own bar.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a post-event closing pass run within about a week of doors closing, recording which risks materialised and which of those had no register row.",
+        "evidence": "\"Closing pass (this week). List every risk that materialized, mark which had a row\".",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects \"the event ran fine\" as evidence the risk work was good, and states that an edition that ran without incident proves nothing about the quality of the register.",
+        "evidence": "'\"The event ran fine\" can't tell you whether the risk process worked... One event is one sample.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Measures surprise rate - risks that materialised with no corresponding register row - as a named metric.",
+        "evidence": "Has a 'Not on the sheet' classification, but no named surprise-rate metric.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats each of the three surprises as a taxonomy gap to close before the next edition rather than as bad luck.",
+        "evidence": "'Not on the sheet. This is a coverage gap... add the class'; adds a standing supplier row.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Maps the unpaid 12k EUR sponsor invoice to a sponsor-withdrawal row covering a signed sponsor that never pays.",
+        "evidence": "Maps it to a generic 'supplier or partner doesn't deliver' row.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Maps the ticketing-platform outage to a registration-platform breach, data-loss or outage row.",
+        "evidence": "Treated as a supplier-failure type. No platform row.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Measures owner and review-date coverage - the share of rows carrying both - and states that a row with neither is a note, not a managed risk.",
+        "evidence": "Asks 'Owner' and 'Last looked at' per incident only, with no coverage share.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Measures decision-date discipline: whether every internal go/no-go date landed before its contractual fee step-up, and whether each was held rather than skipped.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Measures re-score freshness: whether scores were actually revisited at each decision date.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Measures coverage-decision traceability: whether each declined coverage rung has a recorded reason, findable after the fact.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies \"opened it twice\" as the core failure and binds the re-score to the decision dates so it happens whether or not anyone remembers.",
+        "evidence": "Cites 'opened twice' and proposes a calendar review slot, but ties it to no decision dates.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that any pass thresholds it offers are defaults this guidance sets rather than an event-industry benchmark, and invites the team to set its own bar.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends a post-event closing pass run within about a week of doors closing, recording which risks materialised and which of those had no register row.",
+        "evidence": "Only 'Record the actual cost of every incident right after the event'.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

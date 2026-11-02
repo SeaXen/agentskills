@@ -1,0 +1,208 @@
+import { jest } from '@jest/globals';
+import type { Destination } from '@sap-ux/btp-utils';
+import { getDestinationUrlForAppStudio, WebIDEUsage, BAS_DEST_INSTANCE_CRED_HEADER } from '@sap-ux/btp-utils';
+import axios from 'axios';
+import nock from 'nock';
+
+const server = 'https://sap.example';
+const servicePath = '/ns/myservice';
+const metadataPath = '/$metadata';
+const client = '010';
+const expectedMetadata = '<METADATA>';
+const destinationServiceCreds = 'EXAMPLE_BASE64';
+
+const mockIsAppStudio = jest.fn() as jest.Mock;
+const actualBtpUtils = await import('@sap-ux/btp-utils');
+jest.unstable_mockModule('@sap-ux/btp-utils', () => ({
+    ...actualBtpUtils,
+    getCredentialsForDestinationService: jest.fn(() => {
+        return destinationServiceCreds;
+    }),
+    isAppStudio: () => mockIsAppStudio()
+}));
+
+jest.unstable_mockModule('https-proxy-agent', () => {
+    return {
+        HttpsProxyAgent: jest.fn().mockImplementation(() => ({}))
+    };
+});
+
+const mockGetProxyForUrl = jest.fn<any>();
+jest.unstable_mockModule('proxy-from-env', () => ({
+    getProxyForUrl: mockGetProxyForUrl
+}));
+
+const { create, createServiceForUrl, createForDestination, getProxyAgentConfig, ServiceProvider, AbapServiceProvider } =
+    await import('../src/index.js');
+
+beforeAll(() => {
+    nock.disableNetConnect();
+    nock(server).get(`${servicePath}${metadataPath}?sap-client=${client}`).reply(200, expectedMetadata).persist(true);
+});
+
+afterAll(() => {
+    nock.cleanAll();
+    nock.enableNetConnect();
+    jest.clearAllMocks();
+});
+test('create', async () => {
+    mockIsAppStudio.mockReturnValue(true);
+    mockGetProxyForUrl.mockReturnValue(undefined);
+    const response = await axios.get(`${server}${servicePath}${metadataPath}`, {
+        params: { 'sap-client': client }
+    });
+    expect(response.data).toBeDefined();
+    expect(response.data).toBe(expectedMetadata);
+
+    // generate axios extensions for a provider and a service
+    const provider = create({
+        baseURL: server,
+        params: { 'sap-client': client }
+    });
+    const service = provider.service(servicePath);
+
+    // fetch metadata with generic get from provider
+    const metadataWithProviderGet = await provider.get(`${servicePath}${metadataPath}`);
+    expect(metadataWithProviderGet).toBeDefined();
+    expect(metadataWithProviderGet.data).toBe(expectedMetadata);
+
+    // fetch metadata using the convenience method
+    const metadata = await service.metadata();
+    expect(metadata).toBeDefined();
+    expect(metadata).toBe(expectedMetadata);
+    expect(mockGetProxyForUrl).toHaveBeenNthCalledWith(
+        1,
+        `${server}${servicePath}${metadataPath}?sap-client=${client}`
+    );
+    mockGetProxyForUrl.mockReset();
+    expect(provider.defaults.proxy).toBeUndefined();
+    expect(provider.defaults.httpAgent).toBeUndefined();
+    expect(provider.defaults.httpsAgent).toBeDefined();
+});
+
+test('create with proxy', async () => {
+    mockIsAppStudio.mockReturnValue(false);
+    mockGetProxyForUrl.mockReturnValue('http://proxy.example:8080');
+    mockGetProxyForUrl.mockClear(); // Clear any calls from previous tests
+    const provider = create({
+        baseURL: server,
+        params: { 'sap-client': client }
+    });
+    // proxy is now resolved per-request, not at construction time
+    expect(mockGetProxyForUrl).not.toHaveBeenCalled();
+    expect(provider.defaults.proxy).toBeUndefined();
+    expect(provider.defaults.httpAgent).toBeUndefined();
+    // run the request interceptors against a synthetic config to verify proxy agents are injected
+    const syntheticConfig = { url: `${servicePath}${metadataPath}`, params: { 'sap-client': client } } as any;
+    const handlers: any[] = (provider.interceptors.request as any).handlers;
+    let config = syntheticConfig;
+    for (const handler of handlers) {
+        if (handler?.fulfilled) {
+            config = await handler.fulfilled(config);
+        }
+    }
+    expect(mockGetProxyForUrl).toHaveBeenCalledWith(`${server}${servicePath}${metadataPath}?sap-client=${client}`);
+    expect(config.proxy).toEqual(false);
+    expect(config.httpAgent).toBeDefined();
+    expect(config.httpsAgent).toBeDefined();
+    mockGetProxyForUrl.mockReset();
+});
+
+describe('getProxyAgentConfig', () => {
+    const targetUrl = 'https://ui5.sap.com/1.120.0';
+
+    beforeEach(() => {
+        mockIsAppStudio.mockReturnValue(false);
+        mockGetProxyForUrl.mockReset();
+    });
+
+    test('returns explicit agents and disables axios proxy handling', () => {
+        mockGetProxyForUrl.mockReturnValue('http://proxy.example:8080');
+
+        const config = getProxyAgentConfig(targetUrl);
+
+        expect(mockGetProxyForUrl).toHaveBeenCalledWith(targetUrl);
+        expect(config).toEqual({
+            httpAgent: expect.anything(),
+            httpsAgent: expect.anything(),
+            proxy: false
+        });
+    });
+
+    test('returns no proxy config when the URL bypasses the proxy', () => {
+        mockGetProxyForUrl.mockReturnValue('');
+
+        expect(getProxyAgentConfig(targetUrl)).toEqual({});
+    });
+
+    test('returns no proxy config in SAP Business Application Studio', () => {
+        mockGetProxyForUrl.mockReturnValue('http://proxy.example:8080');
+        mockIsAppStudio.mockReturnValue(true);
+
+        expect(getProxyAgentConfig(targetUrl)).toEqual({});
+    });
+});
+
+test('createForServiceUrl', async () => {
+    const service = createServiceForUrl(`${server}${servicePath}?sap-client=${client}`);
+    const metadata = await service.metadata();
+    expect(metadata).toBeDefined();
+    expect(metadata).toBe(expectedMetadata);
+
+    // Ensure axios config params are not overwritten
+    const serviceWithParams = createServiceForUrl(`${server}${servicePath}?sap-client=999`, {
+        params: { 'abc': '123' }
+    });
+    expect((serviceWithParams.defaults.params as URLSearchParams).get('abc')).toEqual('123');
+    expect((serviceWithParams.defaults.params as URLSearchParams).get('sap-client')).toEqual('999');
+});
+
+describe('createForDestination', () => {
+    const destination: Destination = {
+        Name: 'name',
+        Type: 'HTTP',
+        Authentication: 'NoAuthentication',
+        ProxyType: 'OnPremise',
+        Host: server,
+        Description: 'description'
+    };
+
+    test('Not an ABAP system', () => {
+        const provider = createForDestination({}, destination);
+        expect(provider).toBeDefined();
+        expect(provider.defaults.baseURL).toBe(getDestinationUrlForAppStudio(destination.Name));
+        expect(provider).toBeInstanceOf(ServiceProvider);
+    });
+
+    test('ABAP system', () => {
+        const provider = createForDestination({}, { ...destination, WebIDEUsage: WebIDEUsage.ODATA_ABAP });
+        expect(provider).toBeDefined();
+        expect(provider.defaults.baseURL).toBe(getDestinationUrlForAppStudio(destination.Name));
+        expect(provider).toBeInstanceOf(AbapServiceProvider);
+        expect((provider as AbapServiceProvider).publicUrl).toBe(destination.Host);
+    });
+
+    test('ABAP system with additional credentials', async () => {
+        const auth = {
+            username: 'MY_USER',
+            password: 'MY_SECRET'
+        };
+        const provider = createForDestination({ auth }, { ...destination, WebIDEUsage: WebIDEUsage.ODATA_ABAP });
+        expect(provider).toBeDefined();
+        expect(provider.defaults.baseURL).toBe(getDestinationUrlForAppStudio(destination.Name));
+        expect(provider.defaults.auth).toEqual(auth);
+        expect(provider).toBeInstanceOf(AbapServiceProvider);
+        expect((provider as AbapServiceProvider).publicUrl).toBe(destination.Host);
+    });
+
+    test('System from destination service', async () => {
+        const provider = createForDestination({}, destination, 'destServiceInstanceId');
+        expect(provider).toBeDefined();
+        expect(provider.defaults.baseURL).toBe(getDestinationUrlForAppStudio(destination.Name));
+        // trigger a first request to fetch the destination service user
+        nock(`https://${destination.Name}.dest`).get(/.*/).reply(200);
+        await provider.get('/');
+        expect(provider.defaults.baseURL).toContain(destination.Name);
+        expect(provider.defaults.headers.common[BAS_DEST_INSTANCE_CRED_HEADER]).toBe(destinationServiceCreds);
+    });
+});

@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Answers that 18 pieces does not fit the quarter.",
+        "evidence": "\"Verdict: no \u2014 18 pieces do not fit.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names Dan's 3 hours a week of technical review as the binding constraint, not the writer's 30 hours.",
+        "evidence": "\"Dan is the constraint, not the writer.\" combined with \"Dan \u2014 the binding constraint: Nominal: 13 \u00d7 3 = 39 h.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Estimates each format in passes rather than drafting hours, naming passes such as research, drafting, writing code that must run, technical review, assets, publishing and the post-publication reply load.",
+        "evidence": "Heading \"## Capacity model (step 4: passes, not drafting hours)\" separates writer drafting effort from Dan's review effort and names \"writer slack for reply load, refresh slots, and reactive work\" as a further pass.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that reviewer passes, not writer hours, are what bind a developer-content plan.",
+        "evidence": "\"this team's cap is ~10-11 pieces per quarter of this mix, regardless of writer hours.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the 6 tutorials and 4 benchmark posts as the review-heaviest formats because they require code that runs and reproducible measurements.",
+        "evidence": "\"Dan at 3 h/week plus on call = 2-3 review-heavy pieces per quarter. You slotted 10 (6 tutorials + 4 benchmarks are all review-heavy).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that a benchmark or migration guide fails late in the cycle.",
+        "evidence": "\"Fails late: killed methodology in W10 wastes the slot.\" (benchmark row)",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that review by someone who does not report to the content owner is a systematically underestimated lead time.",
+        "evidence": "No mention anywhere of reporting lines or organizational distance affecting lead-time estimation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Caps committed slots at no more than 80% of estimated capacity.",
+        "evidence": "\"80% committed ceiling = 312 h\" and \"80/20 applied to reviewer, adjusted downward... ~16 h committable.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Holds the remaining capacity as named slack and says who may spend it.",
+        "evidence": "\"Fits budget with writer slack for reply load, refresh slots, and reactive work \u2014 writer slack is not a reason to re-add Dan-dependent pieces.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cuts slots rather than lowering quality, and names which slots are cut.",
+        "evidence": "\"1. All 4 benchmark posts... 2. Tutorials 6 \u2192 3... 3. Docs 5 \u2192 4.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Offers cheaper-to-verify formats such as docs pages, changelog entries or troubleshooting pages as the substitution.",
+        "evidence": "The final mix (3 tutorials + 4 docs + 3 changelogs) simply reduces counts of formats already in the original 18; no new cheaper substitute format is proposed in place of the cut pieces.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks for Mesomorph's own last-quarter shipped and slipped numbers rather than relying only on a published default.",
+        "evidence": "The closing assumption note only says \"Re-run with real anchors to place dates\" \u2014 no request for last quarter's shipped/slipped numbers appears anywhere in the text.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Answers that 18 pieces does not fit the quarter.",
+        "evidence": "\"No \u2014 18 pieces doesn't fit. The writer isn't your constraint; Dan is.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names Dan's 3 hours a week of technical review as the binding constraint, not the writer's 30 hours.",
+        "evidence": "\"The writer isn't your constraint; Dan is.\" followed by capacity math showing '44 h demand vs ~20 h usable supply. ~2\u00d7 over.' for Dan versus writer's '~72% utilization'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Estimates each format in passes rather than drafting hours, naming passes such as research, drafting, writing code that must run, technical review, assets, publishing and the post-publication reply load.",
+        "evidence": "Estimates are given purely in hours ('tutorials 25\u201330 h each with runnable code, benchmarks 30\u201340 h each, docs ~10 h, changelogs ~3 h'), not broken into named passes like research/drafting/assets/publishing/reply load.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that reviewer passes, not writer hours, are what bind a developer-content plan.",
+        "evidence": "The transcript uses hours throughout ('~20 h usable supply'), never frames the constraint in terms of 'passes' as a general principle.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the 6 tutorials and 4 benchmark posts as the review-heaviest formats because they require code that runs and reproducible measurements.",
+        "evidence": "Table shows Tutorial 'run it, verify claims' and Benchmark 'methodology, re-runs, fairness' as the highest Dan-hour items, with benchmarks flagged as 'Worst ratio of Dan-cost to risk.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that a benchmark or migration guide fails late in the cycle.",
+        "evidence": "No 'fails late in the cycle' warning appears; risk is framed as reputational ('becomes someone else's Hacker News post') and as a capacity contingency, not late-discovery timing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that review by someone who does not report to the content owner is a systematically underestimated lead time.",
+        "evidence": "No discussion of Dan's reporting line or systematic lead-time underestimation appears anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Caps committed slots at no more than 80% of estimated capacity.",
+        "evidence": "\"Writer side: ~280 h of 390 (~72% utilization)... Don't plan a lone writer above ~80%.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Holds the remaining capacity as named slack and says who may spend it.",
+        "evidence": "Only vague purpose is given: 'leaving room for revision cycles' \u2014 no named slack allocation or named person authorized to spend it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cuts slots rather than lowering quality, and names which slots are cut.",
+        "evidence": "\"Drop 3 of the 4 benchmark posts... Keep one \u2014 the single most defensible head-to-head.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Offers cheaper-to-verify formats such as docs pages, changelog entries or troubleshooting pages as the substitution.",
+        "evidence": "Docs/changelogs are kept as originally planned ('Keep all 5 docs pages and all 3 changelogs') but never offered as a substitute for the cut benchmark slots.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks for Mesomorph's own last-quarter shipped and slipped numbers rather than relying only on a published default.",
+        "evidence": "No company named 'Mesomorph' or request for last-quarter shipped/slipped numbers appears anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

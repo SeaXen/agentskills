@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Orders the 11 breaking changes by blast radius rather than alphabetically or grouped by module",
+        "evidence": "The section 2 inventory table has an explicit \"Blast radius (estimate)\" column and rows run Very high, Very high, High, Very high, High, High, High, Medium, Medium, Medium, Low \u2014 a clearly severity-driven ordering, not alphabetical (TarnClient, default export, CommonJS, query, pool...) and not module-grouped (errors, response shape, auth, eventing are interleaved by impact). The guide body in section 4 reproduces the same order, and the answer flags the ranking as maintainer judgment pending telemetry (\"Re-rank rows 1\u201311 against real telemetry... before publishing\"). Docked one point because t",
+        "score": 4,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Orders the 11 breaking changes by blast radius rather than alphabetically or grouped by module",
+        "evidence": "The list is not alphabetical, and there is a weak descending-scope arc: it opens with environment-wide prerequisites (1 Node 22.11+, 2 TS 5.7+, 3 ESM-only) and closes with the narrowest, explicitly \"compile-time-only\" change (11 branded IDs). But the middle is ordered topically/chronologically by upgrade sequence (4 constructor \u2192 5 pool \u2192 6 callbacks \u2192 7 streaming \u2192 8 errors \u2192 9 retry \u2192 10 exports), not by reach or risk, and the ordering principle is never stated. The doc's own closing section actively contradicts a blast-radius reading: it flags 7 (streaming, \"most likely to touch business lo",
+        "score": 2,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

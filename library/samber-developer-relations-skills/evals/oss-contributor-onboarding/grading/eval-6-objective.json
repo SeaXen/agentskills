@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Names the three reproducibility tiers: bootstrap command, pinned toolchain, container definition",
+        "evidence": "Only \"container definition\" and devcontainer are discussed; \"bootstrap command\" and \"pinned toolchain\" tiers are never named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the default efficiency ordering: bootstrap command > pinned toolchain > container definition",
+        "evidence": "No such ordering is stated since the other two tiers are never named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the value ordering: container definition > pinned toolchain > bootstrap command",
+        "evidence": "No such ordering is stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Promotes the container definition for this project because the stack needs a database and a painful toolchain, and because the team already pays that tier's cost in CI",
+        "evidence": "\"a team already running containers in CI has paid that tier's effort, which moves it to the top of the efficiency line\" combined with the psycopg2/Postgres build-failure symptoms.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Separates adopting the `.devcontainer/` format from choosing a hosted vendor, and adopts the portable format first",
+        "evidence": "\"adopt the container definition before adopting any hosted workspace vendor... Codespaces is not required to get that fix. It's required to host that fix in the cloud.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the 3-5 minutes to 10-30 seconds and the one-to-two-weeks-to-near-instant claims as vendor-reported marketing figures with no peer-reviewed measurement behind them",
+        "evidence": "\"these are vendor-published marketing figures with no peer-reviewed measurement behind them.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Raises who pays for compute, including that storage bills while a workspace is stopped and that free personal allotments are small",
+        "evidence": "Only raises \"who pays for compute\" generally and \"free-tier caps\" without mentioning storage bills while stopped or quantifying free allotments as small.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Raises portability before hosting, citing Gitpod dropping its self-hosted option in 2024 as the cautionary case",
+        "evidence": "\"the exact mistake Gitpod's 2024 self-hosted shutdown made painful for projects that had baked its name into their CONTRIBUTING file.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Raises drift: a cloud environment the maintainers do not use themselves bit-rots, and local setup stays a first-class path",
+        "evidence": "\"A cloud environment your own 6 maintainers don't use in their daily work will bit-rot silently... Keep local setup documented as a first-class path regardless\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires every gate CI enforces to be runnable locally with one documented command",
+        "evidence": "No such requirement is stated in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Splits the pipeline into a credential-free lane that always runs on fork pull requests and a privileged lane a maintainer triggers",
+        "evidence": "Fork-CI splitting is not discussed in section 6.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says in the CONTRIBUTING file who approves a held fork run and how fast",
+        "evidence": "Not discussed in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Turns on maintainer edits to contributor branches and states in the file that this is done",
+        "evidence": "Not discussed in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Re-runs the cold run from clean after each fix, until nothing new is discovered",
+        "evidence": "Only a single cold-run instruction is given (\"Cold-run it \u2014 fresh container, no warm caches...\") without an iterative until-nothing-new-discovered framing.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Names the three reproducibility tiers: bootstrap command, pinned toolchain, container definition",
+        "evidence": "No such three-tier taxonomy is named anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the default efficiency ordering: bootstrap command > pinned toolchain > container definition",
+        "evidence": "Not present.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the value ordering: container definition > pinned toolchain > bootstrap command",
+        "evidence": "No explicit three-way ordering is given, only a direct recommendation for the devcontainer approach.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Promotes the container definition for this project because the stack needs a database and a painful toolchain, and because the team already pays that tier's cost in CI",
+        "evidence": "\"`psycopg2 build failed`... CI runs everything in Docker \u2014 that image already has the right Python version and the right Postgres headers, or CI would fail too... Reusing the CI image means it's continuously tested.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Separates adopting the `.devcontainer/` format from choosing a hosted vendor, and adopts the portable format first",
+        "evidence": "\"Add `.devcontainer/devcontainer.json`... It works two ways, no purchase required: Locally... On GitHub Codespaces... Contributors don't need seats purchased on your side at all.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the 3-5 minutes to 10-30 seconds and the one-to-two-weeks-to-near-instant claims as vendor-reported marketing figures with no peer-reviewed measurement behind them",
+        "evidence": "\"The 3-5min\u219210-30s / 1-2 weeks\u2192near-instant numbers are generic vendor marketing, not measured on Beaconlane.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Raises who pays for compute, including that storage bills while a workspace is stopped and that free personal allotments are small",
+        "evidence": "The transcript says the free allotment is \"plenty for occasional contributors opening a PR,\" the opposite of 'small,' and never mentions storage billing while stopped.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Raises portability before hosting, citing Gitpod dropping its self-hosted option in 2024 as the cautionary case",
+        "evidence": "Not mentioned anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Raises drift: a cloud environment the maintainers do not use themselves bit-rots, and local setup stays a first-class path",
+        "evidence": "The transcript discusses avoiding drift via reusing the CI image, not the specific risk of an unused cloud environment bit-rotting.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires every gate CI enforces to be runnable locally with one documented command",
+        "evidence": "Not addressed in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Splits the pipeline into a credential-free lane that always runs on fork pull requests and a privileged lane a maintainer triggers",
+        "evidence": "Not discussed; this transcript is about dev environments, not CI credential lanes.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says in the CONTRIBUTING file who approves a held fork run and how fast",
+        "evidence": "Not present.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Turns on maintainer edits to contributor branches and states in the file that this is done",
+        "evidence": "Not mentioned anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Re-runs the cold run from clean after each fix, until nothing new is discovered",
+        "evidence": "Not present.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

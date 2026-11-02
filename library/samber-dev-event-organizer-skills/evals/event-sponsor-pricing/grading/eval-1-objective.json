@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Computes the revenue target as 78% of EUR 41,000 (approximately EUR 32,000) and states it is the sum the whole card must raise",
+        "evidence": "Sponsorship target EUR 31,980; \"The card must raise the EUR 31,980 in total.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to divide the revenue target evenly across the tiers, stating that cost-recovery sets the sum and not the shape of the ladder",
+        "evidence": "\"It is not split evenly across tiers.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends three tiers as the default ladder shape for this event",
+        "evidence": "\"Ladder (published, 3 paid tiers...)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets a top-tier to floor-tier price ratio inside the community range of roughly 2:1 to 7.5:1, near 4-5:1",
+        "evidence": "\"The top-to-floor ratio is 5:1, inside the community range of 2:1 to 7.5:1.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gates the tiers on ticket allotment, floor presence, stage time and branding prominence, and on no other axes",
+        "evidence": "The gating axes named are \"passes, floor presence, branding and organizer attention\". Stage time is not a gating axis, and organizer attention is not on the rubric's list.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Removes purchasable stage time from the sellable inventory because the program policy forbids selling talk slots",
+        "evidence": "Not sold: \"Talk slots, stage minutes, pitch slots (program policy)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prices no track or category exclusivity, deleting the line rather than parking it for later",
+        "evidence": "\"Not sold: Track or category exclusivity\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Starts table/floor presence at a hard tier, with no cheaper route onto the floor beneath that tier",
+        "evidence": "\"Tables exist only at Gold and Silver (booth price floor), so there is no cheap route onto the floor.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the per-tier ticket allotment as a subtractable cost component rather than free swag",
+        "evidence": "\"Passes, as a priced cost component\"; pass cost check of 36 sponsor seats.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prices named branded surfaces (such as lanyards, coffee or the evening event) independently of the tier ladder",
+        "evidence": "Add-ons \"priced independently of the ladder\": lunch, lanyards, coffee.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets the sponsor signing deadline roughly a fiscal quarter before the event date",
+        "evidence": "\"Signing and add-on deadline T-90 days\"; matches fiscal lock-in, \"about one quarter before the event\".",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Computes the revenue target as 78% of EUR 41,000 (approximately EUR 32,000) and states it is the sum the whole card must raise",
+        "evidence": "\"Sponsorship target (78%) | **31,980**\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to divide the revenue target evenly across the tiers, stating that cost-recovery sets the sum and not the shape of the ladder",
+        "evidence": "No statement that cost recovery sets the sum and not the ladder shape.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends three tiers as the default ladder shape for this event",
+        "evidence": "Card has Headline, Gold, Silver and Community Supporter, four tiers.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets a top-tier to floor-tier price ratio inside the community range of roughly 2:1 to 7.5:1, near 4-5:1",
+        "evidence": "Headline 8,000 vs Supporter 1,000 is 8:1, above the range.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gates the tiers on ticket allotment, floor presence, stage time and branding prominence, and on no other axes",
+        "evidence": "Tiers also differ on a welcome note, an attendee guide page and printed program, and stage time is not a gating axis.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Removes purchasable stage time from the sellable inventory because the program policy forbids selling talk slots",
+        "evidence": "\"No talk slot is for sale.\" This covers keynotes, sessions, workshops, lightning talks and sponsor stages.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prices no track or category exclusivity, deleting the line rather than parking it for later",
+        "evidence": "No track or category exclusivity is priced anywhere on the card.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Starts table/floor presence at a hard tier, with no cheaper route onto the floor beneath that tier",
+        "evidence": "Supporters get \"Your flyer or swag on the shared sponsor table\", a cheaper route onto the floor.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats the per-tier ticket allotment as a subtractable cost component rather than free swag",
+        "evidence": "\"Passes versus ticket revenue... paid tickets drop to about 288... ticket price at about 32 or more.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prices named branded surfaces (such as lanyards, coffee or the evening event) independently of the tier ladder",
+        "evidence": "Add-ons (lanyard, coffee and lunch, after-party, Wi-Fi) are \"open to any sponsor\" with their own prices.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets the sponsor signing deadline roughly a fiscal quarter before the event date",
+        "evidence": "No signing deadline is given.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

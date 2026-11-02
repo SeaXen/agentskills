@@ -1,0 +1,726 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "developer-how-to-guide",
+  "scenarios": 11,
+  "expectations_total": 157,
+  "expectations_subjective": 2,
+  "expectations_objective": 155,
+  "pass_rate_with_skill_pct": 69.4,
+  "pass_rate_without_skill_pct": 22.3,
+  "delta_pp": 47.1,
+  "uplift_multiplier": 3.11,
+  "trigger_accuracy_pct": 51.8,
+  "trigger_queries": 114,
+  "trigger_positive_fire_rate": 0.14,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.309 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "States a goal sentence in the form `<reader> wants to <end state> on <their setup>` and keeps it off the page (no such sentence appears under the title)."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Inserts a reversible soft step (disable or suspend the old secret) as a sub-step before the revoke, and keeps that safeguard outside the numbered step count."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Writes the Kubernetes versus systemd restart as an inline conditional imperative (\"If you run on Kubernetes, ...\") inside one recommended path, not as tabs or a second page."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Uses `whsec_test_` test-mode secrets in every example and marks the steps that require live mode."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Runs in audit mode: returns a defect table first, then rewrites of the failing sections only, not a full page rewrite."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Prefixes every finding `UNVERIFIED:` because nobody at the competence floor has run the page."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Replaces step 1 (install and login) with a prerequisites check that links the install or quickstart page and gives a version check command such as `pellbrook --version`."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Moves the DNS record-type option table to a reference page linked from the step that needs it."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States the efficiency ranking out loud: inline conditional > tabs > link out > sibling headings > separate pages."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States the value ranking out loud: separate pages > sibling headings > tabs > inline conditional > link out."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names the default (one recommended path plus inline conditionals) and says the split tests override it for the Kubernetes/VM axis."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that no step every reader needs may live inside a single tab, because tabs drop out of print and are skimmed past."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Orders variant coverage by share of readers times cost of getting it wrong."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Lists every page not written in full in the hand-over, each with its goal sentence and variant row."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Keeps the `owner`, `tested_with` and `last_verified` stamps despite the one-off framing, stating they are a one-off page's only drift signal."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Rejects the production project and the author's own phone as the run environment; requires a disposable environment seeded to the competence floor (SDK already sending events), never blank."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Prerequisites block links the page that gets the SDK sending events instead of re-teaching SDK setup."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Replaces `<API_KEY>` with an UPPER_SNAKE placeholder or shell variable and states that angle brackets are shell redirection when pasted unfilled."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Lists a reachable endpoint or local tunnel for the `import.completed` webhook as a prerequisite and verifies the received event."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Orders each step as description, command, placeholder explanation, explanation of the command, then output in its own block."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Classifies (c) as a tutorial and routes it to developer-tutorial, drawing the line as the reader at study versus the reader at work."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Classifies (g) as an upgrade across a breaking change and routes it to version-migration-guide, noting it is a how-to with its own ordering rules."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names the tutorial/how-to mix-up as the single most common conflation made in software product documentation, attributed to Di\u00e1taxis."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States the efficiency ordering out loud: CI pass > cited tickets > search refinements > helpful votes > task test > page views."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States the value ordering out loud: task test > CI pass > cited tickets > search refinements > helpful votes > page views."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Sets the stale-page job to flag `last_verified` older than one quarter for the unversioned hosted product and labels that threshold a baseline to tune to the release cadence."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Adds a path-based code-owner rule so changes to CLI flags, API schemas or config keys request a docs review."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends a periodic cull of pages with neither traffic nor an owner."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Lists all seven pass criteria: commands run as written; verification passes with matching output; no prerequisite discovered after the block; every variant run once; destructive steps carry warning, safeguard and checkpoint and safe-to-re-run holds; the reader leaves only via offered links; no UNVERIFIED marker."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Requires the runner to build the starting state from the prerequisites block only, and to log anything else needed as a hidden prerequisite and stop."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Classifies every defect found into the fixed set (hidden prerequisite, missing variant, unsafe step, no verification, teaching or reference inline, wrong scope) and reruns the affected steps."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Replaces \"you need to be an Admin\" with the narrowest role that can edit a flag, a check that proves the reader holds it, and who grants it."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Adds a wrong-page cue for self-hosted readers (\"Running self-hosted? See ...\") or an inline conditional where the self-hosted path differs."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Moves the rollout option table to a reference page and links it from the step that needs it, with Di\u00e1taxis' \"refer to the reference for a full list of options\" shape."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Writes the single-action procedure as a bullet, not a numbered list of one."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Uses location before action with the exact dashboard labels the reader clicks."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Treats the save as touching production: a warning at that step stating the consequence and scope, and a checkpoint reading the flag's current state before saving."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Notes that Carroll's error-recovery effects were mostly not significant in experiment 2."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Adds Lazonder and van der Meij (1993) as a randomised replication with 64 students where manual type did not interact with prior computer experience."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Attributes \"Each doc is a test suite, each procedure a test case, each step an assertion\" to Manny Silva (docsastests.com) and keeps the \"against your product, not against mocks\" qualifier."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Cites DITA's \"Document tasks, not tools or functions\" as the principle behind task-oriented pages."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Offers Google's \"Minimum Viable Documentation\" line (a small set of fresh and accurate docs beats a large assembly in disrepair) for the CI and cull argument."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Labels every rule on the slide as sourced or self-set, and warns that a baseline presented as an industry standard gets the page discounted when checked."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Suggests Carroll's per-subtask scoring (correct if the right function achieved the desired effect) as the rubric for a moderated how-to test."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Frames the docs-CI argument as CI being the only signal that catches drift before readers do, with the task test as the only direct measure of task success."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Restates the context in the first step of each sibling heading, because readers land on headings from search."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Moves \"(optional)\" to the start of the step as \"Optional:\"."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names the narrowest role for each actor (GitHub organization owner; Sablefield project maintainer, not Admin) with a check and who grants it."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "States a goal sentence in the form `<reader> wants to <end state> on <their setup>` and keeps it off the page (no such sentence appears under the title)."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Places the warning at the top of the retire/revoke step, immediately before its first action, stating the consequence and its scope; no warning box at the top of the page."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Inserts a reversible soft step (disable or suspend the old secret) as a sub-step before the revoke, and keeps that safeguard outside the numbered step count."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Removes `--yes` from the revoke command and states that confirmation-bypass flags are banned on destructive commands."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Replaces `export LB_WEBHOOK_SECRET=whsec_...` with a no-echo load (`read -rs`), the tool's credential prompt or a secret-manager CLI, and gives the reason (shell history, scrollback, screen shares)."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Writes the Kubernetes versus systemd restart as an inline conditional imperative (\"If you run on Kubernetes, ...\") inside one recommended path, not as tabs or a second page."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Uses `whsec_test_` test-mode secrets in every example and marks the steps that require live mode."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Writes every placeholder inside commands as a bare UPPER_SNAKE name or a shell variable set once early, never `<NAME>`."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Marks the revoke step \"Do not re-run; check state with `lanternbay webhooks secrets list` first\" and marks idempotent steps \"Safe to re-run.\""
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Adds a Roll back section after the verification step that opens with the signal meaning \"roll back now\" (signature-verification failures or 401s) and rolls back through the still-active old secret."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Closes with a verification step giving a command, its expected output, and one line naming what failure looks like and where to go next."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Stamps front matter with `content_type: how-to`, an `owner` team, `tested_with` and `last_verified`, and hands over a run list because no cold run has happened."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Runs in audit mode: returns a defect table first, then rewrites of the failing sections only, not a full page rewrite."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Defect table uses exactly the columns Step | Defect | Kind | Fix | Readers blocked."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Classifies each defect with a kind from the fixed set: hidden prerequisite, missing variant, unsafe step, no verification, teaching or reference inline, wrong scope."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Orders the defect rows by readers blocked times how badly, not by page order; the no-verification and immediate-verify defects (steps 6 and 7) rank above the step-2 teaching block."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Prefixes every finding `UNVERIFIED:` because nobody at the competence floor has run the page."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Hands over a run list in the fixed format with the lines Environment, Runner, Capture, Variants, Re-run, Roll back, Fill, Product gaps."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Replaces step 1 (install and login) with a prerequisites check that links the install or quickstart page and gives a version check command such as `pellbrook --version`."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Moves the three CNAME paragraphs to a linked explanation page, keeping at most one line of why where it decides a branch."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Moves the DNS record-type option table to a reference page linked from the step that needs it."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Rewrites step 6 to state the expected DNS propagation delay, poll with a timeout, and distinguish what \"still pending\" output looks like from \"failed\"."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Replaces \"You're done!\" with a verification step through an independent read (a request to the domain, or the dashboard status), its expected output, and a failure line pointing to a troubleshooting entry."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Rewrites step 5 (the DNS provider's UI) to name the screen, link the provider's own page, and list only what the reader enters there."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "For the rename, redirects the old URL and fixes deep links to the old anchor in the same change."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Keeps the new title as verb plus object and writes a goal line that says when a reader wants this rather than restating the title."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Stamps `owner`, `tested_with` and `last_verified` in the front matter, with `UNVERIFIED` where unknown."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Writes the goal sentence for the page before assigning any shape."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Puts Kubernetes and single-VM on separate pages sharing a title stem (such as \"Deploy a worker on Kubernetes\" and \"Deploy a worker on a VM\") because their prerequisites and verification differ."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that forcing prerequisite- or verification-changing variants into tabs ships one page that is wrong for every tab but one."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Keeps the dashboard as the recommended interface on the page and gives Terraform its own linked page, because the steps do not map one to one."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Writes the EU/US difference as an inline conditional imperative (\"If your project is in the EU region, add `--region eu`\"), not a tab."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States the efficiency ranking out loud: inline conditional > tabs > link out > sibling headings > separate pages."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States the value ranking out loud: separate pages > sibling headings > tabs > inline conditional > link out."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names the default (one recommended path plus inline conditionals) and says the split tests override it for the Kubernetes/VM axis."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Re-ranks against the synced tab switcher (tabs near-free) instead of presenting the default ranking as fixed, and still notes each tab costs one run per release."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that no step every reader needs may live inside a single tab, because tabs drop out of print and are skimmed past."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Orders variant coverage by share of readers times cost of getting it wrong."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Lists every page not written in full in the hand-over, each with its goal sentence and variant row."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Cuts the plan to one recommended path (one platform written in full) because of the hard date, and defers the other platforms to linked follow-up pages listed with their goal sentence and variant row."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Sets `owner: UNVERIFIED` in the front matter because no team owns the page, and names the missing owner in the hand-over as what blocks shipping."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that a variant needing its own page waits for an owner, because each extra page is another page to keep true."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Defers executable steps in CI and the stale-page job because the page is a one-off, and replaces CI with a manual re-run at the next release."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Keeps the `owner`, `tested_with` and `last_verified` stamps despite the one-off framing, stating they are a one-off page's only drift signal."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Allows the author's own run only for capturing real output, and states that only someone else's cold run clears the pass threshold."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Rejects the production project and the author's own phone as the run environment; requires a disposable environment seeded to the competence floor (SDK already sending events), never blank."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Hands over a run list naming the environment, a runner who matches the floor and has not seen the draft, and the blocks to capture."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Prerequisites block links the page that gets the SDK sending events instead of re-teaching SDK setup."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Marks any command, API name or output not seen run with `UNVERIFIED:` on its own line directly above the block, outside the code fence."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that a page carrying any `UNVERIFIED` marker does not ship."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Replaces `<API_KEY>` with an UPPER_SNAKE placeholder or shell variable and states that angle brackets are shell redirection when pasted unfilled."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Loads the API key through a no-echo prompt (`read -rs`) or the tool's credential prompt and passes it via stdin or a config file, never pasted inline or exported."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Lists a reachable endpoint or local tunnel for the `import.completed` webhook as a prerequisite and verifies the received event."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Orders each step as description, command, placeholder explanation, explanation of the command, then output in its own block."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Marks the import step \"Safe to re-run.\" only on the strength of the idempotency key, and otherwise writes \"do not re-run; check state with ... first\"."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Adds a Clean up section (delete the test contacts) placed after Roll back, and a Next steps block with at most three links."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Classifies (a) as a quickstart and routes it to developer-quickstart-guide, giving the reason that the reader has never run the product."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Classifies (b) as a standalone install how-to this skill writes, distinguishing it from install steps inside a page whose goal is something else."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Classifies (c) as a tutorial and routes it to developer-tutorial, drawing the line as the reader at study versus the reader at work."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Classifies (d) as an internal runbook outside the collection and says so, instead of routing it to a sibling skill."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Classifies (f) as troubleshooting and routes it to developer-troubleshooting-docs."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Classifies (g) as an upgrade across a breaking change and routes it to version-migration-guide, noting it is a how-to with its own ordering rules."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Classifies (h) as a question about how the mechanism should work and routes it to a design skill in developer-platform-skills (such as api-auth-key-management), not to a how-to."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "For every routed item gives classification, reason and the owning sibling, then stops: drafts nothing for items routed elsewhere."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "For (b) and (i), opens the interview (goal sentence, competence floor, risk pass, runner) or lists the open questions with the answers assumed, rather than drafting blind."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names the tutorial/how-to mix-up as the single most common conflation made in software product documentation, attributed to Di\u00e1taxis."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends executable steps passing in CI against the released product as the first signal, with a wiring cost of about half a day then near-zero, as the use of the platform engineer's day."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends tickets and issues that cite a page or its task as the second signal (near-zero to collect, a standing job to read), each pointing at a wrong or ambiguous step or a missing variant."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States the efficiency ordering out loud: CI pass > cited tickets > search refinements > helpful votes > task test > page views."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States the value ordering out loud: task test > CI pass > cited tickets > search refinements > helpful votes > page views."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Labels the wiring costs as estimates, not measurements."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Prescribes per-page drift metadata: `owner` as a team, `tested_with` as the API version or run date for the unversioned product, and `last_verified`."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Sets the stale-page job to flag `last_verified` older than one quarter for the unversioned hosted product and labels that threshold a baseline to tune to the release cadence."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires the CI job to assert the documented output, not just the exit code, and to run on a schedule as well as on docs commits."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Adds a path-based code-owner rule so changes to CLI flags, API schemas or config keys request a docs review."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends a periodic cull of pages with neither traffic nor an owner."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Rejects the author's laptop and the production account; requires a disposable environment seeded to the competence floor, never blank, never the author's machine, never production."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Because a certificate for a real domain has no disposable equivalent, prescribes the lowest-blast-radius real resource (a test domain or staging tenant), recorded in `tested_with`, with the page stating what the run did not cover."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Drops the Windows variant from the page, keeps a one-line out-of-scope note, and lists the variant in the hand-over with the team that must test it; rejects shipping it tagged \"untested\"."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Blocks shipping while any `UNVERIFIED` marker remains, with no \"with a note\" exception."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Corrects the style guide: the seven-criterion gate is this skill's own baseline, not a published standard; only the principle (test from start to finish, re-test after every notable product release) is sourced to the Good Docs Project."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Lists all seven pass criteria: commands run as written; verification passes with matching output; no prerequisite discovered after the block; every variant run once; destructive steps carry warning, safeguard and checkpoint and safe-to-re-run holds; the reader leaves only via offered links; no UNVERIFIED marker."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Requires the runner to build the starting state from the prerequisites block only, and to log anything else needed as a hidden prerequisite and stop."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Requires re-running every step marked safe to re-run on the finished state, never past the point of no return."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Requires exercising the roll back section before and after the point of no return."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Requires waiting out the stated certificate propagation delay, polling with a timeout, before judging the verification check."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Classifies every defect found into the fixed set (hidden prerequisite, missing variant, unsafe step, no verification, teaching or reference inline, wrong scope) and reruns the affected steps."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Hands over a run list in the fixed format (Environment, Runner, Capture, Variants, Re-run, Roll back, Fill, Product gaps) naming the two renewal blocks under Capture."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Rejects the bare-noun title \"Percentage rollouts\" and retitles with a verb and object stating the end state."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Matches the set's existing gerund convention for the new title instead of switching this one page to bare imperative, and flags the gerund convention to the set's owner as a set-wide change."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Replaces \"you need to be an Admin\" with the narrowest role that can edit a flag, a check that proves the reader holds it, and who grants it."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Adds a wrong-page cue for self-hosted readers (\"Running self-hosted? See ...\") or an inline conditional where the self-hosted path differs."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Moves the rollout option table to a reference page and links it from the step that needs it, with Di\u00e1taxis' \"refer to the reference for a full list of options\" shape."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Cuts the two bucketing paragraphs to a link to an explanation page, keeping at most one line of why where it changes which branch the reader takes."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Writes the goal line to say when a reader wants a percentage rollout rather than restating the title."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Writes the single-action procedure as a bullet, not a numbered list of one."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Caps Next steps at three links (the next goal, the reference for the options used, help) or the set's own limit, and does not carry the eight-link list in the steps."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Treats the save as touching production: a warning at that step stating the consequence and scope, and a checkpoint reading the flag's current state before saving."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Adds a Roll back section after verification that opens with the signal meaning roll back now (error rate or complaints from the new cohort) and rolls back through the flag's own history or previous percentage."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Closes with a verification step through an independent read (the flag's evaluation log, audit log or a test evaluation), with expected output and a one-line failure branch."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Keeps Carroll et al. (1987) but rewrites the claim to the direction of the effect, not the magnitude, stating the figures came from small lab studies (N=19 and N=32)."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Notes that Carroll's error-recovery effects were mostly not significant in experiment 2."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Adds Lazonder and van der Meij (1993) as a randomised replication with 64 students where manual type did not interact with prior computer experience."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Rewrites the 88% figure as a perceived-importance rating from a practitioner survey (Aghajani et al., ICSE 2020; 78 respondents in Survey-I, 146 in total), not a measured outcome."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Attributes \"Each doc is a test suite, each procedure a test case, each step an assertion\" to Manny Silva (docsastests.com) and keeps the \"against your product, not against mocks\" qualifier."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Offers Cloudflare's how-to standard as the sourced neighbour: the fixed end order of verification, then the irreversible closing step, then optional blocks, then Next steps."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Cites DITA's \"Document tasks, not tools or functions\" as the principle behind task-oriented pages."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Offers Google's \"Minimum Viable Documentation\" line (a small set of fresh and accurate docs beats a large assembly in disrepair) for the CI and cull argument."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Labels every rule on the slide as sourced or self-set, and warns that a baseline presented as an industry standard gets the page discounted when checked."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Suggests Carroll's per-subtask scoring (correct if the right function achieved the desired effect) as the rubric for a moderated how-to test."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Frames the docs-CI argument as CI being the only signal that catches drift before readers do, with the task test as the only direct measure of task success."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Retitles from the bare noun \"GitHub Integration\" to a verb and object stating the end state, such as getting a preview URL on every pull request."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Splits the two actors (GitHub org owner installs the app; Sablefield project maintainer links the repository) into sibling headings under one title, each with its own prerequisites."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Restates the context in the first step of each sibling heading, because readers land on headings from search."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Rewrites the GitHub install step to name the screen, link GitHub's own page, and list only what the reader enters there, instead of a click-by-click of GitHub's UI."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Cuts the nine screenshots to only screens that are hard to find, each with alt text stating what it shows, and notes they must be re-captured when the UI changes."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Removes \"this part is simple\" and any \"easy\" or \"just\" wording, stating the reader is here because it is not working for them yet."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Moves \"(optional)\" to the start of the step as \"Optional:\"."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names the narrowest role for each actor (GitHub organization owner; Sablefield project maintainer, not Admin) with a check and who grants it."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Writes the restrict-to-selected-repositories choice as a conditional imperative inside one recommended path."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Marks GitHub-side screens and labels not seen run with `UNVERIFIED:` and hands over a run list, since the vendor UI has not been run."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Gives the step that commonly fails (the app installed on the wrong organization or without the repository selected) one line naming the failure and the troubleshooting entry, not a paragraph."
+      }
+    ]
+  }
+}

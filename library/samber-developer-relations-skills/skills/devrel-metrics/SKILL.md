@@ -1,10 +1,10 @@
 ---
 name: devrel-metrics
-description: Builds a developer relations measurement framework - a handful of metrics tiered from reach to product and business impact, each with a written attribution rule, a baseline-derived target, an owner and an action, and vanity metrics cut. Use whenever someone asks how to measure DevRel, which devrel KPIs matter, how to prove devrel value or ROI to an exec, what belongs in a devrel scorecard or quarterly report, why their numbers look good but leadership stays unconvinced, or reports only stars, impressions and event counts - even if they never say "metrics". Do NOT use for tracking instrumentation and dashboards - use samber/developer-relations-skills@devrel-analytics. Not community-only health metrics, not a single event's ROI.
+description: Builds a developer relations measurement framework - a handful of metrics tiered from reach to product and business impact, each with a written attribution rule, a baseline-derived target, an owner and an action, and vanity metrics cut. Use whenever someone asks how to measure DevRel, which devrel KPIs matter, which numbers can prove devrel value or ROI to an exec, what belongs in a devrel scorecard, why their numbers look good but leadership stays unconvinced, or reports only stars, impressions and event counts - even if they never say "metrics". Do NOT use for tracking instrumentation and dashboards - use samber/developer-relations-skills@devrel-analytics. Not the exec report itself (samber/developer-relations-skills@devrel-exec-reporting), community-only health, or one event's ROI.
 license: MIT
 metadata:
   author: Samuel Berthe
-  version: "1.0.2"
+  version: "1.0.3"
 ---
 
 # DevRel Metrics
@@ -29,6 +29,7 @@ Name which skill fits, and stop if it is not this one.
 - Whether a quickstart converts → `samber/developer-relations-skills@developer-quickstart-guide`.
 - Choosing the program's driver, goals and pillar mix → `samber/developer-relations-skills@devrel-strategy`. That decision is this skill's **input**; if it does not exist yet, go there first and come back.
 - Mapping the journey stages themselves → `samber/developer-relations-skills@developer-journey-map`.
+- Writing the exec report or budget-defense case from an agreed framework → `samber/developer-relations-skills@devrel-exec-reporting`. This skill decides the numbers; that one tells the funder what they mean.
 
 ## Interview
 

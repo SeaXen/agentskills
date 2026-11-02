@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Identifies the plan as an activity list rather than a strategy, and does not repair it by trimming the activity list.",
+        "evidence": "\"Biggest problem in your draft: 8 activities funded across 4 pillars, but your only headcount lands Q3 \u2014 nothing ships in Q1/Q2 as staffed.\" is fixed by rebuilding Position/Driver/Goals/Audience from scratch, not by shortening the activity list",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names one primary funded driver from the seven-driver list: developer adoption, sales enablement, developer enablement, product input, ecosystem and partnerships, contributor community, employer brand.",
+        "evidence": "\"**Primary driver: developer adoption** \u2014 product is self-serve infra, usage-before-revenue shape.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names one secondary driver, and names the person who owns the primary driver or flags that no owner has been supplied.",
+        "evidence": "\"**Secondary driver: sales enablement**\" and Quality gate: \"Driver named, owner unnamed (role placeholder only) \u2014 **incomplete**, needs a real name.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Caps goals at two primary plus one secondary.",
+        "evidence": "\"## Goals (2 primary + 1 secondary \u2014 down from 6)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Uses the AAARRRP goal vocabulary: awareness, acquisition, activation, retention, referral, revenue, product.",
+        "evidence": "Goals table header \"| Goal | AAARRRP | Journey step | Drop-off |\" with entries \"awareness\", \"activation\", \"revenue\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Attributes AAARRRP to Phil Leggetter.",
+        "evidence": "No mention of \"Leggetter\" appears anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Pins each goal to a specific developer-journey step among initial awareness, deep awareness, evaluation, commitment, standardization and advocacy.",
+        "evidence": "Goals table: \"initial awareness\", \"evaluation \u2192 commitment\", \"evaluation (company-adoption path)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a goal with no observed drop-off behind it is a preference, not a goal.",
+        "evidence": "The table flags drop-offs as \"Not yet measured\" but never uses the \"preference, not a goal\" framing anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a program claiming every goal scores every candidate activity identically, so effort follows whoever asks loudest.",
+        "evidence": "\"Six goals were named with no single owner or ranking \u2014 that's a sponsor problem, not a strategy problem (every activity scores equally when everything is a goal)\" states the scoring-equally premise but never states the \"whoever asks loudest\" consequence.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Replaces the two named Q3 hires with a next capability plus the trigger that justifies it.",
+        "evidence": "\"**Recommendation: pull the developer advocate hire forward**... **Community manager stays deferred**, gated on a real trigger: hire when Discord actually launches (H2), not on a fixed quarter.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the proposed metrics as counts of hits rather than developer behaviour.",
+        "evidence": "\"Signal: time-to-first-successful-deploy, not blog views\" and \"Signal: qualified follow-up conversations per talk, not attendee count\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Produces a non-empty refused list containing at least one item the team wanted to do.",
+        "evidence": "\"No Discord launch in H1... No hackathons in H1 (2 planned)... No monthly livestream... No swag store\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Identifies the plan as an activity list rather than a strategy, and does not repair it by trimming the activity list.",
+        "evidence": "The core fix is explicitly trimming: \"This turns seven concurrent initiatives into three, sized to what's actually staffed.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names one primary funded driver from the seven-driver list: developer adoption, sales enablement, developer enablement, product input, ecosystem and partnerships, contributor community, employer brand.",
+        "evidence": "\"Primary: awareness, sales support.\" \u2014 two primaries named, neither matching the driver vocabulary cleanly, not one driver from the given list.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names one secondary driver, and names the person who owns the primary driver or flags that no owner has been supplied.",
+        "evidence": "\"Supporting infrastructure: docs, product feedback.\" \u2014 two secondary items named, not one; owner is only addressed generically ('name an interim owner... 'the team' cannot execute this by default').",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Caps goals at two primary plus one secondary.",
+        "evidence": "The plan keeps six goals total (2 primary, 2 supporting, 2 deferred-to-H2), exceeding a cap of three.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Uses the AAARRRP goal vocabulary: awareness, acquisition, activation, retention, referral, revenue, product.",
+        "evidence": "This vocabulary never appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Attributes AAARRRP to Phil Leggetter.",
+        "evidence": "No such attribution appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Pins each goal to a specific developer-journey step among initial awareness, deep awareness, evaluation, commitment, standardization and advocacy.",
+        "evidence": "No developer-journey-step vocabulary is used anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a goal with no observed drop-off behind it is a preference, not a goal.",
+        "evidence": "Not stated anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a program claiming every goal scores every candidate activity identically, so effort follows whoever asks loudest.",
+        "evidence": "The critique is 'Six co-equal goals isn't a plan' but never states the mechanism about scoring activities identically or effort following the loudest ask.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Replaces the two named Q3 hires with a next capability plus the trigger that justifies it.",
+        "evidence": "The plan keeps the Q3 hire structure, only suggesting 'either pull the dev advocate hire into Q1, or cut H1 scope' \u2014 it doesn't replace hires with a capability-plus-trigger framework.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the proposed metrics as counts of hits rather than developer behaviour.",
+        "evidence": "\"Blog views, Discord members, conference attendees, GitHub stars, and social followers are reach numbers \u2014 they tell you who was exposed, not whether the goal was met.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Produces a non-empty refused list containing at least one item the team wanted to do.",
+        "evidence": "\"Cut / defer to H2 (post-hire)\" column lists swag store, both hackathons, monthly livestream, public Discord launch as cut items.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

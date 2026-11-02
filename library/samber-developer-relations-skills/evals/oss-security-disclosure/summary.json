@@ -1,0 +1,566 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "oss-security-disclosure",
+  "scenarios": 12,
+  "expectations_total": 150,
+  "expectations_subjective": 1,
+  "expectations_objective": 149,
+  "pass_rate_with_skill_pct": 80.0,
+  "pass_rate_without_skill_pct": 33.3,
+  "delta_pp": 46.7,
+  "uplift_multiplier": 2.4,
+  "trigger_accuracy_pct": 63.5,
+  "trigger_queries": 126,
+  "trigger_positive_fire_rate": 0.429,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Asks the reporter whether anyone else was told, whether they hold a CVE, how they want to be credited, and their time zone"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Lists yanking the affected crate versions and opening a RustSec advisory as a pull request among the crates.io release-day steps"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Produces the incident record with Report, Verdict, Severity, Affected/patched per line, Identifier, Timeline, Decision gate, Disclosure, Downstream notice and Open questions fields, kept only in the private advisory draft and not in any committed file or persistent memory"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names Lena as the second responder to add to the private advisory draft and flags the single-responder window as a risk instead of proceeding silently"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Declines to adopt the reporter's 'Critical 9.8' label and scores independently with a full CVSS 3.1 base vector, a precondition in prose, and written reasoning for Scope and Privileges Required"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Records the scoring convention as a CVSS 3.1 vector plus 4.0 where accepted, and sets CNA posture to the code-host CNA with the trigger that would change it (third-party CVEs filed, or several CVEs a year)"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that the two-week hard date promoted code-host private reporting and the template SECURITY.md over longer-horizon options, naming which interview answer moved which option"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Delivers a host-settings checklist with an owner per item and a responder roster naming two people plus a backup"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requests the CVE through the code-host CNA now, on acceptance, and states the release does not wait for it"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Produces the incident record block with the Disclosure, Reporter deadline and Agreed fields filled"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Anchors the counter-offer on published ranges attributed to their owners (OpenSSF 45 to 90 days, CERT/CC 45 days) and says none is a standard"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that the private fork's CI does not run, so the full suite and fuzzing run locally, and that the 4.x and 3.x backports are prepared as separate branches since only one fork pull request may target the default branch"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Flags the single maintainer as a single point of failure and names recruiting a second responder with advisory-publish rights as an immediate step"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Requests the project's own identifier on acceptance and does not rely on any yamlette identifier to cover the bundled copy"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires asking the reporter for consent and spelling before naming them, and assigns credit roles (finder or reporter, remediation developer, remediation reviewer)"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that publishing the advisory deletes the temporary private fork so the fix must be merged first, and schedules checking the Go vulnerability database import for correct ranges and symbols at close-out"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Refuses to draft the call-out thread, requiring the dispute text to state facts and cite sources with no tone because it becomes part of the public record"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that code-host database curators do lower inflated scores when shown the precondition, and supplies that precondition (an opt-in option documented as disabling verification)"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Recommends evaluating becoming a CNA as the response to recurring third-party CVEs, citing curl and the Linux kernel becoming CNAs for their own products"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Cites curl's CVE-2020-19909 or node-ip's CVE-2023-42282 as precedent for a database-scored 9.8 later lowered, with the lesson that not-a-vulnerability reasoning must be public and citable"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Adds documented test-only options that disable verification to the SECURITY.md out-of-scope list in the retrospective"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Opens a private advisory draft recording the report with verdict need-info and a date it must resolve by, visible to a second responder"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Adds the no-bounty statement to SECURITY.md in the retrospective if it is missing, stating that it removes the payment negotiation before it starts"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that a Maven Central release cannot be removed once published and may take time to sync, so confirming the artifact resolves precedes any advisory"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Fills the CRA field in the incident record with the manufacturer role and its reasoning"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Flags that from 11 December 2027 the company owes a declared support period, generally at least five years, and that its supported-versions table should match"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Accepts the 5-day lead time as inside the 1 to 7 day range and writes the notice with an '[EMBARGOED until <date time TZ>]' subject, an interim mitigation, and '<<late: ...>>' placeholders for release-day values"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Requires generic branch names, commit messages and pull-request titles for the fork PRs"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Refuses to reply in the public forum thread or argue the broken agreement in public"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that only what Bram published is public, and keeps any additional detail (other affected methods, variants) private until the release exists"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Refuses to push the fix to the public main branch before the patched releases exist, stating that the fix diff itself discloses the vulnerability and a one-liner is the easiest diff to reverse-engineer"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Rejects the commit message 'fix: bounds check in table nesting parser' and supplies a generic one that names neither the bug class nor the affected component"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Classifies the situation as the fast track because the crashing sample is already public, and schedules fix, release and advisory for the same day rather than tomorrow"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Instructs hiding or deleting the public issue where the host allows it and asking the reporter to continue in the private advisory, rather than leaving the issue up"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that only what the reporter already published is public and keeps additional detail (affected code path, input variants) private until the release exists"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Scores the crash with a full CVSS 3.1 base vector and a precondition in prose, treating a panic in memory-safe Rust as availability-only impact while checking for unsafe blocks before ruling out memory corruption"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Asks the reporter whether anyone else was told, whether they hold a CVE, how they want to be credited, and their time zone"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Requests the CVE through the code-host CNA now rather than at publication, and states the release does not wait for it"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Lists yanking the affected crate versions and opening a RustSec advisory as a pull request among the crates.io release-day steps"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Produces the incident record with Report, Verdict, Severity, Affected/patched per line, Identifier, Timeline, Decision gate, Disclosure, Downstream notice and Open questions fields, kept only in the private advisory draft and not in any committed file or persistent memory"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names Lena as the second responder to add to the private advisory draft and flags the single-responder window as a risk instead of proceeding silently"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Refuses to run poc.py against the staging server, and requires it to be read first and then run only in a disposable environment with networking off, no credentials or home directory mounted, the affected version pinned and a time limit"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Offers to reproduce by reading the header-parsing code and tests instead if no disposable environment is available, and says so explicitly"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Declines to adopt the reporter's 'Critical 9.8' label and scores independently with a full CVSS 3.1 base vector, a precondition in prose, and written reasoning for Scope and Privileges Required"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Records the verdict as pending with a date it must resolve by rather than as vulnerability before reproduction"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Instructs enabling private vulnerability reporting now, opening a private advisory draft, and moving the thread there"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Drafts an acknowledgement containing a dated reproduction attempt, a dated triage decision, the CNA path for the identifier, and the prior-disclosure, credit and time-zone questions, rather than a bare thanks"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Compares the 72-hour demand with the responders' available hours and sets a decision gate date instead of accepting or rejecting the deadline outright"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that nothing about this incident, including that one exists, goes into persistent memory, project notes or any committed file"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes the project is company-run and schedules the EU CRA role check for close-out, since no exploitation is known"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names one primary channel, code-host private vulnerability reporting, and either drops the email alias or labels it explicitly as a fallback, instead of listing two equal channels"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Removes the copied safe-harbor section unless every named maintainer agrees to it, stating that individual maintainers can waive only their own claims"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that responders need the admin or security-manager role to receive private reports, and that write access receives nothing"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Includes the request that reporters say whether they used AI tools and confirm they verified the result themselves"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Records the scoring convention as a CVSS 3.1 vector plus 4.0 where accepted, and sets CNA posture to the code-host CNA with the trigger that would change it (third-party CVEs filed, or several CVEs a year)"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that the two-week hard date promoted code-host private reporting and the template SECURITY.md over longer-horizon options, naming which interview answer moved which option"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Delivers a verification step with all four checks: a test report from a second account reaching both responders within one business day, the SECURITY.md channel matching the enabled setting, the supported-versions table matching tags that receive fixes, and a second person following the policy unaided"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Delivers a host-settings checklist with an owner per item and a responder roster naming two people plus a backup"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Classifies the project as outside the EU CRA (volunteer, non-monetised) while noting the adopter shipping it in a product is the manufacturer, and routes legal classification to a lawyer"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that 14 days sits at the short end of published practice but inside it, and that a small library fix like this is usually meetable without negotiation"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Rejects the claim that 90 days is an industry standard, attributing each quoted default to its owner (Google Project Zero 90 plus 30, CERT/CC 45 days, OpenSSF 45 to 90 days) and stating none is a standard"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Replaces the 90-day plan with a dated plan inside the 14-day window, giving a specific release date, time and time zone"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requests the CVE through the code-host CNA now, on acceptance, and states the release does not wait for it"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Sets a decision gate on the triage-decision date with the ship-faster versus counter-offer rule written down"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Asks Oskar whether anyone else was told, whether he or his employer already holds a CVE, how he wants to be credited, and his time zone"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names `npm view <package>@<version>` as the registry confirmation step before publishing the advisory, and `npm deprecate` on vulnerable versions as an option"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Produces the incident record block with the Disclosure, Reporter deadline and Agreed fields filled"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Declines to bring in CERT/CC, because a coordinator is for several vendors that must ship together, not one project with packagers"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Picks the counter-offer because the estimate (around 30 hours of fix plus backports) does not fit the 10 available hours, and drafts it with a specific proposed date, time and time zone"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names what the researcher gets in the counter-offer: credit in the advisory and CVE record, review of the fix before release, and a co-reviewed advisory text"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Anchors the counter-offer on published ranges attributed to their owners (OpenSSF 45 to 90 days, CERT/CC 45 days) and says none is a standard"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Offers an advisory with a workaround at the 7-day date only if a workaround fully mitigates and is easy to apply, and otherwise states that this fallback is unavailable"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Rejects 'just crashes, medium DoS' for a heap overflow in C++ and scores confidentiality and integrity impact unless memory corruption can be ruled out, with the reasoning in prose"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Keeps Attack Complexity Low, because how an integrator wires the decoder is not a condition outside the attacker's control"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Instructs using the distros list with `[vs]` in the subject, a proposed public date and time, an embargo of at most 14 days with under 7 preferred, and a full-detail post to oss-security when the embargo ends"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Shares the patch with downstreams at release time by default, giving early private-fork access only to a recipient that must build before release"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that the private fork's CI does not run, so the full suite and fuzzing run locally, and that the 4.x and 3.x backports are prepared as separate branches since only one fork pull request may target the default branch"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Flags the single maintainer as a single point of failure and names recruiting a second responder with advisory-publish rights as an immediate step"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Refuses to change the README wording today in public, stating that withdrawing a safety claim before the release tells attackers where to look, and ships the docs change with the fixed release"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Treats withdrawing the safety claim as a valid fix that must be disclosed in the advisory like a code fix, if that route is chosen"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Sets the verdict to vulnerability, or pending with a resolve-by date until reproduced, rather than bug-not-vulnerability or out of scope"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Scores the reasonable worst-case integration (an application loading untrusted graph files) with a full CVSS 3.1 base vector and Attack Complexity Low, and does not downgrade the vector because the docstring asks callers to validate"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Lists `load_graph` and any other entry points reaching the vendored parser in the advisory's affected-functions field"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Requests the project's own identifier on acceptance and does not rely on any yamlette identifier to cover the bundled copy"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Drafts a reporter acknowledgement with a dated triage decision and release estimate, not the upstream-redirect template"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes for PyPI that yanking hides affected versions from resolution but exact pins still install them, so yanking is not a removal"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Marks earlier versions that were not checked as unknown rather than safe, and adds a vendored-dependency policy to the retrospective"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Replaces the single `< 2.3.4` range with one range per supported line, such as `>= 2.0.0, < 2.3.4` for v2 and `>= 1.0.0, < 1.9.12` for v1, stating that the single range would mark the patched v1 release as vulnerable"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Replaces the 'High' label with a full CVSS 3.1 base vector plus a precondition in prose"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires asking the reporter for consent and spelling before naming them, and assigns credit roles (finder or reporter, remediation developer, remediation reviewer)"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Fills the affected-functions field with `Dial` and `DialContext` so govulncheck can use symbol-level reachability instead of flagging every dependent"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that scanner alerts only fire after the code-host database reviews the advisory, which can take days to weeks, and requires announcing through release notes and the project's own channels on release day"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Describes the Go `retract` directive as optional and requiring another release, with the vulnerability database and govulncheck as the primary signal"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that publishing the advisory deletes the temporary private fork so the fix must be merged first, and schedules checking the Go vulnerability database import for correct ranges and symbols at close-out"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Sets the expectation that the outcome is DISPUTED and that REJECTED is rare once a record is published"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Refuses to draft the call-out thread, requiring the dispute text to state facts and cite sources with no tone because it becomes part of the public record"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Structures the dispute with the claimed issue, the documented trust assumption with a link to the 'for tests only' documentation line, the history (reported 8 months ago, assessed and closed before assignment), and the record's score assumption against the documented fact"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Files the same correction with the code-host advisory database, the Go vulnerability database using its NOT_A_VULNERABILITY exclusion, and OSV, not only with the CNA"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that code-host database curators do lower inflated scores when shown the precondition, and supplies that precondition (an opt-in option documented as disabling verification)"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that becoming a CNA does not reach back to a CVE another CNA already assigned, citing curl's CVE-2023-52071"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Recommends evaluating becoming a CNA as the response to recurring third-party CVEs, citing curl and the Linux kernel becoming CNAs for their own products"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Cites curl's CVE-2020-19909 or node-ip's CVE-2023-42282 as precedent for a database-scored 9.8 later lowered, with the lesson that not-a-vulnerability reasoning must be public and citable"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Adds documented test-only options that disable verification to the SECURITY.md out-of-scope list in the retrospective"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Asks once for a proof of concept against a released version plus the affected version and component, and closes with reasoning if nothing arrives by a stated date"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Does not dismiss the email because it reads as generic or machine-generated, and judges only the evidence provided"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Opens a private advisory draft recording the report with verdict need-info and a date it must resolve by, visible to a second responder"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Prepares the fast-track contingency: if the sender publishes and the claim proves real, fix and release the same day, and do not argue in public"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Routes continued threats or harassment to the code host's reporting channel and the project's conduct process rather than to the police as a first step"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Adds the no-bounty statement to SECURITY.md in the retrospective if it is missing, stating that it removes the payment negotiation before it starts"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Keeps the full reasoning in the private advisory draft and nothing about the incident in shared or committed memory"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that a Maven Central release cannot be removed once published and may take time to sync, so confirming the artifact resolves precedes any advisory"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Replaces the 90-day timeline with the fast track: fix, release and advisory the same day because exploitation is in the wild"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Tells the known commercial customers directly today with hours of notice rather than days, and names the Article 14(8) duty to inform impacted users of the vulnerability and mitigations"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Notes that micro and small enterprises are exempt from fines for missing the 24-hour early warning, without asserting whether this company qualifies"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Fills the CRA field in the incident record with the manufacturer role and its reasoning"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Flags that from 11 December 2027 the company owes a declared support period, generally at least five years, and that its supported-versions table should match"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that all open pull requests in the fork merge at once and only one may target the default branch, so the release-5.x backport and the docs change must be prepared as separate branches or in a private mirror"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Accepts the 5-day lead time as inside the 1 to 7 day range and writes the notice with an '[EMBARGOED until <date time TZ>]' subject, an interim mitigation, and '<<late: ...>>' placeholders for release-day values"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Moves the exploit-triggering regression test out of the shipped fix into a follow-up commit landed after users have had time to upgrade, because the issue is Critical, while noting reviewers still see it in the private fork"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Notes that branch protection is not enforced on the fork merge and requires a deliberate review"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Requires generic branch names, commit messages and pull-request titles for the fork PRs"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Schedules the close-out items: a follow-up if the code-host database review runs past its documented window, confirmation of ecosystem imports, Yuki's acceptance of the credit, and a 15-minute retrospective"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Refuses to reply in the public forum thread or argue the broken agreement in public"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Sends Bram the early-disclosure message stating the release time and asking him to avoid adding further technical detail until it is out"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that only what Bram published is public, and keeps any additional detail (other affected methods, variants) private until the release exists"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Publishes the advisory only after the patched version is confirmed installable from PyPI, not before"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Defers writing SECURITY.md to the retrospective, stating that when incident and setup coincide the incident runs first"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Notifies any downstream with hours of notice rather than days"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Updates the incident record's Disclosure and Reporter deadline fields to today with the reason"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Adds what slowed the timeline to the retrospective, with none of the blog's detail entering any committed file"
+      }
+    ]
+  }
+}

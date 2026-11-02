@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Adds a second, shorter buyer lane alongside the developer lane rather than one merged funnel.",
+        "evidence": "A distinct '## Buyer lane' section states: 'Present. Developer is explicitly not the signer; deal requires security review then procurement.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the developer lane counts people while the buyer lane counts organisations or accounts.",
+        "evidence": "'The developer lane counts people; this lane counts accounts.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires usage to be rolled up to accounts before the buyer lane can be read at all.",
+        "evidence": "'Roll signups to a company/workspace before reading it \u2014 see the rollup gap in Scope.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names at least one concrete rollup key: email domain, workspace or organisation object, licence or API key, or self-reported company.",
+        "evidence": "'Until signups are rolled up by email domain/workspace, the buyer lane's true denominator is unknown'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States explicitly that the raw 340-to-9 comparison is unreadable without that rollup, because many signups from one company read as many leads.",
+        "evidence": "The stated reason the 340\u21929 comparison is unreadable is cohort/timing mismatch ('the denominator and the numerator were never the same cohort'), not the rollup/many-signups-per-company issue, which is raised separately as an 'unresolved' gap about the buyer lane's own denominator.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the three buyer-lane signal families in increasing order of buying intent: depth, then spread, then boundary contact.",
+        "evidence": "No mention of 'depth' or 'spread' signal families anywhere; the buyer lane only describes Technical/Commercial approval stages and boundary contact.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Defines spread as a second and third active developer inside the same account.",
+        "evidence": "No definition of 'spread' appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives at least two concrete boundary-contact examples, such as an SSO or RBAC page view, a compliance or audit question, a seat or rate limit hit, a security questionnaire request, or an enterprise terms page view.",
+        "evidence": "'prospect's engineering/security team asks a compliance question, hits a plan/rate limit, opens an SSO or audit-log doc, or requests a security questionnaire'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends instrumenting boundary contact first, and states it is the rarest and strongest of the three.",
+        "evidence": "It recommends instrumenting boundary contact first ('instrument boundary contact first \u2014 it's the cheapest, earliest, cleanest buy-signal available') but never calls it 'rarest and strongest of the three,' and no three-family taxonomy exists to rank.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the buyer lane its own exit events, such as security questionnaire cleared and contract signed.",
+        "evidence": "Buyer lane table: 'security questionnaire/review cleared' (Technical approval) and 'contract signed' (Commercial approval).",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Assigns the buyer lane's stages owners outside DevRel.",
+        "evidence": "'security or solutions engineering (confirm \u2014 may currently be founder/eng-lead led)' and 'sales (confirm \u2014 may be founder-led)'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the developer lane continues in parallel rather than ending where the buyer lane begins.",
+        "evidence": "The document only says boundary contact is 'where the two lanes actually connect' \u2014 it never states the developer lane continues past that point rather than terminating.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Records the champion as a participant carrying a specific artefact, not as a persona note.",
+        "evidence": "The word 'champion' does not appear anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Adds a second, shorter buyer lane alongside the developer lane rather than one merged funnel.",
+        "evidence": "The actual deliverable is a single 7-row table ('## The two-lane map') listing stages 1-7 sequentially with a 'Who drives' column, not two parallel lanes.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the developer lane counts people while the buyer lane counts organisations or accounts.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires usage to be rolled up to accounts before the buyer lane can be read at all.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names at least one concrete rollup key: email domain, workspace or organisation object, licence or API key, or self-reported company.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States explicitly that the raw 340-to-9 comparison is unreadable without that rollup, because many signups from one company read as many leads.",
+        "evidence": "The critique instead is cohort mismatch: 'the 9 deals that closed this quarter started their journey 6-8 months ago,' not an account-rollup issue.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the three buyer-lane signal families in increasing order of buying intent: depth, then spread, then boundary contact.",
+        "evidence": "Not mentioned anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Defines spread as a second and third active developer inside the same account.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives at least two concrete boundary-contact examples, such as an SSO or RBAC page view, a compliance or audit question, a seat or rate limit hit, a security questionnaire request, or an enterprise terms page view.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends instrumenting boundary contact first, and states it is the rarest and strongest of the three.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the buyer lane its own exit events, such as security questionnaire cleared and contract signed.",
+        "evidence": "Stage 5 'Proof stage is done: Security sign-off' and Stage 6 'Proof stage is done: Signed contract.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Assigns the buyer lane's stages owners outside DevRel.",
+        "evidence": "'Who drives' column lists 'Buyer org (InfoSec)' and 'Buyer org (Legal/Finance)' for stages 5 and 6.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the developer lane continues in parallel rather than ending where the buyer lane begins.",
+        "evidence": "Stage 4 is described as 'Champion \u2192 Buyer handoff,' implying a sequential handoff rather than a parallel continuing developer lane.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Records the champion as a participant carrying a specific artefact, not as a persona note.",
+        "evidence": "Stage 4: 'Writes the internal pitch: cost of building vs buying' \u2014 a concrete artefact tied to the champion's action.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

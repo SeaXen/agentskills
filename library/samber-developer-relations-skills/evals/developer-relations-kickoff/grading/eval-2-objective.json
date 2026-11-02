@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Treats this as a warm start solely because `devrel-context.md` exists, and never asks the user whether this is a new or existing project",
+        "evidence": "\"**Warm start.** `devrel-context.md` found (pasted content). Session goal already stated: nail 1.0 release comms. No extra questions needed.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Produces a state summary of exactly 5 lines",
+        "evidence": "\"## State summary\" contains exactly 5 bullet lines (Kestrel Queue..., Funded driver..., Surfaces..., Measurement..., In flight...)",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The state summary covers product and audience motion, funded driver and pillar mix, program stage and team shape, in-flight work, and the active constraint",
+        "evidence": "Lines cover \"Self-serve now, org-buy later\", \"Funded driver: developer adoption. Pillar mix ...Team: 2, one full-time\", surfaces, measurement, and \"Hard constraint: land before 1.0 on 2026-10-15. Ceiling 6h/week.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks only the session-goal question and asks no other interview question",
+        "evidence": "\"Session goal already stated ... No extra questions needed\" \u2014 zero additional questions asked",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not re-ask the landing date, the one-off-versus-compounding horizon or the effort ceiling, taking all three from the artifact",
+        "evidence": "State summary already states \"land before 1.0 on 2026-10-15. Ceiling 6h/week\" pulled from the artifact, not re-asked",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Uses the 2026-10-15 release date to re-rank, promoting the release and support cadence class",
+        "evidence": "\"Fixed release date (2026-10-15) promotes release-cadence skills to rung 1 this session.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the immediate task to `samber/developer-relations-skills@changelog-writing` and/or `samber/developer-relations-skills@version-migration-guide`, and says which of the two applies and why",
+        "evidence": "\"## Route\\n`samber/developer-relations-skills@version-migration-guide` \u2014 start here.\" with reasoning given",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the certification decision as settled rather than as a live option",
+        "evidence": "devrel-context.md: \"Decided: no certification program, no paid community tier.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes `samber/developer-relations-skills@developer-education-strategy` from the short-list rather than ranking it last",
+        "evidence": "developer-education-strategy is never mentioned anywhere in the short-list or not-now sections",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Appends a new dated session-log line to the artifact",
+        "evidence": "New line \"2026-09-19 - \\\"get 1.0 release communication right\\\" -> version-migration-guide -> changelog-writing -> engineering-blog-post chain...\" added after the prior 2026-06-19 entry",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Patches only the artifact fields that changed rather than rebuilding the file",
+        "evidence": "Old session-log entry from 2026-06-19 is preserved alongside the new one, suggesting an append/patch rather than a full rebuild",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "If the 2027 user conference is raised, flags it as organizer-side work belonging to `samber/dev-event-organizer-skills` rather than to a skill in this collection",
+        "evidence": "\"Open: whether to run our own user conference in 2027.\" \u2014 raised with no routing flag to dev-event-organizer-skills anywhere in the transcript",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Treats this as a warm start solely because `devrel-context.md` exists, and never asks the user whether this is a new or existing project",
+        "evidence": "The transcript opens directly with \"Next action: draft 1.0 changelog entry...\" assuming prior context, with no new/existing question asked.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Produces a state summary of exactly 5 lines",
+        "evidence": "No distinct 5-line state-summary block exists; the transcript opens with a 2-line Next action/Window pair.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The state summary covers product and audience motion, funded driver and pillar mix, program stage and team shape, in-flight work, and the active constraint",
+        "evidence": "No such state summary block exists.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks only the session-goal question and asks no other interview question",
+        "evidence": "No question of any kind is asked in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not re-ask the landing date, the one-off-versus-compounding horizon or the effort ceiling, taking all three from the artifact",
+        "evidence": "\"Window: 26 days to 2026-10-15. At 6h/week ceiling\" and \"compounding asset (matches your stated preference over one-off wins)\" \u2014 all three used without being re-asked.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Uses the 2026-10-15 release date to re-rank, promoting the release and support cadence class",
+        "evidence": "The entire priority stack (\"Gate check \u2014 is 1.0 ready to announce\") is organized around the Oct 15 date driving release-related tasks to the top.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the immediate task to `samber/developer-relations-skills@changelog-writing` and/or `samber/developer-relations-skills@version-migration-guide`, and says which of the two applies and why",
+        "evidence": "No skill name appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats the certification decision as settled rather than as a live option",
+        "evidence": "Certification is never mentioned in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Removes `samber/developer-relations-skills@developer-education-strategy` from the short-list rather than ranking it last",
+        "evidence": "No short-list of skills is shown.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Appends a new dated session-log line to the artifact",
+        "evidence": "No file/session-log action is shown.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Patches only the artifact fields that changed rather than rebuilding the file",
+        "evidence": "No artifact edit is shown at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "If the 2027 user conference is raised, flags it as organizer-side work belonging to `samber/dev-event-organizer-skills` rather than to a skill in this collection",
+        "evidence": "\"User conference 2027 \u2014 open decision, not time-critical against Oct 15. Revisit after release ships.\" \u2014 deferred but not attributed to the sibling collection.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

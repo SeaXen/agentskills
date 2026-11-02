@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses the '72% of developers check a company's engineering blog/GitHub before applying' figure by name and states that no publisher stands behind it.",
+        "evidence": "\"Dropped: \\\"72% check blog/GitHub\\\" (no publisher stands behind it \u2014 traced to a distorted daily.dev guide, not a survey)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the 72% claim as a distortion of two different uncited vendor-guide claims rather than a Stack Overflow, HackerRank or Octoverse developer-survey finding.",
+        "evidence": "Only one source is named: \"traced to a distorted daily.dev guide, not a survey\" \u2014 no second vendor-guide claim is identified, and no developer-survey publisher is named as the false attribution being corrected.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to retain the 72% figure even when hedged as 'industry-cited' or 'widely reported', and states that the hedge launders it.",
+        "evidence": "The transcript only states the figure is dropped; it never discusses a hedged/industry-cited version or explains that hedging launders the claim.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not present the Gartner 69% claim as validated; states it is Gartner's own advisory research, self-reported, with no control group.",
+        "evidence": "\"(Gartner, directional finding from advisory research \u2014 not an independently controlled study, cited as such)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the Gartner figure is usable only as directional wording such as 'Gartner's own stated figure', and traces it to the published 'just under 70%' phrasing.",
+        "evidence": "\"organizations that deliver effectively on their employee value proposition can cut annual turnover by just under 70% *(Gartner, directional finding from advisory research...)*\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that '50% more qualified applicants' is not a LinkedIn figure.",
+        "evidence": "\"'LinkedIn 50% more qualified applicants' (not a LinkedIn figure \u2014 garbled mashup of two unrelated stats)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains the 50% claim as a garbling of LinkedIn's 2010 recruiter-survey figures (50% savings in cost per hire, 28% lower turnover) and/or the separate 2.5x-applicants platform finding.",
+        "evidence": "Only says \"garbled mashup of two unrelated stats\" without naming the 2010 recruiter-survey figures, the cost-per-hire/turnover numbers, or the 2.5x-applicants finding as the source materials.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Offers the Glassdoor Economic Research elasticity as a replacement: a 0.5-star rating increase associated with roughly 20% more job clicks and 16% more apply-starts.",
+        "evidence": "\"a half-star rating increase alone drives 20% more job clicks and 16% more apply-starts. *(Glassdoor site survey / Glassdoor Economic Research)*\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the Glassdoor elasticity as platform data rather than self-report.",
+        "evidence": "The elasticity stat is bundled into the same bullet and citation tag as the 86% self-report survey finding (\"Glassdoor site survey / Glassdoor Economic Research\") without distinguishing which figure is platform data vs. self-report.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Offers the LinkedIn Talent Brand Index figure of about 2.5x more applicants per posting, labelled as platform correlation rather than a controlled experiment.",
+        "evidence": "\"companies with a strong engineering talent brand see 2.5x more applicants per posting. *(LinkedIn Talent Solutions / Talent Brand Index)*\" \u2014 the figure is offered but never labeled as correlational platform data versus a controlled experiment.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels the '55% decrease in cost per hire' case-study figure as marketing because no methodology is disclosed, and keeps it out of the deck.",
+        "evidence": "\"the vendor \\\"55%\\\" also refused: unanchored case-study number, no disclosed method\" and \"Flagged: the vendor \\\"55% cost-per-hire\\\" claim \u2014 no methodology disclosed, reads as marketing to any exec who checks it\"; the revised slide's four bullets omit it entirely.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names realistic job preview meta-analyses as the only peer-reviewed causal evidence in this domain, while stating the effect is modest and general to all hiring rather than engineering-specific.",
+        "evidence": "No mention of \"realistic job preview\" or peer-reviewed meta-analyses anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines to supply additional unsourced percentages 'with the same punch' and explains that an un-anchored percentage costs credibility with an exec who checks.",
+        "evidence": "The transcript rebuilds the slide with sourced stats (\"Rebuilt with sourced replacements, same punch\") rather than framing a decline; only the 55% vendor figure gets the credibility-cost framing (\"reads as marketing to any exec who checks it\"), not a general statement about unsourced percentages.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses the '72% of developers check a company's engineering blog/GitHub before applying' figure by name and states that no publisher stands behind it.",
+        "evidence": "The slide copy retains '72% of developers research a company's engineering blog and GitHub before applying' and the note only says it's 'plausible' and possibly confused with another stat, not refused.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the 72% claim as a distortion of two different uncited vendor-guide claims rather than a Stack Overflow, HackerRank or Octoverse developer-survey finding.",
+        "evidence": "Only one alternate LinkedIn stat is mentioned ('72% of talent leaders say employer brand significantly impacts hiring'), not two vendor-guide claims, and no survey attribution is discussed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to retain the 72% figure even when hedged as 'industry-cited' or 'widely reported', and states that the hedge launders it.",
+        "evidence": "The 72% figure stays in the 'ready to paste' slide copy at the top of the transcript with no removal.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not present the Gartner 69% claim as validated; states it is Gartner's own advisory research, self-reported, with no control group.",
+        "evidence": "The response swaps 69% for 28%, calling it 'the more commonly and traceably cited figure from Gartner's CEB/Corporate Leadership Council employer-brand research' \u2014 presented as the correct citable number, not flagged as self-reported/no control group.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the Gartner figure is usable only as directional wording such as 'Gartner's own stated figure', and traces it to the published 'just under 70%' phrasing.",
+        "evidence": "No 'just under 70%' phrasing or directional-wording framing appears; the response substitutes a hard 28% number instead.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that '50% more qualified applicants' is not a LinkedIn figure.",
+        "evidence": "The slide copy presents 'A strong employer brand draws 50% more qualified applicants' attributed directly to '(LinkedIn Talent Solutions)' without challenge.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains the 50% claim as a garbling of LinkedIn's 2010 recruiter-survey figures (50% savings in cost per hire, 28% lower turnover) and/or the separate 2.5x-applicants platform finding.",
+        "evidence": "No such explanation appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Offers the Glassdoor Economic Research elasticity as a replacement: a 0.5-star rating increase associated with roughly 20% more job clicks and 16% more apply-starts.",
+        "evidence": "The Glassdoor stat used is '86% of candidates check a company's reviews and reputation before applying', not the elasticity figure.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels the Glassdoor elasticity as platform data rather than self-report.",
+        "evidence": "The elasticity figure is never mentioned, so no such labeling occurs.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Offers the LinkedIn Talent Brand Index figure of about 2.5x more applicants per posting, labelled as platform correlation rather than a controlled experiment.",
+        "evidence": "The LinkedIn figure used is 'fill open engineering roles up to twice as fast', not 2.5x applicants, and no platform-correlation labeling is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels the '55% decrease in cost per hire' case-study figure as marketing because no methodology is disclosed, and keeps it out of the deck.",
+        "evidence": "The response says to 'keep it, but name the vendor and label it a case study on the slide itself' \u2014 explicitly retained in the deck, not removed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names realistic job preview meta-analyses as the only peer-reviewed causal evidence in this domain, while stating the effect is modest and general to all hiring rather than engineering-specific.",
+        "evidence": "No mention of realistic job preview research or any peer-reviewed causal evidence appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines to supply additional unsourced percentages 'with the same punch' and explains that an un-anchored percentage costs credibility with an exec who checks.",
+        "evidence": "'One unsourced stat on this slide is a rounding error. Two is a pattern a sharp board member will notice \u2014 and it undercuts the two stats that are solid' and the two additions supplied (Glassdoor 86%, LinkedIn 2x) are both sourced rather than fresh unsourced punch-stats.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

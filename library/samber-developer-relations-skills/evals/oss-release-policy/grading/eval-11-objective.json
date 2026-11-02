@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Does not recommend shipping 1.0 or changing the scheme, and says the 'only documenting' answer froze the scheme",
+        "evidence": "\"I skipped the scheme-switching reference because you said this only documents the current scheme.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes the 0.x rule explicitly: until 1.0, 0.MINOR is the breaking digit and 0.x.PATCH is a compatible fix",
+        "evidence": "\"0.MINOR is the breaking digit and 0.MINOR.PATCH is a compatible fix.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the 3-week date promotes options needing no tooling or import-path change, naming which interview answer moved which option",
+        "evidence": "No such reasoning.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Lists default values, citing the 0.30 retry-count change, in the Covered by this promise list",
+        "evidence": "\"Configuration option names and their default values\"; \"Defaults that change request volume, such as retry count\"; Known breaks cites 0.30 retry 3 to 5.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Records the 0.29 legacy_signer removal under Known past breaks rather than proposing to restore it",
+        "evidence": "\"0.29.0 removed the deprecated `legacy_signer` option after one release of warning.\" Both stay.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes a deprecation window longer than the single release 0.29 gave, spanning at least two releases and a stated time",
+        "evidence": "\"at least two 0.MINOR releases and at least three months\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Runs the capacity arithmetic against the 5 hours a month before writing any supported line beyond latest, and shows it",
+        "evidence": "Table: 2.0 + ~0.5 = \"2.5 of 5\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the supported-versions table in one file and links it from SECURITY.md, since the security review asks for it",
+        "evidence": "\"Keep the table in RELEASES.md only, so two copies can't drift.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the gemspec required_ruby_version field as where the Ruby floor is declared, and writes the drop rule explicitly because nothing in the ecosystem enforces the floor",
+        "evidence": "\"declared in `required_ruby_version` in the gemspec\"; floor-raising rules listed.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the single publish-rights holder in Who can cut a release with a stated fallback, and points to samber/developer-relations-skills@oss-maintainer-sustainability",
+        "evidence": "\"If that person is unavailable, no release ships\"; \"See `oss-maintainer-sustainability`.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Fills the Not covered list with at least one named excluded surface for a gem, such as log text or undocumented behaviour, rather than leaving it empty or generic",
+        "evidence": "\"Log and error message text. The order of unordered collections.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Contains no scheme-switching material such as epochs or ordering checks, since the scheme is frozen",
+        "evidence": "No epochs or ordering checks appear.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Does not recommend shipping 1.0 or changing the scheme, and says the 'only documenting' answer froze the scheme",
+        "evidence": "Keeps 0.MINOR.PATCH, but never says the 'only documenting' answer froze the scheme.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes the 0.x rule explicitly: until 1.0, 0.MINOR is the breaking digit and 0.x.PATCH is a compatible fix",
+        "evidence": "\"PATCH (0.31.4 \u2192 0.31.5) Bug fixes... MINOR (0.31.x \u2192 0.32.0) New features and any breaking change.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the 3-week date promotes options needing no tooling or import-path change, naming which interview answer moved which option",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Lists default values, citing the 0.30 retry-count change, in the Covered by this promise list",
+        "evidence": "\"Changing the default value of an option\" is breaking; the 0.30 retry count 3 to 5 is cited.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Records the 0.29 legacy_signer removal under Known past breaks rather than proposing to restore it",
+        "evidence": "Cited as a deprecation example; there is no Known past breaks section.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes a deprecation window longer than the single release 0.29 gave, spanning at least two releases and a stated time",
+        "evidence": "\"One release of warning is the minimum.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Runs the capacity arithmetic against the 5 hours a month before writing any supported line beyond latest, and shows it",
+        "evidence": "Only states \"about 5 hours a month... backporting is out of scope\"; no arithmetic.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the supported-versions table in one file and links it from SECURITY.md, since the security review asks for it",
+        "evidence": "Drafts the table for both \"SECURITY.md and docs/SUPPORT.md\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the gemspec required_ruby_version field as where the Ruby floor is declared, and writes the drop rule explicitly because nothing in the ecosystem enforces the floor",
+        "evidence": "\"declared in `required_ruby_version` in the gemspec\"; \"Dropping a Ruby version is a breaking change... ships in a minor\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the single publish-rights holder in Who can cut a release with a stated fallback, and points to samber/developer-relations-skills@oss-maintainer-sustainability",
+        "evidence": "Flags the bus-factor risk and suggests a second owner, but has no pointer to oss-maintainer-sustainability.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Fills the Not covered list with at least one named excluded surface for a gem, such as log text or undocumented behaviour, rather than leaving it empty or generic",
+        "evidence": "Only \"Anything not documented in the README or API docs is internal\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Contains no scheme-switching material such as epochs or ordering checks, since the scheme is frozen",
+        "evidence": "No epochs or ordering checks appear.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

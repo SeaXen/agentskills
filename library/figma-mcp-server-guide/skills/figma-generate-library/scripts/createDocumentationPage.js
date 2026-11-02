@@ -24,7 +24,6 @@
  *   - `description`: Optional subtitle displayed below the heading.
  *   - `sections`: Ordered list of sections. Each section gets its own frame
  *     with a heading and is passed to `contentFn` for population.
- * @param {string} [runId] - Optional dsb_run_id to tag every created node.
  * @returns {Promise<{
  *   page: PageNode,
  *   titleNode: TextNode,
@@ -32,27 +31,35 @@
  * }>}
  *   `frameIds` is an ordered list of IDs for the root frame and each section frame.
  */
-async function createDocumentationPage(pageName, config, runId) {
-  await figma.loadFontAsync({ family: 'Inter', style: 'Bold' })
-  await figma.loadFontAsync({ family: 'Inter', style: 'Regular' })
-  await figma.loadFontAsync({ family: 'Inter', style: 'Medium' })
+async function createDocumentationPage(pageName, config) {
+  // Verify required fonts are available before loading
+  const allFonts = await figma.listAvailableFontsAsync()
+  const requiredStyles = ['Bold', 'Regular', 'Medium']
+  for (const style of requiredStyles) {
+    const found = allFonts.some((f) => f.fontName.family === 'Inter' && f.fontName.style === style)
+    if (!found) {
+      const interFonts = allFonts.filter((f) => f.fontName.family === 'Inter')
+      throw new Error(
+        `Font "Inter ${style}" not available. Available Inter styles: ${interFonts.map((f) => f.fontName.style).join(', ') || 'none'}`,
+      )
+    }
+  }
+  await Promise.all([
+    figma.loadFontAsync({ family: 'Inter', style: 'Bold' }),
+    figma.loadFontAsync({ family: 'Inter', style: 'Regular' }),
+    figma.loadFontAsync({ family: 'Inter', style: 'Medium' }),
+  ])
 
   // Create and activate the page
   const page = figma.createPage()
   page.name = pageName
   await figma.setCurrentPageAsync(page)
 
-  if (runId) {
-    page.setPluginData('dsb_run_id', runId)
-    page.setPluginData('dsb_key', `page/${pageName}`)
-  }
-
   const frameIds = []
 
   // Root scroll container — 1440px wide, auto-height
-  const root = figma.createFrame()
+  const root = figma.createAutoLayout('VERTICAL')
   root.name = pageName
-  root.layoutMode = 'VERTICAL'
   root.primaryAxisAlignItems = 'MIN'
   root.counterAxisAlignItems = 'MIN'
   root.itemSpacing = 80
@@ -60,38 +67,30 @@ async function createDocumentationPage(pageName, config, runId) {
   root.paddingBottom = 120
   root.paddingLeft = 80
   root.paddingRight = 80
-  root.layoutSizingHorizontal = 'FIXED'
-  root.layoutSizingVertical = 'HUG'
   root.resize(1440, 1)
+  root.layoutSizingHorizontal = 'FIXED'
   root.fills = [{ type: 'SOLID', color: { r: 1, g: 1, b: 1 } }]
   root.x = 0
   root.y = 0
   page.appendChild(root)
 
-  if (runId) {
-    root.setPluginData('dsb_run_id', runId)
-    root.setPluginData('dsb_key', `frame/root/${pageName}`)
-  }
-
   frameIds.push(root.id)
 
   // Page header: title + optional description
-  const header = figma.createFrame()
+  const header = figma.createAutoLayout('VERTICAL')
   header.name = 'Header'
-  header.layoutMode = 'VERTICAL'
   header.itemSpacing = 12
-  header.layoutSizingHorizontal = 'FILL'
-  header.layoutSizingVertical = 'HUG'
   header.fills = []
   root.appendChild(header)
+  header.layoutSizingHorizontal = 'FILL'
 
   const titleNode = figma.createText()
   titleNode.fontName = { family: 'Inter', style: 'Bold' }
   titleNode.characters = config.title
   titleNode.fontSize = 40
   titleNode.fills = [{ type: 'SOLID', color: { r: 0.07, g: 0.07, b: 0.07 } }]
-  titleNode.layoutSizingHorizontal = 'FILL'
   header.appendChild(titleNode)
+  titleNode.layoutSizingHorizontal = 'FILL'
 
   if (config.description) {
     const descNode = figma.createText()
@@ -100,25 +99,18 @@ async function createDocumentationPage(pageName, config, runId) {
     descNode.fontSize = 16
     descNode.lineHeight = { value: 24, unit: 'PIXELS' }
     descNode.fills = [{ type: 'SOLID', color: { r: 0.4, g: 0.4, b: 0.4 } }]
-    descNode.layoutSizingHorizontal = 'FILL'
     header.appendChild(descNode)
+    descNode.layoutSizingHorizontal = 'FILL'
   }
 
   // Sections
   for (const section of config.sections) {
-    const sectionFrame = figma.createFrame()
+    const sectionFrame = figma.createAutoLayout('VERTICAL')
     sectionFrame.name = `Section/${section.name}`
-    sectionFrame.layoutMode = 'VERTICAL'
     sectionFrame.itemSpacing = 20
-    sectionFrame.layoutSizingHorizontal = 'FILL'
-    sectionFrame.layoutSizingVertical = 'HUG'
     sectionFrame.fills = []
     root.appendChild(sectionFrame)
-
-    if (runId) {
-      sectionFrame.setPluginData('dsb_run_id', runId)
-      sectionFrame.setPluginData('dsb_key', `frame/section/${pageName}/${section.name}`)
-    }
+    sectionFrame.layoutSizingHorizontal = 'FILL'
 
     // Section heading
     const sectionHeading = figma.createText()
@@ -126,8 +118,8 @@ async function createDocumentationPage(pageName, config, runId) {
     sectionHeading.characters = section.name
     sectionHeading.fontSize = 24
     sectionHeading.fills = [{ type: 'SOLID', color: { r: 0.07, g: 0.07, b: 0.07 } }]
-    sectionHeading.layoutSizingHorizontal = 'FILL'
     sectionFrame.appendChild(sectionHeading)
+    sectionHeading.layoutSizingHorizontal = 'FILL'
 
     // Invoke the caller's content function to populate the section
     await section.contentFn(sectionFrame)

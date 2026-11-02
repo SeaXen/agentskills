@@ -1,276 +1,168 @@
-# Sentry Skills
+# Sentry for AI
 
-> [!NOTE]
-> For skills to help set up Sentry in your project or debug production issues, see https://github.com/getsentry/sentry-for-ai
+> [!IMPORTANT]
+> **This is a skill *source* repository — not something you install directly.** The
+> skills here are built from this source into a portable
+> [Agent Plugin](https://github.com/getsentry/agent-plugin) and installable
+> client-specific plugins for
+> [Google Antigravity](https://github.com/getsentry/plugin-antigravity),
+> [Claude Code](https://github.com/getsentry/plugin-claude),
+> [GitHub Copilot](https://github.com/getsentry/plugin-copilot),
+> [Cursor](https://github.com/getsentry/plugin-cursor),
+> [Codex](https://github.com/getsentry/plugin-codex), and
+> [Grok](https://github.com/getsentry/plugin-grok) — install one of those, not this
+> repo. They’re also served over HTTP at [skills.sentry.dev](https://skills.sentry.dev)
+> for agents to fetch directly.
+> In the future we may also publish the skills as a generic, standalone skills
+> repository.
 
-Agent skills for Sentry employees, following the [Agent Skills](https://agentskills.io) open format.
+Your AI coding assistant already knows how to write code.
+This plugin teaches it Sentry — how to set it up, how to find and fix production issues,
+and how to get the most out of every feature.
 
-## Installation
+Whether you’re adding Sentry to a new project, debugging a spike in errors, or
+configuring alerts, just ask.
+The plugin gives your assistant the context it needs to do it right.
 
-### Claude Code
+Supports the [**Agent Plugins standard**](https://agent-plugins.org/),
+[**Google Antigravity**](https://github.com/getsentry/plugin-antigravity),
+[**Claude Code**](https://github.com/getsentry/plugin-claude),
+[**GitHub Copilot**](https://github.com/getsentry/plugin-copilot),
+[**Cursor**](https://github.com/getsentry/plugin-cursor),
+[**Codex**](https://github.com/getsentry/plugin-codex), and
+[**Grok**](https://github.com/getsentry/plugin-grok).
 
-```bash
-claude plugin marketplace add getsentry/skills
-claude plugin install sentry-skills@sentry-skills
+## What You Can Do
+
+**Set up Sentry in any project** — SDK setup wizards that detect your stack, recommend
+the right features, and walk through the full installation.
+No copy-pasting from docs.
+
+```
+Add Sentry to my Next.js app
+Set up Sentry in my Rails project
+Add error monitoring to my iOS app
 ```
 
-If you use `claude plugin marketplace add --sparse` for this repo, include `skills` and `agents` alongside `.claude-plugin` because the root plugin manifest loads repo-root `skills/` and `agents/`.
+**Find and fix production issues** — Query your Sentry environment, triage errors, and
+fix them in place.
 
-Restart Claude Code after installation. Skills activate automatically when relevant.
-
-**Update:**
-
-```bash
-claude plugin marketplace update
-claude plugin update sentry-skills@sentry-skills
+```
+What are the top errors in the last 24 hours?
+Which issues are affecting the most users?
+Fix the recent Sentry errors
 ```
 
-Or run `/plugin` to open the plugin manager.
+**Review code with Sentry context** — Automatically resolve bugs that Sentry or Seer
+flag in pull request comments.
 
-### Skills Package (skills.sh)
-
-For agents supporting the [skills.sh](https://skills.sh) ecosystem:
-
-```bash
-npx skills add getsentry/skills
+```
+Review PR #118 and fix the Sentry comments
 ```
 
-Works with Claude Code, Cursor, Cline, GitHub Copilot, and other compatible agents.
+**Configure monitoring** — Set up alerts, instrument AI/LLM calls, connect OpenTelemetry
+pipelines.
 
-## Available Skills
+```
+Create a Slack alert for new high-priority issues
+Monitor my OpenAI calls with Sentry
+Set up OTel Collector with Sentry exporter
+```
 
-| Skill | Description |
-|-------|-------------|
-| [agents-md](skills/agents-md/SKILL.md) | Create and maintain concise, reference-backed AGENTS.md and CLAUDE.md files. |
-| [blog-writing-guide](skills/blog-writing-guide/SKILL.md) | Write, review, and improve blog posts for the Sentry engineering blog following Sentry's specific writing standards, voice, and quality bar. |
-| [brand-guidelines](skills/brand-guidelines/SKILL.md) | Write copy following Sentry brand guidelines. |
-| [claude-settings-audit](skills/claude-settings-audit/SKILL.md) | Analyze a repository to generate recommended Claude Code settings.json permissions. |
-| [code-review](skills/code-review/SKILL.md) | Perform code reviews following Sentry engineering practices. |
-| [code-simplifier](skills/code-simplifier/SKILL.md) | Simplifies and refines code for clarity, consistency, and maintainability while preserving all functionality. |
-| [commit](skills/commit/SKILL.md) | ALWAYS use this skill when committing code changes — never commit directly without it. |
-| [create-branch](skills/create-branch/SKILL.md) | Create git branches following Sentry naming conventions. |
-| [django-access-review](skills/django-access-review/SKILL.md) | Django access control and IDOR security review. |
-| [django-perf-review](skills/django-perf-review/SKILL.md) | Django performance code review. |
-| [doc-coauthoring](skills/doc-coauthoring/SKILL.md) | Guide users through a structured workflow for co-authoring documentation. |
-| [document-api-endpoint](skills/document-api-endpoint/SKILL.md) | Document and type a Sentry API endpoint with drf-spectacular OpenAPI schema — write/fix `@extend_schema`, specify response TypedDicts, type parameters, fix type drift, and promote to PUBLIC. |
-| [find-bugs](skills/find-bugs/SKILL.md) | Find bugs, security vulnerabilities, and code quality issues in local branch changes. |
-| [gh-review-requests](skills/gh-review-requests/SKILL.md) | Fetch unread GitHub notifications for open PRs where review is requested from a specified team or opened by a team member. |
-| [gha-security-review](skills/gha-security-review/SKILL.md) | GitHub Actions security review for workflow exploitation vulnerabilities. |
-| [iterate-pr](skills/iterate-pr/SKILL.md) | Iterate on a PR until CI passes and actionable review feedback is addressed. |
-| [presentation-creator](skills/presentation-creator/SKILL.md) | Create data-driven presentation slides using React, Vite, and Recharts with Sentry branding. |
-| [pr-link-issue](skills/pr-link-issue/SKILL.md) | Append a GitHub issue link and its Linear ticket to the current PR's description. |
-| [pr-screenshots](skills/pr-screenshots/SKILL.md) | Capture real-product UI screenshots, lay them out as before/after tables in PR descriptions, and upload them with `gh --attach`. |
-| [pr-writer](skills/pr-writer/SKILL.md) | Create, refresh, and rewrite pull request titles and descriptions following Sentry conventions. |
-| [prompt-optimizer](skills/prompt-optimizer/SKILL.md) | Optimize prompts with evals, model-family adapters, and exact external context references. |
-| [secret-serialization](skills/secret-serialization/SKILL.md) | Find secrets and tokens that leak through generated serialization such as dataclass repr, asdict, model_dump, JSON.stringify, logs, and tracing spans. |
-| [security-model](skills/security-model/SKILL.md) | Define and maintain SECURITY_MODEL.md files that tell security review tools a repository's trust boundaries, invariants, reportable finding classes, and exclusions. |
-| [security-review](skills/security-review/SKILL.md) | Security code review for vulnerabilities. |
-| [skill-scanner](skills/skill-scanner/SKILL.md) | Scan agent skills for security issues. |
-| [skill-writer](skills/skill-writer/SKILL.md) | Canonical workflow to synthesize, create, and iteratively improve agent skills for this repository. |
-| [sred-project-organizer](skills/sred-project-organizer/SKILL.md) | Take a list of projects and their related documentation, and organize them into the SRED format for submission. |
-| [sred-work-summary](skills/sred-work-summary/SKILL.md) | Go back through the previous year of work and create a Notion doc that groups relevant links into projects that can then be documented as SRED projects. |
-| [triage-frontend-issues](skills/triage-frontend-issues/SKILL.md) | Triage the Sentry `javascript` project queue by archiving non-actionable noise (third-party libs, browser quirks, transient 5xx, test traffic) with `untilEscalating` after user approval. |
-| [typing-exclusion-worker](skills/typing-exclusion-worker/SKILL.md) | Python typing exclusion worker: remove assigned mypy exclusion modules in small scoped batches, fix typing issues, run validation, and produce a structured completion summary. |
+## Distribution
 
-## Available Subagents
+This repository is the single source of truth for all skills, but it is not itself an
+installable plugin.
+Each assistant needs the plugin in a slightly different shape, so the
+per-agent plugins are **built** from it by the build scripts under
+`src/plugins/<agent>/build.sh`. CI runs these on every push and deploys each result to
+its own **distribution repository**, whose root is exactly that agent’s plugin:
 
-| Subagent | Description |
-|----------|-------------|
-| [code-simplifier](agents/code-simplifier.md) | Simplifies and refines code for clarity, consistency, and maintainability while preserving all functionality |
-| [senpai](agents/senpai.md) | Senior engineer and technical mentor for new Sentry hires. Explains infrastructure, architecture, and engineering concepts step-by-step with references |
+| Agent | Distribution repository |
+| --- | --- |
+| Agent Plugins 1.0.0 | [`getsentry/agent-plugin`](https://github.com/getsentry/agent-plugin) |
+| Google Antigravity | [`getsentry/plugin-antigravity`](https://github.com/getsentry/plugin-antigravity) |
+| Claude Code | [`getsentry/plugin-claude`](https://github.com/getsentry/plugin-claude) |
+| GitHub Copilot CLI / VS Code | [`getsentry/plugin-copilot`](https://github.com/getsentry/plugin-copilot) |
+| Cursor | [`getsentry/plugin-cursor`](https://github.com/getsentry/plugin-cursor) |
+| Codex | [`getsentry/plugin-codex`](https://github.com/getsentry/plugin-codex) |
+| Grok | [`getsentry/plugin-grok`](https://github.com/getsentry/plugin-grok) |
+
+These repositories are generated; do not edit them.
+Each one’s README has the install instructions for that agent.
+
+The skill library is also browsable at [skills.sentry.dev](https://skills.sentry.dev)
+and available through the [`skills.sh`](https://www.skills.sh/getsentry/sentry-for-ai)
+installer.
+
+### Build it yourself
+
+Each `src/plugins/<agent>/build.sh` takes an output directory and writes that agent’s
+plugin into it (the Codex build moves the plugin under `plugins/sentry/` and swaps the
+skill tree’s `disable-model-invocation` flags for Codex’s `agents/openai.yaml` policy):
+
+```bash
+git clone https://github.com/getsentry/sentry-for-ai.git
+cd sentry-for-ai
+src/plugins/agent-plugin/build.sh /tmp/sentry-agent-plugin
+```
+
+To build any target locally, run `src/plugins/<agent>/build.sh <output-dir>`
+(`agent-plugin`, `antigravity`, `claude`, `copilot`, `cursor`, `codex`, or `grok`).
+
+## Skills
+
+### Core
+
+| Skill | What it does |
+| --- | --- |
+| `sentry-get-started` | Guided entry point — orients to your current Sentry setup and routes to the right skill |
+| `sentry-instrument` | Add Sentry to a project, or wire up any signal — error monitoring, tracing, logging, metrics, profiling, session replay, user feedback, cron check-ins, and AI/LLM monitoring. Detects your platform and pulls the code from the reference library. |
+| `sentry-debug-issue` | Find a Sentry issue, pull full context, optionally run Seer root-cause / autofix, apply the fix, and resolve it |
+
+### Feature Setup
+
+| Skill | What it does |
+| --- | --- |
+| `sentry-otel-exporter-setup` | Configure OTel Collector with the Sentry exporter for multi-project routing |
+| `sentry-create-alert` | Create alerts via the Sentry workflow engine API |
+| `sentry-snapshots-cocoa` | Set up Sentry Snapshots for Apple/Cocoa projects |
+
+### Reference Library
+
+`sentry-instrument` doesn’t hard-code platform steps — it pulls them from a shared
+library that the build hydrates into the skill:
+
+- **`src/references/sdks/<platform>/`** — per-platform install and per-signal code, one
+  directory per supported platform.
+- **`src/references/concepts/`** — per-signal strategy: errors, tracing, logging,
+  metrics, profiling, session replay, user feedback, crons, uptime, releases, data
+  scrubbing, and choosing-a-signal.
+
+> Superseded per-SDK “wizard” skills are frozen under `skills-legacy/`, excluded from
+> the plugin build.
+
+## Prerequisites
+
+The plugin configures the [Sentry MCP server](https://mcp.sentry.dev) automatically on
+install. No extra setup needed.
+
+Some skills require the [GitHub CLI](https://cli.github.com/):
+
+```bash
+brew install gh    # macOS
+gh auth login
+```
 
 ## Contributing
 
-### Local Development
-
-```bash
-git clone git@github.com:getsentry/skills.git ~/sentry-skills
-claude plugin marketplace add ~/sentry-skills
-claude plugin install sentry-skills
-```
-
-If you use `claude plugin marketplace add --sparse` for this repo, include `skills` and `agents` alongside `.claude-plugin` because the root plugin manifest loads repo-root `skills/` and `agents/`.
-
-### Repository Structure
-
-```
-sentry-skills/
-├── .claude-plugin/
-│   ├── marketplace.json      # Marketplace manifest
-│   └── plugin.json           # Root plugin manifest for sentry-skills
-├── .agents/
-│   └── skills -> ../skills   # Local mirror for agent tooling
-├── agents/
-│   ├── code-simplifier.md
-│   └── senpai.md
-├── skills/
-│   ├── code-review/
-│   │   └── SKILL.md
-│   └── commit/
-│       └── SKILL.md
-├── AGENTS.md                 # Agent-facing documentation
-├── CLAUDE.md                 # Symlink to AGENTS.md
-└── README.md                 # This file
-```
-
-The canonical skill source for the `sentry-skills` plugin lives at repo-root `skills/`.
-`.agents/skills` mirrors that tree for local agent tooling, and the root plugin manifest loads repo-root `skills/` and `agents/`.
-
-New skills and materially changed skills should include a root-level `SPEC.md` alongside `SKILL.md`.
-
-### Creating New Skills
-
-Skills follow the [Agent Skills specification](https://agentskills.io/specification). Each skill requires a `SKILL.md` file with YAML frontmatter.
-
-For repeatable `skill-writer` evaluation prompts, see [skills/skill-writer/EVAL.md](skills/skill-writer/EVAL.md).
-
-#### Skill Template
-
-Create a new directory under `skills/`:
-
-```
-skills/my-skill/
-├── SKILL.md
-└── SPEC.md
-```
-
-**SKILL.md format:**
-
-```yaml
----
-name: my-skill
-description: A clear description of what this skill does and when to use it. Include keywords that help agents identify when this skill is relevant.
----
-
-# My Skill Name
-
-## Instructions
-
-Step-by-step guidance for the agent.
-
-## Examples
-
-Concrete examples showing expected input/output.
-
-## Guidelines
-
-- Specific rules to follow
-- Edge cases to handle
-```
-
-**SPEC.md format:**
-
-Use `SPEC.md` as the maintenance contract for the skill. It should describe intent, scope, trigger context, source/evidence model, reference architecture, evaluation expectations, known limitations, and maintenance notes. Keep runtime instructions in `SKILL.md`; keep source inventories in `SOURCES.md`; keep durable examples in `references/evidence/`.
-
-#### Naming Conventions
-
-- **name**: 1-64 characters, lowercase alphanumeric with hyphens only
-- **description**: Up to 1024 characters, include trigger keywords
-- Keep SKILL.md under 500 lines; split longer content into reference files
-
-#### Optional Fields
-
-| Field | Description |
-|-------|-------------|
-| `license` | License name or path to license file |
-| `compatibility` | Environment requirements (max 500 chars) |
-| `allowed-tools` | Space-separated list of tools the skill can use. Do not use commas: Warden drops comma-suffixed names like `Read,` |
-| `metadata` | Arbitrary key-value pairs for additional properties |
-
-```yaml
----
-name: my-skill
-description: What this skill does
-license: Apache-2.0
-allowed-tools: Read Grep Glob
----
-```
-
-### Where Skills Belong
-
-Skills should live in the appropriate location based on their scope:
-
-| Scope | Location | Example |
-|-------|----------|---------|
-| **Global** - Used across Sentry | `sentry-skills` plugin | `commit`, `code-review`, `pr-writer` |
-| **Domain-specific** - Used by a team or domain | Dedicated plugin in this repo (e.g., `infra-skills`) | `gcp-logs`, `terraform-review` |
-| **Repo-specific** - Only relevant to one repo | The repository itself (`.claude/skills/`) | Project-specific workflows |
-
-When deciding where to place a skill:
-- If most Sentry engineers would benefit, add it to `sentry-skills`
-- If only a specific team needs it, create or use a domain-specific plugin
-- If it only makes sense in one repo, keep it in that repo
-
-#### Marketplace Structure
-
-This repository is a Claude Code **marketplace** - a collection of plugins that can be installed independently. The marketplace manifest (`.claude-plugin/marketplace.json`) lists all available plugins:
-
-```json
-{
-  "plugins": [
-    {
-      "name": "sentry-skills",
-      "source": "./"
-    },
-    { "name": "infra-skills", "source": "./plugins/infra-skills" }
-  ]
-}
-```
-
-Marketplace entries point at a plugin source directory. That source can be a dedicated plugin directory with its own `.claude-plugin/plugin.json`, or repo root when the root also carries a plugin manifest. The `sentry-skills` entry in this repo uses repo root as its plugin source so it can keep canonical `skills/` and `agents/` at top level.
-
-Users can install individual plugins:
-
-```bash
-# Install just the global skills
-claude plugin install sentry-skills@sentry-skills
-
-# Install domain-specific skills
-claude plugin install infra-skills@sentry-skills
-```
-
-To add a new domain-specific plugin:
-
-1. Create `plugins/<plugin-name>/.claude-plugin/plugin.json`
-2. Add skills under `plugins/<plugin-name>/skills/`
-3. Register the plugin in `.claude-plugin/marketplace.json`
-
-### Vendoring Skills
-
-We vendor (copy) skills and agents that we use regularly into this repository rather than depending on external sources at runtime. This approach:
-
-- **Ensures consistency** - Everyone on the team uses the same version of each skill
-- **Enables customization** - We can adapt skills to Sentry-specific conventions
-- **Improves reliability** - No external dependencies that could change or disappear
-
-#### Attribution
-
-When vendoring a skill or agent from an external source, retain proper attribution:
-
-1. **Add a comment** at the top of the file referencing the original source:
-   ```markdown
-   <!--
-   Based on [Original Name] by [Author/Org]:
-   https://github.com/example/original-source
-   -->
-   ```
-
-2. **Include a LICENSE file** in the skill directory if the original has specific licensing requirements:
-   ```
-   skills/vendored-skill/
-   ├── SKILL.md
-   └── LICENSE      # Original license text
-   ```
-
-#### Example: code-simplifier
-
-The `code-simplifier` agent is vendored from [Anthropic's official plugins](https://github.com/anthropics/claude-plugins-official). See the attribution comment at the top of the agent file.
-
-## References
-
-- [Agent Skills Specification](https://agentskills.io/specification)
-- [Sentry Engineering Practices](https://develop.sentry.dev/engineering-practices/)
+Skills follow the [Agent Skills specification](https://agentskills.io).
+Each skill is a directory with a `SKILL.md` file containing YAML frontmatter and
+markdown instructions.
+A skill can declare the shared references it needs in a `references.yml` manifest; the
+build hydrates the matching files from the shared library at `references/` into the
+skill so the shipped copy is self-contained.
 
 ## License
 
-Apache-2.0
+MIT

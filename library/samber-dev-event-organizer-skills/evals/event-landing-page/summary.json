@@ -1,0 +1,298 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-landing-page",
+  "scenarios": 9,
+  "expectations_total": 108,
+  "expectations_subjective": 1,
+  "expectations_objective": 107,
+  "pass_rate_with_skill_pct": 94.4,
+  "pass_rate_without_skill_pct": 47.2,
+  "delta_pp": 47.2,
+  "uplift_multiplier": 2.0,
+  "trigger_accuracy_pct": 56.9,
+  "trigger_queries": 102,
+  "trigger_positive_fire_rate": 0.294,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 2,
+        "expectation": "For the program or schedule section, recommends a heading with the date its content lands, tied to the June 30 selection date, because attendees' travel budget approvals close before the reveal."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Leads the hero with the event's promise and the organizers \u2014 who is running it and why \u2014 rather than atmosphere or social proof."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Produces a transition table or dated transition list with a real calendar date for every upcoming state change."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Assigns a named owner to each transition, stating that an unowned transition silently fails to happen."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Does not treat the 2.35% average as applicable to this page or use it to size the gap."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Includes checking whether any section is promising content past its stated date as an ongoing self-check."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Recommends no Register, RSVP or sign-up call to action anywhere on the page."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Builds the hero around the event's scale figures (3,000 attendees, 14 tracks, 120 talks) together with the April 18-19 dates and the Maritime Academy location, instead of a value-proposition headline."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Rejects the email capture box rather than adding it, removing that option outright for a free no-registration event."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "With no open call for talks, reduces the action set to an organizer contact link plus schedule and news links."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Keeps the organizer contact link present unconditionally, at every phase."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Groups accessibility, code of conduct and practical during-the-event guidance as one footer block rather than scattering them through the navigation."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Includes a machine-readable structured-data block carrying the event name, description, dates, URL, image and location."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that what, who, when, where and what it costs must be answerable within one phone screen without scrolling."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Leads the hero with the event's promise and the organizers \u2014 who is running it and why \u2014 rather than atmosphere or social proof."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Publishes the May 12 call-for-talks open date, a code of conduct, and a contact address."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "If an email notify-me capture is recommended, pairs it with a consent basis, a privacy notice and a deletion path before it ships."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Shows no Register button and no ticket prices, since sales open in July and no price ladder has been handed down."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Removes the CFP section entirely instead of replacing it with a 'submissions are closed' banner."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Rejects the closed-submissions banner specifically as a placeholder in different words, not merely as clutter."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Rejects putting the Register button up before June 2, because a button leading to a 'not open yet' holding page costs trust that empty space would not."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Schedules each manual change for the day before its deadline rather than on it."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "At the June 2 transition, makes Register the primary action and brings the ticket ladder and refund policy live as handed down."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends promoting Propose and Register to two independent primary buttons for the overlap period, changing the current layout."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Gates each button on its own window independently \u2014 Propose on March 1 to April 30, Register from March 15 \u2014 with neither suppressing the other."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Keeps an unconditional contact link alongside the two gated buttons."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Declines to extend the CFP into June from the page side, routing that decision to whoever owns the call's timeline."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Puts call-for-talks content (a link to the call, speaker benefits) on the page while the call is open, linking out to the call rather than embedding its form."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Does not design the CFP form fields or selection process."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Removes the CFP section rather than marking it closed."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires the JSON-LD corrected to October 8-9 so the structured data never contradicts the visible page, and validated."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Fails the launch on the mouse-only date-of-birth widget: the registration flow must complete with the keyboard alone, end to end including payment, before going live."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Rejects the fix-accessibility-after-launch plan, stating the retrofit does not get scheduled and a person who cannot complete the flow does not attend."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "For the third-party checkout, prescribes raising it with the provider and/or publishing an alternative registration route staffed by a named person, and reporting it to whoever owns the accessibility commitment."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Refuses to endorse the 9% conversion target, stating the available benchmark figures describe other kinds of funnels rather than event pages, and substitutes no other number."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Runs a four-item binary pre-launch check: dated transitions that fired, the what/who/when/where/cost one-screen phone test, structured-data validity, and the keyboard-only pass."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Removes the full multi-page site and the program-set option from consideration outright, rather than parking them as later goals."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States the reason: a many-page site with empty pages is worse than one honest page, and an option left on the menu reappears as scope."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends a front door plus a small set of separately addressable practical pages (location, code of conduct, accessibility), or explicitly weighs that against a single page and picks one."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Justifies separate practical pages by addressability: an anchor on a scrolling page is not an address, and conduct and accessibility pages get linked and forwarded by third parties."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Handles CTA changes with a manual plan: each date-driven change becomes a dated task with a named person, since the builder has no date logic."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Schedules each manual change the day before its date rather than on it."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends at most one primary button on screen at a time, switching by date between the talk-submission window and the sales window."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Declines the Sponsors page absent a signed agreement, treating sponsorship as a conversation with a contact route rather than a page built to attract."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Specifies the hero fields: event name, date, venue with a map-linked address, and a one-line description \u2014 with no past-editions element for a first edition."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Includes a machine-readable structured-data block (name, description, dates, URL, image, location) even on the small site."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires that pass on the real ticketing platform, not a mock or staging stand-in."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Distinguishes the website's conformance from the event's accessibility, stating a conformant site is not an accessible conference and a passing page audit must not be presented as accessibility coverage."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Uses the automated tool's output only to localise failures to specific elements before the keyboard pass."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names at least one failure class automated checkers miss, such as a focus-trapping modal, an error conveyed only by colour, or a technically-labelled but incomprehensible form."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Declines to give a good-conversion-rate figure for an event landing page."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Explains the refusal: published conversion benchmarks describe software and paid-traffic funnels with no event framing, not merely that rates vary."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Applies a traffic floor of roughly 1,000 sessions or 30 conversions in the test window and shows this page's numbers cannot support a readable test."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Notes a single edition has no second run to iterate against."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Replaces testing with ranking the page's friction points from first principles."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Substitutes a binary pre-launch check for the numeric target: dated CTA transitions, the one-screen what/who/when/where/cost test, structured-data validity, and a keyboard-only registration pass."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Includes checking whether any section is promising content past its stated date as an ongoing self-check."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Labels the proposed measures as self-set rather than benchmarked, and sets no substitute numeric conversion target."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States the irreversibility that makes this a compliance question: a recording republished without permission cannot be un-published."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Frames the archive as answering 'what is this event like', the question a program section does not answer."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Leaves the current edition's Speakers and Schedule sections omitted or as a heading with a reveal date, never 'coming soon'."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Builds that manager block from the agreed positioning line rather than composing fresh copy, and treats it as one section, not a separate page or site variant."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Adds a past-editions list, linking prior years, as a hero element for the recurring event."
+      }
+    ]
+  }
+}

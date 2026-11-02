@@ -1,0 +1,118 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Uses 250 as the binding number rather than the 268 on the fire certificate.",
+        "evidence": "\"Binding limit: 250... The 268 on the fire certificate is the building's legal maximum. The contract is stricter\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Models expected attendance against the limit rather than modelling registrations against it.",
+        "evidence": "\"Expected attendance at 416 | 208 at 50%, 250 at 60%\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the arrival assumption behind the expected-attendance number and what happens if it does not hold.",
+        "evidence": "\"At 500 registrations, a normal 60% show-up puts 300 people in the room.\" The door cap and waitlist rule cover the faster-arrival case.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to accept registrations against standing room or overflow space without written approval from whoever the venue names.",
+        "evidence": "\"Standing room needs written approval from whoever the venue names\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that any such approval must be obtained before registrations are accepted against it, never on the day at the door.",
+        "evidence": "\"obtained before registration opens and never at the door.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the 700-registration proposal as going past double the aimed attendance.",
+        "evidence": "\"700 is 2.8x.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects leaving registration open with no ceiling at all, and states that it is the one posture the source explicitly forbids.",
+        "evidence": "\"It's the 'no ceiling' posture. The skill deletes 'register everyone and squeeze people in'.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that where the ratio would put expected attendance over the limit, the ratio moves and the limit does not.",
+        "evidence": "\"The room limit is a gate in this skill, not something to trade for a fuller room.\" It then sets 416 instead of 500.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States a registration ceiling of 500 for the 250-seat hall, with the arithmetic shown.",
+        "evidence": "\"Sourced 2x ceiling | 250 \u00f7 0.5 = 500\"; \"Total accepted never exceeds 500\". It sets 416 as the working ceiling.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Uses 250 as the binding number rather than the 268 on the fire certificate.",
+        "evidence": "'Set the room ceiling at 250... The contract is the binding limit.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Models expected attendance against the limit rather than modelling registrations against it.",
+        "evidence": "'Your ceiling is 250 \u00f7 your show rate.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the arrival assumption behind the expected-attendance number and what happens if it does not hold.",
+        "evidence": "States the 55% assumption but never what happens if it does not hold.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to accept registrations against standing room or overflow space without written approval from whoever the venue names.",
+        "evidence": "Only advises getting a 268 amendment in writing; it says nothing of registering against standing or overflow space.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that any such approval must be obtained before registrations are accepted against it, never on the day at the door.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the 700-registration proposal as going past double the aimed attendance.",
+        "evidence": "Rejects 700 on a 280\u2013420 attendance estimate, not on the double-ceiling rule.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects leaving registration open with no ceiling at all, and states that it is the one posture the source explicitly forbids.",
+        "evidence": "Says it 'fails the moment 300 turn up'; never calls it the forbidden posture.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that where the ratio would put expected attendance over the limit, the ratio moves and the limit does not.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States a registration ceiling of 500 for the 250-seat hall, with the arithmetic shown.",
+        "evidence": "States about 450 (250 \u00f7 55%).",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

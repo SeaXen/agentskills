@@ -1,0 +1,702 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "technical-video-script",
+  "scenarios": 12,
+  "expectations_total": 142,
+  "expectations_subjective": 2,
+  "expectations_objective": 140,
+  "pass_rate_with_skill_pct": 67.6,
+  "pass_rate_without_skill_pct": 16.9,
+  "delta_pp": 50.7,
+  "uplift_multiplier": 4.0,
+  "trigger_accuracy_pct": 50.0,
+  "trigger_queries": 128,
+  "trigger_positive_fire_rate": 0.0,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Treats the GA date on the 24th as a constraint that promotes the changelog/release clip and the error/fix shape."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Lists what the post proves as claims and discards the post's section headings as the video's structure."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Puts the measured 90% figure on screen twice - once as the problem, once as the proof - rather than only mentioning it in narration."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Invents no figure, customer, persona or call to action that the request did not supply."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Treats \"polished\" as an unusable adjective, converting it into a concrete decision (a runtime, a viewer, an on-screen artefact) or asking for one, rather than designing to it."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Requires the opening to name the problem in the viewer's own words."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Delivers a beat table rather than a narration-only script, despite the request for narration only."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Gives every beat a visual and an on-screen action kept in columns separate from the narration."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Gives every beat a starting state precise enough to re-shoot that beat alone."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Ensures no beat's starting state depends on a previous beat's live output."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Gives every beat an estimated duration."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Marks every beat core or cuttable."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Sizes each beat to roughly one thought and about twenty seconds of narration."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Splits any beat that could not be recorded in a single pass into two beats."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Produces a cut plan naming which beats go first if the runtime overruns."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Explains that the cut decision belongs in the script before recording rather than at edit time."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Refuses to compute the runtime from a table value or an assumed words-per-minute figure."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Advises bringing energy instead of forcing speed."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Declines to return a single confident runtime number, saying the measured rate and per-beat dead-time estimates are required first."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends splitting a 9-minute target into chaptered segments of roughly six minutes or less, citing the published median-engagement evidence rather than an invented benchmark."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Prescribes an audio-only pass: reading the narration column with the screen off and rewriting every sentence that stops meaning something."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes that captions are required for prerecorded synchronized media at WCAG Level A."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Instructs auto-generating the captions and correcting them against the narration column rather than re-transcribing the video."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes that procedural video is re-watched and paused selectively at step boundaries rather than watched once end to end."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Adds a chapter list whose first timestamp is 00:00, with at least three entries, each at least ten seconds long, in ascending order."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Declines to produce a chapter list for a 75-second clip."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Delivers the description and clip metadata in place of the chapter list."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Sizes the production effort as roughly an hour over a changelog entry someone already wrote."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Cites that continuous tablet-drawing style tutorials held roughly 1.5 to 2 times the normalized engagement of code screencasts."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Recommends annotating or drawing on top of the code rather than leaving the frame bare."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Notes that interspersing the presenter's face with the other visuals is a measured improvement over slides alone."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Gives legibility floors of at least 24pt terminal text and at least 20pt editor text while labelling them as this skill's own baseline rather than a published standard."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Diagnoses the script beat by beat instead of returning a rewritten script."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Asks what the format is - talking head, screencast, silent captioned clip - before judging the beats."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Tables the beats with a number, topic, function and status per row."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Grades each finding as high, medium or low risk rather than listing findings flat."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Flags beat 3 as a density drop that repeats what the screen already showed."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Flags beat 5 as an unspeakable line, too long or tangled to read aloud in one breath."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Shows the original line beside the proposed replacement rather than overwriting the contractor's text."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Leaves the 4x claim alone as the author's own, judging how it is said rather than whether it is true."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Offers the marked-up script as an optional next step instead of delivering a rewrite unasked."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Labels the roughly six-minute segment ceiling as this skill's own baseline, applied at the segment level rather than the video level."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Asks questions one at a time rather than sending a block of questions at once."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Produces no draft script, opening beat or finished shape recommendation in this turn."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Requires limitations to be stated aloud, because an over-claim in a video outlives the release it described."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Delivers a recording brief with one starting-state command per beat."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "States the promise as a single sentence naming one specific viewer and the one specific thing the video shows working."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Deletes the concept explainer from the shape menu because nobody can produce diagrams, rather than ranking it low or last."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names which shapes were deleted out loud instead of silently omitting them."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States the shape ranking and the final pick explicitly rather than presenting a single shape as the only option."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Ranks shapes by production effort and value returned per unit of that effort, not by their runtime bands."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Treats the GA date on the 24th as a constraint that promotes the changelog/release clip and the error/fix shape."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Treats the GA date as a reason to delete the deep dive outright rather than to shorten it."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Lists what the post proves as claims and discards the post's section headings as the video's structure."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Drops or compresses the Background and \"What we tried first\" sections instead of giving each one a beat."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Puts the measured 90% figure on screen twice - once as the problem, once as the proof - rather than only mentioning it in narration."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Invents no figure, customer, persona or call to action that the request did not supply."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Returns a beat table whose columns include visual, on-screen action, narration, starting state, estimated seconds, and a core-or-cuttable marking."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Treats \"polished\" as an unusable adjective, converting it into a concrete decision (a runtime, a viewer, an on-screen artefact) or asking for one, rather than designing to it."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names the 30-second mark as the boundary the video platform's own retention report measures the intro against, not as a stylistic preference."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Requires the opening to name the problem in the viewer's own words."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Caps ceremony - logo, music, greeting - at roughly five seconds."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Presents the roughly-five-second ceremony figure as a measured perception threshold rather than a hard cutoff."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Delivers a beat table rather than a narration-only script, despite the request for narration only."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Gives every beat a visual and an on-screen action kept in columns separate from the narration."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Gives every beat a starting state precise enough to re-shoot that beat alone."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Ensures no beat's starting state depends on a previous beat's live output."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Marks every beat core or cuttable."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Sizes each beat to roughly one thought and about twenty seconds of narration."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Splits any beat that could not be recorded in a single pass into two beats."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Produces a cut plan naming which beats go first if the runtime overruns."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that cutting every cuttable beat still delivers the promise."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Explains that the cut decision belongs in the script before recording rather than at edit time."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Gives each segment a chapter title phrased as a task or outcome rather than \"Part 1\" or \"Step 2\"."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Includes per-beat dead time such as query runs and page loads in the estimates instead of counting narration alone."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Refuses to compute the runtime from a table value or an assumed words-per-minute figure."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Instructs the user to measure the recorder's own speaking rate, for example by timing a read of a fixed passage."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that estimated dead time must be added per beat on top of the narration time."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names concrete dead-time sources such as builds, installs, page loads and deliberate pauses."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Explains that the published speaking-rate-to-engagement correlation is a surface proxy for enthusiasm rather than a lever to pull."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Advises bringing energy instead of forcing speed."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that cuts happen before recording, never in the edit."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Declines to return a single confident runtime number, saying the measured rate and per-beat dead-time estimates are required first."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends splitting a 9-minute target into chaptered segments of roughly six minutes or less, citing the published median-engagement evidence rather than an invented benchmark."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that the visual information belongs inside the main narration rather than in a separate description track."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Identifies a separate audio-description track as the retrofit for material that already exists, not the approach for a video still being scripted."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes that doing this at script time is far cheaper than bolting a description onto a finished recording."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Prescribes an audio-only pass: reading the narration column with the screen off and rewriting every sentence that stops meaning something."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes that captions are required for prerecorded synchronized media at WCAG Level A."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Instructs auto-generating the captions and correcting them against the narration column rather than re-transcribing the video."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes that deictic lines also make an auto-generated caption track unusable."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Cites that tutorials are watched roughly two to three minutes on average regardless of their total length."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Treats the 2:40 average view duration as consistent with normal procedural-video use rather than as proof of a pacing failure."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes that procedural video is re-watched and paused selectively at step boundaries rather than watched once end to end."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Titles segments in the viewer's search vocabulary as tasks or outcomes, never \"Step 4\" or \"Part 2\"."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Gives each segment a starting state so a returning viewer can enter in the middle."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Replaces every \"so now that we've done that\" transition with a sentence stating the current state."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Moves the architecture background to a linked written page, keeping only the sentence the deploy itself needs."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes that the runtime barely needs to move for the fix to work."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Adds a chapter list whose first timestamp is 00:00, with at least three entries, each at least ten seconds long, in ascending order."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Declines speeding up the delivery as a remedy."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Declines to produce a chapter list for a 75-second clip."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Explains that the clip falls under the platform's minimum of three chapter timestamps."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States the platform's chapter requirements: first timestamp 00:00, at least three timestamps, each chapter ten seconds or longer, listed in ascending order."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes the platform revises these rules and that they should be re-checked before publishing, or says plainly that they were not re-verified."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Delivers the description and clip metadata in place of the chapter list."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Opens on the change working inside the product rather than on a title card, a logo or a feature list."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Sizes the production effort as roughly an hour over a changelog entry someone already wrote."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes the clip is embargoed until the release actually ships on the 3rd."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Marks each beat core or cuttable and names a starting state for each."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that studio production values showed no measured engagement benefit."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Notes that code screencasts sat in the weaker bucket of the published instructional-format comparison."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Cites that continuous tablet-drawing style tutorials held roughly 1.5 to 2 times the normalized engagement of code screencasts."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Recommends annotating or drawing on top of the code rather than leaving the frame bare."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names the compensating levers as motion, annotation, zoom and a face cut in at deliberate moments."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Notes that interspersing the presenter's face with the other visuals is a measured improvement over slides alone."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Instructs narrating before the reveal rather than talking over the viewer's reading."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Prescribes a scripted silent hold after a result appears so the viewer can read the output."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Identifies filling that pause with commentary as exactly the defect the \"never any dead air\" plan creates."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Recommends showing the diff or the smallest fragment that carries the point rather than the whole 60-line file."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Gives legibility floors of at least 24pt terminal text and at least 20pt editor text while labelling them as this skill's own baseline rather than a published standard."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Diagnoses the script beat by beat instead of returning a rewritten script."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Asks what the format is - talking head, screencast, silent captioned clip - before judging the beats."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Tables the beats with a number, topic, function and status per row."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Grades each finding as high, medium or low risk rather than listing findings flat."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Flags beat 4 as a logic break with a missing bridging sentence between the new resolver and deterministic builds."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Flags beat 3 as a density drop that repeats what the screen already showed."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Flags beat 5 as an unspeakable line, too long or tangled to read aloud in one breath."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Shows the original line beside the proposed replacement rather than overwriting the contractor's text."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Checks whether the Windows path aside in beat 6 is load-bearing argument before recommending a cut."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Leaves the 4x claim alone as the author's own, judging how it is said rather than whether it is true."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Manufactures no findings against beats that are fine."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Offers the marked-up script as an optional next step instead of delivering a rewrite unasked."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Separates externally published findings from this skill's own self-set baselines rather than presenting one undifferentiated list."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Labels the 24pt terminal and 20pt editor figures as self-set baselines, not an industry standard."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Attributes the median-engagement and length findings to the large MOOC instructional-video study, including its session count."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States the finding that median engagement time is at most about six minutes regardless of total video length."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that viewers typically get less than halfway through videos longer than nine minutes."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States the study's own limitations: a retrospective log study rather than an experiment, on a MOOC corpus."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that watch time is a proxy for engagement and that engagement is not learning."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Declines to cite the widely circulated 100%/50%/20% engagement table as a finding, or flags it as a secondary rendering of a normalized plot."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Attributes the 52% engagement rate for under-one-minute videos to the hosted-video industry report and flags it as a business-video corpus rather than a teaching one."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Identifies the 30-second intro window as a measurement boundary defined by the video platform's retention report."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Attributes the roughly five-second ceremony threshold to a usability finding about perceived intro length rather than to a style rule."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Labels the roughly six-minute segment ceiling as this skill's own baseline, applied at the segment level rather than the video level."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Warns that presenting a self-set number as an industry standard will fail in a review once someone checks it."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Asks questions one at a time rather than sending a block of questions at once."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Refuses \"great\", \"engaging\" and \"technical\" as answers and converts each into a concrete decision."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Asks what the source material is - a published post or docs page, a changelog or pull request, a working demo, a recorded talk, or nothing written yet."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Asks what the viewer should be able to do or decide when the video ends."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Asks who is watching, offering named audience options such as evaluator, user hitting an error, existing user or buyer-adjacent viewer."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Asks about the effort ceiling and whether the video is a one-off launch win or a compounding asset."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that anything inferred rather than stated by the user will be marked unconfirmed in the draft."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Lists customer names, tenant IDs, internal hostnames and pricing as off-limits on screen."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Flags the v7.4-rc versus v7.3 mismatch and requires the version to be stated aloud in the narration."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Requires limitations to be stated aloud, because an over-claim in a video outlives the release it described."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Notes the recording will be replayed in a procurement or security review where verbal hedging is not visible."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Delivers a recording brief with one starting-state command per beat."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Requires each starting state to be rehearsed from a machine that has not already run the demo."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Requires throwaway credentials that get rotated after the recording."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Requires notifications, badges and personal browser-profile artefacts to be off at the OS level rather than minimized."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Requires every slow operation - installs, builds, image pulls - to happen before recording starts."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Compares the resulting metrics against the company's own previous videos of the same shape rather than an external or invented benchmark."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Names takes-per-beat during recording as a script defect signal, usually an unrealistic starting state, rather than a presenter performance problem."
+      }
+    ]
+  }
+}

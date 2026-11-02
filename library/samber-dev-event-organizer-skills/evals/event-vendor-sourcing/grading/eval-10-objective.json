@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Response rejects ordering the categories by spend.",
+        "evidence": "Why ordering by spend doesn't work",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response instructs working back from the event date and ordering the categories by their own deadlines.",
+        "evidence": "Proposed sequence and Binding deadline column",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response states that the largest budget line is rarely the earliest deadline.",
+        "evidence": "The earliest deadline is rarely the biggest cheque",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response moves the shirt and print order ahead of catering in the commitment order, on backorder grounds.",
+        "evidence": "Shirts are the first real deadline",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response gives catering order placement as 2-4 weeks before the event, and notes a venue-mandated caterer commonly requires finalizing sooner than that.",
+        "evidence": "Order 2-4 weeks out... earlier if the venue mandates",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response gives security as roughly a week while telling the user to confirm with the venue and the firm, since a building requiring approved firms has its own notice period.",
+        "evidence": "Says no standard lead time for security",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response states that AV, security and insurance have no standard lead time rather than inventing one.",
+        "evidence": "I'm not giving lead times for AV, security or insurance",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response states that for AV what matters more than a lead time is rehearsal with the actual setup, with a named person assigned to run the stream live if the event streams.",
+        "evidence": "Mentions a rehearsal date only; no named stream operator",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response treats that rehearsal as both a date on the commitment schedule and a line in the supplier's quote.",
+        "evidence": "Not a quote line",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response places the insurance binding date on the commitment schedule, noting some cover must be bound well ahead and some cover is unavailable once a known circumstance exists.",
+        "evidence": "Some cover must be bound well ahead... unavailable once a known circumstance exists",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response builds one commitment schedule with a row per category whose date is the last date the decision can still be made.",
+        "evidence": "Category table with Binding deadline column",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response hands that schedule to the planning-timeline sibling rather than leaving the deadlines inside this conversation.",
+        "evidence": "Hand every deadline to your planning timeline",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Response rejects ordering the categories by spend.",
+        "evidence": "'Spend should set how hard you negotiate, not the order you start in.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response instructs working back from the event date and ordering the categories by their own deadlines.",
+        "evidence": "'Order by dependencies and lead time instead, and start the cheap, slow items now.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response states that the largest budget line is rarely the earliest deadline.",
+        "evidence": "Sends catering RFP first as 'the biggest cheque'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response moves the shirt and print order ahead of catering in the commitment order, on backorder grounds.",
+        "evidence": "Shirts last: 'About 10-12 weeks out'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response gives catering order placement as 2-4 weeks before the event, and notes a venue-mandated caterer commonly requires finalizing sooner than that.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response gives security as roughly a week while telling the user to confirm with the venue and the firm, since a building requiring approved firms has its own notice period.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response states that AV, security and insurance have no standard lead time rather than inventing one.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response states that for AV what matters more than a lead time is rehearsal with the actual setup, with a named person assigned to run the stream live if the event streams.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response treats that rehearsal as both a date on the commitment schedule and a line in the supplier's quote.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response places the insurance binding date on the commitment schedule, noting some cover must be bound well ahead and some cover is unavailable once a known circumstance exists.",
+        "evidence": "Notes cover protects 'from the day you buy it' only.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response builds one commitment schedule with a row per category whose date is the last date the decision can still be made.",
+        "evidence": "Gives an order, not a last-decision-date schedule.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response hands that schedule to the planning-timeline sibling rather than leaving the deadlines inside this conversation.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

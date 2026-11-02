@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the author as runner, and excludes the author's team where possible.",
+        "evidence": "\"Marcus wrote the tutorial AND the SDK. Protocol: 'Never the author, and ideally not the author's team.' He's both.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects a senior engineer as runner for a beginner-declared tutorial, stating they patch the gaps unconsciously and report success.",
+        "evidence": "\"'A senior engineer breezing through a beginner tutorial proves nothing \u2014 they patch the gaps unconsciously and report success.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the runner to match the declared audience level.",
+        "evidence": "\"Pick a runner who's actually never used the product (or used it once via quickstart) \u2014 not Marcus, not his team.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the observer answering questions, stating it destroys the data point the run exists to collect.",
+        "evidence": "\"'Answering a question destroys the data point you came for.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the runner to narrate aloud while the observer stays silent and takes notes.",
+        "evidence": "\"'The runner narrates aloud; the observer stays silent...' ... You take silent notes\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects running against the working tree or the main-branch build, and requires installing from the published artefact (released package or image).",
+        "evidence": "\"'Install from the published artefact (registry package, released image), not from the working tree.' Main-branch build on his own laptop is neither the release nor a clean machine\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a clean machine or fresh container: no cached credentials, no globally installed toolchain, no leftover project directory.",
+        "evidence": "\"no cached credentials, no preinstalled toolchain, is the bar\"; \"Fresh container/clean machine, install the published package\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Adds a run on one version newer than the declared runtime versions, to see how loudly it breaks.",
+        "evidence": "No mention of testing against a newer-than-declared runtime version appears anywhere in section 7.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends two runners rather than one: a first-time evaluator and someone already fluent in the ecosystem.",
+        "evidence": "\"Two runners if you can: one novice, one ecosystem-fluent, different walls.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires timestamping the start of each step and each checkpoint, treating the gap between timestamps as the friction measurement.",
+        "evidence": "No mention of \"timestamp\" or timing-gap measurement appears anywhere in section 7.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires recording every hesitation, re-read, scroll-back and tab-switch away from the page.",
+        "evidence": "The text only says to \"log each snag as defect / hidden prerequisite / concept gap / friction\" without the specific hesitation/re-read/scroll-back/tab-switch detail.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires letting failures play out, because the recovery path is part of the artefact under test.",
+        "evidence": "No statement about letting failures play out or the recovery path being part of the tested artefact appears in section 7.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects \"reaches the end in under an hour\" as the ship gate and requires the transfer test: roughly ten minutes after the last checkpoint, the runner performs the objective on a variation never demonstrated, with reference docs and no help.",
+        "evidence": "\"'Under an hour \u2192 ship' checks 1 of 6 pass-threshold criteria...\"; \"10 minutes after the last checkpoint, run the transfer test: a variation you never demonstrated, reference docs only, no help.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the author as runner, and excludes the author's team where possible.",
+        "evidence": "\"Wrong tester. Marcus wrote tutorial and SDK. He knows every implicit step, every gotcha already.\" and the final recommendation: \"pick a beginner-level tester who isn't Marcus and isn't on the SDK team\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects a senior engineer as runner for a beginner-declared tutorial, stating they patch the gaps unconsciously and report success.",
+        "evidence": "The transcript only reasons about Marcus being the *author* (\"Marcus wrote tutorial and SDK. He knows every implicit step, every gotcha already\") \u2014 it never frames the objection in terms of general seniority/fluency distinct from authorship, nor does it describe a senior-but-non-author engineer patching gaps and reporting false success.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the runner to match the declared audience level.",
+        "evidence": "\"Clean-machine test, real beginner (or someone outside SDK team)... pick a beginner-level tester who isn't Marcus and isn't on the SDK team\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the observer answering questions, stating it destroys the data point the run exists to collect.",
+        "evidence": "\"Live Q&A kills the test. You answering questions in real time papers over every confusion point a real reader would hit alone. Those friction spots are exactly what you need surfaced, not smoothed over.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the runner to narrate aloud while the observer stays silent and takes notes.",
+        "evidence": "The transcript only specifies \"no one answering questions live\" \u2014 it never asks for the runner to think aloud/narrate or for the observer to silently take notes.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects running against the working tree or the main-branch build, and requires installing from the published artefact (released package or image).",
+        "evidence": "\"Main branch conflates two different checks... Testing only main answers neither cleanly.\" and the fix: \"Clean-machine test, real beginner..., release build, no one answering questions live.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a clean machine or fresh container: no cached credentials, no globally installed toolchain, no leftover project directory.",
+        "evidence": "\"His laptop = pre-configured env. Deps, tokens, cached state already set up.\" paired with the fix: \"Clean-machine test... a clean VM/laptop for the real test.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Adds a run on one version newer than the declared runtime versions, to see how loudly it breaks.",
+        "evidence": "No mention anywhere of testing against a newer-than-declared runtime version.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends two runners rather than one: a first-time evaluator and someone already fluent in the ecosystem.",
+        "evidence": "\"Fix: run two separate checks. 1. Clean-machine test, real beginner... 2. Marcus runs it separately against main, silently, just to catch unreleased breakage.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires timestamping the start of each step and each checkpoint, treating the gap between timestamps as the friction measurement.",
+        "evidence": "No timestamping or step-gap measurement is mentioned anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires recording every hesitation, re-read, scroll-back and tab-switch away from the page.",
+        "evidence": "The transcript never asks for recording hesitation, re-reads, scroll-back, or tab-switches.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires letting failures play out, because the recovery path is part of the artefact under test.",
+        "evidence": "No statement about letting failures play out or treating recovery as part of the test artefact.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects \"reaches the end in under an hour\" as the ship gate and requires the transfer test: roughly ten minutes after the last checkpoint, the runner performs the objective on a variation never demonstrated, with reference docs and no help.",
+        "evidence": "\"Wrong success metric. Fastest-possible expert finishing under an hour tells you nothing about a beginner finishing at all, correctly, unassisted.\" rejects the under-an-hour metric, but the replacement pass criterion given (\"Pass = they finish, outputs match expected, without help\") includes no transfer test on a novel variation.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,6 +1,6 @@
 # Deep Research — DeepAPI Endpoint Reference
 
-Generated endpoint reference for the `deep-research` rows of the `deepapi` skill router. Bundle version: 65bbf0944924. This file is always managed — it is refreshed with the bundle even when `../SKILL.md` has been customized.
+Generated endpoint reference for the `deep-research` rows of the `deepapi` skill router. Bundle version: e497d8ab91bc. This file is always managed — it is refreshed with the bundle even when `../SKILL.md` has been customized.
 
 Shared protocol (environment, auth, idempotency, dry-run, polling, and error handling) lives in `../SKILL.md`. This file carries the full per-endpoint detail.
 
@@ -129,7 +129,7 @@ Search the web and return ranked results with title, url, snippet, and dateText 
 - Capability: `search.web`
 - Scope: `search:web`
 - Side effects: Runs a paid web search request and debits credits when finished.
-- Cost: Defaults to maxCostUsd 0.375. Pass maxCostUsd or maxCostMicrousd to choose a different customer spend cap. The final debit is capped and reported as debitMicrousd. Typical price: ~$0.012 per search.
+- Cost: Defaults to maxCostUsd 0.375. Pass maxCostUsd or maxCostMicrousd to choose a different customer spend cap; the minimum is 0.003. The final debit is capped and reported as debitMicrousd. Typical price: ~$0.012 per search.
 - Idempotency-Key: required
 - Polling: This route returns a terminal envelope directly.
 

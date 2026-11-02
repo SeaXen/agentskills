@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Writes the LDAP fix in symptom phrasing an administrator can match to a support ticket",
+        "evidence": "\u00a74 leaves the actual LDAP description as a placeholder: \"**What changes:** {{Precise before/after. Example shape only \u2014 replace with the real behaviour...}}\", so the shipped entry contains no real symptom an admin could match. The illustrative example does gesture at observable behaviour (\"sync run aborts, last-known-good membership is retained... instead of failing open (sync proceeds with an empty group set)\") and the required-action example is the strongest moment \u2014 \"a sync that previously failed open and went unnoticed will now block role updates and surface as a support ticket\" \u2014 explicit",
+        "score": 2,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Writes the LDAP fix in symptom phrasing an administrator can match to a support ticket",
+        "evidence": "CHG-2 is framed entirely in mechanism terms, not observable symptoms. The summary placeholder instructs '[One sentence naming the mechanism, e.g. \"Ridgeway's LDAP sync now resolves nested group membership; it previously evaluated only direct membership.\"]' and the previous-behavior field asks the author to 'Describe precisely: which attribute/query was used, what was and wasn't evaluated' \u2014 both push toward internal-implementation phrasing rather than 'users in nested groups were silently denied access they should have had.' The section title ('LDAP Group-Membership Synchronization') is likewi",
+        "score": 1,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

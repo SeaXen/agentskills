@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Writes the venue document as questions the venue must answer in writing rather than as a specification of equipment or figures",
+        "evidence": "\"technical questions we'd like answered in writing. We'd rather have your confirmed figures than quote our own\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks for the guaranteed upstream bandwidth to the streamed room and explicitly excludes the shared attendee figure and any best-effort number",
+        "evidence": "Q1: \"guaranteed (not best-effort, not the shared attendee figure) to the main room\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not carry the user's 25 Mbps figure forward as the requirement stated to the venue",
+        "evidence": "The email never states 25 Mbps; the cover note calls it \"a number you made up\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks whether a wired connection is available at the production position",
+        "evidence": "Q2.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks whether a second independent path to the internet exists",
+        "evidence": "Q3.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks who administers the venue network on the day and whether they are reachable during event hours",
+        "evidence": "Q4: \"Who administers the network... reachable throughout our hours?\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks where the rigging points are, what load they take, and who is permitted to rig",
+        "evidence": "Q7.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks whether a production position or control room is available in or adjacent to each room",
+        "evidence": "Q11.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks whether recording or streaming from the space is restricted by a house AV monopoly, an exclusivity clause or a fee",
+        "evidence": "Q16.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks whether an externally sourced AV supplier is permitted or whether the venue's nominated supplier must be used",
+        "evidence": "Q16: \"Can we bring our own supplier?\" and \"Please confirm this is allowed\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks whether a house technician is included, for which hours, and what they are responsible for",
+        "evidence": "Q14.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Hands the document back through venue sourcing rather than opening a direct negotiation channel with the venue",
+        "evidence": "The draft is addressed directly to the venue (\"Dear [Name]\"). Routing through venue negotiation is only a conditional afterthought: \"If someone else on the team handles venue negotiation, send it through them\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the production uplink distinct from attendee internet provision rather than treating them as one requirement",
+        "evidence": "Q1 asks for a guaranteed figure \"not the shared attendee figure\".",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Writes the venue document as questions the venue must answer in writing rather than as a specification of equipment or figures",
+        "evidence": "Sections 2\u20135 are requirements like 'at least 50 Mbps up' and '4 Ethernet drops'; only section 7 is questions.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks for the guaranteed upstream bandwidth to the streamed room and explicitly excludes the shared attendee figure and any best-effort number",
+        "evidence": "'dedicated, wired, symmetric connection of at least 50 Mbps up' with no guarantee language.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not carry the user's 25 Mbps figure forward as the requirement stated to the venue",
+        "evidence": "'I asked for 50 to 100 Mbps' instead of 25.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks whether a wired connection is available at the production position",
+        "evidence": "'Wired drops: 4 Ethernet drops... camera/control position'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks whether a second independent path to the internet exists",
+        "evidence": "'A second failover line would be ideal' is a wish, not a question.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks who administers the venue network on the day and whether they are reachable during event hours",
+        "evidence": "Not present.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks where the rigging points are, what load they take, and who is permitted to rig",
+        "evidence": "Asks rigging points with load ratings but not who is permitted to rig.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks whether a production position or control room is available in or adjacent to each room",
+        "evidence": "Control table specified for main room only, as a requirement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks whether recording or streaming from the space is restricted by a house AV monopoly, an exclusivity clause or a fee",
+        "evidence": "'exclusivity clauses, in-house technician requirements, or fees to bring our own equipment'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks whether an externally sourced AV supplier is permitted or whether the venue's nominated supplier must be used",
+        "evidence": "'Your rules for third-party AV and streaming crews'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks whether a house technician is included, for which hours, and what they are responsible for",
+        "evidence": "Only 'in-house technician requirements' and 'technician hours' billing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Hands the document back through venue sourcing rather than opening a direct negotiation channel with the venue",
+        "evidence": "Email is addressed directly to the venue contact.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the production uplink distinct from attendee internet provision rather than treating them as one requirement",
+        "evidence": "'Production uplink... must not be shared with attendee Wi-Fi.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

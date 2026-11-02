@@ -1,0 +1,118 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to add a fifth track or room as the fix for a grid that does not fit",
+        "evidence": "\"Why I didn't add the fifth track\"; \"Don't spend 900 USD\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that track count is owned by the structure decision made before scheduling, not by the grid build",
+        "evidence": "\"Track count and session-format mix belong to `event-format-selection`.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names samber/dev-event-organizer-skills@event-format-selection as the owner of the track-count decision",
+        "evidence": "\"belong to `event-format-selection`\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that adding a track mid-build silently changes the content mix the track count was coupled to",
+        "evidence": "\"Adding a track mid-build changes the content mix that decision was coupled to.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not silently shorten sessions or introduce a new session format to absorb the overflow without naming it as a decision owned elsewhere",
+        "evidence": "Lightning blocks: \"That is a format change, so decide it in `event-format-selection`.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sends the accepted-talk count back to the selection or format owners rather than absorbing the overflow inside the grid",
+        "evidence": "\"Acceptance outran capacity, so the fix belongs in `event-talk-selection`.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the capacity arithmetic explicitly: available slots against accepted talks",
+        "evidence": "Slot table: 32 slots vs 58, \"26 short\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not treat the 900 USD room rental as the deciding factor",
+        "evidence": "\"it wouldn't solve the shortfall\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names samber/dev-event-organizer-skills@event-talk-selection as the source of the accepted-talk list",
+        "evidence": "\"the fix belongs in `event-talk-selection`\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to add a fifth track or room as the fix for a grid that does not fit",
+        "evidence": "Rejects the room only on arithmetic and lists option D with 5 rooms as viable.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that track count is owned by the structure decision made before scheduling, not by the grid build",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names samber/dev-event-organizer-skills@event-format-selection as the owner of the track-count decision",
+        "evidence": "Not named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that adding a track mid-build silently changes the content mix the track count was coupled to",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not silently shorten sessions or introduce a new session format to absorb the overflow without naming it as a decision owned elsewhere",
+        "evidence": "Recommends 25-minute talks (option C) as its own decision.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sends the accepted-talk count back to the selection or format owners rather than absorbing the overflow inside the grid",
+        "evidence": "Absorbs the overflow inside the grid.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the capacity arithmetic explicitly: available slots against accepted talks",
+        "evidence": "\"5 \u00d7 8 = 40 slots, so you'd still be 18 talks short for 58.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not treat the 900 USD room rental as the deciding factor",
+        "evidence": "\"The constraint is total slot-minutes, not the number of rooms.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names samber/dev-event-organizer-skills@event-talk-selection as the source of the accepted-talk list",
+        "evidence": "Not named.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

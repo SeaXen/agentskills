@@ -1,0 +1,606 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "devrel-team-structure",
+  "scenarios": 10,
+  "expectations_total": 121,
+  "expectations_subjective": 0,
+  "expectations_objective": 121,
+  "pass_rate_with_skill_pct": 60.3,
+  "pass_rate_without_skill_pct": 24.0,
+  "delta_pp": 36.3,
+  "uplift_multiplier": 2.51,
+  "trigger_accuracy_pct": 78.7,
+  "trigger_queries": 108,
+  "trigger_positive_fire_rate": 0.907,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": null,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Does not name a reporting line before the funded driver is identified and attributed to a named leader."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Asks explicitly why the company funds developer relations, offering driver options such as developer adoption, sales enablement, developer enablement, product input, ecosystem, contributor community or employer brand."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Quotes the reporting-line spread with the survey year attached (marketing around 33%, product around 22%, CEO around 20%, engineering around 20%, sales around 3%)."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names what an engineering line starves (narrative, measurement literacy or budget defence) and its characteristic failure of the team being used as overflow engineering capacity."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Asks what is politically fixed - a line that cannot move, or a manager who cannot be moved."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Requires a work inventory listing each recurring surface with a named owner, that owner's manager, hours per week, and what breaks if the surface stops, before proposing any structure."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Records a named person as owner today for each surface, plus that person's manager."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Marks each surface as owned, shared, unowned, or informally absorbed by someone with a different job title."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Labels the 70% ceiling as a chosen, adjustable baseline rather than an industry standard or benchmark."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Requires one accountable owner plus one named backup per surface, and flags any surface at a bus factor of one as a risk."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Rejects hub-and-spoke at this headcount rather than shrinking it to fit."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States the hub-and-spoke staffing floor: a hub of two to three plus at least two spokes, a management layer and a standing forum."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes hub-and-spoke takes about a quarter to stand up and a quarter to unwind."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends centralized as the only candidate shape under roughly ten full-time people."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Labels the ten-person threshold as this skill's own chosen baseline, not a published finding."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Cites that around 69% of surveyed teams are under ten people, with the year attached."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Applies the scaling test: further investment must increase output more than it increases input."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Warns that a hub that approves work rather than enables it becomes a bottleneck wearing a standards label."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that the near board date pushes the choice toward centralized, which is reversible in about a week and adds near-zero coordination."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names the shared craft and the shared calendar as what embedded costs."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that embedded's coordination is a standing job rather than a one-off setup cost."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Gives the embedded staffing floor as one advocate per host team plus a craft owner somewhere, i.e. at least five advocates plus a craft owner for five squads."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Produces interlock lines and a named arbiter rather than recommending the merge as the first move."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Assigns exactly one interaction mode to the docs / technical-writing team."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names the mode as one of collaboration, X-as-a-service or facilitation, and attributes the model to Team Topologies."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names X-as-a-service as the default mode for docs drafts, reviews and structure decisions."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that more than one mode per adjacent team means nobody can say where the boundary is."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Cites that technical writing is staffed on around 42.7% of surveyed teams, with the year attached, and sits under another manager in most of the rest."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that collaboration mode needs an end date or the team silently becomes interrupt-driven."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Warns against reorganising when the real fix is declaring ownership and re-scoping."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Records technical writing on the six-function coverage map as owned by another named team or shared with a named split, in writing."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names an arbiter for the sales interlock."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Adds a re-org trigger tied to that interlock breaching its cap or staying in collaboration mode past its end."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Keeps compensation out of the org design brief entirely rather than including it with a caveat."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names the function the team moves to when it crosses a stated size threshold."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States which career ladder the role sits on - engineering, marketing, or a developer-relations-specific one."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Warns that a borrowed ladder promotes against criteria that do not describe the work, which leaks retention slowly rather than failing loudly."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States explicitly that it is in brainstorming mode before recommending anything."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States the weekly coordination each candidate adds and what undoing it would take."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Orders the candidates by efficiency - value per unit of effort - and says the ordering out loud rather than implying it by row order."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Leaves the choice to the accountable person before detailing anything below the recommendation."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Presents the brief one section at a time and seeks agreement before writing the next section."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names the shared-voice problem a split creates: two teams, one audience, two calendars, two metric sets."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names the one-re-org-per-new-leader pattern and prices each redraw at roughly a quarter of rebuilding interlocks."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Requires planned work to fit inside 70% of stated capacity and says that ceiling is a chosen baseline."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Ranks the individual-developer and enterprise audiences for this horizon instead of splitting effort evenly between them."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that consumer-marketing org patterns do not transfer, because a developer audience evaluates the artefact rather than the campaign."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Applies the awareness / enablement / engagement split across advocates, developer experience and community management, attributed to Mary Thengvall."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Does not name a reporting line before the funded driver is identified and attributed to a named leader."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Asks explicitly why the company funds developer relations, offering driver options such as developer adoption, sales enablement, developer enablement, product input, ecosystem, contributor community or employer brand."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that no reporting line holds a majority across the field, so placement is a trade-off rather than a best practice."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Quotes the reporting-line spread with the survey year attached (marketing around 33%, product around 22%, CEO around 20%, engineering around 20%, sales around 3%)."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Any reporting-line recommendation is written with all four parts: the function, the funded driver plus the named leader who owns it, the pillar that line starves, and the named person or team covering that gap."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names what an engineering line starves (narrative, measurement literacy or budget defence) and its characteristic failure of the team being used as overflow engineering capacity."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names what a marketing line starves (the product feedback loop, or technical credibility over time)."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Asks what is politically fixed - a line that cannot move, or a manager who cannot be moved."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Requires a work inventory listing each recurring surface with a named owner, that owner's manager, hours per week, and what breaks if the surface stops, before proposing any structure."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Derives the headcount from an inventory of recurring surfaces instead of from a ratio."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Asks for or lists the recurring surfaces the company has committed to (docs, quickstart, blog, community venue, event calendar, SDKs, sample apps, changelog, support presence, repositories)."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Records a named person as owner today for each surface, plus that person's manager."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Records hours per week each surface really takes."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Records what happens if each surface stops."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Marks each surface as owned, shared, unowned, or informally absorbed by someone with a different job title."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Plans against at most 70% of declared capacity."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Labels the 70% ceiling as a chosen, adjustable baseline rather than an industry standard or benchmark."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Requires one accountable owner plus one named backup per surface, and flags any surface at a bus factor of one as a risk."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States in the answer that the headcount figure was derived from the surface table, and quotes no compensation band."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Rejects hub-and-spoke at this headcount rather than shrinking it to fit."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States the hub-and-spoke staffing floor: a hub of two to three plus at least two spokes, a management layer and a standing forum."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes hub-and-spoke takes about a quarter to stand up and a quarter to unwind."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Points out four spokes cannot be staffed from five full-time people."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends centralized as the only candidate shape under roughly ten full-time people."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Labels the ten-person threshold as this skill's own chosen baseline, not a published finding."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Cites that around 69% of surveyed teams are under ten people, with the year attached."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Warns that copying a larger company's shape presupposes spokes this company cannot staff."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Applies the scaling test: further investment must increase output more than it increases input."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that the near board date pushes the choice toward centralized, which is reversible in about a week and adds near-zero coordination."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Tests the embedded shape against all four promotion conditions before recommending or rejecting it."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that the funded driver here is not product input, so embedded fails at least one of the four conditions."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires each host team to be able to fund and level the advocate role, not just host it."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires the product lines to have genuinely different audiences."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that embedded is the least reversible shape, because each advocate is levelled and promoted by a host manager who now owns that headcount."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names the shared craft and the shared calendar as what embedded costs."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that embedded's coordination is a standing job rather than a one-off setup cost."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Gives the embedded staffing floor as one advocate per host team plus a craft owner somewhere, i.e. at least five advocates plus a craft owner for five squads."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Routes the sales-enablement driver to a product or marketing line with a sales interlock, and does not place developer relations under sales."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Produces interlock lines and a named arbiter rather than recommending the merge as the first move."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Assigns exactly one interaction mode to the docs / technical-writing team."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names the mode as one of collaboration, X-as-a-service or facilitation, and attributes the model to Team Topologies."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names X-as-a-service as the default mode for docs drafts, reviews and structure decisions."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Writes each interlock with what crosses the boundary."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Writes each interlock with who arbitrates when it stalls."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that more than one mode per adjacent team means nobody can say where the boundary is."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Cites that technical writing is staffed on around 42.7% of surveyed teams, with the year attached, and sits under another manager in most of the rest."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that collaboration mode needs an end date or the team silently becomes interrupt-driven."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Records technical writing on the six-function coverage map as owned by another named team or shared with a named split, in writing."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends against the sales reporting line."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names attribution speed and pipeline visibility as what the sales line genuinely optimizes."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names the characteristic failure: advocates become pre-sales engineers and the community reads the program as a sales channel."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Cites the sales share of reporting lines at around 3.2%, with the year attached."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Proposes placing the team in product or marketing and giving sales a service interlock instead of the reporting line."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Sets the sales interlock mode to X-as-a-service."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States what crosses that boundary: evaluation material out, field objections in."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names an arbiter for the sales interlock."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Proposes an observable cap on the sales interlock's load, such as hours per week."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Adds a re-org trigger tied to that interlock breaching its cap or staying in collaboration mode past its end."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Refuses to state a compensation band or salary figure."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that developer relations roles are thin in salary-banding datasets, so a quoted band is guesswork, and points the user to live market data."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Keeps compensation out of the org design brief entirely rather than including it with a caveat."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names what the CEO line starves: operational support, career ladder, peer review, or everyday prioritization."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Flags \"Head of\" as ambiguous both internally and on the market and resolves it to a real level."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Checks the title against scope: a manager accountable for company-level goals warrants a director-level title and influence."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States which career ladder the role sits on - engineering, marketing, or a developer-relations-specific one."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Warns that a borrowed ladder promotes against criteria that do not describe the work, which leaks retention slowly rather than failing loudly."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Cites that the CEO line has grown to around 20% of surveyed teams, up from around 14%, with the year attached."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States explicitly that it is in brainstorming mode before recommending anything."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Builds two or three whole candidate structures, each combining a reporting line, a shape and a coverage split as one set."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States the headcount each candidate assumes."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Orders the candidates by efficiency - value per unit of effort - and says the ordering out loud rather than implying it by row order."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Leaves the choice to the accountable person before detailing anything below the recommendation."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Presents the brief one section at a time and seeks agreement before writing the next section."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that a program missing its goals has usually funded too many surfaces rather than chosen the wrong parent."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Rejects the split-by-focus shape at five people."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States the split-by-focus staffing floor of roughly eight, because each half needs a viable team."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names the shared-voice problem a split creates: two teams, one audience, two calendars, two metric sets."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Notes that unwinding a split needs two leaders to agree to give up a team, and that its coordination cost is permanent rather than setup."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names the one-re-org-per-new-leader pattern and prices each redraw at roughly a quarter of rebuilding interlocks."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that a refused surface must be refused in writing."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Requires planned work to fit inside 70% of stated capacity and says that ceiling is a chosen baseline."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Produces a re-org trigger list written as observable conditions rather than calendar dates, and does not propose an annual review as the mechanism."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "The trigger list includes a change in the funded driver or the departure of the sponsor who owns it."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "The trigger list includes a surface sitting at a bus factor of one for a quarter."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that the span-of-control check comes from general management practice, not from developer-relations data."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that no developer-relations-specific span-of-control data exists."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Marks all six functions - advocacy, community management, technical writing, developer marketing, developer education, developer-experience engineering - with one of the five coverage states."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Leaves no function blank on the coverage map."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Cites the survey coverage shares with the year attached (advocacy around 82%, community around 53%, technical writing around 43%, developer marketing around 38%, developer education around 36%, developer-experience engineering around 27%)."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Ranks the individual-developer and enterprise audiences for this horizon instead of splitting effort evenly between them."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that consumer-marketing org patterns do not transfer, because a developer audience evaluates the artefact rather than the campaign."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Applies the awareness / enablement / engagement split across advocates, developer experience and community management, attributed to Mary Thengvall."
+      }
+    ]
+  }
+}

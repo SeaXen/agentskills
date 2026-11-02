@@ -1,0 +1,19 @@
+## Verdict: No — the plan has real gaps. Three of them will hurt before the "delete from sitemap next quarter" ticket ever gets picked up.
+
+### Findings
+
+| Layer | Issue | Severity | Affected Pages | Fix |
+|---|---|---|---|---|
+| Crawlability/Signals | Single nginx rule sends **all 1,900 URLs to the bare root** (`docs.thessaly.dev/`), not to path-matched v3 equivalents | Critical | ~1,740 pages (the ones that *do* have a v3 equivalent) | Build a redirect map — pattern-based (`/v2/api/foo` → `/v3/api/foo`) or a lookup table — for every page with a real target. Many-to-one redirects at this volume are a known trigger for Google to classify the redirect as a soft 404, which passes little to no ranking signal. You'd be discarding 18+ months of accumulated backlinks and long-tail rankings (specific API pages, specific error strings) that a homepage redirect can't inherit. |
+| Indexability | The 160 pages for **removed subsystems have no destination at all**, yet get the same blanket 301 to the homepage | Critical | 160 pages | Don't silently 301 gone-forever content to an unrelated homepage — it reads to users as "we lost your page" and Google treats it the same way (soft 404, no equity passed). Either serve **410 Gone** (honest, permanent-removal signal) or, better, redirect to a short-lived landing page ("Subsystem X was removed in v3 — here's why / here's the alternative") so users get an actual answer instead of a bounce. |
+| Crawlability/Signals | Sitemap keeps listing all 1,900 URLs as canonical, indexable pages for a full quarter while they're actually 301s | Warning | 1,900 pages | Update the sitemap in the same change as the redirect cutover, not as a separate follow-up ticket. Leaving redirects in the sitemap sends contradictory signals ("index this" vs. "go away"), shows up as "Page with redirect" noise in Search Console, and burns crawl budget re-fetching dead URLs for three months for no reason — there's no dependency forcing these to be separate pieces of work. |
+| Business/lifecycle (outside pure SEO, but the load-bearing issue here) | v2's **published EOL is 2027-03-31**; docs go offline **next month** — 17 months early | Critical | All v2 users still on that version | Pulling the docs over a year before the date you told customers they'd have support is the real risk, independent of SEO mechanics. Anyone still running v2 in production loses their reference material mid-support-window, and it contradicts a date you've publicly committed to. Either push the doc removal to line up with the EOL date, or explicitly revise the published EOL and tell affected customers — don't let a nginx ticket quietly override a lifecycle commitment. |
+
+### Priority fix list
+
+1. **Reconcile the takedown date with the published EOL.** This is the one that damages trust if it ships as-is — fix or explicitly renegotiate the 2027-03-31 date before touching redirects.
+2. **Build a real redirect map for the ~1,740 pages with v3 equivalents.** A single blanket rule is the wrong tool for 92% of this URL set — it's cheap to fix (pattern-match on URL structure first, hand-map the exceptions) and is where almost all the SEO/UX value sits.
+3. **Give the 160 orphaned pages a real disposition** — 410, or a "this was removed" landing page — instead of folding them into the same catch-all.
+4. **Ship the sitemap update with the redirect, not next quarter.** No reason to decouple a one-file change from the cutover that makes it necessary.
+
+The "one nginx rule + defer the sitemap" plan is the cheap version, not the correct one. It'll technically stop 404s, but it throws away ranking equity on the pages that don't need to lose it, gives no real answer to users looking for removed features, and — the part actually worth escalating — quietly breaks a support-lifecycle date you've already published.

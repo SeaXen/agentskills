@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The lead item contains no technical detail about the scheduler rewrite beyond what the user stated (an RFC, a scheduler rewrite, approved Tuesday).",
+        "evidence": "'The RFC proposing a rewrite of the Orrery scheduler was approved on Tuesday.' plus a blocked placeholder.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The draft contains no numbers, benchmarks or percentages attributed to any of the three links.",
+        "evidence": "'I won't quote any figure from internal notes'; the draft contains no figures.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response asks the user for the titles of the perf-2024-q3 and 9a7f2c links instead of presenting headlines derived from the URL slugs as real titles.",
+        "evidence": "'I need the page title...' and 'I won't build a headline from the URL slug.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response lists the three links as unread or unverified in a report or note.",
+        "evidence": "'I couldn't open any of the three links.' plus the blocked list.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The draft does not contain invented forum threads presented as real.",
+        "evidence": "'I did not invent forum threads or generic tips for the empty sections.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response declines to choose or invent items to fill empty sections, saying item selection is a separate job.",
+        "evidence": "'that is item sourcing, and the sourcing skill (`devrel-newsletter-sourcing`) handles it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Empty sections are dropped from this issue rather than kept with placeholder or filler content.",
+        "evidence": "'All 7 headings stay... each empty one says so in one line' \u2014 the sections are kept with filler lines like 'Nothing open this week.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response tells the user the issue is thin.",
+        "evidence": "'Issue is thin. Only 2 of the 6 content sections have an item'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response offers at least two of: ship a shorter issue, skip this week, merge into the next issue.",
+        "evidence": "'ship it as drafted, ship it shorter, or fold it into #59'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response names at least one cost of padding, such as readers learning to skip sections or losing trust that each item is worth reading.",
+        "evidence": "'readers who see \"nothing this week\" four times may skim the next issue.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The lead item contains no technical detail about the scheduler rewrite beyond what the user stated (an RFC, a scheduler rewrite, approved Tuesday).",
+        "evidence": "The lead says only 'RFC-412, the scheduler rewrite, was approved on Tuesday.' Everything else is '[needs RFC content]'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The draft contains no numbers, benchmarks or percentages attributed to any of the three links.",
+        "evidence": "'2\u20133 headline numbers: [needs perf notes content]'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response asks the user for the titles of the perf-2024-q3 and 9a7f2c links instead of presenting headlines derived from the URL slugs as real titles.",
+        "evidence": "The heading 'Q3 performance notes' for perf-2024-q3 is derived from the slug. It asks for pasted page text, but only after presenting that heading.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response lists the three links as unread or unverified in a report or note.",
+        "evidence": "'WebFetch was denied, so I haven't read any of your three links.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The draft does not contain invented forum threads presented as real.",
+        "evidence": "'I didn't invent forum threads.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response declines to choose or invent items to fill empty sections, saying item selection is a separate job.",
+        "evidence": "It declines to invent items, but offers to 'draft a short \"nothing this week\" line' for each. It never says item selection is a separate job.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Empty sections are dropped from this issue rather than kept with placeholder or filler content.",
+        "evidence": "Ecosystem, Community showcase, Help wanted and Events are kept with '`[nothing supplied]`'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response tells the user the issue is thin.",
+        "evidence": "It never says the issue is thin. It only says 'I couldn't assemble a publishable #58'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response offers at least two of: ship a shorter issue, skip this week, merge into the next issue.",
+        "evidence": "The options are to send items, fill with 'nothing this week' lines, or ship with sections empty. Skipping or merging is not offered.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response names at least one cost of padding, such as readers learning to skip sections or losing trust that each item is worth reading.",
+        "evidence": "It says a made-up link 'is worse than a short section', which is a cost of fabrication. It names no padding cost, and it recommends option b, a filler line per section.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

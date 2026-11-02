@@ -5,7 +5,7 @@ description: >-
 license: MIT
 metadata:
   author: Samuel Berthe
-  version: "1.0.2"
+  version: "1.0.3"
 ---
 
 # Developer Community Health
@@ -266,3 +266,7 @@ Plus: at most 8 metrics, at least one per pillar, and no metric that fails the "
 ## Memory
 
 If your harness has persistent memory, store the primary outcome, the final metric sheet, baselines and thresholds after the user validates them. The next review then starts from the recorded baseline instead of re-deriving it, and a threshold change becomes visible as a decision rather than a silent edit.
+
+## References
+
+- samber/developer-relations-skills@discourse-forums-playbook - the Discourse admin reports (time to first response, topics with no response, trust level growth) that feed a forum's activity and responsiveness pillars

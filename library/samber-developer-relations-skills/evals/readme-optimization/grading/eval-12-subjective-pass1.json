@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Runs the finished prose through a humanizer pass before presenting it",
+        "evidence": "The transcript contains no tool invocation, no mention of the humanizer/humanizer-en-asd-ste100 skills, and no indication of any de-sloppification or humanization step. The only skill referenced is 'readme-optimization' (Step 5 opening-lines guidance), and the rewritten README block is presented directly as drafted. The delivered prose in fact retains characteristic AI-tell constructions (em-dash asides such as 'No server, no ops layer \u2014 it's a library...', the 'it just spends it on something...' negation-contrast pattern, and 'can't immediately poke a hole in'), which is the opposite of what ",
+        "score": 0,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Runs the finished prose through a humanizer pass before presenting it",
+        "evidence": "The transcript contains only the final two-sentence blurb with no evidence of any humanizer step \u2014 no skill invocation (e.g. `humanizer` / `humanizer-en-asd-ste100`), no tool calls, no draft-then-revise pass, and no mention of one. The delivered text itself carries the exact AI-marketing tells a humanizer pass exists to strip: stacked hype adjectives ('blazing-fast, developer-friendly'), the clich\u00e9 pairing 'Production ready and battle-tested', and an em-dash-appended credential clause. Nothing indicates the prose was revised before presentation.",
+        "score": 0,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

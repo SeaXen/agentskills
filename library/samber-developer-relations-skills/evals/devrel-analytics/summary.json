@@ -1,0 +1,514 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "devrel-analytics",
+  "scenarios": 14,
+  "expectations_total": 153,
+  "expectations_subjective": 1,
+  "expectations_objective": 152,
+  "pass_rate_with_skill_pct": 83.0,
+  "pass_rate_without_skill_pct": 40.5,
+  "delta_pp": 42.5,
+  "uplift_multiplier": 2.05,
+  "trigger_accuracy_pct": 50.0,
+  "trigger_queries": 138,
+  "trigger_positive_fire_rate": 0.029,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.274 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "States that the blocking bias varies by page, so it cannot be corrected by applying one multiplier."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Warns that clone counts include CI systems and mirrors and are not people."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Records today's values as a dated baseline before any further instrumentation work."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes npm's retention limits when planning collection: 18 months of history, 365 days for bulk queries, 7 days per version."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes PyPI's 180-day time-series retention and recommends snapshotting into the team's own store."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Proposes a defensible alternative number grounded in a first-party signal instead of accepting a registry figure as the adoption claim."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Routes the target-setting question to samber/developer-relations-skills@devrel-metrics rather than answering it here."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends replacing the 80% floor with the program's own trailing rate once enough of its own data exists."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Explains that join coverage is the preferred standing health check because it is more diagnostic than reconciling absolute counts between two tools."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Bans PII and PII-shaped identifiers from every property."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Requires a closed allowed-list vocabulary for source and medium, fixed before the next tagged link is published."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Requires every published tagged link to be registered in one table with owner and publish date."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Recommends tagging per artifact rather than per campaign when the point is comparing artifacts."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that links published before the tagging vocabulary exists stay unmergeable forever."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that the identity spine is promoted ahead of everything once a decision on the list asks whether a surface produces signups."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Requires an end-to-end trace of each primary conversion event, walked as a real user in a fresh browser profile arriving through a tagged external link."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Requires confirming that the landing URL keeps its query string through redirects and OAuth hops."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Requires finding the stored record and confirming the identity fields resolved, with anonymous_id present and user_id attached on the signup event."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Requires a duplicate check by refreshing the confirmation page and re-entering through the back button, confirming the deduplication key holds."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Requires excluding internal, office, VPN, CI and preview-deployment traffic, and notes that exclusion filters are not retroactive."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Requires confirming the exclusion filter is active rather than merely defined."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Notes that DevRel counts such as talks, enterprise conversations and external pull requests are naturally small, so this is the normal case rather than an exception."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that those substitutes read as a floor on the surface's contribution, never as a total."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Keeps the self-reported source field's answer list short and stable across quarters so periods stay comparable."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "States that in a company-buying motion every event must carry account_id alongside user_id."
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Places CLI or SDK telemetry last in the build order on value per hour, and notes that its cost is paid in community trust rather than in hours."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "States that a third-party client-side analytics script is blocked by roughly 58% of a tech audience, and attaches that figure to a published measurement rather than presenting it as its own estimate."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names at least one per-segment blocking rate (68.2% desktop, 88.3% Firefox, or 82.3% Linux) when explaining that the miss rate is not uniform."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that the blocking bias varies by page, so it cannot be corrected by applying one multiplier."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends first-party or proxied collection on the docs site as the fix that recovers the missing share, rather than switching to a different third-party tool."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Advises trusting ratios inside one source, such as step-to-step drop-off, over absolute counts compared across sources."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Instructs scheduling a daily export appended into the team's own store, and explains that a monthly or weekly export loses most of the window."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Warns that clone counts include CI systems and mirrors and are not people."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Warns that stars only ever increase, and recommends converting to stars-per-period if reported at all, never as a headline."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes that referrers into a repository are largely stripped, the same way web referrers are."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Frames the deliverable as a collection recipe plus a snapshot job with a named owner and schedule, rather than as a traffic analysis."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that npm counts HTTP 200 responses serving tarball files, so build servers, mirrors and analysis bots are counted deliberately."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that PyPI excludes known mirrors by default and exposes with-mirrors and without-mirrors as separate series."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends reporting each registry's trend against its own baseline, one series per registry with its counting definition written beside it."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes npm's retention limits when planning collection: 18 months of history, 365 days for bulk queries, 7 days per version."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes PyPI's 180-day time-series retention and recommends snapshotting into the team's own store."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Mentions the guidance that below roughly 50 downloads per day the npm signal is mostly automation."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Does not offer a conversion ratio or divisor for turning downloads into a developer headcount."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that a model download on that hub counts every HTTP GET or HEAD against a per-library query file such as config.json, so repeated automated access counts every time."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that a dataset download collapses every file one IP fetches from one repository inside a 5-minute window into a single download."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Corrects the likes-versus-downloads reading: likes are a recency signal concentrating on new releases while downloads concentrate on older dependencies, and neither proxies the other."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Rejects trending rank as a tracked metric because the score has no published formula and no stability guarantee, allowing it only as a snapshot observation."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Flags that the untokenized polling job falls under a lower anonymous rate limit enforced over fixed 5-minute windows, and instructs sending a token."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Instructs snapshotting totals daily into the team's own store and reporting deltas, because the public API returns current totals rather than history."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Declines to supply or endorse a docs-conversion or activation target borrowed from other companies."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Identifies the 20-40% activation band as resting on repetition rather than on a measured cohort, and refuses it by name."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Routes the target-setting question to samber/developer-relations-skills@devrel-metrics rather than answering it here."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Starts the plan from a decision list, naming the decisions the data should change and the question that settles each one."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that an event tracing to no decision on that list is deleted rather than deferred."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Warns that five weeks of client-side docs data on a developer audience is a biased and partial denominator for any conversion rate."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Does not invent a substitute benchmark figure of its own and present it as typical for the category."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Labels any threshold it does propose explicitly as a self-set starting point the user may move."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Refuses the phrase 'industry standard' applied to the 80% figure."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that 80% is a floor the plan set for itself, not a published or measured benchmark, and that no such benchmark exists to cite."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Supplies corrected wording that presents the floor as one the team set in its own plan."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names the identity spine, the anonymous-ID cookie or cross-subdomain sharing as the mechanism to investigate for a coverage drop."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends replacing the 80% floor with the program's own trailing rate once enough of its own data exists."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Explains that join coverage is the preferred standing health check because it is more diagnostic than reconciling absolute counts between two tools."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Advises against converting the existing plan's casing, and instructs matching the convention already in place."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that consistency is the sourced rule and that no particular casing is mandated by the naming framework."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Offers the alternative to renaming: add a property, or version the plan and note the break."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Rejects the step number baked into the event name and instructs carrying step_number as a property."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes that 140 events is past the readability limit, and that the list should be small enough to fit on one screen."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires a property registry giving a type and an allowed-value list per property."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Bans PII and PII-shaped identifiers from every property."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that a large direct bucket during launch week is the normal case rather than an instrumentation defect."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names referrer-stripping causes for the direct bucket, such as aggregators, chat clients, privacy browsers, PDFs or slide decks."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Cites that roughly 70% of AI-assistant-driven traffic arrives with no referrer at all."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Requires a closed allowed-list vocabulary for source and medium, fixed before the next tagged link is published."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Requires every published tagged link to be registered in one table with owner and publish date."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Recommends tagging per artifact rather than per campaign when the point is comparing artifacts."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States the three conditions the campaign-window heuristic requires: the date falls inside exactly one campaign's window, the landing page belongs to that campaign, and that campaign's tags were live."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Instructs recording three fields rather than a bare channel: source, source_basis and source_confidence."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Defines the source_basis values as journey_linked, self_reported and campaign_window."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that confidence is judged on the quality of the evidence and is never read off the basis."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Requires backfilled history to be kept visually separate so it is not read as a trend."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Declines to present the eight-month backfilled series as a trend chart."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Sequences the work by value returned per hour and states the ranking out loud rather than implying it through row order."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Puts the tagging vocabulary and link registry first, as an hour of decisions requiring no engineering."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Puts the self-reported source field at signup third, as near-zero effort."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that links published before the tagging vocabulary exists stay unmergeable forever."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Deletes the rungs the stated constraints rule out, such as log analysis, product-side events and CLI or SDK telemetry, rather than parking them at the bottom of the list."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Writes the deletion and its reason into the plan document, because a parked rung returns next quarter as unbudgeted scope."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names what the efficiency order starves, the high-value high-effort work such as the identity spine and product-side events, and states the condition that promotes it anyway."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that the identity spine is promoted ahead of everything once a decision on the list asks whether a surface produces signups."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Ties the three-week deadline explicitly to promoting the near-zero rungs and deferring the identity spine."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Instructs comparing only within the post-stitch period until a full cycle has passed."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Explains that first-party attribution reads near zero until the cross-domain stitch is verified in production, then flips the week it lands."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Requires an end-to-end trace of each primary conversion event, walked as a real user in a fresh browser profile arriving through a tagged external link."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Requires confirming that the landing URL keeps its query string through redirects and OAuth hops."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Requires finding the stored record and confirming the identity fields resolved, with anonymous_id present and user_id attached on the signup event."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Requires finding the row in the report the funnel view will actually read, and names it as the step teams skip."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Requires a duplicate check by refreshing the confirmation page and re-entering through the back button, confirming the deduplication key holds."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Requires excluding internal, office, VPN, CI and preview-deployment traffic, and notes that exclusion filters are not retroactive."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Requires confirming the exclusion filter is active rather than merely defined."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Rejects the 58% rate because it is computed on fewer than roughly 30 events."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Instructs publishing the raw list with dates instead of a percentage at that volume."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Notes that DevRel counts such as talks, enterprise conversations and external pull requests are naturally small, so this is the normal case rather than an exception."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Flags that the talk-to-signup link needs a stated evidence basis, since off-web appearances cannot be tagged."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that those substitutes read as a floor on the surface's contribution, never as a total."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Pairs the four-posts-per-month target with a quality counter-metric, and explains that an incentivised volume metric gets gamed once it becomes a target."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Attributes the gaming dynamic to the published measure-becomes-a-target principle rather than presenting it as an original observation."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Requires person-level community data to be aggregated before anything is published."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Keeps the self-reported source field's answer list short and stable across quarters so periods stay comparable."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Requires reporting what share of the population actually resolved to an account."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Forbids presenting an account-level rate computed from a partially resolved population without stating that share."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "States that in a company-buying motion every event must carry account_id alongside user_id."
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Names the documented floor of what may be collected, such as the command invoked, the tool or framework version, the OS, plugins, and build duration or size."
+      },
+      {
+        "eval_id": 14,
+        "expectation": "States that hashing is not consent."
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Places CLI or SDK telemetry last in the build order on value per hour, and notes that its cost is paid in community trust rather than in hours."
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Names the stricter opt-in model, where uploadable counters are approved through a public proposal process and results are published back openly, as an option that trades reach for trust and carries real governance overhead."
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Checks the proposal against the decision list, naming the decision the telemetry would change or cutting it."
+      }
+    ]
+  }
+}

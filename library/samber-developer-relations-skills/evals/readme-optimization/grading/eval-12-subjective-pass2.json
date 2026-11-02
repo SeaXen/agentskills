@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Runs the finished prose through a humanizer pass before presenting it",
+        "evidence": "The transcript shows no humanizer invocation or any mention of a humanization/de-slop step \u2014 it only cites \"the readme-optimization skill's opening-lines guidance (Step 5)\" and goes straight to \"Here's the rewritten top, keeping the punch:\" before the draft. A `humanizer` skill is available in the environment but is never referenced or applied, and the delivered prose retains stock LLM tells (em-dash-heavy asides such as \"No server, no ops layer \u2014 it's a library...\", \"it just spends it on something a skeptical reader can't immediately poke a hole in\"), indicating no humanizing pass occurred.",
+        "score": 0,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Runs the finished prose through a humanizer pass before presenting it",
+        "evidence": "The transcript consists solely of the delivered blurb ('Prismstore is a blazing-fast, developer-friendly embedded key-value store...'). There is no humanizer skill invocation, no tool call, no intermediate draft, and no mention of any refinement pass. The delivered text also retains hallmark AI-marketing filler ('blazing-fast', 'developer-friendly', 'Production ready and battle-tested', em-dash tack-on clause), which is exactly what a humanizer pass is meant to strip \u2014 evidence that no such pass occurred.",
+        "score": 0,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

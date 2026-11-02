@@ -1,0 +1,118 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Routes the Nimbletide connector certification to samber/developer-platform-skills@app-marketplace-review, stating it certifies an app rather than a person.",
+        "evidence": "'Your connector is an app, so this is a marketplace review.' -> samber/developer-platform-skills@app-marketplace-review.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines the internal skills matrix as out of scope because no outside reader relies on it, and points it to people or L&D teams.",
+        "evidence": "'It is an internal employee tool. No outside reader relies on it'; 'belongs to their L&D owner'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines to help with Terraform Associate preparation, stating that a candidate preparing for someone else's exam is out of scope, and stops on that item.",
+        "evidence": "'a candidate preparing for another vendor's exam is out of scope here. I stopped.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the Academy question to samber/developer-relations-skills@developer-education-strategy and says to return once a credential is on the table.",
+        "evidence": "Routed to developer-education-strategy; 'A credential question only comes back here once it says yes.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps only the consultant badge in scope.",
+        "evidence": "The verdict is 'Work on 1, 4 and 5', so the connector and Academy are also kept as work.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Opens the consultant badge with the credential gate: asks who outside Veldora will act on the credential and what they will do differently.",
+        "evidence": "'Who outside Veldora acts on it?'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks interview questions one per message rather than listing all of them at once.",
+        "evidence": "It lists 3 gate questions at once and mentions 7 more.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not design a tier, format or exam for the consultant badge before the gate questions are answered.",
+        "evidence": "It gives 'the expected design' with tier ceiling, format, AI policy, renewal, fee and kill rule before the gate is answered.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not produce a Terraform study plan or any exam preparation material.",
+        "evidence": "'If you want a study plan, ask separately.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Routes the Nimbletide connector certification to samber/developer-platform-skills@app-marketplace-review, stating it certifies an app rather than a person.",
+        "evidence": "It designs the Reviewed Connector mark itself.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines the internal skills matrix as out of scope because no outside reader relies on it, and points it to people or L&D teams.",
+        "evidence": "'Not a platform-team job. Hand back to HR'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines to help with Terraform Associate preparation, stating that a candidate preparing for someone else's exam is out of scope, and stops on that item.",
+        "evidence": "'Do it', with a 4-week study plan.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the Academy question to samber/developer-relations-skills@developer-education-strategy and says to return once a credential is on the table.",
+        "evidence": "It runs an evidence gate itself.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps only the consultant badge in scope.",
+        "evidence": "It handles all five items.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Opens the consultant badge with the credential gate: asks who outside Veldora will act on the credential and what they will do differently.",
+        "evidence": "It rejects the badge and lists revival conditions rather than asking who will act on it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks interview questions one per message rather than listing all of them at once.",
+        "evidence": "It lists multiple questions at once.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not design a tier, format or exam for the consultant badge before the gate questions are answered.",
+        "evidence": "'Consultant badge: not now', with only a revival trigger.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not produce a Terraform study plan or any exam preparation material.",
+        "evidence": "It gives numbered study steps for the Terraform Associate exam.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

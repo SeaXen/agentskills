@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Pairs every incentivised volume metric with a counter-metric",
+        "evidence": "\"Comp-loaded volume needs quality pair (posts \u2192 organic entries per post; closes \u2192 reopen rate; signups \u2192 30-day retention).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Pairs the blog-post count with organic entries per post",
+        "evidence": "Replacement sheet row 7: \"Publishing cadence + organic entries per post | Reach + counter\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Pairs closed issues with reopen rate",
+        "evidence": "\"closes \u2192 reopen rate\" and comp design \"Counter-metric can claw back (reopen rate, retention, organic entries).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Pairs signups with 30-day retention",
+        "evidence": "\"signups \u2192 30-day retention\" and replacement sheet row 3 \"30-day retention of first-success cohort\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites the formulation that when a measure becomes a target it ceases to be a good measure, attributed to Marilyn Strathern's 1997 generalisation of Goodhart's law",
+        "evidence": "Text only says \"Strathern's law: 'when a measure becomes a target, it ceases to be a good measure'\" with no first name, year, or Goodhart's-law linkage given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the specific degradations the targets produce: thin posts, premature issue closes, low-value chatter and throwaway accounts",
+        "evidence": "\"thin posts, chatter, premature closes, throwaway accounts\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects per-person metric targets and measures the program rather than the individual",
+        "evidence": "\"## Replacement sheet (team-level)\" and \"No team bonus on activity quotas alone.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that per-person targets turn colleagues into competitors and pull work toward whatever is counted",
+        "evidence": "\"team-vs-program distinction (per-person identical quotas turn colleagues into competitors)\" combined with \"quotas reward none of Vantablack's actual adoption levers ... a docs rewrite beats 6 posts and counts zero.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Applies the so-what test by naming the action each surviving metric triggers, and cutting any metric with no action",
+        "evidence": "\"So-what test fails: hit the number, nothing follows.\" for the blog-post quota, plus every replacement-sheet row has an \"Action if breached\" entry.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Applies the ownership test, asking whether this team's work can plausibly move the number within one review period",
+        "evidence": "\"'So what' + ownership tests: posts fail both; per-person signups fail ownership\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Applies the monotonic test to the candidate metrics",
+        "evidence": "The word \"monotonic\" and the concept of a cumulative/non-falling metric never appear anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Caps the resulting sheet at no more than eight metrics",
+        "evidence": "Replacement sheet has exactly 8 rows (1 through 8).",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cuts a metric that fails any of the three tests rather than softening or rewording it",
+        "evidence": "Metrics that fully fail (posts: \"\ud83d\udd34 cut\"; signups: \"\ud83d\udd34 delete, worst of set\") are removed, while metrics with fixable definitional issues are converted rather than dropped.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Pairs every incentivised volume metric with a counter-metric",
+        "evidence": "'Guardrails tracked, never comped: reopen rate, sentiment and spam reports, activation-rate floor, cannibalization audit' pairs each of the four original metrics with a counter-signal.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Pairs the blog-post count with organic entries per post",
+        "evidence": "The replacement for posts is 'engaged reads + assisted signups at 90 days' and 'cannibalization audit' \u2014 no 'organic entries per post' metric is named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Pairs closed issues with reopen rate",
+        "evidence": "'Replace with: triage SLA (90% labeled + routed + repro requested under 24h), reopen rate under 10%, community PRs merged.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Pairs signups with 30-day retention",
+        "evidence": "Signups are replaced with 'Activated = repo connected + first successful build within 14 days' \u2014 a 14-day activation window, not 30-day retention.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites the formulation that when a measure becomes a target it ceases to be a good measure, attributed to Marilyn Strathern's 1997 generalisation of Goodhart's law",
+        "evidence": "No citation of Strathern or Goodhart's law appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the specific degradations the targets produce: thin posts, premature issue closes, low-value chatter and throwaway accounts",
+        "evidence": "Thin posts ('Quality collapses by design'), premature closes ('stale-close, duplicate-close, wontfix'), and chatter/spam ('Count rewards spam') appear, but no throwaway-account degradation is named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects per-person metric targets and measures the program rather than the individual",
+        "evidence": "'Drop per-person signup attribution before comp calc attaches' and 'Restructured set: ~50% team outcome: activated signups/quarter. One number, whole team.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that per-person targets turn colleagues into competitors and pull work toward whatever is counted",
+        "evidence": "'Zero team metric. All four individual = zero-sum competition, keyword overlap, credit claims' and '4 writers chase same keywords = SEO cannibalization.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Applies the so-what test by naming the action each surviving metric triggers, and cutting any metric with no action",
+        "evidence": "No named 'so-what test' or systematic action-per-metric justification appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Applies the ownership test, asking whether this team's work can plausibly move the number within one review period",
+        "evidence": "No named 'ownership test' appears; the closest is 'Advocates don't ship fixes, engineering does' applied only to the issues metric, not systematically.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Applies the monotonic test to the candidate metrics",
+        "evidence": "No monotonic-metric test or discussion appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Caps the resulting sheet at no more than eight metrics",
+        "evidence": "The restructured set lists roughly nine trackable items: activated signups, posts/month, first-response time, triage %, lane metric, reopen rate, sentiment/spam reports, activation-rate floor, cannibalization audit.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cuts a metric that fails any of the three tests rather than softening or rewording it",
+        "evidence": "'Drop per-person signup attribution before comp calc attaches' \u2014 the per-person signup metric is dropped outright, not reworded.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

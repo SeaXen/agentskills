@@ -1,0 +1,168 @@
+import type { AppIndex } from '@sap-ux/axios-extension';
+import { getSystemSelectionQuestions } from '@sap-ux/odata-service-inquirer';
+import type {
+    RepoAppDownloadAnswers,
+    RepoAppDownloadQuestions,
+    QuickDeployedAppConfig,
+    AppInfo
+} from '../app/types.js';
+import { PromptNames, AppDownloadType } from '../app/types.js';
+import { t } from '../utils/i18n.js';
+import { validateFioriAppTargetFolder } from '@sap-ux/project-input-validator';
+import { PromptState } from './prompt-state.js';
+import { fetchAppListForSelectedSystem, formatAppChoices } from './prompt-helpers.js';
+import type { FileBrowserQuestion } from '@sap-ux/inquirer-common';
+import { validateAppSelection } from '../utils/validators.js';
+import type { AppWizard, IValidationLink } from '@sap-devx/yeoman-ui-types';
+import RepoAppDownloadLogger from '../utils/logger.js';
+import { type Question } from 'inquirer';
+
+/**
+ * Gets the target folder selection prompt.
+ *
+ * @param {string} [appRootPath] - The application root path.
+ * @param {string} appId - The application ID.
+ * @returns {FileBrowserQuestion<RepoAppDownloadAnswers>} The target folder prompt configuration.
+ */
+const getTargetFolderPrompt = (appRootPath?: string, appId?: string): FileBrowserQuestion<RepoAppDownloadAnswers> => {
+    return {
+        type: 'input',
+        name: PromptNames.targetFolder,
+        message: t('prompts.targetPath.message'),
+        guiType: 'folder-browser',
+        when: (answers: RepoAppDownloadAnswers) => {
+            // Display the prompt if appId is provided. This occurs when the generator is invoked
+            // as part of the quick deployment process from ADT.
+            if (appId) {
+                return true;
+            }
+            // Only show after a successful download — admZip is set by downloadApp on success.
+            return Boolean(answers?.selectedApp?.appId) && !!PromptState.admZip;
+        },
+        guiOptions: {
+            applyDefaultWhenDirty: true,
+            mandatory: true,
+            breadcrumb: t('prompts.targetPath.breadcrumb')
+        },
+        validate: async (target, answers: RepoAppDownloadAnswers): Promise<boolean | string> => {
+            const selectedAppId = answers.selectedApp?.appId ?? appId;
+            return await validateFioriAppTargetFolder(target, selectedAppId, true);
+        },
+        default: () => appRootPath
+    } as FileBrowserQuestion<RepoAppDownloadAnswers>;
+};
+
+const getCliValidatePrompts = (
+    appList: AppIndex,
+    quickDeployedAppConfig?: QuickDeployedAppConfig,
+    appWizard?: AppWizard,
+    downloadType: AppDownloadType = AppDownloadType.ADTQuickDeploy
+): Question => {
+    return {
+        type: 'input',
+        when: async (answers: RepoAppDownloadAnswers): Promise<boolean> => {
+            if (answers?.[PromptNames.selectedApp]) {
+                try {
+                    await validateAppSelection(
+                        answers[PromptNames.selectedApp],
+                        appList,
+                        quickDeployedAppConfig,
+                        appWizard,
+                        downloadType
+                    );
+                } catch (error) {
+                    if (error instanceof Error) {
+                        RepoAppDownloadLogger.logger?.error(error.message);
+                    } else {
+                        RepoAppDownloadLogger.logger?.error(
+                            t('error.appDownloadErrors.validationError', { error: error })
+                        );
+                    }
+                }
+            }
+            return false;
+        },
+        name: `${PromptNames.selectedApp}-validation`
+    } as Question;
+};
+
+/**
+ * Retrieves prompts for selecting a system, app list, and target folder where the app will be generated.
+ *
+ * @param {string} [appRootPath] - The root path of the application.
+ * @param {QuickDeployedAppConfig} [quickDeployedAppConfig] - The quick deployed app configuration.
+ * @param {AppWizard} [appWizard] - The app wizard instance.
+ * @param {boolean} [isCli] - Indicates if the prompts are being generated for CLI usage.
+ * @param {AppDownloadType} [downloadType] - The download type determining app list filtering behaviour.
+ * @returns {Promise<RepoAppDownloadQuestions[]>} A list of prompts for user interaction.
+ */
+export async function getPrompts(
+    appRootPath?: string,
+    quickDeployedAppConfig?: QuickDeployedAppConfig,
+    appWizard?: AppWizard,
+    isCli: boolean = false,
+    downloadType: AppDownloadType = AppDownloadType.ADTQuickDeploy
+): Promise<RepoAppDownloadQuestions[]> {
+    try {
+        PromptState.reset();
+
+        const systemQuestions = await getSystemSelectionQuestions(
+            {
+                serviceSelection: { hide: true, useAutoComplete: isCli },
+                systemSelection: {
+                    defaultChoice: quickDeployedAppConfig?.serviceProviderInfo?.name,
+                    hideNewSystem: true,
+                    destinationFilters: { odata_abap: true },
+                    backendSystemFilter: { connectionType: ['abap_catalog'] }
+                }
+            },
+            !isCli
+        );
+        let appList: AppIndex = [];
+        const appSelectionPrompts: Partial<object[]> = [
+            {
+                when: async (answers: RepoAppDownloadAnswers): Promise<boolean> => {
+                    if (
+                        answers[PromptNames.systemSelection] &&
+                        systemQuestions.answers.connectedSystem?.serviceProvider
+                    ) {
+                        appList = await fetchAppListForSelectedSystem(
+                            systemQuestions.answers.connectedSystem,
+                            quickDeployedAppConfig?.appId,
+                            downloadType
+                        );
+                    }
+                    return !!systemQuestions.answers.connectedSystem?.serviceProvider;
+                },
+                type: 'list',
+                name: PromptNames.selectedApp,
+                default: (): number | undefined => (quickDeployedAppConfig?.appId ? 0 : undefined),
+                guiOptions: {
+                    mandatory: !!appList.length,
+                    breadcrumb: t('prompts.appSelection.breadcrumb'),
+                    applyDefaultWhenDirty: true
+                },
+                message: t('prompts.appSelection.message'),
+                choices: (): { name: string; value: AppInfo }[] => (appList.length ? formatAppChoices(appList) : []),
+                validate: async (answers: AppInfo): Promise<boolean | IValidationLink | string> => {
+                    return await validateAppSelection(
+                        answers,
+                        appList,
+                        quickDeployedAppConfig,
+                        appWizard,
+                        downloadType
+                    );
+                }
+            }
+        ];
+        // Only for CLI use as `list` prompt validation does not run on CLI unless autocomplete plugin is used
+        if (isCli) {
+            appSelectionPrompts?.push(getCliValidatePrompts(appList, quickDeployedAppConfig, appWizard, downloadType));
+        }
+
+        const targetFolderPrompts = getTargetFolderPrompt(appRootPath, quickDeployedAppConfig?.appId);
+        return [...systemQuestions.prompts, ...appSelectionPrompts, targetFolderPrompts] as RepoAppDownloadQuestions[];
+    } catch (error) {
+        throw new Error(`Failed to generate prompts: ${error.message}`);
+    }
+}

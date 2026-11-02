@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Accepts that the scanning posture is decided upstream by the signed sponsorship agreement rather than reopening whether to scan at all",
+        "evidence": "\"The platinum contract settles one point: you need a scannable badge.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects encoding attendee contact data directly in the QR",
+        "evidence": "\"Name, email and company in the QR | Do not ship\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the specific reason: any scanner in the building can read it, not only the authorized sponsor's",
+        "evidence": "\"Every scanner in the building can read it, not just the sponsor's.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the UUID-plus-emailed-mapping-spreadsheet plan because the mapping file re-identifies everyone in the scan log",
+        "evidence": "\"the spreadsheet of scanned UUIDs mapped to contact details re-identifies everyone in the scan log\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the absolute rule that attendee contact lists are never given or sold to sponsors",
+        "evidence": "\"attendee contact lists are never given or sold to sponsors\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes the delivery cannot be undone once the file is handed over, and/or that the UUID-only route carries the highest compliance exposure despite protecting the badge itself",
+        "evidence": "\"a file you can't recall once sent.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires informed consent collected at registration, before badges are printed",
+        "evidence": "\"Consent at registration, before the badge is printed.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires an opt-out backed by a physical sticker that covers the code",
+        "evidence": "\"Every badge gets a sticker that covers the code.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States why the sticker: an opt-out the attendee cannot enforce at the moment of scanning is not an opt-out",
+        "evidence": "\"An opt-out an attendee can't enforce at the moment of scanning isn't an opt-out.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires sponsors to be told in writing that scanning without consent is not permitted",
+        "evidence": "\"The sponsor is told in writing that scanning without consent is not permitted.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Moves the QR to the badge's back with two-point lanyard attachment, rejecting the single-clip front placement because a one-point lanyard spins and a front-facing code is scannable by anyone walking past",
+        "evidence": "\"A single-clip lanyard spins... Anyone walking past can read the QR, because it is on the front\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires all four mitigations together rather than a subset",
+        "evidence": "\"The skill treats its mitigations as a set, not a menu.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the completeness gate: every scan-capable badge has a recorded consent and a working opt-out, with no exceptions",
+        "evidence": "\"every scan-capable badge needs a recorded consent and a working opt-out sticker.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Accepts that the scanning posture is decided upstream by the signed sponsorship agreement rather than reopening whether to scan at all",
+        "evidence": "Asks \"Does the sponsor contract specify when and how leads are delivered?\" but never frames the agreement as deciding the posture.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects encoding attendee contact data directly in the QR",
+        "evidence": "\"Why not name, email and company in the QR\"; \"drop the plaintext QR\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the specific reason: any scanner in the building can read it, not only the authorized sponsor's",
+        "evidence": "\"anyone nearby can still scan or photograph... readable by any scanner app, with no control.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the UUID-plus-emailed-mapping-spreadsheet plan because the mapping file re-identifies everyone in the scan log",
+        "evidence": "Recommends \"ship the UUID badge\" and joining the scan log against registration to return contact details.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the absolute rule that attendee contact lists are never given or sold to sponsors",
+        "evidence": "Plan returns \"contact details only for consented UUIDs\" to the sponsor.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes the delivery cannot be undone once the file is handed over, and/or that the UUID-only route carries the highest compliance exposure despite protecting the badge itself",
+        "evidence": "Irreversibility is raised only for the printed QR, not for file delivery.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires informed consent collected at registration, before badges are printed",
+        "evidence": "\"Add a consent checkbox at registration\"; \"the checkbox is the only item that gets harder to add later.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires an opt-out backed by a physical sticker that covers the code",
+        "evidence": "No sticker is mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States why the sticker: an opt-out the attendee cannot enforce at the moment of scanning is not an opt-out",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires sponsors to be told in writing that scanning without consent is not permitted",
+        "evidence": "Only a \"short data-sharing agreement\" is mentioned, with no written scanning prohibition.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Moves the QR to the badge's back with two-point lanyard attachment, rejecting the single-clip front placement because a one-point lanyard spins and a front-facing code is scannable by anyone walking past",
+        "evidence": "Mentions the single-clip front only as a risk; no back placement or two-point attachment.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires all four mitigations together rather than a subset",
+        "evidence": "Not framed this way.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the completeness gate: every scan-capable badge has a recorded consent and a working opt-out, with no exceptions",
+        "evidence": "No such gate.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

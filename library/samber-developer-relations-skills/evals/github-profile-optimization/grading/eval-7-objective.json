@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Produces the report in the scorecard format: blocking checks, then scored checks, then cold reader, then fix order",
+        "evidence": "Report shows 'Blocking' section, then 'Scored 5/16', then 'Cold reader 2/4', followed by '## Fix order'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports exactly four blocking checks",
+        "evidence": "'B1 renders... B2 identifiable... B3 claims true... B4 next step'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports eight scored checks worth two points each, for a total out of 16",
+        "evidence": "'Scored 5/16' with S1 through S8 each scored e.g. '1/2', '0/2', '2/2'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Attaches evidence to each scored line - a quoted sentence, a field value, or a line of audit output",
+        "evidence": "e.g. S1 quotes 'Software engineer. I love building things and learning new technologies.'; S6 quotes 'alt=\"banner\"'; S2 cites 'pins unset by your own account'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Fails or flags the undated \"I'm currently working on something exciting\" line under the claims-are-true blocking check",
+        "evidence": "'B3 claims true PASS (risky) \u2014 ... but \"\ud83d\udd2d I'm currently working on something exciting\" and \"\ud83c\udf31 Learning Rust\" are undated \u2014 exactly the stale-phrase pattern this skill's own audit script flags.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Scores the positioning check at or near zero and quotes 'I love building things and learning new technologies' as the evidence",
+        "evidence": "S1 is scored '1/2', not at or near zero, despite quoting the correct sentence.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags that pins are unset and that the fallback 'Popular repositories' ordering is not controlled by the owner",
+        "evidence": "'S2 pins 0/2 pins unset by your own account \u2014 fallback is GitHub's auto-selected \"Popular repositories,\" which you don't control'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the ship bar as 13 of 16 with all four blocking checks passing",
+        "evidence": "Only '5/16 against this skill's own 13/16 ship bar' is stated; it is never explicitly bundled with 'all four blocking checks passing' as a combined ship-bar statement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States explicitly that the checks and the pass mark are this skill's own baseline rather than a published or industry standard",
+        "evidence": "'5/16 against this skill's own 13/16 ship bar'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Describes the cold-reader test as 45 seconds on the page followed by four questions, with four of four as the pass",
+        "evidence": "'Cold reader 2/4' presents four dimensions but never states a '45 seconds on the page' timing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the auditor's own reading does not count as the cold reader, and offers a person or a fresh session with no context on the account instead",
+        "evidence": "Not stated anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Presents the score and seeks the owner's agreement before rewriting anything",
+        "evidence": "'I'm not drafting positioning-sentence candidates yet \u2014 the skill gates that on knowing the audience and outcome first... Three quick answers unlock that step'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Produces the report in the scorecard format: blocking checks, then scored checks, then cold reader, then fix order",
+        "evidence": "The transcript is structured as 'Critical issue' \u2192 'Content issues' \u2192 'What's fine as-is' \u2192 'Minimal fix' \u2192 'On the pins', with no scorecard/blocking/scored/cold-reader structure.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reports exactly four blocking checks",
+        "evidence": "Only one 'Critical issue' (the rendering problem) is presented; there is no set of four blocking checks.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reports eight scored checks worth two points each, for a total out of 16",
+        "evidence": "No numeric scoring system appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Attaches evidence to each scored line - a quoted sentence, a field value, or a line of audit output",
+        "evidence": "There is no scored-check system to attach evidence to.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Fails or flags the undated \"I'm currently working on something exciting\" line under the claims-are-true blocking check",
+        "evidence": "The line is flagged under 'Content issues', not under any blocking-check category, since no such category exists in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Scores the positioning check at or near zero and quotes 'I love building things and learning new technologies' as the evidence",
+        "evidence": "The line is quoted and criticized as 'generic boilerplate' but no numeric score is assigned anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags that pins are unset and that the fallback 'Popular repositories' ordering is not controlled by the owner",
+        "evidence": "'don't leave it on autopilot. GitHub's default pin selection favors your most-starred or most-recently-active public repos \u2014 that's a popularity/recency signal, not a \"best represents me\" signal.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the ship bar as 13 of 16 with all four blocking checks passing",
+        "evidence": "No such scoring or ship-bar language exists in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States explicitly that the checks and the pass mark are this skill's own baseline rather than a published or industry standard",
+        "evidence": "No such statement appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Describes the cold-reader test as 45 seconds on the page followed by four questions, with four of four as the pass",
+        "evidence": "No cold-reader test methodology is described in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the auditor's own reading does not count as the cold reader, and offers a person or a fresh session with no context on the account instead",
+        "evidence": "No such disclaimer or offer appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Presents the score and seeks the owner's agreement before rewriting anything",
+        "evidence": "The transcript goes directly to a 'Minimal fix' with rewritten markdown, without seeking agreement first.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

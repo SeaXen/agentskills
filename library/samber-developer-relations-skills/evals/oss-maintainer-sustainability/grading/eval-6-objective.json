@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Triages the portfolio before planning any single gem: ranks the seven by dependents and by drain, and names hearthstone-csv as the one to plan first.",
+        "evidence": "'hearthstone-csv is 3M downloads a month... It gets most of the hours. The five get none.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the even seven-way split of the 4 hours.",
+        "evidence": "'Don't split the 4 hours evenly. 4h \u00f7 7 is 34 min per gem.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Freezes or archives the five near-unused gems, with notice and archive in the same week (the personal-tool tier), each carrying a README status and the RubyGems end-of-life signal plus a final release stating the status.",
+        "evidence": "Per gem: 'push a final release with the status in the README, post the announcement, archive the repo.' Do not yank; 'Check RubyGems' current docs for a deprecation signal.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Applies the 'fewer hours total' answer: does not accept the $600 a month to fund the user's own hours, because the stated goal is fewer hours, not paid hours.",
+        "evidence": "'Don't accept $600 as a reason to keep the hours. You want fewer hours in total.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Redirects the fintech's offer toward a named engineer's hours (a co-maintainer the company funds) and states that funding a co-maintainer's hours stays in the plan.",
+        "evidence": "'What would help most is an engineer of yours, named, giving ~2 hours a week... put it toward a co-maintainer's hours.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that money reduces neither inflow nor the backlog, and keeps funding last in the move order.",
+        "evidence": "'$600 a month doesn't cut inflow or fix succession' and '8. Funding (last).'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Publishes a contract on hearthstone-csv first: status, the hours it gets out of the 4, a window derived from those hours, and scope.",
+        "evidence": "The block has '2.5 hours a week', '30 days', and scope lines. The window is derived from '5 first replies a week, about 21 a month'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declares quillbind maintenance-only (security and compatibility fixes) or frozen, and applies the about-a-month notice tier if it is to be archived, since other projects use it.",
+        "evidence": "'quillbind: same block with 1.25 hours a week and a 45-day window.' No exit is planned for it.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Records in the ledger who holds RubyGems push rights on each gem and flags every gem where the user is the sole owner.",
+        "evidence": "Only `gem owner hearthstone-csv` and `quillbind` are checked. The ledger says 'Publish rights: unknown' and does not cover the five small gems.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a second RubyGems owner, or a written end date, for hearthstone-csv in the health check, labelled self-set.",
+        "evidence": "'3. No single key holder, or an end date: ... Open for the two big gems until a second publish holder exists.' Baselines are flagged as self-set.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Hands sponsor or support-contract design to samber/developer-relations-skills@oss-sponsors-fundraising rather than drafting terms.",
+        "evidence": "'that's a support contract... Hand it to `oss-sponsors-fundraising`'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets a review date four weeks out to check actual hours against the 4-hour budget, with over-budget meaning the next move rather than more effort.",
+        "evidence": "'Re-read the ledger on Mon 2026-12-21... hours over 4 for two straight weeks. The answer is the next move, not more effort.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Triages the portfolio before planning any single gem: ranks the seven by dependents and by drain, and names hearthstone-csv as the one to plan first.",
+        "evidence": "Budget table prioritizes hearthstone-csv (2.0 h) as carrying supply-chain and security risk.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the even seven-way split of the 4 hours.",
+        "evidence": "\"Splitting 4 hours evenly across seven gems is the wrong plan.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Freezes or archives the five near-unused gems, with notice and archive in the same week (the personal-tool tier), each carrying a README status and the RubyGems end-of-life signal plus a final release stating the status.",
+        "evidence": "Offers hand off, archive or freeze, and says not to yank. It does not require a README status and final release for each gem.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Applies the 'fewer hours total' answer: does not accept the $600 a month to fund the user's own hours, because the stated goal is fewer hours, not paid hours.",
+        "evidence": "Says \"Say yes in principle\" and to counter at $1,500-2,000 a month.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Redirects the fintech's offer toward a named engineer's hours (a co-maintainer the company funds) and states that funding a co-maintainer's hours stays in the plan.",
+        "evidence": "Asks for money and a retainer, not an engineer's hours.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that money reduces neither inflow nor the backlog, and keeps funding last in the move order.",
+        "evidence": "Says money does not reduce hours, but the fintech reply is step 3, before the co-maintainer step.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Publishes a contract on hearthstone-csv first: status, the hours it gets out of the 4, a window derived from those hours, and scope.",
+        "evidence": "No status or derived window.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declares quillbind maintenance-only (security and compatibility fixes) or frozen, and applies the about-a-month notice tier if it is to be archived, since other projects use it.",
+        "evidence": "\"Same, with a lighter bar.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Records in the ledger who holds RubyGems push rights on each gem and flags every gem where the user is the sole owner.",
+        "evidence": "Not present.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a second RubyGems owner, or a written end date, for hearthstone-csv in the health check, labelled self-set.",
+        "evidence": "The co-maintainer is a step, not a labelled health-check item.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Hands sponsor or support-contract design to samber/developer-relations-skills@oss-sponsors-fundraising rather than drafting terms.",
+        "evidence": "Drafts terms inline.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets a review date four weeks out to check actual hours against the 4-hour budget, with over-budget meaning the next move rather than more effort.",
+        "evidence": "Checkpoints are at day 7, 30 and 90. The hours check is at day 90.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

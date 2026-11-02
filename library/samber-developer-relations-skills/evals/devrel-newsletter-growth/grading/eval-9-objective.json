@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The response refuses gating the tutorial behind an email form",
+        "evidence": "Email wall on the Kubernetes cost tuning tutorial: no.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response states that curators refuse gated links or that developers read gating as lead capture",
+        "evidence": "Curators refuse gated links, and developers read a gate as lead capture.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response recommends publishing the tutorial openly with a signup line at its end",
+        "evidence": "Keep the tutorial open and add a signup line after the final step.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response identifies the end of a tutorial, after the success step, as a high-intent signup placement",
+        "evidence": "the quickstart-end line is the highest-intent surface in the skill. The reader has just succeeded.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response advises against the exit-intent popup on docs",
+        "evidence": "Exit-intent popup on the docs: no.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response states that a full issue should be republished only where a canonical link to the archive can be set",
+        "evidence": "On Medium, republish only with a canonical link back to your archive page.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response names a platform field for canonical links such as dev.to's canonical_url",
+        "evidence": "Only says Medium's story import sets a canonical link automatically; no field name like canonical_url is named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response recommends an excerpt plus a link to the archive where no canonical link can be set",
+        "evidence": "post an excerpt of the lead item plus the archive link, not the full issue.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response recommends a separate source tag per republishing platform",
+        "evidence": "republish-medium, republish-linkedin",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response ranks republishing below owned-surface signup links on efficiency or notes it costs effort every issue",
+        "evidence": "ranks sixth of nine on efficiency. It costs about an hour per issue, every issue",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The response refuses gating the tutorial behind an email form",
+        "evidence": "\"Gate: no.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response states that curators refuse gated links or that developers read gating as lead capture",
+        "evidence": "Says \"Developers bounce at email walls\" only.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response recommends publishing the tutorial openly with a signup line at its end",
+        "evidence": "\"Put the signup box mid-tutorial and at the end\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response identifies the end of a tutorial, after the success step, as a high-intent signup placement",
+        "evidence": "Signup box \"at the end\" of the tutorial.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response advises against the exit-intent popup on docs",
+        "evidence": "\"Exit-intent popup on docs: skip.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response states that a full issue should be republished only where a canonical link to the archive can be set",
+        "evidence": "Medium import sets canonical; LinkedIn \"don't paste the full issue\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response names a platform field for canonical links such as dev.to's canonical_url",
+        "evidence": "Names Medium's import tool, not a canonical field.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response recommends an excerpt plus a link to the archive where no canonical link can be set",
+        "evidence": "\"Post a LinkedIn edition with the top 2 items and a link to the full issue.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response recommends a separate source tag per republishing platform",
+        "evidence": "\"Tag links with UTMs to see which channel brings subscribers.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response ranks republishing below owned-surface signup links on efficiency or notes it costs effort every issue",
+        "evidence": "No ranking given.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

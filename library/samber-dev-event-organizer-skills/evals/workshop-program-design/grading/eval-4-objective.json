@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rewrites the block into three labelled classes in this order: prior knowledge, machine state, accounts.",
+        "evidence": "\"What you should already be able to do\", \"Your laptop\", \"Accounts\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes an accounts class listing both the vendor account and the GitHub login.",
+        "evidence": "\"A free [Vendor] account\" and \"A GitHub account\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags accounts as the highest-risk prerequisite class because signups, email confirmations and sometimes employer sign-on all land at minute zero, on the room's network, for everyone simultaneously.",
+        "evidence": "\"accounts fail worst at minute zero: a signup form, an email that has to arrive, possibly SSO.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Marks each prerequisite as a hard requirement or a comfort.",
+        "evidence": "Each class is marked \"(required)\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces 'some familiarity with Python is helpful' with a hard capability statement, and states that the word 'helpful' drops the room's floor to zero and forces the instructor to address two audiences.",
+        "evidence": "\"'Helpful' makes the floor zero, and the instructor ends up teaching two audiences.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States prior knowledge as a capability rather than a job title or a seniority level.",
+        "evidence": "\"Write and run a short Python script, including installing a package\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Specifies in the machine-state class that the laptop must be one the participant is permitted to install software on.",
+        "evidence": "\"A laptop you are allowed to install software on.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the install route or links the tooling directly rather than leaving participants to find their own.",
+        "evidence": "Only placeholders: \"[Container runtime, with version]\", \"Python [version]\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Removes the promise to set everyone up in the first 15 minutes, and names the simultaneous-install load that promise creates.",
+        "evidence": "\"It scheduled every install, signup and 2 GB pull onto the room's network at the same moment.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Adds a pre-travel step asking participants to pull the 2 GB of images on a network they trust, with the reason stated in the participant-facing text.",
+        "evidence": "\"150 people on one network all signing up and downloading at once is the thing that broke last year's session.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Publishes known failure modes participants can act on themselves, such as a corporate VPN or an ad blocker breaking the lab.",
+        "evidence": "VPN and ad-blocker appear only as a bracketed optional example, not as published text.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Publishes how long the materials stay reachable after the session, alongside a named follow-up channel.",
+        "evidence": "\"stay up at [link] [window]... Questions after the session go in [channel], open until [date].\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Argues for keeping the account list as short as the exercise allows, because an account the participant created persists under their name after the event and the organizer cannot delete it for them.",
+        "evidence": "Notes accounts persist but never argues for keeping the list short.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rewrites the block into three labelled classes in this order: prior knowledge, machine state, accounts.",
+        "evidence": "Uses a single flat 'What you need' list with no class labels.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes an accounts class listing both the vendor account and the GitHub login.",
+        "evidence": "Both accounts are listed, but not as a labelled accounts class.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags accounts as the highest-risk prerequisite class because signups, email confirmations and sometimes employer sign-on all land at minute zero, on the room's network, for everyone simultaneously.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Marks each prerequisite as a hard requirement or a comfort.",
+        "evidence": "No such marking.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Replaces 'some familiarity with Python is helpful' with a hard capability statement, and states that the word 'helpful' drops the room's floor to zero and forces the instructor to address two audiences.",
+        "evidence": "Gives a capability statement, 'You should be able to read a short script', but never explains why 'helpful' fails.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States prior knowledge as a capability rather than a job title or a seniority level.",
+        "evidence": "'You should be able to read a short script and run it from a terminal.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Specifies in the machine-state class that the laptop must be one the participant is permitted to install software on.",
+        "evidence": "'A laptop you can install software on. A locked-down work laptop may block the container runtime.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the install route or links the tooling directly rather than leaving participants to find their own.",
+        "evidence": "Leaves placeholders: '[Docker Desktop / Podman / other]'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Removes the promise to set everyone up in the first 15 minutes, and names the simultaneous-install load that promise creates.",
+        "evidence": "'Venue Wi-Fi can't handle a 2 GB download from many people at once'; the notes say the old promise 'put all setup in the room'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Adds a pre-travel step asking participants to pull the 2 GB of images on a network they trust, with the reason stated in the participant-facing text.",
+        "evidence": "'Pull the images on home or office Wi-Fi' before you travel, with the Wi-Fi reason stated.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Publishes known failure modes participants can act on themselves, such as a corporate VPN or an ad blocker breaking the lab.",
+        "evidence": "No such list is published.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Publishes how long the materials stay reachable after the session, alongside a named follow-up channel.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Argues for keeping the account list as short as the exercise allows, because an account the participant created persists under their name after the event and the organizer cannot delete it for them.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

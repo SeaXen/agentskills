@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Keeps the objective, the ladder and the checkpoint structure identical to any other tutorial, changing only what the audience context requires.",
+        "evidence": "The answer applies the universal tutorial skeleton without granting the internal-tool audience any exception: it enforces the general caps (\"Good Docs Project caps a tutorial at 7 primary steps and 60 minutes\") rather than excusing the 95-minute run, keeps the standard \"Before you begin\" prerequisite section, keeps per-step fail-pointers (\"repeat it as the fail-pointer on every step that calls the registry\"), and keeps checkpoints as the segmentation unit (\"Split at a checkpoint\"). The only audience-driven deltas are the ones the context genuinely requires: a real access-request cold run for a",
+        "score": 4,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Keeps the objective, the ladder and the checkpoint structure identical to any other tutorial, changing only what the audience context requires.",
+        "evidence": "Partially satisfied. The response preserves recognizable generic tutorial scaffolding and confines most edits to audience-specific facts: prerequisites are separated out and given expected wait times (#2), a preflight/verification step becomes 'the real step 1' (#3), checkpoints are explicitly restored to the standard cadence \u2014 'Add a checkpoint every 3\u20134 steps (\"service responds at `https://...`, expect `200`\"), not just at the end' (#5) \u2014 and a troubleshooting section with literal error text is added (#7). The audience-driven changes (VPN/SSO/namespace latency, off-office registry, manager v",
+        "score": 3,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

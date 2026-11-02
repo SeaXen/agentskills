@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Response drops the jargon whose definition does not earn its place.",
+        "evidence": "The response operationalizes this explicitly and near-verbatim in the Guardrail: \"If you're unsure about a specific term while rehearsing, run it through: *would a mid-level backend dev nod or stall here?* Stall \u2192 one-sentence definition or cut it; don't carry a term the definition doesn't earn.\" It also applies the principle concretely with a three-way split rather than just asserting it: **Assume** (distributed system, leader election, network partition, Raft \u2014 don't re-derive), **Explain in one sentence each** (only the two or three protocol-specific state names that exist nowhere else), **",
+        "score": 5,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Response drops the jargon whose definition does not earn its place.",
+        "evidence": "The transcript moves in the opposite direction: it explicitly dismisses the idea (\"That's the actual thing to prep, not 'define fewer terms.'\"), sets the default depth at \"explain every protocol-specific term, assume the basics,\" and instructs \"define every term on first use\" in the 20\u201335 min block. There is no attempt to triage which terms are worth their definition cost versus which should be cut or replaced with a plain-language stand-in; instead it also introduces further unexamined jargon into the prep list (safety/liveness, crash-only vs Byzantine, message/round complexity, TLA+, model-c",
+        "score": 1,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

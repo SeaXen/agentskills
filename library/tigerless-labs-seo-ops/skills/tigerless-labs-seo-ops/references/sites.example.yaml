@@ -1,0 +1,11 @@
+# Site roster — copy to sites.yaml, then fill in your own sites.
+# Not needed for a single site: python3 scripts/run.py --target https://example.com
+sites:
+  - id: example-com                        # used for the report filename and the checks table's site column
+    production: https://www.example.com    # site root URL (origin), required
+    rendering: ssr                         # ssr / ssg / isr — C15 branches on it; N.A. if unset
+    sitemap: https://www.example.com/sitemap.xml   # defaults to <production>/sitemap.xml if unset
+    samples:                               # must-test pages (fetched in addition to the sitemap); ymyl triggers the C21 human review
+      - { url: /,                 }
+      - { url: /pricing,          }
+      - { url: /guide/how-to-xxx, ymyl: true }

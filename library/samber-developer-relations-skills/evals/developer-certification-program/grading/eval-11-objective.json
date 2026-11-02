@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Replaces the emailed PDF with a signed, portable credential on an open standard such as Open Badges 3.0, carrying a status entry verifiers check.",
+        "evidence": "'Issue each credential as an Open Badges 3.0 signed credential... a status entry that verifiers check.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that revocation must update the credential's status entry, not only the web page, because wallet copies otherwise keep verifying.",
+        "evidence": "'Update the signed status entry'; 'A wallet copy... stops verifying on its own after revocation.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lets a third party verify by credential ID or a holder-shared link without contacting Quorrin.",
+        "evidence": "'Public check by credential ID or a holder-shared link. No login, no contact with Quorrin.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Makes any searchable public directory opt-in for holders rather than listing every holder by default.",
+        "evidence": "'Expert directory (opt-in)'; 'never lists holders who did not opt in'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Specifies the verification page fields: holder name, credential, version, issue date, expiry or 'no expiry', status.",
+        "evidence": "'holder name, credential, version, issue date, \"no expiry\", status'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Shows a revoked credential as 'not valid' with no reason, replacing 'revoked for misconduct'.",
+        "evidence": "'The ID URL keeps resolving and shows \"not valid\", with no reason.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires an appeals path with a named decision-maker for revocation.",
+        "evidence": "'Name the decision-maker in the agreement'; appeal 'to a named person who was not the original decider'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a published candidate agreement covering conduct rules, AI policy, item confidentiality and grounds for revocation.",
+        "evidence": "The agreement is mentioned only for revocation grounds. Conduct rules, AI policy and item confidentiality are not covered.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects silent delisting for an unpaid partner fee; any status change follows the published grounds, with notice and an appeal.",
+        "evidence": "'Misconduct revokes. A missed partner fee never does.' Written notice is given first.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the verification page and directory as personal data: lookup by credential ID, listing opt-in only.",
+        "evidence": "'Holders did not opt in, and this is personal data'; 'The page shows no email, employer, country, score or reason.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the master record of holders, versions and status in a system Quorrin owns, even when an issuing service is bought.",
+        "evidence": "'Keep the master record of holders, versions and status in a system Quorrin owns'.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Replaces the emailed PDF with a signed, portable credential on an open standard such as Open Badges 3.0, carrying a status entry verifiers check.",
+        "evidence": "Emailed PDF with QR code.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that revocation must update the credential's status entry, not only the web page, because wallet copies otherwise keep verifying.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Lets a third party verify by credential ID or a holder-shared link without contacting Quorrin.",
+        "evidence": "'enter the certificate number, or scan the QR code.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Makes any searchable public directory opt-in for holders rather than listing every holder by default.",
+        "evidence": "'Listing is opt-in.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Specifies the verification page fields: holder name, credential, version, issue date, expiry or 'no expiry', status.",
+        "evidence": "Fields are name, credential, issue date, expiry date and status. Version is missing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Shows a revoked credential as 'not valid' with no reason, replacing 'revoked for misconduct'.",
+        "evidence": "'The public page says \"Revoked\" and nothing about misconduct.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires an appeals path with a named decision-maker for revocation.",
+        "evidence": "There is a 14-day appeal window, but the appeal body is an open question.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a published candidate agreement covering conduct rules, AI policy, item confidentiality and grounds for revocation.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects silent delisting for an unpaid partner fee; any status change follows the published grounds, with notice and an appeal.",
+        "evidence": "'No silent removal for non-payment', with two written notices.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the verification page and directory as personal data: lookup by credential ID, listing opt-in only.",
+        "evidence": "Opt-in listing, rate limiting, no bulk export, GDPR legal basis.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the master record of holders, versions and status in a system Quorrin owns, even when an issuing service is bought.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

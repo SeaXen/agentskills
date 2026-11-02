@@ -1,0 +1,494 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-production",
+  "scenarios": 11,
+  "expectations_total": 137,
+  "expectations_subjective": 1,
+  "expectations_objective": 136,
+  "pass_rate_with_skill_pct": 86.9,
+  "pass_rate_without_skill_pct": 32.8,
+  "delta_pp": 54.1,
+  "uplift_multiplier": 2.65,
+  "trigger_accuracy_pct": 45.1,
+  "trigger_queries": 122,
+  "trigger_positive_fire_rate": 0.262,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 0.2,
+  "subjective_pass_disagreements": [
+    {
+      "eval_id": 6,
+      "condition": "without_skill",
+      "expectation": "Does not assign a named role that has no work attached to it in this setup",
+      "pass1": true,
+      "pass2": false
+    }
+  ],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Describes a signal path with three destinations off one signal: the room's display, the recording or encoder path, and a monitor the crew watches"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Does not state a currency amount for any equipment item or crew cost"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Reports what streaming adds technically and returns the decision on the sponsor commitment to the organizers instead of deciding the format itself"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Measures the 19 days against the last date the venue or a supplier can still add something, not against the event date alone"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Hands the document back through venue sourcing rather than opening a direct negotiation channel with the venue"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Specifies recording deliverables with format, resolution, frame rate, audio channels and a file naming convention"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Identifies that a spare microphone stored in a cupboard is not within reach of the position that needs it, and relocates it to the lectern with the room's audio owner"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Assigns a named owner to each redundancy element rather than listing techniques with no owner"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Treats the named crew roles as a menu of jobs to draw from rather than a roster that must be fully filled"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Flags the conflict if the organizer running everything else is also MCing, speaking or running registration"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Distinguishes stage management from signal management rather than merging them into one job"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Ties the second camera's value to slide legibility, matching the reason the user gave, rather than to production polish in general"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the budget owner decides the shape of the line while production supplies its content"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Counts a session that was recorded but is unusable as a failure in capture completeness rather than a partial success"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that the ranking presented is a default rather than a law"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Treats the trained crew, the written brief and a repeatable pipeline as investments whose payoff lands after this edition, and promotes them because the event recurs"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Ranks the recommendation against the last date the venue or supplier can still add something rather than against the event date"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Does not attach a currency amount to any individual recommendation"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "States the capture posture explicitly as recorded for later, not streamed, before recommending any equipment"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Chooses a coverage tier per room separately rather than applying one tier to the whole event"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Describes a signal path with three destinations off one signal: the room's display, the recording or encoder path, and a monitor the crew watches"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Identifies the crew monitor as the destination that catches a failure nobody would otherwise notice until editing"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names a single production owner and states that this person is not simultaneously MCing, speaking or running registration"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends the full introduction level of crew training rather than a brief refresher, on the grounds that this is a first edition with no experienced crew"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Requires one test recording to be played back in full before the first session and distinguishes that from watching a level meter"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Does not state a currency amount for any equipment item or crew cost"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Presents the plan in sections for validation before anything is ordered"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Refuses to treat the laptop plus camcorder arrangement as a cheaper tier of streaming and identifies it as the same cost with the failure built in"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Treats the absence of a dedicated stream operator as a blocker rather than a risk to accept"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Reports what streaming adds technically and returns the decision on the sponsor commitment to the organizers instead of deciding the format itself"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that recording is the floor and streaming is the layer above it, so the existing recording plan is not sacrificed to fund the stream"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Raises the venue's guaranteed upstream bandwidth as an open question that must be answered in writing"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Does not state a specific megabits-per-second figure as this event's bandwidth requirement"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Warns that on a live stream a speaker's opt-out has to be honoured in the room rather than in an edit"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Warns that incidental or background music in a demo can get the stream taken down by the platform, and that speakers must be told before the day"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Expresses any cost comparison between streamed or hybrid AV and physical-only AV as a ratio such as roughly double, never as a currency amount"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Measures the 19 days against the last date the venue or a supplier can still add something, not against the event date alone"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Writes the venue document as questions the venue must answer in writing rather than as a specification of equipment or figures"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Asks for the guaranteed upstream bandwidth to the streamed room and explicitly excludes the shared attendee figure and any best-effort number"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Asks whether a second independent path to the internet exists"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Asks who administers the venue network on the day and whether they are reachable during event hours"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Asks where the rigging points are, what load they take, and who is permitted to rig"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Asks whether a production position or control room is available in or adjacent to each room"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Asks whether a house technician is included, for which hours, and what they are responsible for"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Hands the document back through venue sourcing rather than opening a direct negotiation channel with the venue"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that the technical brief belongs before supplier selection starts, and identifies quotes arriving first as the problem being described"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Hands the quote comparison and the contracting decision to vendor sourcing rather than performing the comparison"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Specifies coverage per room including camera count and whether each camera is operated or fixed"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Includes an explicit requirement that the recording takes its audio from the mixing board rather than from a camera microphone"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Specifies recording deliverables with format, resolution, frame rate, audio channels and a file naming convention"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Specifies how and when files are handed over, naming a moment before the crew disperses rather than afterwards"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Includes an acceptance criteria section defining how delivery will be judged, written before the event"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Includes an acceptance criterion that every scheduled session has a playable file with audible board-sourced audio"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Lists speaker-driven requirements such as live demos, audio playback, hardware props and non-standard connectors individually rather than summarising them as standard laptop connectivity"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names an organizer counterpart who owns the brief and checks delivery against it, alongside the supplier's own crew"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Identifies that a spare microphone stored in a cupboard is not within reach of the position that needs it, and relocates it to the lectern with the room's audio owner"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Identifies the end-of-day bulk copy as a network-load spike pattern and replaces it with copying between sessions or continuous chunked sync"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that the spare camera duplicates the layer least likely to fail silently, and does not treat a second camera as the primary redundancy"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends an independent second audio recording taken from the board but sitting outside the live mix"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires a file naming convention applied to every recording device"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires the clocks on every recording device to be set against one shared time reference"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires one test playback of a real file before the event, played in full rather than checked as a level"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Assigns a named owner to each redundancy element rather than listing techniques with no owner"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Treats a recording that exists but is unusable as a failure rather than a partial success"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Separates the camera operator and the vision-mixing operator into two different people for the two-camera room"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Identifies collapsing camera operation and vision mixing into one person as the specific error in the proposed staffing"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Treats the named crew roles as a menu of jobs to draw from rather than a roster that must be fully filled"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Flags the conflict if the organizer running everything else is also MCing, speaking or running registration"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends the brief refresher plus hands-on training tier rather than the full introduction, because the crew has returned across editions"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that newcomers still get the per-topic hands-on training even when the returning crew only needs the refresher"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Concludes that the proposed five-person allocation is short for the stated coverage, or names exactly which position is unstaffed"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Distinguishes stage management from signal management rather than merging them into one job"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Refuses to hand over a single lump AV number and hands over a split line instead"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that recording survives every tier down to the minimum and is therefore not the part cut first"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that live streaming is the first part a lean tier drops"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that dropping live streaming also drops the rehearsal and the dedicated operator attached to it"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Refuses to fold attendee wifi into the Media line and keeps attendee internet as its own category"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Keeps signage out of the Media line as a separate category"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Gives each of the three parts its own equipment, crew and supplier quote rather than one blended figure per part"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the budget owner decides the shape of the line while production supplies its content"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Does not invent a currency amount for any of the three parts"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Requires every file to be verified as existing and playable before the crew disperses and leaves the building"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Checks each recording against the consent record before publishing and marks anything the record does not cover as unpublishable"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that the consent record is collected upstream by speaker experience and consumed here rather than re-collected during editing"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that a camera being present in the room does not constitute a speaker's agreement to publication"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Requires each speaker to be sent their own link once their talk is published"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Counts a session that was recorded but is unusable as a failure in capture completeness rather than a partial success"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Requires a genuinely quiet enclosed room rather than a corner of the sponsor hall"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that the podcast's consent question differs from a talk's because a conversational recording captures people who never agreed to be on stage"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Applies the same signal path and redundancy approach used for talk recordings rather than treating the podcast as a separate discipline"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Requires a file naming convention and a test playback for the podcast recordings"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names an owner for the podcast recordings inside the production plan"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Does not accept the sponsor hall's ambient noise as manageable with a directional microphone alone"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Does not expand the answer into a standing podcast channel strategy, publishing cadence or between-edition guest pipeline"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Walks the signal end to end from microphone through the mixing position to each of the three destinations and confirms all three"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Records sixty seconds and plays it back in full while listening, stating that a moving level meter is not evidence of a playable file"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Checks the clock on every recording device against one shared reference"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Confirms that the file naming convention produces the expected names"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Breaks something deliberately, unplugging the primary microphone, and times the swap to the backup"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires the person who would actually perform the swap on the day to be the one doing it in the drill, and treats the measured time as the honest measure of the redundancy"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Runs one real transition at the changeover speed the schedule actually allows rather than at a relaxed pace"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Confirms out loud, by name, who is on which position for the first block"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Treats rehearsal as a requirement for a livestream rather than a nicety, and does not offer to shorten or drop it if the morning runs late"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Promotes continuous chunked sync to storage and cites the multi-room collection, the recurring event that amortises the setup, and the previous edition's lost recording"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that the ranking presented is a default rather than a law"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Recommends the brief refresher plus hands-on training tier rather than a full introduction, given the returning crew"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Treats the trained crew, the written brief and a repeatable pipeline as investments whose payoff lands after this edition, and promotes them because the event recurs"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Answers the four-month publication lag by naming a pipeline owner and a date and identifying where the pipeline stalls"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Ranks the recommendation against the last date the venue or supplier can still add something rather than against the event date"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Does not attach a currency amount to any individual recommendation"
+      }
+    ]
+  }
+}

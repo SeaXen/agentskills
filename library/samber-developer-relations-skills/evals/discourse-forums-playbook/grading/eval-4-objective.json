@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that Google has no stated preference between subdomain and subfolder",
+        "evidence": "'Google states no preference between subfolder and subdomain [Google].'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes Discourse recommends a subdomain, or that a subfolder requires maintaining robots.txt at the root by hand",
+        "evidence": "'Discourse recommends a subdomain [Discourse].'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says QAPage (Q&A) markup belongs only on pages that are one question with answers, per Google",
+        "evidence": "'Google wants that markup only on pages with one question and its answers'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects applying Q&A markup to Announcements and Feature Requests",
+        "evidence": "'Decline as written ... neither fits.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends enabling Solved only on genuine support or Q&A categories",
+        "evidence": "'Enable Solved on Support only.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects auto-generating ~200 topics from docs, citing scaled or low-value content risk",
+        "evidence": "'scaled content abuse'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Suggests auditing the crawler view of a topic (for example with ?print or the crawler header)",
+        "evidence": "'Inspect a solved topic with `?print`.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Suggests checking that solved topics are public, canonical and present in the sitemap",
+        "evidence": "'Confirm it is public, canonical and listed in `/sitemap.xml`'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Advises topic titles written in the asker's own words, because title and first post become the search snippet",
+        "evidence": "Only 'Ranking comes from answered questions in the asker's words'; nothing about titles or the search snippet.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not promise a traffic outcome from the changes",
+        "evidence": "'Forum search traffic swings with core updates'; no traffic promised.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that Google has no stated preference between subdomain and subfolder",
+        "evidence": "\"Google says it treats subdomains and subfolders as equivalent for ranking.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes Discourse recommends a subdomain, or that a subfolder requires maintaining robots.txt at the root by hand",
+        "evidence": "It mentions `DISCOURSE_RELATIVE_URL_ROOT`, a rebuild, a reverse proxy, and upgrade pain. It does not say Discourse recommends a subdomain or that root robots.txt must be maintained by hand.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says QAPage (Q&A) markup belongs only on pages that are one question with answers, per Google",
+        "evidence": "\"QAPage is only valid for pages that pose one question with user-submitted answers.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects applying Q&A markup to Announcements and Feature Requests",
+        "evidence": "\"Announcements and Feature Requests aren't that\"; verdict \"\u274c No\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends enabling Solved only on genuine support or Q&A categories",
+        "evidence": "\"install `discourse-solved` and enable it only on support and Q&A categories.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects auto-generating ~200 topics from docs, citing scaled or low-value content risk",
+        "evidence": "\"fits Google's scaled-content-abuse policy\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Suggests auditing the crawler view of a topic (for example with ?print or the crawler header)",
+        "evidence": "The audit covers Search Console, robots, sitemap and noindex. A crawler-view check is not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Suggests checking that solved topics are public, canonical and present in the sitemap",
+        "evidence": "It checks sitemap submission and the Rich Results Test on one solved topic. It does not check that solved topics are public, canonical and in the sitemap.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Advises topic titles written in the asker's own words, because title and first post become the search snippet",
+        "evidence": "It says \"Use the real wording\" for seeded threads but gives no snippet or title rationale.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not promise a traffic outcome from the changes",
+        "evidence": "\"the audit may point somewhere I haven't guessed\"; no traffic promise.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

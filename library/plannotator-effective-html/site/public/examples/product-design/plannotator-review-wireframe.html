@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Plannotator artifact review wireframe</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #181818;
+        --muted: #6c6c6c;
+        --line: #aaaaaa;
+        --soft: #dedede;
+        --paper: #f1f1ef;
+        --surface: #fff;
+        --focus: #2156d9;
+        font-family: Arial, Helvetica, sans-serif;
+      }
+      * { box-sizing: border-box; }
+      html, body { min-height: 100%; }
+      body { min-width: 320px; margin: 0; color: var(--ink); background: var(--paper); }
+      button, textarea { font: inherit; }
+      button:focus-visible, textarea:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+      .frame { min-height: 100vh; display: grid; grid-template-rows: 56px 1fr; }
+      header { display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 0 clamp(14px, 3vw, 34px); border-bottom: 1px solid var(--ink); background: var(--surface); }
+      .brand { display: flex; align-items: center; gap: 18px; font-weight: 760; }
+      .brand span { color: var(--muted); font-size: .75rem; font-weight: 500; }
+      .header-actions { display: flex; gap: 8px; }
+      .header-actions button { min-height: 36px; border: 1px solid var(--ink); padding: 0 12px; background: var(--surface); }
+      .header-actions .primary { color: var(--surface); background: var(--ink); }
+
+      main { display: grid; grid-template-rows: auto 1fr; min-height: 0; }
+      .brief { display: grid; grid-template-columns: 1fr auto; align-items: end; gap: 28px; padding: clamp(22px, 3vw, 38px) clamp(18px, 4vw, 52px) 24px; }
+      h1 { max-width: 760px; margin: 0; font-size: clamp(2rem, 4.5vw, 4rem); line-height: .95; letter-spacing: -.04em; text-wrap: balance; }
+      .brief p { max-width: 58ch; margin: 14px 0 0; color: var(--muted); line-height: 1.5; }
+      .directions { display: flex; border: 1px solid var(--ink); background: var(--surface); }
+      .directions button { min-height: 42px; border: 0; border-right: 1px solid var(--ink); padding: 0 14px; background: transparent; }
+      .directions button:last-child { border-right: 0; }
+      .directions button[aria-pressed="true"] { color: var(--surface); background: var(--ink); }
+
+      .workspace { min-height: 640px; display: grid; margin: 0 clamp(18px, 4vw, 52px) 40px; border: 1px solid var(--ink); background: var(--surface); overflow: hidden; }
+      .rail { display: grid; align-content: start; gap: 10px; padding: 12px 8px; border-right: 1px solid var(--ink); background: var(--paper); }
+      .rail button { width: 38px; height: 38px; border: 1px solid var(--line); background: var(--surface); }
+      .rail button[aria-pressed="true"] { border-color: var(--ink); background: var(--soft); }
+      .artifact { min-width: 0; display: grid; grid-template-rows: 44px 1fr; }
+      .artifact-bar { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 0 14px; border-bottom: 1px solid var(--ink); font-size: .74rem; }
+      .artifact-bar span { color: var(--muted); }
+      .document { position: relative; overflow: auto; padding: clamp(26px, 5vw, 70px); background: #f8f8f6; }
+      .page { width: min(780px, 100%); min-height: 480px; margin: 0 auto; padding: clamp(22px, 5vw, 54px); border: 1px solid var(--line); background: var(--surface); }
+      .page h2 { width: 72%; margin: 0 0 22px; font-size: clamp(1.7rem, 4vw, 3.2rem); line-height: 1; }
+      .page-line { display: block; height: 8px; margin-top: 11px; background: var(--soft); }
+      .page-line.dark { width: 54%; background: var(--ink); }
+      .page-line.short { width: 68%; }
+      .page-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 28px; }
+      .page-grid i { min-height: 116px; border: 1px solid var(--line); background: var(--paper); }
+      .highlight { position: relative; margin-top: 26px; padding: 14px; border: 1px solid var(--ink); background: var(--soft); }
+      .highlight::after { content: "1"; position: absolute; top: 50%; right: -17px; width: 29px; height: 29px; display: grid; place-items: center; border: 1px solid var(--ink); border-radius: 50%; transform: translateY(-50%); background: var(--surface); font-size: .75rem; font-weight: 800; }
+
+      .comments { min-width: 0; display: grid; grid-template-rows: 44px 1fr auto; border-left: 1px solid var(--ink); }
+      .comments-head { display: flex; align-items: center; justify-content: space-between; padding: 0 14px; border-bottom: 1px solid var(--ink); font-size: .78rem; font-weight: 700; }
+      .comments-head span { display: grid; place-items: center; width: 24px; height: 24px; border: 1px solid var(--ink); border-radius: 50%; font-size: .68rem; }
+      .comment-list { overflow: auto; }
+      .comment { padding: 15px; border-bottom: 1px solid var(--soft); }
+      .comment.active { background: var(--paper); }
+      .comment strong { display: block; margin-bottom: 7px; font-size: .78rem; }
+      .comment p { margin: 0; color: var(--muted); font-size: .75rem; line-height: 1.45; }
+      .composer { display: grid; gap: 8px; padding: 12px; border-top: 1px solid var(--ink); }
+      textarea { min-height: 72px; resize: vertical; border: 1px solid var(--line); padding: 9px; }
+      .composer button { min-height: 36px; border: 0; color: var(--surface); background: var(--ink); }
+
+      body[data-direction="canvas"] .workspace { grid-template-columns: 56px minmax(0, 1fr) 310px; }
+      body[data-direction="comments"] .workspace { grid-template-columns: 56px minmax(0, .78fr) minmax(340px, 1.22fr); }
+      body[data-direction="comments"] .comment { padding-block: 22px; }
+      body[data-direction="queue"] .workspace { grid-template-columns: 280px minmax(0, 1fr); }
+      body[data-direction="queue"] .rail { grid-column: 1; grid-row: 1; grid-template-columns: repeat(4, 38px); border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+      body[data-direction="queue"] .comments { grid-column: 1; grid-row: 1; margin-top: 63px; border-left: 0; border-right: 1px solid var(--ink); }
+      body[data-direction="queue"] .artifact { grid-column: 2; grid-row: 1; }
+      body[data-direction="queue"] .composer { display: none; }
+
+      @media (max-width: 900px) {
+        .brief { grid-template-columns: 1fr; align-items: start; }
+        .directions { width: 100%; }
+        .directions button { flex: 1; padding-inline: 6px; }
+        body[data-direction] .workspace { grid-template-columns: 48px minmax(0, 1fr); }
+        body[data-direction] .comments { grid-column: 1 / -1; grid-row: 2; border-top: 1px solid var(--ink); border-left: 0; margin: 0; }
+        body[data-direction] .artifact { grid-column: 2; grid-row: 1; }
+        body[data-direction] .rail { grid-column: 1; grid-row: 1; border-bottom: 0; }
+        body[data-direction] .composer { display: grid; }
+      }
+      @media (max-width: 560px) {
+        .brand span, .header-actions button:first-child { display: none; }
+        .brief { padding-inline: 14px; }
+        .workspace { margin-inline: 14px; }
+        .directions button { font-size: .7rem; }
+        .document { padding: 18px 12px; }
+        .page-grid { grid-template-columns: 1fr; }
+        .page-grid i { min-height: 76px; }
+      }
+    </style>
+  </head>
+  <body data-direction="canvas">
+    <!--
+      THESIS: The wireframe tests whether the artifact, tools, or feedback should dominate the review.
+      OWN-WORLD: Restrained grayscale product wireframe using Plannotator's real review nouns and actions.
+      STORY: Switch among three structures, inspect the annotated HTML, and decide where reviewer attention belongs.
+      FIRST VIEWPORT: A compact brief above one bounded browser workspace with rail, document, and annotation list.
+      FORM: Low-fidelity interface wireframe with three structural directions; seed plannotator-review-wireframe.
+      FINISH: unreviewed and undocumented is unfinished; this build ends with the finish review, the verdict, and DESIGN.md
+    -->
+    <div class="frame">
+      <header>
+        <div class="brand">Plannotator <span>HTML artifact review · wireframe</span></div>
+        <div class="header-actions"><button type="button">Close</button><button class="primary" type="button">Send annotations</button></div>
+      </header>
+      <main>
+        <section class="brief">
+          <div><h1>Where should review attention live?</h1><p>Compare three structures for reviewing an agent-built HTML artifact. The content and actions stay the same while the workspace emphasis changes.</p></div>
+          <div class="directions" role="group" aria-label="Wireframe direction">
+            <button type="button" data-direction-choice="canvas" aria-pressed="true">Canvas first</button>
+            <button type="button" data-direction-choice="comments" aria-pressed="false">Comments first</button>
+            <button type="button" data-direction-choice="queue" aria-pressed="false">Review queue</button>
+          </div>
+        </section>
+        <section class="workspace" aria-label="Plannotator review wireframe">
+          <nav class="rail" aria-label="Annotation tools"><button type="button" aria-pressed="true">↖</button><button type="button" aria-pressed="false">T</button><button type="button" aria-pressed="false">▱</button><button type="button" aria-pressed="false">○</button></nav>
+          <section class="artifact">
+            <div class="artifact-bar"><strong>effective-html-compare-mockup.html</strong><span>Rendered HTML · 1280px</span></div>
+            <div class="document">
+              <article class="page">
+                <h2>Put the work side by side.</h2>
+                <span class="page-line dark"></span><span class="page-line"></span><span class="page-line short"></span>
+                <span class="page-grid"><i></i><i></i><i></i></span>
+                <div class="highlight"><span class="page-line dark"></span><span class="page-line short"></span></div>
+              </article>
+            </div>
+          </section>
+          <aside class="comments">
+            <div class="comments-head">Annotations <span>3</span></div>
+            <div class="comment-list">
+              <article class="comment active"><strong>Comparison controls</strong><p>Keep the viewport switch visible when the page scrolls.</p></article>
+              <article class="comment"><strong>Mobile behavior</strong><p>Stack the artifacts instead of shrinking both previews.</p></article>
+              <article class="comment"><strong>Source access</strong><p>Give the HTML and source links the same visual weight.</p></article>
+            </div>
+            <form class="composer"><textarea aria-label="New annotation" placeholder="Add a comment"></textarea><button type="button">Add annotation</button></form>
+          </aside>
+        </section>
+      </main>
+    </div>
+    <script>
+      const choices = [...document.querySelectorAll("[data-direction-choice]")];
+      choices.forEach((button) => button.addEventListener("click", () => {
+        document.body.dataset.direction = button.dataset.directionChoice;
+        choices.forEach((item) => item.setAttribute("aria-pressed", String(item === button)));
+      }));
+    </script>
+  </body>
+</html>

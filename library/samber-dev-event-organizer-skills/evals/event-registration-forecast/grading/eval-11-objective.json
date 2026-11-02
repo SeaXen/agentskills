@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The commit is taken from the low end, with the written reason that over-committing costs more under an 80% usage guarantee",
+        "evidence": "'an over-committed block costs attrition under the 80% guarantee'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The night after day two is dropped; nights per guest is 2 (the night before day one and the night between the days)",
+        "evidence": "'night before day one and the night between'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Room-nights are computed as expected attendance times 0.55 times 2 divided by guests per room, with guests per room set to 1 unless attendees demonstrably share",
+        "evidence": "'Room-nights (\u00d7 0.55 \u00d7 2 nights)'; one guest per room",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The formula uses expected attendance, not registrations",
+        "evidence": "Attendance column 407 used",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The mid is refused as the default commit; the band end is chosen by cost asymmetry and the reason is written next to the figure",
+        "evidence": "'Commit at the low end'; reason written",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Growing the block later is conditioned on written confirmation that rooms can be added at the group rate; its absence is flagged as leaving late attendees at rack rate",
+        "evidence": "'holds only if the hotel confirms in writing that rooms can be added at the group rate'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The figure given today is labelled provisional; the forecast is re-run on the cutoff date and that run's figure is the commitment",
+        "evidence": "'447 is provisional until then'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The rate-code expiry at 30 days out is listed as the lock date in the lock-date table",
+        "evidence": "Table has no date; only 'cutoff is in 10 days' in text",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The band is built from last edition's export and the pooled curve as two separate references",
+        "evidence": "Last year 490, pooled 515",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Multiplicative pickup is used, justified by last edition having well over 15% of its final in at 40 days out",
+        "evidence": "'more than 15% of the curve is in'; 48.9% on hand",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Each input (out-of-town share, nights per guest, guests per room) is labelled own-data or self-set",
+        "evidence": "55% 'from last year's postcodes', one guest assumed; no own-data/self-set labels",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "An expected on-hand registration range at the 30-day cutoff is declared now, before that reading",
+        "evidence": "'266\u2013280 registrations on hand, declared now'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The commit is taken from the low end, with the written reason that over-committing costs more under an 80% usage guarantee",
+        "evidence": "\"block should sit below expected pickup... 40 rooms \u00d7 0.8 = 32\"; low case ~40 rooms; attrition reason.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The night after day two is dropped; nights per guest is 2 (the night before day one and the night between the days)",
+        "evidence": "\"24 / 40 / 20\" includes the night after day two.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Room-nights are computed as expected attendance times 0.55 times 2 divided by guests per room, with guests per room set to 1 unless attendees demonstrably share",
+        "evidence": "Uses 40% takers and 1.2 per room.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The formula uses expected attendance, not registrations",
+        "evidence": "Based on registrations ratio; no show rate.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The mid is refused as the default commit; the band end is chosen by cost asymmetry and the reason is written next to the figure",
+        "evidence": "\"Blocking the mid for all three nights... you would miss the 80% bar... and pay attrition.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Growing the block later is conditioned on written confirmation that rooms can be added at the group rate; its absence is flagged as leaving late attendees at rack rate",
+        "evidence": "Asks \"Can rooms be added after signing\"; no written confirmation or rack rate.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The figure given today is labelled provisional; the forecast is re-run on the cutoff date and that run's figure is the commitment",
+        "evidence": "\"Do not lock today... Lock on day 9 or 10, using the 30-days-out registration count.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The rate-code expiry at 30 days out is listed as the lock date in the lock-date table",
+        "evidence": "Mentioned in text; no table.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The band is built from last edition's export and the pooled curve as two separate references",
+        "evidence": "Only last year's ratio.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Multiplicative pickup is used, justified by last edition having well over 15% of its final in at 40 days out",
+        "evidence": "Ratio used, no 15% justification.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Each input (out-of-town share, nights per guest, guests per room) is labelled own-data or self-set",
+        "evidence": "Says \"I assume\" but no labels.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "An expected on-hand registration range at the 30-day cutoff is declared now, before that reading",
+        "evidence": "\"Registrations at 30 days out are about 300\".",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

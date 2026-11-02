@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Cuts the ranked list to roughly what two pages per quarter covers over two quarters",
+        "evidence": "The map treats capacity as the governing constraint (\"Shipping capacity \u2014 the binding constraint on this whole map: ~2 pages/quarter\") and ships a ranked table of exactly two clusters (SDK init error 4013, sampling rate default), with four queries pushed to Do-not-target and one (\"What is product analytics\", 45/90d) parked in Backlog with an explicit note that it could take a slot \"next quarter.\" It also names the demoted/removed high-value families with promotion conditions, and closes by justifying the small size against matrix explosion (\"7 observed queries, 2 shippable this quarter, 4 refu",
+        "score": 4,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Cuts the ranked list to roughly what two pages per quarter covers over two quarters",
+        "evidence": "The 7-query list is reduced to exactly 4 build candidates across two quarters, with the rest explicitly cut. Quarter 1 names exactly two pages under '## This quarter's 2 pages' \u2014 '1. SDK initialization error reference (310 searches, 32.6%)' and '2. Sampling rate reference (220 searches, 23.1%)'. Quarter 2 is a two-item backlog ('## Backlog \u2014 next quarter, conditional'): the 'Generic export/CDP page' (Segment + Snowflake combined, 238 searches) and the 'Generic migration checklist', explicitly priority-ordered ('Lower priority than the export page'). The remaining three queries are removed rath",
+        "score": 5,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

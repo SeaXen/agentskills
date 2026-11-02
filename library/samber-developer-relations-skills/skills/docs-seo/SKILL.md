@@ -4,7 +4,7 @@ description: Runs on-page and technical SEO for a documentation site - indexabil
 license: MIT
 metadata:
   author: Samuel Berthe
-  version: "1.0.3"
+  version: "1.0.5"
 ---
 
 # Docs SEO
@@ -278,3 +278,5 @@ Company evaluation lands on limits, security, compliance, self-hosting and migra
 - samber/developer-platform-skills@api-reference-quality for the content quality of an API reference tree once this skill has made it indexable
 - samber/developer-relations-skills@docs-localization-strategy for whether a locale should exist at all, which pages it translates, and when a stale translation is retired
 - samber/developer-relations-skills@docs-versioning-strategy for which versions keep docs, their state, the switcher and the retirement trigger this skill's posture implements
+- samber/developer-relations-skills@docs-site-platform-selection for choosing the docs platform, including which search-engine controls it must expose, before a re-platforming this skill then redirects
+- samber/developer-relations-skills@discourse-forums-playbook for the product forum's own search visibility: crawler view, canonical pages, Q&A markup, login-required trap

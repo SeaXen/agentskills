@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Declines to issue a demand verdict from day-5 data, stating that the launch window tests reach, not demand, and the real read starts around week two.",
+        "evidence": "\"A day-5 snapshot tests reach, not demand. The skill treats week two as the first real read.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Nets out the 12 comp redemptions and works from 26 paid tickets, not 38.",
+        "evidence": "\"Paid demand | 26\"; \"the real number is 26\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Judges pace against the event's own edition-1 curve rather than a generic expected curve, since a prior edition exists.",
+        "evidence": "\"Pace index vs. edition-1 own curve (net of comps)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Advises against the public 30% discount, warning that public cuts teach the audience to wait.",
+        "evidence": "\"It teaches the audience to wait. Public cuts train buyers to hold off\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names targeted codes or bundles as the acceptable price-side response if price later becomes the diagnosis.",
+        "evidence": "\"the skill's preferred response is targeted codes or bundles, not a public discount\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes any pricing change to the ticket-pricing sibling skill rather than prescribing the pricing fix itself.",
+        "evidence": "\"That work belongs to `event-ticket-pricing`.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Schedules the shortfall differential before any conclusion: marketing-execution gap versus price misfit versus genuine demand gap.",
+        "evidence": "Section 4 lists marketing execution gap, price misfit, genuine demand gap.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Describes the price-misfit signature as healthy event-page traffic with low conversion in the first two weeks, and notes that evidence has not been shown yet.",
+        "evidence": "\"healthy page traffic with low conversion in the first two weeks. You haven't told me traffic or conversion yet\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prescribes weekly sales-pace instrumentation (pace index or checkpoint reads) for the remainder of the sale.",
+        "evidence": "Only proposes next read at day 14 and a pace index gate; no weekly cadence prescribed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Describes the expected sales curve as spike-driven or U-shaped (announcement spike, quiet middle, final surge), not linear.",
+        "evidence": "\"Sales are U-shaped: an announcement spike, a quiet middle, and a final surge.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that a surge in the final two weeks is normal, not a red flag.",
+        "evidence": "Mentions a final surge in the curve but never says it is normal or not a red flag.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Issues no stop or pivot verdict on this data; 'the event is dying' is explicitly withheld.",
+        "evidence": "\"the event isn't dying on this evidence\"; \"It is not go, pivot, or stop.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Declines to issue a demand verdict from day-5 data, stating that the launch window tests reach, not demand, and the real read starts around week two.",
+        "evidence": "Says 'Day 5 mostly measures your warm list' but never gives the week-two read point.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Nets out the 12 comp redemptions and works from 26 paid tickets, not 38.",
+        "evidence": "'Real figure is 26 paid, not 38.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Judges pace against the event's own edition-1 curve rather than a generic expected curve, since a prior edition exists.",
+        "evidence": "'Pull last year's daily sales curve'; 'Project the final total from last year's curve.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Advises against the public 30% discount, warning that public cuts teach the audience to wait.",
+        "evidence": "'It trains the audience to wait.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names targeted codes or bundles as the acceptable price-side response if price later becomes the diagnosis.",
+        "evidence": "'Sell team packs'; 'Run targeted discounts... student, community, and open-source maintainer codes.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes any pricing change to the ticket-pricing sibling skill rather than prescribing the pricing fix itself.",
+        "evidence": "No sibling skill named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Schedules the shortfall differential before any conclusion: marketing-execution gap versus price misfit versus genuine demand gap.",
+        "evidence": "Lists diagnostics but not the three-way differential.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Describes the price-misfit signature as healthy event-page traffic with low conversion in the first two weeks, and notes that evidence has not been shown yet.",
+        "evidence": "No mention of healthy traffic with low conversion signature.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Prescribes weekly sales-pace instrumentation (pace index or checkpoint reads) for the remainder of the sale.",
+        "evidence": "Only a single checkpoint '4 weeks before the early-bird deadline'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Describes the expected sales curve as spike-driven or U-shaped (announcement spike, quiet middle, final surge), not linear.",
+        "evidence": "'Most sales come near price deadlines and speaker announcements.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that a surge in the final two weeks is normal, not a red flag.",
+        "evidence": "Says back-loaded but doesn't mention a final-two-weeks surge.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Issues no stop or pivot verdict on this data; 'the event is dying' is explicitly withheld.",
+        "evidence": "'Not enough data to say the event is dying.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

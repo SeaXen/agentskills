@@ -1,0 +1,894 @@
+import fs from 'node:fs';
+import { join } from 'node:path';
+import Generator from 'yeoman-generator';
+import { v4 as uuidv4 } from 'uuid';
+import { AppWizard, MessageType, Prompts as YeomanUiSteps } from '@sap-devx/yeoman-ui-types';
+import type { IPrompt, AppWizard as AppWizardType, Prompts as YeomanUiStepsType } from '@sap-devx/yeoman-ui-types';
+
+import {
+    FlexLayer,
+    SourceManifest,
+    SupportedProject,
+    SystemLookup,
+    fetchPublicVersions,
+    generate,
+    generateCf,
+    getCfBaseAppInbounds,
+    getCfConfig,
+    getConfig,
+    getConfiguredProvider,
+    getSupportedProject,
+    getFormattedVersion,
+    getLatestVersion,
+    getYamlContent,
+    isCfInstalled,
+    isLoggedInCf,
+    isMtaProject,
+    loadApps,
+    loadCfConfig,
+    storeCredentials,
+    getDefaultProjectName,
+    getOrCreateServiceInstanceKeys
+} from '@sap-ux/adp-tooling';
+import {
+    getDefaultTargetFolder,
+    isCli,
+    isExtensionInstalled,
+    sendTelemetry,
+    setYeomanEnvConflicterForce,
+    TelemetryHelper
+} from '@sap-ux/fiori-generator-shared';
+import { ToolsLogger } from '@sap-ux/logger';
+import type { Manifest } from '@sap-ux/project-access';
+import { AdaptationProjectType, type AbapServiceProvider } from '@sap-ux/axios-extension';
+import { isInternalFeaturesSettingEnabled } from '@sap-ux/feature-toggle';
+import type { CfConfig, CfServicesAnswers, AttributesAnswers, ConfigAnswers, UI5Version } from '@sap-ux/adp-tooling';
+
+import { cacheClear, cacheGet, cachePut, initCache } from '../utils/appWizardCache.js';
+import { getPackageInfo, installDependencies } from '../utils/deps.js';
+import { initI18n, t } from '../utils/i18n.js';
+import { readJsonInputFile } from '../utils/json-input-file.js';
+import AdpGeneratorLogger from '../utils/logger.js';
+import { setHeaderTitle } from '../utils/opts.js';
+import { getFirstArg, parseJsonInput } from '../utils/parse-json-input.js';
+import { TelemetryCollector, EventName } from '../telemetry/index.js';
+import {
+    getDeployPage,
+    getWizardPages,
+    updateCfWizardSteps,
+    updateFlpWizardSteps,
+    updateWizardSteps,
+    getKeyUserImportPage
+} from '../utils/steps.js';
+import { addDeployGen, addExtProjectGen, addFlpGen } from '../utils/subgenHelpers.js';
+import { getTemplatesOverwritePath } from '../utils/templates.js';
+import { writeResult } from '../utils/write-result.js';
+import { existsInWorkspace, handleWorkspaceFolderChoice, showWorkspaceFolderWarning } from '../utils/workspace.js';
+import { getFlexLayer } from './layer.js';
+import { getPrompts } from './questions/attributes.js';
+import { CFServicesPrompter } from './questions/cf-services.js';
+import { ConfigPrompter } from './questions/configuration.js';
+import { getDefaultNamespace } from './questions/helper/default-values.js';
+import { validateJsonInput } from './questions/helper/validators.js';
+import {
+    TargetEnv,
+    type TargetEnvAnswers,
+    type AdpGeneratorOptions,
+    type AttributePromptOptions,
+    type JsonInput,
+    type JsonInputFile,
+    type OptionalPromptsConfig
+} from './types.js';
+import { getProjectPathPrompt, getTargetEnvPrompt } from './questions/target-env.js';
+import type { AdpTelemetryData } from '../types.js';
+import { KeyUserImportPrompter } from './questions/key-user.js';
+import { initTelemetrySettings } from '@sap-ux/telemetry';
+
+const generatorTitle = 'Adaptation Project';
+
+/**
+ * Generator for creating an Adaptation Project.
+ *
+ * @extends Generator
+ */
+export default class extends Generator {
+    setPromptsCallback: (fn: object) => void;
+    private readonly appWizard: AppWizardType;
+    private readonly vscode: any;
+    private readonly toolsLogger: ToolsLogger;
+    private isCli: boolean;
+
+    /**
+     * A boolean flag indicating whether node_modules should be installed after project generation.
+     */
+    private readonly shouldInstallDeps: boolean;
+    /**
+     * A boolean flag indicating whether an extension project should be created.
+     */
+    private shouldCreateExtProject: boolean;
+    /**
+     * Generator prompts.
+     */
+    private readonly prompts: YeomanUiStepsType;
+    /**
+     * Instance of the logger.
+     */
+    private logger: ToolsLogger;
+    /**
+     * Flex layer indicating customer or vendor base.
+     */
+    private layer: FlexLayer;
+    /**
+     * Answers collected from configuration prompts.
+     */
+    private configAnswers: ConfigAnswers;
+    /**
+     * Project attribute answers.
+     */
+    private attributeAnswers: AttributesAnswers;
+    /**
+     * SystemLookup instance for managing system endpoints.
+     */
+    private systemLookup: SystemLookup;
+    /**
+     * Instance of the configuration prompter class.
+     */
+    private prompter: ConfigPrompter;
+    /**
+     * Instance of the CF services prompter class.
+     */
+    private cfPrompter: CFServicesPrompter;
+    /**
+     * JSON object representing the complete adaptation project configuration,
+     * passed as a CLI argument.
+     */
+    private readonly jsonInput?: JsonInput;
+    /**
+     * Parsed `{tmpdir}/{id}.txt` when JSON input includes `id`.
+     */
+    private jsonInputFile?: JsonInputFile;
+    /**
+     * Instance of AbapServiceProvider.
+     */
+    private abapProvider: AbapServiceProvider;
+    /**
+     * Application manifest.
+     */
+    private manifest: Manifest;
+    /**
+     * The Adaptation project type.
+     */
+    private projectType?: AdaptationProjectType;
+    /**
+     * Publicly available UI5 versions.
+     */
+    private publicVersions: UI5Version;
+    /**
+     * Indicates if the current layer is based on a customer base.
+     */
+    private isCustomerBase: boolean;
+    /**
+     * Target environment.
+     */
+    private targetEnv: TargetEnv;
+    /**
+     * Indicates if the current environment is a CF environment.
+     */
+    private isCfEnv = false;
+    /**
+     * Tracks whether the writing phase failed, to prevent end() from overwriting a failure result.
+     */
+    private writingFailed = false;
+    /**
+     * Indicates if the user is logged in to CF.
+     */
+    private isCfLoggedIn = false;
+    /**
+     * CF config.
+     */
+    private cfConfig: CfConfig;
+    /**
+     * Indicates if the current project is an MTA project.
+     */
+    private readonly isMtaYamlFound: boolean;
+    /**
+     * CF services answers.
+     */
+    private cfServicesAnswers: CfServicesAnswers;
+    /**
+     * Indicates if CF is installed.
+     */
+    private cfInstalled: boolean;
+    /**
+     * Tools ID.
+     */
+    private toolsId: string;
+    /**
+     * Telemetry collector instance.
+     */
+    private telemetryCollector: TelemetryCollector;
+    /**
+     * Key-user import prompter instance.
+     */
+    private keyUserPrompter?: KeyUserImportPrompter;
+
+    /**
+     * Creates an instance of the generator.
+     *
+     * @param {string | string[]} args - The arguments passed to the generator.
+     * @param {AdpGeneratorOptions} opts - The options for the generator.
+     */
+    constructor(args: string | string[], opts: AdpGeneratorOptions) {
+        super(args, opts);
+        this.appWizard = opts.appWizard ?? AppWizard.create(opts);
+        this.shouldInstallDeps = opts.shouldInstallDeps ?? true;
+        this.toolsLogger = new ToolsLogger();
+        this.vscode = opts.vscode;
+        this._setupLogging();
+        this.options = opts;
+
+        this.isMtaYamlFound = isMtaProject(process.cwd()) as boolean;
+
+        const jsonInputString = getFirstArg(args);
+        this.jsonInput = parseJsonInput(jsonInputString, this.logger);
+
+        if (!this.jsonInput) {
+            this.env.lookup({
+                packagePatterns: ['@sap/generator-fiori', '@bas-dev/generator-extensibility-sub']
+            });
+            setHeaderTitle(opts, this.logger, generatorTitle);
+
+            initCache(this.logger, this.appWizard);
+            this.prompts = new YeomanUiSteps([]);
+            this.setPromptsCallback = (fn): void => {
+                if (this.prompts) {
+                    this.prompts.setCallback(fn);
+                }
+            };
+        }
+    }
+
+    async initializing(): Promise<void> {
+        // Force the generator to overwrite existing files without additional prompting
+        setYeomanEnvConflicterForce(this.env, this.options.force);
+        await initI18n();
+        this.isCli = isCli();
+        this.layer = getFlexLayer();
+        this.isCustomerBase = this.layer === FlexLayer.CUSTOMER_BASE;
+        this.systemLookup = new SystemLookup(this.logger);
+
+        this.cfInstalled = await isCfInstalled(this.logger);
+        this.cfConfig = loadCfConfig(this.logger);
+        this.isCfLoggedIn = await isLoggedInCf(this.cfConfig, this.logger);
+        this.logger.info(`isCfInstalled: ${this.cfInstalled}`);
+
+        const isInternalUsage = isInternalFeaturesSettingEnabled();
+        await initTelemetrySettings({
+            consumerModule: {
+                name: '@sap/generator-fiori:generator-adp',
+                version: this.rootGeneratorVersion()
+            },
+            internalFeature: isInternalUsage,
+            watchTelemetrySettingStore: false
+        });
+        this.telemetryCollector = new TelemetryCollector();
+        if (!this.jsonInput) {
+            this.prompts.splice(0, 0, getWizardPages(this.cfInstalled));
+            this.prompter = this._getOrCreatePrompter();
+            this.cfPrompter = new CFServicesPrompter(isInternalUsage, this.isCfLoggedIn, this.logger);
+        }
+    }
+
+    async prompting(): Promise<void> {
+        if (this.jsonInput) {
+            return;
+        }
+
+        await this._determineTargetEnv();
+
+        if (this.isCfEnv) {
+            await this._promptForCfEnvironment();
+        } else {
+            const isExtensibilityExtInstalled = isExtensionInstalled(this.vscode, 'SAP.vscode-bas-extensibility');
+            const configQuestions = this.prompter.getPrompts({
+                projectType: {
+                    default: AdaptationProjectType.CLOUD_READY
+                },
+                projectTypeCli: { hide: !this.isCli },
+                projectTypeClassicLabel: { hide: this.isCli },
+                appValidationCli: { hide: !this.isCli },
+                systemValidationCli: { hide: !this.isCli },
+                shouldCreateExtProject: { isExtensibilityExtInstalled }
+            });
+            this.configAnswers = await this.prompt<ConfigAnswers>(configQuestions);
+            this.shouldCreateExtProject = !!this.configAnswers.shouldCreateExtProject;
+
+            this.logger.info(`System: ${this.configAnswers.system}`);
+            this.logger.info(`Application: ${JSON.stringify(this.configAnswers.application, null, 2)}`);
+
+            const { ui5Versions, systemVersion } = this.prompter.ui5;
+            const optionalPromptsConfig: OptionalPromptsConfig = {
+                ui5Versions,
+                isVersionDetected: !!systemVersion,
+                projectType: this.prompter.projectType,
+                systemType: this.prompter.systemType,
+                layer: this.layer,
+                prompts: this.prompts
+            };
+            const defaultFolder = getDefaultTargetFolder(this.options.vscode) ?? process.cwd();
+            const options: AttributePromptOptions = {
+                targetFolder: { default: defaultFolder, hide: this.shouldCreateExtProject },
+                ui5ValidationCli: { hide: !this.isCli },
+                enableTypeScript: { hide: this.shouldCreateExtProject },
+                addFlpConfig: {
+                    hasBaseAppInbounds: !!this.prompter.baseAppInbounds,
+                    hide: this.shouldCreateExtProject
+                },
+                addDeployConfig: { hide: this.shouldCreateExtProject || !this.isCustomerBase },
+                importKeyUserChanges: { hide: this.shouldCreateExtProject }
+            };
+            const attributesQuestions = getPrompts(this.destinationPath(), optionalPromptsConfig, options);
+            this.attributeAnswers = await this.prompt(attributesQuestions);
+
+            // Steps need to be updated here to be available after back navigation in Yeoman UI.
+            this._updateWizardStepsAfterNavigation();
+
+            if (this.attributeAnswers.importKeyUserChanges) {
+                this.keyUserPrompter = new KeyUserImportPrompter(
+                    this.systemLookup,
+                    this.configAnswers.application.id,
+                    this.prompter.provider,
+                    this.configAnswers.system,
+                    this.logger
+                );
+                const keyUserQuestions = this.keyUserPrompter.getPrompts({
+                    keyUserSystem: { default: this.configAnswers.system },
+                    keyUserSystemValidationCli: { hide: !this.isCli },
+                    keyUserAdaptationValidationCli: { hide: !this.isCli },
+                    keyUserRestrictedViewsLabel: { hide: this.isCli }
+                });
+                await this.prompt(keyUserQuestions);
+            }
+
+            this.logger.info(`Project Attributes: ${JSON.stringify(this.attributeAnswers, null, 2)}`);
+            if (this.attributeAnswers.addDeployConfig) {
+                const system = await this.systemLookup.getSystemByName(this.configAnswers.system);
+                await addDeployGen(
+                    {
+                        projectName: this.attributeAnswers.projectName,
+                        projectPath: this.attributeAnswers.targetFolder,
+                        connectedSystem: this.configAnswers.system,
+                        projectType: this.prompter.projectType,
+                        system
+                    },
+                    this.composeWith.bind(this),
+                    this.logger,
+                    this.appWizard
+                );
+            }
+
+            if (this.attributeAnswers?.addFlpConfig) {
+                await addFlpGen(
+                    {
+                        vscode: this.vscode,
+                        projectRootPath: this._getProjectPath(),
+                        inbounds: this.prompter.baseAppInbounds,
+                        layer: this.layer,
+                        prompts: this.prompts
+                    },
+                    this.composeWith.bind(this),
+                    this.logger,
+                    this.appWizard
+                );
+            }
+        }
+    }
+
+    async writing(): Promise<void> {
+        try {
+            this.toolsId = uuidv4();
+            if (this.jsonInput) {
+                await this._initFromJson();
+            }
+
+            this._collectTelemetryData();
+
+            if (this.isCfEnv) {
+                await this._generateAdpProjectArtifactsCF();
+                return;
+            }
+
+            if (this.configAnswers.storeCredentials) {
+                await storeCredentials(this.configAnswers, this.systemLookup, this.logger);
+            }
+
+            if (this.shouldCreateExtProject) {
+                await addExtProjectGen(
+                    {
+                        configAnswers: this.configAnswers,
+                        attributeAnswers: this.attributeAnswers,
+                        systemLookup: this.systemLookup
+                    },
+                    this.composeWith.bind(this),
+                    this.logger,
+                    this.appWizard
+                );
+                return;
+            }
+
+            const provider = this.jsonInput ? this.abapProvider : this.prompter.provider;
+            const publicVersions = this.jsonInput ? this.publicVersions : this.prompter.ui5.publicVersions;
+            const manifest = this.jsonInput ? this.manifest : this.prompter.manifest;
+            const keyUserChanges = this.jsonInput ? this.jsonInputFile?.keyUserChanges : this.keyUserPrompter?.changes;
+            const projectType = this._getProjectType();
+
+            const packageJson = getPackageInfo();
+            const config = await getConfig({
+                provider,
+                configAnswers: this.configAnswers,
+                attributeAnswers: this.attributeAnswers,
+                systemVersion: this.prompter?.ui5?.systemVersion,
+                publicVersions,
+                manifest,
+                layer: this.layer,
+                packageJson,
+                logger: this.toolsLogger,
+                projectType,
+                toolsId: this.toolsId,
+                keyUserChanges
+            });
+
+            if (config.options) {
+                config.options.templatePathOverwrite = getTemplatesOverwritePath();
+            }
+
+            await generate(this._getProjectPath(), config, this.fs);
+        } catch (e) {
+            const message = e instanceof Error ? e.message : String(e);
+            this.logger.error(`Writing phase failed: ${message}`);
+            this.writingFailed = true;
+            if (this.jsonInput?.id) {
+                writeResult(this.jsonInput.id, `Failure: ${message}`);
+            }
+            throw new Error(t('error.updatingApp'));
+        } finally {
+            cacheClear(this.appWizard, this.logger);
+        }
+    }
+
+    async install(): Promise<void> {
+        if (!this.shouldInstallDeps || this.shouldCreateExtProject) {
+            return;
+        }
+
+        try {
+            await installDependencies(this._getProjectPath());
+        } catch (e) {
+            this.logger.error(`Installation of dependencies failed: ${e.message}`);
+        }
+    }
+
+    async end(): Promise<void> {
+        const projectPath = this._getProjectPath();
+
+        // Report the generated project path back to the BAS orchestrator once files are written to disk.
+        if (this.jsonInput?.id && !this.writingFailed) {
+            writeResult(this.jsonInput.id, projectPath);
+        }
+
+        const data = TelemetryHelper.createTelemetryData({
+            appType: 'generator-adp',
+            ...this.options.telemetryData,
+            ...this.telemetryCollector.telemetryData
+        });
+
+        if (data) {
+            sendTelemetry(EventName.ADAPTATION_PROJECT_CREATED, data, projectPath)
+                .then(() => {
+                    this.logger.log(`Event ${EventName.ADAPTATION_PROJECT_CREATED} successfully sent`);
+                })
+                .catch((error) => {
+                    this.logger.error(`Failed to send telemetry: ${error}`);
+                });
+        }
+
+        if (this.isCli && this.keyUserPrompter?.detectRestrictedViews()) {
+            this.logger.warn(
+                `${t('prompts.keyUserRestrictedViewsLabel')} ${t('prompts.keyUserRestrictedViewsDocLink')}`
+            );
+        }
+
+        if (this.isCli || this.isCfEnv || this.shouldCreateExtProject) {
+            return;
+        }
+
+        try {
+            if (!existsInWorkspace(this.vscode, projectPath)) {
+                const userChoice = await showWorkspaceFolderWarning(this.vscode, projectPath);
+                if (!userChoice) {
+                    return;
+                }
+                await handleWorkspaceFolderChoice(this.vscode, projectPath, userChoice);
+                return;
+            }
+            await this.vscode?.commands?.executeCommand?.('sap.ux.application.info', { fsPath: projectPath });
+        } catch (e) {
+            this.appWizard.showError(e.message, MessageType.notification);
+        }
+    }
+
+    /**
+     * Prompts the user for the CF project path.
+     */
+    private async _promptForCfProjectPath(): Promise<void> {
+        if (this.isMtaYamlFound) {
+            const path = this.destinationRoot(process.cwd());
+            getYamlContent(join(path, 'mta.yaml'));
+            this.logger.log(`Project path information: ${path}`);
+        } else {
+            const pathAnswers = await this.prompt([getProjectPathPrompt(this.logger, this.vscode)]);
+            const path = this.destinationRoot(fs.realpathSync(pathAnswers.projectLocation, 'utf-8'));
+            this.logger.log(`Project path information: ${path}`);
+        }
+    }
+
+    /**
+     * Collects the telemetry data for the ADP generator.
+     */
+    private _collectTelemetryData(): void {
+        const telemetryData: AdpTelemetryData = {
+            wasFlpConfigDone: this.attributeAnswers?.addFlpConfig ?? false,
+            wasTypeScriptChosen: this.attributeAnswers?.enableTypeScript ?? false,
+            wasDeployConfigDone: this.attributeAnswers?.addDeployConfig ?? false,
+            wasExtProjectGenerated: this.shouldCreateExtProject ?? false,
+            wereKeyUserChangesImported: this.jsonInput
+                ? !!this.jsonInputFile?.keyUserChanges?.length
+                : (this.attributeAnswers?.importKeyUserChanges ?? false)
+        };
+        if (this.isCfEnv) {
+            telemetryData.baseAppTechnicalName = this.cfPrompter?.manifest?.['sap.app']?.id ?? '';
+            telemetryData.projectType = 'cf';
+        } else {
+            telemetryData.projectType =
+                this._getProjectType() === AdaptationProjectType.CLOUD_READY ? 'cloudReady' : 'onPremise';
+            telemetryData.baseAppTechnicalName = this.configAnswers?.application?.id ?? '';
+        }
+        if (this.jsonInput) {
+            telemetryData.ui5VersionSelected = getLatestVersion(this.publicVersions);
+        } else {
+            const version =
+                this.attributeAnswers?.ui5Version ?? getLatestVersion(this.prompter?.ui5?.publicVersions) ?? '';
+            telemetryData.ui5VersionSelected = getFormattedVersion(version);
+        }
+        telemetryData.systemUI5Version = this.prompter?.ui5?.systemVersion ?? '';
+
+        this.telemetryCollector.setBatch(telemetryData);
+    }
+
+    /**
+     * Determines the target environment based on the current context.
+     * Sets the target environment and updates related state accordingly.
+     */
+    private async _determineTargetEnv(): Promise<void> {
+        if (this.cfInstalled) {
+            await this._promptForTargetEnvironment();
+        } else {
+            this.targetEnv = TargetEnv.ABAP;
+        }
+    }
+
+    /**
+     * Prompts the user to select the target environment and updates related state.
+     */
+    private async _promptForTargetEnvironment(): Promise<void> {
+        const targetEnvAnswers = await this.prompt<TargetEnvAnswers>([
+            getTargetEnvPrompt(this.appWizard, this.cfInstalled, this.isCfLoggedIn, this.cfConfig)
+        ]);
+
+        this.targetEnv = targetEnvAnswers.targetEnv;
+        this.isCfEnv = this.targetEnv === TargetEnv.CF;
+        this.logger.info(`Target environment: ${this.targetEnv}`);
+
+        updateCfWizardSteps(this.isCfEnv, this.prompts);
+
+        this.logger.log(`Project organization information: ${JSON.stringify(this.cfConfig.org, null, 2)}`);
+        this.logger.log(`Project space information: ${JSON.stringify(this.cfConfig.space, null, 2)}`);
+        this.logger.log(`Project apiUrl information: ${JSON.stringify(this.cfConfig.url, null, 2)}`);
+    }
+
+    /**
+     * Prompts the user for the CF environment.
+     */
+    private async _promptForCfEnvironment(): Promise<void> {
+        await this._promptForCfProjectPath();
+
+        const options: AttributePromptOptions = {
+            targetFolder: { hide: true },
+            ui5Version: { hide: true },
+            ui5ValidationCli: { hide: true },
+            enableTypeScript: { hide: true },
+            // In CF flow, inbounds are fetched after base app selection (CF services page), which comes after attributes.
+            // We assume true here so the wizard prepares the tile settings page; actual inbounds availability is handled by the FLP sub-gen.
+            addFlpConfig: { hasBaseAppInbounds: true },
+            addDeployConfig: { hide: true },
+            importKeyUserChanges: { hide: true }
+        };
+
+        const projectPath = this.destinationPath();
+        const attributesQuestions = getPrompts(
+            projectPath,
+            {
+                ui5Versions: [],
+                isVersionDetected: false,
+                layer: this.layer,
+                prompts: this.prompts,
+                isCfEnv: true
+            },
+            options
+        );
+
+        this.attributeAnswers = await this.prompt(attributesQuestions);
+        this.logger.info(`Project Attributes: ${JSON.stringify(this.attributeAnswers, null, 2)}`);
+
+        const cfServicesQuestions = await this.cfPrompter.getPrompts(projectPath, this.cfConfig);
+        this.cfServicesAnswers = await this.prompt<CfServicesAnswers>(cfServicesQuestions);
+        this.logger.info(`CF Services Answers: ${JSON.stringify(this.cfServicesAnswers, null, 2)}`);
+
+        const selectedApp = this.cfServicesAnswers.baseApp;
+        if (!selectedApp || !this.attributeAnswers?.addFlpConfig) {
+            return;
+        }
+
+        try {
+            const cfInbounds = await getCfBaseAppInbounds(
+                selectedApp.appId,
+                selectedApp.appHostId,
+                this.cfConfig,
+                this.logger
+            );
+            // Register FLP wizard pages now that we know if inbounds are available
+            updateFlpWizardSteps(!!cfInbounds, this.prompts, this.attributeAnswers.projectName, true);
+            if (cfInbounds) {
+                await addFlpGen(
+                    {
+                        vscode: this.vscode,
+                        projectRootPath: this._getProjectPath(),
+                        inbounds: cfInbounds,
+                        layer: this.layer,
+                        prompts: this.prompts,
+                        isCfProject: true
+                    },
+                    this.composeWith.bind(this),
+                    this.logger,
+                    this.appWizard
+                );
+            }
+        } catch (e) {
+            this.logger.warn(`Could not fetch CF inbounds for FLP configuration: ${e.message}`);
+        }
+    }
+
+    /**
+     * Retrieves the ConfigPrompter instance from cache if it exists, otherwise creates a new instance.
+     *
+     * @returns {ConfigPrompter} Cached config prompter if going back a page.
+     */
+    private _getOrCreatePrompter(): ConfigPrompter {
+        const cached = cacheGet<ConfigPrompter>(this.appWizard, 'prompter', this.logger);
+        if (cached) {
+            return cached;
+        }
+
+        const prompter = new ConfigPrompter(this.systemLookup, this.layer, this.logger, this.telemetryCollector);
+        cachePut(this.appWizard, { prompter }, this.logger);
+        return prompter;
+    }
+
+    /**
+     * Generates the ADP project artifacts for the CF environment.
+     */
+    private async _generateAdpProjectArtifactsCF(): Promise<void> {
+        const projectPath = this.destinationPath();
+        const publicVersions = await fetchPublicVersions(this.logger);
+        this.telemetryCollector.setBatch({ ui5VersionSelected: getLatestVersion(publicVersions) });
+
+        const manifest = this.cfPrompter.manifest;
+        if (!manifest) {
+            throw new Error('Manifest not found for base app.');
+        }
+
+        const html5RepoRuntimeGuid = this.cfPrompter.html5RepoRuntimeGuid;
+        const serviceInstanceGuid = this.cfPrompter.serviceInstanceGuid;
+        const backendUrls = this.cfPrompter.backendUrls;
+        const oauthPaths = this.cfPrompter.oauthPaths;
+
+        const serviceInfo = await getOrCreateServiceInstanceKeys(
+            {
+                names: [this.cfServicesAnswers.businessService ?? '']
+            },
+            this.logger
+        );
+
+        const config = getCfConfig({
+            attributeAnswers: this.attributeAnswers,
+            cfServicesAnswers: this.cfServicesAnswers,
+            cfConfig: this.cfConfig,
+            layer: this.layer,
+            manifest,
+            html5RepoRuntimeGuid,
+            serviceInstanceGuid,
+            backendUrls,
+            oauthPaths,
+            projectPath,
+            publicVersions,
+            packageJson: getPackageInfo(),
+            toolsId: this.toolsId,
+            serviceInfo,
+            spaceGuid: this.cfConfig.space.GUID
+        });
+
+        if (config.options) {
+            config.options.templatePathOverwrite = getTemplatesOverwritePath();
+        }
+
+        await generateCf(projectPath, config, this.logger, this.fs);
+    }
+
+    /**
+     * Combines the target folder and project name.
+     *
+     * @returns {string} The project path from the answers.
+     */
+    private _getProjectPath(): string {
+        if (this.isCfEnv) {
+            return join(this.destinationPath(), this.attributeAnswers.projectName);
+        }
+        if (this.shouldCreateExtProject) {
+            return join(process.cwd(), this.attributeAnswers.projectName);
+        }
+        return join(this.attributeAnswers.targetFolder, this.attributeAnswers.projectName);
+    }
+
+    /**
+     * Use this method to get the correct Adaptation project type, no matter how we start
+     * the generator - from Yeoman UI or the CLI.
+     *
+     * @returns {AdaptationProjectType | undefined} The Adaptation project type.
+     */
+    private _getProjectType(): AdaptationProjectType | undefined {
+        return this.jsonInput ? this.projectType : this.prompter.projectType;
+    }
+
+    /**
+     * Configures logging for the generator.
+     */
+    private _setupLogging(): void {
+        AdpGeneratorLogger.configureLogging(
+            this.options.logger,
+            this.rootGeneratorName(),
+            this.log,
+            this.options.vscode,
+            this.options.logLevel,
+            this.options.logWrapper
+        );
+        this.logger = AdpGeneratorLogger.logger as unknown as ToolsLogger;
+    }
+
+    /**
+     * Initialize the project generator from a json.
+     */
+    private async _initFromJson(): Promise<void> {
+        if (!this.jsonInput) {
+            return;
+        }
+
+        if (this.jsonInput.id) {
+            this.jsonInputFile = await readJsonInputFile(this.jsonInput.id);
+        }
+
+        const {
+            system,
+            client,
+            username = '',
+            password = '',
+            projectType,
+            application: baseApplicationName,
+            applicationTitle,
+            targetFolder = '/home/user/projects',
+            projectName = getDefaultProjectName(targetFolder, `${baseApplicationName}.variant`),
+            namespace = getDefaultNamespace(projectName, this.isCustomerBase)
+        } = this.jsonInput;
+
+        await validateJsonInput(this.systemLookup, this.isCustomerBase, {
+            projectName,
+            targetFolder,
+            namespace,
+            system
+        });
+
+        this.publicVersions = await fetchPublicVersions(this.logger);
+
+        const providerOptions = {
+            system,
+            client,
+            username,
+            password
+        };
+        this.abapProvider = await getConfiguredProvider(providerOptions, this.logger);
+        const supportedProject = await getSupportedProject(this.abapProvider);
+        let selectedProjectType = AdaptationProjectType.ON_PREMISE;
+        if (supportedProject === SupportedProject.CLOUD_READY_AND_ON_PREM) {
+            const isInternalUsage = isInternalFeaturesSettingEnabled();
+            selectedProjectType = isInternalUsage
+                ? AdaptationProjectType.ON_PREMISE
+                : (projectType ?? AdaptationProjectType.CLOUD_READY);
+        } else if (supportedProject === SupportedProject.CLOUD_READY) {
+            selectedProjectType = AdaptationProjectType.CLOUD_READY;
+        }
+        this.projectType = selectedProjectType;
+
+        const applications = await loadApps(this.abapProvider, this.isCustomerBase, supportedProject);
+        this.telemetryCollector.setBatch({ numberOfApplications: applications.length });
+        const application = applications.find((application) => application.id === baseApplicationName);
+        if (!application) {
+            throw new Error(t('error.applicationNotFound', { appName: baseApplicationName }));
+        }
+
+        const sourceManifest = new SourceManifest(this.abapProvider, application.id);
+        this.manifest = await sourceManifest.getManifest();
+
+        this.configAnswers = {
+            system,
+            username,
+            password,
+            application
+        };
+
+        this.attributeAnswers = {
+            projectName,
+            title: applicationTitle ?? `${application.title} (variant)`,
+            namespace,
+            targetFolder,
+            // If not provided, latest ui5 version will be used. See getConfig() for a reference.
+            ui5Version: '',
+            enableTypeScript: false
+        };
+    }
+
+    /**
+     * Updates the FLP wizard steps in the prompt sequence if the FLP configuration page(s) does not already exist.
+     *
+     */
+    private _updateWizardStepsAfterNavigation(): void {
+        const pages: IPrompt[] = this.prompts['items'];
+        const flpPagesExist = pages.some((p) => p.name === t('yuiNavSteps.flpConfigName'));
+        const deployPageExists = pages.some((p) => p.name === t('yuiNavSteps.deployConfigName'));
+
+        if (!deployPageExists) {
+            updateWizardSteps(
+                this.prompts,
+                getDeployPage(),
+                t('yuiNavSteps.projectAttributesName'),
+                this.attributeAnswers.addDeployConfig
+            );
+        }
+
+        updateWizardSteps(
+            this.prompts,
+            getKeyUserImportPage(),
+            t('yuiNavSteps.projectAttributesName'),
+            !!this.attributeAnswers.importKeyUserChanges
+        );
+
+        if (!flpPagesExist) {
+            updateFlpWizardSteps(
+                !!this.prompter.baseAppInbounds,
+                this.prompts,
+                this.attributeAnswers.projectName,
+                !!this.attributeAnswers.addFlpConfig
+            );
+        }
+    }
+}
+
+export type { AdpGeneratorOptions };

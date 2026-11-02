@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The response states up front that the output is not legal advice.",
+        "evidence": "Under 'Before you use this': '\u26a0\ufe0f **This is not legal advice.**'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response asks the organizer clarifying interview questions (who is bound, existing assets, effort ceiling) before delivering a finished policy.",
+        "evidence": "The full policy text comes first. The 'Questions I'd need answered' section sits at the very end.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response declines to write the policy from scratch and recommends adapting an established code of conduct text instead.",
+        "evidence": "'I did not write it from scratch... This draft adapts the structure and prohibited-behavior list used by MLH, PyCon US and the confcodeofconduct.com template'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response justifies rejecting a from-scratch draft by noting established event policies share a common enumerated prohibited-behavior list that reporters have learned to look for.",
+        "evidence": "'Writing from scratch forgets items of the standard list, and those are the items a reporter needs to see named.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response refuses to deliver policy text alone and requires a named response team, a working reporting channel, and a sanctions ladder to exist before publication.",
+        "evidence": "'Minimum before you publish: 3\u20136 named responders, a monitored alias, and the sanctions ladder and appeal route below.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response states that a code of conduct without enforcement behind it is worse than none, or that the widely-linked generic conference template disclaims its own enforceability.",
+        "evidence": "'A policy with no named team and no working channel tells attendees your values are decorative, and it spends a reporter's trust... Without it, don't go live.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response instructs replacing any roles or contacts named in a borrowed template with roles and contacts that actually exist at this event.",
+        "evidence": "The draft only has bracketed placeholders. It never tells the organizer to replace the roles or contacts named in the borrowed template.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response notes that an adapted Creative Commons-licensed template keeps its attribution obligation.",
+        "evidence": "'The attribution is at the bottom and must stay.' CC BY 3.0 is cited.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response recommends a named, published response team of 3 to 6 people whose names appear in the reporting instructions.",
+        "evidence": "'3\u20136 named responders'; the responder table in the reporting section.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response connects the three-week hard deadline to choosing fast-to-stand-up options such as a published email alias.",
+        "evidence": "The deadline is mentioned ('live in three weeks'), and 'roughly a day of organizer time' is estimated. It never ties the deadline to choosing quick options like an alias.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response includes physically identifiable on-site responders as a reporting channel for the event's physical days.",
+        "evidence": "'Find someone in [color] shirts. Trained responders wear them at the venue and at the afterparty.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response includes a rehearsal of practice cases with the team before the event opens.",
+        "evidence": "'Run a rehearsal. Walk the team through two or three practice cases before doors open.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response commits to a published response clock in specific hours or days, and a sanctions ladder published before any incident.",
+        "evidence": "'[24 hours]: the response team meets', 'By [end of event day + 7 days]'; the five-step ladder table.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The response states up front that the output is not legal advice.",
+        "evidence": "The legal disclaimer appears only in note 3 at the very end: 'I haven't done a legal review.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response asks the organizer clarifying interview questions (who is bound, existing assets, effort ceiling) before delivering a finished policy.",
+        "evidence": "The response goes straight to a finished policy and asks no questions about who is bound, existing assets or effort ceiling.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response declines to write the policy from scratch and recommends adapting an established code of conduct text instead.",
+        "evidence": "Credit line says 'this text was written fresh for DataForge Summit'. It does not recommend adapting an existing code.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response justifies rejecting a from-scratch draft by noting established event policies share a common enumerated prohibited-behavior list that reporters have learned to look for.",
+        "evidence": "No such argument is made.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response refuses to deliver policy text alone and requires a named response team, a working reporting channel, and a sanctions ladder to exist before publication.",
+        "evidence": "It delivers the policy text and defers the report-handling process: 'You can leave out the full report-handling process for now.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response states that a code of conduct without enforcement behind it is worse than none, or that the widely-linked generic conference template disclaims its own enforceability.",
+        "evidence": "Not stated. Note 2 only says an attendee 'has nowhere to go'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response instructs replacing any roles or contacts named in a borrowed template with roles and contacts that actually exist at this event.",
+        "evidence": "No template is borrowed, and the response gives no such instruction.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response notes that an adapted Creative Commons-licensed template keeps its attribution obligation.",
+        "evidence": "The credit placeholder only says 'Add if you reuse any wording from other conferences' codes'. It does not mention Creative Commons or an attribution obligation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response recommends a named, published response team of 3 to 6 people whose names appear in the reporting instructions.",
+        "evidence": "Only 'tell any organizer' and a single contact placeholder. No team is named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response connects the three-week hard deadline to choosing fast-to-stand-up options such as a published email alias.",
+        "evidence": "No deadline is discussed. It does suggest 'A shared inbox plus a phone number'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response includes physically identifiable on-site responders as a reporting channel for the event's physical days.",
+        "evidence": "'tell any organizer, identifiable by their [badge/shirt color]'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response includes a rehearsal of practice cases with the team before the event opens.",
+        "evidence": "No rehearsal is mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response commits to a published response clock in specific hours or days, and a sanctions ladder published before any incident.",
+        "evidence": "No response clock. Consequences are 'whatever way they judge appropriate', so there is no ladder.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

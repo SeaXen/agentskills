@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Produces a runbook of operational steps rather than prose with pasteable snippets",
+        "evidence": "Steps 0-8 plan table with owner, type and rollback, plus gated SQL for each step.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the expand/contract pattern, also called parallel change, explicitly",
+        "evidence": "\"Path shape: staged expand/contract, as a runbook.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives deployment overlap as the reason: during a rolling deploy old and new code run at the same time, so an in-place rename leaves one of them querying a column that no longer exists",
+        "evidence": "\"During a rolling deploy, old and new code run together, so the old code would query a column that no longer exists.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Adds amount_minor additively and dual-writes to both columns before any read path switches",
+        "evidence": "Expand adds nullable columns and a dual-write trigger; the service entry switches reads in Release 1.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Puts the drop of amount_cents in a separate, later deploy after nothing references the old shape",
+        "evidence": "Contract step 8 after soak drops `amount_cents`.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that destructive steps ship alone while additive steps can ship in any deploy",
+        "evidence": "\"Expand (additive, safe in any deploy)\"; contract is a separate irreversible step after soak.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives every step its own named rollback",
+        "evidence": "Plan table has a Rollback column for every step.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the rollback to have been executed at least once against a copy of production",
+        "evidence": "\"Execute the swap rollback (\u00a74.6) and one Release 1 rollback against the copy.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Specifies that the 180 million row backfill runs in throttled batches off the hot path rather than as a single statement",
+        "evidence": "\"backfill_transactions(10000, 0.1)\" with pg_sleep, \"throttled batches off the hot path\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason: a single statement across that many rows locks the table",
+        "evidence": "Backfill rationale is replica lag, WAL and bloat; the lock reasoning is given only for ALTER TYPE.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Calls out that the two renamed status enum values are already persisted in consumer columns and handles that as a data-layer consequence with its own step",
+        "evidence": "Step 4 relabel with trigger v2 and backfill pass 2 rewrites stored labels.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends building any new index without blocking writes where the engine supports it",
+        "evidence": "\"run `CREATE INDEX CONCURRENTLY`\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not present the change as a single ALTER TABLE RENAME COLUMN coordinated with one deploy",
+        "evidence": "Explicitly rejects in-place rename.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Produces a runbook of operational steps rather than prose with pasteable snippets",
+        "evidence": "Phased plan table with owners and gates, SQL per phase, stop conditions, and a rollback table.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the expand/contract pattern, also called parallel change, explicitly",
+        "evidence": "Phase 1 is 'Expand' and the final phase is 'Soak, then Contract'. The pattern is named by its phases, though 'parallel change' is not mentioned.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives deployment overlap as the reason: during a rolling deploy old and new code run at the same time, so an in-place rename leaves one of them querying a column that no longer exists",
+        "evidence": "'A direct RENAME COLUMN breaks every old pod the instant it commits.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Adds amount_minor additively and dual-writes to both columns before any read path switches",
+        "evidence": "Phase 1 adds the column and the sync trigger 'propagates whichever side changed'. R1 follows afterwards.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Puts the drop of amount_cents in a separate, later deploy after nothing references the old shape",
+        "evidence": "Contract comes after a soak of at least 7 days and a pg_stat_statements check for old names.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that destructive steps ship alone while additive steps can ship in any deploy",
+        "evidence": "Only 'Do not merge a release that mixes this migration's changes with unrelated schema changes.' The additive/destructive distinction is not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives every step its own named rollback",
+        "evidence": "The rollback-by-phase table covers phases 1\u20135, but Contract is 'Irreversible' and the finer steps have no rollbacks.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the rollback to have been executed at least once against a copy of production",
+        "evidence": "Only 'Rehearse it on a production-sized copy first.' Rollback rehearsal is not required.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Specifies that the 180 million row backfill runs in throttled batches off the hot path rather than as a single statement",
+        "evidence": "Batched loop of 10000 rows with a replica-lag pause and pg_sleep.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason: a single statement across that many rows locks the table",
+        "evidence": "The step comment says only 'small enough to keep row locks and WAL bursts short'. No single-statement table lock reasoning is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Calls out that the two renamed status enum values are already persisted in consumer columns and handles that as a data-layer consequence with its own step",
+        "evidence": "Phase 3 'Flip the vocabulary': rewrite the existing rows in batches.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends building any new index without blocking writes where the engine supports it",
+        "evidence": "CREATE INDEX CONCURRENTLY, plus a check for invalid indexes.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not present the change as a single ALTER TABLE RENAME COLUMN coordinated with one deploy",
+        "evidence": "It uses a six-phase plan with R1 and R2 releases.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+[alias]
+xtask = "run --package xtask --"
+
+[profile.dev]
+opt-level = 0
+debug = true
+
+[profile.test.package."*"]
+incremental = true
+
+[profile.debug-overflow]
+inherits = "dev"
+opt-level = 0
+debug = 2  # full debug info
+overflow-checks = true
+debug-assertions = true
+incremental = false

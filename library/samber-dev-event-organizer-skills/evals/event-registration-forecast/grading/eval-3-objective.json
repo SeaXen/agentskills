@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The free-hackathon target timeline is used as a reference and explicitly labelled target-shaped (an organizer-guide plan, not observed sign-up data)",
+        "evidence": "'This is a goal timeline, not observed sign-ups. Label it target-shaped.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The pooled lead-time curve is also run as the observed reference; the target timeline is never used alone",
+        "evidence": "Pooled lead-time curve, rebased, 400",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The two generic curves are not averaged into one; each is its own reference and their spread forms the band",
+        "evidence": "Low 400 and high 661 are each a reference; mid flagged weak",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The 90% show assumption is rejected; a free-hackathon show rate of about 50% is cited with its scope (an organizer-guide trendline across several hundred events)",
+        "evidence": "'Free hackathons run about 50% (MLH, 323 events)'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Registrations are converted to attendance with a free show rate, never a paid one",
+        "evidence": "72% and 50% used for conversion",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Registrations at close are distinguished from the attendance goal and sized at roughly double it under a 50% show rate (about 1,000 registrations for 500 on site)",
+        "evidence": "50% show: 1,000 registrations for 500 on site",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The registration ceiling is not set here; it is taken from event-no-show-management and passed to the script as --ceiling",
+        "evidence": "'My provisional ceiling is 757' and passes --ceiling 757 itself",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The waitlist opening date is given as the days-out at which each reference reaches the ceiling, not as the moment registrations hit 600",
+        "evidence": "Says forecast never reaches 757; no per-reference days-out",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Capacity (600) is compared against expected attendance including mentors and organizers as count-basis comps, not against registrations",
+        "evidence": "Total on site includes 53 comps against 600",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Once the ceiling binds, the response says to stop forecasting registrations and forecast the waitlist instead",
+        "evidence": "'Once a cap binds, forecast the waitlist, not registrations'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The food commit at 4 days out is taken from the high end in attendance terms, with the written reason that running short costs more than spare food",
+        "evidence": "'One short meal is a student without food'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that the target curve reaches 100% at 7 days out because registration closes then, so the 20-day reading is read against that compressed timeline",
+        "evidence": "'every curve must end at 7 days, not at doors'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The script is invoked with both the target-timeline CSV and the pooled-curve CSV as --reference inputs",
+        "evidence": "Uses a hand-built 'pooled-rebased.csv', not the pooled curve file; script not run",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that once registration closes the count is known and the final food number belongs to event-no-show-management",
+        "evidence": "Says re-run on day 7; no handoff of the final food number",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The free-hackathon target timeline is used as a reference and explicitly labelled target-shaped (an organizer-guide plan, not observed sign-up data)",
+        "evidence": "No target timeline used.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The pooled lead-time curve is also run as the observed reference; the target timeline is never used alone",
+        "evidence": "Not used.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The two generic curves are not averaged into one; each is its own reference and their spread forms the band",
+        "evidence": "No band from references.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The 90% show assumption is rejected; a free-hackathon show rate of about 50% is cited with its scope (an organizer-guide trendline across several hundred events)",
+        "evidence": "Rejects 90% but offers \"50\u201370%\" as \"planning guesses... not sourced data\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Registrations are converted to attendance with a free show rate, never a paid one",
+        "evidence": "Uses 65% on raw free registrations.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Registrations at close are distinguished from the attendance goal and sized at roughly double it under a 50% show rate (about 1,000 registrations for 500 on site)",
+        "evidence": "Sizes 714\u2013833 at 60\u201370% show, not ~1,000.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The registration ceiling is not set here; it is taken from event-no-show-management and passed to the script as --ceiling",
+        "evidence": "Sets its own trigger: \"Waitlist opens at 700\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The waitlist opening date is given as the days-out at which each reference reaches the ceiling, not as the moment registrations hit 600",
+        "evidence": "Waitlist is by count (700).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Capacity (600) is compared against expected attendance including mentors and organizers as count-basis comps, not against registrations",
+        "evidence": "\"The venue holds 600 including 40 mentors and 15 organizers... cannot exceed 545.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Once the ceiling binds, the response says to stop forecasting registrations and forecast the waitlist instead",
+        "evidence": "No such statement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The food commit at 4 days out is taken from the high end in attendance terms, with the written reason that running short costs more than spare food",
+        "evidence": "Formula on reconfirmed count; no high-end reasoning.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that the target curve reaches 100% at 7 days out because registration closes then, so the 20-day reading is read against that compressed timeline",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The script is invoked with both the target-timeline CSV and the pooled-curve CSV as --reference inputs",
+        "evidence": "No script.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that once registration closes the count is known and the final food number belongs to event-no-show-management",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

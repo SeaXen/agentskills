@@ -1,0 +1,238 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "producthunt-playbook",
+  "scenarios": 6,
+  "expectations_total": 60,
+  "expectations_subjective": 1,
+  "expectations_objective": 59,
+  "pass_rate_with_skill_pct": 88.3,
+  "pass_rate_without_skill_pct": 31.7,
+  "delta_pp": 56.6,
+  "uplift_multiplier": 2.79,
+  "trigger_accuracy_pct": 54.5,
+  "trigger_queries": 22,
+  "trigger_positive_fire_rate": 0.455,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.309 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 3,
+        "expectation": "Flags that app.deployly.io shares the root domain deployly.io and falls under the same gap"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Explains that launching early requires a relaunch request describing what changed, reviewed by Product Hunt"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that no date is compliant until a significant update ships, and that Nov 15 is only the earliest window once one does"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Flags that two launches from the same company one day apart fall inside Product Hunt's two-month per-company gap, which draws review and needs a relaunch request"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Advises writing forum thread titles the way people search"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that Kitty Points or reputation do not affect ranking or featuring"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Asks or advises picking the launch day by when the team can staff the first hours, rather than by a 'best day' claim"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Gives a Product Hunt-sourced reason against the hunter: hunter followers are not notified, or the curator reviews products not hunters, or PH says no special hunter is needed"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that paying for a hunter or upvote service can get the launch unfeatured or unlisted"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Flags the username 'tinyjson' or the logo avatar as a company or brand account that cannot post, vote or comment"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Tells the user to switch to a personal profile: real full name, own photo, personal bio"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States the one-week account-age rule for posting and that subscribing to Product Hunt's newsletter unlocks posting earlier"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Gives a fit verdict that Product Hunt is a secondary or low-priority channel for a Rust library"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Points to an engineering aggregator such as Hacker News as the better anchor channel for this library"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Does not write a finished, paste-ready maker comment filled with tinyjson-rs details"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Provides a maker comment skeleton with slots for the user to fill"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Explains the reason: Product Hunt's commenting guidelines ask for no AI-written comments, or the Likely AI badge labels them"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Suggests a gallery showing a terminal session, code or a benchmark rather than a dashboard mock-up"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that Product Hunt asks for at least two months between launches of the same product or company"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Identifies Oct 30 as inside the two-month window after Sept 15"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Flags that app.deployly.io shares the root domain deployly.io and falls under the same gap"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Flags the Nov 3 CLI launch as the same company or root domain, inside the window"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends combining the CLI and the product update into one post, or sequencing them two months apart"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Explains that launching early requires a relaunch request describing what changed, reviewed by Product Hunt"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that no date is compliant until a significant update ships, and that Nov 15 is only the earliest window once one does"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names what would qualify as significant, such as a new app or a redesign with new functionality or a new use case"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Says the drop is not a penalty on the launch"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that boilerplates or templates are a category Product Hunt does not feature"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Tells the user the boilerplate launch is still live in the All feed even though it is not featured"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Says contacting Product Hunt rarely changes a featuring decision, and only critical missing information justifies it"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Says the drop is not a penalty only if no vote push ran, and that a push can get the launch unfeatured"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Flags that two launches from the same company one day apart fall inside Product Hunt's two-month per-company gap, which draws review and needs a relaunch request"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends posting threads in the product's own Product Hunt forum"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that a thread in the product forum notifies all of the product's followers"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Advises writing forum thread titles the way people search"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Suggests a recurring changelog or 'what we shipped' forum thread"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends asking real users for reviews and states this is allowed, unlike asking for upvotes"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends the maker byline so the product link appears under the maker's comments"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Mentions that reviews feed Product Hunt's quarterly Orbit Awards"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that Kitty Points or reputation do not affect ranking or featuring"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Warns that promoting your own product inside comments on others' launches gets the comment removed, with the maker byline as the allowed carrier"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Labels 'Tuesday is the best day' as practitioner claim, not a Product Hunt rule"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Labels the 500-upvote target as having no Product Hunt source"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Treats the 'random order for the first 4 hours' claim as a randomization test Product Hunt announced in 2023, not as a current published rule, and not as invented folklore"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that Product Hunt does not allow ads on launch day"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Rejects AI-generated replies, citing the commenting guidelines or the Likely AI badge"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Asks or advises picking the launch day by when the team can staff the first hours, rather than by a 'best day' claim"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Explains that points are not raw upvotes, so a vote count target is not a rank guarantee"
+      }
+    ]
+  }
+}

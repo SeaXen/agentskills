@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Question 1 is routed to startup-pitch-contest, not to hackathon-judging.",
+        "evidence": "Row 1 and 'Not the hackathon judging skill'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The split for question 1 is stated: hackathon judging covers work built during the event, while the pitch contest covers companies that existed before it.",
+        "evidence": "'hackathon-judging covers work built during the event... companies that already existed'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Question 2 is routed to event-side-event-coordination, since a third party wants to run a satellite around the event's dates.",
+        "evidence": "Row 2 and its explanation.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Question 2 is not routed to cross-event-promotion or event-media-partnerships.",
+        "evidence": "Q2 is routed solely to event-side-event-coordination.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Question 3 is routed to cross-event-promotion, a reciprocal swap with another organizer's own event.",
+        "evidence": "'Different skill: cross-event-promotion... reciprocal swaps'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Question 3 is not routed to event-media-partnerships, which covers barter with media outlets and communities rather than other organizers' events.",
+        "evidence": "'event-media-partnerships is for barter with media outlets... so it doesn't fit'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Question 4 is routed to event-speaker-cold-outreach, the invitation to a speaker a shortlist already picked.",
+        "evidence": "Row 4: 'invitation to a speaker who is already shortlisted'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Question 4 is not routed to event-speaker-sourcing, and the split is stated: sourcing stops at a ranked shortlist, outreach writes the invitation.",
+        "evidence": "'event-speaker-sourcing stops at the ranked shortlist, so you're past it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "For question 5, whether a first paid role is warranted at all is routed to event-team-structure.",
+        "evidence": "'Deciding whether to hire: event-team-structure.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "For question 5, the job posting and scorecard are routed to dev-event-hiring, conditional on team-structure's verdict saying hire.",
+        "evidence": "'only once the verdict is \"hire\"'; chain team-structure \u2192 dev-event-hiring.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Every route is named in owner/repo@skill form.",
+        "evidence": "The table lists full samber/dev-event-organizer-skills@... names.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Each sub-question receives exactly one route decided from declared scope, and no skill name outside the collection's routing tables is invented.",
+        "evidence": "Each question gets a route from its scope, and the skills named appear to be real collection skills.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Question 1 is routed to startup-pitch-contest, not to hackathon-judging.",
+        "evidence": "Routed to `developer-live-demo-design` and `events`.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The split for question 1 is stated: hackathon judging covers work built during the event, while the pitch contest covers companies that existed before it.",
+        "evidence": "'A hackathon judges new projects built inside a time box. Your demo day has startups that already shipped'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Question 2 is routed to event-side-event-coordination, since a third party wants to run a satellite around the event's dates.",
+        "evidence": "Routed to `developer-event-sponsorship` and `events`.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Question 2 is not routed to cross-event-promotion or event-media-partnerships.",
+        "evidence": "Q2 goes to `developer-event-sponsorship`.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Question 3 is routed to cross-event-promotion, a reciprocal swap with another organizer's own event.",
+        "evidence": "Routed to `co-marketing`.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Question 3 is not routed to event-media-partnerships, which covers barter with media outlets and communities rather than other organizers' events.",
+        "evidence": "Routed to `co-marketing`.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Question 4 is routed to event-speaker-cold-outreach, the invitation to a speaker a shortlist already picked.",
+        "evidence": "Routed to `cold-email`.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Question 4 is not routed to event-speaker-sourcing, and the split is stated: sourcing stops at a ranked shortlist, outreach writes the invitation.",
+        "evidence": "The sourcing/outreach split is not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "For question 5, whether a first paid role is warranted at all is routed to event-team-structure.",
+        "evidence": "`devrel-team-structure` is used instead of event-team-structure.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "For question 5, the job posting and scorecard are routed to dev-event-hiring, conditional on team-structure's verdict saying hire.",
+        "evidence": "`devrel-hiring` is used instead.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Every route is named in owner/repo@skill form.",
+        "evidence": "Bare names such as `cold-email` and `co-marketing`.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Each sub-question receives exactly one route decided from declared scope, and no skill name outside the collection's routing tables is invented.",
+        "evidence": "Multiple routes per question, and skills such as `copywriting` are outside the collection.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

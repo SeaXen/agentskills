@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Traces the container failure to a design flaw, a manual or non-idempotent reset, rather than to speaker carelessness",
+        "evidence": "\"The container failure itself is not the design flaw \u2014 containers fail. The flaw is that the failure cost 2:40 instead of ~20 seconds.\" / \"That's not a discipline failure\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prescribes a one-command idempotent reset rehearsed from a cold machine rather than from one that has already run the demo",
+        "evidence": "Provided script with `down --volumes --remove-orphans` / `up -d --force-recreate` and \"rehearsed from a cold machine \u2014 not from the machine that has already run the demo twice.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the two minutes forty as caused by the absence of a switch rule and a rehearsed fallback, not by the container error itself",
+        "evidence": "\"The 2:40 you lost was almost entirely the cost of never having run this drill \u2014 the failure itself would have cost seconds if a switch had existed to make.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets a single repair attempt of roughly twenty seconds before switching",
+        "evidence": "\"One repair attempt, ~20 seconds, then switch.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the switch itself to be rehearsed as its own drill, separate from rehearsing the demo",
+        "evidence": "\"Rehearse the switch itself as its own drill, separate from rehearsing the demo. Trigger the failure on purpose, time the switch, confirm it lands under 20 seconds.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the switch path to be scripted and timed before the event rather than improvised during it",
+        "evidence": "\"Recovery line, written down and rehearsed out loud, not improvised\" plus the timed drill requirement above.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the recovery lines to be written out in advance rather than improvised on stage",
+        "evidence": "\"Recovery line, written down and rehearsed out loud, not improvised\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the fallback asset to be reachable from a keystroke in about twenty seconds, without hunting through a file browser",
+        "evidence": "\"Fallback asset: a recorded clip of this segment, embedded in the deck (not in a file browser you'd have to alt-tab to), one keystroke away.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Advises apologising once and briefly rather than repeatedly",
+        "evidence": "No mention of apologizing anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Advises narrating what should have happened and then showing the fallback, so the claim still lands",
+        "evidence": "\"'That's a new one, and I'm not going to debug it at you \u2014 here's what it looks like when it behaves.' (switch to clip, keep talking over it as if it were live commentary)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rebuilds the demo around per-segment restore points so a failed segment can be skipped instead of the demo being abandoned",
+        "evidence": "The fix is scoped entirely to the one container segment (\"Fallback for this segment: recorded clip\"); there is no broader restructuring of the whole demo into independently-enterable segments.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds the leftover-state failure to a risk register and requires it to be drilled by triggering it, switching, and continuing to talk",
+        "evidence": "\"Rehearsal gate to clear before each: three consecutive clean cold runs, plus the dirty-state drill above, plus one timed drill of the container-failure switch.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not reduce the fix to being more careful in the green room or remembering to check the environment",
+        "evidence": "\"That's not a discipline failure \u2014 it's what happens when no fallback asset exists and no one-repair-then-switch rule was rehearsed.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Traces the container failure to a design flaw, a manual or non-idempotent reset, rather than to speaker carelessness",
+        "evidence": "\"Stale volume from green-room rehearsal broke live container. Rehearsal and live shared same environment, so rehearsal left dirty state behind.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prescribes a one-command idempotent reset rehearsed from a cold machine rather than from one that has already run the demo",
+        "evidence": "the reset drill is tested by \"deliberately leave a stale volume, run the talk, hit the bug\" \u2014 a machine that already ran the demo, not a cold/fresh machine",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the two minutes forty as caused by the absence of a switch rule and a rehearsed fallback, not by the container error itself",
+        "evidence": "\"That's what cost you 2:40 \u2014 diagnosis time, not fix time.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets a single repair attempt of roughly twenty seconds before switching",
+        "evidence": "\"Set a 20-second failure clock. Decide now: if container not healthy 20 sec after demo-reset, abandon and cut to slides.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the switch itself to be rehearsed as its own drill, separate from rehearsing the demo",
+        "evidence": "\"Rehearse the failure path, not just the happy path. Once before each event: deliberately leave a stale volume, run the talk, hit the bug, execute demo-reset, recover.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the switch path to be scripted and timed before the event rather than improvised during it",
+        "evidence": "\"Script a hard-reset command you can run live, no thinking\" combined with \"Set a 20-second failure clock\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the recovery lines to be written out in advance rather than improvised on stage",
+        "evidence": "no specific spoken recovery lines are written out; only \"Say it out loud to yourself in rehearsal so it's reflex\" for the bail decision",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the fallback asset to be reachable from a keystroke in about twenty seconds, without hunting through a file browser",
+        "evidence": "\"Pre-warm a fallback: recorded screen capture of the working demo, cued up and ready to play if reset also fails.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Advises apologising once and briefly rather than repeatedly",
+        "evidence": "not mentioned anywhere in the transcript",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Advises narrating what should have happened and then showing the fallback, so the claim still lands",
+        "evidence": "not mentioned",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rebuilds the demo around per-segment restore points so a failed segment can be skipped instead of the demo being abandoned",
+        "evidence": "only one global reset/fallback video pair is given, not per-segment restore points",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds the leftover-state failure to a risk register and requires it to be drilled by triggering it, switching, and continuing to talk",
+        "evidence": "\"deliberately leave a stale volume, run the talk, hit the bug, execute demo-reset, recover\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not reduce the fix to being more careful in the green room or remembering to check the environment",
+        "evidence": "\"Never debug live... Reset-or-abandon removes diagnosis entirely\" \u2014 fix is systemic (wipe environment, scripted reset), not carefulness",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

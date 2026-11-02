@@ -1,0 +1,94 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The response applies a complement-versus-substitute test and identifies the other conference as a substitute, since attendees pick one of the two rather than attending both.",
+        "evidence": "'You told me \"most people in the community pick one of the two each year.\" That is a substitute by the skill's definition.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "It advises against sharing the week, because co-locating with a substitute cannibalizes both events.",
+        "evidence": "'Don't move to Paris during RustForge's week'; co-locating with a substitute 'cannibalizes both'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "It recommends load-balancing dates away from the substitute's edition instead of moving toward it.",
+        "evidence": "'Choose dates away from their week.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "It declines to propose any swap (mentions, codes, joint push) with the substitute, treating it as a competitor rather than a swap partner.",
+        "evidence": "Step 4 still suggests speaker-pipeline sharing and a mention swap balanced in units if the user wants contact.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "It points to complementary events - including local events outside the Rust niche sharing a city or window - as the right co-location or piggyback candidates.",
+        "evidence": "No complementary or non-Rust local events are suggested.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Audience fit is presented as the screen that can single-handedly disqualify a candidate, applied before any outreach.",
+        "evidence": "Section 1 'Why it fails the skill's first screen'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "It notes a co-location decision is locked to the edition cycle roughly 9-12 months out, not decided in a marketing sprint.",
+        "evidence": "'Venue and dates lock 9\u201312 months out. This is a planning-timeline decision.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The response applies a complement-versus-substitute test and identifies the other conference as a substitute, since attendees pick one of the two rather than attending both.",
+        "evidence": "\"You said people pick one of the two. Same city and same week means the choice is made on size\"; \"the choice stops being either/or\" - treats it as substitute, though not named as a formal test.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "It advises against sharing the week, because co-locating with a substitute cannibalizes both events.",
+        "evidence": "\"Don't move to Paris during their week\"; \"Your 350 become maybe 100.\" Cannibalization is argued mainly for the user's event, and the rival's loss appears only as \"every attendee you gain is one they lose.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "It recommends load-balancing dates away from the substitute's edition instead of moving toward it.",
+        "evidence": "\"Put yours 6 to 10 weeks away from theirs, so people can attend both\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "It declines to propose any swap (mentions, codes, joint push) with the substitute, treating it as a competitor rather than a swap partner.",
+        "evidence": "Point 4 proposes \"Swap CFP overflow\", \"community-newsletter shout-outs\", and \"a ticket discount to the other event's attendees\" with the competitor.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "It points to complementary events - including local events outside the Rust niche sharing a city or window - as the right co-location or piggyback candidates.",
+        "evidence": "The only partner discussed is the rival Rust conference. No local non-Rust event is suggested. The adjacent-day satellite event is also with the rival.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Audience fit is presented as the screen that can single-handedly disqualify a candidate, applied before any outreach.",
+        "evidence": "The survey step checks whether the audience is the same, but that is a premise check on the user's own attendees. It is not framed as a disqualifying fit screen on partner candidates.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "It notes a co-location decision is locked to the edition cycle roughly 9-12 months out, not decided in a marketing sprint.",
+        "evidence": "No mention of edition-cycle lead time. The only timing given is \"\u23f3 about 1 week\" for the survey and \"6 to 10 weeks\" for date separation.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses the phrase 'industry standard' applied to the 80% figure.",
+        "evidence": "\"No \u2014 don't use that wording.\" (referring to \"industry standard of 80%\")",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that 80% is a floor the plan set for itself, not a published or measured benchmark, and that no such benchmark exists to cite.",
+        "evidence": "\"There is no industry standard for join coverage. The 80% is this skill's own self-set floor ... No published source sets a join-coverage benchmark\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that a reader who catches a self-set number dressed as a benchmark discounts the rest of the plan.",
+        "evidence": "\"when there's no citation, the rest of the deck's numbers get read with suspicion too.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Supplies corrected wording that presents the floor as one the team set in its own plan.",
+        "evidence": "\"Join coverage is 74%, against the 80% floor we set ourselves in the plan.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Redirects the writeup toward which surface stopped resolving and when, rather than toward the distance from a threshold.",
+        "evidence": "\"The framing also skips past what actually matters for remediation: which surface stopped resolving, and when.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Uses the drop from 89% in June as the comparison that matters, measuring the program against its own past.",
+        "evidence": "\"It was 89% in June \u2014 an 15-point drop.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the identity spine, the anonymous-ID cookie or cross-subdomain sharing as the mechanism to investigate for a coverage drop.",
+        "evidence": "\"e.g. 'anonymous_id not carried across the blog subdomain since the redesign'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends replacing the 80% floor with the program's own trailing rate once enough of its own data exists.",
+        "evidence": "No statement recommends replacing the 80% floor with a trailing rate; the transcript only reframes 74% against the existing 80% floor and the June 89% baseline.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Attaches a named owner and a re-trace action to the finding.",
+        "evidence": "\"Owner: web team. Re-trace scheduled for `<date>`.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that join coverage is the preferred standing health check because it is more diagnostic than reconciling absolute counts between two tools.",
+        "evidence": "No such comparison or justification appears in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not cite any external company's or vendor's join-coverage figure as a comparison point.",
+        "evidence": "No external company or vendor join-coverage figure is cited anywhere in the transcript.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses the phrase 'industry standard' applied to the 80% figure.",
+        "evidence": "The response conditionally allows it: \"If the 80% figure is real...cite it inline\" \u2014 it does not flatly refuse the phrase, only conditions its use on attribution.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that 80% is a floor the plan set for itself, not a published or measured benchmark, and that no such benchmark exists to cite.",
+        "evidence": "The transcript hedges between two possibilities (\"If the 80% figure is real...\" / \"If it's a number you picked...\") rather than asserting definitively that no such benchmark exists.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that a reader who catches a self-set number dressed as a benchmark discounts the rest of the plan.",
+        "evidence": "\"once one figure in the deck looks manufactured, they'll start doubting the others, including the 74% and the 89%.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Supplies corrected wording that presents the floor as one the team set in its own plan.",
+        "evidence": "The suggested slide line drops the 80% figure entirely (\"Join coverage has fallen from 89%...to 74%...\") rather than reframing it as self-set.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Redirects the writeup toward which surface stopped resolving and when, rather than toward the distance from a threshold.",
+        "evidence": "\"Root cause, even preliminary. What changed between June and now \u2014 a schema change, a tracking break, a migration...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Uses the drop from 89% in June as the comparison that matters, measuring the program against its own past.",
+        "evidence": "\"your own coverage fell from 89% to 74% since June \u2014 a 15-point drop, measured by your own system, undeniable.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the identity spine, the anonymous-ID cookie or cross-subdomain sharing as the mechanism to investigate for a coverage drop.",
+        "evidence": "Root cause candidates given are generic (\"a schema change, a tracking break, a migration, an upstream vendor change\") with no mention of identity spine, anonymous-ID cookies, or cross-subdomain sharing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends replacing the 80% floor with the program's own trailing rate once enough of its own data exists.",
+        "evidence": "No forward-looking recommendation to replace the floor with a trailing rate appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Attaches a named owner and a re-trace action to the finding.",
+        "evidence": "\"Remediation plan with an owner and a date... Fix owned by [team], target: back above 90% by [date].\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that join coverage is the preferred standing health check because it is more diagnostic than reconciling absolute counts between two tools.",
+        "evidence": "No comparison of join coverage against absolute-count reconciliation as a standing health check appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not cite any external company's or vendor's join-coverage figure as a comparison point.",
+        "evidence": "No external vendor or company join-coverage figure is cited anywhere in the transcript.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

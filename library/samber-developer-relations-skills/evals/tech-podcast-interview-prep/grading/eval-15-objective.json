@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Response rejects the late reveal and has the user state the affiliation early and plainly, giving the reason that the audience finds out anyway and a late reveal reads as a hidden advertisement.",
+        "evidence": "\"'State the affiliation early and plainly... The audience finds out anyway, and a late reveal reads as a hidden advertisement.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response rejects refusing to name Kong and Apigee, and states that refusing to name competitors signals insecurity to engineers.",
+        "evidence": "\"'Name competitors and be fair about them. Refusing to name them signals insecurity to engineers.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response has the user be fair about the named competitors, conceding where each is genuinely the better choice.",
+        "evidence": "\"'Kong and Apigee are both solid, and if you're already deep in Kong's plugin ecosystem, switching costs more than it's worth.'\" plus a request for 'one honest case where Kong or Apigee is the right call'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response rejects pointing listeners at the pricing page.",
+        "evidence": "\"A pricing page with the demo form embedded is the sales page the skill is warning you away from.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response redirects the closing call to action to a neutral resource such as the docs or the repository.",
+        "evidence": "\"'Docs are at [wrenfield.dev/docs], and I'm on [X/LinkedIn] if you want to argue about retry budgets with me directly.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response caps the invited pitch at under 30 seconds.",
+        "evidence": "No time cap for the invited pitch is specified anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response applies the B2B case explicitly: the listener may be an evaluator or a buyer's proxy.",
+        "evidence": "\"an evaluator or buyer's proxy who might carry your name into a procurement conversation\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response states that claims about compliance, SLAs, pricing and roadmap can be quoted back in a procurement conversation.",
+        "evidence": "The response only generally references procurement conversations without specifically naming compliance, SLAs, pricing, or roadmap claims.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response requires every number spoken on air to be one the company already publishes.",
+        "evidence": "No such requirement is stated anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response gives one destination for the call to action, said slowly and spelled out if unusual.",
+        "evidence": "The closing line gives two destinations ('Docs are at [wrenfield.dev/docs], and I'm on [X/LinkedIn]') with no instruction to say it slowly or spell it out.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Response rejects the late reveal and has the user state the affiliation early and plainly, giving the reason that the audience finds out anyway and a late reveal reads as a hidden advertisement.",
+        "evidence": "'holding the affiliation back while you talk shop reframes the whole episode as a stealth pitch the moment it comes out... Most hosts will state your company in the intro anyway, so you may not control the timing regardless.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response rejects refusing to name Kong and Apigee, and states that refusing to name competitors signals insecurity to engineers.",
+        "evidence": "'\"I don't like to talk about competitors\" is evasive, not neutral... A flat non-answer suggests you don't have a good one.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response has the user be fair about the named competitors, conceding where each is genuinely the better choice.",
+        "evidence": "Instruction is only to 'give one honest, non-disparaging point of difference,' with no explicit instruction to concede areas of competitor superiority.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response rejects pointing listeners at the pricing page.",
+        "evidence": "'Routing straight to the demo-request page \u2014 right after finally admitting you work for Wrenfield \u2014 stacks on top of the other two and confirms the \"this was a sales pitch\" read.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response redirects the closing call to action to a neutral resource such as the docs or the repository.",
+        "evidence": "The redirect given is to personal channels ('Point people to you (social/blog)'), not to docs or a repository.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response caps the invited pitch at under 30 seconds.",
+        "evidence": "No time cap for the pitch is mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response applies the B2B case explicitly: the listener may be an evaluator or a buyer's proxy.",
+        "evidence": "'For six-figure procurement buyers, that trust hit costs more than the extra few seconds of upfront transparency.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response states that claims about compliance, SLAs, pricing and roadmap can be quoted back in a procurement conversation.",
+        "evidence": "Not present.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response requires every number spoken on air to be one the company already publishes.",
+        "evidence": "Not present.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response gives one destination for the call to action, said slowly and spelled out if unusual.",
+        "evidence": "The CTA guidance ('Point people to you (social/blog)') gives a category, not one specific destination with delivery instructions.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

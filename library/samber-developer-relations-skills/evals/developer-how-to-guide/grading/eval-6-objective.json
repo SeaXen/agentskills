@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Classifies (a) as a quickstart and routes it to developer-quickstart-guide, giving the reason that the reader has never run the product.",
+        "evidence": "'Quickstart for a reader who has never run the product', routed to developer-quickstart-guide.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies (b) as a standalone install how-to this skill writes, distinguishing it from install steps inside a page whose goal is something else.",
+        "evidence": "'How-to (a standalone install page is allowed)'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies (c) as a tutorial and routes it to developer-tutorial, drawing the line as the reader at study versus the reader at work.",
+        "evidence": "'Tutorial (the reader learns by building)'. The study/work line is not drawn.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Classifies (d) as an internal runbook outside the collection and says so, instead of routing it to a sibling skill.",
+        "evidence": "'Internal on-call runbook, outside this collection'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies (e) as reference work, not a how-to.",
+        "evidence": "'Reference (lists every field)'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies (f) as troubleshooting and routes it to developer-troubleshooting-docs.",
+        "evidence": "Routed to developer-troubleshooting-docs.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies (g) as an upgrade across a breaking change and routes it to version-migration-guide, noting it is a how-to with its own ordering rules.",
+        "evidence": "'Upgrade across a breaking change' goes to version-migration-guide. There is no note that it is a how-to with its own ordering rules.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Classifies (h) as a question about how the mechanism should work and routes it to a design skill in developer-platform-skills (such as api-auth-key-management), not to a how-to.",
+        "evidence": "'Mechanism design question, not a task' routed to developer-platform-skills@api-auth-key-management.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies (i) as a how-to this skill writes.",
+        "evidence": "'How-to' and written below.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "For every routed item gives classification, reason and the owning sibling, then stops: drafts nothing for items routed elsewhere.",
+        "evidence": "The scope table gives a type and owner for each. Nothing is drafted for routed items.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to apply one template across all nine pages.",
+        "evidence": "'They can't share one template, and forcing them into it would produce wrong pages.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "For (b) and (i), opens the interview (goal sentence, competence floor, risk pass, runner) or lists the open questions with the answers assumed, rather than drafting blind.",
+        "evidence": "Section 2 'Open questions and the answers I assumed' covers goal, floor, risk and the cold-run person.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the tutorial/how-to mix-up as the single most common conflation made in software product documentation, attributed to Di\u00e1taxis.",
+        "evidence": "This is not mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Classifies (a) as a quickstart and routes it to developer-quickstart-guide, giving the reason that the reader has never run the product.",
+        "evidence": "(a) is labeled 'Tutorial' and drafted, not routed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Classifies (b) as a standalone install how-to this skill writes, distinguishing it from install steps inside a page whose goal is something else.",
+        "evidence": "(b) is labeled 'Task how-to' with no distinction drawn.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Classifies (c) as a tutorial and routes it to developer-tutorial, drawing the line as the reader at study versus the reader at work.",
+        "evidence": "(c) is drafted in full and not routed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Classifies (d) as an internal runbook outside the collection and says so, instead of routing it to a sibling skill.",
+        "evidence": "(d) is labeled 'Runbook' but drafted, with no statement that it is outside the collection.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Classifies (e) as reference work, not a how-to.",
+        "evidence": "'I can't write this one... A reference page'; the table lists it as Reference.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies (f) as troubleshooting and routes it to developer-troubleshooting-docs.",
+        "evidence": "(f) is drafted and no sibling is named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Classifies (g) as an upgrade across a breaking change and routes it to version-migration-guide, noting it is a how-to with its own ordering rules.",
+        "evidence": "(g) is drafted and not routed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Classifies (h) as a question about how the mechanism should work and routes it to a design skill in developer-platform-skills (such as api-auth-key-management), not to a how-to.",
+        "evidence": "(h) is labeled 'Decision' and answered directly.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Classifies (i) as a how-to this skill writes.",
+        "evidence": "(i) is classed 'Task how-to' and drafted.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "For every routed item gives classification, reason and the owning sibling, then stops: drafts nothing for items routed elsewhere.",
+        "evidence": "Drafts are written for all items.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to apply one template across all nine pages.",
+        "evidence": "'one literal template would break four of them', with a deviations table.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "For (b) and (i), opens the interview (goal sentence, competence floor, risk pass, runner) or lists the open questions with the answers assumed, rather than drafting blind.",
+        "evidence": "Both are drafted with {{CONFIRM}} slots and no interview.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the tutorial/how-to mix-up as the single most common conflation made in software product documentation, attributed to Di\u00e1taxis.",
+        "evidence": "It is not mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

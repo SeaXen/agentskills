@@ -1,0 +1,502 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "open-standards-strategy",
+  "scenarios": 10,
+  "expectations_total": 122,
+  "expectations_subjective": 2,
+  "expectations_objective": 120,
+  "pass_rate_with_skill_pct": 77.0,
+  "pass_rate_without_skill_pct": 29.5,
+  "delta_pp": 47.5,
+  "uplift_multiplier": 2.61,
+  "trigger_accuracy_pct": 61.1,
+  "trigger_queries": 108,
+  "trigger_positive_fire_rate": 0.463,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.267 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Names a single time horizon and a single owner as part of that decision unit, alongside the named spec"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Poses a single question and waits, rather than delivering the whole interview as one block"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that procurement naming the requirement promotes Conform above the other rungs, because its value becomes market access rather than preference"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Presents two or three candidate bundles rather than a bare yes or no"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names what each candidate bundle forecloses within two years"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "If engaging at all, specifies implementation plus documented extensions, with public documentation and graceful degradation as the obligation owed"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names Contribute as the ladder's answer for a team holding none of the seven assets, because it buys influence over the same spec without requiring them to win it"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes that penetration pricing or giving the technology away is hard to fund when building a coalition around an open standard, because no single supplier carries the losses without a sponsor's control to recoup them"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Cites Shapiro and Varian, \"The Art of Standards Wars\", by name as the source of the truce argument"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes that an early truce can benefit consumers as well as vendors, and can therefore pass antitrust muster"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that IETF outranks a paid-membership consortium on both efficiency and neutrality, because participation is individual and free and no membership tier gates who is in the room"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Rejects witnessed testing for this market and deletes it rather than leaving it on the menu as an option"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that self-service testing scales while witnessed testing is a standing job"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes that self-service and free tie on compliance cost, because neither obliges Vantefor to anything beyond publishing the result"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Warns that gating the patent licence on conformance cannot be unwound once implementers hold licences under it"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Cites the Khronos Adopters Program as the programme pairing a passed test with both name and logo rights and a licence to members' essential patents"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States why the kill rule must be written at the decision: standards programmes are rarely cancelled, because withdrawal reads as defeat"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names the certification fee, the spec version certified, and the registry entry as the three things the answer needs"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names re-certification per spec version as the standing obligation Conform creates"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Checks whether passing conformance also conveys a patent licence"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Notes that which spec version the mark certifies matters, because an unversioned or expired mark ends up attached to implementations of a spec nobody uses any more"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names embrace, extend, extinguish as the pattern Calderwood is executing against Streamvane"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Recommends a conformance suite and a trademark as the counter to Calderwood's dialect"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Rejects the 60-day blog-post sunset as the plan"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that whoever owns a spec owns the migration off it"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires the replacement to be shipped and proven before v1 is withdrawn, not alongside it"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires a notice period, a bridge, and a documented successor before withdrawal"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Rejects archiving the v1 repository as part of the 60-day cutover"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Declines to produce the general, company-wide open standards strategy document the user asked for"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that the unit of decision is one named specification, not a company-wide posture"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Asks which specification or protocol the decision concerns before proposing anything"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names a single time horizon and a single owner as part of that decision unit, alongside the named spec"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Treats \"we support open standards\" as a value rather than a strategy, explicitly"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends no posture (ignore, consume, conform, extend, contribute, co-found or drive) while no spec is named"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Produces no decision record, KPI table or venue recommendation in this response"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Asks what triggered the question, offering options such as a customer or procurement request, a competitor announcement, a recurring integration cost, a regulator, or an internal proposal"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Poses a single question and waits, rather than delivering the whole interview as one block"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Offers to run the full analysis once the user names one specification"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Removes Contribute, Co-found and Drive from the options presented, rather than listing them as lower-ranked alternatives"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that consensus venues work in years and cannot produce a result inside the 11-week window"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Presents at least two and at most three candidate postures before recommending one"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Draws every surviving candidate from Consume, Conform and Extend"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names the test or interview answer that eliminated each rejected posture"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that procurement naming the requirement promotes Conform above the other rungs, because its value becomes market access rather than preference"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Carries both the 11-week deadline and the two-year FleetLink 3.0 horizon through the reasoning that deletes the consortium seat"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Caps the posture at Extend and refuses Contribute, Co-found and Drive on that basis"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Presents two or three candidate bundles rather than a bare yes or no"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names what each candidate bundle forecloses within two years"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "If engaging at all, specifies implementation plus documented extensions, with public documentation and graceful degradation as the obligation owed"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names Shapiro and Varian's seven key assets as the control test's scoring frame"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Scores Brindle against all seven assets rather than a subset: installed base, intellectual property rights, ability to innovate, first-mover advantage, manufacturing or operating-cost capability, strength in complements, and brand and reputation"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Finds explicitly that Brindle holds few or none of the seven"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that no single asset is decisive"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names Contribute as the ladder's answer for a team holding none of the seven assets, because it buys influence over the same spec without requiring them to win it"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Classifies the fight by which side is backward-compatible with what is already installed, before choosing tactics"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes that penetration pricing or giving the technology away is hard to fund when building a coalition around an open standard, because no single supplier carries the losses without a sponsor's control to recoup them"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Classifies the situation as the fragmentation case rather than a feature race"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Classifies the battle type by backward compatibility with the technology already installed"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names the classification as Revolution versus Evolution, with Marrowcast compatible and Nordhall incompatible"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that absent compelling performance the compatible side wins slowly by default"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends proposing a merge or truce rather than a faster Drive or the three-feature push"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Cites Shapiro and Varian, \"The Art of Standards Wars\", by name as the source of the truce argument"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes that an early truce can benefit consumers as well as vendors, and can therefore pass antitrust muster"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends building the position before opening truce talks, because strength in battle is the currency at the table"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Specifies bridges preserving backward compatibility with both predecessor specs as a merge term"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Specifies a dated end to parallel development as a merge term"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Positions the merged spec as the next major version of both, not as a third option"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Seats a governance body with both sides from day one"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States what the merge costs Nordhall, including roadmap control and the \"we won\" narrative, against the unblocked adoption it buys"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States a Git-based community specification as the default venue"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that IETF outranks a paid-membership consortium on both efficiency and neutrality, because participation is individual and free and no membership tier gates who is in the room"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that an industry consortium leads compliance cost because its IPR mode cannot change without closing the technical committee and re-chartering"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names the two decisions fixed at charter time and not quietly revisable later: the patent-licensing regime and who owns the trademark"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that a royalty-bearing regime would put the spec out of reach of most open-source implementers"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Works the four conformance decisions in efficiency order, starting with the versioned mark"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires the mark to state which spec version it certifies and when it expires, decided before any implementation carries it"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the versioned mark and the public registry are the two decisions that cannot be retrofitted"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Rejects deferring the test suite to Q3 and requires it shipped with v1"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names the paper-standard failure mode: with no test suite every vendor claims support and buyers find the gaps in production"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Specifies one maintained public registry page of certified implementations, and notes that buyers consult the registry rather than the claim"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that self-service testing scales while witnessed testing is a standing job"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends free certification over the $5,000 fee, given the 20-implementation goal"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the fee decision is made against the adoption goal, not against cost recovery"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes that self-service and free tie on compliance cost, because neither obliges Vantefor to anything beyond publishing the result"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Warns that gating the patent licence on conformance cannot be unwound once implementers hold licences under it"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Cites the Khronos Adopters Program as the programme pairing a passed test with both name and logo rights and a licence to members' essential patents"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Tags the two-independent-interoperating-implementations threshold as sourced"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Attributes that threshold to RFC 6410 section 2.2, the IETF's maturity bar for promoting a Proposed Standard to Internet Standard"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Corrects the user's claim that the 12-month window is an industry standard or an accepted benchmark"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Tags the 12-month clock and the non-customer-implementer condition as a baseline the user is expected to replace"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that RFC 6410 sets no deadline"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Suggests replacing the baseline horizon with one drawn from the market's own cycle, such as the segment's buying cycle or the release cadence of the frameworks that must adopt it"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Produces a KPI table with a column marking each threshold sourced or baseline"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Includes conformance pass rate across implementations and the share of the target integration surface the standard covers"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States the obligation owed to existing implementers inside the kill rule: a notice period, a bridge or documented successor, and a migration path"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States why the kill rule must be written at the decision: standards programmes are rarely cancelled, because withdrawal reads as defeat"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names the certification fee, the spec version certified, and the registry entry as the three things the answer needs"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Establishes whether SecureExchange 4 has a conformance suite and a certification mark before advising"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Promotes Conform above the other rungs because a procurement questionnaire naming the mark turns it into market access rather than a preference"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names re-certification per spec version as the standing obligation Conform creates"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Checks whether passing conformance also conveys a patent licence"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Notes that which spec version the mark certifies matters, because an unversioned or expired mark ends up attached to implementations of a spec nobody uses any more"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names embrace, extend, extinguish as the pattern Calderwood is executing against Streamvane"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Recommends a conformance suite and a trademark as the counter to Calderwood's dialect"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Recommends spec text defining the required behaviour for unknown extensions"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Identifies Halcyon Grid's own dozen undocumented fields as the same move committed by the spec owner, stranding their customers on a dialect only Halcyon Grid implements"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires those fields to be namespaced and documented, with the useful ones proposed upstream"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Rejects the 60-day blog-post sunset as the plan"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that whoever owns a spec owns the migration off it"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires the replacement to be shipped and proven before v1 is withdrawn, not alongside it"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that implementers depend on the spec's undocumented behaviour as much as on its text"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires a notice period, a bridge, and a documented successor before withdrawal"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Rejects archiving the v1 repository as part of the 60-day cutover"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires a versioning and migration path published with the new version, before there is an installed base to defend"
+      }
+    ]
+  }
+}

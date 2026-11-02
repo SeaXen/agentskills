@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Runs the six credibility-gate checks before handing the post over and reports the result of each",
+        "evidence": "No draft available; lists the checks as to-do items, with no results.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Iterates until every check passes rather than reporting failures and stopping",
+        "evidence": "Nothing was run, so there is no iteration.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Scopes the humanizer pass to the prose only",
+        "evidence": "\"Do the humanizer pass... with these items kept byte-for-byte\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Preserves the code blocks unchanged through the humanizer pass",
+        "evidence": "\"code blocks\" is in the keep list.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Preserves the pasted command output unchanged",
+        "evidence": "\"command output\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Preserves the benchmark tables unchanged",
+        "evidence": "\"benchmark tables\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Preserves version numbers unchanged",
+        "evidence": "\"version numbers\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Preserves the title unchanged",
+        "evidence": "\"the title\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Previews the post in the publishing system before the metadata step, because code blocks and tables break in the CMS rather than in the draft",
+        "evidence": "Step 6 is \"Write the metadata\" and step 7 is \"Preview in Contentful\", so the order is reversed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places the metadata work (title tag, meta description, slug, link targets, alt text, tags) after that preview",
+        "evidence": "Metadata (step 6) comes before the preview (step 7).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Returns a handoff list of what still needs a human, such as unrun benchmarks, unreviewed technical claims, a legal or security read, or missing diagrams",
+        "evidence": "Provides a to-do list and questions, not a handoff of unrun benchmarks, legal or security reads, or missing diagrams.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Confirms the snippets are version-pinned, the post dated, and the full version linked",
+        "evidence": "Lists \"pinned to versions and the post is dated\" as a check to do, with no confirmation.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Runs the six credibility-gate checks before handing the post over and reports the result of each",
+        "evidence": "No gate checks.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Iterates until every check passes rather than reporting failures and stopping",
+        "evidence": "No gate checks to iterate on.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Scopes the humanizer pass to the prose only",
+        "evidence": "\"Edit prose only.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Preserves the code blocks unchanged through the humanizer pass",
+        "evidence": "\"Leave the three code blocks ... byte-identical.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Preserves the pasted command output unchanged",
+        "evidence": "\"raw command output byte-identical\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Preserves the benchmark tables unchanged",
+        "evidence": "\"the two benchmark tables ... byte-identical\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Preserves version numbers unchanged",
+        "evidence": "\"Don't change numbers, units, version strings, identifiers or claims\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Preserves the title unchanged",
+        "evidence": "It plans a separate title tag and says the H1 may differ. It never says the title is preserved.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Previews the post in the publishing system before the metadata step, because code blocks and tables break in the CMS rather than in the draft",
+        "evidence": "The SEO fields (section 3) come before the Contentful preview (section 4).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places the metadata work (title tag, meta description, slug, link targets, alt text, tags) after that preview",
+        "evidence": "Metadata is drafted in section 3, before the section 4 preview.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Returns a handoff list of what still needs a human, such as unrun benchmarks, unreviewed technical claims, a legal or security read, or missing diagrams",
+        "evidence": "\"What is left\" assigns the secrets scan of the pasted output to the user and the rest of the work to the user or Contentful, with the approval steps spelled out.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Confirms the snippets are version-pinned, the post dated, and the full version linked",
+        "evidence": "Not checked.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects opening with the install and collector configuration",
+        "evidence": "\"Install/configure-collector is the least visually interesting part of the whole product and it's currently your opening. Booth rule: lead with the most visually obvious segment, never the setup.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Leads with the most visually obvious segment instead of the setup",
+        "evidence": "\"Booth rule: lead with the most visually obvious segment, never the setup.\" Segment 1 is the \"Hook\" trace waterfall.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that booth passers-by decide within seconds, unlike a seated audience",
+        "evidence": "\"A booth gets neither: dwell time ranges from 90 seconds to 20 minutes, nobody is seated, and most people decide whether to stop within seconds.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Designs for interruption and restart every few minutes, with a restore point for every segment",
+        "evidence": "\"Every segment below is independently enterable \u2014 no segment depends on a previous one having run.\" with checkpoint save/goto/reset commands.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rules out any audio-dependent part of the demo because of ambient floor noise",
+        "evidence": "\"No audio-dependent cues anywhere in the demo \u2014 BOOTH-SPECIFIC, floor is loud; every 'it worked' signal is visual (color/highlight), not a sound\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires contrast and legibility to be checked under the booth's real lighting, including the daylight from the window",
+        "evidence": "\"One full run at booth-like lighting \u2014 near an actual bright window, or with a lamp simulating it, at more than one simulated time of day.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prescribes one qualifying question before running the demo for a visitor",
+        "evidence": "No qualifying question is described; the plan only says \"the presenter jumps to whichever one matches who just walked up.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Replaces the fifteen-minute webinar walkthrough with a much shorter segmented path rather than reusing it",
+        "evidence": "\"Stop writing one 15-minute script. Write Lego blocks... Three structural fixes, not a shorter version of the same talk.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a one-command reset that can be run repeatedly between visitors",
+        "evidence": "\"<make demo-reset> \u2014 reseeds fixtures, restarts load generator, clears any state a previous visitor's 'try it yourself' left behind\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not merely advise shortening the existing walkthrough while keeping its order",
+        "evidence": "\"Three structural fixes, not a shorter version of the same talk.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Anchors the segments to a single claim rather than a feature tour",
+        "evidence": "\"Claim: Point this at a real running app and see exactly which call in a request is slow \u2014 live, with <zero manual instrumentation>.\" with all segments tied to proving facets of this claim.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects opening with the install and collector configuration",
+        "evidence": "\"Never open this tier with install/config.\" and \"A 15-minute script that opens with 'first, install the agent, then configure the collector' fails on every axis\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Leads with the most visually obvious segment instead of the setup",
+        "evidence": "Tier 1 script: \"'\u2014' (point at the loop, tap the pre-loaded incident) '\u2014that's a live trace, root cause highlighted, twelve seconds.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that booth passers-by decide within seconds, unlike a seated audience",
+        "evidence": "\"Booth traffic didn't choose anything \u2014 they're walking to lunch and you have about three seconds to give them a reason to stop.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Designs for interruption and restart every few minutes, with a restore point for every segment",
+        "evidence": "\"tap the pre-loaded incident\" and \"Pull up a pre-loaded realistic trace\" enable repeated quick restarts for each new visitor",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rules out any audio-dependent part of the demo because of ambient floor noise",
+        "evidence": "\"The loud floor means your hook can't depend on sound... Don't caption-dependent your loop either; assume total silence and design for it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires contrast and legibility to be checked under the booth's real lighting, including the daylight from the window",
+        "evidence": "\"The window behind you is your biggest liability, not a backdrop... their eyes adapt to the window's brightness and your monitor reads as a dim gray rectangle\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prescribes one qualifying question before running the demo for a visitor",
+        "evidence": "\"'Ever spent an hour trying to figure out which service actually broke a request?'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces the fifteen-minute webinar walkthrough with a much shorter segmented path rather than reusing it",
+        "evidence": "\"Build three demos of different length that share one story...This replaces your 15-minute webinar entirely\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a one-command reset that can be run repeatedly between visitors",
+        "evidence": "no explicit reset command is described anywhere; only pre-loaded content is mentioned",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not merely advise shortening the existing walkthrough while keeping its order",
+        "evidence": "\"Don't open with install...reorder it. Open the same way Tier 2 does (pain \u2192 live trace \u2192 root cause)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Anchors the segments to a single claim rather than a feature tour",
+        "evidence": "\"Goal: not to explain the product... 'Anchor the pain'\" is used consistently across all three tiers",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The small-deposit-then-balance-at-30-days structure is flagged as a generic fallback pattern, not a verified market standard",
+        "evidence": "\"a fallback pattern that nobody has verified\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that real published sponsor payment terms skew heavily upfront, with 50-100% due at signing or application",
+        "evidence": "\"Real sponsor terms skew toward 50-100% at signing or application.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends invoicing terms that land sponsor cash earlier, tied to the dates the cash-flow model needs money in the account",
+        "evidence": "Only asks questions about dates and the cash trough; never recommends changing the invoicing terms.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States there is no automatic right to late-payment interest without an express contract clause",
+        "evidence": "\"No, not automatically... Without an express clause you have no contractual right\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Drafting the interest clause is routed to the sponsor agreement work rather than done here",
+        "evidence": "\"Drafting belongs to the sponsor-agreement skill\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Any interest figure cited is presented as observed contract terms in the low-to-mid teens percent per annum, not as an entitlement or standard",
+        "evidence": "\"12-18% per annum. That figure comes from a handful of contracts, not a market standard.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "A sponsor signing and then paying late is framed as moving the inflow date the cash-flow model rests on",
+        "evidence": "\"A late payer moves your inflow date, and that's what breaks the cash model.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Locking all 60 rooms now is rejected: the block should start very small, on the order of five rooms, and grow as it fills",
+        "evidence": "\"starts with as few as 5 rooms... Locking all 60 now commits the full exposure\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The block is scoped to the nights genuinely needed, explicitly dropping the night after the closing day",
+        "evidence": "\"exclude the night after the final day\"; \"Block two nights, not three.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that a courtesy block can carry a usage guarantee, around 80% of blocked room-nights, owed on the commitment regardless of turnout",
+        "evidence": "\"roughly 80% of the blocked room-nights get used... owed on what you committed\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The group-rate code expiry, roughly a month before the event, is carried as a date in the plan",
+        "evidence": "\"Put the group rate code's expiry on your calendar. It typically lapses about a month before the event.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The asymmetry is stated: adding rooms later is cheap and usually allowed, while unwinding a committed block is expensive or impossible",
+        "evidence": "\"Adding capacity late is cheap, and unwinding a committed block is expensive or impossible.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The small-deposit-then-balance-at-30-days structure is flagged as a generic fallback pattern, not a verified market standard",
+        "evidence": "It treats it as the 'standard structure' and suggests tweaks.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that real published sponsor payment terms skew heavily upfront, with 50-100% due at signing or application",
+        "evidence": "It says 'Consider 30\u201350%' and 100% only for late signers.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends invoicing terms that land sponsor cash earlier, tied to the dates the cash-flow model needs money in the account",
+        "evidence": "'Issue it 45\u201360 days out' is not tied to any cash-flow model.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States there is no automatic right to late-payment interest without an express contract clause",
+        "evidence": "'No contract clause: in most US jurisdictions you can't charge interest.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Drafting the interest clause is routed to the sponsor agreement work rather than done here",
+        "evidence": "It tells the user to put a clause in the agreement but does not route the drafting.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Any interest figure cited is presented as observed contract terms in the low-to-mid teens percent per annum, not as an entitlement or standard",
+        "evidence": "No interest rate figure is cited, so nothing is misrepresented. The only figure is the \u20ac40 EU recovery fee.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "A sponsor signing and then paying late is framed as moving the inflow date the cash-flow model rests on",
+        "evidence": "Not framed that way.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Locking all 60 rooms now is rejected: the block should start very small, on the order of five rooms, and grow as it fills",
+        "evidence": "'Block roughly 60\u201370% of that estimate.' It does not start very small.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The block is scoped to the nights genuinely needed, explicitly dropping the night after the closing day",
+        "evidence": "'Taper the nights: for example 60 / 60 / 20.' The night after closing is kept.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that a courtesy block can carry a usage guarantee, around 80% of blocked room-nights, owed on the commitment regardless of turnout",
+        "evidence": "'Attrition clause: if only 70% of the rooms are picked up, do you owe the difference?'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The group-rate code expiry, roughly a month before the event, is carried as a date in the plan",
+        "evidence": "It only asks 'when does the hotel release unbooked rooms'. No date is carried.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The asymmetry is stated: adding rooms later is cheap and usually allowed, while unwinding a committed block is expensive or impossible",
+        "evidence": "Only 'ask the hotel to add rooms on request'. The asymmetry is not stated.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

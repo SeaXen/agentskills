@@ -1,0 +1,82 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Identifies the event as community-run, not company-run",
+        "evidence": "'PolyglotPy is community-run.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the shape question to the community-pole format-selection skill instead of answering from the company-run catalog",
+        "evidence": "'Its workflow says to stop for community or volunteer organizers and use event-format-selection instead.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Stops rather than applying the company-run shape ladder: delivers no roadshow-versus-summit recommendation from this catalog",
+        "evidence": "Still ranks the roadshow and the summit ('B. Three-city roadshow \u274c', 'C. Executive summit' with detailed reasons).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend the executive summit for the community conference",
+        "evidence": "'Neither as the core format'; summit '\u274c Not as the main format'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains why the routing happens: the shape ladder here serves companies choosing a company-run event",
+        "evidence": "'covers company-run events... PolyglotPy is community-run.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not let sponsor appetite drive the shape choice, noting sponsor offerings are priced and delivered against a chosen shape rather than being a reason to pick one",
+        "evidence": "Sponsor 'more' request shapes the inventory design in \u00a74, and the brief never says sponsor offerings follow a chosen shape.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Identifies the event as community-run, not company-run",
+        "evidence": "'about 15 volunteers and no employer behind you'; 'practitioner community'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the shape question to the community-pole format-selection skill instead of answering from the company-run catalog",
+        "evidence": "Answers directly with its own recommendation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Stops rather than applying the company-run shape ladder: delivers no roadshow-versus-summit recommendation from this catalog",
+        "evidence": "Delivers a roadshow-vs-summit analysis and pilots.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend the executive summit for the community conference",
+        "evidence": "'do neither in full', though it adds a small leaders' dinner pilot.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains why the routing happens: the shape ladder here serves companies choosing a company-run event",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not let sponsor appetite drive the shape choice, noting sponsor offerings are priced and delivered against a chosen shape rather than being a reason to pick one",
+        "evidence": "Cites sponsor demand as a pro ('sponsors will pay well for it') and makes a leaders' dinner seat a sponsor product.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

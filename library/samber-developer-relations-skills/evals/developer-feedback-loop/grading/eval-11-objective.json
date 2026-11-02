@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Uses the 'shipped, but not the fix requesters asked for' reply: names configurable retry count and backoff as the requested fix that was not built, the replay endpoint as what shipped instead, and why.",
+        "evidence": "\"You asked for configurable retry count and backoff. We built an event replay endpoint instead, because <reason product approved>.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not claim 'your retry request is done'.",
+        "evidence": "\"Saying 'done' reads as a promise that retries are now configurable\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States in one line how replay solves the problem stated in the record, and invites requesters to say on the record if it does not cover their case.",
+        "evidence": "\"you can re-deliver the missed events after the fact... If replay doesn't cover your case, say so in this thread\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Links the 4.2 release note or changelog entry in the shipped reply.",
+        "evidence": "\"Shipped in 4.2 \u2013 <changelog link>.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks Ashgrove Fintech before naming them publicly as a requester, even though they are happy.",
+        "evidence": "\"If you're happy for us to say publicly that Ashgrove helped... let us know.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not paste the private support ticket text publicly; paraphrases it or links a private record instead.",
+        "evidence": "\"Never copy private support text... Not pasted.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Posts the shipped reply in each channel where the nine requesters originally asked, as well as on the record.",
+        "evidence": "\"Anyone on #88 or #103 who asked in Discord, Slack or support also gets a short note in that channel\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Closes #103 toward #88 as a duplicate with a link, so its three requesters follow the canonical record, rather than posting a separate 'done'.",
+        "evidence": "\"Close #103 as a duplicate of #88\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Merges the requester counts of #88 and #103 after deduplicating people, rather than reporting them as separate totals.",
+        "evidence": "No merging or deduplicating of the two requester counts is mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Attributes the 'shipped' status to product, with DevRel relaying it.",
+        "evidence": "\"Set #88 to shipped (product sets this status).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Counts the change under shipped-from-feedback only if record #88 existed before the work was scheduled and is linked from the release note.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes writing the release note itself to samber/developer-relations-skills@changelog-writing.",
+        "evidence": "No routing to changelog-writing.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Uses the 'shipped, but not the fix requesters asked for' reply: names configurable retry count and backoff as the requested fix that was not built, the replay endpoint as what shipped instead, and why.",
+        "evidence": "\"Event replay shipped in 4.2... What this does not change: retry count and backoff are still not configurable.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not claim 'your retry request is done'.",
+        "evidence": "It explicitly refuses the \"Shipped! Your retry request is done\" wording.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States in one line how replay solves the problem stated in the record, and invites requesters to say on the record if it does not cover their case.",
+        "evidence": "\"Replay is how you recover them... If replay covers your case, tell us.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Links the 4.2 release note or changelog entry in the shipped reply.",
+        "evidence": "\"Release notes: <link to 4.2 notes>\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks Ashgrove Fintech before naming them publicly as a requester, even though they are happy.",
+        "evidence": "\"Not named... Ask them first.\" Draft 3 asks which they prefer.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not paste the private support ticket text publicly; paraphrases it or links a private record instead.",
+        "evidence": "\"Support tickets are private... Do not paste the ticket.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Posts the shipped reply in each channel where the nine requesters originally asked, as well as on the record.",
+        "evidence": "Only GitHub #88 and #103 comments plus a private Ashgrove note are drafted.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Closes #103 toward #88 as a duplicate with a link, so its three requesters follow the canonical record, rather than posting a separate 'done'.",
+        "evidence": "\"Comment, and leave it open\". Closing as a duplicate is only an optional alternative.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Merges the requester counts of #88 and #103 after deduplicating people, rather than reporting them as separate totals.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Attributes the 'shipped' status to product, with DevRel relaying it.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Counts the change under shipped-from-feedback only if record #88 existed before the work was scheduled and is linked from the release note.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes writing the release note itself to samber/developer-relations-skills@changelog-writing.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

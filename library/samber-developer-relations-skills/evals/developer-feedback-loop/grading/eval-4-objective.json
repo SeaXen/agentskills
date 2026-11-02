@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects closing GitHub feature-request issues with 'tracked internally, closing'.",
+        "evidence": "\"No 'tracked internally, closing'.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Makes the public tracker (the SDK repos' issues) the record developers see.",
+        "evidence": "\"make the public tracker (GitHub issues) the record developers see.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Links each reviewed public record one-to-one to an item in product's private planning tool, so product plans in its own space while requesters check one place.",
+        "evidence": "\"linked one-to-one from an item in the PM tool.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the default order (product's existing space first) and why it is overridden here: open-source SDKs whose developers already file issues in public, where a private record splits the conversation in two.",
+        "evidence": "It gives the open-source-SDK reasoning but never states product's existing space as the default.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Exempts every issue linked to a loop record from the stale bot's automatic closing.",
+        "evidence": "\"Exempt every issue linked to a PM record from the 30-day stale close.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes the staleness exemption into the contract with product.",
+        "evidence": "Contract line: \"Staleness: issues linked to a record are exempt from the 30-day stale bot\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason: a bot closing an under-review request reads as a no nobody decided.",
+        "evidence": "\"A closed issue also reads as a 'no' nobody decided.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes bugs out of the loop at capture, to the issue queue or support.",
+        "evidence": "\"Bug | Issue queue (SDK bug) or support\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes security reports to the private disclosure channel, never into the feedback intake.",
+        "evidence": "\"Private disclosure channel only... Never into the PM tool\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes how-to questions to support and docs.",
+        "evidence": "\"Answer in place or point to docs.\" Owner: Support, docs.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps enterprise customer names and ARR out of any public record and links a private record instead.",
+        "evidence": "\"Keep them in private fields only... Never in the public issue.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that this loop owns feature-request issues' decision and reply while the issue-queue process owns their other labels.",
+        "evidence": "No such split of ownership is stated; only staleness for other types is left to the issue-queue process.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Posts status replies for Discord requesters in Discord as well as on the record, because tracker notifications reach subscribers only.",
+        "evidence": "\"Each change gets a reply on the issue and in the channel where the requester asked.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects closing GitHub feature-request issues with 'tracked internally, closing'.",
+        "evidence": "\"Do not reply 'tracked internally, closing' on GitHub issues.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Makes the public tracker (the SDK repos' issues) the record developers see.",
+        "evidence": "\"The public GitHub issue is the record of truth for any request that someone outside Marrowgate raised on GitHub.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Links each reviewed public record one-to-one to an item in product's private planning tool, so product plans in its own space while requesters check one place.",
+        "evidence": "\"Each GitHub feature request gets a linked record in the private tool, with the GitHub URL as the key.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the default order (product's existing space first) and why it is overridden here: open-source SDKs whose developers already file issues in public, where a private record splits the conversation in two.",
+        "evidence": "No default order is stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Exempts every issue linked to a loop record from the stale bot's automatic closing.",
+        "evidence": "Exempt: \"under-consideration, planned, security, any issue with an assignee, and any issue with 5 or more \ud83d\udc4d.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes the staleness exemption into the contract with product.",
+        "evidence": "No contract with product is mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason: a bot closing an under-review request reads as a no nobody decided.",
+        "evidence": "\"It would close accepted requests that are simply waiting on the roadmap. Reporters read that as 'ignored'.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes bugs out of the loop at capture, to the issue queue or support.",
+        "evidence": "The routing table sends SDK bugs through a form and triage, and API bugs to support.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes security reports to the private disclosure channel, never into the feedback intake.",
+        "evidence": "\"Private channel only... Not into general PM intake.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes how-to questions to support and docs.",
+        "evidence": "Discord how-tos stay on Discord or Discussions, and clusters of 3 or more open a docs issue.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps enterprise customer names and ARR out of any public record and links a private record instead.",
+        "evidence": "\"Customer names, ARR and internal priority live only on the private side.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that this loop owns feature-request issues' decision and reply while the issue-queue process owns their other labels.",
+        "evidence": "No ownership split is stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Posts status replies for Discord requesters in Discord as well as on the record, because tracker notifications reach subscribers only.",
+        "evidence": "Discord replies are not addressed.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Routes the hiring ask to `samber/developer-relations-skills@devrel-hiring`",
+        "evidence": "\"**Ask 1 \u2192 `devrel-hiring`** \u2014 exact scope match (job posting, scorecard, interview loop for a DevRel role).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not route the hiring ask to `samber/developer-relations-skills@devrel-career`",
+        "evidence": "devrel-career is never mentioned anywhere in the transcript",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not route the hiring ask to `samber/developer-relations-skills@tech-employer-branding`",
+        "evidence": "tech-employer-branding is never mentioned anywhere in the transcript",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that `samber/developer-relations-skills@devrel-career` is the candidate side of the same role knowledge",
+        "evidence": "devrel-career is never mentioned or discussed anywhere in the transcript",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that `samber/developer-relations-skills@tech-employer-branding` covers the engineering employer brand, not one role's interview loop",
+        "evidence": "tech-employer-branding is never mentioned or discussed anywhere in the transcript",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States plainly that the collection has no skill for the exec-facing DevRel report narrative and budget defense",
+        "evidence": "\"**Ask 2 \u2192 no single skill.** The collection names this gap verbatim: 'the exec-facing DevRel report narrative and budget defense.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not route the exec deck to `samber/developer-relations-skills@devrel-metrics`",
+        "evidence": "\"Neither one hands you a deck or a talk track \u2014 that part is general narrative craft, built below, not a packaged framework.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not route the exec deck to `samber/developer-relations-skills@devrel-budget-allocation`",
+        "evidence": "Same disclaimer: neither skill \"hands you a deck or a talk track\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not invent a skill name for the exec report",
+        "evidence": "\"built below from general exec-narrative craft, flagged as such\" \u2014 not attributed to any skill name",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the exec-report gap in the output's gap section rather than only in passing",
+        "evidence": "\"**Named gap, said plainly:** no skill in this collection owns 'how to tell the story.'\" prominently leads Part 2",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not offer to build the slide deck, which the collection also does not cover",
+        "evidence": "\"## The deck \u2014 8 slides, in this order, with the talk track\" \u2014 a full 8-slide deck with talk tracks is actually built, not merely offered or declined",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes or updates `devrel-context.md` with a session-log line",
+        "evidence": "No devrel-context.md content or session-log line appears anywhere in the transcript; only an \"Assumptions\" table is referenced as substitute content",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Routes the hiring ask to `samber/developer-relations-skills@devrel-hiring`",
+        "evidence": "No skill name appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not route the hiring ask to `samber/developer-relations-skills@devrel-career`",
+        "evidence": "devrel-career is never named.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not route the hiring ask to `samber/developer-relations-skills@tech-employer-branding`",
+        "evidence": "tech-employer-branding is never named.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that `samber/developer-relations-skills@devrel-career` is the candidate side of the same role knowledge",
+        "evidence": "No such statement appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that `samber/developer-relations-skills@tech-employer-branding` covers the engineering employer brand, not one role's interview loop",
+        "evidence": "No such statement appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States plainly that the collection has no skill for the exec-facing DevRel report narrative and budget defense",
+        "evidence": "No such gap statement appears; the deck is built directly.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not route the exec deck to `samber/developer-relations-skills@devrel-metrics`",
+        "evidence": "devrel-metrics is never named.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not route the exec deck to `samber/developer-relations-skills@devrel-budget-allocation`",
+        "evidence": "devrel-budget-allocation is never named.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not invent a skill name for the exec report",
+        "evidence": "No skill name is invented anywhere.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the exec-report gap in the output's gap section rather than only in passing",
+        "evidence": "No gap section exists in the output.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not offer to build the slide deck, which the collection also does not cover",
+        "evidence": "\"Part 2 \u2014 Quarterly DevRel Budget Narrative Deck\" with full 11-slide content is built directly in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes or updates `devrel-context.md` with a session-log line",
+        "evidence": "No file-write action is shown.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,294 @@
+use std::sync::{Arc, LazyLock};
+
+use async_trait::async_trait;
+use fancy_regex::Regex;
+use mirrord_agent_env::{envs, mesh::MeshVendor};
+
+use crate::{
+    ChainNames, IPTablesBackend, error::IPTablesResult, output::OutputRedirect,
+    prerouting::PreroutingRedirect, redirect::Redirect,
+};
+
+pub mod exclusion;
+pub mod istio;
+
+static MULTIPORT_SKIP_PORTS_LOOKUP_REGEX: LazyLock<Regex> =
+    LazyLock::new(|| Regex::new(r"-p tcp -m multiport --dports ([\d:,]+)").unwrap());
+
+static TCP_SKIP_PORTS_LOOKUP_REGEX: LazyLock<Regex> =
+    LazyLock::new(|| Regex::new(r"-p tcp -m tcp --dport ([\d:,]+)").unwrap());
+
+pub struct MeshRedirect {
+    prerouting: PreroutingRedirect,
+    output: OutputRedirect<false>,
+    vendor: MeshVendor,
+}
+
+impl MeshRedirect {
+    pub fn create(
+        ipt: Arc<IPTablesBackend>,
+        chain_names: &ChainNames,
+        vendor: MeshVendor,
+        pod_ips: Option<&str>,
+    ) -> IPTablesResult<Self> {
+        let prerouting = PreroutingRedirect::create(ipt.clone(), chain_names.prerouting.clone())?;
+
+        for port in Self::get_skip_ports(&ipt, &vendor)? {
+            prerouting.add_rule(format!("-m multiport -p tcp ! --dports {port} -j RETURN"))?;
+        }
+
+        let output = OutputRedirect::create(ipt, chain_names.mesh.clone(), pod_ips)?;
+
+        Ok(MeshRedirect {
+            prerouting,
+            output,
+            vendor,
+        })
+    }
+
+    pub fn load(
+        ipt: Arc<IPTablesBackend>,
+        chain_names: &ChainNames,
+        vendor: MeshVendor,
+    ) -> IPTablesResult<Self> {
+        let prerouting = PreroutingRedirect::load(ipt.clone(), chain_names.prerouting.clone())?;
+        let output = OutputRedirect::load(ipt, chain_names.mesh.clone())?;
+
+        Ok(MeshRedirect {
+            prerouting,
+            output,
+            vendor,
+        })
+    }
+
+    fn get_skip_ports(ipt: &IPTablesBackend, vendor: &MeshVendor) -> IPTablesResult<Vec<String>> {
+        let chain_name = vendor.input_chain();
+        let lookup_regex = if let Some(regex) = vendor.skip_ports_regex() {
+            regex
+        } else {
+            return Ok(vec![]);
+        };
+
+        let skipped_ports = ipt
+            .list_rules(chain_name)?
+            .iter()
+            .filter_map(|rule| {
+                lookup_regex
+                    .captures(rule)
+                    .ok()
+                    .flatten()
+                    .and_then(|capture| capture.get(1))
+            })
+            .map(|m| m.as_str().to_string())
+            .collect();
+
+        Ok(skipped_ports)
+    }
+}
+
+#[async_trait]
+impl Redirect for MeshRedirect {
+    async fn mount_entrypoint(&self) -> IPTablesResult<()> {
+        self.prerouting.mount_entrypoint().await?;
+        self.output.mount_entrypoint().await?;
+
+        Ok(())
+    }
+
+    async fn unmount_entrypoint(&self) -> IPTablesResult<()> {
+        // Don't fail early, so that we delete the second part even if the second part does not
+        // exist and its deletion therefore fails.
+        let prerouting_res = self.prerouting.unmount_entrypoint().await;
+        let output_res = self.output.unmount_entrypoint().await;
+        prerouting_res.and(output_res)
+    }
+
+    async fn add_redirect(&self, redirected_port: u16, target_port: u16) -> IPTablesResult<()> {
+        if self.vendor != MeshVendor::IstioCni {
+            self.prerouting
+                .add_redirect(redirected_port, target_port)
+                .await?;
+        }
+        self.output
+            .add_redirect(redirected_port, target_port)
+            .await?;
+
+        Ok(())
+    }
+
+    async fn remove_redirect(&self, redirected_port: u16, target_port: u16) -> IPTablesResult<()> {
+        if self.vendor != MeshVendor::IstioCni {
+            self.prerouting
+                .remove_redirect(redirected_port, target_port)
+                .await?;
+        }
+        self.output
+            .remove_redirect(redirected_port, target_port)
+            .await?;
+
+        Ok(())
+    }
+}
+
+/// Extends the [`MeshVendor`] type with methods that are only relevant for the agent.
+pub(super) trait MeshVendorExt: Sized {
+    fn detect(ipt: &IPTablesBackend) -> IPTablesResult<Option<Self>>;
+    fn input_chain(&self) -> &str;
+    fn skip_ports_regex(&self) -> Option<&Regex>;
+}
+
+impl MeshVendorExt for MeshVendor {
+    fn detect(ipt: &IPTablesBackend) -> IPTablesResult<Option<Self>> {
+        if envs::ISTIO_CNI.from_env_or_default() {
+            return Ok(Some(MeshVendor::IstioCni));
+        }
+
+        let output = ipt.list_rules("OUTPUT")?;
+
+        let nat_result = output.iter().find_map(|rule| {
+            if rule.contains("-j PROXY_INIT_OUTPUT") {
+                Some(MeshVendor::Linkerd)
+            } else if rule.contains("-j ISTIO_OUTPUT") {
+                Some(MeshVendor::Istio)
+            } else if rule.contains("-j KUMA_MESH_OUTBOUND") {
+                Some(MeshVendor::Kuma)
+            } else {
+                None
+            }
+        });
+
+        match &nat_result {
+            Some(MeshVendor::Istio) => {
+                let is_ambient = ipt
+                    .with_table("mangle")
+                    .list_rules("OUTPUT")?
+                    .iter()
+                    .any(|rule| rule.contains("-j ISTIO_OUTPUT"));
+
+                Ok(Some(if is_ambient {
+                    MeshVendor::IstioAmbient
+                } else {
+                    MeshVendor::Istio
+                }))
+            }
+            _ => Ok(nat_result),
+        }
+    }
+
+    fn input_chain(&self) -> &str {
+        match self {
+            MeshVendor::Linkerd => "PROXY_INIT_REDIRECT",
+            MeshVendor::Istio | MeshVendor::IstioAmbient | MeshVendor::IstioCni => "ISTIO_INBOUND",
+            MeshVendor::Kuma => "KUMA_MESH_INBOUND",
+        }
+    }
+
+    fn skip_ports_regex(&self) -> Option<&Regex> {
+        match self {
+            MeshVendor::Linkerd => Some(&MULTIPORT_SKIP_PORTS_LOOKUP_REGEX),
+            MeshVendor::Istio | MeshVendor::IstioAmbient => Some(&TCP_SKIP_PORTS_LOOKUP_REGEX),
+            MeshVendor::Kuma => Some(&TCP_SKIP_PORTS_LOOKUP_REGEX),
+            MeshVendor::IstioCni => None,
+        }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use std::sync::Arc;
+
+    use mirrord_agent_env::mesh::MeshVendor;
+    use mockall::predicate::eq;
+    use nix::unistd::getgid;
+
+    use crate::{ChainNames, MockIPTablesWrapper, mesh::MeshRedirect, redirect::Redirect};
+
+    fn create_mesh_list_values(mock: &mut MockIPTablesWrapper) {
+        mock.expect_list_rules()
+            .with(eq("OUTPUT"))
+            .returning(|_| Ok(vec!["-j PROXY_INIT_OUTPUT".to_owned()]));
+
+        mock.expect_list_rules()
+            .with(eq("PROXY_INIT_REDIRECT"))
+            .returning(|_| {
+                Ok(vec![
+                    "-N PROXY_INIT_REDIRECT".to_owned(),
+                    "-A PROXY_INIT_REDIRECT -p tcp -j REDIRECT --to-port 4143".to_owned(),
+                ])
+            });
+
+        mock.expect_list_rules()
+            .with(eq("PROXY_INIT_OUTPUT"))
+            .returning(|_| {
+                Ok(vec![
+                    "-N PROXY_INIT_OUTPUT".to_owned(),
+                    "-A PROXY_INIT_OUTPUT -m owner --uid-owner 2102 -m comment --comment \"proxy-init/ignore-proxy-user-id/1676542558\" -j RETURN"
+                        .to_owned(),
+                    "-A PROXY_INIT_OUTPUT -o lo -m comment --comment \"proxy-init/ignore-loopback/1676542558\" -js RETURN"
+                        .to_owned(),
+                ])
+            });
+    }
+
+    #[tokio::test]
+    async fn add_redirect() {
+        let chain_names = ChainNames::legacy();
+        let gid = getgid();
+        let mut mock = MockIPTablesWrapper::new();
+
+        create_mesh_list_values(&mut mock);
+
+        mock.expect_create_chain()
+            .with(eq(chain_names.prerouting.clone()))
+            .times(1)
+            .returning(|_| Ok(()));
+
+        mock.expect_insert_rule()
+            .with(
+                eq(chain_names.prerouting.clone()),
+                eq("-m tcp -p tcp --dport 69 -j REDIRECT --to-ports 420"),
+                eq(1),
+            )
+            .times(1)
+            .returning(|_, _, _| Ok(()));
+
+        mock.expect_create_chain()
+            .with(eq(chain_names.mesh.clone()))
+            .times(1)
+            .returning(|_| Ok(()));
+
+        mock.expect_insert_rule()
+            .with(
+                eq(chain_names.mesh.clone()),
+                eq(format!("-m owner --gid-owner {gid} -p tcp  -j RETURN")),
+                eq(1),
+            )
+            .times(1)
+            .returning(|_, _, _| Ok(()));
+
+        mock.expect_insert_rule()
+            .with(
+                eq(chain_names.mesh.clone()),
+                eq("-o lo -m tcp -p tcp --dport 69 -j REDIRECT --to-ports 420"),
+                eq(2),
+            )
+            .times(1)
+            .returning(|_, _, _| Ok(()));
+
+        mock.expect_remove_chain()
+            .with(eq(chain_names.prerouting.clone()))
+            .times(1)
+            .returning(|_| Ok(()));
+
+        mock.expect_remove_chain()
+            .with(eq(chain_names.mesh.clone()))
+            .times(1)
+            .returning(|_| Ok(()));
+
+        let prerouting =
+            MeshRedirect::create(Arc::new(mock), &chain_names, MeshVendor::Linkerd, None)
+                .expect("Unable to create");
+
+        assert!(prerouting.add_redirect(69, 420).await.is_ok());
+    }
+}

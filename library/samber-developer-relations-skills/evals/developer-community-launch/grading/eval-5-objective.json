@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects more promotion or paid acquisition as the response, and gives the reason: more joins into a silent room lowers every ratio",
+        "evidence": "\"Short answer: don't fund the paid campaign yet... pushing more people into a room this quiet will make every one of those ratios worse, not better.\" Also: \"More joins into a room where 45% of threads already sit unanswered lowers your reply rate further, not closer to healthy.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names each day-90 signal that sits below its pass threshold, alongside the threshold it missed",
+        "evidence": "The table lists each signal with 'Your number' and 'Pass threshold' columns, e.g. 'Questions answered within 24h | 61% | >90% | Fail', 'Posts from non-team members | 28% | >50% | Fail', etc.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies at least four failing signals against the baseline thresholds of over 90% answered within 24 hours, over 50% non-staff posts, over 80% of threads with a reply, and under 50% engagement concentration in the top five members",
+        "evidence": "Table rows: 'Questions answered within 24h | 61% | >90% | Fail', 'Posts from non-team members | 28% | >50% | Fail', 'Threads with \u22651 reply | 55% | >80% | Fail', 'Engagement share, top 5 members | 74% | <50% | Fail' \u2014 exactly four signals against exactly these thresholds.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the 6,200 member count is a joins counter rather than a health signal",
+        "evidence": "The transcript never mentions a member count of 6,200 anywhere; it only references illustrative numbers like 'a 5,000-member room with 20 weekly posters' and the '15K' campaign target, never the specific 6,200 figure.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns against measuring against the conference-driven launch month and requires a trailing baseline instead",
+        "evidence": "\"Comparing month one against month three would be the classic false-trend read.\" and \"Next checkpoint: re-read these same four ratios in 30 days against this baseline (not against month one) before any headcount-growth spend gets approved.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names burstiness - the spike-and-decay pattern releases, conferences and media coverage produce - as the reason the launch month is not a valid comparison",
+        "evidence": "\"a keynote announcement is a burst (CHAOSS's own vocabulary for this: a short window of intense activity followed by a return to baseline), not a growth trend.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the 74% top-five engagement concentration as fragility: those five leaving takes the community with them",
+        "evidence": "\"74% of engagement sits with five people. That's a concentration/bus-factor problem, not a strength... you don't have five power users, you have five employees carrying the whole room. If any of them rotate off this project, engagement could collapse, not gradually decline.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Offers the fold-back path and states its options in order: archive read-only, then merge into the space the audience already uses, then convert to a plain support channel",
+        "evidence": "No mention of archiving, merging into another space, or converting to a support channel anywhere in the transcript; the only recommendations given are recruiting non-team answerers and publishing a response-time commitment.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that archiving preserves the answers and their search traffic at near-zero standing effort",
+        "evidence": "The transcript contains no discussion of archiving or search traffic preservation at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends re-running the shape and seeding work against the specific failing signals rather than a general effort increase",
+        "evidence": "\"Spend on answerer supply, not member count. Recruit and name 15-20 non-team people... This directly targets the two worst signals \u2014 non-staff share and reply rate.\" \u2014 a targeted intervention against specific failing signals rather than a blanket promotion push.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names a decision owner for the fold-back call",
+        "evidence": "No fold-back concept is discussed, and no decision owner is named anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not propose adding more channels or categories to lift activity",
+        "evidence": "The transcript's recommendations are limited to recruiting non-team answerers and a response-time commitment; no proposal to add channels or categories appears anywhere.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects more promotion or paid acquisition as the response, and gives the reason: more joins into a silent room lowers every ratio",
+        "evidence": "\"Don't run the paid campaign as scoped... Adding 9,000 more members on top of the current mechanics will make the health numbers worse, not better\" and \"Dilutes an already-thin activation rate.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names each day-90 signal that sits below its pass threshold, alongside the threshold it missed",
+        "evidence": "Only the team-authored share gets an explicit numeric threshold (\"Healthy self-sustaining communities keep team-authored volume under ~30%\"); the reply-rate and concentration signals are described qualitatively without a matching numeric threshold.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies at least four failing signals against the baseline thresholds of over 90% answered within 24 hours, over 50% non-staff posts, over 80% of threads with a reply, and under 50% engagement concentration in the top five members",
+        "evidence": "The 61% answered-within-24h figure is explicitly called healthy: \"61% answered within 24h is the one number that looks fine in isolation\" \u2014 only 3 of the 4 required signals are flagged as failing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the 6,200 member count is a joins counter rather than a health signal",
+        "evidence": "The transcript calls the proposed 15,000 target a \"vanity metric\" but never explicitly labels the existing 6,200 count as a joins counter distinct from a health signal.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns against measuring against the conference-driven launch month and requires a trailing baseline instead",
+        "evidence": "The month-1 spike is dismissed as normal (\"That part isn't a problem and doesn't need fixing\") but no instruction to use a trailing baseline for measurement is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names burstiness - the spike-and-decay pattern releases, conferences and media coverage produce - as the reason the launch month is not a valid comparison",
+        "evidence": "The term 'burstiness' and the invalid-comparison argument are absent; the spike is only described as \"a keynote announcement produces a curiosity bump, then reverts to organic baseline.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the 74% top-five engagement concentration as fragility: those five leaving takes the community with them",
+        "evidence": "\"recruit them formally (recognition, early access, direct line to the roadmap) before they burn out carrying 74% of the load alone. If all 5 are staff, that's the real finding: you have zero community yet\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Offers the fold-back path and states its options in order: archive read-only, then merge into the space the audience already uses, then convert to a plain support channel",
+        "evidence": "No archive/merge/convert-to-support-channel fold-back path appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that archiving preserves the answers and their search traffic at near-zero standing effort",
+        "evidence": "No mention of archiving or its search-traffic preservation benefit exists in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends re-running the shape and seeding work against the specific failing signals rather than a general effort increase",
+        "evidence": "Numbered fixes map directly to specific signals: \"Cut team-authored share deliberately\", \"Fix the 45% unanswered-thread problem directly\", \"Build a community-champions layer now\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names a decision owner for the fold-back call",
+        "evidence": "No fold-back concept exists, so no owner for it is named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not propose adding more channels or categories to lift activity",
+        "evidence": "All five numbered recommendations address posting ratios, response routing, champions, and activation \u2014 none propose new channels or categories.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

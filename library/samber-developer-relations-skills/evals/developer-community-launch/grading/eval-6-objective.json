@@ -1,0 +1,106 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Routes the request to the community-health skill instead of running the launch workflow",
+        "evidence": "\"This runs on `developer-community-health` (samber/developer-relations-skills), diagnosis mode \u2014 not `developer-community-launch`.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that this skill does not apply to a community that already exists",
+        "evidence": "\"The community already exists; the job is to measure it honestly before anyone decides to reseed it, fold it back, or relaunch it from zero. If diagnosis shows the demand was never real, that's the moment to re-run the launch gates properly \u2014 not before.\" \u2014 explicitly frames the launch workflow as inapplicable while the community still exists.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Stops after the routing call rather than half-running the readiness gates",
+        "evidence": "The entire body after the routing line is diagnostic content (metric sheet, decision table, timeline) with no launch-readiness-gate items (e.g. venue scoring, launch checklist criteria) mixed in \u2014 the launch workflow is only ever referenced by name as a possible future handoff, never partially executed.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Produces no launch brief, venue recommendation or founding-cohort plan",
+        "evidence": "Founding-cohort and venue language appear only as one-line contingent next-steps inside the decision table (\"new founding cohort recruited by hand...\"; \"point effort at the venue that's already serving the need\"), not as a developed brief, specific venue pick, or recruitment plan.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the target as samber/developer-relations-skills@developer-community-health, in owner/repo@skill form",
+        "evidence": "The transcript writes it as \"`developer-community-health` (samber/developer-relations-skills)\" \u2014 skill name followed by repo in parentheses \u2014 never in the \"owner/repo@skill\" string form.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes the one case that would keep the work here: deciding whether to shut the community down",
+        "evidence": "In the decision table, \"Archive to read-only\" is the only verdict with no external skill handoff, while the demand-not-proven verdict explicitly says \"**Re-run the launch gates properly** (developer-community-launch) before reopening anything\" \u2014 archiving/shutdown is the sole outcome resolved entirely within this diagnosis.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not read \"relaunch\" as a request to pick a new platform",
+        "evidence": "Every metric, decision branch, and action item stays scoped to the existing Slack (e.g. \"open Slack admin settings \u2192 check your plan tier\"); no alternative platform (Discord, forum, etc.) is ever proposed.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason for routing: half-running the workflow on the wrong problem wastes the user's time",
+        "evidence": "The transcript justifies diagnosis-first on grounds of accuracy/sequencing (\"the job is to measure it honestly before anyone decides to reseed it... that's the moment to re-run the launch gates properly \u2014 not before\"), but never frames the reason as avoiding wasted time from half-running the wrong workflow.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Routes the request to the community-health skill instead of running the launch workflow",
+        "evidence": "The transcript is a full \"Diagnosis & Relaunch Brief\" with diagnostic steps, dashboard, hypotheses, and a phased relaunch plan \u2014 no routing to any external skill occurs.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that this skill does not apply to a community that already exists",
+        "evidence": "No such statement appears; the document instead fully engages with the existing community's history and metrics.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Stops after the routing call rather than half-running the readiness gates",
+        "evidence": "The transcript runs an extensive multi-section diagnostic and relaunch plan (Sections 0\u20137) rather than stopping after any routing action.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces no launch brief, venue recommendation or founding-cohort plan",
+        "evidence": "Section 6 is explicitly a founding-cohort recruitment plan: \"Phase 0 (week 1\u20132): Recruit before you announce. Identify the 20\u201330 most active posters from months 1\u20136... DM them individually\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the target as samber/developer-relations-skills@developer-community-health, in owner/repo@skill form",
+        "evidence": "No such skill name or owner/repo@skill reference appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes the one case that would keep the work here: deciding whether to shut the community down",
+        "evidence": "No such distinction is made; the transcript treats relaunch/diagnosis as the whole task, not a narrow shut-down decision.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not read \"relaunch\" as a request to pick a new platform",
+        "evidence": "While it's true the transcript stays on Slack, this reflects full execution of a relaunch plan rather than any deliberate scoping decision about what 'relaunch' means \u2014 the routing-based reasoning this item presumes is absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason for routing: half-running the workflow on the wrong problem wastes the user's time",
+        "evidence": "No routing or reasoning about wasting the user's time on the wrong workflow appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

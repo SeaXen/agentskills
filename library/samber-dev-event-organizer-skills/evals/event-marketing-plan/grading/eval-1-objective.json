@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Targets are computed against 375 expected sales (450 minus 75 comps), never against the gross 450.",
+        "evidence": "\"Target net of comps: 375 tickets to sell.\" and \"Using 450 would inflate every checkpoint by 20%\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The 75 comps subtracted cover the sponsor, speaker, organizer, volunteer and scholarship tickets named in the prompt.",
+        "evidence": "Table lists sponsor 30, speakers 12, organizers 8, volunteers 15, scholarship 10 = 75",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The plan uses the ticketed spine (percent of expected ticket sales at named marketing moments), not a percent-of-attendance-goal curve.",
+        "evidence": "\"Spine: ticketed, percent of expected ticket sales (DevOpsDays ladder).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The early-bird close (June 15) checkpoint is set at roughly 15% of net expected sales, approximately 55-60 tickets.",
+        "evidence": "\"Jun 15 | Early-bird closes | 56 (15%)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The speaker announcement adds roughly another 10%, putting the cumulative target near 90-95 tickets (~25%).",
+        "evidence": "\"Jul 10 | Speakers announced | 94 (25%, about +38)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The one-month-out checkpoint is 40-50% of the 375 net target, roughly 150-190 tickets.",
+        "evidence": "\"~Sep 15, T-1 mo ... 150\u2013188 (40\u201350%)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "A final-two-weeks surge is described as the normal shape of the curve, not a red flag.",
+        "evidence": "Calendar says \"Final surge campaign | Visible surge\" and a missing surge is the concern; it never calls the surge the normal shape.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Checkpoints sit on the named marketing moments (announcement, early-bird close, speaker announcement, agenda release), not at evenly-spaced calendar intervals or on a straight line.",
+        "evidence": "Checkpoints at May 5 on-sale, Jun 15 early-bird close, Jul 10 speakers, Aug 20 agenda, T-1 mo reminder",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The calendar is worked backward from doors, with marketing off and running by roughly T-7 months.",
+        "evidence": "\"Mar (now), T-7 mo | Marketing off and running\"; doors ~Oct 15",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The first sales week is checked for the presence of any real spike, with its absence named as the earliest warning that no audience exists.",
+        "evidence": "\"No spike is the earliest sign that no audience exists.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The June 15 early-bird date is treated as a fixed input the calendar reacts to; the plan never moves or proposes moving it.",
+        "evidence": "\"June 15 and May 5 are treated as fixed, and I don't move them.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "No free-event mechanic is applied: no 30-50% drop-off multiplier and no 200% over-registration target appears.",
+        "evidence": "\"I'm not using the free-event 200% ladder.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Each checkpoint carries a pre-decided response to a miss, chosen before launch.",
+        "evidence": "\"If missed\" column plus section 5 \"Miss response\" ordered diagnosis",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Targets are computed against 375 expected sales (450 minus 75 comps), never against the gross 450.",
+        "evidence": "\"450 \u2212 75 = 375 paid tickets\"; every % column is of 375.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The 75 comps subtracted cover the sponsor, speaker, organizer, volunteer and scholarship tickets named in the prompt.",
+        "evidence": "\"30 sponsor + 12 speaker + 8 organizer + 15 volunteer + 10 scholarship = 75 free\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The plan uses the ticketed spine (percent of expected ticket sales at named marketing moments), not a percent-of-attendance-goal curve.",
+        "evidence": "Table of cumulative paid, \"% of 375\", at named milestones.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The early-bird close (June 15) checkpoint is set at roughly 15% of net expected sales, approximately 55-60 tickets.",
+        "evidence": "\"Jun 15 | Early bird ends | 90 | 24%\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The speaker announcement adds roughly another 10%, putting the cumulative target near 90-95 tickets (~25%).",
+        "evidence": "\"Jul 10 | Speakers announced | 120 | 32%\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The one-month-out checkpoint is 40-50% of the 375 net target, roughly 150-190 tickets.",
+        "evidence": "\"Sep 15 | T-30 days | 270 | 72%\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "A final-two-weeks surge is described as the normal shape of the curve, not a red flag.",
+        "evidence": "Only \"About 27/week in the final stretch\"; it is never called the normal shape.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Checkpoints sit on the named marketing moments (announcement, early-bird close, speaker announcement, agenda release), not at evenly-spaced calendar intervals or on a straight line.",
+        "evidence": "Early bird ends, Speakers announced and Full agenda published are bolded checkpoints.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The calendar is worked backward from doors, with marketing off and running by roughly T-7 months.",
+        "evidence": "Landing page and waitlist from Mar 1 for an Oct 15 event.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The first sales week is checked for the presence of any real spike, with its absence named as the earliest warning that no audience exists.",
+        "evidence": "Only \"Share the first-week number (35)\"; no warning is attached to a missing spike.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The June 15 early-bird date is treated as a fixed input the calendar reacts to; the plan never moves or proposes moving it.",
+        "evidence": "The calendar is built around \"Jun 15 Early bird ends\" and never proposes moving it.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "No free-event mechanic is applied: no 30-50% drop-off multiplier and no 200% over-registration target appears.",
+        "evidence": "The only no-show note is a generic 10-20%; there is no 200% over-registration target.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Each checkpoint carries a pre-decided response to a miss, chosen before launch.",
+        "evidence": "Generic green/orange/red thresholds only; no per-checkpoint response.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

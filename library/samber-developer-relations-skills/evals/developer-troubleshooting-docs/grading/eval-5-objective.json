@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the single-page structure holding all 28 errors",
+        "evidence": "\"Verdict: don't ship this structure as proposed.\" and \"That's 28 OAuth errors on one URL, almost verbatim the case called out.\" (though it later notes a single page is defensible only if fully re-engineered with per-error anchors, the proposed structure as given is rejected)",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that only one of the 28 errors can win a given query on a single page",
+        "evidence": "quotes the skill reference: \"A single mega \\\"Troubleshooting\\\" page holding thirty issues: only one of them can win the query, anchors get lost in caches, and the page becomes unmaintainable.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends one addressable target per error: its own page, or a stable anchor on a codes page",
+        "evidence": "\"Structure: pick one \u2014 28 individual pages, or one catalog page with 28 stably-anchored entries (Stripe/Twilio pattern). Either satisfies Step 4; a soft-topic mega-page with no per-error anchor satisfies neither.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the topic-based titles and requires the emitted error string verbatim in the title and first heading",
+        "evidence": "\"This is the skill's own worked \\\"weak\\\" example, almost word for word.\" ... \"Put the error string verbatim in the title, the first heading and the body.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the DRY consolidation of the clock-skew explanation and requires that content repeated on each of the nine entries",
+        "evidence": "\"Directly contradicted, and the skill anticipates this exact argument by name.\" ... \"Fix: repeat the two-or-three-sentence clock-skew explanation in the Cause section of each of the nine entries.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the ARID principle, Accept (some) Repetition In Documentation, as the basis for that repetition",
+        "evidence": "\"Write the Docs' ARID principle \u2014 \\\"Accept (some) Repetition In Documentation\\\" \u2014 exists for exactly this case: the match matters more than the duplication.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the string match matters more than the duplication",
+        "evidence": "\"the match matters more than the duplication.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects putting the error string in a collapsed accordion at the bottom of a section",
+        "evidence": "\"Conflicts with the first-screen rule, twice over.\" ... \"A collapsed accordion at the bottom is neither the first heading nor the first screen \u2014 it's the opposite structural choice from what's specified.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the message, cause and first fix to appear in the first screen before any feature preamble",
+        "evidence": "quotes: \"Answer in the first screen. Message, cause, first fix \u2014 before any preamble about the feature.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a block depending on the paragraph above it retrieves as a fragment when chunked into a search or assistant index",
+        "evidence": "\"A cause-remedy pair that depends on the paragraph above it retrieves as a fragment.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that anchors on a mega page get lost in caches, or that such a page becomes unmaintainable",
+        "evidence": "\"anchors get lost in caches, and the page becomes unmaintainable.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend the shared 'Understanding token validity' hub as the primary structure",
+        "evidence": "The transcript explicitly rejects the shared hub approach in section 3 and instructs to repeat the explanation in each entry instead: \"Fix: repeat the two-or-three-sentence clock-skew explanation in the Cause section of each of the nine entries.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the single-page structure holding all 28 errors",
+        "evidence": "Labeled '\u26a0\ufe0f defensible, but verify before committing' and concludes 'Hold the single-page-vs-hub-and-spoke call until you've checked which specific errors already pull search traffic' \u2014 a deferral, not a rejection.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that only one of the 28 errors can win a given query on a single page",
+        "evidence": "\"a dedicated page out-ranks a 28-way-diluted section every time for an exact-match query\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends one addressable target per error: its own page, or a stable anchor on a codes page",
+        "evidence": "\"Every H3 has a stable, unique anchor (#invalid-grant, not #authentication-problems-3)\" and the option to \"peel the top 3-5 searched errors into their own pages\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the topic-based titles and requires the emitted error string verbatim in the title and first heading",
+        "evidence": "Verdict is '\u2705 fine, with one boundary' \u2014 friendly titles are explicitly approved at the H2 level, not rejected, only constrained at H3.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the DRY consolidation of the clock-skew explanation and requires that content repeated on each of the nine entries",
+        "evidence": "\"\u274c wrong model, fix don't scrap ... put a self-contained 2-3 sentence explanation + fix inline in all 9 entries\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the ARID principle, Accept (some) Repetition In Documentation, as the basis for that repetition",
+        "evidence": "No mention of ARID or 'Accept Repetition In Documentation' anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the string match matters more than the duplication",
+        "evidence": "The reasoning given is about abandonment/support-deflection cost of a required click, not a stated priority of string-matching over duplication.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects putting the error string in a collapsed accordion at the bottom of a section",
+        "evidence": "\"\ud83d\udd34 worst of the four, change regardless of the others ... Put the literal string in a <code> block right under the H3, always visible.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the message, cause and first fix to appear in the first screen before any feature preamble",
+        "evidence": "Only requires the error string be visible under the H3; no explicit requirement that cause and first fix also appear before any preamble in the first screen.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a block depending on the paragraph above it retrieves as a fragment when chunked into a search or assistant index",
+        "evidence": "No mention of chunking or fragment retrieval for search/assistant indexes anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that anchors on a mega page get lost in caches, or that such a page becomes unmaintainable",
+        "evidence": "No statement about anchors being lost in caches or about unmaintainability of the mega page.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend the shared 'Understanding token validity' hub as the primary structure",
+        "evidence": "\"Keep the shared 'Understanding token validity' section too, but as a deep-dive link for people who want the mechanism, not the load-bearing explanation.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

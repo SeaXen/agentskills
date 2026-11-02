@@ -1,0 +1,190 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "A per-sponsor read is produced for all six sponsors, each row carrying a red-flag count, a contact rung, a proposed package, an incentive and a hold date",
+        "evidence": "The per-sponsor table has red flags, path, contact, package, hold date and formal-ask columns for all six, but no incentive column. The first-pick incentive appears only in the general table above it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ironvale's six days of silence is not counted as a red flag, because the silence flag starts at 10 business days after the stage-2 report",
+        "evidence": "'1 now (empty booth); flag 5 triggers Oct 30 if still silent'; 'Day 6 is only 7 business days. Flag 5 triggers after the 10th business day'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ironvale stays on the standard renewal path with at most one observed flag (the unstaffed booth as unused inventory), not in the rescue path",
+        "evidence": "Path column: 'standard \u2192 rescue if silent'; red flags: '1 now (empty booth)'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Quillstone enters the rescue path on the champion change alone, and receives no formal ask until the new budget owner is identified and their objective restated",
+        "evidence": "'A champion leaving sends the sponsor straight to rescue. Do not send the standard ask.' Formal ask 'after the rescue answers'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The warm introduction to Quillstone's new budget owner is requested from Tomas through a public professional channel, never through his old work inbox",
+        "evidence": "'Message Tomas through LinkedIn, never his old work inbox.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Tomas's new employer is flagged as a warm net-new prospect for sponsor outreach",
+        "evidence": "'Add Tomas's new employer to the outreach list as a net-new prospect.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Larkspur's renewal ask is held while the 1.5k balance invoice is unpaid",
+        "evidence": "'Hold every renewal ask until the invoice is paid.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Nettlebay's report is sent back to the fulfillment stage to add a method line under the 212 raffle-entries figure; the method is not patched into the renewal email",
+        "evidence": "'A number with no method line fails report item 4. Send a corrected report by Fri Oct 30... Do not patch this in the renewal email.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Nettlebay's hold date is set a few business days before its Nov 12 budget lock rather than 30-60 days after the report",
+        "evidence": "Hold date Nov 6, with the lock on Nov 12.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The guaranteed talk slot is rejected as a renewal incentive because a community-run event does not sell talk slots",
+        "evidence": "'A community-run event does not sell talk slots, so a guaranteed slot undermines your CFP.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The 10% loyalty discount is rejected, and first pick of capped surfaces (booth location, workshop room, prize track) is offered as the incentive instead",
+        "evidence": "'First pick of capped surfaces (booth location, workshop room, prize track). It costs nothing.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Under the two-evenings-a-week ceiling, the debrief call is reserved for the two highest-priced tiers (Platinum and Gold) and Silver sponsors get the proposal email",
+        "evidence": "'Silver gets a proposal email, not a call... Platinum and Gold keep the debrief call.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Mosswick is read as an in-kind contributor: same contribution or a named larger one, no price line, and counted outside the revenue retention rates",
+        "evidence": "'no discount and no price increase apply'; 'Report Mosswick as an in-kind count, outside the revenue rates.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The formal-ask schedule is keyed to each sponsor's budget-lock month (January, February, Nov 12, March), not to the event date or the Dec 15 deadline",
+        "evidence": "Formal asks are Jan 12 (end-Jan lock), Jan 15 (Feb lock), Nov 2 (Nov 12 lock) and Feb 15 (March lock).",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "No message to any sponsor asks whether they are coming back; every touch opens with a specific result from the report plus one new idea",
+        "evidence": "'One message per sponsor, each opening with a specific result from its report'; 'Never write \"did you see our email?\"'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "A per-sponsor read is produced for all six sponsors, each row carrying a red-flag count, a contact rung, a proposed package, an incentive and a hold date",
+        "evidence": "Plan is per-sponsor prose; no row carries a red-flag count, contact rung, or hold date.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ironvale's six days of silence is not counted as a red flag, because the silence flag starts at 10 business days after the stage-2 report",
+        "evidence": "Treats Ironvale as in trouble: 'They are silent' and 'plan for a drop if they stay silent through December'; never says the silence flag has not started.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ironvale stays on the standard renewal path with at most one observed flag (the unstaffed booth as unused inventory), not in the rescue path",
+        "evidence": "Headed '5. Ironvale Observability \u2014 diagnose before pitching', with 'renegotiate' and 'plan for a drop' logic, so it is in a rescue-style path.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Quillstone enters the rescue path on the champion change alone, and receives no formal ask until the new budget owner is identified and their objective restated",
+        "evidence": "'Send the renewal offer only after that call' and 'Once you find the owner: send a short introduction plus the report, then ask for a 20-minute call.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The warm introduction to Quillstone's new budget owner is requested from Tomas through a public professional channel, never through his old work inbox",
+        "evidence": "'Message Tomas. Congratulate them on the move and ask who took over' names no channel; LinkedIn is mentioned only for searching.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Tomas's new employer is flagged as a warm net-new prospect for sponsor outreach",
+        "evidence": "'This is also a lead for a possible new sponsor at their new company.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Larkspur's renewal ask is held while the 1.5k balance invoice is unpaid",
+        "evidence": "'collect first, no renewal pitch' and 'Do not renew them until the balance is cleared.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Nettlebay's report is sent back to the fulfillment stage to add a method line under the 212 raffle-entries figure; the method is not patched into the renewal email",
+        "evidence": "Sends a correction, then 'make the renewal ask in the same thread'; no return to the report stage.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Nettlebay's hold date is set a few business days before its Nov 12 budget lock rather than 30-60 days after the report",
+        "evidence": "Renewal ask 'By Nov 5', 'if they are silent on Nov 8, call them once', lock Nov 12.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The guaranteed talk slot is rejected as a renewal incentive because a community-run event does not sell talk slots",
+        "evidence": "'It sells editorial space at a community conference, and attendees trust that space.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The 10% loyalty discount is rejected, and first pick of capped surfaces (booth location, workshop room, prize track) is offered as the incentive instead",
+        "evidence": "Ends with 'Suggested discount rule... up to 10%' as a closing tool; no first-pick-of-surfaces incentive.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Under the two-evenings-a-week ceiling, the debrief call is reserved for the two highest-priced tiers (Platinum and Gold) and Silver sponsors get the proposal email",
+        "evidence": "Not tiered this way; Nettlebay (Silver) gets a count hunt and call, no proposal-email rule.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Mosswick is read as an in-kind contributor: same contribution or a named larger one, no price line, and counted outside the revenue retention rates",
+        "evidence": "Mosswick is 'thank and pin down terms' with no mention of counting outside revenue retention.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The formal-ask schedule is keyed to each sponsor's budget-lock month (January, February, Nov 12, March), not to the event date or the Dec 15 deadline",
+        "evidence": "Bramblewood offer 'By mid-November' and the Dec 1 unpaid-invoice rule are timed by the writer's calendar, not by lock month.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "No message to any sponsor asks whether they are coming back; every touch opens with a specific result from the report plus one new idea",
+        "evidence": "Ironvale note asks 'What would have made day 2 worth your team's time?'; Larkspur is a bare invoice reminder.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

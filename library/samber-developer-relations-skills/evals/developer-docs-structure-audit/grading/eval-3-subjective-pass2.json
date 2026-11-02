@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Gives every queue item an action that ships alone and improves the docs by itself",
+        "evidence": "Every row in the remediation queue is a concrete, independently shippable change, and the table even carries a dedicated \"Reader need fixed\" column stating the standalone reader benefit per row (row 1 \"onboarding stops handing out two different IAM roles\"; rows 4\u20139 \"procedure and lookup table stop competing for the same scroll\"; row 10 \"IaC adopters get a supported path instead of a ticket\"). No row is a scaffold, an empty-section creation, an inventory-only step, or a big-bang restructure \u2014 the nav-coupling check and the week-6 re-score are deliberately kept outside the queue. Redirect-indepe",
+        "score": 4,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Gives every queue item an action that ships alone and improves the docs by itself",
+        "evidence": "Most items are deliberately re-scoped into standalone, no-breakage units: item 1 rewrites one canonical page and stubs the duplicate (\"Neither URL gets deleted\"); item 3 is a brand-new page/URL with \"no breakage risk\" and is itself split into draft \u2192 SME validation \u2192 publish; item 4 either flips a nav field per page or, in the URL-baked case, \"Cross-link, don't relocate\" so the old URL survives; item 5 keeps how-to steps on the existing URL and spins the option table onto a new reference page, at ~1-1.5 hr/page so each page ships on its own. Deduction: item 2's fallback branch produces no docs",
+        "score": 4,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

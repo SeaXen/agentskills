@@ -13,7 +13,7 @@ description: >-
 license: MIT
 metadata:
   author: Samuel Berthe
-  version: "1.0.0"
+  version: "1.0.1"
 ---
 
 # Developer Office Hours Program
@@ -33,6 +33,7 @@ Scope is the standing program. Siblings cover adjacent jobs:
 - Onboarding code contributors: samber/developer-relations-skills@oss-contributor-onboarding
 - Producing a one-off virtual event: samber/dev-event-organizer-skills@virtual-event-production
 - A recurring webinar series mixing demos, labs and talks, with a sales handoff: samber/developer-relations-skills@devrel-webinar-program
+- A recurring public live show where chat steers the content (live coding, pair programming) beyond a Q&A panel: samber/developer-relations-skills@devrel-live-streaming
 
 Typical invocations:
 

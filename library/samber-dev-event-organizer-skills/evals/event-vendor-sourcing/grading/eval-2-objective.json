@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Response builds a single comparison grid with one row per supplier and one column per cost component, rather than ranking the three per-head figures.",
+        "evidence": "Step 3: the comparison grid, one column per supplier with cost-component rows",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cost components forced onto every row include at minimum unit price and unit, minimum order, delivery or travel, serving staff, service charge or gratuity, equipment rental, setup and teardown, overtime beyond the window, taxes, and the cost of anything expected to be returned.",
+        "evidence": "Minimum order, Delivery, Serving staff, Service charge, Equipment, Setup and teardown, Overtime, Tax, Anything to return",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response asks whether each supplier's service charge applies to the whole invoice or to labour only.",
+        "evidence": "Service charge (whole invoice or labour only)",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response computes an all-in total at the planned headcount and a second all-in total at the headcount moved in the direction it is likely to move.",
+        "evidence": "All-in at 210 / 240 / 260",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response states that a supplier who is cheapest at the planned number and most expensive at the likely number is not the cheapest supplier.",
+        "evidence": "The cheapest supplier at 240 may not be the cheapest at 210 or 260",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response treats a quote missing a component as incomplete rather than as cheaper, and instructs going back to that supplier to ask.",
+        "evidence": "A one-page quote isn't cheaper, just less specific",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response flags that Northgate's single-page quote probably excludes components Fenwick's six pages price, and that normalizing can reverse the ranking.",
+        "evidence": "Normalising often reorders the ranking",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Terms forced onto every row include deposit amount, due date and refundability; the headcount-change deadline with permitted direction and cost; the cancellation schedule; the remedy for late or short delivery; substitution rights; proof of insurance; and a reference contact.",
+        "evidence": "Deposit, Headcount change, Cancellation schedule, Remedy, substitute, insurance, reference event",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response asks for the cancellation schedule itself rather than accepting that a cancellation clause exists.",
+        "evidence": "Cancellation schedule row; Compare the schedule",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response notes that most supplier contracts offered to small events state no remedy for failure at all, and that the absence is itself the finding.",
+        "evidence": "Most small-event contracts say nothing here, and the missing remedy is the finding",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response ties the moving 210-260 registration number to each supplier's headcount-lock date, permitted range, and whether downward moves are credited.",
+        "evidence": "Headcount lock date... Downward moves. Some caterers don't credit them",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response does not assert what a fair or normal per-head price is for this event, this city or this year.",
+        "evidence": "I'm not judging whether any of these rates is good or bad",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response recommends a reference check on the leading candidate where the failure remedy is missing or weak, and frames the call as asking what actually happened rather than whether the supplier was good.",
+        "evidence": "Says only 'Reference-check the leading candidate'; no 'what actually happened' framing",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Response builds a single comparison grid with one row per supplier and one column per cost component, rather than ranking the three per-head figures.",
+        "evidence": "Table has per-head and totals only, ranking the three figures.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cost components forced onto every row include at minimum unit price and unit, minimum order, delivery or travel, serving staff, service charge or gratuity, equipment rental, setup and teardown, overtime beyond the window, taxes, and the cost of anything expected to be returned.",
+        "evidence": "Components appear only as a question list, not a grid.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response asks whether each supplier's service charge applies to the whole invoice or to labour only.",
+        "evidence": "Only 'any service charge'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response computes an all-in total at the planned headcount and a second all-in total at the headcount moved in the direction it is likely to move.",
+        "evidence": "Totals are per-head multiples, not all-in.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response states that a supplier who is cheapest at the planned number and most expensive at the likely number is not the cheapest supplier.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response treats a quote missing a component as incomplete rather than as cheaper, and instructs going back to that supplier to ask.",
+        "evidence": "'One page often means extras are unstated, not absent'; 'ask for a revised quote in the same format'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response flags that Northgate's single-page quote probably excludes components Fenwick's six pages price, and that normalizing can reverse the ranking.",
+        "evidence": "'a one-page quote and a six-page all inclusive quote are probably not pricing the same thing'; 'If it lands near 17, Brightline is better value'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Terms forced onto every row include deposit amount, due date and refundability; the headcount-change deadline with permitted direction and cost; the cancellation schedule; the remedy for late or short delivery; substitution rights; proof of insurance; and a reference contact.",
+        "evidence": "Terms listed as questions only; no remedy, substitution, reference contact.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response asks for the cancellation schedule itself rather than accepting that a cancellation clause exists.",
+        "evidence": "'Check the deposit, payment schedule and cancellation terms'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response notes that most supplier contracts offered to small events state no remedy for failure at all, and that the absence is itself the finding.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response ties the moving 210-260 registration number to each supplier's headcount-lock date, permitted range, and whether downward moves are credited.",
+        "evidence": "'final-numbers deadline', 'adjust down after it', 'pay for the guaranteed number or for actual attendance'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response does not assert what a fair or normal per-head price is for this event, this city or this year.",
+        "evidence": "No benchmark price claimed.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response recommends a reference check on the leading candidate where the failure remedy is missing or weak, and frames the call as asking what actually happened rather than whether the supplier was good.",
+        "evidence": "Only 'references from events of similar size'.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

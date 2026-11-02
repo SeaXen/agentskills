@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Response flags that \"Thornbury Logistics\" cannot be named on air without explicit customer approval, and either removes the name or makes clearance a prerequisite.",
+        "evidence": "\"Confirm Thornbury's comms/legal side is fine with being named on a public recording, not just that your side is... Safe fallback if you don't get sign-off in time: 'a 4,000-seat logistics customer'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response removes the unpublished 3.2x internal benchmark rather than merely demoting it, on the grounds that only already-published numbers may be spoken and the recording outlives the embargo.",
+        "evidence": "The story is kept conditionally rather than removed: \"Don't say '3.2x' on air until one of those two is true\" \u2014 offering ways to keep it, not deleting it from the bank.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response asks the user for further stories to reach a bank of five to eight, rather than stopping at the three supplied.",
+        "evidence": "\"The skill's own default is 5-8 stories; you've given me 3... Worth 20 minutes before the recording pulling 2-3 more from the same shape as story 1\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Each story carries a specific system and a specific decision or failure, with a real number.",
+        "evidence": "Story 1: '4,000 seats \u00b7 6h \u2192 40min'; Story 3: '2TB, ~48\u201360hr window, zero pages'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Each story carries something the user got wrong.",
+        "evidence": "Story 1's column reads \"*[you gave me the win, not the mistake \u2014 ... swap for what actually went sideways]*\", and story 2 is also a placeholder \u2014 only story 3 has an actual mistake filled in.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response identifies a five-second moment for each story and attributes the idea to Matthew Dicks.",
+        "evidence": "A 'Five-second moment' column exists for all three stories, but no attribution to Matthew Dicks appears anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response instructs opening each story at the opposite of its five-second moment.",
+        "evidence": "No instruction about opening at the opposite of the five-second moment appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response recommends an up-down-up, Man in a Hole shape and credits the empirical test to Del Vecchio, Kharlamov, Parry and Pogrebna across 6,174 movie scripts.",
+        "evidence": "No mention of 'Man in a Hole' or this research attribution appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response notes the finding concerns the most talked-about films rather than the most liked.",
+        "evidence": "Not present; this claim depends on content (item 8) that is absent from the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response tags each story with the questions it can answer, including the host's recurring \"worst thing in production\" question.",
+        "evidence": "Story 3's 'Answers which question' column: \"**the guaranteed question** ('worst thing in production'), 'biggest mistake,' ...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response warns against reusing one story for two answers in the same episode.",
+        "evidence": "\"not enough to avoid reusing the same story for two different questions later in the same conversation (reads as a canned pitch)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response plants one open loop early and closes it late, crediting the raise-questions-and-answer-them device to Ira Glass.",
+        "evidence": "An open loop is planted ('Open loop, since you know this question is coming...') but no attribution to Ira Glass is given anywhere.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Response flags that \"Thornbury Logistics\" cannot be named on air without explicit customer approval, and either removes the name or makes clearance a prerequisite.",
+        "evidence": "'Thornbury Logistics \u2014 confirm they've cleared being named publicly (case-study/reference sign-off). If not confirmed yet, use \"our biggest customer \u2014 about 4,000 seats\" instead of the name.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response removes the unpublished 3.2x internal benchmark rather than merely demoting it, on the grounds that only already-published numbers may be spoken and the recording outlives the embargo.",
+        "evidence": "The benchmark is kept and demoted with a heading 'use only if asked' and scripted caveats, not removed: 'We came out 3.2 times faster... treat that as \"here's what we're seeing internally.\"'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response asks the user for further stories to reach a bank of five to eight, rather than stopping at the three supplied.",
+        "evidence": "The response stops at exactly three stories with no request for more material.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Each story carries a specific system and a specific decision or failure, with a real number.",
+        "evidence": "Story 1: 'six hours...forty minutes'; Story 3: 'chewed through about two terabytes' \u2014 both specific and numeric.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Each story carries something the user got wrong.",
+        "evidence": "Story 1 is purely a success story with no admitted fault ('used to run a batch job every night that took six hours... After they migrated to us, that same job finishes in forty minutes').",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response identifies a five-second moment for each story and attributes the idea to Matthew Dicks.",
+        "evidence": "No such concept or attribution appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response instructs opening each story at the opposite of its five-second moment.",
+        "evidence": "Not present; stories are structured with a scripted opener line and question triggers instead.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response recommends an up-down-up, Man in a Hole shape and credits the empirical test to Del Vecchio, Kharlamov, Parry and Pogrebna across 6,174 movie scripts.",
+        "evidence": "No such reference or shape guidance appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response notes the finding concerns the most talked-about films rather than the most liked.",
+        "evidence": "Not present.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response tags each story with the questions it can answer, including the host's recurring \"worst thing in production\" question.",
+        "evidence": "Question map: '\"Worst thing that's happened to you in production?\" | Story 3' and similar mappings for all three stories.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response warns against reusing one story for two answers in the same episode.",
+        "evidence": "Story 3 is mapped to both 'Worst thing...' and 'What keeps you up at night?' triggers with no warning against this double use.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response plants one open loop early and closes it late, crediting the raise-questions-and-answer-them device to Ira Glass.",
+        "evidence": "No open-loop device or Ira Glass attribution appears.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

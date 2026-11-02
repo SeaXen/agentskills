@@ -1,0 +1,594 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "developer-segmentation",
+  "scenarios": 13,
+  "expectations_total": 140,
+  "expectations_subjective": 1,
+  "expectations_objective": 139,
+  "pass_rate_with_skill_pct": 70.0,
+  "pass_rate_without_skill_pct": 32.1,
+  "delta_pp": 37.9,
+  "uplift_multiplier": 2.18,
+  "trigger_accuracy_pct": 67.7,
+  "trigger_queries": 124,
+  "trigger_positive_fire_rate": 0.613,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.236 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "States it is in brainstorming mode and does not produce a finished segment map."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "For each surviving candidate cut, lists the segments it produces, the artefact each segment would need, and who the cut makes unreachable."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "For each surviving candidate cut, states what evidence must exist before anyone can be placed on one side of the line, and how much of that evidence the team already holds."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "For each surviving candidate cut, states the condition under which that cut would be the wrong one."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Ranks the surviving candidates out loud on effort, value and efficiency rather than implying an order by list position."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Declines to answer \"indie developers or enterprise platform teams\" directly, on the grounds that the question presumes a cut nobody has chosen."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends one candidate cut and leaves the decision to the person accountable before sizing anything."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Does not present the default candidate ordering as a fixed rule."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that a compounding, multi-horizon mandate favours the workload cut because it pays back over several horizons."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States the order in which attributes are selected, then clustered, and only then profiled and named."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Warns that a label invented first is usually a stereotype with no members behind it."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends exactly one cut and leaves the final call to the accountable person before sizing."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends storing the chosen dimensions, segment set, sizes and anti-segment so the next version can be diffed against this one."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States a date alongside the figure."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires a cross-check against a source of a different class, and states that two sources of the same class usually share an upstream dataset."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends a bottom-up cross-check against the company's own funnel."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Proposes an external estimate of the JVM population built from a source outside the company's own funnel."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires that estimate to carry a range, a method, a date and a confidence tier."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States the result that would make the team genuinely drop the segment, written before the test runs."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that \"millions of models exist\" and \"millions of models are used\" differ by roughly two orders of magnitude."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Classifies the company as developer-plus rather than developer-first, and gives the reason."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that one unanswered risk question is enough for an approver to say no."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Identifies champion material as the highest-leverage artefact in company adoption, because the champion argues when nobody from the vendor is in the room."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Asks which role blocked each loss and what would have unblocked them."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names which artefacts serve both adoption paths so they get built once."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that without one of those written down, the segment belongs in the anti-segment."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Warns that an unjustified free audience quietly absorbs content and support capacity precisely because it is the easiest to reach."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Notes that the future-buyers justification operates on a horizon measured in years rather than quarters."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Gives every segment row a size expressed as a range with a method, a date and a confidence tier."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Re-ranks by value per unit of effort and shows the division explicitly."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Commits to exactly one primary segment, one secondary and one anti-segment."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires the anti-segment to be non-empty and to include at least one audience the team wanted to keep."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Rejects the secondary segment having its own dedicated artefacts, and restates that a secondary is served only by artefacts the primary already funds."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Checks that each segment is described in language its own members would recognise rather than in internal category names."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that the floor is a customer-research practice convention rather than a measured threshold."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Requires at least half the funded segments in the map to clear the evidence floor."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Names the only two conditions under which seniority earns a place: when it maps onto authority, or onto learning need."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Records seniority as a descriptive field inside a segment when it does not clear those conditions."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Rejects the day-in-the-life narrative format, stating that a prose portrait reads well and decides nothing."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that a persona averaged across segments represents nobody."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that two segments receiving identical artefacts are one segment with a demographic footnote, and that the dimension was therefore wrong."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "States that a wrong prediction should correct the sizing method rather than the conclusion."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "States it is in brainstorming mode and does not produce a finished segment map."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Presents two or three whole candidate cuts of the same audience, not variations of a single cut."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Explicitly removes the buying-mode cut from the candidate set because no purchase exists, rather than ranking it last."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names that removal in writing rather than silently omitting the cut."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "For each surviving candidate cut, lists the segments it produces, the artefact each segment would need, and who the cut makes unreachable."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "For each surviving candidate cut, states what evidence must exist before anyone can be placed on one side of the line, and how much of that evidence the team already holds."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "For each surviving candidate cut, states the condition under which that cut would be the wrong one."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Ranks the surviving candidates out loud on effort, value and efficiency rather than implying an order by list position."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Expresses effort as an order of magnitude of research work (hours, a week, a quarter) and never as a budget or currency figure."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Declines to answer \"indie developers or enterprise platform teams\" directly, on the grounds that the question presumes a cut nobody has chosen."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends one candidate cut and leaves the decision to the person accountable before sizing anything."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Deletes the workload cut from the candidate set and says so explicitly, on the grounds that the research ceiling is hours rather than weeks."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that a near decision date deletes any cut whose evidence the team does not already hold."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that the ruled-out cut is deleted rather than parked at the bottom of the list, and gives the reason a parked cut gets re-proposed later."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names which supplied constraint moved which candidate cut."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Estimates the ecosystem cut's effort as roughly an hour, given that language and runtime are already collected."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Estimates the buying-mode cut's effort as roughly an hour or two of reading sales notes and existing accounts."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Promotes the workload cut to first place and names the existing survey and clustering dataset as the reason its effort collapses to near zero."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Drops the ecosystem cut to last and states that a product running only inside one ecosystem makes an ecosystem cut non-discriminating."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that the default candidate ordering is a default rather than a law, and that it moves with what the team already holds."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that a compounding, multi-horizon mandate favours the workload cut because it pays back over several horizons."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends using the existing clusters rather than inventing segment labels first."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Warns that a label invented first is usually a stereotype with no members behind it."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends exactly one cut and leaves the final call to the accountable person before sizing."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends storing the chosen dimensions, segment set, sizes and anti-segment so the next version can be diffed against this one."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States a date alongside the figure."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that RedMonk's own publisher treats the tier as more meaningful than the individual rank."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires a cross-check against a source of a different class, and states that two sources of the same class usually share an upstream dataset."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends a bottom-up cross-check against the company's own funnel."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Refuses to accept the 1.9% signup share as evidence that the JVM segment is small."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that first-party data is survivorship-shaped and describes only who already got through the funnel."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that sizing an unserved segment from your own user base returns \"small\" by construction."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Proposes an external estimate of the JVM population built from a source outside the company's own funnel."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires that estimate to carry a range, a method, a date and a confidence tier."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes that the product being Node-and-Python-first is itself a plausible cause of the low Java share."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Proposes a cheap test that could settle the question in days rather than a quarter."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States the result that would make the team genuinely drop the segment, written before the test runs."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that publishing on these hubs is free and unreviewed, so the counts measure publishing activity."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Cites the finding that the large majority of published models have fewer than a couple of hundred lifetime downloads."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Cites that a tiny fraction of repositories accounts for almost all downloads on such a hub."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that \"millions of models exist\" and \"millions of models are used\" differ by roughly two orders of magnitude."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States what hub and registry data can legitimately support: the shape of the practitioner niche, such as which tasks, formats or base models the segment works with."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Returns a range with a method, a date and a confidence tier rather than a single figure."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Identifies an approver role (architect, platform lead, security or legal reviewer) as the likely cause of integrations dying after the technical proof of concept."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that one unanswered risk question is enough for an approver to say no."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Identifies champion material as the highest-leverage artefact in company adoption, because the champion argues when nobody from the vendor is in the room."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names a concrete trigger that adds an approver, such as a regulated vertical or a company-size threshold."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Warns that developer-delight material alone loses at the security or risk review."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names which artefacts serve both adoption paths so they get built once."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that without one of those written down, the segment belongs in the anti-segment."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Warns that an unjustified free audience quietly absorbs content and support capacity precisely because it is the easiest to reach."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Gives every segment row a size expressed as a range with a method, a date and a confidence tier."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Gives every segment row an artefact, a channel and a proof point that differ from at least one sibling row."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Rejects summing effort into the total, and states that effort is the denominator rather than another addend."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Rejects the 1-10 scale and replaces it with a 1-3 or high/medium/low scale."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Gives the reason for the coarse scale: false precision moves the argument onto the score instead of onto the segment."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Weights the criteria against the funded driver before scoring, not after."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names sales enablement as the funded driver here and weights value and competitive position accordingly."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Notes that a segment carrying no revenue value is a defect under a sales-enablement driver even though it would be acceptable under an employer-brand driver."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Re-ranks by value per unit of effort and shows the division explicitly."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States which segment lost on the denominator rather than on merit."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names what the efficiency ratio starves: the big, high-value, high-effort segment that loses every round it is ranked in."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names the conditions that promote the starved segment anyway, including a sales-enablement driver with no cheaper segment carrying revenue."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Commits to exactly one primary segment, one secondary and one anti-segment."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Flags the absence of an anti-segment as a gate failure."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires the anti-segment to be non-empty and to include at least one audience the team wanted to keep."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Rejects the secondary segment having its own dedicated artefacts, and restates that a secondary is served only by artefacts the primary already funds."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names the partner portal, the agency webinar series and the agency docs track as the dedicated spend that breaks that rule."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires the implications section to name something that stops, not only things that start."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Flags the absence of a review date."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names concrete events that would force an early re-read, such as a pricing or packaging change, a new language or runtime target, a change in the funded driver, a competitor taking the primary segment's default position, or the primary segment hitting its goal."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Flags that every segment needs a size with a range, a method, a date and a confidence tier, none of which are present."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Flags that every segment needs a named decision unit, or an explicit statement that no purchase exists."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Checks that each segment is described in language its own members would recognise rather than in internal category names."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States the evidence floor as roughly 5-10 independent data points from a consistent group."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that the floor is a customer-research practice convention rather than a measured threshold."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Leaves the segment unfunded until it clears the floor."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Refuses to commit the four engineer-months of SDK work on the current evidence."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names a specific cheap test that costs days rather than a quarter."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Requires at least half the funded segments in the map to clear the evidence floor."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names which lookup or source would upgrade the segment's size from inferred."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Rejects seniority as the axis of the cut rather than tidying the existing personas."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that a junior and a staff engineer on the same stack and workload usually need the same SDK, docs and samples."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Names the only two conditions under which seniority earns a place: when it maps onto authority, or onto learning need."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Records seniority as a descriptive field inside a segment when it does not clear those conditions."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Rejects the day-in-the-life narrative format, stating that a prose portrait reads well and decides nothing."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that a persona averaged across segments represents nobody."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Flags that the \"~4 million\" figure is most likely a language ranking or an account count read as a population."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Flags that the next steps contradict the ranking, because a beginner tutorial series serves the segment the doc deprioritised."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that two segments receiving identical artefacts are one segment with a demographic footnote, and that the dimension was therefore wrong."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Proposes a replacement cut with exactly two dimensions, one that changes what gets built and one that changes how they are reached."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "States that a wrong prediction should correct the sizing method rather than the conclusion."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Includes argument frequency - how often the team reopens the audience question - as a measure of whether the map worked."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Names the events that would force an early re-read before the next scheduled review."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Sets a new review date on the updated map."
+      }
+    ]
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects star count as a ranking input and states stars rank popularity rather than exposure or fragility",
+        "evidence": "\"Stars rank popularity, not exposure or fragility.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the fix is to start from the company's dependency graph instead of from recall, not to do more diligence on these five rows",
+        "evidence": "\"SBOM or lockfile, to run real dependency-graph discovery instead of recall.\" and \"Add breadth line from actual SBOM \u2014 near-zero effort, covers the fragile long tail currently at 0%.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requests a lockfile, an SBOM or a resolvable repository so direct and transitive dependencies can be resolved",
+        "evidence": "\"SBOM or lockfile, to run real dependency-graph discovery instead of recall.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires deduplicating resolved packages by owner or maintainer rather than by package, because one maintainer often stands behind many packages",
+        "evidence": "No mention of deduplicating by owner/maintainer anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Scores candidates on exposure, fragility, audience fit and relationship value",
+        "evidence": "Only \"exposure/fragility\" is paired once (\"verified destination + real exposure/fragility, not affection or stars\"); \"audience fit\" and \"relationship value\" as scoring axes never appear.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States those four axes and their weights are this skill's own defaults and invites the user to reweight them",
+        "evidence": "No four-axis scoring system with weights is presented anywhere; only unrelated percentages are labeled \"self-set default, not benchmark.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the two corporate-backed recipients explicitly as a disqualifier or a flagged row rather than silently dropping them, and notes the marginal effect of money on an already-funded project is near zero",
+        "evidence": "\"Two already corporately funded (you flagged this). For supply-chain mandate: marginal value near zero, project survives without you.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the missing long tail: single-maintainer packages carrying many transitive dependencies, where a small recurring amount is genuinely load-bearing, cannot surface in a star-sorted list",
+        "evidence": "\"0% goes to real fragile single-maintainer deps buried in your actual dependency graph \u2014 where $10/month is genuinely load-bearing. Those never entered list because no stars to sort by.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that no funding destination in this list has been verified, and that a phrase like a great logo spot names no surface, no traffic and no tier",
+        "evidence": "\"No destination verified, no tier checked. 'Logo spot great' names no surface, no traffic number, no confirmed tier at $60k.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes depth allocations need not be uniform, citing a published spread running from $1,750 to $15,000 per project per year",
+        "evidence": "No such figures appear; only a per-developer floor ($2,000\u2013$3,700/FTE-dev/year) and a $5,000/invoice minimum are cited.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks which mandate the $200k serves before ranking anything",
+        "evidence": "\"Primary mandate \u2014 supply chain, reach, or engagement? Rank top two.\" listed as item 1 of \"What I need to finalize real numbers.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not deliver a corrected dollar split across the same five projects as the main answer",
+        "evidence": "The transcript ends with \"Next: send SBOM/lockfile, dev headcount, and pick primary mandate. I build the verified ranked shortlist from that,\" and only offers a percentage category template, not a re-priced dollar split of the five named projects.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects star count as a ranking input and states stars rank popularity rather than exposure or fragility",
+        "evidence": "\"Stars measure adoption, not funding need, not risk, not the marginal impact of your dollar.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the fix is to start from the company's dependency graph instead of from recall, not to do more diligence on these five rows",
+        "evidence": "\"This list wasn't built from a dependency audit \u2014 it was built from name recognition... Before allocating anything, run an actual SBOM/dependency audit.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requests a lockfile, an SBOM or a resolvable repository so direct and transitive dependencies can be resolved",
+        "evidence": "\"Pull the full dependency graph (direct + transitive) in your production critical path.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires deduplicating resolved packages by owner or maintainer rather than by package, because one maintainer often stands behind many packages",
+        "evidence": "No mention of deduplicating by owner/maintainer anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Scores candidates on exposure, fragility, audience fit and relationship value",
+        "evidence": "The transcript instead proposes \"commit concentration\", \"bus-factor\", \"funding status\", and \"criticality\" \u2014 not the four named axes (exposure, fragility, audience fit, relationship value).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States those four axes and their weights are this skill's own defaults and invites the user to reweight them",
+        "evidence": "Not present; no such four-axis framework or reweighting invitation is stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the two corporate-backed recipients explicitly as a disqualifier or a flagged row rather than silently dropping them, and notes the marginal effect of money on an already-funded project is near zero",
+        "evidence": "\"A company-backed maintainer already draws a salary and has a roadmap; the project's survival doesn't hinge on your $50-60k... cut them to a token tier ($5-10k...)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the missing long tail: single-maintainer packages carrying many transitive dependencies, where a small recurring amount is genuinely load-bearing, cannot surface in a star-sorted list",
+        "evidence": "\"the boring, deep dependency with 500 stars and one burned-out volunteer maintainer... A transitive dependency four layers down handling serialization, auth, or numerics with one maintainer is a real outage-and-security risk \u2014 and it's invisible to anything sorted by stars.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that no funding destination in this list has been verified, and that a phrase like a great logo spot names no surface, no traffic and no tier",
+        "evidence": "No such statement or phrase critique appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes depth allocations need not be uniform, citing a published spread running from $1,750 to $15,000 per project per year",
+        "evidence": "No such published spread figure ($1,750\u2013$15,000) appears; the transcript instead proposes generic ranges like \"$15-30k\" and token tiers of \"$5-10k\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks which mandate the $200k serves before ranking anything",
+        "evidence": "The transcript assumes \"sustainability\" as the goal and proceeds directly to a 70/30 sustainability/visibility split without first asking what mandate the $200k should serve.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not deliver a corrected dollar split across the same five projects as the main answer",
+        "evidence": "The main recommendation is a two-category split (\"Sustainability (~70%, ~$140k)\" / \"Visibility/goodwill (~30%, ~$60k)\"), not a per-project corrected dollar amount for each of the original five.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

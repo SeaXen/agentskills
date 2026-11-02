@@ -1,0 +1,401 @@
+{
+  "skill_name": "developer-booth-playbook",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "We're exhibiting at KubeCon EU in March, 10x20 booth with one demo station, 3 days, hall open roughly 10:00-18:00. Our VP of marketing wants 500 badge scans and has already ordered 600 t-shirts to hand out to anyone who lets us scan them. Current plan: our 3 SDRs plus one solutions engineer, all four in the booth every hour the hall is open. We sell a Kubernetes cost-monitoring tool, self-serve trial, sales-assisted above 50 nodes. Can you write our booth plan?",
+      "expected_output": "A booth playbook that replaces the 500-scan goal with a minimum count of qualified (next-step-agreed) conversations, reports scans only as activity, ungates the already-bought shirts into an earned item after a real conversation, puts an engineer on every shift with rotation instead of four people all day, and checks KubeCon's own exhibitor rules.",
+      "files": [],
+      "expectations": [
+        "The plan counts only A-grade conversations (problem, decision influence, agreed next step) toward the threshold and reports B-grade separately",
+        "The plan defines success as a count of conversations where the attendee has the problem and agrees to a named next step",
+        "The plan says scan counts are reported as activity beside the qualified-conversation count, not as the result",
+        "The plan's scan or consent line states the purpose of the follow-up rather than promising the data is used for nothing else",
+        "The plan keeps the 600 already-ordered shirts and redirects them to an earned item or ambient use rather than discarding them",
+        "The plan puts an engineer on every shift or, where engineers are fewer than shifts, makes one reachable within minutes and states that trade-off",
+        "The plan does not keep the same four people on the floor for every hall hour; it uses shift blocks of a few hours",
+        "The plan adds staffing for a demo station as a separate role from the person qualifying visitors",
+        "The plan says scanning happens only after a conversation, not for every passer-by",
+        "The plan includes a step to read KubeCon's own exhibitor or sponsor rules (for example solicitation outside the booth, lanyards, logos on swag)",
+        "The plan includes a per-conversation record with a grade and a next step captured at the time of the conversation",
+        "The plan includes inviting existing users or open evaluations to book time at the booth before the show",
+        "The plan's capture record routes self-serve trial interest separately from sales-assisted interest",
+        "The plan's rules checklist asks whether badge scanning is allowed only inside the booth"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "First time sponsoring a DevOpsDays (the Amsterdam one), we bought the mid tier which comes with a table. Our head of sales wants to bring the lead scanner app we use at trade shows and also asked the organizers for the attendee list. I was thinking we raffle an iPad to anyone who sits through our 5 minute demo. We're 2 people, me (devrel) and our CTO. What should our booth plan look like?",
+      "expected_output": "A plan that recognizes DevOpsDays sells no scanning and no attendee list, uses a hand-written conversation log or opt-in path instead, decouples the raffle from the demo, checks raffle rules, and fits a two-person crew.",
+      "files": [],
+      "expectations": [
+        "The plan states that community events like DevOpsDays provide no badge scanning or attendee list",
+        "The plan does not plan around the trade-show lead scanner app or a purchased attendee list",
+        "The plan makes a hand-written or manual conversation log the default capture method",
+        "The plan flags that a prize draw at an Amsterdam event needs free participation, published terms and possibly gaming tax on the prize, to check with counsel",
+        "The plan keeps raffle entry separate from marketing consent",
+        "The plan says to check whether the event allows draws or raffles before running one",
+        "The plan mentions checking prize-promotion or sweepstakes rules for the jurisdiction or prize value",
+        "The plan applies a crew-of-two schedule rather than the default of two people on every shift for every hall hour",
+        "The plan includes a consent line staff say aloud when taking someone's contact details",
+        "The plan has the two staffers attend talks while sessions run and staff the booth together during breaks",
+        "The plan tells staff to hand each person whose details they take a card or link to the privacy notice",
+        "The plan cites DevOpsDays guidance to collect leads by talking to people and asking for their contact details",
+        "The plan has whoever can debug the product stay reachable within minutes while attending talks",
+        "The plan checks whether the DevOpsDays city restricts when a draw may run, such as not during the program"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "We have a 20x20 at AWS re:Invent this year. Plan so far: two people walk the aisles handing out flyers for our booth theater sessions, a hiring table in the corner since we're recruiting 15 engineers, we give away branded lanyards, and we'll use our own HubSpot scanning app instead of whatever AWS gives. Also want a DJ-level speaker setup for the demo. Can you tighten this into a booth plan?",
+      "expected_output": "A plan that starts from reading re:Invent's own sponsor rules and removes or flags aisle flyering, on-premises recruiting, branded lanyards, own scanning app and loud amplification as likely violations to verify, rather than polishing them.",
+      "files": [],
+      "expectations": [
+        "The plan starts by reading the event's own sponsor or exhibitor rules before finalizing tactics",
+        "The plan flags aisle flyering or soliciting outside the booth as likely prohibited",
+        "The plan flags on-site employee recruiting as something re:Invent has prohibited",
+        "The plan notes that lanyard rules differ between events (allowed on staff at some, banned at re:Invent) so they must be read per event",
+        "The plan's rules checklist asks whether the event allows the sponsor's own lead-capture app",
+        "The plan flags sound amplification as subject to the event's sound limits",
+        "The plan notes that rule violations can cost the sponsor its leads or future participation",
+        "The plan presents these rules as items to verify in the current edition's manual rather than as certain facts",
+        "The plan keeps all giveaways and activity inside the booth space",
+        "The plan includes a rules table or checklist with a source column for each rule",
+        "The plan flags that third-party or hired staff in the booth may need the organizer's prior approval",
+        "The plan flags that graphics, giveaways or collateral may need organizer approval before the show",
+        "The plan's checklist includes exhibitor service-order and shipping deadlines",
+        "The plan notes that re:Invent bans amplification at inline booths and caps island-booth sound (80 decibels in the current rules)"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Booth staffing question. We have a 20x20 (400 sq ft) at a 3 day Python conference, hall 9:00-18:00. Rule of thumb is 50 sq ft per staffer so I'm planning 8 people on the booth at all times. Problem: only 2 of our people are engineers, the other 6 are marketing and customer success. How should I schedule this?",
+      "expected_output": "A staffing plan that refuses floor-area headcount as a method, labels the 50 sq ft figure as unsourced consultant folklore usable only as a ceiling, derives headcount from conversations and demo stations, rotates people in blocks of a few hours, and handles the engineer shortage explicitly.",
+      "files": [],
+      "expectations": [
+        "The response labels the 50 sq ft per staffer figure as a rule of thumb without a study behind it",
+        "The response notes that an empty-booth fee or breach can depend on conditions such as opting out in advance, read from the event's own terms",
+        "The response derives headcount from conversations, demo stations or peaks rather than floor area",
+        "The response uses floor area only as a ceiling on headcount, if at all",
+        "The response proposes shift blocks of roughly two to three hours",
+        "The response addresses the shortage of engineers explicitly",
+        "The response concentrates the two engineers on peak blocks or caps their floor time per day",
+        "The response makes an engineer reachable quickly during blocks without one on the floor",
+        "The response produces a shift grid with named roles (for example captain, engineer, demo driver, qualifier)",
+        "The response says some events make an unstaffed booth during hall hours a breach or a fee",
+        "The response warns that too many staff at the booth form a closed group that deters visitors",
+        "The response plans the peak slot as optional, filled when a shift log shows visitors leaving a queue",
+        "The response names one captain per day who owns the brief and the log",
+        "The response labels any interactions-per-staffer-per-hour figure as a planning target, not a measured benchmark",
+        "The response traces the 50 sq ft rule to a trainer's rule of thumb rather than a study"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "Day 1 of 2 at GopherCon just ended. We scanned 220 badges, notes field mostly says 'great chat' or is empty. CEO pinged asking if we're winning. We were going to sit down next week after the show to sort out which leads are hot. Anything we should do differently for tomorrow?",
+      "expected_output": "Advice that grades conversations at capture from now on, runs an end-of-shift log, adjusts day two with concrete triggers, answers the CEO with qualified-conversation counts rather than scans, and schedules a same-day debrief that hands the graded log to follow-up instead of sorting next week.",
+      "files": [],
+      "expectations": [
+        "The response says to grade each conversation at the moment of capture rather than after the show",
+        "The response uses a grade scale such as A/B/C tied to having the problem and an agreed next step",
+        "The response counts only A-grade conversations toward the CEO's answer and reports B-grade as warm interest beside it",
+        "The response introduces an end-of-shift log for day two",
+        "The response suggests reconstructing today's A and B conversations tonight while memory is fresh",
+        "The response answers the CEO with a count of qualified conversations, with scans reported only as activity",
+        "The response gives at least one concrete day-two adjustment tied to what day one showed",
+        "The response moves the debrief to the day the hall closes rather than next week",
+        "The response hands the graded log to an owner for follow-up rather than writing the follow-up sequence itself",
+        "The response includes a record schema with fields such as problem, next step and owner",
+        "The response tells staff to state the purpose of the follow-up aloud before scanning",
+        "The response routes questions the booth could not answer to docs or product in the debrief",
+        "The response compares day one's A count against the daily share of a stated or self-set minimum"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Swag plan for PyCon US (~2,500 attendees): I'm about to order 2,000 unisex t-shirts in M/L/XL with the PyCon logo next to ours. Shirts go to everyone who stops by. We'll also run a raffle at the booth: one $3,000 laptop and two $1,500 monitors, enter by scanning your badge. Good plan?",
+      "expected_output": "A swag policy sizing stock to expected good conversations, checking the event-logo rule, adding inclusive sizes and cuts, gating shirts on a conversation not a scan, and flagging that the draw's total prize value crosses the NY/FL registration trigger based on where entrants live, with entry separated from marketing consent.",
+      "files": [],
+      "expectations": [
+        "The response notes the total prize value of all prizes combined ($6,000) is what triggers state registration, not each prize alone",
+        "The response sizes the earned item to the expected number of good conversations plus a buffer",
+        "The response flags putting the event's logo on sponsor swag as something to check against the event's rules",
+        "The response offers keeping total prize value at or under $5,000 or limiting eligibility as alternatives to registering",
+        "The response recommends fitted as well as straight cuts",
+        "The response makes the shirt an earned item after a real conversation rather than for anyone who stops by",
+        "The response says state registration may apply when New York or Florida residents can enter, and sends the on-site-only case to counsel rather than stating it as settled",
+        "The response names New York or Florida registration (with a bond or filing lead time) for promotions above $5,000 in total prizes",
+        "The response says raffle entry needs a free route and must not require a demo or purchase",
+        "The response says to check whether the event allows draws in the booth",
+        "The response separates draw entry from marketing consent instead of using the badge scan as the entry",
+        "The response tells the team to publish official rules for the draw (eligibility, prize, how the winner is picked)"
+      ]
+    }
+  ],
+  "trigger_queries": [
+    {
+      "query": "we just got a booth at KubeCon NA, who should we send and how do we schedule shifts?",
+      "should_trigger": true
+    },
+    {
+      "query": "first time exhibiting at a developer conference, what should our booth staff actually say to people walking by?",
+      "should_trigger": true
+    },
+    {
+      "query": "how do I qualify leads at our booth at re:Invent so sales doesn't get 400 junk scans",
+      "should_trigger": true
+    },
+    {
+      "query": "what swag should a devtools startup bring to PyCon, and should we gate it behind badge scans?",
+      "should_trigger": true
+    },
+    {
+      "query": "DevOpsDays doesn't allow badge scanning. how do we capture interest at our sponsor table?",
+      "should_trigger": true
+    },
+    {
+      "query": "can you write a staff brief and shift grid for our 3-day booth at GopherCon? 5 people, 2 engineers",
+      "should_trigger": true
+    },
+    {
+      "query": "we want to raffle a Steam Deck at our conference booth, anything we need to watch out for?",
+      "should_trigger": true
+    },
+    {
+      "query": "our booth at the last conference was dead and the staff just stood in a circle, how do we fix that next time?",
+      "should_trigger": true
+    },
+    {
+      "query": "marketing wants 500 badge scans at the expo, is that a sensible target for a developer booth?",
+      "should_trigger": true
+    },
+    {
+      "query": "booth etiquette rules for engineers who've never worked an expo floor",
+      "should_trigger": true
+    },
+    {
+      "query": "We're a 12-person API company exhibiting at a Rust conference next month. What's the playbook for the booth itself?",
+      "should_trigger": true
+    },
+    {
+      "query": "how many people do we need on a 10x10 booth at a developer conference, and for how long each?",
+      "should_trigger": true
+    },
+    {
+      "query": "should we sponsor KubeCon at gold or silver tier next year, or spread the budget across smaller events?",
+      "should_trigger": false
+    },
+    {
+      "query": "design a 5 minute live demo for our booth that won't break on conference wifi",
+      "should_trigger": false
+    },
+    {
+      "query": "write the follow-up email sequence for the 120 people we met at our booth last week",
+      "should_trigger": false
+    },
+    {
+      "query": "plan a VIP dinner for 12 platform engineering leads during KubeCon",
+      "should_trigger": false
+    },
+    {
+      "query": "we're organizing a 400-person conference, how should we lay out the sponsor expo hall and booth tiers?",
+      "should_trigger": false
+    },
+    {
+      "query": "how do we deliver each sponsor's perks on the day of our meetup conference?",
+      "should_trigger": false
+    },
+    {
+      "query": "help me write a CFP for KubeCon about our cost-monitoring operator",
+      "should_trigger": false
+    },
+    {
+      "query": "what's the ROI of our event sponsorships last year and should we renew?",
+      "should_trigger": false
+    },
+    {
+      "query": "we're starting a monthly Go meetup in Lyon, how do we find venues and speakers?",
+      "should_trigger": false
+    },
+    {
+      "query": "plan our field marketing calendar: webinars, trade shows and a user conference for next fiscal year",
+      "should_trigger": false
+    },
+    {
+      "query": "design a hackathon prize track for our SDK at a student hackathon",
+      "should_trigger": false
+    },
+    {
+      "query": "set up badge printing and check-in for our community conference registration desk",
+      "should_trigger": false
+    },
+    {
+      "query": "our CTO and two backend devs are going to work the expo table at JSConf, can you give them a one-page brief?",
+      "should_trigger": true
+    },
+    {
+      "query": "how should we split booth duty between devrel and our account execs at a platform engineering conference?",
+      "should_trigger": true
+    },
+    {
+      "query": "what questions should booth staff ask to tell a real prospect from someone just grabbing stickers?",
+      "should_trigger": true
+    },
+    {
+      "query": "we have a demo station and a counter at our booth, how many people per shift and what does each do?",
+      "should_trigger": true
+    },
+    {
+      "query": "is it ok to scan everyone who takes a t-shirt at our booth? KubeCon says attendees agreed at registration",
+      "should_trigger": true
+    },
+    {
+      "query": "need a booth lead capture template: what fields should my team fill after each conversation?",
+      "should_trigger": true
+    },
+    {
+      "query": "what are typical exhibitor rules at developer conferences we should check before shipping our booth stuff?",
+      "should_trigger": true
+    },
+    {
+      "query": "first day at the booth went badly, almost no good conversations. what do we change for day 2?",
+      "should_trigger": true
+    },
+    {
+      "query": "how do we stop booth staff from huddling on their phones at a conference?",
+      "should_trigger": true
+    },
+    {
+      "query": "we only have one engineer for a 3 day booth, how do we cover the hall hours?",
+      "should_trigger": true
+    },
+    {
+      "query": "planning stickers vs shirts vs one big prize for our booth at DjangoCon, which gives the best return?",
+      "should_trigger": true
+    },
+    {
+      "query": "run a same-day debrief after our booth closes, what should it cover?",
+      "should_trigger": true
+    },
+    {
+      "query": "exhibiting at a volunteer-run conference with a sponsor table, how do we behave so we don't look like a trade show vendor?",
+      "should_trigger": true
+    },
+    {
+      "query": "we're sending interns to staff our booth at a cloud conference, what should they say and not say?",
+      "should_trigger": true
+    },
+    {
+      "query": "how do I run a trade show booth for our B2B HR software at SHRM?",
+      "should_trigger": false
+    },
+    {
+      "query": "build our annual event marketing plan across webinars, trade shows and dinners",
+      "should_trigger": false
+    },
+    {
+      "query": "how should our conference lay out power and wifi for 30 sponsor booths?",
+      "should_trigger": false
+    },
+    {
+      "query": "write the sponsor prospectus and price the booth tiers for our community conference",
+      "should_trigger": false
+    },
+    {
+      "query": "set up a CRM workflow to score and route event leads automatically",
+      "should_trigger": false
+    },
+    {
+      "query": "which developer conferences should we sponsor in Europe next year with 80k euros?",
+      "should_trigger": false
+    },
+    {
+      "query": "design merch for our open source project's online store",
+      "should_trigger": false
+    },
+    {
+      "query": "what perks should our developer champions program give: swag, access or credits?",
+      "should_trigger": false
+    },
+    {
+      "query": "write a LinkedIn post announcing we'll be at booth 412 at re:Invent",
+      "should_trigger": false
+    },
+    {
+      "query": "how do we measure devrel ROI across events, content and community for the board?",
+      "should_trigger": false
+    },
+    {
+      "query": "record a YouTube video walking through our booth demo",
+      "should_trigger": false
+    },
+    {
+      "query": "we organize DevOpsDays in our city; how do we enforce the code of conduct on a sponsor's booth staff?",
+      "should_trigger": false
+    },
+    {
+      "query": "design the hands-on workshop we'll run in the conference's workshop track",
+      "should_trigger": false
+    },
+    {
+      "query": "send the post-conference nurture emails to everyone who opted in at our booth",
+      "should_trigger": false
+    },
+    {
+      "query": "we're giving away 3 raspberry pis to people who star our repo this month, any rules we need?",
+      "should_trigger": false
+    },
+    {
+      "query": "we have a table at the PyCon job fair to hire 6 engineers, who should staff it?",
+      "should_trigger": false
+    },
+    {
+      "query": "we got a virtual booth on the online platform for a remote dev conference, how do we set it up?",
+      "should_trigger": false
+    },
+    {
+      "query": "as DevOpsDays organizers, should we let sponsors scan badges or run raffles?",
+      "should_trigger": false
+    },
+    {
+      "query": "which roles should we bring to our sponsor booth at a Kotlin conference: DA, AE, or engineers?",
+      "should_trigger": true
+    },
+    {
+      "query": "how do we invite our existing users to come meet us at our KubeCon booth and book time?",
+      "should_trigger": true
+    },
+    {
+      "query": "our booth staff keep promising people 'we won't email you', then sales emails them. how should we phrase it?",
+      "should_trigger": true
+    },
+    {
+      "query": "we're only two people working the booth at a 2 day conference, how do we split it?",
+      "should_trigger": true
+    },
+    {
+      "query": "is '50 square feet per staffer' a real rule for sizing our booth crew at GitHub Universe?",
+      "should_trigger": true
+    },
+    {
+      "query": "what does re:Invent allow at a sponsor booth for sound, raffles and lead scanning apps?",
+      "should_trigger": true
+    },
+    {
+      "query": "how many conversations per hour should each person at our booth aim for at PyCon?",
+      "should_trigger": true
+    },
+    {
+      "query": "is the stat that 80% of trade show leads never get followed up real? need it for a board slide",
+      "should_trigger": false
+    },
+    {
+      "query": "write the official rules for our online sweepstakes on our website",
+      "should_trigger": false
+    },
+    {
+      "query": "which conferences should our DevRel team speak at next year?",
+      "should_trigger": false
+    }
+  ]
+}

@@ -1,0 +1,486 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-risk-management",
+  "scenarios": 10,
+  "expectations_total": 124,
+  "expectations_subjective": 0,
+  "expectations_objective": 124,
+  "pass_rate_with_skill_pct": 79.0,
+  "pass_rate_without_skill_pct": 32.3,
+  "delta_pp": 46.7,
+  "uplift_multiplier": 2.45,
+  "trigger_accuracy_pct": 81.0,
+  "trigger_queries": 116,
+  "trigger_positive_fire_rate": 0.845,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": null,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Runs an interview before producing the register, asking one question at a time."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Builds the register by working through a named risk taxonomy rather than brainstorming risks from a blank page."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Anchors impact against non-recoverable committed spend and reputational loss rather than schedule slip, and states that an event's date does not move so schedule risk collapses into a binary go/no-go."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Register rows carry a named owner and a review date, not just a score."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States explicitly that general liability does not cover cancellation, lost revenue, or any of the organizer's own financial loss."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that insurers excluded the communicable-disease peril market-wide from late January 2020, and that it has been available since only as a specifically negotiated endorsement."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Warns that a trigger that never fires in a bad year is worse than no cover, because it was still paid for."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that general liability frequently does not pay attendee medical expenses, which is why participant accident cover complements rather than duplicates it."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Produces the emergency plan as a document separate from the risk register, and says why - it is read under pressure by people, including volunteers, who never saw the register."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Does not rank or prioritise the named scenarios against each other, and states their ordering is set by the venue's own construction, the format and local emergency-services protocol rather than any value-per-effort calculation."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Declines to state whether this clause returns the deposit, and routes the actual clause to counsel."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Says force-majeure protection is only as good as the specific words negotiated in advance, and that the phrase \"force majeure\" alone settles nothing."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Says frustration-of-purpose arguments rarely rescue an organizer where the contract already allocated the risk or contains explicit no-refund language."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends reviewing and updating the named event list as new foreseeable risks emerge, rather than treating it as boilerplate."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Does not assert that the 30k EUR deposit is or is not recoverable."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that likelihood and impact are time-phased, and that a speaker dropout six weeks out is a different risk from the same dropout six months out."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Works the treatment menu for the residual risk - prevention, contingency, impact reduction, transfer, documented acceptance - rather than jumping straight to one action."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the default treatment is prevention, and names the condition that promotes a risk to transfer: residual impact after prevention still exceeding what the organizing entity could absorb."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Explains that non-appearance cover indemnifies revenue and expenses when the event is cancelled or curtailed because of the named individual, not the cost of substituting a speaker."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Promotes the coverage rungs that bind or resolve fast, because of the 10-week hard date."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Compresses register depth rather than recommending deep per-risk treatment, citing the roughly 6 hours a week effort ceiling."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Promotes the durable options - a reusable register and a standing review cadence - because the company runs roughly six of these events a year."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that a ruled-out option left at the bottom of a list silently reappears as scope later."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Says a named-risk list cannot order the work, which is the only question the register exists to answer."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Notes that poor ticket sales or lack of interest is a standard exclusion in event cancellation cover, so insurance does not rescue this scenario."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names organizer discretion - the organizing group deciding not to run the edition with no external trigger - as a legitimate, documented outcome of this call rather than a failure."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "States, before any register content or interview question, that this is not legal or insurance advice."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Routes contract and clause wording (force majeure, cancellation, refund, indemnity) to counsel, and policy wording, limits and exclusions to a licensed broker."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Runs an interview before producing the register, asking one question at a time."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Asks whether the venue contract carries a cancellation-fee schedule and requests its step-up dates and percentages verbatim."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Asks or establishes whether the event is community-run or company-run, and treats Kestrel Data as the company-run pole."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Builds the register by working through a named risk taxonomy rather than brainstorming risks from a blank page."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Register includes organizer financial or payment-processing capability (cannot legally invoice, collect or hold money in time) as its own row."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Register includes structural or commercial defection - exhibitors or sponsors abandoning the format for their own channels - as its own row, distinct from demand shortfall."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Register includes organizer discretion, the organizing group itself deciding not to run the edition with no external trigger, as its own row."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Scores each risk on a 5x5 likelihood x impact matrix producing a score in the 1-25 range."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Anchors impact against non-recoverable committed spend and reputational loss rather than schedule slip, and states that an event's date does not move so schedule risk collapses into a binary go/no-go."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Uses four escalation bands at the boundaries Green 1-4, Yellow 5-9, Orange 10-15, Red 16-25."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Register rows carry a named owner and a review date, not just a score."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that this is not legal or insurance advice before giving any coverage recommendation."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Identifies the event as the community-run pole and says the recommendation assumes that pole."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Says a cancellation policy protects nothing here because there is no non-recoverable committed spend to protect."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States explicitly that general liability does not cover cancellation, lost revenue, or any of the organizer's own financial loss."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names key-organizer loss - the one person holding a critical function becoming unavailable - as a risk that actually bites at this pole."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Frames the main exposure at this pole as organizational rather than financial."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States it is not legal advice and routes the clause itself to counsel."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Treats the 85% pickup requirement on 240 room nights as a second, parallel financial cliff on its own schedule, separate from the cancellation-fee curve."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends the polled go/no-go format in which each area owner votes go or no-go and a single no-go halts the sequence."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names the areas to poll, including registration or ticket pace against break-even, room-block pickup against the attrition threshold, and contractual exposure (which deadlines have already passed)."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that cancelling earlier at a lower step-up can beat waiting for a force-majeure or legal outcome that is never guaranteed."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States it is not insurance advice and that whether any policy responds to a specific loss is a question for the broker reading the actual wording."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends asking explicitly whether the cancellation form includes a communicable-disease buy-back, and what it costs."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that insurers excluded the communicable-disease peril market-wide from late January 2020, and that it has been available since only as a specifically negotiated endorsement."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Instructs recording the disease buy-back decision either way, with its reason, including when it is declined."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "For any parametric structure, says to ask which station measures the index, over which hours, and what the trigger would have paid in prior years."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Warns that a trigger that never fires in a bad year is worse than no cover, because it was still paid for."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends participant accident cover and ties it to the hands-on hardware (soldering bench, drone cage) rather than offering it generically."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that general liability frequently does not pay attendee medical expenses, which is why participant accident cover complements rather than duplicates it."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends the event cancellation rung and ties the recommendation to non-recoverable committed spend as a share of the total budget."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names standard event cancellation exclusions that matter here, including voluntary cancellation and poor ticket sales or lack of interest."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Labels any carrier, premium band or limit mentioned as an illustrative example of a coverage category rather than a quote, a recommendation, or a claim of availability in this jurisdiction."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Produces the emergency plan as a document separate from the risk register, and says why - it is read under pressure by people, including volunteers, who never saw the register."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Covers theft of equipment, naming attendee laptops and event networking or AV gear."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Covers evacuation for any other reason, including who confirms the building is clear."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Does not rank or prioritise the named scenarios against each other, and states their ordering is set by the venue's own construction, the format and local emergency-services protocol rather than any value-per-effort calculation."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires a physical printed copy on site, and says a plan living only in a shared drive fails at exactly the moment power loss, connectivity loss, dead phones or evacuation are what triggered the need for it."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Lists the non-emergency police line, explicitly labelled as distinct from the emergency number."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Lists each lead organizer with the specific hours they will be on-site and reachable, not just a name and a number."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends notifying local emergency services in advance that a large event with many non-local attendees is running."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Declines to state whether this clause returns the deposit, and routes the actual clause to counsel."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Does not draft replacement or additional clause language."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that a clause expressly saying the venue shall refund all payments produced a full deposit refund in one court outcome, while a near-identical fact pattern with a clause silent on deposits denied one."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Says force-majeure protection is only as good as the specific words negotiated in advance, and that the phrase \"force majeure\" alone settles nothing."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Explains that because epidemics, terrorism, labour disputes and hazardous weather are now foreseeable, they must be named in the contract, or a court may find the organizer accepted the risk by not naming them."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Says frustration-of-purpose arguments rarely rescue an organizer where the contract already allocated the risk or contains explicit no-refund language."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends reviewing and updating the named event list as new foreseeable risks emerge, rather than treating it as boilerplate."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Does not assert that the 30k EUR deposit is or is not recoverable."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Re-scores the relevant register rows at today's distance from the event rather than reusing scores set when the register was written."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that likelihood and impact are time-phased, and that a speaker dropout six weeks out is a different risk from the same dropout six months out."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Works the treatment menu for the residual risk - prevention, contingency, impact reduction, transfer, documented acceptance - rather than jumping straight to one action."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the default treatment is prevention, and names the condition that promotes a risk to transfer: residual impact after prevention still exceeding what the organizing entity could absorb."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that non-appearance cover typically must be bound at least 14 days before the event, and cannot be bound now for this edition after the loss."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Says non-appearance cover is only worth buying where a single named person genuinely carries the event's value, and that a balanced multi-track program is not exposed this way."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Flags single-source dependency - one keynote the program was built around - as an amplifier raising the scored impact of this row."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Records the coverage decision and its reason for the next edition rather than treating the question as closed once this edition is handled."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Treats refund exposure and attendee communication as scored impact-reduction steps inside the register rather than as the whole answer."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Does not claim that a specific policy would or would not have paid for this loss."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that this is not insurance advice and routes the \"would it have paid\" question to a licensed broker."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Measures surprise rate - risks that materialised with no corresponding register row - as a named metric."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Maps the unpaid 12k EUR sponsor invoice to a sponsor-withdrawal row covering a signed sponsor that never pays."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Maps the ticketing-platform outage to a registration-platform breach, data-loss or outage row."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Measures owner and review-date coverage - the share of rows carrying both - and states that a row with neither is a note, not a managed risk."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Measures decision-date discipline: whether every internal go/no-go date landed before its contractual fee step-up, and whether each was held rather than skipped."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Measures re-score freshness: whether scores were actually revisited at each decision date."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Measures coverage-decision traceability: whether each declined coverage rung has a recorded reason, findable after the fact."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Identifies \"opened it twice\" as the core failure and binds the re-score to the decision dates so it happens whether or not anyone remembers."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that any pass thresholds it offers are defaults this guidance sets rather than an event-industry benchmark, and invites the team to set its own bar."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Recommends a post-event closing pass run within about a week of doors closing, recording which risks materialised and which of those had no register row."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Says explicitly which stated constraint moved which option in the re-ranked menus, rather than presenting a default ordering unchanged."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Notes that with no external venue contract there is no escalating cancellation-fee curve, so the decision dates must hang on the team's own committed spend and its own limit instead."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Promotes the durable options - a reusable register and a standing review cadence - because the company runs roughly six of these events a year."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Deletes options ruled out by the stated constraints from the plan rather than parking them at the bottom of a list."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that a ruled-out option left at the bottom of a list silently reappears as scope later."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Says a named-risk list cannot order the work, which is the only question the register exists to answer."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names whoever outside the organizing team owns the cancellation decision - the budget holder or the parent organisation - and puts them in the go/no-go call, because this is company-run."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Uses the polled format in which each area owner votes go or no-go and a single no-go halts, given the co-founders are split."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names areas to poll beyond ticket pace, including contractual exposure, payment integrity (whether the team can actually collect and refund), and speaker and sponsor confirmation status."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Notes that poor ticket sales or lack of interest is a standard exclusion in event cancellation cover, so insurance does not rescue this scenario."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Re-scores the demand-shortfall row at today's distance from the event rather than carrying its original score."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names organizer discretion - the organizing group deciding not to run the edition with no external trigger - as a legitimate, documented outcome of this call rather than a failure."
+      }
+    ]
+  }
+}

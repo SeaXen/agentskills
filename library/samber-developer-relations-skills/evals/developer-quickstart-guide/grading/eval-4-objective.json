@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Treats this as a measurement and instrumentation problem rather than an authoring one, and does not produce a rewritten page.",
+        "evidence": "Title: 'activation is a measurement problem, not a copy problem' and 'Don't rewrite the page yet.' No rewritten page is produced anywhere in the response.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Defines the success event and the funnel steps to instrument.",
+        "evidence": "The '## The funnel you're missing' table lists events `docs_page_loaded` through `activated_30d` across 7 stages.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists the drop-off questions the data must answer before any rewrite is commissioned.",
+        "evidence": "'## Drop-off questions to answer, in order' lists six numbered questions.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Instruments step-level drop-off first, because every other page metric falls out of the same events.",
+        "evidence": "'This week: ship events for stages 4-6, plus a query answering the credential/gating question' is listed as the first action, and 'Everything else on this list is a follow-up to whichever stage wins.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ranks support tickets or issues quoting a specific quickstart step above median time-to-success and completion rate.",
+        "evidence": "Section 4 never mentions 'median time-to-success' anywhere; support tickets (#5) cannot be shown ranked above a metric that is absent from the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that median page-load-to-success time and completion rate tie, because both read the same start-and-success event pair and neither localises a defect.",
+        "evidence": "No mention of 'median page-load-to-success time' or a stated 'tie' between it and completion rate appears anywhere in section 4.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Promotes day-7 return of completers above the cheaper metrics, specifically because completion is healthy while activation is flat.",
+        "evidence": "'This is the metric the skill this page follows explicitly promotes above completion rate the moment completion is healthy and activation is flat \u2014 because it's the only cheap signal...'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that day-7 return requires docs and product to share an identity, decided before publishing.",
+        "evidence": "No statement anywhere in section 4 about docs/product needing a shared identity for measuring day-7 return.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Raises the possibility that the chosen success moment itself is the wrong one, since no cheaper metric can establish that.",
+        "evidence": "'Is the documented success moment even the moment product considers \"real\" usage? ... If nobody can state it precisely, that's the actual root cause.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets any KPI target from the page's own baseline measured over roughly four weeks, as a relative improvement, and refuses to import a benchmark number from an outside vendor's blog.",
+        "evidence": "'4 weeks: let the funnel run untouched; four weeks is the default measurement window before committing to a target, per the same baseline-then-relative-improvement rule that applies to every KPI here.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Treats this as a measurement and instrumentation problem rather than an authoring one, and does not produce a rewritten page.",
+        "evidence": "\"Don't touch the hero or the video yet. Instrument the gap between step 71% and day-30 3% first \u2014 that's where the real problem lives, not on the page.\" No rewritten page is produced anywhere.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Defines the success event and the funnel steps to instrument.",
+        "evidence": "\"instrument the funnel between 'finish tutorial' and '30-day activation' into real micro-steps \u2014 installs SDK in own repo, creates real API key, creates a flag outside the tutorial, evaluates that flag from real code, returns for a second session, invites a teammate.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists the drop-off questions the data must answer before any rewrite is commissioned.",
+        "evidence": "\"Find which step the 71% actually collapses at. Without this, any redesign is a guess\"; also \"Ask what they did right after finishing and what stopped them.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Instruments step-level drop-off first, because every other page metric falls out of the same events.",
+        "evidence": "Instrumentation is listed first in the action plan, but the transcript never states the justification that other page metrics derive from the same events.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ranks support tickets or issues quoting a specific quickstart step above median time-to-success and completion rate.",
+        "evidence": "Support tickets are not mentioned anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that median page-load-to-success time and completion rate tie, because both read the same start-and-success event pair and neither localises a defect.",
+        "evidence": "No mention of median time-to-success or this metric-tie reasoning appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Promotes day-7 return of completers above the cheaper metrics, specifically because completion is healthy while activation is flat.",
+        "evidence": "\"Day-7 return\" is never mentioned; the plan instead proposes micro-step funnel instrumentation and interviews.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that day-7 return requires docs and product to share an identity, decided before publishing.",
+        "evidence": "Not discussed anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Raises the possibility that the chosen success moment itself is the wrong one, since no cheaper metric can establish that.",
+        "evidence": "\"Tutorial success is fake success. Sandbox flag, toy example, canned SDK key \u2014 reader never touches own app, own environment, own real flag. 'It worked' and 'I now use this at work' are different actions.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets any KPI target from the page's own baseline measured over roughly four weeks, as a relative improvement, and refuses to import a benchmark number from an outside vendor's blog.",
+        "evidence": "No KPI target-setting methodology or refusal of external benchmarks is discussed anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

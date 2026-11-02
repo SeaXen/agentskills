@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Flags the username 'tinyjson' or the logo avatar as a company or brand account that cannot post, vote or comment",
+        "evidence": "\"A product-named account with a logo looks like a company, and company accounts can't post, vote or comment [PH].\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Tells the user to switch to a personal profile: real full name, own photo, personal bio",
+        "evidence": "\"Use a personal account with your full name, your own photo and a bio.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the one-week account-age rule for posting and that subscribing to Product Hunt's newsletter unlocks posting earlier",
+        "evidence": "\"Posting needs an account at least one week old unless it subscribes to Product Hunt's newsletter [PH].\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives a fit verdict that Product Hunt is a secondary or low-priority channel for a Rust library",
+        "evidence": "\"A zero-copy parser is a backend library with little to look at, and the skill's fit table says to skip those... Treat Hacker News as the main channel.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Points to an engineering aggregator such as Hacker News as the better anchor channel for this library",
+        "evidence": "\"Treat Hacker News as the main channel.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Provides a tagline of 60 characters or fewer",
+        "evidence": "Three taglines at 32, 40, 42 characters.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not write a finished, paste-ready maker comment filled with tinyjson-rs details",
+        "evidence": "\"I can't give you a paste-ready maker comment\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Provides a maker comment skeleton with slots for the user to fill",
+        "evidence": "Seven slots such as \"`<who you are and who built it with you>`\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains the reason: Product Hunt's commenting guidelines ask for no AI-written comments, or the Likely AI badge labels them",
+        "evidence": "\"asks for no LLM-written comments. Anything I wrote would get a public 'Likely AI' badge [PH].\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Suggests a gallery showing a terminal session, code or a benchmark rather than a dashboard mock-up",
+        "evidence": "\"make the first gallery image a benchmark chart or terminal session.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Flags the username 'tinyjson' or the logo avatar as a company or brand account that cannot post, vote or comment",
+        "evidence": "Only says \"a project-named account can look like a brand or a bot\" and \"I can't tell from here whether Product Hunt restricts this\". It does not say such accounts cannot post.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Tells the user to switch to a personal profile: real full name, own photo, personal bio",
+        "evidence": "Suggests only \"switching the display name to your own name, keeping the logo as the product thumbnail\". It gives no photo or bio guidance.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the one-week account-age rule for posting and that subscribing to Product Hunt's newsletter unlocks posting earlier",
+        "evidence": "No mention of an account-age rule or the newsletter unlock.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives a fit verdict that Product Hunt is a secondary or low-priority channel for a Rust library",
+        "evidence": "No channel-fit assessment is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Points to an engineering aggregator such as Hacker News as the better anchor channel for this library",
+        "evidence": "Hacker News and other aggregators are never mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Provides a tagline of 60 characters or fewer",
+        "evidence": "\"Zero-copy JSON parser for Rust: borrow, don't allocate\" is 54 characters, and the alternates are shorter.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not write a finished, paste-ready maker comment filled with tinyjson-rs details",
+        "evidence": "It writes a near-complete comment with project details such as \"MIT licensed and has about 1.2k stars\" and \"zero-copy JSON parser\", under the heading \"Before you paste\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Provides a maker comment skeleton with slots for the user to fill",
+        "evidence": "It has three placeholders (version, benchmark line, repo link) but is otherwise a finished comment, not a skeleton.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains the reason: Product Hunt's commenting guidelines ask for no AI-written comments, or the Likely AI badge labels them",
+        "evidence": "No mention of AI-written comments or the badge.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Suggests a gallery showing a terminal session, code or a benchmark rather than a dashboard mock-up",
+        "evidence": "No gallery advice is given.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

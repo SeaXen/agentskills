@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Restricts the automated sweep to the waiting-on-reporter state only, rather than running it repository-wide",
+        "evidence": "'restricts the sweep to items waiting on the reporter' / `only-issue-labels: 'needs-info'`",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to auto-close items that are waiting on the maintainers, including confirmed bugs, and gives the reason that a bot-closed confirmed bug tells the reporter their evidence was worthless",
+        "evidence": "'a confirmed bug closed by a bot tells the reporter their evidence was worthless.' plus exempt-issue-labels includes 'confirmed'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names an explicit exempt-state list covering at least confirmed or accepted, blocked, security and pinned items",
+        "evidence": "`exempt-issue-labels: 'confirmed,accepted,blocked,security,pinned'`",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the first pass to run in dry-run or debug-only mode with the resulting list read before anything fires",
+        "evidence": "`debug-only: true   # keep true until you've read one full dry-run report`",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a warning comment before any close, with a stated warning-to-close window",
+        "evidence": "`days-before-issue-stale: 30` then `days-before-issue-close: 14` with a `stale-issue-message` posted first.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires every close message to carry its reason and state how to reopen",
+        "evidence": "'Closing since this sat in \"waiting on reporter\" for 44 days with no reply... comment here or link a new issue to this one and it gets another look.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Presents 60 days idle plus 7 days to close as the stale action's own shipped default rather than as a recommendation fitted to this project",
+        "evidence": "The config uses 30/14 days as a fitted 'defensible version', never framed as the tool's built-in default; the '60-day' mention is only critiquing the user's original plan.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites 20 days without a reporter response as a published Kubernetes clock",
+        "evidence": "No mention of Kubernetes anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Anchors each clock to a named waiting party rather than to item age in the abstract",
+        "evidence": "'A confirmed bug, an unlabeled backlog item, or anything waiting on a maintainer is never touched by this job.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that a first live sweep over a backlog reaching back to 2022 can close hundreds of items and produce a notification storm that costs the project contributors",
+        "evidence": "No 'notification storm' or bulk-closure volume warning appears in this section's text.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not propose closing items solely because they are old",
+        "evidence": "'A raw idle-time sweep with no state filter doesn't distinguish...' \u2014 explicitly argues against age-only closing.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the sweep does not substitute for the capacity or intake decision",
+        "evidence": "No explicit statement connecting the sweep to a capacity/intake decision substitution; baseline discussion is framed around choosing sweep shape, not capacity.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not describe reopening by the reporter as sufficient protection against wrongly closed items",
+        "evidence": "'the reopen-if-it-matters assumption is asymmetric in practice: someone who already got silence for years is far less likely to notice a bot closure and come back...'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Restricts the automated sweep to the waiting-on-reporter state only, rather than running it repository-wide",
+        "evidence": "The workflow applies `days-before-issue-stale` to all open issues repo-wide (only `exempt-issue-labels` carve-outs exist), not scoped to a 'needs-info' label.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to auto-close items that are waiting on the maintainers, including confirmed bugs, and gives the reason that a bot-closed confirmed bug tells the reporter their evidence was worthless",
+        "evidence": "`confirmed` is exempted, but the stated reason is \"gets a project called out publicly\" (backlash risk), not that it tells the reporter their evidence was worthless.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names an explicit exempt-state list covering at least confirmed or accepted, blocked, security and pinned items",
+        "evidence": "`exempt-issue-labels: \"security,confirmed,help-wanted,pinned\"` \u2014 has security/confirmed/pinned but no 'blocked'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the first pass to run in dry-run or debug-only mode with the resulting list read before anything fires",
+        "evidence": "\"Run once with debug-only: true first if you want to see the exact list...\" is offered as optional, not required.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a warning comment before any close, with a stated warning-to-close window",
+        "evidence": "`stale-issue-message` posts a warning and `days-before-issue-close: 7` sets the window before `close-issue-message` fires.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires every close message to carry its reason and state how to reopen",
+        "evidence": "`close-issue-message`: \"Closed for inactivity. Reopen (or file a fresh issue with current details) if this is still a real problem.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Presents 60 days idle plus 7 days to close as the stale action's own shipped default rather than as a recommendation fitted to this project",
+        "evidence": "Only the close value is called a default (\"`days-before-issue-close: 7` is GitHub's own 'standard'\"); the 60-day stale value is never explicitly attributed as a shipped default in prose.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites 20 days without a reporter response as a published Kubernetes clock",
+        "evidence": "No mention of Kubernetes or a 20-day figure anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Anchors each clock to a named waiting party rather than to item age in the abstract",
+        "evidence": "The clocks (`days-before-issue-stale`, `days-before-issue-close`) key off generic inactivity/last-update, with no distinct 'waiting on reporter' vs other states named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that a first live sweep over a backlog reaching back to 2022 can close hundreds of items and produce a notification storm that costs the project contributors",
+        "evidence": "Text discusses rate limits and '2022 backlog first' ordering, but never warns of a notification storm costing contributors.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not propose closing items solely because they are old",
+        "evidence": "Closure is keyed to inactivity (`days-before-issue-stale`/`-close`, last-updated), not to issue creation age; `ascending: true` only affects processing order.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the sweep does not substitute for the capacity or intake decision",
+        "evidence": "No statement anywhere that the stale sweep is not a substitute for a capacity/intake decision.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not describe reopening by the reporter as sufficient protection against wrongly closed items",
+        "evidence": "Text explicitly frames reopening as the safety net: \"guts the 'people will reopen if it matters' safety net you're counting on.\"",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

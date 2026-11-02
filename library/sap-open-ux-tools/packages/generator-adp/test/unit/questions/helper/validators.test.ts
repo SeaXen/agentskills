@@ -1,0 +1,386 @@
+import { jest } from '@jest/globals';
+import type { ToolsLogger } from '@sap-ux/logger';
+import type { CfConfig, SystemLookup } from '@sap-ux/adp-tooling';
+
+const mockIsAppStudio = jest.fn<typeof realBtpUtils.isAppStudio>();
+const mockValidateProjectName = jest.fn<typeof realProjectInputValidator.validateProjectName>();
+const mockValidateNamespaceAdp = jest.fn<typeof realProjectInputValidator.validateNamespaceAdp>();
+const mockIsExternalLoginEnabled = jest.fn<typeof realAdpTooling.isExternalLoginEnabled>();
+const mockIsMtaProject = jest.fn<typeof realAdpTooling.isMtaProject>();
+const mockGetMtaServices = jest.fn<typeof realAdpTooling.getMtaServices>();
+const mockExistsSync = jest.fn<typeof realFs.existsSync>();
+
+const realFs = await import('node:fs');
+jest.unstable_mockModule('node:fs', () => ({
+    ...realFs,
+    default: {
+        ...realFs.default,
+        existsSync: mockExistsSync
+    },
+    existsSync: mockExistsSync
+}));
+
+const realProjectInputValidator = await import('@sap-ux/project-input-validator');
+jest.unstable_mockModule('@sap-ux/project-input-validator', () => ({
+    ...realProjectInputValidator,
+    validateProjectName: mockValidateProjectName,
+    validateNamespaceAdp: mockValidateNamespaceAdp
+}));
+
+const realBtpUtils = await import('@sap-ux/btp-utils');
+jest.unstable_mockModule('@sap-ux/btp-utils', () => ({
+    ...realBtpUtils,
+    isAppStudio: mockIsAppStudio
+}));
+
+const realAdpTooling = await import('@sap-ux/adp-tooling');
+jest.unstable_mockModule('@sap-ux/adp-tooling', () => ({
+    ...realAdpTooling,
+    isExternalLoginEnabled: mockIsExternalLoginEnabled,
+    isMtaProject: mockIsMtaProject,
+    getMtaServices: mockGetMtaServices
+}));
+
+const {
+    validateJsonInput,
+    validateExtensibilityExtension,
+    validateEnvironment,
+    validateProjectPath,
+    validateBusinessSolutionName
+} = await import('../../../../src/app/questions/helper/validators.js');
+const { initI18n, t } = await import('../../../../src/utils/i18n.js');
+
+const availableSystem = 'systemA';
+const nonExistingSystem = 'systemB';
+
+const jsonInput = {
+    projectName: 'projectName',
+    targetFolder: 'targetFolder',
+    namespace: 'namespace',
+    system: availableSystem
+};
+
+describe('validateExtensibilityGenerator', () => {
+    beforeAll(async () => {
+        await initI18n();
+    });
+
+    beforeEach(() => {
+        jest.clearAllMocks();
+    });
+
+    it('should return true when user accepts and generator is found', () => {
+        const result = validateExtensibilityExtension({
+            value: true,
+            isApplicationSupported: true,
+            hasSyncViews: true,
+            isExtensibilityExtInstalled: true
+        });
+
+        expect(result).toBe(true);
+    });
+
+    it('should return error message when user accepts but generator is not found', () => {
+        const result = validateExtensibilityExtension({
+            value: true,
+            isApplicationSupported: true,
+            hasSyncViews: true,
+            isExtensibilityExtInstalled: false
+        });
+
+        expect(result).toBe(t('error.extensibilityExtensionNotFound'));
+    });
+
+    it('should return true when user declines and app is supported and has sync views', () => {
+        const result = validateExtensibilityExtension({
+            value: false,
+            isApplicationSupported: true,
+            hasSyncViews: true,
+            isExtensibilityExtInstalled: true
+        });
+        expect(result).toBe(true);
+    });
+
+    it('should return prompt label when user declines and app is unsupported', () => {
+        const result = validateExtensibilityExtension({
+            value: false,
+            isApplicationSupported: false,
+            hasSyncViews: true,
+            isExtensibilityExtInstalled: true
+        });
+
+        expect(result).toBe(t('prompts.createExtProjectContinueLabel'));
+    });
+
+    it('should return prompt label when user declines and no sync views exist', () => {
+        const result = validateExtensibilityExtension({
+            value: false,
+            isApplicationSupported: true,
+            hasSyncViews: false,
+            isExtensibilityExtInstalled: true
+        });
+
+        expect(result).toBe(t('prompts.createExtProjectContinueLabel'));
+    });
+
+    it('should return prompt label when user declines and both app unsupported and no sync views', () => {
+        const result = validateExtensibilityExtension({
+            value: false,
+            isApplicationSupported: false,
+            hasSyncViews: false,
+            isExtensibilityExtInstalled: true
+        });
+
+        expect(result).toBe(t('prompts.createExtProjectContinueLabel'));
+    });
+});
+
+describe('validateJsonInput', () => {
+    let systemLookup: jest.Mocked<SystemLookup>;
+
+    beforeEach(() => {
+        systemLookup = {
+            getSystemByName: jest.fn((name: string) =>
+                Promise.resolve(name === availableSystem ? { Name: availableSystem } : undefined)
+            )
+        } as unknown as jest.Mocked<SystemLookup>;
+    });
+
+    afterEach(() => {
+        jest.clearAllMocks();
+    });
+
+    it('should resolve the returned promise when all data is valid', async () => {
+        mockValidateProjectName.mockReturnValue(true);
+        mockValidateNamespaceAdp.mockReturnValue(true);
+        await expect(validateJsonInput(systemLookup, true, jsonInput)).resolves.not.toThrow();
+        expect(systemLookup.getSystemByName).toHaveBeenCalledWith(availableSystem);
+    });
+
+    it('should throw an error when the project name is NOT valid', async () => {
+        const invalidProjectNameMessage = 'invalid project name';
+        mockValidateProjectName.mockReturnValue(invalidProjectNameMessage);
+        mockValidateNamespaceAdp.mockReturnValue(true);
+        await expect(validateJsonInput(systemLookup, true, jsonInput)).rejects.toThrow(invalidProjectNameMessage);
+        expect(systemLookup.getSystemByName).not.toHaveBeenCalled();
+    });
+
+    it('should throw an error when the namespace is NOT valid', async () => {
+        const invalidNamespaceMessage = 'invalid namespace';
+        mockValidateNamespaceAdp.mockReturnValue(invalidNamespaceMessage);
+        mockValidateProjectName.mockReturnValue(true);
+        await expect(validateJsonInput(systemLookup, true, jsonInput)).rejects.toThrow(invalidNamespaceMessage);
+        expect(systemLookup.getSystemByName).not.toHaveBeenCalled();
+    });
+
+    it('should throw an error when the system is NOT found', async () => {
+        mockValidateNamespaceAdp.mockReturnValue(true);
+        mockValidateProjectName.mockReturnValue(true);
+        await expect(
+            validateJsonInput(systemLookup, true, { ...jsonInput, system: nonExistingSystem })
+        ).rejects.toThrow(t('error.systemNotFound', { system: nonExistingSystem }));
+        expect(systemLookup.getSystemByName).toHaveBeenCalledWith(nonExistingSystem);
+    });
+});
+
+describe('validateEnvironment', () => {
+    const mockCfConfig: CfConfig = {
+        url: '/test',
+        org: { Name: 'test-org', GUID: 'org-guid' },
+        space: { Name: 'test-space', GUID: 'space-guid' },
+        token: 'test-token'
+    };
+
+    beforeAll(async () => {
+        await initI18n();
+    });
+
+    beforeEach(() => {
+        jest.clearAllMocks();
+    });
+
+    test('should return true for ABAP environment', async () => {
+        const result = await validateEnvironment('ABAP', false);
+        expect(result).toBe(true);
+    });
+
+    test('should return true for CF when logged in with org and space', async () => {
+        mockIsAppStudio.mockReturnValue(false);
+        mockIsExternalLoginEnabled.mockResolvedValue(true);
+
+        const result = await validateEnvironment('CF', true, mockCfConfig);
+        expect(result).toBe(true);
+    });
+
+    test('should return error when CF selected but not logged in', async () => {
+        const result = await validateEnvironment('CF', false);
+        expect(result).toBe(t('error.cfNotLoggedIn'));
+    });
+
+    test('should return true for CF when logged in and in AppStudio', async () => {
+        mockIsAppStudio.mockReturnValue(true);
+
+        const result = await validateEnvironment('CF', true, mockCfConfig);
+        expect(result).toBe(true);
+    });
+
+    test('should check external login when CF selected and not in AppStudio', async () => {
+        mockIsAppStudio.mockReturnValue(false);
+        mockIsExternalLoginEnabled.mockResolvedValue(true);
+
+        const result = await validateEnvironment('CF', true, mockCfConfig);
+        expect(result).toBe(true);
+    });
+
+    test('should return error when CF selected, logged in, but org is missing', async () => {
+        const configWithoutOrg = { ...mockCfConfig, org: undefined } as unknown as CfConfig;
+        const result = await validateEnvironment('CF', true, configWithoutOrg);
+        expect(result).toBe(t('error.cfOrgSpaceMissing'));
+    });
+
+    test('should return error when CF selected, logged in, but space is missing', async () => {
+        const configWithoutSpace = { ...mockCfConfig, space: undefined } as unknown as CfConfig;
+        const result = await validateEnvironment('CF', true, configWithoutSpace);
+        expect(result).toBe(t('error.cfOrgSpaceMissing'));
+    });
+
+    test('should return error when CF selected, logged in, but org name is empty', async () => {
+        const configWithEmptyOrg = { ...mockCfConfig, org: { Name: '', GUID: 'org-guid' } };
+        const result = await validateEnvironment('CF', true, configWithEmptyOrg);
+        expect(result).toBe(t('error.cfOrgSpaceMissing'));
+    });
+});
+
+describe('validateProjectPath', () => {
+    const mockLogger = {
+        error: jest.fn()
+    } as unknown as ToolsLogger;
+
+    beforeAll(async () => {
+        await initI18n();
+    });
+
+    beforeEach(() => {
+        jest.clearAllMocks();
+    });
+
+    test('should return true for valid project path', async () => {
+        mockExistsSync.mockReturnValue(true);
+        mockIsMtaProject.mockReturnValue(true);
+        mockGetMtaServices.mockResolvedValue(['service1', 'service2']);
+
+        const result = await validateProjectPath('/test/project', mockLogger);
+        expect(result).toBe(true);
+    });
+
+    test('should return error for empty string', async () => {
+        const result = await validateProjectPath('', mockLogger);
+        expect(result).toBe('The input cannot be empty.');
+    });
+
+    test('should return error when project does not exist', async () => {
+        mockExistsSync.mockReturnValue(false);
+
+        const result = await validateProjectPath('/nonexistent/project', mockLogger);
+        expect(result).toBe(t('error.projectDoesNotExist'));
+    });
+
+    test('should return error when not an MTA project', async () => {
+        mockExistsSync.mockReturnValue(true);
+        mockIsMtaProject.mockReturnValue(false);
+
+        const result = await validateProjectPath('/test/project', mockLogger);
+        expect(result).toBe(t('error.projectDoesNotExistMta'));
+    });
+
+    test('should return error when no services found', async () => {
+        mockExistsSync.mockReturnValue(true);
+        mockIsMtaProject.mockReturnValue(true);
+        mockGetMtaServices.mockResolvedValue([]);
+
+        const result = await validateProjectPath('/test/project', mockLogger);
+        expect(result).toBe(t('error.noAdaptableBusinessServiceFoundInMta'));
+    });
+
+    test('should return error when getMtaServices throws exception', async () => {
+        mockExistsSync.mockReturnValue(true);
+        mockIsMtaProject.mockReturnValue(true);
+        mockGetMtaServices.mockRejectedValue(new Error('Service error'));
+
+        const result = await validateProjectPath('/test/project', mockLogger);
+        expect(result).toBe(t('error.noAdaptableBusinessServiceFoundInMta'));
+        expect(mockLogger.error).toHaveBeenCalledWith('Failed to get MTA services: Service error');
+    });
+});
+
+describe('validateBusinessSolutionName', () => {
+    beforeAll(async () => {
+        await initI18n();
+    });
+
+    beforeEach(() => {
+        jest.clearAllMocks();
+    });
+
+    test('should return true for valid name with dot separator', () => {
+        const result = validateBusinessSolutionName('test.solution');
+        expect(result).toBe(true);
+    });
+
+    test('should return true for multi-segment name', () => {
+        const result = validateBusinessSolutionName('com.sap.test');
+        expect(result).toBe(true);
+    });
+
+    test('should return true for single segment name', () => {
+        const result = validateBusinessSolutionName('test');
+        expect(result).toBe(true);
+    });
+
+    test('should return true for name with underscores', () => {
+        const result = validateBusinessSolutionName('my_solution');
+        expect(result).toBe(true);
+    });
+
+    test('should return true for name with hyphens', () => {
+        const result = validateBusinessSolutionName('my-solution');
+        expect(result).toBe(true);
+    });
+
+    test('should return true for name with mixed valid characters', () => {
+        const result = validateBusinessSolutionName('my-app_v2.config');
+        expect(result).toBe(true);
+    });
+
+    test('should return error for empty string', () => {
+        const result = validateBusinessSolutionName('');
+        expect(result).toBe('The input cannot be empty.');
+    });
+
+    test('should return error for name with spaces', () => {
+        const result = validateBusinessSolutionName('test solution');
+        expect(result).toBe(t('error.businessSolutionNameInvalid'));
+    });
+
+    test('should return error for name with special characters', () => {
+        const result = validateBusinessSolutionName('test.sol@tion');
+        expect(result).toBe(t('error.businessSolutionNameInvalid'));
+    });
+
+    test('should return error for name with uppercase letters', () => {
+        const result = validateBusinessSolutionName('Test.Solution');
+        expect(result).toBe(t('error.businessSolutionNameInvalid'));
+    });
+
+    test('should return error for name with only dots and special chars', () => {
+        const result = validateBusinessSolutionName('..._');
+        expect(result).toBe(t('error.businessSolutionNameInvalid'));
+    });
+
+    test('should return error for name wich starts with special character', () => {
+        let result = validateBusinessSolutionName('_abc');
+        expect(result).toBe(t('error.businessSolutionNameInvalid'));
+        result = validateBusinessSolutionName('.abc');
+        expect(result).toBe(t('error.businessSolutionNameInvalid'));
+    });
+});

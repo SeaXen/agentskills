@@ -1,0 +1,584 @@
+# Change Log
+
+## 6.0.2
+
+### Patch Changes
+
+#### Release Date
+
+2026-10-28
+
+#### Dependency Updates
+
+- Upgrade jest-environment-jsdom ^29.7.0 → 30.5.2 [[1510874](https://github.com/SAP/open-ux-tools/commit/1510874113644504b53d073aa7b3695effea8178)]
+
+## 6.0.1
+
+### Patch Changes
+
+#### Dependency Updates
+
+- Bulk upgrade of minor dependencies and devDependencies [[5ce779c](https://github.com/SAP/open-ux-tools/commit/5ce779c43ae81d9a4ed85414bfb6f0ca8f882afc)]
+
+## 6.0.0
+
+_Released: 2026-05-30T20:54:07Z_
+
+### Major Changes
+
+- 32609a7: # Migration to ECMAScript Modules (ESM)
+
+    Packages in the SAP Open UX Tools monorepo have been migrated from CommonJS (CJS) to ECMAScript Modules (ESM) with NodeNext module resolution.
+
+    '@sap-ux/backend-proxy-middleware-cf' is experimental and will remain at major version 0.
+    '@sap-ux/generator-odata-downloader' is a top level yeoman generator and will remain as CJS until validation as ESM is done.
+
+    ## What Changed
+    - **Module System**: Most packages now use native ESM (`"type": "module"` in package.json)
+    - **TypeScript Configuration**: Updated to `module: "NodeNext"` and `moduleResolution: "NodeNext"`
+    - **Import Statements**: All relative imports now include explicit `.js` extensions (per ESM spec)
+    - **Build Output**: Generated JavaScript files are now ESM modules
+    - **Node.js Requirement**: Minimum Node.js version remains >=22.x
+
+    ### Jest Configuration (for Testing)
+
+    If your project tests code that imports these packages, update your Jest configuration:
+
+    ```js
+    export default {
+        extensionsToTreatAsEsm: ['.ts'],
+        transform: {
+            '^.+\\.ts$': ['ts-jest', { useESM: true }]
+        }
+    };
+    ```
+
+    And run Jest with: `NODE_OPTIONS='--experimental-vm-modules' jest`
+
+## 5.4.1
+
+_Released: 2026-05-29T15:48:29Z_
+
+### Patch Changes
+
+- 1b19ed5: Bump jsdom environment
+
+## 5.4.0
+
+_Released: 2026-05-15T08:12:20Z_
+
+### Minor Changes
+
+- 72695e5: chore: drop Node 20 support as it is no longer maintained
+
+## 5.3.21
+
+_Released: 2026-05-14T11:45:51Z_
+
+### Patch Changes
+
+- 50a8ba5: chore: fresh release after workflow updates
+
+## 5.3.20
+
+_Released: 2026-03-30T22:24:11Z_
+
+### Patch Changes
+
+- c53a4ba: chore(jest-environment-ui5): upgrade tsconfig-paths 3.x → 4.x; pin jest-environment-jsdom to ^29.7.0 for UI5 Core compatibility
+
+## 5.3.19
+
+_Released: 2026-03-05T12:30:25Z_
+
+### Patch Changes
+
+- 83ca0e9: fix(deps): update dependency cross-env to v10
+
+## 5.3.18
+
+_Released: 2026-03-02T19:30:12Z_
+
+### Patch Changes
+
+- 8017bd3: updates for minimatch
+
+    #37169
+
+## 5.3.17
+
+_Released: 2026-02-19T22:23:51Z_
+
+### Patch Changes
+
+- 88c68c9: fix(deps): update dependency @ui5/cli to v4.0.44
+
+## 5.3.16
+
+_Released: 2026-02-10T21:03:43Z_
+
+### Patch Changes
+
+- 3795bb2: Add Node.js engine requirement (>=20.x)
+
+## 5.3.15
+
+_Released: 2026-01-09T11:35:48Z_
+
+### Patch Changes
+
+- e111d0d: fix sonar issues
+
+## 5.3.14
+
+_Released: 2025-12-18T21:05:02Z_
+
+### Patch Changes
+
+- a9471d0: fix sonar issues
+
+## 5.3.13
+
+_Released: 2025-12-15T10:50:50Z_
+
+### Patch Changes
+
+- 4ecfbe2: Chore - upgrade eslint devDependenies, convert to flat config and fix lint issues.
+
+## 5.3.12
+
+_Released: 2025-11-12T16:47:06Z_
+
+### Patch Changes
+
+- 744fa93: Updating @ui5/cli references to v4 and align version
+
+## 5.3.11
+
+_Released: 2025-11-05T06:53:42Z_
+
+### Patch Changes
+
+- cfe9c13: Add deep link to package and changelog to README.md
+
+## 5.3.10
+
+_Released: 2025-08-28T13:37:07Z_
+
+### Patch Changes
+
+- 4cfebaf: Update axios module
+
+## 5.3.9
+
+_Released: 2025-08-22T10:10:41Z_
+
+### Patch Changes
+
+- cefd15e: We improved the support the ui5 legacy free
+
+## 5.3.8
+
+_Released: 2025-07-30T06:34:41Z_
+
+### Patch Changes
+
+- 4a4e0c9: We now ignore `module` type dependency during the jest environment processing
+
+## 5.3.7
+
+_Released: 2025-01-28T15:13:21Z_
+
+### Patch Changes
+
+- 642d507: Fix the canvas dependency issue
+
+## 5.3.6
+
+_Released: 2025-01-24T10:35:19Z_
+
+### Patch Changes
+
+- 754a4e6: feat: add the possibility to refer to external services, and load application CSS for further component testing using mockserver
+
+## 5.3.5
+
+_Released: 2025-01-08T14:39:24Z_
+
+### Patch Changes
+
+- 264458a: Do not reassign global.navigator
+
+## 5.3.4
+
+_Released: 2024-12-11T14:54:19Z_
+
+### Patch Changes
+
+- 01c5695: Fix an issue when running the test multiple times
+
+## 5.3.3
+
+_Released: 2024-12-06T10:22:57Z_
+
+### Patch Changes
+
+- a0f9244: fix: impossible snapshots due to version
+
+## 5.3.2
+
+_Released: 2024-12-06T08:51:59Z_
+
+### Patch Changes
+
+- 9a80888: We now properly generate a sap-ui-version.json for ui5 mapping strategy
+
+## 5.3.1
+
+_Released: 2024-11-28T15:00:20Z_
+
+### Patch Changes
+
+- 615f100: First public release
+
+## 5.3.0 - This version and all version below are only SAP Internal
+
+### Minor Changes
+
+- b302679: Support UI5 tooling 4.x
+
+## 5.2.2
+
+### Patch Changes
+
+- 7c837cf: be smarter for crossroads
+
+## 5.2.1
+
+### Patch Changes
+
+- 3eb97b4: Force load gregorian calendar
+
+## 5.2.0
+
+### Minor Changes
+
+- 131997d: Ui5 2.0 changes
+
+## 5.1.0
+
+### Minor Changes
+
+- 838ef9e: chore: update dependencies
+
+## 5.0.5
+
+### Patch Changes
+
+- 3f57bef: Change the global namespace where methods are provided
+
+## 5.0.4
+
+### Patch Changes
+
+- 2cbf957: Fix the use debug sources option
+
+## 5.0.3
+
+### Patch Changes
+
+- b680941: Fix ui5-2.0 support
+
+## 5.0.2
+
+### Patch Changes
+
+- 589ebd6: chore: eslint, prettier fixes
+
+## 5.0.1
+
+### Patch Changes
+
+- a7202f0: Add back support for moduleNameMapper
+
+## 5.0.0
+
+### Major Changes
+
+- 0a3a2bf: Support for ui5 2.0
+
+### Patch Changes
+
+- a34f221: Some adjustments for ui5 2.0
+
+## 4.1.1
+
+### Patch Changes
+
+- a899fc2: Ensure that ui5 mapping strategy works with TS projexts
+
+## 3.2.0
+
+### Minor Changes
+
+- 53eed63: Remove String.prototype.replaceAll shim
+
+## 3.1.0
+
+### Minor Changes
+
+- d1483aa: Update ui5-tooling to v3
+
+## 3.0.3
+
+### Patch Changes
+
+- b8a2ea2: Improve support for MS Windows
+
+## 3.0.2
+
+### Patch Changes
+
+- 5da3de8: Fix issue on windows
+
+## 3.0.1
+
+### Patch Changes
+
+- 3a1f6fd: Information regarding using slash based resource is now a debug info
+
+## 3.0.0
+
+### Major Changes
+
+- fe998ce: Change the way we deal with ui5
+
+## 2.3.25
+
+### Patch Changes
+
+- Remove ui5autoloader shim
+
+## 2.3.24
+
+### Patch Changes
+
+- Bump
+
+## 2.3.23
+
+### Patch Changes
+
+- Update ui5loader
+
+## 2.3.22
+
+### Patch Changes
+
+- Enable test helper function to annotate a test
+
+## 2.3.21
+
+### Patch Changes
+
+- Update the autoloader shim
+
+## 2.3.20
+
+### Patch Changes
+
+- added jest test reference format validation
+
+## 2.3.19
+
+### Patch Changes
+
+- bb728a4: references are now correctly stored during parallel execution
+
+## 2.3.18
+
+### Patch Changes
+
+- Improve the mapping resolution algorithm when dealing with third parties
+
+## 2.3.17
+
+### Patch Changes
+
+- Bumping the root is needed
+
+## 2.3.16
+
+### Patch Changes
+
+- jquery is being overriden internally into a weird mixed object
+
+## 2.3.15
+
+### Patch Changes
+
+- Adjust to the ui5 changes for autoloader
+
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## [2.3.14] (2023-03-15)
+
+### Bug Fixes
+
+- better test for references ([46e284f])
+- references are not stored correctly ([827c5cd])
+
+## [2.3.13] (2023-03-14)
+
+**Note:** Version bump only for package @sap-ux/jest-environment-ui5
+
+## [2.3.12] (2023-03-14)
+
+**Note:** Version bump only for package @sap-ux/jest-environment-ui5
+
+## [2.3.11] (2022-09-26)
+
+**Note:** Version bump only for package @sap-ux/jest-environment-ui5
+
+## [2.3.10] (2022-08-03)
+
+**Note:** Version bump only for package @sap-ux/jest-environment-ui5
+
+## [2.3.9] (2022-08-01)
+
+**Note:** Version bump only for package @sap-ux/jest-environment-ui5
+
+## [2.3.8] (2022-08-01)
+
+**Note:** Version bump only for package @sap-ux/jest-environment-ui5
+
+## [2.3.7] (2022-07-27)
+
+**Note:** Version bump only for package @sap-ux/jest-environment-ui5
+
+## [2.3.6] (2022-07-27)
+
+**Note:** Version bump only for package @sap-ux/jest-environment-ui5
+
+## [2.3.5] (2022-07-27)
+
+**Note:** Version bump only for package @sap-ux/jest-environment-ui5
+
+## [2.3.4] (2022-07-27)
+
+**Note:** Version bump only for package @sap-ux/jest-environment-ui5
+
+## [2.3.4] (2022-07-22)
+
+### Bug Fixes
+
+- Fixing the canvas error on startup
+
+## [2.3.3] (2022-07-13)
+
+### Bug Fixes
+
+- allow inline definition of file ([aab430e])
+- mock sap.viz ([45cc9d1])
+- proper support for jest.mock ([803c012])
+- proper support for jest.mock 2 ([5e286b5])
+- timezone cldr ([ff87bff])
+
+## [2.3.2] (2022-07-12)
+
+### Bug Fixes
+
+- allow inline definition of file ([aab430e])
+- mock sap.viz ([45cc9d1])
+- proper support for jest.mock ([803c012])
+- proper support for jest.mock 2 ([5e286b5])
+- timezone cldr ([ff87bff])
+
+## [2.3.1] (2022-07-06)
+
+### Bug Fixes
+
+- allow inline definition of file ([aab430e])
+- mock sap.viz ([45cc9d1])
+- proper support for jest.mock ([803c012])
+- proper support for jest.mock 2 ([5e286b5])
+- timezone cldr ([ff87bff])
+
+# [2.3.0] (2022-06-27)
+
+### Bug Fixes
+
+- allow inline definition of file ([aab430e])
+- mock sap.viz ([45cc9d1])
+- proper support for jest.mock ([803c012])
+- proper support for jest.mock 2 ([5e286b5])
+- timezone cldr ([ff87bff])
+
+# [2.2.0] (2022-06-27)
+
+### Bug Fixes
+
+- allow inline definition of file ([aab430e])
+- mock sap.viz ([45cc9d1])
+- proper support for jest.mock ([803c012])
+- proper support for jest.mock 2 ([5e286b5])
+- timezone cldr ([ff87bff])
+
+## [2.1.3] (2022-06-22)
+
+### Bug Fixes
+
+- allow inline definition of file ([aab430e])
+- mock sap.viz ([45cc9d1])
+- proper support for jest.mock ([803c012])
+- proper support for jest.mock 2 ([5e286b5])
+- timezone cldr ([ff87bff])
+
+## [2.1.2] (2022-06-22)
+
+### Bug Fixes
+
+- allow inline definition of file ([aab430e])
+- mock sap.viz ([45cc9d1])
+- proper support for jest.mock ([803c012])
+- proper support for jest.mock 2 ([5e286b5])
+- timezone cldr ([ff87bff])
+
+## [2.1.1] (2022-05-30)
+
+### Bug Fixes
+
+- mock sap.viz ([45cc9d1])
+- proper support for jest.mock ([803c012])
+- timezone cldr ([ff87bff])
+
+# [2.1.0] (2022-05-30)
+
+### Bug Fixes
+
+- mock sap.viz ([45cc9d1])
+- proper support for jest.mock ([803c012])
+- timezone cldr ([ff87bff])
+
+## [2.0.9] (2022-05-05)
+
+### Bug Fixes
+
+- timezone cldr ([ff87bff])
+
+## [2.0.8] (2022-05-04)
+
+**Note:** Version bump only for package @sap-ux/jest-environment-ui5
+
+## [2.0.5] (2022-02-17)
+
+**Note:** Version bump only for package @sap-ux/jest-environment-ui5
+
+## [2.0.4] (2022-02-15)
+
+**Note:** Version bump only for package @sap-ux/jest-environment-ui5
+
+## [0.0.1] (2022-02-15)
+
+**Note:** Version bump only for package @sap-ux/jest-environment-ui5

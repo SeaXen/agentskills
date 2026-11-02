@@ -1,0 +1,214 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "dev-event-hiring",
+  "scenarios": 7,
+  "expectations_total": 55,
+  "expectations_subjective": 3,
+  "expectations_objective": 52,
+  "pass_rate_with_skill_pct": 85.5,
+  "pass_rate_without_skill_pct": 38.2,
+  "delta_pp": 47.3,
+  "uplift_multiplier": 2.24,
+  "trigger_accuracy_pct": 72.0,
+  "trigger_queries": 50,
+  "trigger_positive_fire_rate": 0.8,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Anchors the offer band to Glassdoor's tech-industry cut, on the grounds the hire is in-house at a tech company."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that Information Technology is the highest-paying industry for the event titles sourced (the tech-industry premium)."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Carries Glassdoor's Event Marketing Manager figures: roughly $100,135 national average versus roughly $175,690 IT median total pay, identified as the widest tech premium of any event title."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Any job description drafted reshapes the role as coordinator/manager-shaped rather than the requested community-manager shape."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The reporting line named for the role is the volunteer board or standing committee."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Does not cite a named pre-existing 'pit-trap'-style taxonomy for event-organizing hiring; any pattern names are presented as transposed from DevRel's documented framework, not as an event-industry standard."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Fits the six-interviewer-hour ceiling by deleting whole loop stages, not by keeping every stage in compressed form."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The scorecard reflects the in-house context by including cross-functional fluency (sales, marketing, product)."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Refuses to give one blended market-rate number and instead attributes every figure to a named source (PCMA, BLS, or Glassdoor)."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Anchors the offer band to Glassdoor's tech-industry cut, on the grounds the hire is in-house at a tech company."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that Information Technology is the highest-paying industry for the event titles sourced (the tech-industry premium)."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Carries Glassdoor's Event Marketing Manager figures: roughly $100,135 national average versus roughly $175,690 IT median total pay, identified as the widest tech premium of any event title."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The New York geographic cut (Event Manager average about $91,303, roughly 8% above the national average) is presented as a separate data point, not merged into the anchor."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States explicitly which single source the recommended band is anchored to and why."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Flags that 450 attendees and a \u20ac38,000 budget sit below the threshold where a first paid role typically appears (roughly low-thousands of attendees or a six-figure budget)."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Raises whether to hire at all as the real open question and routes that decision to team-structure/org-design guidance (event-team-structure) instead of proceeding silently."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that the first paid hire at a volunteer-community-run event is consistently an event coordinator/manager, never a community-manager role first."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes that program and community leadership typically stay volunteer even after the first paid hire."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Declines to present PCMA, BLS, or Glassdoor figures as representative pay for this context, stating no sourced compensation bands exist for a first paid hire at a volunteer-community-run event."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Does not invent a salary band or quote an unsourced market rate for the role."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Any job description drafted reshapes the role as coordinator/manager-shaped rather than the requested community-manager shape."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The reporting line named for the role is the volunteer board or standing committee."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Portfolio and past-events review is the first stage."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Includes a concrete-metrics request (attendee satisfaction, on-budget percentage, repeat-client or repeat-attendee rate) scored on whether the candidate volunteers figures unprompted."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Rejects the unpaid take-home production plan for a fictional client conference, replacing it with a live scored scenario walkthrough."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Rejects written reference letters in favor of live reference calls with past clients or stakeholders."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Fits the six-interviewer-hour ceiling by deleting whole loop stages, not by keeping every stage in compressed form."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that no single fully-documented tech-conference-specific hiring loop exists published anywhere and presents the design as assembled."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Specifies independent per-interviewer scoring with a written evidence note before any debrief, combined mechanically against pre-set competency weights."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The scorecard and loop are built on CMX's five competencies: growth mindset, data-driven approach, empathy, leadership, communication."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Includes the conflict question - what the candidate does when the community wants one thing and their boss wants another - scored for a concrete answer over a diplomatic non-answer."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The data-driven competency is scored on whether the candidate volunteers results and metrics unprompted when describing past projects."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Communication is assessed through the depth and quality of follow-up conversation, not a single scripted question."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Scorecard outcomes are measurable and specific; no vague 'run great events'-style responsibility appears."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The scorecard reflects the in-house context by including cross-functional fluency (sales, marketing, product)."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "If wider sourcing channels are listed, they are named general event-industry boards (PCMA Career Center, MPI Career Center, BizBash, MeetingJobs/Cadre, Event Careers), not generic tech job boards."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that no dev/tech-conference-specific job board exists rather than inventing one."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that the standing for-profit conference business context has no sourced hiring bar and flags the calibration as unverified."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The agency-model analogy (dedicated full-time specialized functions) is presented explicitly as a hypothesis, not a confirmed pattern."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Does not present PCMA, BLS, or Glassdoor figures as representative compensation for this context; states no compensation data exists for it."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recognizes the user as a job-hunting candidate, not an employer, and says so briefly."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Routes them to the candidate-side career skill (dev-event-career) for interview preparation."
+      }
+    ]
+  }
+}

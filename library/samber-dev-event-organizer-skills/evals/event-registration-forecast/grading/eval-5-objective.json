@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The request for one number is declined; a low / mid / high band net of comps is delivered",
+        "evidence": "Only 'about 700' point guess; 'it gives no band, only a point guess'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The budget tier to lock is the one the low end funds; the mid is explicitly not used to pick the tier",
+        "evidence": "'Pick the tier from the low end, never the mid'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The cancel question is not answered here; the go/no-go review is routed to event-risk-management with the 380 threshold, the band at the review date, and which end clears it",
+        "evidence": "'escalate to a go/no-go poll through event-risk-management'; 380 threshold",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The 380 threshold is stated as fixed before the reading at the review, not adjusted to the reading",
+        "evidence": "'Fix the threshold before the meeting'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The venue cancellation-fee step is not committed via the newsvendor rule; the go/no-go poll decides it",
+        "evidence": "'Cancel only on the band, and the poll decides'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "A miss on the registration criterion alone is described as an input to the poll, not a cancellation",
+        "evidence": "'A miss on registrations alone is an input to that poll'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Go/no-go escalation is promoted only if the mid misses 380 at the review preceding the 30-day fee step; otherwise the default response is a push brief",
+        "evidence": "Mid rule given, but push brief default is not stated",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The badge print commit is taken from high-end registrations plus the 75 comps, with the reason that running short costs more",
+        "evidence": "'Print to the high-end registrations plus 75 comps'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Every commit figure in the lock-date table carries its band end and a written reason",
+        "evidence": "No lock-date table",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The demand question (whether the event is wanted) is routed to event-market-fit, not answered",
+        "evidence": "'Whether the concept lacks demand is event-market-fit's call'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Last edition's export is the default reference, with the pooled generic curve run as a second reference",
+        "evidence": "Command has --reference last-edition.csv and the pooled curve",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "An expected on-hand registration range at the 32-day board date is declared now, before that reading",
+        "evidence": "Gives 'about 370 on hand' point for the pooled curve only",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The script is run with --threshold 380 and --checkpoint entries for the board date and the badge lock",
+        "evidence": "'--threshold 380 --checkpoint board:32 --checkpoint badges:12'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Each commit is labelled provisional, with a re-run on the lock date itself",
+        "evidence": "'Re-run the forecast on the lock date... Any number now is provisional'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The request for one number is declined; a low / mid / high band net of comps is delivered",
+        "evidence": "No band computed: \"the final number is not computed\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The budget tier to lock is the one the low end funds; the mid is explicitly not used to pick the tier",
+        "evidence": "\"lock the highest tier whose threshold sits below the low end of the range, not the point forecast.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The cancel question is not answered here; the go/no-go review is routed to event-risk-management with the 380 threshold, the band at the review date, and which end clears it",
+        "evidence": "Answers it itself: \"No, not automatically... Cancel only when...\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The 380 threshold is stated as fixed before the reading at the review, not adjusted to the reading",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The venue cancellation-fee step is not committed via the newsvendor rule; the go/no-go poll decides it",
+        "evidence": "Gives its own cancel formula.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "A miss on the registration criterion alone is described as an input to the poll, not a cancellation",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Go/no-go escalation is promoted only if the mid misses 380 at the review preceding the 30-day fee step; otherwise the default response is a push brief",
+        "evidence": "No push brief.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The badge print commit is taken from high-end registrations plus the 75 comps, with the reason that running short costs more",
+        "evidence": "Uses registrations at 12 days + 75 + 5%; no high-end.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Every commit figure in the lock-date table carries its band end and a written reason",
+        "evidence": "No lock-date table.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The demand question (whether the event is wanted) is routed to event-market-fit, not answered",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Last edition's export is the default reference, with the pooled generic curve run as a second reference",
+        "evidence": "Only last year's curve.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "An expected on-hand registration range at the 32-day board date is declared now, before that reading",
+        "evidence": "None.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The script is run with --threshold 380 and --checkpoint entries for the board date and the badge lock",
+        "evidence": "No script run.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Each commit is labelled provisional, with a re-run on the lock date itself",
+        "evidence": "Only \"Re-run the same lookup at the 32-day mark\"; commits not labelled provisional.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

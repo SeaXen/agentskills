@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Ranks CalVer with a written policy above SemVer for this app, on the grounds that its readers are humans, distro packagers and an auto-updater rather than package-manager resolvers",
+        "evidence": "\"Scheme: recommendation is stay on SemVer\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects 'it's the standard' as a reason on its own, stating that SemVer with no declared public surface promises nothing",
+        "evidence": "Says \"'it is the standard' is not one\" but does not state that SemVer without a declared surface promises nothing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends pairing the human-readable version with a monotonic build number for the auto-updater, and says which of the two a bug report must quote",
+        "evidence": "\"Quote both the version and the build number in bug reports.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Specifies unpadded CalVer segments such as 26.4 rather than 26.04, giving the reason that padded segments are rejected or normalized by tooling so tag and package drift",
+        "evidence": "Writes \"26.12.0\" but gives no padding discussion.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes a compatibility rule for the project file format into the policy, because the date in the number says nothing about what broke",
+        "evidence": "\"Project file format\" section rules 1-9.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists the persisted project file format and its migration direction as covered by the promise",
+        "evidence": "\"The project file format, for reading and writing\"; rule 2 and 7.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Records the 3.6 file-format change under Known past breaks rather than proposing to revert it",
+        "evidence": "\"3.6.0 changed the project file format in a minor release... The change stays\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Promotes a time-based cadence because distro packagers plan around the dates, with the rule that no empty release ships to keep the calendar",
+        "evidence": "Chooses \"Feature-based with a maximum gap\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that distro packagers own epochs and revisions and that upstream's duty is monotonic, parseable versions",
+        "evidence": "Only \"Versions only go up\" for packagers; epoch ownership not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that dpkg sorts an upstream 1.0-rc1 after 1.0 and that Debian rewrites it as 1.0~rc1, so pre-release labels must stay parseable for packagers",
+        "evidence": "Only \"Packagers can rewrite the tag to their own spelling.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the ordering check for moving from 3.8.2 to a year-based number, confirming 26.x sorts above 3.x so no epoch is needed",
+        "evidence": "\"26 sorts above 3 everywhere, so no epoch is needed.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives a deprecation window spanning at least two releases at the 6-8 week cadence, expressed in both releases and time",
+        "evidence": "\"no earlier than two releases and three months later\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend a build number alone as the version",
+        "evidence": "Version stays MAJOR.MINOR.PATCH; build number is auxiliary.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Ranks CalVer with a written policy above SemVer for this app, on the grounds that its readers are humans, distro packagers and an auto-updater rather than package-manager resolvers",
+        "evidence": "\"Recommendation: keep MAJOR.MINOR.PATCH numbering\"; \"Why not date versions\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects 'it's the standard' as a reason on its own, stating that SemVer with no declared public surface promises nothing",
+        "evidence": "Says semver has no consumer here, but does not make the 'promises nothing' argument.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends pairing the human-readable version with a monotonic build number for the auto-updater, and says which of the two a bug report must quote",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Specifies unpadded CalVer segments such as 26.4 rather than 26.04, giving the reason that padded segments are rejected or normalized by tooling so tag and package drift",
+        "evidence": "No CalVer spec.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes a compatibility rule for the project file format into the policy, because the date in the number says nothing about what broke",
+        "evidence": "\u00a73.2 Guarantees and \u00a73.4 \"A MINOR release may not raise minReaderFormat.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists the persisted project file format and its migration direction as covered by the promise",
+        "evidence": "Backward-open guarantee, forward graceful failure, and the \"Save compatible with previous version\" rule.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Records the 3.6 file-format change under Known past breaks rather than proposing to revert it",
+        "evidence": "No Known past breaks section; 3.6 is discussed as an incident and a question.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Promotes a time-based cadence because distro packagers plan around the dates, with the rule that no empty release ships to keep the calendar",
+        "evidence": "\"The cadence is a target, not a promise\"; no no-empty-release rule.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that distro packagers own epochs and revisions and that upstream's duty is monotonic, parseable versions",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that dpkg sorts an upstream 1.0-rc1 after 1.0 and that Debian rewrites it as 1.0~rc1, so pre-release labels must stay parseable for packagers",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the ordering check for moving from 3.8.2 to a year-based number, confirming 26.x sorts above 3.x so no epoch is needed",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives a deprecation window spanning at least two releases at the 6-8 week cadence, expressed in both releases and time",
+        "evidence": "No deprecation window is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend a build number alone as the version",
+        "evidence": "Recommends MAJOR.MINOR.PATCH.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

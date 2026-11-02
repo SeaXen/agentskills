@@ -1,0 +1,594 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "developer-live-demo-design",
+  "scenarios": 13,
+  "expectations_total": 159,
+  "expectations_subjective": 1,
+  "expectations_objective": 158,
+  "pass_rate_with_skill_pct": 67.9,
+  "pass_rate_without_skill_pct": 45.9,
+  "delta_pp": 22.0,
+  "uplift_multiplier": 1.48,
+  "trigger_accuracy_pct": 50.0,
+  "trigger_queries": 150,
+  "trigger_positive_fire_rate": 0.0,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.274 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "States the demo's claim as a single sentence about reindexing while concurrent writes keep landing"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends the fully-local, offline live-execution tier (tier 2) rather than a recorded screencast or a live run against the staging cluster"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Cites the re-use across five events as the reason the cost of building a local stack is amortized and that tier is promoted"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names the standing fallback as exactly one row down the ladder, a recorded screencast of the same segments, rather than jumping to screenshots"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Cuts the demo into segments each budgeted under roughly 90 seconds"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names each segment by what it proves rather than by the commands it types"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Gives every segment its own named restore point (git tag, image tag, database dump, seeded tenant or equivalent)"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that no segment may depend on a previous segment's live output"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Specifies a single idempotent reset command and requires it to be rehearsed from a cold machine, not from one that has already run the demo"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Requires at least one full rehearsal run with the network disconnected"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Requires three consecutive clean cold runs before the demo is considered ready"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Requires the measured demo time to come in under half the 8 minutes allowed"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Does not offer additional rehearsal repetitions as the fix for the previous event's failure"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Explains that screenshots buy near-zero proof for near-zero effort, so the cheapest option is not the most efficient one"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Presents two or three candidate tiers with their trade-offs before recommending one"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes that the recording has to be re-recorded whenever the product UI moves"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Deletes the recorded-screencast and annotated-screenshot tiers from the options because the embargoed UI cannot leave the room"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Says explicitly which tiers were deleted and why, rather than silently leaving them available as fallbacks"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Does not offer a recorded clip or a screenshot as the fallback for any segment"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Proposes a fallback that keeps the embargoed material inside the room, such as a reduced local path, a pre-seeded end state, or a diagram"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Explains that anonymising real data leaves re-identifiable traces such as email domains, URLs, ticket references, codenames or a colleague's name"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Requires the embargoed feature to be flagged off anywhere outside the demo path, and every screen that will be shown to be checked first"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Requires a pre-flight pass over error states, empty states, dropdowns and autocomplete, not only the screens the happy path visits"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Offers dropping to a lower-fidelity tier and showing the architecture as an alternative to faking"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Classifies the 24pt terminal and 20pt editor floors as practitioner convention that circulates as advice rather than resting on a measurement"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Gives the adjustment condition for the twenty seconds: shorter for a keynote, longer for a workshop where the audience is debugging alongside the speaker"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes that the font floors should be verified from the back row of the actual room rather than trusted as a number"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends the policy document record which figures are adjustable defaults and what each should be tuned against"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Advises apologising once and briefly rather than repeatedly"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Rebuilds the demo around per-segment restore points so a failed segment can be skipped instead of the demo being abandoned"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Prescribes one qualifying question before running the demo for a visitor"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Rejects opening from a pre-authenticated, pre-installed state for this audience"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that the credibility question for hobbyist and indie audiences is whether they can do this tonight, for free"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Requires showing the real install or signup path and the real time it takes"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Requires running on a plan the audience could actually have, not an internal, elevated or comped account"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Warns that a pre-authenticated session hiding several minutes of setup is the fastest way to lose this audience"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Distinguishes this from a buyer or enterprise audience, where a seeded sandbox tenant is the right call instead"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Still requires genuinely slow steps such as package downloads, image pulls or caches to be pre-provisioned rather than waited on in front of the room"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Resolves the tension between showing the real path and not waiting on stage, rather than ignoring one of the two"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States the claim the demo must prove in one sentence"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Requires a fallback asset for the install or signup step, as the segment most exposed to the venue network"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Notes that an extended display driving the venue projector behaves as a desktop share in practice"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires browser notifications to be disabled per site, not only at the operating system level"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires shell history and editor recent-file lists to be cleared, and the scrollback cleared before the session"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Bans on-screen commands that print environment or history, such as env, printenv, history, or a remote listing that carries credentials"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Treats any improvised detour from that order as a tier drop"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Requires the demo to complete without the venue network wherever possible, isolating any genuinely remote step as the droppable segment with a hotspot behind it"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Rejects running against the staging environment holding a copy of production data"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Requires synthetic fixtures instead of copied production records"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Flags unreleased features, customer names and revenue figures as the specific categories that leak from internal demos"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Requires a pre-flight pass over every screen the demo will show, including error and empty states"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Cuts the demo into segments each budgeted under roughly 90 seconds"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names each segment by what it proves rather than by the commands it types"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Gives every segment its own named restore point (git tag, image tag, database dump, seeded tenant or equivalent)"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that no segment may depend on a previous segment's live output"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Specifies a single idempotent reset command and requires it to be rehearsed from a cold machine, not from one that has already run the demo"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Requires three consecutive clean cold runs before the demo is considered ready"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Requires the measured demo time to come in under half the 8 minutes allowed"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Recommends a recorded screencast played inside the deck as the primary plan"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Explains that screenshots buy near-zero proof for near-zero effort, so the cheapest option is not the most efficient one"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Requires the narration to stay live over the recorded screen"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Warns that pre-recording the commentary as well turns the session into a video and disengages the audience"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names annotated screenshots or a diagram as the standing fallback below the recorded screencast"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Rules out the live-typing tiers because six hours of prep cannot make them safe"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Presents two or three candidate tiers with their trade-offs before recommending one"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes that the recording has to be re-recorded whenever the product UI moves"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Orders the options by value returned per unit of effort rather than by cost alone"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Deletes the recorded-screencast and annotated-screenshot tiers from the options because the embargoed UI cannot leave the room"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Says explicitly which tiers were deleted and why, rather than silently leaving them available as fallbacks"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Explains that seeded local fixtures trigger no legal or comms review, which is what promotes that tier under an embargo"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Does not offer a recorded clip or a screenshot as the fallback for any segment"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Proposes a fallback that keeps the embargoed material inside the room, such as a reduced local path, a pre-seeded end state, or a diagram"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Explains that anonymising real data leaves re-identifiable traces such as email domains, URLs, ticket references, codenames or a colleague's name"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Requires the embargoed feature to be flagged off anywhere outside the demo path, and every screen that will be shown to be checked first"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Requires a pre-flight pass over error states, empty states, dropdowns and autocomplete, not only the screens the happy path visits"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Requires a dedicated demo repository with clean or no history rather than the team's working repo"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Requires human redundancy, a colleague holding a clone of everything on a working machine, for the dead-laptop case"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Requires each segment to be enterable from its own restore point without running the segments before it"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Applies the test of whether the speaker could answer \"is that real?\" with yes and prove it on the spot"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Offers legitimate hardening instead: fixed-seed fixtures, pinned versions, pre-pulled images, warmed caches, or a pre-provisioned faster machine"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Treats the one-in-five stall as a risk to design around with a restore point and a fallback asset, not as something to hide"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Offers dropping to a lower-fidelity tier and showing the architecture as an alternative to faking"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Explains why three rather than two cold runs: two can both be luck, three makes a flaky step likely to have shown itself"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Gives the adjustment condition for the twenty seconds: shorter for a keynote, longer for a workshop where the audience is debugging alongside the speaker"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Distinguishes at least one genuinely sourced claim in the method from the baselines, and attributes it"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States the rule that no segment may depend on a previous segment's live output"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Prescribes a named restore point per segment, such as a pre-scaffolded directory, a pre-deployed URL or a seeded tenant, so each can be entered directly"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Points out that no claim has been written down, so nothing tells the speaker what to cut when the clock slips"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Prescribes a one-command idempotent reset rehearsed from a cold machine rather than from one that has already run the demo"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires the recovery lines to be written out in advance rather than improvised on stage"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Advises apologising once and briefly rather than repeatedly"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Advises narrating what should have happened and then showing the fallback, so the claim still lands"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Rebuilds the demo around per-segment restore points so a failed segment can be skipped instead of the demo being abandoned"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Requires a one-command reset that can be run repeatedly between visitors"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Rejects opening from a pre-authenticated, pre-installed state for this audience"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that the credibility question for hobbyist and indie audiences is whether they can do this tonight, for free"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Requires showing the real install or signup path and the real time it takes"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Requires running on a plan the audience could actually have, not an internal, elevated or comped account"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Warns that a pre-authenticated session hiding several minutes of setup is the fastest way to lose this audience"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Distinguishes this from a buyer or enterprise audience, where a seeded sandbox tenant is the right call instead"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Still requires genuinely slow steps such as package downloads, image pulls or caches to be pre-provisioned rather than waited on in front of the room"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Resolves the tension between showing the real path and not waiting on stage, rather than ignoring one of the two"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States the claim the demo must prove in one sentence"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Segments the ten minutes with a restore point per segment"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Requires a fallback asset for the install or signup step, as the segment most exposed to the venue network"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Rejects sharing the entire screen and requires an application or window share instead"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Notes that an extended display driving the venue projector behaves as a desktop share in practice"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Rejects anonymised customer data and requires synthetic data instead"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires browser notifications to be disabled per site, not only at the operating system level"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires shell history and editor recent-file lists to be cleared, and the scrollback cleared before the session"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires a dedicated demo repository rather than the team's working repo, because earlier commits remain inspectable"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires .env files to contain placeholder values only, even for a local stack"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Bans on-screen commands that print environment or history, such as env, printenv, history, or a remote listing that carries credentials"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires a safe screen on a single keystroke plus a known stop-sharing shortcut, both rehearsed before the slot"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Notes that a ranking by value per unit of effort would otherwise never select this tier"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Treats any improvised detour from that order as a tier drop"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Requires a recorded screencast of the same segments loaded and ready as the standing fallback"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Requires human redundancy, a colleague holding a clone of everything on a working machine"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Warns that this tier carries the highest chance of failing in the room and costs days of rehearsal"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that rehearsal repetitions alone do not buy reliability, and that the fixed operation order and controlled infrastructure are what make the run survivable"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Adds a last-verified date recorded against a specific product version"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Sets re-verification triggers: before each use cycle, and whenever the demo path ships a change"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Instructs the rep to ask what the buyer came to see and open on that instead of the fixed sequence"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Notes that a customer call has no slide deck to retreat to, so a failed segment recovers into the next segment's claim"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Requires a sandbox tenant with read-only credentials rather than production"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Warns that a customer call is the highest-stakes place for another customer's name to leak"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Accepts that the tolerance for a rough demo is genuinely higher for an internal audience"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Rejects running against the staging environment holding a copy of production data"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Requires synthetic fixtures instead of copied production records"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "States that the data risk of an internal demo is not lower than that of a public one"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Names the internal recording as the durable channel through which anything on screen leaks"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Flags unreleased features, customer names and revenue figures as the specific categories that leak from internal demos"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Requires a pre-flight pass over every screen the demo will show, including error and empty states"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Requires an application or window share on the video call rather than the whole screen"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Requires notification sources such as chat, mail and calendar to be quit rather than muted"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Still requires a written claim and a segmented structure at the lower reliability bar"
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Does not accept \"everyone knows it's rough\" as a reason to skip the data checks"
+      }
+    ]
+  }
+}

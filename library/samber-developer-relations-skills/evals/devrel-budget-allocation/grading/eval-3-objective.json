@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Produces an ordered cut list rather than a flat percentage trim applied to every line.",
+        "evidence": "\"Cut list\" table lists specific removals per tier (newsletter, OSS breadth, one booth tier), not a uniform trim.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Builds both a 20% and a 40% scenario, with the 40% scenario containing the 20% removals.",
+        "evidence": "\"\u221240% ($120K) | The above, plus: OSS sponsorships to zero ... booths cut to token presence\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Attaches a one-sentence consequence to every removal.",
+        "evidence": "\"No paid newsletter placements this year. OSS presence narrows to relationships that matter, not coverage. One fewer event, still a physical presence at your flagship.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cuts rented reach first, taking newsletter sponsorships and sponsorship depth before compounding or foundational lines.",
+        "evidence": "Both cut tiers draw entirely from \"Newsletter sponsorships,\" \"OSS sponsorships,\" and \"booths\" \u2014 content pipeline, community, and docs stay \"untouched\" through 40%.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Protects the docs and SDK sample maintenance line, cutting it last or not at all.",
+        "evidence": "\"Docs & sample maintenance \u2014 cut last, and never below whatever keeps the four repos green.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Justifies protecting that line because its neglect is actively wrong (broken samples, stale docs) rather than merely invisible.",
+        "evidence": "\"Neglect here isn't quiet \u2014 it's four SDK repos going red in CI, which is the specific failure mode this framework protects last\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the cut order is the efficiency ordering read from the bottom, not a ranking by cash size.",
+        "evidence": "\"Ranking cuts by efficiency read from the bottom, rented reach goes first, foundational maintenance goes last\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not rank the pillars against each other by cost per outcome unit anywhere in the answer.",
+        "evidence": "\"No pillar compared to another by cost-per-unit anywhere in this document.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not put the agency content pipeline first on the chopping block, on the grounds that a compounding line protected across two periods cannot be the first thing dropped.",
+        "evidence": "\"You've defended it as the long-game bet at two consecutive reviews \u2014 that's the framework's exact trigger for 'don't cut this first'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that a team volunteering no order gets a flat percentage applied to every line, which starves compounding work first.",
+        "evidence": "No such warning appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that roughly a quarter of surveyed programs lost budget in a single year, so a cut is a normal planning case rather than a crisis.",
+        "evidence": "No survey statistic about programs losing budget appears in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States which lines must be protected, not only which lines go.",
+        "evidence": "\"Quickstart refresh is cut in neither scenario\" equivalent: \"Docs stay protected because letting them decay doesn't save money quietly\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names what capability is lost in the 40% scenario, not only the dollar amount removed.",
+        "evidence": "\"Zero owned OSS relationships \u2014 flag this one specifically if any of those three dependencies sit on your critical path ... No more conference floor presence, only speaking where you're accepted for free.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Produces an ordered cut list rather than a flat percentage trim applied to every line.",
+        "evidence": "'A 44% cut on this single line is fine even though the target is a blended 20% \u2014 cuts don't need to be proportional across lines' with specific selected lines (booths, newsletters) cut instead of an even trim.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Builds both a 20% and a 40% scenario, with the 40% scenario containing the 20% removals.",
+        "evidence": "20% round cuts booths to $50K and newsletters to $0; 40% scenario further cuts 'Conference booths: $50K \u2192 $15K' and 'OSS sponsorships: $25K \u2192 $0', building on the same base.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Attaches a one-sentence consequence to every removal.",
+        "evidence": "'Skipping a booth this year breaks nothing \u2014 no CI, no community trust, no half-finished campaign.' and 'Smallest line, least differentiated, easiest to restart later.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cuts rented reach first, taking newsletter sponsorships and sponsorship depth before compounding or foundational lines.",
+        "evidence": "Booths and newsletter sponsorships (rented reach) are cut while 'Agency content pipeline... Docs/samples maintenance... Discord + champions... OSS sponsorships' are left untouched.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Protects the docs and SDK sample maintenance line, cutting it last or not at all.",
+        "evidence": "'Don't touch docs.' Docs/samples maintenance remains at $55K in both the 20% and 40% scenarios.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Justifies protecting that line because its neglect is actively wrong (broken samples, stale docs) rather than merely invisible.",
+        "evidence": "'Cutting it doesn't save money, it defers cost into broken CI, stale samples, and support tickets on four repos.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the cut order is the efficiency ordering read from the bottom, not a ranking by cash size.",
+        "evidence": "No such explicit framing appears; reasoning is given per-line (reversibility, attribution) without naming it 'efficiency ordering read from the bottom'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not rank the pillars against each other by cost per outcome unit anywhere in the answer.",
+        "evidence": "No cost-per-unit cross-pillar ranking appears anywhere in the transcript.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not put the agency content pipeline first on the chopping block, on the grounds that a compounding line protected across two periods cannot be the first thing dropped.",
+        "evidence": "'On the agency content pipeline \u2014 don't cut it, but stop defending it on vibes... You've won that argument twice already.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that a team volunteering no order gets a flat percentage applied to every line, which starves compounding work first.",
+        "evidence": "No explicit warning about a default flat-percentage outcome for teams giving no order is stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that roughly a quarter of surveyed programs lost budget in a single year, so a cut is a normal planning case rather than a crisis.",
+        "evidence": "Not mentioned anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States which lines must be protected, not only which lines go.",
+        "evidence": "'Leave docs, agency content, Discord/champions, and OSS sponsorships untouched in this round.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names what capability is lost in the 40% scenario, not only the dollar amount removed.",
+        "evidence": "'Conference booths: $50K \u2192 $15K (\u2013$35K), down to a single low-cost regional event or zero.' names the capability reduction, not just the dollar figure.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

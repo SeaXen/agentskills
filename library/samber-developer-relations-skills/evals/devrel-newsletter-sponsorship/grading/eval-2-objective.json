@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Does not endorse $620 computed from gross subscribers times a CPM",
+        "evidence": "\"$620 is not a defensible number\"; \"12,400 is gross subscribers. Pricing per gross subscriber is a refused method.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects pricing on the 52% open rate, saying opens are inflated by mail-privacy features",
+        "evidence": "\"Mail-privacy features have auto-opened mail since September 2021, so 52% overstates reading.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Tells the user to turn on the bot-click filter",
+        "evidence": "\"Turn on the bot-click filter.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks for or uses per-link click data from past issues, noting a historical export counts",
+        "evidence": "\"Export the last six issues' per-link clicks. If the platform can't filter retroactively, strip clicks within about 10 seconds...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Computes or asks for a cost-recovery floor that includes the seller's hours",
+        "evidence": "\"Floor = (platform cost per issue + your sponsor hours \u00d7 your hourly rate + any platform or host share) \u00f7 sellable slots.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Uses published rate cards as a price-per-thousand-subscribers ratio, not as a dollar target",
+        "evidence": "\"Use the ratio, never another title's dollar figure.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Bases click value on clicks a sponsor unit would get, not total issue clicks",
+        "evidence": "\"expected filtered human clicks on the sponsor unit \u00d7 a cost per click\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "When no past sponsor exists, applies an ad discount to editorial clicks at the slot's position and labels it self-set",
+        "evidence": "No editorial-click-times-ad-discount fallback is described. It only says unmeasured inputs get labelled self-set.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats any cost per click the buyer states as buyer-supplied and discounts it",
+        "evidence": "Buyer-supplied CPC is not mentioned anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States one quote rule: quote click value, capped near the band's top until the first sponsor reports, never under the floor",
+        "evidence": "\"held between the cost-recovery floor and that cap\"; \"A cap of about $1,150 applies to any quote before then.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels every number the user did not measure as self-set",
+        "evidence": "\"Every input you haven't measured gets labelled self-set.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Marks the price provisional or blocked until click data is in, rather than inventing click numbers",
+        "evidence": "\"Provisional range (not a quote)\"; \"pricing, gate and floor are blocked on the facts above.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Mentions repricing after the first sponsor report",
+        "evidence": "\"Re-price from measured clicks after that.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Derives any ad discount from past clicks on a labelled unit, or else quotes the band's bottom until the first report instead of inventing a discount",
+        "evidence": "\"quote near the bottom (about $370) until the first report.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Does not endorse $620 computed from gross subscribers times a CPM",
+        "evidence": "'Probably not as derived... inputs aren't solid enough to quote'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects pricing on the 52% open rate, saying opens are inflated by mail-privacy features",
+        "evidence": "Notes Apple MPP inflates opens, but still proposes a per-impression method on '(verified-ish opens) \u00d7 (CPM)' and computes $322 on opens.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Tells the user to turn on the bot-click filter",
+        "evidence": "'Turn on the bot-click filter in Mailcraft.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks for or uses per-link click data from past issues, noting a historical export counts",
+        "evidence": "'Export clicks for the last 8\u201310 issues... clicks on any past sponsor or promo link'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Computes or asks for a cost-recovery floor that includes the seller's hours",
+        "evidence": "Mentions 'your floor' only in passing; no computation and no hours.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Uses published rate cards as a price-per-thousand-subscribers ratio, not as a dollar target",
+        "evidence": "Says to check CPM against 2\u20133 public rate cards; no per-thousand-subscribers ratio.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Bases click value on clicks a sponsor unit would get, not total issue clicks",
+        "evidence": "Uses the top editorial link as a proxy with no ad discount.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "When no past sponsor exists, applies an ad discount to editorial clicks at the slot's position and labels it self-set",
+        "evidence": "No discount applied or labelled.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats any cost per click the buyer states as buyer-supplied and discounts it",
+        "evidence": "Not addressed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States one quote rule: quote click value, capped near the band's top until the first sponsor reports, never under the floor",
+        "evidence": "Says 'flat per-issue price near the higher of the two'; no cap or floor rule.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels every number the user did not measure as self-set",
+        "evidence": "Gives '$500\u2013$650' with no self-set label.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Marks the price provisional or blocked until click data is in, rather than inventing click numbers",
+        "evidence": "Supplies a quote now: 'quote a flat $500\u2013$650 per sponsored placement'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Mentions repricing after the first sponsor report",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Derives any ad discount from past clicks on a labelled unit, or else quotes the band's bottom until the first report instead of inventing a discount",
+        "evidence": "Neither is done.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Classifies the twenty-second repair budget as a baseline set by this method, not a measured or published industry figure",
+        "evidence": "\"'Twenty seconds before bailing' \u2014 also a baseline, not measured.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies the three consecutive clean cold runs as a baseline, not a published benchmark",
+        "evidence": "\"'Three clean cold runs' \u2014 baseline, skill's own invention.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies the 24pt terminal and 20pt editor floors as practitioner convention that circulates as advice rather than resting on a measurement",
+        "evidence": "Only \"'24pt terminal is the standard' \u2014 convention...\" is discussed; the transcript never mentions a 20pt editor floor at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explicitly corrects the framing that any of the three figures is an industry standard",
+        "evidence": "\"None are industry standards... Your colleague quoted two baselines and one convention as if they were external rules.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains why three rather than two cold runs: two can both be luck, three makes a flaky step likely to have shown itself",
+        "evidence": "\"Reasoning given: two clean runs could be luck, three makes a flaky step likely to show itself.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the adjustment condition for the twenty seconds: shorter for a keynote, longer for a workshop where the audience is debugging alongside the speaker",
+        "evidence": "The twenty-second passage only gives reasoning (\"shorter than an audience's patience for silence, long enough for an obvious retry\"); no keynote-vs-workshop adjustment condition is stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the adjustment condition for raising the cold-run count, namely a genuinely non-deterministic step",
+        "evidence": "\"Tune it up if the demo has a genuinely non-deterministic step, tune it down never.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not invent a study, survey, percentage or citation to back any of the three figures",
+        "evidence": "The text repeatedly states \"Not measured, not sourced\" and \"no measurement backs the 24pt cutoff\" rather than fabricating support.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns against publishing these numbers in a policy document as if they were external standards",
+        "evidence": "\"For the team policy doc: write these three as defaults your team is adopting, not as external standards\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that the font floors should be verified from the back row of the actual room rather than trusted as a number",
+        "evidence": "No mention of verifying font size from the back row anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes at least one genuinely sourced claim in the method from the baselines, and attributes it",
+        "evidence": "\"The skill does cite a real chaos-engineering source (jeffallan/claude-skills@chaos-engineer, ~30s automated rollback) \u2014 but only as precedent for the rule...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends the policy document record which figures are adjustable defaults and what each should be tuned against",
+        "evidence": "The final recommendation only says \"(our own bar, tune per event)\" generically, without specifying per-figure tuning conditions in the documented recommendation.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Classifies the twenty-second repair budget as a baseline set by this method, not a measured or published industry figure",
+        "evidence": "\"Also no source... the actual cutoff is a judgment call tied to your demo's failure modes... not a fixed duration anyone tested and published\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies the three consecutive clean cold runs as a baseline, not a published benchmark",
+        "evidence": "\"No source. No style guide, conference organizer, or DevRel handbook publishes a number of required rehearsals. It's an arbitrary anchor, not a validated threshold.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies the 24pt terminal and 20pt editor floors as practitioner convention that circulates as advice rather than resting on a measurement",
+        "evidence": "\"Font-size recommendations for live-coding terminals do show up as a rule of thumb in various 'how to give a good tech talk' advice from conference organizers and speakers\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explicitly corrects the framing that any of the three figures is an industry standard",
+        "evidence": "\"No, none of the three are real, documented standards.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains why three rather than two cold runs: two can both be luck, three makes a flaky step likely to have shown itself",
+        "evidence": "no such 'two can be luck, three surfaces flakiness' reasoning appears",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the adjustment condition for the twenty seconds: shorter for a keynote, longer for a workshop where the audience is debugging alongside the speaker",
+        "evidence": "only generic \"tied to your demo's failure modes and how patient your specific audience will be\" is given, no keynote/workshop distinction",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the adjustment condition for raising the cold-run count, namely a genuinely non-deterministic step",
+        "evidence": "\"For a stable CLI command that might be one run; for something touching network calls or timing it could be ten.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not invent a study, survey, percentage or citation to back any of the three figures",
+        "evidence": "the text explicitly states \"No source\" for each figure rather than inventing one",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns against publishing these numbers in a policy document as if they were external standards",
+        "evidence": "\"Don't write 'industry standard' next to any of these three numbers \u2014 that phrase invites someone to ask 'says who?'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that the font floors should be verified from the back row of the actual room rather than trusted as a number",
+        "evidence": "\"pick a font size you've personally confirmed is readable from the back row of the actual room you're presenting in\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes at least one genuinely sourced claim in the method from the baselines, and attributes it",
+        "evidence": "all three figures are treated as unsourced; no other claim is singled out as genuinely sourced and attributed",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends the policy document record which figures are adjustable defaults and what each should be tuned against",
+        "evidence": "\"Replace the fixed numbers with the principle behind them, and let each presenter calibrate: rehearse until failures stop appearing; pre-commit to a bail trigger...; pick a font size you've personally confirmed\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

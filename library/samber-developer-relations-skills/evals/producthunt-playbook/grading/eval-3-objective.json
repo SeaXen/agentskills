@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that Product Hunt asks for at least two months between launches of the same product or company",
+        "evidence": "\"Product Hunt requires 2 months between launches per product, company or root domain [PH].\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies Oct 30 as inside the two-month window after Sept 15",
+        "evidence": "\"Oct 30 is 45 days after Sept 15.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that dark mode or a UI change does not count as a significant update",
+        "evidence": "\"dark mode, a new pricing page... do not count as a significant update. 'New UI or pricing changes are not significant updates'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that pricing changes do not count as a significant update",
+        "evidence": "\"New UI or pricing changes are not significant updates\" and cheaper Hobby tier listed.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags that app.deployly.io shares the root domain deployly.io and falls under the same gap",
+        "evidence": "The move to app.deployly.io is listed only as a non-significant update; the root-domain sharing for the subdomain is not flagged (root domain mentioned only for deployly-cli).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the Nov 3 CLI launch as the same company or root domain, inside the window",
+        "evidence": "\"deployly-cli shares your company and root domain, and Nov 3 is 49 days after Sept 15\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends combining the CLI and the product update into one post, or sequencing them two months apart",
+        "evidence": "\"launch the CLI, or Deployly with the CLI as new functionality, in one post\"; second launch Jan 19.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that launching early requires a relaunch request describing what changed, reviewed by Product Hunt",
+        "evidence": "No mention of a relaunch request; only suggests emailing hello@producthunt.com if unsure it qualifies.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that no date is compliant until a significant update ships, and that Nov 15 is only the earliest window once one does",
+        "evidence": "Recommends Nov 17 as the launch and says the CLI \"could qualify\"; it does not state that no date is compliant until a significant update ships.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names what would qualify as significant, such as a new app or a redesign with new functionality or a new use case",
+        "evidence": "\"A new app, or a redesign with new functionality, does count [PH].\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that Product Hunt asks for at least two months between launches of the same product or company",
+        "evidence": "Says \"I recall a gap of roughly 6 months. Verify that in their launch guidelines.\" It never states a two-month rule.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies Oct 30 as inside the two-month window after Sept 15",
+        "evidence": "Argues Oct 30 is \"today\" with nothing prepped and is a weak relaunch. It does not frame it as inside a two-month window.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that dark mode or a UI change does not count as a significant update",
+        "evidence": "\"Dark mode, a cheaper Hobby tier and a domain move are weak grounds for a relaunch. Product Hunt wants a relaunch to be a major update.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that pricing changes do not count as a significant update",
+        "evidence": "The same line lists \"a cheaper Hobby tier\" among the weak grounds for a relaunch.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags that app.deployly.io shares the root domain deployly.io and falls under the same gap",
+        "evidence": "It treats the domain move only as a weak relaunch reason, with no same-root-domain point.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the Nov 3 CLI launch as the same company or root domain, inside the window",
+        "evidence": "Says \"The CLI is a new product, so it is the stronger launch\" and recommends Nov 10, with no gap concern.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends combining the CLI and the product update into one post, or sequencing them two months apart",
+        "evidence": "Proposes the CLI on Nov 10 and a Deployly relaunch around March 2027, based on a 6-month gap rather than a two-month sequence.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that launching early requires a relaunch request describing what changed, reviewed by Product Hunt",
+        "evidence": "No mention of a relaunch request.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that no date is compliant until a significant update ships, and that Nov 15 is only the earliest window once one does",
+        "evidence": "No Nov 15 window and no such statement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names what would qualify as significant, such as a new app or a redesign with new functionality or a new use case",
+        "evidence": "Says only \"a major release, such as the CLI plus whatever else ships\". It names no new app, redesign with new functionality, or new use case.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

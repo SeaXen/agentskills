@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the 78% automated sentiment score as a community health metric because classifiers misread blunt bug reports and dry developer humour as negative",
+        "evidence": "\"automated scoring reliably reads 'this is broken again' as anger and 'lol nice' as positive, in both directions that don't track how people actually feel\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that sentiment must come from asking people directly through a survey rather than from classifying existing messages",
+        "evidence": "\"every one of them (CHAOSS Recommendability, the pulse survey below) asks people, then optionally checks whether their behaviour agrees\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Corrects the direction of the subtraction to promoters minus detractors, giving +22 rather than -22",
+        "evidence": "\"NPS is % promoters \u2212 % detractors, not the other way round... NPS = 44.4 \u2212 22.2 = +22\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the direction of the subtraction to be stated wherever the score is presented, so a positive number always means more promoters than detractors",
+        "evidence": "The transcript corrects the sign once but never states an ongoing requirement to state the subtraction direction every time the score is presented going forward",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that 9 responses falls below the roughly 30-response floor and must be treated as qualitative evidence with dates attached rather than as a score",
+        "evidence": "\"At n=9, don't report this as a score at all \u2014 that only holds once you clear roughly 30 responses... report as raw counts with dates, not a headline number\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the response rate to be reported next to any sentiment score",
+        "evidence": "\"Get the response rate up or stop scoring it as NPS... Don't let a low-n score quietly become 'the number'... keep reporting raw counts with the response-rate caveat\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the surveyed population definition to be fixed and kept stable between waves, otherwise the trend measures sampling rather than sentiment",
+        "evidence": "\"Send to a stable population definition each wave... otherwise a swing in the score just means you sampled different people, not that sentiment moved\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends corroborating the sentiment reading against behavioural signals from the same period, such as responsiveness or contribution-acceptance rates",
+        "evidence": "\"Corroborate the survey with behaviour, not a classifier: responsiveness (median time to first human response, % of questions with zero replies) and contribution/adoption signals from the same period\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags that the survey reaches only members still present and recommends a separate one-question instrument for members who went silent for 60 or more days",
+        "evidence": "No mention of lapsed members or a silent-60-days instrument appears anywhere in this transcript",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Specifies that the lapsed-member note is sent once and kept opt-out friendly rather than run as a follow-up campaign",
+        "evidence": "No mention of a lapsed-member note at all in this transcript",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires sentiment to be reported in aggregate and never attributed to a named member",
+        "evidence": "\"Never publish this below the aggregate. With 2 detractors in a 9-person sample, any further slicing... risks identifying who they are. Keep it aggregate-only, always.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the recurring pulse survey to roughly two items so it can be answered at a quarterly cadence",
+        "evidence": "\"Field the pulse survey on a cadence, not as a one-off. Two items, quarterly: the recommend question above, plus 'what's the most frustrating thing about participating here?'\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the 78% automated sentiment score as a community health metric because classifiers misread blunt bug reports and dry developer humour as negative",
+        "evidence": "The transcript only says: 'Generic sentiment models frequently misread technical support language (negations, terse troubleshooting phrasing, sarcasm) as negative or positive incorrectly.' It never identifies blunt bug reports or dry developer humour specifically as the misread content; the closest analogues (troubleshooting phrasing, sarcasm) are distinct claims.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that sentiment must come from asking people directly through a survey rather than from classifying existing messages",
+        "evidence": "\"If you want an actual community-wide sentiment read, that's what the (larger-sample, correctly-signed) NPS-style survey is for, not the passive Discord corpus.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Corrects the direction of the subtraction to promoters minus detractors, giving +22 rather than -22",
+        "evidence": "\"NPS = 44.4 \u2212 22.2 = +22, not \u221222. You computed detractors minus promoters (22.2 \u2212 44.4 = \u221222.2), which is the formula backwards.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the direction of the subtraction to be stated wherever the score is presented, so a positive number always means more promoters than detractors",
+        "evidence": "The transcript corrects the sign once but never states a standing requirement that the subtraction direction/formula be disclosed every time the NPS score is presented in the future.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that 9 responses falls below the roughly 30-response floor and must be treated as qualitative evidence with dates attached rather than as a score",
+        "evidence": "The transcript instead recommends presenting it as \"'n=9, directional only, not a tracked metric'\" or dropping it \u2014 it never cites a ~30-response floor nor recommends treating responses as dated qualitative evidence.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the response rate to be reported next to any sentiment score",
+        "evidence": "Response rate (\"a 0.35% response rate off 2,600 members\") is used only as part of the critique of this quarter's number; the transcript never establishes a standing requirement to report response rate alongside future sentiment scores.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the surveyed population definition to be fixed and kept stable between waves, otherwise the trend measures sampling rather than sentiment",
+        "evidence": "No mention of keeping the surveyed population definition stable across waves anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends corroborating the sentiment reading against behavioural signals from the same period, such as responsiveness or contribution-acceptance rates",
+        "evidence": "No behavioural corroboration signals (responsiveness, contribution-acceptance rates, etc.) are mentioned anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags that the survey reaches only members still present and recommends a separate one-question instrument for members who went silent for 60 or more days",
+        "evidence": "The transcript discusses self-selection bias of respondents but never flags exclusion of lapsed/silent members or proposes a separate instrument for them.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Specifies that the lapsed-member note is sent once and kept opt-out friendly rather than run as a follow-up campaign",
+        "evidence": "No lapsed-member outreach mechanism is discussed at all, so this specification is absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires sentiment to be reported in aggregate and never attributed to a named member",
+        "evidence": "The transcript never discusses anonymity or aggregation requirements to prevent attributing sentiment to named individuals.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the recurring pulse survey to roughly two items so it can be answered at a quarterly cadence",
+        "evidence": "There is no recommendation about survey length or item count for a recurring pulse survey anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

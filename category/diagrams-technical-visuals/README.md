@@ -1,7 +1,7 @@
 # 📊 Technical Diagrams & Isometric SVG
 
 > **Category**: `diagrams-technical-visuals`  
-> **Total Curated Skills**: 114 skills  
+> **Total Curated Skills**: 124 skills  
 > **Taxonomy Standard**: 38-Domain Granular AI Skills Vault
 
 ---
@@ -30,7 +30,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`archify`](../../library/nousresearch-hermes-optional-skills/skills/archify) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Validated interactive HTML diagrams, upstream-maintained. |
 | [`archify-tuning`](../../library/tt-a1i-archify/skills/archify-tuning) | ⚪ Reserve | `tt-a1i-archify` | Improve Archify diagram accuracy, visual quality and complete authoring speed with fewer repair... |
 | [`architecture-diagram`](../../library/cocoon-ai-architecture-diagram-generator/skills/architecture-diagram) | ⚪ Reserve | `cocoon-ai-architecture-diagram-generator` | Create polished dark-themed architecture diagrams as self-contained HTML+SVG files. Use when th... |
-| [`baoyu-diagram`](../../library/jimliu-baoyu-skills/skills/baoyu-diagram) | ⚪ Reserve | `jimliu-baoyu-skills` | Create professional, dark-themed SVG diagrams of any type — architecture diagrams, flowcharts, ... |
+| [`baoyu-diagram`](../../library/jimliu-baoyu-skills/skills/baoyu-diagram) | ⚪ Reserve | `jimliu-baoyu-skills` | Create professional diagrams with configurable dark/light theme via CSS custom properties. Use ... |
 | [`bazi-skill-chinese-astrology`](../../library/reason-machines-trending-skills/skills/bazi-skill-chinese-astrology) | ⚪ Reserve | `reason-machines-trending-skills` | Claude Code skill for 四柱八字 (BaZi) Chinese astrology chart reading and destiny analysis using ni... |
 | [`beautiful-mermaid`](../../library/intellectronica-agent-skills/skills/beautiful-mermaid) | ⚪ Reserve | `intellectronica-agent-skills` | Render Mermaid diagrams as SVG and PNG using the Beautiful Mermaid library. Use when the user a... |
 | [`breadth-chart-analyst`](../../library/tradermonty-claude-trading-skills/skills/breadth-chart-analyst) | ⚪ Reserve | `tradermonty-claude-trading-skills` | This skill should be used when analyzing market breadth charts, specifically the S&P 500 Breadt... |
@@ -43,6 +43,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`charthop`](../../library/membranedev-application-skills/skills/charthop) | ⚪ Reserve | `membranedev-application-skills` | ChartHop integration. Manage data, records, and automate workflows. Use when the user wants to ... |
 | [`chartiq`](../../library/membranedev-application-skills/skills/chartiq) | ⚪ Reserve | `membranedev-application-skills` | ChartIQ integration. Manage data, records, and automate workflows. Use when the user wants to i... |
 | [`chartmogul`](../../library/membranedev-application-skills/skills/chartmogul) | ⚪ Reserve | `membranedev-application-skills` | Chartmogul integration. Manage data, records, and automate workflows. Use when the user wants t... |
+| [`chibi-style`](../../library/arjun988-blender-skills/skills/chibi-style) | ⚪ Reserve | `arjun988-blender-skills` | Chibi and SD proportion art direction for Blender characters with oversized heads, simplified a... |
 | [`claude-d3js-skill`](../../library/antigravity-awesome-skills/skills/claude-d3js-skill) | ⚪ Reserve | `antigravity-awesome-skills` | Creating interactive data visualisations using d3.js. This skill should be used when creating c... |
 | [`code-documentation-code-explain`](../../library/antigravity-awesome-skills/skills/code-documentation-code-explain) | ⚪ Reserve | `antigravity-awesome-skills` | You are a code education expert specializing in explaining complex code through clear narrative... |
 | [`code-wiki`](../../library/nousresearch-hermes-optional-skills/skills/code-wiki) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Generate wiki docs + Mermaid diagrams for any codebase. |
@@ -53,6 +54,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`concept-diagrams`](../../library/nousresearch-hermes-optional-skills/skills/concept-diagrams) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Generate flat, minimal educational SVG visuals as HTML. |
 | [`context-fundamentals`](../../library/antigravity-awesome-skills/skills/context-fundamentals) | ⚪ Reserve | `antigravity-awesome-skills` | Understand what context is, why it matters, and the anatomy of context in agent systems |
 | [`create-chart`](../../library/amplitude-mcp-marketplace/skills/create-chart) | ⚪ Reserve | `amplitude-mcp-marketplace` | Creates Amplitude charts from natural language descriptions, handling event selection, filters,... |
+| [`create-graph`](../../library/launchdarkly-ai-tooling/skills/create-graph) | ⚪ Reserve | `launchdarkly-ai-tooling` | Creates observability dashboards and graphs from logs, traces, errors, sessions, metrics, and e... |
 | [`create-viz`](../../library/anthropics-knowledge-work/skills/create-viz) | ⚪ Reserve | `anthropics-knowledge-work` | Create publication-quality visualizations with Python. Use when turning query results or a Data... |
 | [`d3-visualization`](../../library/nexu-io-open-design/skills/d3-visualization) | ⚪ Reserve | `nexu-io-open-design` | Teaches the agent to produce D3 charts and interactive data visualizations. A comprehensive D3.... |
 | [`data-clean`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/data-clean) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Produce documented data cleaning scripts that log every transformation with N before/after each... |
@@ -72,11 +74,15 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`etetoolkit`](../../library/davila7-claude-code-templates/skills/etetoolkit) | ⚪ Reserve | `davila7-claude-code-templates` | Phylogenetic tree toolkit (ETE). Tree manipulation (Newick/NHX), evolutionary event detection, ... |
 | [`excalidraw-diagram-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/excalidraw-diagram-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Generate hand-drawn style Excalidraw diagrams from text descriptions |
 | [`extract-tikz`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/extract-tikz) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Extract TikZ diagrams from Beamer source, compile to PDF, convert to SVG with 0-based indexing.... |
+| [`figma-generate-diagram`](../../library/figma-mcp-server-guide/skills/figma-generate-diagram) | ⚪ Reserve | `figma-mcp-server-guide` | MANDATORY prerequisite — load this skill BEFORE every `generate_diagram` tool call. NEVER call ... |
+| [`figure-spec`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/figure-spec) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Generate deterministic publication-quality architecture, workflow, and pipeline diagrams from s... |
 | [`firecrawl-dashboard-reporting`](../../library/firecrawl-firecrawl-workflows/skills/firecrawl-dashboard-reporting) | ⚪ Reserve | `firecrawl-firecrawl-workflows` | Read metrics off web dashboards with Firecrawl browser: public stats, status and transparency p... |
 | [`frame-flowchart-sticky`](../../library/nexu-io-open-design/skills/frame-flowchart-sticky) | ⚪ Reserve | `nexu-io-open-design` | SVG curve connectors, sticky-note nodes, and cursor interaction with a whiteboard-brainstorm fe... |
 | [`generate-image`](../../library/davila7-claude-code-templates/skills/generate-image) | ⚪ Reserve | `davila7-claude-code-templates` | Generate or edit images using AI models (FLUX, Gemini). Use for general-purpose image generatio... |
+| [`generate-project-plan`](../../library/figma-mcp-server-guide/skills/generate-project-plan) | ⚪ Reserve | `figma-mcp-server-guide` | Generate a FigJam project plan board from a PRD plus codebase context. Interactive flow: resear... |
 | [`generative-ui`](../../library/himself65-finance-skills/skills/generative-ui) | ⚪ Reserve | `himself65-finance-skills` | Design system and templates for interactive HTML/SVG visuals in Claude and Codex, using an avai... |
 | [`growth-signal-charts`](../../library/ericosiu-ai-marketing-skills/skills/growth-signal-charts) | ⚪ Reserve | `ericosiu-ai-marketing-skills` | Select and create Growth Signal chart posts for Instagram, X, and LinkedIn from original conten... |
+| [`huawei-cloud-network-topology-audit`](../../library/huaweicloud-huaweicloud-skills/skills/huawei-cloud-network-topology-audit) | ⚪ Reserve | `huaweicloud-huaweicloud-skills` | Orchestrator skill that audits Huawei Cloud network topology for security and configuration ris... |
 | [`hunt-xxe`](../../library/elementalsouls-claude-bughunter/skills/hunt-xxe) | ⚪ Reserve | `elementalsouls-claude-bughunter` | Hunting skill for xxe vulnerabilities. Built from 10 public bug bounty reports including SVG-up... |
 | [`icon-set-generator`](../../library/jezweb-claude-skills/skills/icon-set-generator) | ⚪ Reserve | `jezweb-claude-skills` | Generate cohesive, project-specific SVG icon sets for websites and applications. Use this skill... |
 | [`illustration-grainy-gouache`](../../library/mengto-skills/skills/illustration-grainy-gouache) | ⚪ Reserve | `mengto-skills` | Draws original cosy animal scenes as hand-authored SVG cards (480x360) in a grainy gouache, ris... |
@@ -89,6 +95,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`instrument-events`](../../library/amplitude-mcp-marketplace/skills/instrument-events) | ⚪ Reserve | `amplitude-mcp-marketplace` | Given event_candidates YAML (output from discover-event-surfaces), generates a concrete instrum... |
 | [`interactive-viz-guide`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/interactive-viz-guide) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Interactive data visualization with Plotly, ECharts, and D3 |
 | [`iso-figure`](../../library/mrbongoc-ai-iso-skill/skills/iso-figure) | ⚪ Reserve | `mrbongoc-ai-iso-skill` | Build an interactive isometric line-art "figure" (Fig N style) of an object in a single HTML/SV... |
+| [`isometric-style`](../../library/arjun988-blender-skills/skills/isometric-style) | ⚪ Reserve | `arjun988-blender-skills` | Isometric and strategy-game art direction for Blender including diorama framing, true-iso camer... |
 | [`journey-map`](../../library/owl-listener-designer-skills/skills/journey-map) | ⚪ Reserve | `owl-listener-designer-skills` | Map one persona's end-to-end experience with stages, touchpoints, emotions, and pain points. Us... |
 | [`latex-drawing-collection`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/latex-drawing-collection) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | LaTeX drawing examples for Bayesian networks, tensors, and diagrams |
 | [`markdown-mermaid-writing`](../../library/k-dense-ai-scientific-agent-skills/skills/markdown-mermaid-writing) | ⚪ Reserve | `k-dense-ai-scientific-agent-skills` | Writes scientific Markdown documentation and Mermaid diagrams for workflows, relationships, tim... |
@@ -101,6 +108,7 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`mermaid-diagram-specialist`](../../library/davila7-claude-code-templates/skills/mermaid-diagram-specialist) | ⚪ Reserve | `davila7-claude-code-templates` | Mermaid diagram specialist for creating flowcharts, sequence diagrams, ERDs, |
 | [`mermaid-diagrams`](../../library/davila7-claude-code-templates/skills/mermaid-diagrams) | ⚪ Reserve | `davila7-claude-code-templates` | Comprehensive guide for creating software diagrams using Mermaid syntax. Use when users need to... |
 | [`mermaid-expert`](../../library/antigravity-awesome-skills/skills/mermaid-expert) | ⚪ Reserve | `antigravity-awesome-skills` | Create Mermaid diagrams for flowcharts, sequences, ERDs, and |
+| [`mermaid-to-proverif`](../../library/trailofbits-skills/skills/mermaid-to-proverif) | ⚪ Reserve | `trailofbits-skills` | Translates Mermaid sequenceDiagrams describing cryptographic protocols into ProVerif formal ver... |
 | [`mermaid-visualizer`](../../library/axtonliu-axton-obsidian-visual-skills/skills/mermaid-visualizer) | ⚪ Reserve | `axtonliu-axton-obsidian-visual-skills` | Transform text content into professional Mermaid diagrams for presentations and documentation. ... |
 | [`nature-image2ppt`](../../library/yuan1z0825-nature-skills/skills/nature-image2ppt) | ⚪ Reserve | `yuan1z0825-nature-skills` | Reconstruct slide images, screenshots, scanned PDFs, or image-only PPTX files as object-level e... |
 | [`p5js`](../../library/nousresearch-hermes-skills/skills/p5js) | ⚪ Reserve | `nousresearch-hermes-skills` | p5.js sketches: gen art, shaders, interactive, 3D. |
@@ -110,12 +118,14 @@ python .agents/library/activate_skill.py activate <skill-name>
 | [`pitch-deck-visuals`](../../library/101-skills-superpowers/skills/pitch-deck-visuals) | ⚪ Reserve | `101-skills-superpowers` | Investor pitch deck structure with slide-by-slide framework, visual design rules, and data pres... |
 | [`pixel-art`](../../library/brycewang-stanford-auto-empirical-research-skills/skills/pixel-art) | ⚪ Reserve | `brycewang-stanford-auto-empirical-research-skills` | Generate pixel art SVG illustrations for READMEs, docs, or slides. Use when user says \"\u753b\... |
 | [`platform-role-hierarchy-apply`](../../library/forcedotcom-sf-skills/skills/platform-role-hierarchy-apply) | ⚪ Reserve | `forcedotcom-sf-skills` | Bulk-realign an existing Salesforce UserRole hierarchy from an external org-chart artifact (PDF... |
+| [`pptx-visual-assets`](../../library/wshobson-agents/skills/pptx-visual-assets) | ⚪ Reserve | `wshobson-agents` | Use when selecting and placing approved supporting icons, images, SVGs, diagrams, or infographi... |
 | [`pr-lens`](../../library/nousresearch-hermes-optional-skills/skills/pr-lens) | ⚪ Reserve | `nousresearch-hermes-optional-skills` | Draw code changes as animated architecture/data-flow SVGs. |
 | [`pymatgen`](../../library/davila7-claude-code-templates/skills/pymatgen) | ⚪ Reserve | `davila7-claude-code-templates` | Materials science toolkit. Crystal structures (CIF, POSCAR), phase diagrams, band structure, DO... |
 | [`qual-quant-triangulation`](../../library/owl-listener-designer-skills/skills/qual-quant-triangulation) | ⚪ Reserve | `owl-listener-designer-skills` | Reconcile what the numbers say with what users say, and design the study that settles it rather... |
 | [`research-repository`](../../library/owl-listener-designer-skills/skills/research-repository) | ⚪ Reserve | `owl-listener-designer-skills` | Build a repository that makes findings findable, reusable, and cumulative across teams. Use whe... |
 | [`root-cause-pareto`](../../library/davila7-claude-code-templates/skills/root-cause-pareto) | ⚪ Reserve | `davila7-claude-code-templates` | Build a decision-grade Pareto for downtime, defects, complaints or delays - with unit-of-measur... |
 | [`sap-fiori-add-visual-filter`](../../library/cline-skills/skills/sap-fiori-add-visual-filter) | ⚪ Reserve | `cline-skills` | Add visual filters (chart-based) to SAP Fiori Elements filter bar/value help using CAP or ABAP ... |
+| [`sap-fiori-analytical-chart`](../../library/sap-open-ux-tools/skills/sap-fiori-analytical-chart) | ⚪ Reserve | `sap-open-ux-tools` | Add analytical chart (chart + table hybrid) to SAP Fiori Elements List Report using aggregated ... |
 | [`star-history-chart`](../../library/davila7-claude-code-templates/skills/star-history-chart) | ⚪ Reserve | `davila7-claude-code-templates` | Add a self-hosted "Stargazers over time" chart to any GitHub repo's README. GitHub now restrict... |
 | [`statechart`](../../library/backnotprop-pstack/skills/statechart) | ⚪ Reserve | `backnotprop-pstack` | Check a TLA+ model of a system that moves between states, such as a product flow, a protocol, o... |
 | [`summarize-interview`](../../library/owl-listener-designer-skills/skills/summarize-interview) | ⚪ Reserve | `owl-listener-designer-skills` | Turn one interview transcript into themes, supporting quotes, and action items. Use immediately... |

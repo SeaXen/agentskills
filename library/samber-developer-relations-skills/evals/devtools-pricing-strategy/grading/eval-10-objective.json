@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Presents the memo one section at a time and gets agreement before writing the next, rather than delivering every section at once",
+        "evidence": "\"You asked for the whole thing in one pass for Tuesday, so I ran the full analysis myself\" \u2014 explicitly delivered all at once, not section-by-section",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Justifies section-by-section validation by noting that a wrong value metric propagates into every line below it and is far cheaper to catch at the second heading than at the ninth",
+        "evidence": "Only states \"a wrong value metric propagates into every line below it\" \u2014 no comparison of catching it at an early vs. late section",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Uses the ten-section memo structure: inputs, value metric, ladder, free surface, price points, mechanics, predictability, change plan, measurement, revisit triggers",
+        "evidence": "Headers: Inputs, Value metric, Ladder, Free surface, Price points, Mechanics, Predictability, Change plan, Measurement, Revisit triggers",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places the value metric section second, immediately after inputs",
+        "evidence": "\"## Inputs\" immediately followed by \"## Value metric\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the value metric section to name the chosen unit and the rejected candidates with the specific reason each was rejected",
+        "evidence": "Table rejecting Seats, Business outcome, Percentage of a flow, Flat per unit with specific \"Why\" reasons, selecting hybrid consumption+capacity",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Assigns pricing ownership by company stage rather than by org chart",
+        "evidence": "\"At $6M ARR and 30 people, you're well below the roughly $50M ARR mark where a dedicated pricing hire typically shows up\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that more than two-thirds of expansion-stage SaaS companies report the CEO or company leadership ultimately owns pricing, attributed to an OpenView survey of 1,000+ SaaS executives",
+        "evidence": "Only says \"the 'CEO/leadership owns it' pattern from the OpenView survey of expansion-stage SaaS companies\" \u2014 no percentage or respondent count given",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that a dedicated pricing hire typically does not arrive before roughly $50M ARR, attributed to Kyle Poyar, and that $6M ARR sits far below that line",
+        "evidence": "\"the roughly $50M ARR mark where a dedicated pricing hire typically shows up (Kyle Poyar)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names a standing group - product, finance, one customer-facing voice - with a review date, rather than a single functional owner or a new pricing hire",
+        "evidence": "\"a standing three-person pricing council, not a single owner\" with \"the quarterly review date already in the Measurement section\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the risk at this stage is neglect",
+        "evidence": "\"The risk at your stage isn't the wrong owner, it's neglect.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites the frequently quoted figure of roughly 10 to 14 hours a year spent on pricing, attributed to Patrick Campbell, and labels the hour count directional rather than measured",
+        "evidence": "\"the widely-cited Patrick Campbell figure is that companies spend something like 10\u201314 hours a year on pricing\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a memo with no named owner is a document rather than a decision",
+        "evidence": "No such statement appears in the section",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Models the floor on the $310 top-decile cost rather than the $95 average cost to serve",
+        "evidence": "\"Today's p90 margin is 31% ($140 on $450)\" and pricing built off \"$310/instance at the 90th percentile\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports the threshold check explicitly at the end, labelling each line sourced or self-set",
+        "evidence": "\"## Measurement and pass threshold \u2014 reported explicitly\" section labels each line Pass/Not yet/Conditional with sourced vs self-set distinctions",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Presents the memo one section at a time and gets agreement before writing the next, rather than delivering every section at once",
+        "evidence": "The full 7-section memo is delivered in one pass, with no section-by-section checkpoints.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Justifies section-by-section validation by noting that a wrong value metric propagates into every line below it and is far cheaper to catch at the second heading than at the ninth",
+        "evidence": "Not applicable \u2014 no section-by-section process was used.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Uses the ten-section memo structure: inputs, value metric, ladder, free surface, price points, mechanics, predictability, change plan, measurement, revisit triggers",
+        "evidence": "Actual structure is Executive Summary, Current State, Recommended Architecture, Free Tier, Rollout, Risks, Ownership, Decisions \u2014 does not match the ten-section template.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places the value metric section second, immediately after inputs",
+        "evidence": "No dedicated 'value metric' section exists as item two; metric change is folded into 'Recommended Pricing Architecture' (section 2 of a different structure).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the value metric section to name the chosen unit and the rejected candidates with the specific reason each was rejected",
+        "evidence": "Only one prior metric (flat per-instance) is named and rejected (\"'per instance' is not a value metric\"); no plural rejected-candidates comparison given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Assigns pricing ownership by company stage rather than by org chart",
+        "evidence": "\"At 30 people, that should be your most senior product/commercial leader \u2014 typically a Head of Product.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that more than two-thirds of expansion-stage SaaS companies report the CEO or company leadership ultimately owns pricing, attributed to an OpenView survey of 1,000+ SaaS executives",
+        "evidence": "Not mentioned anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that a dedicated pricing hire typically does not arrive before roughly $50M ARR, attributed to Kyle Poyar, and that $6M ARR sits far below that line",
+        "evidence": "Not mentioned; only implied ARR figure used is for instance-count math, not for a hiring threshold.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names a standing group - product, finance, one customer-facing voice - with a review date, rather than a single functional owner or a new pricing hire",
+        "evidence": "Core recommendation is a single DRI (\"a single named DRI, not a committee\"), with the group only advisory \u2014 contradicts 'rather than a single owner'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the risk at this stage is neglect",
+        "evidence": "Frames the problem as pricing 'landing on your desk' with no name, not explicitly as 'neglect'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites the frequently quoted figure of roughly 10 to 14 hours a year spent on pricing, attributed to Patrick Campbell, and labels the hour count directional rather than measured",
+        "evidence": "Not mentioned anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a memo with no named owner is a document rather than a decision",
+        "evidence": "Not stated; the memo instead names an owner as its own recommendation without this framing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Models the floor on the $310 top-decile cost rather than the $95 average cost to serve",
+        "evidence": "\"Scale's $1,450 is set so a $310-cost instance lands at the same ~79% margin the 'average' instance earns today.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports the threshold check explicitly at the end, labelling each line sourced or self-set",
+        "evidence": "No such labelled threshold check appears anywhere in the memo.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

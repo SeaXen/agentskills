@@ -1,0 +1,1697 @@
+use std::{
+    collections::HashMap,
+    mem,
+    net::{Ipv4Addr, Ipv6Addr, SocketAddr},
+    ops::Not,
+    path::PathBuf,
+    sync::{
+        Arc, LazyLock, OnceLock,
+        atomic::{AtomicU32, Ordering},
+    },
+};
+
+use async_pidfd::AsyncPidFd;
+use client_connection::AgentTlsConnector;
+use dns::{ClientGetAddrInfoRequest, DnsCommand};
+use futures::{
+    TryFutureExt,
+    future::{BoxFuture, OptionFuture},
+};
+use metrics::{CLIENT_COUNT, start_metrics};
+use mirrord_agent_env::{checked_env::CheckedEnv, envs};
+use mirrord_agent_iptables::{
+    ChainNames, IPTablesWrapper, SafeIpTables,
+    error::{IPTablesError, IPTablesResult},
+};
+use mirrord_cluster_auth::{AuthMethod, ClusterClientFactory, ClusterCredentials, eks_region};
+use mirrord_protocol::{ClientMessage, DaemonMessage, GetEnvVarsRequest};
+use mirrord_protocol_io::{Agent, Connection};
+use mirrord_sessions_manager_client::{
+    AgentClient, DirectTransport, EndpointSource, OperatorTransport, ReplicaId, ServiceScope,
+    SessionsManagerClientError, SessionsManagerEndpoint,
+};
+use socket2::SockRef;
+use tokio::{
+    net::{TcpListener, TcpSocket, TcpStream},
+    process::Command,
+    select,
+    signal::unix::SignalKind,
+    sync::mpsc::Sender,
+    task::JoinSet,
+    time::{Duration, timeout},
+};
+use tokio_util::sync::CancellationToken;
+use tracing::{Level, debug, error, info, trace, warn};
+use tracing_subscriber::{fmt::format::FmtSpan, prelude::*};
+
+use crate::{
+    cli::{self, Args},
+    client_connection::{self, ClientConnection},
+    container_handle::ContainerHandle,
+    dns::{self, DnsApi},
+    env,
+    error::{AgentError, AgentResult},
+    file::FileManager,
+    http::share_link::{ClientShareLinkKeys, ShareLinkKeys},
+    incoming::MirrorHandle,
+    metrics,
+    mirror::TcpMirrorApi,
+    namespace::NamespaceType,
+    outgoing::{
+        OutgoingApi, seqpacket::SeqpacketConnection, tcp_unix::TcpOrUnixConnection,
+        udp::UdpConnection,
+    },
+    reverse_dns::ReverseDnsApi,
+    runtime::{self, get_container},
+    steal::{StealerCommand, TcpStealerApi},
+    task::{BgTaskRuntime, RuntimeNamespace, status::BgTaskStatus},
+    util::{ClientId, io::throttle::Throttle, protocol_version::ClientProtocolVersion},
+    workload_companion::{WorkloadCompanionIngress, resolve_replica_id},
+};
+
+mod setup;
+
+/// [`ExitCode`](std::process::ExitCode) returned from the child agent process
+/// when dirty iptables are detected.
+pub(crate) const IPTABLES_DIRTY_EXIT_CODE: u8 = 99;
+
+/// Env var that gets checked when a new agent is started.
+/// If var is false or not set, the agent starts as an IP table guard which itself starts another
+/// agent. The child agent performs normal agent behaviour.
+const CHILD_PROCESS_ENV: &str = "MIRRORD_AGENT_CHILD_PROCESS";
+
+/// Error message to display when dirty IP tables are detected.
+const DIRTY_IPTABLES_ERROR_MESSAGE: &str = "Detected dirty iptables. Either some other mirrord agent is running \
+or the previous agent failed to clean up before exit. \
+If no other mirrord agent is targeting this pod, please delete the pod. \
+To allow concurrent sessions, consider using the operator available in mirrord for Teams: https://app.metalbear.com/?utm_source=dirtyiptables&utm_medium=agent";
+
+/// Warning when dirty IP tables were detected and cleaned.
+const DIRTY_IPTABLES_CLEANUP_WARNING_MESSAGE: &str = "Detected dirty iptables. Either some other mirrord agent is running \
+or the previous agent failed to clean up before exit. \
+The leftover rules were cleaned and the agent is starting. \
+To allow concurrent sessions, consider using the operator available in mirrord for Teams: https://app.metalbear.com/?utm_source=dirtyiptables&utm_medium=agent";
+
+struct IpVersionAvailability {
+    v4: bool,
+    v6: bool,
+}
+
+/// Checks whether the IPv4 and IPv6 stacks are usable in the current network namespace,
+/// by looking for an assigned address of each family on any interface.
+///
+/// We deliberately count loopback (`127.0.0.1`/`::1`) here. The kernel assigns these
+/// automatically exactly when the corresponding stack is enabled, and removes them when it
+/// is disabled (e.g. `net.ipv6.conf.all.disable_ipv6=1`). So their presence is a reliable
+/// signal that `ip(6)tables` will work *and* that processes in the pod can talk to that
+/// family's loopback. The latter matters: in an IPv4-only cluster a pod still has `::1`, and
+/// Go's resolver in particular prefers `[::1]` for `localhost`, so without IPv6 rules that
+/// traffic would silently bypass mirrord's steal/mirror.
+static IP_VERSION_AVAILABILITY: LazyLock<IpVersionAvailability> = LazyLock::new(|| {
+    let addrs = match nix::ifaddrs::getifaddrs() {
+        Ok(addrs) => addrs,
+        Err(err) => {
+            tracing::error!(?err, "failed to fetch ifaddrs: {}", err.desc());
+            return IpVersionAvailability {
+                v4: false,
+                v6: false,
+            };
+        }
+    };
+
+    let mut has_v4 = false;
+    let mut has_v6 = false;
+
+    for addr in addrs {
+        let Some(addr) = addr.address else {
+            continue;
+        };
+        has_v4 |= addr.as_sockaddr_in().is_some();
+        has_v6 |= addr.as_sockaddr_in6().is_some();
+    }
+
+    if has_v4.not() && has_v6.not() {
+        tracing::warn!("No usable IPv4 or IPv6 addresses were found on any interface");
+    }
+
+    IpVersionAvailability {
+        v4: has_v4,
+        v6: has_v6,
+    }
+});
+
+/// Identifier for the iptables chain names of the agent.
+///
+/// When this env var is set, we avoid conflicts with other agents in the same network namespace
+/// (i.e. when multiple agents are running in the same pod and targeting different containers).
+///
+/// If not set, we default to the legacy chain names (i.e. `MIRRORD_INPUT`, ...).
+///
+/// We decide to set this env var or not by checking `AgentConfig::single_pod_multi_container`.
+pub(crate) static IPTABLES_IDENTIFIER: OnceLock<String> = OnceLock::new();
+
+/// Keeps track of next client id.
+/// Stores common data used when serving client connections.
+/// Can be cheaply cloned and passed to per-client background tasks.
+#[derive(Clone)]
+struct State {
+    /// [`ClientId`] for the next client that connects to this agent.
+    next_client_id: Arc<AtomicU32>,
+    /// Handle to the target container if there is one.
+    /// This is optional because it is acceptable not to pass the container runtime and id if not
+    /// pausing. When those args are not passed, container is [`None`].
+    container: Option<ContainerHandle>,
+    env: Arc<HashMap<String, String>>,
+    ephemeral: bool,
+    workload_companion: bool,
+    /// When present, it is used to secure incoming TCP connections.
+    tls_connector: Option<AgentTlsConnector>,
+    /// [`tokio::runtime`] that should be used for network operations ([`BackgroundTasks`]).
+    network_runtime: Arc<BgTaskRuntime>,
+    /// Session keys that redirected requests may join with a share link.
+    ///
+    /// Lives here rather than in a client handler, because the keys the operator registers apply
+    /// to every request the agent redirects, whichever client is stealing it.
+    share_links: ShareLinkKeys,
+}
+
+impl State {
+    /// Return [`Err`] if container runtime operations failed.
+    #[tracing::instrument(level = Level::DEBUG, err)]
+    pub async fn new(args: &Args) -> AgentResult<State> {
+        let tls_connector = args
+            .operator_tls_cert_pem
+            .clone()
+            .map(AgentTlsConnector::new)
+            .transpose()?;
+
+        let mut env: HashMap<String, String> = HashMap::new();
+
+        let (ephemeral, workload_companion, container) = match &args.mode {
+            cli::Mode::Targeted {
+                container_id,
+                container_runtime,
+                ..
+            } => {
+                IPTABLES_IDENTIFIER.get_or_init(|| {
+                    let mut container_id = container_id.clone();
+                    container_id.truncate(20);
+                    container_id
+                });
+
+                let container = get_container(container_id.clone(), container_runtime).await?;
+
+                let container_handle = ContainerHandle::new(container).await?;
+
+                env.extend(container_handle.raw_env().clone());
+
+                (false, false, Some(container_handle))
+            }
+            cli::Mode::Ephemeral { .. } => {
+                IPTABLES_IDENTIFIER.get_or_init(|| {
+                    let mut container_id = envs::EPHEMERAL_TARGET_CONTAINER_ID
+                        .try_from_env()
+                        .ok()
+                        .flatten()
+                        .unwrap_or_default();
+
+                    container_id.truncate(20);
+                    container_id
+                });
+
+                let container_handle = ContainerHandle::new(runtime::Container::Ephemeral(
+                    runtime::EphemeralContainer {
+                        container_id: envs::EPHEMERAL_TARGET_CONTAINER_ID
+                            .try_from_env()
+                            .ok()
+                            .flatten()
+                            .unwrap_or_default(),
+                    },
+                ))
+                .await?;
+
+                env.extend(container_handle.raw_env().clone());
+
+                // If we are in an ephemeral container, we use pid 1.
+                (true, false, Some(container_handle))
+            }
+            cli::Mode::Targetless => (false, false, None),
+            cli::Mode::WorkloadCompanion => (false, true, None),
+        };
+
+        tracing::debug!("THE ID IS: {IPTABLES_IDENTIFIER:?}");
+
+        let network_runtime = match container.as_ref().map(ContainerHandle::pid) {
+            Some(pid) if ephemeral.not() => {
+                BgTaskRuntime::spawn(Some(RuntimeNamespace::new(pid, NamespaceType::Net)))
+            }
+
+            None | Some(..) => BgTaskRuntime::spawn(None),
+        }
+        .await?;
+
+        let env_pid = match container.as_ref().map(ContainerHandle::pid) {
+            Some(pid) => pid.to_string(),
+            None => "self".to_owned(),
+        };
+        let environ_path = PathBuf::from("/proc").join(env_pid).join("environ");
+        match env::get_proc_environ(environ_path).await {
+            Ok(environ) => env.extend(environ.into_iter()),
+            Err(err) => {
+                error!("Failed to get process environment variables: {err:?}");
+            }
+        };
+
+        Ok(State {
+            next_client_id: Default::default(),
+            container,
+            env: Arc::new(env),
+            ephemeral,
+            workload_companion,
+            tls_connector,
+            network_runtime: Arc::new(network_runtime),
+            share_links: Default::default(),
+        })
+    }
+
+    /// Return the process ID of the target container if there is one.
+    pub fn container_pid(&self) -> Option<u64> {
+        self.container.as_ref().map(ContainerHandle::pid)
+    }
+
+    pub async fn serve_client_connection(
+        self,
+        stream: TcpStream,
+        tasks: BackgroundTasks,
+        cancellation_token: CancellationToken,
+    ) -> u32 {
+        let client_id = self.next_client_id.fetch_add(1, Ordering::Relaxed);
+
+        // mirrord protocol messages are small and latency sensitive,
+        // buffering them with Nagle's algorithm only slows the session down.
+        if let Err(error) = stream.set_nodelay(true) {
+            warn!(client_id, %error, "Failed to set TCP_NODELAY on a client connection");
+        }
+
+        let result = ClientConnection::new(stream, client_id, self.tls_connector.clone())
+            .map_err(AgentError::from)
+            .and_then(|connection| ClientConnectionHandler::new(client_id, connection, tasks, self))
+            .and_then(|client| client.start(cancellation_token))
+            .await;
+
+        match result {
+            Ok(()) => {
+                trace!(client_id, "serve_client_connection -> Client disconnected");
+            }
+
+            Err(error) => {
+                error!(
+                    client_id,
+                    ?error,
+                    "serve_client_connection -> Client disconnected with error",
+                );
+            }
+        }
+
+        client_id
+    }
+
+    pub async fn serve_client_connection_protocol(
+        self,
+        connection: Connection<Agent>,
+        tasks: BackgroundTasks,
+        cancellation_token: CancellationToken,
+    ) -> u32 {
+        let client_id = self.next_client_id.fetch_add(1, Ordering::Relaxed);
+
+        let connection = ClientConnection::from_protocol_connection(connection, client_id);
+        let result = ClientConnectionHandler::new(client_id, connection, tasks, self)
+            .and_then(|client| client.start(cancellation_token))
+            .await;
+
+        match result {
+            Ok(()) => {
+                trace!(client_id, "serve_client_connection -> Client disconnected");
+            }
+
+            Err(error) => {
+                error!(
+                    client_id,
+                    ?error,
+                    "serve_client_connection -> Client disconnected with error",
+                );
+            }
+        }
+
+        client_id
+    }
+
+    fn is_with_mesh_exclusion(&self) -> bool {
+        self.ephemeral
+            && envs::EXCLUDE_FROM_MESH.from_env_or_default()
+            && envs::IN_SERVICE_MESH.from_env_or_default()
+    }
+}
+
+enum BackgroundTask<Command> {
+    Running(BgTaskStatus, Sender<Command>),
+    Disabled,
+}
+
+impl<Command> BackgroundTask<Command> {
+    /// Waits for the task to finish, and returns its result.
+    ///
+    /// If the task is [`BackgroundTask::Disabled`], returns [`Ok`].
+    #[tracing::instrument(level = Level::TRACE, skip(self), fields(status), err(level = Level::DEBUG))]
+    async fn wait(self) -> Result<(), AgentError> {
+        let Self::Running(status, channel) = self else {
+            return Ok(());
+        };
+        std::mem::drop(channel);
+
+        let current_span = tracing::Span::current();
+        if current_span.is_disabled().not() {
+            current_span.record("status", format!("{status:?}"));
+        }
+
+        timeout(Duration::from_secs(5), status.wait()).await?
+    }
+}
+
+impl<Command> Clone for BackgroundTask<Command> {
+    fn clone(&self) -> Self {
+        match self {
+            BackgroundTask::Disabled => BackgroundTask::Disabled,
+            BackgroundTask::Running(status, sender) => {
+                BackgroundTask::Running(status.clone(), sender.clone())
+            }
+        }
+    }
+}
+
+/// Handles to background tasks used by [`ClientConnectionHandler`].
+#[derive(Clone)]
+struct BackgroundTasks {
+    stealer: BackgroundTask<StealerCommand>,
+    dns: BackgroundTask<DnsCommand>,
+    mirror_handle: Option<MirrorHandle>,
+}
+
+struct ClientConnectionHandler {
+    id: ClientId,
+    /// Handles mirrord's file operations, see [`FileManager`].
+    file_manager: FileManager,
+    connection: ClientConnection,
+    /// [`None`] when targetless.
+    tcp_mirror_api: Option<TcpMirrorApi>,
+    /// [`None`] when targetless.
+    tcp_stealer_api: Option<TcpStealerApi>,
+    tcp_outgoing_api: OutgoingApi<TcpOrUnixConnection>,
+    udp_outgoing_api: OutgoingApi<UdpConnection>,
+    seqpacket_api: OutgoingApi<SeqpacketConnection>,
+    dns_api: DnsApi,
+    reverse_dns_api: ReverseDnsApi,
+    /// Share link keys this client registered. Dropped with the handler, so a client that dies
+    /// without cleaning up does not leave its keys active forever.
+    share_links: ClientShareLinkKeys,
+    state: State,
+    /// Whether the client has sent us [`ClientMessage::ReadyForLogs`].
+    ready_for_logs: bool,
+    /// Client's version of [`mirrord_protocol`].
+    protocol_version: ClientProtocolVersion,
+}
+
+impl Drop for ClientConnectionHandler {
+    fn drop(&mut self) {
+        CLIENT_COUNT.fetch_sub(1, Ordering::Relaxed);
+    }
+}
+
+impl ClientConnectionHandler {
+    /// How much peers->client outgoing data we can buffer in memory.
+    pub const OUTGOING_DATA_TO_CLIENT_LIMIT: usize = 512 * 1024;
+    /// How much client->peers outgoing data we can buffer in memory.
+    pub const OUTGOING_DATA_FROM_CLIENT_LIMIT: usize = 512 * 1024;
+
+    /// Initializes [`ClientConnectionHandler`].
+    #[tracing::instrument(level = Level::TRACE, skip(connection, bg_tasks, state), err)]
+    pub async fn new(
+        id: ClientId,
+        mut connection: ClientConnection,
+        bg_tasks: BackgroundTasks,
+        state: State,
+    ) -> AgentResult<Self> {
+        let protocol_version = ClientProtocolVersion::default();
+
+        let file_manager = if state.workload_companion {
+            FileManager::new_workload_companion()
+        } else {
+            FileManager::new(
+                state
+                    .container_pid()
+                    .or_else(|| state.ephemeral.then_some(1)),
+            )
+        };
+
+        let tcp_mirror_api = bg_tasks
+            .mirror_handle
+            .map(|mirror_handle| TcpMirrorApi::new(mirror_handle, protocol_version.clone()));
+        let tcp_stealer_api = Self::create_stealer_api(
+            id,
+            protocol_version.clone(),
+            bg_tasks.stealer,
+            &mut connection,
+        )
+        .await?;
+        let dns_api = Self::create_dns_api(bg_tasks.dns);
+        let reverse_dns_api = ReverseDnsApi::new(&state.network_runtime);
+
+        let outgoing_to_client_throttle = Throttle::new(Self::OUTGOING_DATA_TO_CLIENT_LIMIT);
+        let outgoing_from_client_throttle = Throttle::new(Self::OUTGOING_DATA_FROM_CLIENT_LIMIT);
+
+        let client_handler = Self {
+            id,
+            file_manager,
+            connection,
+            tcp_mirror_api,
+            tcp_stealer_api,
+            tcp_outgoing_api: OutgoingApi::new(
+                state.network_runtime.clone(),
+                outgoing_to_client_throttle.clone(),
+                outgoing_from_client_throttle.clone(),
+            ),
+            udp_outgoing_api: OutgoingApi::new(
+                state.network_runtime.clone(),
+                outgoing_to_client_throttle.clone(),
+                outgoing_from_client_throttle.clone(),
+            ),
+            seqpacket_api: OutgoingApi::new(
+                state.network_runtime.clone(),
+                outgoing_to_client_throttle.clone(),
+                outgoing_from_client_throttle.clone(),
+            ),
+            dns_api,
+            reverse_dns_api,
+            share_links: state.share_links.for_client(),
+            state,
+            ready_for_logs: false,
+            protocol_version,
+        };
+
+        CLIENT_COUNT.fetch_add(1, Ordering::Relaxed);
+
+        Ok(client_handler)
+    }
+
+    async fn create_stealer_api(
+        id: ClientId,
+        protocol_version: ClientProtocolVersion,
+        task: BackgroundTask<StealerCommand>,
+        connection: &mut ClientConnection,
+    ) -> AgentResult<Option<TcpStealerApi>> {
+        match task {
+            BackgroundTask::Running(stealer_status, stealer_sender) => {
+                match TcpStealerApi::new(id, protocol_version, stealer_sender, stealer_status).await
+                {
+                    Ok(api) => Ok(Some(api)),
+                    Err(e) => {
+                        let _ = connection
+                            .send(DaemonMessage::Close(format!(
+                                "Failed to create TcpStealerApi: {e}."
+                            )))
+                            .await; // Ignore message send error.
+
+                        Err(e)?
+                    }
+                }
+            }
+            _ => Ok(None),
+        }
+    }
+
+    fn create_dns_api(task: BackgroundTask<DnsCommand>) -> DnsApi {
+        match task {
+            BackgroundTask::Running(task_status, task_sender) => {
+                DnsApi::new(task_status, task_sender)
+            }
+            BackgroundTask::Disabled => unreachable!("dns task is never disabled"),
+        }
+    }
+
+    /// Starts a loop that handles client connection and state.
+    ///
+    /// Breaks upon receiver/sender drop.
+    #[tracing::instrument(level = Level::TRACE, skip(self))]
+    async fn start(mut self, cancellation_token: CancellationToken) -> AgentResult<()> {
+        let error = loop {
+            select! {
+                message = self.connection.receive() => {
+                    let Some(message) = message? else {
+                        debug!("Client {} disconnected", self.id);
+                        return Ok(());
+                    };
+
+                    match self.handle_client_message(message).await {
+                        Ok(true) => {},
+                        Ok(false) => return Ok(()),
+                        Err(e) => {
+                            error!("Error handling client message: {e:?}");
+                            break e;
+                        }
+                    }
+                },
+                // poll the sniffer API only when it's available
+                // exit when it stops (means something bad happened if
+                // it ran and then stopped)
+                message = async {
+                    match self.tcp_mirror_api { Some(ref mut mirror_api) => {
+                        mirror_api.recv().await
+                    } _ => {
+                        unreachable!()
+                    }}
+                }, if self.tcp_mirror_api.is_some() => match message {
+                    Ok(message) => {
+                        self.respond(message).await?;
+                    }
+                    Err(e) => break e,
+                },
+                message = async {
+                    match self.tcp_stealer_api { Some(ref mut stealer_api) => {
+                        stealer_api.recv().await
+                    } _ => {
+                        unreachable!()
+                    }}
+                }, if self.tcp_stealer_api.is_some() => match message {
+                    Ok(message) => self.respond(message).await?,
+                    Err(e) => break e,
+                },
+                Some(message) = self.tcp_outgoing_api.recv() => match message {
+                    Ok((message, throttle)) => {
+                        self.respond(message).await?;
+                        // Throttle permits should be dropped only when the message has been sent and flushed.
+                        drop(throttle);
+                    },
+                    Err(e) => break e.into(),
+                },
+                Some(message) = self.udp_outgoing_api.recv() => match message {
+                    Ok((message, throttle)) => {
+                        self.respond(message).await?;
+                        // Throttle permits should be dropped only when the message has been sent and flushed.
+                        drop(throttle);
+                    },
+                    Err(e) => break e.into(),
+                },
+                Some(message) = self.seqpacket_api.recv() => match message {
+                    Ok((message, throttle)) => {
+                        self.respond(message).await?;
+                        // Throttle permits should be dropped only when the message has been sent and flushed.
+                        drop(throttle);
+                    },
+                    Err(e) => break e.into(),
+                },
+                message = self.dns_api.recv() => match message {
+                    Ok(message) => self.respond(DaemonMessage::GetAddrInfoResponse(message)).await?,
+                    Err(e) => break e,
+                },
+                message = self.reverse_dns_api.recv() => match message {
+                    Ok(message) => self.respond(DaemonMessage::ReverseDnsLookup(Ok(message))).await?,
+                    Err(e) => break e,
+                },
+                _ = cancellation_token.cancelled() => return Ok(()),
+            }
+        };
+
+        if let Err(e) = self.respond(DaemonMessage::Close(error.to_string())).await {
+            error!("Failed to send error to client: {e:?}");
+        }
+
+        Err(error)
+    }
+
+    /// Sends a [`DaemonMessage`] response to the connected client (`mirrord-layer`).
+    #[tracing::instrument(level = "trace", skip(self))]
+    async fn respond(&mut self, response: DaemonMessage) -> AgentResult<()> {
+        if matches!(&response, DaemonMessage::LogMessage(..)) && self.ready_for_logs.not() {
+            return Ok(());
+        }
+
+        self.connection.send(response).await.map_err(Into::into)
+    }
+
+    /// Handles incoming messages from the connected client (`mirrord-layer`).
+    ///
+    /// Returns `false` if the client disconnected.
+    #[tracing::instrument(level = Level::TRACE, skip(self), ret, err(level = Level::DEBUG))]
+    async fn handle_client_message(&mut self, message: ClientMessage) -> AgentResult<bool> {
+        match message {
+            ClientMessage::FileRequest(req) => {
+                if let Some(response) = self.file_manager.handle_message(req)? {
+                    self.respond(DaemonMessage::File(response))
+                        .await
+                        .inspect_err(|fail| {
+                            error!(
+                                "handle_client_message -> Failed responding to file message {:#?}!",
+                                fail
+                            )
+                        })?
+                }
+            }
+            ClientMessage::TcpOutgoing(layer_message) => {
+                self.tcp_outgoing_api.handle_message(layer_message).await;
+            }
+            ClientMessage::UdpOutgoing(layer_message) => {
+                self.udp_outgoing_api.handle_message(layer_message).await;
+            }
+            ClientMessage::SeqpacketOutgoing(layer_message) => {
+                self.seqpacket_api.handle_message(layer_message).await;
+            }
+            ClientMessage::GetEnvVarsRequest(GetEnvVarsRequest {
+                env_vars_filter,
+                env_vars_select,
+            }) => {
+                debug!(
+                    "ClientMessage::GetEnvVarsRequest client id {:?} filter {:?} select {:?}",
+                    self.id, env_vars_filter, env_vars_select
+                );
+
+                let env_vars_result =
+                    env::select_env_vars(&self.state.env, env_vars_filter, env_vars_select);
+
+                self.respond(DaemonMessage::GetEnvVarsResponse(env_vars_result))
+                    .await?
+            }
+            ClientMessage::GetAddrInfoRequest(request) => {
+                self.dns_api
+                    .make_request(ClientGetAddrInfoRequest::V1(request))
+                    .await?;
+            }
+            ClientMessage::GetAddrInfoRequestV2(request) => {
+                self.dns_api
+                    .make_request(ClientGetAddrInfoRequest::V2(request))
+                    .await?;
+            }
+            ClientMessage::ReverseDnsLookup(request) => {
+                self.reverse_dns_api
+                    .request_reverse_lookup(request.ip_address);
+            }
+            ClientMessage::Ping => self.respond(DaemonMessage::Pong).await?,
+            // Message handled exclusively by the operator, see its docs for details.
+            ClientMessage::OperatorPong(_) => (),
+            ClientMessage::Tcp(message) => match &mut self.tcp_mirror_api {
+                Some(mirror_api) => mirror_api.handle_client_message(message).await?,
+                _ => {
+                    self.respond(DaemonMessage::Close(
+                        "incoming traffic mirroring is not available in the targetless mode"
+                            .to_owned(),
+                    ))
+                    .await?;
+                }
+            },
+            ClientMessage::TcpSteal(message) => {
+                let error = match self.tcp_stealer_api.as_mut() {
+                    Some(tcp_stealer_api) => tcp_stealer_api
+                        .handle_client_message(message)
+                        .await
+                        .err()
+                        .map(|error| error.to_string()),
+                    _ => Some(
+                        "incoming traffic stealing is not available in the targetless mode"
+                            .to_owned(),
+                    ),
+                };
+
+                if let Some(error) = error {
+                    self.respond(DaemonMessage::Close(error)).await?;
+                }
+            }
+            ClientMessage::Close => {
+                return Ok(false);
+            }
+            ClientMessage::PauseTargetRequest(_) => {
+                self.respond(DaemonMessage::Close(
+                    "Pause isn't supported anymore.".to_owned(),
+                ))
+                .await?;
+            }
+            ClientMessage::SwitchProtocolVersion(client_version) => {
+                let settled_version = (&*mirrord_protocol::VERSION).min(&client_version).clone();
+
+                self.protocol_version.replace(client_version);
+
+                self.respond(DaemonMessage::SwitchProtocolVersionResponse(
+                    settled_version,
+                ))
+                .await?;
+            }
+            ClientMessage::ReadyForLogs => {
+                self.ready_for_logs = true;
+            }
+            ClientMessage::Vpn(_message) => {
+                self.respond(DaemonMessage::Close("VPN is not supported".into()))
+                    .await?;
+            }
+            ClientMessage::ShareLink(update) => {
+                self.share_links.update(update);
+            }
+        }
+
+        Ok(true)
+    }
+}
+
+/// Upon first client connection, immediately sends [`DaemonMessage::Close`] to the client due to
+/// the presence of dirty IP tables.
+pub async fn notify_client_about_dirty_iptables(
+    listener: TcpListener,
+    communication_timeout: u16,
+    tls_connector: Option<AgentTlsConnector>,
+) -> AgentResult<()> {
+    // WARNING: `wait_for_agent_startup` in `mirrord/kube/src/api/container.rs` expects a line
+    // containing "agent_ready" to be printed. If you change this then mirrord fails to
+    // initialize.
+    println!("agent ready - version {}", env!("CARGO_PKG_VERSION"));
+
+    // We wait for the first client until `communication_timeout` elapses.
+    let first_connection = timeout(
+        Duration::from_secs(communication_timeout.into()),
+        listener.accept(),
+    )
+    .await;
+
+    // Attempt to send [`DaemonMessage::Close`]. Otherwise, the agent will still fail (but
+    // ungracefully).
+    match first_connection {
+        Ok(Ok((stream, ..))) => {
+            let mut connection = ClientConnection::new(stream, 0, tls_connector).await?;
+            connection
+                .send(DaemonMessage::Close(
+                    DIRTY_IPTABLES_ERROR_MESSAGE.to_owned(),
+                ))
+                .await?;
+        }
+
+        Ok(Err(error)) => {
+            tracing::warn!(
+                ?error,
+                "notify_client_about_dirty_iptables -> Failed to accept first connection"
+            );
+            Err(error)?
+        }
+
+        Err(..) => {
+            tracing::warn!(
+                "notify_client_about_dirty_iptables -> Failed to accept first connection: timeout"
+            );
+            Err(AgentError::FirstConnectionTimeout)?
+        }
+    }
+
+    Ok(())
+}
+
+/// Monitors the main container process and cancels `cancel` when it
+/// exits.
+///
+/// This not only makes for a better UX (no unused agent pods
+/// lingering), but is important for terminating redirected
+/// connections gracefully. If we don't exit as soon as the main
+/// container dies, the veth interface will be deleted while
+/// redirected connections are still open, and thus the other ends
+/// will stay open with no way to terminate them correctly.
+fn monitor_main_container(cancel: CancellationToken, pid: libc::pid_t) {
+    let fd = match AsyncPidFd::from_pid(pid) {
+        Ok(fd) => fd,
+        // Kernels older than 5.3 don't have `pidfd_open`.
+        Err(error) if error.raw_os_error() == Some(libc::ENOSYS) => {
+            tracing::warn!(
+                %error,
+                "pidfd_open is not supported on this kernel, \
+                the agent won't stop when the target container exits",
+            );
+            return;
+        }
+        Err(error) => {
+            tracing::error!(
+                %error,
+                "Failed to get the target container process descriptor",
+            );
+            return;
+        }
+    };
+
+    tokio::spawn(async move {
+        tracing::trace!("Starting watcher task for main target process");
+        match fd.wait().await {
+            Err(error) if error.raw_os_error() == Some(libc::ECHILD) => {
+                tracing::warn!(?error, "Target container process exited, shutting down");
+                cancel.cancel();
+            }
+            Err(error) => {
+                tracing::warn!(
+                    ?error,
+                    "wait() on target container did not return expected value"
+                );
+            }
+            Ok(status) => {
+                // ExitInfo doesn't impl Debug >:(
+                tracing::warn!(
+                    siginifo = ?status.siginfo,
+                    rusage = ?status.rusage,
+                    "wait() on target container did not return expected value"
+                );
+            }
+        }
+    });
+}
+
+#[tracing::instrument(level = Level::TRACE, ret, err)]
+async fn get_rules(
+    iptables: Option<&IPTablesWrapper>,
+    ip6tables: Option<&IPTablesWrapper>,
+    chain_names: &ChainNames,
+) -> IPTablesResult<Vec<String>> {
+    let mut rules = Vec::new();
+
+    if let Some(iptables) = iptables {
+        let rules_v4 = SafeIpTables::list_mirrord_rules(iptables, chain_names).await?;
+        rules.extend(rules_v4);
+    }
+
+    if let Some(ip6tables) = ip6tables {
+        let rules_v6 = SafeIpTables::list_mirrord_rules(ip6tables, chain_names).await?;
+        rules.extend(rules_v6);
+    }
+
+    Ok(rules)
+}
+
+/// Get existing iptable rules created by this agent instance.
+///
+/// If `clean_existing_rules` is set, the iptables will be cleaned after fetching the existing
+/// rules. The rules from before the cleanup will be returned for logging.
+#[tracing::instrument(level = Level::TRACE, ret, err)]
+async fn check_existing_rules(
+    clean_existing_rules: bool,
+    with_mesh_exclusion: bool,
+    chain_names: ChainNames,
+) -> IPTablesResult<Vec<String>> {
+    let nftables = envs::NFTABLES.try_from_env().unwrap_or_default();
+
+    let IpVersionAvailability { v4, v6 } = &*IP_VERSION_AVAILABILITY;
+
+    let iptables = v4.then(|| mirrord_agent_iptables::get_iptables(nftables, false));
+    let ip6tables = v6.then(|| mirrord_agent_iptables::get_iptables(nftables, true));
+
+    let rules = get_rules(iptables.as_ref(), ip6tables.as_ref(), &chain_names).await?;
+    if clean_existing_rules
+        && rules.is_empty().not()
+        && let Err(err) = clear_iptable_chain(*v4, *v6, with_mesh_exclusion, &chain_names).await
+    {
+        // the error could be because we tried to remove two rules and only one of them was
+        // present to begin with, so removing the other, non-existent one failed.
+        // So we check the rules after cleaning and only fail if there are still rules.
+        let rules = get_rules(iptables.as_ref(), ip6tables.as_ref(), &chain_names).await?;
+        if rules.is_empty().not() {
+            // There are still rules after the cleanup, the cleanup was not successful.
+            return Err(err);
+        }
+    }
+
+    Ok(rules)
+}
+
+async fn check_leftover_rules(
+    state: &State,
+    args: &Args,
+    target_pid: u64,
+    chain_names: ChainNames,
+    cancellation_token: CancellationToken,
+) -> AgentResult<()> {
+    let leftover_rules = state
+        .network_runtime
+        .handle()
+        .spawn(check_existing_rules(
+            args.clean_iptables_on_start,
+            state.is_with_mesh_exclusion(),
+            chain_names,
+        ))
+        .await
+        .map_err(|error| AgentError::IPTablesSetupError(error.into()))?
+        .map_err(|error| AgentError::IPTablesSetupError(error.into()))?;
+
+    if leftover_rules.is_empty().not() {
+        if args.clean_iptables_on_start {
+            warn!(
+                leftover_rules = ?leftover_rules,
+                "{}",
+                DIRTY_IPTABLES_CLEANUP_WARNING_MESSAGE
+            );
+        } else {
+            error!(
+                leftover_rules = ?leftover_rules,
+                "{}",
+                DIRTY_IPTABLES_ERROR_MESSAGE
+            );
+            return Err(AgentError::IPTablesDirty);
+        }
+    }
+
+    // Casting u64 to i32 but linux pids shouldn't exceed 2^22
+    let pid = target_pid.try_into().unwrap();
+    monitor_main_container(cancellation_token.clone(), pid);
+
+    Ok(())
+}
+
+/// Real mirrord-agent routine.
+///
+/// Obtains the PID of the target container (if there is any),
+/// starts background tasks and listens for client connections.
+#[tracing::instrument(level = Level::TRACE, ret, err)]
+async fn start_agent(args: Args) -> AgentResult<()> {
+    let listener = {
+        // Prefer a dual-stack IPv6 socket so both IPv4 and IPv6 clients can connect.
+        // If anything in that setup fails (e.g. IPv6 is disabled in the cluster),
+        // fall back to a plain IPv4 listener.
+        let create_dual_stack = || -> AgentResult<TcpListener> {
+            let listener = TcpSocket::new_v6()?;
+            // SO_REUSEADDR is required to handle rapid agent restarts.
+            listener.set_reuseaddr(true)?;
+            // Accept IPv4 clients on this socket as well, not only IPv6 ones.
+            SockRef::from(&listener).set_only_v6(false)?;
+            listener.bind(SocketAddr::new(
+                Ipv6Addr::UNSPECIFIED.into(),
+                args.communicate_port,
+            ))?;
+            listener.listen(1024).map_err(AgentError::from)
+        };
+
+        match create_dual_stack() {
+            Ok(listener) => listener,
+            Err(error) => {
+                warn!(%error, "Failed to set up an IPv6 client listener, falling back to IPv4.");
+                let listener = TcpSocket::new_v4()?;
+                listener.set_reuseaddr(true)?;
+                listener.bind(SocketAddr::new(
+                    Ipv4Addr::UNSPECIFIED.into(),
+                    args.communicate_port,
+                ))?;
+                listener.listen(1024).map_err(AgentError::from)?
+            }
+        }
+    };
+
+    let client_listener_address = listener.local_addr()?;
+    debug!(address = %client_listener_address, "Created the client listener.");
+
+    let state = State::new(&args).await?;
+
+    let cancellation_token = CancellationToken::new();
+
+    // Check that chain names won't conflict with another agent or failed cleanup.
+    // This check is only relevant if we have a target.
+    // If we don't have any target, the agent should be running in a fresh network namespace,
+    // and you should **not** expect that it can access iptables.
+    if let Some(target_pid) = state.container_pid() {
+        // check legacy rules
+        match check_leftover_rules(
+            &state,
+            &args,
+            target_pid,
+            ChainNames::legacy(),
+            cancellation_token.clone(),
+        )
+        // check new rules
+        .and_then(|()| {
+            check_leftover_rules(
+                &state,
+                &args,
+                target_pid,
+                ChainNames::new(
+                    IPTABLES_IDENTIFIER
+                        .get()
+                        .expect("Should be set during state initialization!"),
+                ),
+                cancellation_token.clone(),
+            )
+        })
+        .await
+        {
+            Ok(_) => (),
+            Err(AgentError::IPTablesDirty) => {
+                let _ = notify_client_about_dirty_iptables(
+                    listener,
+                    args.communication_timeout,
+                    state.tls_connector.clone(),
+                )
+                .await;
+                return Err(AgentError::IPTablesDirty);
+            }
+            Err(fail) => return Err(fail),
+        }
+    }
+
+    // To make sure that background tasks are cancelled when we exit early from this function.
+    let cancel_guard = cancellation_token.clone().drop_guard();
+
+    if let Some(metrics_address) = args.metrics {
+        let cancellation_token = cancellation_token.clone();
+        tokio::spawn(async move {
+            start_metrics(metrics_address, cancellation_token.clone())
+                .await
+                .inspect_err(|fail| {
+                    tracing::error!(?fail, "Failed starting metrics server!");
+                    cancellation_token.cancel();
+                })
+        });
+    }
+
+    let (stealer, mirror_handle) = match state.container_pid() {
+        None => (BackgroundTask::Disabled, None),
+        Some(pid) => {
+            let (steal_handle, mirror_handle) = setup::start_traffic_redirector(
+                &state.network_runtime,
+                pid,
+                state
+                    .is_with_mesh_exclusion()
+                    .then(|| client_listener_address.port()),
+                state.share_links.clone(),
+            )
+            .await?;
+            (
+                setup::start_stealer(
+                    &state.network_runtime,
+                    steal_handle,
+                    cancellation_token.clone(),
+                ),
+                Some(mirror_handle),
+            )
+        }
+    };
+
+    let dns = setup::start_dns(&state.network_runtime, cancellation_token.clone());
+
+    let bg_tasks = BackgroundTasks {
+        stealer,
+        dns,
+        mirror_handle,
+    };
+
+    // WARNING: `wait_for_agent_startup` in `mirrord/kube/src/api/container.rs` expects a line
+    // containing "agent_ready" to be printed. If you change this then mirrord fails to
+    // initialize.
+    println!("agent ready - version {}", env!("CARGO_PKG_VERSION"));
+
+    let mut clients: JoinSet<ClientId> = JoinSet::new();
+
+    // We wait for the first client until `communication_timeout` elapses.
+    let first_connection = timeout(
+        Duration::from_secs(args.communication_timeout.into()),
+        listener.accept(),
+    )
+    .await;
+
+    match first_connection {
+        Ok(Ok((stream, addr))) => {
+            trace!(peer = %addr, "start_agent -> First connection accepted");
+            clients.spawn(state.clone().serve_client_connection(
+                stream,
+                bg_tasks.clone(),
+                cancellation_token.clone(),
+            ));
+        }
+
+        Ok(Err(error)) => {
+            error!(?error, "start_agent -> Failed to accept first connection");
+            Err(error)?
+        }
+
+        Err(..) => {
+            error!("start_agent -> Failed to accept first connection: timeout");
+            Err(AgentError::FirstConnectionTimeout)?
+        }
+    }
+
+    if args.test_error {
+        Err(AgentError::TestError)?
+    }
+
+    let idle_ttl = Duration::from_secs(envs::IDDLE_TTL.from_env_or_default());
+    loop {
+        let exit_idle =
+            OptionFuture::from(clients.is_empty().then_some(tokio::time::sleep(idle_ttl)));
+
+        select! {
+            Ok((stream, addr)) = listener.accept() => {
+                trace!(peer = %addr, "start_agent -> Connection accepted");
+                clients.spawn(state
+                    .clone()
+                    .serve_client_connection(
+                        stream,
+                        bg_tasks.clone(),
+                        cancellation_token.clone()
+                    )
+                );
+            },
+
+            Some(client) = clients.join_next() => {
+                match client {
+                    Ok(client) => {
+                        trace!(client, "start_agent -> Client finished");
+                    }
+                    Err(error) => {
+                        error!(%error, "start_agent -> Failed to join client handler task");
+                    }
+                }
+            }
+
+            Some(..) = exit_idle => {
+                trace!(
+                    ?idle_ttl,
+                    "start_agent -> All clients finished and idle ttl expired, exiting main agent loop"
+                );
+                break;
+            }
+        }
+    }
+
+    trace!("start_agent -> Agent shutting down, dropping cancellation token for background tasks");
+    mem::drop(cancel_guard);
+
+    let (stealer, dns) = tokio::join!(
+        bg_tasks.stealer.wait().inspect_err(|error| {
+            error!(%error, "start_agent -> Stealer task failed");
+        }),
+        bg_tasks.dns.wait().inspect_err(|error| {
+            error!(%error, "start_agent -> DNS task failed");
+        }),
+    );
+    debug!(?stealer, ?dns, "BackgroundTasks have finished.");
+
+    trace!("start_agent -> Agent shutdown");
+
+    Ok(())
+}
+
+/// The sessions-manager a workload companion registers with.
+#[derive(Debug, PartialEq, Eq)]
+enum SessionsManagerSelection {
+    /// Hosted by the mirrord operator and reached through the Kubernetes API server at `api_url`.
+    Operator {
+        api_url: String,
+    },
+    Standalone(SessionsManagerEndpoint),
+}
+
+/// Picks the operator-hosted sessions-manager when `operator_api_url` is set, the standalone one
+/// at `sessions_manager_url` when that is set, and the MetalBear Cloud one otherwise.
+///
+/// Only the two explicit settings conflict: the MetalBear Cloud default never stands in the way
+/// of the operator.
+fn select_sessions_manager(
+    operator_api_url: Option<String>,
+    sessions_manager_url: Option<String>,
+) -> AgentResult<SessionsManagerSelection> {
+    match (operator_api_url, sessions_manager_url) {
+        (Some(_), Some(_)) => Err(AgentError::ConflictingSessionsManagerEndpoints),
+        (Some(api_url), None) => Ok(SessionsManagerSelection::Operator { api_url }),
+        (None, sessions_manager_url) => Ok(SessionsManagerSelection::Standalone(
+            SessionsManagerEndpoint::resolve(sessions_manager_url.as_deref())?,
+        )),
+    }
+}
+
+/// Registers the workload companion with the sessions-manager [`select_sessions_manager`] picks
+/// from [`envs::OPERATOR_API_URL`] and [`envs::SESSIONS_MANAGER_URL`], and logs which one and
+/// why, so the workload's output shows where it connects.
+///
+/// The operator is reached through the EKS API server, authenticated as the companion's AWS
+/// identity. The caller must poll the token-refresh future alongside the companion loop so a
+/// permanent authentication failure stops the companion with an error.
+async fn start_control_plane(
+    scope: ServiceScope,
+    replica_id: ReplicaId,
+    cancellation_token: CancellationToken,
+) -> AgentResult<(
+    AgentClient,
+    Option<BoxFuture<'static, mirrord_cluster_auth::Result<()>>>,
+)> {
+    let optional = |env: &CheckedEnv<String>| {
+        env.try_from_env()
+            .expect("String environment variables are infallible")
+    };
+    let required =
+        |env: &CheckedEnv<String>| optional(env).ok_or(AgentError::MissingOperatorConfig(env.name));
+
+    let api_url = match select_sessions_manager(
+        optional(&envs::OPERATOR_API_URL),
+        optional(&envs::SESSIONS_MANAGER_URL),
+    )? {
+        SessionsManagerSelection::Operator { api_url } => {
+            info!(
+                %api_url,
+                "Registering with the sessions-manager hosted by the mirrord operator, selected by \
+                 MIRRORD_OPERATOR_API_URL"
+            );
+            api_url
+        }
+        SessionsManagerSelection::Standalone(endpoint) => {
+            match endpoint.source {
+                EndpointSource::Explicit => info!(
+                    url = %endpoint,
+                    "Registering with the sessions-manager set by MIRRORD_SESSIONS_MANAGER_URL"
+                ),
+                EndpointSource::Default => info!(
+                    url = %endpoint,
+                    "Registering with the MetalBear Cloud sessions-manager, since neither \
+                     MIRRORD_OPERATOR_API_URL nor MIRRORD_SESSIONS_MANAGER_URL is set"
+                ),
+            }
+
+            return Ok((
+                AgentClient::start(
+                    scope,
+                    replica_id,
+                    DirectTransport::from_env(endpoint)?,
+                    cancellation_token,
+                )?,
+                None,
+            ));
+        }
+    };
+
+    let cluster_name = required(&envs::OPERATOR_EKS_CLUSTER_NAME)?;
+    let region = eks_region(&api_url).ok_or(AgentError::MissingOperatorRegion)?;
+    let factory = ClusterClientFactory::new()?;
+    let connection = factory
+        .connect_eks(ClusterCredentials {
+            name: cluster_name.clone(),
+            server: api_url,
+            namespace: "default".to_owned(),
+            ca_data: Some(required(&envs::OPERATOR_API_CA_DATA)?),
+            auth_method: AuthMethod::AwsIam {
+                region,
+                cluster_name,
+            },
+            token: None,
+            client_cert_pem: None,
+            client_key_pem: None,
+        })
+        .await?;
+    let transport = OperatorTransport::new(connection.client.clone());
+
+    let token_refresh = Box::pin(async move { factory.run_token_refresh(connection).await });
+
+    Ok((
+        AgentClient::start(scope, replica_id, transport, cancellation_token)?,
+        Some(token_refresh),
+    ))
+}
+
+/// The remote workload-companion version of `start_agent` used in Serverless.
+///
+/// It simultaneously:
+/// 1. maintains a sessions-manager control-plane connection for layer-local connections; and
+/// 2. listens on a Unix socket for remote-layer connections.
+///
+/// `sessions-manager <-> workload companion <-> remote layer`
+#[tracing::instrument(level = Level::TRACE, ret, err)]
+async fn start_agent_workload_companion(args: Args) -> AgentResult<()> {
+    let state = State::new(&args).await?;
+    let cancellation_token = CancellationToken::new();
+
+    if let Some(metrics_address) = args.metrics {
+        let cancellation_token = cancellation_token.clone();
+        tokio::spawn(async move {
+            start_metrics(metrics_address, cancellation_token.clone())
+                .await
+                .inspect_err(|fail| {
+                    tracing::error!(?fail, "Failed starting metrics server!");
+                    cancellation_token.cancel();
+                })
+        });
+    }
+
+    let ingress =
+        WorkloadCompanionIngress::start(&state.network_runtime, cancellation_token.clone())?;
+    let ingress_status = ingress.status();
+    let stealer = setup::start_stealer(
+        &state.network_runtime,
+        ingress.steal_handle,
+        cancellation_token.clone(),
+    );
+    let dns = setup::start_dns(&state.network_runtime, cancellation_token.clone());
+
+    let bg_tasks = BackgroundTasks {
+        stealer,
+        dns,
+        mirror_handle: Some(ingress.mirror_handle),
+    };
+
+    let service = envs::REMOTE_SERVICE
+        .try_from_env()
+        .expect("String environment variables are infallible")
+        .ok_or::<AgentError>(SessionsManagerClientError::MissingConfigService.into())?;
+    let environment = envs::REMOTE_ENVIRONMENT
+        .try_from_env()
+        .expect("String environment variables are infallible")
+        .unwrap_or_else(|| "default".to_owned());
+    let replica_id = resolve_replica_id()
+        .await
+        .ok_or::<AgentError>(SessionsManagerClientError::MissingAgentReplicaID.into())?;
+    let (mut control_plane, mut token_refresh) = select! {
+        _ = cancellation_token.cancelled() => return Ok(()),
+        result = start_control_plane(
+            ServiceScope {
+                environment,
+                service,
+            },
+            replica_id.into(),
+            cancellation_token.clone(),
+        ) => result?,
+    };
+
+    let mut join_set: JoinSet<()> = JoinSet::new();
+
+    let result: AgentResult<()> = loop {
+        select! {
+            // Stop accepting work once the workload companion is asked to shut down.
+            _ = cancellation_token.cancelled() => break Ok(()),
+
+            refresh_result = async {
+                token_refresh.as_mut().expect("guarded by is_some").await
+            }, if token_refresh.is_some() => {
+                break refresh_result.map_err(AgentError::from);
+            }
+
+            // The remote ingress is required for workload-companion operation, so its unexpected
+            // termination shuts down connected clients and fails the agent.
+            error = ingress_status.wait_assert_running() => {
+                break if cancellation_token.is_cancelled() {
+                    Ok(())
+                } else {
+                    Err(error)
+                };
+            }
+
+            // Report finished child tasks without delaying connection handling.
+            joined = join_set.join_next(), if !join_set.is_empty() => {
+                match joined {
+                    Some(Ok(())) => {}
+                    Some(Err(error)) => {
+                        if error.is_panic() {
+                            tracing::error!(%error, "workload-companion child task panicked");
+                        } else {
+                            tracing::error!(%error, "workload-companion child task failed to join");
+                        }
+                    }
+                    None => {}
+                }
+            }
+
+            // Serve each control-plane connection until sessions-manager disconnects.
+            maybe_upstream = control_plane.recv() => {
+                match maybe_upstream {
+                    Some(connection) => {
+                        let state = state.clone();
+                        let bg_tasks = bg_tasks.clone();
+                        let cancellation_token = cancellation_token.clone();
+                        join_set.spawn(async move {
+                            let _ = state
+                                .serve_client_connection_protocol(
+                                    connection,
+                                    bg_tasks,
+                                    cancellation_token,
+                                )
+                                .await;
+                        });
+                    }
+                    None => break Ok(()),
+                }
+            }
+
+        }
+    };
+
+    join_set.abort_all();
+    cancellation_token.cancel();
+    let control_plane_result = control_plane.wait().await;
+
+    result?;
+    control_plane_result?;
+
+    Ok(())
+}
+
+async fn clear_iptable_chain(
+    clear_ipv4: bool,
+    clear_ipv6: bool,
+    with_mesh_exclusion: bool,
+    chain_names: &ChainNames,
+) -> Result<(), IPTablesError> {
+    let nftables = envs::NFTABLES.try_from_env().unwrap_or_default();
+
+    let clear = async |v6| -> Result<(), IPTablesError> {
+        let ipt = mirrord_agent_iptables::get_iptables(nftables, v6);
+        match SafeIpTables::list_mirrord_rules(&ipt, chain_names)
+            .await?
+            .next()
+        {
+            Some(_) => {
+                let tables =
+                    SafeIpTables::load(ipt, chain_names, false, with_mesh_exclusion).await?;
+                tables.cleanup().await
+            }
+            None => {
+                trace!("No iptables mirrord rules found, skipping iptables cleanup.");
+                Ok(())
+            }
+        }
+    };
+
+    let v4_result = if clear_ipv4 {
+        clear(false).await
+    } else {
+        Ok(())
+    };
+
+    let v6_result = if clear_ipv6 {
+        clear(true).await
+    } else {
+        Ok(())
+    };
+
+    v4_result.and(v6_result)
+}
+
+/// Runs the current binary as a child process,
+/// using the exact same command line.
+///
+/// When this future is aborted before completion, the child process is automatically killed.
+async fn run_child_agent() -> AgentResult<()> {
+    let command_args = std::env::args().collect::<Vec<_>>();
+    let (command, args) = command_args
+        .split_first()
+        .expect("cannot spawn child agent: command missing from program arguments");
+
+    let mut child_agent = Command::new(command)
+        .env(CHILD_PROCESS_ENV, "true")
+        .args(args)
+        .kill_on_drop(true)
+        .spawn()?;
+
+    let status = child_agent.wait().await?;
+    if !status.success() {
+        Err(AgentError::AgentFailed(status))
+    } else {
+        Ok(())
+    }
+}
+
+/// Targeted agent's parent process.
+///
+/// Spawns the main agent routine in the child process and handles cleanup of iptables
+/// when the child process exits.
+///
+/// Captures SIGTERM signals sent by Kubernetes when the pod is being gracefully deleted.
+/// When a signal is captured, the child process is killed and the iptables are cleaned.
+async fn start_iptable_guard(args: Args) -> AgentResult<()> {
+    debug!("start_iptable_guard -> Initializing iptable-guard.");
+
+    let state = State::new(&args).await?;
+    let with_mesh_exclusion = state.is_with_mesh_exclusion();
+
+    let mut sigterm = tokio::signal::unix::signal(SignalKind::terminate())?;
+
+    let result = tokio::select! {
+        _ = sigterm.recv() => {
+            debug!("start_iptable_guard -> SIGTERM received, killing agent process");
+            Ok(())
+        }
+
+        result = run_child_agent() => match result {
+            Err(AgentError::AgentFailed(status)) if status.code() == Some(IPTABLES_DIRTY_EXIT_CODE as i32) => {
+                // Err status `IPTABLES_DIRTY_EXIT_CODE` means dirty IP tables detected, skip cleanup
+                tracing::warn!("dirty IP tables, cleanup skipped");
+                return result;
+            }
+            _ => result,
+        },
+    };
+
+    let IpVersionAvailability { v4, v6 } = &*IP_VERSION_AVAILABILITY;
+
+    state
+        .network_runtime
+        .handle()
+        .spawn(async move {
+            clear_iptable_chain(
+                *v4,
+                *v6,
+                with_mesh_exclusion,
+                &ChainNames::new(
+                    IPTABLES_IDENTIFIER
+                        .get()
+                        .expect("Should be set during state initialization!"),
+                ),
+            )
+            .await
+        })
+        .await
+        .map_err(|error| AgentError::BackgroundTaskFailed {
+            task: "IPTablesCleaner",
+            error: Arc::new(error),
+        })?
+        .map_err(|error| AgentError::BackgroundTaskFailed {
+            task: "IPTablesCleaner",
+            error: Arc::new(error),
+        })?;
+
+    result
+}
+
+/// mirrord-agent entrypoint.
+///
+/// Installs a default [`CryptoProvider`](rustls::crypto::CryptoProvider) and initializes tracing.
+///
+/// # Flow
+///
+/// If the agent is targetless, it goes straight to spawning background tasks and listening for
+/// client connections.
+///
+/// If the agent has a target, the flow is a bit different.
+/// This is because we might need to redirect incoming traffic.
+///
+/// Note that the agent uses static IP tables chain names, and running multiple agents at the same
+/// time will cause an error.
+///
+/// The agent spawns a child process with the exact same command line,
+/// and waits for a SIGTERM signal. When the signal is received or the child process fails,
+/// the agent cleans the iptables (based on the previously set environment variables) before
+/// exiting.
+///
+/// The child process is the real agent, which spawns background tasks and listens for client
+/// connections. The child process knowns is the real agent, because it has the environment
+/// variables set.
+///
+/// This weird flow is a safety measure - should the real agent OOM (which means instant process
+/// termination) or be killed with a signal, the parent will a chance to clean iptables. If we leave
+/// the iptables dirty, the whole target pod is broken, probably forever.
+pub async fn main() -> AgentResult<()> {
+    rustls::crypto::CryptoProvider::install_default(rustls::crypto::aws_lc_rs::default_provider())
+        .expect("Failed to install crypto provider");
+
+    if envs::JSON_LOG.from_env_or_default() {
+        tracing_subscriber::registry()
+            .with(
+                tracing_subscriber::fmt::layer()
+                    .with_thread_ids(true)
+                    .with_span_events(FmtSpan::NEW | FmtSpan::CLOSE)
+                    .json(),
+            )
+            .with(tracing_subscriber::EnvFilter::from_default_env())
+            .init();
+    } else {
+        tracing_subscriber::registry()
+            .with(
+                tracing_subscriber::fmt::layer()
+                    .with_thread_ids(true)
+                    .with_span_events(FmtSpan::NEW | FmtSpan::CLOSE)
+                    .pretty()
+                    .with_line_number(true),
+            )
+            .with(tracing_subscriber::EnvFilter::from_default_env())
+            .init();
+    }
+
+    debug!(
+        "main -> Initializing mirrord-agent, version {}.",
+        env!("CARGO_PKG_VERSION")
+    );
+
+    let args = cli::parse_args();
+    let second_process = std::env::var(CHILD_PROCESS_ENV).is_ok();
+
+    if args.mode.is_targetless() || second_process {
+        start_agent(args).await
+    } else if args.mode.is_workload_companion() {
+        start_agent_workload_companion(args).await
+    } else {
+        start_iptable_guard(args).await
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use mirrord_sessions_manager_client::SESSIONS_MANAGER_URL_DEFAULT;
+
+    use super::*;
+
+    const OPERATOR_API_URL: &str = "https://ABC123.gr7.us-east-1.eks.amazonaws.com";
+    const SESSIONS_MANAGER_URL: &str = "https://sm.example.com/sm";
+
+    #[test]
+    fn operator_api_url_selects_the_operator() {
+        assert_eq!(
+            select_sessions_manager(Some(OPERATOR_API_URL.to_owned()), None).unwrap(),
+            SessionsManagerSelection::Operator {
+                api_url: OPERATOR_API_URL.to_owned()
+            }
+        );
+    }
+
+    #[test]
+    fn explicit_sessions_manager_url_is_used() {
+        let Ok(SessionsManagerSelection::Standalone(endpoint)) =
+            select_sessions_manager(None, Some(SESSIONS_MANAGER_URL.to_owned()))
+        else {
+            panic!("expected a standalone sessions-manager");
+        };
+
+        assert_eq!(endpoint.url.as_str(), SESSIONS_MANAGER_URL);
+        assert_eq!(endpoint.source, EndpointSource::Explicit);
+    }
+
+    #[test]
+    fn metalbear_cloud_is_the_default() {
+        let Ok(SessionsManagerSelection::Standalone(endpoint)) =
+            select_sessions_manager(None, None)
+        else {
+            panic!("expected a standalone sessions-manager");
+        };
+
+        assert_eq!(endpoint.url.as_str(), SESSIONS_MANAGER_URL_DEFAULT);
+        assert_eq!(endpoint.source, EndpointSource::Default);
+    }
+
+    #[test]
+    fn operator_and_explicit_url_conflict() {
+        assert!(matches!(
+            select_sessions_manager(
+                Some(OPERATOR_API_URL.to_owned()),
+                Some(SESSIONS_MANAGER_URL.to_owned())
+            ),
+            Err(AgentError::ConflictingSessionsManagerEndpoints)
+        ));
+    }
+}

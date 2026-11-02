@@ -1,0 +1,38 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Gives every beat a starting state precise enough to re-shoot that beat alone.",
+        "evidence": "Beats have narration, and some have on-screen code: the raw SQL template string and the builder chain. None states the screen, terminal or database state needed to pick up that beat cold. For example, the 01:40 run beat names no command, working directory or seed state. The 02:15 beat doesn't say where `.toSQL()` is called. The 02:50 beat changes the schema mid-beat (total \u2192 total_amount), then shows a second string-vs-number error, with no reset or precondition for either. The only setup note is global ('Fernwood CLI 2.4 and the sample orders database'), not per beat. Without per-beat startin",
+        "score": 1,
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sizes each beat to roughly one thought and about twenty seconds of narration.",
+        "evidence": "Chapter spans are 30s, 35s, 35s, 35s, 35s, 60s and ~10s, so most run well past 20s. The 02:50 type-errors beat lasts 60s and holds two separate demos: the column-rename error and the string-for-number error. The 00:00 hook packs an anecdote, the product pitch, a five-item agenda and prerequisites into one beat. The 02:15 beat combines parameterization and SQL injection. Beats are cut by chapter topic, not by one thought per ~20s.",
+        "score": 1,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Gives every beat a starting state precise enough to re-shoot that beat alone.",
+        "evidence": "Beats only have loose action cues such as '[pull up a raw SQL string built with concatenation or interpolation]', '[type the fluent chain]' and '[execute, show results]'. None says which file or editor buffer is open, what code is already on screen, what the terminal or DB state is, or what the previous beat left behind. Some beats depend on earlier ones ('that conditional filter I mentioned earlier', 'same as the raw SQL version'), so you couldn't re-shoot one beat on its own. The script even says the API is unknown and placeholders need swapping.",
+        "score": 1,
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sizes each beat to roughly one thought and about twenty seconds of narration.",
+        "evidence": "Beats run 40\u201355 seconds (0:00\u20130:40, 0:40\u20131:35, 1:35\u20132:20, 2:20\u20133:00, 3:00\u20133:50), two to nearly three times the ~20s target. Several pack in more than one idea. For example, 0:40\u20131:35 covers chaining, typed autocomplete, column-name naming and conditional filters, and 0:00\u20130:40 covers fragility, missing parameters, dynamic splicing and injection. Only the 10s close is short.",
+        "score": 1,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

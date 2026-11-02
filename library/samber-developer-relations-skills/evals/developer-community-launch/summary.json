@@ -1,0 +1,530 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "developer-community-launch",
+  "scenarios": 11,
+  "expectations_total": 120,
+  "expectations_subjective": 2,
+  "expectations_objective": 118,
+  "pass_rate_with_skill_pct": 76.7,
+  "pass_rate_without_skill_pct": 24.2,
+  "delta_pp": 52.5,
+  "uplift_multiplier": 3.17,
+  "trigger_accuracy_pct": 50.0,
+  "trigger_queries": 112,
+  "trigger_positive_fire_rate": 0.071,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 0.529,
+  "subjective_pass_disagreements": [
+    {
+      "eval_id": 9,
+      "condition": "without_skill",
+      "expectation": "Cuts the 11 planned channels down to a small opening surface",
+      "pass1": false,
+      "pass2": true
+    }
+  ],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.274 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "States the verdict rule applied: three or fewer gates passing means do not launch"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Recommends an owned async forum as the surviving venue class"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes that per-seat pricing makes an open community structurally more expensive as it grows, unlike per-instance forum pricing"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Flags that vendor pricing, retention and export claims must be re-verified on the vendor's own page before the recommendation is final"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Marks the purpose gate as not passing while the three outcomes remain unranked"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that the primary outcome decides the community model, the venue class and the thresholds"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Attributes the one-objective rule to CMX's SPACES model rather than presenting it as the assistant's own preference"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Does not propose a venue, platform or channel structure before the primary outcome is settled"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Asks the user to pick the primary rather than silently choosing one for them"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that if acquisition and advocacy becomes the primary, none of the four named community models (support-driven, product-development, education and enablement, founder-led) applies and the shape has to be designed from the outcome instead"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires founding members who already behave like contributors or advocates rather than passive newcomers"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that the 6,200 member count is a joins counter rather than a health signal"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Offers the fold-back path and states its options in order: archive read-only, then merge into the space the audience already uses, then convert to a plain support channel"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Explains that archiving preserves the answers and their search traffic at near-zero standing effort"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names a decision owner for the fold-back call"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names the target as samber/developer-relations-skills@developer-community-health, in owner/repo@skill form"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Gives the reason for routing: half-running the workflow on the wrong problem wastes the user's time"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends publishing a response-time commitment and places it inside a 48-hour window"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that every empty room signals a dead community, and that rooms get added only when an existing one gets noisy"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Installs one recurring ritual from week one"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Publishes a response-time commitment and treats unanswered posts as the primary launch defect"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Targets the member mix rather than the headcount, requiring contributors and advocates in the founding cohort rather than passive newcomers"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States the venue-class ranking out loud on more than one axis - efficiency, effort, value, compliance cost - rather than a single blended order"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Acknowledges that real-time chat sits last on the efficiency ratio and is being promoted here anyway"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Notes that real-time chat carries the highest standing-presence cost and the highest compliance cost of the four classes"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Explains that answering publicly tests the demand gate and the venue-vacuum gate at the same time"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Rules out the email or issue-based feedback loop despite the Product outcome, because it is one-to-one by construction and structurally cannot produce peer-conversation evidence"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Notes that a troubleshooting or FAQ surface is the cheapest standing commitment but barely moves the demand gate"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Scores all five readiness gates by name - demand, owner, purpose, venue vacuum, seed supply - with a pass, weak or fail mark on each"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Notes that the 40 named customers are what the seed-supply gate has to work with, and that coverage rather than headcount is what it tests"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Produces no channel list or category tree for a new Discord"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States the verdict rule applied: three or fewer gates passing means do not launch"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Treats the already-chosen Slack as a hypothesis and runs the readiness gates before discussing the platform"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Scores all five gates and returns a launch verdict"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Deletes owned real-time chat as a venue class rather than demoting it in a ranking"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Gives at least two distinct reasons real-time chat is deleted here: its archive is not indexed, and the owner cannot be present most days"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Records a reopen trigger for the deleted real-time chat class on the venue line of the brief"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Recommends an owned async forum as the surviving venue class"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names the venue class before naming any vendor"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States the venue ranking out loud rather than leaving it implied by the order things are listed in"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes that per-seat pricing makes an open community structurally more expensive as it grows, unlike per-instance forum pricing"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Flags that vendor pricing, retention and export claims must be re-verified on the vendor's own page before the recommendation is final"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names the outcomes using the SPACES vocabulary and maps each of the three stated goals to its letter: Support, Product, and Acquisition and advocacy"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Refuses to accept all three as co-primary and requires exactly one primary outcome"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Marks the purpose gate as not passing while the three outcomes remain unranked"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that the primary outcome decides the community model, the venue class and the thresholds"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Attributes the one-objective rule to CMX's SPACES model rather than presenting it as the assistant's own preference"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Allows secondary outcomes but requires them stated explicitly and ranked below the primary"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Converts the chosen primary into a measurable claim carrying a number and a timeframe, not a restatement of the goal"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Does not propose a venue, platform or channel structure before the primary outcome is settled"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Asks the user to pick the primary rather than silently choosing one for them"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that if acquisition and advocacy becomes the primary, none of the four named community models (support-driven, product-development, education and enablement, founder-led) applies and the shape has to be designed from the outcome instead"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Returns a launch-on-a-delayed-date verdict rather than confirming 4 November"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Gates the launch on the mitigation landing rather than on a calendar date"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Marks seed supply as the weak gate and the other four as passing"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that coverage - one reliable answerer per topic area, and at least two time zones for a global audience - is what the seed-supply gate tests, not headcount"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Applies the verdict rule for four gates passing with a written mitigation"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Keeps the opening sequence - founding cohort, invited beta, public announcement - gated on observed activity rather than on the fixed November date"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names each day-90 signal that sits below its pass threshold, alongside the threshold it missed"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Identifies at least four failing signals against the baseline thresholds of over 90% answered within 24 hours, over 50% non-staff posts, over 80% of threads with a reply, and under 50% engagement concentration in the top five members"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that the 6,200 member count is a joins counter rather than a health signal"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Warns against measuring against the conference-driven launch month and requires a trailing baseline instead"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names burstiness - the spike-and-decay pattern releases, conferences and media coverage produce - as the reason the launch month is not a valid comparison"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Offers the fold-back path and states its options in order: archive read-only, then merge into the space the audience already uses, then convert to a plain support channel"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Explains that archiving preserves the answers and their search traffic at near-zero standing effort"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names a decision owner for the fold-back call"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Routes the request to the community-health skill instead of running the launch workflow"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that this skill does not apply to a community that already exists"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Stops after the routing call rather than half-running the readiness gates"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Produces no launch brief, venue recommendation or founding-cohort plan"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names the target as samber/developer-relations-skills@developer-community-health, in owner/repo@skill form"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Distinguishes the one case that would keep the work here: deciding whether to shut the community down"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Does not read \"relaunch\" as a request to pick a new platform"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Gives the reason for routing: half-running the workflow on the wrong problem wastes the user's time"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Rejects the \"below 40% lurkers\" target and states that around 90% of members never posting is the baseline condition, not a launch defect"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Attributes the 90-9-1 participation-inequality finding to Jakob Nielsen at NN/g rather than presenting it as an unsourced rule of thumb"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes that the beta group's four-in-five read-only share is at or better than that baseline rather than a problem to fix"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Rejects the 2,000-member target as a joins counter rather than a health signal"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Sets targets on the number of active members and on ratio signals instead"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Proposes day-90 pass thresholds covering at least: answered within 24 hours, non-staff share of posts, new members posting within 7 days, monthly active share, threads with at least one reply, and top-five engagement concentration"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Labels which thresholds are published findings and which are baselines offered as a starting hypothesis to recalibrate"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires the thresholds be written down before launch rather than assessed afterwards, and says why"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends publishing a response-time commitment and places it inside a 48-hour window"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Cites the 48-hour responsiveness evidence as a published finding rather than an invented target"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Deletes the rented public space and forge-native discussions as venue classes, because both are public by construction and the bank and insurer users cannot post publicly"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Treats those as deletions rather than demotions, and records the trigger that would reopen each"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Does not grant the three requested private per-customer channels as a community feature"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that private per-customer channels fragment the community and drift into support contracts"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Gates any per-customer channel on contract value and staffs it as support rather than as community"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Adjusts the day-90 percentage thresholds for a deliberately small, high-value room and proposes absolute counts alongside them"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States the reasoning for that threshold adjustment in the brief instead of silently changing the numbers"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Expects weekday business-hours activity rather than evenings and weekends"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Rejects announcing to the 12,000-subscriber newsletter on day one and gives the reason: it spends the single first impression on an empty room"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Replaces the day-one announcement with a three-stage sequence: founding cohort, then invited beta, then public announcement"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Gates each transition between stages on observed activity rather than on a calendar date"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Cuts the 11 planned channels down to a small opening surface"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Rewrites the \"come join\" invitation into a personal ask naming why that specific person and what is being asked of them"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Time-boxes the founding-member commitment, for example to the first quarter, rather than leaving it open-ended"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Specifies seeding roughly 5-10 posts that model the behaviour wanted"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Requires the seeded questions to ship with their answers, and gives the reason: an unanswered seeded question teaches newcomers that questions go unanswered here"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Installs one recurring ritual from week one"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Publishes a response-time commitment and treats unanswered posts as the primary launch defect"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Targets the member mix rather than the headcount, requiring contributors and advocates in the founding cohort rather than passive newcomers"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Checks coverage across the 40 invitees - a reliable answerer per topic area and time-zone spread - rather than accepting the count"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States the venue-class ranking out loud on more than one axis - efficiency, effort, value, compliance cost - rather than a single blended order"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Acknowledges that real-time chat sits last on the efficiency ratio and is being promoted here anyway"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names the two conditions justifying the promotion: the primary outcome is Product (or Engagement), and continuous presence is genuinely staffed by named people"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Does not justify the choice with \"that's where developers are\" or with ambition"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Notes that real-time chat carries the highest standing-presence cost and the highest compliance cost of the four classes"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names the venue class before naming any vendor"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Maps the design-partner feedback goal to the SPACES letter for Product"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Returns a do-not-launch verdict on three of five gates passing"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Explicitly refuses to pick the cheapest option and states the selection rule: the alternative returning the most evidence per hour of standing presence"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States the ordering of the alternatives out loud rather than presenting an unranked list"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Recommends answering publicly where the audience already is, meaning the Rust ecosystem Discord channel, as the primary alternative"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Explains that answering publicly tests the demand gate and the venue-vacuum gate at the same time"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Rules out the email or issue-based feedback loop despite the Product outcome, because it is one-to-one by construction and structurally cannot produce peer-conversation evidence"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Notes that a troubleshooting or FAQ surface is the cheapest standing commitment but barely moves the demand gate"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Does not promote scheduled office hours here, since seed supply is not the failing gate"
+      }
+    ]
+  }
+}

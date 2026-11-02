@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to draft any file before the gating interview questions are answered",
+        "evidence": "The transcript drafts a full plan and CONTRIBUTING.md immediately: \"Per your 'no back-and-forth, assume standard best practice' instruction, this plan is built on stated assumptions\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks one question at a time rather than presenting a full questionnaire at once",
+        "evidence": "No questions are asked at all; assumptions are substituted instead.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Skips any question it can answer itself by reading the repository",
+        "evidence": "No interview occurred to evaluate skipping; assumptions were used throughout due to no repo access.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks which kind of contribution the maintainer actually wants more of: code, documentation and translation, triage and support, or co-maintainers who can share the load",
+        "evidence": "Not asked; assumed generically (\"1.0 is a stability/API-freeze milestone... contributor scope should skew toward tests, docs, format adapters\").",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks whether the project is volunteer or solo-maintained, corporate-backed, or foundation-hosted, and connects the answer to the response target, the legal gate and the ladder",
+        "evidence": "Assumed rather than asked: \"Solo or small-team maintained, no existing corporate backing or foundation\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks how many hours per week the maintainer can realistically spend on contributors, review included, in a normal week rather than a good one",
+        "evidence": "Not asked anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks what is out of scope, and records a blank answer as the audit's first finding rather than treating it as a blocker",
+        "evidence": "Left as a placeholder in the draft (\"We do not take: <your real out-of-scope list...>\") rather than asked or recorded as a finding.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks what happened the last three times an outsider tried to contribute - merged, stalled, declined, or vanished",
+        "evidence": "Not asked anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks when the setup was last run from a clean machine",
+        "evidence": "Not asked; instead instructs the maintainer to run a cold run themselves in Part 1.3 without eliciting a prior answer.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks who besides the maintainer can review a pull request, and what happens to contributors while they are away",
+        "evidence": "Not asked anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Uses the November 14 deadline to promote fixes that land in an afternoon - the response target, the issue queue, the first reply - over environment tiers that need a rebuild, and says explicitly which answer moved what",
+        "evidence": "Deadline reasoning appears (\"Don't build one preemptively before Nov 14; it's the highest-maintenance tier\") but is based on stated assumptions, not real interview answers, and no explicit \"which answer moved what\" connection is made.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to draft any file before the gating interview questions are answered",
+        "evidence": "The transcript proceeds to write the full onboarding plan immediately, marking unknowns with '[confirm]' rather than refusing to draft: 'Below is a complete onboarding plan built on standard Kotlin/JVM serialization-library practice... Swap in your actual module names, CI vendor, and chat platform where marked [confirm].'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks one question at a time rather than presenting a full questionnaire at once",
+        "evidence": "The transcript contains no sequence of questions at all \u2014 only inline '[confirm]' placeholders embedded in an otherwise complete plan, e.g. 'JDK 17+ (Kotlin/JVM target minimum \u2014 confirm your actual jvmToolchain version) [confirm]'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Skips any question it can answer itself by reading the repository",
+        "evidence": "'there is no Ashgrove repo in this environment (checked ~/project/github.com/* \u2014 only your example-repo repo exists there, and nothing named Ashgrove anywhere reachable). I'm not fabricating specifics from a codebase I can't see.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks which kind of contribution the maintainer actually wants more of: code, documentation and translation, triage and support, or co-maintainers who can share the load",
+        "evidence": "No such question appears anywhere in the transcript; contribution types are only discussed via the assistant's own Core/Edge track proposal.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks whether the project is volunteer or solo-maintained, corporate-backed, or foundation-hosted, and connects the answer to the response target, the legal gate and the ladder",
+        "evidence": "No such question is asked; the transcript proceeds directly to prescriptive policy (e.g., DCO recommendation, review SLA) without querying project backing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks how many hours per week the maintainer can realistically spend on contributors, review included, in a normal week rather than a good one",
+        "evidence": "No question about maintainer time budget appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks what is out of scope, and records a blank answer as the audit's first finding rather than treating it as a blocker",
+        "evidence": "No scope question or blank-answer finding appears; the transcript instead defines scope itself via the Core/Edge track split.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks what happened the last three times an outsider tried to contribute - merged, stalled, declined, or vanished",
+        "evidence": "No such question is present in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks when the setup was last run from a clean machine",
+        "evidence": "No such question is present; the transcript instead prescribes setup steps directly (e.g., './gradlew build \u2014 first run pulls dependencies...').",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks who besides the maintainer can review a pull request, and what happens to contributors while they are away",
+        "evidence": "No such question is asked; instead the transcript prescribes a policy directly: 'One reviewer minimum for Edge track, two for anything touching core/the format-agnostic encoding engine \u2014 enforce via CODEOWNERS, not verbal policy.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Uses the November 14 deadline to promote fixes that land in an afternoon - the response target, the issue queue, the first reply - over environment tiers that need a rebuild, and says explicitly which answer moved what",
+        "evidence": "The 7-week rollout table sequences work against the deadline, but there is no interview answer being cited as the reason for any prioritization \u2014 e.g., week 1 groups both quick items (CODEOWNERS, templates) and larger ones (binary-compat validator) with no stated rationale tied to a specific 'answer'.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,518 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "developer-community-health",
+  "scenarios": 11,
+  "expectations_total": 125,
+  "expectations_subjective": 1,
+  "expectations_objective": 124,
+  "pass_rate_with_skill_pct": 75.2,
+  "pass_rate_without_skill_pct": 30.4,
+  "delta_pp": 44.8,
+  "uplift_multiplier": 2.47,
+  "trigger_accuracy_pct": 62.9,
+  "trigger_queries": 116,
+  "trigger_positive_fire_rate": 0.638,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.274 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Labels the origin of every number in the sheet as published and attributable, a self-set working convention, or unsourced folklore"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States the total contribution count as 2,480 and the 50% threshold as 1,240"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Recommends an identity mapping across commit emails and handles before trusting the contributor counts"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Attaches a named action to the concentration risk, such as opening the reviewer or maintainer rung to the next contributors"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Requires the direction of the subtraction to be stated wherever the score is presented, so a positive number always means more promoters than detractors"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Flags that the survey reaches only members still present and recommends a separate one-question instrument for members who went silent for 60 or more days"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Specifies that the lapsed-member note is sent once and kept opt-out friendly rather than run as a follow-up campaign"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Lists burnout survey items covering energy or exhaustion, workload versus capacity, thoughts of stepping back, whether the contribution feels valued, and whether a concern can be raised safely"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names behavioural trace signals to read beside the survey: sustained high contribution ending abruptly, and contribution concentrated in very few people"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Keeps burnout responses separable from identity and does not attribute any individual answer to Ines in the board report"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names the follow-up reading worth trusting as whether the March cohort returns within a defined window, rather than the March volume itself"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Derives any threshold from Halyard's own trailing baseline rather than from another project's numbers"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Asks or states whether the accounts the company most cares about are represented, not only how many accounts are active"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that a handful of named-account conversations or interviews yields more than a six-response survey"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Rejects message growth as a health metric"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends against the community data platform because Fernwood has no budget and no named owner for the pipeline"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Deletes the community-data-platform rung from the plan entirely rather than listing it as future work, and explains that a parked rung comes back as scope at the next review"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Promotes the activity pillar because a chat-only community has no cheap responsiveness pull from a forge"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires a staff or employee account flag so non-staff share of activity can be computed"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends checking the venues' terms before bulk-exporting message content"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that a closure ratio persistently below 1 means the backlog outruns the team, and marks that as an interpretation rather than published guidance"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Requires each surviving metric to carry all five parts - a plain-language definition, a data source the team can access today, a baseline or an explicit \"baselining\" mark, a threshold, and a named action with a named owner"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Resolves the duplicate \"active members\" definition by publishing the formula beside the number and settling on a single definition"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Labels each retained threshold's origin as published, self-set convention, or unsourced folklore"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that keeping a dead room open costs trust every time a newcomer posts into silence"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Works in diagnosis mode from the symptom rather than building the full eight-metric sheet first"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Checks whether the audience moved to another venue, whether staff stopped seeding, or whether an earlier spike was an event rather than growth"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that every metric on the sheet must plausibly move when that primary outcome moves"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Proposes the code-centric starter set: time to first response, change request closure ratio, contributor absence factor and release frequency"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Adds a recommendability survey item as the fifth starter metric, asked roughly twice a year"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Tracks first-pull-request merge rate and time-to-merge for external contributors separately from maintainers' own pull requests"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Labels the 24-hour response time, the 20% monthly active ratio and the 30% staff-share figures explicitly as unsourced folklore rather than industry standards"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that those folklore figures may be quoted only as starting hypotheses and must be replaced by Tessellate's own trailing median after at least three periods"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Refuses to use total member count (4,213, or the growth from 3,050) as a headline health metric and explains that total membership only ever goes up"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Covers all four pillars - responsiveness, contributor funnel, activity and sentiment - with at least one metric each"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Writes each metric's formula beside its name in the sheet itself"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Attaches a named owner and a named action to every threshold breach"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Labels the origin of every number in the sheet as published and attributable, a self-set working convention, or unsourced folklore"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Defines the contributor absence factor as the smallest number of people producing 50% of contributions"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States the total contribution count as 2,480 and the 50% threshold as 1,240"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Reports the contributor absence factor as 2, because Ana and Bruno together account for 1,452 commits"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that a higher absence factor is safer and that a lower one signals dependency on fewer contributors"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that no published numeric threshold exists for either factor"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Recommends an identity mapping across commit emails and handles before trusting the contributor counts"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Attaches a named action to the concentration risk, such as opening the reviewer or maintainer rung to the next contributors"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Rejects the 78% automated sentiment score as a community health metric because classifiers misread blunt bug reports and dry developer humour as negative"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Requires the direction of the subtraction to be stated wherever the score is presented, so a positive number always means more promoters than detractors"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that 9 responses falls below the roughly 30-response floor and must be treated as qualitative evidence with dates attached rather than as a score"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Requires the response rate to be reported next to any sentiment score"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Requires the surveyed population definition to be fixed and kept stable between waves, otherwise the trend measures sampling rather than sentiment"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends corroborating the sentiment reading against behavioural signals from the same period, such as responsiveness or contribution-acceptance rates"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Flags that the survey reaches only members still present and recommends a separate one-question instrument for members who went silent for 60 or more days"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Specifies that the lapsed-member note is sent once and kept opt-out friendly rather than run as a follow-up campaign"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Requires sentiment to be reported in aggregate and never attributed to a named member"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Keeps the recurring pulse survey to roughly two items so it can be answered at a quarterly cadence"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends a maintainer burnout check asked of the small group carrying the load, separately and privately from any general community survey"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Lists burnout survey items covering energy or exhaustion, workload versus capacity, thoughts of stepping back, whether the contribution feels valued, and whether a concern can be raised safely"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names behavioural trace signals to read beside the survey: sustained high contribution ending abruptly, and contribution concentrated in very few people"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Keeps burnout responses separable from identity and does not attribute any individual answer to Ines in the board report"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Attaches a named owner and a concrete action to the concentration or burnout finding, such as delegating review or recruiting reviewers"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Treats the 40% message increase as a number needing a burst-versus-trend check rather than as evidence of health"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Refuses the \"community up 3x\" framing for the board deck and states what would have to hold for March to count as a trend"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that comparing a launch month against a quiet month is the most common false trend in community reporting"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends widening the cohort window, with monthly join cohorts as the usual starting point"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires the cohort window to be stated next to the number and kept stable between reports, because changing the window changes the trend"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names the follow-up reading worth trusting as whether the March cohort returns within a defined window, rather than the March volume itself"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Does not present total post count as a health metric on its own"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Derives any threshold from Halyard's own trailing baseline rather than from another project's numbers"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes that two prior periods is not enough history to set a threshold and marks the affected metrics as baselining"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that the unit of measurement in a B2B community is the customer account, not the individual person"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Proposes account coverage - how many of the 41 accounts have at least one active member - ahead of any member-level active percentage"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Asks or states whether the accounts the company most cares about are represented, not only how many accounts are active"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that a 41-account community produces small-N numbers everywhere, so the raw list should be read instead of rates"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Rejects the 6-response score of +33 as a reportable number and states that it sits below the roughly 30-response floor"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that a handful of named-account conversations or interviews yields more than a six-response survey"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Rejects message growth as a health metric"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Includes at least one responsiveness metric, such as time to first human response or zero-reply rate"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names support deflection or expansion signals as more relevant than raw growth for this B2B community"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Keeps the metric count at 8 or fewer and covers all four pillars"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Applies bot exclusion, baseline-derived thresholds, a per-metric action and the privacy gate exactly as it would for an individual-adoption community"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends against the community data platform because Fernwood has no budget and no named owner for the pipeline"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Deletes the community-data-platform rung from the plan entirely rather than listing it as future work, and explains that a parked rung comes back as scope at the next review"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that Fernwood has no forge or git rung available because there is no public repository, which makes the venue analytics panel the primary source"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Promotes the activity pillar because a chat-only community has no cheap responsiveness pull from a forge"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires snapshotting the numbers monthly into Fernwood's own store starting immediately, and states that backfill beyond the retention window is often impossible"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires a staff or employee account flag so non-staff share of activity can be computed"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends checking the venues' terms before bulk-exporting message content"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Flags the public per-member leaderboard as privacy exposure and states that person-level data should be aggregated rather than published"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Proposes a recognition mechanism that does not publish a ranked per-member table, such as private thanks or promotion to an answerer or reviewer role"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Requires any closure threshold to be derived from Ridgeline's own trailing baseline rather than set at a round number like 90%"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that no published target exists for the change request closure ratio"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that a closure ratio persistently below 1 means the backlog outruns the team, and marks that as an interpretation rather than published guidance"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Excludes bots from the responsiveness and closure numbers"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Cuts the sheet to at most 8 metrics"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Requires each surviving metric to pass a \"so what\" test: if the number moved about 20% next month, someone would do something differently"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Requires each surviving metric to carry all five parts - a plain-language definition, a data source the team can access today, a baseline or an explicit \"baselining\" mark, a threshold, and a named action with a named owner"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names an owner for the review itself and states that an unowned dashboard stops being refreshed"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that the fix for an unread dashboard is fewer metrics, not more automation"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Uses the 14 periods of history to replace fixed cutoffs with a deviation band, defined as a stated percentage band or a spread of standard deviations around the rolling mean"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Resolves the duplicate \"active members\" definition by publishing the formula beside the number and settling on a single definition"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Keeps at least one metric per pillar across responsiveness, contributor funnel, activity and sentiment"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Labels each retained threshold's origin as published, self-set convention, or unsourced folklore"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Cuts any metric that cannot be tied to a named action rather than keeping it as context"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that keeping a dead room open costs trust every time a newcomer posts into silence"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Works in diagnosis mode from the symptom rather than building the full eight-metric sheet first"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States honestly what the data cannot attribute rather than constructing a justification for the headcount"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that 11 events in a period is below the small-N floor of roughly 30 and should be reported as a dated list rather than as rates or percentages"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Forces a single primary outcome rather than measuring all six stated objectives at once"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names that primary outcome in the SPACES vocabulary - support, product feedback, acquisition and advocacy, content and contribution, engagement, or success - rather than as an ad-hoc phrase"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that every metric on the sheet must plausibly move when that primary outcome moves"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Requires one funnel vocabulary to be chosen and kept - either Orbit's explorer / participant / contributor / advocate ladder or the casual / regular / core split, never both in the same sheet"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that two vocabularies in one sheet make every cohort definition ambiguous"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Notes that the Orbit model is no longer actively developed and cites it as a stable published framework rather than a live standard"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Proposes the code-centric starter set: time to first response, change request closure ratio, contributor absence factor and release frequency"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Adds a recommendability survey item as the fifth starter metric, asked roughly twice a year"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Marks metrics with no prior readings as \"baselining\" rather than inventing a threshold for them"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that at least three prior periods are needed before setting a threshold from the trailing median"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Tracks first-pull-request merge rate and time-to-merge for external contributors separately from maintainers' own pull requests"
+      }
+    ]
+  }
+}

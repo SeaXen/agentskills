@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Gives a monitoring or evidence step with an owner rather than a vague recommendation",
+        "evidence": "The fix plan gives each evidence step an owner, a date and a done-when. For example, step 1 asks 3 to 5 affected readers to forward the quarantined issue with full headers (owner DevRel, within 3 days, done when headers from at least 2 companies are in and BCL/CAT are recorded). The monitoring sheet gives each signal a source, an alert level and an owner, such as BCL on Microsoft 365 copies at 6 or above (owner DevRel) and DMARC aggregate reports (owner DNS owner). The pass-threshold rows that are blocked also name the missing fact, the owner and the due date.",
+        "score": 5,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Gives a monitoring or evidence step with an owner rather than a vague recommendation",
+        "evidence": "The evidence step is concrete: 'Get one bounced or quarantined message from a bank reader. Ask their IT team for the full headers, or the quarantine reason code', and it is repeated as 'Next: ask one bank reader for the quarantine reason or full headers today.' It also lists specific checks: SCL headers, SNDS/JMRP, blocklists and mail-tester. Ownership is only implied, through the imperative voice and the CEO script ('I'll have evidence from real headers in a week'). No owner is named for each check. The monitoring step ('1 to 2 weeks to see if enterprise delivery improves', '4 to 6 weeks') na",
+        "score": 3,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

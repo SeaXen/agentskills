@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The response does not produce a final weighted score for platforms A, B and C",
+        "evidence": "\"Why I won't score the table\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response states that a table where every candidate ticks every row cannot discriminate between them",
+        "evidence": "\"A and B tie on every row... Any weighting gives them the same score.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response states that comparison-article content is a claim rather than evidence, or warns that such lists are often written by a vendor",
+        "evidence": "\"These lists are often written by a vendor that ranks itself first. A tick doesn't say whether the feature works\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response labels the checkmarks as vendor-published or claimed rather than tested",
+        "evidence": "\"nothing clears a knockout until it is `tested`. All three stay 'claimed' today.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response separates knockout requirements from weighted differentiators",
+        "evidence": "The register has K1\u2013K6 as knockouts and D1\u2013D5 as differentiators with weights.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response says weights must be fixed before any candidate is scored",
+        "evidence": "\"Weights are fixed here, before any candidate is scored.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response says platform C is out only if SSO is a genuine knockout for Brindlewick",
+        "evidence": "\"If you need gated pages, C is out. If you don't, C ties with the others.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response proposes a pilot on Brindlewick's own pages with pass thresholds written in advance",
+        "evidence": "\"Port 5 to 8 of the hardest pages\"; register tests such as \"right page in the top 3 for at least 8\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response names an exit-cost or export test as part of the evaluation",
+        "evidence": "K2: \"Run the export; diff page count, images, nav\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response gives the user something to take to the director tomorrow, such as the register or the pilot plan",
+        "evidence": "\"What to take to your director tomorrow\" with a 5-step decision path.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The response does not produce a final weighted score for platforms A, B and C",
+        "evidence": "The table \"Scores (from your table, \u2713 = 100, \u2717 = 0)\" gives A 100, B 100, C 90.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response states that a table where every candidate ticks every row cannot discriminate between them",
+        "evidence": "\"this table can't pick a winner. A and B tie on every row\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response states that comparison-article content is a claim rather than evidence, or warns that such lists are often written by a vendor",
+        "evidence": "It says \"A \u2713 shows a feature exists, not that it's good\" but never says the source is vendor-written or a claim.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response labels the checkmarks as vendor-published or claimed rather than tested",
+        "evidence": "No such labelling.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response separates knockout requirements from weighted differentiators",
+        "evidence": "Everything is weighted, including SSO at 10.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response says weights must be fixed before any candidate is scored",
+        "evidence": "It assigns weights after seeing the table and does not say they must be fixed in advance.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response says platform C is out only if SSO is a genuine knockout for Brindlewick",
+        "evidence": "\"C only loses if you need SSO.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response proposes a pilot on Brindlewick's own pages with pass thresholds written in advance",
+        "evidence": "\"Run a 1-day trial of A and B with 10 real pages\" has no pass thresholds.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response names an exit-cost or export test as part of the evaluation",
+        "evidence": "No export or exit test is named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response gives the user something to take to the director tomorrow, such as the register or the pilot plan",
+        "evidence": "\"Suggested line for your director: 'We narrowed to two finalists...'\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

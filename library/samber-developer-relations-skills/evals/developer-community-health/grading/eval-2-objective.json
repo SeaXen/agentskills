@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Defines the contributor absence factor as the smallest number of people producing 50% of contributions",
+        "evidence": "\"Contributor Absence Factor (CHAOSS definition: 'the smallest number of people that make 50% of contributions'...)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the total contribution count as 2,480 and the 50% threshold as 1,240",
+        "evidence": "The transcript states \"12-month total: 2,480 commits across 8 people\" but never states the numeric halfway threshold \"1,240\" anywhere; only percentages (e.g. \"58.5% \u2190 crosses 50% here\") are used.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reports the contributor absence factor as 2, because Ana and Bruno together account for 1,452 commits",
+        "evidence": "\"\u2192 Factor = 2. Two individuals (Ana, Bruno) account for over half of all commits\" with table showing cumulative 1,452 at Bruno's row",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Computes the elephant factor by grouping contributions by employer rather than by individual person",
+        "evidence": "\"Elephant factor (CHAOSS: same procedure, grouped by employer \u2014 same published source)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports the elephant factor as 1, because Northwind Systems alone accounts for 1,307 commits, above the 1,240 threshold",
+        "evidence": "\"Northwind Systems | Ana, Chen, Hana | 1,307 | 1,307 | 52.7% \u2190 crosses 50% on its own\" \u2192 \"Elephant factor = 1\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States explicitly that the employer-level concentration is worse than the person-level concentration for this project",
+        "evidence": "\"The number that actually maps to a single business decision is the elephant factor... is a single point of failure for over half the codebase's recent activity \u2014 not eight independent departure risks.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a higher absence factor is safer and that a lower one signals dependency on fewer contributors",
+        "evidence": "\"directionally it's unambiguous here: lower is riskier, and 1 is as low as it gets.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that neither factor accounts for knowledge distribution, so two contributors with disjoint expertise are not interchangeable",
+        "evidence": "\"It says nothing about... whether Ana/Chen/Hana are interchangeable or own disjoint modules \u2014 commit share overstates redundancy if their code doesn't overlap.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not compare Kelvinstack's figures against other open-source projects or against a claimed industry-standard cutoff",
+        "evidence": "No comparison to other projects or external benchmark numbers appears anywhere in the transcript",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that no published numeric threshold exists for either factor",
+        "evidence": "\"The specific 'factor 1 = single point of failure' framing is this catalog's own reading of the published definition, not an industry cutoff\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends an identity mapping across commit emails and handles before trusting the contributor counts",
+        "evidence": "No mention of identity mapping across commit emails/handles anywhere in the transcript; the caveats section only discusses merge rights, snapshot timing, and employer independence assumptions",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Attaches a named action to the concentration risk, such as opening the reviewer or maintainer rung to the next contributors",
+        "evidence": "The recommendation section only proposes questions to ask the customer (\"ask what happens to their support/roadmap commitments...\") rather than a concrete mitigation action like opening a reviewer rung",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Defines the contributor absence factor as the smallest number of people producing 50% of contributions",
+        "evidence": "The transcript never defines this metric; it only notes 'No single individual clears 50% (Ana alone is 32.7%)' without introducing the concept of the smallest number of people needed to reach 50%.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the total contribution count as 2,480 and the 50% threshold as 1,240",
+        "evidence": "The transcript states 'Total commits (12mo): 2,480' but never states the derived 50% threshold value of 1,240 anywhere in the text.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reports the contributor absence factor as 2, because Ana and Bruno together account for 1,452 commits",
+        "evidence": "There is no mention of Ana and Bruno being combined, nor of the figure 1,452, nor any reported factor value of 2 in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Computes the elephant factor by grouping contributions by employer rather than by individual person",
+        "evidence": "The transcript builds a table grouping commits by 'Employer' (Northwind Systems, Solano Labs, Independents) rather than by individual, e.g. 'Northwind Systems | Ana, Chen, Hana | 1,307 | 52.7%'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports the elephant factor as 1, because Northwind Systems alone accounts for 1,307 commits, above the 1,240 threshold",
+        "evidence": "The transcript shows 'Northwind Systems | Ana, Chen, Hana | 1,307 | 52.7%' and concludes 'Northwind Systems alone accounts for a majority of development,' establishing that one employer alone exceeds the 50% (1,240) threshold, even though it does not use the term 'elephant factor' or the numeral '1' explicitly.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States explicitly that the employer-level concentration is worse than the person-level concentration for this project",
+        "evidence": "\"it's an **employer-concentration** risk, not a single-person bus-factor problem \u2014 and it's worse than the raw per-person numbers suggest\" and the section header \"Why it's worse than it looks\" explicitly make this comparison.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a higher absence factor is safer and that a lower one signals dependency on fewer contributors",
+        "evidence": "The transcript never articulates this general principle about the absence factor's directionality; it discusses specific percentages and risk framing but not this abstract rule.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that neither factor accounts for knowledge distribution, so two contributors with disjoint expertise are not interchangeable",
+        "evidence": "\"Commit share isn't the same as knowledge concentration \u2014 it doesn't show who owns the core architecture, who has merge/release authority, or who understands the hard parts. Ask for that breakdown too (code ownership / review load, not just commit count) before drawing final conclusions.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not compare Kelvinstack's figures against other open-source projects or against a claimed industry-standard cutoff",
+        "evidence": "The transcript contains no comparison to other open-source projects or any claimed industry-standard cutoff; all figures and thresholds discussed are internal to this project's own commit data.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that no published numeric threshold exists for either factor",
+        "evidence": "The transcript never mentions the absence of a published numeric threshold for either factor; it only gives its own recommendation without addressing whether an industry standard exists.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends an identity mapping across commit emails and handles before trusting the contributor counts",
+        "evidence": "There is no mention of verifying or mapping contributor identities across commit emails/handles anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Attaches a named action to the concentration risk, such as opening the reviewer or maintainer rung to the next contributors",
+        "evidence": "The closest content is a question, not an action: 'Is there more than one person per employer with release/merge rights, or does it bottleneck through one?' \u2014 no recommendation to expand reviewer/maintainer access to additional contributors is made; the stated mitigations are 'contractual continuity commitments... or a documented fallback/fork plan.'",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

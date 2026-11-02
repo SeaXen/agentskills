@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Applies an explicit stress test asking what each reward costs per month at ten times the current sponsor count, roughly 140 sponsors.",
+        "evidence": "\"Run each one through the skill's own test \u2014 *what does this cost every month at ten times today's sponsor count (14 \u2192 140)?*\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the $30 monthly 1:1 call as a second-job reward and removes it from the ladder.",
+        "evidence": "\"$30 \u2014 monthly 30-minute 1:1 video call. This is the exact failure mode...\"; rewrite table has no $30 call line, replaced by capped Business-tier office hours.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the scale problem concretely - monthly calls at around 140 sponsors consume a working week or more per month.",
+        "evidence": "Only says \"even a modest fraction choosing this tier is multiple unpaid working days a month\" \u2014 does not state a full working week or more.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the $75 24-hour response promise as an unbounded guaranteed-response-time commitment that does not belong in a self-serve tier.",
+        "evidence": "\"guaranteed response times without a contract... isn't bounded by a seat cap or a written scope, so it scales the same way the call does: fine at 3 sponsors on this tier, unsustainable at 30\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the $200 quarterly bespoke integration as a second-job reward and removes it from the ladder.",
+        "evidence": "\"a full engineering commitment sold at $200/month self-serve\"; rewrite moves integration work into the negotiated Infrastructure retainer, off the self-serve ladder.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the named commitments - response times, security triage, upgrade support - into a separately priced corporate retainer with a written scope instead of a ladder perk.",
+        "evidence": "\"Infrastructure | negotiated, \u2265$1,000, written scope | above + capped issue-triage SLA and/or scoped integration work, sold as a retainer through direct outreach, not self-serve\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that these tiers are priced far below the obligation they create, or prices the equivalent retainer well above $400/month.",
+        "evidence": "Rewrite prices Infrastructure at \"negotiated, \u2265$1,000\", above the current $400 top tier.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the near-zero rewards: name in BACKERS.md, README or docs logo, sponsor badge, thank-you post, release-notes mention.",
+        "evidence": "\"$10 \u2014 name in BACKERS.md... That's the correct shape\"; rewrite keeps Backer/Supporter name rewards and README/docs logo.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places the README logo reward at a company-sized price rather than at the top of an individual ladder.",
+        "evidence": "Rewrite table: \"Team | $100 | small logo in README + docs footer\", \"Business | $250\u2013500 | large logo\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the bounded-but-real middle bucket - private repository per tier, quarterly group office hours, early access to releases, sponsor-only newsletter - as the safe alternative to the removed rewards.",
+        "evidence": "Rewrite table: \"Business | $250\u2013500 | large logo... + **quarterly group** office hours\" as the bounded alternative.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that the ten-times multiplier is a stress test, not a measured growth rate or forecast.",
+        "evidence": "The 10x figure is used throughout as a diagnostic but is never explicitly distinguished from a forecast/growth rate.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the reward efficiency order, leading with README or docs placement ahead of badges and thank-you posts, early access, private repositories or office hours, and monthly calls or priority support last.",
+        "evidence": "The document is organized as \"Ranked by damage,\" not as an explicit reward-efficiency order list.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Applies an explicit stress test asking what each reward costs per month at ten times the current sponsor count, roughly 140 sponsors.",
+        "evidence": "The stress test uses \"At 14 sponsors it's fine. At 40+ it isn't\" and a \"5 sponsors\" example \u2014 never computes a 10x/140 scenario.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the $30 monthly 1:1 call as a second-job reward and removes it from the ladder.",
+        "evidence": "The call is flagged as breaking first but is mitigated (\"Cap slots\", \"quarterly instead\", \"group office-hours call\"), not removed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the scale problem concretely - monthly calls at around 140 sponsors consume a working week or more per month.",
+        "evidence": "Only \"5 sponsors here = 2.5 hrs/month\" is computed; no 140-sponsor / work-week figure is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the $75 24-hour response promise as an unbounded guaranteed-response-time commitment that does not belong in a self-serve tier.",
+        "evidence": "\"A hard SLA is a promise you can break publicly... Soften to 'I prioritize your issues'... drop the number as a guarantee.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the $200 quarterly bespoke integration as a second-job reward and removes it from the ladder.",
+        "evidence": "Flagged as \"the tier most likely to turn into unpaid part-time contract work\" but is bounded/scoped, not removed: \"Bound it explicitly: 'a small integration/adapter, scoped on a quick call, time-boxed...'\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the named commitments - response times, security triage, upgrade support - into a separately priced corporate retainer with a written scope instead of a ladder perk.",
+        "evidence": "No corporate retainer is proposed; all fixes stay within the existing public ladder tiers.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that these tiers are priced far below the obligation they create, or prices the equivalent retainer well above $400/month.",
+        "evidence": "No statement comparing tier price to the true cost of the obligation, and no retainer price is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the near-zero rewards: name in BACKERS.md, README or docs logo, sponsor badge, thank-you post, release-notes mention.",
+        "evidence": "\"ship $10 and $400-logo as-is\" and \"$10 \u2014 name in BACKERS.md... No issue.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places the README logo reward at a company-sized price rather than at the top of an individual ladder.",
+        "evidence": "The $400 logo tier remains the top of the same cumulative individual ladder, not repriced for companies.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the bounded-but-real middle bucket - private repository per tier, quarterly group office hours, early access to releases, sponsor-only newsletter - as the safe alternative to the removed rewards.",
+        "evidence": "\"Convert to a group office-hours call \u2014 same value, doesn't scale per-sponsor.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that the ten-times multiplier is a stress test, not a measured growth rate or forecast.",
+        "evidence": "No 10x multiplier is used or discussed in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the reward efficiency order, leading with README or docs placement ahead of badges and thank-you posts, early access, private repositories or office hours, and monthly calls or priority support last.",
+        "evidence": "No explicit ranked ordering of reward types is given anywhere in the response.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

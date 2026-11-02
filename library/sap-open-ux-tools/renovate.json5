@@ -1,0 +1,325 @@
+// json5: https://json5.org/
+// json5 VS Code extension: https://marketplace.visualstudio.com/items?itemName=mrmlnc.vscode-json5
+// renovate configuration: https://docs.renovatebot.com/configuration-options/
+{
+    $schema: 'https://docs.renovatebot.com/renovate-schema.json',
+
+    extends: [
+        'config:recommended',
+        ':automergeDisabled',
+        ':combinePatchMinorReleases',
+        ':enableVulnerabilityAlerts',
+        ':enableVulnerabilityAlertsWithLabel(security)',
+        ':label(renovate)',
+        ':rebaseStalePrs',
+        ':semanticCommits',
+        ':semanticPrefixFixDepsChoreOthers',
+        ':timezone(America/Los_Angeles)',
+        ':updateNotScheduled',
+        'workarounds:typesNodeVersioning'
+    ],
+    minimumReleaseAge: '3 days',
+
+    enabledManagers: ['npm', 'github-actions'],
+    // Cap Node heap to avoid kernel OOM on Mend-hosted runners (pnpm v11 + large monorepo).
+    // Without this Node uses default heap sizing which can spike high enough to trigger OOM killer.
+    // 1536 is the value most commonly cited in https://github.com/renovatebot/renovate/discussions/40942
+    toolSettings: {
+        nodeMaxMemory: 1536
+    },
+    branchPrefix: 'chore/renovate/',
+    platformCommit: 'enabled',
+
+    major: {
+        dependencyDashboardApproval: true
+    },
+    dependencyDashboardAutoclose: true,
+    dependencyDashboardLabels: ['renovate-dashboard'],
+    dependencyDashboardTitle: 'Renovate Dependency Dashboard',
+
+    assigneesFromCodeOwners: true,
+    // Allow Renovate to continue updating PRs after GitHub Actions bot commits
+    // This is needed for the update-ui5manifest-version workflow which adds
+    // additional changes (test fixtures, changesets) to Renovate PRs
+    gitIgnoredAuthors: [
+        '84985584+kranthie-sap@users.noreply.github.com',
+        'github-actions[bot]@users.noreply.github.com',
+        '294662807+open-ux-tools-release-bot[bot]@users.noreply.github.com',
+        '222836200+fionan-SAP@users.noreply.github.com'
+    ],
+
+    ignorePaths: [
+        '**/templates/**',
+        '**/test-input/**',
+        '**/test-output/**',
+        '**/fixtures/**',
+        '**/test/fixture/**',
+        '**/test/test-data/**',
+        '**/expected-output/**',
+        '**/test/sample/**',
+        '**/test/unit/sample/**',
+        '**/test/data/**',
+        '**/test/samples/**',
+        '**/test/fixtures/**',
+        '**/test/fixture/**',
+        '**/test/test-data/**',
+        '**/expected-output/**',
+        '**/test/sample/**',
+        '**/test-inputs/**',
+        '**/test-outputs/**',
+        '**/test/inputs/**',
+        '**/test/outputs/**',
+        '**/__tests__/fixtures/**',
+        '**/__tests__/fixture/**',
+        '**/__tests__/test-data/**',
+        '**/__tests__/expected-output/**',
+        '**/__tests__/sample/**',
+        '**/__tests__/inputs/**',
+        '**/test/sample-workspace/**'
+    ],
+
+    ignoreDeps: ['@sap-ux-private/playwright'],
+
+    packageRules: [
+        // GitHub Actions digest updates have no release age concept — exempt them from minimumReleaseAge
+        {
+            matchManagers: ['github-actions'],
+            matchUpdateTypes: ['digest'],
+            minimumReleaseAge: '0 days'
+        },
+        // Override: devDependencies should also use 'fix' (not just runtime deps)
+        {
+            matchDepTypes: ['devDependencies'],
+            semanticCommitType: 'fix'
+        },
+        {
+            matchPackageNames: ['@ui5/manifest'],
+            groupName: 'dependencies [@ui5/manifest]',
+            semanticCommitType: 'fix',
+            commitMessagePrefix: 'fix(deps):',
+            labels: ['dependencies', '@ui5/manifest'],
+            automerge: false
+        },
+        {
+            matchPackageNames: ['react{/,}**', 'react-dom{/,}**', '@types/react{/,}**', '@types/react-dom{/,}**'],
+            groupName: 'dependencies [react]',
+            allowedVersions: '<17.0.0'
+        },
+        {
+            matchPackageNames: ['@fluentui/{/,}**'],
+            groupName: 'dependencies [fluentui]'
+        },
+        {
+            matchPackageNames: ['@testing-library/{/,}**', '@types/testing-library{/,}**'],
+            groupName: 'dependencies [testing-library]',
+            matchDepTypes: ['devDependencies']
+        },
+        {
+            matchPackageNames: ['eslint{/,}**', '@typescript-eslint/{/,}**', 'lint-staged{/,}**'],
+            groupName: 'dev dependencies [eslint]',
+            matchDepTypes: ['devDependencies']
+        },
+        {
+            matchPackageNames: ['prettier', 'pretty-quick'],
+            groupName: 'dev dependencies [prettier]',
+            matchDepTypes: ['devDependencies']
+        },
+        {
+            matchPackageNames: ['i18next{/,}**'],
+            groupName: 'dependencies [i18next]'
+        },
+        {
+            matchPackageNames: ['mem-fs{/,}**', '@types/mem-fs{/,}**'],
+            groupName: 'dependencies [mem-fs]'
+        },
+        {
+            matchPackageNames: ['mem-fs-editor{/,}**', '@types/mem-fs-editor{/,}**'],
+            groupName: 'dependencies [mem-fs-editor]',
+            allowedVersions: '<10.0.0',
+            description: 'mem-fs-editor v10+ requires mem-fs v3 which has breaking API changes'
+        },
+        {
+            matchPackageNames: ['inquirer{/,}**', '@types/inquirer{/,}**'],
+            groupName: 'dependencies [inquirer]',
+            allowedVersions: '<9.0.0',
+            description: 'inquirer v9+ is ESM-only'
+        },
+        {
+            matchPackageNames: ['memfs{/,}**'],
+            allowedVersions: '<4.0.0',
+            description: 'memfs v4+ is ESM-only'
+        },
+        {
+            matchPackageNames: [
+                'yeoman-generator{/,}**',
+                '@types/yeoman-generator{/,}**',
+                'yeoman-environment{/,}**',
+                '@types/yeoman-environment{/,}**',
+                'yeoman-test{/,}**',
+                '@types/yeoman-test{/,}**'
+            ],
+            groupName: 'dependencies [yeoman]',
+            allowedVersions: '<6.0.0',
+            description: 'yeoman-environment v4+ is ESM-only; yeoman-generator v6+ requires ESM setup'
+        },
+        {
+            matchPackageNames: ['react-markdown{/,}**'],
+            allowedVersions: '<6.0.0',
+            description: 'react-markdown v6+ is ESM-only'
+        },
+        {
+            matchPackageNames: ['express{/,}**', '@types/express{/,}**'],
+            groupName: 'dependencies [express]',
+            allowedVersions: '<5.0.0',
+            description: 'express v5 has significant API changes; upgrade requires explicit decision'
+        },
+        {
+            matchPackageNames: ['enzyme{/,}**', '@types/enzyme{/,}**'],
+            groupName: 'dev dependencies [enzyme]',
+            matchDepTypes: ['devDependencies']
+        },
+        {
+            // jest-environment-jsdom v30 bundles jsdom 26: hangs with enzyme-adapter-react-16 and
+            // infinite-recurse in performance.now() with UI5 Core
+            matchPackageNames: ['jest-environment-jsdom'],
+            matchFileNames: [
+                'packages/ui-components/package.json',
+                'packages/ui-prompting/package.json',
+                'packages/jest-environment-ui5/package.json'
+            ],
+            allowedVersions: '<30.0.0',
+            description: 'jsdom 26 (bundled in jest-environment-jsdom v30) breaks enzyme and UI5 Core (performance.now infinite recursion)'
+        },
+        {
+            matchPackageNames: ['lodash{/,}**', '@types/lodash{/,}**'],
+            groupName: 'dependencies [lodash]'
+        },
+        {
+            matchPackageNames: [
+                'jest{/,}**',
+                '@​types/jest{/,}**',
+                '@jest/​types{/,}**',
+                'jest-*{/,}**',
+                '*-jest{/,}**',
+                '@​types/*jest*{/,}**'
+            ],
+            groupName: 'dev dependencies [jest]',
+            matchDepTypes: ['devDependencies']
+        },
+        {
+            matchPackageNames: ['nx{/,}**', '@​nrwl/nx-cloud{/,}**'],
+            groupName: 'dev dependencies [nx]',
+            matchDepTypes: ['devDependencies']
+        },
+        {
+            matchPackageNames: ['@types/vscode{/,}**'],
+            allowedVersions: '1.73.1'
+        },
+        {
+            // Packages from https://github.com/SAP/open-ux-odata
+            matchPackageNames: [
+                '@sap-ux/vocabularies-types',
+                '@sap-ux/edmx-parser',
+                '@sap-ux/annotation-converter',
+                '@sap-ux/fe-mockserver-core',
+                '@sap-ux/fe-mockserver-plugin-cds',
+                '@sap-ux/ui5-middleware-fe-mockserver'
+            ],
+            groupName: 'dependencies [open-ux-odata]'
+        },
+        {
+            matchPackageNames: [
+                'webpack{/,}**',
+                'ts-loader{/,}**',
+                'style-loader{/,}**',
+                'sass-loader{/,}**',
+                'sass{/,}**',
+                'css-loader{/,}**',
+                '@storybook/manager-webpack5{/,}**',
+                '@storybook/builder-webpack5{/,}**',
+                'storybook-addon-turbo-build{/,}**'
+            ],
+            groupName: 'dev dependencies [webpack]',
+            matchDepTypes: ['devDependencies']
+        },
+        {
+            matchPackageNames: ['chalk{/,}**'],
+            allowedVersions: '<5.0.0',
+            description: 'chalk v5+ is ESM-only'
+        },
+        {
+            matchPackageNames: ['open{/,}**'],
+            allowedVersions: '<9.0.0',
+            description: 'open v9+ is ESM-only'
+        },
+        {
+            matchPackageNames: ['figures{/,}**'],
+            allowedVersions: '<4.0.0',
+            description: 'figures v4+ is ESM-only'
+        },
+        {
+            matchPackageNames: ['filenamify{/,}**'],
+            allowedVersions: '<5.0.0',
+            description: 'filenamify v5+ is ESM-only'
+        },
+        {
+            matchPackageNames: ['os-name{/,}**'],
+            allowedVersions: '<5.0.0',
+            description: 'os-name v5+ is ESM-only'
+        },
+        {
+            matchPackageNames: ['minimatch{/,}**'],
+            allowedVersions: '<4.0.0',
+            description: 'minimatch v4+ is ESM-only'
+        },
+        {
+            matchPackageNames: ['uuid{/,}**', '@types/uuid{/,}**'],
+            groupName: 'dependencies [uuid]',
+            allowedVersions: '<12.0.0',
+            description: 'uuid v12+ removed CJS named exports'
+        },
+        {
+            matchPackageNames: ['marked{/,}**'],
+            allowedVersions: '<13.0.0',
+            description: 'marked v13+ is ESM-only'
+        },
+        {
+            matchPackageNames: ['react-i18next{/,}**'],
+            allowedVersions: '<16.0.0',
+            description: 'react-i18next v16+ requires React 18'
+        },
+        {
+            matchPackageNames: ['storybook{/,}**', '@storybook/{/,}**'],
+            groupName: 'dev dependencies [storybook]',
+            matchDepTypes: ['devDependencies'],
+            allowedVersions: '<10.0.0',
+            description: 'Storybook v10+ requires React 18'
+        },
+        {
+            matchPackageNames: ['ejs{/,}**'],
+            allowedVersions: '<4.0.0',
+            description: 'ejs v4 upgrade deferred; affects 12+ packages'
+        },
+        {
+            matchPackageNames: ['applicationinsights{/,}**'],
+            allowedVersions: '<3.0.0',
+            description: 'applicationinsights v3 removed setup() API; significant migration cost'
+        },
+        {
+            matchPackageNames: ['@sapui5/types{/,}**'],
+            allowedVersions: '<1.121.0',
+            description: '@sapui5/types upgrade deferred; major type churn across preview-middleware-client'
+        },
+        {
+            matchPackageNames: ['redux{/,}**', 'react-redux{/,}**', '@reduxjs/toolkit{/,}**'],
+            groupName: 'dependencies [redux]',
+            allowedVersions: '<5.0.0',
+            description: 'react-redux v8+ is hooks-only; deferred until React 18 migration'
+        },
+        {
+            matchPackageNames: ['https-proxy-agent{/,}**'],
+            allowedVersions: '<8.0.0',
+            description: 'https-proxy-agent v8+ is ESM-only (type: module, no require export condition)'
+        }
+    ]
+}

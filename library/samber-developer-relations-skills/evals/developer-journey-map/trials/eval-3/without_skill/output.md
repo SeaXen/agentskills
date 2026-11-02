@@ -1,0 +1,50 @@
+# Cindershell customer journey map — SRE segment, mid-market, awareness → production usage
+
+## Read this first: the "direct = broken tracking" claim
+
+⚠️ 61% direct is not, by itself, evidence of broken tracking here. It's close to the expected baseline for a CLI-first infra tool's docs site with an SRE audience, for reasons specific to this audience:
+
+- **Referrer stripping is structural for this channel mix.** SREs find CLI tools via GitHub READMEs opened in non-browser contexts (IDE markdown preview, `gh repo view`), Slack/Discord link shares (in-app browsers frequently drop or rewrite the referrer), and links pasted into terminals or pinned tabs. None of these reliably pass a referrer.
+- **Mid-market corporate networks compound it.** Proxy/SASE tooling (Zscaler and similar, common at this company size) strips or rewrites referrer headers for outbound traffic as a matter of policy, independent of anything on your site.
+- **Bookmarked, revisited docs pages are a feature of the evaluation behavior you're trying to measure, not a defect.** An SRE comparing Cindershell to Terraform+bash over two weeks will return via a bookmark or typed URL repeatedly — every one of those return visits lands in "direct."
+- **This is a known, named blind spot in web analytics**, not a Cindershell-specific failure: large direct shares (50%+) are a common pattern on developer-tool and technical documentation sites generally, precisely because dark social and typed/bookmarked URLs dominate discovery for this audience.
+
+None of that proves nothing is broken — it means the percentage alone isn't diagnostic. Before agreeing to a six-week instrumentation project, get a cheap, fast read on whether there's an actual defect:
+
+1. ✅ **Check self-referral exclusion** — confirm the docs domain and any app/dashboard subdomain are in GA's referral exclusion list. Missing this artificially inflates direct.
+2. ✅ **Audit outbound links for UTMs** — check whether GitHub README badges, release notes, and conference-slide links carry UTM parameters. If not, that's a same-week fix, and it will reclassify part of "direct" into "referral: github" — no six-week project required.
+3. ✅ **Segment current direct sessions by landing page.** If a large share lands on deep pages (a specific command reference, the install page) rather than the homepage, that's a strong signal of bookmarked/shared deep links — i.e., the expected pattern, not a tracking gap.
+4. ✅ **Add one cheap self-reported field** — an optional "How did you find Cindershell?" on the newsletter or community-join flow. Don't put this in the CLI's own telemetry: SREs are opt-out-by-default hostile to CLI telemetry, and forcing it here would cost more trust than the data is worth.
+5. Only escalate to a bigger instrumentation engagement if steps 1–3 fail to account for a meaningful chunk of the direct share.
+
+Ask the agency what specific defect they're hypothesizing and what evidence supports it beyond the percentage looking large. A six-week freeze on funnel work, applied to a segment that already discovers tools through word-of-mouth and dark social, risks losing the very top-of-funnel signal the map below is trying to capture.
+
+One more precision note baked into the map below: 14,200 is **sessions**, not distinct SREs. An SRE evaluating Cindershell against alternatives will generate several sessions over days or weeks — treat the row-level numbers as traffic volume, not headcount.
+
+---
+
+## The map
+
+| | **Awareness** | **Evaluation** | **Trial (sandbox/POC)** | **Adoption (team rollout)** | **Production usage** *(end state)* | **Expansion/advocacy** |
+|---|---|---|---|---|---|---|
+| **SRE mindset / job to be done** | "I have a recurring infra pain — drift, brittle scripts, manual runbooks — and I'm scanning for tools before I've fully named the problem." | "Does this actually beat what I have (Terraform+bash, Ansible, an internal script), and can I trust it in my stack?" | "Let me prove this on something low-risk before I put my name on it." | "I want the team to standardize on this — I need to justify it to teammates and my manager." | "This is part of how we run production. It needs to be boring and reliable." | "This solved my problem — worth telling others or expanding footprint." |
+| **Trigger** | Incident postmortem, on-call pain, a colleague's Slack link, a GitHub trending list, HN/Lobsters thread, conference talk. | Return visit to docs; actively comparing against the incumbent tool; checking issue tracker for maturity signals. | Decided to spend an afternoon proving it works. | Successful POC; wants to formalize into a pipeline or runbook. | Steady state — no active trigger, which is itself the goal. | Tool has been running reliably for a while; a new pain point or new team surfaces. |
+| **Key actions** | Skim README, check stars/last-commit date, glance at docs homepage. | Read architecture docs, compare to incumbent, scan GitHub issues for dealbreakers, maybe ask in community. | Install CLI, run against staging/non-critical service, hit first error, check troubleshooting docs. | Write internal wiki page, socialize with team, wire into CI/CD or IaC pipeline. | Runs unattended or on-call-triggered; monitored; upgraded during maintenance windows. | Expands to more services/teams, writes internal case study, files issues/PRs. |
+| **Primary touchpoints** | GitHub repo, docs homepage, HN/Reddit/Lobsters, Slack/Discord shares, conference talks, word of mouth. | Docs deep pages (install, config reference, architecture), GitHub issues/discussions, comparison content, community channel. | Quickstart tutorial, CLI's own error messages, community support channel. | Internal docs, team Slack, "production readiness" docs, pricing/support pages. | Release notes, upgrade guides, status page, support/escalation channel. | Internal all-hands, blog post, conference talk, GitHub contributions, peer referral (feeds the next SRE's Awareness). |
+| **Proof needed to advance** | Clear one-line positioning; install works in under a minute; visible signs of active maintenance. | Migration guide, security model doc, a case study from a similarly sized company, comparison table vs. incumbents. | Quickstart that works first try; readable error messages; fast community response. | Production-readiness checklist, RBAC/audit logging docs, clear support/SLA options. | Stable release cadence, clear deprecation policy, honest incident postmortems. | Reference-worthy outcome; internal champion bandwidth. |
+| **Objections / risk** | "Another CLI tool to babysit." Unclear if maintained. Licensing unclear. | "Does this become a new dependency I have to maintain?" Edge cases (multi-cloud, air-gapped, compliance) unaddressed. | Install friction, unclear failure modes, no visibility into what it's doing. | "Who owns this at 3am?" Budget approval, security review. | Breaking changes on upgrade, vendor longevity, support responsiveness during a real incident. | Second team wants a different config; champion has to keep pushing without formal ownership. |
+| **Session data (last 30 days, docs site)** | **Total sessions: 14,200.** Channel split: **~8,660 direct (61%)**, ~5,540 attributed — organic search, referral (incl. GitHub), social, community (39%). ⚠️ Treat "direct" as a mixed bucket (dark social, bookmarks, stripped referrers, corporate proxies), not a clean channel — see note above before drawing conclusions from the split. | Same 14,200-session pool. ℹ️ GA session counts alone don't separate awareness-stage visits from evaluation-stage visits — that needs landing-page and returning-visitor segmentation, which we don't have yet. Don't publish an "evaluation session count" until that segmentation exists; flag it as a data gap to close, not a number to report as fact. | Not GA-observable from the docs site alone — track via CLI install counts / first successful run, not session count. | Not GA-observable — track via number of orgs with the tool in a CI/CD or IaC pipeline (proxy: repeated API/version-check calls from the same org identifier, if telemetry is opted in). | Not GA-observable — track via sustained usage over N weeks without rollback, or a support/renewal signal. | Track via referral source tagging on new Awareness-stage sessions, case studies published, GitHub contributor count. |
+| **Emotional state** | Skeptical, time-pressured. | Cautiously curious, comparing. | Hands-on, testing patience. | Advocate, slightly exposed (reputational risk of championing a new tool). | Trust; low attention is the good sign here. | Confident, willing to be public about it. |
+| **Signal the stage is complete** | Return visit, GitHub star, or clone. | Local install / sandbox spun up. | Successful non-critical run with no major blocker. | Tool wired into at least one production-adjacent pipeline. | Survives a real incident or audit without becoming the story. | Becomes a referenceable case study, or license/usage expands. |
+
+---
+
+## What's still missing to make Evaluation's number as concrete as Awareness's
+
+The Awareness row's number is solid because total sessions and channel mix are exactly what GA reports. The Evaluation row is currently a placeholder pointing at the same pool. To split them honestly, add — cheaply, not as part of a six-week project:
+
+- **Landing-page grouping** (homepage/blog = more Awareness-shaped; deep docs pages like install/config reference = more Evaluation-shaped).
+- **New vs. returning visitor rate**, since Evaluation is disproportionately repeat visits.
+- **Pages-per-session or session duration** as a light proxy for depth of engagement.
+
+Any one of these is a config change or a saved GA report, not a re-instrumentation effort — worth doing before the agency's six-week ask, and worth doing regardless of how the direct-traffic question resolves.

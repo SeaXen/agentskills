@@ -1,0 +1,378 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-planning-timeline",
+  "scenarios": 7,
+  "expectations_total": 78,
+  "expectations_subjective": 0,
+  "expectations_objective": 78,
+  "pass_rate_with_skill_pct": 73.1,
+  "pass_rate_without_skill_pct": 20.5,
+  "delta_pp": 52.6,
+  "uplift_multiplier": 3.57,
+  "trigger_accuracy_pct": 61.1,
+  "trigger_queries": 72,
+  "trigger_positive_fire_rate": 0.472,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": null,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Gives each track a terminal milestone at or near doors-open"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends publishing in the simplest shared tracker the two of them will actually keep updated, and states that granularity is capped by the team's will to update it"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that the earliest-possible date is not a target, and that planning to it is how teams quietly spend their reversibility"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Presents delayed commitment and the Good/Better/Best scope-tier ladder as two distinct tools rather than merging them into a single 'have contingency' recommendation"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Rebuilds the actual state per track - milestones done, late, or not started - against the plan rather than against memory"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recomputes each track's remaining runway to its terminal milestone and flags every gate now at risk"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Spends buffers in order: un-spent latest-safe slack first, then a scope-tier downgrade if a ladder exists, then scope cuts"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Warns that the speaker-confirmation-to-program-announcement segment cannot be compressed to zero, because speakers need employer approval and travel arrangements"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Rewrites the remaining checkpoints against the new plan rather than carrying the old conditions forward"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Explains that keeping the old checkpoint conditions would re-fire them immediately"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Tells the user explicitly which lever was spent and what it bought"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that the pre-written action is decided while the team is calm and executed when it is not, and that this ordering is the point"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends pre-written checkpoints as the default rung of the replanning menu"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States the ranking of the replanning options out loud rather than leaving it implied by the order they are listed in"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names payment handling being live as a prerequisite of the date announcement, and reports that teams skipping it have rescheduled or cancelled"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names the code of conduct being published as a gate on the event's first public listing, placing it ahead of venue and date"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that the downgrade fires automatically on the checkpoint date rather than being argued at the time"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Explains the ladder's value as absorbing a revenue shortfall without cancelling, at the cost of designing three versions of the event up front"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Routes the question of how long this format's runway actually is to the first-edition skill rather than answering it from the conference runway"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Identifies this as a first edition and routes the launch gates and first-edition-specific risks accordingly, while still supplying the scheduling mechanics itself"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Asks its clarifying questions one at a time rather than presenting the whole interview at once"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Declines the requested task-level, weekly-re-baselined plan and recommends a dependency-gated milestone plan instead"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Gives the refusal's reason as the weekly upkeep exceeding the hours two volunteers working around day jobs actually have, not as the plan being too detailed or too complicated"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Removes the task-level critical path from the option set entirely rather than listing it as a lower-ranked, deferred, or 'if you find time later' alternative"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Warns that the task-level option fails silently: it goes stale within about a month while the team keeps trusting dates nothing has re-baselined"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Presents the plan as parallel tracks each carrying its own milestone chain, not as one chronological list of dates"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Trims the track taxonomy to this event, merging or omitting tracks a two-person conference does not need rather than leaving empty tracks on the plan"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Gives each track a terminal milestone at or near doors-open"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Expresses at least one cross-track dependency as an explicit gate naming both the prerequisite milestone and the milestone it blocks, not as a sentence describing a dependency"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Assigns exactly one accountable owner to each track"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Marks at least one irreversible spend or headcount decision with a latest-safe date and an owner"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends publishing in the simplest shared tracker the two of them will actually keep updated, and states that granularity is capped by the team's will to update it"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that the two directions of error are asymmetric: adding plates or seats late is cheap, while unwinding a pre-payment or an over-order is expensive or impossible"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Sets the catering commitment's latest-safe date from the caterer's real lead time, with final headcount frozen just before it"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Treats the badge print run's supplier lead time as a place padding legitimately applies, while still giving the order itself a latest-safe date"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that the earliest-possible date is not a target, and that planning to it is how teams quietly spend their reversibility"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Presents delayed commitment and the Good/Better/Best scope-tier ladder as two distinct tools rather than merging them into a single 'have contingency' recommendation"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names an owner alongside each irreversible commitment's latest-safe date"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Refuses to move the announced 6 February date and states that scope moves instead"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Gives the reason as trust burned with speakers, sponsors and attendees, not as logistical difficulty or cost"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Rebuilds the actual state per track - milestones done, late, or not started - against the plan rather than against memory"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recomputes each track's remaining runway to its terminal milestone and flags every gate now at risk"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Spends buffers in order: un-spent latest-safe slack first, then a scope-tier downgrade if a ladder exists, then scope cuts"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Cuts scope at the gate level, removing the item whose removal unblocks the most downstream milestones rather than the item that is furthest behind"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Evaluates cancelling the Thursday workshop day by how many downstream milestones it unblocks rather than accepting or rejecting it on the board's preference"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Warns that the speaker-confirmation-to-program-announcement segment cannot be compressed to zero, because speakers need employer approval and travel arrangements"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that spending money recovers execution slips but not calendar physics: a compressed CFP stays compressed"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Rewrites the remaining checkpoints against the new plan rather than carrying the old conditions forward"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Explains that keeping the old checkpoint conditions would re-fire them immediately"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Tells the user explicitly which lever was spent and what it bought"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Says the monthly all-hands review is a status meeting rather than a checkpoint, because it carries no condition, no pre-written action and no owner"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Specifies every checkpoint as four fields written in advance: date, measurable condition, pre-decided action, owner"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that the pre-written action is decided while the team is calm and executed when it is not, and that this ordering is the point"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends pre-written checkpoints as the default rung of the replanning menu"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Promotes the cadence variance review for this team, keying the promotion to roughly five or more parallel track owners and to the existing Tuesday standup making its marginal cost near zero"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes that the cadence rung's promotion condition is an existing check-in, not an intention to start one"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Anchors checkpoint dates to moments already meaningful in the plan, such as an announcement, early-bird close, or a tier's revenue deadline"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Keeps the event-driven replan as the floor the plan retains regardless of the other two rungs"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Where a single checkpoint gates more than one track, anchors it to the tightest real downstream constraint rather than to a round number of weeks out"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States the ranking of the replanning options out loud rather than leaving it implied by the order they are listed in"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Does not invent numeric demand, registration or revenue thresholds for the checkpoint conditions"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Blocks Monday's date announcement and treats announcement as a gated milestone rather than a press release"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names payment handling being live as a prerequisite of the date announcement, and reports that teams skipping it have rescheduled or cancelled"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names the code of conduct being published as a gate on the event's first public listing, placing it ahead of venue and date"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names the venue being locked as a prerequisite of announcing the date publicly"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Writes each of these as a gate naming both milestones rather than as prose describing a dependency"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Attaches dated downgrade checkpoints driven by revenue actually received, not by revenue promised, forecast or verbally indicated"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Explains the ladder's value as absorbing a revenue shortfall without cancelling, at the cost of designing three versions of the event up front"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Points out that the date remains a legitimate variable until announcement, and that announcing is what kills it as a lever"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Assigns exactly one accountable owner per track and flags any track currently without one"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Replaces the single 180-row chronological list with parallel tracks each carrying its own backward chain"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Locates the cause of last year's mess in the unwatched middle stretch rather than in the final month"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Explains that a plan nobody checks against actuals during the quiet stretch will not surface drift until it has compounded"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends carrying forward the anchor date, track owners, gate list, latest-safe commitment dates and each checkpoint's outcome so the next organizer starts from them instead of re-deriving them"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Caps the plan's granularity at what the team will actually keep updated rather than at the planner's ambition"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Routes the date decision out to the date-selection skill and states that a work-back plan has no anchor until the date is locked"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Refuses to reuse the 9-month conference runway for a 48-hour hackathon"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Gives the reason as conference-length and hackathon-length runways differing for structural reasons, not as the hackathon simply being smaller or shorter"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Routes the question of how long this format's runway actually is to the first-edition skill rather than answering it from the conference runway"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Declines to average or interpolate between the two formats' runways"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Identifies this as a first edition and routes the launch gates and first-edition-specific risks accordingly, while still supplying the scheduling mechanics itself"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Does not hand back dated milestones anchored to a date the user has not chosen"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Asks its clarifying questions one at a time rather than presenting the whole interview at once"
+      }
+    ]
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Selects the OSS contributor funnel as the stage model, because the funded end state is sustained contribution.",
+        "evidence": "'OSS contributor funnel (terminal: return) survives \u2014 it's the only model whose tail is \"sustained outside contribution\"'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names its stages: land, find work, set up, change, submit, survive review, return.",
+        "evidence": "'OSS contributor funnel (Land \u2192 find work \u2192 set up \u2192 change \u2192 submit \u2192 survive review \u2192 return)'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies local setup and waiting for review as the two steps that leak hardest and most silently.",
+        "evidence": "The document nominates 'Return' as the leak; it never identifies 'Set up' and 'Survive review' as leaking hardest and most silently.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets the contribution stage's exit event as the merge, not the pull-request submission.",
+        "evidence": "Table distinguishes 'Submit' (exit event: 'PR opened') from 'Survive review' (exit event: 'PR merged').",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites the finding that contributors who received code review within 48 hours returned and contributed again at a much higher rate.",
+        "evidence": "'GitHub Open Source Guides: contributors reviewed within 48h return at a much higher rate'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Attributes that finding to GitHub's Open Source Guides.",
+        "evidence": "Same quote: 'GitHub Open Source Guides: contributors reviewed within 48h return at a much higher rate'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Proposes time-to-first-review as the contribution stage's signal.",
+        "evidence": "'Not instrumented \u2014 pull median time-to-first-review from PR timestamps (available today via `gh pr list --json`, no new tooling needed)'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites that it only takes one negative experience to make someone not want to come back.",
+        "evidence": "'\"it only takes one negative experience to make someone not want to come back\"' quoted in the Survive review friction evidence cell.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that newcomers pick tasks by the API domain a task requires rather than by a maintainer's difficulty label.",
+        "evidence": "'newcomers select by required API domain, not a maintainer's difficulty tier'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Attributes that finding to the newcomer-barriers study of 74 participants.",
+        "evidence": "'Santos et al. (74-participant study, arXiv:2103.12653)'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends re-labelling issues by API domain or area rather than easy/medium/hard.",
+        "evidence": "'Relabel by area (`area:postgres-driver`, `area:cli`, `area:migration-runner`, `area:docs`), keep `easy/medium/hard` as a secondary filter.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States there is no buyer lane on a project with no purchase, and says so explicitly on the map rather than leaving the lane blank.",
+        "evidence": "'Buyer lane: none. Thistlewrap is self-serve MIT, nobody pays \u2014 the map says so explicitly below, per this skill's own rule for that case, rather than leaving it blank.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Models the adopting company's internal approval - licence compatibility, dependency policy - as friction inside the adoption stage rather than as a lane.",
+        "evidence": "'If a production user's own company ever blocks adoption on license or dependency-policy grounds, that's friction inside the (separate, already-healthy) adoption funnel \u2014 not a lane in this map.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Selects the OSS contributor funnel as the stage model, because the funded end state is sustained contribution.",
+        "evidence": "A bespoke 11-step journey (Discovery, Adoption, First friction... Core contributor) is built instead of a named 'OSS contributor funnel' model.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names its stages: land, find work, set up, change, submit, survive review, return.",
+        "evidence": "Actual stage names are 'Discovery, Adoption, First friction, First contact, Decision to attempt a PR, PR submitted, PR merged, The gap, Second contribution, Repeat contributor, Core contributor' \u2014 none match.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies local setup and waiting for review as the two steps that leak hardest and most silently.",
+        "evidence": "The identified biggest leak is stage 7, 'The gap' (post-merge, no second ask), not local setup or waiting for review specifically.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets the contribution stage's exit event as the merge, not the pull-request submission.",
+        "evidence": "Stage 5 'PR submitted' is distinct from stage 6 'PR merged. First contribution complete.' \u2014 merge is the completion event, not submission.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites the finding that contributors who received code review within 48 hours returned and contributed again at a much higher rate.",
+        "evidence": "The 48-hour SLA is recommended as practice but no empirical finding about return rates is cited.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Attributes that finding to GitHub's Open Source Guides.",
+        "evidence": "No such attribution appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Proposes time-to-first-review as the contribution stage's signal.",
+        "evidence": "The 48-hour SLA is framed as a fix/rule, not explicitly labeled as a tracked 'signal.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites that it only takes one negative experience to make someone not want to come back.",
+        "evidence": "Not stated in this form anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that newcomers pick tasks by the API domain a task requires rather than by a maintainer's difficulty label.",
+        "evidence": "The relabeling discussion never mentions API domain as the selection basis.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Attributes that finding to the newcomer-barriers study of 74 participants.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends re-labelling issues by API domain or area rather than easy/medium/hard.",
+        "evidence": "The proposed replacement labels are 'good first issue,' 'help wanted,' 'mentored' \u2014 intent-based, not API-domain-based.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States there is no buyer lane on a project with no purchase, and says so explicitly on the map rather than leaving the lane blank.",
+        "evidence": "'No buyer lane. There's no purchase step \u2014 nothing to price, no funnel to a sale. Don't force a SaaS-shaped lane onto a project that isn't one.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Models the adopting company's internal approval - licence compatibility, dependency policy - as friction inside the adoption stage rather than as a lane.",
+        "evidence": "Production adopters are instead explicitly proposed as 'its own lane': 'What you do need: split \"production adopter\" from \"casual user\" as its own lane.'",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

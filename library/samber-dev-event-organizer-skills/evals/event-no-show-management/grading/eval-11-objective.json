@@ -1,0 +1,118 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the claim that registration friction drives no-shows.",
+        "evidence": "\"The evidence behind the skill says the link is mostly a confound.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that among paid events, no-show rates stay roughly flat at about 16-19% regardless of how easy or hard registration is.",
+        "evidence": "\"paid events show flat no-show rates of about 16-19%. This holds whether registration completes at 65% or 98%.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the confound: free events also tend to run the simplest registration forms, so controlling for the free-versus-paid split erases the apparent correlation.",
+        "evidence": "\"Free events run the simplest forms... Controlling for free versus paid removes the effect.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the 100%-at-two-weeks and 200%-at-one-week figures as a registration signup curve that tells a marketing plan whether registrations are on pace.",
+        "evidence": "\"a marketing pace chart... tells you whether registrations are on pace.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that this curve is not an overbooking instruction, and routes it to samber/dev-event-organizer-skills@event-marketing-plan.",
+        "evidence": "\"It doesn't tell you how many to accept, and it belongs to event-marketing-plan.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes the signup curve from the separate show-up trendline that does set the overbooking multiplier.",
+        "evidence": "\"The curve and the ceiling are two different instructions.\"; \"about 50% of registrants show up\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends against adding the five-question form and mandatory confirmation click as a no-show fix.",
+        "evidence": "\"Do not add the five-question form and mandatory confirmation click to fix no-shows.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States a registration ceiling of 240 for the 120-seat workshop, derived from the free-event show-up rate.",
+        "evidence": "\"Sourced 2x ceiling | 240 registrations | 120 \u00f7 0.5\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not blend the signup curve percentages with any show-up rate or drop-off range.",
+        "evidence": "The curve and the 50% trendline are kept as separate instructions.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the claim that registration friction drives no-shows.",
+        "evidence": "'The data is confounded... doesn't show that adding friction... would raise turnout.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that among paid events, no-show rates stay roughly flat at about 16-19% regardless of how easy or hard registration is.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the confound: free events also tend to run the simplest registration forms, so controlling for the free-versus-paid split erases the apparent correlation.",
+        "evidence": "The confound named is 'casual signups', not the free-versus-paid split.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the 100%-at-two-weeks and 200%-at-one-week figures as a registration signup curve that tells a marketing plan whether registrations are on pace.",
+        "evidence": "'a heuristic for whether an event is on track'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that this curve is not an overbooking instruction, and routes it to samber/dev-event-organizer-skills@event-marketing-plan.",
+        "evidence": "Says it is not an overbooking formula but does not route to the skill.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes the signup curve from the separate show-up trendline that does set the overbooking multiplier.",
+        "evidence": "'Your correct overbooking factor is about 1 / your show rate, and the guide doesn't know your show rate.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends against adding the five-question form and mandatory confirmation click as a no-show fix.",
+        "evidence": "'Form plus mandatory confirmation click: no'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States a registration ceiling of 240 for the 120-seat workshop, derived from the free-event show-up rate.",
+        "evidence": "Recommends a cap near 210, not 240.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not blend the signup curve percentages with any show-up rate or drop-off range.",
+        "evidence": "The curve is treated only as a pacing alarm.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

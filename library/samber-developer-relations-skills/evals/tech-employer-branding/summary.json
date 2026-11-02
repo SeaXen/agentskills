@@ -1,0 +1,562 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "tech-employer-branding",
+  "scenarios": 8,
+  "expectations_total": 104,
+  "expectations_subjective": 1,
+  "expectations_objective": 103,
+  "pass_rate_with_skill_pct": 62.5,
+  "pass_rate_without_skill_pct": 13.5,
+  "delta_pp": 49.0,
+  "uplift_multiplier": 4.63,
+  "trigger_accuracy_pct": 77.7,
+  "trigger_queries": 94,
+  "trigger_positive_fire_rate": 0.894,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.267 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Identifies the 72% claim as a distortion of two different uncited vendor-guide claims rather than a Stack Overflow, HackerRank or Octoverse developer-survey finding."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Refuses to retain the 72% figure even when hedged as 'industry-cited' or 'widely reported', and states that the hedge launders it."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Explains the 50% claim as a garbling of LinkedIn's 2010 recruiter-survey figures (50% savings in cost per hire, 28% lower turnover) and/or the separate 2.5x-applicants platform finding."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Labels the Glassdoor elasticity as platform data rather than self-report."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Offers the LinkedIn Talent Brand Index figure of about 2.5x more applicants per posting, labelled as platform correlation rather than a controlled experiment."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names realistic job preview meta-analyses as the only peer-reviewed causal evidence in this domain, while stating the effect is modest and general to all hiring rather than engineering-specific."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Declines to supply additional unsourced percentages 'with the same punch' and explains that an un-anchored percentage costs credibility with an exec who checks."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Labels the Stripe account as a self-reported practitioner account rather than an audited result."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that compensation-transparency artifacts and structured-onboarding messaging serve the junior and early-career row, so they are not the primary bet here."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Asks who will actually write or speak, and how many protected hours a month leadership will commit."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Frames senior time-to-fill against the SHRM 2025 median of 44 days for nonexecutive roles while stating senior engineering runs longer without attaching a number to that claim."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Builds the EVP against the EmpAt scale's five values: interest, social, economic, development, application."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Attributes the EmpAt scale to Berthon, Ewing & Hah (2005), or identifies it as the validated generic employer-attractiveness instrument."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States explicitly that EmpAt is validated for employers generally and that no engineer-specific validated EVP framework exists."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Labels any structure more specific than the five values as this skill's own structure rather than a validated framework."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Sequences EVP design before channel activation, naming the Backhaus & Tikoo EVP-to-brand-image chain or the equivalent Design-before-Activation order."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names that 'what we don't offer' list as the highest-trust content in the plan."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States the economic value precisely through bands, leveling or equity mechanics instead of 'competitive pay', citing Saks, Wiesner & Summers (1996) or reward-specificity research."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Checks the claims against the four mismatch patterns: claimed flat hierarchy versus real hierarchy, claimed balance versus real on-call, claimed autonomy versus process overhead, diversity marketing versus retention reality."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Anchors on the 2025 Stack Overflow survey finding (~49,000 respondents) that autonomy and trust lead job-satisfaction drivers, ahead of pay and ahead of tooling."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Warns that a false autonomy claim is the most corrosive claim available, given that ranking."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Does not deliver finished punchy careers-page copy, and states that the output is strategy rather than the artifact itself."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends deepening the referral mechanism - structured ask, bonus, a named owner - as the highest value-per-effort move."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Presents the blog and conference sponsorship as starved with a named condition that would promote them, not as permanently deleted."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Declines to quantify the ROI of an engineering blog or a conference sponsorship, stating that any single channel's causal effect on engineer application behavior is unmeasured."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Confirms that the source-of-hire and offer-acceptance figures come from tracked instrumentation rather than estimates, since the whole recommendation rests on them."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Labels the Supabase and HashiCorp accounts as self-reported company narratives rather than audited results."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes that OSS-as-funnel loses every efficiency ranking round because it costs maintainer-years before it returns a hire."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Cites the Glassdoor site-survey finding that 86% of candidates research reviews before applying and form an opinion after about six reviews."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Keeps the two Glassdoor sources apart, labelling the 86% figure as self-report and the elasticity as platform data."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names the other verification surfaces to audit alongside the review site: compensation databases, anonymous professional forums, and recruiter-message quality."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Asks the owner to paste back the actual recent review text, rating and count if it cannot read the surfaces itself."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Refuses to rank the channel menu before source-of-hire and offer-acceptance rate are tracked."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Places OSS-as-funnel last on the efficiency ordering while acknowledging it ranks first on value."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names realistic job preview as the reason posting fixes and transparency artifacts outrank culture content, citing its peer-reviewed causal backing."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Emits a separate compliance-cost ordering and places open-sourcing a core and published salary bands above the blog and talks on review burden."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Recommends funding only the top pair in the first horizon and names the condition that moves the owner up one rung."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Asks by what date a result must be visible, whether this is a one-off push or a compounding asset, and what the effort ceiling is."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Asks which seniority tier the next hires must come from, and whether the product has a credible open-source core."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Refuses the '72% of developers check a company's engineering blog/GitHub before applying' figure by name and states that no publisher stands behind it."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Identifies the 72% claim as a distortion of two different uncited vendor-guide claims rather than a Stack Overflow, HackerRank or Octoverse developer-survey finding."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Refuses to retain the 72% figure even when hedged as 'industry-cited' or 'widely reported', and states that the hedge launders it."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Does not present the Gartner 69% claim as validated; states it is Gartner's own advisory research, self-reported, with no control group."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States the Gartner figure is usable only as directional wording such as 'Gartner's own stated figure', and traces it to the published 'just under 70%' phrasing."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that '50% more qualified applicants' is not a LinkedIn figure."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Explains the 50% claim as a garbling of LinkedIn's 2010 recruiter-survey figures (50% savings in cost per hire, 28% lower turnover) and/or the separate 2.5x-applicants platform finding."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Offers the Glassdoor Economic Research elasticity as a replacement: a 0.5-star rating increase associated with roughly 20% more job clicks and 16% more apply-starts."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Labels the Glassdoor elasticity as platform data rather than self-report."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Offers the LinkedIn Talent Brand Index figure of about 2.5x more applicants per posting, labelled as platform correlation rather than a controlled experiment."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Labels the '55% decrease in cost per hire' case-study figure as marketing because no methodology is disclosed, and keeps it out of the deck."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names realistic job preview meta-analyses as the only peer-reviewed causal evidence in this domain, while stating the effect is modest and general to all hiring rather than engineering-specific."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Declines to produce the 12-post blog calendar and the video concepts as the deliverable for this request."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Identifies 58% offer-acceptance as below the roughly 70% floor that triggers a trust audit before any top-of-funnel spend."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that the ~70% offer-acceptance floor is a movable default rather than a published industry standard."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Requires auditing the gap between the marketed brand and what employer-review sites, compensation databases and anonymous professional forums say before content spend."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Recommends responding to the existing reviews as a near-zero-cost move with a documented positive perception effect."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Rejects soliciting, seeding or incentivizing positive reviews from employees."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Uses the Glassdoor 0.5-star elasticity (about 20% more job clicks, 16% more apply-starts) rather than inventing a rating-to-pipeline number."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Does not estimate or infer what the recent reviews say beyond what the user reported, and asks for the actual review text, rating and count if it cannot read the surfaces itself."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Identifies a 'life at Brightmoor' culture video as the aspirational claim that psychological contract breach punishes when reality contradicts it."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Asks what source-of-hire currently says, alongside the offer-acceptance figure already supplied."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Treats the engineering blog as starved for now with a named condition that would promote it, rather than dropping it with no explanation."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Deletes job-board and generic sourcing spend for the principal-engineer tier rather than merely reducing or deprioritizing it."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that specialist technical recruiters converge on the finding that distinguished and principal engineers are not reached through postings or profile searches."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Labels that senior-tier sourcing claim as practitioner consensus rather than a measured study."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Reallocates toward referrals and community reputation as the mechanisms that actually reach this tier."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Cites the Stripe account associated with Greg Brockman: referrals consistently outperformed careers-page inbound on hire quality."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Labels the Stripe account as a self-reported practitioner account rather than an audited result."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends technical-depth signals - conference talks, deep architecture posts, OSS maintainership - as the content type matched to the senior/staff/principal row."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that compensation-transparency artifacts and structured-onboarding messaging serve the junior and early-career row, so they are not the primary bet here."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that 81% offer-acceptance clears the ~70% floor, so the constraint is top-of-funnel reach rather than a trust gap."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Asks whether source-of-hire is instrumented and what it currently says before committing the allocation."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Asks who will actually write or speak, and how many protected hours a month leadership will commit."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Frames senior time-to-fill against the SHRM 2025 median of 44 days for nonexecutive roles while stating senior engineering runs longer without attaching a number to that claim."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Builds the EVP against the EmpAt scale's five values: interest, social, economic, development, application."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Attributes the EmpAt scale to Berthon, Ewing & Hah (2005), or identifies it as the validated generic employer-attractiveness instrument."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States explicitly that EmpAt is validated for employers generally and that no engineer-specific validated EVP framework exists."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Labels any structure more specific than the five values as this skill's own structure rather than a validated framework."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Sequences EVP design before channel activation, naming the Backhaus & Tikoo EVP-to-brand-image chain or the equivalent Design-before-Activation order."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names that 'what we don't offer' list as the highest-trust content in the plan."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States the economic value precisely through bands, leveling or equity mechanics instead of 'competitive pay', citing Saks, Wiesner & Summers (1996) or reward-specificity research."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Checks the claims against the four mismatch patterns: claimed flat hierarchy versus real hierarchy, claimed balance versus real on-call, claimed autonomy versus process overhead, diversity marketing versus retention reality."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Anchors on the 2025 Stack Overflow survey finding (~49,000 respondents) that autonomy and trust lead job-satisfaction drivers, ahead of pay and ahead of tooling."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Warns that a false autonomy claim is the most corrosive claim available, given that ranking."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Does not deliver finished punchy careers-page copy, and states that the output is strategy rather than the artifact itself."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Computes that referrals plus organic and branded inbound account for about 61% of hires, above the roughly 50% 'brand is working' benchmark."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that the 50% referral-plus-organic benchmark is a practitioner heuristic and a movable default rather than a measured industry standard."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes that 84% offer-acceptance clears the ~70% floor, so no trust audit gates this plan."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Declines to fund the engineering blog and the three conference sponsorships as the default recommendation."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Presents the blog and conference sponsorship as starved with a named condition that would promote them, not as permanently deleted."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Asks which seniority tier the next hires must come from before ranking any channel."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Asks whether the mandate is a one-off hiring push or a compounding asset."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Asks about the effort ceiling in engineer-hours and whether anyone owns this as a standing job."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Declines to quantify the ROI of an engineering blog or a conference sponsorship, stating that any single channel's causal effect on engineer application behavior is unmeasured."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Confirms that the source-of-hire and offer-acceptance figures come from tracked instrumentation rather than estimates, since the whole recommendation rests on them."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Identifies the banner-plus-good-first-issues plan as a token OSS effort and states that a token effort is worse than skipping the channel entirely."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that OSS-as-funnel must be funded properly - paid top contributors, a visible contributor-to-employee path - or not at all."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Cites the Supabase account accurately: many of the first ~50 hires came from the open-source community, with no outbound recruitment for two-plus years."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Uses the Supabase two-plus-year timeline as evidence against the 10-week expectation rather than as support for it."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Labels the Supabase and HashiCorp accounts as self-reported company narratives rather than audited results."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes that OSS-as-funnel loses every efficiency ranking round because it costs maintainer-years before it returns a hire."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names the two conditions that would promote OSS-as-funnel to primary: a genuine open-source core and a compounding rather than one-off mandate."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Keeps OSS-as-funnel available as a later bet with a stated promotion condition rather than dismissing it permanently."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Asks whether source-of-hire and offer-acceptance are currently tracked before committing to any channel allocation."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends fixing the interview loop and the job postings first, citing the 2022 Stack Overflow finding that 24% of developers abandon a process for being disorganized."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Refuses the incentivized review campaign outright as astroturfing, rather than proposing a more careful version of it."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that engineers treat manufactured sentiment as a stronger negative signal than the weakness it was meant to hide."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Refuses the HR-drafted 'sample talking points' specifically, not only the voucher."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Deletes the tactic from the plan rather than demoting or conditioning it."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Declines to estimate where the rating would land after 40 new reviews."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States the rule that a rating is never estimated and review content is never inferred."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends responding to reviews as the legitimate near-zero-cost move with a documented positive perception effect."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Cites the Glassdoor elasticity - a 0.5-star increase associated with about 20% more job clicks and 16% more apply-starts - as why rating movement is worth real pipeline."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Cites the Glassdoor site-survey finding that 86% of candidates research reviews before applying and form an opinion after about six reviews."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Keeps the two Glassdoor sources apart, labelling the 86% figure as self-report and the elasticity as platform data."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Treats the review content as a constraint that decides which operational fix precedes which claim, not as a content problem."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names the other verification surfaces to audit alongside the review site: compensation databases, anonymous professional forums, and recruiter-message quality."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Asks the owner to paste back the actual recent review text, rating and count if it cannot read the surfaces itself."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Refuses to rank the channel menu before source-of-hire and offer-acceptance rate are tracked."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Identifies the company as early-stage and notes that founder network, referrals and targeted outbound carry this stage because content channels lack the compounding time to matter yet."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Ranks by value returned per unit of effort rather than by cheapest option, and states the ordering explicitly instead of implying it by row order."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Places posting and process fixes together with transparency artifacts at the top of the efficiency ordering."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Places OSS-as-funnel last on the efficiency ordering while acknowledging it ranks first on value."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names realistic job preview as the reason posting fixes and transparency artifacts outrank culture content, citing its peer-reviewed causal backing."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Emits a separate compliance-cost ordering and places open-sourcing a core and published salary bands above the blog and talks on review burden."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that open-sourcing a core commits a licensing and IP decision that cannot be reversed."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Recommends funding only the top pair in the first horizon and names the condition that moves the owner up one rung."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Asks by what date a result must be visible, whether this is a one-off push or a compounding asset, and what the effort ceiling is."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Asks which seniority tier the next hires must come from, and whether the product has a credible open-source core."
+      }
+    ]
+  }
+}

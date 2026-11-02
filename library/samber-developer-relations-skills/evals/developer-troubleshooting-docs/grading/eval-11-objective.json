@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects mining the public GitHub issues as the sole signal source",
+        "evidence": "\"The plan as stated has one reported source only (GitHub) and treats the other reported source (Zendesk) and the only unreported source (telemetry) as out of scope.\" and closing line: \"don't leave the macros alone and don't leave telemetry unexported ... GitHub issues are a useful third input, not the lead.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that for contract-bound customers the loudest failures sit in private tickets and never reach the public tracker",
+        "evidence": "\"The skill's audience rule for that profile: \\\"the loudest failures sit in private tickets and never reach the public tracker. Mining only public sources under-serves exactly the accounts that pay.\\\"\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that public-only mining under-serves exactly the accounts that pay",
+        "evidence": "Same quoted sentence: \"Mining only public sources under-serves exactly the accounts that pay.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires at least one reported source and one unreported source",
+        "evidence": "\"Step 1 requires at least one *reported* source (shows what people complain about) and one *unreported* source (shows what breaks silently).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies the private tickets or macros as the reported source and the error telemetry as the unreported source",
+        "evidence": "\"The plan as stated has one reported source only (GitHub) and treats the other reported source (Zendesk) and the only unreported source (telemetry) as out of scope.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends exporting the error telemetry rather than leaving it unused",
+        "evidence": "\"2. Get the telemetry exported \u2014 this is the actual gap. Nobody's touched it, which means it's the one source showing failures your accounts never report.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the gap between reported and unreported sources is where readers silently give up",
+        "evidence": "\"that's the gap where your paying accounts quietly eat a failure, don't file a ticket because their EDI ops team just re-runs the batch, and don't renew.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the 40 support macros to be reconciled with the public entries rather than left untouched, so the two never disagree",
+        "evidence": "The transcript only discusses genericizing and publishing the macros (stripping identifiers, checking self-serviceability, checking publishability) \u2014 it never discusses reconciling macro-derived entries against existing GitHub-sourced public entries or preventing disagreement between the two.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that where both exist, one is either a link to the other or a superset of it",
+        "evidence": "No such statement appears; the only 'link' language is about linking from the gateway's error payload/logs to docs (the Stripe doc_url pattern), not about linking macro-derived entries to GitHub-derived ones.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Anticipates environment-specific causes typical of enterprise deployments, naming at least two of proxies, SSO, air-gapped installs or IP allowlists",
+        "evidence": "The transcript's enterprise-specific detail is entirely EDI-domain (ISA/GS sender-receiver IDs, trading partners, envelope errors, functional-acknowledgment reject codes) \u2014 it never mentions proxies, SSO, air-gapped installs, or IP allowlists.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires those environment facts to be carried in the entry's applies-to or conditions block",
+        "evidence": "The entry structure lists \"applies to\" as one of six parts (\"message, applies to, cause, fix, confirm, still stuck\") but never ties enterprise environment facts (proxies/SSO/etc.) to that field.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires checking whether a cause or fix may be published at all before writing it, covering security-sensitive detail or customer-identifiable information",
+        "evidence": "\"Check what may be published at all \u2014 ask support which of the 40 touch anything contractually or competitively sensitive before any of this goes public.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires genericizing captured content: customer identifiers stripped, environment facts that determine applicability kept",
+        "evidence": "Only the stripping half is stated (\"Strip customer/trading-partner identifiers (ISA/GS sender-receiver IDs, partner names, account numbers)\"); the transcript never states that environment facts determining applicability should be retained.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects mining the public GitHub issues as the sole signal source",
+        "evidence": "\"Where to start: the 40 Zendesk macros, not the 400 GitHub issues... The instinct to start with GitHub because it's 'where the volume is' is the trap.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that for contract-bound customers the loudest failures sit in private tickets and never reach the public tracker",
+        "evidence": "\"drawn from your actual 60-account population, the one whose renewals you care about, not a public crowd of unknown composition\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that public-only mining under-serves exactly the accounts that pay",
+        "evidence": "\"GitHub issues (400) are the wrong population... not your $180k enterprise accounts.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires at least one reported source and one unreported source",
+        "evidence": "Combines Zendesk/GitHub (reported) with \"Telemetry is the highest-value source... Get telemetry exported \u2014 scoped, not full-fidelity.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies the private tickets or macros as the reported source and the error telemetry as the unreported source",
+        "evidence": "\"It's the only one that tells you frequency and cost objectively rather than by who happened to complain loudest or file a ticket.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends exporting the error telemetry rather than leaving it unused",
+        "evidence": "\"Phase 3 (kick off now, lands later): get telemetry exported \u2014 scoped, not full-fidelity.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the gap between reported and unreported sources is where readers silently give up",
+        "evidence": "\"surface high-frequency errors nobody ever complained about. Those are often the more dangerous gap: silent failures that erode confidence and quietly drive churn\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the 40 support macros to be reconciled with the public entries rather than left untouched, so the two never disagree",
+        "evidence": "Only requires a one-time duplication check: \"Cross-check against Phase 1 output first so you're not duplicating a macro that already covers the same failure mode\" \u2014 not an ongoing reconciliation guarantee.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that where both exist, one is either a link to the other or a superset of it",
+        "evidence": "No such link-or-superset relationship is stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Anticipates environment-specific causes typical of enterprise deployments, naming at least two of proxies, SSO, air-gapped installs or IP allowlists",
+        "evidence": "No mention of proxies, SSO, air-gapped installs, or IP allowlists anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires those environment facts to be carried in the entry's applies-to or conditions block",
+        "evidence": "No applies-to/conditions block requirement is discussed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires checking whether a cause or fix may be published at all before writing it, covering security-sensitive detail or customer-identifiable information",
+        "evidence": "\"Sanitize each macro before it becomes anything public-facing: strip account names, trading-partner names, config values, ticket IDs \u2014 enterprise contracts likely have confidentiality language\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires genericizing captured content: customer identifiers stripped, environment facts that determine applicability kept",
+        "evidence": "\"strip account names, trading-partner names, config values, ticket IDs\" while turning each macro into \"symptom \u2192 likely cause \u2192 fix \u2192 how to confirm it worked\" (technical content retained).",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

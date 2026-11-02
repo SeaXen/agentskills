@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States the build order is decided by value per unit of effort, not by cost of collection",
+        "evidence": "\"The default build order is an efficiency ratio (`enablement > engagement > product impact > business impact > reach`)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places enablement first as the best value-per-effort ratio on the ladder",
+        "evidence": "\"enablement > engagement > product impact > business impact > reach\" \u2014 enablement leads the stated efficiency ratio.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places reach last despite it being the cheapest tier to collect",
+        "evidence": "Reach is placed last in the ordering, but no statement anywhere in the transcript characterizes reach as the cheapest tier to collect.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the efficiency ordering as enablement, then engagement, then product impact, then business impact, then reach",
+        "evidence": "\"enablement > engagement > product impact > business impact > reach\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes influenced pipeline outright because sales ops will not share data, rather than demoting it or ranking it last",
+        "evidence": "\"CRM fields closed by sales ops \u2192 deletes business impact outright. Not demoted to the bottom \u2014 *deleted*.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Records the deleted business-impact metric in the blind-spots section together with what it would take to obtain it",
+        "evidence": "\"Influenced pipeline and community\u2192expansion: **deleted**, not deferred. Cost to restore: sales-ops cooperation, CRM touch fields, a rule held a fiscal year \u2014 and the answer lands 2-4 quarters late even then.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Promotes enablement and product impact because product analytics is already instrumented",
+        "evidence": "\"Amplitude installed and clean \u2192 collapses the effort on enablement *and* product impact; promotes both.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names which answer from the user moved which tier",
+        "evidence": "Bulleted list ties each fact (\"Amplitude installed and clean\", \"Two engineering days\", \"CRM fields closed by sales ops\", \"Series B reader\") to a specific tier consequence.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that value and collection effort both rise down the tier ladder, so the ladder alone does not answer what to build first",
+        "evidence": "No statement in the transcript describes value and effort both rising down the ladder; the ordering is presented and then re-ranked by constraints, but this specific reasoning is absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets the default primary metric at the enablement tier",
+        "evidence": "Metric sheet row 1, \"First-success rate, 7 days\", tier Enablement, is marked **P** (primary), consistent with the stated default ordering beginning at enablement.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend starting with reach metrics on the grounds that they are already available",
+        "evidence": "\"Not this quarter: anything touching the CRM or an identity map (blocked anyway), any reach dashboard, any event beyond those three.\" \u2014 reach is explicitly excluded, never recommended as a starting point.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not present the five-tier ladder to the user as an industry standard model",
+        "evidence": "The ladder is presented as \"the default build order\" from the skill's method, never attributed to an external industry standard.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States the build order is decided by value per unit of effort, not by cost of collection",
+        "evidence": "The 'Why this order' section gives reasons like 'backfill asymmetry' and 'activation = moment of value' but never states a general value-per-effort-vs-cost-of-collection principle.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places enablement first as the best value-per-effort ratio on the ladder",
+        "evidence": "'1. Activation funnel events \u2014 day 1, ~6 hours eng... Why first: missed events stay missed forever... every later question needs activated users as denominator.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places reach last despite it being the cheapest tier to collect",
+        "evidence": "'4. Free signals \u2014 parallel, zero eng... Never build integrations here. Manual snapshot wins... Free signals never compete for engineering days' \u2014 placed after activation and program identity.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the efficiency ordering as enablement, then engagement, then product impact, then business impact, then reach",
+        "evidence": "The 1-5 order is activation events, program identity, docs snippet, free signals, dashboard; business impact (PQL/CRM) is handled in a separate 'CRM closure workaround' section, not embedded in this sequence.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes influenced pipeline outright because sales ops will not share data, rather than demoting it or ranking it last",
+        "evidence": "The text substitutes a workaround instead of deleting: 'Define PQL inside Amplitude... Hand sales monthly CSV export of PQL accounts. No CRM field touched.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Records the deleted business-impact metric in the blind-spots section together with what it would take to obtain it",
+        "evidence": "No blind-spots section exists; CRM is addressed via 'Not yet' ('Anything touching CRM. Blocked... Park it.') without a distinct blind-spots framing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Promotes enablement and product impact because product analytics is already instrumented",
+        "evidence": "'clean Amplitude = hardest part already owned' justifies prioritizing activation, but no distinct 'product impact' tier is separately promoted.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names which answer from the user moved which tier",
+        "evidence": "No text attributes any tier placement to a specific prior user answer.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that value and collection effort both rise down the tier ladder, so the ladder alone does not answer what to build first",
+        "evidence": "No such statement appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets the default primary metric at the enablement tier",
+        "evidence": "'North-star readout: time to first pipeline \u2014 signup to first successful run, median plus distribution.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend starting with reach metrics on the grounds that they are already available",
+        "evidence": "Free/available signals (GitHub, Discord) are placed 4th, not recommended as the starting point.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not present the five-tier ladder to the user as an industry standard model",
+        "evidence": "No five-tier ladder or industry-standard claim is presented anywhere in the transcript.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

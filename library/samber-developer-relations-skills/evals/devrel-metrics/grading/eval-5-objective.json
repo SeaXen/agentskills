@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Anchors the framework on the CHAOSS Starter Project Health metric set rather than inventing a metric list",
+        "evidence": "\"**Spine:** CHAOSS Starter Project Health \u2014 the catalog's named spine for 'the product is a repository'.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names all four CHAOSS starter metrics: time to first response, change-request closure ratio, contributor absence factor, release frequency",
+        "evidence": "Metric sheet rows: \"Median time to first response\", \"Change-request closure ratio\", \"Contributor absence factor\", \"Release frequency + security-patch lag\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Corrects the user by stating CHAOSS publishes no numeric target for any of the four metrics",
+        "evidence": "\"CHAOSS publishes no numeric target for any of its four Starter Project Health metrics. Not 24 hours, not any number.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the two-business-day first-response figure as VMware's internal guideline quoted inside a case study, not a CHAOSS standard",
+        "evidence": "\"The number that actually circulates 'as a CHAOSS standard' is two business days \u2014 and it isn't CHAOSS's either. It appears only inside VMware's case study on the CHAOSS starter-model page, as that company's internal guideline.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the 24-hour first-response figure as folklore or a hypothesis under test rather than a standard",
+        "evidence": "\"A 24-hour first-response target is folklore ... it goes on the sheet labelled `hypothesis`, never as 'the standard'.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Defines time to first response as the first human response, with bots excluded",
+        "evidence": "\"median hours from issue/PR open to first *human* reply; bots excluded; CHAOSS definition verbatim\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Defines change-request closure ratio as closed, meaning merged plus rejected, divided by opened in the same window",
+        "evidence": "\"closed (merged + rejected) \u00f7 opened, same quarter\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Defines contributor absence factor as the smallest number of people producing 50% of contributions",
+        "evidence": "\"smallest number of people producing 50% of contributions\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Adopts the CHAOSS definitions verbatim while deriving every threshold from the project's own trailing baseline",
+        "evidence": "Row 1: \"CHAOSS definition verbatim\" with threshold \"trailing-median band ... `baseline`\"; row 5: \"self-set from own history (`baseline` \u2014 CHAOSS: 'no two projects have the same needs')\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to compare the project against other projects' published numbers",
+        "evidence": "\"CHAOSS also refuses cross-project comparison outright \u2014 the numbers exist to track your own trend, not to grade you against another project.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends downloads, dependents or unique cloners over the 4,200 stars as the adoption signal",
+        "evidence": "\"Cut from the report: the 4,200 stars.\" while row 7 keeps \"Downloads / dependents delta\" as period-delta reach metric.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that bot and automation activity distorts time to first response and change-request closure ratio",
+        "evidence": "\"Bot activity distorts rows 1\u20132 (CHAOSS's own caveat) \u2014 maintain the bot exclusion list\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that GitHub's repository traffic endpoints retain only 14 days of data and require write access, so snapshotting must start the day the metric enters the sheet",
+        "evidence": "\"Expiring sources \u2014 GitHub traffic: 14 days, write-access only. ... Snapshot from day one; a metric defined today may be uncomputable for last quarter.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cuts the star count rather than keeping it as a primary metric, on the grounds that stars are gameable and not comparable across project types",
+        "evidence": "\"Cumulative stars cannot fall when the project stops working, so they carry no information; they are gameable and non-comparable across project types.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Anchors the framework on the CHAOSS Starter Project Health metric set rather than inventing a metric list",
+        "evidence": "The 'What to measure quarterly' section invents a 10-item custom list (responsiveness/community structure/activity/context) well beyond the 4-metric CHAOSS starter set.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names all four CHAOSS starter metrics: time to first response, change-request closure ratio, contributor absence factor, release frequency",
+        "evidence": "Only 'Time to first response' and 'Bus factor' are named explicitly; no 'change-request closure ratio' or standalone 'release frequency' metric appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Corrects the user by stating CHAOSS publishes no numeric target for any of the four metrics",
+        "evidence": "'It publishes no target value for it... CHAOSS's explicit position is that thresholds are project-specific.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the two-business-day first-response figure as VMware's internal guideline quoted inside a case study, not a CHAOSS standard",
+        "evidence": "No mention of VMware or a two-business-day figure anywhere; the transcript only discusses a generic '24h' SLA import.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels the 24-hour first-response figure as folklore or a hypothesis under test rather than a standard",
+        "evidence": "'The 24h figure is SLA thinking imported from staffed/corporate open source programs' and recommends measuring baseline then setting 'your own target.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Defines time to first response as the first human response, with bots excluded",
+        "evidence": "'Time to first response \u2014 issues and PRs reported separately; median + p90, bot-filtered, self-responses excluded.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Defines change-request closure ratio as closed, meaning merged plus rejected, divided by opened in the same window",
+        "evidence": "No such metric or definition appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Defines contributor absence factor as the smallest number of people producing 50% of contributions",
+        "evidence": "'Bus factor \u2014 smallest set of people producing >50% of changes.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Adopts the CHAOSS definitions verbatim while deriving every threshold from the project's own trailing baseline",
+        "evidence": "Uses CHAOSS's TTFR definition, then: 'Measure your current distribution this quarter as the baseline, then set your own target.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to compare the project against other projects' published numbers",
+        "evidence": "'Trend beats absolute \u2014 report each metric against the previous 2\u20133 quarters' \u2014 no external project comparison is made.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends downloads, dependents or unique cloners over the 4,200 stars as the adoption signal",
+        "evidence": "'Downloads / package installs, fork count, star delta. Stars are a lagging popularity signal; keep them off the decision axis.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that bot and automation activity distorts time to first response and change-request closure ratio",
+        "evidence": "Bot distortion is only discussed for time to first response ('Filter bots and auto-labels...'); no change-request closure ratio metric exists to be distorted.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that GitHub's repository traffic endpoints retain only 14 days of data and require write access, so snapshotting must start the day the metric enters the sheet",
+        "evidence": "No mention of GitHub traffic endpoints, 14-day retention, or write-access requirements anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cuts the star count rather than keeping it as a primary metric, on the grounds that stars are gameable and not comparable across project types",
+        "evidence": "Stars are demoted, not cut: 'Downloads / package installs, fork count, star delta... keep them off the decision axis' under a 'footer only' context section, still retained.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

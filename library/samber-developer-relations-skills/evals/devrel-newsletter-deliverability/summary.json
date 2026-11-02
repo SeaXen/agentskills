@@ -1,0 +1,209 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "devrel-newsletter-deliverability",
+  "scenarios": 8,
+  "expectations_total": 103,
+  "expectations_subjective": 1,
+  "expectations_objective": 102,
+  "pass_rate_with_skill_pct": 100.0,
+  "pass_rate_without_skill_pct": 60.2,
+  "delta_pp": 39.8,
+  "uplift_multiplier": 1.66,
+  "trigger_accuracy_pct": 62.7,
+  "trigger_queries": 102,
+  "trigger_positive_fire_rate": 0.647,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.309 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Names custom DKIM signing with d= on petrel.dev (or a subdomain of it) as the first technical fix"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Says the open-rate drop alone is not evidence of spam-folder placement, citing mail-privacy features or image blocking"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Asks for or recommends Gmail Postmaster Tools spam-rate data and marks complaints unverified until it exists"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Says Gmail 4.7.x or 5.7.x authentication replies, if present in the bounce log, are sender-side and must not be suppressed"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends checking the raw bounce or deferral replies (for example 4.7.32 or other 4.7.x/5.7.x codes) rather than platform hard/soft totals"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Gives a fix plan where each row has an owner, a date and a done-when check"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Applies a re-confirmation issue for a list silent this long (or names the programme's silent-list rule as the deciding fact), sent through the ramp with non-responders suppressed"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that a list-verification or cleaning service cannot reliably detect spam traps or prove readers still want the mail"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Describes growing cohorts over several sends (roughly doubling, or over weeks) rather than one send"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Labels the 2% bounce hold level as a house rule, not a provider rule"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Sends the launch issue on Tuesday to the warm cohorts only and the rest over the following sending days"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Asks whether click history exists to order cohorts, or says to fall back to signup date when it does not"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Recommends reading each send's raw bounce replies before the next cohort"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Gives a test order: GET the URL, confirm the seed is still subscribed, then POST, then confirm it is unsubscribed"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Warns that the confirmation page must not auto-submit with JavaScript because some scanners execute it"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Says the unsubscribe endpoint must not return a redirect to the POST"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Says not to silently re-subscribe the readers removed by scanners, and to tell them how to resubscribe or restore only those who ask"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that the pct tag was removed by RFC 9989 (DMARCbis) because receivers applied partial values inconsistently"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names t=y test mode as the replacement for pct"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends rehearsing each enforcement level with t=y together with pct=0 so old and new receivers both apply one level lower"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends enforcing on the newsletter subdomain before the organizational domain"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes that some receivers may still follow the old RFC 7489 behaviour during the transition"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Describes t=y as an on/off test flag rather than a percentage ramp"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Gives the order: monitor, inventory, subdomain enforcement, organizational domain enforcement"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends a warm-up for the new sending domain or subdomain"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that at a Gmail spam rate above 0.3% the sender is ineligible for Google mitigation until 7 consecutive days below it"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends stopping or slowing sends to the complaining segment before other fixes"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Says to pause and escalate a receiver only if it still blocks two sends after the authentication fix is verified"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends Spamhaus's own lookup page rather than DNS queries through public resolvers, or warns that public-resolver lookups return misleading codes"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Declines to give tricks for escaping Promotions, noting they risk complaints"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Suggests the only sanctioned lever is asking readers to move the message or reply"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Says requesting delisting before fixing the cause leads to being listed again"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names Microsoft Defender's Bulk Complaint Level and its default threshold of 7 moving bulk mail to Junk"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Mentions that the Strict preset uses threshold 5 and quarantines, which fits regulated enterprises such as banks"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Notes that the Standard preset uses threshold 6"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Mentions that company admins can lower the bulk threshold"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Advises against switching platforms as the fix, noting a switch resets signals and needs a warm-up"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Recommends publishing allow-listing instructions for readers' IT teams naming the sending domain and DKIM d= rather than IPs"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Mentions that Google Workspace corporate recipients fall outside Gmail's sender rules and follow their admins' policies"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Notes that gateway link scanning can inflate clicks and recommends filtering them"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Gives a monitoring or evidence step with an owner rather than a vague recommendation"
+      }
+    ]
+  }
+}

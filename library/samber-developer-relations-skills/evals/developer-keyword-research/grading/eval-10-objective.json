@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Runs a screening pass rather than producing a full new-keyword map",
+        "evidence": "\"Scope note: screening pass only (workflow step 2 + striking-distance pull), per your 'no new pages' constraint\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Limits the output to the Fix first and Ranked clusters sections",
+        "evidence": "\"this covers **Fix first** and **Ranked clusters** only, no new-page candidates, no backlog.\" and only those two headers appear.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Proposes no new pages",
+        "evidence": "\"no new-page candidates\" stated explicitly; every row's \"Existing URL\" column points to an existing page.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies /docs/dlq and /blog/understanding-dead-letters as two pages splitting one intent, a cannibalization defect",
+        "evidence": "\"`/docs/dlq` and `/blog/understanding-dead-letters` split 'riverbed dead letter queue'... same intent, two of your own pages competing for it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Picks one canonical target for that intent and links the other surface to it",
+        "evidence": "\"Canonicalize on `/docs/dlq`... either 301 the blog post to `/docs/dlq` or add a `rel=canonical` plus a one-line 'see the DLQ guide' pointer\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the near-identical /docs/v3/partitions and /docs/v2/partitions pages as competing for the same phrasing",
+        "evidence": "\"`/docs/v3/partitions` and `/docs/v2/partitions` carry near-identical text \u2014 positions 11 and 12.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the pages already ranking at average positions 6, 7, 9, 11, 12 and 14 as update targets rather than new pages",
+        "evidence": "All four ranked rows reference existing URLs with positions 7/9, 6, 14, and 11/12 \u2014 all routed to updates, none marked \"new\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Works from the striking-distance set (average position 5-20)",
+        "evidence": "\"screening pass only (workflow step 2 + striking-distance pull)\" and all listed positions (6,7,9,11,12,14) fall within 5-20.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the join between each query and its landing page",
+        "evidence": "Table's \"Existing URL\" column ties each query directly to its landing page(s), e.g. \"`/docs/dlq` (canonical target)\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not invent a report shape outside the skill's defined sections",
+        "evidence": "Only \"## Fix first\" and \"## Ranked clusters\" are used, both standard sections seen across the other transcripts; no novel section headers are introduced.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Runs a screening pass rather than producing a full new-keyword map",
+        "evidence": "The report works entirely from an existing query/page table with average position and impressions ('Caveat on the data: you gave average position + impressions...') rather than proposing new keywords to target; every action is diagnosis of existing rankings, not new-keyword discovery.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Limits the output to the Fix first and Ranked clusters sections",
+        "evidence": "The output contains a preamble (ad warning, skill-wip note, data caveat), a table titled 'Riverbed Queue \u2014 fix-what-exists plan', four numbered detailed sections (1-4), and an additional closing section '## What to skip this cycle' \u2014 far more structure than just 'Fix first' and 'Ranked clusters' sections.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Proposes no new pages",
+        "evidence": "\"Nothing here requires new pages, matching your constraint. The only page-count-adjacent action is the possible 301 of the blog post in #2, and that's a redirect of existing content, not new creation.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies /docs/dlq and /blog/understanding-dead-letters as two pages splitting one intent, a cannibalization defect",
+        "evidence": "\"`/docs/dlq` (7) and `/blog/understanding-dead-letters` (9) are both mid-page-1/page-2 for the same query, at similar impression volume (410 vs 380). That's the shape of cannibalization: neither is losing outright, but neither is winning either, because Google is splitting relevance between two answers to the same question.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Picks one canonical target for that intent and links the other surface to it",
+        "evidence": "\"Docs is the stronger page (better position, more transactional intent) \u2014 it should be the one left standing.\" and the alternate branch instructs to \"add one explicit internal link from the blog post to the docs page with anchor text like 'see how Riverbed's DLQ is configured.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the near-identical /docs/v3/partitions and /docs/v2/partitions pages as competing for the same phrasing",
+        "evidence": "\"You confirmed the text is near-identical. Two pages with the same content competing for the same query almost always cost both of them rank...\" under section '1. v2/v3 partitioning \u2014 fix first, it's actively hurting both pages'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the pages already ranking at average positions 6, 7, 9, 11, 12 and 14 as update targets rather than new pages",
+        "evidence": "Table lists positions 11, 12, 7, 9, 14, 6 for existing pages, and every prescribed action is an edit/canonical/redirect/section-addition to those existing pages (e.g. 'Add (or promote) a clearly headed section' on /docs/monitoring, 'Snippet/schema polish' on /docs/reference/config).",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Works from the striking-distance set (average position 5-20)",
+        "evidence": "All positions referenced in the table (11, 12, 7, 9, 14, 6) fall within the 5-20 striking-distance range.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the join between each query and its landing page",
+        "evidence": "The table explicitly pairs each 'Query' with its 'Pages involved' column (e.g. 'riverbed consumer lag | /docs/monitoring (14)'), and each numbered section reiterates the specific URL tied to that query.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not invent a report shape outside the skill's defined sections",
+        "evidence": "The transcript adds unsolicited structural elements beyond a minimal ranked/fix-first report: an opening note about an unrelated ad in the skill file, a data-caveat paragraph, per-item 'Effort' labels, and a standalone '## What to skip this cycle' section with further recommendations about pulling CTR data.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

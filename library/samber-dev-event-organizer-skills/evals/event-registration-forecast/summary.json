@@ -1,0 +1,674 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-registration-forecast",
+  "scenarios": 11,
+  "expectations_total": 147,
+  "expectations_subjective": 0,
+  "expectations_objective": 147,
+  "pass_rate_with_skill_pct": 70.7,
+  "pass_rate_without_skill_pct": 22.4,
+  "delta_pp": 48.3,
+  "uplift_multiplier": 3.16,
+  "trigger_accuracy_pct": 72.1,
+  "trigger_queries": 136,
+  "trigger_positive_fire_rate": 0.691,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": null,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.309 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "The mid is stated to be the median across references, with a note that the shifted and unshifted runs of last edition count twice in that median"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The catering figure is labelled provisional, the forecast is to be re-run on the 7-day lock date itself with that run's figure as the commitment, and the request to hand a number over tomorrow is declined"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The method is named as booking-curve (pickup) forecasting borrowed from hotel and airline revenue management, with the note that no event-specific forecasting method is established"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The forecast is produced by running the bundled script (a command with --actuals, at least two --reference inputs, a --checkpoint for the 7-day catering lock and --types is shown), not by hand arithmetic"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "No go, hold, pivot, stop or cancel verdict is issued; the demand question is routed to event-market-fit with the forecast as its input"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The move-online decision is not made here; the go/no-go review is routed to event-risk-management with the forecast and a registration threshold fixed before the review"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The free-hackathon target timeline is not used as a reference for this non-hackathon event"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "With a single usable reference and no past forecast error, the projection is labelled a point guess with no band, and a second reference is called for before the catering lock"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The registration ceiling is not set here; it is taken from event-no-show-management and passed to the script as --ceiling"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The waitlist opening date is given as the days-out at which each reference reaches the ceiling, not as the moment registrations hit 600"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The script is invoked with both the target-timeline CSV and the pooled-curve CSV as --reference inputs"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that once registration closes the count is known and the final food number belongs to event-no-show-management"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Both prior editions are run as separate references with the 2025 edition preferred, and the 2024 edition is flagged for booking-window drift"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Room-nights are computed as expected attendance times the 45% out-of-town share times nights per guest divided by guests per room, with each input labelled own-data or self-set"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Nights per guest for the two-day event are the night before day one and the night between the days, never the night after the last day"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "No demand verdict is issued; the 700 claim is replaced by a band and any demand question is routed to event-market-fit"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The request for one number is declined; a low / mid / high band net of comps is delivered"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Go/no-go escalation is promoted only if the mid misses 380 at the review preceding the 30-day fee step; otherwise the default response is a push brief"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Every commit figure in the lock-date table carries its band end and a written reason"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "An expected on-hand registration range at the 32-day board date is declared now, before that reading"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The types file uses share basis for sold types (shares summing to 1) and count basis for speakers, sponsor staff and volunteers"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends measuring each self-set type at this edition's check-in so next edition carries own-data rates"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The script's --types file is produced, or its command shown, rather than the per-type arithmetic being done by hand"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The launch-period reading is characterised as measuring reach, not demand, with the pace to be read from about week two of sales onward"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the 150-to-400-seat scale change is carried by multiplicative pickup (the shape transfers across scale) but not by additive pickup"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The script is still run with last edition's export and the pooled curve as references, and its bounds-only or no-usable-projection output is reported as-is"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names the days-out at which last edition's curve reaches 15% of its final as the earliest point a stable multiplicative read becomes possible"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Today's reading and the no-forecast outcome are recorded unedited for the error record"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The response points out that 372 already exceeds that close point, so paid registration closes and the waitlist opens now rather than at 400"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Once the cap binds, registrations are no longer read as demand; the waitlist is forecast instead"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The script is run with --ceiling, and the days-out at which each reference reaches the ceiling is reported"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Comps are counted once, as count-basis types in the --types file, never inside the 372"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The 600-seat option expiry appears as a lock date in the lock-date table with its commit figure, band end and reason"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Band coverage is computed per milestone (492 outside the 60-day band, inside the 30-day and 14-day bands), with the note that a band that never misses is too wide to commit against"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "The reference set, each milestone forecast with its date, each commit figure with its band end, and the final are recorded, in persistent memory where the harness has one"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Every reading is annotated with what happened that week (holiday, announcement, early-bird, push) where known"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "The 161-to-158 fall is explained as inconsistent refund netting and fixed in the readings, citing that the script refuses a falling cumulative"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Date-based CSVs are run with --event-date so the script converts dates to days-out"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "The 12%-behind claim is replaced by a pace index computed at matching days-out"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "The band is reported net of comps"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "The projection is produced by running the script rather than by hand arithmetic"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "The rate-code expiry at 30 days out is listed as the lock date in the lock-date table"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Each input (out-of-town share, nights per guest, guests per room) is labelled own-data or self-set"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Last edition is run twice as a reference: unshifted and shifted so its early-bird spike sits on this year's 42-days-out close (a shift of 8 days)"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The pooled lead-time generic curve is run as an additional reference, so at least two distinct references feed the band"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Multiplicative pickup is named as the projection method, justified by more than 15% of the reference curve being in at 40 days out"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The band's low and high ends are each a single reference's projection (the lowest and the highest); no average across references is used as a band end"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The mid is stated to be the median across references, with a note that the shifted and unshifted runs of last edition count twice in that median"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The catering commit is taken from the high end of the band, with the written reason that running short costs more than spare covers"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The catering commit is high-end expected attendance divided by 1.10, with the 10% flex explicitly kept back for a late surge"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The catering figure is labelled provisional, the forecast is to be re-run on the 7-day lock date itself with that run's figure as the commitment, and the request to hand a number over tomorrow is declined"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The catering figure is expressed as expected attendance (registrations times a show rate per ticket type, plus comps expected to attend), never as a registration count"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The 40 speaker and 30 sponsor comps re-enter only at the attendance stage, as count-basis ticket types with their own labelled show rates"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The method is named as booking-curve (pickup) forecasting borrowed from hotel and airline revenue management, with the note that no event-specific forecasting method is established"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The forecast is produced by running the bundled script (a command with --actuals, at least two --reference inputs, a --checkpoint for the 7-day catering lock and --types is shown), not by hand arithmetic"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The 40-50%-at-one-month checkpoint is identified as a paid-conference ladder and is not applied as the benchmark for this free event"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that free-event registrants sign up late (median lead time about 16 days, against about 41 days for paid events), so a free event looks behind a pooled or paid curve until the last two weeks"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "No go, hold, pivot, stop or cancel verdict is issued; the demand question is routed to event-market-fit with the forecast as its input"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The move-online decision is not made here; the go/no-go review is routed to event-risk-management with the forecast and a registration threshold fixed before the review"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The pooled lead-time curve is used as a reference and is placed as the low end for this free event, with the reason that it expects more on hand early than a free event delivers"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "With a single usable reference and no past forecast error, the projection is labelled a point guess with no band, and a second reference is called for before the catering lock"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Free show rates are given with their scope (an attributed industry band of 40-60% and a platform median of about 72%) and are either run as band ends or chosen by population match; no single unsourced free show rate is applied"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Capacity is read on expected attendance against the 350 seats, not on registrations"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "An expected on-hand registration figure or range is declared now for a named upcoming milestone such as 14 days out, before that reading arrives"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The default tripwire response is a push brief handed to event-marketing-plan carrying the registration gap, the milestone to close it by, and the segment furthest behind"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Today's forecast is recorded unedited so the final can be compared against it for next edition's error band"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The free-hackathon target timeline is used as a reference and explicitly labelled target-shaped (an organizer-guide plan, not observed sign-up data)"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The pooled lead-time curve is also run as the observed reference; the target timeline is never used alone"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The two generic curves are not averaged into one; each is its own reference and their spread forms the band"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The 90% show assumption is rejected; a free-hackathon show rate of about 50% is cited with its scope (an organizer-guide trendline across several hundred events)"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Registrations at close are distinguished from the attendance goal and sized at roughly double it under a 50% show rate (about 1,000 registrations for 500 on site)"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The registration ceiling is not set here; it is taken from event-no-show-management and passed to the script as --ceiling"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The waitlist opening date is given as the days-out at which each reference reaches the ceiling, not as the moment registrations hit 600"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Once the ceiling binds, the response says to stop forecasting registrations and forecast the waitlist instead"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The food commit at 4 days out is taken from the high end in attendance terms, with the written reason that running short costs more than spare food"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that the target curve reaches 100% at 7 days out because registration closes then, so the 20-day reading is read against that compressed timeline"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The script is invoked with both the target-timeline CSV and the pooled-curve CSV as --reference inputs"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that once registration closes the count is known and the final food number belongs to event-no-show-management"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The 95-a-week keynote spike is not projected forward; the forecast is also run --as-of the last reading before the spike and reported beside the latest reading"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Extending the early-bird is refused here, with price dates assigned to event-ticket-pricing"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The secret 20% code is refused as a forecast rescue, with the reason that it trains buyers to wait for the next rescue"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Both prior editions are run as separate references with the 2025 edition preferred, and the 2024 edition is flagged for booking-window drift"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Each prior edition is aligned on days-out and shifted so its keynote-announcement spike sits on this year's announcement date, with a different shift for 2024 and 2025"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Room-nights are computed as expected attendance times the 45% out-of-town share times nights per guest divided by guests per room, with each input labelled own-data or self-set"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Nights per guest for the two-day event are the night before day one and the night between the days, never the night after the last day"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The tripwire response if the low end runs short is a push brief to event-marketing-plan, with the push to be marked on the curve so next edition does not read it as organic"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "No demand verdict is issued; the 700 claim is replaced by a band and any demand question is routed to event-market-fit"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The request for one number is declined; a low / mid / high band net of comps is delivered"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The cancel question is not answered here; the go/no-go review is routed to event-risk-management with the 380 threshold, the band at the review date, and which end clears it"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The 380 threshold is stated as fixed before the reading at the review, not adjusted to the reading"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The venue cancellation-fee step is not committed via the newsvendor rule; the go/no-go poll decides it"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "A miss on the registration criterion alone is described as an input to the poll, not a cancellation"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Go/no-go escalation is promoted only if the mid misses 380 at the review preceding the 30-day fee step; otherwise the default response is a push brief"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The badge print commit is taken from high-end registrations plus the 75 comps, with the reason that running short costs more"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Every commit figure in the lock-date table carries its band end and a written reason"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The demand question (whether the event is wanted) is routed to event-market-fit, not answered"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Last edition's export is the default reference, with the pooled generic curve run as a second reference"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "An expected on-hand registration range at the 32-day board date is declared now, before that reading"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The script is run with --threshold 380 and --checkpoint entries for the board date and the badge lock"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Each commit is labelled provisional, with a re-run on the lock date itself"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The blanket 85% is rejected; attendance is computed per ticket type as registrations times that type's show rate"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The 60% rate for last-two-weeks buyers is rejected; late registrants are not discounted, with the reason that within one event the early-versus-late attendance gap is under one point"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Day-two attendance is stated as unknown because no day-two check-ins exist; day one is not copied to day two, and a later day-two guarantee or counting day-one check-ins first is proposed"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The sponsor-staff show rate is built from claimed and collected passes (31 of 60 allotted, or 31 of 44 claimed) and labelled own-data; the 60 allotment is not treated as 60 attending"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Group and employer-bought tickets are treated at the paid rate until measured, with the label hypothesis"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Every rate in the types table carries a label: sourced, own-data, self-set or hypothesis"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Speaker and volunteer rates are labelled self-set, with the note that no published rate exists for them"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The types file uses share basis for sold types (shares summing to 1) and count basis for speakers, sponsor staff and volunteers"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Day-one attendance is handed to event-attendee-experience for registration-desk sizing"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends measuring each self-set type at this edition's check-in so next edition carries own-data rates"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The script's --types file is produced, or its command shown, rather than the per-type arithmetic being done by hand"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The 2.4x pace projection to about 432 is rejected; multiplicative pickup is called unstable because under 15% of the reference curve is in at 95 days out"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The additive projection is reported only as a bound because this year runs at more than double the reference count at the same days-out, and it is kept out of the band"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The response says the forecast cannot be made yet rather than presenting a band from these readings"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The launch-period reading is characterised as measuring reach, not demand, with the pace to be read from about week two of sales onward"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the 150-to-400-seat scale change is carried by multiplicative pickup (the shape transfers across scale) but not by additive pickup"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The script is still run with last edition's export and the pooled curve as references, and its bounds-only or no-usable-projection output is reported as-is"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names the days-out at which last edition's curve reaches 15% of its final as the earliest point a stable multiplicative read becomes possible"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "No demand verdict (ahead, behind, on track) is issued; any demand question is routed to event-market-fit"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The comparison is made at matching days-out (95 against 95), not on calendar date or days since sales opened"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes that with 9 reference registrations at this days-out, a single stray registration moves the multiplicative figure by several registrations"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Today's reading and the no-forecast outcome are recorded unedited for the error record"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The overbooking proposal is not decided here; the ratio is routed to event-no-show-management and only applied per type for the attendance read"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The larger-room decision is flagged to event-venue-sourcing with the 6-day option deadline, triggered by high-end attendance crossing the 400 capacity"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The band is built from last edition's export and the pooled curve, and the high end is the figure compared against capacity"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Once the cap binds, registrations are no longer read as demand; the waitlist is forecast instead"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The script is run with --ceiling, and the days-out at which each reference reaches the ceiling is reported"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Comps are counted once, as count-basis types in the --types file, never inside the 372"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Expected attendance by ticket type is delivered with each show rate labelled sourced, own-data or self-set"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The 600-seat option expiry appears as a lock date in the lock-date table with its commit figure, band end and reason"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Signed error is computed per milestone against the final 492: about -17% at 60 days, -8% at 30 days, -4.5% at 14 days, with the negative sign meaning under-forecast"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Three editions of under-forecast with the same sign are named as bias, with the fix being the reference choice or alignment, not only a wider band"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "A scattered sign would instead be called noise, with the fix being to widen the band"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Next year's --error-band is taken from this year's own recorded error at the matching days-out, not from a single global percentage"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Averaging the three editions' curves into one reference is refused; each edition runs as its own reference"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "The 2026 edition is named the preferred reference, with the 2024 and 2025 editions flagged for booking-window drift"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Band coverage is computed per milestone (492 outside the 60-day band, inside the 30-day and 14-day bands), with the note that a band that never misses is too wide to commit against"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Attendance by ticket type against the check-in count is recommended so next edition's types file carries own-data rates"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "The reference set, each milestone forecast with its date, each commit figure with its band end, and the final are recorded, in persistent memory where the harness has one"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "The holiday week is annotated on the curve by name, not silently adjusted in the numbers"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Every reading is annotated with what happened that week (holiday, announcement, early-bird, push) where known"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "The 161-to-158 fall is explained as inconsistent refund netting and fixed in the readings, citing that the script refuses a falling cumulative"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Date-based CSVs are run with --event-date so the script converts dates to days-out"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "The 12%-behind claim is replaced by a pace index computed at matching days-out"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Last edition and the pooled generic curve are both run as references"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "The band is reported net of comps"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "The forecast sheet follows the seven-section shape: readings, references and methods, band, lock-date table, milestone table, capacity read, attendance by type"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "The projection is produced by running the script rather than by hand arithmetic"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Comps are recorded once in the --types file for the attendance step"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "The night after day two is dropped; nights per guest is 2 (the night before day one and the night between the days)"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Room-nights are computed as expected attendance times 0.55 times 2 divided by guests per room, with guests per room set to 1 unless attendees demonstrably share"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "The formula uses expected attendance, not registrations"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Growing the block later is conditioned on written confirmation that rooms can be added at the group rate; its absence is flagged as leaving late attendees at rack rate"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "The rate-code expiry at 30 days out is listed as the lock date in the lock-date table"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "The band is built from last edition's export and the pooled curve as two separate references"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Multiplicative pickup is used, justified by last edition having well over 15% of its final in at 40 days out"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Each input (out-of-town share, nights per guest, guests per room) is labelled own-data or self-set"
+      }
+    ]
+  }
+}

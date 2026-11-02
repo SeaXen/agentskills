@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Does not endorse adding quartz_hollow as crates.io owner and transferring the repository this week.",
+        "evidence": "'No. Do not add quartz_hollow as owner or transfer the repo this week.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the combination of third parties posting 'the project is dead, give it to X' and the candidate's speed as the xz-utils pattern (pressure to hand over is the signal to slow down), citing xz-utils or CVE-2024-3094.",
+        "evidence": "'The skill names this as a red flag (the xz-utils pattern)'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends replying in writing that publish rights are granted in stages for everyone, and keeps reviewing the candidate's pull requests normally.",
+        "evidence": "The pressure reply says rights are granted 'in stages... that applies to everyone'. Nothing says to keep reviewing the candidate's PRs normally.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Applies the vetting checklist and finds the three-week track record fails the 'months, not weeks' item.",
+        "evidence": "'quartz_hollow has 3 weeks and 5 PRs... wants months of record, not weeks.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Grants the ladder fast and the keys slow: triage and review rights now, merge only after a release made together, crates.io ownership only after a supervised release, and never in the same act as merge.",
+        "evidence": "Triage and review now, merge after joint release 1, publish via CI at release 2, ownership at the gate. Staged and separated.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats leaving in six weeks as legitimate and does not argue the user into staying.",
+        "evidence": "'Your goal is right: leave with a successor in place.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets the six-week relocation date as the deadline because it falls earlier than the notice the dependent count would otherwise warrant, and says the earlier date wins.",
+        "evidence": "'Your six-week date (about 2026-12-04) is the deadline.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Chooses the dual-track path: announce maintenance-only (security fixes) then archive on a date, with a dated gate before the move where a completed handover replaces the archive.",
+        "evidence": "The public dual-track notice has Plan A/Plan B and a gate on 2026-11-27.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes the private heads-up to the largest dependent crates' maintainers, sent a few days before the public notice, asking about custody or a named co-maintainer.",
+        "evidence": "'2026-10-26/27: private heads-up... 2026-10-30: public dual-track notice'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the logistics companies that depend on the crate as custody candidates, asks them for a named person and hours rather than money, and requires more than one admin for any custodian.",
+        "evidence": "It asks for 'a named person or a custodian organization'. It never requires more than one admin, and never asks for hours rather than money.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Skips the announced-pause move because the exit is under a quarter away.",
+        "evidence": "It never mentions or explains skipping a pause.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Without a vetted successor by the gate: keeps the crates.io and forge accounts with two-factor authentication and a recovery contact, never deletes them, and revokes only CI and personal publish tokens.",
+        "evidence": "'Keep your GitHub and crates.io accounts with 2FA and a recovery contact. Never delete them... Revoke your CI and personal tokens.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Specifies the public announcement's contents: status, why, what still works, license permission to fork, alternatives, timeline, and what happens to security reports after the archive date.",
+        "evidence": "The public notice gives status, plans and timeline. It omits why, license permission to fork, alternatives, and security reports after the archive.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Orders the exit so the registry end-of-life signal (yank or deprecation plus a final release stating the status) is set and the repository is archived last, after the notice period.",
+        "evidence": "Plan B says 'Freeze, then archive' and a final release with status. No registry deprecation signal is named, and archive-last is not explicit.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Does not endorse adding quartz_hollow as crates.io owner and transferring the repository this week.",
+        "evidence": "\"Not reasonable as planned. Reasonable in six weeks if staged.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the combination of third parties posting 'the project is dead, give it to X' and the candidate's speed as the xz-utils pattern (pressure to hand over is the signal to slow down), citing xz-utils or CVE-2024-3094.",
+        "evidence": "\"The 2024 xz-utils backdoor started the same way... The pressure is a warning sign.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends replying in writing that publish rights are granted in stages for everyone, and keeps reviewing the candidate's pull requests normally.",
+        "evidence": "The announcement says handover is staged and quartz_hollow gets merge rights. It does not say staging applies to everyone and does not mention continuing normal PR review.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Applies the vetting checklist and finds the three-week track record fails the 'months, not weeks' item.",
+        "evidence": "\"Three weeks and five PRs is a short record\"; asks for identity trail and older history.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Grants the ladder fast and the keys slow: triage and review rights now, merge only after a release made together, crates.io ownership only after a supervised release, and never in the same act as merge.",
+        "evidence": "Gives merge rights in week 1, before any release together.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats leaving in six weeks as legitimate and does not argue the user into staying.",
+        "evidence": "Plans the departure and never argues the user into staying.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets the six-week relocation date as the deadline because it falls earlier than the notice the dependent count would otherwise warrant, and says the earlier date wins.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Chooses the dual-track path: announce maintenance-only (security fixes) then archive on a date, with a dated gate before the move where a completed handover replaces the archive.",
+        "evidence": "Only a vague fallback to say unmaintained or deprecated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes the private heads-up to the largest dependent crates' maintainers, sent a few days before the public notice, asking about custody or a named co-maintainer.",
+        "evidence": "Not present.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats the logistics companies that depend on the crate as custody candidates, asks them for a named person and hours rather than money, and requires more than one admin for any custodian.",
+        "evidence": "Says only \"Ask a logistics company that depends on the crate\" for a second maintainer. No hours request and no multi-admin rule for a custodian.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Skips the announced-pause move because the exit is under a quarter away.",
+        "evidence": "Not addressed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Without a vetted successor by the gate: keeps the crates.io and forge accounts with two-factor authentication and a recovery contact, never deletes them, and revokes only CI and personal publish tokens.",
+        "evidence": "Only \"stay on as a dormant crates.io owner\". No 2FA or recovery contact.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Specifies the public announcement's contents: status, why, what still works, license permission to fork, alternatives, timeline, and what happens to security reports after the archive date.",
+        "evidence": "Not specified.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Orders the exit so the registry end-of-life signal (yank or deprecation plus a final release stating the status) is set and the repository is archived last, after the notice period.",
+        "evidence": "Not specified.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

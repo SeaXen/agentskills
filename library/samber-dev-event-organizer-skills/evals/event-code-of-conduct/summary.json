@@ -1,0 +1,362 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-code-of-conduct",
+  "scenarios": 9,
+  "expectations_total": 114,
+  "expectations_subjective": 2,
+  "expectations_objective": 112,
+  "pass_rate_with_skill_pct": 86.0,
+  "pass_rate_without_skill_pct": 44.7,
+  "delta_pp": 41.3,
+  "uplift_multiplier": 1.92,
+  "trigger_accuracy_pct": 91.8,
+  "trigger_queries": 110,
+  "trigger_positive_fire_rate": 0.927,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "The response asks the organizer clarifying interview questions (who is bound, existing assets, effort ceiling) before delivering a finished policy."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The response instructs replacing any roles or contacts named in a borrowed template with roles and contacts that actually exist at this event."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The response connects the three-week hard deadline to choosing fast-to-stand-up options such as a published email alias."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The response reframes the local task as confirming which document and version binds the event and learning the central body's incident procedure, not drafting."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The response states local sanction decisions are made jointly with the central process and stand unless the central body reverses them."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The response explicitly distinguishes the franchise or umbrella model from a single-organizer event when giving its advice."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The response does not deliver a finished custom replacement policy."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The response confirms the sponsor mixer and the shuttle stop are inside the policy's scope as event-related spaces."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The response treats intent only as a predictor of recurrence risk, relevant when paired with recognition, responsibility, and a concrete change."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The response closes the loop with the reporter: the final resolution, and that the case is closed unless new information appears."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The scope clause states the exact date window during which the Discord server is covered, rather than leaving it open."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Time-boxed sanctions state a duration, with restoration scheduled so a suspension actually ends on time."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The response states the anonymous path needs decision, retention, and access rules fixed before the first report arrives."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The response explains why: an anonymous report cannot be attributed, corrected, or re-queried, so a wrong outcome cannot be fixed afterwards."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The response distinguishes an anonymity option at intake from a published anonymous channel as two different commitments."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "The response states the method should err toward taking action, because the dominant failure is inaction and delay on valid reports, not haste."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "The response states up front that the output is not legal advice."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The response asks the organizer clarifying interview questions (who is bound, existing assets, effort ceiling) before delivering a finished policy."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The response declines to write the policy from scratch and recommends adapting an established code of conduct text instead."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The response justifies rejecting a from-scratch draft by noting established event policies share a common enumerated prohibited-behavior list that reporters have learned to look for."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The response refuses to deliver policy text alone and requires a named response team, a working reporting channel, and a sanctions ladder to exist before publication."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The response states that a code of conduct without enforcement behind it is worse than none, or that the widely-linked generic conference template disclaims its own enforceability."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The response instructs replacing any roles or contacts named in a borrowed template with roles and contacts that actually exist at this event."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The response notes that an adapted Creative Commons-licensed template keeps its attribution obligation."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The response recommends a named, published response team of 3 to 6 people whose names appear in the reporting instructions."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The response connects the three-week hard deadline to choosing fast-to-stand-up options such as a published email alias."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The response includes a rehearsal of practice cases with the team before the event opens."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The response commits to a published response clock in specific hours or days, and a sanctions ladder published before any incident."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The response tells the organizer to locate and verify the league's binding code of conduct and the membership agreement's obligations before any drafting."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The response reframes the local task as confirming which document and version binds the event and learning the central body's incident procedure, not drafting."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The response states incident reports must be escalated into the central body's incidents team rather than handled by an ad hoc local process."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The response rejects immediate unilateral Instagram posts: the central body decides whether anything is said publicly at all."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The response states public-statement wording and timing must be agreed with the central body before any local organizer posts."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The response states local sanction decisions are made jointly with the central process and stand unless the central body reverses them."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The response explicitly distinguishes the franchise or umbrella model from a single-organizer event when giving its advice."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The response does not deliver a finished custom replacement policy."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The response instructs promising no specific outcome, only confidentiality and safety as far as the team can protect them."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The response escalates immediately to the response leads by phone call or SMS."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The response confirms the sponsor mixer and the shuttle stop are inside the policy's scope as event-related spaces."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The response gives a reason a required apology is harmful - a compelled apology destroys the signal a genuine one would carry - not just a refusal."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The response rejects fully private handling: everyone aware of the incident must learn that official action was taken."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The response distinguishes the private notification to the instructor from the public fact that enforcement happened, keeping both in the same case."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The response treats intent only as a predictor of recurrence risk, relevant when paired with recognition, responsibility, and a concrete change."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The drafted message to the instructor contains four parts: the behavior in neutral factual terms, its impact, the specific change expected, and the consequence."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The response shows the harmed attendee the proposed response privately before any announcement, to catch missed facts and retaliation risk, not to seek approval."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Any public statement describes the behavior and the response without gratuitous identifying detail, and is routed through a single named authority with agreed wording and timing."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The response states the decision takes effect immediately even if the instructor contests it, and his only required answer is whether he will comply."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The response closes the loop with the reporter: the final resolution, and that the case is closed unless new information appears."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The scope clause explicitly brings unofficial attendee-organized events such as the bar crawl into scope."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The scope clause states the exact date window during which the Discord server is covered, rather than leaving it open."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The response flags that the year-round Discord outlasts the event and needs a standing community-moderation owner distinct from the single-event policy."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The response declines to draft the sponsor-contract clause itself, routing it to the sponsorship agreement and counsel."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The response rejects the uniform appeal right and restricts appeals to the heavy rungs, such as temporary suspension and permanent ban."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The response justifies the asymmetry: light sanctions are already over before an appeal could be heard, while a ban persists across editions."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The response specifies appeal mechanics: which rungs are appealable, to whom, in what form (written, with evidence), and by when."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Each rung pairs the community impact that triggers it with its consequence, not consequences alone."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Time-boxed sanctions state a duration, with restoration scheduled so a suspension actually ends on time."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The response says to publish the ladder before the first incident rather than deciding sanctions per case at the organizers' discretion."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The response requires keeping a record of violations across editions so repeat offences move up the ladder."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The response recommends multiple named responders, a team of 3 to 6 or at minimum several published contacts."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The response states an email address in a PDF footer is not reachable by someone in distress, and recommends physically identifiable on-site responders in distinctive clothing, announced at the opening."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The response recommends tracking reports per edition normalized per 100 attendees."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The response recommends the default channel set for an event with a physical day: published email alias plus named conflict-of-interest alternates plus visible on-site responders."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The response sets a target that 100% of reporters receive a closing message."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The response states the anonymous path needs decision, retention, and access rules fixed before the first report arrives."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The response explains why: an anonymous report cannot be attributed, corrected, or re-queried, so a wrong outcome cannot be fixed afterwards."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The response ties the record to the sanctions ladder: repeat-offence rungs are meaningless without a cross-edition record."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The response states safety outranks privacy: refusing to keep records is privacy misapplied."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The response proposes the code-name mechanism: randomly generated case codes and person codes so notes circulate without identities."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The response requires written retention, access, and security rules restricting records to the team, with a leak treated as grounds for removal from it."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "The response distinguishes an anonymity option at intake from a published anonymous channel as two different commitments."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "The response rejects the two-person team and recommends 3 to 6 people."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "The response gives the sizing rationale: the team must still function with a third of it unavailable, which a three-day event makes a certainty."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "The response rejects 'good judgment case by case' and requires the decision method fixed in advance."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "The fixed decision method includes tie and absence rules."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "The response states the method should err toward taking action, because the dominant failure is inaction and delay on valid reports, not haste."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "The response says to publish the response clock and measure performance against it."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "The response distinguishes a soft conflict (same employer or appearance of conflict: may discuss, may not vote) from the hard grade."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "The response requires the conflict grade to be confirmed by majority vote before the investigation starts, with recusal executed by an assigned person."
+      }
+    ]
+  }
+}

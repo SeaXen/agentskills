@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that Twitch past-broadcast storage is not enabled by default",
+        "evidence": "Past broadcasts are off by default",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that for a non-Affiliate channel past broadcasts are kept only about 7 days",
+        "evidence": "a non-Affiliate channel keeps broadcasts for 7 days",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the older streams are probably unrecoverable unless someone recorded locally, exported them, or saved Highlights, and that Prime or Turbo on the account owner would have extended retention to 60 days",
+        "evidence": "Covers local recordings and Highlights, but never mentions Prime or Turbo extending retention; it says only 'most Partners get 60'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that Twitch support cannot recover broadcasts that were not saved, or that recovery is not possible",
+        "evidence": "Twitch support cannot recover a broadcast that was not saved",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends recording locally on every stream going forward",
+        "evidence": "Record locally every episode. That file is your master copy",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends exporting the archive within the retention window (for example within 48 hours) to YouTube or storage",
+        "evidence": "Within 48 hours: export the archive if it lives on Twitch",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Mentions the 100-hour cap on Highlights and uploads as a reason not to rely on Twitch for the library",
+        "evidence": "Highlights and uploads have no expiry, and the cap is 100 hours",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends stream markers or timestamp notes during the stream to find segments worth keeping",
+        "evidence": "Drop a marker or note the timestamp at every answer worth keeping.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that raw live coding repurposes poorly into tutorials and recommends cutting answers or segments, not whole streams",
+        "evidence": "raw live coding edits poorly into tutorials: cut answers, not hours.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes course or library planning (titles, playlists, Shorts) to samber/developer-relations-skills@devrel-youtube-channel or a recorded-video workflow",
+        "evidence": "Use samber/developer-relations-skills@devrel-youtube-channel for titles, playlists and Shorts.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Mentions that Affiliate status would extend retention to 14 days, without treating it as the fix",
+        "evidence": "Affiliate status would not have fixed this: 14 days is still short.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that Twitch past-broadcast storage is not enabled by default",
+        "evidence": "It only says 'If \"Store past broadcasts\" was off... those streams were never saved', without stating the default.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that for a non-Affiliate channel past broadcasts are kept only about 7 days",
+        "evidence": "'Non-affiliate channels keep past broadcasts for 14 days.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the older streams are probably unrecoverable unless someone recorded locally, exported them, or saved Highlights, and that Prime or Turbo on the account owner would have extended retention to 60 days",
+        "evidence": "It covers Highlights and local recordings and mentions Turbo, but not Prime. It also gives wrong retention figures.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that Twitch support cannot recover broadcasts that were not saved, or that recovery is not possible",
+        "evidence": "'Deleted VODs are not recoverable. Twitch support won't restore them.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends recording locally on every stream going forward",
+        "evidence": "'Record locally in OBS on every stream.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends exporting the archive within the retention window (for example within 48 hours) to YouTube or storage",
+        "evidence": "'Within 48 hours of each stream: copy the local recording to shared storage'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Mentions the 100-hour cap on Highlights and uploads as a reason not to rely on Twitch for the library",
+        "evidence": "Only 'Twitch now caps total highlight storage, so confirm the current limit', with no figure.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends stream markers or timestamp notes during the stream to find segments worth keeping",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that raw live coding repurposes poorly into tutorials and recommends cutting answers or segments, not whole streams",
+        "evidence": "It says 'Raw 2-hour streams make a weak course' but recommends re-recording each episode as a scripted lesson, not cutting segments.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes course or library planning (titles, playlists, Shorts) to samber/developer-relations-skills@devrel-youtube-channel or a recorded-video workflow",
+        "evidence": "No skill is referenced.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Mentions that Affiliate status would extend retention to 14 days, without treating it as the fix",
+        "evidence": "It says 'Affiliates, Partners and Turbo subscribers get 60 days', which is wrong, and does not discuss Affiliate as a non-fix.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

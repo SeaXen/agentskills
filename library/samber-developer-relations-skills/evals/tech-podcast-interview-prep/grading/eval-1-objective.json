@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Response asks clarifying questions instead of delivering talking points, a message spine, or a prep brief.",
+        "evidence": "The transcript delivers a full brief including 'Spine (ABT)', 'Messages', 'Sound bites', etc. rather than asking questions.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Questions are asked one at a time rather than as a single list of ten or more questions.",
+        "evidence": "No sequence of questions is posed to the user at all; the 'Do this first' section is a set of instructions/bracketed placeholders, not a one-at-a-time question exchange.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The first question establishes the format: audio-only, video or livestream, and recorded-and-edited or live with no retakes.",
+        "evidence": "Format is presented as a bracketed placeholder to fill in ('[confirm: audio-only / video / livestream]') rather than asked as the first question.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response drafts no message, claim, angle or sound bite before the format, episode length and host configuration, audience, and booked-topic questions are answered.",
+        "evidence": "The response drafts a full Spine, three Messages, and Sound bites immediately, e.g. 'Cache stampede, not invalidation, is what actually takes production down' before any format/audience confirmation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response treats the show's own back catalogue as the authority on who listens if the user cannot answer, rather than the show's tagline or marketing copy.",
+        "evidence": "\"Audience: assumed hands-on backend/infra engineers with a deploy/DevOps lean, going by the show's name \u2014 confirm against 2-3 real episodes, don't trust my guess\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response asks what is off-limits: embargoed releases, unnamed customers, security detail, pending legal or funding news.",
+        "evidence": "\"Off-limits: [any unreleased hot feature, unpublished benchmark numbers, or incident you can't name publicly \u2014 decide this before Thursday, not live]\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response asks how many hours of prep the user has before the recording.",
+        "evidence": "No question about available prep time appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response asks what the user is representing and what must be disclosed.",
+        "evidence": "The disclosure line is asserted directly ('Disclosure line: \"I'm Samuel, I built and maintain hot...\"') rather than asked about.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response asks what outcome the user wants from the appearance.",
+        "evidence": "No question about desired outcome from the appearance is present anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response describes the deliverable as one prep brief agreed section by section, not a finished document delivered in a single pass.",
+        "evidence": "The entire brief (spine, messages, story bank, hard questions, recording-day card, promotion) is delivered in one single pass with no section-by-section check-in proposed.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Response asks clarifying questions instead of delivering talking points, a message spine, or a prep brief.",
+        "evidence": "Response opens with 'Here's your prep' and immediately delivers a full talking-points document ('The mindset', 'Your throughline', 'Talking points bank') with no questions asked to the user.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Questions are asked one at a time rather than as a single list of ten or more questions.",
+        "evidence": "No questions are posed to the user at all; the response is a finished document.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The first question establishes the format: audio-only, video or livestream, and recorded-and-edited or live with no retakes.",
+        "evidence": "No question about format (audio/video/live/edited) appears anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response drafts no message, claim, angle or sound bite before the format, episode length and host configuration, audience, and booked-topic questions are answered.",
+        "evidence": "The one-liner 'It's a Go caching library \u2014 in-memory, generics-first...' is drafted immediately, with no prior fact-finding.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response treats the show's own back catalogue as the authority on who listens if the user cannot answer, rather than the show's tagline or marketing copy.",
+        "evidence": "Suggests skimming 'the last 3 episode titles/descriptions of Deploy Friday' only to judge 'deep-technical or casual-chat' tone, not to determine who listens, and this is not framed as a fallback for an unanswerable question.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response asks what is off-limits: embargoed releases, unnamed customers, security detail, pending legal or funding news.",
+        "evidence": "No mention of embargoes, unnamed customers, security detail, or legal/funding news.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response asks how many hours of prep the user has before the recording.",
+        "evidence": "No question about prep time budget appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response asks what the user is representing and what must be disclosed.",
+        "evidence": "No disclosure question is asked; response assumes the user speaks purely as the library's creator.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response asks what outcome the user wants from the appearance.",
+        "evidence": "No question about desired outcome from the appearance.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response describes the deliverable as one prep brief agreed section by section, not a finished document delivered in a single pass.",
+        "evidence": "The entire document is delivered in a single pass with a closing line 'That's the full prep' rather than being negotiated section by section.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

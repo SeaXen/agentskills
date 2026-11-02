@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Forces a single primary outcome rather than measuring all six stated objectives at once",
+        "evidence": "\"CMX's instruction for SPACES: 'just focus on one objective.' Six objectives on one sheet, six vague sheets nobody refreshes past month two. Pick one now.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names that primary outcome in the SPACES vocabulary - support, product feedback, acquisition and advocacy, content and contribution, engagement, or success - rather than as an ad-hoc phrase",
+        "evidence": "\"That's CMX's own SPACES model (Support, Product feedback, Acquisition, Content, Engagement, Success)... Recommendation: Support.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that every metric on the sheet must plausibly move when that primary outcome moves",
+        "evidence": "No explicit statement in section 11 that every metric must plausibly move with the primary outcome; the reasoning given for picking Support is cost/speed of proof, not a stated design rule for the whole sheet",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires one funnel vocabulary to be chosen and kept - either Orbit's explorer / participant / contributor / advocate ladder or the casual / regular / core split, never both in the same sheet",
+        "evidence": "\"Use casual/regular/core going forward... Drop Orbit wording from new slides.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that two vocabularies in one sheet make every cohort definition ambiguous",
+        "evidence": "\"Skill's rule: one vocabulary, or every cohort definition goes ambiguous.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that the Orbit model is no longer actively developed and cites it as a stable published framework rather than a live standard",
+        "evidence": "\"Orbit itself is fine to cite as a stable, no-longer-developed reference framework \u2014 just not as a second live vocabulary\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Proposes the code-centric starter set: time to first response, change request closure ratio, contributor absence factor and release frequency",
+        "evidence": "Change request closure ratio only appears conditionally (\"If primary outcome is Content/contribution instead\") and release frequency never appears anywhere in the sheet",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds a recommendability survey item as the fifth starter metric, asked roughly twice a year",
+        "evidence": "Recommendability is included but cadence is explicitly \"Quarterly 2-item pulse survey\" (four times a year), not roughly twice a year",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Marks metrics with no prior readings as \"baselining\" rather than inventing a threshold for them",
+        "evidence": "Multiple rows marked e.g. \"baselining \u2014 pull retention-window history now\", \"baselining \u2014 needs identity map first\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that at least three prior periods are needed before setting a threshold from the trailing median",
+        "evidence": "\"> 24h react / > 72h act-now (folklore, unsourced \u2014 recalibrate after 3 periods)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Tracks first-pull-request merge rate and time-to-merge for external contributors separately from maintainers' own pull requests",
+        "evidence": "No such metric appears; the closest are \"First-time participants per period\" and \"Second-contribution rate within 90 days (GitHub)\", neither of which tracks merge rate or time-to-merge for external vs. maintainer PRs",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Forces a single primary outcome rather than measuring all six stated objectives at once",
+        "evidence": "The transcript builds a 'six-pillar measurement framework' (support deflection, product feedback, contribution growth, advocacy, retention, general engagement) and the starter scorecard explicitly tracks 'The \u2b50 metric from each pillar above, six numbers total' \u2014 all six objectives are measured in parallel, no single primary outcome is forced.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names that primary outcome in the SPACES vocabulary - support, product feedback, acquisition and advocacy, content and contribution, engagement, or success - rather than as an ad-hoc phrase",
+        "evidence": "No SPACES vocabulary or any single named primary outcome appears anywhere in the transcript; it uses its own six-pillar taxonomy (support deflection, product feedback, contribution growth, advocacy, retention, general engagement) with no primary outcome selected.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that every metric on the sheet must plausibly move when that primary outcome moves",
+        "evidence": "There is no such requirement stated; the framework instead prescribes one starter metric per pillar independently (section 4), with no test tying metrics to a single moving outcome.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires one funnel vocabulary to be chosen and kept - either Orbit's explorer / participant / contributor / advocate ladder or the casual / regular / core split, never both in the same sheet",
+        "evidence": "The transcript explicitly does the opposite: \"Recommendation: keep both, never merge them,\" and even proposes a combined 4\u00d73 cross-tab grid mixing both vocabularies on one sheet.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that two vocabularies in one sheet make every cohort definition ambiguous",
+        "evidence": "The transcript argues the opposite \u2014 that the two vocabularies \"measure two different axes\" and keeping both is a feature, not an ambiguity: \"A 'core' user... can be a pure 'explorer'... that's a real, useful signal, not a naming collision.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that the Orbit model is no longer actively developed and cites it as a stable published framework rather than a live standard",
+        "evidence": "The transcript uses 'Orbit tiers' and Discourse trust levels without any mention of the Orbit model's development status (e.g. \"Behavioral definition of the Orbit tiers\" section 2 has no such caveat).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Proposes the code-centric starter set: time to first response, change request closure ratio, contributor absence factor and release frequency",
+        "evidence": "The starred starter metrics are Self-resolution rate, Feedback-to-ship ratio, First-time contributors/month, External content count/month, Contributor cohort retention, and Weekly unique actors \u2014 none of 'change request closure ratio', 'contributor absence factor', or 'release frequency' appear anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds a recommendability survey item as the fifth starter metric, asked roughly twice a year",
+        "evidence": "No survey or recommendability (NPS-style) metric appears anywhere in the transcript; the starter scorecard is defined as exactly six numbers, all derived from GitHub/Discourse API data, not surveys.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Marks metrics with no prior readings as \"baselining\" rather than inventing a threshold for them",
+        "evidence": "Section 5 instead invents numeric thresholds outright: \"Self-resolution rate | >50% | 25\u201350% | <25%\" etc., merely caveated as \"starting guesses... not benchmarks\" rather than being withheld pending baseline data.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that at least three prior periods are needed before setting a threshold from the trailing median",
+        "evidence": "No such requirement or trailing-median methodology is mentioned; section 5 just says to \"recalibrate after your first baseline\" with no minimum period count specified.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Tracks first-pull-request merge rate and time-to-merge for external contributors separately from maintainers' own pull requests",
+        "evidence": "The transcript's PR metrics ('First-time contributors/month', 'Time-to-first-review', 'PR merge rate') are not split between external contributors and maintainers \u2014 e.g. 'PR merge rate | merged / (merged + closed-unmerged) | GitHub API' has no external/maintainer breakdown.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

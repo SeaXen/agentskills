@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the five-minute rule, stating that no study sets an ideal length and that published developer surveys run from a 12-13 minute median to about 30 minutes.",
+        "evidence": "'No study sets an ideal survey length... Published ones run from a 12-13 minute median to about 30 minutes.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets a target median completion time before deciding which questions survive.",
+        "evidence": "Target budget table with ~280 s, then questions chosen to fit.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Budgets the longest routed path, not the average path.",
+        "evidence": "'Budget the longest routed path at 5 minutes.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prices the 30-tool grid per row or screen as several minutes, not as one question of 28.",
+        "evidence": "'Grid, 30 rows \u00d7 ~6 s | ~3 min'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Proposes replacing or cutting the grid (a screener plus a routed short list, a top-3 pick, or a phone-sized multi-select) rather than keeping it whole.",
+        "evidence": "Grid becomes a multi-select or random 10-row block.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prices each free-text box at a minute or more of respondent time plus analyst coding time.",
+        "evidence": "'4 free-text boxes \u00d7 \u22651 min'; coding hours estimated.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Instructs timing the coding of 50 open answers and extrapolating to 1,500 completes, then capping boxes at what six analyst hours cover.",
+        "evidence": "'Time yourself coding 50 answers... 500 answers cost ~2.5 hours'; capped to \u22641.5 h.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cuts the open-text boxes before cutting closed questions, and replaces 'any other feedback?' with at most one box per decision asking for a specific instance.",
+        "evidence": "'open-text boxes cut before closed questions'; keeps one box 'Describe the last time X got in your way'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes sections so a respondent sees only the parts that apply to them.",
+        "evidence": "'Routing... send each person only to the sections that fit'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Moves the decision-feeding questions early in the order.",
+        "evidence": "'Put decision-feeding questions early.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Instructs re-pricing the length from the soft launch's measured median time.",
+        "evidence": "'Re-price from the soft launch, then freeze the wording.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the length honestly in the invitation rather than claiming five minutes.",
+        "evidence": "'Only write \"about 5 minutes\" in the invitation after you have measured it.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the five-minute rule, stating that no study sets an ideal length and that published developer surveys run from a 12-13 minute median to about 30 minutes.",
+        "evidence": "It cuts toward the target and says nothing on lack of study support or published median lengths.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets a target median completion time before deciding which questions survive.",
+        "evidence": "The median target of 3.5 minutes appears only in step 5, after triage.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Budgets the longest routed path, not the average path.",
+        "evidence": "It budgets the average ('about 12 questions instead of 15').",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Prices the 30-tool grid per row or screen as several minutes, not as one question of 28.",
+        "evidence": "'Grid row: about 6 seconds... 30-row grid about 3 min'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Proposes replacing or cutting the grid (a screener plus a routed short list, a top-3 pick, or a phone-sized multi-select) rather than keeping it whole.",
+        "evidence": "'a 10-tool random grid' or a single checklist.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prices each free-text box at a minute or more of respondent time plus analyst coding time.",
+        "evidence": "'about 40 seconds if answered', below a minute.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Instructs timing the coding of 50 open answers and extrapolating to 1,500 completes, then capping boxes at what six analyst hours cover.",
+        "evidence": "It suggests an LLM first-pass and checking 100 comments; no timed 50-answer extrapolation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cuts the open-text boxes before cutting closed questions, and replaces 'any other feedback?' with at most one box per decision asking for a specific instance.",
+        "evidence": "Four boxes cut to 1; 'Make the prompt specific... \"Any other feedback?\" gets low-value answers.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes sections so a respondent sees only the parts that apply to them.",
+        "evidence": "'Add branching... Show follow-ups only to people they apply to.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Moves the decision-feeding questions early in the order.",
+        "evidence": "Not addressed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Instructs re-pricing the length from the soft launch's measured median time.",
+        "evidence": "It uses a 5-8 person pilot, not a soft launch re-pricing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the length honestly in the invitation rather than claiming five minutes.",
+        "evidence": "'Write \"about 4 minutes\" on the invite only after the pilot.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

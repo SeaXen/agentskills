@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Leads with the engineering problem stated in terms an engineer outside Riverbend also has, rather than with the announcement",
+        "evidence": "The transcript rejects 'Introducing Riverbend Autoscaling 2.0' as an announcement title. It proposes a problem-first title: 'Why we stopped scaling on CPU: how Riverbend Autoscaling 2.0 reacts to queue depth'. The first content section is 'The problem: CPU is an indirect signal for queue workers'. It frames the problem in general terms any engineer running queue workers would recognise: I/O-bound workers sit at low CPU while the backlog grows, and CPU reacts too late. The hook slot asks for a graph where CPU stays flat while the queue grows. One point is lost for two reasons. The title still n",
+        "score": 4,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Leads with the engineering problem stated in terms an engineer outside Riverbend also has, rather than with the announcement",
+        "evidence": "Partly met. The transcript rejects an 'Introducing\u2026' title and suggests 'Why we scale on queue depth, not CPU: Riverbend Autoscaling 2.0', which puts the engineering claim ahead of the product name. The 'backlog that CPU can't see' section states the problem in general terms any engineer would recognize: I/O-bound workers keep CPU low while the queue grows. But the draft's first sentence opens with the product: '**Autoscaling 2.0 adds workers when work is waiting\u2026**'. The next sentence frames the problem as Riverbend's own: 'the failure we saw most often with the CPU-based autoscaler.' The pro",
+        "score": 3,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

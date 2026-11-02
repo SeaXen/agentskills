@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to quote a referral share from five days of data and applies the 14-day minimum",
+        "evidence": "\"The skill's floor is 14 days of data before quoting a share.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the site-wide template change destroyed the control: no untouched prompts remain, so a treated-versus-control comparison cannot be reported",
+        "evidence": "\"No control. The template touched all 900 pages... Controlled comparison is lost.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prescribes the fallback for a template change: compare against the logged baseline with model name and date, voided if a model release falls in between, or a staged rollout next time",
+        "evidence": "\"Log any model release inside either window. A release voids the comparison.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that AI referrers are a lower bound because apps strip referrers and developers copy code without clicking",
+        "evidence": "\"Apps strip referrers and developers copy code without clicking.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that ChatGPT appends `utm_source=chatgpt.com` and labels this vendor-documented",
+        "evidence": "Mentions utm_source=chatgpt.com but without a vendor-documented label.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that clicks from AI Overviews and AI Mode arrive as ordinary Google organic traffic, so Search Console showing nothing AI-specific is expected",
+        "evidence": "\"folds AI Overviews and AI Mode into Web search totals... 'Nothing AI-specific' does not mean zero.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that Bing's AI report shows citations and grounding queries for Copilot, never clicks, so the 140 figure is not a traffic number",
+        "evidence": "\"Bing Webmaster AI report | Copilot citations and grounding queries | No clicks.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to write \"+40% next quarter\" and reports citation outcomes as pending against self-set targets",
+        "evidence": "\"The +40% has no evidence behind it\"; \"No percentage is promised.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires re-running the identical prompt panel at four to eight weeks counted from the day the template change went live, since version identity is a retrieval lever",
+        "evidence": "\"2026-11-16 to 2026-12-14 | Panel re-run (4 to 8 weeks from ship)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the self-set targets: zero deprecated-API answers on the three highest-traffic docs tasks in search-on mode, version-correct rate above baseline with non-overlapping intervals, owned-page citation rate above baseline",
+        "evidence": "Three targets listed in section 5.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets no search-off target until a new model ships",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes what is verifiable today (the page changes shipped) from what is not (re-indexing on the vendor's schedule)",
+        "evidence": "Shipped page changes checked by plain-HTTP fetch; \"Vendor index schedules. Re-crawl timing is theirs to set.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires splitting server or CDN logs by bot role and docs version path, IP-verified, as a measurement segment alongside referrers",
+        "evidence": "\"Run `ai-bot-log-summary.py --path-prefix /docs/` with vendor IP ranges. Split by bot role and version path.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to quote a referral share from five days of data and applies the 14-day minimum",
+        "evidence": "Keeps '+31%' on slide with 5-day window; no 14-day rule.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the site-wide template change destroyed the control: no untouched prompts remain, so a treated-versus-control comparison cannot be reported",
+        "evidence": "Notes no control group but proposes /blog/ as control; no prompt-control point.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Prescribes the fallback for a template change: compare against the logged baseline with model name and date, voided if a model release falls in between, or a staged rollout next time",
+        "evidence": "Not present.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that AI referrers are a lower bound because apps strip referrers and developers copy code without clicking",
+        "evidence": "Says referrals aren't citations; no lower-bound/stripped-referrer point.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that ChatGPT appends `utm_source=chatgpt.com` and labels this vendor-documented",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that clicks from AI Overviews and AI Mode arrive as ordinary Google organic traffic, so Search Console showing nothing AI-specific is expected",
+        "evidence": "Only 'no AI-specific reporting exists'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that Bing's AI report shows citations and grounding queries for Copilot, never clicks, so the 140 figure is not a traffic number",
+        "evidence": "'Referrals measure clicks and citations measure mentions'; Bing 140 treated as citation count.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to write \"+40% next quarter\" and reports citation outcomes as pending against self-set targets",
+        "evidence": "'The +40% has no basis'; targets deferred to 4-week read.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires re-running the identical prompt panel at four to eight weeks counted from the day the template change went live, since version identity is a retrieval lever",
+        "evidence": "Weekly fixed-prompt check; 4-week read.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the self-set targets: zero deprecated-API answers on the three highest-traffic docs tasks in search-on mode, version-correct rate above baseline with non-overlapping intervals, owned-page citation rate above baseline",
+        "evidence": "No such targets.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets no search-off target until a new model ships",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes what is verifiable today (the page changes shipped) from what is not (re-indexing on the vendor's schedule)",
+        "evidence": "Not explicit.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires splitting server or CDN logs by bot role and docs version path, IP-verified, as a measurement segment alongside referrers",
+        "evidence": "Not present.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

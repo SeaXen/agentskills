@@ -1,0 +1,106 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to give one blended market-rate number and instead attributes every figure to a named source (PCMA, BLS, or Glassdoor).",
+        "evidence": "\"No salary survey covers developer-conference roles, so no single figure is the market rate.\" Every figure is tagged Glassdoor, PCMA or BLS, and \"I kept these separate and did not average them.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that Information Technology is the highest-paying industry for the event titles sourced (the tech-industry premium).",
+        "evidence": "It says \"Glassdoor's premium applies to the Information Technology industry\" and calls $175k \"the top of the tech-industry premium\". It never says IT is the highest-paying industry.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Carries Glassdoor's Event Marketing Manager figures: roughly $100,135 national average versus roughly $175,690 IT median total pay, identified as the widest tech premium of any event title.",
+        "evidence": "Both figures are present, but nothing says this is the widest tech premium among event titles.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not average or midpoint the user's $85k and $175k figures into a single recommended number.",
+        "evidence": "It recommends $100,000 base from the exact-title Glassdoor figure and calls $175k \"a ceiling, not a base-salary benchmark\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "If BLS occupational data (code 13-1121, median $59,440-$101,310) is cited, it is used only as a broad floor/ceiling check, never as the offer anchor.",
+        "evidence": "\"use it only as a floor and ceiling sanity check.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The New York geographic cut (Event Manager average about $91,303, roughly 8% above the national average) is presented as a separate data point, not merged into the anchor.",
+        "evidence": "\"Event Manager averages $91,303, which is 8% above the US average... different title, so I haven't applied it to the $100k.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "PCMA Convene level-based figures, if cited, are labeled as the general events-industry anchor and kept separate from the Glassdoor cut.",
+        "evidence": "\"PCMA Convene 2025... This is the general events-industry anchor.\" It is listed under separate cross-checks.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States explicitly which single source the recommended band is anchored to and why.",
+        "evidence": "\"Put $100,000 base on the req. The source is Glassdoor's national average for the Event Marketing Manager title... the only cut I found that matches your title exactly.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to give one blended market-rate number and instead attributes every figure to a named source (PCMA, BLS, or Glassdoor).",
+        "evidence": "Opens with \"Put $135k base in the req\" and says \"This is my estimate from what I know of the market\". No figure is attributed to PCMA, BLS or Glassdoor.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that Information Technology is the highest-paying industry for the event titles sourced (the tech-industry premium).",
+        "evidence": "Says only that $175k is \"usually a senior manager or director at a big-tech or SF company\". It cites no sourced industry ranking.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Carries Glassdoor's Event Marketing Manager figures: roughly $100,135 national average versus roughly $175,690 IT median total pay, identified as the widest tech premium of any event title.",
+        "evidence": "None of these Glassdoor figures appear in the response.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not average or midpoint the user's $85k and $175k figures into a single recommended number.",
+        "evidence": "The $135k comes from its own $120k\u2013$155k band, not from combining $85k and $175k.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "If BLS occupational data (code 13-1121, median $59,440-$101,310) is cited, it is used only as a broad floor/ceiling check, never as the offer anchor.",
+        "evidence": "BLS is not cited, so the condition does not apply.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The New York geographic cut (Event Manager average about $91,303, roughly 8% above the national average) is presented as a separate data point, not merged into the anchor.",
+        "evidence": "\"It's fintech in New York. That adds roughly 5\u201310% over general tech\" is folded into the band, with no sourced NY figure.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "PCMA Convene level-based figures, if cited, are labeled as the general events-industry anchor and kept separate from the Glassdoor cut.",
+        "evidence": "PCMA is not cited, so the condition does not apply.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States explicitly which single source the recommended band is anchored to and why.",
+        "evidence": "The band rests on the assistant's own estimate. It names no anchoring source.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

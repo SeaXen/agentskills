@@ -1,69 +1,109 @@
 ---
 name: mutation-testing
-description: Mutation testing methodologies and frameworks (Stryker, Mutmut). Use when evaluating test suite effectiveness, identifying false-positive tests, killing surviving mutants, or auditing code coverage quality beyond raw line metrics.
-allowed-tools: Read, Write, Edit, Glob, Grep
-version: 1.0
-category: testing-unit-tdd
----
-
-# Mutation Testing Expert
-
-> **Test Suite Hardening, Mutant Elimination & True Semantic Coverage**
+description: "Configures mewt or muton campaigns, analyzes surviving mutants, and investigates bugs exposed by testing gaps. Use when setting up mutation testing, reviewing campaign results, identifying equivalent mutants, or finding bugs from surviving mutations."
+allowed-tools: Read Write Bash Grep
 
 ---
 
-## 🏗️ Core Principles
+# Mutation Testing (mewt/muton)
 
-| Principle | Rule |
-|-----------|------|
-| **Coverage Lies, Mutants Don't** | 100% line coverage means nothing if assertions don't verify state changes. Mutation score is the true metric of test quality. |
-| **Kill Surviving Mutants** | Every surviving mutant (mutated boolean, flipped comparison, stripped statement) reveals an assertion gap in your test suite. |
-| **Incremental Mutation Runs** | Mutation testing is computationally expensive. Run Stryker/Mutmut on changed files or PR diffs (`--incremental`), not the entire monolith. |
-| **High Mutation Score Target** | Aim for >80% mutation score on critical business logic, financial calculations, and authentication modules. |
+Routes to the right mutation testing workflow and loads the references that workflow needs.
+
+> **Note**: muton and mewt share identical interfaces. Examples use `mewt`; substitute `muton` and its file names (`muton.toml`, `muton.sqlite`) for muton projects.
+
+`mewt --help` and `mewt <subcommand> --help` are the source of truth for command-line behavior. Examples below reflect the mewt 4.x API; run `--help` when a flag looks unfamiliar or a command fails.
+
+## When to Use
+
+Use this skill when the user:
+- Mentions "mewt", "muton", or "mutation testing"
+- Wants to configure, scope, or speed up a mutation testing campaign
+- Wants to analyze mutation results — surviving/uncaught mutants, equivalent mutants, kill rate
+- Wants to use mutation results to find bugs in the source code
+
+## When NOT to Use
+
+Do not use this skill when the user asks about tests or line coverage without any mutation testing context.
 
 ---
 
-## 📋 Stryker Configuration Pattern (`stryker.config.json`)
+## Routing
 
-```json
-{
-  "$schema": "./node_modules/@stryker-mutator/core/schema/stryker-schema.json",
-  "packageManager": "npm",
-  "reporters": ["html", "clear-text", "progress"],
-  "testRunner": "vitest",
-  "coverageAnalysis": "perTest",
-  "mutate": [
-    "src/**/*.ts",
-    "!src/**/*.spec.ts",
-    "!src/**/*.d.ts",
-    "!src/index.ts"
-  ],
-  "thresholds": {
-    "high": 85,
-    "low": 70,
-    "break": 65
-  }
-}
+Pick the workflow, then load it together with the references listed for it. Workflows and references do not load each other — that decision belongs here.
+
+**Setting up, scoping, or speeding up a campaign**
+→ [workflows/configuration.md](workflows/configuration.md)
+→ Also load [references/optimization-strategies.md](references/optimization-strategies.md) when the campaign estimate is long enough to need trimming, or the user asks to make it faster.
+
+**Campaign finished, hunting for bugs in untested code**
+→ [workflows/bug-hunter.md](workflows/bug-hunter.md)
+
+**Turning results into a formal analysis report**
+→ [workflows/analyzing-results.md](workflows/analyzing-results.md), plus:
+- [references/equivalent-mutants.md](references/equivalent-mutants.md) — equivalence catalog and verification procedure
+- [references/severity-classification.md](references/severity-classification.md) — severity tier criteria
+- [references/report-template.md](references/report-template.md) — report structure
+- [references/blockchain-patterns.md](references/blockchain-patterns.md) — **only** for Solidity, Move, FunC/Tolk, Cairo, or Solana Rust targets
+- [references/input-formats.md](references/input-formats.md) — unless the results came from mewt or muton. Foreign tool output may not be self-describing; this covers the parsing anchors for slither-mutate, mull, and dextool-mutate
+
+**Anything else** → run `mewt --help` or `mewt <subcommand> --help`, then assist directly.
+
+---
+
+## Essential Commands
+
+```bash
+# Set up and run
+mewt init                    # Create config and database
+mewt mutate [paths]          # Generate mutants without testing them
+mewt run [paths]             # Generate mutants and run the campaign
+
+# Read results
+mewt status                  # Overview with per-file breakdown
+mewt results                 # Uncaught mutants (default view)
+mewt results --all           # Every outcome, not just uncaught
+mewt results --format json   # json | sarif | ids | table
+
+# Narrow down (these filters work on both `results` and `print mutants`)
+mewt results --target 'src/auth/**'   # Quote globs so the shell does not expand them
+mewt results --severity high,medium
+mewt results --mutation-types ER,CR
+mewt results --status Uncaught        # Uncaught | TestFail | Skipped | Timeout
+mewt results --line 42
+
+# Investigate and re-test
+mewt print mutant --id [id]              # View the mutated code
+mewt test --ids [ids]                    # Re-test specific mutants
+mewt test --ids-file uncaught_ids.txt    # Re-test IDs from a file, or '-' for stdin
+
+# Inspect configuration
+mewt print config                        # Effective config
+mewt print targets                       # Files actually mutated
+mewt print mutations --language [lang]   # Mutations and severities for a language
 ```
 
----
-
-## 📋 How to Kill Common Mutants
-
-1. **Equality Operator Mutator (`===` mutated to `!==`)**:
-   - *Cause*: Missing test case checking boundary equality vs inequality.
-   - *Fix*: Add dedicated assertion testing the exact equality threshold.
-2. **Boolean Literal Mutator (`true` mutated to `false`)**:
-   - *Cause*: Mock always returns positive or test does not verify falsy branch.
-   - *Fix*: Add test case where predicate evaluates to false and verifies alternative code branch.
-3. **Block Statement Mutator (Function body stripped)**:
-   - *Cause*: Test calls function but makes no assertions on return value or state side effects.
-   - *Fix*: Assert return payload or verify spy interactions with expected parameters.
+Language labels are canonical `family` or `family/dialect` values in mewt 4.x — for example `rust`, `javascript/ts`, `move/sui`, `move/iota`.
 
 ---
 
-## ❌ Anti-Patterns
+## What Results Mean
 
-- ❌ Relying purely on Istanbul/c8 line coverage metrics without testing assertion strength.
-- ❌ Excluding tricky logic from mutation config just to artificially inflate scores.
-- ❌ Running un-scoped full-suite mutation tests on every git commit.
+- **Caught/TestFail**: tests detected the mutation (good)
+- **Uncaught**: tests did not detect the change. Inspect the code to distinguish a testing gap from an equivalent mutation.
+- **Timeout**: tests took too long — inconclusive, not evidence of coverage
+- **Skipped**: a less severe mutant was skipped because a more severe mutant on the same line was uncaught
+
+---
+
+## Interpreting Mutation Types
+
+`mewt print mutations --language [lang]` lists every mutation slug, description, and severity for a language, and is authoritative — the operator set grows with each release. What that output does not tell you is what a survivor *means*, which is where prioritization comes from:
+
+| Severity | Representative slugs | What an uncaught mutant tells you |
+|----------|---------------------|-----------------------------------|
+| High | `ER` (Error Replacement) | Tests tolerate the injected error. Investigate whether the path executes, whether error handling masks the change, and whether assertions check the outcome. |
+| Medium | `CR` (Comment Replacement) | Removing the statement does not fail the tests. Check whether its effects matter and whether assertions observe them. |
+| Medium | `IF`/`IT` (If False/True), `NR` (Negation Removal) | Tests do not distinguish the changed condition. Both constant replacements surviving can indicate an unexecuted condition or weak assertions on the branch outcomes. |
+| Low | Operator shuffles (`AOS`, `COS`, `LOS`, `BOS`, shift/assignment variants), `BL`, `AS`, `LC`, `WF` | Check boundary inputs, arithmetic assertions, and semantic equivalence. The mutation result alone does not establish whether the code executed. |
+
+Severity ranks the *mutation*, not the risk. A low-severity survivor in a fee calculation matters more than a high-severity survivor in a log line — weigh what the mutated code does. Filter with `--severity` to work through the results in priority order.

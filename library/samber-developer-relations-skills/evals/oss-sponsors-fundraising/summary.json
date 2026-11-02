@@ -1,0 +1,758 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "oss-sponsors-fundraising",
+  "scenarios": 14,
+  "expectations_total": 161,
+  "expectations_subjective": 1,
+  "expectations_objective": 160,
+  "pass_rate_with_skill_pct": 59.6,
+  "pass_rate_without_skill_pct": 29.8,
+  "delta_pp": 29.8,
+  "uplift_multiplier": 2.0,
+  "trigger_accuracy_pct": 50.0,
+  "trigger_queries": 150,
+  "trigger_positive_fire_rate": 0.0,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.267 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Rejects the $15 sticker-pack tier sitting just below the $20 early-access tier, on the ground that sponsors offered a cheaper partial perk will take the cheaper one."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Notes that a no-perk gratitude tier placed below the converting tier is acceptable, so the cheap $1/$5 rungs are not themselves the problem."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Adds at least one company-priced tier at or above $250/month."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Identifies that a $50 top tier clears no corporate procurement process."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Prices at least one company tier against a stated placement audience figure (monthly views or equivalent traffic) rather than against generosity."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names company tiers for the buyer, for example 'Team', 'Business' or 'Agency', instead of metal names like Gold or Platinum."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Keeps the live ladder to roughly three to five tiers and advises pricing for about two years ahead because the prices cannot later be edited."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Recommends employment - open-source time written into a job - or a commercial revenue model as the primary route to a salary-shaped number."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Positions sponsorship as a supplement rather than the primary instrument for this goal."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Asks clarifying questions one at a time rather than delivering the whole interview as a block."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Warns against publishing a $7,200 funding goal, since a goal stuck at a low percentage for a year reads as a project nobody supports."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Warns that switching an organization to invoiced billing cancels its existing sponsorships, which then have to be re-established."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that invoices are payable within 30 days, or that the invoiced sponsor agreement runs three years before renewal."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names the organization-account fee structure: up to 6%, being 3% credit-card processing plus a 3% service fee, with the credit-card portion removed under invoiced billing."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Works through the payable checklist: a legal entity or explicit contractor arrangement, the payer's expected tax form, ability to issue a numbered invoice, bank details for transfer, and a named beneficiary."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that fiscal hosts generally charge 3-10% of funds received, with Open Source Collective at 10%."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Suggests raising the ask above $400/month given dependence across three named services, rather than accepting the first number offered."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Warns that a fiscal host is itself a continuity risk and recommends writing the exit-and-transfer plan before it is needed."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends logging Northvale's budget month and opening the renewal conversation a full cycle ahead."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States the scale problem concretely - monthly calls at around 140 sponsors consume a working week or more per month."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes that the ten-times multiplier is a stress test, not a measured growth rate or forecast."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States the reward efficiency order, leading with README or docs placement ahead of badges and thank-you posts, early access, private repositories or office hours, and monthly calls or priority support last."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Refuses to gate the documentation needed to use the library."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires a genuinely useful free path, linked from the documentation, as the discovery route into the paid tier."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends shipping gated content on a cadence, since a one-off gated release buys one month of sponsorship while a batch shipped with each release buys a subscription."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Tells the maintainer to budget production time for the gated content."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Tells the maintainer to check licence and employer constraints before gating anything derived from work someone else owns."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes that sponsorware is among the best-converting rewards on record and among the most expensive to keep delivering."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Applies the ten-times sponsor-count cost test to the ongoing gated-content commitment."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends checking the OpenSSF Scorecard 'Maintained' score and fixing commit and release cadence before pitching if it reads dormant."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Puts a funding link within about two clicks of every surface users already touch: repository sponsor button, README, docs footer, release notes."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Turns the three Series-B startups into named outreach targets, recording the lockfile and issue evidence per company."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Does not treat sponsorship page views as the success metric, measuring conversion per surface instead."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Runs the four qualifying gates before drafting: licence, who can be paid, geography, and maturity or scope."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that a grant is a fixed-term contract with an eligibility gate in front and a reporting duty behind, not a larger sponsor."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends running the grant lane alongside a sponsorship program rather than instead of it."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Does not begin drafting application prose before the eligibility gates are settled."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Raises the post-award reporting and compliance admin as a recurring cost to budget against the maintainer's available hours."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Notes the 500,000 euro lifetime cap per recipient."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Rejects $5,000 as a first goal from a $210/month base and recommends a first goal that closes this quarter."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that a completed goal is worth more than an ambitious one stuck at a low percentage for a year."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Notes that only one goal can run at a time."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Converts the goal into units a reader recognises - a maintenance day a week, a named infrastructure or code-signing bill, a dated deliverable - rather than a bare number."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Does not simply configure the $5,000 amount goal as asked."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Recommends publishing the boundary alongside the tiers rather than handling it privately per sponsor."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Keeps the sponsor list, the roadmap and the review queue as separate artefacts."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Recommends stating a conflict-of-interest rule naming which sponsors would be refused and who decides."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States the shape efficiency order out loud: visibility ahead of gratitude, ahead of retainer, ahead of access."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Emits separate orderings for value and effort rather than collapsing them into a single blended rank."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names what the efficiency order starves - the retainer, the only shape that reaches salary-shaped income - and states the conditions that would promote it."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Seeks explicit agreement on the chosen shape before pricing any tier."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that visibility delivery costs roughly an hour per sponsor for a logo commit and a placement check, which fits inside the stated ceiling."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that the 50% line comes from freelance client-concentration practice and is a self-set threshold rather than an open-source funding norm."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Discards the $31,800 cumulative total as the wrong measure and asks for recurring monthly amount with its trend over six months instead."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Asks for the sponsor count split between individual and company sponsors."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Asks for monthly churn, the median tier, and the top sponsor's share of income."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Names the review cadence as 90 days and then quarterly."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Measures conversion from each surface carrying the funding link rather than page views."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Routes the user to the company-side sibling skill samber/developer-relations-skills@oss-sponsors-brand-strategy."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Stops rather than continuing into the maintainer workflow."
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Confirms the payable prerequisites before sending: entity or contractor arrangement, tax form, numbered invoice, bank details."
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Identifies that outreach only wins the judgement-based strategic sponsorship mechanism, and that dependency-share, employee-nominated funds and foundation or pledge membership are won differently."
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Notes that Open Source Pledge members commit more than $2,000 per employed developer per year, so budget already exists looking for legible recipients."
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Offers a one-page prospectus rather than a slide deck, including the section on what sponsorship does not buy."
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Plans the renewal: logs the budget month and sends a short proof-of-value note each quarter."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Rejects the $15 sticker-pack tier sitting just below the $20 early-access tier, on the ground that sponsors offered a cheaper partial perk will take the cheaper one."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Notes that a no-perk gratitude tier placed below the converting tier is acceptable, so the cheap $1/$5 rungs are not themselves the problem."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Identifies that a $50 top tier clears no corporate procurement process."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Removes or rewrites the '$25 - I answer your questions faster' tier, distinguishing priority triage, which can be sold, from priority outcomes, which cannot."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Removes the monthly 1:1 call from the ladder entirely rather than repricing it into a higher tier."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Flags that the $5 and $10 tiers sell the same reward at different sizes, so sponsors default to the cheaper one."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Replaces 'logo somewhere' with a named, specific placement an approver can evaluate."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Prices at least one company tier against a stated placement audience figure (monthly views or equivalent traffic) rather than against generosity."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names company tiers for the buyer, for example 'Team', 'Business' or 'Agency', instead of metal names like Gold or Platinum."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Keeps the live ladder to roughly three to five tiers and advises pricing for about two years ahead because the prices cannot later be edited."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Lists the funding instruments beyond sponsorship: employment, individual crowdfunding, project-level corporate sponsorship, commercial revenue (support, hosting, premium features), and grants."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Does not present those instruments as an efficiency ranking against one another."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Checks whether the project has a research, infrastructure or security angle that would make a grant the dominant route."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Establishes whether dependent companies can actually be named before proposing any corporate tier."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Asks clarifying questions one at a time rather than delivering the whole interview as a block."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Warns against publishing a $7,200 funding goal, since a goal stuck at a low percentage for a year reads as a project nobody supports."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States the invoiced-sponsorship minimum of $5,000 per invoice on GitHub, so $400/month cannot be taken that way."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends either sizing the ask up to clear that floor or routing the payment through a fiscal host that can issue invoices."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Warns that switching an organization to invoiced billing cancels its existing sponsorships, which then have to be re-established."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that invoices are payable within 30 days, or that the invoiced sponsor agreement runs three years before renewal."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names the organization-account fee structure: up to 6%, being 3% credit-card processing plus a 3% service fee, with the credit-card portion removed under invoiced billing."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Works through the payable checklist: a legal entity or explicit contractor arrangement, the payer's expected tax form, ability to issue a numbered invoice, bank details for transfer, and a named beneficiary."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that fiscal hosts generally charge 3-10% of funds received, with Open Source Collective at 10%."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Suggests raising the ask above $400/month given dependence across three named services, rather than accepting the first number offered."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Warns that a fiscal host is itself a continuity risk and recommends writing the exit-and-transfer plan before it is needed."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends logging Northvale's budget month and opening the renewal conversation a full cycle ahead."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends selling Northvale named commitments with numbers rather than goodwill."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Applies an explicit stress test asking what each reward costs per month at ten times the current sponsor count, roughly 140 sponsors."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Identifies the $30 monthly 1:1 call as a second-job reward and removes it from the ladder."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States the scale problem concretely - monthly calls at around 140 sponsors consume a working week or more per month."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Identifies the $200 quarterly bespoke integration as a second-job reward and removes it from the ladder."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Routes the named commitments - response times, security triage, upgrade support - into a separately priced corporate retainer with a written scope instead of a ladder perk."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that these tiers are priced far below the obligation they create, or prices the equivalent retainer well above $400/month."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Places the README logo reward at a company-sized price rather than at the top of an individual ladder."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes that the ten-times multiplier is a stress test, not a measured growth rate or forecast."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States the reward efficiency order, leading with README or docs placement ahead of badges and thank-you posts, early access, private repositories or office hours, and monthly calls or priority support last."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Refuses to gate the documentation needed to use the library."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States the governing rule as gating convenience and never necessity: the core library, its security fixes and the documentation needed to use it stay open."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires a genuinely useful free path, linked from the documentation, as the discovery route into the paid tier."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends shipping gated content on a cadence, since a one-off gated release buys one month of sponsorship while a batch shipped with each release buys a subscription."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Tells the maintainer to budget production time for the gated content."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Tells the maintainer to check licence and employer constraints before gating anything derived from work someone else owns."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes that sponsorware is among the best-converting rewards on record and among the most expensive to keep delivering."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Applies the ten-times sponsor-count cost test to the ongoing gated-content commitment."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Checks for .github/FUNDING.yml on the default branch."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Checks that the repository sponsor button is enabled in repository settings."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Checks the organization-level fallback at {owner}/.github for a stale or wrong FUNDING.yml."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Requires every funding link to be fetched and verified live, noting that a 404 removes the project from a funder's list entirely."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Tells the maintainer to fill the npm manifest funding field, not only the repository file."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Explains automatic dependency-share sponsorship, where a funder covers most of their fundable dependency tree at roughly $4-$10 each with no outreach required."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that having no funding mechanism is a hard filter in funder programs, not merely a low score."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends checking the OpenSSF Scorecard 'Maintained' score and fixing commit and release cadence before pitching if it reads dormant."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Puts a funding link within about two clicks of every surface users already touch: repository sponsor button, README, docs footer, release notes."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Does not treat sponsorship page views as the success metric, measuring conversion per surface instead."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes the Prototype Fund also requires a selected team to form a German GbR, and cannot pay companies, associations or universities."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Rejects Chan Zuckerberg Initiative EOSS on eligibility, stating its grants go to organizations only and are not permitted to individuals."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes that CZI EOSS requires demonstrated impact on biomedical research, which a mesh-generation library does not obviously meet."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names at least one program that can pay an individual with no legal entity, such as NLnet or the Open Technology Fund."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Flags NLnet's 'European dimension' as a knock-out criterion that must be argued rather than assumed."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Runs the four qualifying gates before drafting: licence, who can be paid, geography, and maturity or scope."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that a grant is a fixed-term contract with an eligibility gate in front and a reporting duty behind, not a larger sponsor."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends running the grant lane alongside a sponsorship program rather than instead of it."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Does not begin drafting application prose before the eligibility gates are settled."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Raises the post-award reporting and compliance admin as a recurring cost to budget against the maintainer's available hours."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Rewrites the opening to lead with the dependency - prevalence, criticality, and who breaks if the project stops - rather than the maintainer's personal story."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that a proposal is scored against published criteria by a reviewer reading dozens in one sitting, unlike a sponsor page written for a reader who already likes the project."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names NLnet's published scoring weights - technical excellence and feasibility, relevance and impact, cost effectiveness - or warns that the rate will be questioned in a second stage."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Notes that 48,000 euros sits inside NLnet's 5,000-50,000 euro first-grant band, and that asking above 50,000 can condition payment on an independent security audit and the resolution of its findings."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Notes NLnet's generative-AI disclosure requirement, including prompts and logs, and that non-disclosure is likely to get the proposal rejected."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that NLnet pays nothing upfront, with milestones fixed in a memorandum of understanding and payment requested on reaching one."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Requires every deliverable to ship under a recognised open licence."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Notes the 500,000 euro lifetime cap per recipient."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that an amount goal publicly and permanently displays monthly sponsorship income, and treats that as a disclosure decision rather than a UI toggle."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Offers the sponsor-count goal as the alternative that keeps income private."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Rejects $5,000 as a first goal from a $210/month base and recommends a first goal that closes this quarter."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that a completed goal is worth more than an ambitious one stuck at a low percentage for a year."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Notes that a goal cannot be edited below what has already been achieved."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Notes that a retired goal cannot be reactivated and must be replaced with a new one."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Notes that only one goal can run at a time."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Converts the goal into units a reader recognises - a maintenance day a week, a named infrastructure or code-signing bill, a dated deliverable - rather than a bare number."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Does not simply configure the $5,000 amount goal as asked."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Keeps the sponsor list, the roadmap and the review queue as separate artefacts."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Flags the 45% concentration as approaching the point where one sponsor dominates the program's income."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Recommends growing the next tier down to reduce that concentration before the renewal exposure matters."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Recommends stating a conflict-of-interest rule naming which sponsors would be refused and who decides."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States the shape efficiency order out loud: visibility ahead of gratitude, ahead of retainer, ahead of access."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Emits separate orderings for value and effort rather than collapsing them into a single blended rank."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Deletes the retainer shape outright, naming the absence of an entity and the refusal to use a fiscal host as the reason."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Says explicitly that these shapes are deleted rather than demoted or parked at the bottom of the list."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names what the efficiency order starves - the retainer, the only shape that reaches salary-shaped income - and states the conditions that would promote it."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Sketches two or three candidate programs and says why the losing ones lose, rather than presenting a single option."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Seeks explicit agreement on the chosen shape before pricing any tier."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that visibility delivery costs roughly an hour per sponsor for a logo commit and a placement check, which fits inside the stated ceiling."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that the 50% line comes from freelance client-concentration practice and is a self-set threshold rather than an open-source funding norm."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Discards the $31,800 cumulative total as the wrong measure and asks for recurring monthly amount with its trend over six months instead."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Discards the 2.1k new stars as a metric of the funding program."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Asks for the sponsor count split between individual and company sponsors."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Asks for monthly churn, the median tier, and the top sponsor's share of income."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Names the review cadence as 90 days and then quarterly."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Measures conversion from each surface carrying the funding link rather than page views."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Routes the user to the company-side sibling skill samber/developer-relations-skills@oss-sponsors-brand-strategy."
+      },
+      {
+        "eval_id": 13,
+        "expectation": "Stops rather than continuing into the maintainer workflow."
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Rejects the draft outright rather than editing it, identifying that it asks for charity, addresses nobody in particular, names no dependence, and offers nothing a budget owner can justify."
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Addresses a named person with a budget and an exposure - platform lead, staff engineer, head of security - rather than a generic address."
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Frames the ask against a budget line that already exists: supply-chain security, marketing reach, or engineering support."
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Sells named commitments with numbers - a security-report acknowledgement window, a published release cadence, named major-version upgrade support - rather than goodwill."
+      },
+      {
+        "eval_id": 14,
+        "expectation": "States a price in the email rather than asking for 'any amount'."
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Offers a route when the first budget line is wrong, such as asking whether security or platform engineering is the better door."
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Confirms the payable prerequisites before sending: entity or contractor arrangement, tax form, numbered invoice, bank details."
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Identifies that outreach only wins the judgement-based strategic sponsorship mechanism, and that dependency-share, employee-nominated funds and foundation or pledge membership are won differently."
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Notes that Open Source Pledge members commit more than $2,000 per employed developer per year, so budget already exists looking for legible recipients."
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Offers a one-page prospectus rather than a slide deck, including the section on what sponsorship does not buy."
+      },
+      {
+        "eval_id": 14,
+        "expectation": "Plans the renewal: logs the budget month and sends a short proof-of-value note each quarter."
+      }
+    ]
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses the next-day repost and states that aggregators bury it as a duplicate",
+        "evidence": "\"HN treats a resubmission of a dead thread as a duplicate and buries it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that deleting the submission and resubmitting is not a workaround",
+        "evidence": "\"Deleting first does not reset that \u2014 'wait 24h and repost' is explicitly *not* a recovery window per the playbook, it is a duplicate.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that reposts are allowed only when a story has had no significant attention for roughly a year",
+        "evidence": "No such one-year threshold is stated anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the second-chance pool as the sanctioned recovery path, requested by a single polite message to the moderators",
+        "evidence": "\"Sanctioned recovery path: one polite email to HN moderators asking for the second-chance pool. Not resubmission.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Localizes the failure by funnel stage before proposing any change",
+        "evidence": "\"## What the numbers actually say\\n\\nDay-1 diagnosis table, mapped to your metrics:\" (Clicks / Stars / Cloners / Downloads breakdown before any recommendation)",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reads 1,340 visitors against 38 stars and 7 cloners as clicks arriving while the README lost the ten-second read, rather than as a title failure",
+        "evidence": "\"Pattern matches 'clicks fine, stars/clones low' \u2192 the README lost the ten-second read.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prescribes restructuring the top of the README and adding a demo rather than rewriting the title",
+        "evidence": "\"Fix is restructuring the top of the README + adding a demo, not the headline.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that only a wrong-channel diagnosis justifies relaunching elsewhere",
+        "evidence": "\"Wait for Day-7 npm numbers before deciding this was a 'wrong channel' problem (the only symptom that justifies relaunching elsewhere).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that a relaunch with the same framing fails identically",
+        "evidence": "No explicit statement that a relaunch with unchanged framing would fail the same way appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects posting to five channels on the same day as the remedy",
+        "evidence": "\"Skip the 5-channel blitz too... 'Four simultaneous primary posts produce four dead threads' \u2014 you'd be running five.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that a relaunch spends the novelty budget a second time",
+        "evidence": "\"Novelty is one-time per channel. Relaunching before fixing the real bottleneck spends that budget for nothing.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reads flat downloads alongside star growth as the announcement travelling while the project did not",
+        "evidence": "The transcript frames the flat-downloads/low-star data as a README/ten-second-read problem, not with the specific \"announcement travelled, project didn't\" framing.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses the next-day repost and states that aggregators bury it as a duplicate",
+        "evidence": "'**Verdict: repost HN tomorrow, \u2705.**' explicitly endorses the next-day repost.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that deleting the submission and resubmitting is not a workaround",
+        "evidence": "'You don't strictly need to delete the old one; resubmitting is fine either way, but delete it if you want a clean slate' presents deletion as an optional, fine choice rather than warning it isn't a real workaround.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that reposts are allowed only when a story has had no significant attention for roughly a year",
+        "evidence": "'HN's own norm is that a story with little attention... is fair to resubmit after ~24h with a better title' \u2014 cites 24 hours, not a year.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the second-chance pool as the sanctioned recovery path, requested by a single polite message to the moderators",
+        "evidence": "No mention of the second-chance pool or contacting moderators.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Localizes the failure by funnel stage before proposing any change",
+        "evidence": "'1,340 visitors / 38 stars / 7 cloners off a 4-point thread means most of that traffic came from HN's \"new\" page, not the front page' analyzes the funnel before recommending a title fix.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reads 1,340 visitors against 38 stars and 7 cloners as clicks arriving while the README lost the ten-second read, rather than as a title failure",
+        "evidence": "'A sharper title won't save it if the first line of the README doesn't answer \"why this one, not Unleash.\"' \u2014 attributes the conversion failure to positioning/README, not just the title.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prescribes restructuring the top of the README and adding a demo rather than rewriting the title",
+        "evidence": "The concrete 'Tomorrow's repost, concretely' action list only covers title, timing, and first comment \u2014 no README restructuring or demo is prescribed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that only a wrong-channel diagnosis justifies relaunching elsewhere",
+        "evidence": "No such conditional statement is made; the suggested sequence includes other channels regardless of diagnosis.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that a relaunch with the same framing fails identically",
+        "evidence": "No explicit warning stated; only an implicit hint that title alone may not fix a positioning problem.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects posting to five channels on the same day as the remedy",
+        "evidence": "'Same-day 5-platform blast, \u274c.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that a relaunch spends the novelty budget a second time",
+        "evidence": "No mention of a 'novelty budget' concept.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reads flat downloads alongside star growth as the announcement travelling while the project did not",
+        "evidence": "No download metric is discussed in this section at all (only visitors, stars, cloners).",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

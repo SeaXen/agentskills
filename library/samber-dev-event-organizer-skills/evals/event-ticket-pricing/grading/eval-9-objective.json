@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Declines to treat the slow sale as a pricing failure by default, and names demand, marketing execution and price as the three candidate causes.",
+        "evidence": "\"A slow sale can be demand, marketing, or price\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the diagnosis to the market-fit skill before any price is changed.",
+        "evidence": "\"Run the market-fit read (event-market-fit)... Change a price only if it points at price\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the unannounced 90 EUR late surcharge because a price increase the buyer could not have seen coming was never published from the day tickets went on sale.",
+        "evidence": "\"never announce a price increase the buyer couldn't have seen coming\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the whole structure - every price, every date, every gate - should have been published at once when the sale opened.",
+        "evidence": "Only says surcharge must be published from day one; doesn't say whole structure should have been",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags that cutting the regular price to 165 EUR mid-sale leaves the 91 people who already paid 190 EUR or 240 EUR needing a decision, and does not treat the cut as free.",
+        "evidence": "\"Everyone who paid 190 or 240 sees the price fall... Expect refund requests\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a published price cannot be withdrawn mid-sale without refunding whoever already paid.",
+        "evidence": "Not stated",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the 48-hour flash code as a third public price point beyond the two-step ladder already published.",
+        "evidence": "\"It's a third discount step\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that extra discount steps read as pressure tactics and train every buyer to wait for the next one.",
+        "evidence": "\"read as pressure tactics and teach every buyer to wait for the next one\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects applying the 15% group discount to any tier, restricting it to the standard tier and excluding the early and late tiers.",
+        "evidence": "\"Applies to the regular 240 EUR tier only. It never stacks on the early bird, a late surcharge tier\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that a surcharge is a legitimate third phase only when it was announced in advance.",
+        "evidence": "\"A surcharge is legitimate only when it is published from the day tickets go on sale\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Frames the 91-of-250 position against a self-set measure such as paid share of the revenue target by the gate date, rather than against an industry benchmark.",
+        "evidence": "Needs ~32 per week vs actual pace; \"All arithmetic above is self-set\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that ticket-ladder design has no industry benchmark to score against, so any pace measure here is self-set.",
+        "evidence": "\"The skill has no benchmark for what sell-through is normal... I'm not inventing one\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Declines to treat the slow sale as a pricing failure by default, and names demand, marketing execution and price as the three candidate causes.",
+        "evidence": "Mentions reach or positioning only at the end as fallback.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the diagnosis to the market-fit skill before any price is changed.",
+        "evidence": "Not routed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the unannounced 90 EUR late surcharge because a price increase the buyer could not have seen coming was never published from the day tickets went on sale.",
+        "evidence": "Nobody planned around a deadline you never published.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the whole structure - every price, every date, every gate - should have been published at once when the sale opened.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags that cutting the regular price to 165 EUR mid-sale leaves the 91 people who already paid 190 EUR or 240 EUR needing a decision, and does not treat the cut as free.",
+        "evidence": "It makes your 91 buyers the losers.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a published price cannot be withdrawn mid-sale without refunding whoever already paid.",
+        "evidence": "Says cut is permanent and public but not refund point.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the 48-hour flash code as a third public price point beyond the two-step ladder already published.",
+        "evidence": "Approves flash at 30%.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that extra discount steps read as pressure tactics and train every buyer to wait for the next one.",
+        "evidence": "Only 'run it once, else buyers learn to wait'; approves flash.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects applying the 15% group discount to any tier, restricting it to the standard tier and excluding the early and late tiers.",
+        "evidence": "Regular only because early is closed; no late exclusion.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that a surcharge is a legitimate third phase only when it was announced in advance.",
+        "evidence": "announce it now with a date ... Regular price rises to 270 EUR on [date].",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Frames the 91-of-250 position against a self-set measure such as paid share of the revenue target by the gate date, rather than against an industry benchmark.",
+        "evidence": "Uses weekly pace and break-even, not a self-set paid-share measure.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that ticket-ladder design has no industry benchmark to score against, so any pace measure here is self-set.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

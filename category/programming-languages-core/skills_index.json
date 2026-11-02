@@ -24,6 +24,14 @@
     "path": "category/programming-languages-core/active-directory-certificate-services"
   },
   {
+    "id": "address-sanitizer",
+    "name": "address-sanitizer",
+    "category": "programming-languages-core",
+    "repository": "trailofbits-skills",
+    "description": "Builds and runs code under AddressSanitizer to catch buffer overflows, use-after-free, and other memory errors during fuzzing or tests. Covers -fsanitize=address builds, ASAN_OPTIONS, reading the crash report, LeakSanitizer, and the overhead and platform trade-offs. Use when fuzzing C/C++ or Rust that has unsafe blocks or FFI, when debugging a memory corruption crash, or when reading an ASan stack trace.",
+    "path": "category/programming-languages-core/address-sanitizer"
+  },
+  {
     "id": "agent-security-hardening",
     "name": "agent-security-hardening",
     "category": "programming-languages-core",
@@ -184,14 +192,6 @@
     "path": "category/programming-languages-core/audit-agent-run-evidence"
   },
   {
-    "id": "aws-cdk",
-    "name": "aws-cdk",
-    "category": "programming-languages-core",
-    "repository": "giuseppe-trisciuoglio-developer-kit",
-    "description": "Provides AWS CDK TypeScript patterns for defining, validating, and deploying AWS infrastructure as code. Use when creating CDK apps, stacks, and reusable constructs, modeling serverless or VPC-based architectures, applying IAM and encryption defaults, or testing and reviewing `cdk synth`, `cdk diff`, and `cdk deploy` changes. Triggers include \"aws cdk typescript\", \"create cdk app\", \"cdk stack\", \"cdk construct\", \"cdk deploy\", and \"cdk test\".",
-    "path": "category/programming-languages-core/aws-cdk"
-  },
-  {
     "id": "aws-cdk-development",
     "name": "aws-cdk-development",
     "category": "programming-languages-core",
@@ -278,6 +278,14 @@
     "repository": "giuseppe-trisciuoglio-developer-kit",
     "description": "Provides AWS Secrets Manager patterns for AWS SDK for Java 2.x, including secret retrieval, caching, rotation-aware access, and Spring Boot integration. Use when storing or reading secrets in Java services, replacing hardcoded credentials, or wiring secret-backed configuration into applications.",
     "path": "category/programming-languages-core/aws-sdk-java-v2-secrets-manager"
+  },
+  {
+    "id": "aws-sdk-js-v3-usage",
+    "name": "aws-sdk-js-v3-usage",
+    "category": "programming-languages-core",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "AWS SDK for JavaScript v3 development patterns. Use when writing JavaScript or TypeScript code that uses AWS services via @aws-sdk/* packages (aws-sdk-js-v3), or when asked about schemas, runtime validation, serialization, or code generation in the context of the JS/TS AWS SDK.",
+    "path": "category/programming-languages-core/aws-sdk-js-v3-usage"
   },
   {
     "id": "azure-ai-agents-persistent-java",
@@ -656,6 +664,14 @@
     "path": "category/programming-languages-core/bun-development"
   },
   {
+    "id": "cargo-fuzz",
+    "name": "cargo-fuzz",
+    "category": "programming-languages-core",
+    "repository": "trailofbits-skills",
+    "description": "Sets up and runs cargo-fuzz, the standard fuzzing tool for Cargo-based Rust projects. Covers cargo fuzz init, the nightly toolchain requirement, fuzz_target! harnesses, Arbitrary-derived structured inputs, sanitizer options, cargo fuzz coverage, and reproducing a crash artifact. Use when fuzzing a Rust crate, writing a fuzz_target!, exercising unsafe blocks or FFI in Rust, or triaging a cargo fuzz crash.",
+    "path": "category/programming-languages-core/cargo-fuzz"
+  },
+  {
     "id": "cc-skill-coding-standards",
     "name": "cc-skill-coding-standards",
     "category": "programming-languages-core",
@@ -718,6 +734,14 @@
     "repository": "dotnet-skills",
     "description": "Provides file paths to language-specific extension files for the code-testing pipeline. Read this reference-only catalog for extension guidance files (e.g., dotnet.md for .NET, cpp.md for C++). Agents and skills read its bundled files directly; do not invoke this catalog through the model's skill tool.",
     "path": "category/programming-languages-core/code-testing-extensions"
+  },
+  {
+    "id": "codeql",
+    "name": "codeql",
+    "category": "programming-languages-core",
+    "repository": "trailofbits-skills",
+    "description": "Scans a codebase for security vulnerabilities using CodeQL's interprocedural data flow and taint tracking analysis. Triggers on \"run codeql\", \"codeql scan\", \"build codeql database\", \"SAST scan\", \"taint analysis\", \"dataflow analysis\", or \"find vulnerabilities in this repo\". Covers Python, JavaScript/TypeScript, Go, Java/Kotlin, C/C++, C#, Ruby, and Swift. Supports \"run all\" (security-and-quality + security-experimental) and \"important only\" (high-precision) scan modes, and creates data extension models for project-specific sources and sinks. For fast single-file pattern matching, or when no build is available for a compiled language, use the semgrep skill; to parse SARIF that already exists rather than produce it, use the sarif-parsing skill.",
+    "path": "category/programming-languages-core/codeql"
   },
   {
     "id": "conducting-internal-reconnaissance-with-bloodhound-ce",
@@ -904,6 +928,14 @@
     "path": "category/programming-languages-core/cypress-skill"
   },
   {
+    "id": "dark-gritty-mood",
+    "name": "dark-gritty-mood",
+    "category": "programming-languages-core",
+    "repository": "arjun988-blender-skills",
+    "description": "Dark, grim, gritty, rusty, abandoned, decayed, industrial, lonely, and melancholic mood direction for Blender.",
+    "path": "category/programming-languages-core/dark-gritty-mood"
+  },
+  {
     "id": "data-engineer",
     "name": "data-engineer",
     "category": "programming-languages-core",
@@ -1016,12 +1048,36 @@
     "path": "category/programming-languages-core/diagnose-errors"
   },
   {
+    "id": "discourse-forums-playbook",
+    "name": "discourse-forums-playbook",
+    "category": "programming-languages-core",
+    "repository": "samber-developer-relations-skills",
+    "description": "Runs a developer-tools vendor's own Discourse forum as its operator - categories and tags, trust levels, spam controls, seeding without sock puppets, Solved support categories, what Hot, Top and the summary email reward, and forum SEO (Q&A markup, login-required trap). Use whenever a community team sets up, restructures or revives a product forum on Discourse or a similar self-hosted forum, asks about trust levels or the Solved plugin, why topics go unanswered, or whether threads rank on Google - even if they only say 'our Discourse is dead'. Not for members of someone else's forum. Do NOT use to pick the venue - use samber/developer-relations-skills@developer-community-launch; for a code of conduct or incident, samber/developer-relations-skills@developer-community-moderation.",
+    "path": "category/programming-languages-core/discourse-forums-playbook"
+  },
+  {
     "id": "dns-rebinding-attacks",
     "name": "dns-rebinding-attacks",
     "category": "programming-languages-core",
     "repository": "yaklang-hack-skills",
     "description": "DNS rebinding attack playbook. Use when testing applications that trust DNS resolution for origin checks, interact with internal services from browser context, or when SSRF is not possible server-side but the target has client-side fetch/XHR to attacker-controlled domains.",
     "path": "category/programming-languages-core/dns-rebinding-attacks"
+  },
+  {
+    "id": "doca-common",
+    "name": "doca-common",
+    "category": "programming-languages-core",
+    "repository": "nvidia-skills",
+    "description": "Use this skill whenever the user is doing hands-on DOCA programming on a BlueField DPU or ConnectX NIC and needs the foundation primitives every per-library context rests on \u2014 walking the doca_ctx lifecycle, discovering doca_dev / doca_devinfo and gating on doca_*_cap_* before trusting a feature, wiring doca_mmap / doca_buf_inventory / doca_buf for zero-copy I/O across libraries, driving doca_pe for completions, or DOCA Log's two-tier (--sdk-log-level vs app-side) model. Trigger even when the user does not say \"DOCA Common\" \u2014 typical implicit phrasings include \"my tasks submit but nothing completes\", \"DOCA_ERROR_BAD_STATE from doca_ctx_start\", \"--sdk-log-level does nothing for my DOCA_LOG_DBG lines\", \"share a buf between doca_dma and doca_rdma\", or \"crashes far from the offending line\". Refuse and route elsewhere for per-library questions in isolation (load doca-flow / doca-rdma / doca-eth alongside), installing DOCA (doca-setup), or doc lookup (doca-public-knowledge-map).",
+    "path": "category/programming-languages-core/doca-common"
+  },
+  {
+    "id": "doca-programming-guide",
+    "name": "doca-programming-guide",
+    "category": "programming-languages-core",
+    "repository": "nvidia-skills",
+    "description": "Use this skill when the user is writing their first DOCA app or asking a library-agnostic programming question \u2014 picking a shipped sample to copy and modify, wiring pkg-config + meson (or FFI from Rust / Go / Python against the public C ABI), walking the Core lifecycle (create \u2192 configure \u2192 start \u2192 connect \u2192 use \u2192 stop \u2192 destroy), or decoding a DOCA_ERROR_*. Trigger on implicit phrasing: \"write my first DOCA program\", \"meson line for doca_rdma_*\", \"DOCA_ERROR_BAD_STATE on first call\", \"call DOCA from Rust\", \"built clean but nothing on the wire\". Refuse install / hugepages / pkg-config (doca-setup), docs or version lookup (doca-public-knowledge-map), and library-internal API work (matching library skill).",
+    "path": "category/programming-languages-core/doca-programming-guide"
   },
   {
     "id": "domain-embedded",
@@ -1078,6 +1134,14 @@
     "repository": "membranedev-application-skills",
     "description": "Entrust Datacard integration. Manage data, records, and automate workflows. Use when the user wants to interact with Entrust Datacard data.",
     "path": "category/programming-languages-core/entrust-datacard"
+  },
+  {
+    "id": "entry-point-analyzer",
+    "name": "entry-point-analyzer",
+    "category": "programming-languages-core",
+    "repository": "trailofbits-skills",
+    "description": "Analyzes smart contract codebases to identify state-changing entry points for security auditing. Detects externally callable functions that modify state, categorizes them by access level (public, admin, role-restricted, contract-only), and generates structured audit reports. Excludes view/pure/read-only functions. Use when auditing smart contracts (Solidity, Vyper, Solana/Rust, Move, TON, CosmWasm) or when asked to find entry points, audit flows, external functions, access control patterns, or privileged operations.",
+    "path": "category/programming-languages-core/entry-point-analyzer"
   },
   {
     "id": "error-handling",
@@ -1328,6 +1392,46 @@
     "path": "category/programming-languages-core/golang-dependency-management"
   },
   {
+    "id": "golang-documentation",
+    "name": "golang-documentation",
+    "category": "programming-languages-core",
+    "repository": "samber-cc-skills-golang",
+    "description": "Comprehensive documentation guide for Golang projects, covering godoc comments, README, CONTRIBUTING, CHANGELOG, Go Playground, Example tests, API docs, and llms.txt. Use when writing or reviewing doc comments, documentation, adding code examples, setting up doc sites, or discussing documentation best practices. Triggers for both libraries and applications/CLIs.",
+    "path": "category/programming-languages-core/golang-documentation"
+  },
+  {
+    "id": "golang-error-handling",
+    "name": "golang-error-handling",
+    "category": "programming-languages-core",
+    "repository": "samber-cc-skills-golang",
+    "description": "Idiomatic Golang error handling \u2014 creation, wrapping with %w, errors.Is/As, errors.Join, custom error types, sentinel errors, panic/recover, the single handling rule, structured logging with slog, HTTP request logging middleware, and samber/oops for production errors. Built to make logs usable at scale with log aggregation 3rd-party tools. Apply when creating, wrapping, inspecting, or logging errors in Go code. For samber/oops specifics \u2192 See `samber/cc-skills-golang@golang-samber-oops` skill; for slog handler ecosystem \u2192 See `samber/cc-skills-golang@golang-samber-slog` skill.",
+    "path": "category/programming-languages-core/golang-error-handling"
+  },
+  {
+    "id": "golang-grpc",
+    "name": "golang-grpc",
+    "category": "programming-languages-core",
+    "repository": "samber-cc-skills-golang",
+    "description": "Provides gRPC usage guidelines, protobuf organization, and production-ready patterns for Golang microservices. Use when implementing, reviewing, or debugging gRPC servers/clients, writing proto files, setting up interceptors, handling gRPC errors with status codes, configuring TLS/mTLS, testing with bufconn, or working with streaming RPCs.",
+    "path": "category/programming-languages-core/golang-grpc"
+  },
+  {
+    "id": "golang-modernize",
+    "name": "golang-modernize",
+    "category": "programming-languages-core",
+    "repository": "samber-cc-skills-golang",
+    "description": "Modernize Golang code to use recent language features, standard library improvements, and idiomatic patterns. Use when reviewing Go code with old-style patterns, when encountering a deprecation warning, or when the user asks for modernization, a Go version upgrade (e.g. to Go 1.27), or a CI/tooling refresh. Not for structural refactors, extracting functions, or moving code between packages (\u2192 See `samber/cc-skills-golang@golang-refactoring` skill).",
+    "path": "category/programming-languages-core/golang-modernize"
+  },
+  {
+    "id": "golang-observability",
+    "name": "golang-observability",
+    "category": "programming-languages-core",
+    "repository": "samber-cc-skills-golang",
+    "description": "Golang everyday observability \u2014 the always-on signals in production. Covers structured logging with slog, Prometheus metrics, OpenTelemetry distributed tracing, continuous profiling with pprof/Pyroscope, server-side RUM event tracking, alerting, and Grafana dashboards. Apply when instrumenting Go services for production monitoring, setting up metrics or alerting, adding OpenTelemetry tracing, correlating logs with traces, migrating legacy loggers (zap/logrus/zerolog) to slog, adding observability to new features, or implementing GDPR/CCPA-compliant tracking with Customer Data Platforms (CDP). Not for temporary deep-dive performance investigation (\u2192 See `samber/cc-skills-golang@golang-benchmark` and `samber/cc-skills-golang@golang-performance` skills).",
+    "path": "category/programming-languages-core/golang-observability"
+  },
+  {
     "id": "golang-patterns",
     "name": "golang-patterns",
     "category": "programming-languages-core",
@@ -1336,12 +1440,60 @@
     "path": "category/programming-languages-core/golang-patterns"
   },
   {
+    "id": "golang-pkg-go-dev",
+    "name": "golang-pkg-go-dev",
+    "category": "programming-languages-core",
+    "repository": "samber-cc-skills-golang",
+    "description": "Golang package and module lookup via `godig`, a pkg.go.dev API client (CLI + MCP server). Use for any Go/Golang library's documentation, API signatures, symbols, usage examples, which versions exist, licenses, whether a dependency has CVEs, or who imports a package \u2014 prefer this over Context7 for any Go package or module. Read-only, no auth. Not for upgrading dependencies (\u2192 See `samber/cc-skills-golang@golang-dependency-management` skill), choosing a library (\u2192 See `samber/cc-skills-golang@golang-popular-libraries` skill), or local symbols and an already-used dependency's resolved source, call sites, and generic instantiations (\u2192 See `samber/cc-skills-golang@golang-gopls` skill).",
+    "path": "category/programming-languages-core/golang-pkg-go-dev"
+  },
+  {
+    "id": "golang-popular-libraries",
+    "name": "golang-popular-libraries",
+    "category": "programming-languages-core",
+    "repository": "samber-cc-skills-golang",
+    "description": "Golang library and framework selection \u2014 vetted production-ready options by category (web, database, testing, logging, messaging), new and experimental stdlib packages, standard-library-first tradeoffs, and maturity signals (maintenance, license, importer counts). Apply when the user asks for library suggestions, wants to compare alternatives, needs to choose a library for a specific task, or when a new dependency is being added to the project. Not for a specific library's API once chosen (\u2192 See that library's dedicated skill, e.g. `samber/cc-skills-golang@golang-samber-lo`), nor for go.mod mechanics, upgrades, or vulnerability audits (\u2192 See `samber/cc-skills-golang@golang-dependency-management` skill).",
+    "path": "category/programming-languages-core/golang-popular-libraries"
+  },
+  {
     "id": "golang-pro",
     "name": "golang-pro",
     "category": "programming-languages-core",
     "repository": "antigravity-awesome-skills",
     "description": "Master Go 1.21+ with modern patterns, advanced concurrency,",
     "path": "category/programming-languages-core/golang-pro"
+  },
+  {
+    "id": "golang-safety",
+    "name": "golang-safety",
+    "category": "programming-languages-core",
+    "repository": "samber-cc-skills-golang",
+    "description": "Defensive Golang coding against accidental bugs \u2014 nil panics, typed-nil interfaces, `append` backing-array aliasing, silent int64-to-int32 truncation, float `==` comparison, `defer` inside loops, defensive copies of slices and maps, and usable zero values. Use when a Go program panics on a nil map write or nil pointer dereference, when reviewing code for nil-safety, numeric conversion overflow, or resource lifecycle, or when designing a type whose zero value must be safe. Not for designing concurrent access with goroutines, channels, or sync primitives (\u2192 See `samber/cc-skills-golang@golang-concurrency` skill), not for exploitable vulnerabilities such as injection, weak crypto, or leaked secrets (\u2192 See `samber/cc-skills-golang@golang-security` skill), and not for debugging an already-failing program (\u2192 See `samber/cc-skills-golang@golang-troubleshooting` skill).",
+    "path": "category/programming-languages-core/golang-safety"
+  },
+  {
+    "id": "golang-structs-interfaces",
+    "name": "golang-structs-interfaces",
+    "category": "programming-languages-core",
+    "repository": "samber-cc-skills-golang",
+    "description": "Golang struct and interface design patterns \u2014 composition, embedding, type assertions, type switches, interface segregation, dependency injection via interfaces, struct field tags, and pointer vs value receivers. Use this skill when designing Go types, defining or implementing interfaces, embedding structs or interfaces, writing type assertions or type switches, adding struct field tags for JSON/YAML/DB serialization, or choosing between pointer and value receivers. Also use when the user asks about \"accept interfaces, return structs\", compile-time interface checks, or composing small interfaces into larger ones.",
+    "path": "category/programming-languages-core/golang-structs-interfaces"
+  },
+  {
+    "id": "golang-uber-dig",
+    "name": "golang-uber-dig",
+    "category": "programming-languages-core",
+    "repository": "samber-cc-skills-golang",
+    "description": "Implements dependency injection in Golang using uber-go/dig \u2014 reflection-based container, Provide/Invoke, dig.In/dig.Out parameter and result objects, named values, value groups, optional dependencies, scopes, and Decorate. Apply when using or adopting uber-go/dig, when the codebase imports `go.uber.org/dig`, or when wiring an application graph at startup. For higher-level lifecycle and modules, see `samber/cc-skills-golang@golang-uber-fx` skill.",
+    "path": "category/programming-languages-core/golang-uber-dig"
+  },
+  {
+    "id": "golang-uber-fx",
+    "name": "golang-uber-fx",
+    "category": "programming-languages-core",
+    "repository": "samber-cc-skills-golang",
+    "description": "Golang application framework using uber-go/fx \u2014 fx.New, fx.Provide, fx.Invoke, fx.Module, fx.Lifecycle hooks, fx.Annotate (name/group/As), fx.Decorate, fx.Supply, fx.Replace, fx.WithLogger, and signal-aware Run(). Apply when using or adopting uber-go/fx, when the codebase imports `go.uber.org/fx`, or when wiring services with fx.New. For raw DI without lifecycle, see `samber/cc-skills-golang@golang-uber-dig` skill.",
+    "path": "category/programming-languages-core/golang-uber-fx"
   },
   {
     "id": "google-chat-messages",
@@ -1400,6 +1552,14 @@
     "path": "category/programming-languages-core/gtars"
   },
   {
+    "id": "harness-writing",
+    "name": "harness-writing",
+    "category": "programming-languages-core",
+    "repository": "trailofbits-skills",
+    "description": "Designs and improves fuzzing harnesses for C/C++ and Rust. Covers mapping raw bytes onto a target API, generating structured inputs, avoiding non-determinism and false crashes, and deciding what to fuzz together. Use when writing a first LLVMFuzzerTestOneInput or fuzz_target! harness, when a campaign finds nothing or reports crashes that will not reproduce, or when the target API needs structured rather than raw input.",
+    "path": "category/programming-languages-core/harness-writing"
+  },
+  {
     "id": "hexagonal-architecture",
     "name": "hexagonal-architecture",
     "category": "programming-languages-core",
@@ -1430,6 +1590,30 @@
     "repository": "yaklang-hack-skills",
     "description": "HTTP Host header injection and routing abuse playbook. Use when the application trusts the Host header for generating URLs, routing requests, or access control \u2014 enabling password reset poisoning, web cache poisoning, SSRF via routing, and virtual host bypass.",
     "path": "category/programming-languages-core/http-host-header-attacks"
+  },
+  {
+    "id": "huawei-cloud-agentarts-otel-ingestion",
+    "name": "huawei-cloud-agentarts-otel-ingestion",
+    "category": "programming-languages-core",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "OpenTelemetry ingestion skill for Huawei Cloud AgentArts observability platform. Provides OTel telemetry data (trace/metrics/logs) ingestion into AgentArts agent-ops, AI Agent observation with gen_ai semantic conventions, auto-configuration for Java/Python/Node.js/Go applications, and ingestion diagnostics and verification. Covers APM deliverConfig forwarding (Path A) and OTLP direct connection (Path B). Triggers include: \"AgentArts OTel\", \"AgentArts observability\", \"AI agent tracing\", \"gen_ai telemetry\", \"AgentArts OTLP\", \"otel\u63a5\u5165AgentArts\", \"Agent\u89c2\u6d4b\u914d\u7f6e",
+    "path": "category/programming-languages-core/huawei-cloud-agentarts-otel-ingestion"
+  },
+  {
+    "id": "huawei-cloud-kunpeng-source-code-migrate",
+    "name": "huawei-cloud-kunpeng-source-code-migrate",
+    "category": "programming-languages-core",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Analyze the migrability of C/C++/ASM/Fortran/Go/Java/Python/Scala source code to Kunpeng (ARM64) platform using Huawei DevKit CLI tool. Connect to the source server via SSH, install DevKit, scan source code, and generate a migration assessment report. If the user does not have a remote server, this skill can automatically provision a Kunpeng ECS instance on Huawei Cloud (Guiyang Region 1) using hcloud CLI. Use this skill when the user wants to: (1) assess source code portability/migrability to Kunpeng ARM platform, (2) scan C/C++/ASM/Fortran/Go/Java/Python/Scala code for migration issues, (3) generate a Kunpeng migration report for their software project, (4) check source code compatibility with ARM64/Kunpeng architecture, (5) provision a Kunpeng server on Huawei Cloud for migration assessment. Trigger: user mentions \"\u9cb2\u9e4f\u79fb\u690d\", \"\u9cb2\u9e4f\u8fc1\u79fb\", \"Kunpeng migration\", \"Kunpeng porting\", \"\u6e90\u7801\u8fc1\u79fb\", \"\u6e90\u7801\u79fb\u690d\", \"ARM64\u8fc1\u79fb\", \"ARM\u79fb\u690d\u8bc4\u4f30\", \"DevKit\", \"\u53ef\u8fc1\u79fb\u6027\u5206\u6790\", \"migrability\", \"porting assessment\", \"migration report\", \"\u9cb2\u9e4f\u8bc4\u4f30\", \"\u8d2d\u4e70\u9cb2\u9e4f\u670d\u52a1\u5668\", \"\u9cb2\u9e4f\u4e91\u670d\u52a1\u5668\", \"Kunpeng ECS",
+    "path": "category/programming-languages-core/huawei-cloud-kunpeng-source-code-migrate"
+  },
+  {
+    "id": "huawei-cloud-openviking-agent-integration",
+    "name": "huawei-cloud-openviking-agent-integration",
+    "category": "programming-languages-core",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Integrate and unbind OpenViking long-term memory with coding agents. Supports 8 agents (CodeArts CLI, OpenCode, OpenClaw, Hermes, WorkSwarm, KimiCode, DeepSeek Harness, Prime Agent) via their native mechanism \u2014 MCP, HTTP memory provider, TypeScript extension hooks, or settings.json config. Both integration and unbinding require explicit user authorization. Use this skill when the user wants to: (1) integrate OpenViking memory into a coding agent, (2) unbind OpenViking from a coding agent, (3) check the integration status of all agents, (4) verify the OpenViking MCP endpoint, (5) rebuild the OpenClaw sandbox to apply template changes. Trigger words: \"OpenViking integration\", \"agent memory binding\", \"MCP setup\", \"OpenViking MCP\", \"integrate OpenViking\", \"unbind OpenViking\", \"\u8bb0\u5fc6\u96c6\u6210\", \"\u8bb0\u5fc6\u89e3\u7ed1\", \"OpenViking \u96c6\u6210\", \"OpenViking \u89e3\u7ed1\", \"agent long-term memory\", \"context database\".",
+    "path": "category/programming-languages-core/huawei-cloud-openviking-agent-integration"
   },
   {
     "id": "huggingface-local-models",
@@ -1640,6 +1824,22 @@
     "path": "category/programming-languages-core/jest-skill"
   },
   {
+    "id": "jetson-inference-mem-tune",
+    "name": "jetson-inference-mem-tune",
+    "category": "programming-languages-core",
+    "repository": "nvidia-skills",
+    "description": "Pick the serving stack and per-runtime memory flags (vLLM, SGLang, llama.cpp, TensorRT Edge-LLM) for an LLM/VLM workload on any NVIDIA Jetson.",
+    "path": "category/programming-languages-core/jetson-inference-mem-tune"
+  },
+  {
+    "id": "jetson-llm-benchmark",
+    "name": "jetson-llm-benchmark",
+    "category": "programming-languages-core",
+    "repository": "nvidia-skills",
+    "description": "Benchmark Jetson LLM/VLM serving performance across vLLM, llama.cpp, and Ollama with structured JSON output.",
+    "path": "category/programming-languages-core/jetson-llm-benchmark"
+  },
+  {
     "id": "jndi-injection",
     "name": "jndi-injection",
     "category": "programming-languages-core",
@@ -1710,6 +1910,14 @@
     "repository": "langchain-ai-langchain-skills",
     "description": "Scaffold a minimal local LangGraph agent in TypeScript by following the official quickstart. Use when the user wants to quickly build or try a LangGraph agent locally.",
     "path": "category/programming-languages-core/langgraph-typescript-quickstart"
+  },
+  {
+    "id": "launchdarkly-flag-qualitative-feedback-setup",
+    "name": "launchdarkly-flag-qualitative-feedback-setup",
+    "category": "programming-languages-core",
+    "repository": "launchdarkly-ai-tooling",
+    "description": "Integrate LaunchDarkly qualitative user feedback into a JavaScript/TypeScript codebase. Guides framework and design system detection, builds the sendFeedback utility and feedback widget matching existing project patterns. Use when the user wants to add a Give Feedback widget, collect user sentiment tied to feature flags, set up feedback collection, or wire up the $ld:feedback tracking event.",
+    "path": "category/programming-languages-core/launchdarkly-flag-qualitative-feedback-setup"
   },
   {
     "id": "levels",
@@ -1800,6 +2008,14 @@
     "path": "category/programming-languages-core/masterhttprelayvpn-rust"
   },
   {
+    "id": "materials",
+    "name": "materials",
+    "category": "programming-languages-core",
+    "repository": "arjun988-blender-skills",
+    "description": "Blender PBR and stylized material creation for metal, wood, concrete, fabric, glass, dirt, rust, and procedural shaders. Use for look development, material reuse, and production shading in Blender via MCP.",
+    "path": "category/programming-languages-core/materials"
+  },
+  {
     "id": "mcp-builder",
     "name": "mcp-builder",
     "category": "programming-languages-core",
@@ -1880,6 +2096,14 @@
     "path": "category/programming-languages-core/migrate-to-shoehorn"
   },
   {
+    "id": "modern-cpp",
+    "name": "modern-cpp",
+    "category": "programming-languages-core",
+    "repository": "trailofbits-skills",
+    "description": "Guides C++ code toward modern idioms (C++20/23/26). Use when writing new C++ code, modernizing legacy patterns, or working on security-critical C++. Replaces raw pointers with smart pointers, SFINAE with concepts, printf with std::print, error codes with std::expected.",
+    "path": "category/programming-languages-core/modern-cpp"
+  },
+  {
     "id": "mongodb-development",
     "name": "mongodb-development",
     "category": "programming-languages-core",
@@ -1950,6 +2174,14 @@
     "repository": "internet-court-internet-court-skill",
     "description": "NEAR Protocol smart contract development in Rust. Use when writing, reviewing, or deploying NEAR smart contracts. Covers contract structure, state management, cross-contract calls, testing, security, and optimization patterns. Based on near-sdk v5.x with modern macro syntax.",
     "path": "category/programming-languages-core/near-smart-contracts"
+  },
+  {
+    "id": "nemo-relay-migrate-from-flow",
+    "name": "nemo-relay-migrate-from-flow",
+    "category": "programming-languages-core",
+    "repository": "nvidia-skills",
+    "description": "Use this skill when migrating applications, examples, integrations, documentation, manifests, or repository code from NeMo Flow to NeMo Relay across Python, Rust, Node.js, Go, C FFI, CLI, configuration, and observability surfaces.",
+    "path": "category/programming-languages-core/nemo-relay-migrate-from-flow"
   },
   {
     "id": "nextjs-typescript-tailwindcss-supabase",
@@ -2294,6 +2526,14 @@
     "repository": "mukul975-anthropic-cybersecurity-skills",
     "description": "Reverse engineers Rust-compiled malware using IDA Pro and Ghidra, covering",
     "path": "category/programming-languages-core/reverse-engineering-rust-malware"
+  },
+  {
+    "id": "rhwp-advanced",
+    "name": "rhwp-advanced",
+    "category": "programming-languages-core",
+    "repository": "nomadamas-k-skill",
+    "description": "Debug HWP layout, dump document IR, compare versions, extract thumbnails, and unlock read-only HWPs with the upstream rhwp Rust CLI (export-svg/dump/dump-pages/ir-diff/thumbnail/convert).",
+    "path": "category/programming-languages-core/rhwp-advanced"
   },
   {
     "id": "ros2-robotics",

@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Recommends a weekday slot and rejects the proposed Saturday-Sunday for this working-professional audience",
+        "evidence": "\"don't lock 'second weekend of May, Saturday\u2013Sunday' yet\"; \"Recommendation: run Tuesday\u2013Wednesday.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Justifies the weekday choice by whose time attendance spends: work topics belong to work life, and a weekend slot competes with family time rather than with the office",
+        "evidence": "\"a weekend competes with family, not with the office\"; quotes guide on weekends for family.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Attributes the weekday rule for professional audiences to the DevOpsDays organizing guide",
+        "evidence": "\"the DevOpsDays organizing guide recommends weekdays for this audience\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not offer a Friday-based or Friday-plus-Saturday compromise slot",
+        "evidence": "\"Do not compromise on Friday. A Friday-plus-Saturday split takes the worst half of each rule.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Promotes the multi-geography observance pass because attendees travel from three countries",
+        "evidence": "\"Multi-geography observance pass: required ... three countries ... this rung is promoted.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not assert any specific Dutch, German, or Polish holiday date from memory as verified; requires each country's official calendar for the specific year, or the user's own input",
+        "evidence": "\"I couldn't verify any of them, and the skill forbids filling them in from memory.\" Only May 1 weekday arithmetic given.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports every calendar category as either checked with a source or explicitly outstanding, with none silently assumed clear",
+        "evidence": "Table marks quarter-end and school holidays \"Outstanding\"; observance items outstanding; competing scan \"None of the scan has been done.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the May window as a hypothesis to test against the event's own prior edition, not as a seasonal fact",
+        "evidence": "\"May is a hypothesis, not a fact\"; \"compare the registration curve and announcement date from last year\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Produces three to five candidate windows to carry into the venue conversation instead of fixing the single second-weekend-of-May date",
+        "evidence": "\"Carry three to five, not one\"; lists four May Tue\u2013Wed pairs plus an off-season option.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats date and venue as one joint decision, letting venue availability rank the surviving windows",
+        "evidence": "\"Ask each venue for its quiet periods... Run any venue counter-offer back through the same checks\"; \"Get Options: venue availability varies\"; though says present as not ranked.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to schedule the announcement until a working way to handle money (ticketing, payment processing, or an entity that can receive it) is confirmed",
+        "evidence": "\"you cannot announce a date until you know you have a way to handle money... decide the date internally and publish nothing.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Extends the competing-event scan to adjacent topics and different organizers rather than only same-brand platform-engineering events",
+        "evidence": "\"Widen to adjacent topics and different organizers.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes employer quarter-end and the school holidays of attendees' children among the professional audience's calendar checks",
+        "evidence": "Table: \"Employer quarter-end\" and \"School holidays in NL, DE and PL\" outstanding.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Recommends a weekday slot and rejects the proposed Saturday-Sunday for this working-professional audience",
+        "evidence": "\"Lock **Saturday 22 \u2013 Sunday 23 May 2027**\"; it only says \"I'm not convinced yet\" about weekends.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Justifies the weekday choice by whose time attendance spends: work topics belong to work life, and a weekend slot competes with family time rather than with the office",
+        "evidence": "It notes employers pay and count conferences as work time, but it recommends a weekend and never raises family time.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Attributes the weekday rule for professional audiences to the DevOpsDays organizing guide",
+        "evidence": "DevOpsDays appears only as a competing event to check.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not offer a Friday-based or Friday-plus-Saturday compromise slot",
+        "evidence": "No Friday or Friday+Saturday slot is offered.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Promotes the multi-geography observance pass because attendees travel from three countries",
+        "evidence": "It checks NL, DE and PL holidays: \"Ascension Day... NL, DE\", \"Poland: Ascension isn't a Polish holiday\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not assert any specific Dutch, German, or Polish holiday date from memory as verified; requires each country's official calendar for the specific year, or the user's own input",
+        "evidence": "\"I haven't checked them against an official holiday list. Confirm them before you sign anything.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports every calendar category as either checked with a source or explicitly outstanding, with none silently assumed clear",
+        "evidence": "\"the clash checks below are still open\"; it lists the checks to run and flags holidays as unverified.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the May window as a hypothesis to test against the event's own prior edition, not as a seasonal fact",
+        "evidence": "It takes May as given and only asks about last year's buyer data to judge weekend vs weekday.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces three to five candidate windows to carry into the venue conversation instead of fixing the single second-weekend-of-May date",
+        "evidence": "It tables five weekends but recommends only May 22\u201323, with May 8\u20139 as fallback.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats date and venue as one joint decision, letting venue availability rank the surviving windows",
+        "evidence": "\"Get a venue hold for May 22\u201323\" is sequential; venue availability does not rank windows.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to schedule the announcement until a working way to handle money (ticketing, payment processing, or an entity that can receive it) is confirmed",
+        "evidence": "It suggests announcing next week as a save-the-date; money handling is not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Extends the competing-event scan to adjacent topics and different organizers rather than only same-brand platform-engineering events",
+        "evidence": "The scan lists DevOpsDays, KubeCon and platform/SRE conferences, which are same-topic, plus Eurovision.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes employer quarter-end and the school holidays of attendees' children among the professional audience's calendar checks",
+        "evidence": "Neither is mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

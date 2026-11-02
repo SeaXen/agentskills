@@ -1,0 +1,190 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Declines to use the \"35-45% average attendance\" figure as a benchmark and states it traces to no study",
+        "evidence": "\"Refused: 'industry average 35-45%'. Its citation chain never resolves to a study.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines the \"3+ reminders lift attendance 20%\" claim as having no source",
+        "evidence": "\"Refused: '3+ reminders lift attendance 20%'. It has no source.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not adopt ON24's 60% as the series' target, saying it reflects large hosts with their own lists",
+        "evidence": "\"ON24's 60% is the wrong comparator. It fits large hosts mailing their own list.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Computes live attendance as live attendees divided by registrants for each episode, landing at about 21-22%",
+        "evidence": "Table: 21.5%, 22.4%, 21.4%, pooled 21.8%",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Computes total reach as live attendees plus on-demand viewing within 30 days across both the platform and YouTube",
+        "evidence": "Total reach row 498-598 etc., built from live plus ~90 platform plus 350-450 YouTube",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the YouTube counts an upper bound because they are views, not unique viewers",
+        "evidence": "\"Total reach (upper bound, views not unique viewers)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Compares the three episodes against the series' own earlier episodes before any vendor figure",
+        "evidence": "Benchmarks list opens with \"Your own baseline is flat\" before the matched band",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places the series in the small-host, mostly paid or partner registrants band of 20-35%",
+        "evidence": "\"The matched band is 20-35%... small host, and 75% of registrants come from paid LinkedIn or a partner list\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites at least one population-matched source with its figure, such as Demio's 22% or 28% or BrightTALK's 34%",
+        "evidence": "\"Demio shows 22% for hosts under $1M and 28% for software hosts. BrightTALK shows 34%.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Splits registrants by source and computes or requests attendance per source",
+        "evidence": "\"export registrants... Compute live \u00f7 registered per source\"; illustration of own list vs paid/partner",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reads the pattern as healthy registration, low live attendance and healthy replay reach, meaning the audience prefers on demand",
+        "evidence": "\"Pattern read: healthy registration, low live attendance, healthy replay reach.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the first fix as investing in the replay and giving live a reason, not adding reminder emails",
+        "evidence": "\"Invest in the replay and give live a reason that more emails cannot.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes reminder copy and timing to samber/dev-event-organizer-skills@event-attendee-email-sequences",
+        "evidence": "No reference to that sibling skill; reminders only handled as a test.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Checks whether the slot sits inside registrants' working day and the gap between registration and session",
+        "evidence": "Slot check is present (\"Check it sits in the working day\") but the registration-to-session gap is not checked.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places the diagnosis before the charter in the deliverable order",
+        "evidence": "Section 1 Diagnosis, Section 2 Charter",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Declines to use the \"35-45% average attendance\" figure as a benchmark and states it traces to no study",
+        "evidence": "Says 'I can't verify the 35-45%' but the VP script still cites 'a benchmark of 35-45%, and that gap is real'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines the \"3+ reminders lift attendance 20%\" claim as having no source",
+        "evidence": "Reinterprets it as 20% relative and says 'ship them'; never says it has no source.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not adopt ON24's 60% as the series' target, saying it reflects large hosts with their own lists",
+        "evidence": "'Vendor benchmarks usually describe owned, opted-in lists.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Computes live attendance as live attendees divided by registrants for each episode, landing at about 21-22%",
+        "evidence": "'Live rate: 21.5%, 22.4%, 21.4%. Pooled: 184 of 845, or 21.8%.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Computes total reach as live attendees plus on-demand viewing within 30 days across both the platform and YouTube",
+        "evidence": "Gives 'roughly 550 views against 282 registrants' but says 'don't sum them as people'; no total reach figure.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels the YouTube counts an upper bound because they are views, not unique viewers",
+        "evidence": "Says views overlap with live attendees; never calls the counts an upper bound.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Compares the three episodes against the series' own earlier episodes before any vendor figure",
+        "evidence": "Only compares across the 3 episodes given; no earlier-episode baseline.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places the series in the small-host, mostly paid or partner registrants band of 20-35%",
+        "evidence": "No band is named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites at least one population-matched source with its figure, such as Demio's 22% or 28% or BrightTALK's 34%",
+        "evidence": "No Demio or BrightTALK figure.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Splits registrants by source and computes or requests attendance per source",
+        "evidence": "'export per-source attendance'; 'paid LinkedIn (40%) and a partner newsletter (35%)'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reads the pattern as healthy registration, low live attendance and healthy replay reach, meaning the audience prefers on demand",
+        "evidence": "'The recording is your real audience'; 'evergreen demand your live format does not capture'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the first fix as investing in the replay and giving live a reason, not adding reminder emails",
+        "evidence": "Change 1 is 'Reminders and registration'; replay is item 4.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes reminder copy and timing to samber/dev-event-organizer-skills@event-attendee-email-sequences",
+        "evidence": "No sibling skill reference.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Checks whether the slot sits inside registrants' working day and the gap between registration and session",
+        "evidence": "Neither is discussed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places the diagnosis before the charter in the deliverable order",
+        "evidence": "Diagnosis precedes a plan, but there is no charter.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

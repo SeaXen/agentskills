@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Routes the immediate task to `samber/developer-relations-skills@devrel-analytics`",
+        "evidence": "\"**`samber/developer-relations-skills@devrel-analytics`** \u2014 not `devrel-metrics`.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not route the immediate task to `samber/developer-relations-skills@devrel-metrics`",
+        "evidence": "\"not `devrel-metrics`\" stated explicitly as the route",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the symptom - numbers disagreeing between tools - as an instrumentation problem rather than a framework problem",
+        "evidence": "\"None of that is a framework question. It's a missing **identity spine** ... and a missing **event taxonomy**\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the identity spine and event taxonomy as what the routed skill supplies",
+        "evidence": "\"Supplying both is exactly what `devrel-analytics` does.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places `samber/developer-relations-skills@devrel-metrics` later rather than dropping it from the output",
+        "evidence": "\"2. **`devrel-metrics`** \u2014 next, not now.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "If a chain is offered, states what each link hands to the next",
+        "evidence": "\"`devrel-analytics` hands `devrel-metrics` one identity-resolved event stream...\" and \"`devrel-metrics` hands `devrel-budget-allocation` the KPI...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not route to `samber/developer-relations-skills@developer-community-health`",
+        "evidence": "\"Not routed to `developer-community-health` (no community surface in play)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not route to `samber/developer-relations-skills@devrel-competitor-analysis`",
+        "evidence": "\"or `devrel-competitor-analysis` (this looks inward, not at a competitor)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes \"leadership isn't convinced\" from \"our numbers disagree between tools\" and says which one this is",
+        "evidence": "\"'Our numbers disagree between tools' routes to devrel-analytics. 'Leadership isn't convinced' routes to devrel-metrics. Your CEO's reaction sounds like the second, but the evidence you gave is the first\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not attempt to reconcile the 4,100 / 190 / 96 figures itself or invent an attribution number",
+        "evidence": "\"I'm not attempting to reconcile 4,100 / 190 / 96 myself, and not proposing an attribution rule here\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes or updates `devrel-context.md` with a session-log line recording the measurement blind spot",
+        "evidence": "Session log: \"2026-09-19 - ... \u2192 diagnosed as a missing identity spine (CRM subset exceeds product-DB total)...\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Routes the immediate task to `samber/developer-relations-skills@devrel-analytics`",
+        "evidence": "No skill name appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not route the immediate task to `samber/developer-relations-skills@devrel-metrics`",
+        "evidence": "devrel-metrics is never named.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the symptom - numbers disagreeing between tools - as an instrumentation problem rather than a framework problem",
+        "evidence": "\"That's not measurement noise \u2014 that's a broken pipe\" and \"Fix the direction of data flow, not just this month's number.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the identity spine and event taxonomy as what the routed skill supplies",
+        "evidence": "No skill is ever routed to, so nothing is attributed as its supply.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places `samber/developer-relations-skills@devrel-metrics` later rather than dropping it from the output",
+        "evidence": "devrel-metrics never appears anywhere in the output.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "If a chain is offered, states what each link hands to the next",
+        "evidence": "No chain of skills is offered at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not route to `samber/developer-relations-skills@developer-community-health`",
+        "evidence": "developer-community-health is never named.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not route to `samber/developer-relations-skills@devrel-competitor-analysis`",
+        "evidence": "devrel-competitor-analysis is never named.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes \"leadership isn't convinced\" from \"our numbers disagree between tools\" and says which one this is",
+        "evidence": "\"The problem isn't that your three tools disagree by a little. It's that one of them is reporting something mathematically impossible\" \u2014 reframes from a trust framing to a data-integrity framing.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not attempt to reconcile the 4,100 / 190 / 96 figures itself or invent an attribution number",
+        "evidence": "\"a ~2.3% read-to-signup rate is plausible for a docs quickstart\" \u2014 computes a derived reconciling figure from 4,100 and 96.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes or updates `devrel-context.md` with a session-log line recording the measurement blind spot",
+        "evidence": "No file-write action is shown.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

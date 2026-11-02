@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Re-ranks the default order against this company's own situation instead of presenting a generic ordering",
+        "evidence": "\"## Re-ranked for Ferrolane specifically / Default efficiency order puts dual licensing 3rd. Your context promotes it to 1st\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Promotes dual licensing toward the top and names AGPL-3.0 plus full copyright ownership under a signed CLA as the reason",
+        "evidence": "\"Licence already shipped: AGPL-3.0, every contributor CLA'd since day one, Ferrolane owns copyright outright. This is the rarest prerequisite on the whole archetype page\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Promotes hosted models because the team already operates a service, so the expensive function is already paid for",
+        "evidence": "\"Already operating a hosted instance + ex-SRE bench promotes hosted open source above where the default order puts it\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes consumption metering and names the absence of billing engineering as the cause",
+        "evidence": "\"Consumption metering | Blocked | 'Nobody who could build metering and billing this year' \u2014 explicit deletion, no exceptions.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes support and LTS and names the absence of a support rota as the cause",
+        "evidence": "\"Support & LTS | Blocked | No support rota, none planned this year \u2014 explicit deletion.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes embedded OEM licensing because it cannot produce revenue inside a twelve-week window",
+        "evidence": "\"Embedded/OEM licensing | Blocked (for now) | Deal cycles run longer than 12 weeks; also needs a BD function you don't have.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes the ecosystem take-rate because it cannot produce revenue inside a twelve-week window",
+        "evidence": "\"Ecosystem take-rate | Blocked | No two-sided liquidity, not close to existing.\" \u2014 reason given is structural liquidity absence, not the 12-week window.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes ruled-out options outright rather than parking them lower in the ranking",
+        "evidence": "Explicit \"Blocked\" verdicts for consumption metering, support/LTS, source-available, ecosystem take-rate",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States which answer moved which option, instead of presenting the re-ranked order without its reasons",
+        "evidence": "\"No billing engineering this year deletes consumption metering outright, which would otherwise sit #1 on raw efficiency.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that the ordering is a default rather than a law",
+        "evidence": "\"Default efficiency order puts dual licensing 3rd\" \u2014 repeated framing of \"default\" as something overridden by context",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names a commercial-licence enquiry page with counted inbound as the cheap validation test for dual licensing",
+        "evidence": "\"Validation experiment: add a commercial-licence enquiry page now... Pass condition: an inbound enquiry from an organization that genuinely cannot comply with AGPL, converting to a signed contract inside the 12 weeks.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Re-ranks the default order against this company's own situation instead of presenting a generic ordering",
+        "evidence": "The ranking is explicitly tied to Ferrolane specifics: '3-of-4 ex-SRE means the ops side is proven', 'your two design partners are the most likely buyers', '12-week window'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Promotes dual licensing toward the top and names AGPL-3.0 plus full copyright ownership under a signed CLA as the reason",
+        "evidence": "'1. Dual licensing (commercial license off the AGPL) \u2014 top pick. Full copyright ownership via CLA is the whole ballgame here... AGPL's network-copyleft clause.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Promotes hosted models because the team already operates a service, so the expensive function is already paid for",
+        "evidence": "'2. Managed hosting, flat-fee, manually invoiced \u2014 second. You already run this for two design partners, and 3-of-4 ex-SRE means the ops side is proven, not a risk.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes consumption metering and names the absence of billing engineering as the cause",
+        "evidence": "Metering is only mentioned in passing as a reason flat invoicing was chosen ('no metering or self-serve billing pipeline needed'), not presented as its own ranked/rejected archetype with explicit reasoning.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes support and LTS and names the absence of a support rota as the cause",
+        "evidence": "Support is kept as a 'bolt-on' best-effort add-on rather than deleted: 'Sell business-hours, best-effort support as an add-on line item to #1/#2, explicitly not SLA-backed.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes embedded OEM licensing because it cannot produce revenue inside a twelve-week window",
+        "evidence": "Embedded OEM licensing is never mentioned anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes the ecosystem take-rate because it cannot produce revenue inside a twelve-week window",
+        "evidence": "Ecosystem take-rate is never mentioned anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes ruled-out options outright rather than parking them lower in the ranking",
+        "evidence": "Open-core is 'ranked last' and deferred ('Right model for next year') rather than deleted outright; no candidate is explicitly removed from consideration.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States which answer moved which option, instead of presenting the re-ranked order without its reasons",
+        "evidence": "'Ranked last because it needs the one thing you don't have: someone to design, build, and package proprietary features' \u2014 explicit reasoning tied to each rank.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that the ordering is a default rather than a law",
+        "evidence": "No statement frames this ranking as a mutable default rather than a fixed rule; only a time-based caveat is given for open-core ('Right model for next year').",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names a commercial-licence enquiry page with counted inbound as the cheap validation test for dual licensing",
+        "evidence": "No validation test of any kind is proposed for dual licensing.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

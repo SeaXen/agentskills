@@ -4,7 +4,7 @@ description: Designs an unpaid, perks-only developer champions or ambassador pro
 license: MIT
 metadata:
   author: Samuel Berthe
-  version: "1.0.1"
+  version: "1.0.2"
 ---
 
 # Developer Champions
@@ -272,7 +272,7 @@ Never hand back a perk list with no term, exit or bar attached - that is the fai
 ## Variants by audience
 
 - **B2B / enterprise products**: champions are usually employees at customer companies, so employer approval, gift limits and confidentiality bite hardest here. Perks that advance their internal standing (certification, conference travel, speaking slots, a named reference) outperform consumer-style rewards. Keep the vocabulary straight: this is a public community advocate, not the internal buyer-side champion of a sales cycle.
-- **Individual-adoption products** (hobbyists, students, indie developers): the pool is larger and more transient, budgets are personal, and travel funding or credits carry real weight. Expect higher churn, run shorter terms, and lean on regional and language coverage - a champion in a market you do not staff is the highest-leverage member you can have.
+- **Individual-adoption products** (hobbyists, students, indie developers): the pool is larger and more transient, budgets are personal, and travel funding or credits carry real weight. Expect higher churn, run shorter terms, and lean on regional and language coverage - a champion in a market you do not staff is the highest-leverage member you can have. Champions who are students add graduation turnover, age and visa rules: design those with samber/developer-relations-skills@student-developer-programs.
 - **Open-source projects without a vendor budget**: the currency is standing and responsibility, not swag. Recognition ladders into review rights and maintainership - design the champion tier to connect with the contributor ladder rather than sitting beside it, and keep the emeritus exit that ladder already defines. See samber/developer-relations-skills@oss-contributor-onboarding and samber/developer-relations-skills@oss-governance.
 
 ## Failure modes

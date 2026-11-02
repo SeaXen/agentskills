@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The response identifies Gmail clipping messages over about 102KB as the cause.",
+        "evidence": "'Gmail cuts any message whose HTML is over 102KB. It shows \"[Message clipped]\"'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response explains that per-token syntax highlighting adds a span with inline styles per token and inflates HTML size.",
+        "evidence": "'Prism puts every token in its own `<span>`. 14 samples means thousands of spans.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response notes that inlining CSS repeats styles on every element and adds to the size.",
+        "evidence": "'juice then copies the inline style onto every one of those spans, so the markup grows several times over.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response points out that the clipped part holds the footer and body unsubscribe link, hidden behind a 'View entire message' click.",
+        "evidence": "'The cut removes... the last 3 sections, the footer and the unsubscribe link.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response recommends measuring the exported HTML size before sending.",
+        "evidence": "'export the HTML your ESP actually sends... run `wc -c`'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response recommends a target below the limit with margin (about 90KB or similar).",
+        "evidence": "'Fail the build if the juice output is over 90,000 bytes.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response recommends plain, unhighlighted live-text blocks for short snippets.",
+        "evidence": "'Live text, no `<span>`s' and the plain `<pre>` block pattern.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response recommends replacing long samples with a short excerpt plus a link to the full code.",
+        "evidence": "'an excerpt of 5 lines or fewer, plus a link to the full file, gist or playground'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response does not recommend converting code to images as the fix.",
+        "evidence": "No image recommendation appears.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response recommends a test send to a Gmail inbox before the next issue goes out.",
+        "evidence": "'Send it from the ESP to a Gmail account. Confirm there is no \"Message clipped\" link'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The response identifies Gmail clipping messages over about 102KB as the cause.",
+        "evidence": "'Gmail clips any message whose HTML source is larger than about 102 KB.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response explains that per-token syntax highlighting adds a span with inline styles per token and inflates HTML size.",
+        "evidence": "'Prism wraps every token in its own <span class=\"token ...\">... Juice then copies the matching CSS declarations onto every one of them'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response notes that inlining CSS repeats styles on every element and adds to the size.",
+        "evidence": "'each span carries a lot of repeated text'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response points out that the clipped part holds the footer and body unsubscribe link, hidden behind a 'View entire message' click.",
+        "evidence": "'shows \"[Message clipped] View entire message.\" Everything past the cut disappears, including the footer and unsubscribe link'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response recommends measuring the exported HTML size before sending.",
+        "evidence": "'Add a size check to the build script... Fail the build if the final HTML exceeds about 80 KB'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response recommends a target below the limit with margin (about 90KB or similar).",
+        "evidence": "'about 80 KB... leaves headroom for the ESP's link rewriting'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response recommends plain, unhighlighted live-text blocks for short snippets.",
+        "evidence": "'Or skip highlighting in the email and keep it on the web version', plus a minimal theme.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response recommends replacing long samples with a short excerpt plus a link to the full code.",
+        "evidence": "'consider keeping 3\u20135 inline and linking to the web issue for the rest.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response does not recommend converting code to images as the fix.",
+        "evidence": "No image conversion is suggested.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response recommends a test send to a Gmail inbox before the next issue goes out.",
+        "evidence": "'Send the final issue to a Gmail account and confirm there is no clipped banner'.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

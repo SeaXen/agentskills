@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Computes shift-slots per post as people needed simultaneously x hours covered / shift length",
+        "evidence": "The table shows per-post slots, and the registration tail is worked out: \"4 slots, not 3.33\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the registration desk as two segments (4 people 08:00-11:00, then 2 people 11:00-16:00) rather than one flat headcount block",
+        "evidence": "\"Registration, peak | 4 | 08:00\u201311:00\" and \"Registration, tail | 2 | 11:00\u201316:00\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats room leads as per-room multiplied by the number of rooms running simultaneously, so three tracks means three people standing in rooms at every programme hour",
+        "evidence": "\"There is one lead per track room all day\"; Room leads 3 people, 9 slots.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Handles the 09:00-09:45 plenary keynote as a single room needing its own cover rather than three simultaneous room leads",
+        "evidence": "\"During the 09:00\u201309:45 keynote the three first-block leads staff the big room as lead, door and ushers.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Counts teardown as a post with its own shift-slots (6 people x 2 hours / 2-hour shift)",
+        "evidence": "\"Teardown | 6 | 18:00\u201320:00 | 1 | 6\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names setup and buildup work on the days around the event as posts in their own right, not only the teardown the user listed",
+        "evidence": "There is no setup or buildup post, only teardown.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds a floater reserve on top of the summed shift-slots",
+        "evidence": "\"Floaters are a real post, not slack\"; the table gives 6 slots.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sums the shift-slots and then divides by the number of shifts one volunteer will take",
+        "evidence": "\"Volunteers needed = 35 slots \u00f7 shifts per volunteer.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the shifts-per-volunteer divisor must come from the sign-up form's own answers, using two-to-three only as a planning anchor before sign-ups exist",
+        "evidence": "\"I used 2 because the sign-up form doesn't exist yet... Then sum the real answers.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Presents the resulting roster at both ends of the divisor rather than as a single confident number",
+        "evidence": "The table lists 35, 24, 18 and 12 volunteers.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends recruiting against the pessimistic end and releasing people, rather than recruiting against the optimistic end and cutting posts",
+        "evidence": "\"Recruit toward the pessimistic end and release people, rather than cutting posts.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The 500 attendee figure never appears in any calculation",
+        "evidence": "\"The 500 attendees don't enter the arithmetic.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Computes shift-slots per post as people needed simultaneously x hours covered / shift length",
+        "evidence": "Table: Registration 08:00-11:00, 4 people, 4 slots; Info point 9 hours splits into 3 shifts of 2 people.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the registration desk as two segments (4 people 08:00-11:00, then 2 people 11:00-16:00) rather than one flat headcount block",
+        "evidence": "4 people 08:00-11:00, then 2 people 11:00-14:00 and 14:00-16:00.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats room leads as per-room multiplied by the number of rooms running simultaneously, so three tracks means three people standing in rooms at every programme hour",
+        "evidence": "Room monitors are excluded and offered only as an optional 'Not included' add-on of 9 slots.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Handles the 09:00-09:45 plenary keynote as a single room needing its own cover rather than three simultaneous room leads",
+        "evidence": "The 09:00-09:45 plenary is not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Counts teardown as a post with its own shift-slots (6 people x 2 hours / 2-hour shift)",
+        "evidence": "'Teardown | 18:00-20:00 (short, 2 h) | 6 | 6'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names setup and buildup work on the days around the event as posts in their own right, not only the teardown the user listed",
+        "evidence": "Only teardown is counted. No setup or buildup posts appear.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds a floater reserve on top of the summed shift-slots",
+        "evidence": "Floaters appear only as a conditional 'add 1-2 floaters for that hour', not as a reserve on the summed slots.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sums the shift-slots and then divides by the number of shifts one volunteer will take",
+        "evidence": "It uses a 20-person base plus a 15-20% buffer. The two-shift case only 'cuts the base toward 17-18' and is rejected.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the shifts-per-volunteer divisor must come from the sign-up form's own answers, using two-to-three only as a planning anchor before sign-ups exist",
+        "evidence": "No mention of the sign-up form or a 2-3 shifts anchor.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Presents the resulting roster at both ends of the divisor rather than as a single confident number",
+        "evidence": "It gives a single confident answer, 'recruit 24 volunteers', with the 17-18 case only as an aside.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends recruiting against the pessimistic end and releasing people, rather than recruiting against the optimistic end and cutting posts",
+        "evidence": "The release-people logic is not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The 500 attendee figure never appears in any calculation",
+        "evidence": "'About 500 attendees over 4 registration desk staff gives roughly 125 check-ins per person.'",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Says plainly that the stated constraints eliminate every archetype, instead of forcing one to fit",
+        "evidence": "\"Direct answer: none of the nine archetypes. Don't run a business model on Glintpad \u2014 it isn't a business yet, and forcing one onto it would cost you the thing that's actually working.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that this means either one of the constraints is wrong or the product is not a business yet",
+        "evidence": "\"'A constraint that eliminates every archetype means one of the constraints is wrong or the product is not a business yet. Say so rather than forcing a fit.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Eliminates hosted SaaS and hosted open source because nothing runs on the vendor's infrastructure and there is no operational burden to sell",
+        "evidence": "\"Hosted open source | Same deployment constraint, and it fails on its own prerequisite anyway: a stateless single-binary CLI has no operational burden worth paying someone else to carry.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Eliminates dual licensing because the permissive MIT licence provides no forcing function",
+        "evidence": "\"Dual licensing | MIT is already published \u2014 permissive licences make this model impossible by the framework's own rule\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Eliminates source-available because the licence change is refused and no reseller threat exists",
+        "evidence": "\"Explicitly off the table (public promise never to relicense), and its own prerequisite is also absent: nothing here runs as a service, so there's no hyperscaler-absorption threat\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Eliminates consumption metering because nothing is meterable",
+        "evidence": "\"Nothing meterable, by your own statement, and structurally impossible anyway \u2014 a tool that never touches the network has no channel to observe usage through.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Eliminates the ecosystem take-rate because no third-party ecosystem exists",
+        "evidence": "\"Ecosystem take-rate | No plugin ecosystem, no second side to the market.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Eliminates open core, support and LTS, and OEM licensing because no organization is present to sign anything",
+        "evidence": "\"Open core | No organizational buyer exists to cross a boundary \u2014 three years, zero company contact.\" / \"Support, LTS and certified builds | No sales capacity... and no organizational buyer to sell to.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names which specific constraint would have to change for any model to become available",
+        "evidence": "\"A company contacts you unprompted about Glintpad (the one signal that's been silent for three years). That's the trigger for open core or support\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not invent a revenue model or recommend a hopeful one in spite of the eliminations",
+        "evidence": "\"None of these are 'the model.' They're the honest answer to 'is there any money at all,' which is: only donations, and only if you want to ask.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Says plainly that the stated constraints eliminate every archetype, instead of forcing one to fit",
+        "evidence": "'Nothing survives that filter because your constraints aren't obstacles to route around \u2014 they're the product's actual shape.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that this means either one of the constraints is wrong or the product is not a business yet",
+        "evidence": "The transcript concludes it 'is structurally a gift, not a business' but never poses the alternative that one of the stated constraints might itself be wrong.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Eliminates hosted SaaS and hosted open source because nothing runs on the vendor's infrastructure and there is no operational burden to sell",
+        "evidence": "'Hosted/SaaS tier \u2014 needs a server and network calls. You promised offline-only.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Eliminates dual licensing because the permissive MIT licence provides no forcing function",
+        "evidence": "'Dual licensing \u2014 sells companies an exception to copyleft obligations. MIT has no copyleft to buy out of, and no company has ever asked anyway.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Eliminates source-available because the licence change is refused and no reseller threat exists",
+        "evidence": "The relicensing option is eliminated solely on the grounds that 'You promised never to change the license' \u2014 no mention of an absent reseller threat as a second reason.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Eliminates consumption metering because nothing is meterable",
+        "evidence": "'Usage-based pricing \u2014 needs telemetry to meter. You touch no network, so you can't see usage even if you wanted to charge for it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Eliminates the ecosystem take-rate because no third-party ecosystem exists",
+        "evidence": "'Plugin marketplace / extension revenue share \u2014 no plugin ecosystem exists.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Eliminates open core, support and LTS, and OEM licensing because no organization is present to sign anything",
+        "evidence": "Support/consulting is eliminated for lacking 'sales capacity and inbound demand', open core for the license promise, and OEM licensing is not addressed at all \u2014 none cite the absence of an organization to sign as the reason.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names which specific constraint would have to change for any model to become available",
+        "evidence": "'Don't invent scope to create a monetizable surface \u2014 e.g. bolting on optional cloud sync to have something to meter' \u2014 identifies relaxing the offline/no-network constraint as what would open a model.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not invent a revenue model or recommend a hopeful one in spite of the eliminations",
+        "evidence": "'Treat any money from it as a bonus, not a plan' \u2014 sticks to a tip jar and grants as minor, non-strategic options.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

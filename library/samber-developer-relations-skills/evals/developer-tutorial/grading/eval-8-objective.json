@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects all four proposed changes as applied to the tutorial's main path.",
+        "evidence": "\"1... kill it.\" \"2... kill it.\" \"3... kill it, no rework possible.\" \"4... kill as written, fixable.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the main path (environment, commands, the code the learner types) is governed by reliability, and every failure there is the author's defect.",
+        "evidence": "\"Main-path code is reliability-governed; every failure there is your defect, not the learner's exercise.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites Di\u00e1taxis on a tutorial having to inspire confidence and being so well constructed that it works for every user, every time.",
+        "evidence": "The word \"Di\u00e1taxis\" does not appear anywhere in section 8, and no \"inspire confidence\"/\"works for every user, every time\" quote is cited.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that difficulty created by omission or ambiguity is not desirable difficulty, and the learner absorbs it as their own failure.",
+        "evidence": "\"'difficulty created by omission or ambiguity... the learner absorbs it as their own failure and leaves.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Attributes desirable difficulty to Bjork and defines it as difficulty that slows acquisition but raises long-term retention.",
+        "evidence": "\"Bjork's desirable-difficulty finding is sourced, real, and cited in this skill \u2014 but it only raises retention...\" attributes to Bjork and mentions retention, but never defines it as difficulty that \"slows acquisition.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps exact expected output from a real run in every step and checkpoint.",
+        "evidence": "\"Fix: keep every expected-output block exact.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the pinned Node version in prerequisites, with a check command for the row.",
+        "evidence": "\"Fix: pin the exact version with a check command in prerequisites (`node --version` \u2192 expected range).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps step 5's requirement stated precisely, rejecting deliberate vagueness.",
+        "evidence": "\"Fix: state step 5's requirement exactly and show the exact expected output; withhold only the code.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States where difficulty may legitimately go: optional, clearly marked additions placed after a passed checkpoint, with the answer available.",
+        "evidence": "\"Skill's own rule: real desirable difficulty must be optional, clearly marked, placed after a passed checkpoint, with answer available.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the permitted difficulty forms: predicting an output before running it, breaking something on purpose and reading the error, extending the feature by one parameter.",
+        "evidence": "Only two forms are given explicitly (\"Predict what this prints before you run it\"; \"Break it on purpose: change the dequeue index...\"); no third \"extend the feature by one parameter\" optional-exercise form is offered.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the deliberate off-by-one bug on the main path, converting it at most into a marked optional break-it-on-purpose exercise after a checkpoint.",
+        "evidence": "\"ship step 3 correct and verified. After the next checkpoint passes, add a **marked, optional** block: 'Break it on purpose...'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that one step that fails costs more than three that succeed earn, because the learner concludes they are not smart enough and leaves.",
+        "evidence": "No statement comparing the cost of one failing step against three succeeding steps appears anywhere in section 8.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that reliability and desirable difficulty are not contradictory because they govern different parts of the page.",
+        "evidence": "No explicit reconciling statement of this kind appears; the separation is only implicit in the structure of the advice.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects all four proposed changes as applied to the tutorial's main path.",
+        "evidence": "The transcript states 'Verdict: mixed. 2 of 4 changes back desirable-difficulty research. 2 sabotage it,' and calls #2 'sound idea, unsafe as written' and #4 'workable, only with a feedback path' \u2014 it modifies and keeps #2 and #4 rather than rejecting them outright.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the main path (environment, commands, the code the learner types) is governed by reliability, and every failure there is the author's defect.",
+        "evidence": "No such framing appears; the transcript discusses 'extraneous load' and 'drop-off' but never states that main-path failures are the author's defect or that reliability governs the main path.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites Di\u00e1taxis on a tutorial having to inspire confidence and being so well constructed that it works for every user, every time.",
+        "evidence": "Di\u00e1taxis is never mentioned anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that difficulty created by omission or ambiguity is not desirable difficulty, and the learner absorbs it as their own failure.",
+        "evidence": "The transcript instead treats ambiguity (#4) as potentially legitimate: 'Interpreting an ambiguous requirement is a real transfer skill, legit to practice late in a tutorial once schema is built' \u2014 the opposite of rejecting omission/ambiguity as desirable difficulty.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Attributes desirable difficulty to Bjork and defines it as difficulty that slows acquisition but raises long-term retention.",
+        "evidence": "Attribution is present ('Desirable difficulty (Bjork) only raises retention when three things hold...') but the transcript never defines it as difficulty that 'slows acquisition' \u2014 that half of the definition is absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps exact expected output from a real run in every step and checkpoint.",
+        "evidence": "'Fix: keep output, collapse it (`<details>`/spoiler). Ask one concrete predict question first (\"what does this log, and why?\"), then reveal.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the pinned Node version in prerequisites, with a check command for the row.",
+        "evidence": "'It's also the tutorial skill's own checklist item (\"Verify Installation,\" exact version + check command) for a reason... Fix: keep the pin.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps step 5's requirement stated precisely, rejecting deliberate vagueness.",
+        "evidence": "The transcript calls the vague-goal change '#4. Vague goal in step 5 \u2014 workable, only with a feedback path' and proposes only adding acceptance criteria, not rejecting the vagueness itself.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States where difficulty may legitimately go: optional, clearly marked additions placed after a passed checkpoint, with the answer available.",
+        "evidence": "No general statement of this kind appears; the closest is 'Place it only after they've learned to read the relevant error output \u2014 not before,' which is scoped to one change, not a general placement rule, and doesn't mention checkpoints or optionality.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the permitted difficulty forms: predicting an output before running it, breaking something on purpose and reading the error, extending the feature by one parameter.",
+        "evidence": "Only prediction is mentioned ('Ask one concrete predict question first... then reveal'); 'breaking something on purpose' and 'extending by one parameter' as permitted forms are never named (extension only appears as a suggested measurement method: 'have them extend the queue a week later').",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the deliberate off-by-one bug on the main path, converting it at most into a marked optional break-it-on-purpose exercise after a checkpoint.",
+        "evidence": "The transcript keeps the bug in step 3 itself, just relabeled: 'rewrite step 3's bug as a labeled challenge with visible symptom + hint' \u2014 it is not moved off the main path into an optional post-checkpoint exercise.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that one step that fails costs more than three that succeed earn, because the learner concludes they are not smart enough and leaves.",
+        "evidence": "No such statement; the closest is 'Net effect if shipped as-is: #1 and #3 raise drop-off without raising learning \u2014 worst possible retention outcome, since a quitter retains zero,' which lacks the specific cost-asymmetry claim.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that reliability and desirable difficulty are not contradictory because they govern different parts of the page.",
+        "evidence": "This reconciliation is never articulated; the transcript never uses 'reliability' as a concept opposed to or paired with 'desirable difficulty'.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

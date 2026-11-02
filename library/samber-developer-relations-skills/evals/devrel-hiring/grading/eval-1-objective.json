@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects adapting the big-tech job description text and rebuilds the scorecard from the early-startup company-type row instead",
+        "evidence": "\"Old JD's L4-anchor, single-lane conference requirement, and $185k/$20k comp don't transfer \u2014 rebuilt from your actual driver, not adapted line-by-line.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the role is a generalist across all four pillars (advocacy, marketing, enablement, community) and self-directed, rather than deep in one lane",
+        "evidence": "The mission explicitly narrows scope away from advocacy: \"funded as a developer-adoption driver, executed through the enablement and discovery pillars (not the outreach/conference-advocacy pillar the old JD screened for)\" \u2014 this excludes rather than embraces all four pillars.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that levelling anchored to a big-tech engineering ladder does not transfer, and that 'senior' at this stage means founding generalist",
+        "evidence": "\"Levelling vs. pay: consistent \u2014 title, scope, and comp all say \\\"first generalist hire,\\\" none says \\\"senior specialist.\\\"\" and \"no engineering ladder to slot you into \u2014 this is a founding, generalist role\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets the portfolio bar as breadth plus at least one end-to-end outcome the candidate owned alone, not sustained high-volume output in a single lane",
+        "evidence": "\"we're evaluating breadth and evidence of impact, not a specific format or a fixed years-of-experience number\" \u2014 states breadth but never specifies an end-to-end outcome the candidate owned alone.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names a funding driver explicitly in the mission line (for example developer adoption or developer enablement) rather than a generic 'grow the community' purpose",
+        "evidence": "\"Mission: ... funded as a developer-adoption driver, executed through the enablement and discovery pillars\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the $4k annual travel budget as incompatible with any conference-heavy outcome carried over from the big-tech description",
+        "evidence": "\"$4,000/year travel budget, earmarked for one high-leverage systems/WASM conference plus a handful of meetups or customer visits \u2014 not a talk-circuit budget, so we're not hiring against talk-circuit output\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Produces between 3 and 8 outcomes, each quantified with a number and a time window, and ranked by importance",
+        "evidence": "Outcome 4 lacks a concrete number: \"Grow monthly organic (non-founder-sourced) signups by a stated multiple of the week-one baseline by end of year one \u2014 target set jointly with you once baseline funnel data exists.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces between 5 and 7 competencies, weighted for this company type and sub-role",
+        "evidence": "6 competencies listed under \"Competencies (weighted for solo generalist, not a specialist):\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Adds a founder or exec round to the interview loop because this is an early-startup hire",
+        "evidence": "No interview loop or founder round appears anywhere in the transcript; only a scorecard and job posting are produced.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the coding-depth bar at this stage is high because the same person builds the demos and the docs",
+        "evidence": "\"high coding-depth need (real WASM build integration)\" and \"this role writes code and docs, not just talks about them\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects adapting the big-tech job description text and rebuilds the scorecard from the early-startup company-type row instead",
+        "evidence": "The transcript is only final JD text; no process is shown of rejecting a big-tech template or rebuilding from a company-type scorecard.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the role is a generalist across all four pillars (advocacy, marketing, enablement, community) and self-directed, rather than deep in one lane",
+        "evidence": "\"Write quickstarts and integration guides... Own the self-serve funnel end to end... Show up where WASM and build-tooling developers already gather... Write technical content...\" plus \"you'll set the standard, not inherit one.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that levelling anchored to a big-tech engineering ladder does not transfer, and that 'senior' at this stage means founding generalist",
+        "evidence": "No mention of an engineering ladder or 'senior' leveling anywhere in the posting.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets the portfolio bar as breadth plus at least one end-to-end outcome the candidate owned alone, not sustained high-volume output in a single lane",
+        "evidence": "\"You've made something developers actually used \u2014 a docs site, a sample repo, an open-source tool, a blog series that got cited... We're intentionally not asking for a multi-year record of conference talks on one technology.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names a funding driver explicitly in the mission line (for example developer adoption or developer enablement) rather than a generic 'grow the community' purpose",
+        "evidence": "\"developers should be able to find Lattice Fold, wire it into their CI, and see a faster build before they ever talk to us\" \u2014 self-serve adoption, not generic community growth.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the $4k annual travel budget as incompatible with any conference-heavy outcome carried over from the big-tech description",
+        "evidence": "\"Travel budget is $4,000 for the year: plan on one well-chosen trip, not a season of conferences.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Produces between 3 and 8 outcomes, each quantified with a number and a time window, and ranked by importance",
+        "evidence": "\"Time from signup to first successful cached build,\" etc. \u2014 four bullets, none carrying a specific number or time window.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces between 5 and 7 competencies, weighted for this company type and sub-role",
+        "evidence": "Five bullets under 'What we're looking for' are listed with no explicit weighting or prioritization shown.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds a founder or exec round to the interview loop because this is an early-startup hire",
+        "evidence": "\"A conversation with the founding team about the tradeoffs of joining at this stage.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the coding-depth bar at this stage is high because the same person builds the demos and the docs",
+        "evidence": "No statement connects coding depth to building both demos and docs; only \"you pick up new tooling fast and you're not afraid to read source when the docs run out.\"",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

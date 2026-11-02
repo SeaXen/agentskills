@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Keeps 'GraphQL support' as the requested fix in its own field, verbatim.",
+        "evidence": "\"Requested fix: \\\"GraphQL support\\\" (verbatim, kept separate from the problem)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Instructs asking the requesters 'what were you trying to do when you needed this?' before logging, because the request arrived as a solution.",
+        "evidence": "\"Ask the Discord requesters one question: 'What were you trying to do when you needed this?'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces the 23-mention figure with distinct requesters, each person counted once across channels, or marks the requester count as unknown and asks for it.",
+        "evidence": "\"I replaced it with distinct requesters... You need to count those people\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports the 31 reactions as a separate signal beside the requester count, never merged into it.",
+        "evidence": "\"+31... (reported beside requesters, not added to them)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Moves Brightwater Logistics' name, the $120k figure and the March renewal into a private section or linked private record, off the public record.",
+        "evidence": "\"--- private --- Accounts: Brightwater Logistics, $120k/yr, renewal in March\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Splits the input into two records, one for the problem behind the Discord asks and one for typed schemas, because different problems behind the same request are separate records.",
+        "evidence": "\"Split the forum requests into a second record.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Fills severity as per-requester counts (blocker, slows down, cosmetic), not one value for the record.",
+        "evidence": "\"Severity: blocker N / slows down N / cosmetic N\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Fills requesters by segment (for example free, paid, enterprise), with the enterprise account counted once as an org.",
+        "evidence": "\"Segments: <free / paid / enterprise>\"; \"Sales call: 1 account.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes an Evidence field with a verbatim quote and a link to the source message.",
+        "evidence": "There is no Evidence field; the quote appears only as a suggestion under 'Before you send'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes a Workaround field valued none, painful or acceptable.",
+        "evidence": "\"Workaround: <none | painful | acceptable...>\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to assign a single score out of 10 and hands product the weighting inputs instead.",
+        "evidence": "\"I did not give it a score out of 10\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes representation (requesters divided by active developers in that segment) as a range, or leaves it blank for lack of a denominator.",
+        "evidence": "\"representation (requesters \u00f7 active developers in that segment)... leave representation blank if you have no usage data.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes channel bias in the record when every requester came through Discord and the forum.",
+        "evidence": "No channel bias note appears in the record.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Keeps 'GraphQL support' as the requested fix in its own field, verbatim.",
+        "evidence": "The title is \"Add GraphQL API alongside REST\", with no separate requested-fix field.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Instructs asking the requesters 'what were you trying to do when you needed this?' before logging, because the request arrived as a solution.",
+        "evidence": "It only asks whether OpenAPI plus typed SDKs would meet the need.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Replaces the 23-mention figure with distinct requesters, each person counted once across channels, or marks the requester count as unknown and asks for it.",
+        "evidence": "\"I can't tell how many distinct people are asking... How many unique people are behind the 23 mentions and 31 reactions?\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports the 31 reactions as a separate signal beside the requester count, never merged into it.",
+        "evidence": "The Demand section lists mentions and reactions together, and the score treats them as overlapping.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Moves Brightwater Logistics' name, the $120k figure and the March renewal into a private section or linked private record, off the public record.",
+        "evidence": "The draft body is public and names \"Brightwater Logistics ($120k/yr, renewal in March)\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Splits the input into two records, one for the problem behind the Discord asks and one for typed schemas, because different problems behind the same request are separate records.",
+        "evidence": "One record only.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Fills severity as per-requester counts (blocker, slows down, cosmetic), not one value for the record.",
+        "evidence": "No severity field.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Fills requesters by segment (for example free, paid, enterprise), with the enterprise account counted once as an org.",
+        "evidence": "No segment breakdown.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes an Evidence field with a verbatim quote and a link to the source message.",
+        "evidence": "No Evidence field.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes a Workaround field valued none, painful or acceptable.",
+        "evidence": "No Workaround field.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to assign a single score out of 10 and hands product the weighting inputs instead.",
+        "evidence": "\"Score: 6/10\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes representation (requesters divided by active developers in that segment) as a range, or leaves it blank for lack of a denominator.",
+        "evidence": "Representation is not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes channel bias in the record when every requester came through Discord and the forum.",
+        "evidence": "Channel bias is not mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

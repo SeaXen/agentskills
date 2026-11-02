@@ -1,0 +1,118 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Returns an audit only and does not emit a rewritten quickstart page.",
+        "evidence": "The response gives a defect analysis and a bulleted 'Resulting core path, 5 steps' list of step names, not a fully rewritten markdown page with code blocks/output.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Returns a step-by-step time attribution across the 14 listed steps.",
+        "evidence": "'Cut list, ranked by minutes saved (estimates \u2014 no cold run done yet)' assigns 'Est 5-15 min', 'Est 8-20 min combined', 'Est 2-4 min', 'Est 5-20 min' across the flagged steps.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Returns a cut list ranked by minutes saved.",
+        "evidence": "'Cut list, ranked by minutes saved (estimates \u2014 no cold run done yet):' followed by a numbered 1-5 list.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names 5 minutes as the baseline budget for a CLI quickstart.",
+        "evidence": "'CLI baseline: 5 min (per success moment: \"command produces promised artefact\").'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a quickstart carries roughly three to six steps, and that 14 means the success moment is too large.",
+        "evidence": "'14 steps, way past budget... This is a scope problem, not a wording problem' and the rebuilt path 'Matches the 3-6 step ceiling.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Defines the success moment as the compiled artefact on disk and requires the page to show its contents, for example an `ls` or `cat` of the generated file, not merely the build command's exit.",
+        "evidence": "'Real success moment for Tessera: CLI compiles tokens file into platform-specific output, reader inspects it.' with the core path ending '5. Inspect the output \u2190 success moment', distinct from '4. Run the build'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cuts 'invite a teammate', 'install the VS Code extension', 'set up the CI action' and 'read the theming overview' as work the success moment does not need, naming where each one belongs instead.",
+        "evidence": "CI action, VS Code extension, and theming overview each get a named destination ('Move to separate \"CI integration\" how-to', 'Link in Next steps', 'Link only'), but 'invite teammate' is only dismissed as 'team features, not needed for one reader's first build' with no destination named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Resolves the overrun by shrinking the success moment rather than raising the time budget.",
+        "evidence": "The success moment is redefined to 'Steps 9-12 only' while the 5-minute CLI baseline is kept unchanged.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Moves the surviving requirements (Homebrew, account, login) into a before-you-start block, each with a one-line check command, rather than leaving them as numbered steps.",
+        "evidence": "The resulting core path still lists 'Install the CLI' as numbered '1.' and login as 'collapse into one tessera login step' \u2014 no 'before-you-start' block with check commands is created.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Returns an audit only and does not emit a rewritten quickstart page.",
+        "evidence": "The response gives a brief 5-item bulleted skeleton (\"## Getting Started (5 steps...)\") embedded in advisory prose, not a full markdown page with frontmatter, prose, and complete step content like the other sections' rewrites.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Returns a step-by-step time attribution across the 14 listed steps.",
+        "evidence": "No per-step time breakdown of the 14 original steps is given anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Returns a cut list ranked by minutes saved.",
+        "evidence": "The \"Move these out, don't delete them\" list has no time estimates or ranking by minutes saved attached to any item.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names 5 minutes as the baseline budget for a CLI quickstart.",
+        "evidence": "No \"5 minutes\" or similar time budget is stated; the only time reference is the unrelated \"Effort estimate: ... A few hours, not a week\" for the engineering work itself.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a quickstart carries roughly three to six steps, and that 14 means the success moment is too large.",
+        "evidence": "The text says \"Yes, 14 is too long\" and proposes 5 steps, but never states an explicit \"roughly three to six steps\" norm or frames it as the success moment being too large.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Defines the success moment as the compiled artefact on disk and requires the page to show its contents, for example an `ls` or `cat` of the generated file, not merely the build command's exit.",
+        "evidence": "Step 5 only says \"Inspect the output \u2190 this is the aha moment. Label it as a checkpoint, show the expected output inline\" \u2014 no mention of the artefact on disk or an ls/cat requirement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cuts 'invite a teammate', 'install the VS Code extension', 'set up the CI action' and 'read the theming overview' as work the success moment does not need, naming where each one belongs instead.",
+        "evidence": "\"Team setup (create account, verify email, `tessera login`, create workspace, invite a teammate) \u2014 its own page... Editor integration (install VS Code extension) \u2014 one line, own section... CI/CD (set up the CI action) \u2014 own page... Theming \u2014 ... Put it under 'Learn more'.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Resolves the overrun by shrinking the success moment rather than raising the time budget.",
+        "evidence": "The fix is cutting 14 steps down to a 5-step \"Minimum Path to Value\" with other content moved to linked pages, not extending the time allotted.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Moves the surviving requirements (Homebrew, account, login) into a before-you-start block, each with a one-line check command, rather than leaving them as numbered steps.",
+        "evidence": "\"Install Tessera\" (brew install tessera) remains step 1 of the numbered Getting Started list rather than being moved to a separate before-you-start prerequisites block; no login step or check commands are shown.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

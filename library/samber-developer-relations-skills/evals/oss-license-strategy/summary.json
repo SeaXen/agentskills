@@ -1,0 +1,658 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "oss-license-strategy",
+  "scenarios": 12,
+  "expectations_total": 148,
+  "expectations_subjective": 0,
+  "expectations_objective": 148,
+  "pass_rate_with_skill_pct": 60.1,
+  "pass_rate_without_skill_pct": 36.5,
+  "delta_pp": 23.6,
+  "uplift_multiplier": 1.65,
+  "trigger_accuracy_pct": 69.1,
+  "trigger_queries": 136,
+  "trigger_positive_fire_rate": 0.662,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": null,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "States that Apache-2.0 into GPLv3 works while GPLv3 into an Apache-2.0 project does not"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Separates build-only and test-only dependencies from what actually ships, because obligations attach to what is distributed"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Requires enumerating transitive dependencies, not just direct ones"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends recording each dependency result as an SPDX identifier so the check is repeatable in CI"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names Google's published policy that AGPL-licensed code must not be used at Google, extending to installs on company machines without Open Source Programs Office authorization"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Says explicitly that it is in brainstorming mode and that no recommendation has been made yet"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Describes each posture as a bundle of license family, contribution policy, and what it forecloses in two years"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Starts the contribution-policy ladder at the DCO rather than at 'nothing' or at a CLA"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Quotes or paraphrases that a DCO is 'probably the minimum amount of CLA a free software project should adopt', attributed to Karl Fogel's Producing Open Source Software"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names relicensing, dual licensing and selling a commercial license of contributed code as the rights that actually justify a CLA"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Deletes copyright assignment from the menu for this project and says why, citing Fogel's recommendation against it for new projects"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that a CLA on a project with no commercial plan reads as reserving the right to change the deal and costs drive-by contributions at the signature wall"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Warns against requiring both a CLA and a DCO, since it doubles friction for one marginal gain"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Requires an automated check on every incoming change, stating that a policy enforced by memory is not enforced"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Gives the contributor recovery commands for a missing sign-off, `git commit --amend -s` for one commit or `git rebase --signoff` for several"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that existing history is grandfathered and retroactive sign-off is never demanded on merged work"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that HashiCorp's BUSL-1.1 change applied to future releases only, with SDKs and APIs left on MPL-2.0"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Gives the OpenTF manifesto's scale, over 140 companies and over 700 individuals, and OpenTofu's Linux Foundation launch on 20 September 2023"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States BUSL-1.1's Change Date must be at most four years after first publication"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Offers dual licensing and open core as levers that still work under a product-led motion"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names hosting the software themselves as monetizing operations rather than terms, costing no contributors"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that published releases keep their terms forever, so a lever pulled after adoption arrives is mostly symbolic"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Quotes or closely paraphrases the OSI board's wording that the hallmark of a fauxpen source license is claiming the product remains 'open' while the new license has taken away user rights"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that the objection is to restricting deployment as a cloud service, against clause 6 of the Open Source Definition"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Attributes the position to the OSI Board of Directors, January 2021"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Prescribes the replacement vocabulary: source-available, fair source, or delayed open source publication"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Rewrites the announcement to cover what changes, what does not change, who is affected with an example, who is not affected, why, contributors, and alternatives"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Includes pointing readers at the last commit under the old license and the availability of a fork"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes that Redis's own CEO acknowledged SSPL is not OSI-approved and that the change hurt the relationship with the community"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the appended restriction makes this a bespoke license that can no longer be called MIT, and is not OSI-approved"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires `SPDX-License-Identifier` headers per file matching each directory's license"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends a collective copyright notice such as 'Copyright The Ridgeblack Authors' instead of an enumerated or company-plus-contributors line"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires a NOTICE file where the license demands attribution propagation, and preservation of third-party notices"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires validating the result against an automated license detector, or by inspection where none is available"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that a corporate agreement covers employer-owned work while mature programs still require an individual agreement from each person on top"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Warns that corporate contributors sit in their employer's legal queue for weeks and must be told up front"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Ranks the sales-led levers by revenue reached per unit of trust spent: dual licensing above open core above a source-available relicense"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that dual licensing works only when the copyleft obligations are genuinely inconvenient to the buyer"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Asks about the business model, the hard date, whether this is a per-repository or inherited policy, and the acceptable friction ceiling before naming any license"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that a confirmed business model reverses the value order to commercial optionality above reciprocity above maximum adoption"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Presents two or three postures, each as a bundle of license family, contribution policy, and what it forecloses in two years"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Labels the three postures as this skill's own working labels rather than a published taxonomy"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that every posture is sticky because published releases keep their terms forever and relicensing needs unanimous consent"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Raises ownership as a step 1 constraint to resolve before any license preference is discussed"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Does not settle on a license while the ownership question is unresolved"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names the moments that need counsel, such as a patent portfolio, an acquisition, a contested contribution, or a live dispute"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Identifies the work-hours portion as the part that may need rewriting, removal, or an explicit release from the employer"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Explains what each licensing instrument obliges rather than asserting a legal outcome"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that a public repository with no LICENSE file is legally unlicensed"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Gives roughly two months of trademark clearance lead time before any public mention, and notes a trademark lawyer's own schedule may override it"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Labels the two-month figure as a practical guideline rather than a legal standard"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Notes that a foundation will require transferring the trademark, with the CNCF as the example"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that dynamic linking keeps the relink obligation simple while static linking pulls it onto the application"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Identifies the customers' signed firmware as where the obligation lands, making those accounts a deleted market rather than a slower sale"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that MPL section 3.3 permits combining with GPL, LGPL or AGPL code unless Exhibit B marks the file 'Incompatible With Secondary Licenses'"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Attributes the LGPL recommendation for a library facing an entrenched non-copyleft competitor to the FSF, and labels MPL-2.0 as this skill's own alternative"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Notes that GPL-3.0 adds anti-tivoization terms relative to GPL-2.0"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Treats 'or any later version' as a separate decision that hands the license steward a future say"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Refuses to draft a custom linking exception or a modified LGPL"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "States that compatibility is directional, asking whether code under A can be combined into a work distributed under B rather than whether A and B are 'compatible'"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that Apache-2.0 into GPLv3 works while GPLv3 into an Apache-2.0 project does not"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that copyleft into permissive never works, so a single copyleft dependency can decide the outbound license before any preference is expressed"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Separates build-only and test-only dependencies from what actually ships, because obligations attach to what is distributed"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Requires enumerating transitive dependencies, not just direct ones"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends recording each dependency result as an SPDX identifier so the check is repeatable in CI"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Produces the constraint list with a written reason per eliminated option before discussing preferences or postures"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that AGPL obliges a network operator to publish source but does not stop a well-resourced competitor who complies"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names Google's published policy that AGPL-licensed code must not be used at Google, extending to installs on company machines without Open Source Programs Office authorization"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Refuses to give a percentage or share of enterprises that ban AGPL, and says no credible aggregate figure exists"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Asks whether the specific accounts this project needs sit behind such a written ban"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Says explicitly that it is in brainstorming mode and that no recommendation has been made yet"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Presents two or three candidate postures rather than a single option"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Describes each posture as a bundle of license family, contribution policy, and what it forecloses in two years"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names hosting the software themselves as a model that needs no licensing lever, and raises it before recommending a restriction"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Requires naming the specific competitor the restriction defends against as a test the decision must pass"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Declines to state whether any specific architecture triggers AGPL's network clause, routing that to counsel"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that MIT and BSD carry no patent grant while Apache-2.0, GPL-3.0 and MPL-2.0 do"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Starts the contribution-policy ladder at the DCO rather than at 'nothing' or at a CLA"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Quotes or paraphrases that a DCO is 'probably the minimum amount of CLA a free software project should adopt', attributed to Karl Fogel's Producing Open Source Software"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States the rule that you move up a rung only for a right the license does not already grant"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names relicensing, dual licensing and selling a commercial license of contributed code as the rights that actually justify a CLA"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Deletes copyright assignment from the menu for this project and says why, citing Fogel's recommendation against it for new projects"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that a CLA on a project with no commercial plan reads as reserving the right to change the deal and costs drive-by contributions at the signature wall"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Warns against requiring both a CLA and a DCO, since it doubles friction for one marginal gain"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Requires an automated check on every incoming change, stating that a policy enforced by memory is not enforced"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Gives the contributor recovery commands for a missing sign-off, `git commit --amend -s` for one commit or `git rebase --signoff` for several"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that existing history is grandfathered and retroactive sign-off is never demanded on merged work"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that every copyright holder whose code is still present must consent, since MIT plus no contributor agreement means no pre-granted relicensing right"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Produces a change plan covering whose consent is needed, what happens to unreachable contributors, the version boundary, what stays on the old terms, and the announcement"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that HashiCorp's BUSL-1.1 change applied to future releases only, with SDKs and APIs left on MPL-2.0"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Gives the OpenTF manifesto's scale, over 140 companies and over 700 individuals, and OpenTofu's Linux Foundation launch on 20 September 2023"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Warns that four weeks is incompatible with a 47-contributor consent campaign, citing Mozilla's 2001 to 2006 Firefox relicensing as the scale to plan against"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends leaving SDKs, clients, APIs, examples and documentation permissive"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Classifies the go-to-market motion as product-led (PLG) B2B, and treats the monetization axis as motion rather than buyer type"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States the PLG path as individual developer adoption leading to a company contract without procurement"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Shifts the evaluation metric from surviving procurement review to developer adoption friction"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Offers dual licensing and open core as levers that still work under a product-led motion"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names hosting the software themselves as monetizing operations rather than terms, costing no contributors"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Quotes or closely paraphrases the OSI board's wording that the hallmark of a fauxpen source license is claiming the product remains 'open' while the new license has taken away user rights"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that the objection is to restricting deployment as a cloud service, against clause 6 of the Open Source Definition"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Attributes the position to the OSI Board of Directors, January 2021"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Prescribes the replacement vocabulary: source-available, fair source, or delayed open source publication"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that calling it open source fails procurement filters that check OSI approval directly"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Rewrites the announcement to cover what changes, what does not change, who is affected with an example, who is not affected, why, contributors, and alternatives"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Replaces the 'sustainability' framing with the concrete commercial situation, named"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Includes pointing readers at the last commit under the old license and the availability of a fork"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes that Redis's own CEO acknowledged SSPL is not OSI-approved and that the change hurt the relationship with the community"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Rejects the appended paragraph and requires LICENSE to hold unmodified license text with nothing appended"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Refuses to draft, modify or invent a license, naming license proliferation as a cost paid by adopters rather than by the author"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends a content license such as CC-BY-4.0 for the operator handbook rather than a code license"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires the npm package metadata license field to be corrected, and a license label on the container image"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires `SPDX-License-Identifier` headers per file matching each directory's license"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends a collective copyright notice such as 'Copyright The Ridgeblack Authors' instead of an enumerated or company-plus-contributors line"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires validating the result against an automated license detector, or by inspection where none is available"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Prescribes a CLA for new contributions from a stated date, with existing history grandfathered"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Supplies 'why we ask' wording tied to the specific right, selling a commercial license to customers who cannot accept AGPL"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that a CLA is a license grant rather than a transfer of ownership, and that contributors keep their copyright and may reuse their own work"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that a corporate agreement covers employer-owned work while mature programs still require an individual agreement from each person on top"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Warns that corporate contributors sit in their employer's legal queue for weeks and must be told up front"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Ranks the sales-led levers by revenue reached per unit of trust spent: dual licensing above open core above a source-available relicense"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that dual licensing works only when the copyleft obligations are genuinely inconvenient to the buyer"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Asks about the business model, the hard date, whether this is a per-repository or inherited policy, and the acceptable friction ceiling before naming any license"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States which interview answer moved which option in the ranking"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that a confirmed business model reverses the value order to commercial optionality above reciprocity above maximum adoption"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that a hard date promotes whatever needs no counsel, and surfaces the conflict between the three-week deadline and a counsel-drafted agreement"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Re-ranks explicitly because in-house counsel and a retained firm price the commercial-optionality posture differently from a solo maintainer"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Presents two or three postures, each as a bundle of license family, contribution policy, and what it forecloses in two years"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Says explicitly that it is brainstorming and that no recommendation has been made yet"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Makes the user choose the posture before any specific license is named"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Treats the library and the server as separate artifacts, the library's trigger being distribution and the server's being network interaction"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Labels the three postures as this skill's own working labels rather than a published taxonomy"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that every posture is sticky because published releases keep their terms forever and relicensing needs unanimous consent"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that code written on an employer's time usually belongs to the employer"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Does not settle on a license while the ownership question is unresolved"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names the moments that need counsel, such as a patent portfolio, an acquisition, a contested contribution, or a live dispute"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Asks whether the employer has a written open-source policy or an approval process, and treats a manager's Slack message as insufficient"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that a public repository with no LICENSE file is legally unlicensed"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Avoids jurisdiction-specific claims about employee-invention statutes or moral rights"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that Apache-2.0 lets anyone ship a relicensed version, but that the one thing they cannot do is call it by the original project name"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Attributes that framing to William Morgan during the 2025 Synadia/NATS dispute"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Cites Planetary Motion v. Techsplosion (261 F.3d 1188) for the point that distributing software freely over the internet can still be use in commerce"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Recommends treating the name as a separate asset with its own written policy"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Gives roughly two months of trademark clearance lead time before any public mention, and notes a trademark lawyer's own schedule may override it"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Labels the two-month figure as a practical guideline rather than a legal standard"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Notes that a foundation will require transferring the trademark, with the CNCF as the example"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that no license stops a competitor willing to comply with it"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Declines to advise on whether the consultancy's specific use infringes, routing that to counsel"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that LGPL lets proprietary applications link but requires recipients to be able to swap in a modified library"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that MPL section 3.3 permits combining with GPL, LGPL or AGPL code unless Exhibit B marks the file 'Incompatible With Secondary Licenses'"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Attributes the LGPL recommendation for a library facing an entrenched non-copyleft competitor to the FSF, and labels MPL-2.0 as this skill's own alternative"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Declines to rank the candidate licenses inside the posture by efficiency, because the trigger event and the constraints determine the choice"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Treats 'or any later version' as a separate decision that hands the license steward a future say"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Refuses to draft a custom linking exception or a modified LGPL"
+      }
+    ]
+  }
+}

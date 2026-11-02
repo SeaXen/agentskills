@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses the daily-commit cron by name as commit padding and states that reviewers discount it",
+        "evidence": "'A single-file, single-line, mechanically-timed commit to a repo disconnected from any real project is the textbook shape of graph-padding... reviewers who actually weigh this signal do \u2014 discounts it on sight.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that backdating a commit takes one environment variable, as a reason the graph is discounted",
+        "evidence": "'Backdating or scripting a commit takes one environment variable; it carries zero evidentiary weight to begin with.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends enabling the anonymized private-contribution setting as the first move",
+        "evidence": "'1. Turn on \"Include private contributions on my profile.\" Settings \u2192 Profile... Do 1 and 3 today'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the private-contribution toggle is a setting rather than new public work",
+        "evidence": "'GitHub's own stated position is that this is the more accurate representation of your work, so this isn't a workaround, it's the correct first move' \u2014 framed as flipping a setting, not creating new work.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that only commits on the default branch or gh-pages count toward the graph",
+        "evidence": "'The graph only counts commits on the default branch, authored under an email linked to your account' \u2014 gh-pages is never mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that a commit authored with an email not connected to the account never counts",
+        "evidence": "'If you push from a work machine using an email never added to your GitHub account's verified emails, those commits silently never counted.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that commits made inside a fork never count until the work is merged upstream",
+        "evidence": "No mention of forks anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that a qualifying contribution can take up to 24 hours to appear",
+        "evidence": "Not mentioned anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Diagnoses the squash-merge-by-bot-account pattern as a mechanical cause rather than an activity problem",
+        "evidence": "'If your service bot performs the squash-merge under its own git identity instead of preserving yours... your real, merged, shipped work gets zero credit \u2014 permanently.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends merged pull requests in other people's repositories as the best-evidenced signal available",
+        "evidence": "'The evidence that actually moves a technical reviewer is merged PRs on projects other people use and a coherent story in your profile README/pins, not graph density.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the contribution graph is weak evidence in both directions and should not be read as a scoreboard",
+        "evidence": "'Even fixed, don't expect the graph itself to carry much weight \u2014 the same discounting that applies to the fake version applies, more mildly, to a merely-decorated real one.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Orders the honest moves with the private-contribution toggle first, the mechanical causes second, and merged pull requests elsewhere third",
+        "evidence": "Numbered list: '1. Turn on \"Include private contributions...\"' then '2. Check who ends up as author on the squash-merge commits...' / '3. Confirm your commit email...', then merged PRs discussed last in 'Calibrate what this buys you'.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses the daily-commit cron by name as commit padding and states that reviewers discount it",
+        "evidence": "'here's why I'd skip the fake-commit cron job... the contribution graph is a weak, well-known-to-be-gameable signal that most senior reviewers already discount.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that backdating a commit takes one environment variable, as a reason the graph is discounted",
+        "evidence": "No mention of backdating mechanics or environment variables.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends enabling the anonymized private-contribution setting as the first move",
+        "evidence": "'Go check that setting and one recent squashed PR's commit author before doing anything else. This is a five-minute check that might fix the actual problem.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the private-contribution toggle is a setting rather than new public work",
+        "evidence": "The distinction between 'flip a setting' vs 'do new public work' is not explicitly framed that way in the text.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that only commits on the default branch or gh-pages count toward the graph",
+        "evidence": "Transcript says default branch 'or on a branch where you opened a pull request' \u2014 gh-pages is never mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that a commit authored with an email not connected to the account never counts",
+        "evidence": "'Commit author email matches a verified email on your GitHub account' is listed as a required condition for a commit to count.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that commits made inside a fork never count until the work is merged upstream",
+        "evidence": "Forks are not discussed anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that a qualifying contribution can take up to 24 hours to appear",
+        "evidence": "No mention of any delay in the graph updating.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Diagnoses the squash-merge-by-bot-account pattern as a mechanical cause rather than an activity problem",
+        "evidence": "'many merge bots rewrite the author to the bot's own identity when they squash. If that's what's happening, your real commits on the feature branch never touched main under your name.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends merged pull requests in other people's repositories as the best-evidenced signal available",
+        "evidence": "The suggested alternative is starting/maintaining one's own open-source project ('Pick one small thing to open-source for real'), not merged PRs into others' repos.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the contribution graph is weak evidence in both directions and should not be read as a scoreboard",
+        "evidence": "'the contribution graph is a weak, well-known-to-be-gameable signal that most senior reviewers already discount' combined with 'An honest gap looks like...' vs 'A suspicious streak looks like...' framing both directions as unreliable.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Orders the honest moves with the private-contribution toggle first, the mechanical causes second, and merged pull requests elsewhere third",
+        "evidence": "No third recommendation of 'merged PRs elsewhere' exists to complete this ordering; the two 'better ways' listed are asking the bot owner to preserve authorship and starting a new OSS project.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

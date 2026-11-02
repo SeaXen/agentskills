@@ -1,0 +1,190 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Promotes full human translation for the contract-named scope (Ingest and Access Control modules) above every other rung, because a contract naming the language promotes it",
+        "evidence": "Bundle B \"Full human sync of named scope\"; \"promotes full human translation of the named scope\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the rest of the 1,100 pages off full human sync, with at most a critical-path pack, because high source churn plus a low effort ceiling deletes full-set rungs",
+        "evidence": "\"de, other modules | declined\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Translates only the latest version (v6); v4 and v5 fall back to the source language",
+        "evidence": "\"v4, v5 | English fallback\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Runs the steady-state check as a formula: pages in the set changed per release times re-review hours per changed page must not exceed Lotte's 6 hours per release",
+        "evidence": "\"6\u20139 changed pages \u00d7 0.5 h = 3\u20134.5 h of her 6 h per release\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Runs the launch-load check as a formula: (pages plus UI-string page-equivalents) times first-review hours divided by 6 hours per release equals releases until launch, compared with the 5-month deadline",
+        "evidence": "\"(60+2) \u00f7 6 \u2248 10.3\" vs \"9\" releases available",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the 15-30 minutes per changed page, one hour per page on first review and one page-equivalent per 300 UI strings as baselines to replace with Lotte's own pace after the first release",
+        "evidence": "Labels 1 h and 0.5 h as baseline, but the 300-strings-per-page-equivalent baseline is never stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags that a single reviewer fails the two-reviewer gate item and names the closing action: a vendor with an independent quality reviewer, or a second fluent hire or contractor",
+        "evidence": "Gate item 1 \"Lotte only\"; vendor with independent quality reviewer",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a vendor pipeline whose quality reviewer is independent of the translator meets the two-reviewer item, labelled as a baseline",
+        "evidence": "\"meets this (`baseline`)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes Access Control (security and authentication) pages to human review before publication, not to a page-view threshold",
+        "evidence": "\"Access Control, auth, retention and quotas get human review before publication\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Masks code blocks before any LLM translation and verifies per page that code-fence count, link count and heading count match the source",
+        "evidence": "\"mask code \u2192 LLM draft\"; \"code-fence, link and heading counts must match\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites the published evaluation of LLM-translated READMEs (structural, code or URL damage in 16-50% of files while semantic scores stayed high) as a sourced figure",
+        "evidence": "\"Sourced: 16\u201350% of LLM-translated READMEs had structural damage.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Marks the de locale gated with the missing items, closing actions and expected dates, rather than launching conditionally",
+        "evidence": "Ownership gate table with Expected column",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses 'Lotte skims' as the review model for the contract scope",
+        "evidence": "\"a skim is not review of security pages\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Scales --far to the commits per release (about 60 on a two-week cycle at 30 commits a week) rather than keeping the default of 5",
+        "evidence": "Uses \"--far 5\" as the baseline default and says \"Tune it after R3.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ships the pin field names and the drift-check CI step in the plan before any page is translated",
+        "evidence": "\"CI step, ship in R1\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Promotes full human translation for the contract-named scope (Ingest and Access Control modules) above every other rung, because a contract naming the language promotes it",
+        "evidence": "Plan is LLM translation with Tier 1/2/3 review; external translator is only a final review pass.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the rest of the 1,100 pages off full human sync, with at most a critical-path pack, because high source churn plus a low effort ceiling deletes full-set rungs",
+        "evidence": "\"Translate only those two modules\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Translates only the latest version (v6); v4 and v5 fall back to the source language",
+        "evidence": "\"v4 and v5. Do not touch them unless the agency runs them.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Runs the steady-state check as a formula: pages in the set changed per release times re-review hours per changed page must not exceed Lotte's 6 hours per release",
+        "evidence": "No formula; only \"overflow waits one release\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Runs the launch-load check as a formula: (pages plus UI-string page-equivalents) times first-review hours divided by 6 hours per release equals releases until launch, compared with the 5-month deadline",
+        "evidence": "None.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels the 15-30 minutes per changed page, one hour per page on first review and one page-equivalent per 300 UI strings as baselines to replace with Lotte's own pace after the first release",
+        "evidence": "Only one word-rate marked as an assumption; the specified baselines are absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags that a single reviewer fails the two-reviewer gate item and names the closing action: a vendor with an independent quality reviewer, or a second fluent hire or contractor",
+        "evidence": "Not flagged.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a vendor pipeline whose quality reviewer is independent of the translator meets the two-reviewer item, labelled as a baseline",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes Access Control (security and authentication) pages to human review before publication, not to a page-view threshold",
+        "evidence": "\"Tier 1, 100% human review by Lotte: permission semantics, security warnings\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Masks code blocks before any LLM translation and verifies per page that code-fence count, link count and heading count match the source",
+        "evidence": "Gates check code blocks/links/headings, but no masking before translation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites the published evaluation of LLM-translated READMEs (structural, code or URL damage in 16-50% of files while semantic scores stayed high) as a sourced figure",
+        "evidence": "No citation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Marks the de locale gated with the missing items, closing actions and expected dates, rather than launching conditionally",
+        "evidence": "Plans a launch, no gated status.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses 'Lotte skims' as the review model for the contract scope",
+        "evidence": "\"'LLM everything, Lotte skims' fails on three counts\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Scales --far to the commits per release (about 60 on a two-week cycle at 30 commits a week) rather than keeping the default of 5",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ships the pin field names and the drift-check CI step in the plan before any page is translated",
+        "evidence": "Uses segment-hash cache; no pin fields.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

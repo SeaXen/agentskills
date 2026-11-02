@@ -1,0 +1,106 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Recommends staying at a single social occasion instead of choosing between the pub quiz and the walking tour",
+        "evidence": "\"run only the Thursday mixer... Don't pick a pub quiz or a walking tour.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names both conditions for moving up one rung - somebody actually asked for a second occasion, and a named owner exists for it - and evaluates them separately",
+        "evidence": "Table rows for Q2 (someone asked) and Q5 (named owner), each with its own result.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that either condition failing keeps the plan at one occasion",
+        "evidence": "\"This skill adds a second occasion only when two conditions both hold\"; both fail, so no second event.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the user's own statement that nobody asked as the failing request condition",
+        "evidence": "\"Nobody has actually asked for it.\" \u274c Fails",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the same person owning both occasions as no owner for the second, because ownership is answered per occasion and never for the slate as a whole",
+        "evidence": "It says \"You'd run it, on top of the mixer\" fails Q5, but never states that ownership is answered per occasion rather than for the slate.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes the two-occasion and themed-track options from the menu rather than ranking them last or parking them as future options",
+        "evidence": "\"deletes every rung above a single occasion from the menu. It deletes them rather than demoting them\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the deletion applies to the effort, value, compliance-cost and efficiency orderings too, not only to the list of options",
+        "evidence": "No mention of the orderings being affected.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names an empty hour in the evening as an illegitimate trigger for adding an occasion",
+        "evidence": "\"adding an occasion because there is room in the evening\" as a failure mode; \"an empty slot is neither.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Recommends staying at a single social occasion instead of choosing between the pub quiz and the walking tour",
+        "evidence": "\"don't organise a second event\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names both conditions for moving up one rung - somebody actually asked for a second occasion, and a named owner exists for it - and evaluates them separately",
+        "evidence": "Only demand is discussed; there is no owner-per-occasion condition.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that either condition failing keeps the plan at one occasion",
+        "evidence": "No two-condition rule is stated. It suggests testing demand with a go/no-go threshold instead.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the user's own statement that nobody asked as the failing request condition",
+        "evidence": "\"Nobody asked for it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the same person owning both occasions as no owner for the second, because ownership is answered per occasion and never for the slate as a whole",
+        "evidence": "\"You're organising solo\" is cited as workload, not as the owner-per-occasion rule.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes the two-occasion and themed-track options from the menu rather than ranking them last or parking them as future options",
+        "evidence": "\"If you still want an organised event\" keeps the walking tour and pub quiz alive behind a demand test.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the deletion applies to the effort, value, compliance-cost and efficiency orderings too, not only to the list of options",
+        "evidence": "Nothing like this appears; the transcript recommends the walking tour as simpler to outsource.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names an empty hour in the evening as an illegitimate trigger for adding an occasion",
+        "evidence": "\"The only reason to add it is that the empty slot bothers you.\" and \"an empty slot costs you nothing\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

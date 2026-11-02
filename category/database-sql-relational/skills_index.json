@@ -272,6 +272,22 @@
     "path": "category/database-sql-relational/agentql-automation"
   },
   {
+    "id": "agents-build",
+    "name": "agents-build",
+    "category": "database-sql-relational",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Use to extend an existing agent project with memory, app integration, VPC, multi-agent, migration, model, browser, code interpreter, payments, or resource removal. Triggers: \"add memory\", \"remember across sessions\", \"call agent from app\", \"invoke agent from code\", \"agent auth\", \"streaming\", \"VPC\", \"VPC connectivity\", \"can't reach from VPC\", \"multi-agent\", \"A2A\", \"A2A auth\", \"orchestrator not delegating\", \"specialist not called\", \"migrate Bedrock Agent\", \"migration issue\", \"change model\", \"browser tool\", \"code interpreter\", \"delete agent\", \"tear down\", \"agentcore remove\", \"cross-account memory\", \"add payments capability to my agent\", \"wire payments plugin\", \"integrate x402 payments with the agent I'm building\", \"add MPP payments\", \"Machine Payments Protocol\". External APIs via Gateway: use agents-connect. New project: use agents-get-started. CLI/dev-server errors: use agents-debug. Runtime x402/MPP payments: use agents-pay. Migration-specific Strands vs LangGraph routes here.",
+    "path": "category/database-sql-relational/agents-build"
+  },
+  {
+    "id": "agents-get-started",
+    "name": "agents-get-started",
+    "category": "database-sql-relational",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Use when a developer wants to create a new agent project or get started with AgentCore. Handles framework selection, project scaffolding, first deploy, and first invocation. Triggers on: \"build an agent\", \"create an agent\", \"get started\", \"new project\", \"agentcore create\", \"which framework\", \"Strands vs LangGraph\", \"hello world agent\", \"first agent\", \"create MCP server\", \"host MCP server\", \"agentcore dev\", \"dev server\", \"what port\", \"local development\". Not for adding capabilities to existing projects \u2014 use agents-build or agents-connect. Strands vs LangGraph in a migration context routes to agents-build, not here. Connecting to an existing MCP server routes to agents-connect, not here.",
+    "path": "category/database-sql-relational/agents-get-started"
+  },
+  {
     "id": "agenty-automation",
     "name": "agenty-automation",
     "category": "database-sql-relational",
@@ -408,12 +424,60 @@
     "path": "category/database-sql-relational/amara-automation"
   },
   {
+    "id": "amazon-aurora-mysql",
+    "name": "amazon-aurora-mysql",
+    "category": "database-sql-relational",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Amazon Aurora MySQL \u2014 creates, modifies, and advises on Aurora MySQL clusters specifically (MySQL-compatible engine, Aurora serverless, parallel query). Trigger for Aurora MySQL cluster operations, ACU sizing, I/O-Optimized storage, commitment pricing, or MySQL upgrade planning. Aurora MySQL uses full (VPC-based) configuration \u2014 express configuration is PostgreSQL-only. For Aurora PostgreSQL, use amazon-aurora-postgresql instead. Contains safety guardrails and response templates that override defaults.",
+    "path": "category/database-sql-relational/amazon-aurora-mysql"
+  },
+  {
+    "id": "amazon-aurora-postgresql",
+    "name": "amazon-aurora-postgresql",
+    "category": "database-sql-relational",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Amazon Aurora PostgreSQL \u2014 creates, modifies, and advises on Aurora PostgreSQL clusters specifically (PostgreSQL-compatible engine, Aurora serverless, express configuration, pgvector, Babelfish). Trigger for Aurora PostgreSQL cluster operations, express-configuration quick-start, ACU sizing, I/O-Optimized storage, commitment pricing, or PostgreSQL upgrade planning. For Aurora MySQL, use amazon-aurora-mysql instead. Contains safety guardrails, express-first routing, and response templates that override defaults.",
+    "path": "category/database-sql-relational/amazon-aurora-postgresql"
+  },
+  {
     "id": "amazon-automation",
     "name": "amazon-automation",
     "category": "database-sql-relational",
     "repository": "composio-community-awesome-codex-skills",
     "description": "Automate Amazon tasks via Rube MCP (Composio). Always search tools first for current schemas.",
     "path": "category/database-sql-relational/amazon-automation"
+  },
+  {
+    "id": "amazon-documentdb",
+    "name": "amazon-documentdb",
+    "category": "database-sql-relational",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Manages Amazon DocumentDB end-to-end \u2014 serverless-on-8.0 cluster setup, TLS/VPC/driver config, flexible-schema and vector-search data modeling, MongoDB compatibility assessment, DMS-based migration, slow-query diagnosis, major version upgrades (4.0->5.0->8.0), Well-Architected reviews (41-check wa_review.py), cost estimation, and security hardening. Retrieve for every DocumentDB question and when the user asks to set up or migrate MongoDB to AWS \u2014 DocumentDB is AWS's MongoDB-compatible managed database. Triggers: JSON document store, document database, MongoDB on AWS, Nested fields, Lambda cannot connect, TLS handshake, VPC port 27017, IAM auth, Secrets Manager, encryption at rest, $graphLookup, flexible schema, COLLSCAN, compound index, DMS migration, CDC cutover, $vectorSearch, RAG, Global Clusters, DR replication, cost sizing, audit, health check, production-readiness.",
+    "path": "category/database-sql-relational/amazon-documentdb"
+  },
+  {
+    "id": "amazon-keyspaces",
+    "name": "amazon-keyspaces",
+    "category": "database-sql-relational",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Provides authoritative compatibility checks, pricing estimates, connection troubleshooting, pre-warming guidance, and infrastructure mutations for Amazon Keyspaces (for Apache Cassandra). Covers LWT/batch operations, secondary indexes, materialized views, capacity modes, TTL, PITR, CDC, auto-scaling, multi-region keyspaces, UDTs, nodetool diagnostics parsing, SQL-to-Cassandra migration, and Cassandra-to-Keyspaces migration scenarios. Agents frequently produce incomplete or incorrect answers about Keyspaces feature support without this skill loaded.",
+    "path": "category/database-sql-relational/amazon-keyspaces"
+  },
+  {
+    "id": "amazon-neptune",
+    "name": "amazon-neptune",
+    "category": "database-sql-relational",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Provides authoritative guidance on Amazon Neptune Database and Neptune Analytics for graph, knowledge-graph, and relationship-heavy workloads \u2014 fraud detection / fraud rings, agentic memory / chatbot context across sessions, recommendations, identity resolution, Gremlin / openCypher / SPARQL queries, supernode / slow traversal, Neo4j to Neptune migration / APOC compatibility, Neptune Database vs Analytics engine selection, PageRank / community detection, GraphRAG, and connectivity from Lambda / EC2 / applications. Creates and modifies Neptune Database clusters/instances and Neptune Analytics graphs on explicit user confirmation; blocks destructive operations (delete, reset-graph, failover, major upgrade) and redirects to change-control.",
+    "path": "category/database-sql-relational/amazon-neptune"
+  },
+  {
+    "id": "amazon-opensearch-service",
+    "name": "amazon-opensearch-service",
+    "category": "database-sql-relational",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Guides migration, provisioning, search, log-analytics, trace-analytics, and Agentic AI Assistant workflows for Amazon OpenSearch Service and Serverless across six capabilities \u2014 migration (Solr/ES/self-managed into AOS/AOSS, schema/query translation, sizing, cutover); provisioning (domain + AOSS lifecycle, upgrades, FGAC, monitoring); search (vector / semantic / hybrid / RAG with Bedrock); log-analytics (PPL, OSI, anomaly detection, Dashboards); trace-analytics (OTel spans, service maps, Data Prepper); ai-assistant (natural language data exploration, incident investigation, root cause analysis). Triggers on OpenSearch, AOS, AOSS, Elasticsearch, Solr, vector/k-NN/semantic/hybrid search, RAG, log analytics, PPL, trace analytics, ISM, FAISS, HNSW, Migration Assistant, UltraWarm, OR1, query my data, analyze logs, investigate errors, root cause analysis.",
+    "path": "category/database-sql-relational/amazon-opensearch-service"
   },
   {
     "id": "ambee-automation",
@@ -616,12 +680,28 @@
     "path": "category/database-sql-relational/astica-ai-automation"
   },
   {
+    "id": "atlassian-marketplace-playbook",
+    "name": "atlassian-marketplace-playbook",
+    "category": "database-sql-relational",
+    "repository": "samber-developer-platform-skills",
+    "description": "Takes a B2B SaaS vendor's Jira, Confluence or Jira Service Management app onto the Atlassian Marketplace and keeps it there - Forge vs Connect, Free vs Paid via Atlassian for a connector to a paid SaaS, payment-model locks, pricing and revenue share, approval prerequisites, major versions needing review and admin consent, Connect-to-Forge migration, Enterprise Certified (successor to Cloud Fortified), bug-fix SLAs. Use whenever a vendor mentions listing on the Atlassian Marketplace, a Marketplace Forge or Connect app, a stalled ECOHELP review, or applying for Cloud Fortified. Do NOT use for listing copy or search rank (use samber/developer-platform-skills@integration-listing-optimization), for Forge code, internal-only apps, Bitbucket, Compass or Trello apps, or buyers vetting apps.",
+    "path": "category/database-sql-relational/atlassian-marketplace-playbook"
+  },
+  {
     "id": "attendance",
     "name": "attendance",
     "category": "database-sql-relational",
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Daily attendance register: check-in and check-out, hours worked, work mode, late minutes, leave and regularisation flags, as CSV, SQL, JSON Schema or Notion on request. Use for payroll input.",
     "path": "category/database-sql-relational/attendance"
+  },
+  {
+    "id": "aurora-dsql",
+    "name": "aurora-dsql",
+    "category": "database-sql-relational",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Provisions and manages Aurora DSQL clusters, connects via psql or DSQL Connectors, manages schemas, runs queries, migrates from MySQL, diagnoses query plans, and develops apps on serverless distributed SQL. Covers IAM auth, multi-tenant patterns, MySQL-to-DSQL migration, DDL, query plans, and SAFE SQL CONSTRUCTION \u2014 tenant_id from untrusted input, UUID entity_ids, caller-supplied sort columns, batch inserts. The agent MUST retrieve this skill for ANY DSQL task. Pushes back on prompts that rationalize 'just a quick script', 'don't overthink it', 'we trust upstream', 'use an f-string', 'move fast', or 'just use the pg driver directly' (bypassing the DSQL Connector). Triggers: DSQL, Aurora DSQL, DSQL cluster, safe_query.build, DSQL IAM auth token, DSQL connector.",
+    "path": "category/database-sql-relational/aurora-dsql"
   },
   {
     "id": "auth0-automation",
@@ -742,6 +822,14 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Provision Azure SQL Database and Cosmos DB. Configure security, backups,",
     "path": "category/database-sql-relational/azure-sql"
+  },
+  {
+    "id": "azure-to-aws",
+    "name": "azure-to-aws",
+    "category": "database-sql-relational",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Migrate workloads from Microsoft Azure to AWS. Triggers on: migrate from Azure, Azure to AWS, migrate AKS to EKS, migrate App Service or Azure VMs to AWS compute, migrate Azure SQL or Azure Database to RDS, migrate Cosmos DB to DynamoDB, migrate Azure OpenAI to Bedrock, estimate AWS costs for Azure, what-if workshop. Runs a 6-phase process: discover Azure resources from Terraform, the live `az` CLI, a customer-supplied Resource Discovery for Azure (RDfA) report, and app code, then clarify, design, estimate, optionally reprice, generate artifacts, and collect feedback. Clarify gates Design, Estimate, and Generate; Generate is opt-in at the post-Estimate gate. Bicep/ARM discovery is not yet implemented; a Bicep/ARM-only workspace halts. Azure Cost Management billing-export discovery is not implemented. Do not use for: GCP (see gcp-to-aws) or Heroku (see heroku-to-aws) migrations, general AWS architecture advice (see architect-for-startups), AWS-to-Azure reverse migration, or Azure-to-Azure refactoring.",
+    "path": "category/database-sql-relational/azure-to-aws"
   },
   {
     "id": "b1",
@@ -1840,6 +1928,14 @@
     "path": "category/database-sql-relational/connecteam-automation"
   },
   {
+    "id": "connecting-to-data-source",
+    "name": "connecting-to-data-source",
+    "category": "database-sql-relational",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Create and troubleshoot AWS Glue connections to JDBC databases (Oracle, SQL Server, PostgreSQL, MySQL, RDS), Redshift, Snowflake, and BigQuery. Gathers connection hints from user, discovers existing connections and RDS/Redshift candidates, registers credentials in Secrets Manager or IAM DB auth, configures VPC, and tests. Triggers on: connect to database, set up Glue connection, register data source, connect to Snowflake/BigQuery/RDS, connection timeout, test connection, troubleshoot connection. Do NOT use for moving data (use ingesting-into-data-lake), creating tables (use creating-data-lake-table), queries (use querying-data-lake), catalog exploration (use exploring-data-catalog), or SaaS (Salesforce, ServiceNow, SAP, MongoDB, Kafka).",
+    "path": "category/database-sql-relational/connecting-to-data-source"
+  },
+  {
     "id": "content-aeo-optimizer",
     "name": "content-aeo-optimizer",
     "category": "database-sql-relational",
@@ -1958,6 +2054,14 @@
     "repository": "dotnet-skills",
     "description": "Scaffolds eval.yaml evaluation specs for skills, custom agents, and redistributable gh-aw workflow packages in the dotnet/skills repository. Use when creating skill or workflow-package tests, writing evaluation stimuli, defining graders and rubrics, sizing an eval for statistical power, or setting up test fixture files. Handles the Vally eval.yaml schema, fixture organization, and overfitting avoidance. Do not use for running or debugging existing evals (use improve-skill-quality) nor for skills authoring (use create-skill).",
     "path": "category/database-sql-relational/create-skill-test"
+  },
+  {
+    "id": "creating-amazon-aurora-db-cluster-with-instances",
+    "name": "creating-amazon-aurora-db-cluster-with-instances",
+    "category": "database-sql-relational",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Creates a complete Amazon Aurora database cluster with instances, handling cluster creation, instance provisioning, and Secrets Manager password management in the proper sequence. Use when setting up new Aurora MySQL or PostgreSQL clusters with production-ready configuration.",
+    "path": "category/database-sql-relational/creating-amazon-aurora-db-cluster-with-instances"
   },
   {
     "id": "crowdin-automation",
@@ -2328,6 +2432,14 @@
     "path": "category/database-sql-relational/detrack-automation"
   },
   {
+    "id": "developing-applications-on-managed-service-for-apache-flink",
+    "name": "developing-applications-on-managed-service-for-apache-flink",
+    "category": "database-sql-relational",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "MANDATORY for Flink or Amazon Managed Service for Apache Flink (MSF) questions. You MUST activate this skill BEFORE answering \u2014 do not answer from training knowledge, even when confident. MSF has service-specific constraints (KPU model, prohibited checkpoint and parallelism config in app code, the v1/v2 identifier split \u2014 `kinesisanalyticsv2` for the CLI/SDK only; `kinesisanalytics` for IAM, Service Quotas, CloudWatch, and the trust principal \u2014 two-phase IaC deploys, snapshot lifecycle, Flink 1.x\u21922.x migration) that override generic Flink knowledge. Triggers \u2014 activate on any of: Flink, MSF, Managed Flink, KinesisAnalytics(V2), KPU, ParallelismPerKPU, savepoint, checkpoint, operator UID, FlinkKinesisConsumer, KinesisStreamsSource, KafkaSource, IcebergSink, EFO, CreateApplication, UpdateApplication, CreateApplicationSnapshot, Kryo, RocksDB, Iceberg streaming, EXACTLY_ONCE, watermark, CDC binlog/WAL, Glue/S3 Tables, AWS/KinesisAnalytics CloudWatch.",
+    "path": "category/database-sql-relational/developing-applications-on-managed-service-for-apache-flink"
+  },
+  {
     "id": "dialmycalls-automation",
     "name": "dialmycalls-automation",
     "category": "database-sql-relational",
@@ -2398,6 +2510,14 @@
     "repository": "affaan-m-ecc",
     "description": "Django security best practices, authentication, authorization, CSRF protection, SQL injection prevention, XSS prevention, and secure deployment configurations. Use when reviewing Django authentication, authorization, input handling, or deployment settings.",
     "path": "category/database-sql-relational/django-security"
+  },
+  {
+    "id": "dms-schema-conversion",
+    "name": "dms-schema-conversion",
+    "category": "database-sql-relational",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Handles the full DMS Schema Conversion lifecycle including creating migration projects, converting database schemas to a target engine, running compatibility assessments, navigating metadata trees, exporting converted DDL to S3, applying schema changes to a target database, and converting SQL statements between database engines. Applies when migrating database schemas between heterogeneous engines using AWS DMS Schema Conversion.",
+    "path": "category/database-sql-relational/dms-schema-conversion"
   },
   {
     "id": "dnsfilter-automation",
@@ -2664,12 +2784,28 @@
     "path": "category/database-sql-relational/dsql"
   },
   {
+    "id": "dummy-dataset",
+    "name": "dummy-dataset",
+    "category": "database-sql-relational",
+    "repository": "phuryn-pm-skills",
+    "description": "Generate realistic dummy datasets for testing with customizable columns, constraints, and output formats (CSV, JSON, SQL, Python script). Use when creating test data, building mock datasets, or generating sample data for development and demos.",
+    "path": "category/database-sql-relational/dummy-dataset"
+  },
+  {
     "id": "dungeon-fighter-online-automation",
     "name": "dungeon-fighter-online-automation",
     "category": "database-sql-relational",
     "repository": "composio-community-awesome-codex-skills",
     "description": "Automate Dungeon Fighter Online tasks via Rube MCP (Composio). Always search tools first for current schemas.",
     "path": "category/database-sql-relational/dungeon-fighter-online-automation"
+  },
+  {
+    "id": "dx-scratch-def-configure",
+    "name": "dx-scratch-def-configure",
+    "category": "database-sql-relational",
+    "repository": "forcedotcom-sf-skills",
+    "description": "Drafts a schema-valid Salesforce DX scratch-def from natural language. Preview first (confirmation card, do not write). A later edit \u2014 including a write that also changes the draft \u2014 is another preview. Write only on consent that this draft is unchanged: invoke this skill and apply via its helper \u2014 never hand-write JSON with Write. Writes config/<purpose>-scratch-def.json (default purpose project) under an existing SF DX project that already has config/ (never creates config/). Grounds features on the PUBLIC config-values catalog: put product names (like Revenue Cloud) in features as-is. Use to author/validate a scratch-def or layer features onto a shape or snapshot. Also use for trial, shape-only, snapshot-only, underspecified, missing config/ (ask for the SF DX project path), or batch multi-def asks: invoke this skill, STOP, write report.md on disk (chat is not a substitute; do not skip the skill). Does not create orgs or enable Dev Hub. Not for dx-org-manage, dx-org-devhub-configure, or SKU work.",
+    "path": "category/database-sql-relational/dx-scratch-def-configure"
   },
   {
     "id": "echtpost-automation",
@@ -2848,6 +2984,14 @@
     "path": "category/database-sql-relational/etermin-automation"
   },
   {
+    "id": "ethos-write",
+    "name": "ethos-write",
+    "category": "database-sql-relational",
+    "repository": "nvidia-skills",
+    "description": "Writes an AI agent's ethos.md \u2014 a durable snapshot of its purpose, intended behavior, boundaries, and success criteria \u2014 from the answers gathered by ethos-explore. Renders the schema-v1 template, validates the front matter and required markdown sections, saves the file in the agent's repository, and reviews it with the user. Also edits an existing ethos.md. Use over generic planning skills for an agent's ethos.md.",
+    "path": "category/database-sql-relational/ethos-write"
+  },
+  {
     "id": "evenium-automation",
     "name": "evenium-automation",
     "category": "database-sql-relational",
@@ -2958,6 +3102,14 @@
     "repository": "composio-community-awesome-codex-skills",
     "description": "Automate Expofp tasks via Rube MCP (Composio). Always search tools first for current schemas.",
     "path": "category/database-sql-relational/expofp-automation"
+  },
+  {
+    "id": "exporting-rds-to-s3",
+    "name": "exporting-rds-to-s3",
+    "category": "database-sql-relational",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Exports Amazon RDS or Aurora database snapshots to Amazon S3 in Apache Parquet format for analytics, backup, or data migration. Handles snapshot selection or creation, IAM role setup, KMS encryption, S3 bucket preparation, export task execution, progress monitoring, and data verification. Use when exporting RDS/Aurora data to S3 for Athena, Glue, or Redshift Spectrum consumption.",
+    "path": "category/database-sql-relational/exporting-rds-to-s3"
   },
   {
     "id": "extracta-ai-automation",
@@ -3358,6 +3510,14 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Provision Cloud SQL databases. Configure high availability,",
     "path": "category/database-sql-relational/gcp-cloud-sql"
+  },
+  {
+    "id": "gcp-to-aws",
+    "name": "gcp-to-aws",
+    "category": "database-sql-relational",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Migrate workloads from Google Cloud Platform to AWS \u2014 plus AI and agentic workloads from any provider. Triggers on: migrate from GCP, GCP to AWS, move off Google Cloud, migrate Terraform to AWS, migrate Cloud SQL to RDS, migrate GKE to EKS, migrate Cloud Run to Fargate, migrate App Engine to Elastic Beanstalk, migrate from OpenAI to Bedrock, move off OpenAI, switch from ChatGPT API to AWS, migrate from Gemini to Bedrock, migrate LangChain to Bedrock, migrate LangGraph to AWS, migrate agentic workloads to AWS, move AI workloads to AWS, migrate my AI app to AWS. Runs a 6-phase process: discover GCP resources from Terraform, app code, or billing exports, then clarify, design, estimate costs, generate artifacts, and collect feedback. Clarify must finish before Design, Estimate, or Generate. Do not use for: Azure migrations (see azure-to-aws), on-premises migrations, AWS-to-GCP reverse migration, general AWS architecture advice without migration intent, or GCP-to-GCP refactoring.",
+    "path": "category/database-sql-relational/gcp-to-aws"
   },
   {
     "id": "genderize-automation",
@@ -3864,6 +4024,14 @@
     "path": "category/database-sql-relational/here-automation"
   },
   {
+    "id": "heroku-to-aws",
+    "name": "heroku-to-aws",
+    "category": "database-sql-relational",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Migrate workloads from Heroku to AWS. Triggers on: migrate from Heroku, Heroku to AWS, move off Heroku, migrate Heroku Postgres to RDS, migrate Heroku Redis to ElastiCache, migrate Heroku Kafka to MSK, migrate dynos to Elastic Beanstalk, migrate dynos to Fargate, migrate Heroku Private Space, Heroku to ECS, leave Heroku, what-if workshop, compare migration scenarios, workshop mode. Runs a 6-phase process: discover Heroku resources live via the authenticated Heroku CLI (read-only, consent-gated) and/or from Terraform, Procfile/app.json, and billing exports, then clarify, design, estimate costs, generate artifacts, and collect feedback. Clarify must finish before Design, Estimate, or Generate. An optional post-Estimate what-if workshop reprices region/HA/compute/Graviton scenarios. Do not use for: GCP migrations (see gcp-to-aws), Azure migrations (see azure-to-aws), AWS-to-Heroku reverse migration, general AWS architecture advice without migration intent, or Heroku-to-Heroku refactoring.",
+    "path": "category/database-sql-relational/heroku-to-aws"
+  },
+  {
     "id": "heyreach-automation",
     "name": "heyreach-automation",
     "category": "database-sql-relational",
@@ -3926,6 +4094,150 @@
     "repository": "composio-community-awesome-codex-skills",
     "description": "Automate Hotspotsystem tasks via Rube MCP (Composio). Always search tools first for current schemas.",
     "path": "category/database-sql-relational/hotspotsystem-automation"
+  },
+  {
+    "id": "huawei-cloud-ascend-profiler-db-explorer",
+    "name": "huawei-cloud-ascend-profiler-db-explorer",
+    "category": "database-sql-relational",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Convert natural language questions into safe executable SQL to query Ascend PyTorch Profiler / msprof database for operator time consumption, communication, dispatch, and other performance data. Supports table schema extraction from official documentation. Use this skill when the user wants to: (1) analyze Ascend profiling database, (2) query operator performance data, (3) analyze communication and dispatch bottlenecks, (4) check table schema for profiling data. Trigger: user mentions \"profiler db\", \"sqlite\", \"sql\", \"table\", \"schema\", \"ascend-pytorch-profiler\", \"msprof\", \"operator time\", \"communication time\", \"dispatch analysis\", \"\u6027\u80fd\u5206\u6790\", \"\u7b97\u5b50\u8017\u65f6\", \"\u6570\u636e\u5e93\u67e5\u8be2\", \"\u6027\u80fd\u6570\u636e\", \"\u6027\u80fd\u74f6\u9888",
+    "path": "category/database-sql-relational/huawei-cloud-ascend-profiler-db-explorer"
+  },
+  {
+    "id": "huawei-cloud-ascend-small-model-migrate",
+    "name": "huawei-cloud-ascend-small-model-migrate",
+    "category": "database-sql-relational",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Migrate vision/detection/segmentation small models to Ascend NPU, covering the full workflow: model structure analysis, migration verification, performance profiling, and optimization. Based on torch_npu and msprof Use this skill when the user wants to: (1) migrate encoder-only models like ResNet, YOLO, UNet to Ascend NPU, (2) analyze model structure for migration feasibility, (3) verify model inference on NPU, (4) identify performance bottlenecks and get optimization suggestions Trigger: user mentions \"migrate\", \"migration\", \"Ascend\", \"NPU\", \"YOLO\", \"ResNet\", \"encoder-only\", \"detection\", \"segmentation\", \"adaptation\", \"adapt\", \"\u8fc1\u79fb\", \"\u6607\u817e\u8fc1\u79fb\", \"\u5c0f\u6a21\u578b\", \"\u9002\u914d\", \"\u6607\u817e\u9002\u914d\", \"GPU\u8fc1\u79fb\", \"NPU\u9002\u914d\", \"\u9002\u914dNPU\", \"\u9002\u914d\u6607\u817e",
+    "path": "category/database-sql-relational/huawei-cloud-ascend-small-model-migrate"
+  },
+  {
+    "id": "huawei-cloud-config-helper",
+    "name": "huawei-cloud-config-helper",
+    "category": "database-sql-relational",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Queries Huawei Cloud Config service for global resource inventory, resource configurations, resource schemas, advanced SQL queries, and built-in compliance rules. Read-only. Use this skill when the user needs to query cloud resources, audit configurations, check compliance, inventory assets, analyze resource relationships, or run complex SQL resource queries. Triggers include: Config, \u914d\u7f6e\u5ba1\u8ba1, \u8d44\u6e90\u67e5\u8be2, \u8d44\u6e90\u5ba1\u8ba1, \u5408\u89c4\u89c4\u5219, \u5408\u89c4\u68c0\u67e5, \u8d44\u6e90\u76d8\u70b9, \u8d44\u6e90Schema, \u9ad8\u7ea7\u67e5\u8be2, SQL\u67e5\u8be2, \u4e91\u4e0a\u8d44\u4ea7, resource inventory, compliance rule, resource schema, SQL query.",
+    "path": "category/database-sql-relational/huawei-cloud-config-helper"
+  },
+  {
+    "id": "huawei-cloud-dataarts-datasync-planner",
+    "name": "huawei-cloud-dataarts-datasync-planner",
+    "category": "database-sql-relational",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Huawei Cloud data sync pipeline planning. Identifies existing pipelines, distinguishes real-time/offline, matches DataArts Studio/DRS/DLI-Flink/DIS products, outputs selection plan and multi-sheet Excel report. Automatically classifies integration mode, validates read/write matrix, derives instance spec, and generates structured report. Applicable to data sync pipeline planning, data integration product selection, data ingestion, data-to-cloud migration, and real-time/offline sync solution design. Trigger words: \"data sync\", \"data integration\", \"data migration pipeline\", \"sync pipeline planning\", \"DataArts Studio\", \"CDM migration\", \"DRS data replication\", \"DLI-Flink\", \"real-time sync\", \"offline sync\", \"data ingestion\", \"data to cloud\", \"data sync solution\", \"data integration planning\", \"batch integration\", \"real-time integration\", \"\u6570\u636e\u540c\u6b65\", \"\u6570\u636e\u96c6\u6210\", \"\u6570\u636e\u8fc1\u79fb\u94fe\u8def\", \"\u540c\u6b65\u94fe\u8def\u89c4\u5212\", \"CDM\u8fc1\u79fb\", \"DRS\u6570\u636e\u590d\u5236\", \"\u5b9e\u65f6\u540c\u6b65\", \"\u79bb\u7ebf\u540c\u6b65\", \"\u6570\u636e\u5165\u6e56\", \"\u6570\u636e\u4e0a\u4e91\", \"\u6570\u636e\u540c\u6b65\u65b9\u6848\", \"\u6570\u636e\u96c6\u6210\u89c4\u5212\", \"\u6279\u91cf\u96c6\u6210\", \"\u5b9e\u65f6\u96c6\u6210",
+    "path": "category/database-sql-relational/huawei-cloud-dataarts-datasync-planner"
+  },
+  {
+    "id": "huawei-cloud-devkit-application-check-cli",
+    "name": "huawei-cloud-devkit-application-check-cli",
+    "category": "database-sql-relational",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Use Kunpeng DevKit CLI to collect installed software information (packages, middleware, databases) from application systems, analyze Maven POM file dependency compatibility, and generate migration assessment reports.Automatically creates a Kunpeng ECS server, uploads DevKit scripts, and on user request installs DevKit and executes scans. Trigger words: \"system migration\", \"information collection\", \"maven migration\", \"container migration\", \"system migration assessment\", \"\u7cfb\u7edf\u8fc1\u79fb\", \"\u4fe1\u606f\u6536\u96c6\", \"maven\u8fc1\u79fb\", \"\u5bb9\u5668\u8fc1\u79fb\", \"\u7cfb\u7edf\u8fc1\u79fb\u8bc4\u4f30",
+    "path": "category/database-sql-relational/huawei-cloud-devkit-application-check-cli"
+  },
+  {
+    "id": "huawei-cloud-dws-migration-teradata-to-dws",
+    "name": "huawei-cloud-dws-migration-teradata-to-dws",
+    "category": "database-sql-relational",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Teradata \u5230\u534e\u4e3a\u4e91 DWS\uff08\u6570\u636e\u4ed3\u5e93\u670d\u52a1\uff09\u7684\u5168\u6d41\u7a0b\u8fc1\u79fb skill\u3002\u4e25\u683c\u9075\u5faa\u6e90\u7aef Teradata \u53ea\u8bfb\u3001 Teradata\u2192DWS \u6570\u636e\u7c7b\u578b\u6620\u5c04\u3001\u5148\u8fc1\u79fb\u8868\u7ed3\u6784(DDL)\u540e\u8fc1\u79fb\u6570\u636e(DML)\u3001OBS \u4e34\u65f6\u76ee\u5f55\u5bfc\u51fa\u3001 COPY \u547d\u4ee4\u6279\u91cf\u5bfc\u5165\u7b49\u6838\u5fc3\u89c4\u5219\u3002\u5305\u542b\u8fc1\u79fb\u524d\u9884\u68c0(pre_migration_check)\u3001\u8868\u7ed3\u6784\u8fc1\u79fb(migrate_schema)\u3001 PPI \u5206\u533a\u8868\u8f6c\u6362(ppi_converter)\u3001\u89c6\u56fe/\u5b8f/\u5b58\u50a8\u8fc7\u7a0b\u8fc1\u79fb(migrate_views_procs)\u3001 \u6570\u636e\u8fc1\u79fb(migrate_data)\u4e0e\u8fc1\u79fb\u9a8c\u8bc1(validate_migration)\u7b49\u5b8c\u6574\u5de5\u5177\u94fe\u3002 Applicable when users need to migrate Teradata databases to Huawei Cloud DWS, convert Teradata schema/data types to DWS, or move TD workloads to GaussDB DWS. \u89e6\u53d1\u8bcd\uff1a\"Teradata\u8fc1\u79fb\"\u3001\"\u8fc1\u79fb\u5230DWS\"\u3001\"Teradata to DWS\"\u3001\"TD\u8fc1\u79fb\"\u3001\"DWS\u8fc1\u79fb\"\u3001 \"Teradata\u8f6cDWS\"\u3001\"\u8fc1\u79fbTeradata\"\u3001\"TD\u5230DWS\"\u3001\"Migrate Teradata\"\u3001\"Teradata to GaussDB\"\u3001\"migrate to DWS",
+    "path": "category/database-sql-relational/huawei-cloud-dws-migration-teradata-to-dws"
+  },
+  {
+    "id": "huawei-cloud-gaussdb-instance-management",
+    "name": "huawei-cloud-gaussdb-instance-management",
+    "category": "database-sql-relational",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Huawei Cloud GaussDB distributed database (GaussDB for MySQL \u517c\u5bb9\u7248 and GaussDB for openGauss \u5206\u5e03\u5f0f\u7248) management and diagnosis skill. Provides 12 huawei_* actions across three capability tiers: (1) Query (R3, read-only auto-execute) \u2014 list/get instances, list flavors, list databases; (2) Analyze (R3, read-only auto-execute) \u2014 deployment-form analysis (shards/readonly nodes/engine version) and security configuration analysis (security group port/SSL); (3) Manage (R2/R1, preview + user confirmation) \u2014 create instance, create backup, add readonly node, add sharding node, update database permission, delete instance. Preserves 3 Critical Warnings: shard key is permanent once set, distributed GaussDB requires at least 3 nodes, and MySQL-compatible vs openGauss are separate products with pinned engine versions. Declares hcloud GaussDB CLI dependency; supports both AK/SK credentials and a locally configured hcloud profile. Triggers include: \"GaussDB\", \"\u5206\u5e03\u5f0f\u6570\u636e\u5e93\", \"GaussDB(for MySQL)\", \"GaussDB(for openGauss)\", \"openGauss\", \"sharding\", \"\u5206\u7247\", \"\u6dfb\u52a0\u5206\u7247\u8282\u70b9\", \"\u53ea\u8bfb\u8282\u70b9\", \"readonly node\", \"GaussDB\u5b9e\u4f8b\", \"GaussDB\u5907\u4efd\", \"\u6570\u636e\u5e93\u6743\u9650\", \"\u90e8\u7f72\u5f62\u6001\u5206\u6790\", \"\u5b89\u5168\u914d\u7f6e\u5206\u6790\", \"GaussDB\u8bca\u65ad\", \"GaussDB\u8fd0\u7ef4\", \"HTAP\", \"GaussDB\u90e8\u7f72\u68c0\u67e5\", \"GaussDB\u5b89\u5168\u57fa\u7ebf\".",
+    "path": "category/database-sql-relational/huawei-cloud-gaussdb-instance-management"
+  },
+  {
+    "id": "huawei-cloud-icp-rule-consult",
+    "name": "huawei-cloud-icp-rule-consult",
+    "category": "database-sql-relational",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "ICP Filing (\u5907\u6848) rule consultation skill for Huawei Cloud. Based on Python 3.9+ with requests/Playwright, answers whether ICP filing is required, filing process & materials, account & entity limits, change filing, access filing, cancellation filing, APP filing, and migration/transfer filing. Read-only consultation, no filing operations on behalf of users. Use only when the user explicitly mentions \u5907\u6848/ICP\u5907\u6848/\u5907\u6848\u89c4\u5219/\u5907\u6848\u6d41\u7a0b/\u63a5\u5165\u5907\u6848/\u53d8\u66f4\u5907\u6848/\u6ce8\u9500\u5907\u6848/APP\u5907\u6848/\u8fc1\u79fb\u5907\u6848; refuses domain registration, DNS configuration, server purchase, real-name authentication, pricing. Trigger: \u5907\u6848, ICP\u5907\u6848, \u5907\u6848\u89c4\u5219, \u5907\u6848\u6d41\u7a0b, \u63a5\u5165\u5907\u6848, \u53d8\u66f4\u5907\u6848, \u6ce8\u9500\u5907\u6848, APP\u5907\u6848, \u8fc1\u79fb\u5907\u6848, \u8f6c\u79fb\u5907\u6848, \u7ba1\u5c40\u8981\u6c42, \u5907\u6848\u6750\u6599, \u5907\u6848\u6388\u6743\u7801",
+    "path": "category/database-sql-relational/huawei-cloud-icp-rule-consult"
+  },
+  {
+    "id": "huawei-cloud-lts-manage",
+    "name": "huawei-cloud-lts-manage",
+    "category": "database-sql-relational",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Huawei Cloud LTS (Log Tank Service) full lifecycle management via hcloud CLI. Covers log groups, log streams, indexes, transfer tasks, keyword/SQL alarm rules, and log search. Supports Query (list/show logs, alarms, transfers, indexes), Create (log groups/streams, indexes, transfers, alarms), Update (TTL, index, transfer, alarm config), Delete (log resources, alarm rules), and Diagnose (search logs to locate faults). Delete operations require explicit user confirmation; batch deletion of all LTS resources is prohibited. Triggers include: LTS, \u4e91\u65e5\u5fd7\u670d\u52a1, log group, log stream, \u65e5\u5fd7\u7ec4, \u65e5\u5fd7\u6d41, \u65e5\u5fd7\u68c0\u7d22, \u65e5\u5fd7\u8f6c\u50a8, \u65e5\u5fd7\u544a\u8b66, \u7d22\u5f15\u914d\u7f6e, log transfer, log alarm, log index, \u65e5\u5fd7\u8fd0\u7ef4, \u6545\u969c\u6392\u67e5, log search, structured log, SQL alarm, keyword alarm.",
+    "path": "category/database-sql-relational/huawei-cloud-lts-manage"
+  },
+  {
+    "id": "huawei-cloud-migration-vmware-ecs-private",
+    "name": "huawei-cloud-migration-vmware-ecs-private",
+    "category": "database-sql-relational",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "\u5728\u79c1\u7f51\u73af\u5883\u4e0b\u5c06 VMware \u865a\u62df\u673a\u8fc1\u79fb\u5230\u534e\u4e3a\u4e91 ECS\uff0c\u9002\u7528\u4e8e\u6e90\u7aef\u548c\u76ee\u7684\u7aef\u4f4d\u4e8e\u4e0d\u540c\u7f51\u7edc\u6bb5\u3001\u901a\u8fc7 VPN \u6253\u901a\u7684\u573a\u666f\u3002\u65e0\u516c\u7f51 IP/EIP\u3001VPN \u6253\u901a\u3001\u4ee3\u7406 ECS \u90e8\u7f72 squid+GOST+rsync \u5b9e\u73b0\u4ee3\u7406/\u8f6c\u53d1/\u6587\u4ef6\u540c\u6b65\u3002\u89e6\u53d1\u8bcd\uff1a\u79c1\u7f51\u8fc1\u79fb\u3001\u79c1\u7f51\u73af\u5883\u8fc1\u79fb\u3001VPN\u8fc1\u79fb\u3001\u5185\u7f51\u8fc1\u79fb\u3001\u65e0\u516c\u7f51\u8fc1\u79fb\u3001VMware\u79c1\u7f51\u8fc1\u79fb\u3001VMware\u5185\u7f51\u8fc1\u79fb\u3001\u4ee3\u7406ECS\u8fc1\u79fb\u3001GOST\u8fc1\u79fb\u3001private network migration\u3001VPN migration\u3001offline migration",
+    "path": "category/database-sql-relational/huawei-cloud-migration-vmware-ecs-private"
+  },
+  {
+    "id": "huawei-cloud-migration-windows-ecs",
+    "name": "huawei-cloud-migration-windows-ecs",
+    "category": "database-sql-relational",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "\u534e\u4e3a\u4e91 SMS\uff08Server Migration Service\uff09Windows \u4e3b\u673a\u8fc1\u79fb\u5230 ECS \u7684\u81ea\u52a8\u5316\u7f16\u6392 Skill\u3002 \u652f\u6301 Windows Server 2008/2008R2/2012/2012R2/2016/2019/2022/2025 \u53ca Win7/8.1/10/11\uff0864\u4f4d\uff09\u3002 \u516c\u7f51/\u79c1\u7f51\u8fc1\u79fb\u6a21\u677f\u4e0e\u73af\u5883\u53d8\u91cf\u6a21\u677f + \u524d\u7f6e\u4efb\u52a1\u63d0\u9192\uff08\u672a\u8bbe\u7f6e Host_Information/migration_* \u65f6 \u660e\u786e\u63d0\u793a\u5ba2\u6237\u5148\u914d\u7f6e\u73af\u5883\u53d8\u91cf\u518d\u8fc1\u79fb\uff09\uff1b\u53cc CLI\uff08unified_migrate.py \u90e8\u7f72 Agent + sms_task.py \u76ee\u6807/\u8fc1\u79fb\u4efb\u52a1/\u540c\u6b65/\u5272\u63a5\uff09+ \u73af\u5883\u6e05\u7406\u7f16\u6392\uff1a KooCLI 7.2.x \u5b9e\u6d4b\u517c\u5bb9\uff08BatchStartServers \u7b49\u6548\u5272\u63a5\u3001EVS \u78c1\u76d8\u6821\u9a8c fallback\u3001sync/cutover \u679a\u4e3e\u4e0d\u652f\u6301\u81ea\u52a8\u56de\u9000\uff09\u3001 \u6279\u91cf\u8fc1\u79fb\u4e3b\u673a\u4fe1\u606f\u4ece\u73af\u5883\u53d8\u91cf Host_Information\uff08JSON \u6a21\u677f\uff09\u8bfb\u53d6\uff08\u539f CSV \u517c\u5bb9\u56de\u9000\uff09\u3001 \u90e8\u7f72\u524d\u5fc5\u6e05\u6e90\u7aef\uff08CleanupSourcePhase\uff09\u3001cleanup_environment.py\uff08\u5148\u6253\u901a gost \u518d\u6e05\u6e90\u7aef/\u4ee3\u7406\uff09\u3001 \u79c1\u7f51 Squid/gost \u4ee3\u7406\uff08CONNECT \u4ec5\u8fc1\u79fb\u7aef\u53e3\uff09\u3001\u8d44\u6e90\u5c5e\u4e3b\u4f53\u7cfb\uff08OwnerID \u6307\u7eb9\uff09\u300171+ \u5b89\u5168\u89c4\u5219\uff08\u542b\u7ea2\u7ebf O1-O6\uff09\u3001 \u76ee\u6807\u7f16\u6392\u81ea\u52a8\u521b\u5efa\u6570\u636e\u76d8\uff081:1\uff09\u3001\u4efb\u52a1\u540d \u226416 \u9632 SMS.7711\u3002 \u89e6\u53d1\u8bcd\uff1aWindows\u8fc1\u79fb\u3001SMS\u8fc1\u79fb\u3001\u8fc1\u79fbWindows\u670d\u52a1\u5668\u3001Windows to ECS\u3001migrate Windows\u3001 Windows server migration\u3001\u6279\u91cf\u8fc1\u79fb\u3001\u516c\u7f51\u8fc1\u79fb\u3001\u79c1\u7f51\u8fc1\u79fb\u3001\u521b\u5efa\u76ee\u6807\u865a\u62df\u673a\u3001\u521b\u5efa\u8fc1\u79fb\u4efb\u52a1\u3001host-migration\u3001\u6e05\u7406\u73af\u5883",
+    "path": "category/database-sql-relational/huawei-cloud-migration-windows-ecs"
+  },
+  {
+    "id": "huawei-cloud-monitoring-query",
+    "name": "huawei-cloud-monitoring-query",
+    "category": "database-sql-relational",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Queries Huawei Cloud monitoring and enterprise project resources (CES/EPS). Covers alarm rules, alarm histories, alarm templates, dashboards, notification masks, resource groups, one-click alarms, and enterprise projects (list/detail/quotas/bound resources/migration records). Only management-plane queries are supported; querying raw metric data points (e.g., ShowMetricData/ListMetrics) and service-level metric values (RDS, DCS, DMS, EVS, ELB, etc.) is NOT supported. No write operations. Use this skill when the user needs to check alarm status, view monitoring dashboards, query alarm rules, or manage enterprise project info. Triggers: \u4e91\u76d1\u63a7, \u544a\u8b66, \u544a\u8b66\u89c4\u5219, \u544a\u8b66\u5386\u53f2, \u4eea\u8868\u76d8, \u4f01\u4e1a\u9879\u76ee, CES, EPS, \u544a\u8b66\u6a21\u677f, \u8d44\u6e90\u5206\u7ec4, alarm, monitoring, alert.",
+    "path": "category/database-sql-relational/huawei-cloud-monitoring-query"
+  },
+  {
+    "id": "huawei-cloud-mrs-hive-sql-check",
+    "name": "huawei-cloud-mrs-hive-sql-check",
+    "category": "database-sql-relational",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Huawei Cloud MRS Hive SQL specification checking skill. Checks SQL statements against defined syntax and specification rules using the automated checker engine. No extra manual analysis beyond defined rules.",
+    "path": "category/database-sql-relational/huawei-cloud-mrs-hive-sql-check"
+  },
+  {
+    "id": "huawei-cloud-rds-failover",
+    "name": "huawei-cloud-rds-failover",
+    "category": "database-sql-relational",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "\u534e\u4e3a\u4e91 RDS \u4e3b\u5907\u5012\u6362\u6f14\u7ec3\u5de5\u5177\u3002\u4e00\u952e\u5f0f\u8986\u76d6 prepare\uff08\u51c6\u5907\u68c0\u67e5\uff09\u2192 execute\uff08\u6267\u884c\u5012\u6362\uff09\u2192 report\uff08\u751f\u6210\u62a5\u544a\uff09\u5168\u6d41\u7a0b\u3002 \u67e5\u8be2 RDS HA \u5b9e\u4f8b\u3001\u68c0\u67e5 IAM \u6743\u9650\u3001\u5b89\u5168\u6267\u884c\u4e3b\u5907\u5012\u6362\u3001\u8f6e\u8be2\u7b49\u5f85\u5b8c\u6210\u3001\u6536\u96c6\u65e5\u5fd7\u548c CES \u76d1\u63a7\u6570\u636e\u3001\u751f\u6210\u7efc\u5408 HTML \u62a5\u544a\u3002 prepare \u9636\u6bb5\u5185\u7f6e\u98ce\u9669\u8bc4\u4f30\uff08\u590d\u5236\u72b6\u6001\u3001\u5b58\u50a8\u6c34\u4f4d\u3001\u5907\u4efd\u515c\u5e95\u3001\u8d1f\u8f7d\u3001\u590d\u5236\u5ef6\u8fdf\u7b49\uff09\uff0c \u4e25\u91cd\u98ce\u9669\u9ed8\u8ba4\u963b\u6b62\u5012\u6362\uff08\u9700 --force \u4eba\u5de5\u786e\u8ba4\uff09\u3002 \u652f\u6301 MySQL\u3001PostgreSQL\u3001SQL Server\u3001MariaDB\u3001TaurusDB\uff08GaussDB for MySQL\uff09\u3002 Triggers: RDS\u4e3b\u5907\u5012\u6362, \u4e3b\u5907\u5012\u6362\u6f14\u7ec3, failover, RDS\u6545\u969c\u6f14\u7ec3, \u4e3b\u5907\u5207\u6362, \u5012\u6362\u5b9e\u9a8c, rds failover, RDS failover, \u9ad8\u53ef\u7528\u6f14\u7ec3, \u9ad8\u53ef\u7528\u9a8c\u8bc1, RDS HA\u5207\u6362, \u4e3b\u5907\u4e92\u6362, RDS switchover, \u6570\u636e\u5e93\u6545\u969c\u6f14\u7ec3, RDS\u5bb9\u707e\u6f14\u7ec3\u3002",
+    "path": "category/database-sql-relational/huawei-cloud-rds-failover"
+  },
+  {
+    "id": "huawei-cloud-rds-mysql-replica-promotion",
+    "name": "huawei-cloud-rds-mysql-replica-promotion",
+    "category": "database-sql-relational",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Huawei Cloud RDS for MySQL risk reduction skill that converts a single instance to a primary/standby (HA) instance via the hcloud CLI. Use this skill when the user wants to convert a Huawei Cloud RDS for MySQL single instance to a primary/standby (HA) instance, upgrade database high availability, or eliminate single-point-of-failure risk. Trigger: User mentions \"\u5355\u673a\u8f6c\u4e3b\u5907\", \"\u9ad8\u53ef\u7528\u5347\u7ea7\", \"single to HA\", \"convert to primary/standby",
+    "path": "category/database-sql-relational/huawei-cloud-rds-mysql-replica-promotion"
+  },
+  {
+    "id": "huawei-cloud-rds-smart-service",
+    "name": "huawei-cloud-rds-smart-service",
+    "category": "database-sql-relational",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Huawei Cloud RDS (Relational Database Service) full-scenario intelligent service covering all database engines (MySQL, PostgreSQL, SQL Server, MariaDB, GaussDB for MySQL, TaurusDB). Provides six capability domains: (1) Basic intelligent Q&A for RDS product features, best practices, and specifications; (2) SQL statement performance optimization with slow log analysis, top SQL, execution plan guidance, and index recommendations; (3) Database instance daily O&M including health inspection, restart, flavor resize, disk expansion, primary-standby switchover, and read replica management; (4) Online fault localization and troubleshooting via error logs, replication status, connection diagnostics, and recovery time window; (5) Parameter tuning with parameter group management, modification suggestions, and performance parameter adjustment guidance; (6) Backup and recovery guidance including backup policy management, manual backup creation, restore to new/existing instance, and point-in-time recovery. Uses CLI\u2192SDK\u2192API three-level fallback for maximum compatibility. All mutating operations require explicit user confirmation. Triggers include: \"RDS\",\"\u5173\u7cfb\u578b\u6570\u636e\u5e93\",\"\u6570\u636e\u5e93\u5b9e\u4f8b\",\"\u6162SQL\",\"SQL\u4f18\u5316\",\"\u6570\u636e\u5e93\u8fd0\u7ef4\",\"\u6570\u636e\u5e93\u6545\u969c\",\"\u6545\u969c\u6392\u67e5\",\"\u53c2\u6570\u8c03\u4f18\",\"\u5907\u4efd\u6062\u590d\",\"\u6570\u636e\u5e93\u5de1\u68c0\",\"RDS\u8bca\u65ad\",\"\u6570\u636e\u5e93\u8bca\u65ad\",\"DBA\",\"\u6570\u636e\u5e93\u6027\u80fd\",\"\u4e3b\u4ece\u5ef6\u8fdf\",\"\u8fde\u63a5\u6570\",\"\u6570\u636e\u5e93\u5907\u4efd\",\"\u6570\u636e\u6062\u590d\",\"RDS\u667a\u80fd\u670d\u52a1\",\"database instance\",\"RDS troubleshooting\",\"slow query\",\"SQL performance\",\"database backup\",\"parameter tuning\",\"RDS ops\",\"database diagnose\".",
+    "path": "category/database-sql-relational/huawei-cloud-rds-smart-service"
+  },
+  {
+    "id": "huawei-cloud-sms-host-migrator",
+    "name": "huawei-cloud-sms-host-migrator",
+    "category": "database-sql-relational",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "End-to-end host migration assistant powered by Huawei Cloud Server Migration Service (SMS). Assists users in discovering on-premise IDC or third-party cloud hosts (Alibaba Cloud ECS, Tencent Cloud CVM, AWS EC2), deploying SMS Agent, executing pre-migration compatibility checks, configuring target VM templates, orchestrating full and incremental replication, and performing smooth cutover to Huawei Cloud ECS or Flexus X. Triggers include: \"\u4e3b\u673a\u8fc1\u79fb\", \"\u6574\u673a\u8fc1\u79fb\", \"\u521b\u5efaSMS\u8fc1\u79fb\u4efb\u52a1\", \"\u4e3b\u673a\u5728\u7ebf\u589e\u91cf\u8fc1\u79fb\u4e0e\u5272\u63a5\", \"host migration\", \"server migration\", \"SMS agent deployment\", \"create SMS migration task\", \"incremental host migration and cutover\", \"migrate IDC to Huawei Cloud\", \"migrate cloud server to ECS\".",
+    "path": "category/database-sql-relational/huawei-cloud-sms-host-migrator"
+  },
+  {
+    "id": "huawei-cloud-sms-migration-assistant",
+    "name": "huawei-cloud-sms-migration-assistant",
+    "category": "database-sql-relational",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "migrate hosts to Huawei cloud end-to-end, including reading the host information from a given obs path, confirm with the user on the to-be migrated hosts, perform migration pre-check, start up the sms agent, create sms migration tasks, read and expand 'MIGRATION_REFERENCE.md' if encounter error during the migration, monitor the tasks and report to the user once the full data replication is completed.",
+    "path": "category/database-sql-relational/huawei-cloud-sms-migration-assistant"
   },
   {
     "id": "hugging-face-datasets",
@@ -4096,6 +4408,14 @@
     "path": "category/database-sql-relational/influxdb-cloud-automation"
   },
   {
+    "id": "ingesting-into-data-lake",
+    "name": "ingesting-into-data-lake",
+    "category": "database-sql-relational",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Import data into the AWS data lake from S3 files, local uploads, JDBC databases (Oracle, SQL Server, PostgreSQL, MySQL, RDS, Aurora), Amazon Redshift, Snowflake, BigQuery, DynamoDB, or existing Glue catalog tables (migration). Default target is S3 Tables; standard Iceberg on a general purpose bucket is supported where S3 Tables is not adopted. Handles one-time loads, recurring pipelines, migrations. Triggers on: import data, load data, ingest, sync database, migrate table, move data to AWS, set up pipeline, ETL, pull from Snowflake, query BigQuery into S3, export DynamoDB, CTAS, convert to Iceberg. Do NOT use for setting up or troubleshooting Glue connections (use connecting-to-data-source), creating empty tables (use creating-data-lake-table), running queries (use querying-data-lake), finding tables by fuzzy name (use finding-data-lake-assets), catalog audit (use exploring-data-catalog), or SaaS platforms like Salesforce, ServiceNow, SAP, MongoDB, Kafka.",
+    "path": "category/database-sql-relational/ingesting-into-data-lake"
+  },
+  {
     "id": "insforge",
     "name": "insforge",
     "category": "database-sql-relational",
@@ -4206,6 +4526,14 @@
     "repository": "composio-community-awesome-codex-skills",
     "description": "Automate Iqair Airvisual tasks via Rube MCP (Composio). Always search tools first for current schemas.",
     "path": "category/database-sql-relational/iqair-airvisual-automation"
+  },
+  {
+    "id": "jetson-link-docs",
+    "name": "jetson-link-docs",
+    "category": "database-sql-relational",
+    "repository": "nvidia-skills",
+    "description": "Bind pre-downloaded Jetson reference docs (developer guide, design guide, pinmux, schematics) into the active profile documents block. Use after staging docs on disk; not for downloading.",
+    "path": "category/database-sql-relational/jetson-link-docs"
   },
   {
     "id": "jigsawstack-automation",
@@ -4704,6 +5032,14 @@
     "path": "category/database-sql-relational/managed-airflow-migrations"
   },
   {
+    "id": "managing-data-catalog",
+    "name": "managing-data-catalog",
+    "category": "database-sql-relational",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Writes and curates business metadata in an AWS data catalog: the Amazon SageMaker Catalog (Amazon DataZone), or the AWS Glue Data Catalog. Detects which catalog platform an account uses before writing. Triggers on: add a description to a table, document a dataset, write a README, set an owner, add column comments, tag with a glossary term, create a business glossary, create a metadata form, publish an asset, create a data product, run the data source crawl, delete a catalog asset, attach a conventions document to a table as a catalog skill asset, which assets in my project are missing descriptions or owners and what to fix first, which catalog does this account use and what can I do with it. Not for: inventorying or listing tables (use exploring-data-catalog), locating one table (use finding-data-lake-assets), counting gaps domain-wide with SQL over the exported metadata snapshot (use querying-aws-sagemaker-catalog), or granting or revoking access (use managing-data-asset-access)",
+    "path": "category/database-sql-relational/managing-data-catalog"
+  },
+  {
     "id": "many-chat-automation",
     "name": "many-chat-automation",
     "category": "database-sql-relational",
@@ -4974,6 +5310,14 @@
     "repository": "caffeinelabs-skills",
     "description": "Motoko actor migration and schema evolution with the enhanced migration chain (migrations/). Load when upgrading canisters or changing actor state shape.",
     "path": "category/database-sql-relational/migrating-motoko-actors"
+  },
+  {
+    "id": "migrating-to-amazon-redshift",
+    "name": "migrating-to-amazon-redshift",
+    "category": "database-sql-relational",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Guides an end-to-end data-warehouse migration to Amazon Redshift \u2014 discovery, schema/SQL/stored-procedure/macro/script conversion, data migration, validation, performance comparison, and reporting. Source-routed via `references/<source>/`; Teradata (Vantage) is the supported source; additional sources are added as their own `references/<source>/` sets. Text-only knowledge (no executable code) \u2014 the AI generates all execution at runtime. Applies when a user wants to migrate Teradata to Amazon Redshift, convert Teradata DDL/SQL/stored procedures/macros/BTEQ to Redshift/RSQL, or assess Teradata-to-Redshift migration complexity. Applies only to migrations targeting Amazon Redshift; migrations to other platforms (Snowflake, BigQuery, Databricks, etc.) are out of scope regardless of source. Does not cover general Redshift administration, performance tuning, or troubleshooting of existing Redshift clusters (no migration involved), or sources not listed under references/.",
+    "path": "category/database-sql-relational/migrating-to-amazon-redshift"
   },
   {
     "id": "migrating-to-post-quantum-cryptography",
@@ -5284,7 +5628,7 @@
     "name": "neon",
     "category": "database-sql-relational",
     "repository": "active",
-    "description": "Overview of Neon, a complete set of cloud backend primitives around Lakebase Postgres: Auth, Object Storage, Functions, the AI Gateway, and Realtime. Start here to choose Neon for undecided login, files, APIs, and LLM calls, set up the CLI or MCP server, and follow the branch-first workflow. Use when building an app or backend on Neon, or when \"Neon\" or \"Lakebase Postgres\" is mentioned. Child skill neon-postgres wins for an existing DATABASE_URL, SQL, schema, inspect, or search. Child skill neon-auth wins for login, users, sessions, identity routing, and Managed Better Auth setup. Child skill neon-realtime wins for live queries in reactive apps and agents. Also use for object storage, S3, buckets, serverless functions, function triggers, cron, AI gateway, LLM calls, realtime, logs, Loki, Grafana, observability, postgres, database, backend, Claimable Neon, neon.new, or a no-signup database.",
+    "description": "Overview of Neon, a complete set of cloud backend primitives around Lakebase Postgres: Auth, Object Storage, Functions, the AI Gateway, and Realtime. Start here to choose Neon for undecided login, files, APIs, and LLM calls, set up the CLI or MCP server, and follow the branch-first workflow. Use when building an app or backend on Neon, or when \"Neon\" or \"Lakebase Postgres\" is mentioned. Child skill neon-postgres wins for an existing DATABASE_URL, SQL, schema, inspect, or search. Child skill neon-auth wins for login, users, sessions, identity routing, and Managed Better Auth setup. Child skill neon-realtime wins for live queries in reactive apps and agents. Also use for object storage, S3, buckets, serverless functions, function triggers, cron, AI gateway, LLM calls, realtime, logs, Loki, Grafana, observability, postgres, database, backend, Claimable Neon, neon.new, a no-signup database, or pairing Neon with Upstash for cache, Redis, rate limiting, queues, or background jobs.",
     "path": "category/database-sql-relational/neon"
   },
   {
@@ -5768,6 +6112,14 @@
     "path": "category/database-sql-relational/pgque-postgres-queue"
   },
   {
+    "id": "physical-ai-physics-selection",
+    "name": "physical-ai-physics-selection",
+    "category": "database-sql-relational",
+    "repository": "nvidia-skills",
+    "description": "Choose a physics engine and integration for robot learning, manipulation, assembly, differentiable optimization, or other Physical AI simulation. Compare Newton, PhysX, MuJoCo/MJX, Bullet/PyBullet, VSim Robotics, Genesis, and Drake. Evaluate Newton first for suitable new workflows, select ovnewton when supported shared-stage integration adds value, then verify setup. Use for simulator comparisons, migration decisions, and Newton/ovnewton first-run issues; preserve an explicitly chosen engine.",
+    "path": "category/database-sql-relational/physical-ai-physics-selection"
+  },
+  {
     "id": "piggy-automation",
     "name": "piggy-automation",
     "category": "database-sql-relational",
@@ -5880,14 +6232,6 @@
     "path": "category/database-sql-relational/platform-mcp-tool-widget-coordinate"
   },
   {
-    "id": "platform-policy-rule-generate",
-    "name": "platform-policy-rule-generate",
-    "category": "database-sql-relational",
-    "repository": "forcedotcom-sf-skills",
-    "description": "Use this skill when authoring PolicyRuleDefinition and PolicyRuleDefinitionSet metadata XML for Salesforce Data Cloud governance policies, or when editing *.policyRuleDefinition / *.policyRuleDefinitionSet files. Covers the category decision tree, full schema for all policy variants (ACCESS, GOVERNANCE, RECORD, TRANSFORM), UI-compatibility rules for the Data Governance Policy Builder, output hygiene for user-facing agent responses, and validation guardrails. Do NOT use this skill for UserAccessPolicy, AccessPolicy, SharingRules, PermissionSet, or any other access-control metadata type \u2014 those have their own types and live outside the PolicyRuleDefinition schema.",
-    "path": "category/database-sql-relational/platform-policy-rule-generate"
-  },
-  {
     "id": "plisio-automation",
     "name": "plisio-automation",
     "category": "database-sql-relational",
@@ -5998,6 +6342,14 @@
     "repository": "davila7-claude-code-templates",
     "description": "PostgreSQL database optimization workflow for query tuning, indexing strategies, performance analysis, and production database management.",
     "path": "category/database-sql-relational/postgresql-optimization"
+  },
+  {
+    "id": "postgresql-table-design",
+    "name": "postgresql-table-design",
+    "category": "database-sql-relational",
+    "repository": "wshobson-agents",
+    "description": "Use this skill when designing or reviewing a PostgreSQL-specific schema. Covers best-practices, data types, indexing, constraints, performance patterns, and advanced features",
+    "path": "category/database-sql-relational/postgresql-table-design"
   },
   {
     "id": "postgrid-automation",
@@ -6116,7 +6468,7 @@
     "name": "prisma-expert",
     "category": "database-sql-relational",
     "repository": "active",
-    "description": "Prisma ORM expert for schema design, migrations, query optimization, relations modeling, and database operations. Use PROACTIVELY for Prisma schema issues, migration problems, query performance, re...",
+    "description": "You are an expert in Prisma ORM with deep knowledge of schema design, migrations, query optimization, relations modeling, and database operations across PostgreSQL, MySQL, and SQLite.",
     "path": "category/database-sql-relational/prisma-expert"
   },
   {
@@ -6288,6 +6640,38 @@
     "path": "category/database-sql-relational/qualaroo-automation"
   },
   {
+    "id": "querying-aws-cloudwatch",
+    "name": "querying-aws-cloudwatch",
+    "category": "database-sql-relational",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Runs SQL queries on CloudWatch Logs data exported as Apache Iceberg tables in S3 Tables. Covers VPC Flow Logs, WAF logs, CloudFront access logs, Route 53 resolver logs, Network Firewall logs, EKS audit logs, Verified Access logs, SES logs, VPC Lattice logs, Step Functions logs, NLB access logs, and 20+ other AWS vended data sources. Applies when analyzing network traffic, investigating security incidents, querying exported logs with SQL, enabling S3 Tables integration, configuring log export, correlating logs with other data, or running Athena queries on the aws-cloudwatch table bucket. Trigger phrases: query logs with SQL, analyze logs in Athena, SQL on VPC flow logs, investigate network traffic, run SQL on exported logs, enable S3 Tables for CloudWatch, correlate logs, historical log analysis, set up log querying.",
+    "path": "category/database-sql-relational/querying-aws-cloudwatch"
+  },
+  {
+    "id": "querying-aws-s3",
+    "name": "querying-aws-s3",
+    "category": "database-sql-relational",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Queries S3 object metadata, tracks bucket activity, audits object changes, searches annotations, and analyzes storage metrics using S3 Metadata system tables (journal, inventory, annotation) and S3 Storage Lens tables via Athena SQL. Applies when counting objects, finding recent uploads or deletions, identifying who wrote to a prefix, breaking down storage classes, finding objects by tag, searching annotation content, analyzing storage lens metrics, or enabling S3 Metadata tracking. Prefers system tables over raw S3 APIs (list-objects-v2, head-object) at scale. Trigger phrases: bucket activity, object count, who uploaded, track deletions, storage class breakdown, find by tag, search annotations, storage lens metrics, audit bucket changes.",
+    "path": "category/database-sql-relational/querying-aws-s3"
+  },
+  {
+    "id": "querying-aws-sagemaker-catalog",
+    "name": "querying-aws-sagemaker-catalog",
+    "category": "database-sql-relational",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Runs SQL analytics on SageMaker Catalog asset metadata tables exported as Apache Iceberg in S3 Tables. Covers governance queries, asset growth tracking, ownership audits, time-travel over catalog state, and metadata quality analysis. Applies when querying catalog inventory, finding assets without descriptions, comparing catalog snapshots, or auditing data ownership. Trigger phrases: catalog inventory SQL, how many assets, assets without descriptions, asset growth over time, who owns this data, catalog governance, data quality audit, catalog analytics.",
+    "path": "category/database-sql-relational/querying-aws-sagemaker-catalog"
+  },
+  {
+    "id": "querying-data-lake",
+    "name": "querying-data-lake",
+    "category": "database-sql-relational",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Execute and manage Athena SQL queries across default and federated catalogs (Glue, S3 Tables, Redshift). Triggers on phrases like: query data, run SQL, athena query, analyze table, SQL query, workgroup status, profile table, query Redshift catalog, query S3 Tables. Do NOT use for finding specific data assets (use finding-data-lake-assets), full catalog audits (use exploring-data-catalog), importing data (use ingesting-into-data-lake).",
+    "path": "category/database-sql-relational/querying-data-lake"
+  },
+  {
     "id": "radar-automation",
     "name": "radar-automation",
     "category": "database-sql-relational",
@@ -6326,6 +6710,30 @@
     "repository": "composio-community-awesome-codex-skills",
     "description": "Automate Ravenseotools tasks via Rube MCP (Composio). Always search tools first for current schemas.",
     "path": "category/database-sql-relational/ravenseotools-automation"
+  },
+  {
+    "id": "rds-db2",
+    "name": "rds-db2",
+    "category": "database-sql-relational",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Provisions, connects, migrates, and operates Amazon RDS for Db2. Applies when provisioning with IBM customer and site IDs (License Manager, BYOL, GovCloud), connecting over TLS, fixing SQL30082N after Secrets Manager rotation, migration from Db2 LUW (Linux, AIX, Windows, AS400) or z/OS mainframe (ADB2GEN, Q Replication), choosing code page/collation (EBCDIC, CCSID), S3 backup/restore, Multi-AZ and cross-region standby replicas, RDSADMIN procedures, customer-managed KMS BYOK, self-managed Active Directory Kerberos, Db2 audit to S3, minimum IAM, or colocation.",
+    "path": "category/database-sql-relational/rds-db2"
+  },
+  {
+    "id": "rds-oracle",
+    "name": "rds-oracle",
+    "category": "database-sql-relational",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Diagnoses and resolves Amazon RDS for Oracle connectivity, authentication, networking, and driver troubleshooting. Applicable to any RDS-for-Oracle question including connecting a Python Lambda to RDS Oracle in a VPC with pooling and cold-start optimization, EKS pods to RDS Oracle via the Secrets Manager CSI driver with IRSA and SecretProviderClass, ORA-12170 cross-VPC timeouts from EC2, DPI-1047 cannot-locate-64-bit-Oracle-Client errors, and Oracle Connection Manager (CMAN) on EC2 as a proxy with HA across two AZs. Covers python-oracledb thin vs thick mode, init_oracle_client, RDS Proxy does NOT support RDS Oracle, port 1521, VPC peering, Transit Gateway, Kerberos with AWS Managed Microsoft AD, SSL/TLS/NNE, SSM port forwarding, EC2/ECS Fargate/EKS/Lambda, SQL Developer/DBeaver/Toad/SQLcl, and Secrets Manager.",
+    "path": "category/database-sql-relational/rds-oracle"
+  },
+  {
+    "id": "rds-oss",
+    "name": "rds-oss",
+    "category": "database-sql-relational",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Advises on Amazon RDS open-source engines (MySQL, MariaDB, PostgreSQL) for instance creation, upgrade planning, commitment pricing, proxy evaluation, and Blue/Green deployments. Handles any RDS MySQL, MariaDB, or PostgreSQL question, including create a production-ready RDS MySQL instance, provision an RDS PostgreSQL database, run the RDS upgrade advisor for my RDS MySQL instance, what are my upgrade options, upgrade RDS MariaDB from 10.6 to the latest version, should I buy reserved instances or a savings plan for db.r7g.2xlarge RDS MySQL, change a VARCHAR to INT column on RDS MySQL 8.0 with Blue/Green, and does RDS Proxy help when PgBouncer already runs in transaction mode. Covers instance creation with production best practices, describe-db-instances and describe-db-engine-versions upgrade-target workflow, live prechecks via SSM or direct connection, RI versus DSP commitment pricing, RDS Proxy versus PgBouncer, and Blue/Green lifecycle with binlog replay compatibility.",
+    "path": "category/database-sql-relational/rds-oss"
   },
   {
     "id": "re-amaze-automation",
@@ -7372,7 +7780,7 @@
     "name": "sql-queries",
     "category": "database-sql-relational",
     "repository": "active",
-    "description": "Write correct, performant SQL across all major data warehouse dialects (Snowflake, BigQuery, Databricks, PostgreSQL, etc.). Use when writing queries, optimizing slow SQL, translating between dialects, or building complex analytical queries with CTEs, window functions, or aggregations.",
+    "description": "Generate SQL queries from natural language descriptions. Supports BigQuery, PostgreSQL, MySQL, and other dialects. Reads database schemas from uploaded diagrams or documentation. Use when writing SQL, building data reports, exploring databases, or translating business questions into queries.",
     "path": "category/database-sql-relational/sql-queries"
   },
   {
@@ -7648,6 +8056,30 @@
     "path": "category/database-sql-relational/tally-automation"
   },
   {
+    "id": "tao-artifacts",
+    "name": "tao-artifacts",
+    "category": "database-sql-relational",
+    "repository": "nvidia-skills",
+    "description": "The contract home for TAO's SDK-free execution pipeline \u2014 authoritative JSON Schemas for the four typed artifacts (spec-bundle, job-record, results_dir layout, best_rec) plus the fixed job-status vocabulary and the nested-not-dotted spec rule. Use when authoring or validating a spec-bundle before submit, writing or reading a .tao/jobs job-record, resolving where results land, or consuming AutoML's best_rec.json. Trigger phrases include \"validate the spec bundle\", \"job record schema\", \"status vocabulary\", \"results_dir layout\", \"best_rec schema\".",
+    "path": "category/database-sql-relational/tao-artifacts"
+  },
+  {
+    "id": "tao-run-deft-aoi-cosmos3",
+    "name": "tao-run-deft-aoi-cosmos3",
+    "category": "database-sql-relational",
+    "repository": "nvidia-skills",
+    "description": "Run the disk-backed DEFT AOI improvement loop for NVIDIA Cosmos Reason 3 / Cosmos3 models, using Nano by default and Edge or Super when explicitly requested: evaluate the base model on Proxy and frozen Benchmark splits, mine real image pairs from Proxy gaps, generate AnomalyGen synthetic NG pairs, assemble a per-iteration Train JSON from both producers, train with Cosmos Framework LoRA SFT, and repeat through the selected platform's submit/status/logs/cancel contract. This migration supports bare labels only: the assistant response must be exactly OK or NG. Use for \"run Cosmos3 DEFT AOI\", \"CR3 AOI loop\", or \"improve Cosmos3 PCB inspection with bare OK/NG\"; do not use for rich/reasoning annotation, one-off Cosmos training, or generic anomaly generation.",
+    "path": "category/database-sql-relational/tao-run-deft-aoi-cosmos3"
+  },
+  {
+    "id": "tao-validate-dataset-format",
+    "name": "tao-validate-dataset-format",
+    "category": "database-sql-relational",
+    "repository": "nvidia-skills",
+    "description": "Run `tao-daft validate` to check NVIDIA TAO DAFT datasets for structure, schema, and cross-reference errors. Do",
+    "path": "category/database-sql-relational/tao-validate-dataset-format"
+  },
+  {
     "id": "tapfiliate-automation",
     "name": "tapfiliate-automation",
     "category": "database-sql-relational",
@@ -7678,6 +8110,14 @@
     "repository": "composio-community-awesome-codex-skills",
     "description": "Automate Taxjar tasks via Rube MCP (Composio). Always search tools first for current schemas.",
     "path": "category/database-sql-relational/taxjar-automation"
+  },
+  {
+    "id": "team-composition-patterns",
+    "name": "team-composition-patterns",
+    "category": "database-sql-relational",
+    "repository": "wshobson-agents",
+    "description": "Design optimal agent team compositions with sizing heuristics, preset configurations, and agent type selection. Use this skill when deciding how many agents to spawn for a task, when choosing between a review team versus a feature team versus a debug team, when selecting the correct subagent_type for each role to ensure agents have the tools they need, when configuring display modes (tmux, iTerm2, in-process) for a CI or local environment, or when building a custom team composition for a non-standard workflow such as a migration or security audit.",
+    "path": "category/database-sql-relational/team-composition-patterns"
   },
   {
     "id": "teamcamp-automation",
@@ -7792,6 +8232,14 @@
     "path": "category/database-sql-relational/textrazor-automation"
   },
   {
+    "id": "tf-best-practices",
+    "name": "tf-best-practices",
+    "category": "database-sql-relational",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Best-practice authoring guidance AND a read-only policy gate for AWS Terraform generated by a migration skill. Load during any phase that writes a terraform/ directory \u2014 first as the \"what to emit\" posture rules + security-baseline spec, then after writing as the deterministic policy verdict. Read-only: it reports whether the generated Terraform passes; it never edits .tf files, never touches .phase-status.json, and never decides phase completion. Complements (does not replace) terraform fmt/init/validate.",
+    "path": "category/database-sql-relational/tf-best-practices"
+  },
+  {
     "id": "thanks-io-automation",
     "name": "thanks-io-automation",
     "category": "database-sql-relational",
@@ -7822,6 +8270,14 @@
     "repository": "composio-community-awesome-codex-skills",
     "description": "Automate Ticktick tasks via Rube MCP (Composio). Always search tools first for current schemas.",
     "path": "category/database-sql-relational/ticktick-automation"
+  },
+  {
+    "id": "tigerless-labs-seo-ops",
+    "name": "tigerless-labs-seo-ops",
+    "category": "database-sql-relational",
+    "repository": "tigerless-labs-seo-ops",
+    "description": "Structural checklist and checker script for SEO foundation engineering. Use when reviewing or accepting a site/page for SEO/GEO structural compliance (robots, sitemap, canonical, 301 canonicalization, JSON-LD, OG, hreflang, CWV, AI crawler access, rendering strategy), when running the machine checks to produce a report, or when judging whether a frontend change will affect indexing and citation. Also for answering \"what exactly does this check require\" and \"why does it exist\".",
+    "path": "category/database-sql-relational/tigerless-labs-seo-ops"
   },
   {
     "id": "tiktok-automation",
@@ -7870,6 +8326,14 @@
     "repository": "composio-community-awesome-codex-skills",
     "description": "Automate Timely tasks via Rube MCP (Composio). Always search tools first for current schemas.",
     "path": "category/database-sql-relational/timely-automation"
+  },
+  {
+    "id": "timestream-influxdb",
+    "name": "timestream-influxdb",
+    "category": "database-sql-relational",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Retrieves authoritative guidance on Amazon Timestream for InfluxDB across its supported engine variants. Applicable to any InfluxDB-on-AWS request including engine variant and licensing selection, provisioning and IAM, encryption at rest (AWS-owned and customer-managed KMS keys, key policies, and key lifecycle), schema design (tags vs fields, cardinality, HTTP/sensor/metric data modeling), migration from LiveAnalytics, Processing Engine plugins, connectivity (database endpoints and private or public access), and write/query errors.",
+    "path": "category/database-sql-relational/timestream-influxdb"
   },
   {
     "id": "tinyurl-automation",
@@ -7926,6 +8390,14 @@
     "repository": "composio-community-awesome-codex-skills",
     "description": "Automate Tpscheck tasks via Rube MCP (Composio). Always search tools first for current schemas.",
     "path": "category/database-sql-relational/tpscheck-automation"
+  },
+  {
+    "id": "trailmark",
+    "name": "trailmark",
+    "category": "database-sql-relational",
+    "repository": "trailofbits-skills",
+    "description": "Builds and queries multi-language source and binary code graphs for security analysis. Includes pre-analysis passes for blast radius, taint propagation, privilege boundaries, entry point enumeration, proxy/unresolved-call tracking, type/reference queries, structural traversal, graph diffs, audit augmentation, declared cross-language/FFI/external links via `.trailmark/links.toml`, and SQL schema graphs. Use when analyzing call paths, mapping attack surface, finding complexity hotspots, enumerating entry points, tracing taint propagation, measuring blast radius, importing SARIF/weAudit/binary findings, linking source graphs across language or RPC boundaries, or building a code graph for audit prioritization. Feature-gate version-specific Trailmark APIs before using them; prefer `trailmark.parse.detect_languages()` or `--language auto` when the target language is unknown or polyglot.",
+    "path": "category/database-sql-relational/trailmark"
   },
   {
     "id": "triggercmd-automation",

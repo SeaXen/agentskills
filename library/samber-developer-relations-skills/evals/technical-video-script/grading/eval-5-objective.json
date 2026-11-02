@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects all five quoted lines as deictic narration that carries no information without the picture.",
+        "evidence": "\"Pass-threshold gate 3 requires: ... All five lines fail it\" followed by a table marking all five lines' problems (e.g. \"'As you can see here' \u2014 names nothing\", \"'This to that' carries zero information without the picture\") each rated \"High\" risk.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rewrites each quoted line into a version naming the identifier, value, screen or result out loud.",
+        "evidence": "The rewrite table gives all five: e.g. \"'Okay so as you can see here...' \u2192 'Here's the Express webhook handler \u2014 right now it trusts the request body completely.'\" and \"'This function does a bunch of stuff under the hood.' \u2192 '`verify()` recomputes the HMAC over the raw body and compares it in constant time.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces \"click here, and then over here\" with named UI destinations rather than screen positions.",
+        "evidence": "\"'Click here, and then over here.' \u2192 'Open Settings, then the Webhooks tab, and copy the signing secret.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces \"it works now\" with the observable evidence - a status code, an output line, a test result - instead of the conclusion.",
+        "evidence": "\"'And there we go, it works now.' \u2192 'The same forged request now returns 403 with `invalid_signature`.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the visual information belongs inside the main narration rather than in a separate description track.",
+        "evidence": "Quotes and endorses: \"'write the visual information into the main narration, then verify the audio alone still teaches the thing \u2014 doing it at script time is far cheaper than bolting a separate description track onto a finished recording.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies a separate audio-description track as the retrofit for material that already exists, not the approach for a video still being scripted.",
+        "evidence": "\"You're treating audio description as a bolt-on: lock the edit, then record a separate description track over it.\" \u2014 framed as the wrong order for a video still being scripted.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that doing this at script time is far cheaper than bolting a description onto a finished recording.",
+        "evidence": "\"doing it at script time is far cheaper than bolting a separate description track onto a finished recording.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prescribes an audio-only pass: reading the narration column with the screen off and rewriting every sentence that stops meaning something.",
+        "evidence": "The transcript only references \"the audio-only pass \u2014 required anyway, before recording \u2014 verifies whether a separate AD track is still needed at all\" and quotes gate 3 (\"The audio-only read still teaches the thing\"), but never describes the mechanic of reading with the screen off or rewriting sentences that stop meaning something.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that captions are required for prerecorded synchronized media at WCAG Level A.",
+        "evidence": "The only caption mention is \"the same fix that makes your auto-generated captions usable, since deictic lines are exactly what breaks a caption track too\" \u2014 no mention of WCAG Level A or the prerecorded-synchronized-media requirement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Instructs auto-generating the captions and correcting them against the narration column rather than re-transcribing the video.",
+        "evidence": "No instruction to auto-generate captions or correct them against the narration column appears anywhere in the transcript; captions are mentioned only once in passing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that deictic lines also make an auto-generated caption track unusable.",
+        "evidence": "\"That also happens to be the same fix that makes your auto-generated captions usable, since deictic lines are exactly what breaks a caption track too.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects all five quoted lines as deictic narration that carries no information without the picture.",
+        "evidence": "The table covers all five lines, e.g. '\"as you can see\" and \"here\" both presuppose sight'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rewrites each quoted line into a version naming the identifier, value, screen or result out loud.",
+        "evidence": "Five rewrites, e.g. 'The signature check is changed from ... `sig == expected`, to ... `hmac.Equal`'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces \"click here, and then over here\" with named UI destinations rather than screen positions.",
+        "evidence": "'Clicking the Run Tests button in the toolbar, then the Terminal tab'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces \"it works now\" with the observable evidence - a status code, an output line, a test result - instead of the conclusion.",
+        "evidence": "'The terminal shows three tests passing, marked with green checkmarks.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the visual information belongs inside the main narration rather than in a separate description track.",
+        "evidence": "It frames the fix as a separate AD recording, 'recording AD only after the edit is locked'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies a separate audio-description track as the retrofit for material that already exists, not the approach for a video still being scripted.",
+        "evidence": "It endorses AD recorded after the edit, not rewriting at script time.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that doing this at script time is far cheaper than bolting a description onto a finished recording.",
+        "evidence": "It warns only about pacing and fit of descriptions.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Prescribes an audio-only pass: reading the narration column with the screen off and rewriting every sentence that stops meaning something.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that captions are required for prerecorded synchronized media at WCAG Level A.",
+        "evidence": "Captions are not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Instructs auto-generating the captions and correcting them against the narration column rather than re-transcribing the video.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that deictic lines also make an auto-generated caption track unusable.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

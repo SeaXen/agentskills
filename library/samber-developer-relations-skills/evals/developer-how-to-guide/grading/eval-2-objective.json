@@ -1,0 +1,190 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Runs in audit mode: returns a defect table first, then rewrites of the failing sections only, not a full page rewrite.",
+        "evidence": "The Open questions table comes first. The transcript then gives a full 'The fixed page' rewrite.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Defect table uses exactly the columns Step | Defect | Kind | Fix | Readers blocked.",
+        "evidence": "Header: '| Step | Defect | Kind | Fix | Readers blocked |'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies each defect with a kind from the fixed set: hidden prerequisite, missing variant, unsafe step, no verification, teaching or reference inline, wrong scope.",
+        "evidence": "Kinds used: hidden prerequisite, unsafe step, no verification, wrong scope, teaching inline, reference inline.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Orders the defect rows by readers blocked times how badly, not by page order; the no-verification and immediate-verify defects (steps 6 and 7) rank above the step-2 teaching block.",
+        "evidence": "The order is step 5, 5, 6, 7, then 1, 2, 4. Steps 6 and 7 rank above the step 2 teaching row.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prefixes every finding `UNVERIFIED:` because nobody at the competence floor has run the page.",
+        "evidence": "The defect table rows carry no 'UNVERIFIED:' prefix. Only an assumptions row says all findings are unverified.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Hands over a run list in the fixed format with the lines Environment, Runner, Capture, Variants, Re-run, Roll back, Fill, Product gaps.",
+        "evidence": "Run list has Environment, Runner, Capture, Variants, Re-run, Roll back, Fill and Product gaps.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces step 1 (install and login) with a prerequisites check that links the install or quickstart page and gives a version check command such as `pellbrook --version`.",
+        "evidence": "'Pellbrook CLI installed and logged in. Check: UNVERIFIED (a command that proves the login)'. No pellbrook --version command.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Moves the three CNAME paragraphs to a linked explanation page, keeping at most one line of why where it decides a branch.",
+        "evidence": "Next steps: 'Understand the record type: UNVERIFIED-LINK: concept page on CNAME vs. A records'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Moves the DNS record-type option table to a reference page linked from the step that needs it.",
+        "evidence": "The reference link ('DNS records reference') appears only in Next steps. No step links to it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rewrites step 6 to state the expected DNS propagation delay, poll with a timeout, and distinguish what \"still pending\" output looks like from \"failed\".",
+        "evidence": "'poll for up to 30 minutes' loop with sleep 60. '\"Still pending\" means the record isn't visible yet... \"Failed\" means a wrong name or target.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces \"You're done!\" with a verification step through an independent read (a request to the domain, or the dashboard status), its expected output, and a failure line pointing to a troubleshooting entry.",
+        "evidence": "Verify the result uses dig and curl with expected output, and links a troubleshooting entry for HTTPS errors.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rewrites step 5 (the DNS provider's UI) to name the screen, link the provider's own page, and list only what the reader enters there.",
+        "evidence": "'open the DNS records screen', a Field/Value table, and 'See your provider's own page on adding a CNAME record'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "For the rename, redirects the old URL and fixes deep links to the old anchor in the same change.",
+        "evidence": "'Rename the page with a redirect from the old URL, and update any links to the old \"Custom Domains\" anchors in the same change.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the new title as verb plus object and writes a goal line that says when a reader wants this rather than restating the title.",
+        "evidence": "Title 'Serve your site on a custom domain'. Goal line: 'Use this when your site is deployed on Pellbrook and you want visitors to reach it at your own subdomain'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Stamps `owner`, `tested_with` and `last_verified` in the front matter, with `UNVERIFIED` where unknown.",
+        "evidence": "Front matter has all three set to UNVERIFIED.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Runs in audit mode: returns a defect table first, then rewrites of the failing sections only, not a full page rewrite.",
+        "evidence": "The response is a full page rewrite followed by a change list.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Defect table uses exactly the columns Step | Defect | Kind | Fix | Readers blocked.",
+        "evidence": "There is no defect table.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Classifies each defect with a kind from the fixed set: hidden prerequisite, missing variant, unsafe step, no verification, teaching or reference inline, wrong scope.",
+        "evidence": "No defect kinds are given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Orders the defect rows by readers blocked times how badly, not by page order; the no-verification and immediate-verify defects (steps 6 and 7) rank above the step-2 teaching block.",
+        "evidence": "There is no ranking.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Prefixes every finding `UNVERIFIED:` because nobody at the competence floor has run the page.",
+        "evidence": "No UNVERIFIED prefixes appear.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Hands over a run list in the fixed format with the lines Environment, Runner, Capture, Variants, Re-run, Roll back, Fill, Product gaps.",
+        "evidence": "No run list is handed over.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Replaces step 1 (install and login) with a prerequisites check that links the install or quickstart page and gives a version check command such as `pellbrook --version`.",
+        "evidence": "Install was moved into the verify step as `brew install pellbrook`, with no link or version check.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Moves the three CNAME paragraphs to a linked explanation page, keeping at most one line of why where it decides a branch.",
+        "evidence": "It was cut to one sentence on the page, with no linked explanation page.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Moves the DNS record-type option table to a reference page linked from the step that needs it.",
+        "evidence": "The table was deleted, not linked to a reference page.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rewrites step 6 to state the expected DNS propagation delay, poll with a timeout, and distinguish what \"still pending\" output looks like from \"failed\".",
+        "evidence": "The page says 'wait a few minutes and run the command again'. It has no timeout and no pending-versus-failed distinction.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Replaces \"You're done!\" with a verification step through an independent read (a request to the domain, or the dashboard status), its expected output, and a failure line pointing to a troubleshooting entry.",
+        "evidence": "Step 4 says only 'Your site should load', with no failure line pointing to a troubleshooting entry.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rewrites step 5 (the DNS provider's UI) to name the screen, link the provider's own page, and list only what the reader enters there.",
+        "evidence": "It says generically 'your DNS provider's settings', with no screen named and no provider link.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "For the rename, redirects the old URL and fixes deep links to the old anchor in the same change.",
+        "evidence": "The rename is mentioned, but no redirect or deep-link fix is mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the new title as verb plus object and writes a goal line that says when a reader wants this rather than restating the title.",
+        "evidence": "The goal line 'Point a domain you own...' restates the title and does not say when a reader wants this.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Stamps `owner`, `tested_with` and `last_verified` in the front matter, with `UNVERIFIED` where unknown.",
+        "evidence": "There is no front matter.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

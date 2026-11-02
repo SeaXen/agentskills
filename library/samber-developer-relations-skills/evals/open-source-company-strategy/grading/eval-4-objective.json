@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Splits each candidate asset into a differentiating layer and its enablers, and runs the differentiating-or-context gate on each separately",
+        "evidence": "\"Run it twice: split into (a) a generic point-cloud utility layer \u2014 format conversion, basic filtering, registration \u2014 and (b) the warehouse-tuned segmentation/denoising.\" and the same treatment for the simulation harness (engine vs. scenario library).",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that most decisions happen at that inner split rather than at the asset boundary",
+        "evidence": "No general statement of this principle appears; the split is applied case-by-case to two assets without a stated generalization that most decisions happen at the inner split.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends actively contributing to the enabling frameworks even while the differentiating layer stays closed",
+        "evidence": "\"Upstream-first: if either component already leans on ROS/PCL/Open3D-style ecosystems, default to contributing fixes upstream before maintaining a parallel private version.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason: a competing open solution adopted outside the company's control erodes the differentiating edge and forces a costly redesign",
+        "evidence": "The stated reason for upstreaming is maintenance tax ('a private fork of that plumbing is a maintenance tax you repay at every upstream version bump'), not erosion of the differentiating edge via an externally-adopted competing solution.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites Sony contributing multimedia frameworks while keeping camera-effect features such as smile recognition closed",
+        "evidence": "'Sony' and 'smile recognition' are never mentioned anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that failing the differentiating-or-context gate does not force a closed verdict, but usually means opening a smaller piece or opening later",
+        "evidence": "Point-cloud pipeline row: \"Fails G2 run holistically... Flip condition: engineering time to do that split and re-score each half separately\" \u2014 verdict is 'Not yet', not Closed.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes the differentiating-or-context gate from the veto gates of irreversibility, value capture and ownership",
+        "evidence": "\"**G1 (irreversibility), outright veto.**... G2 and G3 fail identically\" \u2014 explicitly separates G1's veto framing from the differentiating-gate (G2) analysis.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Produces one row per candidate asset, with each asset appearing exactly once",
+        "evidence": "Five distinct assets (sensor-abstraction, calibration toolkit, grasp-planning model, point-cloud pipeline, simulation harness) each appear in exactly one of the Open/Closed/Not-yet tables.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Applies a second read that assigns each asset a dominant objective, naming at least two of the strategic, platform or leverage, products or bottleneck, and standard positions",
+        "evidence": "No such classification (strategic/platform/products/standard) appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Assigns a dominant objective per asset rather than a single objective covering the whole portfolio",
+        "evidence": "No dominant-objective framework of this kind is used at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that this classification does not capture how fast an artifact drifts from differentiating to commodity, and recommends re-running the evaluation each product planning cycle",
+        "evidence": "No statement about the classification's blind spot regarding drift speed appears; re-evaluation triggers are event-based, not framed this way.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not issue one verdict covering the whole perception stack at once",
+        "evidence": "\"The perception stack is five assets, not one, and they don't share a verdict... Two open, one closed outright, two not yet.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Splits each candidate asset into a differentiating layer and its enablers, and runs the differentiating-or-context gate on each separately",
+        "evidence": "Each table row gets a single whole-asset verdict (e.g., \"Point-cloud pipeline | Closed | Core differentiator\") with no internal split into differentiating vs enabling sub-layers.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that most decisions happen at that inner split rather than at the asset boundary",
+        "evidence": "No such statement; decisions are made at the whole-component level.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends actively contributing to the enabling frameworks even while the differentiating layer stays closed",
+        "evidence": "The sensor-abstraction layer is marked \"Closed (soft call)\" with only a hypothetical mention of opening it later, not a recommendation to actively contribute to enabling frameworks.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason: a competing open solution adopted outside the company's control erodes the differentiating edge and forces a costly redesign",
+        "evidence": "Not present anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites Sony contributing multimedia frameworks while keeping camera-effect features such as smile recognition closed",
+        "evidence": "No mention of Sony or smile recognition.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that failing the differentiating-or-context gate does not force a closed verdict, but usually means opening a smaller piece or opening later",
+        "evidence": "No such gate or nuanced fallback is described; verdicts are stated as flat Closed/Open per row.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes the differentiating-or-context gate from the veto gates of irreversibility, value capture and ownership",
+        "evidence": "No gate taxonomy of this kind appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces one row per candidate asset, with each asset appearing exactly once",
+        "evidence": "The table lists exactly five distinct rows (Sensor-abstraction layer, Point-cloud pipeline, Calibration toolkit, Grasp-planning model, Simulation harness), each appearing once.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Applies a second read that assigns each asset a dominant objective, naming at least two of the strategic, platform or leverage, products or bottleneck, and standard positions",
+        "evidence": "No second read or objective classification of this kind appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Assigns a dominant objective per asset rather than a single objective covering the whole portfolio",
+        "evidence": "No per-asset objective framework exists; only a single reasoning framework is applied uniformly.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that this classification does not capture how fast an artifact drifts from differentiating to commodity, and recommends re-running the evaluation each product planning cycle",
+        "evidence": "Not discussed anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not issue one verdict covering the whole perception stack at once",
+        "evidence": "\"**Verdict: Closed.** The perception stack is the product, not an accessory to it.\" \u2014 a single blanket verdict is issued before the per-component table.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States the channel ranking on three axes (efficiency, effort, value) out loud, with the efficiency order: random calibration subsample > owned channels > partner-sent > targeted outreach > paid ads.",
+        "evidence": "The ranking table gives order and role, but efficiency, effort and value are never named as axes.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Puts a random calibration subsample through the CLI first-run message first, explaining that only it makes rung-2 claims and a bias measurement possible.",
+        "evidence": "'Rank 1 | CLI prompt, random draw per install | Calibration. Enables ... rung 2) and a bias measurement.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Specifies the calibration mechanics: invite each install once, at most one reminder to the same draw, single-use tokens stored apart from the answers.",
+        "evidence": "It covers invite once and single-use tokens that store no install ID, but never the at-most-one reminder.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sizes the calibration group to clear the subgroup minimum for the subgroups to be compared.",
+        "evidence": "'Calibration target = 100 \u00d7 the number of subgroups... For 3 subgroups, that is 300.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses importing Moorhen's CSV; Moorhen sends the invitation to its own list, the notice names Moorhen, and Moorhen receives aggregates only.",
+        "evidence": "'Moorhen mails its own list... Moorhen gets aggregate results only. The notice names Moorhen.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects pulling contributor emails from the git log entirely, naming email rules and respondent trust.",
+        "evidence": "'Scraped addresses... break email rules in several jurisdictions and the trust of the people you survey.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Demotes or deletes the $8k LinkedIn ads, stating that paid ads are promoted only when the bias check shows a large group owned channels miss and someone can screen fraud.",
+        "evidence": "'hold... Release the money only if all three are true after the week-4 bias check'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels owned channels (newsletter, Discord, repo) as volume, never representative.",
+        "evidence": "'Volume, mostly fans. Never presented as representative.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Assigns a source tag per channel via distinct links or a hidden field and commits to publishing the source mix.",
+        "evidence": "Tags are assigned per channel, but there is no commitment to publish the source mix.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Fixes the field window before launch and anchors it between two weeks and about three months.",
+        "evidence": "'Weeks 3-6: field window, about 3.5 weeks.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Addresses the English-only decision: translate, or name the under-sampling of developers less comfortable in English in the bias sentence.",
+        "evidence": "'Name the under-sampling of non-English readers in the bias sentence.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Shows Moorhen the questionnaire outline only when everyone else sees it, and names in the methodology who could see and change it.",
+        "evidence": "'Moorhen sees the same outline as everyone else, and the methodology states who could see or change the questionnaire.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the first-run message's own skew (interactive users on the new release only) in the bias sentence.",
+        "evidence": "'The prompt misses CI-only and non-interactive users and anyone who does not upgrade in the window.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States the channel ranking on three axes (efficiency, effort, value) out loud, with the efficiency order: random calibration subsample > owned channels > partner-sent > targeted outreach > paid ads.",
+        "evidence": "There is a ranking table with verdicts and yields, but the axes and the calibration > owned > partner > targeted > paid order are not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Puts a random calibration subsample through the CLI first-run message first, explaining that only it makes rung-2 claims and a bias measurement possible.",
+        "evidence": "The CLI is ranked first as a message to all users; no random subsample is described.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Specifies the calibration mechanics: invite each install once, at most one reminder to the same draw, single-use tokens stored apart from the answers.",
+        "evidence": "Single-use tokens, one reminder to the same draw and separate storage are not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sizes the calibration group to clear the subgroup minimum for the subgroups to be compared.",
+        "evidence": "Not addressed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses importing Moorhen's CSV; Moorhen sends the invitation to its own list, the notice names Moorhen, and Moorhen receives aggregates only.",
+        "evidence": "'Ask Moorhen to send to its own list, from its own sender... No data changes hands.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects pulling contributor emails from the git log entirely, naming email rules and respondent trust.",
+        "evidence": "'people gave those addresses for commit attribution, not marketing... GDPR problem and a bad look'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Demotes or deletes the $8k LinkedIn ads, stating that paid ads are promoted only when the bias check shows a large group owned channels miss and someone can screen fraud.",
+        "evidence": "A $1.5k test is kept and scaling to $4k is allowed on cost per complete; the bias-check condition is absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels owned channels (newsletter, Discord, repo) as volume, never representative.",
+        "evidence": "Not labelled as volume; methodology only says 'skewed toward Driftwood users'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Assigns a source tag per channel via distinct links or a hidden field and commits to publishing the source mix.",
+        "evidence": "'one src= tag per channel'; 'Report results by source.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Fixes the field window before launch and anchors it between two weeks and about three months.",
+        "evidence": "'W3\u20136: fielding... W6: close the survey'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Addresses the English-only decision: translate, or name the under-sampling of developers less comfortable in English in the bias sentence.",
+        "evidence": "'the sample is self-selected, English-only, and skewed toward Driftwood users.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Shows Moorhen the questionnaire outline only when everyone else sees it, and names in the methodology who could see and change it.",
+        "evidence": "Moorhen is only sent 'the copy'; no outline policy is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the first-run message's own skew (interactive users on the new release only) in the bias sentence.",
+        "evidence": "Not named.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

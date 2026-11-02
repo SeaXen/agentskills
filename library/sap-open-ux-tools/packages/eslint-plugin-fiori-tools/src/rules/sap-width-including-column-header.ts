@@ -1,0 +1,209 @@
+import type { Element, AliasInformation } from '@sap-ux/odata-annotation-core';
+import { Edm, elementsWithName, elements } from '@sap-ux/odata-annotation-core';
+import type { MemberNode } from '@humanwhocodes/momoa';
+import { createFioriRule } from '../language/rule-factory.js';
+import type { FioriRuleDefinition } from '../types.js';
+import type { WidthIncludingColumnHeaderDiagnostic } from '../language/diagnostics.js';
+import { WIDTH_INCLUDING_COLUMN_HEADER_RULE_TYPE } from '../language/diagnostics.js';
+import { getRecordType } from '../project-context/linker/annotations.js';
+import type { FeV4ObjectPage, FeV4ListReport, Table } from '../project-context/linker/fe-v4.js';
+import type { ParsedApp, ParsedService } from '../project-context/parser/index.js';
+import { createJsonFixer } from '../language/rule-fixer.js';
+import { isLowerThanMinimalUi5Version } from '../utils/version.js';
+import { FioriJSONSourceCode } from '../language/json/source-code.js';
+import type { FioriSourceCode } from '../language/fiori-language.js';
+
+export type RequireWidthIncludingColumnHeaderOptions = {
+    form: string;
+};
+
+/**
+ * Determines if a table should have the widthIncludingColumnHeader property set.
+ * Checks if the table's LineItem annotation contains DataFieldForAction or DataFieldForIntentBasedNavigation.
+ *
+ * @param table - Table to check
+ * @param aliasInfo - Alias information for resolving qualified names
+ * @returns True if the table should have widthIncludingColumnHeader set
+ */
+function shouldTableHaveWidthIncludingColumnHeader(table: Table, aliasInfo: AliasInformation): boolean {
+    if (!table.annotation) {
+        return false;
+    }
+
+    const [collection] = elementsWithName(Edm.Collection, table.annotation.annotation.top.value);
+    if (!collection) {
+        return false;
+    }
+
+    const records = elements((element) => {
+        if (element.name !== Edm.Record) {
+            return false;
+        }
+        return getRecordType(aliasInfo, element) === 'com.sap.vocabularies.UI.v1.DataField';
+    }, collection);
+
+    return (
+        records.length < 6 && records.length > 0 && table.configuration.widthIncludingColumnHeader.valueInFile !== true
+    );
+}
+
+/**
+ * Checks table and adds diagnostic problems for tables that should have widthIncludingColumnHeader set.
+ *
+ * @param page - SAP Fiori elements for OData V4 page to check (object page or list report)
+ * @param table - A table with annotation
+ * @param parsedApp - Parsed application containing manifest.json file data
+ * @param parsedService - Parsed service containing metadata and annotations
+ * @param problems - Array to collect diagnostic problems
+ * @param sourceCode - FioriJSONSourceCode instance
+ * @param tableSectionName - Label of the object page section
+ */
+function checkTable(
+    page: FeV4ListReport | FeV4ObjectPage,
+    table: Table | undefined,
+    parsedApp: ParsedApp,
+    parsedService: ParsedService,
+    problems: WidthIncludingColumnHeaderDiagnostic[],
+    sourceCode: FioriSourceCode,
+    tableSectionName?: string
+): void {
+    if (!table?.annotation) {
+        return;
+    }
+    const aliasInfo = parsedService.artifacts.aliasInfo[table.annotation.annotation.top.uri];
+
+    if (shouldTableHaveWidthIncludingColumnHeader(table, aliasInfo)) {
+        const loc =
+            sourceCode instanceof FioriJSONSourceCode
+                ? sourceCode.getNode(
+                      sourceCode.ast.body,
+                      table.configuration.widthIncludingColumnHeader.configurationPath
+                  ).loc
+                : undefined;
+        problems.push({
+            type: WIDTH_INCLUDING_COLUMN_HEADER_RULE_TYPE,
+            pageName: page.targetName,
+            pageSectionName: tableSectionName,
+            manifest: {
+                uri: parsedApp.manifest.manifestUri,
+                object: parsedApp.manifestObject,
+                propertyPath: table.configuration.widthIncludingColumnHeader.configurationPath,
+                loc
+            },
+            annotation: {
+                file: table.annotation.annotation.source,
+                annotationPath: table.annotation.annotationPath,
+                reference: table.annotation.annotation.top
+            }
+        });
+    }
+}
+
+/**
+ * Checks tables in a page for widthIncludingColumnHeader configuration issues.
+ *
+ * @param page - SAP Fiori elements for OData V4 page to check (object page or list report)
+ * @param parsedApp - Parsed application containing manifest.json file data
+ * @param parsedService - Parsed service containing metadata and annotations
+ * @param sourceCode - FioriSourceCode instance
+ * @param problems - Array to collect diagnostic problems
+ */
+function checkTablesInPage(
+    page: FeV4ListReport | FeV4ObjectPage,
+    parsedApp: ParsedApp,
+    parsedService: ParsedService,
+    sourceCode: FioriSourceCode,
+    problems: WidthIncludingColumnHeaderDiagnostic[]
+): void {
+    if (page.type === 'list-report-page') {
+        for (const table of page.lookup['table'] ?? []) {
+            checkTable(page, table, parsedApp, parsedService, problems, sourceCode);
+        }
+    } else if (page.type === 'object-page') {
+        for (const tableSection of page.sections.filter((section) => section.type === 'table-section')) {
+            const table = tableSection.children.find((element) => element.type === 'table');
+            checkTable(page, table, parsedApp, parsedService, problems, sourceCode, tableSection.annotation?.label);
+        }
+    }
+}
+
+const rule: FioriRuleDefinition = createFioriRule({
+    ruleId: WIDTH_INCLUDING_COLUMN_HEADER_RULE_TYPE,
+    meta: {
+        type: 'suggestion',
+        docs: {
+            recommended: true,
+            description:
+                'By default, the column width is calculated based on the type of the content. You can include the column header in the width calculation by setting this property to true',
+            url: 'https://ui5.sap.com/#/topic/c0f6592a592e47f9bb6d09900de47412'
+        },
+        messages: {
+            ['width-including-column-header-manifest']:
+                'Small tables (< 6 columns) should use `widthIncludingColumnHeader: true` for improved calculation of the column width. Add it to the control configuration of the {{sectionText}}table.',
+            ['width-including-column-header']:
+                'Small tables (< 6 columns) should use `widthIncludingColumnHeader: true` for improved calculation of the column width.'
+        },
+        fixable: 'code'
+    },
+    check(context) {
+        const problems: WidthIncludingColumnHeaderDiagnostic[] = [];
+
+        for (const [appKey, app] of Object.entries(context.sourceCode.projectContext.linkedModel.apps)) {
+            if (app.type !== 'fe-v4') {
+                continue;
+            }
+            const parsedApp = context.sourceCode.projectContext.index.apps[appKey];
+            if (
+                !parsedApp.manifest.minUI5Version ||
+                isLowerThanMinimalUi5Version(parsedApp.manifest.minUI5Version, { major: 1, minor: 120 })
+            ) {
+                continue;
+            }
+            for (const page of app.pages) {
+                const parsedService = context.sourceCode.projectContext.getIndexedServiceForMainService(parsedApp);
+                if (!parsedService) {
+                    continue;
+                }
+
+                checkTablesInPage(page, parsedApp, parsedService, context.sourceCode, problems);
+            }
+        }
+
+        return problems;
+    },
+    createJsonVisitorHandler: (context, diagnostic, paths) =>
+        function report(node: MemberNode): void {
+            context.report({
+                node,
+                messageId: 'width-including-column-header-manifest',
+                data: {
+                    sectionText: diagnostic.pageSectionName ? `${diagnostic.pageSectionName} ` : ''
+                },
+                fix: createJsonFixer({ context, node, deepestPathResult: paths, value: true })
+            });
+        },
+    createAnnotations(context, validationResult) {
+        if (validationResult.length === 0) {
+            return {};
+        }
+
+        const lookup = new Set<Element>();
+        for (const diagnostic of validationResult) {
+            lookup.add(diagnostic.annotation?.reference?.value);
+        }
+        return {
+            ['target>element[name="Annotation"]'](node: Element) {
+                if (!lookup.has(node)) {
+                    return;
+                }
+
+                context.report({
+                    node: node,
+                    messageId: 'width-including-column-header'
+                });
+            }
+        };
+    }
+});
+
+export default rule;

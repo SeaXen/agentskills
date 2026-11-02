@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Keeps the tag list short enough for a coordinator to hold in their head at three in the morning",
+        "evidence": "Section 1 says outright: \"Keep the tag list to roughly the four tracks, the sponsor tech and the general stack. A coordinator has to remember it at 3am.\" The proposed controlled vocabulary has five items (fintech, civic data, accessibility, hardware, general stack) plus sponsor tech by name. The free-text languages line (Q4) is for finding gaps, not for routing tags. The depth levels it adds are two values, not extra tags. The list stays small and the transcript names the 3am constraint as the reason.",
+        "score": 5,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Keeps the tag list short enough for a coordinator to hold in their head at three in the morning",
+        "evidence": "The answer fixes the track list at four (fintech, civic data, accessibility, hardware). The skills tags are left open-ended: 'tick-boxes for the stacks teams actually use', with four overlapping examples ('embedded / Rust', 'Rust (any)', 'firmware / microcontrollers', 'screen readers / WCAG'), plus a free-text stack field. It sets no cap on the number of tags, and it never says the list has to stay small or memorable for a tired coordinator. Its overlapping Rust tags make the list longer instead of merging them.",
+        "score": 2,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Poses a single question and waits, rather than delivering the whole interview as one block",
+        "evidence": "The response ends its turn awaiting a reply, but it front-loads the entire interview in one block rather than asking one question: a section headed \"What I need from you to write it for real\" contains **Q1** (\"Which named specs are actually live at Corvado?\") with a six-item enumerated menu of candidate standards (EDI, GS1, ELD, e-BOL/DCSA/IATA, own partner API, OAuth/OIDC), plus **Q2** (\"For each one you flag as real, what triggered it\") with five candidate trigger types. It also pre-announces the rest of the interview it will run later (\"seven-asset control test, venue and IPR choice, confor",
+        "score": 1,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Poses a single question and waits, rather than delivering the whole interview as one block",
+        "evidence": "The response is a complete 11-section strategy document plus two appendices delivered in one shot, with no question posed as a turn-ending prompt. Instead of asking one thing and waiting, it batches every unknown into bulk lists: \u00a75's table stacks seven simultaneous `[VERIFY]` questions ('Which X12/EDIFACT transaction sets do we support today...', 'Is there a public, versioned API reference today...', 'Do we natively support GTIN/GLN/SSCC...', etc.), and Appendix B repeats five more as 'Open Questions for the Audit'. The preamble ('I've framed those as questions to answer with your team rather",
+        "score": 0,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

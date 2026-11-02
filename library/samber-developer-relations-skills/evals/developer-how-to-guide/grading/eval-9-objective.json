@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the bare-noun title \"Percentage rollouts\" and retitles with a verb and object stating the end state.",
+        "evidence": "'I did not use the bare noun \"Percentage rollouts\"'. Title: 'Rolling out a flag to a percentage of users'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Matches the set's existing gerund convention for the new title instead of switching this one page to bare imperative, and flags the gerund convention to the set's owner as a set-wide change.",
+        "evidence": "'Gerunds in a new set would be a set-wide change to raise with the owner. I did not retitle one page out of line.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the set's existing \"Before you begin\" heading instead of renaming it \"Prerequisites\".",
+        "evidence": "The page uses '## Before you begin'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces \"you need to be an Admin\" with the narrowest role that can edit a flag, a check that proves the reader holds it, and who grants it.",
+        "evidence": "'You need to be an Admin on the project.' The narrower role is only a question, and no one who grants it is named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds a wrong-page cue for self-hosted readers (\"Running self-hosted? See ...\") or an inline conditional where the self-hosted path differs.",
+        "evidence": "Only 'You are on Tidewell cloud, or on self-hosted version UNVERIFIED or later'. There is no 'Running self-hosted? See' cue.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Moves the rollout option table to a reference page and links it from the step that needs it, with Di\u00e1taxis' \"refer to the reference for a full list of options\" shape.",
+        "evidence": "The reference link sits only in 'Learn more'. No step links to it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cuts the two bucketing paragraphs to a link to an explanation page, keeping at most one line of why where it changes which branch the reader takes.",
+        "evidence": "'How bucketing works' is linked. The consistent-hashing paragraphs are cut.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes the goal line to say when a reader wants a percentage rollout rather than restating the title.",
+        "evidence": "'Use this page when you want a flag on for a slice of your production users while everyone else keeps the current behavior.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes the single-action procedure as a bullet, not a numbered list of one.",
+        "evidence": "The procedure is a three-step numbered list. No single-action bullet case is addressed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Uses location before action with the exact dashboard labels the reader clicks.",
+        "evidence": "Step 1 says 'open the flag... select the production environment', followed by 'UNVERIFIED: exact navigation path and UI labels'. No exact labels are given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Caps Next steps at three links (the next goal, the reference for the options used, help) or the set's own limit, and does not carry the eight-link list in the steps.",
+        "evidence": "The Learn more section has three links.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the save as touching production: a warning at that step stating the consequence and scope, and a checkpoint reading the flag's current state before saving.",
+        "evidence": "The step 3 Warning is present. No checkpoint reads the flag's current state before the save.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds a Roll back section after verification that opens with the signal meaning roll back now (error rate or complaints from the new cohort) and rolls back through the flag's own history or previous percentage.",
+        "evidence": "'Roll back if your error rate rises or users report wrong behavior... set the percentage to 0, and save.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Closes with a verification step through an independent read (the flag's evaluation log, audit log or a test evaluation), with expected output and a one-line failure branch.",
+        "evidence": "'Use a read path other than the save screen', plus 'If the flag still serves the old value to everyone, see [Troubleshooting flags]'.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the bare-noun title \"Percentage rollouts\" and retitles with a verb and object stating the end state.",
+        "evidence": "The title is still '# Percentage rollouts'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Matches the set's existing gerund convention for the new title instead of switching this one page to bare imperative, and flags the gerund convention to the set's owner as a set-wide change.",
+        "evidence": "The title is unchanged and no convention is flagged.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the set's existing \"Before you begin\" heading instead of renaming it \"Prerequisites\".",
+        "evidence": "The page has '## Before you begin'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces \"you need to be an Admin\" with the narrowest role that can edit a flag, a check that proves the reader holds it, and who grants it.",
+        "evidence": "'You need to be an Admin.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds a wrong-page cue for self-hosted readers (\"Running self-hosted? See ...\") or an inline conditional where the self-hosted path differs.",
+        "evidence": "The page says 'These steps are the same on Tidewell Cloud and on self-hosted installations', which is not a cue.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Moves the rollout option table to a reference page and links it from the step that needs it, with Di\u00e1taxis' \"refer to the reference for a full list of options\" shape.",
+        "evidence": "The 'Rollout options' table stays on the page.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cuts the two bucketing paragraphs to a link to an explanation page, keeping at most one line of why where it changes which branch the reader takes.",
+        "evidence": "'How bucketing works' is kept as two paragraphs.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes the goal line to say when a reader wants a percentage rollout rather than restating the title.",
+        "evidence": "'Release a flag to a percentage of your production users...' says what, not when.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes the single-action procedure as a bullet, not a numbered list of one.",
+        "evidence": "The page has a three-step numbered list.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Uses location before action with the exact dashboard labels the reader clicks.",
+        "evidence": "'In the dashboard, open **Flags**, select your flag, and switch to the **Production** environment.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Caps Next steps at three links (the next goal, the reference for the options used, help) or the set's own limit, and does not carry the eight-link list in the steps.",
+        "evidence": "The 'Learn more' list has eight links.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats the save as touching production: a warning at that step stating the consequence and scope, and a checkpoint reading the flag's current state before saving.",
+        "evidence": "There is no warning or checkpoint at the save step.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds a Roll back section after verification that opens with the signal meaning roll back now (error rate or complaints from the new cohort) and rolls back through the flag's own history or previous percentage.",
+        "evidence": "No Roll back section exists.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Closes with a verification step through an independent read (the flag's evaluation log, audit log or a test evaluation), with expected output and a one-line failure branch.",
+        "evidence": "No verification step exists.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

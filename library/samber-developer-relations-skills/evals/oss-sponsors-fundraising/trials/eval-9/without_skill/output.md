@@ -1,0 +1,3 @@
+Go — pairing an aspirational number with the monthly revenue updates you already publish gives it credibility a bare number wouldn't have: visitors can watch the trajectory instead of judging one static figure in isolation.
+
+Main tradeoff: GitHub Sponsors renders the goal as a progress bar, and $210/$5,000 shows ~4% — to someone who lands on the page cold, without your blog context, that can read as "far from viable" rather than "ambitious." Worth leaning on the goal's description field to say explicitly that $5,000 is the full-time threshold, not a near-term target, so the bar doesn't have to speak for itself.

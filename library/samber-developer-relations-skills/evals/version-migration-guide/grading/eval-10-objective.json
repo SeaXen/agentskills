@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Requires a cold upgrade run against a real project sitting on the old version, using only the guide",
+        "evidence": "Step 5: \"upgrades each app using only the guide, with a timer running\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the person at the keyboard to be someone who did not write the guide",
+        "evidence": "\"Someone who did not write the guide upgrades each app\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects publishing 'about an hour' because it has not been measured",
+        "evidence": "\"Do not publish 'about an hour' yet. Nobody has measured it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires publishing the measured elapsed time of the cold run, or publishing no effort estimate at all",
+        "evidence": "\"put no duration at the top\"; measured wording after the cold run.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason an unmeasured underestimate is costly: the reader stops trusting every other number in the document at the same moment",
+        "evidence": "\"A wrong estimate makes readers distrust every other number in the guide.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Checks completeness against the public-API diff between the two tags rather than against the changelog",
+        "evidence": "\"Do not use the changelog as the inventory.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Invokes Hyrum's Law, or its substance, to explain that even the tag diff undercounts, and adds anything support has already seen break",
+        "evidence": "\"Users depend on undocumented behavior, so the diff alone undercounts.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats any edit the upgrade required that the guide does not describe as a defect in the guide rather than a reader failure",
+        "evidence": "Pass threshold: \"upgrade finishes with no edit the guide omits\"; \"Fix the guide and rerun\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the published codemod to have been run on the test project, with the residue it leaves named in the guide",
+        "evidence": "\"Write the residue into the guide, next to the command.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the typecheck and the test suite to pass after the codemod run",
+        "evidence": "\"typecheck and run the test suite\"; threshold 4.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the oldest promised source version to have been run through the full path if multi-version jumps are promised",
+        "evidence": "Threshold 5.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends wiring the guide's code snippets into CI as executable documentation so a snippet that stops compiling fails the build",
+        "evidence": "Step 6 compiles every snippet in CI.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends splitting the guide per module and sharding the verification the same way if completeness fails on a large surface, rather than dropping entries",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Requires a cold upgrade run against a real project sitting on the old version, using only the guide",
+        "evidence": "'Someone who has never seen v4 follows the guide top to bottom on an app they didn't write, with no help from the author.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the person at the keyboard to be someone who did not write the guide",
+        "evidence": "'Have someone who didn't write the guide run them.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects publishing 'about an hour' because it has not been measured",
+        "evidence": "'Don't ship the engineer's gut estimate as a bare marketing claim'; 'Only put the time-estimate line live once step 6's numbers actually back it up.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires publishing the measured elapsed time of the cold run, or publishing no effort estimate at all",
+        "evidence": "'Report a range or median, not the author's single anecdote, in the published line.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason an unmeasured underestimate is costly: the reader stops trusting every other number in the document at the same moment",
+        "evidence": "It says only that marketing's claim 'will look inflated'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Checks completeness against the public-API diff between the two tags rather than against the changelog",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Invokes Hyrum's Law, or its substance, to explain that even the tag diff undercounts, and adds anything support has already seen break",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats any edit the upgrade required that the guide does not describe as a defect in the guide rather than a reader failure",
+        "evidence": "It notes 'every place they got stuck' but does not classify undescribed edits as guide defects.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the published codemod to have been run on the test project, with the residue it leaves named in the guide",
+        "evidence": "It runs the codemod against real apps but never requires the residue to be named in the guide.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the typecheck and the test suite to pass after the codemod run",
+        "evidence": "Only 'run their existing test suites post-migration'. Typecheck is not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the oldest promised source version to have been run through the full path if multi-version jumps are promised",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends wiring the guide's code snippets into CI as executable documentation so a snippet that stops compiling fails the build",
+        "evidence": "'Executable doc-tests... Wire this into CI.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends splitting the guide per module and sharding the verification the same way if completeness fails on a large surface, rather than dropping entries",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

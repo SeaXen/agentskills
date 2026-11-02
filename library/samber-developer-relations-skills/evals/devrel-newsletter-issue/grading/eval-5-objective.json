@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The response treats the two mistakes differently based on harm to readers.",
+        "evidence": "A tier table: the author credit gets an archive fix only, the vulnerable version gets a correction email.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response recommends a dedicated short correction email for the vulnerable version instruction, sent promptly.",
+        "evidence": "'Send the correction below to all 9,400 subscribers, today.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The drafted correction email states the safe version (3.1.2 or later) and the corrected install command near the top.",
+        "evidence": "'Upgrade to Kestrel CLI 3.1.2... pip install -U \"kestrel-cli>=3.1.2\"'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The drafted correction email names the risk (path traversal or the vulnerability) in plain words.",
+        "evidence": "'that version has a path traversal vulnerability.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response advises against resending the whole issue.",
+        "evidence": "'No, don't resend the whole issue.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response gives a reason against the full resend: duplicate content reads as spam, or the fix gets buried.",
+        "evidence": "'It buries the fix... It reads as spam.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response recommends correcting the author credit in the web archive.",
+        "evidence": "'Fix the web archive. Change the command to 3.1.2 and the credit to Tomasz Vey.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response does not recommend a separate email just for the author misattribution.",
+        "evidence": "'The author mix-up doesn't justify an email on its own'; the credit line is only an optional extra line.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response recommends fixing the install command in the web archive too.",
+        "evidence": "Step 1 changes the command to 3.1.2 in the archive.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The first sentence of the drafted correction email states the safe version or corrected command, before any apology.",
+        "evidence": "The email opens 'Upgrade to Kestrel CLI 3.1.2: ...' and the apology comes later.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response recommends a standing way for readers to report errors in the footer of future issues.",
+        "evidence": "'Found another error? Reply to this email.' sits only in the correction email. The response gives no recommendation for a standing footer in future issues.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The response treats the two mistakes differently based on harm to readers.",
+        "evidence": "Security fix first: 'The first one matters for your security.' The credit error is secondary: 'Message Ines and Tomasz directly'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response recommends a dedicated short correction email for the vulnerable version instruction, sent promptly.",
+        "evidence": "'Today: send the correction below to the full list'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The drafted correction email states the safe version (3.1.2 or later) and the corrected install command near the top.",
+        "evidence": "'Please don't install kestrel-cli 3.1.0' and 'pip install --upgrade \"kestrel-cli>=3.1.2\"'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The drafted correction email names the risk (path traversal or the vulnerability) in plain words.",
+        "evidence": "'That version has a path traversal vulnerability'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response advises against resending the whole issue.",
+        "evidence": "'Verdict: don't resend the whole issue.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response gives a reason against the full resend: duplicate content reads as spam, or the fix gets buried.",
+        "evidence": "'It lands in 9,400 inboxes as a duplicate' and 'The security fix gets buried.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response recommends correcting the author credit in the web archive.",
+        "evidence": "The archive step covers only the tip: 'Change the tip to >=3.1.2 and add a \"Corrected on...\" note'. Correcting the credit is not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response does not recommend a separate email just for the author misattribution.",
+        "evidence": "The credit correction is item 2 of the same email, and Ines and Tomasz are handled by direct message.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response recommends fixing the install command in the web archive too.",
+        "evidence": "'fix the web archive copy. Change the tip to >=3.1.2'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The first sentence of the drafted correction email states the safe version or corrected command, before any apology.",
+        "evidence": "The email opens 'Hi,' then 'Yesterday's issue had two errors.' The safe version comes later.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response recommends a standing way for readers to report errors in the footer of future issues.",
+        "evidence": "No footer error-reporting channel is recommended.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

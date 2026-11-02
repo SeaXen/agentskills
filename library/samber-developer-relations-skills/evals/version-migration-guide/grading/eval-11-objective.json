@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Orders the metrics by value per hour of wiring rather than by the order they would be reported in",
+        "evidence": "\"What to build, in order of value per hour\"; KPIs \"in order of build cost\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Puts tickets per thousand upgrades that quote an upgrade error first, noting support already collects them so the metric is effectively free",
+        "evidence": "KPI summary starts with \"tickets per 1,000 upgrades (Zendesk)\"; \"ticket data already exists\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the change generating the most such tickets identifies the entry to rewrite",
+        "evidence": "\"Which breaking change generates the most tickets. Rewrite that entry first.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the 'was this helpful' widget as low-signal and easily gamed, and refuses to let it stand in for the adoption curve",
+        "evidence": "\"Low signal and easily gamed... measures whether a page satisfied a reader, not whether anyone migrated.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the version-adoption curve as the only metric that says the migration actually worked",
+        "evidence": "\"the adoption curve (the only number that says 'working')\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the adoption curve as a standing job requiring install or account telemetry joined across ninety days, not a quick wiring task",
+        "evidence": "Says to start the join, but never frames it as a standing job.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names explicitly what the efficiency ordering starves, namely the adoption curve as the highest-value number on the list",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the condition that promotes the adoption curve above everything else, such as a removal date that has to be defended to customers or leadership",
+        "evidence": "No promotion condition given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that the identity join must begin before the release ships, because started afterwards the first ninety days are already unmeasurable",
+        "evidence": "\"Start the join now. Begun after more weeks pass, the first 90 days are unmeasurable.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes deprecation-warning telemetry trending toward zero before the removal release",
+        "evidence": "Tier 2: \"trending toward zero before the removal date\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that flat deprecation-warning telemetry a month before removal means the removal date is wrong or the guide is not reaching people",
+        "evidence": "\"if the warning count is flat one month before removal, the date is wrong or the guide is not reaching people.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes a straggler list of named accounts or top dependents still on v2 after the deadline, framed as a list to work rather than a percentage",
+        "evidence": "Tier 4: \"top dependents still on v2\"; \"work the last ~15% as a list\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Plans the final stretch of unmigrated users as a named-account exercise rather than a documentation problem, noting that a long tail is normal even where enforcement backs the transition",
+        "evidence": "\"Even an enforced transition like Chrome MV3 sat at over 85%, not 100%.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the Plausible docs page analytics as directional and inferential rather than as an outcome measure",
+        "evidence": "\"Treat these as directional, not as outcomes.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Orders the metrics by value per hour of wiring rather than by the order they would be reported in",
+        "evidence": "The order is a reporting layout: headline tile, then panels 1\u20133.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Puts tickets per thousand upgrades that quote an upgrade error first, noting support already collects them so the metric is effectively free",
+        "evidence": "The Zendesk panel is third and not framed as free. It needs tagging first.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the change generating the most such tickets identifies the entry to rewrite",
+        "evidence": "'Breakdown by breaking-change category \u2014 tells you which v3 change burns most support time, prioritize doc fixes there.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the 'was this helpful' widget as low-signal and easily gamed, and refuses to let it stand in for the adoption curve",
+        "evidence": "It includes 'Thumbs up/down ratio, migration guide only' as a signal.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the version-adoption curve as the only metric that says the migration actually worked",
+        "evidence": "The adoption headline is download-based. There is no claim that it is the only measure.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the adoption curve as a standing job requiring install or account telemetry joined across ninety days, not a quick wiring task",
+        "evidence": "The version-check ping is a 'follow-up' that is 'not blocking dashboard v1'. There is no 90-day join.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names explicitly what the efficiency ordering starves, namely the adoption curve as the highest-value number on the list",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the condition that promotes the adoption curve above everything else, such as a removal date that has to be defended to customers or leadership",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that the identity join must begin before the release ships, because started afterwards the first ninety days are already unmeasurable",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes deprecation-warning telemetry trending toward zero before the removal release",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that flat deprecation-warning telemetry a month before removal means the removal date is wrong or the guide is not reaching people",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes a straggler list of named accounts or top dependents still on v2 after the deadline, framed as a list to work rather than a percentage",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Plans the final stretch of unmigrated users as a named-account exercise rather than a documentation problem, noting that a long tail is normal even where enforcement backs the transition",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats the Plausible docs page analytics as directional and inferential rather than as an outcome measure",
+        "evidence": "Docs traffic is called a 'leading indicator' but is not framed as inferential or non-outcome.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

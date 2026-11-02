@@ -1,0 +1,3234 @@
+#![warn(clippy::indexing_slicing)]
+#![deny(unused_crate_dependencies)]
+
+//! <!--${internal}-->
+//! To generate the `mirrord-schema.json` file see
+//! `tests::check_schema_file_exists_and_is_valid_or_create_it`.
+//!
+//! Remember to re-generate the `mirrord-schema.json` if you make **ANY** changes to this lib,
+//! including if you only made documentation changes.
+pub mod agent;
+pub mod ci;
+pub mod config;
+pub mod container;
+pub mod debug_hold;
+pub mod env_key;
+pub mod experimental;
+pub mod external_proxy;
+pub mod feature;
+pub mod internal_proxy;
+pub mod logfile_path;
+pub mod plan;
+pub mod retry;
+pub mod sessions_manager;
+pub mod target;
+pub mod template;
+pub mod util;
+
+use std::{collections::HashMap, ffi::OsStr, io::Read, ops::Not, path::Path};
+
+use base64::prelude::*;
+use config::{ConfigContext, ConfigError, MirrordConfig};
+use experimental::ExperimentalConfig;
+use feature::{
+    database_branches::DatabaseBranchConfig,
+    env::mapper::EnvVarsRemapper,
+    network::{
+        dns::DnsFilterConfig,
+        filter::{AddressFilter, ProtocolAndAddressFilter},
+        incoming::{
+            IncomingMode,
+            http_filter::{BodyFilter, InnerFilter},
+        },
+        outgoing::OutgoingFilterConfig,
+    },
+    split_queues::QueueKind,
+};
+use k8s_openapi::api::core::v1::PodSpec;
+use mirrord_analytics::CollectAnalytics;
+use mirrord_config_derive::MirrordConfig;
+use mirrord_protocol::tcp::JsonPathQuery;
+use schemars::JsonSchema;
+use serde::{Deserialize, Serialize};
+use target::Target;
+use tera::Tera;
+use tracing::warn;
+
+use crate::{
+    agent::{AgentConfig, LinuxCapability},
+    ci::CiConfig,
+    config::{FromFileError, source::MirrordConfigSource},
+    container::ContainerConfig,
+    env_key::EnvKey,
+    external_proxy::ExternalProxyConfig,
+    feature::{
+        FeatureConfig,
+        fs::{READONLY_FILE_BUFFER_HARD_LIMIT, READONLY_FILE_BUFFER_WARN_LIMIT},
+        magic::{JAVA_OPTIONS_ENV, without_java_agents},
+    },
+    internal_proxy::InternalProxyConfig,
+    retry::StartupRetryConfig,
+    sessions_manager::SessionsManagerConfig,
+    target::TargetConfig,
+    util::VecOrSingle,
+};
+
+/// Environment variable we use to pass the internal proxy address to the layer.
+pub const MIRRORD_LAYER_INTPROXY_ADDR: &str = "MIRRORD_LAYER_INTPROXY_ADDR";
+
+/// Environment variable we use to pass the layer the directory holding the files copied from the
+/// target, as requested by `feature.fs.prefetch`.
+///
+/// The directory mirrors the remote layout, so the copy of remote `/etc/ssl/cert.pem` lives at
+/// `$MIRRORD_FS_PREFETCH_DIR/etc/ssl/cert.pem`. Paths that have no copy there were not prefetched,
+/// and are to be read from the remote as usual.
+pub const MIRRORD_FS_PREFETCH_DIR: &str = "MIRRORD_FS_PREFETCH_DIR";
+
+/// Environment variable we use to pass the ports declared by the target container to the layer,
+/// as a comma-separated list.
+///
+/// The layer uses this list to warn the user when their application subscribes to a port that the
+/// target container does not declare. This is often a sign of a missing
+/// `feature.network.incoming.port_mapping`.
+///
+/// An empty list means that we do not know the ports. The CLI sets this variable also in this
+/// case, so that a value inherited from an outer mirrord session does not stay in place.
+pub const MIRRORD_LAYER_TARGET_CONTAINER_PORTS: &str = "MIRRORD_LAYER_TARGET_CONTAINER_PORTS";
+
+/// Environment variable we use to pass an already-running internal proxy address to the layer
+/// during exec-based tests.
+pub const MIRRORD_TEST_INTPROXY_ADDR: &str = "MIRRORD_TEST_INTPROXY_ADDR";
+
+/// Environment variable to indicate towards layer to wait for debugger.
+pub const MIRRORD_LAYER_WAIT_FOR_DEBUGGER: &str = "MIRRORD_LAYER_WAIT_FOR_DEBUGGER";
+
+/// Environment variable asking the layer to print `mirrord exec`'s `Ready!` once it has started.
+///
+/// `mirrord exec` on Linux and macOS replaces itself with the program before the layer exists, so
+/// in the progress modes machines read it leaves `Ready!` to the layer, where it means what it
+/// means on Windows: the layer is in and connected. In a terminal's `std` mode `exec` still prints
+/// it in its own tree, and never sets this. The value is `<mode>:<pid>`: the progress mode `exec`
+/// would have printed it in (`simple` or `json`, see `MIRRORD_PROGRESS_MODE`), and `exec`'s own
+/// pid, which `execve` hands to the program. The layer prints only in the process with that pid, and removes the
+/// variable, so the program's children never print it, not even one an earlier library
+/// constructor started before the variable was removed.
+pub const MIRRORD_LAYER_READY: &str = "MIRRORD_LAYER_READY";
+
+/// Environment variable asking `mirrord exec` to hold the program it starts before the program's
+/// own code runs, until an IDE releases it. `mirrord up --debug` sets it on each named service's
+/// `mirrord exec`, and only `exec` reads it.
+///
+/// Experimental, like `--debug`. [`debug_hold`] has how the hold travels on.
+pub const MIRRORD_DEBUG_HOLD: &str = "MIRRORD_DEBUG_HOLD";
+
+/// Environment variable asking the layer to hold the program for a debugger: the pid of the one
+/// process whose layer holds. Linux and macOS `mirrord exec` sets it to its own pid, which
+/// `execve` hands to the program, and the layer removes it.
+///
+/// Experimental, like `--debug`. [`debug_hold`] has how the hold travels.
+pub const MIRRORD_LAYER_DEBUG_HOLD: &str = "MIRRORD_LAYER_DEBUG_HOLD";
+
+/// Environment variable controlling Windows layer crash reporting.
+///
+/// Crash reporting defaults to enabled. IDE extensions set this to `false` because stopping an
+/// extension-managed run terminates the application abruptly, which cannot be distinguished from
+/// an unexpected external kill.
+pub const MIRRORD_LAYER_CRASH_REPORTING: &str = "MIRRORD_LAYER_CRASH_REPORTING";
+
+/// Environment variable opting the Windows layer into full-memory crash dumps.
+///
+/// A full-memory dump is large and can hold far more secrets, so it is left off unless this is set
+/// to a truthy value (anything but unset/empty/`false`/`0`).
+pub const MIRRORD_LAYER_FULL_MEMORY_DUMP: &str = "MIRRORD_LAYER_FULL_MEMORY_DUMP";
+
+/// Environment variable passing the crash-dump monitor endpoint to the Windows layer.
+///
+/// The CLI spawns a per-session out-of-process crash monitor and forwards its endpoint here so
+/// every layer'd process can register and signal crashes to it for safe out-of-process dumping.
+pub const MIRRORD_LAYER_CRASH_MONITOR_ADDR: &str = "MIRRORD_LAYER_CRASH_MONITOR_ADDR";
+
+/// Environment variable marking the crash-log directory as an ephemeral per-session directory.
+///
+/// The CLI sets this when it had to create a temporary log directory (no user log path); its
+/// presence tells the Windows crash monitor to remove that directory on a clean session exit, while
+/// a crash keeps the bundle.
+pub const MIRRORD_CRASH_EPHEMERAL_DIR: &str = "MIRRORD_CRASH_EPHEMERAL_DIR";
+
+/// # Getting Started
+///
+/// mirrord allows for a high degree of customization when it comes to which features you want to
+/// enable, and how they should function.
+///
+/// All of the configuration fields have a default value, so a minimal configuration would be no
+/// configuration at all.
+///
+/// The configuration supports [templating](#root-templating), so values can be derived at runtime
+/// instead of hardcoded.
+///
+/// To use a configuration file in the CLI, use the `-f <CONFIG_PATH>` flag.
+/// Or if using VSCode Extension or JetBrains plugin, simply create a `.mirrord/mirrord.json` file
+/// or use the UI.
+///
+/// ## Templating {#root-templating}
+///
+/// Config files are rendered with the [Tera](https://keats.github.io/tera/) template engine before
+/// they are parsed, so Tera's built-in functions and filters all work. On top of those, mirrord
+/// provides these variables:
+///
+/// - `key` - the [session key](#root-key), either the one you provided or the one mirrord generated
+///   for this session.
+/// - `git_branch` - the branch checked out in the working directory mirrord was started from. Set
+///   `MIRRORD_BRANCH_NAME` to override it; the JetBrains plugin does exactly that, with the branch
+///   of the project you have open.
+///
+/// mirrord generates a session key for you, and you can reference it as `{{ key }}` in your HTTP
+/// filter like so:
+///
+/// ```json
+/// {
+///   "feature": {
+///     "network": {
+///       "incoming": {
+///         "mode": "steal",
+///         "http_filter": {
+///           "header_filter": "^baggage: .*mirrord-session={{ key }}.*$"
+///         }
+///       }
+///     }
+///   }
+/// }
+/// ```
+///
+/// It also supports setting your git branch as the key, so that each branch gets its own session:
+///
+/// ```json
+/// {
+///   "key": "{{ git_branch }}",
+///   "feature": {
+///     "network": {
+///       "incoming": {
+///         "mode": "steal",
+///         "http_filter": {
+///           "header_filter": "^baggage: .*mirrord-session={{ key }}.*$"
+///         }
+///       }
+///     }
+///   }
+/// }
+/// ```
+///
+/// ### Templating the `key` field {#root-templating-key}
+///
+/// The [`key`](#root-key) field is read out of the config file *before* any templating happens, to
+/// break the cycle where the key is needed to render templates but is itself defined in the file
+/// being rendered. Two consequences:
+///
+/// 1. The file has to stay valid JSON/TOML/YAML as written. A double-quoted string inside a `key`
+///    template ends the surrounding JSON string early, so the `key` field is silently ignored and
+///    mirrord falls back to a generated key, leaving a session that looks healthy but filters on
+///    the wrong value. Tera accepts single-quoted string literals, so use those in `key`:
+///    `default(value='shared')` rather than `default(value="shared")`. Every other field is
+///    rendered before parsing and accepts either quote style.
+/// 2. Only variables that don't depend on the key are available there, which today means
+///    `git_branch`.
+///
+/// ### When a variable is undefined {#root-templating-undefined}
+///
+/// `git_branch` is left out of the context entirely when the branch can't be determined - the
+/// directory isn't a git repository, `git` isn't installed, or `HEAD` is detached, which is the
+/// usual state in CI. Referencing it then fails the render with
+/// ``Variable `git_branch` not found in context``, rather than quietly resolving to an empty
+/// string and producing a filter that matches nothing.
+///
+/// Give configs that also have to work in those environments a fallback:
+///
+/// ```json
+/// {
+///   "key": "{{ git_branch | default(value='shared') }}"
+/// }
+/// ```
+///
+/// If you want us to provide any other value, please let us know.
+///
+/// ## Examples
+///
+/// To help you get started, here are examples of a basic configuration file, and a complete
+/// configuration file containing all fields.
+///
+/// ### Basic `config.json` {#root-basic}
+///
+/// ```json
+/// {
+///   "target": "pod/bear-pod",
+///   "feature": {
+///     "env": true,
+///     "fs": "read",
+///     "network": true
+///   }
+/// }
+/// ```
+///
+/// ### Basic `config.json` with templating {#root-basic-templating}
+///
+/// ```json
+/// {
+///   "target": "{{ get_env(name="TARGET", default="pod/fallback") }}",
+///   "feature": {
+///     "env": true,
+///     "fs": "read",
+///     "network": true
+///   }
+/// }
+/// ```
+///
+/// ### Complete `config.json` {#root-complete}
+///
+///  Don't use this example as a starting point, it's just here to show you all the available
+///  options.
+/// ```json
+/// {
+///   "accept_invalid_certificates": false,
+///   "skip_processes": "ide-debugger",
+///   "target": {
+///     "path": "pod/bear-pod",
+///     "namespace": "default"
+///   },
+///   "agent": {
+///     "log_level": "info",
+///     "json_log": false,
+///     "labels": { "user": "meow" },
+///     "annotations": { "cats.io/inject": "enabled" },
+///     "namespace": "default",
+///     "image": "ghcr.io/metalbear-co/mirrord:latest",
+///     "image_pull_policy": "IfNotPresent",
+///     "image_pull_secrets": [ { "name": "secret" } ],
+///     "ttl": 30,
+///     "ephemeral": false,
+///     "communication_timeout": 30,
+///     "startup_timeout": 360,
+///     "flush_connections": true,
+///     "metrics": "0.0.0.0:9000"
+///   },
+///   "feature": {
+///     "env": {
+///       "include": "DATABASE_USER;PUBLIC_ENV",
+///       "override": {
+///         "DATABASE_CONNECTION": "db://localhost:7777/my-db",
+///         "LOCAL_BEAR": "panda"
+///       },
+///       "mapping": {
+///         ".+_TIMEOUT": "1000"
+///       }
+///     },
+///     "fs": {
+///       "mode": "write",
+///       "read_write": ".+\\.json" ,
+///       "read_only": [ ".+\\.yaml", ".+important-file\\.txt" ],
+///       "local": [ ".+\\.js", ".+\\.mjs" ],
+///       "prefetch": [ "/etc/ssl" ]
+///     },
+///     "network": {
+///       "incoming": {
+///         "mode": "steal",
+///         "http_filter": {
+///           "header_filter": "^baggage: .*mirrord-session={{ key }}.*$"
+///         },
+///         "port_mapping": [[ 7777, 8888 ]],
+///         "ignore_localhost": false,
+///         "ignore_ports": [9999, 10000]
+///       },
+///       "outgoing": {
+///         "tcp": true,
+///         "udp": true,
+///         "filter": {
+///           "local": ["tcp://1.1.1.0/24:1337", "1.1.5.0/24", "google.com", ":53"]
+///         },
+///         "ignore_localhost": false,
+///         "unix_streams": "bear.+"
+///       },
+///       "dns": {
+///         "enabled": true,
+///         "filter": {
+///           "local": ["1.1.1.0/24:1337", "1.1.5.0/24", "google.com"]
+///         }
+///       }
+///     },
+///     "copy_target": {
+///       "scale_down": false
+///     }
+///   },
+///   "operator": true,
+///   "kubeconfig": "~/.kube/config",
+///   "sip_binaries": "bash",
+///   "telemetry": true,
+///   "kube_context": "my-cluster"
+/// }
+/// ```
+///
+/// # Options {#root-options}
+#[derive(MirrordConfig, Clone, Debug, Serialize, Deserialize, PartialEq)]
+#[config(map_to = "LayerFileConfig", derive = "JsonSchema, Serialize")]
+#[cfg_attr(test, config(derive = "PartialEq"))]
+pub struct LayerConfig {
+    /// ## accept_invalid_certificates {#root-accept_invalid_certificates}
+    ///
+    /// Controls whether or not mirrord accepts invalid TLS certificates (e.g. self-signed
+    /// certificates).
+    ///
+    /// If not provided, mirrord will use value from the kubeconfig.
+    #[config(env = "MIRRORD_ACCEPT_INVALID_CERTIFICATES", plan = Oss)]
+    pub accept_invalid_certificates: Option<bool>,
+
+    /// ## skip_processes {#root-skip_processes}
+    ///
+    /// Allows mirrord to skip unwanted processes.
+    ///
+    /// Useful when process A spawns process B, and the user wants mirrord to operate only on
+    /// process B.
+    /// Accepts a single value, or an array of values.
+    ///
+    ///```json
+    /// {
+    ///  "skip_processes": ["bash", "node"]
+    /// }
+    /// ```
+    #[config(env = "MIRRORD_SKIP_PROCESSES", plan = Oss)]
+    pub skip_processes: Option<VecOrSingle<String>>,
+
+    /// ## skip_build_tools {#root-skip_build_tools}
+    ///
+    /// Allows mirrord to skip build tools. Useful when running command lines that build and run
+    /// the application in a single command.
+    ///
+    /// Defaults to `true`.
+    ///
+    /// Build-Tools: `["as", "cc", "ld", "go", "air", "asm", "cc1", "cgo", "dlv", "gcc", "git",
+    /// "link", "math", "cargo", "hpack", "rustc", "compile", "collect2", "cargo-watch",
+    /// "debugserver"]`
+    #[config(env = "MIRRORD_SKIP_BUILD_TOOLS", default = true, plan = Oss)]
+    pub skip_build_tools: bool,
+
+    /// ## skip_extra_build_tools {#root-skip_build_tools}
+    ///
+    /// Allows mirrord to skip the specified build tools. Useful when running command lines that
+    /// build and run the application in a single command.
+    ///
+    /// Must also enable [`skip_build_tools`](#root-skip_build_tools) for this to take an effect.
+    ///
+    /// It's similar to [`skip_processes`](#root-skip_processes), except that here it also skips
+    /// SIP patching.
+    ///
+    /// Accepts a single value, or an array of values.
+    ///
+    ///```json
+    /// {
+    ///  "skip_extra_build_tools": ["bash", "node"]
+    /// }
+    /// ```
+    #[config(env = "MIRRORD_SKIP_EXTRA_BUILD_TOOLS", plan = Oss)]
+    pub skip_extra_build_tools: Option<VecOrSingle<String>>,
+
+    /// ## operator {#root-operator}
+    ///
+    /// Whether mirrord should use the operator.
+    /// If not set, mirrord will first attempt to use the operator, but continue without it in case
+    /// of failure.
+    #[config(env = "MIRRORD_OPERATOR_ENABLE", plan = Oss)]
+    pub operator: Option<bool>,
+
+    /// ## multi_cluster {#root-multi_cluster}
+    ///
+    /// Controls multi-cluster session behavior when connecting to a multi-cluster Primary
+    /// operator. When set to `false`, forces a single-cluster session on the Primary cluster
+    /// instead of creating a multi-cluster session that spans all workload clusters.
+    /// When `true` or unset, multi-cluster sessions are used when the operator supports them.
+    #[config(env = "MIRRORD_MULTI_CLUSTER", plan = Enterprise)]
+    pub multi_cluster: Option<bool>,
+
+    /// ## api {#root-api}
+    ///
+    /// Enables the local session monitor API server.
+    ///
+    /// When enabled, mirrord exposes a Unix socket at `~/.mirrord/sessions/<session-id>.sock`
+    /// with HTTP endpoints for observing session activity in real time.
+    ///
+    /// Defaults to `true`.
+    #[config(default = true, env = "MIRRORD_API", plan = Oss)]
+    pub api: bool,
+
+    /// ## profile {#root-profile}
+    ///
+    /// Name of the mirrord profile to use.
+    ///
+    /// To select a cluster-wide profile
+    ///
+    /// ```json
+    /// {
+    ///   "profile": "my-profile-name"
+    /// }
+    /// ```
+    ///
+    /// To select a namespaced profile
+    ///
+    /// ```json
+    /// {
+    ///   "profile": "my-namespace/my-profile-name"
+    /// }
+    /// ```
+    #[config(plan = Team)]
+    pub profile: Option<String>,
+
+    /// ## kubeconfig {#root-kubeconfig}
+    ///
+    /// Path to a kubeconfig file, if not specified, will use `KUBECONFIG`, or `~/.kube/config`, or
+    /// the in-cluster config.
+    ///
+    /// ```json
+    /// {
+    ///   "kubeconfig": "~/bear/kube-config"
+    /// }
+    /// ```
+    #[config(env = "MIRRORD_KUBECONFIG", plan = Oss)]
+    pub kubeconfig: Option<String>,
+
+    /// ## sip_binaries {#root-sip_binaries}
+    ///
+    /// Binaries to patch (macOS SIP).
+    ///
+    /// Use this when mirrord isn't loaded to protected binaries that weren't automatically
+    /// patched.
+    ///
+    /// Runs `endswith` on the binary path (so `bash` would apply to any binary ending with `bash`
+    /// while `/usr/bin/bash` would apply only for that binary).
+    ///
+    /// ```json
+    /// {
+    ///   "sip_binaries": ["bash", "python"]
+    /// }
+    /// ```
+    #[config(plan = Oss)]
+    pub sip_binaries: Option<VecOrSingle<String>>,
+
+    /// ## target {#root-target}
+    #[config(nested, plan = Oss)]
+    pub target: TargetConfig,
+
+    /// ## agent {#root-agent}
+    #[config(nested, plan = Oss)]
+    pub agent: AgentConfig,
+
+    /// ## container {#root-container}
+    #[config(nested, unstable, plan = Oss)]
+    pub container: ContainerConfig,
+
+    /// ## feature {#root-feature}
+    #[config(nested, plan = Oss)]
+    pub feature: FeatureConfig,
+
+    /// ## telemetry {#root-telemetry}
+    /// Controls whether or not mirrord sends telemetry data to MetalBear cloud.
+    /// Telemetry sent doesn't contain personal identifiers or any data that
+    /// should be considered sensitive. It is used to improve the product.
+    /// [For more information](https://github.com/metalbear-co/mirrord/blob/main/TELEMETRY.md)
+    #[config(env = "MIRRORD_TELEMETRY", default = true, plan = Oss)]
+    pub telemetry: bool,
+
+    /// ## kube_context {#root-kube_context}
+    ///
+    /// Kube context to use from the kubeconfig file.
+    /// If not specified, uses `kube_context` from the global `~/.mirrord/mirrord.json`, then the
+    /// kubeconfig's current context.
+    ///
+    /// ```json
+    /// {
+    ///   "kube_context": "mycluster"
+    /// }
+    /// ```
+    #[config(env = "MIRRORD_KUBE_CONTEXT", plan = Oss)]
+    pub kube_context: Option<String>,
+
+    /// ## internal_proxy {#root-internal_proxy}
+    #[config(nested, plan = Oss)]
+    pub internal_proxy: InternalProxyConfig,
+
+    /// ## external_proxy {#root-external_proxy}
+    #[config(nested, plan = Oss)]
+    pub external_proxy: ExternalProxyConfig,
+
+    /// ## use_proxy {#root-use_proxy}
+    ///
+    /// When disabled, mirrord will remove `HTTP[S]_PROXY` env variables before
+    /// doing any network requests. This is useful when the system sets a proxy
+    /// but you don't want mirrord to use it.
+    /// This also applies to the mirrord process (as it just removes the env).
+    /// If the remote pod sets this env, the mirrord process will still use it.
+    #[config(env = "MIRRORD_PROXY", default = true, plan = Oss)]
+    pub use_proxy: bool,
+
+    /// ## experimental {#root-experimental}
+    #[config(nested, plan = Oss)]
+    pub experimental: ExperimentalConfig,
+
+    /// ## skip_sip {#root-skip_sip}
+    ///
+    /// Allows mirrord to skip patching (macOS SIP) unwanted processes.
+    ///
+    /// When patching is skipped, mirrord will no longer be able to load into
+    /// the process and its child processes.
+    ///
+    /// Defaults to `{ "skip_sip": "git" }`
+    ///
+    /// When specified, the given value will replace the default list rather than
+    /// being added to.
+    #[config(env = "MIRRORD_SKIP_SIP", default = VecOrSingle::Single("git".to_owned()), plan = Oss)]
+    pub skip_sip: VecOrSingle<String>,
+
+    /// ## startup_retry {#root-startup_retry}
+    #[config(nested, plan = Oss)]
+    pub startup_retry: StartupRetryConfig,
+
+    /// ## ci {#root-ci}
+    #[config(nested, plan = Oss)]
+    pub ci: CiConfig,
+
+    /// ## sessions_manager {#root-sessions_manager}
+    #[config(nested, plan = Enterprise)]
+    pub sessions_manager: SessionsManagerConfig,
+
+    /// ## key {#root-key}
+    ///
+    /// An identifier for a mirrord session.
+    ///
+    /// The key can be referenced in your configuration using the `{{ key }}` template variable.
+    ///
+    /// The recommended use is to propagate it in W3C `baggage` or `tracestate`, then filter on
+    /// `mirrord-session={{ key }}` in `feature.network.incoming.http_filter`.
+    ///
+    /// ```json
+    /// {
+    ///   "key": "my-session-key",
+    ///   "feature": {
+    ///     "network": {
+    ///       "incoming": {
+    ///         "http_filter": {
+    ///           "header_filter": "^baggage: .*mirrord-session={{ key }}.*$"
+    ///         }
+    ///       }
+    ///     }
+    ///   }
+    /// }
+    /// ```
+    ///
+    /// The key itself is [templated](#root-templating-key), so instead of a literal it can be
+    /// derived from another variable. Using `git_branch` gives each branch its own session
+    /// without passing a key per run:
+    ///
+    /// ```json
+    /// {
+    ///   "key": "{{ git_branch }}"
+    /// }
+    /// ```
+    ///
+    /// Priority (highest to lowest):
+    /// 1. CLI argument: `mirrord exec --key my-key`
+    /// 2. Environment variable: `MIRRORD_KEY`
+    /// 3. Config file: `{ "key": "my-key" }`
+    /// 4. Fallback: A unique key is randomly generated if no other option is provided
+    #[config(nested, plan = Oss)]
+    pub key: EnvKey,
+
+    /// ## traceparent {#root-traceparent}
+    ///
+    /// OpenTelemetry (OTel) / W3C trace context. This is used in HTTP requests sent to the
+    /// operator to manually set the parent trace of the entry point, which can help when
+    /// processing traces.
+    /// See [OTel docs](https://opentelemetry.io/docs/specs/otel/context/env-carriers/#environment-variable-names)
+    ///
+    /// Only relevant for use with the operator. For more details, read the [docs on monitoring](https://metalbear.com/mirrord/docs/managing-mirrord/monitoring).
+    #[config(env = "TRACEPARENT", plan = Team)]
+    pub traceparent: Option<String>,
+
+    /// ## baggage {#root-baggage}
+    ///
+    /// OpenTelemetry (OTel) / W3C baggage propagator. This is used in HTTP requests sent to the
+    /// operator to manually set values in the trace span, which can help when processing traces.
+    /// See [OTel docs](https://opentelemetry.io/docs/specs/otel/context/env-carriers/#environment-variable-names)
+    ///
+    /// Only relevant for use with the operator. For more details, read the [docs on monitoring](https://metalbear.com/mirrord/docs/managing-mirrord/monitoring).
+    #[config(env = "BAGGAGE", plan = Team)]
+    pub baggage: Option<String>,
+}
+
+impl LayerConfig {
+    /// Env variable where we set the path to the [`LayerConfig`].
+    ///
+    /// Used by the extensions and when we transform CLI arguments into environment variables.
+    ///
+    /// Used in [`LayerConfig::resolve`].
+    pub const FILE_PATH_ENV: &str = "MIRRORD_CONFIG_FILE";
+
+    /// Env variable where we store encoded resolved config.
+    ///
+    /// mirrord CLI children should not [`LayerConfig::resolve`] the configuration again,
+    /// instead they should use the already resolved config.
+    ///
+    /// See [`LayerConfig::encode`] and [`LayerConfig::decode`].
+    pub const RESOLVED_CONFIG_ENV: &str = "MIRRORD_RESOLVED_CONFIG";
+
+    /// Decodes an encoded [`LayerConfig`].
+    ///
+    /// You can encode the config with [`LayerConfig::encode`].
+    pub fn decode(encoded_value: &str) -> Result<Self, ConfigError> {
+        let decoded = BASE64_STANDARD
+            .decode(encoded_value)
+            .map_err(|error| ConfigError::DecodeError(error.to_string()))?;
+        let deserialized = serde_json::from_slice(&decoded)
+            .map_err(|error| ConfigError::DecodeError(error.to_string()))?;
+
+        Ok(deserialized)
+    }
+
+    /// Encodes this config to a string.
+    ///
+    /// You can decode the config with [`LayerConfig::decode`].
+    pub fn encode(&self) -> Result<String, ConfigError> {
+        let serialized = serde_json::to_string(self)
+            .map_err(|error| ConfigError::EncodeError(error.to_string()))?;
+        let encoded = BASE64_STANDARD.encode(serialized);
+
+        Ok(encoded)
+    }
+
+    /// Resolves the config from the environment variables.
+    ///
+    /// On success, returns the config and a [`ConfigContext`] that holds warnings.
+    /// To be used from CLI entry points to resolve user config and print warnings.
+    ///
+    /// This function **does not** use [`LayerConfig::RESOLVED_CONFIG_ENV`] nor
+    /// [`LayerConfig::decode`]. It resolves the config from scratch.
+    pub fn resolve(context: &mut ConfigContext) -> Result<Self, ConfigError> {
+        let mut config = if let Ok(path) = context.get_env(Self::FILE_PATH_ENV) {
+            LayerFileConfig::from_path(path, context)?.generate_config(context)?
+        } else {
+            LayerFileConfig::default().generate_config(context)?
+        };
+        config.apply_magic();
+        config.reflect_outgoing_filter_in_dns(context);
+        Ok(config)
+    }
+
+    /// Mirrors host names from [`feature.network.outgoing.filter`](OutgoingFilterConfig)
+    /// into [`feature.network.dns.filter`](DnsFilterConfig), so that a name routed to one
+    /// side (local app vs remote pod) is also resolved on that same side.
+    ///
+    /// Without this propagation, a config like `outgoing.filter.local = ["docker.lala"]`
+    /// silently breaks: DNS queries go to the remote pod by default, which cannot resolve
+    /// a local-only name, so the connection fails before the outgoing filter ever runs.
+    ///
+    /// Behaviour (only applied when [`DnsConfig::enabled`](feature::network::dns::DnsConfig)
+    /// is `true`, and only for [`AddressFilter::Name`] entries in the outgoing filter):
+    ///
+    /// | outgoing \ dns.filter | unset                          | `Local(L)`             | `Remote(R)`            |
+    /// |-----------------------|--------------------------------|------------------------|------------------------|
+    /// | `Local(N)`            | create `Local(N)`              | append `N` to `L`      | leave; warn on overlap |
+    /// | `Remote(N)`           | leave (DNS already all-remote) | leave; warn on overlap | append `N` to `R`      |
+    fn reflect_outgoing_filter_in_dns(&mut self, context: &mut ConfigContext) {
+        if self.feature.network.dns.enabled.not() {
+            return;
+        }
+        let Some(outgoing) = self.feature.network.outgoing.filter.as_ref() else {
+            return;
+        };
+
+        let (outgoing_is_local, raw): (bool, &[String]) = match outgoing {
+            OutgoingFilterConfig::Local(v) => (true, v),
+            OutgoingFilterConfig::Remote(v) => (false, v),
+        };
+
+        let names: Vec<String> = raw
+            .iter()
+            .filter_map(|s| s.parse::<ProtocolAndAddressFilter>().ok())
+            .filter_map(|paf| match paf.address {
+                AddressFilter::Name(name, 0) => Some(name),
+                AddressFilter::Name(name, port) => Some(format!("{name}:{port}")),
+                _ => None,
+            })
+            .collect();
+
+        if names.is_empty() {
+            return;
+        }
+
+        let dns_filter = &mut self.feature.network.dns.filter;
+        match (outgoing_is_local, dns_filter.take()) {
+            (true, None) => {
+                *dns_filter = Some(DnsFilterConfig::Local(VecOrSingle::Multiple(names)));
+            }
+            (true, Some(DnsFilterConfig::Local(existing))) => {
+                *dns_filter = Some(DnsFilterConfig::Local(append_dedup(existing, names)));
+            }
+            (false, Some(DnsFilterConfig::Remote(existing))) => {
+                *dns_filter = Some(DnsFilterConfig::Remote(append_dedup(existing, names)));
+            }
+            (true, Some(DnsFilterConfig::Remote(existing))) => {
+                warn_filter_conflict(context, &existing, &names, "local", "remote");
+                *dns_filter = Some(DnsFilterConfig::Remote(existing));
+            }
+            (false, Some(DnsFilterConfig::Local(existing))) => {
+                warn_filter_conflict(context, &existing, &names, "remote", "local");
+                *dns_filter = Some(DnsFilterConfig::Local(existing));
+            }
+            (false, None) => {}
+        }
+    }
+
+    /// Applies the presets in `feature.magic` to the config, modifying it in-place.
+    ///
+    /// [`resolve`](Self::resolve) runs it. A config assembled without it doesn't compare equal
+    /// to the resolved default, so call it before checks that do, like
+    /// [`verify_for_preview_env`](Self::verify_for_preview_env).
+    pub fn apply_magic(&mut self) {
+        if self.feature.magic.aws {
+            let mut unset: Vec<String> = self
+                .feature
+                .env
+                .unset
+                .take()
+                .map(Vec::from)
+                .unwrap_or_default();
+            unset.push("AWS_PROFILE".to_owned());
+            self.feature.env.unset = Some(VecOrSingle::Multiple(unset));
+
+            if let Some(home) = util::home_dir_for_path_mapping() {
+                let tmpdir = std::env::var("TMPDIR").unwrap_or_else(|_| "/tmp".to_owned());
+                let pattern = format!("^{}/\\.aws(/.*)?", regex::escape(&home));
+                let replacement = format!("{tmpdir}/.aws$1");
+                self.feature
+                    .fs
+                    .mapping
+                    .get_or_insert_with(HashMap::new)
+                    .entry(pattern)
+                    .or_insert(replacement);
+            }
+        }
+    }
+
+    /// Applies enabled fixes to environment variables fetched from the target.
+    pub fn sanitize_remote_env(&self, env: &mut HashMap<String, String>) {
+        if self.feature.magic.java_agents
+            && let Some(options) = env.get_mut(JAVA_OPTIONS_ENV)
+            && let Some(sanitized) = without_java_agents(options)
+        {
+            *options = sanitized;
+        }
+    }
+
+    /// Adds the target container's volume-mount paths to
+    /// [`feature.fs.read_only`](feature::fs::advanced::FsConfig), so files mounted into the remote
+    /// pod (ConfigMaps, Secrets, PVCs) are read from the remote pod while writes stay local.
+    ///
+    /// Mount paths the user has explicitly marked local via `feature.fs.local` are left untouched,
+    /// so auto_mount never overrides an intentional local override.
+    ///
+    /// Enabled by [`feature.magic.auto_mount`](feature::magic::MagicConfig). Unlike
+    /// [`apply_magic`](Self::apply_magic), this is not applied during [`resolve`](Self::resolve):
+    /// it needs the resolved target's pod spec, which is only available after the target is
+    /// fetched (well after config resolution). The caller fetches `pod_spec`; this is otherwise
+    /// a pure function of `pod_spec` and the target `container` (the name of the targeted
+    /// container, or [`None`] to fall back to the first container in the spec).
+    pub fn apply_auto_mount(&mut self, pod_spec: &PodSpec, container: Option<&str>) {
+        // Guard against accidental calls.
+        if self.feature.magic.auto_mount.not() {
+            tracing::warn!(
+                "apply_auto_mount called when `feature.magic.auto_mount` is disabled, please report this."
+            );
+            return;
+        }
+
+        let container = match container {
+            Some(name) => pod_spec.containers.iter().find(|c| c.name == name),
+            None => pod_spec.containers.first(),
+        };
+        let Some(container) = container else {
+            return;
+        };
+
+        // Paths the user has explicitly marked local win over auto_mount: skip any mount whose path
+        // matches `feature.fs.local`, so we don't override an intentional local override.
+        // (`read_only` is checked before `local` in the file filter, so without this an auto-added
+        // entry would shadow the user's choice.)
+        let local_overrides = self
+            .feature
+            .fs
+            .local
+            .as_ref()
+            .map(|patterns| Vec::from(patterns.clone()))
+            .and_then(|patterns| {
+                regex::RegexSetBuilder::new(patterns)
+                    .case_insensitive(true)
+                    .build()
+                    .ok()
+            });
+
+        let patterns = container
+            .volume_mounts
+            .iter()
+            .flatten()
+            .filter(|mount| {
+                local_overrides
+                    .as_ref()
+                    .is_none_or(|local| local.is_match(&mount.mount_path).not())
+            })
+            .map(|mount| {
+                let path = regex::escape(&mount.mount_path);
+                // A `subPath` mount points at a single file, so match it exactly. A plain mount is
+                // a directory, so match the directory and everything beneath it.
+                if mount.sub_path.is_some() {
+                    format!("^{path}$")
+                } else {
+                    format!("^{path}(/.*)?$")
+                }
+            })
+            .collect::<Vec<_>>();
+
+        if patterns.is_empty() {
+            return;
+        }
+
+        let existing = self
+            .feature
+            .fs
+            .read_only
+            .take()
+            .unwrap_or_else(|| VecOrSingle::Multiple(Vec::new()));
+
+        self.feature.fs.read_only = Some(append_dedup(existing, patterns));
+    }
+
+    /// The checks that reach into `feature.db_branches`: each branch's own invariants and the
+    /// env overrides that would undo a branch's redirect. Run by [`Self::verify`], and again
+    /// once a `"*"` / ids request has been resolved into inline entries, which `verify` could
+    /// not see.
+    pub fn verify_db_branches(&self, context: &mut ConfigContext) -> Result<(), ConfigError> {
+        self.feature.db_branches.verify(context)?;
+
+        // guard against env overrides conflicting with db branching keys
+        if let Some(overrides) = self.feature.env.r#override.as_ref()
+            && !overrides.is_empty()
+        {
+            let mut conflicts: Vec<&str> = self
+                .feature
+                .db_branches
+                .iter()
+                .flat_map(DatabaseBranchConfig::connection_env_keys)
+                .filter(|key| overrides.contains_key(*key))
+                .collect();
+
+            if conflicts.is_empty().not() {
+                conflicts.sort();
+                conflicts.dedup();
+                return Err(ConfigError::ConflictAt {
+                    setting: "feature.env.override".into(),
+                    message: format!(
+                        "the following environment variables appear in both \
+                         `feature.env.override` and `feature.db_branches[].connection`: {}. \
+                         Database branching redirects these variables through the operator, \
+                         so overriding them locally would defeat the redirection. Remove \
+                         them from `feature.env.override`.",
+                        conflicts.join(", "),
+                    ),
+                });
+            }
+        }
+
+        Ok(())
+    }
+
+    /// Verifies that there are no conflicting settings in this config.
+    ///
+    /// Fills the given [`ConfigContext`] with warnings.
+    pub fn verify(&self, context: &mut ConfigContext) -> Result<(), ConfigError> {
+        if let Some(Target::Label(target)) = &self.target.path {
+            target.verify()?;
+
+            if self.feature.copy_target.enabled {
+                return Err(ConfigError::Conflict(
+                    "The copy target feature is not yet supported with label targets.".to_owned(),
+                ));
+            }
+
+            if self.multi_cluster == Some(true) {
+                return Err(ConfigError::Conflict(
+                    "Label targets are not yet supported in multi-cluster sessions. Set \
+                     `multi_cluster = false` to use the primary cluster only."
+                        .to_owned(),
+                ));
+            }
+
+            if self.feature.split_queues.is_set() || self.feature.kafka_branch {
+                return Err(ConfigError::Conflict(
+                    "Queue splitting is not yet supported with label targets.".to_owned(),
+                ));
+            }
+
+            if self.feature.db_branches.is_empty().not() {
+                return Err(ConfigError::Conflict(
+                    "Database branching is not yet supported with label targets.".to_owned(),
+                ));
+            }
+        }
+
+        if self.agent.ephemeral && self.agent.namespace.is_some() {
+            context.add_warning(
+                "Agent namespace is ignored when using an ephemeral container for the agent."
+                    .to_owned(),
+            );
+        }
+
+        let known_capabilities = LinuxCapability::all()
+            .iter()
+            .map(|capability| capability.as_spec_str())
+            .collect::<Vec<_>>();
+        let ignored_caps = self
+            .agent
+            .disabled_capabilities
+            .iter()
+            .flatten()
+            .filter(|name| known_capabilities.contains(&name.as_str()).not())
+            .map(String::as_str)
+            .collect::<Vec<_>>();
+
+        if ignored_caps.is_empty().not() {
+            context.add_warning(format!(
+                "`{}` in `agent.disabled_capabilities` is ignored, valid values are: {}.",
+                ignored_caps.join(", "),
+                known_capabilities.join(", ")
+            ));
+        }
+
+        if matches!(
+            self.feature.network.outgoing.filter,
+            Some(OutgoingFilterConfig::Remote(_))
+        ) && !self.feature.network.dns.enabled
+        {
+            context.add_warning(
+                "The mirrord outgoing traffic filter includes host names to be connected remotely, \
+                but the remote DNS feature is disabled, so the addresses of these hosts will be \
+                resolved locally. Consider enabling the remote DNS resolution feature.".to_owned(),
+            );
+        }
+
+        self.feature.fs.verify(context);
+
+        let http_filter = &self.feature.network.incoming.http_filter;
+        let used_filters = [
+            http_filter.path_filter.is_some(),
+            http_filter.header_filter.is_some(),
+            http_filter.all_of.is_some(),
+            http_filter.any_of.is_some(),
+            http_filter.body_filter.is_some(),
+            http_filter.method_filter.is_some(),
+            http_filter.header_filter_jq.is_some(),
+        ]
+        .into_iter()
+        .filter(|used| *used)
+        .count();
+        if used_filters > 1 {
+            Err(ConfigError::ConflictAt {
+                setting: "feature.network.incoming.http_filter".into(),
+                message: "Cannot use multiple types of HTTP filter at the same time, use 'any_of' or 'all_of' to combine filters".to_owned(),
+            })?
+        }
+
+        if [http_filter.all_of.as_ref(), http_filter.any_of.as_ref()]
+            .into_iter()
+            .flatten()
+            .any(Vec::is_empty)
+        {
+            Err(ConfigError::ConflictAt {
+                setting: "feature.network.incoming.http_filter".into(),
+                message: "Composite HTTP filter cannot be empty".to_owned(),
+            })?;
+        }
+
+        http_filter
+            .ensure_no_empty_strings()
+            .map_err(|error| ConfigError::InvalidValue {
+                name: "feature.network.incoming.http_filter".into(),
+                provided: String::new(),
+                error: Box::new(error),
+            })?;
+
+        let verify_body_filter = |filter: &BodyFilter| match filter {
+            BodyFilter::Json { query, .. } => {
+                // Only need to verify `query` as `matches` is later
+                // verified by the layer. `query` CANNOT be modified by the layer, see
+                // `mirrord_protocol::tcp::JsonPathQuery::new_unchecked`
+                JsonPathQuery::new(query.clone()).map(|_| ()).map_err(|e| {
+                    ConfigError::InvalidValue {
+                        name: "feature.network.incoming.http_filter.body_filter.query".into(),
+                        provided: query.to_string(),
+                        error: Box::new(e),
+                    }
+                })
+            }
+        };
+
+        if let Some(body) = &http_filter.body_filter {
+            verify_body_filter(body)?;
+        }
+
+        if let Some(all_of) = &http_filter.all_of {
+            for filter in all_of {
+                if let InnerFilter::Body(body) = filter {
+                    verify_body_filter(body)?
+                }
+            }
+        }
+
+        if let Some(any_of) = &http_filter.any_of {
+            for filter in any_of {
+                if let InnerFilter::Body(body) = filter {
+                    verify_body_filter(body)?
+                }
+            }
+        }
+
+        // The layer converts the filter when it starts, and panics on an invalid one. The regexes
+        // are compiled one by one first, with the engine the conversion uses, so that the error
+        // names the one that doesn't compile; `mirrord_protocol::tcp::Filter::new` would log every
+        // failure as an error on top.
+        let filter_path = "feature.network.incoming.http_filter";
+        let verify_regex = |name: String, pattern: &str| {
+            fancy_regex::Regex::new(pattern)
+                .map(drop)
+                .map_err(|error| ConfigError::InvalidValue {
+                    name: name.into(),
+                    provided: pattern.to_owned(),
+                    error: Box::new(error),
+                })
+        };
+        if let Some(header) = &http_filter.header_filter {
+            verify_regex(format!("{filter_path}.header_filter"), header)?;
+        }
+        if let Some(path) = &http_filter.path_filter {
+            verify_regex(format!("{filter_path}.path_filter"), path)?;
+        }
+        for (name, filters) in [
+            ("all_of", &http_filter.all_of),
+            ("any_of", &http_filter.any_of),
+        ] {
+            for (index, filter) in filters.iter().flatten().enumerate() {
+                match filter {
+                    InnerFilter::Header { header } => {
+                        verify_regex(format!("{filter_path}.{name}[{index}].header"), header)?
+                    }
+                    InnerFilter::Path { path } => {
+                        verify_regex(format!("{filter_path}.{name}[{index}].path"), path)?
+                    }
+                    _ => {}
+                }
+            }
+        }
+        if http_filter.is_filter_set() {
+            http_filter
+                .as_protocol_http_filter()
+                .map_err(|error| ConfigError::InvalidValue {
+                    name: filter_path.into(),
+                    provided: serde_json::to_string(http_filter).unwrap_or_default(),
+                    error: Box::new(error),
+                })?;
+        }
+
+        if !self.feature.network.incoming.ignore_ports.is_empty()
+            && self.feature.network.incoming.ports.is_some()
+        {
+            Err(ConfigError::ConflictAt {
+                setting: "feature.network.incoming.ports".into(),
+                message:
+                    "Cannot use both `incoming.ignore_ports` and `incoming.ports` at the same time"
+                        .to_owned(),
+            })?
+        }
+
+        match (
+            &self.feature.network.incoming.https_delivery,
+            &self.feature.network.incoming.tls_delivery,
+        ) {
+            (Some(..), Some(..)) => {
+                return Err(ConfigError::ConflictAt {
+                    setting: "feature.network.incoming.https_delivery".into(),
+                    message: "Cannot use both `feature.network.incoming.https_delivery` \
+                    and `feature.network.incoming.tls_delivery` at the same time"
+                        .to_owned(),
+                });
+            }
+            (Some(config), ..) => {
+                context.add_warning(
+                    "`feature.network.incoming.https_delivery` is deprecated, \
+                    use `feature.network.incoming.tls_delivery` instead."
+                        .into(),
+                );
+                config.verify(context)?
+            }
+            (.., Some(config)) => config.verify(context)?,
+            (None, None) => {}
+        }
+
+        let is_targetless = match self.target.path.as_ref() {
+            Some(Target::Targetless) => true,
+            None => context.is_empty_target_final(),
+            _ => false,
+        };
+
+        if is_targetless {
+            if self.feature.network.incoming.is_steal() {
+                Err(ConfigError::ConflictAt {
+                    setting: "feature.network.incoming.mode".into(),
+                    message: "Steal mode is not compatible with a targetless agent, please either disable this option or specify a target.".into(),
+                })?
+            }
+
+            if self.agent.ephemeral {
+                Err(ConfigError::ConflictAt {
+                    setting: "agent.ephemeral".into(),
+                    message: "Using an ephemeral container for the agent is not \
+                         compatible with a targetless agent, please either disable this option or \
+                        specify a target."
+                        .into(),
+                })?
+            }
+
+            if self.agent.namespace.is_some() {
+                context.add_warning(
+                    "Agent namespace is ignored in targetless runs. \
+                    To specify a namespace for a targetless run, use target namespace."
+                        .into(),
+                );
+            }
+        }
+
+        if self.feature.copy_target.enabled {
+            if self.operator == Some(false) {
+                return Err(ConfigError::ConflictAt {
+                    setting: "feature.copy_target".into(),
+                    message: "The copy target feature requires a mirrord operator, \
+                   please either disable this option or use the operator."
+                        .into(),
+                });
+            }
+
+            // Target may also be set later in the UI.
+            if is_targetless {
+                return Err(ConfigError::ConflictAt {
+                    setting: "feature.copy_target".into(),
+                    message: "The copy target feature is not compatible with a targetless agent, \
+                    please either disable this option or specify a target."
+                        .into(),
+                });
+            }
+
+            if matches!(self.target.path, Some(Target::Service(..))) {
+                return Err(ConfigError::ConflictAt {
+                    setting: "feature.copy_target".into(),
+                    message: "The copy target feature is not yet supported with service targets, \
+                    please either disable this option or specify an exact workload covered by this service."
+                        .into(),
+                });
+            }
+
+            if !self.feature.network.incoming.is_steal() {
+                context.add_warning(
+                    "Using copy target feature without steal mode \
+                    may result in unreturned responses in cluster \
+                    because the underlying app instance is not copied \
+                    and therefore not running in the copied pod"
+                        .into(),
+                );
+            }
+        }
+
+        // operator is disabled, but target requires it.
+        if self
+            .target
+            .path
+            .as_ref()
+            .is_some_and(Target::requires_operator)
+            && !self.operator.unwrap_or(true)
+        {
+            return Err(ConfigError::TargetRequiresOperator);
+        }
+
+        if self
+            .feature
+            .network
+            .incoming
+            .port_mapping
+            .iter()
+            .any(|(to, from)| to == from)
+        {
+            context.add_warning(
+                "The feature.network.incoming.port_mapping mirrord configuration field \
+                contains a mapping of a local port to the same remote port. \
+                A mapping is only necessary when the local application is listening on \
+                a different port than the remote one."
+                    .into(),
+            );
+        }
+
+        // Env vars
+        if self.feature.env.exclude.is_some() && self.feature.env.include.is_some() {
+            return Err(ConfigError::ConflictAt {
+                setting: "feature.env".into(),
+                message:
+                    "cannot use both `include` and `exclude` filters for environment variables"
+                        .to_owned(),
+            });
+        }
+
+        if let Some(env_vars_mapping) = self.feature.env.mapping.clone() {
+            EnvVarsRemapper::new(env_vars_mapping, HashMap::new())?;
+        }
+
+        self.feature.network.dns.verify(context)?;
+        self.feature.network.outgoing.verify(context)?;
+        self.feature.split_queues.verify(context)?;
+
+        if self.feature.kafka_branch && matches!(self.target.path, Some(Target::Serverless(_))) {
+            return Err(ConfigError::Conflict(
+                "`feature.kafka_branch` is not supported with serverless targets.".to_owned(),
+            ));
+        }
+
+        if self.feature.kafka_branch
+            && self
+                .feature
+                .split_queues
+                .of_kind(QueueKind::Kafka)
+                .next()
+                .is_some()
+        {
+            return Err(ConfigError::Conflict(
+                "`feature.kafka_branch` moves every Kafka queue to the branch: remove the Kafka \
+                 entries from `feature.split_queues`."
+                    .to_owned(),
+            ));
+        }
+
+        self.verify_db_branches(context)?;
+
+        self.feature.preview.verify()?;
+
+        if self.feature.fs.readonly_file_buffer > READONLY_FILE_BUFFER_HARD_LIMIT {
+            return Err(ConfigError::InvalidValue {
+                name: "feature.fs.readonly_file_buffer".into(),
+                provided: self.feature.fs.readonly_file_buffer.to_string(),
+                error: format!(
+                    "the value of feature.fs.readonly_file_buffer must be {} Megabytes or less.",
+                    READONLY_FILE_BUFFER_HARD_LIMIT / 1024 / 1024
+                )
+                .into(),
+            });
+        } else if self.feature.fs.readonly_file_buffer > READONLY_FILE_BUFFER_WARN_LIMIT {
+            context.add_warning(format!(
+                "The value of feature.fs.readonly_file_buffer is more than {} Megabyte. \
+                     Large values may increase the risk of timeouts.",
+                READONLY_FILE_BUFFER_WARN_LIMIT / 1024 / 1024,
+            ));
+        }
+
+        if let Some(path) = self
+            .feature
+            .fs
+            .prefetch
+            .iter()
+            .flatten()
+            .find(|path| Path::new(path).has_root().not())
+        {
+            return Err(ConfigError::InvalidValue {
+                name: "feature.fs.prefetch".into(),
+                provided: path.clone(),
+                error: "prefetched paths are resolved in the remote pod, \
+                    where the local working directory has no meaning, \
+                    so they must start with `/`."
+                    .into(),
+            });
+        }
+
+        if self.feature.fs.prefetch.is_some() && self.feature.fs.is_active().not() {
+            context.add_warning(
+                "`feature.fs.prefetch` is ignored when `feature.fs.mode` is `local`, \
+                 because no file operation is performed remotely."
+                    .to_owned(),
+            );
+        }
+
+        #[cfg(windows)]
+        if self.feature.fs.prefetch.is_some() {
+            context.add_warning(
+                "`feature.fs.prefetch` is not supported on Windows and will be ignored.".to_owned(),
+            );
+        }
+
+        if let (Some(profile), true) = (&self.profile, context.has_warnings()) {
+            // It might be that the user config is fine,
+            // but the mirrord profile introduced changes that triggered the warnings.
+            context.add_warning(format!(
+                "Config verification was done after applying mirrord profile `{profile}`. \
+                You can inspect the profile with `kubectl get mirrordclusterprofile {profile} -o yaml`.",
+            ));
+        }
+
+        if self.startup_retry.min_ms > self.startup_retry.max_ms {
+            return Err(ConfigError::InvalidValue {
+                name: "startup_retry.min_ms".into(),
+                provided: self.startup_retry.min_ms.to_string(),
+                error: format!(
+                    "the value of startup_retry.min_ms `{}` cannot be greater than \
+                     the value of startup_retry.max_ms `{}`.",
+                    self.startup_retry.min_ms, self.startup_retry.max_ms
+                )
+                .into(),
+            });
+        }
+
+        if self.startup_retry.max_ms == 0 {
+            return Err(ConfigError::InvalidValue {
+                name: "startup_retry.max_ms".into(),
+                provided: self.startup_retry.max_ms.to_string(),
+                error: "the value of startup_retry.max_ms has to be greater than 0.".into(),
+            });
+        }
+
+        Ok(())
+    }
+
+    /// Verifies that there are no ignored/unused settings for a preview environment.
+    ///
+    /// This is used to notify the user about settings that don't make sense in the context of
+    /// preview environments, since it's already running in the cluster.
+    pub fn verify_for_preview_env(&self, context: &mut ConfigContext) -> Result<(), ConfigError> {
+        let ignored = |field: &str| {
+            format!("`{field}` is ignored in preview environments and will not be used.")
+        };
+
+        // Strict, so the environment can't make its `MIRRORD_*` settings (or a config file named
+        // by `MIRRORD_CONFIG_FILE`) part of what is compared against.
+        let default = Self::resolve(&mut ConfigContext::default().strict_env(true))
+            .expect("default config must be valid");
+
+        // feature.env - partially supported
+
+        if self.feature.env.unset != default.feature.env.unset {
+            context.add_warning(ignored("feature.env.unset"));
+        }
+
+        if self.feature.env.mapping != default.feature.env.mapping {
+            context.add_warning(ignored("feature.env.mapping"));
+        }
+
+        // feature.network.incoming - partially supported
+
+        if self.feature.network.incoming.listen_ports
+            != default.feature.network.incoming.listen_ports
+        {
+            context.add_warning(ignored("feature.network.incoming.listen_ports"));
+        }
+
+        if self.feature.network.incoming.port_mapping
+            != default.feature.network.incoming.port_mapping
+        {
+            context.add_warning(ignored("feature.network.incoming.port_mapping"));
+        }
+
+        if self.feature.network.incoming.ignore_localhost
+            != default.feature.network.incoming.ignore_localhost
+        {
+            context.add_warning(ignored("feature.network.incoming.ignore_localhost"));
+        }
+
+        if self.feature.network.incoming.http_filter.ports
+            != default.feature.network.incoming.http_filter.ports
+        {
+            context.add_warning(ignored("feature.network.incoming.http_filter.ports"));
+        }
+
+        if matches!(self.feature.network.incoming.mode, IncomingMode::Steal)
+            && !self.feature.network.incoming.http_filter.is_filter_set()
+        {
+            context.add_warning(format!(
+                "using default http header filter: '^baggage: .*mirrord-session={}.*$'.",
+                self.key.as_str(),
+            ));
+        }
+
+        // feature.fs - unsupported
+
+        if self.feature.fs != default.feature.fs {
+            context.add_warning(ignored("feature.fs"));
+        }
+
+        // feature.network.outgoing - unsupported
+
+        if self.feature.network.outgoing != default.feature.network.outgoing {
+            context.add_warning(ignored("feature.network.outgoing"));
+        }
+
+        // feature.network.dns - unsupported
+
+        if self.feature.network.dns != default.feature.network.dns {
+            context.add_warning(ignored("feature.network.dns"));
+        }
+
+        // feature.magic - unsupported
+
+        if self.feature.magic != default.feature.magic {
+            context.add_warning(ignored("feature.magic"));
+        }
+
+        // feature.hostname - unsupported
+
+        if self.feature.hostname != default.feature.hostname {
+            context.add_warning(ignored("feature.hostname"));
+        }
+
+        // cronjob targets - the preview is a CronJob, not a long-running pod, so nothing can
+        // receive stolen traffic, scale, or idle.
+
+        let is_cronjob_target = matches!(self.target.path, Some(Target::CronJob(_)));
+
+        if is_cronjob_target {
+            if self.feature.preview.idle.is_enabled() {
+                return Err(ConfigError::Conflict(
+                    "`feature.preview.idle` cannot be used with a cronjob target: the preview \
+                     CronJob has no pods to scale, it runs jobs on its schedule instead."
+                        .to_owned(),
+                ));
+            }
+
+            if self.feature.network.incoming != default.feature.network.incoming {
+                context.add_warning(
+                    "`feature.network.incoming` is ignored for cronjob previews: the preview \
+                     CronJob's pods run to completion and receive no traffic."
+                        .to_owned(),
+                );
+            }
+
+            if self.feature.preview.replicas != default.feature.preview.replicas {
+                context.add_warning(ignored("feature.preview.replicas"));
+            }
+        } else if self.feature.preview.cronjob.schedule.is_some() {
+            context.add_warning(
+                "`feature.preview.cronjob.schedule` only applies to `cronjob/<name>` targets \
+                 and is ignored for this target."
+                    .to_owned(),
+            );
+        }
+
+        // feature.preview.idle - needs a wake source, otherwise an idle session could never
+        // scale back up.
+
+        if self.feature.preview.idle.is_enabled()
+            && matches!(self.feature.network.incoming.mode, IncomingMode::Off)
+            && !self.feature.split_queues.is_set()
+            && !self.feature.kafka_branch
+        {
+            return Err(ConfigError::Conflict(
+                "`feature.preview.idle` requires a wake source: enable \
+                 `feature.network.incoming` or `feature.kafka_branch`, or configure \
+                 `feature.split_queues`, otherwise nothing can ever wake the idle session."
+                    .to_owned(),
+            ));
+        }
+
+        self.verify(context)
+    }
+}
+
+/// Append `additions` onto `existing`, skipping entries already present and preserving order.
+fn append_dedup(existing: VecOrSingle<String>, additions: Vec<String>) -> VecOrSingle<String> {
+    Vec::from(existing)
+        .into_iter()
+        .chain(additions)
+        .fold(vec![], |mut acc, s| {
+            if acc.contains(&s).not() {
+                acc.push(s);
+            }
+            acc
+        })
+        .into()
+}
+
+/// Emits a [`ConfigContext`] warning if any name appearing in the injected set is also present
+/// in the opposite-side DNS filter, since that means the user has explicitly asked for a name to
+/// be routed and resolved on different sides of the local/remote boundary.
+fn warn_filter_conflict(
+    context: &mut ConfigContext,
+    existing: &[String],
+    injected: &[String],
+    routed_side: &str,
+    dns_side: &str,
+) {
+    let conflicting: Vec<&str> = injected
+        .iter()
+        .filter(|n| existing.contains(n))
+        .map(String::as_str)
+        .collect();
+
+    if conflicting.is_empty().not() {
+        context.add_warning(format!(
+            "feature.network.outgoing.filter routes {conflicting:?} via the {routed_side} side, \
+             but feature.network.dns.filter resolves them via the {dns_side} side. \
+             The resolved address may be meaningless across the local/remote boundary."
+        ));
+    }
+}
+
+impl CollectAnalytics for &LayerConfig {
+    fn collect_analytics(&self, analytics: &mut mirrord_analytics::Analytics) {
+        if let Some(value) = self.accept_invalid_certificates {
+            analytics.add("accept_invalid_certificates", value);
+        };
+        analytics.add("use_kubeconfig", self.kubeconfig.is_some());
+        analytics.add("use_profile", self.profile.is_some());
+        (&self.target).collect_analytics(analytics);
+        (&self.agent).collect_analytics(analytics);
+        (&self.feature).collect_analytics(analytics);
+        (&self.experimental).collect_analytics(analytics);
+        (&self.startup_retry).collect_analytics(analytics);
+    }
+}
+
+impl LayerFileConfig {
+    /// Parses a [`LayerFileConfig`] from a file path, rendering any Tera templates with
+    /// [`LayerFileConfig::render`].
+    pub fn from_path<P>(path: P, context: &mut ConfigContext) -> Result<Self, FromFileError>
+    where
+        P: AsRef<Path>,
+    {
+        let path = path.as_ref();
+        let content = if path == Path::new("-") {
+            let mut content = String::new();
+            std::io::stdin().read_to_string(&mut content)?;
+            content
+        } else {
+            std::fs::read_to_string(path)?
+        };
+
+        let rendered = Self::render(&content, path, context)?;
+
+        match path.extension().and_then(OsStr::to_str) {
+            // No Extension? assume json
+            Some("json") | None => Ok(serde_json::from_str::<Self>(&rendered)?),
+            Some("toml") => Ok(toml::from_str::<Self>(&rendered)?),
+            Some("yaml" | "yml") => Ok(serde_saphyr::from_str::<Self>(&rendered)?),
+            ext => Err(FromFileError::InvalidExtension(ext.map(String::from))),
+        }
+    }
+
+    /// Renders the Tera templates in the raw `content` of a config file, returning the text that
+    /// gets deserialized. `path` only selects how the `key` field is extracted from `content`.
+    ///
+    /// Besides Tera's own functions and filters, templates can use the `path_pattern` and
+    /// `regex_escape` filters of the `template` module, which print text that is safe in a
+    /// pattern.
+    ///
+    /// # Key Resolution for Template Rendering
+    ///
+    /// Config files can reference `{{ key }}` in templates (e.g., for HTTP header filters).
+    /// This creates a chicken-and-egg problem: we need the key value to render templates,
+    /// but the key might be defined *in* the config file we're trying to parse.
+    ///
+    /// To solve this, we resolve the key *before* parsing the full config:
+    /// 1. Check if CLI provided a key via `MIRRORD_ENV_KEY` in the context
+    /// 2. Otherwise, extract and render just the `key` field from the raw file
+    /// 3. Otherwise, auto-generate a random key (with [`EnvKey::AUTOGENERATED_MARKER`] prefix)
+    ///
+    /// The resolved key is then:
+    /// - Passed to Tera for template rendering
+    /// - Stored in the context so [`env_key::EnvKeyFileConfig::generate_config`] finds the same
+    ///   value
+    ///
+    /// The marker prefix on auto-generated keys allows `generate_config` to distinguish them
+    /// from user-provided keys (see [`EnvKey::AUTOGENERATED_MARKER`] for details).
+    pub fn render(
+        content: &str,
+        path: &Path,
+        context: &mut ConfigContext,
+    ) -> Result<String, FromFileError> {
+        let mut template_engine = Tera::default();
+        template::register(&mut template_engine);
+        template_engine.add_raw_template("main", content)?;
+
+        let mut tera_context = tera::Context::new();
+        // Left out of the context entirely when it can't be determined, so that
+        // `{{ git_branch | default(value='...') }}` gives users a fallback.
+        if let Some(git_branch) = Self::git_branch(context) {
+            tera_context.insert("git_branch", &git_branch);
+        }
+
+        let key = match context.get_env(env_key::MIRRORD_ENV_KEY) {
+            Ok(key) => key,
+            Err(_) => match Self::extract_key_from_content(path, content) {
+                Some(raw_key) => {
+                    // Render the root `key` field first so it can use the same template expansion
+                    // support as the rest of the config.
+                    template_engine.add_raw_template("key", &raw_key)?;
+                    template_engine.render("key", &tera_context)?
+                }
+                None => EnvKey::autogenerated_with_marker(),
+            },
+        };
+        context.override_env_mut(env_key::MIRRORD_ENV_KEY, &key);
+
+        tera_context.insert(
+            "key",
+            // Auto-generated keys are stored in the context with an internal marker so the later
+            // config resolution step can still tell they were generated, but templates
+            // should only ever see the actual session key value.
+            key.strip_prefix(EnvKey::AUTOGENERATED_MARKER)
+                .unwrap_or(&key),
+        );
+
+        Ok(template_engine.render("main", &tera_context)?)
+    }
+
+    /// The git branch exposed to templates as `{{ git_branch }}`.
+    ///
+    /// [`MIRRORD_BRANCH_NAME_ENV`](util::MIRRORD_BRANCH_NAME_ENV) is read through the
+    /// [`ConfigContext`] rather than [`mod@std::env`], so a caller that isolates config resolution
+    /// from the process environment controls this value too. Everything else falls back to
+    /// [`util::GIT_BRANCH`].
+    fn git_branch(context: &ConfigContext) -> Option<String> {
+        context
+            .get_env(util::MIRRORD_BRANCH_NAME_ENV)
+            .ok()
+            .filter(|branch| branch.is_empty().not())
+            .or_else(|| util::GIT_BRANCH.clone())
+    }
+
+    /// Extracts just the `key` field from a config file without template rendering.
+    ///
+    /// This is used in the first pass of config loading to determine the key value
+    /// before rendering templates that might reference `{{ key }}`.
+    ///
+    /// Returns `None` if the file doesn't contain a `key` field or if parsing fails.
+    fn extract_key_from_content(path: &Path, content: &str) -> Option<String> {
+        let extension = path.extension().and_then(OsStr::to_str);
+
+        match extension {
+            Some("json") | None => serde_json::from_str::<serde_json::Value>(content)
+                .ok()?
+                .get("key")?
+                .as_str()
+                .map(String::from),
+            Some("toml") => toml::from_str::<toml::Value>(content)
+                .ok()?
+                .get("key")?
+                .as_str()
+                .map(String::from),
+            Some("yaml" | "yml") => serde_saphyr::from_str::<serde_json::Value>(content)
+                .ok()?
+                .get("key")?
+                .as_str()
+                .map(String::from),
+            _ => None,
+        }
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use std::{
+        fs::{File, OpenOptions},
+        io::{Read, Write},
+    };
+
+    use k8s_openapi::api::core::v1::{Container, VolumeMount};
+    use rstest::*;
+    use schemars::Schema;
+    use serde_json::json;
+    use tempfile::NamedTempFile;
+
+    use super::*;
+    use crate::{
+        agent::AgentFileConfig,
+        feature::{
+            FeatureFileConfig,
+            env::EnvFileConfig,
+            fs::{FsModeConfig, FsUserConfig},
+            network::{
+                NetworkFileConfig,
+                incoming::{IncomingAdvancedFileConfig, IncomingFileConfig, IncomingMode},
+                outgoing::OutgoingFileConfig,
+            },
+        },
+        target::{Target, TargetFileConfig},
+        util::ToggleableConfig,
+    };
+
+    #[derive(Debug)]
+    enum ConfigType {
+        Json,
+        Toml,
+        Yaml,
+    }
+
+    impl ConfigType {
+        fn empty(&self) -> &'static str {
+            match self {
+                ConfigType::Json => "{}",
+                ConfigType::Toml => "",
+                ConfigType::Yaml => "",
+            }
+        }
+
+        fn issue_2647(&self) -> &'static str {
+            match self {
+                ConfigType::Json => {
+                    r#"
+                    {
+                        "feature": {
+                            "network": {
+                                "incoming": "steal"
+                            }
+                        }
+                    }
+                    "#
+                }
+                ConfigType::Toml => {
+                    r#"
+                    [feature.network]
+                    incoming = "steal"
+                    "#
+                }
+                ConfigType::Yaml => {
+                    r#"
+                    feature:
+                        network:
+                            incoming: steal
+                    "#
+                }
+            }
+        }
+
+        fn full(&self) -> &'static str {
+            match self {
+                ConfigType::Json => {
+                    r#"
+                    {
+                        "accept_invalid_certificates": false,
+                        "target": {
+                            "path": "pod/test-service-abcdefg-abcd",
+                            "namespace": "default"
+                        },
+                        "agent": {
+                            "log_level": "info",
+                            "json_log": false,
+                            "namespace": "default",
+                            "image": "",
+                            "image_pull_policy": "",
+                            "image_pull_secrets": [{"name": "testsecret"}],
+                            "ttl": 60,
+                            "ephemeral": false,
+                            "flush_connections": false
+                        },
+                        "feature": {
+                            "env": true,
+                            "fs": "write",
+                            "network": {
+                                "dns": false,
+                                "incoming": {
+                                    "mode": "mirror"
+                                },
+                                "outgoing": {
+                                    "tcp": true,
+                                    "udp": false
+                                }
+                            }
+                        }
+                    }
+                    "#
+                }
+                ConfigType::Toml => {
+                    r#"
+                    accept_invalid_certificates = false
+
+                    [target]
+                    path = "pod/test-service-abcdefg-abcd"
+                    namespace = "default"
+
+                    [agent]
+                    log_level = "info"
+                    json_log = false
+                    namespace = "default"
+                    image = ""
+                    image_pull_policy = ""
+                    image_pull_secrets = [{name = "testsecret"}]
+                    ttl = 60
+                    ephemeral = false
+                    flush_connections = false
+
+                    [feature]
+                    env = true
+                    fs = "write"
+
+                    [feature.network]
+                    dns = false
+
+                    [feature.network.incoming]
+                    mode = "mirror"
+
+                    [feature.network.outgoing]
+                    tcp = true
+                    udp = false
+                    "#
+                }
+                ConfigType::Yaml => {
+                    r#"
+                    accept_invalid_certificates: false
+                    target:
+                        path: "pod/test-service-abcdefg-abcd"
+                        namespace: "default"
+
+                    agent:
+                        log_level: "info"
+                        json_log: false
+                        namespace: "default"
+                        image: ""
+                        image_pull_policy: ""
+                        image_pull_secrets:
+                            - name: "testsecret"
+                        ttl: 60
+                        ephemeral: false
+                        flush_connections: false
+
+                    feature:
+                        env: true
+                        fs: "write"
+                        network:
+                            dns: false
+                            incoming:
+                                mode: "mirror"
+                            outgoing:
+                                tcp: true
+                                udp: false
+                    "#
+                }
+            }
+        }
+
+        fn parse(&self, value: &str) -> LayerFileConfig {
+            match self {
+                ConfigType::Json => {
+                    serde_json::from_str(value).unwrap_or_else(|err| panic!("{err:?}"))
+                }
+                ConfigType::Toml => toml::from_str(value).unwrap_or_else(|err| panic!("{err:?}")),
+                ConfigType::Yaml => {
+                    serde_saphyr::from_str(value).unwrap_or_else(|err| panic!("{err:?}"))
+                }
+            }
+        }
+
+        fn parse_result(&self, value: &str) -> Result<LayerFileConfig, String> {
+            match self {
+                ConfigType::Json => serde_json::from_str(value).map_err(|err| err.to_string()),
+                ConfigType::Toml => toml::from_str(value).map_err(|err| err.to_string()),
+                ConfigType::Yaml => serde_saphyr::from_str(value).map_err(|err| err.to_string()),
+            }
+        }
+    }
+
+    #[rstest]
+    fn empty(
+        #[values(ConfigType::Json, ConfigType::Toml, ConfigType::Yaml)] config_type: ConfigType,
+    ) {
+        let input = config_type.empty();
+
+        let config = config_type.parse(input);
+
+        assert_eq!(config, LayerFileConfig::default());
+    }
+
+    #[rstest]
+    fn issue_2647(
+        #[values(ConfigType::Json, ConfigType::Toml, ConfigType::Yaml)] config_type: ConfigType,
+    ) {
+        let input = config_type.issue_2647();
+        let config = config_type.parse(input);
+
+        let expect = LayerFileConfig {
+            feature: Some(FeatureFileConfig {
+                network: Some(ToggleableConfig::Config(NetworkFileConfig {
+                    incoming: Some(ToggleableConfig::Config(IncomingFileConfig::Simple(Some(
+                        IncomingMode::Steal,
+                    )))),
+                    ..Default::default()
+                })),
+                ..Default::default()
+            }),
+            ..Default::default()
+        };
+
+        assert_eq!(config, expect);
+    }
+
+    #[rstest]
+    fn full(
+        #[values(ConfigType::Json, ConfigType::Toml, ConfigType::Yaml)] config_type: ConfigType,
+    ) {
+        use crate::{
+            agent::{AgentImageFileConfig, AgentPullSecret},
+            target::pod::PodTarget,
+        };
+
+        let input = config_type.full();
+
+        let config = config_type.parse(input);
+
+        let expect = LayerFileConfig {
+            key: None,
+            accept_invalid_certificates: Some(false),
+            kubeconfig: None,
+            telemetry: None,
+            target: Some(TargetFileConfig::Advanced {
+                path: Some(Target::Pod(PodTarget {
+                    pod: "test-service-abcdefg-abcd".to_owned(),
+                    container: None,
+                })),
+                namespace: Some("default".to_owned()),
+            }),
+            skip_processes: None,
+            skip_extra_build_tools: None,
+            skip_build_tools: None,
+            multi_cluster: None,
+            agent: Some(AgentFileConfig {
+                privileged: None,
+                log_level: Some("info".to_owned()),
+                json_log: Some(false),
+                namespace: Some("default".to_owned()),
+                image: Some(AgentImageFileConfig::Simple(Some("".to_owned()))),
+                image_pull_policy: Some("".to_owned()),
+                image_pull_secrets: Some(vec![AgentPullSecret {
+                    name: "testsecret".to_owned(),
+                }]),
+                ttl: Some(60),
+                ephemeral: Some(false),
+                communication_timeout: None,
+                startup_timeout: None,
+                flush_connections: Some(false),
+                disabled_capabilities: None,
+                tolerations: None,
+                check_out_of_pods: None,
+                resources: None,
+                nftables: None,
+                ..Default::default()
+            }),
+            feature: Some(FeatureFileConfig {
+                env: ToggleableConfig::Enabled(true).into(),
+                fs: ToggleableConfig::Config(FsUserConfig::Simple(FsModeConfig::Write)).into(),
+                network: Some(ToggleableConfig::Config(NetworkFileConfig {
+                    dns: Some(ToggleableConfig::Enabled(false)),
+                    incoming: Some(ToggleableConfig::Config(IncomingFileConfig::Advanced(
+                        Box::new(IncomingAdvancedFileConfig {
+                            mode: Some(IncomingMode::Mirror),
+                            http_filter: None,
+                            port_mapping: None,
+                            ignore_localhost: None,
+                            ignore_ports: None,
+                            listen_ports: None,
+                            on_concurrent_steal: None,
+                            ports: None,
+                            https_delivery: Default::default(),
+                            tls_delivery: Default::default(),
+                        }),
+                    ))),
+                    outgoing: Some(ToggleableConfig::Config(OutgoingFileConfig {
+                        tcp: Some(true),
+                        udp: Some(false),
+                        ..Default::default()
+                    })),
+                    ipv6: None,
+                })),
+                copy_target: None,
+                hostname: None,
+                split_queues: None,
+                kafka_branch: None,
+                db_branches: None,
+                magic: None,
+                preview: None,
+            }),
+            container: None,
+            operator: None,
+            profile: None,
+            sip_binaries: None,
+            kube_context: None,
+            external_proxy: None,
+            internal_proxy: None,
+            use_proxy: None,
+            experimental: None,
+            skip_sip: None,
+            startup_retry: None,
+            ci: None,
+            sessions_manager: None,
+            traceparent: None,
+            baggage: None,
+            api: None,
+        };
+
+        assert_eq!(config, expect);
+    }
+
+    #[test]
+    fn rejects_unknown_fields_in_agent_pull_secrets() {
+        let input = r#"
+        {
+            "agent": {
+                "image_pull_secrets": [
+                    {
+                        "name": "testsecret",
+                        "unknown": "value"
+                    }
+                ]
+            }
+        }
+        "#;
+
+        let error = ConfigType::Json
+            .parse_result(input)
+            .expect_err("agent.image_pull_secrets should reject unknown fields");
+
+        assert!(error.contains("unknown field"));
+    }
+
+    #[test]
+    fn rejects_unknown_fields_in_split_queues() {
+        let input = r#"
+        {
+            "feature": {
+                "split_queues": {
+                    "orders": {
+                        "queue_type": "Kafka",
+                        "message_filter": {
+                            "customer-id": ".+"
+                        },
+                        "unknown": true
+                    }
+                }
+            }
+        }
+        "#;
+
+        let error = ConfigType::Json
+            .parse_result(input)
+            .expect_err("feature.split_queues.orders should reject unknown fields");
+
+        assert!(error.contains("unknown field"));
+    }
+
+    #[test]
+    fn rejects_unknown_fields_in_db_branches() {
+        let input = r#"
+        {
+            "feature": {
+                "db_branches": [
+                    {
+                        "type": "mysql",
+                        "connection": {
+                            "type": "env",
+                            "params": {
+                                "host": "DB_HOST"
+                            }
+                        },
+                        "unknown": true
+                    }
+                ]
+            }
+        }
+        "#;
+
+        let error = ConfigType::Json
+            .parse_result(input)
+            .expect_err("feature.db_branches[] should reject unknown fields");
+
+        assert!(error.contains("unknown field"));
+    }
+
+    #[test]
+    fn rejects_unknown_fields_in_tls_delivery() {
+        let input = r#"
+        {
+            "feature": {
+                "network": {
+                    "incoming": {
+                        "tls_delivery": {
+                            "protocol": "tls",
+                            "unknown": true
+                        }
+                    }
+                }
+            }
+        }
+        "#;
+
+        let error = ConfigType::Json
+            .parse_result(input)
+            .expect_err("feature.network.incoming.tls_delivery should reject unknown fields");
+
+        assert!(error.contains("unknown field"));
+    }
+
+    /// <!--${internal}-->
+    /// Helper for printing the config schema.
+    ///
+    /// Run it with:
+    ///
+    /// ```sh
+    /// cargo test -p mirrord-config print_schema -- --ignored --nocapture
+    /// ```
+    #[test]
+    #[ignore]
+    fn print_schema() {
+        let schema = schemars::schema_for!(LayerFileConfig);
+        println!("{}", serde_json::to_string_pretty(&schema).unwrap());
+    }
+
+    const SCHEMA_FILE_PATH: &str = "../../mirrord-schema.json";
+
+    /// <!--${internal}-->
+    /// Writes the config schema to a file (uploaded to the schema store).
+    fn write_schema_to_file(schema: &Schema) -> File {
+        println!("Writing schema to file.");
+
+        let content = serde_json::to_string_pretty(schema).expect("Failed generating schema!");
+        let mut file = OpenOptions::new()
+            .create(true)
+            .write(true)
+            .truncate(true)
+            .read(true)
+            .open(SCHEMA_FILE_PATH)
+            .expect("Failed to create schema file!");
+
+        let _ = file
+            .write(content.as_bytes())
+            .expect("Failed writing schema to file!");
+
+        file
+    }
+
+    /// <!--${internal}-->
+    /// Checks if a schema file already exists, otherwise generates the schema and creates the file.
+    ///
+    /// It also checks and updates when the schema file is outdated.
+    ///
+    /// Use this function to generate a mirrord config schema file.
+    ///
+    /// ```sh
+    /// cargo test -p mirrord-config check_schema_file_exists_and_is_valid_or_create_it -- --ignored --nocapture
+    /// ```
+    #[test]
+    #[ignore]
+    fn check_schema_file_exists_and_is_valid_or_create_it() {
+        let fresh_schema = schemars::schema_for!(LayerFileConfig);
+        let fresh_content =
+            serde_json::to_string_pretty(&fresh_schema).expect("Failed generating schema!");
+
+        println!("Checking for an existing schema file!");
+        let mut existing_content = String::with_capacity(fresh_content.len());
+        if File::open(SCHEMA_FILE_PATH)
+            .and_then(|mut file| file.read_to_string(&mut existing_content))
+            .is_ok()
+        {
+            if existing_content != fresh_content {
+                println!("Schema is outdated, preparing updated version!");
+                write_schema_to_file(&fresh_schema);
+            }
+        } else {
+            write_schema_to_file(&fresh_schema);
+        }
+    }
+
+    /// Every kind of HTTP filter counts towards the one allowed at a time, or the layer would hit
+    /// an unexpected combination when converting the filter.
+    #[rstest]
+    #[case::method(json!({ "header_filter": "a", "method_filter": "GET" }))]
+    #[case::jq(json!({ "path_filter": "/a", "header_filter_jq": "." }))]
+    fn verify_rejects_multiple_http_filters(#[case] http_filter: serde_json::Value) {
+        let config: LayerFileConfig = serde_json::from_value(json!({
+            "feature": { "network": { "incoming": { "mode": "steal", "http_filter": http_filter } } }
+        }))
+        .unwrap();
+        let mut context = ConfigContext::default().strict_env(true);
+        let error = config
+            .generate_config(&mut context)
+            .and_then(|config| config.verify(&mut context))
+            .unwrap_err();
+        assert!(
+            matches!(&error, ConfigError::ConflictAt { setting, .. } if setting == "feature.network.incoming.http_filter"),
+            "{error}"
+        );
+    }
+
+    /// The error names the filter that doesn't compile and the value given for it.
+    #[rstest]
+    #[case::header(json!({ "header_filter": "([" }), "feature.network.incoming.http_filter.header_filter", "([")]
+    #[case::path(json!({ "path_filter": "([" }), "feature.network.incoming.http_filter.path_filter", "([")]
+    #[case::inner(
+        json!({ "any_of": [{ "path": "/ok" }, { "header": "([" }] }),
+        "feature.network.incoming.http_filter.any_of[1].header",
+        "(["
+    )]
+    #[case::method(
+        json!({ "method_filter": "NOT A METHOD" }),
+        "feature.network.incoming.http_filter",
+        "NOT A METHOD"
+    )]
+    fn verify_rejects_invalid_http_filter(
+        #[case] http_filter: serde_json::Value,
+        #[case] expected_name: &str,
+        #[case] expected_value: &str,
+    ) {
+        let config: LayerFileConfig = serde_json::from_value(json!({
+            "feature": { "network": { "incoming": { "mode": "steal", "http_filter": http_filter } } }
+        }))
+        .unwrap();
+        let mut context = ConfigContext::default().strict_env(true);
+        let error = config
+            .generate_config(&mut context)
+            .and_then(|config| config.verify(&mut context))
+            .unwrap_err();
+        assert!(
+            matches!(
+                &error,
+                ConfigError::InvalidValue { name, provided, .. }
+                    if name == expected_name && provided.contains(expected_value)
+            ),
+            "{error}"
+        );
+    }
+
+    #[test]
+    fn schema_file_exists() {
+        let _ = File::open(SCHEMA_FILE_PATH).expect("Schema file doesn't exist!");
+    }
+
+    #[test]
+    fn schema_file_is_up_to_date() {
+        let compare_schema = schemars::schema_for!(LayerFileConfig);
+        let compare_content =
+            serde_json::to_string_pretty(&compare_schema).expect("Failed generating schema!");
+
+        let mut existing_content = String::new();
+        let _ = File::open(SCHEMA_FILE_PATH)
+            .unwrap()
+            .read_to_string(&mut existing_content);
+
+        assert_eq!(existing_content.replace("\r\n", "\n"), compare_content);
+    }
+
+    /// Users copy parts of the config examples in the docs into their own config, so each example
+    /// must pass the same checks as `mirrord verify-config`.
+    ///
+    /// The example is the first JSON block after `heading` in the docs of the type. An empty
+    /// `heading` selects the first JSON block in the docs.
+    ///
+    /// With `ide`, the test does the checks of `mirrord verify-config --ide`, where the user
+    /// selects the target later. The `feature` example needs this, because it uses steal mode
+    /// and has no target, and steal mode needs a target.
+    #[rstest]
+    #[case::complete(
+        schemars::schema_for!(LayerFileConfig),
+        "### Complete `config.json`",
+        false
+    )]
+    #[case::feature(schemars::schema_for!(FeatureFileConfig), "", true)]
+    #[case::env(schemars::schema_for!(EnvFileConfig), "", false)]
+    fn docs_example_is_valid(#[case] schema: Schema, #[case] heading: &str, #[case] ide: bool) {
+        let example = {
+            let docs = schema
+                .get("description")
+                .and_then(serde_json::Value::as_str)
+                .expect("type should have docs");
+            let (_, rest) = docs
+                .split_once(heading)
+                .unwrap_or_else(|| panic!("docs should have {heading:?}"));
+            let (_, block) = rest
+                .split_once("```json\n")
+                .expect("example should be in a JSON block");
+            let (example, _) = block.split_once("```").expect("JSON block should end");
+            example
+        };
+
+        let mut file = NamedTempFile::with_suffix(".json").unwrap();
+        file.write_all(example.as_bytes()).unwrap();
+
+        let mut context = ConfigContext::default()
+            .override_env(LayerConfig::FILE_PATH_ENV, file.path())
+            .strict_env(true)
+            .empty_target_final(!ide);
+        let config = LayerConfig::resolve(&mut context).unwrap();
+        config.verify(&mut context).unwrap();
+    }
+
+    /// Related to issue #2936: https://github.com/metalbear-co/mirrord/issues/2936.
+    ///
+    /// Verifies that [`LayerConfig`] encoded with [`LayerConfig::encode`]
+    /// can be decoded back into the same [`LayerConfig`] with [`LayerConfig::decode`].
+    #[test]
+    fn encode_and_decode_default_config() {
+        let mut cfg_context = ConfigContext::default();
+        let resolved_config = LayerFileConfig::default()
+            .generate_config(&mut cfg_context)
+            .expect("Default config should be generated from default 'LayerFileConfig'");
+
+        let encoded = resolved_config.encode().unwrap();
+        let decoded = LayerConfig::decode(&encoded).unwrap();
+
+        assert_eq!(decoded, resolved_config);
+    }
+
+    #[test]
+    fn encode_and_decode_targetless_config() {
+        let mut cfg_context = ConfigContext::default();
+        let resolved_config = ConfigType::Json
+            .parse(
+                r#"{
+                    "target": {
+                        "path": "targetless",
+                        "namespace": "bear-namespace"
+                    }
+                }"#,
+            )
+            .generate_config(&mut cfg_context)
+            .unwrap();
+
+        assert_eq!(resolved_config.target.path, Some(Target::Targetless));
+
+        let encoded = resolved_config.encode().unwrap();
+        let decoded = LayerConfig::decode(&encoded).unwrap();
+
+        assert_eq!(decoded.target.path, None);
+        assert_eq!(decoded.target.namespace.as_deref(), Some("bear-namespace"));
+    }
+
+    /// Same as [`encode_and_decode_default_config`], but uses a more advanced config example.
+    #[test]
+    fn encode_and_decode_advanced_config() {
+        let mut cfg_context = ConfigContext::default();
+
+        let advanced_config: String = format!(
+            r#"
+        {{
+            "accept_invalid_certificates": false,
+            "target": {{
+                "path": "pod/test-service-abcdefg-abcd",
+                "namespace": "default"
+            }},
+            "feature": {{
+                "env": true,
+                "fs": "write",
+                "network": {{
+                    "dns": false,
+                    "incoming": {{
+                        "mode": "steal",
+                        "http_filter": {{
+                            "header_filter": "x-intercept: {{ get_env(name=\"{}\") }}"
+                        }}
+                    }},
+                    "outgoing": {{
+                        "tcp": true,
+                        "udp": false
+                    }}
+                }}
+            }}
+        }}"#,
+            USER_ENVVAR
+        );
+        // this config includes template variables, so it needs to be rendered first
+        let mut template_engine = Tera::default();
+        template_engine
+            .add_raw_template("main", &advanced_config)
+            .unwrap();
+        let rendered = template_engine
+            .render("main", &tera::Context::new())
+            .expect("Tera should render JSON config file contents");
+        let resolved_config = ConfigType::Json
+            .parse(rendered.as_str())
+            .generate_config(&mut cfg_context)
+            .expect("Layer config should be generated from JSON config file contents");
+
+        let encoded = resolved_config.encode().unwrap();
+        let decoded = LayerConfig::decode(&encoded).unwrap();
+
+        assert_eq!(decoded, resolved_config);
+    }
+
+    #[cfg(not(target_os = "windows"))]
+    const USER_ENVVAR: &str = "USER";
+
+    #[cfg(target_os = "windows")]
+    const USER_ENVVAR: &str = "USERNAME";
+
+    /// Test key resolution priority: CLI > config file > auto-generated
+    #[test]
+    fn test_key_resolution_priority() {
+        use crate::config::MirrordConfig;
+
+        // 1: Auto-generated key (no CLI, no config file)
+        let mut temp_file = NamedTempFile::new().unwrap();
+        temp_file.write_all(br#"{}"#).unwrap();
+
+        let mut ctx = ConfigContext::default().strict_env(true);
+        let file_config = LayerFileConfig::from_path(temp_file.path(), &mut ctx).unwrap();
+        let config = file_config.generate_config(&mut ctx).unwrap();
+        assert!(config.key.is_generated());
+        assert_eq!(config.key.analytics_len(), 0);
+
+        // 2: Key from config file
+        let mut temp_file = NamedTempFile::new().unwrap();
+        temp_file
+            .write_all(br#"{"key": "config-file-key"}"#)
+            .unwrap();
+
+        let mut ctx = ConfigContext::default().strict_env(true);
+        let file_config = LayerFileConfig::from_path(temp_file.path(), &mut ctx).unwrap();
+        let config = file_config.generate_config(&mut ctx).unwrap();
+        assert_eq!(config.key.as_str(), "config-file-key");
+        assert!(config.key.is_provided());
+        assert_eq!(config.key.analytics_len(), "config-file-key".len());
+
+        // 3: CLI key (env var) overrides config file key
+        let mut ctx = ConfigContext::default()
+            .override_env(env_key::MIRRORD_ENV_KEY, "cli-key")
+            .strict_env(true);
+        let file_config = LayerFileConfig::from_path(temp_file.path(), &mut ctx).unwrap();
+        let config = file_config.generate_config(&mut ctx).unwrap();
+        assert_eq!(config.key.as_str(), "cli-key");
+        assert!(config.key.is_provided());
+        assert_eq!(config.key.analytics_len(), "cli-key".len());
+
+        // 4: CLI key alone (no config file value)
+        let mut temp_file = NamedTempFile::new().unwrap();
+        temp_file.write_all(br#"{}"#).unwrap();
+
+        let mut ctx = ConfigContext::default()
+            .override_env(env_key::MIRRORD_ENV_KEY, "only-cli-key")
+            .strict_env(true);
+        let file_config = LayerFileConfig::from_path(temp_file.path(), &mut ctx).unwrap();
+        let config = file_config.generate_config(&mut ctx).unwrap();
+        assert_eq!(config.key.as_str(), "only-cli-key");
+        assert!(config.key.is_provided());
+        assert_eq!(config.key.analytics_len(), "only-cli-key".len());
+    }
+
+    #[test]
+    fn test_template_rendering_with_key() {
+        let mut temp_file = NamedTempFile::new().unwrap();
+        temp_file
+            .write_all(br#"{"target": "pod/test-{{ key }}", "feature": {"network": false}}"#)
+            .unwrap();
+
+        let mut ctx = ConfigContext::default().override_env(env_key::MIRRORD_ENV_KEY, "my-session");
+        let config = LayerFileConfig::from_path(temp_file.path(), &mut ctx).unwrap();
+
+        let Some(TargetFileConfig::Simple(Some(Target::Pod(pod_target)))) = config.target else {
+            panic!("Bad target");
+        };
+
+        assert_eq!(pod_target.pod, "test-my-session");
+    }
+
+    /// `git_branch` has to reach both rendering passes: the one that resolves the root `key`
+    /// field, and the one that renders the rest of the config.
+    #[test]
+    fn test_template_rendering_with_git_branch() {
+        use crate::config::MirrordConfig;
+
+        let mut temp_file = NamedTempFile::new().unwrap();
+        temp_file
+            .write_all(
+                br#"{
+                    "key": "{{ git_branch }}",
+                    "feature": {
+                        "env": {
+                            "override": { "BRANCH": "{{ git_branch }}" }
+                        }
+                    }
+                }"#,
+            )
+            .unwrap();
+
+        let mut ctx = ConfigContext::default()
+            .strict_env(true)
+            .override_env(util::MIRRORD_BRANCH_NAME_ENV, "my-feature-branch");
+        let config = LayerFileConfig::from_path(temp_file.path(), &mut ctx)
+            .unwrap()
+            .generate_config(&mut ctx)
+            .unwrap();
+
+        assert_eq!(config.key.as_str(), "my-feature-branch");
+        assert_eq!(
+            config.feature.env.r#override.unwrap().get("BRANCH"),
+            Some(&"my-feature-branch".to_owned())
+        );
+    }
+
+    /// A `key` template using double-quoted filter arguments leaves the file invalid JSON, so the
+    /// pre-templating read of `key` finds nothing and the key is generated instead. Single quotes
+    /// keep the file parseable and the template is honoured.
+    ///
+    /// Documented behaviour rather than desired behaviour - see the `Templating` section of the
+    /// config reference.
+    #[test]
+    fn test_quote_style_in_key_template() {
+        use crate::config::MirrordConfig;
+
+        let resolve = |content: &[u8]| {
+            let mut temp_file = NamedTempFile::new().unwrap();
+            temp_file.write_all(content).unwrap();
+            let mut ctx = ConfigContext::default()
+                .strict_env(true)
+                .override_env(util::MIRRORD_BRANCH_NAME_ENV, "my-feature-branch");
+            LayerFileConfig::from_path(temp_file.path(), &mut ctx)
+                .unwrap()
+                .generate_config(&mut ctx)
+                .unwrap()
+                .key
+        };
+
+        let single = resolve(br#"{"key": "{{ git_branch | default(value='fallback') }}"}"#);
+        assert_eq!(single.as_str(), "my-feature-branch");
+        assert!(single.is_provided());
+
+        let double = resolve(br#"{"key": "{{ git_branch | default(value="fallback") }}"}"#);
+        assert!(
+            double.is_generated(),
+            "double-quoted filter argument should leave the file unparsable, got {double:?}",
+        );
+    }
+
+    /// Builds and resolves a [`LayerConfig`] from a JSON string, then runs the outgoing-to-DNS
+    /// filter propagation in a fresh [`ConfigContext`] so that the returned warnings reflect
+    /// only what the propagation emitted (and not, for example, unstable-field warnings from
+    /// the initial `generate_config` call).
+    fn resolve_with_propagation(json: &str) -> (LayerConfig, Vec<String>) {
+        let mut gen_ctx = ConfigContext::default();
+        let mut cfg = ConfigType::Json
+            .parse(json)
+            .generate_config(&mut gen_ctx)
+            .expect("config generation should succeed");
+        let mut prop_ctx = ConfigContext::default();
+        cfg.reflect_outgoing_filter_in_dns(&mut prop_ctx);
+        (cfg, prop_ctx.into_warnings())
+    }
+
+    fn names(filter: &DnsFilterConfig) -> (&'static str, Vec<String>) {
+        match filter {
+            DnsFilterConfig::Local(v) => ("local", v.iter().cloned().collect()),
+            DnsFilterConfig::Remote(v) => ("remote", v.iter().cloned().collect()),
+        }
+    }
+
+    #[test]
+    fn outgoing_local_with_no_dns_filter_creates_local_dns_filter() {
+        let (cfg, warnings) = resolve_with_propagation(
+            r#"{"feature":{"network":{"outgoing":{"filter":{"local":["docker.lala"]}}}}}"#,
+        );
+        let filter = cfg
+            .feature
+            .network
+            .dns
+            .filter
+            .as_ref()
+            .expect("dns.filter should have been created");
+        assert_eq!(names(filter), ("local", vec!["docker.lala".to_owned()]));
+        assert!(warnings.is_empty(), "unexpected warnings: {warnings:?}");
+    }
+
+    #[test]
+    fn outgoing_local_appends_to_existing_local_dns_filter() {
+        let (cfg, _) = resolve_with_propagation(
+            r#"{"feature":{"network":{
+                "outgoing":{"filter":{"local":["docker.lala"]}},
+                "dns":{"enabled":true,"filter":{"local":["foo.com"]}}
+            }}}"#,
+        );
+        let filter = cfg.feature.network.dns.filter.as_ref().unwrap();
+        assert_eq!(
+            names(filter),
+            (
+                "local",
+                vec!["foo.com".to_owned(), "docker.lala".to_owned()]
+            )
+        );
+    }
+
+    #[test]
+    fn outgoing_local_skips_names_already_in_local_dns_filter() {
+        let (cfg, _) = resolve_with_propagation(
+            r#"{"feature":{"network":{
+                "outgoing":{"filter":{"local":["docker.lala","foo.com"]}},
+                "dns":{"enabled":true,"filter":{"local":["foo.com"]}}
+            }}}"#,
+        );
+        let filter = cfg.feature.network.dns.filter.as_ref().unwrap();
+        assert_eq!(
+            names(filter),
+            (
+                "local",
+                vec!["foo.com".to_owned(), "docker.lala".to_owned()]
+            )
+        );
+    }
+
+    #[test]
+    fn outgoing_remote_with_no_dns_filter_leaves_it_unset() {
+        let (cfg, warnings) = resolve_with_propagation(
+            r#"{"feature":{"network":{"outgoing":{"filter":{"remote":["svc.cluster.local"]}}}}}"#,
+        );
+        assert!(cfg.feature.network.dns.filter.is_none());
+        assert!(warnings.is_empty(), "unexpected warnings: {warnings:?}");
+    }
+
+    #[test]
+    fn outgoing_remote_appends_to_existing_remote_dns_filter() {
+        let (cfg, _) = resolve_with_propagation(
+            r#"{"feature":{"network":{
+                "outgoing":{"filter":{"remote":["svc.cluster.local"]}},
+                "dns":{"enabled":true,"filter":{"remote":["foo.com"]}}
+            }}}"#,
+        );
+        let filter = cfg.feature.network.dns.filter.as_ref().unwrap();
+        assert_eq!(
+            names(filter),
+            (
+                "remote",
+                vec!["foo.com".to_owned(), "svc.cluster.local".to_owned()]
+            )
+        );
+    }
+
+    #[test]
+    fn outgoing_local_leaves_remote_dns_filter_without_overlap_and_does_not_warn() {
+        let (cfg, warnings) = resolve_with_propagation(
+            r#"{"feature":{"network":{
+                "outgoing":{"filter":{"local":["docker.lala"]}},
+                "dns":{"enabled":true,"filter":{"remote":["foo.com"]}}
+            }}}"#,
+        );
+        let filter = cfg.feature.network.dns.filter.as_ref().unwrap();
+        assert_eq!(names(filter), ("remote", vec!["foo.com".to_owned()]));
+        assert!(warnings.is_empty(), "unexpected warnings: {warnings:?}");
+    }
+
+    #[test]
+    fn outgoing_local_warns_when_remote_dns_filter_overlaps() {
+        let (cfg, warnings) = resolve_with_propagation(
+            r#"{"feature":{"network":{
+                "outgoing":{"filter":{"local":["docker.lala"]}},
+                "dns":{"enabled":true,"filter":{"remote":["docker.lala"]}}
+            }}}"#,
+        );
+        let filter = cfg.feature.network.dns.filter.as_ref().unwrap();
+        assert_eq!(names(filter), ("remote", vec!["docker.lala".to_owned()]));
+        assert!(!warnings.is_empty());
+    }
+
+    #[test]
+    fn outgoing_remote_warns_when_local_dns_filter_overlaps() {
+        let (cfg, warnings) = resolve_with_propagation(
+            r#"{"feature":{"network":{
+                "outgoing":{"filter":{"remote":["svc.cluster.local"]}},
+                "dns":{"enabled":true,"filter":{"local":["svc.cluster.local"]}}
+            }}}"#,
+        );
+        let filter = cfg.feature.network.dns.filter.as_ref().unwrap();
+        assert_eq!(
+            names(filter),
+            ("local", vec!["svc.cluster.local".to_owned()])
+        );
+        assert!(!warnings.is_empty());
+    }
+
+    #[test]
+    fn non_name_outgoing_filter_entries_are_ignored() {
+        let (cfg, _) = resolve_with_propagation(
+            r#"{"feature":{"network":{"outgoing":{"filter":{"local":[
+                "tcp://1.1.1.0/24:1337",
+                ":53",
+                "192.168.0.1:80",
+                "docker.lala:8080"
+            ]}}}}}"#,
+        );
+        let filter = cfg.feature.network.dns.filter.as_ref().unwrap();
+        assert_eq!(
+            names(filter),
+            ("local", vec!["docker.lala:8080".to_owned()])
+        );
+    }
+
+    #[test]
+    fn dns_disabled_skips_propagation() {
+        let (cfg, _) = resolve_with_propagation(
+            r#"{"feature":{"network":{
+                "outgoing":{"filter":{"local":["docker.lala"]}},
+                "dns":false
+            }}}"#,
+        );
+        assert!(cfg.feature.network.dns.filter.is_none());
+    }
+
+    #[test]
+    fn no_outgoing_filter_leaves_dns_filter_alone() {
+        let (cfg, _) = resolve_with_propagation(
+            r#"{"feature":{"network":{
+                "dns":{"enabled":true,"filter":{"local":["foo.com"]}}
+            }}}"#,
+        );
+        let filter = cfg.feature.network.dns.filter.as_ref().unwrap();
+        assert_eq!(names(filter), ("local", vec!["foo.com".to_owned()]));
+    }
+
+    #[test]
+    fn bare_string_outgoing_filter_is_still_mirrored() {
+        let (cfg, _) = resolve_with_propagation(
+            r#"{"feature":{"network":{"outgoing":{"filter":{"local":"docker.lala"}}}}}"#,
+        );
+        let filter = cfg.feature.network.dns.filter.as_ref().unwrap();
+        assert_eq!(names(filter), ("local", vec!["docker.lala".to_owned()]));
+    }
+
+    #[test]
+    fn db_branches_env_override_conflict_is_rejected() {
+        let config = ConfigType::Json.parse(
+            r#"
+            {
+                "feature": {
+                    "env": {
+                        "override": { "DB_URL": "postgres://localhost/local" }
+                    },
+                    "db_branches": [
+                        {
+                            "type": "pg",
+                            "connection": { "url": { "type": "env", "variable": "DB_URL" } }
+                        }
+                    ]
+                }
+            }
+            "#,
+        );
+
+        let mut context = ConfigContext::default();
+        let resolved = config
+            .generate_config(&mut context)
+            .expect("config generation should succeed before verification");
+        let error = resolved
+            .verify(&mut context)
+            .expect_err("overlapping env.override and db_branches keys should be rejected");
+
+        assert!(
+            matches!(
+                &error,
+                ConfigError::ConflictAt { setting, message }
+                    if setting == "feature.env.override" && message.contains("DB_URL")
+            ),
+            "unexpected error: {error}"
+        );
+    }
+
+    #[test]
+    fn db_branches_without_env_override_overlap_pass_verification() {
+        let config = ConfigType::Json.parse(
+            r#"
+            {
+                "feature": {
+                    "env": {
+                        "override": { "OTHER_VAR": "value" }
+                    },
+                    "db_branches": [
+                        {
+                            "type": "pg",
+                            "connection": { "url": { "type": "env", "variable": "DB_URL" } }
+                        }
+                    ]
+                }
+            }
+            "#,
+        );
+
+        let mut context = ConfigContext::default();
+        let resolved = config
+            .generate_config(&mut context)
+            .expect("config generation should succeed before verification");
+        resolved
+            .verify(&mut context)
+            .expect("non-overlapping keys should verify");
+    }
+
+    #[rstest]
+    #[case(
+        r#"
+        operator = false
+
+        [target]
+        labels = { app = "api" }
+        "#,
+        |error| matches!(error, ConfigError::TargetRequiresOperator)
+    )]
+    #[case(
+        r#"
+        [target]
+        labels = { app = "api" }
+
+        [feature]
+        copy_target = true
+        "#,
+        |error| matches!(error, ConfigError::Conflict(message) if message.contains("copy target"))
+    )]
+    #[case(
+        r#"
+        multi_cluster = true
+
+        [target]
+        labels = { app = "api" }
+        "#,
+        |error| matches!(error, ConfigError::Conflict(message) if message.contains("multi-cluster"))
+    )]
+    fn rejects_unsupported_label_target_config(
+        #[case] input: &str,
+        #[case] expected: fn(ConfigError) -> bool,
+    ) {
+        let file_config = ConfigType::Toml.parse(input);
+        let mut context = ConfigContext::default();
+        let config = file_config.generate_config(&mut context).unwrap();
+        let error = config.verify(&mut context).unwrap_err();
+
+        assert!(expected(error));
+    }
+
+    #[test]
+    fn empty_http_filter_strings_are_rejected() {
+        let config = ConfigType::Json.parse(
+            r#"
+            {
+                "feature": {
+                    "network": {
+                        "incoming": {
+                            "mode": "steal",
+                            "http_filter": {
+                                "header_filter": ""
+                            }
+                        }
+                    }
+                }
+            }
+            "#,
+        );
+
+        let mut context = ConfigContext::default();
+        let resolved = config
+            .generate_config(&mut context)
+            .expect("config generation should succeed before verification");
+        let error = resolved
+            .verify(&mut context)
+            .expect_err("empty HTTP filter strings should be rejected");
+
+        assert_eq!(
+            error.to_string(),
+            "invalid feature.network.incoming.http_filter value ``: HTTP filter `header_filter` cannot be an empty string",
+        );
+    }
+
+    /// `copy_target` (and therefore a `Job`/`CronJob` target) requires the operator, so a
+    /// `Job` target with the operator explicitly disabled must still be rejected.
+    #[test]
+    fn job_target_with_operator_disabled_is_rejected() {
+        let config = ConfigType::Json.parse(r#"{ "target": "job/my-job", "operator": false }"#);
+
+        let mut context = ConfigContext::default();
+        let resolved = config
+            .generate_config(&mut context)
+            .expect("config generation should succeed before verification");
+        let error = resolved
+            .verify(&mut context)
+            .expect_err("a Job target with the operator disabled should be rejected");
+
+        assert!(
+            matches!(&error, ConfigError::TargetRequiresOperator),
+            "unexpected error: {error}"
+        );
+    }
+
+    /// A preview can target a label selector: one session takes traffic from every pod the
+    /// selector matches, so the preview checks must let the label target through.
+    #[test]
+    fn label_target_is_accepted_for_preview_env() {
+        let config = ConfigType::Json.parse(
+            r#"{
+                "target": { "path": { "labels": { "app": "checkout" } } },
+                "feature": { "preview": { "image": "checkout:pr-123" } }
+            }"#,
+        );
+
+        let mut context = ConfigContext::default();
+        let resolved = config
+            .generate_config(&mut context)
+            .expect("config generation should succeed before verification");
+
+        resolved
+            .verify_for_preview_env(&mut context)
+            .expect("a label target should be accepted for preview environments");
+    }
+
+    /// Serializes the magic.aws tests that mutate the global `HOME` /
+    /// `USERPROFILE` env vars, since cargo runs tests multi-threaded by default
+    /// and these vars are process-global.
+    #[cfg(target_os = "windows")]
+    static ENV_LOCK: std::sync::Mutex<()> = std::sync::Mutex::new(());
+
+    #[cfg(target_os = "windows")]
+    fn with_env<R>(home: Option<&str>, user_profile: Option<&str>, f: impl FnOnce() -> R) -> R {
+        let _guard = ENV_LOCK.lock().unwrap_or_else(|poison| poison.into_inner());
+        let prev_home = std::env::var_os("HOME");
+        let prev_user = std::env::var_os("USERPROFILE");
+        // SAFETY: `ENV_LOCK` serializes every mutator within this test binary,
+        // and the previous values are restored before the guard is released.
+        unsafe {
+            match home {
+                Some(value) => std::env::set_var("HOME", value),
+                None => std::env::remove_var("HOME"),
+            }
+            match user_profile {
+                Some(value) => std::env::set_var("USERPROFILE", value),
+                None => std::env::remove_var("USERPROFILE"),
+            }
+        }
+        let out = f();
+        // SAFETY: see above.
+        unsafe {
+            match prev_home {
+                Some(value) => std::env::set_var("HOME", value),
+                None => std::env::remove_var("HOME"),
+            }
+            match prev_user {
+                Some(value) => std::env::set_var("USERPROFILE", value),
+                None => std::env::remove_var("USERPROFILE"),
+            }
+        }
+        out
+    }
+
+    /// Regression for a Windows layer that failed to start because a mapping
+    /// pattern did not compile in
+    /// `mirrord-layer-lib::file::mapper::FileRemapper::try_new`.
+    ///
+    /// Pre-fix `apply_magic` interpolated `$HOME` straight into the `.aws`
+    /// mapping regex. On Windows with `HOME=C:\Users\foo` (e.g. set by Git
+    /// Bash), the resulting `^C:\Users\foo/\.aws(/.*)?` contained `\U`, which
+    /// the `regex` crate rejects as an invalid hex escape — panicking the
+    /// layer during init and timing out the CLI. Post-fix `apply_magic` reads
+    /// `USERPROFILE` on Windows via `home_dir_for_path_mapping`, so a hostile
+    /// `HOME` is ignored and every mapping pattern must still compile.
+    #[cfg(target_os = "windows")]
+    #[test]
+    fn magic_aws_does_not_panic_on_windows_home() {
+        // `HOME` carries the value the pre-fix code would have spliced
+        // straight into a regex. `USERPROFILE` carries a normal-looking
+        // Windows path so the post-fix helper still produces a mapping (and
+        // so we exercise the regex-compilation path).
+        let config = with_env(Some(r"C:\Users\fake"), Some(r"C:\Users\testuser"), || {
+            LayerConfig::resolve(&mut ConfigContext::default())
+                .expect("default config with magic.aws enabled should resolve")
+        });
+        let mapping = config
+            .feature
+            .fs
+            .mapping
+            .expect("magic.aws populates fs.mapping when enabled");
+        for pattern in mapping.keys() {
+            regex::Regex::new(pattern).unwrap_or_else(|err| {
+                panic!("apply_magic produced an invalid regex {pattern:?}: {err}")
+            });
+        }
+    }
+
+    /// On Windows, the `.aws` mapping prefix must come from `USERPROFILE` in
+    /// the same unix-form the layer's file remapper sees at runtime — drive
+    /// letter stripped, backslashes flipped, regex-escaped — so the regex
+    /// actually matches the paths the layer feeds into it.
+    #[cfg(target_os = "windows")]
+    #[test]
+    fn magic_aws_windows_userprofile_is_unix_form() {
+        let config = with_env(None, Some(r"C:\Users\fake"), || {
+            LayerConfig::resolve(&mut ConfigContext::default())
+                .expect("default config with magic.aws enabled should resolve")
+        });
+        let mapping = config
+            .feature
+            .fs
+            .mapping
+            .expect("magic.aws populates fs.mapping when enabled");
+        let aws_pattern = mapping
+            .keys()
+            .find(|key| key.contains(r"\.aws"))
+            .expect("magic.aws should produce a .aws mapping entry");
+        assert_eq!(aws_pattern, r"^/Users/fake/\.aws(/.*)?");
+    }
+
+    /// Builds a [`PodSpec`] with a single named container that mounts the given paths. Each entry
+    /// is `(mount_path, sub_path)`.
+    fn pod_spec_with_mounts(container: &str, mounts: &[(&str, Option<&str>)]) -> PodSpec {
+        PodSpec {
+            containers: vec![Container {
+                name: container.to_owned(),
+                volume_mounts: Some(
+                    mounts
+                        .iter()
+                        .map(|(mount_path, sub_path)| VolumeMount {
+                            mount_path: (*mount_path).to_owned(),
+                            sub_path: sub_path.map(str::to_owned),
+                            ..Default::default()
+                        })
+                        .collect(),
+                ),
+                ..Default::default()
+            }],
+            ..Default::default()
+        }
+    }
+
+    fn default_config() -> LayerConfig {
+        LayerConfig::resolve(&mut ConfigContext::default().strict_env(true))
+            .expect("default config should resolve")
+    }
+
+    fn read_only(config: &LayerConfig) -> Vec<String> {
+        config
+            .feature
+            .fs
+            .read_only
+            .clone()
+            .map(Vec::from)
+            .unwrap_or_default()
+    }
+
+    #[test]
+    fn auto_mount_adds_volume_mount_paths_to_read_only() {
+        let pod_spec = pod_spec_with_mounts(
+            "app",
+            &[("/etc/config", None), ("/etc/secret/token", Some("token"))],
+        );
+        let mut config = default_config();
+        config.apply_auto_mount(&pod_spec, Some("app"));
+
+        // A directory mount matches the directory and everything under it.
+        assert!(read_only(&config).contains(&r"^/etc/config(/.*)?$".to_owned()));
+        // A `subPath` mount targets a single file, so it's matched exactly.
+        assert!(read_only(&config).contains(&r"^/etc/secret/token$".to_owned()));
+    }
+
+    #[test]
+    fn auto_mount_falls_back_to_first_container_when_none_given() {
+        let pod_spec = pod_spec_with_mounts("app", &[("/data", None)]);
+        let mut config = default_config();
+        config.apply_auto_mount(&pod_spec, None);
+
+        assert_eq!(read_only(&config), vec![r"^/data(/.*)?$".to_owned()]);
+    }
+
+    #[test]
+    fn auto_mount_disabled_is_noop() {
+        let pod_spec = pod_spec_with_mounts("app", &[("/etc/config", None)]);
+        let mut config = default_config();
+        config.feature.magic.auto_mount = false;
+        config.apply_auto_mount(&pod_spec, Some("app"));
+
+        assert!(config.feature.fs.read_only.is_none());
+    }
+
+    #[test]
+    fn auto_mount_dedups_against_existing_read_only() {
+        let pod_spec = pod_spec_with_mounts("app", &[("/etc/config", None)]);
+        let mut config = default_config();
+        config.feature.fs.read_only = Some(VecOrSingle::Multiple(vec![
+            r"^/etc/config(/.*)?$".to_owned(),
+        ]));
+        config.apply_auto_mount(&pod_spec, Some("app"));
+
+        assert_eq!(read_only(&config), vec![r"^/etc/config(/.*)?$".to_owned()]);
+    }
+
+    /// A specified-but-missing container is a no-op (the first-container fallback only applies when
+    /// no container is given).
+    #[test]
+    fn auto_mount_unknown_container_is_noop() {
+        let pod_spec = pod_spec_with_mounts("app", &[("/etc/config", None)]);
+        let mut config = default_config();
+        config.apply_auto_mount(&pod_spec, Some("does-not-exist"));
+
+        assert!(config.feature.fs.read_only.is_none());
+    }
+
+    /// Mounts the user explicitly marked local via `feature.fs.local` are left alone; others are
+    /// still added.
+    #[test]
+    fn auto_mount_respects_user_local_overrides() {
+        let pod_spec = pod_spec_with_mounts("app", &[("/etc/config", None), ("/etc/secret", None)]);
+        let mut config = default_config();
+        config.feature.fs.local = Some(VecOrSingle::Multiple(vec![
+            r"^/etc/secret(/.*)?$".to_owned(),
+        ]));
+        config.apply_auto_mount(&pod_spec, Some("app"));
+
+        let ro = read_only(&config);
+        assert!(ro.contains(&r"^/etc/config(/.*)?$".to_owned()));
+        assert!(ro.iter().all(|pattern| pattern.contains("secret").not()));
+    }
+
+    #[test]
+    fn magic_auto_mount_defaults_to_enabled() {
+        assert!(default_config().feature.magic.auto_mount);
+    }
+
+    #[test]
+    fn magic_java_agents_defaults_to_enabled() {
+        assert!(default_config().feature.magic.java_agents);
+    }
+
+    #[test]
+    fn java_agent_sanitisation_can_be_disabled() {
+        let mut config = default_config();
+        config.feature.magic.java_agents = false;
+        let options = "-javaagent:/agent.jar";
+        let mut env = HashMap::from([(JAVA_OPTIONS_ENV.to_owned(), options.to_owned())]);
+
+        config.sanitize_remote_env(&mut env);
+
+        assert_eq!(env.get(JAVA_OPTIONS_ENV).map(String::as_str), Some(options));
+    }
+
+    /// Names that aren't one of the agent's capabilities are ignored, so the user gets a warning.
+    #[test]
+    fn unknown_disabled_capability_warns() {
+        let config = ConfigType::Json
+            .parse(r#"{ "agent": { "disabled_capabilities": ["SYS_PTRACE", "CAP_SYS_ADMIN", "CAP_NET_ADMIN"] } }"#);
+
+        let mut context = ConfigContext::default();
+        let resolved = config
+            .generate_config(&mut context)
+            .expect("config generation should succeed before verification");
+        resolved
+            .verify(&mut context)
+            .expect("an unknown capability should not be an error");
+
+        let warnings = context
+            .into_warnings()
+            .into_iter()
+            .filter(|warning| warning.contains("agent.disabled_capabilities"))
+            .collect::<Vec<_>>();
+        assert!(
+            matches!(warnings.as_slice(), [warning] if warning.contains("`CAP_SYS_ADMIN, CAP_NET_ADMIN`")),
+            "unexpected warnings: {warnings:?}"
+        );
+    }
+}

@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The report fits one page plus an optional appendix",
+        "evidence": "The report runs from '# DevRel - Q3 - for the CTO' to the end of the decision section. It holds a two-sentence headline, a 4-row results table with 3 short notes, a one-row leading-indicator table, a one-row miss table, a one-line cost section, 3 next-period items and a short decision. That is about one page. The page is clearly separated from a labelled '**Appendix**', and the pageviews were moved there. The cover notes ('Assumptions to check' and 'Pass-threshold check') sit outside the report. One point is withheld because the body contains drafting instructions to the author, such as 'Confi",
+        "score": 4,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The report fits one page plus an optional appendix",
+        "evidence": "The report opens with a compact one-page core: a 4-bullet summary, a decision line and a 4-row metric table. The assistant also deliberately refused to pad it ('Four metrics that each drive a decision is a stronger page than six'). The rest does not fit one page. Four per-metric detail sections (definition, why, drivers, caveat, next action, a request table) follow, then 'Blind spots' and 'Next quarter' sections. None of this is labeled as an appendix, so the main body runs well past one page. The sections on the two left-out additions and the optional additions are advice to the user mixed in",
+        "score": 2,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,361 @@
+{
+  "skill_name": "devrel-field-events",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "We're an AWS partner (Tessellate, data lineage for dbt and Spark, about 80 people) and we're NOT sponsoring re:Invent this year, budget went to KubeCon. But our CRO still wants a presence: a happy hour for ~40 data engineers on Tuesday evening and a private dinner for 12 heads of data on Wednesday. Our events manager already put a hold on a restaurant two blocks from the Venetian and a rooftop bar, deposits due next week. We'd call it 'Tessellate x re:Invent Data Leaders Dinner' and scan badges at the door with the event app so leads go into Salesforce. Can you build the plan and the invite?",
+      "expected_output": "Stops before planning: flags that the conference's published ancillary-event terms bar non-sponsoring partners from hosting during the week, require approval before any venue contract and prior approval for space within five miles of the venue; advises not paying the deposits until the current terms are checked in writing; removes the conference name from the title; takes guest data from the company's own RSVP rather than the conference's lead devices; offers no-host alternatives such as pre-booked one-to-one meetings.",
+      "files": [],
+      "expectations": [
+        "States that the host conference's sponsor or ancillary-event terms must be checked before any venue is booked or deposit paid",
+        "States that re:Invent's published terms have barred non-sponsoring AWS partners from hosting ancillary events during the conference week",
+        "States that re:Invent requires approval of an ancillary event before a venue contract is signed, with cancellation at the host's cost otherwise",
+        "Advises against paying the restaurant and rooftop deposits until the organizer's written answer is in hand",
+        "Rejects using the conference name ('re:Invent') in the event title or invitation",
+        "Rejects using the conference's lead-retrieval devices or app for the private event and takes guest data from the company's own RSVP",
+        "Presents at least one alternative that hosts nothing, such as pre-booked one-to-one meetings with the target heads of data",
+        "States that reserving space or hosting within five miles of the Venetian needs AWS's prior written approval",
+        "Treats the 40-person happy hour and the 12-person dinner as different formats with different objectives rather than one plan",
+        "Names one primary objective per event"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "ok so we're Gold at KubeCon NA in Salt Lake City. Our VP Sales (Dana) wants an exec dinner Tuesday 7pm for 15, and her plan is: send exactly 15 invites from events@lumenrail.io with the subject 'KubeCon VIP Dinner - Exclusive Evening with Lumenrail', our CEO does a 10 min product walkthrough between courses, and the AEs sit with their own accounts so they can 'work the table'. Guests would be platform engineering directors, mix of 6 customers and 9 prospects we've barely talked to. Lumenrail is an internal developer portal, ~120 people. Can you tighten this up?",
+      "expected_output": "Flags the Tuesday 19:00 collision with the official party night and says to confirm the window in writing, invites roughly three times the external seats from named people rather than an alias, caps acceptances at the seats plus one with a waitlist, retitles by topic and city without the conference name, replaces the product walkthrough with facilitation, reserves about one host seat per four or five guests, and sets reconfirmation.",
+      "files": [],
+      "expectations": [
+        "Flags that Tuesday 19:00 collides with KubeCon's official party night and published sponsor-event window, and says to confirm the window with the organizer in writing",
+        "Proposes a permitted slot, such as Tuesday after 20:00 or another evening inside the published windows",
+        "Caps accepted RSVPs at the external seat count plus at most one and puts later acceptances on a waitlist",
+        "Sends more invitations than seats: roughly three times the external seats or more for this mixed customer and cold-prospect list",
+        "Explains that invitations equal to seats will leave empty chairs because of declines and no-shows",
+        "Moves invitations from the events@ alias to named individuals sending from their own addresses",
+        "Removes the conference name from the subject line and proposes a topic-and-city style title",
+        "Removes the CEO product walkthrough and replaces it with a host who facilitates discussion between guests",
+        "Reserves about one internal host seat per four or five external guests rather than filling the table with account executives",
+        "Seats prospects beside customers in a similar role",
+        "Includes personal reconfirmation before the event and a waitlist for released seats",
+        "Requires a one-line seat reason per guest from the account owner"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Planning a dinner at a cloud security conference in DC next spring, 14 seats. Sales has nominated: two platform engineers from the US Department of Veterans Affairs, a cloud architect from the Centers for Medicare & Medicaid Services, the CISO of a private bank, three people from a French public hospital group's IT department (AP-HP), a radiologist who runs their imaging-AI team, plus some SaaS folks. Our CMO wants a chef's tasting menu with wine pairing at a really nice place and then everyone goes to a speakeasy cocktail tour after. We're a 40-person secrets-management startup. Draft the plan.",
+      "expected_output": "Gates compliance at nomination: US federal guests face a $20 per occasion and $50 per year gift limit and cannot pay the difference, a private dinner is not a widely attended gathering, so they get coffee or pay their own way; health-industry meal codes bind health-product sellers, so for this host the radiologist's employer policy and anti-bribery law govern with those caps as a ceiling; the public hospital IT staff fall under their employer's gift rules; the stricter rule governs when two apply; drops the cocktail tour; records hospitality value per guest and routes unclear cases to legal or compliance.",
+      "files": [],
+      "expectations": [
+        "Flags the federal, public-hospital and healthcare guests at the nomination stage, before invitations go out",
+        "States the US federal limit of $20 per occasion and $50 per year from one source",
+        "States that a federal employee may not pay the difference to accept a more expensive meal",
+        "States that a private 14-seat dinner does not qualify as a widely attended gathering",
+        "Offers the federal guests a compliant alternative such as a coffee meeting or paying their own way",
+        "States that pharmaceutical and medical-device industry meal codes bind companies selling health products, and that for this host the radiologist's employer policy and anti-bribery law govern, with the industry caps as a ceiling",
+        "Drops or isolates the speakeasy cocktail tour because sponsored entertainment is barred for healthcare professionals and inappropriate for public-sector guests",
+        "Advises asking the French public hospital guests about their employer's own gift rules before inviting",
+        "States that when two rules apply to one guest, the stricter one governs",
+        "Recommends recording the hospitality value per guest",
+        "Includes an alcohol-free option",
+        "Routes unclear cases to the company's legal or compliance review rather than presenting the skill's guidance as legal clearance",
+        "States that even a large reception covers a federal guest only when the guest's agency authorizes it in writing"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Our CMO is presenting to the board Thursday: 'the KubeCon exec dinner influenced $2.4M of pipeline, so we're doing six of them next year'. The 11 guests who showed were all from accounts our AEs picked because they already had open opportunities. 7 of those deals have since moved a stage. Nobody set a target before the dinner. We're Corvane, a 150-person Kafka-as-a-service company. Is the $2.4M number OK to present, and how should we measure the next six?",
+      "expected_output": "Says the number cannot be presented as the dinner's effect: AEs nominated accounts already moving, so influenced pipeline is inflated by selection; no threshold was set, so last year's dinner cannot be judged honestly; for the next six, set a next-step threshold and a show-rate target or baseline before booking, compare attendees with nominated-but-not-seated accounts, report counts and label small samples directional, use 30-day, 90-day and two-quarter windows.",
+      "files": [],
+      "expectations": [
+        "States that the $2.4M influenced-pipeline figure cannot be presented as caused by the dinner",
+        "Names the selection bias: account executives nominated accounts that already had open opportunities",
+        "Says the past dinner cannot be judged honestly because no threshold was set before it",
+        "Proposes comparing attendees with accounts nominated but not seated, preferring waitlisted accounts over declined ones because decliners self-select as less engaged",
+        "With 11 attendees, recommends reporting counts rather than percentages and labelling the comparison directional",
+        "Recommends pooling the comparison across several events before claiming a trend",
+        "For the next six dinners, sets a show-rate target from the past dinner or records a baseline, before any venue is booked",
+        "Requires a target share of seated guests with an agreed next step at 30 days",
+        "Separates the measurement windows: meetings at about 30 days, pipeline at about 90 days, velocity against the comparison group after about two quarters",
+        "Proposes a softer wording the CMO can present honestly, such as stage movement among attendees with the caveat stated",
+        "Defines a miss as a reason to change the guest-list method or drop the format, not to find another metric"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "I'm the DevRel lead at Ferrovia, we maintain an open-source time-series database (Apache-2, ~400 contributors) and sell a managed cloud. We'll be at PyCon US and want to do something for our contributors and the data engineers who use us. Marketing's proposal: a dinner for 30 with a 20-minute demo of the new cloud console, scan everyone's badge at the door, then add all attendees to the cloud-trial nurture sequence, and post a recap blog with photos and quotes from guests. I think that's off but can't say why. What should we do instead?",
+      "expected_output": "Recommends a practitioner roundtable or low-key reception for contributors and users, invited by a maintainer, with an anchor guest, no demo or pitch, no badge scanning, follow-up routed to DevRel rather than a nurture sequence, and photo or quote use only with written consent, no attributed quotes under Chatham House.",
+      "files": [],
+      "expectations": [
+        "Recommends a practitioner roundtable or a low-key reception over a 30-person seated dinner for this engineer audience",
+        "States that a seated dinner above about 15 seats stops being one conversation",
+        "Removes the product demo and makes the host facilitate rather than present",
+        "Rejects badge scanning at the door of the private event",
+        "States that an RSVP is not consent to a nurture sequence and adds guests only when they ask",
+        "Routes contributor and community guests' follow-up to DevRel rather than to sales",
+        "Recommends the invitation come from a maintainer or named engineer, not from marketing",
+        "Proposes one anchor guest, such as a respected maintainer or practitioner, to make the invitation worth accepting",
+        "Requires stating photography in the invitation and written consent before any named photo or quote is published",
+        "States that announcing the Chatham House Rule rules out attributed quotes and a published guest list in the recap",
+        "Mentions using the conference's sanctioned community format (open spaces or similar) for a technical topic"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Quick one: Open Source Summit EU is in 12 days. We're a 25-person API-gateway startup, attending only, no sponsorship. Sales lead says 'let's do a VIP dinner, I know 6 prospects who are going'. Our DevRel person separately wants to host something for the plugin authors in our community. Two AEs, no budget line yet. Should we?",
+      "expected_output": "Brainstorms two or three plans including one that hosts nothing; notes six prospects fall far short of the invitations a dinner needs; flags short notice; separates the sales and DevRel audiences into different events or declines one; checks whether the conference lets non-sponsors host; recommends pre-booked one-to-one meetings for the six prospects and possibly a small contributor gathering.",
+      "files": [],
+      "expectations": [
+        "Presents two or three candidate plans before recommending one",
+        "Includes a plan that hosts nothing",
+        "States that six named prospects are far fewer than the invitations needed to fill a dinner",
+        "Recommends pre-booked one-to-one meetings with the six prospects as an alternative to a dinner",
+        "Flags that 12 days is short notice for invitations and adjusts the plan (smaller table, higher ratio, customers first, or no event)",
+        "Keeps the sales and DevRel audiences in separate events rather than one mixed room",
+        "Checks whether the conference allows a non-sponsor to host a side event before booking anything",
+        "Asks or states who would host each event as a peer of the guests",
+        "Writes the success threshold (next-step share, show-rate baseline) before any venue is contacted"
+      ]
+    }
+  ],
+  "trigger_queries": [
+    {
+      "query": "We want to host a VIP dinner for 12 customers during KubeCon, how do we plan it?",
+      "should_trigger": true
+    },
+    {
+      "query": "our VP sales wants an exec dinner at re:Invent, who should we invite and how many invites do we send?",
+      "should_trigger": true
+    },
+    {
+      "query": "Planning an invite-only roundtable for platform engineering leaders the night before Google Cloud Next. Format, guest list, run of show?",
+      "should_trigger": true
+    },
+    {
+      "query": "how many people should I invite to fill a 14-seat dinner at a conference? last time half the chairs were empty",
+      "should_trigger": true
+    },
+    {
+      "query": "Can we host a customer happy hour during KubeCon if we're only a Silver sponsor? what are the rules?",
+      "should_trigger": true
+    },
+    {
+      "query": "Field marketing wants to do side events at three conferences next year instead of booths. How do I plan the guest lists with the AEs?",
+      "should_trigger": true
+    },
+    {
+      "query": "One of our dinner invitees works at a federal agency. Can they come to our conference dinner?",
+      "should_trigger": true
+    },
+    {
+      "query": "write me the invitation for a private CTO dinner we're hosting during AWS Summit London",
+      "should_trigger": true
+    },
+    {
+      "query": "Was our exec dinner at Dreamforce worth it? CMO says it influenced 2M pipeline",
+      "should_trigger": true
+    },
+    {
+      "query": "We maintain an OSS project and want to get our top contributors together for an evening during PyCon. What format works?",
+      "should_trigger": true
+    },
+    {
+      "query": "how do we follow up with the 11 people who came to our KubeCon dinner without being salesy",
+      "should_trigger": true
+    },
+    {
+      "query": "seating plan for a customer and prospect dinner, should AEs sit with their accounts?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our sales team wants to scan badges at the door of our private dinner during the conference, is that ok?",
+      "should_trigger": true
+    },
+    {
+      "query": "is a dinner or a roundtable better for senior SREs at SREcon? we want to meet maybe 10 of them",
+      "should_trigger": true
+    },
+    {
+      "query": "Plan a customer appreciation evening alongside Kubecon EU for our top accounts, budget is tight",
+      "should_trigger": true
+    },
+    {
+      "query": "Our CEO wants to host 'the KubeCon VIP Dinner' and put the logo on the invite. Any issue?",
+      "should_trigger": true
+    },
+    {
+      "query": "no-show rate for free invite-only dinners? need to know how much to overbook",
+      "should_trigger": true
+    },
+    {
+      "query": "We want to co-host a dinner with a partner company during re:Invent, both of us sponsor. How do we split the guest list?",
+      "should_trigger": true
+    },
+    {
+      "query": "Should we do an exec dinner at Open Source Summit or just book 1:1 meetings with the prospects going?",
+      "should_trigger": true
+    },
+    {
+      "query": "Chatham House rule for our vendor roundtable at a conference: what does it mean for the recap blog post?",
+      "should_trigger": true
+    },
+    {
+      "query": "our devrel team and sales both want a side event at the same conference, different audiences. one event or two?",
+      "should_trigger": true
+    },
+    {
+      "query": "a doctor who leads an AI team at a hospital is on our dinner list in Germany, any hospitality limit?",
+      "should_trigger": true
+    },
+    {
+      "query": "How do I measure whether conference side dinners actually accelerate deals?",
+      "should_trigger": true
+    },
+    {
+      "query": "draft a run of show for a 2-hour practitioner dinner, no pitch, we're a devtools company",
+      "should_trigger": true
+    },
+    {
+      "query": "Sales wants to invite 40 prospects to a rooftop happy hour during the conference week. Good idea?",
+      "should_trigger": true
+    },
+    {
+      "query": "reconfirmation emails for a conference dinner a week out and two days out",
+      "should_trigger": true
+    },
+    {
+      "query": "Who should staff our KubeCon booth and how many people per shift?",
+      "should_trigger": false
+    },
+    {
+      "query": "We got 400 badge scans at the booth, how do we follow up with them?",
+      "should_trigger": false
+    },
+    {
+      "query": "Should we sponsor KubeCon at Gold or Silver next year, and is a booth worth it?",
+      "should_trigger": false
+    },
+    {
+      "query": "We're organizing our own conference and need to plan the VIP dinner for our speakers and sponsors",
+      "should_trigger": false
+    },
+    {
+      "query": "As conference organizers, how do we approve or reject sponsors who want to run satellite parties during our event?",
+      "should_trigger": false
+    },
+    {
+      "query": "We want to run a monthly Kubernetes meetup in Berlin, how do we start?",
+      "should_trigger": false
+    },
+    {
+      "query": "Plan a 6-city executive dinner roadshow for our product launch, not tied to any conference",
+      "should_trigger": false
+    },
+    {
+      "query": "What catering style and alcohol policy should our 800-person community conference use?",
+      "should_trigger": false
+    },
+    {
+      "query": "We're the organizer: how many official social events should our conference run each evening?",
+      "should_trigger": false
+    },
+    {
+      "query": "Our CFP got accepted at KubeCon, help me outline the talk",
+      "should_trigger": false
+    },
+    {
+      "query": "Make our booth demo survive bad conference wifi",
+      "should_trigger": false
+    },
+    {
+      "query": "Write the quarterly DevRel report for our exec team",
+      "should_trigger": false
+    },
+    {
+      "query": "How should we split the devrel budget between events, content and community next year?",
+      "should_trigger": false
+    },
+    {
+      "query": "Set up a webinar series for developers with a sales handoff",
+      "should_trigger": false
+    },
+    {
+      "query": "Which DevRel metrics should we report to prove ROI?",
+      "should_trigger": false
+    },
+    {
+      "query": "Design a structured 1:1 meeting matchmaking program for the sponsors of our conference",
+      "should_trigger": false
+    },
+    {
+      "query": "A minister is visiting our conference, how do we handle protocol and escort?",
+      "should_trigger": false
+    },
+    {
+      "query": "We're hosting a hackathon, what prizes should we offer?",
+      "should_trigger": false
+    },
+    {
+      "query": "Plan our company holiday party for 60 employees",
+      "should_trigger": false
+    },
+    {
+      "query": "Write a cold email sequence to book meetings with prospects attending a trade show",
+      "should_trigger": false
+    },
+    {
+      "query": "Should our company run its own user conference or a roadshow next year?",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we build an ABM target account list and tiers for next fiscal year?",
+      "should_trigger": false
+    },
+    {
+      "query": "Design a developer champions program with perks and obligations",
+      "should_trigger": false
+    },
+    {
+      "query": "We want to fund open-source maintainers whose projects we depend on, how much and who?",
+      "should_trigger": false
+    },
+    {
+      "query": "Plan the welcome reception and food for attendees at the conference we're organizing",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we run a press dinner for journalists to announce our Series B?",
+      "should_trigger": false
+    },
+    {
+      "query": "Plan our customer advisory board session the day before re:Invent",
+      "should_trigger": false
+    },
+    {
+      "query": "Help me book 1:1 meetings with the 20 prospects attending KubeCon",
+      "should_trigger": false
+    },
+    {
+      "query": "Where should our 12 booth staff go for a team dinner during KubeCon?",
+      "should_trigger": false
+    },
+    {
+      "query": "We're hosting industry analysts for dinner at KubeCon to brief them on our roadmap",
+      "should_trigger": false
+    },
+    {
+      "query": "We're Silver at re:Invent and want a restaurant buyout for a customer dinner, can we?",
+      "should_trigger": true
+    },
+    {
+      "query": "two of our dinner guests are from a bank and a state-owned telco abroad, anything to watch?",
+      "should_trigger": true
+    },
+    {
+      "query": "how do we keep gatecrashers out of our conference-week reception for platform engineers",
+      "should_trigger": true
+    },
+    {
+      "query": "the restaurant wants a deposit for our KubeCon dinner, organizer hasn't replied about our event yet",
+      "should_trigger": true
+    }
+  ]
+}

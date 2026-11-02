@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Promotes SDK doc comments above every other surface for Kestrel rather than applying the default efficiency order",
+        "evidence": "\"1. SDK doc comments (TSDoc/JSDoc) \u2014 was ranked 5th/6th by default, now 1st.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the promoting condition explicitly: the product ships typed SDKs and the cold runs show the agent reading local code instead of fetching pages",
+        "evidence": "\"'Promote [SDK doc comments] above everything when the product ships typed SDKs and the cold runs show the agent reading local code instead of fetching pages.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that doc comments are otherwise what the default order starves, because every pull request can drift them so they never win on ratio",
+        "evidence": "only states \"treat SDK doc comments as a standing cost that never wins on ratio\" \u2014 no mention of pull requests drifting them",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that doc comments are the only surface reaching an agent working offline against installed types",
+        "evidence": "\"Reaches the agent that already proved it won't leave node_modules.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that web docs and SDK source are two different surfaces reaching two different agents",
+        "evidence": "\"5 of 7 tasks never fetched a page, they read .d.ts straight from node_modules\"; \"Doc-site work you do this week will not touch those 5 tasks at all \u2014 the agent isn't in the doc site.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the signature and its adjacent doc comment are what an in-editor agent most reliably sees, while a reference page three hops away is invisible to it",
+        "evidence": "no statement in section 11 frames it this way; closest is generic \"the agent that already proved it won't leave node_modules\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Prescribes JSDoc/TSDoc as the native convention for TypeScript rather than a generic comment format",
+        "evidence": "\"Rewrite JSDoc/TSDoc on the SDK's public surface, starting with subscribe().\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires fully typed signatures and descriptive names, not only added prose",
+        "evidence": "the before/after example only enriches the doc comment; the type signature (`options?: SubscribeOptions`) is left unchanged with no requirement stated for typing/naming improvements",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Applies the OpenAPI-derived annotation rules to the AsyncAPI document while stating plainly that AsyncAPI guidance is inferred from the OpenAPI case by analogy rather than separately sourced",
+        "evidence": "\"AsyncAPI guidance here is inferred from the OpenAPI annotation rules by analogy, not separately sourced\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that `$comment` is non-rendered and intended for schema maintainers, so anything an agent must see belongs in `description` or `examples`",
+        "evidence": "no mention of `$comment` anywhere in section 11",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that terminal and package-local paths tie with doc comments on both effort and value, since each ships on the SDK release cycle and each reaches only the agent already inside the user's codebase",
+        "evidence": "no mention of terminal or package-manager paths anywhere in section 11",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires re-running the identical frozen 7-task set and comparing corrective turns against the baseline rather than declaring the fix successful",
+        "evidence": "\"Re-run the same 7 tasks, unattended, fresh context, after the subscribe() rewrite ships in a release \u2014 not before...\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Promotes SDK doc comments above every other surface for Kestrel rather than applying the default efficiency order",
+        "evidence": "'Where the effort goes: type declarations first, AsyncAPI second, docs pages last' with 'Tier 1 \u2014 JSDoc on the public API surface (do this first, it's the whole lever).'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the promoting condition explicitly: the product ships typed SDKs and the cold runs show the agent reading local code instead of fetching pages",
+        "evidence": "'5 of 7 runs never opened a docs page \u2014 they resolved the SDK from node_modules and proceeded with confidence.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that doc comments are otherwise what the default order starves, because every pull request can drift them so they never win on ratio",
+        "evidence": "No discussion of a 'default order' or PR-driven drift causing doc comments to lose out generally.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that doc comments are the only surface reaching an agent working offline against installed types",
+        "evidence": "'reading the .d.ts + JSDoc that autocomplete/hover already surfaced is free (zero tool calls, zero latency, zero risk of a blocked fetch).'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that web docs and SDK source are two different surfaces reaching two different agents",
+        "evidence": "No explicit 'two different agents' framing is stated anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the signature and its adjacent doc comment are what an in-editor agent most reliably sees, while a reference page three hops away is invisible to it",
+        "evidence": "'opening a URL is a discrete, skippable action' versus JSDoc/types being 'free... that autocomplete/hover already surfaced' captures this contrast, though not in 'three hops' terms.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prescribes JSDoc/TSDoc as the native convention for TypeScript rather than a generic comment format",
+        "evidence": "'Rewrite JSDoc for every exported method that takes an options object, has overloads, or exposes enum-like string values.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires fully typed signatures and descriptive names, not only added prose",
+        "evidence": "'Go further than prose: fix this at the type level... model that as a discriminated union or two distinct call shapes, so a wrong guess doesn't typecheck.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Applies the OpenAPI-derived annotation rules to the AsyncAPI document while stating plainly that AsyncAPI guidance is inferred from the OpenAPI case by analogy rather than separately sourced",
+        "evidence": "No statement acknowledging the AsyncAPI guidance is inferred by analogy from an OpenAPI case.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that `$comment` is non-rendered and intended for schema maintainers, so anything an agent must see belongs in `description` or `examples`",
+        "evidence": "No mention of the '$comment' JSON Schema keyword anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that terminal and package-local paths tie with doc comments on both effort and value, since each ships on the SDK release cycle and each reaches only the agent already inside the user's codebase",
+        "evidence": "No discussion of terminal/CLI paths tying with doc comments on effort/value.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires re-running the identical frozen 7-task set and comparing corrective turns against the baseline rather than declaring the fix successful",
+        "evidence": "'Re-run your existing 7-task eval after the Tier 1 JSDoc/type pass... use it to confirm the consumer-group task now passes, rather than assuming better comments fixed it.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

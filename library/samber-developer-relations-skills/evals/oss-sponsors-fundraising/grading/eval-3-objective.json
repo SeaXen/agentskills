@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States the invoiced-sponsorship minimum of $5,000 per invoice on GitHub, so $400/month cannot be taken that way.",
+        "evidence": "\"GitHub Sponsors' invoiced billing has a $5,000-per-invoice minimum. Northvale can't send you $400/month against a PO through GitHub's native invoicing\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends either sizing the ask up to clear that floor or routing the payment through a fiscal host that can issue invoices.",
+        "evidence": "\"A fiscal host (Open Collective, hosted by Open Source Collective) can issue a numbered invoice for *any* amount \u2014 no $5,000 floor\" offered as fallback path.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that switching an organization to invoiced billing cancels its existing sponsorships, which then have to be re-established.",
+        "evidence": "No mention of this in the transcript; the only org-billing-switch warning present in the corpus appears elsewhere, not here.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that invoices are payable within 30 days, or that the invoiced sponsor agreement runs three years before renewal.",
+        "evidence": "Not mentioned anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the organization-account fee structure: up to 6%, being 3% credit-card processing plus a 3% service fee, with the credit-card portion removed under invoiced billing.",
+        "evidence": "No fee percentages are given anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Works through the payable checklist: a legal entity or explicit contractor arrangement, the payer's expected tax form, ability to issue a numbered invoice, bank details for transfer, and a named beneficiary.",
+        "evidence": "Only partially touched (\"puts the tax form, the numbered invoice, and the liability on you personally\") with no mention of bank details or a named beneficiary as a full checklist.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that fiscal hosts generally charge 3-10% of funds received, with Open Source Collective at 10%.",
+        "evidence": "Only \"Costs ~10% of funds received\" is stated; the general 3-10% range is not given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Suggests raising the ask above $400/month given dependence across three named services, rather than accepting the first number offered.",
+        "evidence": "\"Two things this does not require: raising Northvale's price, or you personally issuing an invoice\" \u2014 explicitly avoids raising the price.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that a fiscal host is itself a continuity risk and recommends writing the exit-and-transfer plan before it is needed.",
+        "evidence": "Not mentioned anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not simply tell the maintainer to send Northvale the public sponsorship link.",
+        "evidence": "Gives a detailed multi-step setup (separate company tier, invoice flow, PO number ask) rather than just a link.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends logging Northvale's budget month and opening the renewal conversation a full cycle ahead.",
+        "evidence": "No renewal-timing recommendation appears in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends selling Northvale named commitments with numbers rather than goodwill.",
+        "evidence": "\"attach one concrete deliverable an approver can defend: logo in the README/docs footer, or a named commitment (security reports acknowledged within N days)\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States the invoiced-sponsorship minimum of $5,000 per invoice on GitHub, so $400/month cannot be taken that way.",
+        "evidence": "The transcript states only that \"Org-to-org sponsorship on GitHub Sponsors is billed to a credit card on file\" with no mention of an invoiced-billing option or its $5,000 minimum.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends either sizing the ask up to clear that floor or routing the payment through a fiscal host that can issue invoices.",
+        "evidence": "Fiscal host is recommended, but never framed as clearing a $5,000 invoice-minimum floor, since that floor is never identified; the diagnosis given is a different, more general 'GitHub can't do invoices at all' claim.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that switching an organization to invoiced billing cancels its existing sponsorships, which then have to be re-established.",
+        "evidence": "No mention of invoiced billing cancelling existing sponsorships.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that invoices are payable within 30 days, or that the invoiced sponsor agreement runs three years before renewal.",
+        "evidence": "Only the maintainer's own invoice terms (\"NET 30/45 is typical\") are discussed, not GitHub's invoiced-sponsorship agreement terms.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the organization-account fee structure: up to 6%, being 3% credit-card processing plus a 3% service fee, with the credit-card portion removed under invoiced billing.",
+        "evidence": "No fee structure for GitHub Sponsors organization accounts is mentioned anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Works through the payable checklist: a legal entity or explicit contractor arrangement, the payer's expected tax form, ability to issue a numbered invoice, bank details for transfer, and a named beneficiary.",
+        "evidence": "Entity, numbered invoice, and IBAN/BIC are covered, but the payer's expected tax form is never addressed, leaving the checklist incomplete.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that fiscal hosts generally charge 3-10% of funds received, with Open Source Collective at 10%.",
+        "evidence": "Only \"a host fee (commonly around 5\u201310%)\" is given, with no specific attribution of a 10% rate to Open Source Collective.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Suggests raising the ask above $400/month given dependence across three named services, rather than accepting the first number offered.",
+        "evidence": "No suggestion to raise the $400/month figure; only annual prepay of $4,800 (same rate) is proposed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that a fiscal host is itself a continuity risk and recommends writing the exit-and-transfer plan before it is needed.",
+        "evidence": "No discussion of fiscal-host continuity risk or an exit/transfer plan.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not simply tell the maintainer to send Northvale the public sponsorship link.",
+        "evidence": "\"don't try to force Northvale into the same GitHub Sponsors tier as your $5\u201325 individuals\" \u2014 explicitly routes to invoicing or a fiscal host instead.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends logging Northvale's budget month and opening the renewal conversation a full cycle ahead.",
+        "evidence": "No mention of logging a budget month or timing a renewal conversation ahead of cycle.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends selling Northvale named commitments with numbers rather than goodwill.",
+        "evidence": "\"keeps it unambiguously a sponsorship, not an implied support contract, unless you actually want to offer SLA-backed support at that price\" \u2014 explicitly steers away from named commitments.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

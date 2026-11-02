@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Presents the AsyncAPI recommendation with lower confidence than the OpenAPI ones rather than with equal confidence",
+        "evidence": "The AsyncAPI section opens with an explicit epistemic downgrade: \"Two caveats up front, stated because the source material is explicit about them: AsyncAPI guidance here is inferred from the OpenAPI annotation rules by analogy, not separately sourced\". The hedging is reinforced elsewhere: the interview table marks AsyncAPI's generation/maintenance status as \"**Unknown \u2014 changes AsyncAPI effort estimate, ask**\"; Finding 2 is titled \"AsyncAPI payload contract is unexercised, not (yet) proven broken\" with outcome \"unknown\" and fix \"add the task, don't pre-annotate on faith\"; the expensive AsyncAP",
+        "score": 5,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Presents the AsyncAPI recommendation with lower confidence than the OpenAPI ones rather than with equal confidence",
+        "evidence": "The transcript explicitly demotes AsyncAPI to 'Tier 2 \u2014 AsyncAPI annotations (conditional, and probably not what caused this specific bug)', while JSDoc/type-level work on the public API surface is 'Tier 1 ... do this first, it's the whole lever'. It hedges the AsyncAPI case repeatedly: 'annotating the AsyncAPI doc wouldn't have fixed it', 'Don't let it absorb the effort earmarked for Tier 1', 'That's plausible but unverified \u2014 you tested consumer groups, not payload correctness', and recommends adding eval tasks 'before spending effort here, so you're not annotating against a hypothetical gap",
+        "score": 5,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

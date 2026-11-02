@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Treats the 14 empty cells as candidate gaps, not confirmed ones",
+        "evidence": "'I can't invent that and label it fact... What I can give you: a decision rule that ranks any cell in your matrix'; table calls rows 'candidate'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires each candidate gap to be confirmed against a named demand signal before it enters the queue",
+        "evidence": "'a gap without evidence is a question for the team, not a queued page' with three named signals to check first.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Puts any gap with no evidence on a list of questions for the team rather than into the work queue",
+        "evidence": "'Any of the 14 with zero hits across all three signals: park it as a question for the team, don't burn a writer-week on it speculatively.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Attaches the supporting evidence to each gap that does enter the queue",
+        "evidence": "Queue format table has an 'Evidence' column, e.g. '78% exit rate' and '[fill: Algolia/issues]', with instruction to 'Fill \"Evidence\" only with what your three signals actually show'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a full grid is not the target, and that a minor surface may legitimately need only reference plus one how-to",
+        "evidence": "'Tutorial empty \u2014 only counts once per audience... Don't queue a second tutorial per surface' and 'otherwise correctly stays empty' for explanation cells.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ranks gaps by evidence volume against adoption impact rather than by how large the hole looks in the matrix",
+        "evidence": "Ranking uses 'mode damage' and 'surface weight' (adoption-impact proxies) as keys, then gates entry via the three demand signals rather than by raw count of empty cells.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines to treat the 78% exit rate on /api/fleet/overview as a gap on its own, noting a high-exit page can mean the reader found the answer and left",
+        "evidence": "'an exit alone can also mean the reader got their answer and left satisfied.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Pairs the exit-rate reading with a support-ticket trend or a satisfaction prompt before logging it as a gap",
+        "evidence": "'corroborate the Fleet API exit rate with a ticket or search-query cluster before treating it as confirmed'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names zero-result site searches as the signal that proves a missing page in the user's own words, and maps it to the Algolia analytics available",
+        "evidence": "'Algolia: pull zero-result queries and no-click queries for terms matching each of your 14 candidate surfaces/modes.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names repository issues labelled question, support or docs as public, quotable evidence for prioritization",
+        "evidence": "'GitHub issues: filter question/support/docs labels per surface \u2014 three+ repeats on one surface confirms a gap.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that one good tutorial per audience is usually enough, rather than one per surface",
+        "evidence": "'Tutorial empty \u2014 only counts once per audience... Don't queue a second tutorial per surface.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies an empty reference cell on a surface users configure as the most damaging gap type",
+        "evidence": "'Reference empty on a surface someone configures \u2014 worst. Sends people to source or support.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Treats the 14 empty cells as candidate gaps, not confirmed ones",
+        "evidence": "'\u26a0\ufe0f Items 1\u20133 are grounded in the exit-rate number you gave me; items 4\u201314 are ordered on reach/dependency logic, not your actual Algolia or GitHub data.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires each candidate gap to be confirmed against a named demand signal before it enters the queue",
+        "evidence": "All 14 cells are already placed into the 'Backlog, in write order' and 'Schedule' sections with a Week 1-3 writing plan, not gated on confirmation first.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Puts any gap with no evidence on a list of questions for the team rather than into the work queue",
+        "evidence": "Unevidenced items 4-14 remain in the write schedule ('Week 1... Week 2... Week 3') rather than being moved to a separate question list.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Attaches the supporting evidence to each gap that does enter the queue",
+        "evidence": "Items 4-14 carry only heuristic reasoning ('Second SDK, zero foundation') rather than named supporting evidence, as the closing caveat itself admits.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a full grid is not the target, and that a minor surface may legitimately need only reference plus one how-to",
+        "evidence": "No such statement appears; the backlog works toward filling all 14 empty cells across the matrix.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ranks gaps by evidence volume against adoption impact rather than by how large the hole looks in the matrix",
+        "evidence": "Only items 1-3 use evidence (exit rate); items 4-14 are ranked by 'reach/dependency logic,' not evidence volume vs. adoption impact.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines to treat the 78% exit rate on /api/fleet/overview as a gap on its own, noting a high-exit page can mean the reader found the answer and left",
+        "evidence": "The opposite: 'Its 78% exit rate is the signal that tells you which of Fleet API's empty cells to fill first... then leave' \u2014 treated directly as gap evidence.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Pairs the exit-rate reading with a support-ticket trend or a satisfaction prompt before logging it as a gap",
+        "evidence": "The exit rate is used directly to rank items 1-2 without first pairing it with ticket or satisfaction data.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names zero-result site searches as the signal that proves a missing page in the user's own words, and maps it to the Algolia analytics available",
+        "evidence": "'Algolia: top zero-result queries and top queries-then-bounce, filtered by surface name.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names repository issues labelled question, support or docs as public, quotable evidence for prioritization",
+        "evidence": "Only generic 'GitHub: issue count by surface label' is mentioned, without naming specific labels like question/support/docs.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that one good tutorial per audience is usually enough, rather than one per surface",
+        "evidence": "The backlog plans a separate Tutorial per surface (Python SDK, C++ SDK, ROS 2 bridge, Fleet API, On-prem deployment, Grafana), contradicting one-per-audience consolidation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies an empty reference cell on a surface users configure as the most damaging gap type",
+        "evidence": "The top-priority item is Fleet API How-to guide (item 1), not a reference cell; on-prem deployment reference is ranked #10, not flagged as most damaging.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

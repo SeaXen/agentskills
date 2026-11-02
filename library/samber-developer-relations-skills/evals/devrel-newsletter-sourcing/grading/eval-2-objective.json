@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The output explicitly states that this issue is thin.",
+        "evidence": "\"only Fixes can reach its minimum, which is 1 of 4. Under half is thin.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output ties the thin verdict to section minimums (fewer than half of the content sections reaching their minimum).",
+        "evidence": "\"Four sections require at least one item... only Fixes can reach its minimum, which is 1 of 4.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output recommends shipping a shorter issue as the default response.",
+        "evidence": "\"Ship shorter. I would not pad it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output does not include April's plugin-authoring post in this issue's item list.",
+        "evidence": "Row 4: \"April's top plugin-authoring post (rerun) ... cut\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output explains that rerunning April's post repeats an item readers already received.",
+        "evidence": "Only says \"Window gate: it is outside the window. Rerunning a past top item is the first row of the padding table.\" It never says readers already got it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The output does not take items from TLDR or Console as this issue's content.",
+        "evidence": "Row 5: \"Hottest links from TLDR and Console ... cut\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output says other newsletters may serve only as a cross-check, or that their stories must be followed to the primary source.",
+        "evidence": "\"Other newsletters are a cross-check only.\" and \"open its primary page... Don't link the newsletters.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output presents the thin-issue options in a stated order (for example ship shorter before evergreen slot before skip).",
+        "evidence": "Options are mentioned (ship shorter, skip-and-merge, evergreen) but no stated priority order; the skill's ship shorter / evergreen / skip order is not given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The Lisbon meetup is kept in Events with a note to confirm the date on the event's own page.",
+        "evidence": "\"keep, provisional ... The event page's date overrides your 'three weeks'.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output says that a second consecutive thin issue should trigger a cadence review rather than more padding.",
+        "evidence": "\"A second thin issue in a row goes there too, as a cadence question.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output states that empty sections are dropped for this issue rather than filled.",
+        "evidence": "\"Drop Shipped, Learn and Community under the default empty-section rule.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The thin verdict counts only sections with a minimum of one or more; the Events section (minimum 0) is not counted as reaching its minimum.",
+        "evidence": "\"Events can be 0, so it doesn't count.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The output explicitly states that this issue is thin.",
+        "evidence": "\"The issue meets every section's minimum... We're not stretching a quiet month with filler.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The output ties the thin verdict to section minimums (fewer than half of the content sections reaching their minimum).",
+        "evidence": "It claims the minimums are met, so there is no thin verdict.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The output recommends shipping a shorter issue as the default response.",
+        "evidence": "It plans a full issue of \"6 required items plus up to 3 optional ones.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The output does not include April's plugin-authoring post in this issue's item list.",
+        "evidence": "Item 5: \"April's top-clicked plugin-authoring post, labeled 'Most-read in April'\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The output explains that rerunning April's post repeats an item readers already received.",
+        "evidence": "It calls reruns fine if labeled, and only says unlabeled ones will be noticed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The output does not take items from TLDR or Console as this issue's content.",
+        "evidence": "Item 8: \"Optional: one TLDR or Console link... Name the source ('Spotted on TLDR')\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The output says other newsletters may serve only as a cross-check, or that their stories must be followed to the primary source.",
+        "evidence": "Not said; they are offered as a content source.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The output presents the thin-issue options in a stated order (for example ship shorter before evergreen slot before skip).",
+        "evidence": "No options ladder is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The Lisbon meetup is kept in Events with a note to confirm the date on the event's own page.",
+        "evidence": "Item 9 asks for date, venue and RSVP link but never says to confirm the date on the event's own page.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The output says that a second consecutive thin issue should trigger a cadence review rather than more padding.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The output states that empty sections are dropped for this issue rather than filled.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The thin verdict counts only sections with a minimum of one or more; the Events section (minimum 0) is not counted as reaching its minimum.",
+        "evidence": "There is no thin verdict, and Events is counted among the \"6 required items\".",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

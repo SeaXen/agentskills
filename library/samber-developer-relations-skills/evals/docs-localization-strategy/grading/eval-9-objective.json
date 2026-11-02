@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Flags that the console, CLI output and error messages are English-only, so a translated quickstart ends at English product strings, and plans the product gap or scopes the locale around it",
+        "evidence": "Product-gap handling section",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Records the reseller's three deals as the commercial-weight signal and asks for browser-language, engagement and Arabic-language demand data before classifying the locale",
+        "evidence": "Evidence table lists the 3 deals; data pull planned",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Counts Omar as one reviewer and requires a second named Arabic-fluent reviewer before launch, marking the locale gated otherwise",
+        "evidence": "\"Open: Omar only\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes every site UI string (navigation, banners, feedback) in the first page set",
+        "evidence": "\"Every docs-site UI string\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a check that the docs layout handles right-to-left script before launch",
+        "evidence": "Right-to-left rules; gate row for \"Right-to-left layout and search check\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Quotes English error messages and UI labels verbatim with the Arabic translation alongside, so the reader can search the string the product prints",
+        "evidence": "\"Quote UI labels and CLI errors exactly as the product prints them.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps CLI flags, config keys, HTTP headers and identifiers in English",
+        "evidence": "\"Identifiers, CLI flags, config keys, HTTP headers, product names.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps heading anchors in English with explicit IDs",
+        "evidence": "\"Explicit heading IDs on the pack pages in English\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sizes the page set from Omar's reviewer hours per release using the steady-state and launch-load checks, not from the 180-page count",
+        "evidence": "\"(12 pages + 1 UI page-equivalent) \u00d7 1 h \u00f7 4 h per release\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the three deals as a claim to verify against pipeline or a named deal rather than a measured figure",
+        "evidence": "\"reported by the reseller, not verified\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Starts the page set with quickstart, install, auth and top task pages rather than translating all 180 pages",
+        "evidence": "Page set: \"First: Quickstart, install, authentication\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes the Docusaurus drift-check path with the locale under i18n/ar/docusaurus-plugin-content-docs/current (or the equivalent)",
+        "evidence": "\"i18n/ar/docusaurus-plugin-content-docs/current\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks whether this is a one-off market push or a standing asset and sets the kill rule and horizon accordingly",
+        "evidence": "Never asked.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Flags that the console, CLI output and error messages are English-only, so a translated quickstart ends at English product strings, and plans the product gap or scopes the locale around it",
+        "evidence": "\"Console and CLI output are English\" banner; \"Mixed-language experience\" risk.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Records the reseller's three deals as the commercial-weight signal and asks for browser-language, engagement and Arabic-language demand data before classifying the locale",
+        "evidence": "Asks which pages prospects read, not browser or demand data.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Counts Omar as one reviewer and requires a second named Arabic-fluent reviewer before launch, marking the locale gated otherwise",
+        "evidence": "Only suggests a legal reviewer; no second reviewer gate.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes every site UI string (navigation, banners, feedback) in the first page set",
+        "evidence": "Not included.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a check that the docs layout handles right-to-left script before launch",
+        "evidence": "Spike with direction rtl and checking tables/code blocks.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Quotes English error messages and UI labels verbatim with the Arabic translation alongside, so the reader can search the string the product prints",
+        "evidence": "\"`Restore Points` (\u0646\u0642\u0627\u0637 \u0627\u0644\u0627\u0633\u062a\u0639\u0627\u062f\u0629)\"; error strings verbatim.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps CLI flags, config keys, HTTP headers and identifiers in English",
+        "evidence": "\"Keep verbatim in English: commands, flags, config keys, error strings\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps heading anchors in English with explicit IDs",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sizes the page set from Omar's reviewer hours per release using the steady-state and launch-load checks, not from the 180-page count",
+        "evidence": "Hour estimates but no steady-state/launch-load checks.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels the three deals as a claim to verify against pipeline or a named deal rather than a measured figure",
+        "evidence": "\"Nobody has verified that Arabic docs close the deals.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Starts the page set with quickstart, install, auth and top task pages rather than translating all 180 pages",
+        "evidence": "Tier 1: overview, install, quickstart, core concepts; do not translate all 180.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes the Docusaurus drift-check path with the locale under i18n/ar/docusaurus-plugin-content-docs/current (or the equivalent)",
+        "evidence": "Source hash in frontmatter but no path.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks whether this is a one-off market push or a standing asset and sets the kill rule and horizon accordingly",
+        "evidence": "Not asked.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

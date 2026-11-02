@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses downstream system packaging for this project.",
+        "evidence": "'Should tallowpy go into Homebrew and Debian? No.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Grounds the refusal in the install unit: a library installed inside a virtual environment, not a standalone binary or container image.",
+        "evidence": "'tallowpy is a Python library, installed with `pip install tallowpy` inside a virtualenv/poetry/conda environment... That's the install unit.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names all four conditions that would promote downstream packaging: company adoption as the declared goal, a standalone binary or container image install unit, release hygiene good enough for a third-party packager to hold it, and maintainer acceptance of the irreversibility.",
+        "evidence": "'Downstream packaging only earns priority when all four hold: 1. Company adoption is the *declared* goal... 2. The install unit is a standalone binary... 3. Release hygiene... 4. The maintainers accept that a shipped package can't be unshipped.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that downstream packaging is irreversible - a shipped distribution package cannot be recalled.",
+        "evidence": "'packaging is the one irreversible commitment in this catalog'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes the refusal as a named channel, a reason, and the condition that would reopen it, rather than as an omission or a 'not right now'.",
+        "evidence": "'Formal refusal: Channel: Homebrew formula, Debian package. Reason:... Condition that reopens it: tallowpy grows a standalone CLI/binary component...'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes downstream packaging from the ranking entirely rather than parking it at the bottom of a priority list.",
+        "evidence": "No ranked priority list of channels is shown in this transcript from which packaging could be visibly excised; only a standalone refusal document exists.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that a channel parked last gets re-litigated every quarter while a named refusal does not.",
+        "evidence": "No such statement appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects 'looks more legitimate' as a reason and makes no claim that packaging will increase downloads.",
+        "evidence": "'Your co-maintainer's instinct isn't wrong, the channel is... this is what \"legitimacy\" actually buys' \u2014 redirects legitimacy goal away from packaging with no download claim made.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies downstream packaging as a harmful-decay family: a stale package keeps shipping an old version to evaluators rather than going quiet.",
+        "evidence": "'Decay behaviour \u2014 harmful, not silent. A stale Debian or Homebrew build keeps serving a year-old fixed-width parser to the exact evaluator you're trying to look legitimate for.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns against treating a third-party package as owned, since the maintainer does not control it.",
+        "evidence": "No warning about unofficial/unknown third-party packages being created without maintainer control appears in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends checking a cross-repository tracker such as Repology for packages that already exist without the maintainers knowing.",
+        "evidence": "Repology is not mentioned anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Points the maintainers at higher-efficiency families first (registry metadata and the release stream) and states the efficiency ordering out loud rather than implying it by list order.",
+        "evidence": "Lists PyPI metadata, README statement, SECURITY.md/CHANGELOG, and Sigstore as a bulleted list with time estimates, but never states an explicit efficiency ordering among them.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses downstream system packaging for this project.",
+        "evidence": "'Short answer: no, not now \u2014 the ROI doesn't work at 6 hours/month.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Grounds the refusal in the install unit: a library installed inside a virtual environment, not a standalone binary or container image.",
+        "evidence": "'Homebrew and apt/Debian solve \"I want to run a standalone tool,\" not \"I want to import a library.\" Unless tallowpy ships a CLI, a Homebrew formula is close to a non-starter anyway.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names all four conditions that would promote downstream packaging: company adoption as the declared goal, a standalone binary or container image install unit, release hygiene good enough for a third-party packager to hold it, and maintainer acceptance of the irreversibility.",
+        "evidence": "Only a CLI condition is raised ('If there's no CLI, this is off the table structurally'); company-adoption goal, release hygiene, and maintainer acceptance of irreversibility are never enumerated as a set of conditions.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that downstream packaging is irreversible - a shipped distribution package cannot be recalled.",
+        "evidence": "No mention of irreversibility or recall anywhere in the transcript; the argument is framed entirely around recurring maintenance cost.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes the refusal as a named channel, a reason, and the condition that would reopen it, rather than as an omission or a 'not right now'.",
+        "evidence": "'Homebrew/Debian packaging isn't something the project can commit to maintaining at current capacity, but either of them is welcome to publish and maintain a community tap/PPA themselves and you'll link to it from the README if it stays current.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes downstream packaging from the ranking entirely rather than parking it at the bottom of a priority list.",
+        "evidence": "The memo is a single Q&A response, not a ranked channel list, so no ranking exists from which packaging could be deleted or parked.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that a channel parked last gets re-litigated every quarter while a named refusal does not.",
+        "evidence": "No such explanation appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects 'looks more legitimate' as a reason and makes no claim that packaging will increase downloads.",
+        "evidence": "'distro breadth isn't what reads as legitimate to the people actually vetting a library at an insurance company. Procurement/security teams there look at PyPI provenance, license clarity, changelog discipline...' \u2014 no download-lift claim is made anywhere.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies downstream packaging as a harmful-decay family: a stale package keeps shipping an old version to evaluators rather than going quiet.",
+        "evidence": "The transcript discusses recurring maintenance burden ('every PyPI release means touching the formula/control file') but never frames a stale package as continuing to ship an old version to evaluators.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns against treating a third-party package as owned, since the maintainer does not control it.",
+        "evidence": "No explicit warning against treating an existing community package as maintainer-owned; the closest is inviting requesters to run their own tap, not a warning about ownership of pre-existing packages.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends checking a cross-repository tracker such as Repology for packages that already exist without the maintainers knowing.",
+        "evidence": "Repology or any equivalent tracker is never mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Points the maintainers at higher-efficiency families first (registry metadata and the release stream) and states the efficiency ordering out loud rather than implying it by list order.",
+        "evidence": "Alternatives ('Trusted publishing... CITATION.cff... conda-forge') are listed as 'cheaper, higher-signal moves' but no explicit efficiency ordering statement is made beyond the list itself.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

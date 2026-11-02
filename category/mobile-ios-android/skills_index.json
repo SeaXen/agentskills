@@ -1,5 +1,13 @@
 [
   {
+    "id": "15-Felpix-Studios-social-science-research",
+    "name": "15-Felpix-Studios-social-science-research",
+    "category": "mobile-ios-android",
+    "repository": "brycewang-stanford-auto-empirical-research-skills",
+    "description": "",
+    "path": "category/mobile-ios-android/15-Felpix-Studios-social-science-research"
+  },
+  {
     "id": "ad-account-auditor",
     "name": "ad-account-auditor",
     "category": "mobile-ios-android",
@@ -424,6 +432,14 @@
     "path": "category/mobile-ios-android/asc-xcode-build"
   },
   {
+    "id": "audit-augmentation",
+    "name": "audit-augmentation",
+    "category": "mobile-ios-android",
+    "repository": "trailofbits-skills",
+    "description": "Augments Trailmark code graphs with external audit findings from SARIF static analysis results, weAudit annotation files, and version-gated Trailmark 0.4.x binary-analysis graph exports. Maps findings to graph nodes by file and line overlap, creates severity-based subgraphs, and enables cross-referencing findings with pre-analysis data (blast radius, taint, etc.). Use when projecting SARIF results onto a code graph, overlaying weAudit annotations, importing binary graph findings, cross-referencing Semgrep, CodeQL, or binary-analysis findings with call graph data, or visualizing audit findings in the context of code structure.",
+    "path": "category/mobile-ios-android/audit-augmentation"
+  },
+  {
     "id": "audit-skills",
     "name": "audit-skills",
     "category": "mobile-ios-android",
@@ -438,6 +454,30 @@
     "repository": "mengto-skills",
     "description": "Author or revise readable, flat-world Three.js game levels. Use for movement and camera routes, collision and navigation, encounter zones, landmarks, objectives, pickups, motivated lighting, visibility, deterministic level data, or desktop and mobile playthrough verification.",
     "path": "category/mobile-ios-android/author-game-levels"
+  },
+  {
+    "id": "aws-amplify",
+    "name": "aws-amplify",
+    "category": "mobile-ios-android",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Build and deploy full-stack web and mobile apps with AWS Amplify Gen2 (TypeScript code-first). Covers auth (Cognito), data (AppSync/DynamoDB), storage (S3), functions, APIs, and AI (Amplify AI Kit with Bedrock). Supports React, Next.js, Vue, Angular, React Native, Flutter, Swift, and Android. Always use this skill for Amplify Gen2 topics \u2014 even for questions you think you know \u2014 it contains validated, version-specific patterns that prevent common mistakes. TRIGGER when: user mentions Amplify Gen2; project has amplify/ directory or amplify_outputs; code imports @aws-amplify packages; user asks about defineBackend, defineAuth, defineData, defineStorage, defineFunction, or npx ampx. SKIP: Amplify Gen1 (amplify CLI v6), standalone SAM/CDK without Amplify (use aws-serverless), direct Bedrock without Amplify AI Kit (use bedrock).",
+    "path": "category/mobile-ios-android/aws-amplify"
+  },
+  {
+    "id": "aws-messaging-and-streaming",
+    "name": "aws-messaging-and-streaming",
+    "category": "mobile-ios-android",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Guides general use of AWS messaging and streaming services. Covers Amazon SQS, Amazon SNS, Amazon EventBridge, Amazon MQ, Amazon Kinesis Data Streams, Amazon Data Firehose, Amazon Managed Service for Apache Flink, and Amazon Managed Streaming for Apache Kafka (MSK). Use when reasoning about messaging and streaming patterns. Also identifies which AWS service owns each customer communication channel: email (Amazon SES), and WhatsApp, SMS, MMS, RCS, voice and mobile push (the AWS End User Messaging family of services). Routes the request to the specialized skill for that channel. Defers to the channel's specialized skill when the user already named a specific channel. In general, use specific skills or documentation searches for detailed service-specific questions. Do NOT use for MSK or Managed Service for Apache Flink questions, prefer specific skills. Does not configure customer communication channels; defers to specific skills.",
+    "path": "category/mobile-ios-android/aws-messaging-and-streaming"
+  },
+  {
+    "id": "aws-sdk-swift-usage",
+    "name": "aws-sdk-swift-usage",
+    "category": "mobile-ios-android",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "AWS SDK for Swift development patterns. Use when writing Swift code that uses AWS services via aws-sdk-swift package.",
+    "path": "category/mobile-ios-android/aws-sdk-swift-usage"
   },
   {
     "id": "azure-monitor-opentelemetry-exporter-py",
@@ -526,6 +566,14 @@
     "repository": "everyinc-compound-engineering-plugin",
     "description": "Test iOS apps in a simulator with XcodeBuildMCP. Use when iOS changes need simulator evidence before handoff.",
     "path": "category/mobile-ios-android/ce-test-xcode"
+  },
+  {
+    "id": "character-archetypes",
+    "name": "character-archetypes",
+    "category": "mobile-ios-android",
+    "repository": "arjun988-blender-skills",
+    "description": "Character archetype art direction for Blender covering fantasy races, horror creatures, roles (knight, assassin, detective), and body types (mecha, android, chibi, etc.).",
+    "path": "category/mobile-ios-android/character-archetypes"
   },
   {
     "id": "chatexport-need-miner",
@@ -1048,6 +1096,14 @@
     "path": "category/mobile-ios-android/favicon-gen"
   },
   {
+    "id": "figma-swiftui",
+    "name": "figma-swiftui",
+    "category": "mobile-ios-android",
+    "repository": "figma-mcp-server-guide",
+    "description": "SwiftUI \u2194 Figma translation. Use whenever the user mentions Swift, SwiftUI, iOS, iPhone, or iPad \u2014 in EITHER direction \u2014 translating a Figma design into SwiftUI (design \u2192 code), or pushing SwiftUI views / screens / tokens back into a Figma file (code \u2192 design). Triggers on phrases like 'implement this Figma design in SwiftUI', 'build this screen in Swift', 'push this SwiftUI view to Figma', 'mirror my Swift code in a Figma file', or whenever a Figma URL appears alongside `.swift` files / an `.xcodeproj`. Routes to a direction-specific reference doc; loads alongside `figma-use` for the code \u2192 design path.",
+    "path": "category/mobile-ios-android/figma-swiftui"
+  },
+  {
     "id": "financekit",
     "name": "financekit",
     "category": "mobile-ios-android",
@@ -1062,6 +1118,14 @@
     "repository": "firebase-agent-skills",
     "description": "Integrates Firebase AI Logic (formerly Vertex AI for Firebase) into mobile and web apps (Android, iOS, Web, and Flutter) to call Gemini models from client code. Use when provisioning or initializing Firebase AI Logic, or adding Gemini features to an app: text generation, multimodal input, chat, streaming, structured output, hybrid on-device inference, App Check protection, or switching models with Remote Config.",
     "path": "category/mobile-ios-android/firebase-ai-logic-basics"
+  },
+  {
+    "id": "firebase-apk-scanner",
+    "name": "firebase-apk-scanner",
+    "category": "mobile-ios-android",
+    "repository": "trailofbits-skills",
+    "description": "Scans Android APKs for Firebase security misconfigurations including open databases, storage buckets, authentication issues, and exposed cloud functions. Use when analyzing APK files for Firebase vulnerabilities, performing mobile app security audits, or testing Firebase endpoint security. For authorized security research only.",
+    "path": "category/mobile-ios-android/firebase-apk-scanner"
   },
   {
     "id": "firebase-firestore",
@@ -1318,6 +1382,38 @@
     "repository": "affaan-m-ecc",
     "description": "WireGuard VPN server setup, peer configuration, key generation, split tunneling vs full tunnel routing, and remote access to a home network from mobile and laptop clients. Use when setting up WireGuard for remote access to a home network, or deciding between split and full tunnel routing.",
     "path": "category/mobile-ios-android/homelab-wireguard-vpn"
+  },
+  {
+    "id": "huawei-cloud-clouddocs-aipage",
+    "name": "huawei-cloud-clouddocs-aipage",
+    "category": "mobile-ios-android",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "\u6700\u57fa\u7840\u7684\u300c\u57fa\u4e8e\u5185\u5bb9\u521b\u5efa\u5728\u7ebf page \u6587\u6863\u300d\u6280\u80fd\uff1a\u7528\u6237\u63d0\u4f9b\u5185\u5bb9\uff08\u4e3b\u9898/\u6587\u672c/\u8981\u70b9\uff09\uff0c\u6a21\u578b\u751f\u6210 markdown\uff0c\u7ecf clouddocs-cli page +create \u4e00\u6b21\u521b\u5efa\u5728\u7ebf page \u6587\u6863\u5e76\u4ea4\u4ed8\u94fe\u63a5\uff0c\u518d\u7528 clouddocs-cli file +export \u5bfc\u51fa\u4e3a docx \u5b58\u5230\u672c\u5730\uff0c\u5168\u7a0b clouddocs-cli\u3001\u4e0d\u5f00\u7f16\u8f91\u5668\u3002\u7528\u4e8e\u628a\u4e00\u6bb5\u5185\u5bb9\u53d8\u6210\u4e00\u7bc7\u53ef\u5206\u4eab\u7684\u5728\u7ebf\u6587\u6863\uff0c\u5e76\u4fdd\u7559\u4e00\u4efd\u672c\u5730 Word \u526f\u672c\u3002Trigger: \u751f\u6210\u4e00\u7bc7\u5728\u7ebf\u6587\u6863, \u521b\u5efapage\u6587\u6863, \u6839\u636e\u5185\u5bb9\u751f\u6210\u6587\u6863, \u628a\u6211\u7684\u5185\u5bb9\u53d8\u6210\u4e91\u6587\u6863, \u521b\u5efa\u5728\u7ebfpage, \u751f\u6210\u4e91\u6587\u6863, \u628a\u8981\u70b9\u6574\u7406\u6210\u6587\u6863, \u521b\u5efa\u4e00\u7bc7page\u3002",
+    "path": "category/mobile-ios-android/huawei-cloud-clouddocs-aipage"
+  },
+  {
+    "id": "huawei-cloud-cloudrobo-robot",
+    "name": "huawei-cloud-cloudrobo-robot",
+    "category": "mobile-ios-android",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Manage CloudRobo robot instances \u2014 register robots, query robot lists and details, update robot metadata, delete offline robots, export robot certificates for secure access, and fetch the latest robot-side SDK package information. Robots are the physical carriers of embodied intelligence tasks and serve as execution targets for the robo-dispatcher (dispatch) and embodied services. Triggers include: robot registration, robot management, robot type, robot certificate, export certificate, robot SDK, latest SDK, robot_model, manufacturer, \u673a\u5668\u4eba\u6ce8\u518c, \u673a\u5668\u4eba\u7ba1\u7406, \u673a\u5668\u4eba\u7c7b\u578b, \u673a\u5668\u4eba\u8bc1\u4e66, \u5bfc\u51fa\u8bc1\u4e66, \u673a\u5668\u4ebaSDK, \u673a\u5668\u4eba\u578b\u53f7, \u5236\u9020\u5546.",
+    "path": "category/mobile-ios-android/huawei-cloud-cloudrobo-robot"
+  },
+  {
+    "id": "huawei-cloud-sg-manage",
+    "name": "huawei-cloud-sg-manage",
+    "category": "mobile-ios-android",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Use when managing or diagnosing Huawei Cloud security groups (\u5b89\u5168\u7ec4) \u2014 VPC subnet-level firewalls. Covers listing/querying security groups and rules, port connectivity diagnosis (ingress/egress rule matching), rule conflict detection, over-exposure security audit (e.g. 0.0.0.0/0 world-open rules), and full CRUD (create/update/delete security groups and rules). Managed actions run with preview + explicit confirmation (R2/R1); query and diagnose actions are read-only and auto-execute (R3). Uses the local hcloud (KooCLI) VPC CLI with AK/SK environment variables or a local hcloud profile. Provides 11 huawei_* actions: huawei_list_security_groups, huawei_list_security_group_rules, huawei_get_security_group, huawei_diagnose_sg_port_connectivity, huawei_analyze_sg_rule_conflict, huawei_audit_sg_overexposed_rules, huawei_create_security_group, huawei_create_sg_rule, huawei_update_security_group, huawei_delete_security_group, huawei_delete_sg_rule. Triggers include: \"\u5b89\u5168\u7ec4\", \"\u5b89\u5168\u7ec4\u89c4\u5219\", \"\u9632\u706b\u5899\u89c4\u5219\", \"\u7aef\u53e3\u8fde\u901a\u6027\", \"\u7aef\u53e3\u8bca\u65ad\", \"\u89c4\u5219\u51b2\u7a81\", \"\u8fc7\u5ea6\u5f00\u653e\", \"\u5168\u5f00\u653e\", \"0.0.0.0/0\", \"security group\", \"security group rule\", \"SG rule\", \"ingress\", \"egress\", \"inbound\", \"outbound\", \"port connectivity\", \"port diagnosis\", \"rule conflict\", \"over-exposed\", \"world-open\", \"VPC\", \"\u5b89\u5168\u5ba1\u8ba1\", \"\u9632\u706b\u5899\".",
+    "path": "category/mobile-ios-android/huawei-cloud-sg-manage"
+  },
+  {
+    "id": "huawei-cloud-waf-policy-manage",
+    "name": "huawei-cloud-waf-policy-manage",
+    "category": "mobile-ios-android",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Import WAF protection policies from JSON files exported by huawei-cloud-waf-policy-query, supporting creation of new policies or overwriting existing ones. Triggers include: import WAF policy, create policy from JSON, overwrite WAF policy, JSON import protection policy",
+    "path": "category/mobile-ios-android/huawei-cloud-waf-policy-manage"
   },
   {
     "id": "ima-dai-sdk",
@@ -1768,6 +1864,14 @@
     "path": "category/mobile-ios-android/moatmri"
   },
   {
+    "id": "mobile-android-design",
+    "name": "mobile-android-design",
+    "category": "mobile-ios-android",
+    "repository": "wshobson-agents",
+    "description": "Master Material Design 3 and Jetpack Compose patterns for building native Android apps. Use when designing Android interfaces, implementing Compose UI, or following Google's Material Design guidelines.",
+    "path": "category/mobile-ios-android/mobile-android-design"
+  },
+  {
     "id": "mobile-app-debugging",
     "name": "mobile-app-debugging",
     "category": "mobile-ios-android",
@@ -1822,6 +1926,14 @@
     "repository": "davila7-claude-code-templates",
     "description": "Mobile game development principles. Touch input, battery, performance, app stores.",
     "path": "category/mobile-ios-android/mobile-games"
+  },
+  {
+    "id": "mobile-ios-design",
+    "name": "mobile-ios-design",
+    "category": "mobile-ios-android",
+    "repository": "wshobson-agents",
+    "description": "Master iOS Human Interface Guidelines and SwiftUI patterns for building native iOS apps. Use when designing iOS interfaces, implementing SwiftUI views, or ensuring apps follow Apple's design principles.",
+    "path": "category/mobile-ios-android/mobile-ios-design"
   },
   {
     "id": "mobile-platform-native-capabilities-integrate",
@@ -1880,6 +1992,22 @@
     "path": "category/mobile-ios-android/natural-language"
   },
   {
+    "id": "nemo-relay-install",
+    "name": "nemo-relay-install",
+    "category": "mobile-ios-android",
+    "repository": "nvidia-skills",
+    "description": "Use this skill when choosing or running NeMo Relay installation for an agent runtime, application language, framework integration, or plugin bundle, or checking a runtime's native Relay readiness. Do not use it for first-run instrumentation or export configuration.",
+    "path": "category/mobile-ios-android/nemo-relay-install"
+  },
+  {
+    "id": "nemo-relay-plugin-observability",
+    "name": "nemo-relay-plugin-observability",
+    "category": "mobile-ios-android",
+    "repository": "nvidia-skills",
+    "description": "Use this skill when choosing or configuring NeMo Relay 0.6 or 0.7 observability through the built-in plugin, subscribers, or exporters, including raw ATOF events, ATIF trajectories, OpenTelemetry, OpenInference, or custom event handling.",
+    "path": "category/mobile-ios-android/nemo-relay-plugin-observability"
+  },
+  {
     "id": "network-config-validation",
     "name": "network-config-validation",
     "category": "mobile-ios-android",
@@ -1894,6 +2022,22 @@
     "repository": "openclaw-openclaw",
     "description": "Diagnose OpenClaw Control UI browser and native Android, iOS, or macOS node connection failures across route, auth, pairing, QR/setup-code, and reconnect states.",
     "path": "category/mobile-ios-android/node-connect"
+  },
+  {
+    "id": "nvidia-broadcast",
+    "name": "nvidia-broadcast",
+    "category": "mobile-ios-android",
+    "repository": "nvidia-skills",
+    "description": "Use when controlling NVIDIA Broadcast through MCP to apply effects, process local media, select devices, or change camera resolution, or when Broadcast is missing or too old to expose the gateway and the user wants it installed; not for Broadcast app settings outside the MCP gateway.",
+    "path": "category/mobile-ios-android/nvidia-broadcast"
+  },
+  {
+    "id": "nvshmem-configure-nic-pe-mapping",
+    "name": "nvshmem-configure-nic-pe-mapping",
+    "category": "mobile-ios-android",
+    "repository": "nvidia-skills",
+    "description": "Recommend NVSHMEM NIC-to-PE mappings and environment exports. Use for HCA selection, multi-NIC configuration, or topology-based mapping diagnostics.",
+    "path": "category/mobile-ios-android/nvshmem-configure-nic-pe-mapping"
   },
   {
     "id": "open-autoglm-phone-agent",
@@ -2110,6 +2254,14 @@
     "repository": "dpearson2699-swift-ios-skills",
     "description": "Implement, review, or debug push notifications in iOS/macOS apps \u2014 local notifications, remote (APNs) notifications, rich notifications, notification actions, silent pushes, and notification service/content extensions. Use when working with UNUserNotificationCenter, registering for remote notifications, handling notification payloads, setting up notification categories and actions, creating rich notification content, or debugging notification delivery. Also use when working with alerts, badges, sounds, background pushes, or user notification permissions in Swift apps.",
     "path": "category/mobile-ios-android/push-notifications"
+  },
+  {
+    "id": "querying-aws-redshift",
+    "name": "querying-aws-redshift",
+    "category": "mobile-ios-android",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Enables Redshift system-table (SYS_*) log publishing to S3 Tables in Apache Iceberg format for both Provisioned clusters and Serverless namespaces, verifies publishing status, and queries the published logs via any Iceberg-compatible engine including Redshift and Athena. Covers system tables such as sys_query_history, sys_query_text, sys_connection_log, sys_query_detail, and sys_session_history. Applies when turning on S3 Tables log publishing for a cluster or namespace, confirming publishing status and locating the S3 Tables namespace, querying non-realtime data from Redshift system tables off-cluster at scale, or building dashboards for Redshift monitoring and auditing, especially for historical or high-volume system-table data beyond the in-cluster SYS_ view retention window. Trigger phrases: publish redshift system table log to s3 tables, enable-logging s3 tables, describe redshift logging status, query redshift system tables in athena or redshift, redshift log exports to iceberg.",
+    "path": "category/mobile-ios-android/querying-aws-redshift"
   },
   {
     "id": "r8-analyzer",
@@ -2384,6 +2536,14 @@
     "path": "category/mobile-ios-android/skills"
   },
   {
+    "id": "social-evidence-research",
+    "name": "social-evidence-research",
+    "category": "mobile-ios-android",
+    "repository": "wshobson-agents",
+    "description": "Research public discussion on social platforms and keep every report claim tied to the source material that supports it. Use when researching or comparing how a product, event, or topic is discussed across social platforms or supplied social exports, when turning search results into a cited report, or when auditing a social research report for discovery-only evidence, double-counted reposts, misattributed comments, claims that go beyond the sample, or hidden access gaps.",
+    "path": "category/mobile-ios-android/social-evidence-research"
+  },
+  {
     "id": "stata-graph",
     "name": "stata-graph",
     "category": "mobile-ios-android",
@@ -2560,6 +2720,14 @@
     "path": "category/mobile-ios-android/test-scenario"
   },
   {
+    "id": "test-scenarios",
+    "name": "test-scenarios",
+    "category": "mobile-ios-android",
+    "repository": "phuryn-pm-skills",
+    "description": "Create comprehensive test scenarios from user stories with test objectives, starting conditions, user roles, step-by-step actions, and expected outcomes. Use when writing QA test cases, creating test plans, defining acceptance tests, or preparing for feature validation.",
+    "path": "category/mobile-ios-android/test-scenarios"
+  },
+  {
     "id": "testing-android-intents-for-vulnerabilities",
     "name": "testing-android-intents-for-vulnerabilities",
     "category": "mobile-ios-android",
@@ -2632,6 +2800,22 @@
     "path": "category/mobile-ios-android/uizze-ui"
   },
   {
+    "id": "unity-export",
+    "name": "unity-export",
+    "category": "mobile-ios-android",
+    "repository": "arjun988-blender-skills",
+    "description": "Unity-specific Blender export for scale, axis, materials, humanoid/generic rigs, LODs, and collision import via MCP.",
+    "path": "category/mobile-ios-android/unity-export"
+  },
+  {
+    "id": "unreal-export",
+    "name": "unreal-export",
+    "category": "mobile-ios-android",
+    "repository": "arjun988-blender-skills",
+    "description": "Unreal Engine-specific Blender export for FBX scale, LODs, UCX collision, sockets, materials, and skeletal mesh workflows via MCP.",
+    "path": "category/mobile-ios-android/unreal-export"
+  },
+  {
     "id": "update-swiftui-apis",
     "name": "update-swiftui-apis",
     "category": "mobile-ios-android",
@@ -2662,6 +2846,14 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Use Expo DOM components to run web code in a webview on native and as-is on web. Migrate web code to native incrementally.",
     "path": "category/mobile-ios-android/use-dom"
+  },
+  {
+    "id": "uv-workflow",
+    "name": "uv-workflow",
+    "category": "mobile-ios-android",
+    "repository": "arjun988-blender-skills",
+    "description": "Production UV unwrapping for seam placement, UV packing, texel density, UDIM, lightmap UVs, and modular UV layouts. Use when preparing meshes for texturing and engine export in Blender via MCP.",
+    "path": "category/mobile-ios-android/uv-workflow"
   },
   {
     "id": "uxkin-research",

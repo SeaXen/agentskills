@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to label unexecuted samples as passing",
+        "evidence": "\"Unverified, never 'passing'.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels every sample it could not execute as unverified",
+        "evidence": "\"Java, Ruby, Go | Nothing... Unverified\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Still delivers tier assignments for the whole corpus despite being unable to execute anything",
+        "evidence": "\"no counts, no findings and no scores\"; no tier assignments are delivered.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Still delivers the mechanical lint results that need no runtime, such as fence language identifiers, prompt characters, ellipses, placeholder style, block length and trailing whitespace",
+        "evidence": "No lint was run; only commands to run are given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Delivers a written verification plan the team can implement once a runtime and registry access exist",
+        "evidence": "Sections on environment constraints, commands, rubric and CI per language outside the box.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that every scanner flag is a candidate to confirm rather than a verdict",
+        "evidence": "\"the scanner treats a flag as a verdict. The skill says to treat every flag as a candidate to confirm\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Confirms the key-rotation and hardening pages individually instead of accepting all 63 flags as genuine P0 findings",
+        "evidence": "\"Don't exclude the two pages\"; the P0 tests apply per flag, and survivors get a real-key check.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names a credential-rotation page as the documented legitimate case for a key-shaped string appearing in a sample",
+        "evidence": "\"a rotation page legitimately contains a key-shaped string\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes deliberate anti-pattern samples such as the --insecure examples to tier Illustrative with a visible not-runnable label rather than filing them as P0 findings",
+        "evidence": "\"It is tier Illustrative, with a visible label on the rendered page.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that any genuine P0 is reported immediately rather than held to the end of the report",
+        "evidence": "\"Report P0 the moment it is seen.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that scanner output nobody reads documents a problem rather than gating against it, and requires a non-zero exit that fails a check and posts the failure where reviewers see it",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to label unexecuted samples as passing",
+        "evidence": "'Java, Ruby and Go samples are labelled unverified.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels every sample it could not execute as unverified",
+        "evidence": "The same line labels them unverified, and the parity gap is 'not a pass'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Still delivers tier assignments for the whole corpus despite being unable to execute anything",
+        "evidence": "'No audit findings.' No tiers are assigned to any samples.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Still delivers the mechanical lint results that need no runtime, such as fence language identifiers, prompt characters, ellipses, placeholder style, block length and trailing whitespace",
+        "evidence": "It delivers an untested script and no results.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Delivers a written verification plan the team can implement once a runtime and registry access exist",
+        "evidence": "It gives a constraint-decisions section, a sampling plan, thresholds and 'First fix-queue item: a CI job that installs the other three toolchains'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that every scanner flag is a candidate to confirm rather than a verdict",
+        "evidence": "'Hand-label a random 15 of the 63 old findings first' and 'the hand-score pass must confirm each INFO.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Confirms the key-rotation and hardening pages individually instead of accepting all 63 flags as genuine P0 findings",
+        "evidence": "'Always score both exempt pages by hand.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names a credential-rotation page as the documented legitimate case for a key-shaped string appearing in a sample",
+        "evidence": "'A rotation guide must show placeholders'. Placeholder-shaped keys on those pages drop to INFO.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes deliberate anti-pattern samples such as the --insecure examples to tier Illustrative with a visible not-runnable label rather than filing them as P0 findings",
+        "evidence": "Labelled `--insecure` demos are downgraded to INFO, not routed to the Illustrative tier.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that any genuine P0 is reported immediately rather than held to the end of the report",
+        "evidence": "It says 'Rotate it' but does not say to report immediately.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that scanner output nobody reads documents a problem rather than gating against it, and requires a non-zero exit that fails a check and posts the failure where reviewers see it",
+        "evidence": "The script only prints output, and no failing check is required.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

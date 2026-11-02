@@ -1,0 +1,32 @@
+name: tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  pytest:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install shell test dependencies
+        run: sudo apt-get update && sudo apt-get install -y zsh
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: |
+            app/requirements.lock
+            app/requirements-pdf-images.lock
+      - name: Install the app with the optional pdf-images extra
+        run: python -m pip install -r app/requirements.lock -r app/requirements-pdf-images.lock -e "app[pdf-images]"
+      - name: Run the test suite
+        working-directory: app
+        run: python -m pytest -q

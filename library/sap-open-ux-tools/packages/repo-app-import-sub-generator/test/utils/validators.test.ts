@@ -1,0 +1,357 @@
+import { jest } from '@jest/globals';
+import type { QfaJsonConfig, QuickDeployedAppConfig, AppInfo } from '../../src/app/types.js';
+import { t } from '../../src/utils/i18n.js';
+import type { AppIndex, AbapServiceProvider } from '@sap-ux/axios-extension';
+import { HELP_NODES } from '@sap-ux/guided-answers-helper';
+import { qfaJsonFileName } from '../../src/utils/constants.js';
+import type { AppWizard } from '@sap-devx/yeoman-ui-types';
+import { MessageType } from '@sap-devx/yeoman-ui-types';
+import { AppDownloadType } from '../../src/app/types.js';
+import { EventName } from '../../src/telemetryEvents/index.js';
+
+const mockDownloadApp = jest.fn() as jest.Mock;
+const mockHasQfaJson = jest.fn<() => boolean>().mockReturnValue(true);
+const mockSendTelemetry = jest.fn().mockResolvedValue(undefined) as jest.Mock;
+const mockCreateTelemetryData = jest.fn().mockReturnValue({}) as jest.Mock;
+
+jest.unstable_mockModule('../../src/utils/logger', () => {
+    const mock = {
+        logger: { error: jest.fn(), warn: jest.fn(), info: jest.fn(), debug: jest.fn() },
+        configureLogging: jest.fn()
+    };
+    return { default: mock, ...mock };
+});
+
+jest.unstable_mockModule('../../src/utils/download-utils', () => ({
+    downloadApp: mockDownloadApp,
+    hasQfaJson: mockHasQfaJson
+}));
+
+jest.unstable_mockModule('@sap-ux/fiori-generator-shared', () => ({
+    sendTelemetry: mockSendTelemetry,
+    TelemetryHelper: { createTelemetryData: mockCreateTelemetryData }
+}));
+
+// Pre-import actual inquirer-common before mocking
+const actualInquirerCommon = await import('@sap-ux/inquirer-common');
+
+jest.unstable_mockModule('@sap-ux/inquirer-common', () => ({
+    ...actualInquirerCommon
+}));
+
+const { validateQfaJsonFile, validateAppSelection, isValidPromptState } = await import('../../src/utils/validators.js');
+const { hasQfaJson } = await import('../../src/utils/download-utils.js');
+const RepoAppDownloadLogger = (await import('../../src/utils/logger.js')).default;
+const { ErrorHandler, ERROR_TYPE } = await import('@sap-ux/inquirer-common');
+const { PromptState } = await import('../../src/prompts/prompt-state.js');
+
+ErrorHandler.getHelpLink = jest.fn() as any;
+
+describe('validateQfaJsonFile', () => {
+    const validConfig: QfaJsonConfig = {
+        metadata: { package: 'valid-package' },
+        serviceBindingDetails: {
+            serviceName: 'validService',
+            serviceVersion: '1.0.0',
+            mainEntityName: 'validEntity'
+        },
+        projectAttribute: { moduleName: 'validModule' },
+        deploymentDetails: { repositoryName: 'validRepository' },
+        fioriLaunchpadConfiguration: {
+            semanticObject: 'semanticObject',
+            action: 'action',
+            title: 'title'
+        }
+    };
+
+    afterEach(() => {
+        jest.clearAllMocks();
+    });
+
+    it('should return true when all validation functions pass', () => {
+        const result = validateQfaJsonFile(validConfig);
+        expect(result).toBe(true);
+    });
+
+    it('should return false and log an error when metadata validation fails', () => {
+        const invalidMetadataConfig = {
+            ...validConfig,
+            metadata: { package: '' } // Invalid package
+        } as unknown as QfaJsonConfig;
+
+        const result = validateQfaJsonFile(invalidMetadataConfig);
+        expect(result).toBe(false);
+        expect(RepoAppDownloadLogger.logger.error).toHaveBeenCalledWith(
+            t('error.validationErrors.invalidMetadataPackage')
+        );
+    });
+
+    it('should return false and log an error when service binding details validation fails', () => {
+        const invalidServiceBindingConfig = {
+            ...validConfig,
+            serviceBindingDetails: {
+                ...validConfig.serviceBindingDetails,
+                serviceName: '' // Invalid service name
+            }
+        } as unknown as QfaJsonConfig;
+
+        const result = validateQfaJsonFile(invalidServiceBindingConfig);
+        expect(result).toBe(false);
+        expect(RepoAppDownloadLogger.logger.error).toHaveBeenCalledWith(t('error.validationErrors.invalidServiceName'));
+    });
+
+    it('should return false and log an error when service binding version is not provided', () => {
+        const invalidServiceBindingConfig = {
+            ...validConfig,
+            serviceBindingDetails: {
+                ...validConfig.serviceBindingDetails,
+                serviceVersion: '' // Invalid service version
+            }
+        } as unknown as QfaJsonConfig;
+
+        const result = validateQfaJsonFile(invalidServiceBindingConfig);
+        expect(result).toBe(false);
+        expect(RepoAppDownloadLogger.logger.error).toHaveBeenCalledWith(
+            t('error.validationErrors.invalidServiceVersion')
+        );
+    });
+
+    it('should return false and log an error when main entity name is missing', () => {
+        const invalidServiceBindingConfig = {
+            ...validConfig,
+            serviceBindingDetails: {
+                ...validConfig.serviceBindingDetails,
+                mainEntityName: '' // Invalid main entity name
+            }
+        } as unknown as QfaJsonConfig;
+
+        const result = validateQfaJsonFile(invalidServiceBindingConfig);
+        expect(result).toBe(false);
+        expect(RepoAppDownloadLogger.logger.error).toHaveBeenCalledWith(
+            t('error.validationErrors.invalidMainEntityName')
+        );
+    });
+
+    it('should return false and log an error when project attribute validation fails', () => {
+        const invalidProjectAttributeConfig = {
+            ...validConfig,
+            projectAttribute: { moduleName: '' } // Invalid module name
+        } as unknown as QfaJsonConfig;
+
+        const result = validateQfaJsonFile(invalidProjectAttributeConfig);
+        expect(result).toBe(false);
+        expect(RepoAppDownloadLogger.logger.error).toHaveBeenCalledWith(t('error.validationErrors.invalidModuleName'));
+    });
+
+    it('should return false and log an error when deployment details validation fails', () => {
+        const invalidDeploymentDetailsConfig = {
+            ...validConfig,
+            deploymentDetails: { repositoryName: '' } // Invalid repository name
+        } as unknown as QfaJsonConfig;
+
+        const result = validateQfaJsonFile(invalidDeploymentDetailsConfig);
+        expect(result).toBe(false);
+        expect(RepoAppDownloadLogger.logger.error).toHaveBeenCalledWith(
+            t('error.validationErrors.invalidRepositoryName')
+        );
+    });
+});
+
+describe('validateAppSelection', () => {
+    const mockGetHelpLink = ErrorHandler.getHelpLink as ReturnType<typeof jest.fn>;
+    const mockHelpLink = { url: 'https://GA-link.com' };
+
+    beforeEach(() => {
+        jest.clearAllMocks();
+    });
+
+    it('should return a help link if quickDeployedAppConfig exists and no apps are found', async () => {
+        const quickDeployedAppConfig: QuickDeployedAppConfig = { appId: '12345' };
+        const appList: AppIndex = [];
+
+        mockGetHelpLink.mockResolvedValue(mockHelpLink);
+        const result = await validateAppSelection({} as AppInfo, appList, quickDeployedAppConfig);
+
+        expect(mockGetHelpLink).toHaveBeenCalledTimes(1);
+        expect(mockGetHelpLink).toHaveBeenCalledWith(
+            HELP_NODES.ADT_APP_NOT_FOUND_ERROR,
+            ERROR_TYPE.INTERNAL_SERVER_ERROR,
+            t('error.noAppsDeployed')
+        );
+        expect(result).toBe(mockHelpLink);
+    });
+
+    it('should return a help link if no apps are available at all', async () => {
+        const appList: AppIndex = [];
+        const result = await validateAppSelection({} as AppInfo, appList);
+        mockGetHelpLink.mockResolvedValue(mockHelpLink);
+
+        expect(mockGetHelpLink).toHaveBeenCalledTimes(1);
+        expect(mockGetHelpLink).toHaveBeenCalledWith(
+            HELP_NODES.ADT_APP_NOT_FOUND_ERROR,
+            ERROR_TYPE.INTERNAL_SERVER_ERROR,
+            t('error.noAppsDeployed')
+        );
+        expect(result).toBe(mockHelpLink);
+    });
+
+    it('should notify the user that the app contains no qfa.json file in it', async () => {
+        const mockAppWizard = {
+            setHeaderTitle: jest.fn(),
+            showWarning: jest.fn(),
+            showError: jest.fn(),
+            showInformation: jest.fn()
+        } as unknown as AppWizard;
+        const appList: AppIndex = [{ appId: '12345', repoName: 'testRepo' }];
+        const answers = { appId: '12345', repoName: 'testRepo' } as AppInfo;
+        mockDownloadApp.mockResolvedValue({ success: true });
+        mockHasQfaJson.mockReturnValue(false);
+        await validateAppSelection(answers, appList, undefined, mockAppWizard);
+        expect(mockAppWizard.showError).toHaveBeenCalledWith(
+            t('error.qfaJsonNotFound', { jsonFileName: qfaJsonFileName }),
+            MessageType.notification
+        );
+    });
+
+    it('should return true if a valid app is selected and download is successful', async () => {
+        const appList: AppIndex = [{ appId: '12345', repoName: 'testRepo' }];
+        const answers = { appId: '12345', repoName: 'testRepo' } as AppInfo;
+        mockDownloadApp.mockResolvedValue({ success: true });
+        mockHasQfaJson.mockReturnValue(true);
+        const result = await validateAppSelection(answers, appList);
+
+        expect(mockDownloadApp).toHaveBeenCalledWith('testRepo');
+        expect(result).toBe(true);
+        expect(mockSendTelemetry).toHaveBeenCalledWith(EventName.ADT_QUICK_DEPLOY_DOWNLOAD_SUCCESS, expect.any(Object));
+    });
+
+    it('should fire ABAP_REPO_DOWNLOAD_SUCCESS telemetry on successful ABAP repository download', async () => {
+        const appList: AppIndex = [{ appId: '12345', repoName: 'testRepo' }];
+        const answers = { appId: '12345', repoName: 'testRepo' } as AppInfo;
+        mockDownloadApp.mockResolvedValue({ success: true });
+        mockHasQfaJson.mockReturnValue(true);
+
+        await validateAppSelection(answers, appList, undefined, undefined, AppDownloadType.AbapRepository);
+
+        expect(mockSendTelemetry).toHaveBeenCalledWith(EventName.ABAP_REPO_DOWNLOAD_SUCCESS, expect.any(Object));
+    });
+
+    it('should send legacy system telemetry and return a help link if download returns no data', async () => {
+        const appList: AppIndex = [{ appId: '12345', repoName: 'testRepo' }];
+        const answers = { appId: '12345', repoName: 'testRepo' } as AppInfo;
+        mockDownloadApp.mockResolvedValue({ success: false, errorMessage: t('error.appDownloadFailed') });
+        mockGetHelpLink.mockResolvedValue(mockHelpLink);
+
+        const result = await validateAppSelection(
+            answers,
+            appList,
+            undefined,
+            undefined,
+            AppDownloadType.AbapRepository
+        );
+
+        expect(mockSendTelemetry).toHaveBeenCalledWith(EventName.ABAP_REPO_DOWNLOAD_FAIL, expect.any(Object));
+        expect(mockGetHelpLink).toHaveBeenCalledWith(
+            HELP_NODES.ABAP_REPO_APP_DOWNLOAD_FAILED,
+            ERROR_TYPE.INTERNAL_SERVER_ERROR,
+            t('error.appDownloadFailed')
+        );
+        expect(result).toBe(mockHelpLink);
+    });
+
+    it('should return an error message if download fails', async () => {
+        const appList: AppIndex = [{ appId: '12345', repoName: 'testRepo' }];
+        const answers = { appId: '12345', repoName: 'testRepo' } as AppInfo;
+        mockDownloadApp.mockRejectedValue(new Error('Download failed'));
+
+        const result = await validateAppSelection(answers, appList);
+
+        expect(mockDownloadApp).toHaveBeenCalledWith('testRepo');
+        expect(result).toBe(t('error.appDownloadErrors.appDownloadFailure', { error: 'Download failed' }));
+    });
+
+    it('should return a message if no app is selected', async () => {
+        const appList: AppIndex = [{ appId: '12345', repoName: 'testRepo' }];
+        const result = await validateAppSelection({} as AppInfo, appList);
+
+        expect(result).toBe(false);
+    });
+
+    it('should skip qfa.json check and return true for ABAP repository download type', async () => {
+        const appList: AppIndex = [{ appId: '12345', repoName: 'testRepo' }];
+        const answers = { appId: '12345', repoName: 'testRepo' } as AppInfo;
+        mockDownloadApp.mockResolvedValue({ success: true });
+        (hasQfaJson as jest.Mock).mockReturnValue(false);
+
+        const result = await validateAppSelection(
+            answers,
+            appList,
+            undefined,
+            undefined,
+            AppDownloadType.AbapRepository
+        );
+
+        expect(mockDownloadApp).toHaveBeenCalledWith('testRepo');
+        expect(result).toBe(true);
+    });
+});
+
+describe('isValidPromptState', () => {
+    const mockServiceProvider = {
+        defaults: {
+            baseURL: 'https://mock.sap-system.com',
+            params: {
+                'sap-client': '100'
+            }
+        }
+    } as unknown as AbapServiceProvider;
+
+    beforeEach(() => {
+        PromptState.reset();
+        PromptState.systemSelection = {
+            connectedSystem: {
+                serviceProvider: mockServiceProvider
+            }
+        };
+    });
+
+    it('should return true when all conditions are met', () => {
+        const targetFolder = '/mock/target/folder';
+        const appId = 'mockAppId';
+        const result = isValidPromptState(targetFolder, appId);
+        expect(result).toBe(true);
+    });
+
+    it('should return false when serviceProvider is missing', () => {
+        PromptState.systemSelection = {
+            connectedSystem: {
+                serviceProvider: null as unknown as AbapServiceProvider
+            }
+        };
+        const targetFolder = '/mock/target/folder';
+        const appId = 'mockAppId';
+        const result = isValidPromptState(targetFolder, appId);
+        expect(result).toBe(false);
+    });
+
+    it('should return false when appId is missing', () => {
+        const targetFolder = '/mock/target/folder';
+        const appId = undefined;
+        const result = isValidPromptState(targetFolder, appId);
+        expect(result).toBe(false);
+    });
+
+    it('should return false when targetFolder is missing', () => {
+        const targetFolder = '';
+        const appId = 'mockAppId';
+        const result = isValidPromptState(targetFolder, appId);
+        expect(result).toBe(false);
+    });
+
+    it('should return false serviceProvider, appId and targetFolder are missing', () => {
+        const targetFolder = '';
+        const appId = undefined;
+        const result = isValidPromptState(targetFolder, appId);
+        expect(result).toBe(false);
+    });
+});

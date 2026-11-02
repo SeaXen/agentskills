@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States the no-show planning figure as roughly 30% of RSVPs and attributes it to CNCF Community Groups",
+        "evidence": "\"The only sourced planning figure is CNCF's **~30% no-show (70% show-up)**\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the 40-50% no-show figure explicitly as folklore with no named organization behind it",
+        "evidence": "\"Your friend's '40\u201350% no-show' isn't a sourced figure \u2014 it's the exact folklore number this skill calls out by name and rejects.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Derives the group's own show-up rate from the numbers given (41 of 118, roughly 35%) rather than assuming the imported figure applies",
+        "evidence": "\"Last month: 118 RSVP, 41 attended = 65% no-show, 35% show-up.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prefers the group's own measured rate over CNCF's figure because six editions of door counts already exist",
+        "evidence": "Text explicitly says \"One edition is 'weather, not trend' on its own, but it's the only real signal you gave me\" \u2014 justification is a single data point, not six editions of door counts.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Uses the median of the group's trailing editions, not the mean, when setting the local rate",
+        "evidence": "\"this skill says to replace any baseline (CNCF's or your friend's) with your own trailing median\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects capping RSVPs at the 60-seat capacity, because overbooking to the no-show ratio is the point of the calculation",
+        "evidence": "\"Capping RSVPs at room capacity doesn't fix that \u2014 it just guarantees a smaller version of the same mistake\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the overbook surplus beyond room capacity to a waitlist that auto-promotes, rather than onto the RSVP list",
+        "evidence": "\"Set the main RSVP list to 90... Open an auto-promoting waitlist beyond it, uncapped or generously capped (~150)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sizes the food order on expected door count rather than on RSVPs, and names catering the registration list as the most common budget mistake at this scale",
+        "evidence": "Identifies \"ordering food off the RSVP count\" as the cause of the 640\u20ac waste but never generalizes it as \"the most common budget mistake at this scale\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Puts the food budget near 60 people, not 118",
+        "evidence": "\"Food: order for ~55\u201360, but finalize it late, not now.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes a reminder roughly two hours before the event asking people who cannot come to release their spot",
+        "evidence": "\"the 2-hours-out 'release your spot' message\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Records the door count rather than the registration count in the edition log",
+        "evidence": "\"count heads at the door this time and write it down \u2014 that's the number that ends the guessing\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Specifies vegan and vegetarian options and allergen labelling for the food",
+        "evidence": "No mention of vegan/vegetarian options or allergen labelling anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States the no-show planning figure as roughly 30% of RSVPs and attributes it to CNCF Community Groups",
+        "evidence": "No mention of CNCF anywhere; the only benchmark cited is 'your friend's \"half won't come\" rule (50% no-show)'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the 40-50% no-show figure explicitly as folklore with no named organization behind it",
+        "evidence": "It says 'trust your own data over a differently-sized group in a different city' \u2014 not framed as folklore or lacking a named organization.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Derives the group's own show-up rate from the numbers given (41 of 118, roughly 35%) rather than assuming the imported figure applies",
+        "evidence": "'Show-up rate: 41 / 118 = 35% (no-show 65%)'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prefers the group's own measured rate over CNCF's figure because six editions of door counts already exist",
+        "evidence": "No mention of six editions or CNCF; only 'last month' data is used, with a caveat 'This is one data point (last month only)'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Uses the median of the group's trailing editions, not the mean, when setting the local rate",
+        "evidence": "No median/mean discussion; only one data point is used and the text suggests pulling more data later, not computing a median.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects capping RSVPs at the 60-seat capacity, because overbooking to the no-show ratio is the point of the calculation",
+        "evidence": "'Your last event's 118 RSVPs was actually a reasonable number for a 60-seat room if you'd assumed a 50% show rate (118 \u00d7 0.5 = 59 \u2248 capacity) \u2014 the RSVP volume wasn't the problem.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the overbook surplus beyond room capacity to a waitlist that auto-promotes, rather than onto the RSVP list",
+        "evidence": "'use a soft cap with waitlist (Meetup.com supports this natively): open ~120 spots, first 100 confirmed, rest waitlisted, promote waitlisted people if you see cancellations.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sizes the food order on expected door count rather than on RSVPs, and names catering the registration list as the most common budget mistake at this scale",
+        "evidence": "It says the bug is 'ordering food to match RSVP count instead of expected attendance,' but never frames this as 'the most common budget mistake at this scale.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Puts the food budget near 60 people, not 118",
+        "evidence": "'order for ~48\u201350 people' \u2014 near 50, not near 60.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes a reminder roughly two hours before the event asking people who cannot come to release their spot",
+        "evidence": "'Send a \"still coming?\" reminder 24\u201348h before the event' \u2014 not two hours before, and framed as a headcount signal, not a release-your-spot ask.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Records the door count rather than the registration count in the edition log",
+        "evidence": "No 'edition log' is mentioned anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Specifies vegan and vegetarian options and allergen labelling for the food",
+        "evidence": "No mention of vegan, vegetarian, or allergen labelling anywhere.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,216 @@
+import { jest } from '@jest/globals';
+import type { AppWizard, Prompts } from '@sap-devx/yeoman-ui-types';
+
+import { FlexLayer, type AttributesAnswers, type ConfigAnswers, type SystemLookup } from '@sap-ux/adp-tooling';
+import type { ManifestNamespace } from '@sap-ux/project-access';
+import { AdaptationProjectType } from '@sap-ux/axios-extension';
+
+const mockGetExtensionProjectData = jest.fn<typeof realExtProject.getExtensionProjectData>();
+
+const realExtProject = await import('../../../src/app/extension-project/index.js');
+jest.unstable_mockModule('../../../src/app/extension-project', () => ({
+    ...realExtProject,
+    getExtensionProjectData: mockGetExtensionProjectData
+}));
+
+const { t } = await import('../../../src/utils/i18n.js');
+const { addFlpGen, addDeployGen, addExtProjectGen } = await import('../../../src/utils/subgenHelpers.js');
+
+describe('Sub-generator helpers', () => {
+    const wizard = {} as unknown as AppWizard;
+    const error = new Error('Failed to compose');
+    const logger = { info: jest.fn(), error: jest.fn() } as any;
+
+    describe('addFlpGen', () => {
+        const composeWith = jest.fn();
+
+        beforeEach(() => {
+            jest.clearAllMocks();
+        });
+
+        it('should compose FLP generator with correct parameters', async () => {
+            const flpOptions = {
+                projectRootPath: '/test/path',
+                inbounds: {
+                    'display-bank': {
+                        semanticObject: 'test',
+                        action: 'action',
+                        title: 'testTitle',
+                        subTitle: 'testSubTitle',
+                        icon: 'sap-icon://test',
+                        signature: {
+                            parameters: {
+                                param1: {
+                                    value: 'test1',
+                                    isRequired: true
+                                }
+                            }
+                        }
+                    }
+                } as unknown as ManifestNamespace.Inbound,
+                layer: FlexLayer.CUSTOMER_BASE,
+                vscode: {},
+                prompts: {
+                    items: [
+                        {
+                            name: 'SAP Fiori Launchpad Configuration - Tile Settings',
+                            description: ''
+                        },
+                        {
+                            name: 'SAP Fiori Launchpad Configuration',
+                            description: ''
+                        }
+                    ]
+                } as unknown as Prompts
+            };
+
+            await addFlpGen(flpOptions, composeWith, logger, wizard);
+
+            expect(composeWith).toHaveBeenCalledWith(
+                expect.any(String),
+                expect.objectContaining({
+                    inbounds: flpOptions.inbounds,
+                    vscode: {},
+                    data: { projectRootPath: flpOptions.projectRootPath }
+                })
+            );
+            expect(logger.info).toHaveBeenCalled();
+        });
+
+        it('should handle errors and show user notification', async () => {
+            composeWith.mockRejectedValueOnce(error);
+
+            await expect(addFlpGen({} as any, composeWith, logger, wizard)).rejects.toThrow(
+                "Could not call '@sap/fiori:adp-flp-config' sub-generator: Failed to compose"
+            );
+
+            expect(logger.error).toHaveBeenCalledWith(error);
+        });
+
+        it('should compose FLP generator with isCfProject flag when provided', async () => {
+            const flpOptions = {
+                projectRootPath: '/test/path',
+                inbounds: {} as unknown as ManifestNamespace.Inbound,
+                layer: FlexLayer.CUSTOMER_BASE,
+                vscode: {},
+                prompts: { items: [] } as unknown as Prompts,
+                isCfProject: true
+            };
+
+            await addFlpGen(flpOptions, composeWith, logger, wizard);
+
+            expect(composeWith).toHaveBeenCalledWith(
+                expect.any(String),
+                expect.objectContaining({
+                    isCfProject: true
+                })
+            );
+        });
+    });
+
+    describe('addDeployGen', () => {
+        beforeEach(() => {
+            jest.clearAllMocks();
+        });
+
+        it('should compose deploy-config generator with merged options', async () => {
+            const composeWith = jest.fn();
+
+            const deployOptions = {
+                projectName: 'some.app',
+                projectPath: '/project',
+                connectedSystem: 'SYS',
+                system: {
+                    Name: 'SYS',
+                    Client: '100',
+                    Url: 'sys-url'
+                },
+                projectType: AdaptationProjectType.ON_PREMISE
+            };
+
+            const additionalValidation = {
+                shouldValidatePackageForStartingPrefix: true,
+                shouldValidatePackageType: true,
+                shouldValidateFormatAndSpecialCharacters: true
+            };
+
+            await addDeployGen(deployOptions, composeWith, logger, wizard);
+
+            expect(composeWith).toHaveBeenCalledWith(
+                '@sap/fiori:deploy-config',
+                expect.objectContaining({
+                    projectName: 'some.app',
+                    projectPath: '/project',
+                    appGenClient: '100',
+                    connectedSystem: 'SYS',
+                    appGenDestination: 'SYS',
+                    appGenServiceHost: 'sys-url',
+                    telemetryData: { appType: 'Fiori Adaptation' },
+                    subGenPromptOptions: {
+                        ui5AbapRepo: { hideIfOnPremise: true },
+                        transportInputChoice: { hideIfOnPremise: true },
+                        overwriteAbapConfig: { hide: true },
+                        packageAutocomplete: {
+                            additionalValidation
+                        },
+                        packageManual: {
+                            additionalValidation
+                        },
+                        adpProjectType: AdaptationProjectType.ON_PREMISE
+                    }
+                })
+            );
+            expect(logger.info).toHaveBeenCalled();
+        });
+
+        it('should handle errors and show user notification', async () => {
+            const composeWith = jest.fn();
+
+            composeWith.mockRejectedValueOnce(error);
+
+            await expect(addDeployGen({} as any, composeWith, logger, wizard)).rejects.toThrow(
+                "Could not call '@sap/fiori:deploy-config' sub-generator: Failed to compose"
+            );
+
+            expect(logger.error).toHaveBeenCalledWith(error);
+        });
+    });
+
+    describe('addExtProjectGen', () => {
+        const composeWith = jest.fn();
+
+        beforeEach(() => {
+            jest.clearAllMocks();
+        });
+
+        it('should compose extension generator with serialized data', async () => {
+            const answers = {
+                configAnswers: {} as ConfigAnswers,
+                attributeAnswers: {} as AttributesAnswers,
+                systemLookup: {} as SystemLookup
+            };
+            const fakeData = { foo: 'bar' };
+
+            mockGetExtensionProjectData.mockResolvedValue(fakeData);
+
+            await addExtProjectGen(answers, composeWith, logger);
+
+            expect(composeWith).toHaveBeenCalledWith(
+                '@bas-dev/extensibility-sub',
+                expect.objectContaining({
+                    arguments: [JSON.stringify(fakeData)]
+                })
+            );
+            expect(logger.info).toHaveBeenCalled();
+        });
+
+        it('should handle errors and show user notification', async () => {
+            mockGetExtensionProjectData.mockRejectedValue(error);
+
+            await expect(addExtProjectGen({} as any, composeWith, logger, wizard)).rejects.toThrow();
+
+            expect(logger.info).toHaveBeenCalledWith(t('error.creatingExtensionProjectError'));
+            expect(logger.error).toHaveBeenCalledWith(error);
+        });
+    });
+});

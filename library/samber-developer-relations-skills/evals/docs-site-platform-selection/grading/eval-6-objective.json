@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The response recommends against the custom build for Halvane, or makes it conditional on a funded owning team",
+        "evidence": "\"Don't build a custom Next.js docs app.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response states that 'can help' from the web team is not a committed build owner",
+        "evidence": "\"'The web team can help' does not count as an owner.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response names the condition under which a custom build would be justified (a funded owning team plus a written list of what no other class can do, or equivalent)",
+        "evidence": "\"The skill allows a custom build only with a funded owning team and a written list of what no other class can do.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response weighs the 10-week launch date against the effort of a custom build",
+        "evidence": "\"A 10-week build on top of the launch is the largest schedule risk.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response keeps matching the marketing site branding as a requirement to test on other classes",
+        "evidence": "Row 3: \"Header, footer, design tokens, analytics and consent banner match the marketing site\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response keeps integration with the customer portal login as a requirement to test on other classes",
+        "evidence": "Row 1: \"A logged-out reader cannot reach a gated page... a portal test account can\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response includes generating the C++ API reference from Doxygen or the source as a requirement",
+        "evidence": "Row 2: \"C++ reference regenerates from source via Doxygen in CI with no hand edits\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response includes a named build owner requirement with monthly hours",
+        "evidence": "Row 9: \"Owner named, within about 8 h/month\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response recommends a hosted docs platform or a self-hosted generator class",
+        "evidence": "\"Use a self-hosted docs generator, with a Next.js-based one first in the pilot.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response presents the custom build's standing cost as a platform team for the life of the site, or equivalent",
+        "evidence": "\"A custom app would need a funded team for the life of the docs\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The response recommends against the custom build for Halvane, or makes it conditional on a funded owning team",
+        "evidence": "\"Build on Next.js, but not a custom docs app.\" and a \"Why not a fully custom app\" section.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response states that 'can help' from the web team is not a committed build owner",
+        "evidence": "It asks for \"written capacity commitment\" but never makes the 'can help' versus committed-owner distinction.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response names the condition under which a custom build would be justified (a funded owning team plus a written list of what no other class can do, or equivalent)",
+        "evidence": "It names no funded team plus written list of what no other class can do.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response weighs the 10-week launch date against the effort of a custom build",
+        "evidence": "\"The schedule is tight. About 150 pages, 10 weeks...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response keeps matching the marketing site branding as a requirement to test on other classes",
+        "evidence": "The hosted option is described as \"limited by their theming\", with a fall-back gate on the visual match.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response keeps integration with the customer portal login as a requirement to test on other classes",
+        "evidence": "\"'Plugs into our customer portal login' is usually paid-tier and constrained\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response includes generating the C++ API reference from Doxygen or the source as a requirement",
+        "evidence": "The Doxygen strategy section and the \"C++ API reference\" row in the architecture table.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response includes a named build owner requirement with monthly hours",
+        "evidence": "The owner column shows \"1 dev auth, 1 dev Doxygen\" but there is no named owner with monthly hours.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response recommends a hosted docs platform or a self-hosted generator class",
+        "evidence": "Fumadocs/Nextra are the recommended generator-class frameworks, with a hosted platform as the fallback.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response presents the custom build's standing cost as a platform team for the life of the site, or equivalent",
+        "evidence": "It says only \"You would own the maintenance... search, accessibility, mobile nav...\", with no platform team for the life of the site.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

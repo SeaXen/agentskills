@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Treats a licence change on published code as effectively irreversible and separates it from the reversible decisions",
+        "evidence": "\"Effectively irreversible, and worth exactly one shot: the licence change.\" contrasted with \"Reversible, and the only thing that can actually affect the two accounts in progress\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that every Apache-2.0 release already published stays licensed that way forever, whatever the next release ships under",
+        "evidence": "\"Every Halyard release published under Apache-2.0 stays Apache-2.0 forever. Nothing you do to the next release touches what's already out\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to call BUSL-1.1 open source and supplies source-available, fair source or delayed open source as the correct term",
+        "evidence": "\"Call it what it is: source-available, or delayed open source\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites the OSI ruling that SSPL violates the Open Source Definition, or Bruce Perens' objection to restrictive licences being called open source, when explaining the naming discipline",
+        "evidence": "\"The OSI board rejected the same move by MongoDB (SSPL) in January 2021 in these words: 'the hallmark of a fauxpen source license...'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites at least one documented relicensing outcome by name: Elasticsearch and the OpenSearch fork, Redis and the Valkey fork, or HashiCorp and the OpenTofu fork",
+        "evidence": "\"exactly as AWS did with OpenSearch and Valkey, and as the Linux Foundation did with OpenTofu\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that every documented relicensing has produced a fork, a trust cost, or both",
+        "evidence": "\"Every documented precedent (Elasticsearch\u2192SSPL, Redis\u2192RSALv2/SSPL, HashiCorp\u2192BUSL) produced a fork within weeks\" plus the Redis CEO quote about hurting community relationship",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places the source-available decision on the reversibility ladder rather than ranking it as a tenth peer archetype",
+        "evidence": "\"Sequencing: don't let the slow, irreversible lever be the only move\" framed against the reversible competing-offer motion",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that source-available creates no buyer of its own and only protects whichever model sits underneath it",
+        "evidence": "\"A restrictive licence is not a business model by itself \u2014 it's a wall around one, and right now nobody has said what's behind the wall.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the model the licence change is meant to protect to be named and chosen before the licence moves",
+        "evidence": "\"Name the model the licence is supposed to protect... Pick one before the announcement goes out\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Runs the reversible experiment first to buy evidence before pulling the irreversible lever",
+        "evidence": "\"The reversible and the irreversible responses run in parallel, not in sequence, and they're not interchangeable\" \u2014 explicitly rejects sequencing the irreversible move after the reversible one.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names contributor count and downstream packaging status as what to watch in the quarters after a change",
+        "evidence": "Contributor consent-map is discussed only as a pre-change prerequisite (\"Enumerate every contributor whose code is still present in the tree\"); no post-change contributor-count or packaging-status monitoring is named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the distributions, foundations, corporate allowlists or procurement processes that exclude non-OSI licences",
+        "evidence": "\"it fails automated OSI-approved-only checks in the procurement pipelines of exactly the enterprise accounts you're trying to keep\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Treats a licence change on published code as effectively irreversible and separates it from the reversible decisions",
+        "evidence": "The memo sequences reversible groundwork (audit, CLA, trademark, outreach) as mandatory 'This week' actions and defers the licence change itself to 'Then relicense, in ~8-10 weeks' \u2014 explicit staged caution consistent with treating it as the harder-to-undo move.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that every Apache-2.0 release already published stays licensed that way forever, whatever the next release ships under",
+        "evidence": "'Zero retroactive effect. Every commit ever published under Apache-2.0 stays Apache-2.0 forever.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to call BUSL-1.1 open source and supplies source-available, fair source or delayed open source as the correct term",
+        "evidence": "'BUSL-1.1 is source-available, not open source... we are not going to call it one.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites the OSI ruling that SSPL violates the Open Source Definition, or Bruce Perens' objection to restrictive licences being called open source, when explaining the naming discipline",
+        "evidence": "The memo cites OSD #6 to explain why BUSL fails OSI approval ('the Additional Use Grant discriminates by field of endeavor, which fails OSD #6'), but never cites an OSI ruling on SSPL specifically or Bruce Perens.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites at least one documented relicensing outcome by name: Elasticsearch and the OpenSearch fork, Redis and the Valkey fork, or HashiCorp and the OpenTofu fork",
+        "evidence": "'Terraform's BUSL move produced OpenTofu within days, under the Linux Foundation within weeks... Redis's license changes produced Valkey under LF.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that every documented relicensing has produced a fork, a trust cost, or both",
+        "evidence": "'The pattern is unbroken... Note the endings: Elastic re-added AGPLv3 in 2024 and Redis re-added AGPLv3 in 2025 \u2014 both conceded, years late, after the fork had already taken the community.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places the source-available decision on the reversibility ladder rather than ranking it as a tenth peer archetype",
+        "evidence": "Section 9's numbered sequence puts audit/CLA/trademark/outreach first and only 'Then relicense, in ~8-10 weeks' \u2014 sequencing by risk/reversibility rather than presenting relicensing as one of many parallel options.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that source-available creates no buyer of its own and only protects whichever model sits underneath it",
+        "evidence": "'BUSL without a managed offering protects an empty room... it's the only thing BUSL's Additional Use Grant can meaningfully protect going forward.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the model the licence change is meant to protect to be named and chosen before the licence moves",
+        "evidence": "'Commit to a first-party managed Halyard this quarter. Without it, no license change protects revenue you actually have.' \u2014 listed as step 3, before step 4's relicense.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Runs the reversible experiment first to buy evidence before pulling the irreversible lever",
+        "evidence": "The memo sequences groundwork (audits, CLA, trademark letters, outreach) before relicensing, but no willingness-to-pay or design-partner experiment is run to buy evidence before the license change.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names contributor count and downstream packaging status as what to watch in the quarters after a change",
+        "evidence": "Contributor base and Debian/Fedora dropping SSPL are cited as pre-change risk factors and historical precedent, not framed as ongoing metrics to watch in the quarters after Halyard's own change.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the distributions, foundations, corporate allowlists or procurement processes that exclude non-OSI licences",
+        "evidence": "'procurement checklists, distro packaging, Homebrew, and corporate license allowlists gate on OSI status... dropped by Debian and Fedora.' Also: 'CNCF, ASF, and LF projects require an OSI-approved license.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

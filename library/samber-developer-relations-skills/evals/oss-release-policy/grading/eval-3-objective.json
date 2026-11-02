@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Shows the capacity arithmetic explicitly as fixes per month times hours per backport times extra lines, plus ordinary releases, rather than asserting feasibility",
+        "evidence": "\"9 fixes \u00d7 2 lines \u00d7 2 h = 36 h/yr = 3 h/month. Total is 5 h/month\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Computes that the requested promise costs about 5 hours a month (2 hours of ordinary releases plus 9/12 fixes per month times 2 hours times 2 extra lines), exceeding the 3 hours available",
+        "evidence": "\"Total is 5 h/month, 167% of capacity.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to write the three-major all-fixes promise as requested",
+        "evidence": "\"I can't write 'last three majors, all fixes'.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends security-only on the previous major 5.x for a fixed window after 6.0 as the default, computed at about half an hour a month (3/12 times 2 hours times 1 line)",
+        "evidence": "\"Security-only on 5.x alone (recommended): 3 \u00d7 2 h = 6 h/yr = 0.5 h/month.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Drops 4.x from the supported lines or gives it an explicit end date before 6.0 ships, rather than carrying it",
+        "evidence": "\"4.x | unsupported | ended with the release of 6.0.0\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the ranking latest line only, then latest plus security-only on the previous major for a fixed window, then N most recent lines, then a multi-year LTS, with fixes delivered per maintainer hour as the criterion",
+        "evidence": "No ranking of latest-only, security-only, N lines, LTS is stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the condition that promotes N most recent lines over the single security-only line: adopters who cannot take a major within one window",
+        "evidence": "Not stated; only enterprise paid support is mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives every supported line an end date or ending event, not 'while people use it'",
+        "evidence": "\"the earlier of 12 months after 6.0.0 and the release of 7.0.0\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that backports ship as a patch on that line and publish under their own dist-tag or release branch so latest stays on the current line",
+        "evidence": "\"cut from the `release-5.x` branch and published with `--tag release-5.x`, so `latest` always stays on the current line\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the security advisory must list the patched version on every supported line or update bots propose a major jump instead of the backport",
+        "evidence": "\"It lists the patched version of every supported line, so update bots propose the backport\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that issues on unsupported lines are closed with a link to the table unless they reproduce on a supported line",
+        "evidence": "\"Issues on unsupported lines are closed with a link to this table unless they reproduce on a supported line.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names who decides on backports in the Backports section",
+        "evidence": "\"Either maintainer decides whether an issue is a security fix.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the capacity estimate as a planning default rather than a published formula",
+        "evidence": "Only gives caveats about rates; never calls it a planning default.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Shows the capacity arithmetic explicitly as fixes per month times hours per backport times extra lines, plus ordinary releases, rather than asserting feasibility",
+        "evidence": "Table: \"Budget (3 h \u00d7 12) 36; Normal releases 24; Left for backports 12\" and \"3 \u00d7 2 lines \u00d7 2 h\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Computes that the requested promise costs about 5 hours a month (2 hours of ordinary releases plus 9/12 fixes per month times 2 hours times 2 extra lines), exceeding the 3 hours available",
+        "evidence": "\"you need about 5 h/month, not 3.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to write the three-major all-fixes promise as requested",
+        "evidence": "\"I did not write the three-major, all-fixes version, because your own numbers say you can't deliver it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends security-only on the previous major 5.x for a fixed window after 6.0 as the default, computed at about half an hour a month (3/12 times 2 hours times 1 line)",
+        "evidence": "5.x gets security, regressions and corruption fixes; the cost is not computed at ~0.5 h/month.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Drops 4.x from the supported lines or gives it an explicit end date before 6.0 ships, rather than carrying it",
+        "evidence": "4.x is carried as \"Security only... 3 months after 6.0.0\" and is still supported before 6.0.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the ranking latest line only, then latest plus security-only on the previous major for a fixed window, then N most recent lines, then a multi-year LTS, with fixes delivered per maintainer hour as the criterion",
+        "evidence": "No ranking given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the condition that promotes N most recent lines over the single security-only line: adopters who cannot take a major within one window",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives every supported line an end date or ending event, not 'while people use it'",
+        "evidence": "Table has a \"Support ends\" column for every line.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that backports ship as a patch on that line and publish under their own dist-tag or release branch so latest stays on the current line",
+        "evidence": "\"npm publish --tag v5-maintenance\" so latest doesn't move.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the security advisory must list the patched version on every supported line or update bots propose a major jump instead of the backport",
+        "evidence": "\"publish the advisory with all fixed versions listed.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that issues on unsupported lines are closed with a link to the table unless they reproduce on a supported line",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names who decides on backports in the Backports section",
+        "evidence": "\"The maintainers decide whether a fix is low risk.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the capacity estimate as a planning default rather than a published formula",
+        "evidence": "Calls window lengths \"my picks\" and the SLA \"a placeholder\", but never labels the estimate a planning default rather than a published formula.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

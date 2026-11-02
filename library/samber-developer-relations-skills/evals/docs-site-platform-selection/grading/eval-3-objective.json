@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The response challenges 'free' by naming the standing owner hours that self-hosting requires",
+        "evidence": "\"Docusaurus has no licence fee, but the cost is standing engineering hours.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response cites the absence of a build owner (zero engineering hours) as the reason the self-hosted generator is ruled out",
+        "evidence": "\"no build owner, so it fails... the 'free means free' failure mode\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response recommends the hosted docs platform class",
+        "evidence": "\"Decision: move to a hosted docs platform\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response includes a requirement that support engineers can publish a fix without Git",
+        "evidence": "Row 1: \"A support engineer publishes a fix without Git\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response includes a named build owner as a requirement or register row",
+        "evidence": "Row 5: \"A named owner stays within the hours ceiling\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response includes an export or exit-cost requirement",
+        "evidence": "Row 6: \"Content, assets and navigation can be exported\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response includes a URL preservation requirement",
+        "evidence": "Row 7: \"The top-10 old URLs resolve or 301\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response includes rendering the OpenAPI reference from the spec as a requirement",
+        "evidence": "Row 3: \"The real OpenAPI spec renders, and a spec change appears without hand edits\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response expresses hosted cost as multipliers (editors or seats, sites, gated tiers) against Kelpline's own editor count, not as list prices",
+        "evidence": "\"Record these multipliers... Editors now (7) and in a year (10, assumed)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response does not quote any subscription price or currency amount",
+        "evidence": "The response gives no price or currency amount; it says \"without quoting prices\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response proposes a pilot on Kelpline's own pages before signing",
+        "evidence": "\"Port the same 6 pages to both candidates\"; decision record signed after the pilot.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response limits the shortlist to two or three products",
+        "evidence": "\"Take two candidates, not three\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response considers a Git-backed web editor on the current generator, or explains why it does not solve the missing build owner",
+        "evidence": "\"Adding a Git-backed editor layer for support engineers adds one more component to maintain.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The response challenges 'free' by naming the standing owner hours that self-hosting requires",
+        "evidence": "\"It costs something to run: Upgrades: nobody has the hours...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response cites the absence of a build owner (zero engineering hours) as the reason the self-hosted generator is ruled out",
+        "evidence": "\"Engineering hours: the VP set these at zero. Staying means either breaking that rule or letting the site rot\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response recommends the hosted docs platform class",
+        "evidence": "\"Migrate to a hosted docs platform with a web editor and native OpenAPI support.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response includes a requirement that support engineers can publish a fix without Git",
+        "evidence": "\"A web editor for non-Git users... fix a typo... in the browser.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response includes a named build owner as a requirement or register row",
+        "evidence": "\"Name the tech writer as the platform owner\"; \"Confirm the tech writer as the platform owner.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response includes an export or exit-cost requirement",
+        "evidence": "\"Content stays portable... The lock-in test is whether you can leave in a day.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response includes a URL preservation requirement",
+        "evidence": "\"Old URLs must redirect (301)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response includes rendering the OpenAPI reference from the spec as a requirement",
+        "evidence": "\"Native OpenAPI reference. It must be generated from your spec file or URL\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response expresses hosted cost as multipliers (editors or seats, sites, gated tiers) against Kelpline's own editor count, not as list prices",
+        "evidence": "It says only \"compare the hosted subscription against the loaded cost of one engineer's days.\" There are no seat, site, or tier multipliers.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response does not quote any subscription price or currency amount",
+        "evidence": "\"Pull current pricing from the vendors, because I haven't verified it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response proposes a pilot on Kelpline's own pages before signing",
+        "evidence": "\"Pilot. Import about 30 representative pages... Have 2 support engineers make real edits.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response limits the shortlist to two or three products",
+        "evidence": "Mintlify lead and GitBook fallback.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response considers a Git-backed web editor on the current generator, or explains why it does not solve the missing build owner",
+        "evidence": "\"A Docusaurus rescue would need... a CMS layer such as Decap or TinaCMS... It would still need ongoing maintenance.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

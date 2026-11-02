@@ -1,0 +1,481 @@
+import type { Editor } from 'mem-fs-editor';
+import type { Logger } from '@sap-ux/logger';
+
+export const DotFileExtension = {
+    JS: '.js',
+    TS: '.ts'
+} as const;
+
+export type DotFileExtension = (typeof DotFileExtension)[keyof typeof DotFileExtension];
+
+/**
+ * Options accepted by the public OPA test generation entry point.
+ */
+export type OPAGenerationOptions = {
+    /** The name of the OPA journey file. If not specified, 'FirstJourney' will be used. */
+    scriptName?: string;
+    /** The appID. If not specified, will be read from the manifest in sap.app/id. */
+    appID?: string;
+    /**
+     * The html target used for the launchUrl in the OPA journey file. If not specified, it is derived
+     * from the app's `test/flpSandbox.html` (e.g. `test/flpSandbox.html#<appIntent>`), falling back to
+     * `index.html` when no FLP sandbox is present.
+     */
+    htmlTarget?: string;
+    /** When true, OPA harness files are served virtually; skip writing them to disk. */
+    useVirtualPreviewEndpoints?: boolean;
+    /** If true, generate TypeScript files instead of JavaScript. */
+    enableTypeScript?: boolean;
+    /** Minimum UI5 version of the target app — selects template bucket ('1.84' / '1.148' / 'latest'). */
+    ui5Version?: string;
+};
+
+export const SupportedPageTypes: { [id: string]: string } = {
+    'sap.fe.templates.ListReport': 'ListReport',
+    'sap.fe.templates.ObjectPage': 'ObjectPage',
+    'sap.fe.core.fpm': 'FPM'
+};
+
+export type FEV4OPAPageConfig = {
+    appID: string;
+    appPath: string;
+    template: string;
+    componentID: string;
+    entitySet?: string;
+    contextPath?: string;
+    targetKey: string;
+    isStartup: boolean;
+    fileName?: string;
+    fileExtension?: string;
+};
+
+export type FEV4OPAConfig = {
+    appID: string;
+    appPath: string;
+    pages: FEV4OPAPageConfig[];
+    opaJourneyFileName: string;
+    htmlTarget: string;
+    hideFilterBar: boolean;
+    filterBarItems?: string[];
+    useVirtualPreviewEndpoints: boolean;
+};
+
+export type JourneyParams = {
+    startPages: string[];
+    startLR: string | undefined;
+    navigatedOP: string | undefined;
+    navigatedOPTabKey?: string;
+    hideFilterBar: boolean;
+    /** OData service URI passed to `iResetMockData({ ServiceUri })` at the start of each journey. */
+    serviceUri: string;
+};
+
+export type FEV4ManifestTarget = {
+    type?: string;
+    name?: string;
+    id?: string;
+    options?: {
+        settings?: {
+            entitySet?: string;
+            contextPath?: string;
+            hideFilterBar?: boolean;
+            defaultTemplateAnnotationPath?: string;
+            navigation?: {
+                [id: string]: {
+                    detail?: {
+                        route?: string;
+                    };
+                };
+            };
+            views?: {
+                paths?: Array<{
+                    key?: string;
+                    entitySet?: string;
+                    annotationPath?: string;
+                    template?: string;
+                    primary?: unknown[];
+                    secondary?: unknown[];
+                    defaultPath?: string;
+                }>;
+            };
+        };
+    };
+};
+
+/**
+ * General validation error thrown if app config options contain invalid combinations
+ */
+export class ValidationError extends Error {
+    /**
+     * ValidationError constructor.
+     *
+     * @param message - the error message
+     */
+    constructor(message: string) {
+        super(`Validation error: ${message}`);
+        this.name = this.constructor.name;
+    }
+}
+
+/**
+ * Configuration interface for generating freestyle OPA test files
+ */
+export interface FFOPAConfig {
+    appId: string;
+    applicationTitle?: string;
+    applicationDescription?: string;
+    enableTypeScript?: boolean;
+    viewName?: string;
+    ui5Version?: string;
+    ui5Theme?: string;
+    useVirtualPreviewEndpoints?: boolean;
+}
+
+export type SortOrderItem = {
+    property: string;
+    descending: boolean;
+};
+
+export type FilterDefaultValue = {
+    property: string;
+    /** Low value of the EQ/LE/GE/LT/GT/NE range, normalized (IsDigitSequence zero-padded to maxLength). */
+    value: string;
+    /** High value for BT (between) ranges. */
+    value2?: string;
+    /** MDC condition operator string (e.g. 'EQ', 'BT', 'LE'). Omitted for EQ (default). */
+    operator?: string;
+};
+
+export type ObjectPageNavigationParent = {
+    name: string;
+    navigationProperty: string;
+};
+
+export type ObjectPageNavigationParents = {
+    parentLRName?: string;
+    parentLRViewKey?: string;
+    parentLRViewIsDefault?: boolean;
+    parentOPs: ObjectPageNavigationParent[];
+};
+
+export type SectionFormField = {
+    property: string;
+    connectedFields?: string;
+    fieldGroup?: string;
+    targetAnnotation?: string;
+    checkBoxGroup?: boolean;
+};
+
+export type TableColumn = {
+    header?: string;
+};
+
+export type TableColumnFeatureData = Record<string, TableColumn>;
+
+export type ContactCardField = {
+    property: string;
+};
+
+/**
+ * A table column whose bound property carries a `Common.Text` annotation. `columnProperty` is the
+ * column's own (code) property; `textProperty` is the text target. Both are asserted independently.
+ * When columns share one text target, only the first emits the text-property test; the rest set
+ * `skipTextPropertyTest` but still assert their own code column. `textPropertyNotSortable` marks a
+ * nav-path target in an AnalyticalTable view (cannot sort across a navigation); skipped in the sort test only.
+ */
+export type TextAnnotationColumn = {
+    columnProperty: string;
+    textProperty: string;
+    skipTextPropertyTest?: boolean;
+    textPropertyNotSortable?: boolean;
+};
+
+export type BodySubSectionFeatureData = {
+    id: string;
+    navigationProperty?: string;
+    isTable: boolean;
+    custom: boolean;
+    order: number;
+    fields: SectionFormField[];
+    contactCardFields: ContactCardField[];
+    tableColumns: TableColumnFeatureData;
+    contactCardColumns: ContactCardField[];
+};
+
+export type BodySectionFeatureData = {
+    id: string;
+    navigationProperty?: string;
+    isTable: boolean;
+    custom: boolean;
+    order: number;
+    fields: SectionFormField[];
+    contactCardFields: ContactCardField[];
+    tableColumns: TableColumnFeatureData;
+    contactCardColumns: ContactCardField[];
+    subSections: BodySubSectionFeatureData[];
+    actions?: ActionButtonState[];
+    createButton?: ButtonState;
+    deleteButton?: ButtonState;
+};
+
+export type ObjectPageFeatures = {
+    name?: string;
+    navigationParents?: ObjectPageNavigationParents;
+    headerTitle?: string;
+    headerDescription?: string;
+    headerSections?: HeaderSectionFeatureData[];
+    bodySections?: BodySectionFeatureData[];
+    headerActions?: ActionButtonState[];
+    editButton?: ButtonState;
+};
+
+/**
+ * Filter bar item consumed by the List Report journey template. Custom filter fields fall
+ * back to their (translatable) label, so `custom` selects the label vs. `{ property }` form.
+ */
+export type FilterBarItem = {
+    property: string;
+    description: string;
+    custom: boolean;
+};
+
+/**
+ * Per-tab feature data for a multi-table (Multiple Table Mode) List Report. Each non-custom tab is
+ * checked separately (columns, actions, create/delete, contact cards) against its own table.
+ */
+export type ListReportTab = {
+    key: string;
+    entitySet?: string;
+    tableColumns: TableColumnFeatureData;
+    contactCardColumns: ContactCardField[];
+    toolBarActions: ActionButtonState[];
+    createButton: { enabled?: boolean | string; visible?: boolean; dynamicPath?: string };
+    deleteButton: { enabled?: boolean | string; visible?: boolean; dynamicPath?: string };
+    textAnnotationColumns: TextAnnotationColumn[];
+    columnPersonalizationSupported?: boolean;
+    defaultSortOrder?: SortOrderItem[];
+};
+
+export type ListReportFeatures = {
+    name?: string;
+    createButton?: {
+        enabled?: boolean | string;
+        visible?: boolean;
+        dynamicPath?: string;
+    };
+    deleteButton?: {
+        enabled?: boolean | string;
+        visible?: boolean;
+        dynamicPath?: string;
+    };
+    filterBarItems?: FilterBarItem[];
+    tableColumns?: Record<string, Record<string, string | number | boolean>>;
+    contactCardColumns: ContactCardField[];
+    toolBarActions?: ActionButtonState[];
+    /**
+     * Columns whose bound property has both a `Common.Text` and a `UI.TextArrangement`
+     * annotation; used to generate sort-order tests against the text/description property.
+     */
+    textAnnotationColumns?: TextAnnotationColumn[];
+    /**
+     * Whether the table exposes column personalization (the "Columns" adaptation dialog).
+     * Absent/true means enabled (the Fiori elements default).
+     */
+    columnPersonalizationSupported?: boolean;
+    isALP?: boolean;
+    /**
+     * Non-custom tab keys (`views.paths[].key`) for multi-tab List Reports; empty for
+     * single-table LRs. Used to target a specific tab via `onTable("<key>")`.
+     */
+    tableIdentifiers?: string[];
+    /**
+     * Per-tab feature data for multi-table List Reports; empty for single-table LRs (in which case the
+     * top-level `tableColumns` / `toolBarActions` / `contactCardColumns` describe the single table).
+     */
+    tabs?: ListReportTab[];
+    semanticKey?: {
+        semanticKeyProperties?: string[];
+        missingFromFilterBar?: string[];
+    };
+    defaultSortOrder?: SortOrderItem[];
+    defaultFilterValues?: FilterDefaultValue[];
+};
+
+export interface ActionButtonState {
+    label: string;
+    /**
+     * Action method name only (e.g. `"SetToBooked"`). Used as the `action` field of
+     * `ActionIdentifier` in `iCheckAction({ service, action, unbound })`.
+     */
+    action: string;
+    visible: boolean;
+    /**
+     * Indicates whether the action button is enabled.
+     * - true: Button is enabled and can be invoked
+     * - false: Button is disabled
+     * - 'dynamic': The state is controlled by a dynamic path annotation (e.g., Core.OperationAvailable)
+     */
+    enabled: boolean | 'dynamic';
+    /**
+     * If the enabled state is dynamic, this contains the path to the control property.
+     * For example: "_it/__OperationControl/deductDiscount"
+     */
+    dynamicPath?: string;
+    /**
+     * Set when the action has no `Core.OperationAvailable` annotation and is bound to a single
+     * instance: it is disabled with no selection and becomes enabled once a row is selected. Unlike
+     * `'dynamic'`, this flip is deterministic, so the generated test can assert both states.
+     */
+    selectionEnables?: boolean;
+    /**
+     * The invocation grouping type if specified (e.g., "Isolated", "ChangeSet").
+     */
+    invocationGrouping?: string;
+    /**
+     * OData schema namespace used as the `service` parameter in iCheckAction({ service, action, unbound }).
+     * Populated for both List Report and Object Page actions extracted via metadata.
+     */
+    service?: string;
+    /**
+     * Whether the action is unbound (not bound to a specific entity instance).
+     * Populated for both List Report and Object Page actions extracted via metadata.
+     */
+    unbound?: boolean;
+    /**
+     * Whether the action is annotated with `Common.IsActionCritical`. Critical actions trigger a
+     * confirmation dialog at runtime, which the generated test asserts and then cancels.
+     */
+    isCritical?: boolean;
+    /**
+     * Set when this entry is a menu (drop-down) button rather than a single action.
+     * `menuActions` then holds the individual actions inside the menu.
+     */
+    menuType?: 'Annotation' | 'CustomMenu';
+    /**
+     * The individual actions contained in a menu. Only set when `menuType` is present.
+     * Menu items are matched at runtime by label (the FE test API `iCheckMenuAction` /
+     * `iExecuteMenuAction` match menu entries by their rendered text, not by a stable id).
+     */
+    menuActions?: MenuActionState[];
+    /**
+     * Set when a menu (drop-down) button declares a `defaultAction`, so Fiori Elements renders it as a
+     * split button. Its dropdown can only be opened via the arrow, which the `sap.fe.test` API cannot
+     * press — so the generated test asserts the button but omits the (unreachable) menu drill-down.
+     */
+    splitButton?: boolean;
+    /**
+     * Set for custom (manifest-declared) actions that have no OData `DataFieldForAction` counterpart.
+     * These are matched at runtime by their rendered label, so the writer emits the label-string form
+     * `iCheckAction("<label>")` instead of the `{ service, action, unbound }` object form.
+     */
+    custom?: boolean;
+    /**
+     * Set when `label` is still an unresolved i18n placeholder (the app i18n bundle had no matching key).
+     * The writer emits a follow-up marker comment so the developer can fix the assertion.
+     */
+    labelUnresolved?: boolean;
+    /**
+     * Names of the action's non-binding parameters.
+     */
+    parameterDialogFields?: string[];
+}
+
+export interface MenuActionState {
+    label: string;
+    visible: boolean;
+    service?: string;
+    action?: string;
+    unbound?: boolean;
+    enabled?: boolean | 'dynamic';
+    dynamicPath?: string;
+    labelUnresolved?: boolean;
+}
+
+export type FPMFeatures = {
+    name?: string;
+    filterBarItems?: string[];
+    tableColumns?: Record<string, Record<string, string | number | boolean>>;
+};
+
+export type AppFeatures = {
+    listReport?: ListReportFeatures;
+    objectPages?: ObjectPageFeatures[];
+    fpm?: FPMFeatures;
+};
+
+export type WriteContext = {
+    config: FEV4OPAConfig;
+    basePath: string;
+    rootCommonTemplateDirPath: string;
+    rootV4TemplateDirPath: string;
+    testOutDirPath: string;
+    editor: Editor;
+    log?: Logger;
+    journeyParams: JourneyParams;
+    hasPreexistingTests?: boolean;
+    incompatibleTestSetup?: boolean;
+    dotFileExtension: DotFileExtension;
+    /** Resolved template bucket folder name: '1.84', '1.148' or 'latest'. */
+    templateUi5Version: string;
+    /**
+     * When true, ux-specification-derived journeys (ListReport, ObjectPage, FPM) are generated.
+     * When false (e.g. ObjectPage-only or Analytical List Page projects), only the generic
+     * fallback `FirstJourney` is written.
+     */
+    generateUxSpecJourneys: boolean;
+    modifiedFiles: string[];
+};
+
+export type FormField = {
+    fieldGroupQualifier?: string;
+    field?: string;
+    targetAnnotation?: string;
+};
+
+export type HeaderSectionFeatureData = {
+    facetId?: string;
+    title?: string;
+    custom?: boolean;
+    collection?: boolean;
+    microChart?: boolean;
+    form?: boolean;
+    stashed?: boolean | string;
+    fields?: FormField[];
+    contactCardFields: ContactCardField[];
+};
+
+export interface ButtonState {
+    visible: boolean;
+    /**
+     * - true: Button is enabled and can be clicked
+     * - false: Button is disabled
+     * - 'dynamic': The state is controlled by a dynamic path annotation (e.g., Path="__EntityControl/Deletable")
+     */
+    enabled: boolean | 'dynamic';
+    dynamicPath?: string;
+}
+
+export interface ButtonVisibilityResult {
+    /**
+     * State of the Create button based on Capabilities.InsertRestrictions annotation.
+     */
+    create: ButtonState;
+    /**
+     * State of the Delete button based on Capabilities.DeleteRestrictions annotation.
+     */
+    delete: ButtonState;
+}
+
+/**
+ * Result interface for action button checks.
+ */
+export interface ActionButtonsResult {
+    /**
+     * List of action buttons found in the UI.LineItem annotation.
+     */
+    actions: ActionButtonState[];
+    /**
+     * The entity type name that these actions belong to.
+     */
+    entityType: string;
+}

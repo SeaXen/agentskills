@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Recommends splitting the call: the implementing engineers for about an hour, the VP separately for about twenty minutes.",
+        "evidence": "The transcript instead sets up a single 'Agenda for the 45 minutes (3 attendees)' joint call with the VP and both engineers together.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason for the split: in a joint call the hands-on voice defers, and the hands-on voice is the one readers trust.",
+        "evidence": "The risk is named ('in a joint call with a VP present, the hands-on voice defers unless you ask it directly') but is used to justify directing questions within the same joint call, not to justify an actual split into two calls.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects writing up from notes and requires a recording, with consent asked at the start of the call and confirmed on the recording itself.",
+        "evidence": "'If your Zoom setup can record, ask for consent... If not, verbatim note-taking on the two or three best lines is the minimum.' \u2014 recording is not made mandatory, note-taking is an accepted fallback.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the transcript is kept until publication alongside the approval file, because verbatim quotes are the backbone and paraphrase drifts into vendor register.",
+        "evidence": "No mention of retaining a transcript/recording file through publication; post-call steps only mention a thank-you email and evidence ledger.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rewrites 'are you happy with the performance' into a question about what a named dashboard read before cutover and what it reads now.",
+        "evidence": "'What did the key metric read before, and what does it read now? Which dashboard, log, or bill is that from?'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects 'would you recommend us to a peer' as an opinion or hypothetical question that invites a compliment rather than producing a publishable fact.",
+        "evidence": "The question is relabeled 'the sharper version of it' and replaced with another hypothetical ('If an engineer at a similar company asked you... what would you tell them?') rather than being explicitly rejected as compliment-inviting.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the questioning rule being applied: ask about specifics that already happened, never about opinions or hypotheticals.",
+        "evidence": "'Ask about specifics that already happened \u2014 never \"was it much faster,\" always \"what did it read before and what does it read now.\"'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Instructs sending an agenda beforehand asking them to bring the before and after dashboard numbers, because an engineer who has not looked at the old dashboard cannot produce a baseline from memory.",
+        "evidence": "The 'Before you dial in' section only tells the interviewer to check their own side; no instruction to send Fairhaven an advance agenda asking them to pull dashboard numbers.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Orders the questions as a ladder where each rung needs the previous one concrete, covering system context, before-state, cost of the before-state, trigger, alternatives, implementation, numbers, what it cost, what is still unsolved, and advice to a peer.",
+        "evidence": "Agenda proceeds status check, before-state, cost of before-state, alternatives, implementation, numbers, cost+unsolved+advice, approval chain.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes an alternatives rung that asks what each rejected option did better, not only why each was rejected.",
+        "evidence": "'Why did each option lose \u2014 what did it do better than what you picked?'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes a rung covering what they deliberately did not move, what still does not work, and who should not copy this setup.",
+        "evidence": "'What did you deliberately leave on the old system, and why? What still doesn't work the way you want? Who should *not* copy this setup?'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes the publishable quote usually appears at the advice-to-a-peer rung, when the engineer stops reporting and starts explaining.",
+        "evidence": "No statement connects the advice-to-a-peer rung to where the quotable line typically emerges.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Instructs reading numbers back with their instrument and confirming them on the recording, and confirming name spelling and exact job title during the call.",
+        "evidence": "Name/title confirmation during the call is present ('Confirm each attendee's exact name and title spelling before you hang up') but number read-back happens only afterward via a written thank-you, not live on the recording.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Recommends splitting the call: the implementing engineers for about an hour, the VP separately for about twenty minutes.",
+        "evidence": "The prep is built entirely around one combined \"45 minutes with three stakeholders (VP Engineering + two backend engineers)\" session, not separate calls.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason for the split: in a joint call the hands-on voice defers, and the hands-on voice is the one readers trust.",
+        "evidence": "No split is recommended, so no such rationale is given; the transcript only advises directing questions by role within the single joint call.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects writing up from notes and requires a recording, with consent asked at the start of the call and confirmed on the recording itself.",
+        "evidence": "\"Capture verbatim quotes live, not paraphrases... ask permission before the call ends\" \u2014 permission is sought at the end, not the start, and no audio recording is required.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the transcript is kept until publication alongside the approval file, because verbatim quotes are the backbone and paraphrase drifts into vendor register.",
+        "evidence": "No mention of retaining a transcript or approval file appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rewrites 'are you happy with the performance' into a question about what a named dashboard read before cutover and what it reads now.",
+        "evidence": "The offered rewrite is generic: \"How would you describe performance now versus before the migration? Ask for numbers if they have them\" \u2014 no named dashboard is referenced.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects 'would you recommend us to a peer' as an opinion or hypothetical question that invites a compliment rather than producing a publishable fact.",
+        "evidence": "This question is embraced as a whole segment: \"'Would they recommend us' (10 min)... If a peer at another company asked you point-blank 'should I work with them,' what would you actually say?\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the questioning rule being applied: ask about specifics that already happened, never about opinions or hypotheticals.",
+        "evidence": "The transcript deliberately includes hypotheticals such as \"If we reverted this migration tomorrow, what would you actually miss?\" and does not state a rule against opinions/hypotheticals.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Instructs sending an agenda beforehand asking them to bring the before and after dashboard numbers, because an engineer who has not looked at the old dashboard cannot produce a baseline from memory.",
+        "evidence": "No pre-call agenda or advance request for dashboard numbers is mentioned; prep begins with 'Before you dial in' tips for the caller, not a request sent to Fairhaven.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Orders the questions as a ladder where each rung needs the previous one concrete, covering system context, before-state, cost of the before-state, trigger, alternatives, implementation, numbers, what it cost, what is still unsolved, and advice to a peer.",
+        "evidence": "The structure is Opening / Migration overall / Performance today / Would they recommend / Close \u2014 it omits an alternatives rung and a dedicated cost-of-before-state rung.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes an alternatives rung that asks what each rejected option did better, not only why each was rejected.",
+        "evidence": "No question anywhere asks about alternative solutions considered or what they did better.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes a rung covering what they deliberately did not move, what still does not work, and who should not copy this setup.",
+        "evidence": "No such questions appear in any segment.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes the publishable quote usually appears at the advice-to-a-peer rung, when the engineer stops reporting and starts explaining.",
+        "evidence": "No meta-observation about where the best quote typically emerges is stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Instructs reading numbers back with their instrument and confirming them on the recording, and confirming name spelling and exact job title during the call.",
+        "evidence": "No instruction to read numbers back for confirmation or to verify name/title spelling appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

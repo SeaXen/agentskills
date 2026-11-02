@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Runs the audit and additionally tells the user that a free external analysis is available",
+        "evidence": "Full audit is delivered while also stating 'CNCF TechDocs assistance program and Google Season of Docs both give a free external docs analysis'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the CNCF TechDocs assistance program as one source of that external analysis",
+        "evidence": "'CNCF TechDocs assistance program'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names Google Season of Docs as the other",
+        "evidence": "'Google Season of Docs'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that either program delivers an analysis, an implementation plan and an issues backlog",
+        "evidence": "'give a free external docs analysis, implementation plan, and issues backlog'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that either external program beats a solo generalist pass",
+        "evidence": "'apply to one of these before spending your own evening hours re-deriving what a paid reviewer would hand you free'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Frames this audit as the interim measure while the user applies",
+        "evidence": "'Run this audit as the interim measure while you wait on that.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Pushes writing-heavy actions down the queue because the remediation team is engineer-only",
+        "evidence": "'weight mechanical and governance work far above writing \u2014 it's one-time setup cost against permanent leverage, versus writing which recurs every release with no writer to carry it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Assigns structural ownership to maintainers through CODEOWNERS and pull-request review, since no writer exists",
+        "evidence": "'Add CODEOWNERS for docs/ subtree | ~10 min | review no longer falls on whoever's online'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the three failure modes of a solo generalist pass: treating it as a one-off friction log, optimising only the hero getting-started path, and skipping user validation",
+        "evidence": "No such triad of failure modes appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Splits the deliverable into a report, an implementation plan and a set of tickets contributors can pick up",
+        "evidence": "The transcript is not explicitly organized/labeled into these three named deliverable parts (unlike another section's 'analysis / implementation plan / issues list' framing).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sizes the queue against the stated evenings-and-part-timers capacity rather than a full-time writer's",
+        "evidence": "'## Remediation queue \u2014 ranked for 2\u20133 people, evenings only, no writer ever'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Runs the audit and additionally tells the user that a free external analysis is available",
+        "evidence": "No mention of any free external analysis program exists in the document.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the CNCF TechDocs assistance program as one source of that external analysis",
+        "evidence": "Not mentioned anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names Google Season of Docs as the other",
+        "evidence": "Not mentioned anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that either program delivers an analysis, an implementation plan and an issues backlog",
+        "evidence": "Not mentioned anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that either external program beats a solo generalist pass",
+        "evidence": "Not mentioned anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Frames this audit as the interim measure while the user applies",
+        "evidence": "No application process is referenced at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Pushes writing-heavy actions down the queue because the remediation team is engineer-only",
+        "evidence": "'Reorg and pruning are cheap; new prose is expensive. Sequence accordingly'; 'No writer, ever, means the fix can't be \"someone reviews docs periodically\"... It has to be structural.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Assigns structural ownership to maintainers through CODEOWNERS and pull-request review, since no writer exists",
+        "evidence": "The document assigns nav-placement merge approval to 'One of the three of you' via PR review, but never names or uses GitHub's CODEOWNERS mechanism.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the three failure modes of a solo generalist pass: treating it as a one-off friction log, optimising only the hero getting-started path, and skipping user validation",
+        "evidence": "No such three failure modes are named anywhere in the document.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Splits the deliverable into a report, an implementation plan and a set of tickets contributors can pick up",
+        "evidence": "The document separates a self-diagnostic/failure-pattern report, a target structure ('Target structure (Di\u00e1taxis-mapped...)'), and a ranked priority-fixes table functioning as pickable tickets.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sizes the queue against the stated evenings-and-part-timers capacity rather than a full-time writer's",
+        "evidence": "'With one full-time-equivalent-minus and two evenings-only part-timers, reorganizing what exists... beats a rewrite every time.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

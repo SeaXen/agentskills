@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that CI and integrations do not run in the temporary private fork, so the green checks prove nothing, and requires the full test suite to run locally or in a private mirror for both lines",
+        "evidence": "\"CI and integrations cannot run in a temporary private fork. Run the full test suite locally on 6.x and on 5.x\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that all open pull requests in the fork merge at once and only one may target the default branch, so the release-5.x backport and the docs change must be prepared as separate branches or in a private mirror",
+        "evidence": "\"The fork merges all open PRs at once, and only one may target the default branch.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reorders the plan so the fix is merged before the advisory is published, because publishing deletes the fork",
+        "evidence": "\"Publishing the advisory deletes the fork, so you'd lose the fix before merging it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Puts `npm publish` of both patched versions and `npm view <package>@<version>` confirmation before the advisory, which is published only once both versions are served",
+        "evidence": "Tuesday steps 3\u20135: publish, npm view both, then advisory.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects emailing roughly 400 dependents, limiting the embargo notice to packagers who must rebuild and known users running the affected configuration, each reached through a published security contact",
+        "evidence": "\"400 emails is a leak, not a notice. Notify only named contacts... published security contact.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects posting to linux-distros because the list serves software that distributions package, not a library consumed from npm",
+        "evidence": "\"linux-distros: skip it. ... An npm library has no packagers\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes the patch attachment and shares the patch at release time by default, with early fork access only for a recipient that must build before release",
+        "evidence": "\"Send the patch at release time, not 5 days ahead\"; \"Patch: not attached\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Accepts the 5-day lead time as inside the 1 to 7 day range and writes the notice with an '[EMBARGOED until <date time TZ>]' subject, an interim mitigation, and '<<late: ...>>' placeholders for release-day values",
+        "evidence": "Says 1\u20137 days allowed and uses EMBARGOED subject/mitigation, but uses <...> placeholders, not <<late: ...>>, and says 5 days ahead 'was yesterday'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Moves the exploit-triggering regression test out of the shipped fix into a follow-up commit landed after users have had time to upgrade, because the issue is Critical, while noting reviewers still see it in the private fork",
+        "evidence": "\"Reviewers see it in the private fork either way. Keep it out of the merge PR.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that branch protection is not enforced on the fork merge and requires a deliberate review",
+        "evidence": "\"Branch protection is not enforced on that merge, so review deliberately.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires generic branch names, commit messages and pull-request titles for the fork PRs",
+        "evidence": "No instruction for generic branch names/commit messages/PR titles.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds `npm deprecate` on the vulnerable versions with a message pointing to the fix as a release-day option",
+        "evidence": "\"Run npm deprecate on the vulnerable ranges\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Schedules the close-out items: a follow-up if the code-host database review runs past its documented window, confirmation of ecosystem imports, Yuki's acceptance of the credit, and a 15-minute retrospective",
+        "evidence": "Chase review, check ecosystem imports, send Yuki links, credit wording, 15-minute retrospective.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that CI and integrations do not run in the temporary private fork, so the green checks prove nothing, and requires the full test suite to run locally or in a private mirror for both lines",
+        "evidence": "\"GitHub doesn't run Actions in temporary private forks... run `npm test` and the build on both fix branches locally.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that all open pull requests in the fork merge at once and only one may target the default branch, so the release-5.x backport and the docs change must be prepared as separate branches or in a private mirror",
+        "evidence": "Not stated; it still merges three PRs from the advisory page.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reorders the plan so the fix is merged before the advisory is published, because publishing deletes the fork",
+        "evidence": "\"Merge from the advisory page first, then publish.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Puts `npm publish` of both patched versions and `npm view <package>@<version>` confirmation before the advisory, which is published only once both versions are served",
+        "evidence": "Release-day steps publish both versions and run `npm view pelmont-sso dist-tags`, then publish the advisory.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects emailing roughly 400 dependents, limiting the embargo notice to packagers who must rebuild and known users running the affected configuration, each reached through a published security contact",
+        "evidence": "\"You cannot keep an embargo across 400 parties.\" Pre-notice list capped at about 10.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects posting to linux-distros because the list serves software that distributions package, not a library consumed from npm",
+        "evidence": "\"That list is for software that Linux distributions package... Skip it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes the patch attachment and shares the patch at release time by default, with early fork access only for a recipient that must build before release",
+        "evidence": "Patch attachment removed; \"If you need the patch earlier... we will share it through a private channel.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Accepts the 5-day lead time as inside the 1 to 7 day range and writes the notice with an '[EMBARGOED until <date time TZ>]' subject, an interim mitigation, and '<<late: ...>>' placeholders for release-day values",
+        "evidence": "Says five days before Tuesday has passed, and the pre-notice says \"No action is possible before then\" with no interim mitigation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Moves the exploit-triggering regression test out of the shipped fix into a follow-up commit landed after users have had time to upgrade, because the issue is Critical, while noting reviewers still see it in the private fork",
+        "evidence": "Keeps the test in the fix, only \"minimal\" and excluded from the tarball.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that branch protection is not enforced on the fork merge and requires a deliberate review",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires generic branch names, commit messages and pull-request titles for the fork PRs",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds `npm deprecate` on the vulnerable versions with a message pointing to the fix as a release-day option",
+        "evidence": "\"Run `npm deprecate` on the vulnerable ranges with a pointer to the advisory.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Schedules the close-out items: a follow-up if the code-host database review runs past its documented window, confirmation of ecosystem imports, Yuki's acceptance of the credit, and a 15-minute retrospective",
+        "evidence": "The \"After\" list has clean install, `npm audit` and a post-mortem; no database follow-up, import check, credit acceptance or 15-minute retro.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to move the panel even though the decision was delegated: the session grid is owned elsewhere and the meeting block loses every conflict",
+        "evidence": "\"Don't move the panel... never move a session, even when the program team says 'it's your call.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Resolves the speaker conflict by moving the affected meeting slots, not the session",
+        "evidence": "\"Resolve the conflict by moving meeting slots, never sessions.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Takes the 14:00-16:00 block placement as given rather than proposing a better window",
+        "evidence": "It treats the block as fixed and proposes no better window.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces variable-length slots with equal slots, because unequal slots make every downstream conflict a special case",
+        "evidence": "\"Use equal slots with gaps between them. Unequal slots turn every later conflict into a special case.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Adds gaps between slots instead of running them back to back",
+        "evidence": "\"equal slots with gaps between them\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the overrun reason for gaps: a meeting that overruns with no gap pushes every later meeting, and whoever booked last loses",
+        "evidence": "\"one overrun pushes every later meeting for both people. The person who booked last loses.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Checks each participant's slots against the sessions they are speaking at or attending",
+        "evidence": "It handles the three speakers' conflict but never states a general check of each participant's slots against sessions they speak at or attend.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects publishing the full grid and publishes one view per person instead",
+        "evidence": "\"Publish one view per person.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the disclosure reason: a full pair grid reveals who is meeting whom to everyone in it",
+        "evidence": "\"A full grid discloses who is meeting whom to everyone in it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires every pairing confirmed by both sides before publication, naming publication as the point of no return",
+        "evidence": "It requires \"Every pair is accepted by both sides\" before publishing, but never names publication as the point of no return.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sizes the block from real accepted pairs plus a margin for late ones, not hoped-for pairs",
+        "evidence": "\"Size slots from the block you were given and the accepted pair count you really have, plus a margin for late ones.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names one organizer on duty for the block in the published brief",
+        "evidence": "\"one named organizer on duty\" is listed among the brief contents.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not prescribe a specific slot length in minutes",
+        "evidence": "\"The skill states no slot length, and I won't either.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to move the panel even though the decision was delegated: the session grid is owned elsewhere and the meeting block loses every conflict",
+        "evidence": "\"Panel move: probably don't\"; slot the three around their stage time first.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Resolves the speaker conflict by moving the affected meeting slots, not the session",
+        "evidence": "\"Slot the three around their stage time.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Takes the 14:00-16:00 block placement as given rather than proposing a better window",
+        "evidence": "It does not propose a different window.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces variable-length slots with equal slots, because unequal slots make every downstream conflict a special case",
+        "evidence": "\"snap lengths to a few fixed sizes, for example 20 and 40 min\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds gaps between slots instead of running them back to back",
+        "evidence": "\"add 5-10 min between slots\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the overrun reason for gaps: a meeting that overruns with no gap pushes every later meeting, and whoever booked last loses",
+        "evidence": "\"one overrun delays every later meeting in the chain\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Checks each participant's slots against the sessions they are speaking at or attending",
+        "evidence": "\"Check each target's stage time against their meeting slots.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects publishing the full grid and publishes one view per person instead",
+        "evidence": "\"Send each participant only their own meetings.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the disclosure reason: a full pair grid reveals who is meeting whom to everyone in it",
+        "evidence": "\"A full grid shows who meets whom.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires every pairing confirmed by both sides before publication, naming publication as the point of no return",
+        "evidence": "This is not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sizes the block from real accepted pairs plus a margin for late ones, not hoped-for pairs",
+        "evidence": "This is not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names one organizer on duty for the block in the published brief",
+        "evidence": "Only \"a host who calls time\" is mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not prescribe a specific slot length in minutes",
+        "evidence": "\"20 and 40 min\"; \"5-10 min\"",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Identifies that the $90k of engineer time does not count, because it funds a company-controlled project",
+        "evidence": "\"Excluded | hollow-etl is your own project \u2014 fails 'company-controlled' and 'maintainer you already employ'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies that the $40k of cloud credits does not count, because it benefits the paying company exclusively or goes to a company-controlled project",
+        "evidence": "\"Excluded | Same project. Also fails 'benefits the paying company exclusively'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies that the $25k paid to Priya Raghunathan does not count, because she is a maintainer the company already employs",
+        "evidence": "The transcript hedges: \"Ambiguous \u2014 probably excluded\" and \"If some slice of the $25k was paid before March... that slice could count.\" It gives the right rationale but does not state that the amount does not count.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Confirms only the $62k of sponsorships to outside maintainers counts as open-source funding",
+        "evidence": "\"Sponsorships to outside maintainers | $62k | Counts\" and \"only about $62k of your $217k counts as open-source funding\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports the countable total as $62k rather than $217k",
+        "evidence": "\"Corrected headline: $62k, pending the Priya split. Not $217k.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends reporting the excluded categories on a separate line rather than dropping them silently or folding them into the headline",
+        "evidence": "\"Don't blend these into one figure... Investment in maintaining hollow-etl as an open-source project: $130k... reported separately\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the per-developer floor as more than $2,000 per full-time-equivalent developer per year and attributes it to an industry pledge's membership terms rather than to a market average",
+        "evidence": "\"the industry pledge asks members for more than $2,000 per FTE developer per year\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Runs the floor against the 140-developer headcount, giving a figure above $280,000 per year",
+        "evidence": "\"At 140 engineers, that floor is $280,000/year\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags that $62k across 140 developers falls far below that floor",
+        "evidence": "\"$443 per developer per year. That's 22% of the $2,000 pledge floor \u2014 well below the level...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Presents $3,700 per developer as what one company published about its own program, explicitly a single self-reported data point, never as an industry average or a market rate",
+        "evidence": "\"one observability vendor reported paying $3,700 per developer... calling it 'quite reasonable compensation'\"; \"the one public reference point for a company your size\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Advises re-checking the published figures before they go into the post, because such figures drift",
+        "evidence": "The only verification advice is about the $62k destinations: \"verify the $62k's destinations still resolve (funding links go stale)\". It does not say to re-check the benchmark figures.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks which mandate the money serves, or states the headline number cannot be judged without one, rather than endorsing the announcement as framed",
+        "evidence": "The mandate appears only as a precondition for a future allocation plan (\"starts with naming a primary mandate\"). The transcript judges the headline number without one.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Identifies that the $90k of engineer time does not count, because it funds a company-controlled project",
+        "evidence": "Transcript treats this conditionally rather than concluding it doesn't count: \"Defensible as 'investment in open source' only if hollow-etl has a real outside audience... Ask: would this cost exist, unchanged, if the repo were private tomorrow?\" \u2014 never firmly determines hollow-etl is company-controlled or excludes the $90k.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies that the $40k of cloud credits does not count, because it benefits the paying company exclusively or goes to a company-controlled project",
+        "evidence": "\"You can't donate to yourself. This is Hollowpine paying for infrastructure that runs Hollowpine's own project's tests... Calling it a donation implies a gift to an external party; it's a hosting bill.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies that the $25k paid to Priya Raghunathan does not count, because she is a maintainer the company already employs",
+        "evidence": "\"being counted the same way as the sponsorship bucket even though she's now internal, which double-counts against her actual salary (already sitting in engineering payroll, invisible in this $217k)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Confirms only the $62k of sponsorships to outside maintainers counts as open-source funding",
+        "evidence": "\"$62k \u2014 actual sponsorships to outside maintainers. This is the only line that's unambiguous... This is the number a reader can trust without a footnote.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports the countable total as $62k rather than $217k",
+        "evidence": "\"Report $62k as the headline 'external open source giving' number, and separately disclose '$Xk in engineering time dedicated to open source maintenance...' as a second, clearly-labeled figure.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends reporting the excluded categories on a separate line rather than dropping them silently or folding them into the headline",
+        "evidence": "\"Two honest numbers beat one number that can't survive a follow-up question.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the per-developer floor as more than $2,000 per full-time-equivalent developer per year and attributes it to an industry pledge's membership terms rather than to a market average",
+        "evidence": "No mention of a $2,000/developer floor or any pledge membership terms anywhere in the transcript; only vague ranges like \"0.5-2% of engineering headcount or budget\" are given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Runs the floor against the 140-developer headcount, giving a figure above $280,000 per year",
+        "evidence": "No such calculation appears; the transcript instead computes \"$25-30M/year\" engineering budget and \"~0.7-0.9%\" of that, not a per-developer floor times headcount.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags that $62k across 140 developers falls far below that floor",
+        "evidence": "No per-developer floor comparison is made at all in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Presents $3,700 per developer as what one company published about its own program, explicitly a single self-reported data point, never as an industry average or a market rate",
+        "evidence": "No figure of $3,700 per developer appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Advises re-checking the published figures before they go into the post, because such figures drift",
+        "evidence": "\"verify current figures before citing publicly \u2014 I don't have live search access this session\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks which mandate the money serves, or states the headline number cannot be judged without one, rather than endorsing the announcement as framed",
+        "evidence": "The transcript never asks what mandate (security, brand, recruiting) the $217k figure is meant to serve; it proceeds directly to correcting the arithmetic and benchmark comparison.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

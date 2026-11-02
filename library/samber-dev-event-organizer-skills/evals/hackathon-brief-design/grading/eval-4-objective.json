@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to make the sponsor's API the event's sole substrate without written confirmation of a sandbox or offline fallback",
+        "evidence": "'Sandbox or offline fallback confirmed in writing: Not in writing'; 'I can't write \"every team must use...\" yet'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires written confirmation of rate-limit headroom for the expected team count before any required use",
+        "evidence": "Gate: 'Rate-limit headroom for your team count confirmed in writing'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the partner manager's verbal assurance is not sufficient and that the sponsor's own claim about its docs is not evidence",
+        "evidence": "'\"Great docs\" and \"fine for a few hundred users\" are the partner manager's claims. They also measure the wrong thing.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that nobody on the organizing team having built something small end to end against the API blocks even the required-for-one-track rung",
+        "evidence": "The build gate is applied only to the sole-substrate rung. The required-for-one-track rung is never mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends the optional bonus challenge as the rung to publish pending those confirmations",
+        "evidence": "'Version A: publish now (optional bonus challenge...)'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes a published fallback sentence stating that a team whose sponsor integration is unavailable through no fault of its own is judged on its design and integration plan rather than a working call",
+        "evidence": "'you are judged on your design and your documented integration plan, not on a working call.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the fallback must be written before the event, because improvised during an outage it is a favour rather than a rule",
+        "evidence": "'Without it, an outage forces you to either disqualify everyone or improvise a favour'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes the track constraint as a capability the submission must demonstrate rather than as 'must use Meridian'",
+        "evidence": "The constraint is 'must make at least one working call to the Meridian API', which is still a brand requirement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Publishes the access path in the prompt itself: where keys come from, the rate limit, and who to contact when it fails",
+        "evidence": "Resources provided: keys, rate limit, docs, mentors, help desk.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires rewriting the sponsor's marketing copy into a problem and having the sponsor confirm the rewrite",
+        "evidence": "'written as a problem and not as marketing copy... Meridian drafts it, then confirms your rewrite.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States in the sponsor prompt that entering the sponsor track does not forfeit the general prize",
+        "evidence": "'Entering the Meridian track does not forfeit the general prize.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats dependency risk as a separate finding from effort, and states that promotion never overrides the delete",
+        "evidence": "No such statement.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to make the sponsor's API the event's sole substrate without written confirmation of a sandbox or offline fallback",
+        "evidence": "'every project must use the Meridian API. No exceptions.' No sandbox/offline fallback.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires written confirmation of rate-limit headroom for the expected team count before any required use",
+        "evidence": "'Get these from Meridian in writing before the brief goes out: per-key and per-org limits...'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the partner manager's verbal assurance is not sufficient and that the sponsor's own claim about its docs is not evidence",
+        "evidence": "'The partner manager's claim is unverified'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that nobody on the organizing team having built something small end to end against the API blocks even the required-for-one-track rung",
+        "evidence": "'Have one of your team build a trivial app on the API before announcing.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends the optional bonus challenge as the rung to publish pending those confirmations",
+        "evidence": "Makes use mandatory for all teams.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes a published fallback sentence stating that a team whose sponsor integration is unavailable through no fault of its own is judged on its design and integration plan rather than a working call",
+        "evidence": "Offers recorded responses and a setup extension instead.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the fallback must be written before the event, because improvised during an outage it is a favour rather than a rule",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes the track constraint as a capability the submission must demonstrate rather than as 'must use Meridian'",
+        "evidence": "'Every team must integrate the Meridian API'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Publishes the access path in the prompt itself: where keys come from, the rate limit, and who to contact when it fails",
+        "evidence": "Signup URL, quota, docs, on-site engineers and chat channel, and 'tell an organizer' for outages.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires rewriting the sponsor's marketing copy into a problem and having the sponsor confirm the rewrite",
+        "evidence": "Not done.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States in the sponsor prompt that entering the sponsor track does not forfeit the general prize",
+        "evidence": "Not stated; the track is mandatory for everyone.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats dependency risk as a separate finding from effort, and states that promotion never overrides the delete",
+        "evidence": "Not addressed.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

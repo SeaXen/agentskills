@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects running all eight tasks in one session and requires a fresh context per task",
+        "evidence": "\"Fix: fresh context per task \u2014 parallel sub-agents if your tooling supports it, separate sequential sessions if not.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the reason: knowledge leaks between tasks and inflates every score after the first",
+        "evidence": "\"knowledge leaks between them and inflates every score after the first.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Offers one sub-agent per task where parallel sub-agents are available, and separate sequential sessions otherwise",
+        "evidence": "\"parallel sub-agents if your tooling supports it, separate sequential sessions if not\"; repeated in \"Corrected shape\": \"parallel if you can, sequential if you can't\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects full web access and restricts sources to Meridian's own published agent-facing surfaces",
+        "evidence": "\"Fix: restrict the graded run to your published docs, spec, and SDK.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that if the agent needs something Meridian does not publish, that absence is the finding and the run should be allowed to fail",
+        "evidence": "\"if the agent needs something you didn't publish, that absence is the finding \u2014 you let it fail, you don't let it route around the gap.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects task 1 as a weak task because it hands the agent the exact method name it was supposed to discover",
+        "evidence": "\"Naming meridian.shipments.track() does the same thing \u2014 you're testing whether the agent can execute a given call, not whether it can find the right one from your docs.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects task 2 as ungradeable because it has no runnable or verifiable end state",
+        "evidence": "\"Task 2 fails the 'no verifiable end state' test... Prose can't be graded pass/fail.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Endorses the webhook verification task shape because it names an outcome and leaves the path open",
+        "evidence": "\"Task 3 is correct as written \u2014 it's the protocol's own worked example, verbatim. Keep it...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects a pass/fail percentage as the sole reported metric",
+        "evidence": "\"Pass/fail percentage alone is explicitly called out as insufficient... Track all five metrics per task\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names invented-surface rate, corrective turns per task, context cost per task, and fetch-path length alongside first-attempt success",
+        "evidence": "\"Track all five metrics per task: first-attempt success, invented-surface rate, corrective turns per task, context cost per task, fetch-path length.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that success rate alone hides a corpus that only works after several expensive retries",
+        "evidence": "\"'success rate alone hides a corpus that works only after six expensive retries.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires freezing the task set, because a benchmark that changes between runs measures nothing",
+        "evidence": "\"Freeze the task set once written. Don't touch it between baseline and re-run or the delta means nothing.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires capturing the full transcript, since the corrective turns are the data and the final file is only the receipt",
+        "evidence": "\"Capture full transcripts, not just pass/fail \u2014 the corrective turns are the data you'll actually fix from.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Limits intervention to non-documentation obstacles such as a missing sandbox credential or a network block, and requires logging every intervention",
+        "evidence": "\"Log any intervention you make (e.g. handing over a sandbox credential) separately from a documentation failure.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects running all eight tasks in one session and requires a fresh context per task",
+        "evidence": "'Fix: fresh session per task, unless multi-turn retention is its own separate metric.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the reason: knowledge leaks between tasks and inflates every score after the first",
+        "evidence": "'Agent explains OAuth in task 2, then reuses that answer for later tasks instead of re-reading docs. Test measures \"agent memory,\" not \"docs work standalone.\"'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Offers one sub-agent per task where parallel sub-agents are available, and separate sequential sessions otherwise",
+        "evidence": "No mention of sub-agents, parallelism, or session-execution mechanics beyond 'fresh session per task.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects full web access and restricts sources to Meridian's own published agent-facing surfaces",
+        "evidence": "Fix proposed is to run each task twice ('docs-only, then docs+web \u2014 diff results'), keeping web access as one of two conditions rather than restricting to Meridian's own surfaces.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that if the agent needs something Meridian does not publish, that absence is the finding and the run should be allowed to fail",
+        "evidence": "No such statement appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects task 1 as a weak task because it hands the agent the exact method name it was supposed to discover",
+        "evidence": "Task 1's only critique is about sandbox creds and pass-bar definition, not about handing over the method name.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects task 2 as ungradeable because it has no runnable or verifiable end state",
+        "evidence": "The critique offered is subjectivity-based ('or two people will score it differently') with a fix (add a rubric), not a rejection of the task as inherently ungradable.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Endorses the webhook verification task shape because it names an outcome and leaves the path open",
+        "evidence": "No statement endorsing the webhook task's open-path design; it is discussed only regarding web-access contamination and missing security rubric.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects a pass/fail percentage as the sole reported metric",
+        "evidence": "'Binary pass/fail loses root cause... Fix: log full transcript + doc section cited, grade against written rubric, not eyeball.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names invented-surface rate, corrective turns per task, context cost per task, and fetch-path length alongside first-attempt success",
+        "evidence": "None of these specific metrics are named anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that success rate alone hides a corpus that only works after several expensive retries",
+        "evidence": "The n=1 critique is about variance/false precision, not about hiding costly-retry patterns.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires freezing the task set, because a benchmark that changes between runs measures nothing",
+        "evidence": "No mention of freezing the task set or the risks of a changing benchmark.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires capturing the full transcript, since the corrective turns are the data and the final file is only the receipt",
+        "evidence": "'Fix: log full transcript + doc section cited, grade against written rubric, not eyeball.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Limits intervention to non-documentation obstacles such as a missing sandbox credential or a network block, and requires logging every intervention",
+        "evidence": "Sandbox creds are mentioned once as a scoping note, with no stated policy of limiting/logging interventions.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

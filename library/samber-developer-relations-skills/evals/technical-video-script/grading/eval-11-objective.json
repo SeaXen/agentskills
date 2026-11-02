@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to write the script before the promise, the viewer and the source material are established.",
+        "evidence": "\"Two problems block writing this today, both structural, not stylistic\" ... \"I'm not going to hand you a script with invented feature names, invented numbers, or an invented persona\" and \"I have zero of the thirteen interview inputs the skill requires before it'll let me pick a shape or write a beat.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks questions one at a time rather than sending a block of questions at once.",
+        "evidence": "The transcript lists six numbered questions together in one turn: \"1. Source ...\", \"2. The one thing ...\", \"3. Viewer ...\", \"4. Effort ceiling for tomorrow ...\", \"5. Realistic runtime ...\", \"6. Where it lives ...\" \u2014 all sent at once rather than one at a time.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Offers multiple-choice options on the questions where options exist.",
+        "evidence": "\"Pick one: (a) install/try Cardinal 2.0, (b) understand one specific new capability, (c) decide it's worth evaluating, (d) something else\" and \"Viewer \u2014 evaluator deciding whether to try it, an existing user learning what's new, or buyer-adjacent (won't type any of it)?\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses \"great\", \"engaging\" and \"technical\" as answers and converts each into a concrete decision.",
+        "evidence": "\"A 'whole platform, engaging, technical' video reads as a feature walkthrough or deep dive \u2014 both cost 'a week, most of it building a demo environment that survives a clean take' before a single take happens.\" translates the vague adjectives into a concrete shape/effort tradeoff rather than accepting them at face value.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks what the source material is - a published post or docs page, a changelog or pull request, a working demo, a recorded talk, or nothing written yet.",
+        "evidence": "\"Source \u2014 is there a changelog entry, docs page, PR, or an existing recorded demo for Cardinal 2.0 I should be scripting from? (No source in this workspace \u2014 is it elsewhere, or does it not exist yet?)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks what the viewer should be able to do or decide when the video ends.",
+        "evidence": "\"The one thing \u2014 when the video ends, what does the viewer do or decide?\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks who is watching, offering named audience options such as evaluator, user hitting an error, existing user or buyer-adjacent viewer.",
+        "evidence": "\"Viewer \u2014 evaluator deciding whether to try it, an existing user learning what's new, or buyer-adjacent (won't type any of it)?\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks about the effort ceiling and whether the video is a one-off launch win or a compounding asset.",
+        "evidence": "\"Effort ceiling for tomorrow \u2014 is there already a demo environment/recording that survives a clean take, or are we starting from zero?\" combined with \"treat 'whole platform' as a second, compounding-asset video (feature walkthrough or deep dive) scripted once there's a demo environment and no next-day deadline.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Produces no draft script, opening beat or finished shape recommendation in this turn.",
+        "evidence": "\"My default read, which I'd run with if you confirm rather than correct it: given the deadline, script a 60\u201390s changelog/launch clip \u2014 one clear before/after claim, the result already running in beat 1, no setup\" is a specific shape and opening-beat recommendation, even though flagged as unconfirmed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Invents no pain statement, metric, persona or call to action.",
+        "evidence": "The transcript contains no fabricated metrics, personas, or CTAs; it only references the skill's generic categories (e.g. 'changelog clip', 'evaluator') and asks the user to supply the real content.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that anything inferred rather than stated by the user will be marked unconfirmed in the draft.",
+        "evidence": "The default-read recommendation ends with the explicit tag \"[unconfirmed \u2014 needs your sign-off before I write a single beat]\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to write the script before the promise, the viewer and the source material are established.",
+        "evidence": "'Writing a \"technical\" script ... without that would just be generic filler, so I need a few answers first'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks questions one at a time rather than sending a block of questions at once.",
+        "evidence": "It sends a block of questions under Product, Format, Proof and Voice.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Offers multiple-choice options on the questions where options exist.",
+        "evidence": "'60s teaser, 3-min overview, or 8-10min technical deep dive?' and 'Screencast/live UI, talking head, animated/motion graphics, or a mix?'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses \"great\", \"engaging\" and \"technical\" as answers and converts each into a concrete decision.",
+        "evidence": "It does not challenge the adjectives beyond saying claims must be watchable.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks what the source material is - a published post or docs page, a changelog or pull request, a working demo, a recorded talk, or nothing written yet.",
+        "evidence": "It asks only for a 'specific demo flow'. It does not offer post, changelog, PR or talk options.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks what the viewer should be able to do or decide when the video ends.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks who is watching, offering named audience options such as evaluator, user hitting an error, existing user or buyer-adjacent viewer.",
+        "evidence": "It asks who the user is (devs/data teams/enterprise buyers), not viewer types such as evaluator or error-hitter.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks about the effort ceiling and whether the video is a one-off launch win or a compounding asset.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces no draft script, opening beat or finished shape recommendation in this turn.",
+        "evidence": "Only questions, no draft.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Invents no pain statement, metric, persona or call to action.",
+        "evidence": "None invented.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that anything inferred rather than stated by the user will be marked unconfirmed in the draft.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

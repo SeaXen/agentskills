@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Recommends the CNCF TechDocs rubric for the rating that travels outside the docs team",
+        "evidence": "'## Layer 1 \u2014 CNCF TechDocs rubric (the number that travels outside the docs team)'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the rubric's named 1-to-5 scale: 1 not present, 2 needs improvement, 3 meets standards, 4 meets or exceeds standards, 5 exemplary",
+        "evidence": "Table: '1 | Not present, 2 | Needs improvement, 3 | Meets standards, 4 | Meets or exceeds standards, 5 | Exemplary'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the Project documentation criteria: information architecture, new user content, content maintainability, content creation processes, inclusive language",
+        "evidence": "'Information architecture... New user content... Content maintainability... Content creation processes... Inclusive language.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Scores each top-level docs section rather than issuing a single overall number",
+        "evidence": "'Fill this per section, not as a single row' with a table of 5 sections.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Challenges the straight 4s, stating that a first audit returning them usually means the rubric was applied too generously",
+        "evidence": "'A first-pass audit that returns 4s across the board almost always means the rubric was applied too generously, not that the docs are exemplary.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the published calibration for a serious open-source project with no dedicated writer: mostly 1s and 2s on entry-point and process criteria, 3s where a maintainer culture already exists",
+        "evidence": "'CNCF's 2024 analysis of TUF... scored Information architecture 2, New user content 1... mostly 1s and 2s on the criteria that touch a new user or a repeatable process, 3s only where a maintainer culture has already formed a habit'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Adds a second, structural scorecard computed from the inventory, kept distinct from the rubric rating",
+        "evidence": "'## Layer 2 \u2014 structural scorecard (the number that drives the actual work)'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the CNCF 1-5 scale as published and the structural scorecard's pass marks as a self-set baseline",
+        "evidence": "'the CNCF scale is a published external instrument the board can cross-check; the structural scorecard's targets are yours'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires agreeing the scorecard thresholds with the user before scoring rather than importing them silently",
+        "evidence": "'agree the target column with your co-maintainer before you score against it'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names concrete scorecard measures with targets, such as mode purity at or above 90%, navigation depth of 3 or less, zero orphans, staleness at or below 10%",
+        "evidence": "Table rows: 'Mode purity... \u2265 90%', 'Nav depth... \u2264 3', 'Orphans... 0', 'Staleness... \u2264 10%'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports the ROT rate without grading it against a target",
+        "evidence": "'ROT rate | ... | report \u2014 no target' and 'ROT gets reported, not graded \u2014 there's no defensible pass mark for it'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the audit is unfinished while any must-fix measure fails, and requires re-running the inventory and re-scoring after each remediation batch to report the delta",
+        "evidence": "'The audit is unfinished while any must-fix measure fails... re-run the inventory script and re-score after each remediation batch, and report the delta'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Scores contributor documentation only if the user asks for it, rather than folding it into the headline number",
+        "evidence": "'as a separate table, and only if the board actually asked about contributor health \u2014 don't fold it into the headline docs-quality number'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Recommends the CNCF TechDocs rubric for the rating that travels outside the docs team",
+        "evidence": "The document builds a bespoke 6-dimension weighted scorecard instead; CNCF TechDocs is never mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the rubric's named 1-to-5 scale: 1 not present, 2 needs improvement, 3 meets standards, 4 meets or exceeds standards, 5 exemplary",
+        "evidence": "The document uses its own 0-5 anchors per dimension (e.g., accuracy pass-rate bands), not this named CNCF scale.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the Project documentation criteria: information architecture, new user content, content maintainability, content creation processes, inclusive language",
+        "evidence": "None of these named criteria appear anywhere in the document.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Scores each top-level docs section rather than issuing a single overall number",
+        "evidence": "The document issues 'Docs Quality: 58/100' as a single composite number broken down by dimension, not by docs section.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Challenges the straight 4s, stating that a first audit returning them usually means the rubric was applied too generously",
+        "evidence": "The challenge given is different: '\"The writing is decent\" scores prose quality, not documentation quality' \u2014 a measuring-the-wrong-thing critique, not a generosity-bias critique.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the published calibration for a serious open-source project with no dedicated writer: mostly 1s and 2s on entry-point and process criteria, 3s where a maintainer culture already exists",
+        "evidence": "No such calibration guidance appears; the document has no CNCF-based reference calibration at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds a second, structural scorecard computed from the inventory, kept distinct from the rubric rating",
+        "evidence": "There is only one scorecard system (the 6-dimension composite); no separate structural scorecard distinct from a rubric rating exists.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels the CNCF 1-5 scale as published and the structural scorecard's pass marks as a self-set baseline",
+        "evidence": "Not applicable/present \u2014 no CNCF scale or self-set-baseline labeling appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires agreeing the scorecard thresholds with the user before scoring rather than importing them silently",
+        "evidence": "Anchors and weights are declared directly in the document without any step to negotiate thresholds with the user first.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names concrete scorecard measures with targets, such as mode purity at or above 90%, navigation depth of 3 or less, zero orphans, staleness at or below 10%",
+        "evidence": "The concrete targets given are different (accuracy 98%+, completeness under 2% gap, freshness 0 stale pages) \u2014 none of 'mode purity,' 'navigation depth,' or 'orphans' appear.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reports the ROT rate without grading it against a target",
+        "evidence": "Freshness/staleness is explicitly graded against anchors: '5 = 0 stale pages \u00b7 4 = under 5%... ' \u2014 graded, not reported ungraded.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the audit is unfinished while any must-fix measure fails, and requires re-running the inventory and re-scoring after each remediation batch to report the delta",
+        "evidence": "No 'unfinished until must-fix passes' statement appears; quarterly re-scoring is mentioned only as trend reporting, not as a completion gate.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Scores contributor documentation only if the user asks for it, rather than folding it into the headline number",
+        "evidence": "Contributor documentation is not discussed at all in the document.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

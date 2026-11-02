@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Opens a docs ticket the second time a question family appears, in a session or any channel, and groups the lock-timeout variants into one family with each sighting added to its ticket",
+        "evidence": "\"Open the docs ticket now and put every sighting date in it\"; \"Group variants into one family\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the lock-timeout family, as an error, to the troubleshooting-docs sibling skill to write the page",
+        "evidence": "\"The troubleshooting-docs skill (`developer-troubleshooting-docs`) writes the page.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Opens a docs ticket for the token-scoping question because it has been seen twice",
+        "evidence": "\"Namespace-scoped token (2 sightings). Open a docs ticket today.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects a recording link as the write-up and gives the write-up sections: answered, answered here not live, redirected, logged for the product team, docs we are fixing, next session and submit link",
+        "evidence": "\"a recording link isn't a docs fix\"; skeleton with Answered, Answered here not live, Redirected, Logged, Docs we are fixing, Next session.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Publishes the write-up within 2 business days (baseline) where the intake thread lives",
+        "evidence": "\"Write-up within 2 business days, in the intake thread.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Logs every feature request in the user's words in the team's feedback record, and names 'noted, I'll pass it on' as the lost-requester failure",
+        "evidence": "\"'noted, I'll pass it on' leaves no record, no asker handle and no status.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Copies the asker's handle into the feedback record with their consent so they hear the decision, and traces the May asker's case to its absence",
+        "evidence": "\"with the asker's handle if they consent\"; May request lost explained.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes the raw session log after the write-up is published",
+        "evidence": "\"Delete the raw session log after the write-up is published.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels resulting issues and docs changes so the pilot review can count them, citing GitLab's 'Office Hours' label",
+        "evidence": "Uses label `office-hours` but does not cite GitLab.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Links the latest write-up in the next announcement and pins the intake thread the moment the write-up is published",
+        "evidence": "Links latest write-up, but no instruction to pin the intake thread when the write-up publishes.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets the target of at least one merged docs fix or feedback record per two sessions and reads the current value as zero",
+        "evidence": "\"Merged docs fixes + feedback records | >= 1 per 2 sessions | ~0\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names well-attended sessions with no docs change as the answer-and-forget failure: the session is wasted if the same question comes back next month",
+        "evidence": "Describes the symptom (\"nothing changes afterward\") but never names the failure mode.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Assigns note-taking to someone other than the host so a log exists to write up from",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Opens a docs ticket the second time a question family appears, in a session or any channel, and groups the lock-timeout variants into one family with each sighting added to its ticket",
+        "evidence": "Writes pages for questions seen 2+ times, with no tickets or family grouping.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the lock-timeout family, as an error, to the troubleshooting-docs sibling skill to write the page",
+        "evidence": "Gives its own six-part page template; no sibling skill.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Opens a docs ticket for the token-scoping question because it has been seen twice",
+        "evidence": "Plans a page but opens no docs ticket.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects a recording link as the write-up and gives the write-up sections: answered, answered here not live, redirected, logged for the product team, docs we are fixing, next session and submit link",
+        "evidence": "Says recordings are \"an archive, not a record\" but the summary lists only answered, requests logged and decisions.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Publishes the write-up within 2 business days (baseline) where the intake thread lives",
+        "evidence": "\"After each session, post a short summary\"; no deadline.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Logs every feature request in the user's words in the team's feedback record, and names 'noted, I'll pass it on' as the lost-requester failure",
+        "evidence": "\"'Noted, I'll pass it on' has no record behind it\"; \"Request | their words, plus the underlying problem\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Copies the asker's handle into the feedback record with their consent so they hear the decision, and traces the May asker's case to its absence",
+        "evidence": "\"Asker | name, plus contact if they agree\"; \"so the May question had no answer\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes the raw session log after the write-up is published",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels resulting issues and docs changes so the pilot review can count them, citing GitLab's 'Office Hours' label",
+        "evidence": "No label.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Links the latest write-up in the next announcement and pins the intake thread the moment the write-up is published",
+        "evidence": "Pins the latest summary but does not link it in the next announcement or pin the intake thread.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets the target of at least one merged docs fix or feedback record per two sessions and reads the current value as zero",
+        "evidence": "Month-3 checks differ; no such target.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names well-attended sessions with no docs change as the answer-and-forget failure: the session is wasted if the same question comes back next month",
+        "evidence": "Not named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Assigns note-taking to someone other than the host so a log exists to write up from",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

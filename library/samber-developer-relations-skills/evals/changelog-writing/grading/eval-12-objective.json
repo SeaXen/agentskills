@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that the Chrome Web Store has no dedicated what's-new field",
+        "evidence": "\"Chrome Web Store has no dedicated what's-new field\" and \"Chrome has no what's-new field \u2014 this goes at the top of your Description\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not produce Chrome Web Store what's-new copy as though the field existed",
+        "evidence": "Copy is explicitly placed \"at the top of your **Description**\" rather than in a fictional what's-new field.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Uses Firefox AMO's per-version release-notes field for the Firefox side",
+        "evidence": "\"Goes in the version's release-notes field\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that AMO's release-notes default locale is pinned to en-US regardless of the add-on's own default locale",
+        "evidence": "\"AMO stores this as `en-US` regardless of your add-on's default locale \u2014 file it there specifically, not under your source locale\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes notes for Mozilla reviewers from notes for users as separate artefacts",
+        "evidence": "\"Optional \u2014 AMO's separate **notes-for-reviewers** field (not shown to users)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends keeping the canonical changelog outside the stores, in repository releases or an in-extension page",
+        "evidence": "\"the store field should be a pointer, not the source of truth... Point them somewhere persistent \u2014 a GitHub releases page, a `/changelog` page...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends an in-extension what's-new page opened on update",
+        "evidence": "\"an in-extension 'what's new' panel that opens once after the update actually installs, regardless of how the user got it\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Connects the auto-update-disabled users to their need to find what changed before updating",
+        "evidence": "\"users who disabled auto-update won't see either store field until they manually check for an update, and have historically filed issues when they can't find 'what changed' anywhere else\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes the sidebar-position change impact-first, since it is what users will notice",
+        "evidence": "\"driven by the sidebar relocation... That's why it leads below, ahead of the purely additive shortcut\" and it is listed first: \"Changed: Pinhook's panel now opens on the [NEW SIDE]...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Claims no figure for the memory leak fix",
+        "evidence": "\"Fixed: A memory leak that built up the longer Pinhook stayed open, which could slow your browser down.\" \u2014 no quantified figure.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that the Chrome Web Store has no dedicated what's-new field",
+        "evidence": "\"Chrome has no dedicated 'release notes' field \u2014 put this at the top of your description, dated, and keep older entries below it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not produce Chrome Web Store what's-new copy as though the field existed",
+        "evidence": "The Chrome copy block is explicitly introduced as text to place 'at the top of your description' rather than into a dedicated release-notes field, consistent with the stated absence of such a field.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Uses Firefox AMO's per-version release-notes field for the Firefox side",
+        "evidence": "\"AMO has a real per-version 'Release Notes' field (Developer Hub \u2192 your version \u2192 Release Notes) \u2014 use that field for this, not the description.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that AMO's release-notes default locale is pinned to en-US regardless of the add-on's own default locale",
+        "evidence": "No mention anywhere of AMO's release-notes locale behavior or en-US pinning.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes notes for Mozilla reviewers from notes for users as separate artefacts",
+        "evidence": "The transcript only discusses user-facing release notes; there is no mention of separate reviewer notes.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends keeping the canonical changelog outside the stores, in repository releases or an in-extension page",
+        "evidence": "No recommendation to maintain a canonical changelog in a repository or in-extension page; the only in-extension suggestion is an update-availability badge/banner, not a changelog page.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends an in-extension what's-new page opened on update",
+        "evidence": "\"Add an in-extension update check \u2014 a small badge on the toolbar icon (or a one-line banner in the popup) that pings a version endpoint you control and shows 'Update available' with a link straight to the store page.\" \u2014 this is an update-availability notifier, not a what's-new page that opens on update.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Connects the auto-update-disabled users to their need to find what changed before updating",
+        "evidence": "\"a user who never visits the store page and has auto-update disabled will never see either of the texts above\" is resolved by a badge/banner \"with a link straight to the store page\" \u2014 directing exactly those users to where the what's-new copy lives before they act on the update.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes the sidebar-position change impact-first, since it is what users will notice",
+        "evidence": "Both entries lead with the mechanical description before the benefit: \"\ud83d\udccc Sidebar now opens on the [left/right] \u2014 quicker to reach, stays out of your way while you browse.\" and neither placement (2nd of 3 in Chrome, 3rd of 3 in Firefox) nor phrasing puts the sidebar change first or impact-first.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Claims no figure for the memory leak fix",
+        "evidence": "\"\ud83d\udee0\ufe0f Fixed a memory leak \u2014 Pinhook now stays light even after hours of heavy tab use.\" contains no numeric figure (e.g., percentage or MB reduced).",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

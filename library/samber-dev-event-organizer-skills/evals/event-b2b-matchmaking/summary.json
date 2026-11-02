@@ -1,0 +1,410 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-b2b-matchmaking",
+  "scenarios": 10,
+  "expectations_total": 125,
+  "expectations_subjective": 2,
+  "expectations_objective": 123,
+  "pass_rate_with_skill_pct": 88.0,
+  "pass_rate_without_skill_pct": 40.8,
+  "delta_pp": 47.2,
+  "uplift_multiplier": 2.16,
+  "trigger_accuracy_pct": 79.1,
+  "trigger_queries": 110,
+  "trigger_positive_fire_rate": 0.909,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": 0.68,
+  "subjective_pass_disagreements": [
+    {
+      "eval_id": 4,
+      "condition": "with_skill",
+      "expectation": "Treats the criteria agreed before the event as what makes the missed quota discussable rather than an argument",
+      "pass1": true,
+      "pass2": false
+    }
+  ],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Presents running no meeting program as a legitimate, often-correct outcome rather than a deferral or something to fix later"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Notes the hallway track and expo floor already cover sponsor-attendee contact at this kind of event"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Any directory is published only to the people listed in it, not to the public web"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Explains the failure of a bare guaranteed count: it can be satisfied by filling slots with whoever is free, leaving the sponsor worse off than if nothing had been promised"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names a best-efforts target as the default commitment shape, with criteria written down even there"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Observes that the make-good should have been chosen when the commitment was made, not improvised after the miss"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Confirms that pure self-service booking cannot guarantee a contracted count, which is why the pre-assigned half exists"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Treats an unwanted-meeting complaint as a defect of the matching or scheduling mechanic with a target of zero, not as attendee behaviour"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names attendee control over their own day as a design axis alongside sponsor delivery"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Checks each participant's slots against the sessions they are speaking at or attending"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Requires every pairing confirmed by both sides before publication, naming publication as the point of no return"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Does not substitute event-level attendance or show-up rates for booked-meeting no-show rates, naming them a different unit"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that a standby queue is worthless unattended"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Tracks declines per person, reading repeated declines as a wrong read of that person's entry rather than a difficult person"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Notes scored ranking's compliance weight: it derives new facts about people and holds the largest data store of any mechanism"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Recommends not running a structured 1:1 meeting program for this event"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Grounds the refusal in the stated facts: no sponsor package names a meeting number and there is one audience, not two separately invited populations"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Does not state a meeting length or slot count"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Presents running no meeting program as a legitimate, often-correct outcome rather than a deferral or something to fix later"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Notes the hallway track and expo floor already cover sponsor-attendee contact at this kind of event"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States the condition that would change the answer: a signed package naming a meeting number, or two populations deliberately invited to meet each other"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Does not propose giving sponsors attendee names or a list to book against"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Does not recommend adopting the matchmaking platform, or any platform, as the next step"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "If sponsor-attendee introductions are addressed at all, they are framed as ad-hoc brokered introductions with attendee consent, not a published program"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Identifies retrofitting consent after collection as the error that cannot be undone"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Rejects the one-sided mechanic in which only the requesting side chose to participate"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes that at community events sponsors get aggregate demographics, never attendee names"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The proposed consent wording states which fields are shared and who sees them"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The proposed consent wording states what triggers the sharing: the person's own request, a mutual acceptance, or an organizer's judgment"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The proposed consent wording states how to withdraw and what happens to already-accepted pairings"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The proposed consent wording states when the data pool is deleted"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Any directory is published only to the people listed in it, not to the public web"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Explains the failure of a bare guaranteed count: it can be satisfied by filling slots with whoever is free, leaving the sponsor worse off than if nothing had been promised"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names a best-efforts target as the default commitment shape, with criteria written down even there"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Allows promotion to a guaranteed count with criteria, keyed to the contracted number and to the opt-in profile data being good enough to verify the criteria"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Defines what does not count toward the 20, such as a counterpart from the sponsor's own company, an existing relationship, a meeting booked but not held, or a substitute person"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names who decides a borderline case and by when, before the event"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Rules out a talk slot, judging seat, or share of the agenda as a make-good, because sponsorship buys access and never program influence"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Rules out attendee data as a make-good"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Routes drafting of the actual clause wording elsewhere, keeping only the commitment's shape in this design"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that delivery against the promise is reported per sponsor, never averaged across sponsors"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Rejects the speaking slot as a remedy, because a meeting quota is access and never converts into program influence"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Observes that the make-good should have been chosen when the commitment was made, not improvised after the miss"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Verifies the 9 held meetings against the agreed criteria before counting them"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Treats the criteria agreed before the event as what makes the missed quota discussable rather than an argument"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Records the miss per pair - booked, held, empty - as measured input for planning the next edition"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Rejects placing any meeting on an attendee's schedule without their explicit acceptance, even with a cancel option"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States the consequence: a meeting nobody accepted is a no-show already on the schedule, manufacturing quota out of people's time"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Keeps the hybrid shape but adds an acceptance step for every pre-assigned pair before it appears on any schedule"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Confirms that pure self-service booking cannot guarantee a contracted count, which is why the pre-assigned half exists"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Distinguishes opting into the program from accepting a specific pairing: the profile opt-in does not authorize particular meetings"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires every pair on the published schedule to have been accepted by both sides before publication"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Treats an unwanted-meeting complaint as a defect of the matching or scheduling mechanic with a target of zero, not as attendee behaviour"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names attendee control over their own day as a design axis alongside sponsor delivery"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Replaces variable-length slots with equal slots, because unequal slots make every downstream conflict a special case"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Requires every pairing confirmed by both sides before publication, naming publication as the point of no return"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Sizes the block from real accepted pairs plus a margin for late ones, not hoped-for pairs"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names one organizer on duty for the block in the published brief"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Does not prescribe a specific slot length in minutes"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Rejects the $25 deposit and any forfeited benefit or penalty on the attendee side of a missed meeting"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes reconfirm-and-remind is the only approach that reduces the no-show rather than absorbing it"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that a standby queue is worthless unattended"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends recording per pair whether it was booked, held, empty, or refilled from standby"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names the held-against-booked count as the number to plan the next edition against, and the only legitimate replacement for the industry figure"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Does not quote an alternative no-show percentage of its own"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Counts standby refills separately from held meetings, because a refill hides a no-show"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Rejects counting the 11 standby refills as held meetings, because a refill hides a no-show"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Reports empty slots as an absolute count of 27, not a rate"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Gives the reason for the absolute count: a rate invites comparison against programs whose counting rules are unknown"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States the counting rule beside each reported number"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Rejects building the per-sponsor dashboard with payment milestones inside this program, routing per-sponsor tracking and payment gating downstream"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Hands downstream one generic outcome record: one row per pairing carrying both-sides acceptance, whether held, whether refilled, and which criteria were checked"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Excludes meeting content from any record: the program owns whether a meeting happened, never what was said"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "If a mutual-acceptance rate appears, it is labelled a proxy for relevance, since a polite population also produces a high rate"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Sends the counting rules and the own-editions-only comparison note along with the record so the numbers are not misread downstream"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Writes the matching criterion as one sentence before any form design"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "The criterion requires that both sides said so themselves, or equivalently that both accepted, as a load-bearing clause"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Removes the procurement-budget field, because it turns the profile into a qualification record held on participants"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Removes the LinkedIn-filled company-size field: nothing about a person that they did not enter themselves"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Replaces the 40-title dropdown with role or function in the person's own words"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Brokering reads every entry once, in one sitting, before pairing anything, to avoid biasing toward whoever registered first"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Both sides receive the same introduction naming the counterpart, the reason, and a way to decline without explaining"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Tracks declines per person, reading repeated declines as a wrong read of that person's entry rather than a difficult person"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Includes a field recording what may be shown and to whom, stored as a consent record rather than an overridable preference"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires both sides to accept before any pair exists or reaches a schedule"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Keeps a manual override, with every override logged with a reason"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Uses the override log as the detector for what the scoring rule is missing"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names the sparse-matrix failure: a rule that recommends the same few people to everyone is fitted to sparse tags, not matching"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Notes scored ranking's compliance weight: it derives new facts about people and holds the largest data store of any mechanism"
+      }
+    ]
+  }
+}

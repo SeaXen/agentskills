@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to create four scheduled news-reaction slots.",
+        "evidence": "\"His mechanism (four dated news slots) is wrong, and provably so.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a reactive piece of that size lands once or twice a year and cannot be scheduled in advance.",
+        "evidence": "\"That program's own data says the reactive spike lands 'once or twice a year.'... The quarter's best piece often cannot be scheduled in advance.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Converts the CEO's request into unassigned slack instead, roughly 20% of capacity held open.",
+        "evidence": "\"Hold four undated reserve slots, one per month. They are the quarter's named slack. The 80/20 planning convention says committed capacity \u226480%... to keep reserve \u226425%.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names who is allowed to spend the slack.",
+        "evidence": "\"Name the trigger-puller. One person authorized to fire a reserve without a meeting.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites the measured gap, around 1,000 sessions for a deep technical piece against up to 30,000 for a reactive news piece, as the case for holding slack rather than for planning news slots.",
+        "evidence": "\"Snyk's DevRel program: ~1,000 sessions for a deep technical piece, up to 30,000 for a reactive news piece)... The measured gap is the case for holding unassigned slack... It is not a reason to plan news slots.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports publish rate, published divided by slotted, as the planning-accuracy metric.",
+        "evidence": "\"Publish rate (published \u00f7 slotted) | \u226580%\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports mix drift: actual versus intended ratios, checked at the monthly review.",
+        "evidence": "\"Mix drift vs planned ratios (per axis, one line) | within \u00b110pts\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports anchor coverage: the share of anchors that got both a preparation and a follow-up slot.",
+        "evidence": "\"Anchor coverage (anchors with prep AND follow-up slot) | 100%\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports slot lead time, the days between 'ready for review' and published, as what exposes the bottleneck.",
+        "evidence": "\"Slot lead time (ready-for-review \u2192 published, median days) | falling or flat\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not offer per-piece session or traffic counts as the calendar's own measure of success.",
+        "evidence": "\"Sessions: news pieces vs 900 baseline; evergreen baseline trend | context, not target\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines to draft the news post, and says producing an individual piece belongs to a per-format skill rather than to the quarter plan.",
+        "evidence": "Part 3 delivers a complete drafted post (\"CVE-2024-21626 (runc 'Leaky Vessels'): four container escapes from one leaked file descriptor\" with full body text), rather than declining to draft it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Defines the monthly review's three questions (what shipped versus slotted, has the mix drifted, which pieces earned a follow-up) together with its kill and defer rules.",
+        "evidence": "The 'three lines of prose' listed are shipped-vs-slotted, follow-up pieces, and a 'honesty line for quiet months' \u2014 mix drift is not one of the three lines and is instead a separate metric row, so the canonical three questions are not bundled together with the kill/defer rules.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to create four scheduled news-reaction slots.",
+        "evidence": "\"Why the literal version fails... Schedule reserves, not dates.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a reactive piece of that size lands once or twice a year and cannot be scheduled in advance.",
+        "evidence": "The transcript instead states a different frequency: 'Container/runtime security produces roughly 0\u20132 \"everyone is talking about it\" events per quarter' \u2014 not 'once or twice a year.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Converts the CEO's request into unassigned slack instead, roughly 20% of capacity held open.",
+        "evidence": "The response proposes 4 monthly reserve slots but never expresses this as 'roughly 20% of capacity' or as unassigned slack in percentage terms.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names who is allowed to spend the slack.",
+        "evidence": "\"the go/no-go decision delegated to the DevRel lead with no CEO signoff in the loop\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites the measured gap, around 1,000 sessions for a deep technical piece against up to 30,000 for a reactive news piece, as the case for holding slack rather than for planning news slots.",
+        "evidence": "\"Deep dives: rolling 3-mo avg 940 vs 900 benchmark\" versus \"historical: 26K on one KEV-class event\" and \"~29\u00d7 your baseline\" used to argue for the reserve-slot model.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports publish rate, published divided by slotted, as the planning-accuracy metric.",
+        "evidence": "\"1. SHIPPED: Planned X, published Y on time. Slipped: <why>.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reports mix drift: actual versus intended ratios, checked at the monthly review.",
+        "evidence": "The report tracks 'REACH BY CLASS' numbers but never frames actual-vs-intended ratio drift as its own metric.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reports anchor coverage: the share of anchors that got both a preparation and a follow-up slot.",
+        "evidence": "No anchor-coverage metric (prep+follow-up share) appears anywhere in the report structure.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reports slot lead time, the days between 'ready for review' and published, as what exposes the bottleneck.",
+        "evidence": "Only 'Time advisory\u2192publish: 5h10' is reported, which measures advisory-to-publish speed for news items specifically, not general ready-for-review-to-published lead time.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not offer per-piece session or traffic counts as the calendar's own measure of success.",
+        "evidence": "\"Design principle: report what you control separately from what the industry hands you. If the report only shows sessions per post, a quiet month reads as failure\" \u2014 readiness, not traffic, is framed as the primary success measure.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines to draft the news post, and says producing an individual piece belongs to a per-format skill rather than to the quarter plan.",
+        "evidence": "The transcript fully drafts the CVE-2024-21626 rehearsal post in complete detail, the opposite of declining to draft it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Defines the monthly review's three questions (what shipped versus slotted, has the mix drifted, which pieces earned a follow-up) together with its kill and defer rules.",
+        "evidence": "No such three-question review framework or kill/defer rules are defined anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

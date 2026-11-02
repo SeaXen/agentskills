@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Recommends a one-way feed on a public video platform plus the existing Discord as the platform posture.",
+        "evidence": "Recommendation: 'Run a one-way public video feed plus your existing Discord.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend the managed virtual-venue platform, and advises against signing the $9,000 contract.",
+        "evidence": "'don't sign the $9,000 quote.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the managed platform's promotion conditions are not met, naming at least two of: several sessions running at once, a sponsor deliverable naming a virtual booth or an attendee directory sold as a ticket benefit, a procurement constraint leaving no alternative.",
+        "evidence": "Table lists several concurrent sessions, sponsor booth/directory, procurement constraint, all unmet.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the conversation in the existing chat space rather than creating a second login and a second roster.",
+        "evidence": "'conversation happening in the Discord you already have.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not design a new channel roster, and routes channel architecture to samber/dev-event-organizer-skills@event-comms-channels.",
+        "evidence": "event-comms-channels is never mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Fixes the interaction posture in one line before recommending any platform.",
+        "evidence": "Section 1 blockquote posture precedes section 2 platform.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the last date the platform choice can still be reversed as the deadline the decision is ranked against, rather than the event date.",
+        "evidence": "Only says the feed 'can be abandoned the week before'; open question 4 asks for the date but never says options are ranked against it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the vendor questions to be answered in writing before anything is committed or signed.",
+        "evidence": "'If you still talk to any vendor, get answers in writing first'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not re-argue whether the event should be virtual at all.",
+        "evidence": "The plan never revisits the format.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that breakout rooms, booths and attendee directories cost procurement, ops effort and a data-handling review whether or not anyone opens them.",
+        "evidence": "'These features cost procurement time, setup hours and a compliance review whether or not anyone opens them.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that an attendee directory or sponsor-facing lead capture triggers a data-handling review before signature, and that a list a sponsor has already exported cannot be recalled.",
+        "evidence": "'triggers a data-handling review before you sign... a list a sponsor has exported as impossible to recall.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a one-way feed plus the existing chat space beats a broadcast tool with a built-in question queue on ops effort, on procurement and on reach.",
+        "evidence": "No comparison with a broadcast tool with a question queue.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Recommends a one-way feed on a public video platform plus the existing Discord as the platform posture.",
+        "evidence": "\"Run Northwind DevCon on YouTube Live for video and your existing Discord for everything social\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend the managed virtual-venue platform, and advises against signing the $9,000 contract.",
+        "evidence": "\"Platform decision: don't sign the $9,000 quote\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the managed platform's promotion conditions are not met, naming at least two of: several sessions running at once, a sponsor deliverable naming a virtual booth or an attendee directory sold as a ticket benefit, a procurement constraint leaving no alternative.",
+        "evidence": "\"Sponsors want an expo and lead capture. You add multiple parallel tracks... None applies to this year's event.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the conversation in the existing chat space rather than creating a second login and a second roster.",
+        "evidence": "\"Chat and Q&A: Discord, not YouTube chat.\" and \"Your community already has that place\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not design a new channel roster, and routes channel architecture to samber/dev-event-organizer-skills@event-comms-channels.",
+        "evidence": "It designs `#devcon-live`, `#devcon-questions`, hallway voice channels and a `Devcon-2026` role, with no routing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Fixes the interaction posture in one line before recommending any platform.",
+        "evidence": "The transcript opens with the platform recommendation and states no interaction-posture line.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the last date the platform choice can still be reversed as the deadline the decision is ranked against, rather than the event date.",
+        "evidence": "There is no mention of a reversal deadline. 'Today: tell the vendor you're passing' is not a deadline ranking.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the vendor questions to be answered in writing before anything is committed or signed.",
+        "evidence": "There is no written-answers requirement. The advice is to pass or ask for a per-event option.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not re-argue whether the event should be virtual at all.",
+        "evidence": "The transcript never questions the virtual format.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that breakout rooms, booths and attendee directories cost procurement, ops effort and a data-handling review whether or not anyone opens them.",
+        "evidence": "Each quote feature is dismissed as unneeded. The standing-cost warning is absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that an attendee directory or sponsor-facing lead capture triggers a data-handling review before signature, and that a list a sponsor has already exported cannot be recalled.",
+        "evidence": "Only 'keeps attendee data out of a third-party vendor'. There is no review or recall statement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a one-way feed plus the existing chat space beats a broadcast tool with a built-in question queue on ops effort, on procurement and on reach.",
+        "evidence": "The transcript makes no such comparison.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

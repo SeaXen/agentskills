@@ -1,0 +1,58 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that once a tag moderator removes a tag the author cannot add it back",
+        "evidence": "\"You can't re-add it. The playbook says: 'A tag moderator can remove a tag; the author cannot re-add it.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Suggests #news (with a brief summary and source) or #showdev as the tag for a release post",
+        "evidence": "\"Use `#news` for the release, with a brief summary and the source link. `#showdev` is the other launch tag.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Suggests rewriting future release posts into JavaScript-focused technical content if they want the tag",
+        "evidence": "\"Consider making the post earn #javascript... add real JavaScript content... one tutorial-style section... a runnable code sample.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Mentions that tag rules live in each tag's sidebar or submission guidelines and should be checked before posting",
+        "evidence": "\"Read the live #javascript sidebar rules. I don't have the exact wording, so check it before deciding.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that once a tag moderator removes a tag the author cannot add it back",
+        "evidence": "Says re-adding is \"tag-warring\" and will be removed again, but never says the author cannot re-add it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Suggests #news (with a brief summary and source) or #showdev as the tag for a release post",
+        "evidence": "\"Candidates are #node, #api, #webdev, #showdev, and #opensource\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Suggests rewriting future release posts into JavaScript-focused technical content if they want the tag",
+        "evidence": "\"Write a second post that earns #javascript... Use the SDK as the worked example\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Mentions that tag rules live in each tag's sidebar or submission guidelines and should be checked before posting",
+        "evidence": "\"Read the #javascript tag guidelines. Open dev.to/t/javascript and read the 'About' panel.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

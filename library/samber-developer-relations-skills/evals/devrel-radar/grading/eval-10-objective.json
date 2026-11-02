@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Delivers the list rather than refusing, drawing on its bundled source entries with each one's recorded status and date.",
+        "evidence": "'Yes, I can do it', followed by the full radar.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States clearly and prominently that it could not re-verify anything in this environment.",
+        "evidence": "'No network means I can't re-verify anything today.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Carries each entry's previously recorded status and date rather than presenting any of them as freshly confirmed.",
+        "evidence": "Entries read 'recorded active, 26 Aug 2026' and similar.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Hands the user the manual check as explicit steps: open each URL, find the newest dated item, confirm the owner, apply the classifications.",
+        "evidence": "The four-step manual check: open the URL, find the newest dated item, confirm owner, classify.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the thresholds to apply: a dated item within roughly three months is active, and a newest dated item older than roughly six months is stale.",
+        "evidence": "'active (within about 3 months), stale (older than about 6 months)'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the three- and six-month windows are a self-set baseline rather than an industry standard, and should be widened for annual surveys and tightened for a daily news site.",
+        "evidence": "No such statement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the age of the source snapshot it is working from and warns that a snapshot older than roughly six months needs re-verification before being relied on.",
+        "evidence": "It gives the snapshot dates but no warning about snapshots older than six months.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels no entry verified-active on the strength of a remembered date.",
+        "evidence": "'Re-verified today: 0 of 14.' Statuses are 'recorded active'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Invents no source to fill a pillar gap.",
+        "evidence": "'The recorded source list has no vector-database or AI-infra sources. I won't invent any.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Covers advocacy and community with at least one source each.",
+        "evidence": "DRF, Community Pulse and The New Stack.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Excludes video entirely and names the deletion with the constraint that caused it.",
+        "evidence": "'Video entirely... Medium not consumed, so deleted rather than ranked last.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Opens the artifact by saying what it is not - a reading list verified on one date, not a monitoring service that alerts the user when a source dies.",
+        "evidence": "'What this is not: a curated reading list verified on one date, not a monitoring service.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Delivers the list rather than refusing, drawing on its bundled source entries with each one's recorded status and date.",
+        "evidence": "Weekly core slots are \"unfilled\" and the bench is \"Empty.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States clearly and prominently that it could not re-verify anything in this environment.",
+        "evidence": "\"Draft, nothing verified\", no network access, and the reference files were denied.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Carries each entry's previously recorded status and date rather than presenting any of them as freshly confirmed.",
+        "evidence": "No recorded dates are carried.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Hands the user the manual check as explicit steps: open each URL, find the newest dated item, confirm the owner, apply the classifications.",
+        "evidence": "\"Open each URL. Find the newest dated item... Confirm who runs it now. Classify it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the thresholds to apply: a dated item within roughly three months is active, and a newest dated item older than roughly six months is stale.",
+        "evidence": "\"Active: a dated item within about 3 months. Stale: older than about 6 months.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the three- and six-month windows are a self-set baseline rather than an industry standard, and should be widened for annual surveys and tightened for a daily news site.",
+        "evidence": "There is no such statement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the age of the source snapshot it is working from and warns that a snapshot older than roughly six months needs re-verification before being relied on.",
+        "evidence": "There is no such statement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels no entry verified-active on the strength of a remembered date.",
+        "evidence": "\"Verified-active entries: 0.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Invents no source to fill a pillar gap.",
+        "evidence": "\"I won't name feeds, newsletters or podcasts from memory.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Covers advocacy and community with at least one source each.",
+        "evidence": "The practice slots are \"unfilled\", and the pillar coverage line reads \"no\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Excludes video entirely and names the deletion with the constraint that caused it.",
+        "evidence": "\"Dropped: all video... You ruled it out, so it is deleted, not parked.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Opens the artifact by saying what it is not - a reading list verified on one date, not a monitoring service that alerts the user when a source dies.",
+        "evidence": "It opens \"a skeleton... not a verified reading list\" and never mentions a monitoring service.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

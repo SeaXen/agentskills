@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Deletes the branch-per-version migration from the options, naming the Saturday-afternoon one-off ceiling as what deleted source-layout migrations",
+        "evidence": "\"A one-afternoon budget deletes source-layout migrations. Branch-per-version is one.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies 2.x as the only second supported line and one leaving support within about two releases, and compares the selector migration against version stamps plus an early freeze",
+        "evidence": "\"2.x leaves support within about two releases. The skill says to compare the selector migration with stamps plus an early freeze\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends stamps plus an early freeze: 'changed in 3.0' stamps on the dozen differing pages, and a one-time static 2.x snapshot built from its release tag",
+        "evidence": "Option A: \"Latest-only with stamps, inline 2.x variants on about 12 pages, then a frozen 2.x snapshot\"; tag `docs-pre-flatten` is the base for the snapshot.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Serves the 2.x snapshot as `frozen` under `/docs/2.x/` with a banner saying it no longer receives fixes, rather than running a maintained version for six weeks",
+        "evidence": "2.x is \"`maintained` as tabs on the current pages\" until the freeze at support end.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects moving `current` to the unversioned `/docs/` path while two supported lines exist, because a deep link to an unversioned path changes meaning at every release cut",
+        "evidence": "Moves content to \"`/docs/`... Otherwise I'll proceed with `/docs/`.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Replaces the release segment `/docs/3.1/` with the line segment `/docs/3.x/` behind a `latest` alias",
+        "evidence": "That is offered only as the \"Safer alternative\"; the default is /docs/.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Lists the per-page redirect from `/docs/3.1/*` to `/docs/3.x/*`",
+        "evidence": "Redirect goes \"from `/docs/3.1/:path*` to `/docs/:path*`\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Points support replies and the README at the `latest` alias, not at a numbered path",
+        "evidence": "\"Aliases: link `/docs/` from support replies, the README and blog posts.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Confines the afternoon's work to configuration on the current layout: stamps, alias, redirects, snapshot",
+        "evidence": "Includes a `git mv` of content, tabs on about 12 pages, and nav and sitemap rewrites.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Re-checks the choice once 2.x leaves support, when latest-only plus a frozen archive suffices",
+        "evidence": "Release cut and retirement at about 2026-12-04 plan the move to latest-only plus a frozen archive.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the 'about two releases' horizon as baseline",
+        "evidence": "Only the cost table is labelled \"(baseline)\"; the horizon is not.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes no canonical tags for the old `/docs/3.1/` pages and hands the redirect list to samber/developer-relations-skills@docs-seo",
+        "evidence": "\"Hand the redirect list and canonical posture to the docs SEO pass (`docs-seo`).\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Deletes the branch-per-version migration from the options, naming the Saturday-afternoon one-off ceiling as what deleted source-layout migrations",
+        "evidence": "Rejects branches for maintenance cost, not by naming the Saturday ceiling.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies 2.x as the only second supported line and one leaving support within about two releases, and compares the selector migration against version stamps plus an early freeze",
+        "evidence": "No such comparison.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends stamps plus an early freeze: 'changed in 3.0' stamps on the dozen differing pages, and a one-time static 2.x snapshot built from its release tag",
+        "evidence": "Recommends a switcher and a folder; no stamps.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Serves the 2.x snapshot as `frozen` under `/docs/2.x/` with a banner saying it no longer receives fixes, rather than running a maintained version for six weeks",
+        "evidence": "Uses `/docs/v2/` with \"2.x is supported until <date>\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects moving `current` to the unversioned `/docs/` path while two supported lines exist, because a deep link to an unversioned path changes meaning at every release cut",
+        "evidence": "Moves current to `/docs/`.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Replaces the release segment `/docs/3.1/` with the line segment `/docs/3.x/` behind a `latest` alias",
+        "evidence": "No alias.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Lists the per-page redirect from `/docs/3.1/*` to `/docs/3.x/*`",
+        "evidence": "Redirects to `/docs/*`.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Points support replies and the README at the `latest` alias, not at a numbered path",
+        "evidence": "Points at `/docs/`.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Confines the afternoon's work to configuration on the current layout: stamps, alias, redirects, snapshot",
+        "evidence": "Moves the folder and builds a switcher.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Re-checks the choice once 2.x leaves support, when latest-only plus a frozen archive suffices",
+        "evidence": "Only EOL banner tasks.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels the 'about two releases' horizon as baseline",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes no canonical tags for the old `/docs/3.1/` pages and hands the redirect list to samber/developer-relations-skills@docs-seo",
+        "evidence": "Sets canonicals itself.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

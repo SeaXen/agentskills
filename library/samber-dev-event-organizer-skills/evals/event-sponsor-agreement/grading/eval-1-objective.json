@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Presents the output as a term sheet for a lawyer to review, and states inside the document itself that it is not a contract and not legal advice",
+        "evidence": "\"Status: draft for review by a qualified lawyer... Not a contract, not legal advice.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Repeats the not-a-contract and not-legal-advice statement at the handoff to counsel, not only once at the top",
+        "evidence": "Counsel handoff note: \"This is a term sheet, not a contract and not legal advice.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the unincorporated organizer as a structural exposure the document cannot draft around, and names the personal liability the individuals carry",
+        "evidence": "\"who is personally liable if the event fails... Volunteers who sign personally may carry that exposure themselves.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the legal-entity question to samber/dev-event-organizer-skills@event-team-structure",
+        "evidence": "\"This is also covered by the team-structure skill in this collection.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines to produce a signable document, and presents any signature block only as a placeholder pending counsel review",
+        "evidence": "\"I can't write the signable contract you asked for\"; \u00a719 \"Placeholder only. Add it after counsel review.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Establishes the jurisdiction and governing law and identifies the counsel who will review, before drafting clause language",
+        "evidence": "Jurisdiction only \"France, assumed\"; \u00a717 \"to be set by counsel\"; no counsel identified before drafting clauses.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces a deliverables exhibit with one row per sold perk covering the website logo, the lanyard logo, the 3x2m table and the 4 passes",
+        "evidence": "Exhibit table has rows for website logo, lanyard, table 3 x 2 m, full passes (4).",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives each exhibit row a specification, a delivery surface, a hard deadline and a named responsible party",
+        "evidence": "Columns Specification, Surface, Hard deadline, Responsible, Source are filled for each row.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Carries the 7,500 EUR fee and the four Gold perks through unchanged, and adds no perk that was not on the rate card",
+        "evidence": "\"Nothing outside the rate card enters this document.\" Table power/WiFi \"not promised\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Drafts sponsor withdrawal and organizer cancellation as two separate clauses rather than one mutual cancellation section",
+        "evidence": "\u00a75 Sponsor withdrawal \"(separate clause)\"; \u00a76 Organizer cancellation \"(separate clause, narrower)\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the organizer-cancellation remedy is narrower than the sponsor-withdrawal remedy",
+        "evidence": "\"This is not a mirror of \u00a75.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names an explicit remedy in words for the force-majeure branch rather than leaving it implied",
+        "evidence": "\u00a77 \"Remedy for each branch, named in words\": cancelled pro-rata refund, postponed carry-over, virtual election.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes a code-of-conduct clause binding the sponsor's own staff, carrying an ejection right and a no-refund consequence",
+        "evidence": "\u00a710 \"may eject any sponsor representative... The fee is not refunded in that case\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the Friday deadline cannot displace counsel review, and that the term sheet must reach counsel before the sponsor is asked to sign",
+        "evidence": "\"Counsel must see this before Hexabyte is asked to sign, not after.\" \"Do not send this term sheet to them as if it were the contract.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Presents the output as a term sheet for a lawyer to review, and states inside the document itself that it is not a contract and not legal advice",
+        "evidence": "Presented as a full 'SPONSORSHIP AGREEMENT'; only says 'a solid working draft, not legal advice'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Repeats the not-a-contract and not-legal-advice statement at the handoff to counsel, not only once at the top",
+        "evidence": "Only the top note says it is not legal advice; the closing step is 'Ask a lawyer or accountant to skim Clauses 1, 5, 10.6 and 11.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the unincorporated organizer as a structural exposure the document cannot draft around, and names the personal liability the individuals carry",
+        "evidence": "'An unincorporated group has no legal personality in France. Whoever signs is personally liable.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the legal-entity question to samber/dev-event-organizer-skills@event-team-structure",
+        "evidence": "No reference to samber/dev-event-organizer-skills@event-team-structure.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines to produce a signable document, and presents any signature block only as a placeholder pending counsel review",
+        "evidence": "Provides a full agreement with signature table and 'Signed at [CITY]... in two originals'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Establishes the jurisdiction and governing law and identifies the counsel who will review, before drafting clause language",
+        "evidence": "Assumes French law and Bordeaux courts; counsel is only mentioned after the draft.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces a deliverables exhibit with one row per sold perk covering the website logo, the lanyard logo, the 3x2m table and the 4 passes",
+        "evidence": "Perks are a numbered list in Clause 3, not an exhibit table; Annex A is a sponsor details form.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives each exhibit row a specification, a delivery surface, a hard deadline and a named responsible party",
+        "evidence": "No exhibit rows; deadlines are '[DATE]' placeholders inside the clause.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Carries the 7,500 EUR fee and the four Gold perks through unchanged, and adds no perk that was not on the rate card",
+        "evidence": "Clause 4.1 'EUR 7,500'; Clause 3 lists website, lanyard, table, 4 passes; 'No other benefit is granted'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Drafts sponsor withdrawal and organizer cancellation as two separate clauses rather than one mutual cancellation section",
+        "evidence": "9.1 'Event cancelled by the Organiser' and 9.6 'Withdrawal by the Sponsor' are distinct subclauses.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the organizer-cancellation remedy is narrower than the sponsor-withdrawal remedy",
+        "evidence": "Organizer cancellation gives a full refund; sponsor withdrawal gives 50% or none, which is the reverse.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names an explicit remedy in words for the force-majeure branch rather than leaving it implied",
+        "evidence": "9.4 'suspends affected obligations without liability. Clause 9.1 applies if the Event cannot take place' (full refund).",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes a code-of-conduct clause binding the sponsor's own staff, carrying an ejection right and a no-refund consequence",
+        "evidence": "6.2 only requires compliance; 13.3 termination gives 'a refund of the fee less costs already incurred'; no ejection right.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the Friday deadline cannot displace counsel review, and that the term sheet must reach counsel before the sponsor is asked to sign",
+        "evidence": "Says 'Send the draft to Hexabyte procurement now' and only asks a lawyer to skim.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -113,6 +113,7 @@ This collection covers the full developer-relations surface.
 
 - [`devrel-metrics`](./skills/devrel-metrics): Builds a DevRel measurement framework: metrics tiered from reach to business impact, each with an attribution rule, a baseline-derived target, an owner and an action.
 - [`devrel-analytics`](./skills/devrel-analytics): Builds the tracking plan behind those metrics: an event taxonomy, an identity spine, link-tagging discipline, source-confidence labelling, and funnel views.
+- [`devrel-exec-reporting`](./skills/devrel-exec-reporting): Writes the one-page DevRel report an executive reads, with every claim labelled, leading indicators for slow outcomes, a misses section, and a budget-defense case built from the cut list.
 - [`developer-survey-design`](./skills/developer-survey-design): Designs a recurring developer survey, from the decisions it informs to published results that state who answered, how many, and what the numbers can claim.
 - [`devrel-competitor-analysis`](./skills/devrel-competitor-analysis): Benchmarks a competitor's DevRel motion from publicly observable signals and returns a gap plan with a close, ignore or counter verdict per row.
 
@@ -121,6 +122,10 @@ This collection covers the full developer-relations surface.
 - [`devrel-content-calendar`](./skills/devrel-content-calendar): Plans a quarter of DevRel content as dated slots with named owners and reviewers, mixed by surface, pillar and shelf life, sized against real writing capacity.
 - [`engineering-blog-post`](./skills/engineering-blog-post): Writes or edits a technical post a skeptical developer audience believes: evidence behind every claim, published trade-offs, runnable snippets, and no marketing voice.
 - [`devto-playbook`](./skills/devto-playbook): Runs a vendor's or maintainer's dev.to presence: fit verdict, organization setup, canonical cross-posting, tag rules, AI disclosure, and an earn-first eight-week cadence.
+- [`dailydev-playbook`](./skills/dailydev-playbook): Runs a vendor's or maintainer's daily.dev presence: entry path, reputation earn-first, Squad setup and posting gates, content-policy limits, and Boost or ads versus organic.
+- [`medium-playbook`](./skills/medium-playbook): Runs a vendor's or maintainer's Medium presence: fit verdict, named authors and a company publication, canonical import, established publications, the paywall trade-off, and an eight-week cadence.
+- [`bluesky-dev-playbook`](./skills/bluesky-dev-playbook): Runs a vendor's, advocate's or maintainer's Bluesky presence: go-or-skip verdict, people-first accounts on domain handles, starter packs, dev feeds, and bot and cross-posting rules.
+- [`kaggle-playbook`](./skills/kaggle-playbook): Runs a data or ML-tooling vendor's Kaggle presence: fit verdict, notebooks that survive a fork, datasets and models as distribution, competition hosting obligations, and what Kaggle bans as self-promotion.
 - [`developer-case-study`](./skills/developer-case-study): Turns a customer's production deployment into a technical case study engineers believe: measured numbers, before-and-after architecture, published limitations, cleared approvals.
 - [`devrel-newsletter-program`](./skills/devrel-newsletter-program): Designs a developer newsletter as a standing programme: whether to run one at all, a cadence the team's supply can fill, a section template, an owner with a backup, and pause and sunset rules.
 - [`devrel-newsletter-issue`](./skills/devrel-newsletter-issue): Writes or reviews one developer newsletter issue: sourced item write-ups, releases without hype, labelled sponsors, code that survives email clients, and a pre-send check.
@@ -130,6 +135,8 @@ This collection covers the full developer-relations surface.
 - [`devrel-newsletter-sponsorship`](./skills/devrel-newsletter-sponsorship): Sells sponsor slots in a newsletter you publish: a sellability verdict, an acceptance policy, a rate card priced from human clicks, the ad label and booking terms.
 - [`build-in-public`](./skills/build-in-public): Designs a sustainable build-in-public practice: how far up the disclosure ladder to go, a cadence the maintainer can hold, the platform mix, and the boundaries.
 - [`technical-video-script`](./skills/technical-video-script): Writes a shooting-ready script for a technical video or motion design explainer: a 30-second hook, code-on-screen pacing, chapters, and a pre-decided cut list.
+- [`devrel-live-streaming`](./skills/devrel-live-streaming): Plans a recurring developer live show: host or guest, a home platform among Twitch, YouTube Live, LinkedIn Live and X, a moderated season, and metrics beyond peak viewers.
+- [`devrel-youtube-channel`](./skills/devrel-youtube-channel): Plans a devtools company's YouTube channel: whether to run one, content pillars, presenter bench and ownership, a sustainable cadence, Shorts, creators and metrics.
 - [`tech-podcast-interview-prep`](./skills/tech-podcast-interview-prep): Prepares a guest for someone else's podcast, interview or panel: show reconnaissance, a message spine, a self-contained opening answer, and clip-safe sound bites.
 
 ### Documentation
@@ -145,6 +152,7 @@ This collection covers the full developer-relations surface.
 - [`coding-agent-docs-optimization`](./skills/coding-agent-docs-optimization): Makes SDK, API or protocol docs something a coding agent integrates from unattended: crawler access, machine-readable entry points, self-contained pages, a measured success rate.
 - [`docs-versioning-strategy`](./skills/docs-versioning-strategy): Decides how developer docs track several product, library or API versions: whether to version at all, a docs state per version (next, current, maintained, frozen, archived) derived from the support table, a ranked topology ladder from latest-only to a version switcher, source layout, a priced doc-fix backport rule, outdated-version banners and a retirement procedure.
 - [`docs-localization-strategy`](./skills/docs-localization-strategy): Decides whether and how to localize developer docs per language: evidence that the source language is the barrier, a ranked translation ladder, the page set, source-commit pins with a bundled drift check, and an ownership gate before launch.
+- [`docs-site-platform-selection`](./skills/docs-site-platform-selection): Decides whether a developer docs site should change platform, then picks the platform class and product through a requirements register, a pilot on the hardest pages, and standing and exit cost.
 
 ### Discoverability & SEO
 
@@ -158,9 +166,12 @@ This collection covers the full developer-relations surface.
 
 - [`developer-community-launch`](./skills/developer-community-launch): Decides whether, where and when to launch a developer community, then plans its seeding, first 90 days, go/no-go criteria and shutdown criteria.
 - [`developer-community-health`](./skills/developer-community-health): Designs a community health measurement framework: activity, responsiveness, contributor-funnel and sentiment metrics, honest instrumentation, and a report ending in decisions.
+- [`discourse-forums-playbook`](./skills/discourse-forums-playbook): Runs a vendor's own Discourse forum: categories and tags, trust levels, spam controls, honest seeding, Solved answers, and forum search visibility.
 - [`developer-community-moderation`](./skills/developer-community-moderation): Writes a community's code of conduct and the moderation playbook behind it: enforcement ladder, reporting channels, incident runbook, moderator roster, platform controls.
+- [`discord-community-playbook`](./skills/discord-community-playbook): Runs a developer product's Discord presence: own-server setup, forum help, announcements, Discovery and web-indexing decisions, and staff conduct in other people's servers.
 - [`developer-feedback-loop`](./skills/developer-feedback-loop): Designs how developer feedback reaches product and comes back: one record of truth, problem-first records, a product-owned decision review, public status replies including the no, and loop metrics.
 - [`developer-champions`](./skills/developer-champions): Designs an unpaid, perks-only champions program: intake, published selection criteria, behaviour-based obligations, an access-first perk ladder, fixed terms, and a cohort scorecard.
+- [`student-developer-programs`](./skills/student-developer-programs): Designs a student and university program around one job, with a verified student offer, faculty classroom kit, campus champions or internship funnel, and outcome metrics.
 - [`developer-office-hours-program`](./skills/developer-office-hours-program): Designs a recurring developer office-hours or AMA program: format choice, a slot covering the users' time zones, a capped engineer rotation, a published scope card, empty-room and recording rules, and a write-up loop turning repeat questions into docs fixes.
 - [`developer-meetup-program`](./skills/developer-meetup-program): Designs a recurring developer meetup or user group: host model, format menu, cadence, speaker pipeline, in-kind sponsors, the co-organizer ladder, and a health scorecard.
 
@@ -170,7 +181,11 @@ This collection covers the full developer-relations surface.
 - [`tech-talk-outline`](./skills/tech-talk-outline): Turns an accepted abstract into a rehearsable outline: the one-sentence takeaway, a narrative arc, a minute-by-minute time budget, demo placement, and a slide skeleton.
 - [`developer-live-demo-design`](./skills/developer-live-demo-design): Engineers a technical demo so it survives the stage: risk triage, enterable checkpoints, a one-command reset, offline mode, and a recorded fallback, shipped as a runbook.
 - [`developer-event-sponsorship`](./skills/developer-event-sponsorship): Builds a developer-event sponsorship plan: which events to sponsor at which tier, the on-site activation, and how to prove the money worked.
+- [`developer-booth-playbook`](./skills/developer-booth-playbook): Writes the floor plan for a booth already bought: crew and shifts, floor scripts, graded lead capture, swag policy, and the event's exhibitor rules.
+- [`developer-event-followup`](./skills/developer-event-followup): Plans the week after a developer event: who may be emailed and for what, personal notes and promised items, routing to product, community or sales, and cohort activation at 30/60/90 days.
+- [`devrel-field-events`](./skills/devrel-field-events): Plans a private dinner, roundtable or reception beside someone else's conference: host or not, organizer rules, guest list, hospitality compliance, follow-up and measurement.
 - [`devrel-webinar-program`](./skills/devrel-webinar-program): Designs a recurring technical webinar series for developers: the series' one job, ranked formats, seasons sized to speaker capacity, attendance diagnosis, a replay plan, and a consent-bounded handoff contract with sales.
+- [`developer-workshop-program`](./skills/developer-workshop-program): Designs hands-on workshops delivered to one customer or prospect account: a grant rule with sales, a lab catalog, the lab environment standard, instructor certification, the next-step agreement and account-level metrics.
 
 ### Open source
 

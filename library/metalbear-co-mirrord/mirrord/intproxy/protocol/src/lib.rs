@@ -1,0 +1,668 @@
+//! Protocol used in communication between the layer and the internal proxy.
+//! This protocol does not have to be backwards compatible and can be changed freely, as the
+//! internal proxy and the layer are shipped together in a single binary.
+
+use std::{
+    collections::HashMap,
+    fmt,
+    net::{IpAddr, SocketAddr},
+};
+
+use bincode::{BorrowDecode, Decode, Encode};
+use mirrord_protocol::{
+    FileRequest, FileResponse, GetEnvVarsRequest, Port, RemoteResult,
+    dns::{GetAddrInfoRequestV2, GetAddrInfoResponse},
+    file::*,
+    outgoing::SocketAddress,
+    tcp::{MirrorType, StealType},
+};
+
+#[cfg(feature = "codec")]
+pub mod codec;
+mod macros;
+
+/// An identifier for a message sent from the layer to the internal proxy.
+/// The layer uses this to match proxy responses with awaiting requests.
+pub type MessageId = u64;
+
+/// A wrapper for messages sent through the `layer <-> proxy` connection.
+#[derive(Encode, Decode, Debug)]
+pub struct LocalMessage<T> {
+    /// Message identifier.
+    pub message_id: MessageId,
+    /// The actual message.
+    pub inner: T,
+}
+
+/// Messages sent by the layer and handled by the internal proxy.
+#[derive(Encode, BorrowDecode, Debug, PartialEq, Eq)]
+#[bincode(decode_context = "mirrord_protocol::codec::DecodeCtx")]
+pub enum LayerToProxyMessage {
+    /// A request to start new `layer <-> proxy` session.
+    /// This should be the first message sent by the layer after opening a new connection to the
+    /// internal proxy.
+    NewSession(NewSessionRequest),
+    /// A file operation request.
+    File(FileRequest),
+    /// A DNS request.
+    GetAddrInfo(GetAddrInfoRequestV2),
+    /// Requests related to outgoing connections.
+    Outgoing(OutgoingRequest),
+    /// Requests related to incoming connections.
+    Incoming(IncomingRequest),
+    /// Fetch environment variables from the target.
+    GetEnv(GetEnvVarsRequest),
+}
+
+/// Layer process information
+#[derive(Encode, Decode, Debug, PartialEq, Eq)]
+pub struct ProcessInfo {
+    /// Process ID.
+    pub pid: i32,
+    /// ID of the parent process.
+    pub parent_pid: i32,
+    /// Process name.
+    pub name: String,
+    /// Command line
+    pub cmdline: Vec<String>,
+    /// Is layer loaded?
+    pub loaded: bool,
+}
+
+/// Unique `layer <-> proxy` session identifier.
+/// New connection is established when the layer initializes or forks.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Hash, Encode, Decode)]
+pub struct LayerId(pub u64);
+
+/// A layer's request to start a new session with the internal proxy.
+///
+/// Contains info about layer's state.
+/// This should be the first message sent by the layer after opening a new connection to the
+/// internal proxy.
+///
+/// # Note
+///
+/// ## Unix
+/// Sharing state between [`exec`](https://man7.org/linux/man-pages/man3/exec.3.html) calls is currently not supported.
+/// Therefore, when the layer initializes, it has empty [`NewSessionRequest::parent_layer`] and does
+/// not inherit any state.
+#[derive(Encode, Decode, Debug, PartialEq, Eq)]
+pub struct NewSessionRequest {
+    /// If the layer re-initialized from a [`fork`](https://man7.org/linux/man-pages/man2/fork.2.html) detour,
+    /// this is its parent layer id.
+    ///
+    /// # Note
+    ///
+    /// ## Unix
+    /// The layer inherits state from its parent.
+    ///
+    /// ## Windows
+    /// The layer inherits environment variables from its parent.
+    pub parent_layer: Option<LayerId>,
+    pub process_info: ProcessInfo,
+}
+
+/// Supported network protocols when intercepting outgoing connections.
+#[derive(Encode, Decode, Debug, Clone, Copy, Hash, PartialEq, Eq)]
+pub enum NetProtocol {
+    /// Data stream over IP (TCP) or UDS.
+    Stream,
+    /// Datagrams over IP (UDP). UDS is not supported.
+    ///
+    /// # Note
+    ///
+    /// In reality, this is a connectionless protocol.
+    /// However, one can call [`connect`](https://man7.org/linux/man-pages/man2/connect.2.html) on a datagram socket,
+    /// which alters this socket's behavior. Currently, we require this call to happen before we
+    /// intercept outgoing UDP.
+    Datagrams,
+    Seqpacket,
+}
+
+impl fmt::Display for NetProtocol {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        let as_str = match self {
+            Self::Stream => "STREAM",
+            Self::Datagrams => "DGRAM",
+            Self::Seqpacket => "SEQPACKET",
+        };
+
+        f.write_str(as_str)
+    }
+}
+
+/// Requests related to outgoing connections.
+#[derive(Encode, Decode, Debug, PartialEq, Eq)]
+pub enum OutgoingRequest {
+    Connect(OutgoingConnectRequest),
+    ConnMetadata(OutgoingConnMetadataRequest),
+    Close(OutgoingConnCloseRequest),
+}
+
+/// A request to initiate a new outgoing connection.
+#[derive(Encode, Decode, Debug, PartialEq, Eq)]
+pub struct OutgoingConnectRequest {
+    /// The address the user application tries to connect to.
+    pub remote_address: SocketAddress,
+    /// The protocol stack the user application wants to use.
+    pub protocol: NetProtocol,
+
+    /// Metadata for this outgoing connection request.
+    ///
+    /// The fields here are not used by the request per se, they're useful for things related to
+    /// the connection, such as applying chaos rules.
+    pub metadata: OutgoingConnectRequestMetadata,
+}
+
+impl OutgoingConnectRequest {
+    /// Creates an outgoing connection request for the specified address and protocol, with
+    /// `hostname` as [`OutgoingConnectRequestMetadata`].
+    pub fn new(
+        remote_address: SocketAddr,
+        protocol: NetProtocol,
+        hostname: Option<String>,
+    ) -> Self {
+        Self {
+            remote_address: remote_address.into(),
+            protocol,
+            metadata: OutgoingConnectRequestMetadata { hostname },
+        }
+    }
+
+    /// Gets the [`OutgoingConnectRequestMetadata::hostname`], if any.
+    pub fn hostname(&self) -> Option<&String> {
+        self.metadata.hostname.as_ref()
+    }
+}
+
+/// Useful things about an [`OutgoingConnectRequest`] that are not part of the actual connection
+/// handling.
+///
+/// Currently, this is being used by the chaos rules feature.
+#[derive(Default, Encode, Decode, Debug, PartialEq, Eq)]
+pub struct OutgoingConnectRequestMetadata {
+    /// Remote hostname we're trying to connect to, e.g. `www.przepisy.pl`.
+    pub hostname: Option<String>,
+}
+
+/// A request for additional metadata for an outgoing connection.
+#[derive(Encode, Decode, Debug, PartialEq, Eq)]
+pub struct OutgoingConnMetadataRequest {
+    /// ID of the outgoing connection.
+    pub conn_id: u128,
+}
+
+/// A request for closing the outgoing connection.
+#[derive(Encode, Decode, Debug, PartialEq, Eq)]
+pub struct OutgoingConnCloseRequest {
+    /// ID of the outgoing connection.
+    pub conn_id: u128,
+}
+
+/// Requests related to incoming connections.
+#[derive(Encode, Decode, Debug, PartialEq, Eq)]
+pub enum IncomingRequest {
+    /// A request made by layer when it starts listening for mirrored connections.
+    PortSubscribe(PortSubscribe),
+    /// A request made by the layer when it closes the socket listening for mirrored connections.
+    PortUnsubscribe(PortUnsubscribe),
+    /// A request made by the layer when it accepts a connection on the socket that is listening
+    /// for mirrored connections.
+    ConnMetadata(ConnMetadataRequest),
+}
+
+/// A request for additional metadata for accepted connection.
+/// The layer should use this each time it accepts a connection on a socket that is listening for
+/// mirrored connections ([`PortSubscribe`]).
+#[derive(Encode, Decode, Debug, Eq, PartialEq, Hash, Clone)]
+pub struct ConnMetadataRequest {
+    /// Address of the listener that accepted the connection.
+    pub listener_address: SocketAddr,
+    /// Address of connection peer.
+    pub peer_address: SocketAddr,
+}
+
+/// A response to layer's [`ConnMetadataRequest`].
+/// Contains metadata useful for hooking `getsockname` and `getpeername`.
+#[derive(Encode, Decode, Debug, Clone, PartialEq, Eq)]
+pub struct ConnMetadataResponse {
+    /// Original source of data, provided by the agent. Meant to be exposed to the user instead of
+    /// the real source, which will always be localhost.
+    ///
+    /// # Note
+    ///
+    /// Due to limitiations of the `intproxy <-> agent` protocol, HTTP connections will send the
+    /// real source (localhost).
+    pub remote_source: SocketAddr,
+    /// Address of the local socket, provided by the agent. Meant to be exposed to the user instead
+    /// of real source, which will always be localhost.
+    ///
+    /// # Note
+    ///
+    /// Due to limitations of the `intproxy <-> agent` protocol, HTTP connections will send the
+    /// real address (localhost).
+    pub local_address: IpAddr,
+}
+
+/// Where the internal proxy should forward traffic for a [`PortSubscribe`].
+///
+/// [`Self::Socket`] is used by the regular layer (the layer hooked `listen()` and the user
+/// application is bound to that address). [`Self::Hostname`] is used by preview environments,
+/// where the operator creates a headless Service for the preview pods and passes its DNS name.
+/// Using a hostname spreads load across the backing pods and avoids burning a ClusterIP per
+/// session, which matters in clusters that exhaust their service CIDR.
+#[derive(Encode, Decode, Debug, Clone, PartialEq, Eq, Hash)]
+pub enum ListeningOn {
+    Socket(SocketAddr),
+    Hostname { host: String, port: u16 },
+}
+
+impl ListeningOn {
+    /// Port the layer / preview environment subscribed on.
+    pub fn port(&self) -> u16 {
+        match self {
+            Self::Socket(addr) => addr.port(),
+            Self::Hostname { port, .. } => *port,
+        }
+    }
+}
+
+impl From<SocketAddr> for ListeningOn {
+    fn from(addr: SocketAddr) -> Self {
+        Self::Socket(addr)
+    }
+}
+
+impl fmt::Display for ListeningOn {
+    fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
+        match self {
+            Self::Socket(addr) => write!(f, "{addr}"),
+            Self::Hostname { host, port } => write!(f, "{host}:{port}"),
+        }
+    }
+}
+
+/// A request to start proxying incoming connections.
+///
+/// For each connection incoming to the remote port, the internal proxy will initiate a new
+/// connection to the destination described by [`PortSubscribe::listening_on`].
+#[derive(Encode, Decode, Debug, Clone, PartialEq, Eq)]
+pub struct PortSubscribe {
+    pub listening_on: ListeningOn,
+    pub subscription: PortSubscription,
+}
+
+/// Instructions for the internal proxy and the agent on how to execute port mirroring.
+#[derive(Encode, Decode, Debug, Clone, PartialEq, Eq)]
+pub enum PortSubscription {
+    /// Wrapped [`StealType`] specifies how to execute port mirroring.
+    Steal(StealType),
+    /// Wrapped [`MirrorType`] specifies how to execute port mirroring.
+    Mirror(MirrorType),
+}
+
+/// A request to stop proxying incoming connections.
+#[derive(Encode, Decode, Debug, PartialEq, Eq)]
+pub struct PortUnsubscribe {
+    pub port: Port,
+    pub listening_on: ListeningOn,
+}
+
+/// Messages sent by the internal proxy and handled by the layer.
+#[derive(Clone, Encode, BorrowDecode, Debug, PartialEq, Eq)]
+#[bincode(decode_context = "mirrord_protocol::codec::DecodeCtx")]
+pub enum ProxyToLayerMessage {
+    /// A response to [`NewSessionRequest`]. Contains the identifier of the new `layer <-> proxy`
+    /// session.
+    NewSession(LayerId),
+    /// A response to layer's [`FileRequest`].
+    File(FileResponse),
+    /// A response to layer's [`GetAddrInfoRequestV2`].
+    GetAddrInfo(GetAddrInfoResponse),
+    /// A response to layer's [`OutgoingRequest`].
+    Outgoing(OutgoingResponse),
+    /// A response to layer's [`IncomingRequest`].
+    Incoming(IncomingResponse),
+    /// A response to layer's [`LayerToProxyMessage::GetEnv`].
+    GetEnv(RemoteResult<HashMap<String, String>>),
+    /// Internal proxy encountered a fatal error.
+    ProxyFailed {
+        agent_reported: bool,
+        message: String,
+    },
+}
+
+/// A response to layer's [`IncomingRequest`].
+#[derive(Clone, Encode, Decode, Debug, PartialEq, Eq)]
+pub enum IncomingResponse {
+    /// A response to layer's [`PortSubscribe`].
+    /// As a temporary workaround to [agent protocol](mirrord_protocol) limitations, the only error
+    /// returned here is
+    /// [`ResponseError::PortAlreadyStolen`](mirrord_protocol::error::ResponseError::PortAlreadyStolen).
+    /// Other errors will make the internal proxy terminate.
+    PortSubscribe(RemoteResult<()>),
+    /// A response to layers' [`ConnMetadataRequest`].
+    ConnMetadata(ConnMetadataResponse),
+}
+
+/// A response to layer's [`OutgoingRequest`].
+#[derive(Clone, Encode, Decode, Debug, PartialEq, Eq)]
+pub enum OutgoingResponse {
+    Connect(RemoteResult<OutgoingConnectResponse>),
+    ConnMetadata(Option<OutgoingConnMetadataResponse>),
+}
+
+/// A response to layer's [`OutgoingConnectRequest`].
+#[derive(Clone, Encode, Decode, Debug, PartialEq, Eq)]
+pub struct OutgoingConnectResponse {
+    /// Unique ID for this outgoing connection.
+    ///
+    /// Can later be used with [`OutgoingConnMetadataRequest`].
+    pub connection_id: u128,
+    /// The address the layer should connect to instead of the address requested by the user.
+    pub layer_address: SocketAddress,
+    /// In-cluster address of the pod.
+    ///
+    /// Not available in case of experimental non-blocking TCP connections.
+    pub in_cluster_address: Option<SocketAddress>,
+}
+
+/// A response to layer's [`OutgoingConnMetadataRequest`].
+#[derive(Clone, Encode, Decode, Debug, PartialEq, Eq)]
+pub struct OutgoingConnMetadataResponse {
+    /// In-cluster address of the pod.
+    pub in_cluster_address: SocketAddr,
+}
+
+/// A helper trait for `layer -> proxy` requests.
+pub trait IsLayerRequest: Sized {
+    /// Wraps this request so that it can be sent through the connection.
+    fn wrap(self) -> LayerToProxyMessage;
+
+    /// Tries to unwrap a request of this type from the message.
+    /// On error, returns the message as it was.
+    fn try_unwrap(message: LayerToProxyMessage) -> Result<Self, LayerToProxyMessage>;
+}
+
+/// A helper trait for `layer -> proxy` requests that require a response from the proxy.
+/// Not all layer requests require a response, e.g.
+/// [`CloseFileRequest`].
+///
+/// # Note
+///
+/// Instead of this, we should ideally have something like `IsProxyResponse` trait.
+/// However, `proxy <-> agent` protocol uses the same response type for multiple requests.
+/// Translating agent responses into unique types would generate a lot of boilerplate code.
+pub trait IsLayerRequestWithResponse: IsLayerRequest {
+    /// Type of response to this request.
+    type Response: Sized;
+
+    /// Wraps the response so that it can be sent through the connection.
+    fn wrap_response(response: Self::Response) -> ProxyToLayerMessage;
+
+    /// Tries to unwrap a response of valid type from the message.
+    /// On error, returns the message as it was.
+    fn try_unwrap_response(
+        response: ProxyToLayerMessage,
+    ) -> Result<Self::Response, ProxyToLayerMessage>;
+}
+
+impl_request!(
+    req = OpenFileRequest,
+    res = RemoteResult<OpenFileResponse>,
+    req_path = LayerToProxyMessage::File => FileRequest::Open,
+    res_path = ProxyToLayerMessage::File => FileResponse::Open,
+);
+
+impl_request!(
+    req = OpenRelativeFileRequest,
+    res = RemoteResult<OpenFileResponse>,
+    req_path = LayerToProxyMessage::File => FileRequest::OpenRelative,
+    res_path = ProxyToLayerMessage::File => FileResponse::Open,
+);
+
+impl_request!(
+    req = ReadFileRequest,
+    res = RemoteResult<ReadFileResponse>,
+    req_path = LayerToProxyMessage::File => FileRequest::Read,
+    res_path = ProxyToLayerMessage::File => FileResponse::Read,
+);
+
+impl_request!(
+    req = ReadLimitedFileRequest,
+    res = RemoteResult<ReadFileResponse>,
+    req_path = LayerToProxyMessage::File => FileRequest::ReadLimited,
+    res_path = ProxyToLayerMessage::File => FileResponse::ReadLimited,
+);
+
+impl_request!(
+    req = ReadLinkFileRequest,
+    res = RemoteResult<ReadLinkFileResponse>,
+    req_path = LayerToProxyMessage::File => FileRequest::ReadLink,
+    res_path = ProxyToLayerMessage::File => FileResponse::ReadLink,
+);
+
+impl_request!(
+    req = MakeDirRequest,
+    res = RemoteResult<()>,
+    req_path = LayerToProxyMessage::File => FileRequest::MakeDir,
+    res_path = ProxyToLayerMessage::File => FileResponse::MakeDir,
+);
+
+impl_request!(
+    req = MakeDirAtRequest,
+    res = RemoteResult<()>,
+    req_path = LayerToProxyMessage::File => FileRequest::MakeDirAt,
+    res_path = ProxyToLayerMessage::File => FileResponse::MakeDir,
+);
+
+impl_request!(
+    req = RemoveDirRequest,
+    res = RemoteResult<()>,
+    req_path = LayerToProxyMessage::File => FileRequest::RemoveDir,
+    res_path = ProxyToLayerMessage::File => FileResponse::RemoveDir,
+);
+
+impl_request!(
+    req = UnlinkRequest,
+    res = RemoteResult<()>,
+    req_path = LayerToProxyMessage::File => FileRequest::Unlink,
+    res_path = ProxyToLayerMessage::File => FileResponse::Unlink,
+);
+
+impl_request!(
+    req = UnlinkAtRequest,
+    res = RemoteResult<()>,
+    req_path = LayerToProxyMessage::File => FileRequest::UnlinkAt,
+    res_path = ProxyToLayerMessage::File => FileResponse::Unlink,
+);
+
+impl_request!(
+    req = SeekFileRequest,
+    res = RemoteResult<SeekFileResponse>,
+    req_path = LayerToProxyMessage::File => FileRequest::Seek,
+    res_path = ProxyToLayerMessage::File => FileResponse::Seek,
+);
+
+impl_request!(
+    req = WriteFileRequest,
+    res = RemoteResult<WriteFileResponse>,
+    req_path = LayerToProxyMessage::File => FileRequest::Write,
+    res_path = ProxyToLayerMessage::File => FileResponse::Write,
+);
+
+impl_request!(
+    req = WriteLimitedFileRequest,
+    res = RemoteResult<WriteFileResponse>,
+    req_path = LayerToProxyMessage::File => FileRequest::WriteLimited,
+    res_path = ProxyToLayerMessage::File => FileResponse::WriteLimited,
+);
+
+impl_request!(
+    req = AccessFileRequest,
+    res = RemoteResult<AccessFileResponse>,
+    req_path = LayerToProxyMessage::File => FileRequest::Access,
+    res_path = ProxyToLayerMessage::File => FileResponse::Access,
+);
+
+impl_request!(
+    req = XstatRequest,
+    res = RemoteResult<XstatResponse>,
+    req_path = LayerToProxyMessage::File => FileRequest::Xstat,
+    res_path = ProxyToLayerMessage::File => FileResponse::Xstat,
+);
+
+impl_request!(
+    req = XstatFsRequest,
+    res = RemoteResult<XstatFsResponse>,
+    req_path = LayerToProxyMessage::File => FileRequest::XstatFs,
+    res_path = ProxyToLayerMessage::File => FileResponse::XstatFs,
+);
+
+impl_request!(
+    req = XstatFsRequestV2,
+    res = RemoteResult<XstatFsResponseV2>,
+    req_path = LayerToProxyMessage::File => FileRequest::XstatFsV2,
+    res_path = ProxyToLayerMessage::File => FileResponse::XstatFsV2,
+);
+
+impl_request!(
+    req = StatFsRequest,
+    res = RemoteResult<XstatFsResponse>,
+    req_path = LayerToProxyMessage::File => FileRequest::StatFs,
+    res_path = ProxyToLayerMessage::File => FileResponse::XstatFs,
+);
+
+impl_request!(
+    req = StatFsRequestV2,
+    res = RemoteResult<XstatFsResponseV2>,
+    req_path = LayerToProxyMessage::File => FileRequest::StatFsV2,
+    res_path = ProxyToLayerMessage::File => FileResponse::XstatFsV2,
+);
+
+impl_request!(
+    req = FdOpenDirRequest,
+    res = RemoteResult<OpenDirResponse>,
+    req_path = LayerToProxyMessage::File => FileRequest::FdOpenDir,
+    res_path = ProxyToLayerMessage::File => FileResponse::OpenDir,
+);
+
+impl_request!(
+    req = ReadDirRequest,
+    res = RemoteResult<ReadDirResponse>,
+    req_path = LayerToProxyMessage::File => FileRequest::ReadDir,
+    res_path = ProxyToLayerMessage::File => FileResponse::ReadDir,
+);
+
+// The `req = ReadDirBatchRequest` is a lie, the layer doesn't use this message, it'll use
+// the regular `ReadDirRequest`, but we're doing it like this here to keep things simple.
+impl_request!(
+    req = ReadDirBatchRequest,
+    res = RemoteResult<ReadDirBatchResponse>,
+    req_path = LayerToProxyMessage::File => FileRequest::ReadDirBatch,
+    res_path = ProxyToLayerMessage::File => FileResponse::ReadDirBatch,
+);
+
+impl_request!(
+    req = GetDEnts64Request,
+    res = RemoteResult<GetDEnts64Response>,
+    req_path = LayerToProxyMessage::File => FileRequest::GetDEnts64,
+    res_path = ProxyToLayerMessage::File => FileResponse::GetDEnts64,
+);
+
+impl_request!(
+    req = CloseFileRequest,
+    req_path = LayerToProxyMessage::File => FileRequest::Close,
+);
+
+impl_request!(
+    req = CloseDirRequest,
+    req_path = LayerToProxyMessage::File => FileRequest::CloseDir,
+);
+
+impl_request!(
+    req = GetAddrInfoRequestV2,
+    res = GetAddrInfoResponse,
+    req_path = LayerToProxyMessage::GetAddrInfo,
+    res_path = ProxyToLayerMessage::GetAddrInfo,
+);
+
+impl_request!(
+    req = OutgoingConnectRequest,
+    res = RemoteResult<OutgoingConnectResponse>,
+    req_path = LayerToProxyMessage::Outgoing => OutgoingRequest::Connect,
+    res_path = ProxyToLayerMessage::Outgoing => OutgoingResponse::Connect,
+);
+
+impl_request!(
+    req = OutgoingConnMetadataRequest,
+    res = Option<OutgoingConnMetadataResponse>,
+    req_path = LayerToProxyMessage::Outgoing => OutgoingRequest::ConnMetadata,
+    res_path = ProxyToLayerMessage::Outgoing => OutgoingResponse::ConnMetadata,
+);
+
+impl_request!(
+    req = OutgoingConnCloseRequest,
+    req_path = LayerToProxyMessage::Outgoing => OutgoingRequest::Close,
+);
+
+impl_request!(
+    req = PortSubscribe,
+    res = RemoteResult<()>,
+    req_path = LayerToProxyMessage::Incoming => IncomingRequest::PortSubscribe,
+    res_path = ProxyToLayerMessage::Incoming => IncomingResponse::PortSubscribe,
+);
+
+impl_request!(
+    req = PortUnsubscribe,
+    req_path = LayerToProxyMessage::Incoming => IncomingRequest::PortUnsubscribe,
+);
+
+impl_request!(
+    req = ConnMetadataRequest,
+    res = ConnMetadataResponse,
+    req_path = LayerToProxyMessage::Incoming => IncomingRequest::ConnMetadata,
+    res_path = ProxyToLayerMessage::Incoming => IncomingResponse::ConnMetadata,
+);
+
+impl_request!(
+    req = GetEnvVarsRequest,
+    res = RemoteResult<HashMap<String, String>>,
+    req_path = LayerToProxyMessage::GetEnv,
+    res_path = ProxyToLayerMessage::GetEnv,
+);
+
+impl_request!(
+    req = RenameRequest,
+    res = RemoteResult<()>,
+    req_path = LayerToProxyMessage::File => FileRequest::Rename,
+    res_path = ProxyToLayerMessage::File => FileResponse::Rename,
+);
+
+impl_request!(
+    req = FtruncateRequest,
+    res = RemoteResult<()>,
+    req_path = LayerToProxyMessage::File => FileRequest::Ftruncate,
+    res_path = ProxyToLayerMessage::File => FileResponse::Ftruncate,
+);
+
+impl_request!(
+    req = FutimensRequest,
+    res = RemoteResult<()>,
+    req_path = LayerToProxyMessage::File => FileRequest::Futimens,
+    res_path = ProxyToLayerMessage::File => FileResponse::Futimens,
+);
+
+impl_request!(
+    req = FchownRequest,
+    res = RemoteResult<()>,
+    req_path = LayerToProxyMessage::File => FileRequest::Fchown,
+    res_path = ProxyToLayerMessage::File => FileResponse::Fchown,
+);
+
+impl_request!(
+    req = FchmodRequest,
+    res = RemoteResult<()>,
+    req_path = LayerToProxyMessage::File => FileRequest::Fchmod,
+    res_path = ProxyToLayerMessage::File => FileResponse::Fchmod,
+);

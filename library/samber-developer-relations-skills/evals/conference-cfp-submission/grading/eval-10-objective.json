@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to paste the abstract into the outline field",
+        "evidence": "\"Pasted verbatim from the Abstract field, per your instruction.\" \u2014 the model complied rather than refusing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces the outline as a running order with minute estimates",
+        "evidence": "The Outline section is the abstract text pasted verbatim, with no minute marks.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Formats the outline as a two-level bulleted list",
+        "evidence": "The Outline is a pasted paragraph, not a bulleted list at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects \"The Future of Engineering\" as a track picked by name rather than by its description",
+        "evidence": "\"'The Future of Engineering' is a stretch fit picked for name recognition. That's the skill's documented 'wrong track' failure mode\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends \"Platform & Infrastructure\" as the track matching the material",
+        "evidence": "\"'Platform & Infrastructure' matches this talk's content almost exactly\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that chairs rank proposals within a track, so the track choice changes the competition the proposal faces",
+        "evidence": "\"committees rank within a track, so a CI-infra talk competes against futurism pitches there instead of its natural peers.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that this form offers no notes-to-reviewers field",
+        "evidence": "\"Fields: Title (100 chars), Abstract (1,500 chars), Outline, Audience level, Track \u2014 no notes-to-reviewers, no benefit-to-community\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Folds the single strongest reviewer-only sentence into the abstract's payoff and drops the rest, rather than inventing a field the form does not have",
+        "evidence": "No such folding action or reasoning appears anywhere in the transcript; the abstract's payoff sentence is generic ('sequence the fix most likely to pay back first...') with no evidence of reviewer-only content moved into it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets an honest audience level rather than labelling the talk advanced by default",
+        "evidence": "\"Intermediate \u2014 assumes familiarity with CI/CD pipelines and build systems, no specific vendor or language required.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Carries both the 40-minute and 6-minute figures into the abstract",
+        "evidence": "\"A 40-minute median wait before a CI job even starts... getting that median wait down to 6 minutes.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Shows a character count for the title against 100 and for the abstract against 1,500",
+        "evidence": "\"## Title (48/100 chars)\" and \"## Abstract (840/1,500 chars)\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to paste the abstract into the outline field",
+        "evidence": "The 'Outline' section reproduces the abstract text verbatim, word for word.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces the outline as a running order with minute estimates",
+        "evidence": "The outline is plain paragraph text identical to the abstract, with no timing structure.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Formats the outline as a two-level bulleted list",
+        "evidence": "The outline is presented as prose paragraphs, not a bulleted list of any kind.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects \"The Future of Engineering\" as a track picked by name rather than by its description",
+        "evidence": "'Your call stands as submitted above' \u2014 the track is flagged as a possible mismatch but not rejected or changed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends \"Platform & Infrastructure\" as the track matching the material",
+        "evidence": "'A CI-scheduler war story reads as textbook \"Platform & Infrastructure\".'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that chairs rank proposals within a track, so the track choice changes the competition the proposal faces",
+        "evidence": "The text discusses track-fit scoring ('reviewers usually score submissions partly on track fit') but not competition/ranking dynamics within a track.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that this form offers no notes-to-reviewers field",
+        "evidence": "No mention of a notes-to-reviewers field, present or absent, appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Folds the single strongest reviewer-only sentence into the abstract's payoff and drops the rest, rather than inventing a field the form does not have",
+        "evidence": "No such folding action or reasoning is described in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets an honest audience level rather than labelling the talk advanced by default",
+        "evidence": "'Audience level: Intermediate...this isn\u2019t a talk for people new to CI, but it\u2019s also not a deep-dive requiring specialist infra background.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Carries both the 40-minute and 6-minute figures into the abstract",
+        "evidence": "'Our CI queue had a 40-minute median wait time across 210 repositories... cut that median to 6 minutes.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Shows a character count for the title against 100 and for the abstract against 1,500",
+        "evidence": "'Title (75/100 chars)' and 'Abstract (~1,290/1,500 chars)'.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

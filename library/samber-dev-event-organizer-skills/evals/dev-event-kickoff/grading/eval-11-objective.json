@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The session is treated as a cold start because no context artifact exists, without asking the user which kind of start it is.",
+        "evidence": "The files were not found, and the 'Detected, so not asked' section asks nothing about start type.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response does not ask the format question (shape, track count, delivery mode) - the published grid already fixes it.",
+        "evidence": "'Format (Q2): (c), fully fixed... I won't revisit it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response does not ask for the event date - it is read from the published grid.",
+        "evidence": "Q6 asks 'Exact doors date?' even though the date was read from the grid.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The published grid's existence removes event-schedule-design from the recommendations.",
+        "evidence": "'event-schedule-design: the grid is published.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The signed venue contract removes event-venue-sourcing from the recommendations.",
+        "evidence": "Deleted outright: the venue is fixed and signed.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The signed venue contract promotes event-risk-management (go/no-go against the cancellation exposure) on the short-list.",
+        "evidence": "Short-list rung 5: 'The signed venue promotes it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The committed budget is treated as making budget modelling near-free or already done, not recommended as a first task.",
+        "evidence": "'the committed budget makes the money model near-free'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The 19-day commit stall is read as a stall or pace signal and reflected in the session's state or routing.",
+        "evidence": "'Why did work stop 19 days ago' and the timeline route 'shows what slipped during the 19-day silence'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Interview questions are limited to what detection could not answer, and the total stays within the seven-question cap.",
+        "evidence": "Five questions remain (Q3, Q4, Q5, Q6, Q7).",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Any questions are asked one at a time with multiple-choice options.",
+        "evidence": "Five questions are dumped in one message ('answer the five questions').",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "An event-context.md artifact is created, or committed to before session end, recording the detected invariants (format, date, budget status, signed contract).",
+        "evidence": "A full draft is provided as 'ready to commit in the Kelpway repo'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The deleted skills (schedule design, venue sourcing) do not appear at the bottom of the short-list - they are removed entirely.",
+        "evidence": "They appear under 'Deleted outright', not in the short-list.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Each short-list entry names the bottleneck it attacks and what the session costs.",
+        "evidence": "Short-list entry 6, 'Sponsorship slot, held', states no session cost.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The session is treated as a cold start because no context artifact exists, without asking the user which kind of start it is.",
+        "evidence": "'Write event-context.md... Nothing else starts before this exists'; no cold-versus-warm question is asked.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response does not ask the format question (shape, track count, delivery mode) - the published grid already fixes it.",
+        "evidence": "The questions cover role, outcome, sales, sponsors, speakers and the gap, not format.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response does not ask for the event date - it is read from the published grid.",
+        "evidence": "It uses 'about 10 months to doors' from the user's message.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The published grid's existence removes event-schedule-design from the recommendations.",
+        "evidence": "No skills are named, and the grid's effect on routing is not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The signed venue contract removes event-venue-sourcing from the recommendations.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The signed venue contract promotes event-risk-management (go/no-go against the cancellation exposure) on the short-list.",
+        "evidence": "Not named. It has a go/no-go step but no skill.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The committed budget is treated as making budget modelling near-free or already done, not recommended as a first task.",
+        "evidence": "Not treated that way. Step 3 recomputes demand against the budget's assumptions, and question 5 re-asks the budget's sponsor line.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The 19-day commit stall is read as a stall or pace signal and reflected in the session's state or routing.",
+        "evidence": "'Question 7: Why did work stop 19 days ago?' and 'Make the 19-day gap visible'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Interview questions are limited to what detection could not answer, and the total stays within the seven-question cap.",
+        "evidence": "Questions 1 to 7 plus an eighth ('Also, what are the venue contract's cancellation terms') exceed the cap.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Any questions are asked one at a time with multiple-choice options.",
+        "evidence": "Six questions are dumped together, and only some have options.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "An event-context.md artifact is created, or committed to before session end, recording the detected invariants (format, date, budget status, signed contract).",
+        "evidence": "'Write event-context.md (30 min, together). Questions 2 to 7 fill it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The deleted skills (schedule design, venue sourcing) do not appear at the bottom of the short-list - they are removed entirely.",
+        "evidence": "There is no skill short-list.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Each short-list entry names the bottleneck it attacks and what the session costs.",
+        "evidence": "There is no short-list.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

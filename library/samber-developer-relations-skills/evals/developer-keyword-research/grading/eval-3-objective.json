@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Replaces hosts, IP addresses, ports, timeout values and node identifiers with placeholders before grouping",
+        "evidence": "Primary query keeps port and timeout literal: \"connection to corvid://<node>:7946 refused after 20s\" \u2014 only the node/IP got placeholders; port 7946 and \"20s\" remain literal.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Trims the client-library wrapper text (CorvidConnectionException, java.net.ConnectException) down to the innermost cause",
+        "evidence": "The variant keeps the full wrapper chain: \"CorvidConnectionException: caused by java.net.ConnectException: Connection refused\" rather than trimming to just \"Connection refused\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces one cluster per cause rather than one target per phrasing",
+        "evidence": "One row \"Connection refused reaching a Corvid node (port 7946)\" groups Go, Java, and other phrasings into a single cluster.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the most frequent raw phrasings as a variants column on the cluster instead of as separate rows",
+        "evidence": "The table's \"Variants\" column lists multiple phrasings under the one cluster row.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Separates the connection-refused subjects from the token-expired subjects into two distinct clusters",
+        "evidence": "Connection-refused is ranked P1 in Ranked clusters; token-expired is a separate cluster placed in \"Do not target\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Emits no keyword containing a hostname, IP address or port number",
+        "evidence": "Primary query \"connection to corvid://<node>:7946 refused after 20s\" contains the literal port number 7946.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Counts evidence per cluster and per time window, not as a single undated total",
+        "evidence": "\"31 tickets / 2wk, evenly split across both weeks... (User-provided); 812 error-telemetry events / same window (User-provided)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the token-expired cluster as a regression tied to the 4.2 release and routes it to engineering rather than treating it as a docs gap",
+        "evidence": "\"Refused as a docs target: a cluster that appears only after a release is a regression signal to route to engineering... Recommend flagging to engineering as a P0 investigation\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the ticket and telemetry counts Measured, with source, count and date",
+        "evidence": "Counts are explicitly labeled \"User-provided\" throughout (e.g. \"(User-provided \u2014 counts came from the requester's message, not from a pull I ran myself)\"), never \"Measured\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the surviving docs-gap cluster to exactly one canonical error entry",
+        "evidence": "\"Target surface: Error entry\" and \"Ship one page with Go/Java tabs rather than two pages\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that frequency alone does not decide the ranking, weighing time-to-resolve and whether a reader can self-serve the fix",
+        "evidence": "No statement weighing time-to-resolve or self-serviceability against frequency; reasoning given is cost-to-write and steady-state nature only.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Replaces hosts, IP addresses, ports, timeout values and node identifiers with placeholders before grouping",
+        "evidence": "Only node and IP are placeholders. The strings keep 'corvid://<node>:7946 refused after 20s', so the port and timeout remain.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Trims the client-library wrapper text (CorvidConnectionException, java.net.ConnectException) down to the innermost cause",
+        "evidence": "It embeds 'CorvidConnectionException: caused by java.net.ConnectException: Connection refused' verbatim.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces one cluster per cause rather than one target per phrasing",
+        "evidence": "The two clusters are connection-refused (31 tickets) and token-expired (24 tickets).",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the most frequent raw phrasings as a variants column on the cluster instead of as separate rows",
+        "evidence": "The phrasings are listed as 'Embed verbatim' bullets, with no variants column on a cluster.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Separates the connection-refused subjects from the token-expired subjects into two distinct clusters",
+        "evidence": "Separate 'connection-refused' and 'token-expired' signal reads and separate doc targets.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Emits no keyword containing a hostname, IP address or port number",
+        "evidence": "Embedded strings include 'corvid://<node>:7946' and 'dial tcp <ip>:7946'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Counts evidence per cluster and per time window, not as a single undated total",
+        "evidence": "'31 tickets, evenly split before/after Sept 3' and 'token-expired: 24 tickets, 100% after Sept 3 (zero before)'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the token-expired cluster as a regression tied to the 4.2 release and routes it to engineering rather than treating it as a docs gap",
+        "evidence": "It calls it 'a regression signature' and opens an engineering ticket. It still makes it P0 doc target 1, so it is treated as a docs gap too.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels the ticket and telemetry counts Measured, with source, count and date",
+        "evidence": "No Measured label or source attribution.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the surviving docs-gap cluster to exactly one canonical error entry",
+        "evidence": "It proposes a troubleshooting page, a reference page and an index, not one canonical error entry.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that frequency alone does not decide the ranking, weighing time-to-resolve and whether a reader can self-serve the fix",
+        "evidence": "Priority rests on release tie, lockout and event/ticket ratio. Time-to-resolve and self-serve are not mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

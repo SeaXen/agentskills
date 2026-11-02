@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Asks which mandate this sponsorship serves before recommending a tier",
+        "evidence": "The transcript opens with the recommendation already made ('Recommendation: Bronze ($500), not Gold') and infers the mandate itself ('The mandate here is keeping a load-bearing dependency maintained...') rather than asking the user which mandate applies before recommending a tier. The offer to explore mandate/budget only appears at the very end, after the recommendation, framed as a follow-up for a different (portfolio-level) question.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that because the buyers are hospital operations directors and not developers, reach returns employer brand and recruiting rather than marketing",
+        "evidence": "\"All three tiers put your logo in front of developers who use dayforge \u2014 never in front of hospital operations directors... The most it can return is employer-brand exposure to engineers... that's the same return at $500 as at $2,000... Paying 4x for a bigger developer audience only makes sense if recruiting engineers is the actual goal\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Advises sizing the spend against hiring rather than inflating a marketing case that will not survive review",
+        "evidence": "\"if so, size that against your hiring budget, not a marketing case, because 'Gold got us brand exposure' won't survive being asked 'exposure to whom, and did it move any deals.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to pick a tier on the strength of its name or price alone, and requires knowing which surface each tier's placement lands on",
+        "evidence": "The transcript builds a table mapping each tier to its exact surface and audience ('$100 Supporter | Name in BACKERS.md | Almost nobody...', '$500 Bronze | Logo in the README | Developers evaluating or integrating dayforge', '$2,000 Gold | Logo on the docs homepage + release notes | Developers using dayforge's docs and changelog') before making any recommendation based on price/name.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends asking the maintainer for published or shared traffic figures on the granted surface before pricing the tier",
+        "evidence": "\"Before you commit, get one number from the maintainer: ask for the docs homepage's actual monthly traffic.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a logo in a backers file nobody opens is not a media buy at any price",
+        "evidence": "\"$100 Supporter | Name in BACKERS.md | Almost nobody \u2014 a backers file is not a page anyone browses\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that maintainers who sell placement usually publish or will share view counts for the surfaces on their ladder",
+        "evidence": "\"Some maintainers publish this on their sponsor page (view counts are the standard the $2,000+ tier should be priced against); if dayforge's maintainer can't produce a number, that's itself evidence the Gold placement isn't the media buy the ladder implies.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns against requesting any benefit the maintainer will resent in six months, because a tier's rewards are recurring work for one person",
+        "evidence": "No mention anywhere in the transcript of the maintainer resenting a benefit over time or of tier rewards being recurring work for one person; the only recurring-cost caution given is about the sponsorship lapsing ('A $500/year sponsorship that quietly lapses at your next budget cycle reads worse to the maintainer than never sponsoring at all').",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Takes the amount from the maintainer's published ladder rather than from a number that felt right",
+        "evidence": "The recommendation picks directly from the three published tiers ($100 Supporter, $500 Bronze, $2,000 Gold) and recommends 'Bronze ($500)' \u2014 no invented figure is introduced.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says the tier question belongs to a later step of a portfolio, and offers the mandate, budget and measurement work around it",
+        "evidence": "\"If Kestrel has (or is about to have) a broader open-source spend beyond dayforge \u2014 i.e., this is one line in a larger budget, not a one-off decision \u2014 that's a different, bigger question (mandate, budget split across your whole dependency graph, measurement). Say the word and I'll run that version instead of the single-vendor tier pick.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that if supply chain were the mandate, the smallest recurring amount across many projects would be correct, because coverage rather than prominence is the goal",
+        "evidence": "The transcript only argues for 'smallest recurring amount that establishes the relationship' with respect to this single dependency (dayforge) \u2014 it never extends this to a claim about spreading smallest recurring amounts across many projects for coverage; that portfolio-level framing is deferred entirely to the closing offer rather than stated as a conclusion.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not present the $2,000 tier as a priced media buy against a developer audience",
+        "evidence": "\"Gold buys prominence you have no audience match for\" and \"Paying 4x for a bigger developer audience only makes sense if recruiting engineers is the actual goal \u2014 and if so, size that against your hiring budget, not a marketing case\" \u2014 the transcript explicitly declines to frame the $2,000 tier as a marketing/media buy.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Asks which mandate this sponsorship serves before recommending a tier",
+        "evidence": "The response goes directly to a recommendation (\"Pick Bronze ($500), not Gold\") without first asking the user to state the sponsorship's mandate.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that because the buyers are hospital operations directors and not developers, reach returns employer brand and recruiting rather than marketing",
+        "evidence": "\"Kestrel sells to hospital operations directors. They don't read dayforge's README... developers who already like dayforge are a decent proxy for people you'd want on your team.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Advises sizing the spend against hiring rather than inflating a marketing case that will not survive review",
+        "evidence": "The final recommendation instead funds Bronze \"from engineering/vendor budget\" for dependency de-risking reasons, not sized against a hiring/recruiting budget.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to pick a tier on the strength of its name or price alone, and requires knowing which surface each tier's placement lands on",
+        "evidence": "\"README and docs-site placement are seen by people evaluating or already using dayforge... $100 gets your name buried in a BACKERS.md list... $500 gets a logo in the README...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends asking the maintainer for published or shared traffic figures on the granted surface before pricing the tier",
+        "evidence": "No such recommendation appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a logo in a backers file nobody opens is not a media buy at any price",
+        "evidence": "The Supporter tier is instead described as giving \"negligible signal to the maintainer, negligible goodwill\" rather than framed explicitly as \"not a media buy at any price.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that maintainers who sell placement usually publish or will share view counts for the surfaces on their ladder",
+        "evidence": "Not mentioned anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns against requesting any benefit the maintainer will resent in six months, because a tier's rewards are recurring work for one person",
+        "evidence": "No such warning appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Takes the amount from the maintainer's published ladder rather than from a number that felt right",
+        "evidence": "The recommendation (\"Pick Bronze ($500)\") uses one of the maintainer's own stated tiers (Supporter $100 / Bronze $500 / Gold $2,000) rather than an invented figure.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says the tier question belongs to a later step of a portfolio, and offers the mandate, budget and measurement work around it",
+        "evidence": "The response treats the tier choice as the immediate, standalone decision rather than deferring it to a later portfolio-building step.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that if supply chain were the mandate, the smallest recurring amount across many projects would be correct, because coverage rather than prominence is the goal",
+        "evidence": "No alternate supply-chain mandate scenario is discussed anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not present the $2,000 tier as a priced media buy against a developer audience",
+        "evidence": "\"Paying $2,000 to be seen by developers who aren't your customer isn't brand exposure \u2014 it's a rounding error with the wrong audience.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

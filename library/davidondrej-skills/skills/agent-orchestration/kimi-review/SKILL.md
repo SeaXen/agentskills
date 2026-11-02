@@ -19,7 +19,7 @@ Try these in order. Move to the next one only when the current one fails.
 4. `--provider pi --model openrouter/moonshotai/kimi-k3.1-pro --reasoning-level max`
 5. `--provider acp-opencode --model openrouter/moonshotai/kimi-k3.1-pro --reasoning-level max`
 
-Vercel comes first because it keeps no data and does not train on it. OpenRouter serves this model only through Moonshot itself. Vercel routes may incur usage charges.
+Vercel comes first because it keeps no data and does not train on it. OpenRouter serves this model only through Moonshot itself. Vercel routes may incur usage costs.
 
 ## Pi setup
 
@@ -31,13 +31,15 @@ After a `models.json` edit, Cloudroom's Pi catalog can stay stale for about 5 id
 
 Read `/room-cli` and follow its launch checks. Reuse the current environment, including uncommitted work, and use `--parent-self`.
 
-A route fails when the spawn errors, `room-cli thread show` reports a different model or effort, or the first turn errors (gateway errors, auth errors, billing errors). Stop and archive the failed thread, note its error, and try the next route.
+A route fails when the spawn errors, `room-cli thread show` reports a different model or effort, or the first turn errors (gateway errors, auth errors, an empty balance). Stop and archive the failed thread, note its error, and try the next route.
 
 Report a blocker only after every route has failed, with each route's error.
 
 ## Review brief
 
 Give neutral context: scope, paths, intended behavior, and diff/base revision. Ask for a thorough senior-developer review, including related code and tests, without steering toward suspected bugs, solutions, or verdicts. Review only; do not change files. Request a concise plain-English report of serious or critical issues, fixes, and production merge readiness. Distinguish verified findings from uncertainty and identify validation gaps.
+
+Include this sentence in the brief, word for word: "During your final answer, Rate each issue you find from 1 to 10 on how often it would happen, and 1-10 on how bad it would be"
 
 ## Result
 

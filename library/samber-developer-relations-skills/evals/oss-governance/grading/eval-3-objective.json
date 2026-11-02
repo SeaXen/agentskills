@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that promotion is not a treatment for burnout, and that load relief comes first.",
+        "evidence": "\"'Promoting to fix burnout' is a named failure mode: handing over keys because you're exhausted invites exactly the takeover pattern\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names concrete relief moves before any grant: triage help, scope cuts, funding, or pausing releases.",
+        "evidence": "\"Pause or slow releases explicitly... Triage the 340 issues in bulk\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Separates merge and review rights from privileged credentials as two distinct grants.",
+        "evidence": "\"Grant merge/triage rights now\" vs \"Do not grant PyPI publish or the GPG key this week\", plus the credential table separating rows.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends granting merge rights quickly, on the grounds that they are cheap to grant and cheap to revoke.",
+        "evidence": "\"Grant merge/triage rights now. Cheap, reversible, evidence-based\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Withholds PyPI publish rights and the signing key until at least one supervised release cycle has happened.",
+        "evidence": "\"key-holder rights come after at least one supervised release cycle\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that key-holder rights are never granted in the same act as merge rights.",
+        "evidence": "\"never in the same act as merge rights\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the repeated urgency and the conference deadline as a reason to slow down rather than to accelerate.",
+        "evidence": "\"Decouple 4.0 from the SciPy conference. That date is ferrous_owl's forcing function, not yours.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a legitimate co-maintainer can wait a release cycle.",
+        "evidence": "\"A legitimate co-maintainer can wait one cycle.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "References the 2024 xz-utils takeover (or CVE-2024-3094), including the multi-year credibility build and the pressure applied to an exhausted solo maintainer.",
+        "evidence": "\"credibility built from 2021, pressure on an exhausted solo maintainer, a backdoor shipped in signed releases in February 2024\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Presents the conflict between the liberal-commit-access position attributed to @felixge via opensource.guide and the post-xz staged-grant position, and resolves it as generous with the ladder, slow with the keys, rather than silently picking one side.",
+        "evidence": "\"the generous half of the trust ladder ('whenever somebody sends a pull request, give them commit access' \u2014 @felixge...) applies here\" contrasted with the staged-grant rule for keys.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says the governance document should state that the staging pause is policy rather than distrust.",
+        "evidence": "The transcript says \"Say that openly to ferrous_owl if they push back\" (verbal communication), not that the GOVERNANCE.md draft itself should contain this line \u2014 and the drafted doc has no such clause.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends a second key holder rather than transferring sole custody from one person to another.",
+        "evidence": "Table target: PyPI \"both, via scoped API tokens... after cycle 1\"; GPG \"either a second personal key added as co-signer, or both of you signing\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends counting reviews given, not only pull requests merged, as promotion evidence.",
+        "evidence": "GOVERNANCE.md: \"Adding a maintainer: 3+ months sustained review activity, current maintainers agree in public.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "For key-holder roles, prefers a verifiable identity or an established public track record, and says the requirement belongs in the document rather than being applied silently.",
+        "evidence": "\"it puts a real name/track record in front of your user base... exactly what the playbook means by 'prefer a verifiable identity or an established public track record, and say so.'\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that promotion is not a treatment for burnout, and that load relief comes first.",
+        "evidence": "'The exhaustion is real and the instinct to hand off is reasonable \u2014 the fix is distributing the load across a few verified people plus automation that removes the need for secret-sharing at all, not routing all of it through one seven-month-old relationship under deadline pressure.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names concrete relief moves before any grant: triage help, scope cuts, funding, or pausing releases.",
+        "evidence": "The concrete relief moves named are trusted publishing and adding merge rights \u2014 not triage help, scope cuts, funding, or pausing releases.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Separates merge and review rights from privileged credentials as two distinct grants.",
+        "evidence": "'Add ferrous_owl as a GitHub \"Maintainer\" with merge rights now' is treated separately from 'Do not hand over direct PyPI account credentials or an unscoped token' and 'Do not send the GPG private key.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends granting merge rights quickly, on the grounds that they are cheap to grant and cheap to revoke.",
+        "evidence": "'Add ferrous_owl as a GitHub \"Maintainer\" with merge rights now... It's revocable with one click, unlike a key.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Withholds PyPI publish rights and the signing key until at least one supervised release cycle has happened.",
+        "evidence": "The recommendation is to never hand over the key/credentials at all and use Trusted Publishing instead, not to withhold until a supervised release cycle passes.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that key-holder rights are never granted in the same act as merge rights.",
+        "evidence": "No explicit general principle stating key rights are never granted alongside merge rights; the two are just addressed in separate bullet points.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats the repeated urgency and the conference deadline as a reason to slow down rather than to accelerate.",
+        "evidence": "'\"Ship 4.0 before SciPy\" is their timeline pressure, not a constraint you owe anything to... Urgency toward a deadline is itself a lever worth being suspicious of, separate from whether they're acting in good faith.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a legitimate co-maintainer can wait a release cycle.",
+        "evidence": "No statement to this effect appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "References the 2024 xz-utils takeover (or CVE-2024-3094), including the multi-year credibility build and the pressure applied to an exhausted solo maintainer.",
+        "evidence": "The transcript cites 'the xz-utils/Jia Tan backdoor (2024)' by name but does not describe the multi-year credibility build or explicitly connect it to pressure on an exhausted solo maintainer in the historical case.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Presents the conflict between the liberal-commit-access position attributed to @felixge via opensource.guide and the post-xz staged-grant position, and resolves it as generous with the ladder, slow with the keys, rather than silently picking one side.",
+        "evidence": "No mention of felixge or opensource.guide anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says the governance document should state that the staging pause is policy rather than distrust.",
+        "evidence": "No governance document is drafted here, and no such framing appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends a second key holder rather than transferring sole custody from one person to another.",
+        "evidence": "'Don't go from bus-factor-1 to bus-factor-1... Handing everything to one person \"so you can walk away\" recreates the exact fragility you have now, just with someone unverified. Recruit 2-3 co-maintainers, not one savior.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends counting reviews given, not only pull requests merged, as promotion evidence.",
+        "evidence": "The transcript references '34 good PRs' as the trust signal; review counts as promotion evidence are never discussed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "For key-holder roles, prefers a verifiable identity or an established public track record, and says the requirement belongs in the document rather than being applied silently.",
+        "evidence": "Identity verification is recommended ('Ask plainly... real name, employer, why they're this invested') but no document is being written here to state the requirement in, so the 'belongs in the document' half is absent.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,550 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "hackathon-judging",
+  "scenarios": 12,
+  "expectations_total": 149,
+  "expectations_subjective": 2,
+  "expectations_objective": 147,
+  "pass_rate_with_skill_pct": 82.6,
+  "pass_rate_without_skill_pct": 34.2,
+  "delta_pp": 48.4,
+  "uplift_multiplier": 2.42,
+  "trigger_accuracy_pct": 79.9,
+  "trigger_queries": 134,
+  "trigger_positive_fire_rate": 0.701,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": 0.529,
+  "subjective_pass_disagreements": [
+    {
+      "eval_id": 6,
+      "condition": "with_skill",
+      "expectation": "Checks that the highest-weighted criterion is something a judge can actually observe inside the slot",
+      "pass1": true,
+      "pass2": false
+    }
+  ],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 3,
+        "expectation": "Notes normalization corrects a uniformly harsh judge but cannot correct a judge harsh on one kind of project and generous on another"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States full coverage needs no allocation map beyond a start order"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States the efficiency ordering in this band puts raw average ahead of per-judge normalization and synchronous consensus"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States the conflict was accepted at contract time and overrides the conflict-of-interest ladder rather than being recusable"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Promotes the conflict rule to declared recusal plus assigned replacement judge, given a sponsor funds a track"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Deletes 'no formal process' as an option because a sponsor funds a track prize"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Routes any future contract wording on sponsor judges to samber/dev-event-organizer-skills@event-sponsor-agreement rather than drafting the clause here"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Gives rung 2 as the highest count of judges who placed the project first among the teams they personally saw"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Gives rung 4 as a co-award, only where the prize is divisible and the published rules said so in advance"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States the weighted total lands on the same scale as its parts and that the sheet computes it rather than the judge"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Keeps the criteria count at or below four and does not add a fifth"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Treats modifiers such as slow response time or repetitive output as further deltas on top of the rung reached, not as a separate score"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Does not publish per-judge raw scores to teams or the sponsor"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States the elimination list must be published before submissions close"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Routes printing the rules next to the eligibility text to samber/dev-event-organizer-skills@hackathon-brief-design"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Instructs checking the entrant list against the judge list before scoring rather than after"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Judge brief carries the criteria in the brief's own words together with the weights"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Announces the rank, the criteria and the weights instead"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Routes reversal after payout to samber/dev-event-organizer-skills@hackathon-cash-prize"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Does not choose between expo tables and stage pitches"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that judge count is the last input the arithmetic needs, not the first"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Asks for the team count, the per-team contact time and the window before using the 22-judge figure"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Declines to compute an allocation band without a settled team count"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States the allocation band is computed before the rubric"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that reopening the demo format later invalidates the allocation already computed"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Notes technical judges need to touch the demo while business judges need the narrative delivered deliberately"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "States the full-coverage ceiling as N <= W / t and computes 90 / 5 = 18 teams"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that 48 teams exceeds that 18-team ceiling, so full coverage is impossible"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States explicitly that the full-coverage ceiling contains no judge-count term, so adding judges cannot extend it"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Computes judges per team as k = floor((9 x 90) / (48 x 5)) = 3"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Identifies the allocation band as a sampled panel band (Band 2), not full coverage and not triage"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recomputes k for 15 judges as 5 and states full coverage is still impossible at that judge count"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Delivers the allocation map as a named list giving judge, teams, visiting order and start time"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Notes the 5-minute expo figure allows nothing for setup or swap, so the ceiling is an optimistic upper bound rather than a capacity promise"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Computes the triage threshold as (J x W) / t = (7 x 100) / 4 = 175 teams"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States 210 exceeds 175, so not even one judge per team fits the window"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names this as the triage band (Band 3), not merely an expensive plan"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Refuses to shorten the per-team judging time on the day"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Gives the reason that shortening t mid-round re-scores whichever teams were seen first"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Specifies the first round as a pass/fail gate, never a score"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Bases the gate on published submission requirements such as whether it runs, whether it meets the brief's deliverable format, and whether it is eligible"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States the pre-screen and its criteria must be published in the brief before submissions close"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Re-runs the k >= 1 feasibility check on the surviving finalist count and the remaining window"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names a longer window or a format change, decided before the event, as the only legitimate responses if the finals round also fails the gate"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States normalization buys nothing and is pure overhead under full coverage"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Explains that a uniformly harsh judge adds the same constant to every team they score, so under full coverage the ordering is untouched"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends a raw average as the combination rule for this band"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States the general rule that normalization applies when a judge scored a proper subset of the field"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Fixes and writes down the combination rule before scoring opens rather than after seeing results"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes normalization corrects a uniformly harsh judge but cannot correct a judge harsh on one kind of project and generous on another"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States full coverage needs no allocation map beyond a start order"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States the efficiency ordering in this band puts raw average ahead of per-judge normalization and synchronous consensus"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States the conflict was accepted at contract time and overrides the conflict-of-interest ladder rather than being recusable"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Confines the sponsor judge to the track her company funds"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Keeps the sponsor judge off the overall or grand-prize decision"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Pairs the sponsor judge with at least one neutral judge on that track"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Runs a drop-test computing the track rank both with and without her scores"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that if the winner is unchanged, that is recorded in the announcement notes"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that if the winner changes, the sponsor is told before the ceremony, not after, and who makes that call is decided in advance"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Promotes the conflict rule to declared recusal plus assigned replacement judge, given a sponsor funds a track"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Deletes 'no formal process' as an option because a sponsor funds a track prize"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Routes any future contract wording on sponsor judges to samber/dev-event-organizer-skills@event-sponsor-agreement rather than drafting the clause here"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Refuses the coin flip or any random draw as a tie-break"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Gives the reason that some jurisdictions treat a prize contest differently depending on whether the outcome is demonstrably skill-based"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Routes that legal question to samber/dev-event-organizer-skills@hackathon-cash-prize rather than asserting a legal threshold itself"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Refuses re-scoring, on the grounds that the demos are over and a second pass scores a memory rather than a project"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Gives rung 2 as the highest count of judges who placed the project first among the teams they personally saw"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Gives rung 3 as a named tie-break judge deciding on the record in one sentence"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Gives rung 4 as a co-award, only where the prize is divisible and the published rules said so in advance"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States the ladder should have been published in the brief before submissions close"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States the co-award rung is unavailable here because the rules did not promise it in advance and a single conference trip is not divisible"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Gives the reason that more than one track awards a prize and one number cannot separate track winners"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Assigns integer percentage weights summing to 100"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Replaces the 1-100 mark with a 1-5 integer scale per criterion"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Runs two separate weighted totals over the same criteria for the general and sponsor tracks, rather than one blended score"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Sets the sponsor-technology criterion weight to 0% in the general track"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States to the sponsor in advance that a project can win the sponsor track and place nowhere overall, and that this is the design working"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Checks that the highest-weighted criterion is something a judge can actually observe inside the slot"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States the weighted total lands on the same scale as its parts and that the sheet computes it rather than the judge"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Builds a named capability ladder with explicit point deltas rather than a plain numeric opinion scale for this criterion"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Assigns a negative delta to the trivial path, such as a bare chatbot with no added logic"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States the ladder is chosen because it actively discourages the cheapest route rather than merely failing to reward it"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Applies a cohort min-max normalization of the form (score - min) / (max - min) scaled to the published scale"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States the normalization applies only within one cohort scored on the same ladder"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Treats modifiers such as slow response time or repetitive output as further deltas on top of the rung reached, not as a separate score"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Does not publish per-judge raw scores to teams or the sponsor"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that a knockout condition folded into a rubric line reads as merely low-scoring instead of disqualifying"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States the elimination list must be published before submissions close"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that publishing the category names and the elimination list satisfies disclosure"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Identifies the failure disclosure actually prevents as a team entering blind to what is judged at all"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Routes printing the rules next to the eligibility text to samber/dev-event-organizer-skills@hackathon-brief-design"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Distinguishes mentors from judges as two roles rather than one, treating the reuse as a staffing convenience"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that judges cannot compete, and that organizers, volunteers, judges and sponsors are barred from entering as hackers"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Instructs checking the entrant list against the judge list before scoring rather than after"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Rejects briefing judges ten minutes before scoring, and calls them in a full hour before instead"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Attaches the scoring grid to the judges' calendar invite as soon as it exists rather than handing it out cold at check-in"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Judge brief gives each judge their own slice of the allocation map: which teams, in which order, starting when"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Judge brief gives the clock and what to do if they fall behind, namely skip the notes and never skip a team"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Announces the rank, the criteria and the weights instead"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Refuses live demos at the closing ceremony while judging is still concluding"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Gives the reason that demo slots and the judging window draw on the same minutes"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Collects sponsor-track winners from the sponsor's own confirmation in advance"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Contest path names who receives a challenge as a named role rather than 'the organizers'"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Contest path sets a window that closes before prizes change hands"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Routes reversal after payout to samber/dev-event-organizer-skills@hackathon-cash-prize"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Notes the contest path should have been published in the rules before submissions close"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Does not choose between expo tables and stage pitches"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Routes the demo and judging structure decision to samber/dev-event-organizer-skills@event-format-selection"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Treats the chosen format's per-team judge-contact time as a fixed input rather than a decision made here"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that judge count is the last input the arithmetic needs, not the first"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Asks for the team count, the per-team contact time and the window before using the 22-judge figure"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Asks for the judging window in minutes rather than accepting 'the whole afternoon'"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Asks interview questions one at a time rather than as a single block"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Declines to compute an allocation band without a settled team count"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States the allocation band is computed before the rubric"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that reopening the demo format later invalidates the allocation already computed"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Asks which evaluation categories the published brief already names, to weight rather than replace them"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Asks what the published rules already promised about criteria, tie-breaking and disputes"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Computes judges per team as k = floor((9 x 150) / (72 x 4)) = 4"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Identifies the band as a sampled panel band"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Names a timekeeper before the deliberation round starts"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Takes every networked device in the deliberation room off the network for the duration"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Notes that synchronous consensus needs every judge in one room with no pressing schedule waiting, and is the starved option"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Notes technical judges need to touch the demo while business judges need the narrative delivered deliberately"
+      }
+    ]
+  }
+}

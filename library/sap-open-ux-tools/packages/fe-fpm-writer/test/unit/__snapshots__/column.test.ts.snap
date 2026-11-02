@@ -1,0 +1,550 @@
+// Jest Snapshot v1, https://jestjs.io/docs/snapshot-testing
+
+exports[`CustomAction generateCustomColumn Test property "eventHandler" "eventHandler" is "object" - create new file with custom file and function names 1`] = `
+"<core:FragmentDefinition xmlns:core=\\"sap.ui.core\\" xmlns=\\"sap.m\\">
+	<Button id=\\"Button\\" core:require=\\"{ handler: 'sapux/fe/fpm/writer/test/extensions/custom/dummyAction'}\\" text=\\"Sample Text\\" press=\\"handler.DummyOnAction\\" />
+</core:FragmentDefinition>"
+`;
+
+exports[`CustomAction generateCustomColumn Test property "eventHandler" "eventHandler" is "object" - create new file with custom file and function names 2`] = `
+"sap.ui.define([
+    \\"sap/m/MessageToast\\"
+], function(MessageToast) {
+    'use strict';
+
+    return {
+        /**
+         * Generated event handler.
+         *
+         * @param oEvent the event object provided by the event provider.
+         */
+        DummyOnAction: function(oEvent) {
+            MessageToast.show(\\"Custom handler invoked.\\");
+        }
+    };
+});
+"
+`;
+
+exports[`CustomAction generateCustomColumn Test property "eventHandler" "eventHandler" is "object" - create new file with custom function name 1`] = `
+"<core:FragmentDefinition xmlns:core=\\"sap.ui.core\\" xmlns=\\"sap.m\\">
+	<Button id=\\"Button\\" core:require=\\"{ handler: 'sapux/fe/fpm/writer/test/extensions/custom/NewCustomColumn'}\\" text=\\"Sample Text\\" press=\\"handler.DummyOnAction\\" />
+</core:FragmentDefinition>"
+`;
+
+exports[`CustomAction generateCustomColumn Test property "eventHandler" "eventHandler" is "object" - create new file with custom function name 2`] = `
+"sap.ui.define([
+    \\"sap/m/MessageToast\\"
+], function(MessageToast) {
+    'use strict';
+
+    return {
+        /**
+         * Generated event handler.
+         *
+         * @param oEvent the event object provided by the event provider.
+         */
+        DummyOnAction: function(oEvent) {
+            MessageToast.show(\\"Custom handler invoked.\\");
+        }
+    };
+});
+"
+`;
+
+exports[`CustomAction generateCustomColumn Test property "eventHandler" "eventHandler" is empty "object" - create new file with default function name 1`] = `
+"<core:FragmentDefinition xmlns:core=\\"sap.ui.core\\" xmlns=\\"sap.m\\">
+	<Button id=\\"Button\\" core:require=\\"{ handler: 'sapux/fe/fpm/writer/test/extensions/custom/NewCustomColumn'}\\" text=\\"Sample Text\\" press=\\"handler.onPress\\" />
+</core:FragmentDefinition>"
+`;
+
+exports[`CustomAction generateCustomColumn Test property "eventHandler" "eventHandler" is empty "object" - create new file with default function name 2`] = `
+"sap.ui.define([
+    \\"sap/m/MessageToast\\"
+], function(MessageToast) {
+    'use strict';
+
+    return {
+        /**
+         * Generated event handler.
+         *
+         * @param oEvent the event object provided by the event provider.
+         */
+        onPress: function(oEvent) {
+            MessageToast.show(\\"Custom handler invoked.\\");
+        }
+    };
+});
+"
+`;
+
+exports[`CustomAction generateCustomColumn Test property "eventHandler" "eventHandler" is object. Append new function to existing js file with absolute position 1`] = `
+"<core:FragmentDefinition xmlns:core=\\"sap.ui.core\\" xmlns=\\"sap.m\\">
+	<Button id=\\"Button\\" core:require=\\"{ handler: 'sapux/fe/fpm/writer/test/extensions/custom/MyExistingAction'}\\" text=\\"Sample Text\\" press=\\"handler.onHandleSecondAction\\" />
+</core:FragmentDefinition>"
+`;
+
+exports[`CustomAction generateCustomColumn Test property "eventHandler" "eventHandler" is object. Append new function to existing js file with absolute position 2`] = `
+"sap.ui.define([
+    \\"sap/m/MessageToast\\"
+], function(MessageToast) {
+    'use strict';
+
+    return {
+        onPress: function() {
+            MessageToast.show(\\"Custom handler invoked.\\");
+        },
+        onHandleSecondAction: function() {
+            MessageToast.show(\\"Custom handler invoked.\\");
+        }
+    };
+});
+"
+`;
+
+exports[`CustomAction generateCustomColumn Test property "eventHandler" "eventHandler" is object. Append new function to existing js file with position as object 1`] = `
+"<core:FragmentDefinition xmlns:core=\\"sap.ui.core\\" xmlns=\\"sap.m\\">
+	<Button id=\\"Button\\" core:require=\\"{ handler: 'sapux/fe/fpm/writer/test/extensions/custom/MyExistingAction'}\\" text=\\"Sample Text\\" press=\\"handler.onHandleSecondAction\\" />
+</core:FragmentDefinition>"
+`;
+
+exports[`CustomAction generateCustomColumn Test property "eventHandler" "eventHandler" is object. Append new function to existing js file with position as object 2`] = `
+"sap.ui.define([
+    \\"sap/m/MessageToast\\"
+], function(MessageToast) {
+    'use strict';
+
+    return {
+        onPress: function() {
+            MessageToast.show(\\"Custom handler invoked.\\");
+        },
+        onHandleSecondAction: function() {
+            MessageToast.show(\\"Custom handler invoked.\\");
+        }
+    };
+});
+"
+`;
+
+exports[`CustomAction generateCustomColumn only mandatory properties 1`] = `
+Object {
+  "@com.sap.vocabularies.UI.v1.LineItem": Object {
+    "columns": Object {
+      "NewCustomColumn": Object {
+        "header": "col header",
+        "position": Object {
+          "placement": "After",
+        },
+        "template": "sapux.fe.fpm.writer.test.extensions.custom.NewCustomColumn",
+      },
+    },
+  },
+  "items/@com.sap.vocabularies.UI.v1.LineItem": Object {
+    "columns": Object {
+      "ExistingCustomColumn": Object {
+        "availability": "Default",
+        "header": "{i18n>customColumn}",
+        "horizontalAlign": "Center",
+        "position": Object {
+          "anchor": "DataField::BooleanProperty",
+          "placement": "After",
+        },
+        "properties": Array [
+          "BooleanProperty",
+          "TextProperty",
+        ],
+        "template": "sap.fe.core.fpmExplorer.customColumnContent.CustomColumnButton",
+        "width": "15em",
+      },
+    },
+    "tableSettings": Object {
+      "selectionMode": "Single",
+    },
+  },
+}
+`;
+
+exports[`CustomAction generateCustomColumn only mandatory properties 2`] = `
+"<core:FragmentDefinition xmlns:core=\\"sap.ui.core\\" xmlns=\\"sap.m\\">
+	<Text id=\\"Text\\" text=\\"Sample Text\\" />
+</core:FragmentDefinition>"
+`;
+
+exports[`CustomAction generateCustomColumn only mandatory properties 3`] = `
+Object {
+  "@com.sap.vocabularies.UI.v1.LineItem": Object {
+    "columns": Object {
+      "NewCustomColumn": Object {
+        "header": "col header",
+        "position": Object {
+          "placement": "After",
+        },
+        "template": "sapux.fe.fpm.writer.test.extensions.custom.NewCustomColumn",
+      },
+    },
+  },
+  "items/@com.sap.vocabularies.UI.v1.LineItem": Object {
+    "columns": Object {
+      "ExistingCustomColumn": Object {
+        "availability": "Default",
+        "header": "{i18n>customColumn}",
+        "horizontalAlign": "Center",
+        "position": Object {
+          "anchor": "DataField::BooleanProperty",
+          "placement": "After",
+        },
+        "properties": Array [
+          "BooleanProperty",
+          "TextProperty",
+        ],
+        "template": "sap.fe.core.fpmExplorer.customColumnContent.CustomColumnButton",
+        "width": "15em",
+      },
+    },
+    "tableSettings": Object {
+      "selectionMode": "Single",
+    },
+  },
+}
+`;
+
+exports[`CustomAction generateCustomColumn only mandatory properties 4`] = `
+"<core:FragmentDefinition xmlns:core=\\"sap.ui.core\\" xmlns=\\"sap.m\\">
+	<Text id=\\"Text\\" text=\\"Sample Text\\" />
+</core:FragmentDefinition>"
+`;
+
+exports[`CustomAction generateCustomColumn only mandatory properties 5`] = `
+Object {
+  "@com.sap.vocabularies.UI.v1.LineItem": Object {
+    "columns": Object {
+      "NewCustomColumn": Object {
+        "header": "col header",
+        "position": Object {
+          "placement": "After",
+        },
+        "template": "sapux.fe.fpm.writer.test.extensions.custom.NewCustomColumn",
+      },
+    },
+  },
+  "items/@com.sap.vocabularies.UI.v1.LineItem": Object {
+    "columns": Object {
+      "ExistingCustomColumn": Object {
+        "availability": "Default",
+        "header": "{i18n>customColumn}",
+        "horizontalAlign": "Center",
+        "position": Object {
+          "anchor": "DataField::BooleanProperty",
+          "placement": "After",
+        },
+        "properties": Array [
+          "BooleanProperty",
+          "TextProperty",
+        ],
+        "template": "sap.fe.core.fpmExplorer.customColumnContent.CustomColumnButton",
+        "width": "15em",
+      },
+    },
+    "tableSettings": Object {
+      "selectionMode": "Single",
+    },
+  },
+}
+`;
+
+exports[`CustomAction generateCustomColumn only mandatory properties 6`] = `
+"<core:FragmentDefinition xmlns:core=\\"sap.ui.core\\" xmlns=\\"sap.m\\">
+	<Text id=\\"Text\\" text=\\"Sample Text\\" />
+</core:FragmentDefinition>"
+`;
+
+exports[`CustomAction generateCustomColumn version 1.85, no handler, all properties 1`] = `
+Object {
+  "@com.sap.vocabularies.UI.v1.LineItem": Object {
+    "columns": Object {
+      "NewCustomColumn": Object {
+        "availability": "Adaptation",
+        "header": "col header",
+        "position": Object {
+          "placement": "After",
+        },
+        "template": "sapux.fe.fpm.writer.test.extensions.custom.NewCustomColumn",
+        "width": "150px",
+      },
+    },
+  },
+  "items/@com.sap.vocabularies.UI.v1.LineItem": Object {
+    "columns": Object {
+      "ExistingCustomColumn": Object {
+        "availability": "Default",
+        "header": "{i18n>customColumn}",
+        "horizontalAlign": "Center",
+        "position": Object {
+          "anchor": "DataField::BooleanProperty",
+          "placement": "After",
+        },
+        "properties": Array [
+          "BooleanProperty",
+          "TextProperty",
+        ],
+        "template": "sap.fe.core.fpmExplorer.customColumnContent.CustomColumnButton",
+        "width": "15em",
+      },
+    },
+    "tableSettings": Object {
+      "selectionMode": "Single",
+    },
+  },
+}
+`;
+
+exports[`CustomAction generateCustomColumn version 1.85, no handler, all properties 2`] = `
+"<core:FragmentDefinition xmlns:core=\\"sap.ui.core\\" xmlns=\\"sap.m\\">
+	<Text id=\\"Text\\" text=\\"Sample Text\\" />
+</core:FragmentDefinition>"
+`;
+
+exports[`CustomAction generateCustomColumn version 1.85, no handler, no fs, all properties 1`] = `
+Object {
+  "@com.sap.vocabularies.UI.v1.LineItem": Object {
+    "columns": Object {
+      "NewCustomColumn": Object {
+        "availability": "Adaptation",
+        "header": "col header",
+        "position": Object {
+          "anchor": "DataField::BooleanProperty",
+          "placement": "After",
+        },
+        "template": "sapux.fe.fpm.writer.test.extensions.custom.NewCustomColumn",
+        "width": "150px",
+      },
+    },
+  },
+  "items/@com.sap.vocabularies.UI.v1.LineItem": Object {
+    "columns": Object {
+      "ExistingCustomColumn": Object {
+        "availability": "Default",
+        "header": "{i18n>customColumn}",
+        "horizontalAlign": "Center",
+        "position": Object {
+          "anchor": "DataField::BooleanProperty",
+          "placement": "After",
+        },
+        "properties": Array [
+          "BooleanProperty",
+          "TextProperty",
+        ],
+        "template": "sap.fe.core.fpmExplorer.customColumnContent.CustomColumnButton",
+        "width": "15em",
+      },
+    },
+    "tableSettings": Object {
+      "selectionMode": "Single",
+    },
+  },
+}
+`;
+
+exports[`CustomAction generateCustomColumn version 1.85, no handler, no fs, all properties 2`] = `
+"<core:FragmentDefinition xmlns:core=\\"sap.ui.core\\" xmlns=\\"sap.m\\">
+	<Text id=\\"Text\\" text=\\"Sample Text\\" />
+</core:FragmentDefinition>"
+`;
+
+exports[`CustomAction generateCustomColumn version 1.86, with existing handler 1`] = `
+Object {
+  "@com.sap.vocabularies.UI.v1.LineItem": Object {
+    "columns": Object {
+      "NewCustomColumn": Object {
+        "header": "col header",
+        "position": Object {
+          "placement": "After",
+        },
+        "template": "sapux.fe.fpm.writer.test.extensions.custom.NewCustomColumn",
+      },
+    },
+  },
+  "items/@com.sap.vocabularies.UI.v1.LineItem": Object {
+    "columns": Object {
+      "ExistingCustomColumn": Object {
+        "availability": "Default",
+        "header": "{i18n>customColumn}",
+        "horizontalAlign": "Center",
+        "position": Object {
+          "anchor": "DataField::BooleanProperty",
+          "placement": "After",
+        },
+        "properties": Array [
+          "BooleanProperty",
+          "TextProperty",
+        ],
+        "template": "sap.fe.core.fpmExplorer.customColumnContent.CustomColumnButton",
+        "width": "15em",
+      },
+    },
+    "tableSettings": Object {
+      "selectionMode": "Single",
+    },
+  },
+}
+`;
+
+exports[`CustomAction generateCustomColumn version 1.86, with fragmentFile 1`] = `
+Object {
+  "@com.sap.vocabularies.UI.v1.LineItem": Object {
+    "columns": Object {
+      "NewCustomColumn": Object {
+        "header": "col header",
+        "position": Object {
+          "placement": "After",
+        },
+        "template": "sapux.fe.fpm.writer.test.extensions.custom.NewCustomColumnFragment",
+      },
+    },
+  },
+  "items/@com.sap.vocabularies.UI.v1.LineItem": Object {
+    "columns": Object {
+      "ExistingCustomColumn": Object {
+        "availability": "Default",
+        "header": "{i18n>customColumn}",
+        "horizontalAlign": "Center",
+        "position": Object {
+          "anchor": "DataField::BooleanProperty",
+          "placement": "After",
+        },
+        "properties": Array [
+          "BooleanProperty",
+          "TextProperty",
+        ],
+        "template": "sap.fe.core.fpmExplorer.customColumnContent.CustomColumnButton",
+        "width": "15em",
+      },
+    },
+    "tableSettings": Object {
+      "selectionMode": "Single",
+    },
+  },
+}
+`;
+
+exports[`CustomAction generateCustomColumn version 1.86, with fragmentFile 2`] = `
+"<core:FragmentDefinition xmlns:core=\\"sap.ui.core\\" xmlns=\\"sap.m\\">
+	<Text id=\\"Text\\" text=\\"Sample Text\\" />
+</core:FragmentDefinition>"
+`;
+
+exports[`CustomAction generateCustomColumn version 1.86, with new handler, all properties 1`] = `
+Object {
+  "@com.sap.vocabularies.UI.v1.LineItem": Object {
+    "columns": Object {
+      "NewCustomColumn": Object {
+        "availability": "Adaptation",
+        "header": "col header",
+        "horizontalAlign": "Center",
+        "position": Object {
+          "placement": "After",
+        },
+        "properties": Array [
+          "ID",
+          "TotalNetAmount",
+          "_CustomerPaymentTerms/CustomerPaymentTerms",
+        ],
+        "template": "sapux.fe.fpm.writer.test.extensions.custom.NewCustomColumn",
+        "width": "150px",
+      },
+    },
+  },
+  "items/@com.sap.vocabularies.UI.v1.LineItem": Object {
+    "columns": Object {
+      "ExistingCustomColumn": Object {
+        "availability": "Default",
+        "header": "{i18n>customColumn}",
+        "horizontalAlign": "Center",
+        "position": Object {
+          "anchor": "DataField::BooleanProperty",
+          "placement": "After",
+        },
+        "properties": Array [
+          "BooleanProperty",
+          "TextProperty",
+        ],
+        "template": "sap.fe.core.fpmExplorer.customColumnContent.CustomColumnButton",
+        "width": "15em",
+      },
+    },
+    "tableSettings": Object {
+      "selectionMode": "Single",
+    },
+  },
+}
+`;
+
+exports[`CustomAction generateCustomColumn version 1.86, with new handler, all properties 2`] = `
+"<core:FragmentDefinition xmlns:core=\\"sap.ui.core\\" xmlns=\\"sap.m\\">
+	<Button id=\\"Button\\" core:require=\\"{ handler: 'sapux/fe/fpm/writer/test/extensions/custom/NewCustomColumn'}\\" text=\\"{=%{ID} + ' ' + %{TotalNetAmount} + ' ' + %{_CustomerPaymentTerms/CustomerPaymentTerms}}\\" press=\\"handler.onPress\\" />
+</core:FragmentDefinition>"
+`;
+
+exports[`CustomAction generateCustomColumn version 1.86, with new handler, all properties 3`] = `
+"sap.ui.define([
+    \\"sap/m/MessageToast\\"
+], function(MessageToast) {
+    'use strict';
+
+    return {
+        /**
+         * Generated event handler.
+         *
+         * @param oEvent the event object provided by the event provider.
+         */
+        onPress: function(oEvent) {
+            MessageToast.show(\\"Custom handler invoked.\\");
+        }
+    };
+});
+"
+`;
+
+exports[`CustomAction generateCustomColumn with custom control passed in interface 1`] = `
+Object {
+  "@com.sap.vocabularies.UI.v1.LineItem": Object {
+    "columns": Object {
+      "NewCustomColumn": Object {
+        "header": "col header",
+        "position": Object {
+          "placement": "After",
+        },
+        "template": "sapux.fe.fpm.writer.test.extensions.custom.NewCustomColumn",
+      },
+    },
+  },
+  "items/@com.sap.vocabularies.UI.v1.LineItem": Object {
+    "columns": Object {
+      "ExistingCustomColumn": Object {
+        "availability": "Default",
+        "header": "{i18n>customColumn}",
+        "horizontalAlign": "Center",
+        "position": Object {
+          "anchor": "DataField::BooleanProperty",
+          "placement": "After",
+        },
+        "properties": Array [
+          "BooleanProperty",
+          "TextProperty",
+        ],
+        "template": "sap.fe.core.fpmExplorer.customColumnContent.CustomColumnButton",
+        "width": "15em",
+      },
+    },
+    "tableSettings": Object {
+      "selectionMode": "Single",
+    },
+  },
+}
+`;
+
+exports[`CustomAction generateCustomColumn with custom control passed in interface 2`] = `
+"<core:FragmentDefinition xmlns:core=\\"sap.ui.core\\" xmlns=\\"sap.m\\">
+	<CustomXML text=\\"\\" />
+</core:FragmentDefinition>"
+`;

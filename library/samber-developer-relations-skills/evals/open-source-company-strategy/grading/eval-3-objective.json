@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects 'the platform team will maintain it' as failing the ownership gate",
+        "evidence": "\"'The platform team will maintain it' is a fail \u2014 no name, no hours, no response commitment.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a named individual, an hours-per-week figure, a release rhythm and a stated issue-response commitment before the asset ships",
+        "evidence": "\"Name one person, hours/week, release rhythm, issue-response SLA, backup maintainer. Or it doesn't ship.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that ownership is a veto gate: failing it keeps the asset closed regardless of how well the other gates score",
+        "evidence": "Scoring table shows the generic engine passing G1-G4 but verdict 'Open, once owned' with G5 'unnamed', i.e. conditioned solely on naming an owner despite other gates passing.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies Brantwell Foods as a non-software company and names its boundary primitive as enabler versus differentiator inside the product",
+        "evidence": "\"Brantwell sells cold-chain logistics, not software... Boundary primitive: **enabler vs differentiator inside the product** (Sony's case...)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that decision authority at a non-software company sits with a governance board spanning engineering, business and legal, rather than with the CTO alone",
+        "evidence": "\"Decider: **governance board** (engineering + business + legal), not CTO alone\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the timescale mismatch: the company plans in roughly three-month spans while maintainers organize around neither quarters nor fiscal years",
+        "evidence": "\"Timescale trap: company plans in quarters; open source maintenance doesn't run on quarters. Your Q1 careers-site date is exactly this trap.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that dump-and-run publishing turns the talent motive into evidence against the company",
+        "evidence": "\"Rushed = dump-and-run, the exact failure mode that turns a talent play into evidence against you.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Applies the talent evidence test: the asset must be work an engineer would want to be seen doing",
+        "evidence": "\"recruiting engineers to food logistics is a genuine hard problem, and this is work an engineer would want on their CV.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the talent motive tolerates a small, well-run project and does not need ecosystem scale",
+        "evidence": "\"It doesn't need ecosystem scale (signal = candidates citing it, contributor-to-hire conversions \u2014 not stars).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Measures the talent motive on candidates citing the project, contributor-to-hire conversions and retention of the maintainers, not on stars or downloads",
+        "evidence": "Only \"candidates citing it, contributor-to-hire conversions \u2014 not stars\" is given; retention of the maintainers is never mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the success objective must be declared at decision time rather than retrofitted later",
+        "evidence": "No explicit statement that the objective must be declared now rather than retrofitted later appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names a backup maintainer or an explicit succession arrangement",
+        "evidence": "\"Name one person, hours/week, release rhythm, issue-response SLA, backup maintainer.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the open source program functions must be assigned even when one person carries them part time, rather than left unassigned",
+        "evidence": "No such statement about assigning all program functions (even fractionally) appears in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects 'the platform team will maintain it' as failing the ownership gate",
+        "evidence": "\"Why 'platform team will maintain it' is the real risk / That's not a maintenance plan, it's a diffusion of responsibility.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a named individual, an hours-per-week figure, a release rhythm and a stated issue-response commitment before the asset ships",
+        "evidence": "\"get a named owner (a person or two, not a team label) with an explicit time allocation, and a stated response-time expectation for issues/PRs\" \u2014 no release rhythm and no explicit hours-per-week figure are required.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that ownership is a veto gate: failing it keeps the asset closed regardless of how well the other gates score",
+        "evidence": "Ownership is treated as one item in a broader checklist alongside legal, security, and decoupling passes, not singled out as an overriding veto.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies Brantwell Foods as a non-software company and names its boundary primitive as enabler versus differentiator inside the product",
+        "evidence": "No such framing appears; the transcript only references \"a fairly conservative industry (cold-chain logistics)\" without an explicit enabler/differentiator boundary statement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that decision authority at a non-software company sits with a governance board spanning engineering, business and legal, rather than with the CTO alone",
+        "evidence": "It asks for sign-off from \"whoever owns competitive strategy (not just the CTO)\" plus legal review separately, but never states authority formally sits with a cross-functional governance board.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the timescale mismatch: the company plans in roughly three-month spans while maintainers organize around neither quarters nor fiscal years",
+        "evidence": "\"Q1 is a marketing deadline, not an engineering one \u2014 don't let it drive the release date\" and \"Don't force the repo release to Q1 to match the careers-site refresh.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that dump-and-run publishing turns the talent motive into evidence against the company",
+        "evidence": "\"'We open-sourced it and abandoned it' reads as *worse* engineering culture signal than never publishing, precisely the opposite of the goal.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Applies the talent evidence test: the asset must be work an engineer would want to be seen doing",
+        "evidence": "No such test is stated in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the talent motive tolerates a small, well-run project and does not need ecosystem scale",
+        "evidence": "\"Don't expect stars or a community \u2014 expect, at best, a handful of domain peers and a talking point in interviews. That's fine, but set that expectation now.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Measures the talent motive on candidates citing the project, contributor-to-hire conversions and retention of the maintainers, not on stars or downloads",
+        "evidence": "\"A success metric that isn't stars \u2014 e.g., candidate mentions in interviews, or quality of first external contributions.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the success objective must be declared at decision time rather than retrofitted later",
+        "evidence": "\"set that expectation now so nobody's disappointed in six months and quietly deprioritizes it\" plus the explicit \"success metric\" checklist item before release.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names a backup maintainer or an explicit succession arrangement",
+        "evidence": "Only \"a named owner (a person or two, not a team label)\" is mentioned; no backup maintainer or succession plan is discussed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the open source program functions must be assigned even when one person carries them part time, rather than left unassigned",
+        "evidence": "\"get a named owner (a person or two, not a team label) with an explicit time allocation\" \u2014 requires assignment rather than leaving it ambient.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

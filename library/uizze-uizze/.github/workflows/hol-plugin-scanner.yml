@@ -1,0 +1,33 @@
+name: HOL Plugin Scanner
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - name: Scan UIZZE plugin
+        uses: hashgraph-online/ai-plugin-scanner-action@2d86c226ed36a19a78668ef6c14a01b1c7751ae2
+        with:
+          plugin_dir: "plugins/openai-directory/uizze"
+          mode: scan
+          min_score: 80
+          fail_on_severity: high
+          format: sarif
+          upload_sarif: true
+          # Cisco's regex-only layer treats any fs access, safe spawnSync(command, args),
+          # Svelte compile(), and deprecated-command guidance as high/critical. Keep
+          # HOL's semantic score and high-severity policy without those false positives.
+          cisco_skill_scan: off

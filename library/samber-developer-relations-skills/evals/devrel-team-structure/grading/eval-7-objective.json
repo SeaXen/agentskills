@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to state a compensation band or salary figure.",
+        "evidence": "\"DevRel is thin in salary-banding datasets industry-wide... A single figure for \"Head of DevRel, Europe\" would be a guess wearing a decimal point... Handing you one number would be actively misleading, not just imprecise.\" No specific figure or range is ever given.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that developer relations roles are thin in salary-banding datasets, so a quoted band is guesswork, and points the user to live market data.",
+        "evidence": "\"DevRel is thin in salary-banding datasets industry-wide; there's no measured standard...\" followed by \"Ravio and Figures both specialize in European tech comp specifically; Pave if you want a US-inclusive cross-check.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps compensation out of the org design brief entirely rather than including it with a caveat.",
+        "evidence": "The brief includes a full section '3. Compensation' discussing what to pull instead, with caveats \u2014 it does not omit compensation from the brief entirely.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Attaches a re-decision date to the CEO reporting line.",
+        "evidence": "\"Set a review trigger instead of leaving this open-ended: re-decide this line when the team crosses five people... or in 12 months, or immediately if you hire a VP Marketing/Product...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the function the team moves to when it crosses a stated size threshold.",
+        "evidence": "The five-people threshold only triggers 're-decide this line' \u2014 no specific function (e.g., VP Marketing) is named as the destination tied to that size threshold; the VP Marketing trigger is listed as a separate condition based on hiring, not size.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names what the CEO line starves: operational support, career ladder, peer review, or everyday prioritization.",
+        "evidence": "\"This line starves operational support, peer calibration, and career-ladder design for the new hire \u2014 a founder can't give a DevRel lead the kind of manager review a VP Marketing would.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the characteristic failure: the line survives exactly as long as the founder's attention, leaving no manager who knows how to grow the discipline.",
+        "evidence": "\"its documented failure mode is that 'it works exactly as long as the founder's attention lasts, and leaves no manager who knows how to grow the discipline.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags \"Head of\" as ambiguous both internally and on the market and resolves it to a real level.",
+        "evidence": "\"'Head of' is deliberately ambiguous, both internally and on the market (Kim Maida, 'Advocate to Exec,' DevRelCon 2021) \u2014 resolve it against scope, not headcount... keep 'Head of Developer Relations' externally... but level it internally as Director\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Checks the title against scope: a manager accountable for company-level goals warrants a director-level title and influence.",
+        "evidence": "\"The rule that applies is: a role accountable for a company-level goal warrants a director's title and influence, regardless of team size.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States which career ladder the role sits on - engineering, marketing, or a developer-relations-specific one.",
+        "evidence": "The transcript only offers a choice without committing: \"put this role on your engineering or marketing IC/manager ladder deliberately and say which\" \u2014 it asks the user to decide and state which, rather than itself naming one.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that a borrowed ladder promotes against criteria that do not describe the work, which leaks retention slowly rather than failing loudly.",
+        "evidence": "The transcript only warns about leaving the role on 'no ladder at all... which quietly pushes good people out later' \u2014 it does not state that a borrowed ladder's criteria fail to describe the actual work.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites that the CEO line has grown to around 20% of surveyed teams, up from around 14%, with the year attached.",
+        "evidence": "\"20.3% of teams report to the CEO per State of Developer Relations 2024 (DevRel.Agency, 310 respondents), up from 14.1% the prior edition\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to state a compensation band or salary figure.",
+        "evidence": "\"\u20ac100k\u2013\u20ac135k base + 0.15\u20130.3% equity, in a Western/Central European hub\" is stated explicitly.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that developer relations roles are thin in salary-banding datasets, so a quoted band is guesswork, and points the user to live market data.",
+        "evidence": "States surveys are \"thin and unreliable\" but redirects to internal anchoring against other functional heads, not to live external market data.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps compensation out of the org design brief entirely rather than including it with a caveat.",
+        "evidence": "An entire \"Pay\" section with bands is included in the brief.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Attaches a re-decision date to the CEO reporting line.",
+        "evidence": "\"Keep DevRel reporting to CEO for the next 6-12 months\" plus \"Set an explicit trigger to revisit the reporting line.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the function the team moves to when it crosses a stated size threshold.",
+        "evidence": "\"Natural triggers: DevRel team passes ~5 people, or you hire a CMO/VP Marketing whose scope would credibly absorb it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names what the CEO line starves: operational support, career ladder, peer review, or everyday prioritization.",
+        "evidence": "No such starvation is named; the discussion is about the founder's own follow-through, not what the reporting line structurally starves.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the characteristic failure: the line survives exactly as long as the founder's attention, leaving no manager who knows how to grow the discipline.",
+        "evidence": "\"If you keep making the calls, 'Head of DevRel' becomes a title for someone running your playbook, not owning the function, and you won't retain a person good enough to be worth that comp band.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags \"Head of\" as ambiguous both internally and on the market and resolves it to a real level.",
+        "evidence": "Only internal scope reasoning is given (\"That's a senior manager / player-coach scope\"); no market-ambiguity discussion of the title appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Checks the title against scope: a manager accountable for company-level goals warrants a director-level title and influence.",
+        "evidence": "The logic runs the opposite direction \u2014 headcount/reports size caps the title (\"2 direct reports today. That's a senior manager... scope\") rather than company-level accountability warranting a higher title.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States which career ladder the role sits on - engineering, marketing, or a developer-relations-specific one.",
+        "evidence": "No career-ladder family is named anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that a borrowed ladder promotes against criteria that do not describe the work, which leaks retention slowly rather than failing loudly.",
+        "evidence": "Not present in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites that the CEO line has grown to around 20% of surveyed teams, up from around 14%, with the year attached.",
+        "evidence": "No such statistic appears.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

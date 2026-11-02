@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that the unit of measurement in a B2B community is the customer account, not the individual person",
+        "evidence": "\"This is a B2B community: the unit that matters is the customer account (41 of them), not just the person.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Proposes account coverage - how many of the 41 accounts have at least one active member - ahead of any member-level active percentage",
+        "evidence": "Finding 3: \"The most important number for a B2B community \u2014 account coverage \u2014 doesn't exist yet.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks or states whether the accounts the company most cares about are represented, not only how many accounts are active",
+        "evidence": "No mention of strategic/key accounts specifically; the coverage metric and action only reference \"silent accounts named at renewal or QBR risk\" generically, not which accounts matter most",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a 41-account community produces small-N numbers everywhere, so the raw list should be read instead of rates",
+        "evidence": "\"New account activation | ... reported as a named list with dates, not a rate (41 accounts is small-N \u2014 a percentage here would be noise)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the 6-response score of +33 as a reportable number and states that it sits below the roughly 30-response floor",
+        "evidence": "\"6 respondents out of 187 members (3.2%) \u2014 well below the ~30-response floor this skill's own catalog uses before treating a survey result as anything but qualitative\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a handful of named-account conversations or interviews yields more than a six-response survey",
+        "evidence": "No statement comparing named-account interviews to survey responses appears; the design notes only suggest widening distribution via CSMs",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects message growth as a health metric",
+        "evidence": "Message volume/growth is kept as one of the six retained metrics: \"Message volume / growth | Activity | Total human messages... per month, trend vs trailing baseline\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes at least one responsiveness metric, such as time to first human response or zero-reply rate",
+        "evidence": "\"Unanswered question rate | Responsiveness | Question threads with zero human reply within 2 business days \u00f7 total question threads\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names support deflection or expansion signals as more relevant than raw growth for this B2B community",
+        "evidence": "Primary outcome frames engagement as a \"leading indicator of account health, retention and expansion\" and offers to \"swap metric 4's threshold framing\" for support deflection",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the metric count at 8 or fewer and covers all four pillars",
+        "evidence": "\"Four pillars are covered: Activity (3), Responsiveness (1), Funnel (1), Sentiment (1)\" \u2014 six metrics total",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Applies bot exclusion, baseline-derived thresholds, a per-metric action and the privacy gate exactly as it would for an individual-adoption community",
+        "evidence": "\"Confirm whether the '34 posters' figure already excludes Quarrystone staff and any Slack apps/bots\" and \"Check each of the 41 accounts' contracts/DPAs before any bulk export of Slack Connect message content\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that the unit of measurement in a B2B community is the customer account, not the individual person",
+        "evidence": "The report frames account-level reach only as a secondary, not-yet-available addition ('A VP-relevant secondary cut is account-level reach... That number isn't in hand yet... add it next cycle'), while keeping the individual-based '34 of 187 posted' MAU% as the headline metric throughout \u2014 it never asserts that account is the fundamental unit of measurement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Proposes account coverage - how many of the 41 accounts have at least one active member - ahead of any member-level active percentage",
+        "evidence": "Account coverage is listed after MAU% as a 'secondary cut' and marked 'TBD' / 'pull it from Slack member-to-account mapping and add it next cycle' in section 2, while MAU% (18.2%, member-level) is presented first as the headline metric in section 1's table \u2014 account coverage is not proposed ahead of the member-level percentage.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks or states whether the accounts the company most cares about are represented, not only how many accounts are active",
+        "evidence": "No mention anywhere of which specific accounts matter most or whether strategic/high-value accounts are represented; the report only discusses raw counts of accounts/members (e.g., '41 customer accounts', 'how many ... had at least one poster').",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a 41-account community produces small-N numbers everywhere, so the raw list should be read instead of rates",
+        "evidence": "Small-N concerns are raised only for the NPS survey ('n=6 is not statistically reliable'), not generalized to the whole 41-account community or applied to reading a raw list instead of rates for any other metric.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the 6-response score of +33 as a reportable number and states that it sits below the roughly 30-response floor",
+        "evidence": "The report keeps +33 as a reportable figure, just caveated ('Present +33 as \"directional, low-confidence\" rather than a KPI to trend month over month'), and it recommends a target of 'at least 15-20 responses', not a ~30-response floor.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a handful of named-account conversations or interviews yields more than a six-response survey",
+        "evidence": "No mention of qualitative named-account conversations or interviews anywhere in the transcript; the only remediation proposed is improving survey response tactics (named sender, reminders, Slack posting, incentives).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects message growth as a health metric",
+        "evidence": "Section 4 treats message growth as a metric to be fixed and reported, not rejected: 'Recommend the VP report carry a placeholder row until this is instrumented, rather than skip the metric silently' and lists ways to obtain 'Total messages sent ... this month vs. last month'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes at least one responsiveness metric, such as time to first human response or zero-reply rate",
+        "evidence": "No responsiveness metric (time to first response, zero-reply rate, etc.) appears anywhere in the headline metrics, detail sections, or the recommended template table.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names support deflection or expansion signals as more relevant than raw growth for this B2B community",
+        "evidence": "No mention of support deflection or expansion/upsell signals anywhere in the transcript; the only growth-related metric discussed is raw message growth MoM.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps the metric count at 8 or fewer and covers all four pillars",
+        "evidence": "The report's template tracks 8 columns (Members, Active Posters, MAU%, Accounts Reached, Messages, Msg Growth MoM, NPS) but covers only engagement/growth and satisfaction \u2014 there is no responsiveness/support pillar (per item 8) or expansion pillar (per item 9), so not all four pillars are represented.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Applies bot exclusion, baseline-derived thresholds, a per-metric action and the privacy gate exactly as it would for an individual-adoption community",
+        "evidence": "No mention of bot exclusion or a privacy gate anywhere in the transcript; only a generic industry benchmark ('20-35% monthly posting rate') and some per-metric recommendations (e.g., NPS response tactics) appear, with no explicit bot-exclusion or privacy-gate treatment.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

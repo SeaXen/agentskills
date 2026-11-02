@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rewrites the announcement to lead with the speaker and the topic rather than the pizza or the venue",
+        "evidence": "\"**Async runtimes in Rust** \u2014 Ana Ferreira [role/company] on [one-line concrete takeaway...]\" opens the announcement",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Demotes food to a logistics line instead of the headline",
+        "evidence": "\"doors and food from 18:30, talk ~19:00, networking after\" appears as a logistics line, not the headline",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes the sponsor from the headline, keeping them to a listing credit and a thank-you from the stage",
+        "evidence": "\"Vantix's stage time: cap it at 15 minutes (thank-you + logo on the listing is separate and fine)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes \"come network with the community\" as the stated reason to attend",
+        "evidence": "\"networking after\" appears only as a schedule note, not as the headline reason to attend",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to announce Ana Ferreira before she is confirmed, and states that a retracted headline costs more trust than a late announcement",
+        "evidence": "\"'A retracted headline costs more trust than a late announcement.' 95% isn't confirmed.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes a concrete takeaway for the talk, not just its title",
+        "evidence": "\"a one-line concrete detail ('what breaks when you mix Tokio and async-std'...) reads as a real talk, not a slot filler\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes complete logistics: date, start and end time, address, door time, RSVP requirement and room capacity",
+        "evidence": "Announcement gives door time (18:30) and talk start (~19:00) but no end time and only a neighborhood name (\"Cais do Sodr\u00e9\"), not a full address.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds an open lightning slot to the announcement so this month's post recruits next month's speaker",
+        "evidence": "\"Also: got 5 minutes on something you built in Rust? Reply for a lightning slot.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the reminder schedule as announcement 3-4 weeks out, one week out, two days out, two hours out, and a day-after message",
+        "evidence": "Schedule begins with \"Now / tomorrow\", not \"3-4 weeks out\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Puts the practical detail (address, door code, start time, food) in the two-days-out reminder and names it as the one that actually moves attendance",
+        "evidence": "\"2 days out | Practical only: exact address, door code/entry instructions, start time, food | The reminder that actually moves attendance\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Puts the release-your-spot request in the two-hours-out reminder",
+        "evidence": "\"2 hours out | ... 'can't make it? release your spot for the waitlist'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sends slides, recording and the next date in the day-after message",
+        "evidence": "\"Day after | Thanks, slides/recording if any, save-the-date for next edition\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the speaker's own network as the highest-yield promotion channel and asks Ana to share the slot once confirmed",
+        "evidence": "No statement anywhere in this transcript about the speaker's own network being the highest-yield channel.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rewrites the announcement to lead with the speaker and the topic rather than the pizza or the venue",
+        "evidence": "The draft opens with '\ud83e\udd80 Rust Lisbon is back! Free pizza and beer at Vantix's beautiful new office... Talk of the night to be announced this week' \u2014 leads with pizza/venue, not speaker/topic.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Demotes food to a logistics line instead of the headline",
+        "evidence": "Food remains in the prominent opening line, not moved to a logistics section.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Removes the sponsor from the headline, keeping them to a listing credit and a thank-you from the stage",
+        "evidence": "The sponsor is named prominently in the opening: 'at Vantix's beautiful new office in Cais do Sodr\u00e9, sponsored by Vantix.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Removes \"come network with the community\" as the stated reason to attend",
+        "evidence": "The draft explicitly retains 'Come network with the community!'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to announce Ana Ferreira before she is confirmed, and states that a retracted headline costs more trust than a late announcement",
+        "evidence": "'If you name her now and she can't make it, you either post a public walk-back or ship the event with the announced draw missing \u2014 worse than not naming her yet.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes a concrete takeaway for the talk, not just its title",
+        "evidence": "The draft has no topic at all yet ('Talk of the night to be announced'), and even the follow-up example is just 'async runtimes', not a concrete takeaway.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes complete logistics: date, start and end time, address, door time, RSVP requirement and room capacity",
+        "evidence": "Draft includes date, doors 18:30, address, RSVP link, 'spots limited' \u2014 but no end time is given anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds an open lightning slot to the announcement so this month's post recruits next month's speaker",
+        "evidence": "No lightning-slot call is included in the draft.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the reminder schedule as announcement 3-4 weeks out, one week out, two days out, two hours out, and a day-after message",
+        "evidence": "Actual schedule uses T-launch, T-3 days, T-2 days, T-1 day, T-3h, T+1 day \u2014 a different structure with no 3-4-week or 1-week touchpoint.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Puts the practical detail (address, door code, start time, food) in the two-days-out reminder and names it as the one that actually moves attendance",
+        "evidence": "Address/logistics is in the T-1 day reminder, and the 'kills no-shows' label is given to the T-3h ('Morning of') message, not T-2 days.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Puts the release-your-spot request in the two-hours-out reminder",
+        "evidence": "The T-3h message is only 'Short \"see you tonight\" + map link' \u2014 no release-your-spot ask anywhere in the plan.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sends slides, recording and the next date in the day-after message",
+        "evidence": "T+1 day message is 'Thanks + photos + save-the-date teaser' \u2014 no slides or recording mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the speaker's own network as the highest-yield promotion channel and asks Ana to share the slot once confirmed",
+        "evidence": "Not mentioned anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

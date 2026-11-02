@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Each question is tested against the decision it would change, and questions with no named decision behind them are cut.",
+        "evidence": "Partly satisfied. The response cuts Q8\u201310 because they 'have no named decision behind them'. It states the rule 'Each question needs a named decision\u2026 If you can't, cut the question', and its gate table names a decision for Q2\u2013Q6. But it breaks its own rule on Q1: the 0\u201310 recommend question goes into the final survey with 'Decision it changes: ?'. Every owner is also '?'. So the test is handed back to the user instead of applied to every question. Q1 should have been cut or tied to a decision, which drops the score below full.",
+        "score": 3,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Each question is tested against the decision it would change, and questions with no named decision behind them are cut.",
+        "evidence": "The transcript states the decision rule ('Keep a question only if you can finish the sentence \"If most people answer X, we will do Y.\"'). It applies the rule to cut original Q10: 'Unless you plan to post on those networks, drop it.' It also ties Q8 to a decision: 'run the workshop if at least 40% say Probably or better'. However, the 12 retained questions are not each paired with a named decision. Q9 (how did you hear), Q10 (role), Q5, Q6, Q11 and Q12 are kept with no stated action they would change. Q1 (NPS) and the Q2 grid are justified as replacements, not by a decision they inform. The rul",
+        "score": 2,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -12,7 +12,6 @@ triggers:
   - "next"
   - "vitest"
   - "jest"
-category: programming-languages-core
 ---
 
 # GRAVITAS — TypeScript Extension

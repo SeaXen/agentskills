@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Deletes the field-and-events shape outright rather than ranking it last.",
+        "evidence": "\"Two lines are deleted, not ranked last\" \u2014 Field-and-events listed.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the travel policy as the constraint that removed field-and-events.",
+        "evidence": "\"COO's hard freeze on all conference travel. Policy, not budget, and it isn't lifting this year\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Puts field-and-events on a ruled-out list kept separate from the unfunded list.",
+        "evidence": "Separate \"Unfunded list\" and \"Ruled-out list\" sections; field-and-events appears only in the latter.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Also rules out the certification program, naming the advocate's capacity ceiling as the constraint.",
+        "evidence": "\"Certification program | Your one advocate is already at capacity ... adds permanent recurring obligations\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that an effort ceiling below what a line needs deletes that line rather than demoting it.",
+        "evidence": "\"This is an effort-ceiling deletion, not a demotion: a line whose hours exceed what the owner can give is unfunded regardless of its cash.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that a ruled-out line parked at the bottom of a ranking reappears as scope the next time the envelope moves.",
+        "evidence": "\"a ruled-out line parked at the bottom of a list reads as merely unaffordable and comes back as scope the moment the envelope moves\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a ruled-out line returns only if the constraint lifts, unlike an unfunded line.",
+        "evidence": "\"What would bring it back\" column: \"Only the policy changing. Not a budget conversation.\" vs. unfunded items' evidence-based \"Revisit if...\" triggers.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Produces a non-empty unfunded list distinct from the ruled-out list, with one line each on what would have to change to fund it.",
+        "evidence": "\"OSS sponsorship depth ... Revisit if a specific dependency becomes a real supply-chain concern.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ranks the remaining shapes against each other, not against the deleted one.",
+        "evidence": "\"Base ordering from the skill, with field-and-events and community-led removed (deleted/excluded above)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ranks them on effort axes such as hours, setup latency and exit cost, never on cash.",
+        "evidence": "\"Ranked on effort, value and efficiency in magnitudes \u2014 never on cash\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names what the resulting order starves and the condition that would promote it.",
+        "evidence": "\"Starves: reach \u2014 nobody new discovers the product this period ... Right when: usage exists but conversion leaks\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not propose working around the travel freeze with a smaller or cheaper event line.",
+        "evidence": "\"Nothing specific is funded here \u2014 no opportunity was named \u2014 but it belongs on next cycle's list, not deleted outright\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Deletes the field-and-events shape outright rather than ranking it last.",
+        "evidence": "No travel/in-person events line is funded; funded lines are explicitly 'No travel needed', 'Remote-only', 'Mail-only, no travel'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the travel policy as the constraint that removed field-and-events.",
+        "evidence": "'What the travel freeze costs you, ranked by loss' section attributes the loss directly to the travel freeze.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Puts field-and-events on a ruled-out list kept separate from the unfunded list.",
+        "evidence": "The 'What the travel freeze costs you' ranked list functions as a distinct ruled-out list, separate from the 9-line funded portfolio.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Also rules out the certification program, naming the advocate's capacity ceiling as the constraint.",
+        "evidence": "'Skip the full program this year. Running cohorts, grading, ongoing learner support needs hours your one advocate does not have.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that an effort ceiling below what a line needs deletes that line rather than demoting it.",
+        "evidence": "The reasoning is applied narrowly to certification ('building it anyway just burns them out or ships it badly') without a stated general principle distinguishing deletion from demotion.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that a ruled-out line parked at the bottom of a ranking reappears as scope the next time the envelope moves.",
+        "evidence": "No such explanation appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a ruled-out line returns only if the constraint lifts, unlike an unfunded line.",
+        "evidence": "No explicit distinction between ruled-out-line and unfunded-line return conditions is stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces a non-empty unfunded list distinct from the ruled-out list, with one line each on what would have to change to fund it.",
+        "evidence": "No separate unfunded list appears; only the funded 9-line portfolio and the ruled-out travel-freeze-cost list exist.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ranks the remaining shapes against each other, not against the deleted one.",
+        "evidence": "The 9 funded lines are ranked 1-9 among themselves ('Highest leverage item, do this first'... 'Lowest priority, cut first if budget tightens') without comparing to the deleted field-events shape.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ranks them on effort axes such as hours, setup latency and exit cost, never on cash.",
+        "evidence": "Ranking order (\u00a328k,\u00a312k,\u00a310k,\u00a315k,\u00a36k,\u00a310k,\u00a35k,\u00a34k,\u00a35k) is not cash-ordered, but the stated rationale ('Root fix... Scales content without eating advocate hours') doesn't explicitly use hours/setup-latency/exit-cost as named axes with magnitudes.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names what the resulting order starves and the condition that would promote it.",
+        "evidence": "No explicit 'this order starves X, promoted if Y' statement is given for the overall funded ranking.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not propose working around the travel freeze with a smaller or cheaper event line.",
+        "evidence": "All funded substitutes are explicitly travel-free ('Remote-only sponsorships... no staff on a floor'), no smaller in-person event line is proposed.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

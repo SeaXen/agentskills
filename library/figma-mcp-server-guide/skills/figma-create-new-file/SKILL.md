@@ -1,69 +1,42 @@
 ---
 name: figma-create-new-file
-description: Create a new blank Figma file. Use when the user wants to create a new Figma design or FigJam file, or when you need a new file before calling use_figma. Handles plan resolution via whoami if needed. Usage — /figma-create-new-file [editorType] [fileName] (e.g. /figma-create-new-file figjam My Whiteboard)
-category: graphics-branding-design
+description: "Always use this skill when the user wants to create a new Figma Design, FigJam, or Slides file. You MUST invoke this skill BEFORE every `create_new_file` tool call."
+disable-model-invocation: false
 ---
 
-# create_new_file — Create a New Figma File
+# Create a new file in Figma
 
-Use the `create_new_file` MCP tool to create a new blank Figma file in the user's drafts folder. This is typically used before `use_figma` when you need a fresh file to work with.
+Steps to create a new Figma Design, FigJam, or Slides file using the `create_new_file` MCP tool.
 
-## Skill Arguments
+## Step 1: Resolve the `planKey` and `editorType`
 
-This skill accepts optional arguments: `/figma-create-new-file [editorType] [fileName]`
+Use the `planKey` the user provided or selected for this task. Otherwise, call `whoami` and inspect the returned plans.
 
-- **editorType**: `design` (default) or `figjam`
-- **fileName**: Name for the new file (defaults to "Untitled")
+- No plans: inform the user that file creation cannot proceed.
+- One plan: use its `key` as `planKey`.
+- Multiple plans: show the available plans, ask the user to select one and then use that plan's `key` as `planKey`.
 
-Examples:
-- `/figma-create-new-file` — creates a design file named "Untitled"
-- `/figma-create-new-file figjam My Whiteboard` — creates a FigJam file named "My Whiteboard"
-- `/figma-create-new-file design My New Design` — creates a design file named "My New Design"
+Infer `editorType` from the requested file type by choosing from the tool's advertised input enum. If unclear, ask the user to specify the file type.
 
-Parse the arguments from the skill invocation. If editorType is not provided, default to `"design"`. If fileName is not provided, default to `"Untitled"`.
+## Step 2: Call create_new_file
 
-## Workflow
+Call the `create_new_file` tool with all three required arguments:
 
-### Step 1: Resolve the planKey
+- `fileName`: Required. Choose a concise name if the user does not provide one.
+- `planKey`: Required. Use the `planKey` resolved in Step 1.
+- `editorType`: Required. Use the `editorType` selected in Step 1.
+- `projectId`: Optional. Set it to create the file in a specific project.
 
-The `create_new_file` tool requires a `planKey` parameter. Follow this decision tree:
-
-1. **User already provided a planKey** (e.g. from a previous `whoami` call or in their prompt) → use it directly, skip to Step 2.
-
-2. **No planKey available** → call the `whoami` tool. The response contains a `plans` array. Each plan has a `key`, `name`, `seat`, and `tier`.
-
-   - **Single plan**: use its `key` field automatically.
-   - **Multiple plans**: ask the user which team or organization they want to create the file in, then use the corresponding plan's `key`.
-
-### Step 2: Call create_new_file
-
-Call the `create_new_file` tool with:
-
-| Parameter    | Required | Description |
-|-------------|----------|-------------|
-| `planKey`   | Yes      | The plan key from Step 1 |
-| `fileName`  | Yes      | Name for the new file |
-| `editorType`| Yes      | `"design"` or `"figjam"` |
-
-Example:
 ```json
 {
-  "planKey": "team:123456",
-  "fileName": "My New Design",
+  "fileName": "Quarterly planning",
+  "planKey": "team::1234567890",
   "editorType": "design"
 }
 ```
 
-### Step 3: Use the result
+- Use the `file_key` from the `create_new_file` tool response for subsequent tool calls like `use_figma`.
 
-The tool returns:
-- `file_key` — the key of the newly created file
-- `file_url` — a direct URL to open the file in Figma
+## Step 3: (Slides only) Handle the empty grid
 
-Use the `file_key` for subsequent tool calls like `use_figma`.
-
-## Important Notes
-
-- The file is created in the user's **drafts folder** for the selected plan.
-- Only `"design"` and `"figjam"` editor types are supported.
-- If `use_figma` is your next step, load the `figma-use` skill before calling it.
+A new Slides file contains no slides: `figma.getSlideGrid()` returns `[]`. Before reading properties such as theme tokens from a slide, call `figma.createSlide()` or handle the empty case. The first `createSlide()` call automatically creates row 0 and inserts the slide.

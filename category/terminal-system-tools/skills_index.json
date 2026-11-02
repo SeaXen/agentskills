@@ -40,6 +40,14 @@
     "path": "category/terminal-system-tools/agentmemory-agents"
   },
   {
+    "id": "agents-debug",
+    "name": "agents-debug",
+    "category": "terminal-system-tools",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Use when your agent or environment is broken \u2014 wrong answers, errors, timeouts, tool failures, or CLI issues. Reads traces and logs to diagnose root causes. Also checks prerequisites when the CLI itself isn't working. Triggers on: \"agent not working\", \"wrong answer\", \"agent error\", \"tool call failing\", \"debug agent\", \"check logs\", \"read traces\", \"broken\", \"500 error\", \"424 error\", \"model access denied\", \"command not found\", \"stuck in DELETING\", \"maxVms exceeded\", \"cold start diagnosis\", \"cold start slow\", \"agentcore create error\", \"create failed\", \"exit code 7\", \"connection refused local dev\". Not for deploy failures \u2014 use agents-deploy. Not for performance tuning without errors \u2014 use agents-optimize. Not for VPC configuration \u2014 use agents-build. Not for observability setup or missing logs \u2014 use agents-optimize.",
+    "path": "category/terminal-system-tools/agents-debug"
+  },
+  {
     "id": "agents-generator",
     "name": "agents-generator",
     "category": "terminal-system-tools",
@@ -62,6 +70,14 @@
     "repository": "lllllllama-rigorpilot-skills",
     "description": "Rigor Reproduce compatible skill slug for README-first deep learning repository reproduction. Use when the user wants an end-to-end, minimal-trustworthy flow that reads the repository first, selects the smallest documented inference or evaluation target, coordinates intake, setup, trusted execution, optional trusted training, optional repository analysis, and optional paper-gap resolution, enforces conservative patch rules, records evidence assumptions deviations and human decision points, and writes the standardized `repro_outputs/` bundle. Do not use for paper summary, generic environment setup, isolated repo scanning, standalone command execution, silent protocol changes, score chasing, or broad research assistance outside repository-grounded reproduction.",
     "path": "category/terminal-system-tools/ai-research-reproduction"
+  },
+  {
+    "id": "amazon-ec2-image-builder",
+    "name": "amazon-ec2-image-builder",
+    "category": "terminal-system-tools",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Creates and automates custom image builds with EC2 Image Builder - Linux, Windows, and macOS AMIs, and container images to ECR. Covers the build IAM role, Amazon-managed and custom components, image recipes, infrastructure and distribution configuration (launch templates, SSM parameters, other Regions), one-off builds, recurring scheduled pipelines for golden AMI automation and OS patching, custom image workflows, and diagnosing failed builds. Applies when creating, automating, or scheduling AMI or container image builds with Image Builder, or when debugging a failed build. Not for launching instances from existing AMIs, AMI lifecycle/retirement, or general EC2 fleet management.",
+    "path": "category/terminal-system-tools/amazon-ec2-image-builder"
   },
   {
     "id": "analyze-project",
@@ -272,6 +288,30 @@
     "path": "category/terminal-system-tools/binlog-generation"
   },
   {
+    "id": "bionemo-complexa-target",
+    "name": "bionemo-complexa-target",
+    "category": "terminal-system-tools",
+    "repository": "nvidia-skills",
+    "description": "Add, edit, inspect, or validate Proteina-Complexa target definitions for protein binders, ligand binders, and AME motif scaffolding. Use for target registries, chain/residue selectors, hotspots, ligand fields, and incomplete motif inputs. Covers direct YAML edits and complexa target/validate target commands; running a campaign with an already registered target belongs to complexa-design.",
+    "path": "category/terminal-system-tools/bionemo-complexa-target"
+  },
+  {
+    "id": "bionemo-genomics-workflow-acceleration",
+    "name": "bionemo-genomics-workflow-acceleration",
+    "category": "terminal-system-tools",
+    "repository": "nvidia-skills",
+    "description": "Use when accelerating existing genomics workflows with NVIDIA Parabricks, improving runtime or price/performance, converting pipeline steps to GPUs, or comparing CPU and GPU workflow outputs. Adds optional GPU steps in-place with runtime toggles (default off). Do NOT use for individual pbrun command routing \u2014 use parabricks.",
+    "path": "category/terminal-system-tools/bionemo-genomics-workflow-acceleration"
+  },
+  {
+    "id": "bionemo-parabricks",
+    "name": "bionemo-parabricks",
+    "category": "terminal-system-tools",
+    "repository": "nvidia-skills",
+    "description": "Plan NVIDIA Parabricks pbrun commands, translate CPU options and check runtime readiness. Use for individual tools, including planning-only questions.",
+    "path": "category/terminal-system-tools/bionemo-parabricks"
+  },
+  {
     "id": "blue-laser-clean-glass-layout",
     "name": "blue-laser-clean-glass-layout",
     "category": "terminal-system-tools",
@@ -360,14 +400,6 @@
     "path": "category/terminal-system-tools/cardputer-buddy"
   },
   {
-    "id": "career-ops",
-    "name": "career-ops",
-    "category": "terminal-system-tools",
-    "repository": "sickn33-agentic-awesome-skills",
-    "description": "Multi-CLI job-search command center: evaluate offers, scan portals,",
-    "path": "category/terminal-system-tools/career-ops"
-  },
-  {
     "id": "cargo",
     "name": "cargo",
     "category": "terminal-system-tools",
@@ -382,6 +414,14 @@
     "repository": "getcargohq-cargo-skills",
     "description": "Administer a Cargo workspace and talk back to the Cargo team \u2014 invite and manage members, mint and rotate API tokens, organize plays, tools, and agents into folders, inspect roles, upload batch input files, and file reports. Triggers: \\\"invite my teammate\\\", \\\"create an API token for CI\\\", \\\"who has access\\\", \\\"organize these into folders\\\", \\\"rotate that token\\\", \\\"upload this CSV for a batch\\\" \u2014 and for feedback: \\\"report this bug to Cargo\\\", \\\"send feedback to the Cargo team\\\", \\\"this CLI command is broken\\\", \\\"share this session with Cargo\\\", \\\"request a feature\\\". Most commands need a token with admin access. Skip when: the question is about credits, plans, or invoices \u2014 use cargo-billing.",
     "path": "category/terminal-system-tools/cargo-workspace-management"
+  },
+  {
+    "id": "ce-help",
+    "name": "ce-help",
+    "category": "terminal-system-tools",
+    "repository": "everyinc-compound-engineering-plugin",
+    "description": "Help and orientation for Compound Engineering: place the user's work on the compounding loop and recommend the next command, without running it. Use when the user invokes ce-help to ask which skill fits, what comes next, how setup, configuration, cost, or upgrades work, or why a skill misbehaved.",
+    "path": "category/terminal-system-tools/ce-help"
   },
   {
     "id": "changelog",
@@ -502,6 +542,14 @@
     "repository": "jeffallan-claude-skills",
     "description": "Use when building CLI tools, implementing argument parsing, or adding interactive prompts. Invoke for parsing flags and subcommands, displaying progress bars and spinners, generating bash/zsh/fish completion scripts, CLI design, shell completions, and cross-platform terminal applications using commander, click, typer, or cobra.",
     "path": "category/terminal-system-tools/cli-developer"
+  },
+  {
+    "id": "cli-e2e-testcase-writer",
+    "name": "cli-e2e-testcase-writer",
+    "category": "terminal-system-tools",
+    "repository": "larksuite-cli",
+    "description": "Use when adding or updating Go CLI E2E coverage for one `tests/cli_e2e/{domain}` domain of the compiled `lark-cli`, especially when the work requires live `--help` or `schema` exploration, scenario-based `clie2e.RunCmd` workflows, and per-domain `coverage.md` maintenance.",
+    "path": "category/terminal-system-tools/cli-e2e-testcase-writer"
   },
   {
     "id": "cli-for-agents",
@@ -1016,6 +1064,54 @@
     "path": "category/terminal-system-tools/distributed-training-accelerate"
   },
   {
+    "id": "doca-argp",
+    "name": "doca-argp",
+    "category": "terminal-system-tools",
+    "repository": "nvidia-skills",
+    "description": "Use this skill for hands-on DOCA Arg Parser CLI work on a shipped sample or new DOCA-using app \u2014 adding / removing / renaming flags; wiring `doca_argp_init` \u2192 register params \u2192 `doca_argp_start` \u2192 `doca_argp_destroy` in order; picking a parameter type from the full public enum (`DOCA_ARGP_TYPE_STRING`, `_INT`, `_BOOLEAN`, `_DEVICE`, `_DEVICE_REP`, `_DOUBLE` \u2014 six values, not three); preserving the built-in DOCA flags (`-h` `-v` `-l` `--sdk-log-level` `--log-filter` `-j`/`--json`, NOT `--json-config`); `--device` is per-program; or debugging `DOCA_ERROR_BAD_STATE` / `INVALID_VALUE` / `NOT_SUPPORTED` / `IO_FAILED` from `doca_argp_*`. Trigger on implicit phrasings: \"add a custom flag to a DOCA sample\", \"should I use getopt here\", \"BAD_STATE registering a new param\", \"my JSON config key is rejected\", or \"my sample's --json is ignored\". Refuse and route elsewhere for variadic-flag / subcommand / shell-completion features, DOCA Core context, or DOCA Log internals.",
+    "path": "category/terminal-system-tools/doca-argp"
+  },
+  {
+    "id": "doca-bench",
+    "name": "doca-bench",
+    "category": "terminal-system-tools",
+    "repository": "nvidia-skills",
+    "description": "Run `doca_bench` (DOCA 2.7.0 or newer) to measure throughput, bulk latency, precision latency, or maximum bandwidth for RDMA, Compress, AES-GCM, SHA, DMA, EC, Ethernet, Comch, or GPUNetIO on a host or BlueField Arm. Use it to discover enabled benchmark libraries, capture a reproducible command/version/device/environment baseline, compare stable runs against a declared tolerance, or diagnose configuration, device-binding, workload-precondition, and measurement failures. Trigger for requests such as measuring BlueField compression speed, NIC RDMA throughput, crypto latency, or a pre-upgrade baseline. Do not use for application end-to-end timing, custom benchmark code, DOCA installation, or binary patches.",
+    "path": "category/terminal-system-tools/doca-bench"
+  },
+  {
+    "id": "doca-caps",
+    "name": "doca-caps",
+    "category": "terminal-system-tools",
+    "repository": "nvidia-skills",
+    "description": "Use this skill when the user wants to invoke the read-only doca_caps CLI to ask what DOCA sees on this host \u2014 listing DOCA devices and PCIe addresses, listing representor devices, asking which DOCA libraries are available on the current OS, checking per-device per-library capabilities, scoping output to a specific PCIe address, or capturing a side-effect-free capability snapshot for debug or install smoke-test. Trigger even when the user does not explicitly mention \"doca_caps\" or \"capabilities print tool\" \u2014 typical implicit phrasings include \"what does DOCA actually see on this box\", \"is my BlueField PF visible to DOCA\", \"is Flow available on my RHEL host\", \"enumerate VF representors for pf0\", \"doca_caps: command not found\", or \"empty output for RDMA, is the tool broken\". Refuse and route elsewhere for DOCA installation (doca-setup owns it; never walk the steps), library-internal capability matrices (Flow pipe creation, RDMA verbs features), streaming telemetry / DTS, or modifying the shipped binary.",
+    "path": "category/terminal-system-tools/doca-caps"
+  },
+  {
+    "id": "doca-mgmt",
+    "name": "doca-mgmt",
+    "category": "terminal-system-tools",
+    "repository": "nvidia-skills",
+    "description": "Use this skill when the user is doing hands-on DOCA Management programming against BlueField / ConnectX devices \u2014 standing up a management or representor context (doca_mgmt_dev_ctx / doca_mgmt_dev_rep_ctx), querying device caps (data-direct, caps-general), toggling congestion-control global status, modifying diagnostics-data, setting ICM quotas, or issuing a raw firmware command via doca_mgmt_raw_cmd with the right scope (CONFIGURATION / DEBUG_READ_ONLY / DEBUG_WRITE / DEBUG_WRITE_FULL). Trigger even when the user does not say \"DOCA Management\" \u2014 typical implicit phrasings include \"fleet tool that walks every BlueField and reads device state\", \"toggle data-direct on a VF\", \"set an ICM quota per representor\", \"send a raw firmware command from C\", \"DOCA_ERROR_IO_FAILED from raw_cmd\", or \"fwctl ioctl is failing\". Refuse and route elsewhere for mlxconfig direct operation, BFB / firmware reflash, streaming telemetry, doca_caps CLI snapshots, or DOCA install itself \u2014 those belong to other skills.",
+    "path": "category/terminal-system-tools/doca-mgmt"
+  },
+  {
+    "id": "doca-pcc-counters",
+    "name": "doca-pcc-counters",
+    "category": "terminal-system-tools",
+    "repository": "nvidia-skills",
+    "description": "Use this skill when the user is invoking the DOCA PCC Counters tool \u2014 the `pcc_counters.sh` bash script under the DOCA tools directory \u2014 to arm and read the fixed firmware/hardware PCC (Programmable Congestion Control) diagnostic counters (CNP, RTT, WRED-drop, etc.) on a ConnectX / BlueField device via mst + the mlx5 debugfs `diag_cnt` interface. The script takes two positional args \u2014 `set | query` and an mst device path \u2014 with no `--help` or subcommands. Trigger even without \"pcc_counters.sh\" or \"PCC counters\": \"how do I read the CNP / RTT / WRED-drop counters\", \"PCC counter stuck at zero\", \"the script says Bad Device\", or \"is congestion control dropping packets on this port?\". Route elsewhere for writing a custom PCC algorithm (doca-pcc), factory firmware PCC config, DOCA install, or fleet-wide CC tuning.",
+    "path": "category/terminal-system-tools/doca-pcc-counters"
+  },
+  {
+    "id": "doca-pipeline-language-developer-tools",
+    "name": "doca-pipeline-language-developer-tools",
+    "category": "terminal-system-tools",
+    "repository": "nvidia-skills",
+    "description": "Use this skill when the operator is driving the DOCA Pipeline Language (DPL) Developer Tools to inspect or debug DPL programs on a BlueField DPU \u2014 DPL Nspect for runtime state such as tables, keys, and counters, DPL Debugger for packet flow, DPL Admin for dynamic configuration changes in the DPL Runtime Daemon, P4 Runtime Shell as a P4Runtime control plane manager, or DPL Runtime Controller SDK for custom P4Runtime applications and DPL shared memory APIs. Trigger even when the user does not explicitly mention \"DPL Developer Tools\" \u2014 implicit phrasings include \"inspect the DPL tables on the DPU\", \"why can't I start a DPL debug session\", \"change a dpl_rtd configuration item without restarting\", \"build my own P4Runtime app for DPL\", or \"visualize packet flow through my DPL program\". Refuse and route elsewhere: authoring, compiling and deploying DPL programs to the DOCA Pipeline Language Service Guide, DOCA install/bring-up to doca-setup, and hardware or firmware state changes to doca-hardware-safety.",
+    "path": "category/terminal-system-tools/doca-pipeline-language-developer-tools"
+  },
+  {
     "id": "domain-cli",
     "name": "domain-cli",
     "category": "terminal-system-tools",
@@ -1272,6 +1368,14 @@
     "path": "category/terminal-system-tools/global-agent-guardrails"
   },
   {
+    "id": "goal-prompt",
+    "name": "goal-prompt",
+    "category": "terminal-system-tools",
+    "repository": "trailofbits-skills",
+    "description": "Drafts copy-paste-ready /goal commands for goal mode in Claude Code and Codex. Use when the user asks to create, write, rewrite, improve, compress, clean up, or prepare a goal prompt, goal condition, /goal command, goal-mode objective, or copy-ready long-running task objective.",
+    "path": "category/terminal-system-tools/goal-prompt"
+  },
+  {
     "id": "gog-cli",
     "name": "gog-cli",
     "category": "terminal-system-tools",
@@ -1392,12 +1496,116 @@
     "path": "category/terminal-system-tools/hf-cli"
   },
   {
+    "id": "holoscan-app-debug-build-run",
+    "name": "holoscan-app-debug-build-run",
+    "category": "terminal-system-tools",
+    "repository": "nvidia-skills",
+    "description": "Use when a concrete holoscan command in holoscan-applications or a standalone Module fails, hangs, regresses, or returns wrong output.",
+    "path": "category/terminal-system-tools/holoscan-app-debug-build-run"
+  },
+  {
     "id": "hookify-rules",
     "name": "hookify-rules",
     "category": "terminal-system-tools",
     "repository": "affaan-m-ecc",
     "description": "Create and configure hookify rules \u2014 markdown files with YAML frontmatter that match bash, file, prompt, or stop events by regex or conditions and show warn/block messages to the agent. Use when creating a hookify rule, writing hook rule syntax, configuring hookify, or adding pattern guardrails such as blocking dangerous commands, .env edits, or debug code.",
     "path": "category/terminal-system-tools/hookify-rules"
+  },
+  {
+    "id": "hsb-flash",
+    "name": "hsb-flash",
+    "category": "terminal-system-tools",
+    "repository": "nvidia-skills",
+    "description": "Flash the FPGA on an HSB board connected to an NVIDIA devkit. Supports HSB Lattice boards (FPGA versions 2407, 2412, 2507, 2510) and Leopard Imaging VB1940 \"all-in-one\" cameras (FPGA versions 2507, 2510). Uses release-specific YAML manifests and board-type-specific program commands. Lattice and VB1940 commands must never be mixed.",
+    "path": "category/terminal-system-tools/hsb-flash"
+  },
+  {
+    "id": "hsb-ip-def",
+    "name": "hsb-ip-def",
+    "category": "terminal-system-tools",
+    "repository": "nvidia-skills",
+    "description": "Generate, validate, compare, or explain HSB HOLOLINK_def.svh macros. Do not use for FPGA_top.sv wrappers or packetizer-only derivation. Generation runs bundled Python scripts locally through shell commands and writes validated .svh output files after user-confirmed paths.",
+    "path": "category/terminal-system-tools/hsb-ip-def"
+  },
+  {
+    "id": "huawei-cloud-ascend-command",
+    "name": "huawei-cloud-ascend-command",
+    "category": "terminal-system-tools",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Huawei Ascend NPU natural language management skill, supporting both local direct connection and SSH remote modes. Provides comprehensive npu-smi command capabilities including device queries, configuration management, firmware upgrade, vNPU virtualization, certificate management, and compute power testing (FLOPS). Enables remote management and monitoring of Ascend NPU devices with real-time metrics tracking. Use this skill when the user wants to: (1) query NPU device status and health, (2) monitor temperature, power, memory/HBM utilization, (3) configure ECC settings and fan modes, (4) perform firmware upgrades, (5) manage vNPU virtualization, (6) run compute power tests, (7) check certificate information. Trigger: user mentionsnpu', 'ascend', 'NPU', 'Ascend', 'temperature', 'power', 'HBM', 'firmware', 'upgrade', 'vNPU', 'virtualization', 'certificate', 'FLOPS', 'compute', 'health', 'memory', 'utilization', 'ECC', 'fan', '\u6607\u817e', '\u6607\u817e\u5361', '\u6607\u817e\u72b6\u6001', '\u663e\u5b58', '\u7b97\u529b', '\u8bbe\u5907\u67e5\u8be2', 'NPU\u76d1\u63a7",
+    "path": "category/terminal-system-tools/huawei-cloud-ascend-command"
+  },
+  {
+    "id": "huawei-cloud-cdn-universal-query",
+    "name": "huawei-cloud-cdn-universal-query",
+    "category": "terminal-system-tools",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Comprehensive CDN query reference skill using hcloud CLI. Covers all 44 GET read-only CDN APIs organized by category: domain management, statistics & analytics, refresh/log/export, template/rule/tag/account. Provides command templates, parameter guidance, and validated pitfalls for any CDN query scenario.",
+    "path": "category/terminal-system-tools/huawei-cloud-cdn-universal-query"
+  },
+  {
+    "id": "huawei-cloud-cli-guidance",
+    "name": "huawei-cloud-cli-guidance",
+    "category": "terminal-system-tools",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Provides guidance for Huawei Cloud KooCLI command-line tool operations. Covers KooCLI installation, IAM authentication configuration, access credential configuration, command construction, common error troubleshooting. Use this skill when users ask about any cloud-related services or wants to operate Huawei Cloud services from the terminal. Triggers: Huawei Cloud, huaweiyun, \"\u534e\u4e3a\u4e91\"\uff0c\"\u534e\u4e3acli\", \"\u547d\u4ee4\u884c\"\uff0c KooCLI, hcloud, huaweiyunCLI, Huawei Cloud command line, OBS, ECS, VPC, \"\u4e91\", yun\uff0c huaweiyun tool, huawei tool, \"\u534e\u4e3a\u4e91\u5de5\u5177\", \"\u4e91\u5de5\u5177\", \"\u5de5\u5177",
+    "path": "category/terminal-system-tools/huawei-cloud-cli-guidance"
+  },
+  {
+    "id": "huawei-cloud-cloudrobo-dataset",
+    "name": "huawei-cloud-cloudrobo-dataset",
+    "category": "terminal-system-tools",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Manage CloudRobo data processing (proc-tasks) and data evaluation (eval-tasks) \u2014 query algorithms, create/list/show/update/delete/restart tasks; poll task status until terminal; retrieve system and job logs; download logs; preview output data and frames; discover available algorithms from the asset marketplace; orchestrate processing\u2192evaluation pipelines; batch-manage tasks across workspaces; diagnose failures via log analysis. Triggers include: data processing task management, data evaluation task management, task status polling, log retrieval for troubleshooting, output data preview, algorithm discovery, task pipeline orchestration, batch task management, failure diagnosis, dataset, proc-tasks, eval-tasks.",
+    "path": "category/terminal-system-tools/huawei-cloud-cloudrobo-dataset"
+  },
+  {
+    "id": "huawei-cloud-cloudrobo-r2c",
+    "name": "huawei-cloud-cloudrobo-r2c",
+    "category": "terminal-system-tools",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Run the R2C (Robot-to-Cloud) data-plane client \u2014 start the robot-side edge client (Zenoh pub/sub with mTLS credential bundle, hardware adapter, translator, control loop). The credential bundle is produced by the robot skill's export-certificate command. This skill does NOT cover robot registration or certificate export (use the robot skill). Triggers include: r2c client, robot edge client, Zenoh, mTLS, credential bundle, hardware adapter, robot config, dry_run, observation recording, custom adapter, robot-to-cloud, R2C\u5ba2\u6237\u7aef, \u786c\u4ef6\u9002\u914d\u5668, \u673a\u5668\u4eba\u914d\u7f6e, \u51ed\u8bc1\u5305.",
+    "path": "category/terminal-system-tools/huawei-cloud-cloudrobo-r2c"
+  },
+  {
+    "id": "huawei-cloud-codearts-pipeline-diagnose",
+    "name": "huawei-cloud-codearts-pipeline-diagnose",
+    "category": "terminal-system-tools",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Huawei Cloud CodeArts Pipeline (\u6d41\u6c34\u7ebf) and CodeArts Build (\u7f16\u8bd1\u6784\u5efa/\u6784\u5efa\u4efb\u52a1) management, monitoring and failure diagnosis using the KooCLI hcloud command-line client. Covers pipeline and build-task listing/detail, build log retrieval, build failure diagnosis (log fetch \u2192 error classification \u2192 root cause: network/parameter/load), pipeline anomaly diagnosis (orchestration errors / execution errors), log error extraction and categorization, plus pipeline/build-task create, start and delete. Query and Analyze actions run automatically (R3); Create/Start actions require preview and user confirmation (R2); Delete requires explicit confirmation (R1). Supports AK/SK credentials and local hcloud profile authentication. Triggers include: \"CodeArts\", \"\u6d41\u6c34\u7ebf\", \"CodeArts Pipeline\", \"pipeline\", \"\u6784\u5efa\u4efb\u52a1\", \"\u6784\u5efa\", \"build task\", \"build job\", \"\u7f16\u8bd1\u6784\u5efa\", \"CodeArts Build\", \"pipeline failure\", \"\u6d41\u6c34\u7ebf\u5931\u8d25\", \"build failure\", \"\u6784\u5efa\u5931\u8d25\", \"\u6784\u5efa\u65e5\u5fd7\", \"build log\", \"\u65e5\u5fd7\u9519\u8bef\", \"log error\", \"\u6d41\u6c34\u7ebf\u5f02\u5e38\", \"pipeline diagnose\", \"\u6784\u5efa\u8bca\u65ad\", \"CI/CD\", \"\u6301\u7eed\u96c6\u6210\", \"\u6301\u7eed\u4ea4\u4ed8\".",
+    "path": "category/terminal-system-tools/huawei-cloud-codearts-pipeline-diagnose"
+  },
+  {
+    "id": "huawei-cloud-devkit-webui-create",
+    "name": "huawei-cloud-devkit-webui-create",
+    "category": "terminal-system-tools",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Install Kunpeng DevKit in WebUI mode on Huawei Cloud. Create a Kunpeng (aarch64) ECS via Python SDK with random password, encrypt password via Python KMS SDK, use hcloud CLI for EIP/VPC operations, use Python paramiko SSH (password in process memory only) to install DevKit-All-x.x.x-Linux-Kunpeng.tar.gz, including framework and all plugins (porting/affinity/devtools/debugger/sys_perf/java_perf/sys_diagnosis). Use this skill when the user wants to install DevKit on a new Kunpeng ECS. Trigger: user mentions \"DevKit\", \"Kunpeng DevKit\", \"install DevKit\", \"DevKit WebUI\", \"Kunpeng DevKit\", \"DevKit-All\", \"\u9cb2\u9e4fDevKit\", \"\u5b89\u88c5DevKit\", \"\u9cb2\u9e4f\u5f00\u53d1\u5957\u4ef6",
+    "path": "category/terminal-system-tools/huawei-cloud-devkit-webui-create"
+  },
+  {
+    "id": "huawei-cloud-flexus-l-server-scripts-excute",
+    "name": "huawei-cloud-flexus-l-server-scripts-excute",
+    "category": "terminal-system-tools",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Based on Huawei Cloud COC (Cloud Operations Center) APIs for script management and remote execution. Supports creating custom scripts (Shell, Python, Bat) and batch execution on target host instances via UniAgent. Applicable to cloud operations automation and batch script deployment scenarios. Trigger keywords: L-instance, COC script, script management, script execution, cloud operations, custom script, batch execution; COC, script management, script execution, cloud operations (\u4e2d\u6587\u89e6\u53d1\u8bcd\uff1aL\u5b9e\u4f8b\u6267\u884c\u811a\u672c).",
+    "path": "category/terminal-system-tools/huawei-cloud-flexus-l-server-scripts-excute"
+  },
+  {
+    "id": "huawei-cloud-ges-graph",
+    "name": "huawei-cloud-ges-graph",
+    "category": "terminal-system-tools",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Provides access guide for Huawei Cloud Graph Database GES service. Covers Cypher queries, GQL queries, schema/label management, summary info queries, graph data editing and more. Use this skill when users want to operate Huawei Cloud graph database GES service via terminal.",
+    "path": "category/terminal-system-tools/huawei-cloud-ges-graph"
+  },
+  {
+    "id": "huawei-cloud-smn-dms-message",
+    "name": "huawei-cloud-smn-dms-message",
+    "category": "terminal-system-tools",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Manage Huawei Cloud SMN (Simple Message Notification) topics, subscriptions, message templates and message publishing, and manage DMS (Distributed Message Service) Kafka/RabbitMQ/RocketMQ instances and Kafka topics. 15 built-in actions cover query (list topics/subscriptions/message templates/DMS instances/Kafka topics), diagnosis (subscription confirmation status, DMS instance health & capacity), management (create topic, add subscription, create message template, publish message, create DMS instance) and destructive operations (delete SMN topic, confirm subscription, delete DMS instance). KooCLI has no DMS command; the three engine services are the only DMS entry points. Supports both AK/SK and local KooCLI profile authentication. Use this skill when the user wants to: (1) list or create SMN topics and subscriptions, (2) send or diagnose notifications, (3) inspect SMN subscription confirmation status, (4) list, create, or delete DMS Kafka/RabbitMQ/RocketMQ instances, (5) list Kafka topics, (6) analyze DMS instance health or capacity. Triggers include: \"SMN\", \"SMN\u4e3b\u9898\", \"\u6d88\u606f\u901a\u77e5\", \"subscribe\", \"topic\", \"\u53d1\u5e03\u6d88\u606f\", \"\u63a8\u9001\u6d88\u606f\", \"notification\", \"DMS\", \"Kafka\", \"RabbitMQ\", \"RocketMQ\", \"\u6d88\u606f\u961f\u5217\", \"DMS\u5b9e\u4f8b\", \"Kafka\u5b9e\u4f8b\", \"RabbitMQ\u5b9e\u4f8b\", \"RocketMQ\u5b9e\u4f8b\", \"\u8ba2\u9605\", \"\u6d88\u606f\u6a21\u677f\", \"MQS",
+    "path": "category/terminal-system-tools/huawei-cloud-smn-dms-message"
   },
   {
     "id": "hub-run",
@@ -1520,6 +1728,46 @@
     "path": "category/terminal-system-tools/ink"
   },
   {
+    "id": "jetson-download-bsp",
+    "name": "jetson-download-bsp",
+    "category": "terminal-system-tools",
+    "repository": "nvidia-skills",
+    "description": "Download NVIDIA Jetson Linux BSP artifacts (BSP tarball, sample rootfs, public_sources, x-tools, guides) for the active target. Use for Auto Setup; not for extraction or profile edits.",
+    "path": "category/terminal-system-tools/jetson-download-bsp"
+  },
+  {
+    "id": "jetson-init-image",
+    "name": "jetson-init-image",
+    "category": "terminal-system-tools",
+    "repository": "nvidia-skills",
+    "description": "Extract Jetson Linux + sample-rootfs tarballs and run apply_binaries.sh for the active target, then record bsp_image in the profile. Use after jetson-init-target; not for source-tree setup.",
+    "path": "category/terminal-system-tools/jetson-init-image"
+  },
+  {
+    "id": "jetson-init-source",
+    "name": "jetson-init-source",
+    "category": "terminal-system-tools",
+    "repository": "nvidia-skills",
+    "description": "Set up the BSP source workspace: Linux_for_Tegra overlay tracker, bsp_sources, Crosstool-NG toolchain. Use after jetson-init-image; not for fetching inputs.",
+    "path": "category/terminal-system-tools/jetson-init-source"
+  },
+  {
+    "id": "jetson-print-bsp-info",
+    "name": "jetson-print-bsp-info",
+    "category": "terminal-system-tools",
+    "repository": "nvidia-skills",
+    "description": "Use when you need to print Jetson BSP info (L4T version, board configs, rootfs state) from a Linux_for_Tegra root on the host PC. This is an example skill.",
+    "path": "category/terminal-system-tools/jetson-print-bsp-info"
+  },
+  {
+    "id": "jetson-video-benchmark",
+    "name": "jetson-video-benchmark",
+    "category": "terminal-system-tools",
+    "repository": "nvidia-skills",
+    "description": "Use when measuring Jetson Video Codec SDK or PyNvVideoCodec encode/decode throughput, comparing presets or surfaces, testing codec-worker capacity with authenticated samples and user media, or producing a clearly labeled documentation-derived planning estimate when representative media is absent. Also use for a video request limited to PSNR or SSIM, to apply the terminal scope response.",
+    "path": "category/terminal-system-tools/jetson-video-benchmark"
+  },
+  {
     "id": "jotform-automation",
     "name": "jotform-automation",
     "category": "terminal-system-tools",
@@ -1574,6 +1822,14 @@
     "repository": "langchain-ai-langchain-skills",
     "description": "INVOKE THIS SKILL when implementing human-in-the-loop patterns, pausing for approval, or handling errors in LangGraph. Covers interrupt(), Command(resume=...), approval/validation workflows, and the 4-tier error handling strategy.",
     "path": "category/terminal-system-tools/langgraph-human-in-the-loop"
+  },
+  {
+    "id": "launchdarkly-flag-command",
+    "name": "launchdarkly-flag-command",
+    "category": "terminal-system-tools",
+    "repository": "launchdarkly-ai-tooling",
+    "description": "Resolve `/flag` style requests into the right LaunchDarkly flag lookup flow. Use when the user types `/flag`, asks to quickly find a flag by name/key, wants a direct flag detail summary, or needs fast disambiguation between similar flags.",
+    "path": "category/terminal-system-tools/launchdarkly-flag-command"
   },
   {
     "id": "limrun-android-emulator",
@@ -1824,6 +2080,14 @@
     "path": "category/terminal-system-tools/musickit"
   },
   {
+    "id": "nemo-rl-brev-etiquette",
+    "name": "nemo-rl-brev-etiquette",
+    "category": "terminal-system-tools",
+    "repository": "nvidia-skills",
+    "description": "Brev instance operating guidance for NeMo-RL agents working in /home/ubuntu/RL with limited workspace disk, a larger /ephemeral volume, and optional /home/ubuntu/RL/.env secrets. Use when running nemo-rl-auto-research campaigns, experiments, training jobs, model or dataset downloads, shared cache-heavy commands, log-producing runs, checkpoint generation, W&B or Hugging Face authenticated workflows, or any workflow that may create large files on Brev.",
+    "path": "category/terminal-system-tools/nemo-rl-brev-etiquette"
+  },
+  {
     "id": "nemoclaw-setup",
     "name": "nemoclaw-setup",
     "category": "terminal-system-tools",
@@ -1862,6 +2126,14 @@
     "repository": "dotnet-skills",
     "description": "Set up NuGet trusted publishing (OIDC) on a GitHub Actions repo \u2014 replaces long-lived API keys with short-lived tokens. USE FOR: trusted publishing, NuGet OIDC, keyless NuGet publish, migrate from NuGet API key, NuGet/login, secure NuGet publishing. DO NOT USE FOR: publishing to private feeds or Azure Artifacts (OIDC is nuget.org only). INVOKES: shell (powershell or bash), edit, create, ask_user for guided repo setup.",
     "path": "category/terminal-system-tools/nuget-trusted-publishing"
+  },
+  {
+    "id": "nv-reason-cxr",
+    "name": "nv-reason-cxr",
+    "category": "terminal-system-tools",
+    "repository": "nvidia-skills",
+    "description": "Used for command-shape or live NV-Reason-CXR chest X-ray reasoning smoke tests. Not for diagnosis or clinical reporting.",
+    "path": "category/terminal-system-tools/nv-reason-cxr"
   },
   {
     "id": "nvidia-nemoclaw",
@@ -2160,6 +2432,14 @@
     "path": "category/terminal-system-tools/plan-orchestrate"
   },
   {
+    "id": "platform-destructive-deploy",
+    "name": "platform-destructive-deploy",
+    "category": "terminal-system-tools",
+    "repository": "forcedotcom-sf-skills",
+    "description": "Execute the destructiveChanges.xml delete-and-deploy workflow against a Salesforce org. TRIGGER when the user asks to delete/remove a custom object, field, Apex class, flow, or any metadata component FROM an org, or to perform a 'destructive deploy' / removal as part of a release. Validates first and gates production with explicit confirmation. DO NOT TRIGGER for local file deletion (use Bash), or for net-new deploys (use platform-metadata-deploy).",
+    "path": "category/terminal-system-tools/platform-destructive-deploy"
+  },
+  {
     "id": "platform-detection",
     "name": "platform-detection",
     "category": "terminal-system-tools",
@@ -2182,6 +2462,14 @@
     "repository": "forcedotcom-sf-skills",
     "description": "Configure, run, and audit DsarPolicy Right-to-Portability exports end to end: author the data map over a subject's related records, resolve a request's subject (email/name/id) to a root-entity record, run an export against an ACTIVE policy (poll a couple of times, then ask before continuing; download once terminal), and read run history. Use when the user needs to set up, edit, execute, or inspect a DsarPolicy or Right-to-Portability (RTP) export, or audit which personal data a policy does not cover yet. TRIGGER when: the user configures a DsarPolicy or RTP data map, authors DsarPolicyPath or DsarPolicyField metadata, runs or exports a subject's portable data, downloads an RTP export file, reviews DsarPolicy run history, or asks what personal data the policy does not cover yet (coverage gap analysis). DO NOT TRIGGER when: the user wants to erase, delete, or remove a subject's records (RTP is portability export, not erasure \u2014 this skill deletes nothing), mask sandbox PII, or deploy unrelated metadata.",
     "path": "category/terminal-system-tools/platform-dsar-policy-manage"
+  },
+  {
+    "id": "platform-headless-360-integrate",
+    "name": "platform-headless-360-integrate",
+    "category": "terminal-system-tools",
+    "repository": "forcedotcom-sf-skills",
+    "description": "Read org state and change Setup through the Headless 360 (H360) MCP tools discover, describe, dispatch_readonly, and dispatch. Use when H360 tools are present and the answer is org state no skill or sf command reads: Setup settings, feature or license access, org-specific caps, health checks, release updates. Also H360 setup and errors (401, 403, 404, ROUTE_NOT_FOUND, INVALID_ARGUMENT). DO NOT TRIGGER for records, SOQL, schema, limits in sf org list limits, deploys, or which-plugin questions.",
+    "path": "category/terminal-system-tools/platform-headless-360-integrate"
   },
   {
     "id": "playwright",
@@ -2286,6 +2574,14 @@
     "repository": "samber-cc-skills",
     "description": "CLI for querying Prometheus and PromQL-compatible engines (Thanos, Cortex, VictoriaMetrics, Grafana Mimir, Grafana Tempo...) \u2014 instant queries, range queries, metric discovery (metrics/labels/meta subcommands), output formats (table/csv/json/graph). Apply when executing PromQL queries, troubleshooting performance issues on a software having observability, investigating latency/error rates/saturation, or analyzing time series data.",
     "path": "category/terminal-system-tools/promql-cli"
+  },
+  {
+    "id": "prop-artist",
+    "name": "prop-artist",
+    "category": "terminal-system-tools",
+    "repository": "arjun988-blender-skills",
+    "description": "Everyday and hero prop modeling for furniture, tools, household objects, kitbash parts, and readable game props. Use when hard-surface is too sci-fi/mechanical and the asset is a grounded prop.",
+    "path": "category/terminal-system-tools/prop-artist"
   },
   {
     "id": "ps5-linux-loader",
@@ -2470,6 +2766,14 @@
     "repository": "affaan-m-ecc",
     "description": "Guard against destructive operations with three modes: Careful intercepts dangerous commands (rm -rf, git push --force, DROP TABLE) for confirmation, Freeze locks writes to one directory, and Guard combines both. Advisory: the agent applies these rules itself; no hook ships with it. Use when working on production systems, running agents autonomously, restricting edits to a directory, or during migrations, deploys, and data changes.",
     "path": "category/terminal-system-tools/safety-guard"
+  },
+  {
+    "id": "sap-fiori-create-cli",
+    "name": "sap-fiori-create-cli",
+    "category": "terminal-system-tools",
+    "repository": "sap-open-ux-tools",
+    "description": "Invokes the @sap-ux/create CLI \u2014 generate, add, convert, remove, update, change, list, get commands for SAP Fiori projects. Use when asked to run sap-ux, invoke create CLI, add config to a project, generate adaptation-project, or use any sap-ux/create subcommand. Full options for each command group are in the linked references.",
+    "path": "category/terminal-system-tools/sap-fiori-create-cli"
   },
   {
     "id": "sentry",
@@ -2736,6 +3040,14 @@
     "path": "category/terminal-system-tools/t1code-terminal-ui"
   },
   {
+    "id": "tao-token-efficient-execution",
+    "name": "tao-token-efficient-execution",
+    "category": "terminal-system-tools",
+    "repository": "nvidia-skills",
+    "description": "Token-efficient execution kit for repeated TAO agentic workflows. Compiles a skill into stage cards once (with a strong model), then executes them forever in fresh, small headless sessions coordinated by a bash driver \u2014 measured 67-91% token reduction and 3-5x lower peak context vs one long conversation. Use when a TAO workflow will be run repeatedly, when token cost matters, when the target model has a small context window, or on trigger phrases like \"token efficient\", \"reduce token cost\", \"card pack\", \"stage cards\", \"run this workflow on a small model\", \"compile this skill into cards\".",
+    "path": "category/terminal-system-tools/tao-token-efficient-execution"
+  },
+  {
     "id": "tavily-cli",
     "name": "tavily-cli",
     "category": "terminal-system-tools",
@@ -2830,6 +3142,14 @@
     "repository": "unity-technologies-skills",
     "description": "Controls the Unity Editor and projects from the command line, driving a running Editor to edit scenes and assets or run C#. Use when asked to install or manage Editors, licenses, or projects, set up version control, build, test, configure the Unity MCP server, or run any unity command.",
     "path": "category/terminal-system-tools/unity-cli"
+  },
+  {
+    "id": "unix-cli-best-practices",
+    "name": "unix-cli-best-practices",
+    "category": "terminal-system-tools",
+    "repository": "flutter-agent-plugins",
+    "description": "Safe, portable, and efficient command-line patterns for macOS/BSD Unix tools (grep, find, sed, awk, xargs, mdfind, pbcopy, open) and modern alternatives (ripgrep, fd). Covers common shell scripting and one-liner use cases including fast searching, text processing, codebase navigation, and parallel execution.",
+    "path": "category/terminal-system-tools/unix-cli-best-practices"
   },
   {
     "id": "unslop-file",

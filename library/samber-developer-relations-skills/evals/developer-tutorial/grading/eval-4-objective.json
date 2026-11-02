@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Applies a layered concept ladder (skeleton, core concept, real data, robustness, polish) to decide where to stop.",
+        "evidence": "\"Default stop is core concept + robustness... So the ladder is just: skeleton (route responds) \u2192 core concept (verify + reject). Real data and polish: cut per above.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that skeleton and core concept are not optional, because without them the objective is unmet.",
+        "evidence": "No explicit statement that skeleton/core concept are non-optional because the objective would be unmet; this is only implied by them being the sole retained rungs.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the ladder's row order is the build order, not the ranking.",
+        "evidence": "No statement distinguishing row order from ranking appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes the polish rung outright (Docker Compose, CI workflow, pytest, logging config) rather than parking it at the bottom of the plan, because the page has no named owner.",
+        "evidence": "Only pytest and logging are explicitly tied to \"no owner\"/\"Polish rung\" reasoning; Docker Compose is cut for the \"one environment\" rule and GitHub Actions for the \"one-off, no companion repo\" reason, not for lacking an owner.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason for deleting rather than deferring: an unowned rung reappears as scope and then rots.",
+        "evidence": "\"No owner means no one keeps a test suite green after Friday. It rots, unowned, becomes technical debt on a page nobody's watching.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes the robustness rung, the companion repository and CI-run checkpoints, because leadership called the page a one-off rather than a compounding asset.",
+        "evidence": "Robustness is explicitly kept, not deleted: \"This objective bakes robustness in for free... So the ladder is just: skeleton... \u2192 core concept (verify + reject).\" Only companion repo/CI checkpoints are deleted for the one-off reason.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the learner's own production payloads (the real data rung) because no sandbox exists, so the rung is not near-free.",
+        "evidence": "\"Real-data rung is only cheap when the sandbox already exists. Here it's the most expensive rung possible \u2014 you'd be blocked on infra that can't exist by Friday.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the condition that would promote the real data rung: the learner's own input being what the objective names, or an existing sandbox making it near-free.",
+        "evidence": "\"Real-data rung is only cheap when the sandbox already exists.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the chosen stop rung explicitly rather than leaving it implied by what was cut.",
+        "evidence": "\"## Ladder stop / Default stop is core concept + robustness... So the ladder is just: skeleton (route responds) \u2192 core concept (verify + reject).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States a ranking out loud (for example core concept above robustness above real data above polish on efficiency) rather than implying it by row order.",
+        "evidence": "No explicit ranked ordering statement (e.g. \"X above Y above Z\") appears anywhere in section 4.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that real data drags fixtures, a seed script and a sandbox that drift whenever the schema moves, while robustness costs one error path that survives releases.",
+        "evidence": "No mention of fixtures/seed-script/schema-drift comparison appears anywhere in section 4.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the deadline, the one-off framing and the absent owner as the interview answers that moved each rung, rather than presenting the ranking as fixed.",
+        "evidence": "\"Live Friday | No slack...\"; \"'One-off launch asset'... | Deletes companion repo + CI-run checkpoints\"; \"No owner after launch | Deletes polish rung (tests, config, prod shape)\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Applies a layered concept ladder (skeleton, core concept, real data, robustness, polish) to decide where to stop.",
+        "evidence": "The plan organizes decisions around a 'Scope decisions' table (Docker Compose, GitHub Actions, pytest+coverage, logging, sandbox) and a constraints table, but never frames these as rungs of a layered ladder (skeleton/core/real data/robustness/polish). No such vocabulary or explicit layering structure appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that skeleton and core concept are not optional, because without them the objective is unmet.",
+        "evidence": "The closest statement is 'does this teach receive-and-verify, or does it teach something else wrapped around receive-and-verify. Cut the second category' \u2014 this justifies cutting extras, but the transcript never states that a 'skeleton' or 'core concept' layer is non-optional because the objective would go unmet without it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the ladder's row order is the build order, not the ranking.",
+        "evidence": "No ladder is presented, so there is no statement distinguishing build order from ranking order anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes the polish rung outright (Docker Compose, CI workflow, pytest, logging config) rather than parking it at the bottom of the plan, because the page has no named owner.",
+        "evidence": "Only Docker Compose and GitHub Actions are cut outright ('Cut' verdicts). pytest is explicitly kept, not deleted: 'Trim, keep the tests, drop the gate ... 4 focused tests ... directly reinforce \"verify a webhook\" \u2014 this is the one ask that's actually on-topic.' Logging is also kept in reduced form: 'Trim to one line ... One structured log line at the accept/reject decision ... is real, useful, and cheap.' So the four items are not uniformly deleted outright as one 'polish' rung.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason for deleting rather than deferring: an unowned rung reappears as scope and then rots.",
+        "evidence": "\"No future editor will catch drift (dead Docker image tags, deprecated Actions syntax, broken CI badge). Anything that *can* rot, *will*, silently, forever.\" and \"Every extra moving part you ship is a moving part nobody will ever fix.\" directly ground the Docker/CI cuts in the rot/unowned-scope reasoning rather than deferring them.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes the robustness rung, the companion repository and CI-run checkpoints, because leadership called the page a one-off rather than a compounding asset.",
+        "evidence": "The transcript cuts the CI workflow citing one-off framing ('no \"build on this\" links \u2014 leadership called this a one-off'), but there is no mention of a 'companion repository' being deleted, nor is a distinct 'robustness rung' named \u2014 the plan instead keeps error-path tests (pytest) and a rejection log line, which it treats as on-topic rather than something to delete.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the learner's own production payloads (the real data rung) because no sandbox exists, so the rung is not near-free.",
+        "evidence": "\"Can't have a learner pipe in 'their own production payloads' from infrastructure that isn't built.\" and the recommended fixture option is chosen because it has \"Zero new infra, zero dependency on anyone else's unfinished work, fully within your 6 hours\" \u2014 implying the real, sandboxed version is costly, not near-free.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the condition that would promote the real data rung: the learner's own input being what the objective names, or an existing sandbox making it near-free.",
+        "evidence": "Option C ('Wait for the real sandbox') is dismissed only as 'Incompatible with the deadline. Reject' \u2014 the transcript never states a general condition (e.g., 'if a sandbox already existed, real payloads would be the right call') that would promote this rung; it just rejects it for schedule reasons.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the chosen stop rung explicitly rather than leaving it implied by what was cut.",
+        "evidence": "The 'Bottom line' section lists cuts and trims ('Cut Docker Compose and the GitHub Actions workflow. Trim pytest... Trim logging...') but never names an explicit stopping point in ladder terms (e.g., 'we stop at core concept plus minimal robustness') \u2014 the stop point is only inferable from the list of cuts.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States a ranking out loud (for example core concept above robustness above real data above polish on efficiency) rather than implying it by row order.",
+        "evidence": "No explicit ranking statement exists; priority is only implied by which items are cut vs. kept in the scope table, never articulated as an ordered ranking.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that real data drags fixtures, a seed script and a sandbox that drift whenever the schema moves, while robustness costs one error path that survives releases.",
+        "evidence": "The transcript discusses drift only in relation to Docker/CI ('dead Docker image tags, deprecated Actions syntax, broken CI badge'), not in relation to fixtures/seed scripts/sandbox schema drift, and never contrasts this with robustness costing a single durable error path.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the deadline, the one-off framing and the absent owner as the interview answers that moved each rung, rather than presenting the ranking as fixed.",
+        "evidence": "The constraints table explicitly names all three: \"One-off launch asset, not part of the docs set\" (no future editor to catch drift), \"Nobody owns the page after launch\" (minimize moving parts), and \"6 hours of writing time\" \u2014 then states these 'compound against each other' to drive every scope decision, rather than treating the cuts as fixed a priori.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

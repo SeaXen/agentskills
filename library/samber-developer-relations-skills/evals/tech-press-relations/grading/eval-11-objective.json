@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Produces a pitch body under roughly 150 words rather than the requested 500",
+        "evidence": "\"(~145 words)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Produces a subject line of roughly 50 characters that lets the reporter predict the headline",
+        "evidence": "Subject \"Re: your build-cache piece \u2014 our own numbers\" is roughly the right length but is vague and does not let the reporter predict the actual headline/number.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Leads the subject line with the specific number, name or decision, prefixed honestly where a prefix applies",
+        "evidence": "The subject line contains no specific number, name, or decision \u2014 only \"our own numbers\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Opens with one line about Dana's actual recent piece arguing build caches are a false economy",
+        "evidence": "\"Your piece on build caches being a false economy under 50 engineers is the argument most vendor pitches dodge\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Contains none of the banned terms: revolutionary, disruptive, game-changing, paradigm shift, seamless, robust, world-class, best-in-class, next-generation, cutting-edge, or 'excited to announce'",
+        "evidence": "No banned buzzwords appear anywhere in the pitch body.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to attach the press release PDF and puts nothing load-bearing in an attachment",
+        "evidence": "\"The PDF shouldn't be attached... Link to a press/methodology page instead; hold the PDF for if she asks.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ships the 11m40s-to-2m05s claim with its methodology: 62 repos, own CI, 16-core runners, version 4.2",
+        "evidence": "\"On v4.2, across 62 of our own repos on 16-core CI runners, p95 build time went from 11:40 to 2:05.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the story in one sentence and states why her readers care from the readership's side",
+        "evidence": "\"Your piece on build caches being a false economy under 50 engineers is the argument most vendor pitches dodge, so I want to be upfront about what this data does and doesn't answer.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ends with exactly one explicit ask - interview, embargo, exclusive, quote, or just flagging it",
+        "evidence": "\"Worth a look, or is this just not the data your argument needs?\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends running the pitch through a humanizer pass before sending",
+        "evidence": "No mention of a humanizer pass anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets the follow-up ladder at day 3 with new information, day 7 with a fresh hook, then stop, and rejects 'bumping this'",
+        "evidence": "No follow-up ladder or timing is discussed anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Produces a pitch body under roughly 150 words rather than the requested 500",
+        "evidence": "The email body runs to roughly 197 words across five paragraphs, notably above 'roughly 150.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces a subject line of roughly 50 characters that lets the reporter predict the headline",
+        "evidence": "Subject 'Where the build-cache math flips \u2014 a data point, not a rebuttal' is approximately 63 characters, meaningfully over 'roughly 50.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Leads the subject line with the specific number, name or decision, prefixed honestly where a prefix applies",
+        "evidence": "Subject begins with 'Where the build-cache math flips' \u2014 a conceptual phrase, not a leading number or name.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Opens with one line about Dana's actual recent piece arguing build caches are a false economy",
+        "evidence": "'Your piece on build caches being a false economy under 50 engineers tracks with what I hear from teams that ran the numbers and dropped caching entirely.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Contains none of the banned terms: revolutionary, disruptive, game-changing, paradigm shift, seamless, robust, world-class, best-in-class, next-generation, cutting-edge, or 'excited to announce'",
+        "evidence": "No instance of 'revolutionary,' 'disruptive,' 'seamless,' 'robust,' 'world-class,' etc. appears in the email text.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to attach the press release PDF and puts nothing load-bearing in an attachment",
+        "evidence": "'I dropped the blind 9-page PDF attachment in favor of a link plus an offer to send more.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ships the 11m40s-to-2m05s claim with its methodology: 62 repos, own CI, 16-core runners, version 4.2",
+        "evidence": "'On our own CI \u2014 62 repos, 16-core runners, v4.2 \u2014 p95 build time went from 11m40s to 2m05s.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the story in one sentence and states why her readers care from the readership's side",
+        "evidence": "The pitch frames value as helping 'your reporting,' never explicitly stating why Dana's readers specifically care.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ends with exactly one explicit ask - interview, embargo, exclusive, quote, or just flagging it",
+        "evidence": "'Is this still a live thread for you, or has the piece run its course?' \u2014 a single closing ask/flag.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends running the pitch through a humanizer pass before sending",
+        "evidence": "No mention of a humanizer pass anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets the follow-up ladder at day 3 with new information, day 7 with a fresh hook, then stop, and rejects 'bumping this'",
+        "evidence": "No follow-up ladder or timing guidance is included in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

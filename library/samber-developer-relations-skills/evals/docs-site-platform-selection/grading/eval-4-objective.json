@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The response treats EU data residency for content and editor as a knockout requirement",
+        "evidence": "Row 1, knockout: \"Content, editor, search index, previews, backups and any AI-feature processing stay in the EU.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response states that a hosted platform whose editor or content store cannot be EU-resident or self-hosted is eliminated",
+        "evidence": "Knockout 1 removes failing candidates; \"The first filter is a published EU region that covers the editor, content store and AI features\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response tests the platform team's 10 h/month against the estimated standing hours of self-hosting rather than assuming it is enough",
+        "evidence": "\"12\u201320 h/month for self-hosted... sits above your 10 h ceiling\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response uses the growth from 38 to about 85 editors as a reason per-seat or per-editor pricing weighs against hosted options",
+        "evidence": "\"the multiplier curve (38 \u2192 85 editors, about 2.2\u00d7, on a gated tier) is the driver\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response includes customer-only pages behind Okta SSO as a knockout with a test",
+        "evidence": "Row 2: \"SSO test account; logged-out probes on all three surfaces\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response includes rendering both OpenAPI and AsyncAPI references as requirements",
+        "evidence": "Row 6: \"The real OpenAPI and AsyncAPI specs render\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response prices the exit from the current vendor: proprietary components, export completeness, or URL shapes",
+        "evidence": "Exit: \"Components to convert. Export gaps. URL shape the next platform must reproduce.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response includes a pilot on Ostrander's own hardest pages (for example a gated page, a versioned page, a translated page, a generated reference page)",
+        "evidence": "Pilot pages include a customer-only page, a version-differing page, DE/FR pages, and OpenAPI and AsyncAPI reference pages.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response hands off version handling to samber/developer-relations-skills@docs-versioning-strategy",
+        "evidence": "\"Which versions migrate and in what state: `docs-versioning-strategy`\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response hands off locales to samber/developer-relations-skills@docs-localization-strategy",
+        "evidence": "\"Which locales migrate or freeze: `docs-localization-strategy`\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response hands off redirects or indexing at cutover to the docs SEO skill (samber/developer-relations-skills@docs-seo), by identifier or by name",
+        "evidence": "\"Redirect map, canonicals and indexing at cutover: `docs-seo`\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response schedules the decision so the move completes before the 7-month contract end",
+        "evidence": "\"live and verified... at least 4 weeks before the contract ends\"; cutover early May 2027.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response names a revisit trigger",
+        "evidence": "\"Revisit triggers (check quarterly): Editors past about 85...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response does not quote any subscription price or currency amount",
+        "evidence": "The response gives no price or currency amount; it says \"don't compare list prices\".",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The response treats EU data residency for content and editor as a knockout requirement",
+        "evidence": "\"G1 EU residency for content **and** editor\" under \"Hard gates (fail one, vendor is out)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response states that a hosted platform whose editor or content store cannot be EU-resident or self-hosted is eliminated",
+        "evidence": "The G1 gate rule is \"fail one, vendor is out\", and the self-hosted fallback is kept.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response tests the platform team's 10 h/month against the estimated standing hours of self-hosting rather than assuming it is enough",
+        "evidence": "\"it eats the whole 10 h/month... Realistic ops is 8 to 15 h/month, plus about 120 to 200 h to build.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response uses the growth from 38 to about 85 editors as a reason per-seat or per-editor pricing weighs against hosted options",
+        "evidence": "\"G8 85 editors without per-seat pricing explosion\"; \"Seat model changes at 85.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response includes customer-only pages behind Okta SSO as a knockout with a test",
+        "evidence": "\"G2 Okta SAML/OIDC gating... Live test in your Okta test tenant\"; G3 search leak test.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response includes rendering both OpenAPI and AsyncAPI references as requirements",
+        "evidence": "\"G4 OpenAPI and AsyncAPI rendered natively\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response prices the exit from the current vendor: proprietary components, export completeness, or URL shapes",
+        "evidence": "It prices migration scripting (\"contractor for 80 to 120 h\") and the redirect map from old to new URLs. It also keeps the incumbent as a read-only fallback and requests an extension quote.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response includes a pilot on Ostrander's own hardest pages (for example a gated page, a versioned page, a translated page, a generated reference page)",
+        "evidence": "The PoC uses a gated page, real v1/v2/v3 specs, a real AsyncAPI spec, and DE/FR pages.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response hands off version handling to samber/developer-relations-skills@docs-versioning-strategy",
+        "evidence": "The skill is not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response hands off locales to samber/developer-relations-skills@docs-localization-strategy",
+        "evidence": "The skill is not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response hands off redirects or indexing at cutover to the docs SEO skill (samber/developer-relations-skills@docs-seo), by identifier or by name",
+        "evidence": "The skill is not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response schedules the decision so the move completes before the 7-month contract end",
+        "evidence": "\"Jan 30 Decision\"; \"May 17 DNS cutover\" before 2027-05-31.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response names a revisit trigger",
+        "evidence": "The only trigger is \"If the Jan 30 decision slips past Feb 15, trigger the extension.\" That is a schedule trigger, not a trigger to revisit the choice.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response does not quote any subscription price or currency amount",
+        "evidence": "Only hours and counts are given, with no currency amounts.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

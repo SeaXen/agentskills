@@ -1,0 +1,383 @@
+{
+  "skill_name": "devrel-live-streaming",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I'm the only developer advocate at Ferrolite (managed Postgres, ~4k signups/month). Plan for next quarter: I go live 3x a week (Mon/Wed/Fri, 2h each) and push every stream to Twitch, YouTube, LinkedIn (company page + my profile) and X at the same time through Restream, with Restream's merged chat overlay on screen so I can answer everyone from one window. Can you write the launch plan and schedule?",
+      "expected_output": "Declines the everything-everywhere setup: picks one home platform, allows a simulcast only with a moderator per extra chat, applies Twitch's on-screen chat rule, notes LinkedIn's one-destination and scheduled-event rules, replaces 3x weekly solo with a sustainable season slot, and delivers the plan sections.",
+      "files": [],
+      "expectations": [
+        "Recommends one home platform for the show rather than equal treatment of all four",
+        "States that Twitch's written simulcasting rules ban showing merged chat on the Twitch stream, so the Restream merged-chat overlay cannot go on the Twitch output",
+        "States that Twitch viewers may not be sent to another streaming platform (for example no YouTube link pasted in Twitch chat)",
+        "States that a LinkedIn Live stream goes to only one destination (event, profile or Page), so company page and personal profile at once is not possible",
+        "States that LinkedIn Lives must be scheduled events (no spontaneous go-live)",
+        "Requires a moderator for each additional chat that is kept, who relays questions to the host",
+        "Rejects or reduces the 3x-weekly solo cadence, citing host capacity or burnout",
+        "Proposes a fixed recurring slot run as a season of a set number of episodes",
+        "Derives the number of episodes from host hours per week and hours per episode (prep, moderation, repurposing), not from a frequency target",
+        "Mentions that X encoder/RTMP streaming needs a Premium subscription",
+        "Labels platform rules separately from practitioner claims",
+        "Includes a step to set metrics or a continue bar before the first episode"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "We ship Quarry v3 (our open-source search engine, commercial cloud on top) this Thursday at 10am CET. Our CMO wants our VP Engineering to go live on the company LinkedIn page right after the launch post goes out - just hit 'go live', our 9,000 followers get notified - walk through the new features, show the pricing page and drop a 30%-off code in the comments with a link. 20 minutes max. Can you prep the run-of-show?",
+      "expected_output": "Flags that LinkedIn no longer allows spontaneous lives and only notifies event attendees, recommends a scheduled event with promotion (two weeks normally; as early as possible now), removes the promo pitch and clickable-link assumption, checks eligibility and tool, and gives a launch-day run-of-show built around audience questions.",
+      "files": [],
+      "expectations": [
+        "States that since June 2026 LinkedIn Lives cannot be started spontaneously and must be scheduled as an event",
+        "States that at stream start notifications go to event attendees, not to all page followers",
+        "Recommends creating the LinkedIn event as soon as possible and inviting connections, noting LinkedIn advises about two weeks of lead time",
+        "States that links posted in LinkedIn Live comments are not clickable",
+        "States that LinkedIn's live guidelines discourage selling or promotional streams, and moves the discount pitch out of the stream or tones it down",
+        "Notes that a broadcast tool or RTMP encoder is needed because LinkedIn has no in-app camera for Live",
+        "Notes LinkedIn Live eligibility criteria (more than 150 followers, account or Page at least 30 days old) or confirms the page meets them",
+        "Builds the run-of-show around viewer questions (for example collected in advance) rather than a feature walkthrough only",
+        "Assigns a moderator separate from the VP Engineering",
+        "Keeps any starting screen short (one to two minutes at most)",
+        "Includes a recap or repurposing step after the stream (replay, clips)"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "Our advocate Dana runs a weekly Twitch live-coding show building sample apps with our payments API. She streams from her work laptop, logged into our admin console, and uses her own sandbox+live keys from a .env file she sometimes opens. Last week someone in chat said our webhook endpoint accepts unsigned payloads and she tried it live and it worked, chat went wild. Nobody moderates, she reads chat herself. What should change before this Thursday?",
+      "expected_output": "A pre-flight safety checklist (demo account, scoped low-limit keys rotated after each stream, separate profile, privacy scene, stream key handling), a moderator roster, and a vulnerability-in-chat procedure that routes to security disclosure and cuts the archive; plus immediate actions for last week's exposure.",
+      "files": [],
+      "expectations": [
+        "Says live (production) keys must never be used or shown on stream",
+        "Recommends a dedicated demo account with scoped, low-limit keys",
+        "Recommends rotating the demo keys after every stream",
+        "Recommends rotating or revoking the keys that may already have been exposed on past streams",
+        "Recommends a separate OS user or browser profile without saved passwords or personal tabs",
+        "Recommends a privacy or BRB scene to cut to before any credential screen",
+        "Mentions protecting the stream key itself (not visible in captured scenes or shared documents)",
+        "States that a vulnerability reported in chat must not be reproduced or discussed live",
+        "Routes the reporter to a security disclosure channel",
+        "Recommends cutting the vulnerability segment from the archive or VOD and any clips",
+        "Assigns at least one named moderator who is not the host",
+        "Lists moderation presets to set before the show (blocked terms, AutoMod or held messages, link policy)",
+        "Recommends that the webhook issue be handled as a security incident by the right team, not just a stream fix"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "My VP wants to kill our live show 'Shipping Fridays'. After 10 episodes on Twitch (simulcast to YouTube) the dashboard says peak 34 viewers, 410 Twitch followers, and the YouTube archives show 12.4k views since September. Honestly I don't know if that's good. Can you tell me if it's working and what to report on Monday?",
+      "expected_output": "Reframes away from peak, followers and public views; explains YouTube's 24 Aug 2026 view-count change; asks for or proposes average concurrent viewers, chat rate, returning viewers, engaged views/watch time and attributed outcomes; states no published benchmark exists; sets a continue bar and stop rule tied to a season.",
+      "files": [],
+      "expectations": [
+        "States that peak viewers is not a good health metric and asks for or uses average concurrent viewers instead",
+        "States that follower count is not an outcome metric",
+        "Explains that since 24 August 2026 YouTube counts a view from the first frame of playback, so the 12.4k public views are not comparable or meaningful as an outcome",
+        "Recommends watch time or average view duration for the archives instead of public views",
+        "Proposes unique chatters divided by average viewers (chat participation rate)",
+        "Proposes returning viewers across episodes as a health metric",
+        "Proposes outcome metrics such as signups via tagged links or a 'how did you hear about us' field",
+        "Proposes counting docs or product fixes traced to viewer questions",
+        "States that no published benchmark exists for developer streams and that targets come from the show's own early episodes",
+        "Recommends a continue bar written in advance with a season-end review rather than an immediate kill/keep based on these numbers",
+        "Names a fallback if the bar is missed (for example guesting on other streams instead of hosting)"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "We streamed 'Build with Kestrel' on Twitch every Tuesday from June to September (we're not affiliate yet, ~180 followers). Marketing now wants to turn those 14 streams into a YouTube course. I can't find most of them in our Twitch videos tab. Where are they and how do we do this properly going forward?",
+      "expected_output": "Explains Twitch retention (past broadcasts off by default; 7 days for non-Affiliates) so the old streams are likely gone unless recorded locally or exported; checks local recordings or Highlights; sets a going-forward process (local recording, export within window, markers, chapters, clips) and hands course/library decisions to the YouTube channel skill; warns raw live coding edits poorly.",
+      "files": [],
+      "expectations": [
+        "States that Twitch past-broadcast storage is not enabled by default",
+        "States that for a non-Affiliate channel past broadcasts are kept only about 7 days",
+        "States that the older streams are probably unrecoverable unless someone recorded locally, exported them, or saved Highlights, and that Prime or Turbo on the account owner would have extended retention to 60 days",
+        "Notes that Twitch support cannot recover broadcasts that were not saved, or that recovery is not possible",
+        "Recommends recording locally on every stream going forward",
+        "Recommends exporting the archive within the retention window (for example within 48 hours) to YouTube or storage",
+        "Mentions the 100-hour cap on Highlights and uploads as a reason not to rely on Twitch for the library",
+        "Recommends stream markers or timestamp notes during the stream to find segments worth keeping",
+        "Warns that raw live coding repurposes poorly into tutorials and recommends cutting answers or segments, not whole streams",
+        "Routes course or library planning (titles, playlists, Shorts) to samber/developer-relations-skills@devrel-youtube-channel or a recorded-video workflow",
+        "Mentions that Affiliate status would extend retention to 14 days, without treating it as the fix"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Two things. 1) Our new DevRel hire Marco streams 3 nights a week on his own Twitch channel (he's Affiliate, 2.1k followers) and now mostly codes with our Go SDK. 2) We'd like to pay a well-known Rust streamer to do a one-hour build with our product next month. Is there anything we need to set up legally or on the platforms?",
+      "expected_output": "Covers employee disclosure (material connection, on screen, title, aloud), the branded-content tick for the paid streamer, the fact that the Twitch tool is for paid content not own-product, contract disclosure terms, ownership risk of the show living on Marco's personal channel, and a company-owned home for the official show.",
+      "files": [],
+      "expectations": [
+        "States that Marco must disclose that he works for the company when streaming the company's product on his personal channel",
+        "Specifies disclosure placement: in the stream title or on screen and said aloud, not only in a profile",
+        "Cites the FTC (or equivalent advertising law) material-connection rule for employees",
+        "States that the paid Rust streamer must tick Twitch's Branded Content box (or the platform's paid promotion setting)",
+        "States that Twitch's branded content tool exempts only your own products, that an employee streaming the employer's product is an unclear case, and recommends ticking it or disclosing anyway",
+        "States that the platform tick does not replace a clear in-stream disclosure",
+        "Recommends putting disclosure obligations into the paid streamer's contract",
+        "Flags that a show on Marco's personal channel (and his Affiliate status) leaves with him",
+        "Recommends a company-owned account for the official show, with 2FA and moderator or editor roles",
+        "Recommends the paid streamer write their own content rather than read a scripted pitch, or keeps the brief to a few points",
+        "Suggests a tagged link or signup attribution for the paid stream"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "We're a 6-person startup (CLI for Terraform drift detection, no devrel person yet). Our CEO watched ThePrimeagen and wants us to start a weekly 2-hour Twitch show next month, hosted by him. Nobody else has time to be on it. What do we need to buy - camera, mic, overlays? And what should the show be?",
+      "expected_output": "Runs the existence gate before gear: with no moderator and one time-poor host, deletes or demotes hosting rungs and recommends guesting on established developer streams and launch-day streams, possibly a guest-led season later; does not lead with a gear list.",
+      "files": [],
+      "expectations": [
+        "Evaluates whether to host a show at all before any equipment advice",
+        "States that with nobody able to moderate during the slot, hosting a recurring show is not recommended (or must wait until a moderator exists)",
+        "Recommends guest appearances on established developer streams as the first move",
+        "Mentions launch-day streams as an option for the near-term",
+        "Ranks options explicitly by value per effort (efficiency), not just lists them",
+        "Names what the efficiency order starves and when to promote it",
+        "Asks or states the effort ceiling, deadline, or one-off versus compounding goal",
+        "If a show is proposed, proposes a format where chat changes the content (for example pair programming with a guest) rather than a monologue",
+        "Keeps equipment advice brief and secondary (audio first if mentioned)",
+        "Recommends the show account be company-owned, not the CEO's personal account",
+        "Suggests recording instead of streaming when no live interaction is planned"
+      ]
+    }
+  ],
+  "trigger_queries": [
+    {
+      "query": "we want to start a weekly live coding show for our devtools product, twitch or youtube live?",
+      "should_trigger": true
+    },
+    {
+      "query": "How should our developer relations team run a recurring livestream? We have two advocates and a Discord.",
+      "should_trigger": true
+    },
+    {
+      "query": "can I multistream our dev show to twitch, youtube and linkedin at the same time without breaking any rules",
+      "should_trigger": true
+    },
+    {
+      "query": "Our LinkedIn Live for the API launch got 11 viewers even though the page has 8k followers. What went wrong?",
+      "should_trigger": true
+    },
+    {
+      "query": "set up chat moderation for our Twitch channel before our first developer stream, we've heard about hate raids",
+      "should_trigger": true
+    },
+    {
+      "query": "my advocate wants to raid other dev streamers after each show, how do we build a raid and guest network",
+      "should_trigger": true
+    },
+    {
+      "query": "Plan a release-day live stream on X and YouTube where our engineers build with the new API and take questions from chat",
+      "should_trigger": true
+    },
+    {
+      "query": "We're thinking about a pair programming stream with community members using our SDK. Format, cadence, metrics?",
+      "should_trigger": true
+    },
+    {
+      "query": "what metrics should we track for our devrel twitch streams beyond follower count",
+      "should_trigger": true
+    },
+    {
+      "query": "our live streams on twitch disappear after a week, how do we turn them into clips and keep an archive",
+      "should_trigger": true
+    },
+    {
+      "query": "checklist so our engineers don't leak API keys while live coding on stream",
+      "should_trigger": true
+    },
+    {
+      "query": "Is it worth it for a 10-person API startup to stream on Twitch at all? We'd rather guest on other channels maybe",
+      "should_trigger": true
+    },
+    {
+      "query": "our developer advocate streams on his personal twitch about our product - do we need any disclosure",
+      "should_trigger": true
+    },
+    {
+      "query": "we stream every friday on youtube live and nobody chats, how do we make the show more interactive",
+      "should_trigger": true
+    },
+    {
+      "query": "Build a season plan for our 'Ship it Live' developer show: 8 episodes, guests, promotion, recap posts",
+      "should_trigger": true
+    },
+    {
+      "query": "devrel twitch strategy for a rust web framework company",
+      "should_trigger": true
+    },
+    {
+      "query": "How do we announce a LinkedIn Live with our CTO and a customer architect so people actually attend?",
+      "should_trigger": true
+    },
+    {
+      "query": "we want to pay a popular streamer to code with our product live, how do we set that up and measure it",
+      "should_trigger": true
+    },
+    {
+      "query": "live stream schedule for a devtools company: what day, how long, how often",
+      "should_trigger": true
+    },
+    {
+      "query": "Can our advocate read Twitch and YouTube chats at once with a merged chat overlay?",
+      "should_trigger": true
+    },
+    {
+      "query": "We have a release stream next month on YouTube Live, help me plan promotion, moderation and what we do with the replay",
+      "should_trigger": true
+    },
+    {
+      "query": "is a live 'fix my code' stream where viewers submit repos a good devrel format?",
+      "should_trigger": true
+    },
+    {
+      "query": "our ceo wants a weekly twitch show like the big dev streamers, what should it be",
+      "should_trigger": true
+    },
+    {
+      "query": "We used to do a Thursday livestream, viewers dropped to 5. Should we stop or change the format?",
+      "should_trigger": true
+    },
+    {
+      "query": "streaming plan for developer advocates: twitch, youtube live, linkedin live - which one first",
+      "should_trigger": true
+    },
+    {
+      "query": "how do we use twitch clips and youtube live clips to promote our developer show",
+      "should_trigger": true
+    },
+    {
+      "query": "what goes in a moderator brief for our dev livestream",
+      "should_trigger": true
+    },
+    {
+      "query": "Our Twitch channel is on an advocate's personal account and she's leaving. What do we do with the show?",
+      "should_trigger": true
+    },
+    {
+      "query": "help me design a live architecture review show where we review community projects on stream",
+      "should_trigger": true
+    },
+    {
+      "query": "we're going live on youtube for our hackathon kickoff and want devs to keep coming back weekly after",
+      "should_trigger": true
+    },
+    {
+      "query": "Plan our YouTube channel: what videos to upload, how often, Shorts or long-form, for our observability product",
+      "should_trigger": false
+    },
+    {
+      "query": "Write the script for a 6-minute screencast showing how to install our CLI",
+      "should_trigger": false
+    },
+    {
+      "query": "We run a monthly webinar with registration and want better attendance and sales handoff",
+      "should_trigger": false
+    },
+    {
+      "query": "Set up a weekly office hours rotation where users can ask our engineers questions on Zoom",
+      "should_trigger": false
+    },
+    {
+      "query": "my live demo keeps breaking during conference talks, how do I build a fallback and reset",
+      "should_trigger": false
+    },
+    {
+      "query": "Write a code of conduct and enforcement ladder for our Discord community",
+      "should_trigger": false
+    },
+    {
+      "query": "We're organizing a 2-day conference and need to livestream all three tracks with captions",
+      "should_trigger": false
+    },
+    {
+      "query": "prep me for being a guest on a developer podcast next week",
+      "should_trigger": false
+    },
+    {
+      "query": "Our conference wants to launch a YouTube channel for talk recordings and a podcast",
+      "should_trigger": false
+    },
+    {
+      "query": "How do I build an OBS overlay with a webcam frame and a Twitch alert box in HTML?",
+      "should_trigger": false
+    },
+    {
+      "query": "implement HLS live streaming with low latency in our video app backend",
+      "should_trigger": false
+    },
+    {
+      "query": "write a LinkedIn post announcing our v3 launch",
+      "should_trigger": false
+    },
+    {
+      "query": "build a scraper for Twitch clip and channel stats",
+      "should_trigger": false
+    },
+    {
+      "query": "How do we measure DevRel overall? Need a scorecard for the exec team",
+      "should_trigger": false
+    },
+    {
+      "query": "plan our devrel content calendar for Q1 across blog, newsletter and video",
+      "should_trigger": false
+    },
+    {
+      "query": "I'm a founder and want to build my startup in public on X and Indie Hackers",
+      "should_trigger": false
+    },
+    {
+      "query": "Plan a TikTok LIVE shopping event for our skincare brand",
+      "should_trigger": false
+    },
+    {
+      "query": "We need a hybrid event design for our user conference: in-person plus online attendees",
+      "should_trigger": false
+    },
+    {
+      "query": "how to grow my personal Twitch gaming channel to affiliate",
+      "should_trigger": false
+    },
+    {
+      "query": "We run a monthly 'Ask the Engineers' AMA, attendance keeps falling and engineers stop showing up, what do we change?",
+      "should_trigger": false
+    },
+    {
+      "query": "Set up Twitch EventSub webhooks in our Node app to detect when a stream goes live",
+      "should_trigger": false
+    },
+    {
+      "query": "We want to sponsor developer YouTubers for pre-roll reads, how do we pick them",
+      "should_trigger": false
+    },
+    {
+      "query": "Design the run-of-show for our in-person conference keynote with stage cues",
+      "should_trigger": false
+    },
+    {
+      "query": "I'm guesting on a well-known Rust streamer's Twitch show next Tuesday to demo our CLI, help me prepare what to say",
+      "should_trigger": false
+    },
+    {
+      "query": "our community Discord is full of spam bots, how do we moderate it",
+      "should_trigger": false
+    },
+    {
+      "query": "help me write a talk outline for KubeCon about our operator",
+      "should_trigger": false
+    },
+    {
+      "query": "repurpose our conference talk recordings into blog posts and social clips",
+      "should_trigger": false
+    },
+    {
+      "query": "How should a solo DevRel split budget between events, content and community this year?",
+      "should_trigger": false
+    },
+    {
+      "query": "Optimize our YouTube video titles and thumbnails for search",
+      "should_trigger": false
+    },
+    {
+      "query": "Plan a virtual summit with 12 speakers, registration and sponsor booths",
+      "should_trigger": false
+    }
+  ]
+}

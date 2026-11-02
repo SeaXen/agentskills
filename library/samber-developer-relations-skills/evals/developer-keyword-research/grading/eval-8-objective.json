@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Emits a non-empty Do not target section",
+        "evidence": "Two entries: \"glasswing on-prem pricing calculator\" and \"python venv activate not found, generic form\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses the pricing-calculator query outright on the grounds the product cannot answer it honestly",
+        "evidence": "\"no calculator exists and on-prem pricing is quote-only... This is the textbook 'cannot honestly answer' refusal.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses the exit-code-137 cluster on the grounds its real fix is a product change - a better error message - rather than a page",
+        "evidence": "Exit code 137 is not refused; it is ranked P1 in Ranked clusters with a full \"Writer briefs\" entry directing a page to be written.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the exit-code-137 cluster to engineering rather than to the writer",
+        "evidence": "The transcript includes a \"Writer briefs\" section for \"Exit code 137 (P1, new error entry)\" \u2014 it is routed to the writer, not engineering.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses the 'python venv activate not found' lookup on the grounds it is owned by the language's own documentation",
+        "evidence": "\"owned by Python's own documentation; we cannot out-rank the canonical explainer on 'how venv activation works.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps none of the three refusals as a low-priority ranked row",
+        "evidence": "Both Do-not-target entries appear only in that section, never as rows in the Ranked clusters table.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the incumbent result for each cluster it keeps",
+        "evidence": "e.g. \"2023 forum thread describing a version we no longer ship\" (cache key); \"Our own README, ~half the topic\" (secrets rotation).",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the specific weakness it can beat for each kept cluster (stale answer, version that no longer exists, listing with no working configuration, or reference page with no example)",
+        "evidence": "\"2023 forum thread describing a version we no longer ship \u2014 stale, the strongest free winnability signal there is\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Briefs the writer on completeness: the exact string reproduced verbatim, the version stated, a runnable fix, and failure conditions covered",
+        "evidence": "\"Open with the exact strings people will paste/search... Give a fix that works today...\" and \"State the current version up front... Reproduce the current cache-key syntax and log text verbatim. Cover the real causes...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not settle winnability with a link-graph keyword difficulty score",
+        "evidence": "No KD or keyword-difficulty numeric score is used anywhere in the section; winnability is judged by incumbent staleness/specificity instead.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a round of research that refused nothing did not apply the winnability filter",
+        "evidence": "No such meta-statement appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Emits a non-empty Do not target section",
+        "evidence": "The transcript includes a dedicated '## Why reject #1 (pricing calculator)' section explaining the refusal in detail: 'Building a calculator conflicts with a quote-only sales motion; low volume doesn't justify the build' and offering an alternative that avoids the core problem.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses the pricing-calculator query outright on the grounds the product cannot answer it honestly",
+        "evidence": "'A self-serve calculator would leak pricing logic and could undercut sales conversations on enterprise deals \u2014 that's a pricing-strategy call, not something a docs writer should decide unilaterally... No calculator, no exposed numbers.' \u2014 refusal is grounded in the fact that quote-only pricing means the product can't honestly self-serve an answer.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses the exit-code-137 cluster on the grounds its real fix is a product change - a better error message - rather than a page",
+        "evidence": "The cluster is marked '\u2705 Write now, top priority' and a full writer brief is produced; the 5.1 error-message improvement is only noted as a future one-line update to an evergreen page ('add one line: \"Newer Glasswing versions surface the memory limit directly in this error.\"'), not a reason to refuse the page.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the exit-code-137 cluster to engineering rather than to the writer",
+        "evidence": "The cluster is assigned to the writer with a full brief (title, target query, structure, doc type); engineering is consulted only for supporting facts: 'Get from engineering: confirmation that 137 is *always* OOM in our runner... and the exact config key/flag for setting memory limits.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses the 'python venv activate not found' lookup on the grounds it is owned by the language's own documentation",
+        "evidence": "The overall verdict is conditional ('\ud83d\udfe1 Confirm root cause first, then write'), not a refusal \u2014 'If runner-specific \u2192 write it... If generic \u2192 don't write it.' The Python's-own-docs reasoning ('We can't out-rank Python's own docs/Stack Overflow with no unique angle') appears only inside the conditional 'don't write' branch, not as the transcript's actual verdict.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps none of the three refusals as a low-priority ranked row",
+        "evidence": "The pricing-calculator item is marked distinctly '\u274c Not a docs task \u2014 reject as scoped' rather than being folded into the priority tiers used for the write items (e.g., 'Write now, top priority', 'cheap fold-in'), keeping it categorically separate from the low-priority ranking.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the incumbent result for each cluster it keeps",
+        "evidence": "Cache-key cluster names an incumbent ('out-rank the 2023 forum thread'), but the exit-137 brief and secrets-rotation brief name no competing external result at all \u2014 exit-137's brief only states 'Target query: exact error text + \"glasswing exit code 137\"' with no incumbent mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the specific weakness it can beat for each kept cluster (stale answer, version that no longer exists, listing with no working configuration, or reference page with no example)",
+        "evidence": "Only the cache-key cluster states a weakness ('incumbent is a dead 2023 thread about a version we don't ship'). No weakness is named for exit-137 or secrets rotation, so the criterion is not met 'for each kept cluster'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Briefs the writer on completeness: the exact string reproduced verbatim, the version stated, a runnable fix, and failure conditions covered",
+        "evidence": "Exit-137 brief: 'Target query: exact error text + \"glasswing exit code 137\"' plus fix steps and 'common causes'; cache-key brief: 'Explicitly note the version this applies to near the top' plus 'current key syntax, restore-keys fallback behavior, common misconfigurations'; standing instructions add 'Lead with the error text or exact problem as the H1' and 'State prerequisites (version, config context) at the top'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not settle winnability with a link-graph keyword difficulty score",
+        "evidence": "No mention of keyword difficulty, domain authority, or backlink metrics anywhere in the transcript; decisions are based on content-gap analysis, incumbent staleness, and root-cause ownership instead.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a round of research that refused nothing did not apply the winnability filter",
+        "evidence": "No such meta-statement appears anywhere in the transcript; there is no commentary about whether a round that refused nothing failed to apply a winnability filter.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

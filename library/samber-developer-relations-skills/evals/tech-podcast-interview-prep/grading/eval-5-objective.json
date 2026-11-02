@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "All but one of the drafted candidates omit the product name \"Skerry\".",
+        "evidence": "Only candidate 1 says 'Skerry is an open-source feature-flag service...'; candidates 2-8 never name Skerry.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Exactly one candidate is identified as the liftable bite and names Skerry next to its category in plain words.",
+        "evidence": "\"1. (the liftable one \u2014 say it once, never again) 'Skerry is an open-source feature-flag service...'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The liftable bite speaks an actual number rather than gesturing at one.",
+        "evidence": "\"cuts flag-check latency from forty-five milliseconds down to under three at p99.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response states that the liftable bite is said once in the episode and never repeated.",
+        "evidence": "\"(the liftable one \u2014 say it once, never again)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Each candidate runs roughly 15 to 25 words.",
+        "evidence": "All eight bites, e.g. #2 (18 words) and #6 (22 words), fall within the 15-25 word range.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Each candidate is in present tense and active voice.",
+        "evidence": "Candidate 3 uses passive voice: 'the flag check now gets decided at the edge'; candidate 8 also uses passive: 'until it's added to every one of two billion checks a day.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "No candidate contains an unresolved pronoun or a back-reference such as \"as I said earlier\".",
+        "evidence": "No candidate uses phrases like 'as I said earlier' or dangling pronouns without antecedents.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response applies a cold-read test, reading each candidate with nothing before it.",
+        "evidence": "\"Here are eight, drafted from your launch post and run through the cold-read test (each stands alone, no context needed)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response states that the cold-read test, not the word count, is the real gate.",
+        "evidence": "The cold-read test is mentioned, but no statement contrasts it against word count as 'the real gate'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response rejects \"the fastest open-source feature-flag service available\" as a superlative with no falsifiable claim.",
+        "evidence": "\"Drop 'fastest open-source feature-flag service' as a standalone claim \u2014 it's a superlative with no falsifiable content.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response pairs the 3ms figure with the 45ms comparison rather than stating the absolute alone.",
+        "evidence": "\"cuts flag-check latency from forty-five milliseconds down to under three at p99\" (candidate 1), and similarly in #2, #4, #8.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response explains that the transcript and show notes become a machine-readable record later cited by AI assistants, which is why the number has to be spoken out loud.",
+        "evidence": "No mention of transcripts/show notes as machine-readable records cited by AI assistants appears in this transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "All but one of the drafted candidates omit the product name \"Skerry\".",
+        "evidence": "Two candidates name Skerry: #4 'We built Skerry to be the fastest...' and #5 'Skerry is free and self-hostable,' not just one.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Exactly one candidate is identified as the liftable bite and names Skerry next to its category in plain words.",
+        "evidence": "All eight are presented equally as 'interview-ready sound bites' with no single one singled out as the liftable bite.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The liftable bite speaks an actual number rather than gesturing at one.",
+        "evidence": "No candidate is designated as 'the' liftable bite, so this cannot be verified.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response states that the liftable bite is said once in the episode and never repeated.",
+        "evidence": "No such statement appears anywhere in the response.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Each candidate runs roughly 15 to 25 words.",
+        "evidence": "Candidate 3 ('The trick in 2.0 is edge evaluation...that's where the 15x speedup comes from') runs approximately 29 words, exceeding the range.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Each candidate is in present tense and active voice.",
+        "evidence": "Candidate 1 mixes tenses: 'Flag checks used to take 45 milliseconds. Now they take under 3' and candidate 4 uses past tense 'We built Skerry.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "No candidate contains an unresolved pronoun or a back-reference such as \"as I said earlier\".",
+        "evidence": "None of the eight candidates contain phrases like 'as I said earlier' or ambiguous back-references; each is self-contained.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response applies a cold-read test, reading each candidate with nothing before it.",
+        "evidence": "No mention of testing candidates by reading them with nothing before them.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response states that the cold-read test, not the word count, is the real gate.",
+        "evidence": "No such statement appears; the response gives no explicit quality gate at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response rejects \"the fastest open-source feature-flag service available\" as a superlative with no falsifiable claim.",
+        "evidence": "Candidate 4 includes exactly this superlative ('We built Skerry to be the fastest open-source feature-flag service out there') without any caveat or rejection.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Response pairs the 3ms figure with the 45ms comparison rather than stating the absolute alone.",
+        "evidence": "Candidate 1: 'Flag checks used to take 45 milliseconds. Now they take under 3 \u2014 at the 99th percentile.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Response explains that the transcript and show notes become a machine-readable record later cited by AI assistants, which is why the number has to be spoken out loud.",
+        "evidence": "No mention of AI assistants, machine-readable records, or citation anywhere in the response.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

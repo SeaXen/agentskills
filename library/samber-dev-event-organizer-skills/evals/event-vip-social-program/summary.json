@@ -1,0 +1,398 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-vip-social-program",
+  "scenarios": 9,
+  "expectations_total": 92,
+  "expectations_subjective": 1,
+  "expectations_objective": 91,
+  "pass_rate_with_skill_pct": 87.0,
+  "pass_rate_without_skill_pct": 17.4,
+  "delta_pp": 69.6,
+  "uplift_multiplier": 5.0,
+  "trigger_accuracy_pct": 59.3,
+  "trigger_queries": 86,
+  "trigger_positive_fire_rate": 0.698,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Treats the flat anti-hierarchy register and the absent purpose as two separate conditions that both have to hold before that deletion applies."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Warns that a guest left holding a drink at the edge of the room is worse than not inviting them at all."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that no rewording of the programme line and no redesign of the credential fixes what the discretion request forbids."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that publicly only a closed door and somebody standing at it should be legible."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Offers a slot inside an existing break or meal slot, in a side room, as the default placement."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Promotes the shared credential above the named door list for this gathering rather than defending the list as the default."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States the reason as the door being staffed by people who cannot read your list, and that a list they cannot read is not a door."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes that a credential is the only thing a venue's own staff can check."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names the credential's other cost: the door stops working once one is lent or copied."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recognizes that the prospectus having been published would otherwise have promoted exactly that rung, and says which condition wins."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "On the access decision, accepts that the room is already published and treats the listing as a description of what already happened rather than a decision still open."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the remaining work on the listing is the wording, not whether to list."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Recommends that no separate private dinner be held, and presents that as the answer rather than designing the dinner."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Identifies that \"it would be really nice for them to finally meet each other\" names nothing the general evening cannot already do."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that every seat-list construction option except the fold is deleted from the menu, not merely ranked last or parked at the bottom."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Treats the flat anti-hierarchy register and the absent purpose as two separate conditions that both have to hold before that deletion applies."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names one person by role who will stand with each guest when they walk into the general evening, and for how long."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Instructs writing down, before the evening, the specific conversations the dinner was meant to produce, named individually rather than stated as a goal."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Gives the guests a stated time at which someone will walk them to the door, so leaving needs no excuse."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Instructs saying nothing publicly about the arrangement, because announcing that a guest is being looked after re-creates the tier for free."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Produces no seat-list template, no door list, no credential and no invitation copy for a private dinner."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Invents no seat count, no cap, no lead time and no invitation-send date."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Warns that a guest left holding a drink at the edge of the room is worse than not inviting them at all."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Routes Aurelio's four seats to samber/dev-event-organizer-skills@event-sponsor-fulfillment and takes them off the seats being allocated."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Keeps Kestrel's, Bowline's and the keynote speaker's requests inside this skill's allocation problem, because those were asked for rather than sold."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Selects the host-built list with a capped allowance per asking party, on the ground that more than one party is already asking."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Requires the same rule to be cited to every asking party, including the keynote speaker."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Phrases the refusal so the rule is the stated reason, never the nominated person."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Requires stating in writing, to invitees and to whoever asked for seats, that the lunch is a relationship rather than a meeting arranged on a sponsor's behalf."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Honours the seats the head of partnerships already offered rather than withdrawing them."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Fixes the process rather than the guest: from here, invitations issue only from the person holding the list."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names one owner who builds the list, sends every invitation, works the door and answers every refusal."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Treats the room's capacity as a constraint and never as a criterion for who belongs in it."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Instructs shrinking the purpose of the room deliberately rather than trimming names until they fit the seat count."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Keeps a seat offered and a seat confirmed as two distinct recorded states, each with its own date."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Records who put each name forward and on what date, so the outcome can be defended later."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Flags seats promised beyond what the room held as a binary measure this event has already failed."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Rejects both the wristbands and the programme listing, removing them from the option set rather than ranking them low."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that no rewording of the programme line and no redesign of the credential fixes what the discretion request forbids."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Ties that deletion specifically to the guest whose office asked that she not be listed or photographed."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that publicly only a closed door and somebody standing at it should be legible."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires the invitation to go out individually and privately from the person holding the list, never on a group thread."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Bans the word \"VIP\" in the invitation, at the door, and on any radio or staff channel."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Limits the door page to the names, alphabetically, and nothing else."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Instructs the door holder to take the name of anyone not on the page, say the owner will come, and fetch them - never to turn someone away with an explanation and never to adjudicate."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires the door page to be handed back to the owner at the end rather than left or binned in a public room."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Sets discretion as a binary check: zero guests who asked not to be identified are identifiable to a general attendee as having been in the room."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Deletes the separate-evening-at-a-separate-venue option because the named owner is also running the main event that day."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Explains that deletion as a second venue with transport and a fixed headcount being a job, which with no free owner lands on the organizer on the day."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Rejects scheduling the private room against the community party, at any venue."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names the failure as the general evening becoming the consolation room, a tier arrived at by calendar."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that where both the private room and the general evening exist, they do not overlap."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Offers a slot inside an existing break or meal slot, in a side room, as the default placement."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Promotes the placement to after the last session, in a room at the main venue, on the ground that the purpose is a conversation among a named set of people rather than a greeting."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Hands the chosen slot to samber/dev-event-organizer-skills@event-run-of-show and any grid clash to samber/dev-event-organizer-skills@event-schedule-design."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Refuses to move a public session to make room for the private one."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Warns that the credential must not be worn through the general event, where attendees read it as a rank."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names the credential's other cost: the door stops working once one is lent or copied."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Keeps the invitation itself issued individually and privately by the person who holds the list."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Checks first whether any guest asked not to be identified, listed or photographed, since that deletes the credential outright."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Keeps the named owner as the person who decides any exception at the door, even though a third party is staffing it."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Ties that deletion to the seat count being set by the venue's fire capacity rather than by the conversation the organizer wants to have."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that publishing criteria against a number you do not control converts a capacity limit into a broken commitment."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recognizes that the prospectus having been published would otherwise have promoted exactly that rung, and says which condition wins."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "On the access decision, accepts that the room is already published and treats the listing as a description of what already happened rather than a decision still open."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the remaining work on the listing is the wording, not whether to list."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Checks whether any signed sponsor agreement actually sold those seats, and routes any that did to samber/dev-event-organizer-skills@event-sponsor-fulfillment."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Writes the refusal rule down before answering any of the four sponsors or two speakers, and cites the same rule to each."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Refuses to let the number of seats the venue allows become the criterion for who is on the list."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Refuses to fund the funder's table from the speakers' dinner budget line, stating that the line describes speakers and nobody else."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Routes the speakers' dinner itself to samber/dev-event-organizer-skills@event-speaker-experience."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Routes Northwind Data's afterparty to samber/dev-event-organizer-skills@event-side-event-coordination."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Draws the distinction as a room you permit versus a room you host."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Routes the question of whether the funder is in scope at all to samber/dev-event-organizer-skills@event-vip-management, and declines to re-decide it here."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States the qualification test as an obligation the general attendee flow cannot absorb, never a title or a status."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that if that skill finds nobody in scope, there is no gathering to design here."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Routes food and drink for any room that does exist to samber/dev-event-organizer-skills@event-hospitality."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Removes the tier, seniority and priority columns from the list."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that the list never records a judgment about a person, and that every field is either a fact somebody supplied or a decision the organizer can defend."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Replaces the removed columns with a one-sentence \"why this seat exists\" field that is not a rank, not a title, and not \"important to us\"."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that a row whose sentence has to be invented is a row that comes off the list."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Adds a field recording who put the name forward and the date they did."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Records the answer given and the date it was given, keeping a seat offered and a seat confirmed as distinct states."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Keeps access requirements only where the person supplied one, including any discretion request quoted from whoever stated it."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Sets a deletion date at the moment the list is created, by the named owner, in the same pass, defaulting to the day the post-event follow-ups go out."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Restricts circulation by need instead of sharing the whole sheet with the team of four, giving whoever works the door the names only - not the reasons, not who nominated whom, and never the refusals."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Declines to invent an invitation-send date, a chase date or a lead time."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names a single person who holds the sheet and issues every invitation from it."
+      }
+    ]
+  }
+}

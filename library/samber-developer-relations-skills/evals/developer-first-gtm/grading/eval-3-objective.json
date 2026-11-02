@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to build same-minute or signup-triggered human outreach.",
+        "evidence": "\"don't wire the alert on signup. Wire it on a qualification signal\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the 5-minute / 21x statistic as coming from inbound form-fill research in sales-led funnels rather than from developer product usage.",
+        "evidence": "\"'Contact within 5 minutes, 21x more likely to qualify' comes from inbound *form-fill* research in sales-led funnels \u2014 someone requested contact by submitting a form.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes the statistic is usually cited to a vendor blog rather than to the underlying study.",
+        "evidence": "No mention of a vendor blog or citation chain for the 21x statistic anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that importing that statistic into a developer motion amounts to contacting on signup.",
+        "evidence": "\"The automation they're building should read 'qualified-signal event' off your account-rollup table, not 'signup' off your users table\" confirms the current wiring (importing the 21x logic) equals signup-triggered contact.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names contacting on signup as the behaviour this audience punishes hardest, or as teaching developers that the free tier is bait.",
+        "evidence": "\"actively teaches the one lesson developer audiences punish hardest: *the free tier was bait.*\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Moves qualification to account level rather than per individual signup.",
+        "evidence": "\"Roll usage up to an account (workspace/org, API key, or email domain \u2014 combine at least two)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets the response window for qualified accounts in hours rather than in days or in minutes.",
+        "evidence": "\"Qualified accounts are contacted by **a technical rep**, within **hours, not minutes**\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the hours-not-days window as this skill's own baseline with no study behind it, not as an industry standard.",
+        "evidence": "No explicit \"self-set\" or \"no study\" label is attached to the hours-not-minutes window anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires an explicit written do-not-contact line covering accounts below the threshold.",
+        "evidence": "\"Do not contact accounts below the threshold \u2014 write that down as a rule, not an assumption.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces the generic sales email with a technical offer such as a limits, quota, architecture or migration conversation, and rejects openers of the '15 minutes to learn about your needs' shape.",
+        "evidence": "\"Offers help with what they're already doing (cache limits), never \\\"15 minutes to learn about your needs.\\\"\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to build same-minute or signup-triggered human outreach.",
+        "evidence": "\"Time it to business hours. Same-minute is fine 9am\u20136pm.\" explicitly builds a same-minute, signup-triggered outreach for gated segments.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the 5-minute / 21x statistic as coming from inbound form-fill research in sales-led funnels rather than from developer product usage.",
+        "evidence": "\"the 21x/5-minute stat (Kellogg/InsideSales study) measured leads who filled a 'contact me' form \u2014 people who asked for a human.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes the statistic is usually cited to a vendor blog rather than to the underlying study.",
+        "evidence": "No mention of vendor-blog mis-citation; the transcript cites it directly to 'Kellogg/InsideSales study'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that importing that statistic into a developer motion amounts to contacting on signup.",
+        "evidence": "The transcript rejects only the phone call, not the concept of contacting on signup itself \u2014 it endorses a gated same-minute email at signup instead.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names contacting on signup as the behaviour this audience punishes hardest, or as teaching developers that the free tier is bait.",
+        "evidence": "No such statement appears; the critique is limited to cold calling reading as 'surveillance', not signup-contact generally.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Moves qualification to account level rather than per individual signup.",
+        "evidence": "Gating criteria ('Business email domain', 'Team size >1', 'Immediate high-intent action') are applied per individual signup record, not via an explicit account-level rollup.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets the response window for qualified accounts in hours rather than in days or in minutes.",
+        "evidence": "\"Same-minute is fine 9am\u20136pm\" sets the window in minutes, not hours.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels the hours-not-days window as this skill's own baseline with no study behind it, not as an industry standard.",
+        "evidence": "Not applicable/absent \u2014 no hours-based window is proposed at all, let alone labeled as a self-set baseline.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires an explicit written do-not-contact line covering accounts below the threshold.",
+        "evidence": "No explicit 'do-not-contact' policy line is specified for ungated/low-signal accounts.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Replaces the generic sales email with a technical offer such as a limits, quota, architecture or migration conversation, and rejects openers of the '15 minutes to learn about your needs' shape.",
+        "evidence": "The email offers \"what CI are you on... send the exact snippet for your setup\" and explicitly states \"No pitch\" rather than a generic sales opener.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

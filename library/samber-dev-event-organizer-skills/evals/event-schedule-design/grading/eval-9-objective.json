@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Places fixed points first: opening, keynotes, closing, and any session with a single possible day",
+        "evidence": "\"Fixed points to validate... Nothing else is placed yet.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats Nadia Oyelaran's flight arrival as an availability window rather than a soft preference",
+        "evidence": "\"Nadia cannot open Friday. She is not at the venue until 11:45\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not place Nadia Oyelaran earlier than 11:45 on Friday",
+        "evidence": "\"Nadia's keynote: Fri 12:15\u201313:00\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Computes the Mei Watanabe and Samir Haddad intersection as Friday 14:00 to 16:00",
+        "evidence": "\"Intersection: Fri 14:00\u201316:00 only\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places \"Tracing at the edge\" inside that Friday 14:00-16:00 window",
+        "evidence": "\"Fri 14:15\u201315:00\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the Studio room's Saturday-from-13:00 window as a room constraint distinct from any speaker's window",
+        "evidence": "\"room-availability clash (type 1)\" distinct from speaker windows in ledger.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places nothing in the Studio room before 13:00 on Saturday",
+        "evidence": "\"open Studio at 13:00 or later\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Schedules Lukas Brenner on Saturday",
+        "evidence": "\"Lukas Brenner: Saturday only... place him\" on Saturday.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places the hardest-constrained sessions before the unconstrained ones",
+        "evidence": "\"hardest-constrained first\"; Lukas \"place him after the harder pieces\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the earliest-due-date dispatching origin as a borrowed structuring analogy rather than an events rule",
+        "evidence": "No mention of earliest-due-date or its origin.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Standardizes session lengths and places lunch and breaks before filling in the remaining sessions",
+        "evidence": "Only a rough 45-minute slot count; breaks and plenary points come later in the sequence.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Places fixed points first: opening, keynotes, closing, and any session with a single possible day",
+        "evidence": "\"Start with Nadia's keynote\"; \"Step 2: Pin the three hard slots\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats Nadia Oyelaran's flight arrival as an availability window rather than a soft preference",
+        "evidence": "\"nothing on Friday morning can be an 'opening keynote' with her in it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not place Nadia Oyelaran earlier than 11:45 on Friday",
+        "evidence": "Plans her at about 12:15.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Computes the Mei Watanabe and Samir Haddad intersection as Friday 14:00 to 16:00",
+        "evidence": "\"Mei is free from 14:00 and Samir must be gone by 16:00. That leaves a 2-hour window.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places \"Tracing at the edge\" inside that Friday 14:00-16:00 window",
+        "evidence": "\"must fall between Friday 14:00 and 16:00\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the Studio room's Saturday-from-13:00 window as a room constraint distinct from any speaker's window",
+        "evidence": "Capacity table lists \"Saturday Studio (13:00\u201318:00)\" separately.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places nothing in the Studio room before 13:00 on Saturday",
+        "evidence": "\"on Saturday morning, Main is your only room\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Schedules Lukas Brenner on Saturday",
+        "evidence": "\"Lukas: anywhere on Saturday.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places the hardest-constrained sessions before the unconstrained ones",
+        "evidence": "Pins the three hard slots, then \"Step 4: Fill the rest\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels the earliest-due-date dispatching origin as a borrowed structuring analogy rather than an events rule",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Standardizes session lengths and places lunch and breaks before filling in the remaining sessions",
+        "evidence": "\"Schedule breaks and lunch last, and leave slack.\"",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

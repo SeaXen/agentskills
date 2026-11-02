@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Stops public discussion of the specifics rather than explaining the fix in the thread",
+        "evidence": "\"1. Stop discussing specifics publicly.\" and \"'Reply in the thread explaining the fix' \u2192 \u26a0\ufe0f This is the failure mode named explicitly\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replies once, briefly, pointing the reporter at SECURITY.md and the private contact",
+        "evidence": "\"'Thank you for flagging this responsibly \u2014 moving this to a private channel to fix it properly. [link to GitHub's private vulnerability reporting / your email]...' No fix explanation.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Opens a private advisory and adds the reporter as a collaborator",
+        "evidence": "\"Open a private advisory, add the reporter as a collaborator.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Develops and tests the patch on a private branch rather than pushing to the default branch mid-thread",
+        "evidence": "\"Fix on the private security-advisory branch GitHub gives you, not a regular public feature branch and not `main` directly.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requests a CVE through a numbering authority",
+        "evidence": "\"Request a CVE if warranted, credit the reporter **when the advisory publishes**.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Credits the reporter when the advisory publishes, rather than thanking them in the public thread",
+        "evidence": "\"Publish the security advisory, crediting the reporter by name/handle there. This is the correct, permanent, public record of the fix \u2014 and the right place for the public thank-you.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats this as a separate procedure that bypasses the normal comment response rotation",
+        "evidence": "\"This isn't a normal 'hostile comment in the thread' situation... has a specific procedure for exactly this\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that debating severity or validity in the open thread invites exploit detail into a public conversation and reads as defensive",
+        "evidence": "\"'Debating severity or validity in an open thread... invites exploit detail into a public conversation.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that this only works if the private contact path existed before launch day, which is why it is a readiness blocker",
+        "evidence": "\"Prismvault apparently doesn't have SECURITY.md / a private reporting channel already wired up (readiness-checklist item 9)... That's a pre-launch blocker that got skipped\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend a public issue or a README note as the disclosure path",
+        "evidence": "\"'Add a note to the README' \u2192 not the right artifact. The record of a security fix belongs in a security advisory... not a README line.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Stops public discussion of the specifics rather than explaining the fix in the thread",
+        "evidence": "Draft HN reply explains the vulnerability in detail: 'The default config bound the admin API to 0.0.0.0, so anyone running Prismvault with defaults... had it reachable.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Replies once, briefly, pointing the reporter at SECURITY.md and the private contact",
+        "evidence": "No SECURITY.md or private contact channel is referenced anywhere; the drafted reply engages fully and publicly with technical detail.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Opens a private advisory and adds the reporter as a collaborator",
+        "evidence": "Advisory filing is step 5 'after the rush' with no mention of adding the reporter as a collaborator.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Develops and tests the patch on a private branch rather than pushing to the default branch mid-thread",
+        "evidence": "'2. Run tests, commit, push, tag a patch release' \u2014 pushes directly rather than working on a private branch before the public reply.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requests a CVE through a numbering authority",
+        "evidence": "'File a GitHub Security Advisory for this \u2014 gets it a CVE, shows up in Dependabot-style scanners.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Credits the reporter when the advisory publishes, rather than thanking them in the public thread",
+        "evidence": "The public HN reply draft itself says 'thanks for posting it straight' and 'Appreciate the clear writeup' \u2014 thanking in the public thread, not reserved for the advisory.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats this as a separate procedure that bypasses the normal comment response rotation",
+        "evidence": "No mention of bypassing a normal comment rotation; it is handled as an ordinary reply among the response steps.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that debating severity or validity in the open thread invites exploit detail into a public conversation and reads as defensive",
+        "evidence": "No such warning is present; the plan instead encourages a full public technical reply.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that this only works if the private contact path existed before launch day, which is why it is a readiness blocker",
+        "evidence": "No SECURITY.md/private-contact readiness gate is discussed at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend a public issue or a README note as the disclosure path",
+        "evidence": "A 'README note (draft)' with a public 'Security notice' section is explicitly provided as part of the plan.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

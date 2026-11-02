@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Deletes the sponsor-supplied guest slot from the sourcing menu rather than ranking it low or listing it as a cheap option",
+        "evidence": "'Sponsor-given slot | Deleted'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a guest slot given because a sponsor asked for it converts the property into sponsor inventory",
+        "evidence": "'A standing quarterly slot turns the show into sponsor inventory.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes any sponsored episode to samber/dev-event-organizer-skills@event-sponsor-value-proposition as a sponsorship decision made there",
+        "evidence": "'made via event-sponsor-value-proposition and disclosed as sponsored'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a sponsored episode must be disclosed as one if it happens",
+        "evidence": "'disclosed as sponsored'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not treat 'no money changes hands' as making the sponsor slot an editorial booking",
+        "evidence": "'\"No money changes hands\" doesn't change that'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes the open pitch from the menu while no vetting owner exists, rather than ranking it",
+        "evidence": "It ranks the pitch form in the menu as 'Blocked' and says 'stays off for now', not deleted.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a named vetting owner with a written bar before any public call opens",
+        "evidence": "'Needs a named vetting owner with a written bar.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a published call needs a stated bar, a named reviewer and a stated answer window",
+        "evidence": "'a published bar, a named reviewer, a stated answer window'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that booking whoever replies first is not a pipeline: availability is not fit and enthusiasm is not a bar",
+        "evidence": "'Availability is not fit and enthusiasm is not a bar.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the conduct half of the bar to samber/dev-event-organizer-skills@event-code-of-conduct instead of restating a policy",
+        "evidence": "'Route this to event-code-of-conduct'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the promotion conditions for cold outbound rather than recommending it unconditionally",
+        "evidence": "'Needs compounding intent (Q8), hours that return nothing for several cycles (Q9), and a vetting owner (Q6).'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reuses the qualification and outreach craft from samber/dev-event-organizer-skills@event-speaker-sourcing and samber/dev-event-organizer-skills@event-speaker-cold-outreach instead of rebuilding it for the show",
+        "evidence": "'Reuse the craft in event-speaker-sourcing and event-speaker-cold-outreach.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Deletes the sponsor-supplied guest slot from the sourcing menu rather than ranking it low or listing it as a cheap option",
+        "evidence": "'Decision: accept, but don't sell the slot.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a guest slot given because a sponsor asked for it converts the property into sponsor inventory",
+        "evidence": "It says only that the slot is 'close to that line' and 'you're selling an ad' if the terms are refused.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes any sponsored episode to samber/dev-event-organizer-skills@event-sponsor-value-proposition as a sponsorship decision made there",
+        "evidence": "There is no routing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a sponsored episode must be disclosed as one if it happens",
+        "evidence": "'Label it. The title and description say \"presented with Vaultwright\"'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not treat 'no money changes hands' as making the sponsor slot an editorial booking",
+        "evidence": "'A slot bundled into platinum is close to that line. Don't call it editorial.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes the open pitch from the menu while no vetting owner exists, rather than ranking it",
+        "evidence": "'Open it, with these conditions.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a named vetting owner with a written bar before any public call opens",
+        "evidence": "'Two reviewers before launch'; 'Name the two reviewers'; required fields and auto-reject rules.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a published call needs a stated bar, a named reviewer and a stated answer window",
+        "evidence": "Required fields and scoring thresholds, two reviewers, 'Reply within 14 days (baseline)'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that booking whoever replies first is not a pipeline: availability is not fit and enthusiasm is not a bar",
+        "evidence": "'A tie goes to \"not now\", never to first-come-first-booked.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the conduct half of the bar to samber/dev-event-organizer-skills@event-code-of-conduct instead of restating a policy",
+        "evidence": "There is no routing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the promotion conditions for cold outbound rather than recommending it unconditionally",
+        "evidence": "Outreach is listed as an intake source with no promotion conditions.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reuses the qualification and outreach craft from samber/dev-event-organizer-skills@event-speaker-sourcing and samber/dev-event-organizer-skills@event-speaker-cold-outreach instead of rebuilding it for the show",
+        "evidence": "It rebuilds the pipeline itself and does not reference those skills.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

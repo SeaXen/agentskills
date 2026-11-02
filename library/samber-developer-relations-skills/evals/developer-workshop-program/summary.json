@@ -1,0 +1,258 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "developer-workshop-program",
+  "scenarios": 7,
+  "expectations_total": 78,
+  "expectations_subjective": 0,
+  "expectations_objective": 78,
+  "pass_rate_with_skill_pct": 92.3,
+  "pass_rate_without_skill_pct": 39.7,
+  "delta_pp": 52.6,
+  "uplift_multiplier": 2.32,
+  "trigger_accuracy_pct": 53.0,
+  "trigger_queries": 66,
+  "trigger_positive_fire_rate": 0.182,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": null,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.309 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Offers the decline-with-alternative menu with the self-paced lab or tutorial path ranked first and an architecture or office-hours session second"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States the alternatives ordering as an explicit efficiency ranking rather than an unordered list"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends the VP or AE agree the grant decision with a named sales owner under a written rule instead of an SE absorbing it"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Lists written network questions for IT: outbound domains and ports, IP allow-lists, install rights, sign-up with corporate email"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Ranks delivery options by efficiency with solutions engineers above certified partners and gives the reason (account context versus ladder cost)"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Ranks workshop formats by efficiency and names build-on-your-use-case as the high-value, high-effort option the order starves, with a promotion condition"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Does not deliver a full-day agenda for the request as stated"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that the request fails the grant rule and names at least two missing conditions from: named champion or customer-side owner, a targeted use case or usage gap, a decision maker attending, a next step agreed before the date"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names the goodwill or renewal-rescue motive as a reason workshops fail, and says a bad workshop can leave attendees believing the product is hard"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Treats Brightwell as an existing customer and applies adoption criteria: a named customer-side owner, a specific usage gap, and a next step measured in usage"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Routes training 'on everything' to paid training or professional services rather than a free workshop"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Offers the decline-with-alternative menu with the self-paced lab or tutorial path ranked first and an architecture or office-hours session second"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States the alternatives ordering as an explicit efficiency ranking rather than an unordered list"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Flags that next Tuesday leaves no time for a logistics call, a dry run on their network, or lab provisioning lead time"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends the VP or AE agree the grant decision with a named sales owner under a written rule instead of an SE absorbing it"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "If it proposes a reshaped workshop, makes it conditional on the missing conditions being met and sizes it to half a day or less"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Requires a next-step agreement, with a success criterion and an owner on each side, written before the workshop date is set"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Has the grant rule signed with a named sales owner"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Adds level 2 checkpoint completion, level 3 attendee activity in their own account at 30 and 60 days, and level 4 next-step execution or POC start"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Replaces two hours of slides with a hands-on majority and lecture blocks under about 15 minutes"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Rejects installing the CLI and agent on attendee work laptops given managed laptops and a mandatory VPN"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends vendor-provisioned disposable environments, one per attendee, as the default"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Keeps trial sign-up for take-home continuation rather than minute zero of the workshop"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Requires environment time-to-live longer than the whole session including breaks"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Requires an automated checkpoint test (check fails, solve, check passes) within about 24 hours before delivery"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Sizes environments from the 18 confirmed attendees plus a small number of spares, not from an invitation list"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Requires teardown after the session and a take-home path with explicit cleanup steps"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Labels the shadow-style ladder as constructed practice rather than a published vendor standard"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Cites the AWS partner Immersion Day gate (certification, executive sponsorship, onboarding event) as the precedent to borrow"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Rejects one consultant for 20-30 attendees and requires an instructor plus roughly one helper per 10 attendees"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Ranks delivery options by efficiency with solutions engineers above certified partners and gives the reason (account context versus ladder cost)"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Keeps lab source and automated testing owned by a named maintainer on the vendor side"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires partners to apply the same grant rule and next-step agreement as internal deliveries"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires every instructor to rehearse on a tested lab before each delivery"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Identifies the 244% ROI study as commissioned by a lab-platform vendor"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Says the 244% ROI models time savings rather than workshop conversion"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Labels the pipeline number as influenced rather than sourced or caused"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Rebuilds the slide on the program's own measures such as next-step execution rate, checkpoint completion or 30/60-day attendee activity"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Does not include any of the refused figures in the final slide copy"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Orders curriculum design backward: use case to prove, then the checkpoint evidence, then exercises"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Sets a rule that a new module is built only when two or more qualified accounts need the same missing use case"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Sizes modules at roughly 60-90 minutes each"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Gives every exercise a script-verifiable checkpoint"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Titles modules by the developer's problem rather than product features, with a good/bad example"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Defaults to a half-day guided lab rather than a full day"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Ranks workshop formats by efficiency and names build-on-your-use-case as the high-value, high-effort option the order starves, with a promotion condition"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Keeps a closing readout slot with the decision maker"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Replaces the deck with a champion recap sent within about one business day"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Includes the success criterion outcome and the agreed next step with a date and owners in the recap"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Asks whether a next-step agreement exists and, if not, makes agreeing one the first action"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires lab environments to be torn down with cleanup steps on the take-home path"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Tracks attendee activity in their own accounts at 30 and 60 days"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Measures whether the agreed next step executes within about 30 days"
+      }
+    ]
+  }
+}

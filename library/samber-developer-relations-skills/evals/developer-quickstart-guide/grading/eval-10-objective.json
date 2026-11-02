@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Declines to cover all three requests in a single page and separates them into distinct pieces of work.",
+        "evidence": "The response delivers three distinct artifacts: the quickstart/primer page, a separate '## README rewrite', and a separate '## Docs nav reorganization', rather than merging all three asks into one page.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a quickstart's reader is a domain expert who knows the problem space and is new only to this product.",
+        "evidence": "'A pure quickstart (zero explanation, domain-expert audience) would fail them at word one.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the audience that must first learn embeddings and chunking to a getting-started guide or a teaching tutorial, instead of inlining the concepts.",
+        "evidence": "The concepts are inlined directly on the same page: 'one page, but structurally two artifacts glued together \u2014 a short, clearly-boxed concepts primer ... immediately followed by a real quickstart.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to open the quickstart with concept or architecture prose, naming background before the first action as a defect.",
+        "evidence": "The shipped page deliberately opens with '## First, two ideas you'll use in the next 7 minutes' before any action, presented as an intentional accommodation, not a defect.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the README rewrite to the repository-landing-page skill rather than handling it inside the quickstart.",
+        "evidence": "The assistant writes the full README rewrite itself under '## README rewrite' rather than routing to another skill.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the 40-item navigation problem to the documentation structure/information-architecture skill.",
+        "evidence": "The assistant produces the full nav bucket structure itself under '## Docs nav reorganization' rather than routing to another skill.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the specific sibling skills for those hand-offs rather than describing them vaguely.",
+        "evidence": "No skill hand-off occurs for the README or nav work, so no sibling skill names are given for it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Confirms that a quickstart deliberately teaches nothing general: one contrived happy path, no branching.",
+        "evidence": "No explicit statement of this principle appears in the transcript, though the page itself is a single linear path.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a quickstart drops detailed concept descriptions, walkthroughs of complex use cases, and explanations of why each step is performed.",
+        "evidence": "The cut list removes specific items (ANN internals, chunk-tuning, enterprise auth, billing, compliance, filtering/hybrid search) but never states the general principle about dropping 'why each step is performed' explanations.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Still puts prerequisites, versions and credential paths upfront, because 'domain expert' does not mean 'already set up'.",
+        "evidence": "'## Before you start - Python 3.9 or later... - A Vellum test API key: [create one](#) \u2014 no card required, self-serve - Use synthetic claim data for this page, not real policyholder data.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Declines to cover all three requests in a single page and separates them into distinct pieces of work.",
+        "evidence": "The response is structured as \"# 1. Quickstart\", \"# 2. README\", \"# 3. Docs nav reorganization\" \u2014 three clearly separate deliverables.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a quickstart's reader is a domain expert who knows the problem space and is new only to this product.",
+        "evidence": "The quickstart instead states \"No prior experience with embeddings, vector databases, or machine learning is assumed\" and teaches the underlying concepts from scratch.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the audience that must first learn embeddings and chunking to a getting-started guide or a teaching tutorial, instead of inlining the concepts.",
+        "evidence": "The concept explanation (\"What an embedding actually is\", \"What chunking is, and why you can't skip it\") is inlined directly in the quickstart page itself, only with a \"Skip this section if you already know\" option, not routed to a separate guide.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to open the quickstart with concept or architecture prose, naming background before the first action as a defect.",
+        "evidence": "The page opens with \"## Before you touch anything: what problem is this solving?\" \u2014 concept prose placed before Step 1, and this is never flagged as a defect.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the README rewrite to the repository-landing-page skill rather than handling it inside the quickstart.",
+        "evidence": "The README is written directly as deliverable #2 in this same response; no skill hand-off is mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the 40-item navigation problem to the documentation structure/information-architecture skill.",
+        "evidence": "The nav reorganization is handled directly as deliverable #3; no skill hand-off is mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the specific sibling skills for those hand-offs rather than describing them vaguely.",
+        "evidence": "No skill hand-offs occur anywhere in the transcript, so none are named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Confirms that a quickstart deliberately teaches nothing general: one contrived happy path, no branching.",
+        "evidence": "The page contains optional/conditional structure (\"Skip this section if...\", \"Step 4 (optional)\") and teaches general embedding/chunking concepts, contradicting a single contrived no-branching path.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a quickstart drops detailed concept descriptions, walkthroughs of complex use cases, and explanations of why each step is performed.",
+        "evidence": "The page does the opposite, including sections like \"What chunking is, and why you can't skip it\" with detailed conceptual walkthroughs, and no statement anywhere says these should be dropped.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Still puts prerequisites, versions and credential paths upfront, because 'domain expert' does not mean 'already set up'.",
+        "evidence": "\"You'll need: A Vellum account (free tier is fine) and one PDF, DOCX, or text file\" is upfront, but no SDK version is pinned anywhere and the API key/credential path only appears later inside the optional \"Step 4\" section, not upfront.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Gives an explicit efficiency ranking of Kaggle surfaces (for example with '>' ordering or a ranked table), not a flat list",
+        "evidence": "The '3. Ranked surfaces for you' table has ranks 1\u20136 plus Skip rows.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Starts with earn-first full answers in competition forums before any own-work link",
+        "evidence": "'1 | Full answers in competition forums, no links | ... Start in week 1.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a standalone notebook as the first published asset",
+        "evidence": "'Default rung: forum answers from week 1 and one standalone notebook from week 3'; Week 3: 'Publish notebook #1'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Promotes competition starter notebooks because the library runs offline in code competitions",
+        "evidence": "'Runs offline as a library | Starter notebook for a competition moves up to second, behind forum answers.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends installing the package offline (Kaggle's Dependency Manager or the wheels attached as a Kaggle dataset) for code competitions",
+        "evidence": "'For a code competition, install offline from an attached wheels dataset.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Mentions requesting preinstallation via the Kaggle docker-python repository and that the bar is high",
+        "evidence": "The docker-python preinstall request is not mentioned anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names staff competing under the company name as the starved high-value, high-effort option, conditioned on using only the public release any competitor can install",
+        "evidence": "It only says 'Skip | Featured Competition, staff competing under the company name | Needs months of staff time'. It does not frame this as a starved option or add the public-release condition.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives a week-by-week cadence over roughly eight weeks",
+        "evidence": "The 'Eight-week cadence' table covers weeks 1\u20138 with hours.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends requesting an organization profile",
+        "evidence": "'Request a Kaggle organization named Quillsort. Kaggle approves it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends getting the Novice account to Contributor tier early (complete profile, phone verification, a submission, a comment, a vote)",
+        "evidence": "'Take your own account from Novice to Contributor. Complete the profile, verify your phone, run one notebook, make one competition submission, leave one comment and cast one vote'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends forks or copy-and-edit counts as a success metric",
+        "evidence": "'Forks and copy-and-edit counts from outside accounts, dataset downloads.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Gives an explicit efficiency ranking of Kaggle surfaces (for example with '>' ordering or a ranked table), not a flat list",
+        "evidence": "Plan is a week-by-week sequence with no ranked surface ordering.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Starts with earn-first full answers in competition forums before any own-work link",
+        "evidence": "Benchmarks and notebooks come first; forum answering is in weeks 5-6.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends a standalone notebook as the first published asset",
+        "evidence": "Weeks 3-4: 'Publish one notebook: a reproducible benchmark'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Promotes competition starter notebooks because the library runs offline in code competitions",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends installing the package offline (Kaggle's Dependency Manager or the wheels attached as a Kaggle dataset) for code competitions",
+        "evidence": "Uses internet on (`pip install quillsort`).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Mentions requesting preinstallation via the Kaggle docker-python repository and that the bar is high",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names staff competing under the company name as the starved high-value, high-effort option, conditioned on using only the public release any competitor can install",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives a week-by-week cadence over roughly eight weeks",
+        "evidence": "'Plan: 8 weeks at 6 hours a week' with Week 1, Week 2, Weeks 3-4, 5-6, 7-8.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends requesting an organization profile",
+        "evidence": "'What to skip for now: A Kaggle \"organization\" or branded account.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends getting the Novice account to Contributor tier early (complete profile, phone verification, a submission, a comment, a vote)",
+        "evidence": "'Reach Contributor tier. Verify your phone, fill in your profile, run one notebook, make one submission, and post one forum comment.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends forks or copy-and-edit counts as a success metric",
+        "evidence": "'Notebook views, votes, and forks.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

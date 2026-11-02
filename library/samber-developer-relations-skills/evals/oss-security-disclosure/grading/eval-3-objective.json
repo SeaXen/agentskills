@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Replaces 'respond within 24 hours' with an acknowledgement target in business days (default 5) sized to three to four hours per maintainer in a bad month, and says a missed published target costs more trust than a modest one kept",
+        "evidence": "\"A missed published target costs more trust than a modest one you keep.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names one primary channel, code-host private vulnerability reporting, and either drops the email alias or labels it explicitly as a fallback, instead of listing two equal channels",
+        "evidence": "\"Private reporting only... Two equal channels split reports\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects launching the bug bounty on the grounds that paid programs attract low-quality and machine-generated volume that needs funded triage hours the team does not have",
+        "evidence": "\"attracts low-quality and machine-generated volume, and you have no funded triage hours\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes the copied safe-harbor section unless every named maintainer agrees to it, stating that individual maintainers can waive only their own claims",
+        "evidence": "\"Individual maintainers can waive only their own claims... Ship it only if all three maintainers agree\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags that a repository under a personal account lets only one person manage advisories, and recommends transferring it to an organization so a second responder can hold that role",
+        "evidence": "\"Transfer the repo to a GitHub organization... one responder\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that responders need the admin or security-manager role to receive private reports, and that write access receives nothing",
+        "evidence": "\"Write access receives nothing.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists `ferrokv` and `ferrokv/v2` as separate rows in the supported-versions table",
+        "evidence": "Table rows for `github.com/<owner>/ferrokv/v2` and `github.com/<owner>/ferrokv` (v1).",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes an explicit no-bounty line and an out-of-scope list in SECURITY.md",
+        "evidence": "\"ferrokv does not run a bug bounty\"; Scope section lists out-of-scope items.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes the request that reporters say whether they used AI tools and confirm they verified the result themselves",
+        "evidence": "\"If you used AI tools... confirm you verified the result yourself.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Records the scoring convention as a CVSS 3.1 vector plus 4.0 where accepted, and sets CNA posture to the code-host CNA with the trigger that would change it (third-party CVEs filed, or several CVEs a year)",
+        "evidence": "Only CVSS 3.1 base metrics and GitHub's CNA; no 4.0, no trigger for changing CNA posture.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the two-week hard date promoted code-host private reporting and the template SECURITY.md over longer-horizon options, naming which interview answer moved which option",
+        "evidence": "No mention of the two-week hard date or which interview answer moved which option.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Delivers a verification step with all four checks: a test report from a second account reaching both responders within one business day, the SECURITY.md channel matching the enabled setting, the supported-versions table matching tags that receive fixes, and a second person following the policy unaided",
+        "evidence": "Verify section lists second account test report, channel match, supported table match, maintainer follows unaided.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Delivers a host-settings checklist with an owner per item and a responder roster naming two people plus a backup",
+        "evidence": "\"Owner is whoever has the role named in each step\"; no roster naming two people plus a backup.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Classifies the project as outside the EU CRA (volunteer, non-monetised) while noting the adopter shipping it in a product is the manufacturer, and routes legal classification to a lawyer",
+        "evidence": "\"Individual volunteers on a non-monetised project are outside the EU CRA\"; adopter a manufacturer; re-check with a lawyer.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Replaces 'respond within 24 hours' with an acknowledgement target in business days (default 5) sized to three to four hours per maintainer in a bad month, and says a missed published target costs more trust than a modest one kept",
+        "evidence": "\"24-hour response is now 3 business days... A promise you keep beats a faster one you miss.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names one primary channel, code-host private vulnerability reporting, and either drops the email alias or labels it explicitly as a fallback, instead of listing two equal channels",
+        "evidence": "\"Use either channel: 1. GitHub private reporting 2. Email\" \u2014 two equal channels.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects launching the bug bounty on the grounds that paid programs attract low-quality and machine-generated volume that needs funded triage hours the team does not have",
+        "evidence": "\"Bounties also attract a flood of low-quality and AI-generated reports, and you can't triage a flood.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes the copied safe-harbor section unless every named maintainer agrees to it, stating that individual maintainers can waive only their own claims",
+        "evidence": "Rewrites it and keeps a \"Safe harbor\" section; nothing on individual waivers.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags that a repository under a personal account lets only one person manage advisories, and recommends transferring it to an organization so a second responder can hold that role",
+        "evidence": "\"A personal-account repo has no 'Security manager' role... move the repo to a GitHub org (better for bus factor).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that responders need the admin or security-manager role to receive private reports, and that write access receives nothing",
+        "evidence": "Says to add collaborators with admin, but never says write access receives nothing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Lists `ferrokv` and `ferrokv/v2` as separate rows in the supported-versions table",
+        "evidence": "The table has rows `ferrokv/v2` (2.x) and `ferrokv` (1.x).",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes an explicit no-bounty line and an out-of-scope list in SECURITY.md",
+        "evidence": "\"We do not run a bounty program\" and an \"Out of scope\" list.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes the request that reporters say whether they used AI tools and confirm they verified the result themselves",
+        "evidence": "The \"Please include\" list has no AI-use request.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Records the scoring convention as a CVSS 3.1 vector plus 4.0 where accepted, and sets CNA posture to the code-host CNA with the trigger that would change it (third-party CVEs filed, or several CVEs a year)",
+        "evidence": "Not addressed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the two-week hard date promoted code-host private reporting and the template SECURITY.md over longer-horizon options, naming which interview answer moved which option",
+        "evidence": "Not addressed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Delivers a verification step with all four checks: a test report from a second account reaching both responders within one business day, the SECURITY.md channel matching the enabled setting, the supported-versions table matching tags that receive fixes, and a second person following the policy unaided",
+        "evidence": "Only \"Test end to end\" with a test mail and a test report; not the four required checks.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Delivers a host-settings checklist with an owner per item and a responder roster naming two people plus a backup",
+        "evidence": "The checklist has no per-item owners; the weekly rota is not a two-plus-backup roster.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Classifies the project as outside the EU CRA (volunteer, non-monetised) while noting the adopter shipping it in a product is the manufacturer, and routes legal classification to a lawyer",
+        "evidence": "CRA is not mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

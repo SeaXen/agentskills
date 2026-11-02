@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Removes SAML/SSO from the paid side and refuses to treat it as an acceptable enterprise gate",
+        "evidence": "\"SAML/SSO login | ... | PULL\" with \"fails the sso.tax rule outright\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites sso.tax or the sso-wall-of-shame catalogue, or its argument that security should not be a premium feature, when rejecting paid SSO",
+        "evidence": "\"the actively-maintained `robchahin/sso-wall-of-shame` catalogue\" and \"'SSO is a core security requirement for any company with more than five employees'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes the community-contributed Kubernetes operator from the paid side",
+        "evidence": "\"Kubernetes operator | debatable | no | ... | PULL\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the hostile fork as the consequence of selling contributors their own work back to them",
+        "evidence": "\"'selling contributors their own work back invites the hostile fork,' the most cited fork trigger in this market.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes bulk CSV export of flag history from the paid side because data export must not be gated",
+        "evidence": "\"direct hit on 'data export and portability.' ... Keep all export, including bulk/full-history CSV, free and unlimited.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps role-based access control and audit logging as legitimate organization-only paid surface",
+        "evidence": "\"RBAC | ... | KEEP (scoped)\" and \"Audit logging | ... | KEEP (scoped)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Applies the organization-only test: everything paid must be something a company needs and a solo developer does not",
+        "evidence": "Table column \"Org-only?\" answered per feature, e.g. \"yes\" for SSO/RBAC/audit/CSV, \"debatable\" for K8s operator",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Applies the defensibility test by asking whether a motivated contributor could rebuild the paid part upstream in a weekend and would want to",
+        "evidence": "Table column \"Defensible w/o hostility?\" with \"no\" for K8s operator: \"a weekend fork\" reasoning implied in prose",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Applies the observable-trigger test and names a concrete, visible signal that a user has crossed from free need to paid need",
+        "evidence": "\"Observable trigger? yes (SSO config attempt)\" for SSO; \"yes (audit/compliance ask)\" for audit logging",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Applies the cost-to-serve test and asks what one free user costs per month in currency",
+        "evidence": "Table column \"Cost-to-serve OK?\" is answered with bare \"yes\"/\"yes (self-hosted)\" for every row; no currency figure or per-user monthly cost is ever computed or asked for in the text.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Applies the licence-compatibility test against the MIT licence already published",
+        "evidence": "\"if that operator already merged and shipped in an MIT-licensed release... Published MIT code stays MIT forever unless the contributor signed a CLA\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats a failed test as blocking rather than as a weakness to be offset by strengths elsewhere",
+        "evidence": "\"fails the sso.tax rule outright, independent of whether it clears the org-only test\" \u2014 PULL verdict stands despite passing other gates",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Answers the five tests in writing, one by one, rather than closing with an overall impression of the boundary",
+        "evidence": "Full five-column table applying all five gates individually to each of the five features",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Removes SAML/SSO from the paid side and refuses to treat it as an acceptable enterprise gate",
+        "evidence": "'\u2705 SAML/SSO, RBAC, audit logging \u2014 solid, keep as is.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites sso.tax or the sso-wall-of-shame catalogue, or its argument that security should not be a premium feature, when rejecting paid SSO",
+        "evidence": "No such citation appears; SSO is endorsed as a paid feature rather than rejected.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Removes the community-contributed Kubernetes operator from the paid side",
+        "evidence": "'\u274c Kubernetes operator \u2014 don't ship this one as written.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the hostile fork as the consequence of selling contributors their own work back to them",
+        "evidence": "The text says this move 'torched goodwill in the HashiCorp/Elastic relicensing backlashes' but never names a resulting fork as the consequence of this specific action.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Removes bulk CSV export of flag history from the paid side because data export must not be gated",
+        "evidence": "The response gives conditional guidance instead: 'If export doesn't exist today... that's fine... If any export path exists today... and you're removing/gating it, that's the sudden rug pull anti-pattern' \u2014 it does not unconditionally remove it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps role-based access control and audit logging as legitimate organization-only paid surface",
+        "evidence": "'\u2705 SAML/SSO, RBAC, audit logging \u2014 solid, keep as is... This is a scale/maturity trigger, not a feature prison.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Applies the organization-only test: everything paid must be something a company needs and a solo developer does not",
+        "evidence": "'nobody self-hosting a feature-flag server for a side project or small team needs SSO to get value from the product. The orgs that need it are already budget-holders paying for other compliance tooling elsewhere.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Applies the defensibility test by asking whether a motivated contributor could rebuild the paid part upstream in a weekend and would want to",
+        "evidence": "No such test is applied; the operator discussion is framed around ownership/CLA rights, not rebuildability.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Applies the observable-trigger test and names a concrete, visible signal that a user has crossed from free need to paid need",
+        "evidence": "No concrete observable signal (like a specific usage threshold or action) is named; SSO is only called 'a scale/maturity trigger' without specifying what triggers it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Applies the cost-to-serve test and asks what one free user costs per month in currency",
+        "evidence": "No mention of cost per free user in currency anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Applies the licence-compatibility test against the MIT licence already published",
+        "evidence": "'if the whole repo stays single-licensed MIT, putting something behind Enterprise is not actually enforceable \u2014 MIT permits modification and redistribution.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats a failed test as blocking rather than as a weakness to be offset by strengths elsewhere",
+        "evidence": "'Pull the Kubernetes operator out of this Enterprise list entirely until you've resolved the contributor's rights' \u2014 treated as blocking, not offset.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Answers the five tests in writing, one by one, rather than closing with an overall impression of the boundary",
+        "evidence": "The review is organized by feature (SSO, CSV export, operator, licensing mechanics) rather than as five explicitly named tests applied systematically to each candidate.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

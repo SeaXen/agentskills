@@ -1,0 +1,1319 @@
+import { RuleTester } from 'eslint';
+import tablePersonalizationRule from '../../src/rules/sap-table-personalization.js';
+import { meta, languages } from '../../src/index.js';
+import {
+    getAnnotationsAsXmlCode,
+    getManifestAsCode,
+    setup,
+    V4_ANNOTATIONS,
+    V4_ANNOTATIONS_PATH,
+    V4_FACETS_ANNOTATIONS,
+    V4_MANIFEST,
+    V4_MANIFEST_PATH
+} from '../test-helper.js';
+
+const ruleTester = new RuleTester({
+    plugins: { ['@sap-ux/eslint-plugin-fiori-tools']: { ...meta, languages } },
+    language: '@sap-ux/eslint-plugin-fiori-tools/fiori'
+});
+
+const FACETSV4 = {
+    filename: V4_ANNOTATIONS_PATH,
+    code: getAnnotationsAsXmlCode(V4_ANNOTATIONS, V4_FACETS_ANNOTATIONS)
+};
+
+const TEST_NAME = 'sap-table-personalization';
+const { createValidTest, createInvalidTest } = setup(TEST_NAME);
+
+ruleTester.run(TEST_NAME, tablePersonalizationRule, {
+    valid: [
+        createValidTest(
+            {
+                name: 'V4 - table personalization missing',
+                filename: V4_MANIFEST_PATH,
+                code: JSON.stringify(V4_MANIFEST, undefined, 2)
+            },
+            []
+        ),
+        createValidTest(
+            {
+                name: 'V4 - list report page table - personalization is true',
+                filename: V4_MANIFEST_PATH,
+                code: getManifestAsCode(V4_MANIFEST, [
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsList',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            '@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'personalization'
+                        ],
+                        value: true
+                    }
+                ])
+            },
+            []
+        ),
+        createValidTest(
+            {
+                name: 'V4 - object page table - personalization is true',
+                filename: V4_MANIFEST_PATH,
+                code: getManifestAsCode(V4_MANIFEST, [
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsObjectPage',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            'incidentFlow/@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'personalization'
+                        ],
+                        value: true
+                    }
+                ])
+            },
+            [FACETSV4]
+        ),
+        createValidTest(
+            {
+                name: 'V4 - list report page - AnalyticalTable + minUI5=1.108 - group is true',
+                filename: V4_MANIFEST_PATH,
+                code: getManifestAsCode(V4_MANIFEST, [
+                    {
+                        path: ['sap.ui5', 'dependencies', 'minUI5Version'],
+                        value: '1.108.1'
+                    },
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsList',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            '@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'type'
+                        ],
+                        value: 'AnalyticalTable'
+                    },
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsList',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            '@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'personalization'
+                        ],
+                        value: {
+                            column: true,
+                            filter: true,
+                            group: true,
+                            sort: true
+                        }
+                    }
+                ])
+            },
+            []
+        ),
+        createValidTest(
+            {
+                name: 'V4 - list report page - ResponsiveTable + minUI5=1.120=exact boundary - group is true',
+                filename: V4_MANIFEST_PATH,
+                code: getManifestAsCode(V4_MANIFEST, [
+                    {
+                        path: ['sap.ui5', 'dependencies', 'minUI5Version'],
+                        value: '1.120.0'
+                    },
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsList',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            '@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'type'
+                        ],
+                        value: 'ResponsiveTable'
+                    },
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsList',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            '@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'personalization'
+                        ],
+                        value: {
+                            column: true,
+                            filter: true,
+                            group: true,
+                            sort: true
+                        }
+                    }
+                ])
+            },
+            []
+        ),
+        createValidTest(
+            {
+                name: 'V4 - list report page - ResponsiveTable + minUI5=1.122 - group is true',
+                filename: V4_MANIFEST_PATH,
+                code: getManifestAsCode(V4_MANIFEST, [
+                    {
+                        path: ['sap.ui5', 'dependencies', 'minUI5Version'],
+                        value: '1.122.5'
+                    },
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsList',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            '@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'type'
+                        ],
+                        value: 'ResponsiveTable'
+                    },
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsList',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            '@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'personalization'
+                        ],
+                        value: {
+                            column: true,
+                            filter: true,
+                            group: true,
+                            sort: true
+                        }
+                    }
+                ])
+            },
+            []
+        ),
+        createValidTest(
+            {
+                name: 'V4 - list report page - GridTable - group is false',
+                filename: V4_MANIFEST_PATH,
+                code: getManifestAsCode(V4_MANIFEST, [
+                    {
+                        path: ['sap.ui5', 'dependencies', 'minUI5Version'],
+                        value: '1.110.1'
+                    },
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsList',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            '@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'type'
+                        ],
+                        value: 'GridTable'
+                    },
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsList',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            '@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'personalization'
+                        ],
+                        value: {
+                            column: true,
+                            filter: true,
+                            group: false,
+                            sort: true
+                        }
+                    }
+                ])
+            },
+            []
+        ),
+        createValidTest(
+            {
+                name: 'V4 - list report page - AnalyticalTable + minUI5=1.100 - group is false',
+                filename: V4_MANIFEST_PATH,
+                code: getManifestAsCode(V4_MANIFEST, [
+                    {
+                        path: ['sap.ui5', 'dependencies', 'minUI5Version'],
+                        value: '1.100.1'
+                    },
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsList',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            '@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'type'
+                        ],
+                        value: 'AnalyticalTable'
+                    },
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsList',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            '@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'personalization'
+                        ],
+                        value: {
+                            column: true,
+                            filter: true,
+                            group: false,
+                            sort: true
+                        }
+                    }
+                ])
+            },
+            []
+        ),
+        createValidTest(
+            {
+                name: 'V4 - list report page - AnalyticalTable + minUI5=1.108= exact boundary - group is true',
+                filename: V4_MANIFEST_PATH,
+                code: getManifestAsCode(V4_MANIFEST, [
+                    {
+                        path: ['sap.ui5', 'dependencies', 'minUI5Version'],
+                        value: '1.108.0'
+                    },
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsList',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            '@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'type'
+                        ],
+                        value: 'AnalyticalTable'
+                    },
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsList',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            '@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'personalization'
+                        ],
+                        value: {
+                            column: true,
+                            filter: true,
+                            group: true,
+                            sort: true
+                        }
+                    }
+                ])
+            },
+            []
+        ),
+        createValidTest(
+            {
+                name: 'V4 - list report page - ResponsiveTable + minUI5=1.119 - group is false',
+                filename: V4_MANIFEST_PATH,
+                code: getManifestAsCode(V4_MANIFEST, [
+                    {
+                        path: ['sap.ui5', 'dependencies', 'minUI5Version'],
+                        value: '1.107.1'
+                    },
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsList',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            '@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'type'
+                        ],
+                        value: 'ResponsiveTable'
+                    },
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsList',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            '@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'personalization'
+                        ],
+                        value: {
+                            column: true,
+                            filter: true,
+                            group: false,
+                            sort: true
+                        }
+                    }
+                ])
+            },
+            []
+        )
+    ],
+
+    invalid: [
+        createInvalidTest(
+            {
+                name: 'V4 - list report page table - personalization is false',
+                filename: V4_MANIFEST_PATH,
+                code: getManifestAsCode(V4_MANIFEST, [
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsList',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            '@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'personalization'
+                        ],
+                        value: false
+                    }
+                ]),
+                errors: [
+                    {
+                        message:
+                            'Table personalization should be enabled. Currently every table personalization setting is disabled.',
+                        line: 127,
+                        column: 21
+                    }
+                ],
+                output: getManifestAsCode(V4_MANIFEST, [
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsList',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            '@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'personalization'
+                        ],
+                        value: true
+                    }
+                ])
+            },
+            []
+        ),
+        createInvalidTest(
+            {
+                name: 'V4 - object page table - personalization is {} - all properties disabled, group not checked',
+                filename: V4_MANIFEST_PATH,
+                code: getManifestAsCode(V4_MANIFEST, [
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsObjectPage',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            'incidentFlow/@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'personalization'
+                        ],
+                        value: {}
+                    }
+                ]),
+                errors: [
+                    {
+                        message:
+                            'In case of using an object, omitting a setting is treated as `false`. Currently `column`, `filter`, `sort` are disabled in the Products table.',
+                        line: 145,
+                        column: 21
+                    }
+                ],
+                output: getManifestAsCode(V4_MANIFEST, [
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsObjectPage',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            'incidentFlow/@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'personalization'
+                        ],
+                        value: true
+                    }
+                ])
+            },
+            [FACETSV4]
+        ),
+        createInvalidTest(
+            {
+                name: 'V4 - list report page - Analytical table - all personalization properties are false',
+                filename: V4_MANIFEST_PATH,
+                code: getManifestAsCode(V4_MANIFEST, [
+                    {
+                        path: ['sap.ui5', 'dependencies', 'minUI5Version'],
+                        value: '1.109.1'
+                    },
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsList',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            '@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'type'
+                        ],
+                        value: 'AnalyticalTable'
+                    },
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsList',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            '@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'personalization'
+                        ],
+                        value: {
+                            column: false,
+                            filter: false,
+                            group: false,
+                            sort: false
+                        }
+                    }
+                ]),
+                errors: [
+                    {
+                        message: 'Adding or removing table columns should be enabled in the table.',
+                        line: 128,
+                        column: 23
+                    },
+                    {
+                        message: 'Data filtering should be enabled in the table.',
+                        line: 129,
+                        column: 23
+                    },
+                    {
+                        message:
+                            'Data grouping should be enabled in the table. Grouping is available for analytical and responsive type tables.',
+                        line: 130,
+                        column: 23
+                    },
+                    {
+                        message: 'Data sorting should be enabled in the table.',
+                        line: 131,
+                        column: 23
+                    }
+                ],
+                output: getManifestAsCode(V4_MANIFEST, [
+                    {
+                        path: ['sap.ui5', 'dependencies', 'minUI5Version'],
+                        value: '1.109.1'
+                    },
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsList',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            '@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'type'
+                        ],
+                        value: 'AnalyticalTable'
+                    },
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsList',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            '@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'personalization'
+                        ],
+                        value: true
+                    }
+                ])
+            },
+            []
+        ),
+        createInvalidTest(
+            {
+                name: 'V4 - list report page - Responsive table - group is false',
+                filename: V4_MANIFEST_PATH,
+                code: getManifestAsCode(V4_MANIFEST, [
+                    {
+                        path: ['sap.ui5', 'dependencies', 'minUI5Version'],
+                        value: '1.121.1'
+                    },
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsList',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            '@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'type'
+                        ],
+                        value: 'ResponsiveTable'
+                    },
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsList',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            '@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'personalization'
+                        ],
+                        value: {
+                            column: true,
+                            filter: true,
+                            group: false,
+                            sort: true
+                        }
+                    }
+                ]),
+                errors: [
+                    {
+                        message:
+                            'Data grouping should be enabled in the table. Grouping is available for analytical and responsive type tables.',
+                        line: 130,
+                        column: 23
+                    }
+                ],
+                output: getManifestAsCode(V4_MANIFEST, [
+                    {
+                        path: ['sap.ui5', 'dependencies', 'minUI5Version'],
+                        value: '1.121.1'
+                    },
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsList',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            '@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'type'
+                        ],
+                        value: 'ResponsiveTable'
+                    },
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsList',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            '@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'personalization'
+                        ],
+                        value: true
+                    }
+                ])
+            },
+            []
+        ),
+        createInvalidTest(
+            {
+                name: 'V4 - list report page - empty object, group is checked, group is undefined',
+                filename: V4_MANIFEST_PATH,
+                code: getManifestAsCode(V4_MANIFEST, [
+                    {
+                        path: ['sap.ui5', 'dependencies', 'minUI5Version'],
+                        value: '1.121.1'
+                    },
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsList',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            '@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'type'
+                        ],
+                        value: 'ResponsiveTable'
+                    },
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsList',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            '@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'personalization'
+                        ],
+                        value: {}
+                    }
+                ]),
+                errors: [
+                    {
+                        line: 127,
+                        column: 21,
+                        message:
+                            'In case of using an object, omitting a setting is treated as `false`. Currently `column`, `filter`, `group`, `sort` are disabled in the table.'
+                    }
+                ],
+                output: getManifestAsCode(V4_MANIFEST, [
+                    {
+                        path: ['sap.ui5', 'dependencies', 'minUI5Version'],
+                        value: '1.121.1'
+                    },
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsList',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            '@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'type'
+                        ],
+                        value: 'ResponsiveTable'
+                    },
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsList',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            '@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'personalization'
+                        ],
+                        value: true
+                    }
+                ])
+            },
+            []
+        ),
+        createInvalidTest(
+            {
+                name: 'V4 - list report page - undefined settings, group is not checked, group is false',
+                filename: V4_MANIFEST_PATH,
+                code: getManifestAsCode(V4_MANIFEST, [
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsList',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            '@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'personalization'
+                        ],
+                        value: {
+                            group: false,
+                            filter: false
+                        }
+                    }
+                ]),
+                errors: [
+                    {
+                        line: 127,
+                        column: 21,
+                        message:
+                            'In case of using an object, omitting a setting is treated as `false`. Currently `column`, `sort` are disabled in the table.'
+                    },
+                    {
+                        line: 129,
+                        column: 23,
+                        message: 'Data filtering should be enabled in the table.'
+                    }
+                ],
+                output: getManifestAsCode(V4_MANIFEST, [
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsList',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            '@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'personalization'
+                        ],
+                        value: true
+                    }
+                ])
+            },
+            []
+        ),
+        createInvalidTest(
+            {
+                name: 'V4 - list report page - single undefined property, group is not checked',
+                filename: V4_MANIFEST_PATH,
+                code: getManifestAsCode(V4_MANIFEST, [
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsList',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            '@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'personalization'
+                        ],
+                        value: {
+                            group: false,
+                            filter: false,
+                            sort: true
+                        }
+                    }
+                ]),
+                errors: [
+                    {
+                        line: 127,
+                        column: 21,
+                        message:
+                            'In case of using an object, omitting a setting is treated as `false`. Currently `column` is disabled in the table.'
+                    },
+                    {
+                        line: 129,
+                        column: 23,
+                        message: 'Data filtering should be enabled in the table.'
+                    }
+                ],
+                output: getManifestAsCode(V4_MANIFEST, [
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsList',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            '@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'personalization'
+                        ],
+                        value: true
+                    }
+                ])
+            },
+            []
+        ),
+        createInvalidTest(
+            {
+                name: 'V4 - list report page - undefined settings, group is checked, group is false',
+                filename: V4_MANIFEST_PATH,
+                code: getManifestAsCode(V4_MANIFEST, [
+                    {
+                        path: ['sap.ui5', 'dependencies', 'minUI5Version'],
+                        value: '1.121.1'
+                    },
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsList',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            '@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'type'
+                        ],
+                        value: 'ResponsiveTable'
+                    },
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsList',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            '@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'personalization'
+                        ],
+                        value: {
+                            column: true,
+                            group: false
+                        }
+                    }
+                ]),
+                errors: [
+                    {
+                        line: 127,
+                        column: 21,
+                        message:
+                            'In case of using an object, omitting a setting is treated as `false`. Currently `filter`, `sort` are disabled in the table.'
+                    },
+                    {
+                        line: 129,
+                        column: 23,
+                        message:
+                            'Data grouping should be enabled in the table. Grouping is available for analytical and responsive type tables.'
+                    }
+                ],
+                output: getManifestAsCode(V4_MANIFEST, [
+                    {
+                        path: ['sap.ui5', 'dependencies', 'minUI5Version'],
+                        value: '1.121.1'
+                    },
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsList',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            '@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'type'
+                        ],
+                        value: 'ResponsiveTable'
+                    },
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsList',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            '@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'personalization'
+                        ],
+                        value: true
+                    }
+                ])
+            },
+            []
+        ),
+        createInvalidTest(
+            {
+                name: 'V4 - object page - empty object, group is checked, group is undefined',
+                filename: V4_MANIFEST_PATH,
+                code: getManifestAsCode(V4_MANIFEST, [
+                    {
+                        path: ['sap.ui5', 'dependencies', 'minUI5Version'],
+                        value: '1.121.1'
+                    },
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsObjectPage',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            'incidentFlow/@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'type'
+                        ],
+                        value: 'ResponsiveTable'
+                    },
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsObjectPage',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            'incidentFlow/@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'personalization'
+                        ],
+                        value: {}
+                    }
+                ]),
+                errors: [
+                    {
+                        line: 146,
+                        column: 21,
+                        message:
+                            'In case of using an object, omitting a setting is treated as `false`. Currently `column`, `filter`, `group`, `sort` are disabled in the Products table.'
+                    }
+                ],
+                output: getManifestAsCode(V4_MANIFEST, [
+                    {
+                        path: ['sap.ui5', 'dependencies', 'minUI5Version'],
+                        value: '1.121.1'
+                    },
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsObjectPage',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            'incidentFlow/@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'type'
+                        ],
+                        value: 'ResponsiveTable'
+                    },
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsObjectPage',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            'incidentFlow/@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'personalization'
+                        ],
+                        value: true
+                    }
+                ])
+            },
+            [FACETSV4]
+        ),
+        createInvalidTest(
+            {
+                name: 'V4 - object page - undefined settings, group is not checked, group is false',
+                filename: V4_MANIFEST_PATH,
+                code: getManifestAsCode(V4_MANIFEST, [
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsObjectPage',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            'incidentFlow/@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'personalization'
+                        ],
+                        value: {
+                            group: false,
+                            filter: false
+                        }
+                    }
+                ]),
+                errors: [
+                    {
+                        line: 145,
+                        column: 21,
+                        message:
+                            'In case of using an object, omitting a setting is treated as `false`. Currently `column`, `sort` are disabled in the Products table.'
+                    },
+                    {
+                        line: 147,
+                        column: 23,
+                        message: 'Data filtering should be enabled in the Products table.'
+                    }
+                ],
+                output: getManifestAsCode(V4_MANIFEST, [
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsObjectPage',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            'incidentFlow/@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'personalization'
+                        ],
+                        value: true
+                    }
+                ])
+            },
+            [FACETSV4]
+        ),
+        createInvalidTest(
+            {
+                name: 'V4 - object page - single undefined property, group is not checked',
+                filename: V4_MANIFEST_PATH,
+                code: getManifestAsCode(V4_MANIFEST, [
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsObjectPage',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            'incidentFlow/@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'personalization'
+                        ],
+                        value: {
+                            group: false,
+                            filter: false,
+                            sort: true
+                        }
+                    }
+                ]),
+                errors: [
+                    {
+                        line: 145,
+                        column: 21,
+                        message:
+                            'In case of using an object, omitting a setting is treated as `false`. Currently `column` is disabled in the Products table.'
+                    },
+                    {
+                        line: 147,
+                        column: 23,
+                        message: 'Data filtering should be enabled in the Products table.'
+                    }
+                ],
+                output: getManifestAsCode(V4_MANIFEST, [
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsObjectPage',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            'incidentFlow/@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'personalization'
+                        ],
+                        value: true
+                    }
+                ])
+            },
+            [FACETSV4]
+        ),
+        createInvalidTest(
+            {
+                name: 'V4 - object page - undefined settings, group is checked, group is false',
+                filename: V4_MANIFEST_PATH,
+                code: getManifestAsCode(V4_MANIFEST, [
+                    {
+                        path: ['sap.ui5', 'dependencies', 'minUI5Version'],
+                        value: '1.121.1'
+                    },
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsObjectPage',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            'incidentFlow/@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'type'
+                        ],
+                        value: 'ResponsiveTable'
+                    },
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsObjectPage',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            'incidentFlow/@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'personalization'
+                        ],
+                        value: {
+                            column: true,
+                            group: false
+                        }
+                    }
+                ]),
+                errors: [
+                    {
+                        line: 146,
+                        column: 21,
+                        message:
+                            'In case of using an object, omitting a setting is treated as `false`. Currently `filter`, `sort` are disabled in the Products table.'
+                    },
+                    {
+                        line: 148,
+                        column: 23,
+                        message:
+                            'Data grouping should be enabled in the Products table. Grouping is available for analytical and responsive type tables.'
+                    }
+                ],
+                output: getManifestAsCode(V4_MANIFEST, [
+                    {
+                        path: ['sap.ui5', 'dependencies', 'minUI5Version'],
+                        value: '1.121.1'
+                    },
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsObjectPage',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            'incidentFlow/@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'type'
+                        ],
+                        value: 'ResponsiveTable'
+                    },
+                    {
+                        path: [
+                            'sap.ui5',
+                            'routing',
+                            'targets',
+                            'IncidentsObjectPage',
+                            'options',
+                            'settings',
+                            'controlConfiguration',
+                            'incidentFlow/@com.sap.vocabularies.UI.v1.LineItem',
+                            'tableSettings',
+                            'personalization'
+                        ],
+                        value: true
+                    }
+                ])
+            },
+            [FACETSV4]
+        )
+    ]
+});

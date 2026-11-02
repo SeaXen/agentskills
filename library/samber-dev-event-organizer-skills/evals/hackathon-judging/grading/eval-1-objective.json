@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States the full-coverage ceiling as N <= W / t and computes 90 / 5 = 18 teams",
+        "evidence": "\"Full coverage needs N \u00d7 t \u2264 W, so N \u2264 90 / 5 = 18 teams.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that 48 teams exceeds that 18-team ceiling, so full coverage is impossible",
+        "evidence": "\"Letting all 15 judges walk all 48 tables is arithmetically impossible\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States explicitly that the full-coverage ceiling contains no judge-count term, so adding judges cannot extend it",
+        "evidence": "\"The cap has no judge count in it. Every added judge still has to walk all 48 tables\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses the user's premise that recruiting 6 more judges lets every judge see every team",
+        "evidence": "\"Northwind's 6 people cannot extend full coverage.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Computes judges per team as k = floor((9 x 90) / (48 x 5)) = 3",
+        "evidence": "Table: \"9 | k = 3\" using k = floor((J \u00d7 W) / (N \u00d7 t))",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the allocation band as a sampled panel band (Band 2), not full coverage and not triage",
+        "evidence": "\"What fits: a sampled panel (Band 2)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recomputes k for 15 judges as 5 and states full coverage is still impossible at that judge count",
+        "evidence": "\"With 15 judges, k = floor(1350 / 240) = 5\"; full-coverage cap is judge-independent",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prescribes per-judge normalization rather than a raw average, because judges score a proper subset of the field",
+        "evidence": "\"Use per-judge normalization... Raw averaging is wrong here.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Delivers the allocation map as a named list giving judge, teams, visiting order and start time",
+        "evidence": "\"Each judge gets a named list of 14 consecutive tables on that ring, with a start time.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes the 5-minute expo figure allows nothing for setup or swap, so the ceiling is an optimistic upper bound rather than a capacity promise",
+        "evidence": "\"Five minutes is also an optimistic upper bound. It allows little for walking and note-writing\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reserves buffer time rather than allocating 100% of the 90-minute window",
+        "evidence": "\"Plan with a 15-min tally reserve (14 visits each, 70 min)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not propose any prize amount or prize split",
+        "evidence": "No prize amounts appear in the plan.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States the full-coverage ceiling as N <= W / t and computes 90 / 5 = 18 teams",
+        "evidence": "It computes '48 tables at 5 min each needs 240 min' against a 90-minute window. It never states the 18-team ceiling.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that 48 teams exceeds that 18-team ceiling, so full coverage is impossible",
+        "evidence": "It says 'Full coverage would take 15 \u00d7 240 = 3,600 judge-minutes' but never compares 48 against 18.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States explicitly that the full-coverage ceiling contains no judge-count term, so adding judges cannot extend it",
+        "evidence": "It says 'Adding the 6 Northwind judges... raises the number of independent views per team, not coverage per judge.' It does not say the ceiling has no judge term.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses the user's premise that recruiting 6 more judges lets every judge see every team",
+        "evidence": "'\u274c Premise check: 15 judges cannot each walk all 48 tables'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Computes judges per team as k = floor((9 x 90) / (48 x 5)) = 3",
+        "evidence": "For 9 judges its table gives '99 visits, 2 views per team', not 3.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the allocation band as a sampled panel band (Band 2), not full coverage and not triage",
+        "evidence": "The design is a sampled panel, but it is never named as a band.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recomputes k for 15 judges as 5 and states full coverage is still impossible at that judge count",
+        "evidence": "The table gives '15 | 150 visits | 3 views per team'. It does not give 5.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Prescribes per-judge normalization rather than a raw average, because judges score a proper subset of the field",
+        "evidence": "'Normalization: subtract each judge's mean from their scores, then average per team.' and 'Comparability comes from overlapping assignments... and normalization.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Delivers the allocation map as a named list giving judge, teams, visiting order and start time",
+        "evidence": "It gives only a chained rule ('judges t, t+1, t+2') and says a script will produce the schedule. No per-judge list is delivered.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes the 5-minute expo figure allows nothing for setup or swap, so the ceiling is an optimistic upper bound rather than a capacity promise",
+        "evidence": "It only assumes 'the 5 minutes includes walking between tables'. It does not frame the figure as an optimistic bound.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reserves buffer time rather than allocating 100% of the 90-minute window",
+        "evidence": "The main round is 15:35\u201316:25, 50 of the 90 minutes. It adds 'with 5 min of slack at most' and a 'cut the top-up' fallback.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not propose any prize amount or prize split",
+        "evidence": "No amounts or splits appear.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

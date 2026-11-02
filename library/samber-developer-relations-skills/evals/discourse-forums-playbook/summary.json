@@ -1,0 +1,170 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "discourse-forums-playbook",
+  "scenarios": 7,
+  "expectations_total": 68,
+  "expectations_subjective": 1,
+  "expectations_objective": 67,
+  "pass_rate_with_skill_pct": 94.1,
+  "pass_rate_without_skill_pct": 60.3,
+  "delta_pp": 33.8,
+  "uplift_multiplier": 1.56,
+  "trigger_accuracy_pct": 70.0,
+  "trigger_queries": 50,
+  "trigger_positive_fire_rate": 0.56,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.309 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 4,
+        "expectation": "Advises topic titles written in the asker's own words, because title and first post become the search snippet"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Assigns a daily pass on unanswered or unsolved topics to a named owner"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends a separate Announcements category for release posts"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Does not decide the Discord-versus-Discourse switch itself"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Requires the original asker's consent (or anonymised rewriting with consent) before a ticket becomes a public topic"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends a Categories homepage (rather than Latest) while the forum is young"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Gives a dated cadence that works back from the Nov 21 opening (pre-launch weeks, launch week, first 90 days)"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Assigns a named owner or rota for a daily pass on unanswered topics during the first 90 days"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that links from TL3 posts lose nofollow by default, so bulk TL3 rewards link spammers"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Cites at least one concrete TL0 default limit (for example 3 topics and 10 replies on day one, 2 links, or no attachments)"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Places raising TL1 requirements after faster controls (spam detection, watched words, TL0-only queue), noting day-one spam posts as TL0"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends capping new accounts per IP address (default 3)"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Allows at most TL1 for verified customers (for example through a group) and leaves higher levels to be earned or granted individually"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Labels platform defaults as Discourse defaults that the admin can change or should verify in settings"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes Discourse recommends a subdomain, or that a subfolder requires maintaining robots.txt at the root by hand"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Suggests auditing the crawler view of a topic (for example with ?print or the crawler header)"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Suggests checking that solved topics are public, canonical and present in the sitemap"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Advises topic titles written in the asker's own words, because title and first post become the search snippet"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Labels claims by source (Google versus Discourse versus practitioner) rather than presenting all as fact"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends Solved and the unsolved filter as the triage queue for support topics"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Proposes growing non-staff helpers through trust levels, and promoting proven helpers to TL4 by hand"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Sets a time-to-first-reply target (for example a median under 24 hours)"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names Discourse admin reports (time to first response, topics with no response, trust level growth) as the data source"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Includes a stop or fold-back rule if non-staff solutions and TL2 growth do not move"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends a separate Announcements category for release posts"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Says Announcements can be excluded from the summary email with its suppress-categories setting"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Routes the single-sign-on and docs-embedding work to samber/developer-platform-skills@developer-portal-design"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Routes the forum-versus-Discord venue decision to samber/developer-relations-skills@developer-community-launch"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Does not write DiscourseConnect or embed configuration steps itself"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Does not decide the Discord-versus-Discourse switch itself"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Offers to continue with forum operations (categories, trust levels, seeding or SEO) once those are settled"
+      }
+    ]
+  }
+}

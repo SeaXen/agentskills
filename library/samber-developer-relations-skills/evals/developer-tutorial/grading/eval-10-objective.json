@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Splits the tutorial at a checkpoint into two tutorials with a stated order, rather than trimming prose to fit the time budget.",
+        "evidence": "\"Split at a checkpoint: **Tutorial A \\\"Get Grellan access\\\"**... pull it out entirely. **Tutorial B \\\"Deploy a service with Grellan\\\"** keeps only the deploy skill\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the 15-60 minute range as the sourced ceiling the 95-minute run breaks, while noting that splitting rather than trimming is a judgement call.",
+        "evidence": "Only \"Good Docs Project caps a tutorial at 7 primary steps and 60 minutes\" is cited \u2014 the 15-minute lower bound and any \"judgement call\" framing are absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags 11 primary steps against the seven-primary-step maximum.",
+        "evidence": "\"95 min, 11 primary steps | Structural \u2014 exceeds sourced limits | Good Docs Project caps a tutorial at 7 primary steps and 60 minutes.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Applies the internal or enterprise audience branch rather than the self-serve individual-learner branch.",
+        "evidence": "\"for a **team-member-onboarding-onto-internal-tool** audience. That audience class has its own rules (Di\u00e1taxis/Good-Docs-derived, sourced)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the failure mode for this audience is silent misunderstanding rather than a closed tab, because the learner cannot abandon.",
+        "evidence": "No mention of \"silent misunderstanding\", \"closed tab\", or inability to abandon appears anywhere in section 10.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires naming the access needed (VPN, SSO group membership, provisioned namespace) and who grants it, before step 1.",
+        "evidence": "\"In 'Before you begin,' list each with a check command and **who grants it** ('namespace: filed by you, provisioned by a platform engineer... request it before day 1')\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires an offline or on-prem variant of every command that assumes internet or external registry access.",
+        "evidence": "The fix given is a health-check command plus a fail-pointer (\"Add one check command... and repeat it as the fail-pointer\"), not an offline/on-prem variant of each affected command.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds checkpoints the learner can show a reviewer, answering the manager's proof requirement.",
+        "evidence": "\"Make the **final checkpoint** something the manager can already see without new tooling \u2014 a deployment that shows up under the hire's name in the Grellan console\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the pre-provisioned account for verification runs and requires at least one runner to go through the real access request.",
+        "evidence": "\"'one runner must go through the real access request, not a pre-provisioned account.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Promotes the polish rung of the concept ladder, because the production shape is the objective when a tutorial doubles as onboarding onto an internal tool.",
+        "evidence": "No mention of \"polish rung\" or the concept ladder appears anywhere in section 10.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not apply the self-serve rules (front-loading the visible result against abandonment, keeping the path inside a free tier, holding billing prompts until after the last checkpoint).",
+        "evidence": "No explicit statement that self-serve rules (free tier, billing prompts, front-loaded result) are being set aside for this audience appears anywhere in section 10.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Classifies the access requirements as hidden prerequisites if they surfaced after step 1, and moves them into \"Before you begin\" with a check command.",
+        "evidence": "\"VPN/SSO/namespace never hit in the test run | Hidden prerequisite | Pass-threshold criterion 3: zero prerequisites discovered after step 1... In 'Before you begin,' list each with a check command\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Splits the tutorial at a checkpoint into two tutorials with a stated order, rather than trimming prose to fit the time budget.",
+        "evidence": "Provisioning is pulled out and turned into prerequisites/checklist ownership, not a second tutorial in sequence: 'VPN, SSO group, namespace ticket are not tutorial steps \u2014 they're prerequisites... that's a different document, owned by whoever provisions it.' No 'two tutorials, stated order' framing is used.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the 15-60 minute range as the sourced ceiling the 95-minute run breaks, while noting that splitting rather than trimming is a judgement call.",
+        "evidence": "No '15-60 minute' range or any sourced ceiling is cited; the only duration figure given is 'hands-on time (~45\u201360 min, after trimming)' in section 5, with no citation of a ceiling being broken.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags 11 primary steps against the seven-primary-step maximum.",
+        "evidence": "Section 5's heading 'Cut the 95 minutes and the 11 steps' flags the 11 steps as too many, but no 'seven-primary-step maximum' or any numeric ceiling is stated anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Applies the internal or enterprise audience branch rather than the self-serve individual-learner branch.",
+        "evidence": "Recommendations are built entirely around enterprise onboarding mechanics: 'Trigger the namespace ticket automatically at offer-acceptance or on the manager's Day-0 checklist' and 'Manager checks a channel or dashboard, doesn't take it on faith or chase a screenshot' \u2014 ticketing, SSO groups, and manager verification are enterprise-specific, not self-serve individual-learner concerns.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the failure mode for this audience is silent misunderstanding rather than a closed tab, because the learner cannot abandon.",
+        "evidence": "No language about 'silent misunderstanding' or 'closed tab' or abandonment appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires naming the access needed (VPN, SSO group membership, provisioned namespace) and who grants it, before step 1.",
+        "evidence": "Section 2 states 'VPN, SSO group, namespace ticket are not tutorial steps \u2014 they're prerequisites' with the ticket 'trigger[ed]... on the manager's Day-0 checklist', and Section 3 makes 'a preflight check as the real step 1' that checks 'VPN connectivity, SSO group membership, namespace existence, registry reachability' before any deploy step \u2014 naming both the required access and pushing it ahead of the hands-on steps.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires an offline or on-prem variant of every command that assumes internet or external registry access.",
+        "evidence": "Section 4 only addresses the registry-reachability problem specifically, proposing a bastion host or an in-office day \u2014 it does not require an offline/on-prem variant for every command, and frames the fix as an infra escalation rather than a documentation requirement across all commands.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds checkpoints the learner can show a reviewer, answering the manager's proof requirement.",
+        "evidence": "Section 6: 'Last successful deploy in the tutorial auto-posts to an onboarding Slack channel or stamps the HR/onboarding tracker with hire, manager, timestamp, deployed service URL. Manager checks a channel or dashboard, doesn't take it on faith or chase a screenshot.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the pre-provisioned account for verification runs and requires at least one runner to go through the real access request.",
+        "evidence": "Section 1: 'Re-run the pilot without the shortcut. The 95-minute number is not real. It skipped the actual bottleneck... Re-run the pilot with a genuine new-hire path, ticket to ticket, and record that number separately.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Promotes the polish rung of the concept ladder, because the production shape is the objective when a tutorial doubles as onboarding onto an internal tool.",
+        "evidence": "No 'concept ladder' or 'polish rung' terminology or equivalent concept appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not apply the self-serve rules (front-loading the visible result against abandonment, keeping the path inside a free tier, holding billing prompts until after the last checkpoint).",
+        "evidence": "The transcript contains no mention of free tiers, billing prompts, or front-loading a visible result \u2014 all recommendations instead center on tickets, SSO, manager checklists, and Slack/HR-tracker signals, none of which are self-serve growth mechanics.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies the access requirements as hidden prerequisites if they surfaced after step 1, and moves them into \"Before you begin\" with a check command.",
+        "evidence": "Section 3 contrasts the fix with the old failure mode \u2014 'not a cryptic timeout at step 7' \u2014 and Section 2 requires the 'Tutorial's prerequisites section states expected wait time and links the checklist', combined with Section 3's preflight check command that verifies 'VPN connectivity, SSO group membership, namespace existence, registry reachability' ahead of any deploy step.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

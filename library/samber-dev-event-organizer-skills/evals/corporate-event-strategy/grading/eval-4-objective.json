@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects '700 attendees' as a goal, deletes attendance from the goal menu entirely as a capacity fact rather than an outcome, and does not retain it as a secondary target.",
+        "evidence": "Deletes attendance as a goal, but later asks to reword it as \"700 as a capacity target\" and keeps registrations and reach as context metrics.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes goodwill-only as a goal rather than demoting it, because a co-funding function is named and a funder will not accept a goal with no number attached.",
+        "evidence": "\"Goodwill only | A co-funder is present, so it is deleted.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends adoption-first as the goal.",
+        "evidence": "\"Recommendation: adoption-first\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the coupling that makes the product co-fund work: product is buying the adoption goal, so this pairing only holds with adoption-first.",
+        "evidence": "\"Product | Access to users at depth and structured feedback... Their metric is the activation result.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Confirms the product co-fund promotion conditions are met here: product already asking for the event, a compounding annual program, and an adoption goal.",
+        "evidence": "\"product has pushed for the event all year, the program is annual, and the goal should be adoption-first.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps goodwill as a constraint on how the event behaves, explicitly not a second goal to report a number on.",
+        "evidence": "\"Constraint, not a goal: the event stays practitioner-led... without adding a second number to report.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Proposes an adoption metric tied to product usage on attending accounts, such as activation of the inference-caching capability within a defined window, not a category like 'adoption'.",
+        "evidence": "\"attending accounts activate inference caching... compared with... a matched set of non-attending accounts.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires all four measurement fields: a named metric, a named owner, a named source system, and a read date.",
+        "evidence": "Metric, Owner `[name]`, Source system, Read date `[date]` in the table.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places the metric owner inside the product organisation that holds the telemetry, not the events team.",
+        "evidence": "\"in the product org, someone who already reports capability activation.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a matched non-attending comparison set decided in advance rather than chosen after the numbers are visible.",
+        "evidence": "\"Fix the matching rule in advance.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the product co-fund failure pattern - product treating the event as a launch vehicle - and routes an identity conflict back to the event's published positioning rather than absorbing it.",
+        "evidence": "\"product co-funding often turns into using the event as a launch vehicle... send the conflict to `event-positioning`\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names what marketing gives up in the co-fund: one veto, exercised in practice on program or session slots.",
+        "evidence": "Product gets \"a defined share of program slots\", but the transcript never frames this as marketing giving up a veto.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the measurement commitment written before registration opens.",
+        "evidence": "\"Write this before registration opens.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Describes for each of the two funders what that funder is buying and what claim each one holds on the event.",
+        "evidence": "The funder table has columns \"What they buy\", \"What they get\" and \"What they don't get\".",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects '700 attendees' as a goal, deletes attendance from the goal menu entirely as a capacity fact rather than an outcome, and does not retain it as a secondary target.",
+        "evidence": "It keeps attendance as a leading measure: \"Attended (not registered) target-persona attendees\" and \"N attended, of whom X% fit the persona.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes goodwill-only as a goal rather than demoting it, because a co-funding function is named and a funder will not accept a goal with no number attached.",
+        "evidence": "Marketing's primary goal is \"Goodwill among the right audience\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends adoption-first as the goal.",
+        "evidence": "The goals are goodwill and feedback. Adoption is not the goal.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the coupling that makes the product co-fund work: product is buying the adoption goal, so this pairing only holds with adoption-first.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Confirms the product co-fund promotion conditions are met here: product already asking for the event, a compounding annual program, and an adoption goal.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps goodwill as a constraint on how the event behaves, explicitly not a second goal to report a number on.",
+        "evidence": "Goodwill is reported with its own outcome measures.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Proposes an adoption metric tied to product usage on attending accounts, such as activation of the inference-caching capability within a defined window, not a category like 'adoption'.",
+        "evidence": "Product's metrics are feedback conversations and beta signups. There is no telemetry-based activation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires all four measurement fields: a named metric, a named owner, a named source system, and a read date.",
+        "evidence": "Owner, source system and read date are not named per goal.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places the metric owner inside the product organisation that holds the telemetry, not the events team.",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends a matched non-attending comparison set decided in advance rather than chosen after the numbers are visible.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the product co-fund failure pattern - product treating the event as a launch vehicle - and routes an identity conflict back to the event's published positioning rather than absorbing it.",
+        "evidence": "Absent. It names only the guardrail \"must not read as a product pitch\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names what marketing gives up in the co-fund: one veto, exercised in practice on program or session slots.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the measurement commitment written before registration opens.",
+        "evidence": "\"Get sign-off on the targets before registration opens.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Describes for each of the two funders what that funder is buying and what claim each one holds on the event.",
+        "evidence": "It gives per-funder goals and reports, but not the claims each funder holds on the event.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

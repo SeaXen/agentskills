@@ -1,0 +1,562 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "version-migration-guide",
+  "scenarios": 12,
+  "expectations_total": 154,
+  "expectations_subjective": 2,
+  "expectations_objective": 152,
+  "pass_rate_with_skill_pct": 83.1,
+  "pass_rate_without_skill_pct": 33.1,
+  "delta_pp": 50.0,
+  "uplift_multiplier": 2.51,
+  "trigger_accuracy_pct": 50.7,
+  "trigger_queries": 144,
+  "trigger_positive_fire_rate": 0.083,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Recommends that the platform team move the 61 services itself rather than publishing a guide for the service teams to follow"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends a codemod plus a short note as the deliverable instead of a full prose migration guide"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that a guide is the right deliverable only when the consumers are genuinely other people's codebases"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Does not deliver a full library-shaped migration guide with per-change prose entries as its primary recommendation"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Ranks the floors-at-the-bottom defect as the costliest of the structural defects"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that a change for which no before/after block can be written is not understood well enough to publish"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Supplies rewritten text for the top three entries rather than only describing what should change"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that search patterns and literal messages cost near-zero because they are the affects-you-if line already written for each entry"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Places the lint rule above the codemod on efficiency while acknowledging the codemod beats it on value"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Gives the lint rule's payoff as stopping new code reintroducing the old API after the guide stops being read"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names explicitly what this efficiency ordering starves rather than leaving it implied"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires the codemod's coverage boundary, meaning what it does not cover, to be stated in the same place as the command itself"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Gives the reason: a single statement across that many rows locks the table"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names a warning-level ladder with at least documentation-only, application-code-only, runtime-across-all-code and end-of-life rungs"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the identifier exists so lint rules, codemods and support replies can point at one deprecation rather than at a page"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Explains that readers arrive with two different questions and a single ordering cannot serve both"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Every entry has a verb-prefixed heading using Removed, Changed, Renamed or Deprecated"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Each rationale names the harm the old behaviour caused"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Gives the grouped config entry one anchor per fix rather than one anchor per moved symbol"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Gives the reason: the announcement email reaches one address that may no longer be monitored, while the guide is what the engineer actually opens"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Does not leave the guide without a named owner and a date the customer can schedule against"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Recommends splitting the guide per module and sharding the verification the same way if completeness fails on a large surface, rather than dropping entries"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Flags the adoption curve as a standing job requiring install or account telemetry joined across ninety days, not a quick wiring task"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names explicitly what the efficiency ordering starves, namely the adoption curve as the highest-value number on the list"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States the condition that promotes the adoption curve above everything else, such as a removal date that has to be defended to customers or leadership"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Names the Kubernetes KEP requirement for Upgrade / Downgrade Strategy and Version Skew Strategy sections as a second precedent"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Names the Churn Rule explicitly and attributes it to Software Engineering at Google"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States which side of the Churn Rule this project sits on before producing any draft"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends that the platform team move the 61 services itself rather than publishing a guide for the service teams to follow"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends a codemod plus a short note as the deliverable instead of a full prose migration guide"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that a guide is the right deliverable only when the consumers are genuinely other people's codebases"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Cites the monorepo and internal ownership of all 61 consumers as the specific reason the Churn Rule applies here"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Does not deliver a full library-shaped migration guide with per-change prose entries as its primary recommendation"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that announcing a change and leaving 61 consuming teams to cope hands them work that belonged to the platform team"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Requires the codemod to be validated across the consumer corpus rather than against a single repository"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names the residue a codemod leaves behind (for example dynamic dispatch, re-exports, generated code or string-keyed access) as something that must be reported"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Justifies the staged default by the fact that a 4.8 release can still ship from the N-1 line"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Orders the 11 breaking changes by blast radius rather than alphabetically or grouped by module"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Says out loud that the ordering is by blast radius and names the evidence source behind the ranking"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Asks whether usage telemetry on the affected APIs exists, or records its absence explicitly"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Does not offer sequential per-minor bridges as a candidate path shape, since no version-skew policy applies here"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Scores the page against six named pass-threshold criteria covering completeness, detectability, sufficiency, automation honesty, path validity and self-containment"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Identifies the A-to-Z ordering of the 14 entries as a defect and prescribes reordering by blast radius"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Identifies 'What's new in v3' and 'Why we rebuilt the core' as launch narrative that does not belong on a work document"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that a change for which no before/after block can be written is not understood well enough to publish"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Flags every entry as missing an affects-you-if line carrying both a search pattern and the literal error or warning text"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Flags the absence of escape-hatch statements and requires an explicit 'there is none' where no escape hatch exists"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Supplies rewritten text for the top three entries rather than only describing what should change"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Ranks the automation options by reader hours saved per engineering hour spent, and states the ranking explicitly rather than implying it by list order"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Places search patterns and literal messages per change at the top of the efficiency ranking"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that search patterns and literal messages cost near-zero because they are the affects-you-if line already written for each entry"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that an unmaintained compat build strands every project that adopted it half-migrated"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Places the lint rule above the codemod on efficiency while acknowledging the codemod beats it on value"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Gives the lint rule's payoff as stopping new code reintroducing the old API after the guide stops being read"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends deprecation warnings in the N-1 release as the second rung, conditional on an N-1 release still being shippable"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names explicitly what this efficiency ordering starves rather than leaving it implied"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States the condition that would promote the codemod or compat build anyway, such as hundreds of call sites per consumer or consumers being large applications that cannot hold a long-lived migration branch"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires the codemod's coverage boundary, meaning what it does not cover, to be stated in the same place as the command itself"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that destructive steps ship alone while additive steps can ship in any deploy"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Gives every step its own named rollback"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires the rollback to have been executed at least once against a copy of production"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Gives the reason: a single statement across that many rows locks the table"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States which mechanism wins when an account default and a per-request pin are both present"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Tells integrators to pin explicitly in code rather than inheriting the account default, and gives the reason that the next cutover would otherwise change behaviour in an application nobody touched"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that webhooks cannot be version-pinned per request because the consumer does not make the request"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Covers the persisted pending_review to in_review enum rename as a data-layer consequence for values already written to consumer databases"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States, in order, who flips the account default and on what date, what the customer must complete beforehand, how to roll back and for how long, and how long the old version stays available"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Gives the rollback procedure rather than omitting it on the grounds that the cutover is expected to succeed"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Publishes the exhaustive list of change types considered backward-compatible so integrators know which defensive coding is actually required"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The table carries columns for the deprecated API, its replacement, its warning level in the current major, and the version that removes it"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States which warning level each of the four items needs in the 4.0 interim release"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names a warning-level ladder with at least documentation-only, application-code-only, runtime-across-all-code and end-of-life rungs"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends warning on application code only before escalating to warnings that also fire inside dependencies"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Gives the reason: a warning raised inside a dependency the reader cannot patch teaches them to ignore warnings altogether"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Assigns each of the four deprecations a stable identifier that never changes once published"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the identifier exists so lint rules, codemods and support replies can point at one deprecation rather than at a page"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Also produces or recommends a separate cumulative page organized by removal version, answering what disappears in 5.0"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Explains that readers arrive with two different questions and a single ordering cannot serve both"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Expresses the deprecation window in releases rather than months for this open-source audience, referencing the deprecate-in-N, warn-in-N+1, remove-in-N+2 pattern as the reference point"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Every entry has a verb-prefixed heading using Removed, Changed, Renamed or Deprecated"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Every entry carries a stable anchor identifier"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Every entry has an affects-you-if line giving a search pattern that locates the call sites in a codebase"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Caps each entry's rationale at three sentences"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Each rationale names the harm the old behaviour caused"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Gives the grouped config entry one anchor per fix rather than one anchor per moved symbol"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States explicitly that there is no escape hatch for the callback removal rather than leaving that part silent"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Orders the six parts of each entry as heading, affects-you-if, rationale, before/after, fix, escape hatch"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Leads with the deadline and the 90-day notice window rather than with what the upgrade buys the customer"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Gives the reason: the announcement email reaches one address that may no longer be monitored, while the guide is what the engineer actually opens"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Includes a rollback procedure and states how long rollback remains possible"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States who performs the cutover on the vendor side and what the customer must complete before it"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Gives the 9 air-gapped managed deployments their own escape hatch with its own end date, separate from the general timeline"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Gives the reason those deployments need a separate date: they plan on a different cycle and will otherwise escalate"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Routes the draft through support and legal or comms sign-off before publication"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States explicitly what happens to a customer who does nothing by the deadline"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Does not leave the guide without a named owner and a date the customer can schedule against"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Defers hard enforcement such as forced removal or closing the enterprise escape hatch until adoption visibly flattens rather than starting it on the originally announced date"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Gives the reason an unmeasured underestimate is costly: the reader stops trusting every other number in the document at the same moment"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Checks completeness against the public-API diff between the two tags rather than against the changelog"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Invokes Hyrum's Law, or its substance, to explain that even the tag diff undercounts, and adds anything support has already seen break"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Treats any edit the upgrade required that the guide does not describe as a defect in the guide rather than a reader failure"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires the published codemod to have been run on the test project, with the residue it leaves named in the guide"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires the typecheck and the test suite to pass after the codemod run"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires the oldest promised source version to have been run through the full path if multi-version jumps are promised"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Recommends splitting the guide per module and sharding the verification the same way if completeness fails on a large surface, rather than dropping entries"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Orders the metrics by value per hour of wiring rather than by the order they would be reported in"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Puts tickets per thousand upgrades that quote an upgrade error first, noting support already collects them so the metric is effectively free"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Rejects the 'was this helpful' widget as low-signal and easily gamed, and refuses to let it stand in for the adoption curve"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names the version-adoption curve as the only metric that says the migration actually worked"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Flags the adoption curve as a standing job requiring install or account telemetry joined across ninety days, not a quick wiring task"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names explicitly what the efficiency ordering starves, namely the adoption curve as the highest-value number on the list"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States the condition that promotes the adoption curve above everything else, such as a removal date that has to be defended to customers or leadership"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Warns that the identity join must begin before the release ships, because started afterwards the first ninety days are already unmeasurable"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Includes deprecation-warning telemetry trending toward zero before the removal release"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that flat deprecation-warning telemetry a month before removal means the removal date is wrong or the guide is not reaching people"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Includes a straggler list of named accounts or top dependents still on v2 after the deadline, framed as a list to work rather than a percentage"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Plans the final stretch of unmigrated users as a named-account exercise rather than a documentation problem, noting that a long tail is normal even where enforcement backs the transition"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Treats the Plausible docs page analytics as directional and inferential rather than as an outcome measure"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Names the 'How we teach this' RFC section as a precedent and attributes it to Ember's RFC process"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Names the Kubernetes KEP requirement for Upgrade / Downgrade Strategy and Version Skew Strategy sections as a second precedent"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that the gate must block the code from landing rather than merely requesting the documentation"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Notes that a gate on paper still needs enforcement, citing that a project which copied such a gate later admitted part of it was never carried out"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Names the ownership split as the reason the guide goes missing, with the engineer who made the break owning the substance and a writer or advocate owning clarity and publication, each assuming the other is drafting"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Recommends shipping the migration note in the same pull request as the breaking change, which makes the person who broke the API the first drafter"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Requires error and warning strings to be quoted exactly, including punctuation, because agents and search boxes both match on the literal"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Requires complete runnable snippets including their imports rather than fragments the reader must place correctly"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Requires one canonical URL per version pair with stable per-change anchors, rather than a page rewritten in place each release"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Requires version floors to be stated as machine-checkable comparisons rather than as prose"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Requires the migration path itself to stay inside the guide rather than being delegated to a release blog post"
+      }
+    ]
+  }
+}

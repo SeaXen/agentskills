@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Treats the already-chosen Slack as a hypothesis and runs the readiness gates before discussing the platform",
+        "evidence": "\"You've already provisioned Slack. Running the gates anyway \u2014 same as the skill's own worked example \u2014 because the venue is a hypothesis until the gates confirm it...\" followed immediately by Section 1's five-gate table, with the platform/venue discussion deferred to Section 3.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Scores all five gates and returns a launch verdict",
+        "evidence": "Section 1 table scores Demand, Owner, Purpose, Venue vacuum, and Seed supply, all 'Pass', with overall verdict stated as \"**Launch.** All five gates pass.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes owned real-time chat as a venue class rather than demoting it in a ranking",
+        "evidence": "\"**Owned real-time chat (Slack) is deleted, on two independent constraints**\" and later \"**Deleted by constraint:** owned real-time chat (Slack)\" \u2014 uses explicit deletion language, not a ranking demotion.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives at least two distinct reasons real-time chat is deleted here: its archive is not indexed, and the owner cannot be present most days",
+        "evidence": "\"*Presence:* ... Dario is heads-down on the engine most of the week... not most-days presence\" and \"*Durability and search value:* ... Slack's archive doesn't index, and free-tier Slack caps history at 90 days\" are given as two separate bulleted constraints.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Records a reopen trigger for the deleted real-time chat class on the venue line of the brief",
+        "evidence": "\"**Deleted by constraint:** owned real-time chat (Slack) \u2014 reopens if a second, dedicated, daily-present owner joins *and* the primary outcome shifts toward Product/Engagement (moment-to-moment value), not Support.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends an owned async forum as the surviving venue class",
+        "evidence": "The transcript explicitly recommends 'forge-native discussions' as the surviving venue and distinguishes it from the owned async forum: \"**Chosen: forge-native discussions (GitHub Discussions on the Orbwright repo).**\" while \"Owned async forum (Discourse) doesn't get promoted... stays at the default rung\" and is separately listed under \"**Rejected on the ratio:** Discourse\" \u2014 the owned async forum class is not the one recommended.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the venue class before naming any vendor",
+        "evidence": "Consistent pattern throughout: \"Owned real-time chat (Slack) is deleted\", \"Owned async forum (Discourse) doesn't get promoted\", \"Chosen: forge-native discussions (GitHub Discussions on the Orbwright repo)\" \u2014 class named first, vendor in parentheses.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the venue ranking out loud rather than leaving it implied by the order things are listed in",
+        "evidence": "\"Walking the skill's own decision rule, in order:\" followed by explicit rung language: \"it only moves up from the default rung when...\", \"stays at the default rung\", \"Default rung, nothing here displaces it\", and explicit labels \"Rejected on the ratio\" / \"Deleted by constraint\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that Slack's free plan retains only 90 days of message history, which removes the searchable archive the error-string search goal depends on",
+        "evidence": "\"free-tier Slack caps history at 90 days, which would delete the very thing you're building this for.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that per-seat pricing makes an open community structurally more expensive as it grows, unlike per-instance forum pricing",
+        "evidence": "No mention of per-seat pricing or cost-scaling comparison anywhere in the transcript; the only cost reference is \"GitHub Discussions has no separate cost\" with no comparison to Slack's per-seat pricing model.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags that vendor pricing, retention and export claims must be re-verified on the vendor's own page before the recommendation is final",
+        "evidence": "The 90-day retention claim and other vendor facts (e.g. GitHub Discussions having 'no separate cost') are stated as settled facts with no caveat to re-verify them against the vendor's current pricing/retention/export pages.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend running Slack and a forum as two primary venues at once",
+        "evidence": "\"**What to do with the Slack workspace:** don't run it as the primary venue. Per the one-venue rule, two owned venues before either reaches critical mass just splits four answerers across two empty-looking rooms. Park it rather than delete it.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Treats the already-chosen Slack as a hypothesis and runs the readiness gates before discussing the platform",
+        "evidence": "The document opens directly with \"# Orbwright Slack community \u2014 launch plan\" and structural risks, never testing whether Slack itself should be chosen via readiness gates.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Scores all five gates and returns a launch verdict",
+        "evidence": "No five-gate scoring system or formal launch verdict appears; the document proceeds straight into channel structure and seeding advice.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes owned real-time chat as a venue class rather than demoting it in a ranking",
+        "evidence": "Slack (real-time chat) is kept as the primary venue throughout, with mitigations (\"Preserve durable answers in Slack Canvas...\", \"Mirror resolved threads...\") rather than being deleted.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives at least two distinct reasons real-time chat is deleted here: its archive is not indexed, and the owner cannot be present most days",
+        "evidence": "Real-time chat is not deleted at all; the document instead builds a full Slack launch plan around Dario's 6h/week.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Records a reopen trigger for the deleted real-time chat class on the venue line of the brief",
+        "evidence": "No deletion or reopen trigger for real-time chat exists in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends an owned async forum as the surviving venue class",
+        "evidence": "No forum is recommended as the surviving venue; GitHub Discussions/docs are proposed only as a mirroring destination, not as the primary owned venue.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the venue class before naming any vendor",
+        "evidence": "The document's title itself names the vendor first: \"# Orbwright Slack community \u2014 launch plan\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the venue ranking out loud rather than leaving it implied by the order things are listed in",
+        "evidence": "No explicit venue-class ranking is stated; only \"Slack is the *triage and community* layer, GitHub/docs is the *SEO* layer\" describes roles, not a ranking.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that Slack's free plan retains only 90 days of message history, which removes the searchable archive the error-string search goal depends on",
+        "evidence": "\"Also check your plan tier: Slack's free tier drops message history after 90 days, which directly contradicts 'answers stay correct for a year'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that per-seat pricing makes an open community structurally more expensive as it grows, unlike per-instance forum pricing",
+        "evidence": "No discussion of per-seat vs per-instance pricing appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags that vendor pricing, retention and export claims must be re-verified on the vendor's own page before the recommendation is final",
+        "evidence": "The 90-day retention claim is stated as fact (\"Also check your plan tier: Slack's free tier drops message history after 90 days\") with no instruction to re-verify against Slack's own current pricing page.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend running Slack and a forum as two primary venues at once",
+        "evidence": "\"Slack is the *triage and community* layer, GitHub/docs is the *SEO* layer\" \u2014 GitHub/docs is explicitly a secondary mirroring task, not a co-primary venue.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

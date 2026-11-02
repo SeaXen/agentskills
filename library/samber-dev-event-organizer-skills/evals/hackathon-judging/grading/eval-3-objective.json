@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Computes 120 / 8 = 15 and confirms 14 teams fits under full coverage",
+        "evidence": "\"14 \u2264 15, so it fits.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States normalization buys nothing and is pure overhead under full coverage",
+        "evidence": "\"Under full coverage it is pure overhead.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that a uniformly harsh judge adds the same constant to every team they score, so under full coverage the ordering is untouched",
+        "evidence": "\"subtracts the same constant from all 14... the order does not change.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a raw average as the combination rule for this band",
+        "evidence": "\"Combination rule: raw average of the weighted totals.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the general rule that normalization applies when a judge scored a proper subset of the field",
+        "evidence": "\"Normalizing corrects a sampled panel, where a judge sees only a slice.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Fixes and writes down the combination rule before scoring opens rather than after seeing results",
+        "evidence": "\"Publish that one rule and do not switch mid-round.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes normalization corrects a uniformly harsh judge but cannot correct a judge harsh on one kind of project and generous on another",
+        "evidence": "Only floor-clipping is discussed; type-dependent harshness is not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes synchronous consensus as an option because judges leave straight after their slot",
+        "evidence": "\"The skill deletes synchronous consensus when judges leave straight after their slot.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States full coverage needs no allocation map beyond a start order",
+        "evidence": "Provides a full rotation map with offsets and never states this.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the efficiency ordering in this band puts raw average ahead of per-judge normalization and synchronous consensus",
+        "evidence": "No such ordering stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not offer an organizer override of the judges' combined result as an option",
+        "evidence": "No override is offered.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not propose re-scoring or a second judging pass",
+        "evidence": "\"Do not re-score after the fact.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Computes 120 / 8 = 15 and confirms 14 teams fits under full coverage",
+        "evidence": "'14 teams \u00d7 8 min = 112 min per judge, inside the 120-min block.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States normalization buys nothing and is pure overhead under full coverage",
+        "evidence": "It recommends subtracting each judge's mean and says 'z-scoring is fine here'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that a uniformly harsh judge adds the same constant to every team they score, so under full coverage the ordering is untouched",
+        "evidence": "It does not make this argument. It says the mean-subtraction 'removes the offset'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends a raw average as the combination rule for this band",
+        "evidence": "The primary rule is 'subtract each judge's own mean... then average'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the general rule that normalization applies when a judge scored a proper subset of the field",
+        "evidence": "It says z-scoring needs every judge to score the same teams, which is a different rule.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Fixes and writes down the combination rule before scoring opens rather than after seeing results",
+        "evidence": "It says 'If they differ, look at the severe judge's SD', which is a post-hoc comparison.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes normalization corrects a uniformly harsh judge but cannot correct a judge harsh on one kind of project and generous on another",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes synchronous consensus as an option because judges leave straight after their slot",
+        "evidence": "'There is no deliberation step. The organizer computes the result and announces it after the judges have left.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States full coverage needs no allocation map beyond a start order",
+        "evidence": "It builds a full rotation grid with a formula.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the efficiency ordering in this band puts raw average ahead of per-judge normalization and synchronous consensus",
+        "evidence": "No efficiency ordering is given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not offer an organizer override of the judges' combined result as an option",
+        "evidence": "The organizer only computes the result.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not propose re-scoring or a second judging pass",
+        "evidence": "None proposed.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

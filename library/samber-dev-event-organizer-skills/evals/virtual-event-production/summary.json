@@ -1,0 +1,686 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "virtual-event-production",
+  "scenarios": 12,
+  "expectations_total": 149,
+  "expectations_subjective": 0,
+  "expectations_objective": 149,
+  "pass_rate_with_skill_pct": 71.1,
+  "pass_rate_without_skill_pct": 21.5,
+  "delta_pp": 49.6,
+  "uplift_multiplier": 3.31,
+  "trigger_accuracy_pct": 50.7,
+  "trigger_queries": 138,
+  "trigger_positive_fire_rate": 0.145,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": null,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Does not design a new channel roster, and routes channel architecture to samber/dev-event-organizer-skills@event-comms-channels."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Identifies the last date the platform choice can still be reversed as the deadline the decision is ranked against, rather than the event date."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that a one-way feed plus the existing chat space beats a broadcast tool with a built-in question queue on ops effort, on procurement and on reach."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that the cheapest staffing rung carries the highest compliance cost, running backwards to the other axes."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Presents that inversion as an argument about who is answerable, not as a legal reading, and points the duty, platform terms and retention questions to the organizer's own counsel."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Does not re-derive the standing cost of keeping a chat space open, and attributes it to samber/dev-event-organizer-skills@event-comms-channels."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Distinguishes the technical watcher from the moderator and states the watcher does not read chat."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that moderation capacity is identical between one moderator per concurrent session and moderator-plus-technical-watcher, so the second person exists for failure-noticing rather than for moderation."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that a rehearsed handoff buys composure rather than infrastructure, and is the highest-value preparation on the menu."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Gives the outage sequence in order: notice, say it immediately, point somewhere, recover or reschedule, close the loop."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that speed matters more than accuracy in the first message because every attendee's first hypothesis is that the problem is on their end."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Requires saying so once the stream resumes, because a stream that quietly resumes leaves the people who left not knowing they can come back."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Does not treat a locally recorded backup of the talk as coverage for the audience-facing minute of the outage."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends sending a written home-setup note with the join link, in the same message, the same day acceptances go out."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Promotes the Auckland speaker to a pre-recorded talk played to schedule with the speaker live in chat."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Hands the cost consequence to samber/dev-event-organizer-skills@event-budget rather than producing the budget here."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that the assembled stack's real price is organizer hours, and that it is the heaviest rung on ops effort."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Warns against under-estimating the work, framing a well-run digital event as far more than a chat server."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Reads that warning as a caution about the hours rather than as a verdict on the components, noting it was written about a hackathon's own stack."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Calibrates multi-track concurrency against FOSDEM 2021 provisioning for about 100 concurrent interactive video rooms and peaking at 46 in simultaneous use on the first day."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that with an assembled stack the organizer chooses each component's jurisdiction, which is a review they own rather than one a vendor's terms performed for them."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Declines to design the channel roster from scratch and routes it to samber/dev-event-organizer-skills@event-comms-channels."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Adds only the live in-session question surface and the staffing that watches it on top of that roster."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Reuses the existing standing-moderation-cost argument rather than deriving a second one."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Does not design a hybrid event, and names samber/dev-event-organizer-skills@hybrid-event-design as the owner of an event serving a room and a remote audience at once."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Covers the remote attendee's journey rather than deferring it, noting the on-site attendee journey is keyed to a floor plan and says nothing about a remote attendee."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Asks one question at a time rather than presenting a block or list of questions to answer at once."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Offers multiple-choice options on questions where a choice set exists."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Opens with whether there is an interaction surface at all or whether this is a feed people watch."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Does not produce a platform recommendation before the interaction posture is established."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Asks the last date a platform choice can still be reversed, and states that deadline rather than the event date is what the options are ranked against."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Asks whether this is a one-off edition or a recurring event, and notes a recurring event promotes options whose payoff lands after this edition."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Asks who is still available the week after the event."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Commits to presenting the resulting plan section by section for validation before anything is signed."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Sets moderator-reads-questions-aloud-at-agreed-points as the default relay mechanic."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Decides the relay mechanic per speaker at the tech check rather than once for the whole event."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Notes some presenters cannot read and talk at the same time."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Requires agreeing the ending: who says the session is out of time, and where unanswered questions go."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States the moderator batches questions, drops duplicates, and rewrites a hostile question into a real one or drops it."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Notes a pre-recorded talk played to schedule maximises insurance that a usable talk exists and minimises the sense that the session is live."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Redirects the saved decision energy to moderation staffing."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that a talk's consent record covers a speaker presenting and does not cover an attendee whose face appeared in a breakout room."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Names the single one-way feed as the minimum viable posture and notes it wins outright more often than it looks."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Does not design a new channel roster, and routes channel architecture to samber/dev-event-organizer-skills@event-comms-channels."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Fixes the interaction posture in one line before recommending any platform."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Identifies the last date the platform choice can still be reversed as the deadline the decision is ranked against, rather than the event date."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Requires the vendor questions to be answered in writing before anything is committed or signed."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Warns that breakout rooms, booths and attendee directories cost procurement, ops effort and a data-handling review whether or not anyone opens them."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that an attendee directory or sponsor-facing lead capture triggers a data-handling review before signature, and that a list a sponsor has already exported cannot be recalled."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that a one-way feed plus the existing chat space beats a broadcast tool with a built-in question queue on ops effort, on procurement and on reach."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Requires a named person per session rather than a function or a role label."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that an open space with nobody on duty is a code-of-conduct obligation with no responder."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Recommends closing the interaction surface on any track that cannot be staffed rather than leaving it open unstaffed."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that the cheapest staffing rung carries the highest compliance cost, running backwards to the other axes."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Presents that inversion as an argument about who is answerable, not as a legal reading, and points the duty, platform terms and retention questions to the organizer's own counsel."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Does not re-derive the standing cost of keeping a chat space open, and attributes it to samber/dev-event-organizer-skills@event-comms-channels."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that a digital space raises the harassment risk rather than lowering it."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Distinguishes the technical watcher from the moderator and states the watcher does not read chat."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that moderation capacity is identical between one moderator per concurrent session and moderator-plus-technical-watcher, so the second person exists for failure-noticing rather than for moderation."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that a contingency document nobody has read aloud is not a drill and deletes it from the menu rather than ranking it."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Distinguishes the written fallback line - one sentence published where the audience will already be looking - from the runbook document."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that the fallback line must name exactly where to go when the feed dies, and must live outside the platform."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends rehearsing the single likeliest failure, the speaker's connection dropping mid-talk, with the moderator's exact opening words agreed in advance."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that a rehearsed handoff buys composure rather than infrastructure, and is the highest-value preparation on the menu."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Does not recommend the full outage drill on a second platform, and names its promotion conditions as unmet: a paid virtual ticket or sponsor contract naming the stream, a session that cannot be rescheduled, a previous edition whose feed died."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Gives the outage sequence in order: notice, say it immediately, point somewhere, recover or reschedule, close the loop."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that speed matters more than accuracy in the first message because every attendee's first hypothesis is that the problem is on their end."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Requires naming the person who will say the line out loud and confirming they know the sentence."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Requires saying so once the stream resumes, because a stream that quietly resumes leaves the people who left not knowing they can come back."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends sending a written home-setup note with the join link, in the same message, the same day acceptances go out."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Includes in that note a wired connection preferred over wireless, wired headphones with a microphone over a laptop's built-in microphone or wireless earbuds, and closing anything syncing in the background."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Includes camera at eye level and light in front of the face rather than behind it."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Promotes the two live-demo speakers to an individual tech check plus an instructed local backup recording."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Reports the impossible slot upward to samber/dev-event-organizer-skills@event-schedule-design rather than solving it inside speaker preparation."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that local means local: a recording that uploads while the talk runs competes for the same uplink and is not a backup."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires the local backup recording to be covered by samber/dev-event-organizer-skills@event-speaker-experience's consent record before the file exists."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that a local backup recording does nothing for the audience in the minute the feed dies."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Tells the speaker where to send the recording file and by when, in the same instruction."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Warns that background music in anything shared can get the stream taken down by the platform itself, mid-session."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Rejects assuming attendance falls when an event goes virtual as a planning default."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Cites PyCon US counting about 22% fewer people in 2021 as a virtual event, roughly 2,650, than the 3,393 checked in at the in-person 2019 edition."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Cites KubeCon+CloudNativeCon North America registrations nearly doubling the other way, from 11,891 in 2019 in-person to 22,816 or more in 2020 virtual."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends asking the platform vendor the concurrent-viewer ceiling on the plan being bought, in writing."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends asking what happens at that ceiling: a queue, a refusal, or an upgrade invoice."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Hands the cost consequence to samber/dev-event-organizer-skills@event-budget rather than producing the budget here."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Splits that cost by what a lean tier drops, stating the feed itself survives every tier while the interaction surface and its staffing go first."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Treats any published remote-turnout evidence about interaction usage as direction rather than as a number to size against."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States an outgoing bandwidth requirement of 10 Mbit/s per room streamed."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Applies that figure per room rather than per event, giving 50 Mbit/s for five rooms."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Concludes the 25 Mbit/s uplink is insufficient for five simultaneous room feeds."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names a 2 Mbit/s floor and states it sacrifices resilience rather than being a safe minimum, so the budget should sit above it."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names the assembled stack's seams: a schedule that has to be updated in several places, a login the audience holds twice, and a question arriving somewhere the speaker is not looking."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that the assembled stack's real price is organizer hours, and that it is the heaviest rung on ops effort."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Reads that warning as a caution about the hours rather than as a verdict on the components, noting it was written about a hackathon's own stack."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Calibrates multi-track concurrency against FOSDEM 2021 provisioning for about 100 concurrent interactive video rooms and peaking at 46 in simultaneous use on the first day."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes the assembled stack is cheap to start and reversible up to the day, with nothing signed."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that with an assembled stack the organizer chooses each component's jurisdiction, which is a review they own rather than one a vendor's terms performed for them."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Declines to set the captioning standard and routes that decision to samber/dev-event-organizer-skills@event-accessibility-inclusion."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Commits only to delivering captions on the platform and reporting what the platform can and cannot do."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Declines to design the channel roster from scratch and routes it to samber/dev-event-organizer-skills@event-comms-channels."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Adds only the live in-session question surface and the staffing that watches it on top of that roster."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Reuses the existing standing-moderation-cost argument rather than deriving a second one."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Does not recommend a mixing board or any physical-stage capture equipment."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names samber/dev-event-organizer-skills@event-production as owning capture and the signal path wherever a physical room exists."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Does not design a hybrid event, and names samber/dev-event-organizer-skills@hybrid-event-design as the owner of an event serving a room and a remote audience at once."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Does not re-argue the format decision, and names samber/dev-event-organizer-skills@event-format-selection as owning it."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Covers the remote attendee's journey rather than deferring it, noting the on-site attendee journey is keyed to a floor plan and says nothing about a remote attendee."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Hands captured sessions to samber/dev-event-organizer-skills@event-content-repurposing and the recording consent check back to samber/dev-event-organizer-skills@event-speaker-experience after the event."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Asks one question at a time rather than presenting a block or list of questions to answer at once."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Offers multiple-choice options on questions where a choice set exists."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Opens with whether there is an interaction surface at all or whether this is a feed people watch."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Does not produce a platform recommendation before the interaction posture is established."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Asks the last date a platform choice can still be reversed, and states that deadline rather than the event date is what the options are ranked against."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Asks whether this is a one-off edition or a recurring event, and notes a recurring event promotes options whose payoff lands after this edition."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Asks the effort ceiling: how many people can be doing only production during a session rather than also doing something else."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Asks who is still available the week after the event."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Asks which sessions cannot be re-run or rescheduled, which carry a live demo, and which speakers have an unknown connection or have never presented on this platform."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Asks where speakers and audience are in time-zone terms, including whether anyone would present in the middle of their night."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Asks what already exists that should re-rank the defaults, such as a chat space the audience is already in, an organizer who has streamed before, a platform somebody already pays for, or last edition's failures."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Commits to presenting the resulting plan section by section for validation before anything is signed."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Cites the published survey split on exactly this arrangement: 37% very happy, 24% finding it acceptable, 10% who would have preferred something else."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names the most common recorded complaint as being forced to choose between the next talk and staying for questions."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Recommends deciding that trade on purpose rather than discovering it live."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Sets moderator-reads-questions-aloud-at-agreed-points as the default relay mechanic."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Decides the relay mechanic per speaker at the tech check rather than once for the whole event."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Requires agreeing the ending: who says the session is out of time, and where unanswered questions go."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States the moderator batches questions, drops duplicates, and rewrites a hostile question into a real one or drops it."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Notes a pre-recorded talk played to schedule maximises insurance that a usable talk exists and minimises the sense that the session is live."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Gives three completeness gates checkable before the first session and free of any threshold to argue about."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Gate: every concurrent session has a named moderator, or the interaction surface for it is closed."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that gate requires a name, not a function or a role."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Gate: every speaker has joined the platform the event actually runs on at least once before the day."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Gate: the fallback line is published, and the person who will say it out loud knows the sentence."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Labels every remaining metric as self-set rather than an industry standard, and says so when presenting it."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Does not invent an industry benchmark, published target percentage, or external standard to hit."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Offers sessions delivered without an audience-visible failure over sessions scheduled."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that a session which ran with no audio counts as a failure."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Offers time from a feed dropping to the audience being told something."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Offers questions relayed to a speaker against questions asked, as the measure of whether moderation staffing was real or nominal."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Offers speakers who joined a check before the day over speakers scheduled, as the one leading indicator available before anything goes wrong."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Recommends picking two or three, writing down what change each would trigger, and recording them before the event rather than after."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Redirects the saved decision energy to moderation staffing."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Asks where attendee data is stored and under which jurisdiction's law."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Asks what is exported to a sponsor when an attendee enters a booth or a directory, and whether the attendee sees that at the moment it happens."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Asks how long chat and question history is retained and whether it can be deleted on request."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Asks whether any part of the platform records attendees on camera, and whether that recording is separable from a talk's recording."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that a talk's consent record covers a speaker presenting and does not cover an attendee whose face appeared in a breakout room."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that attendee consent for a breakout appearance cannot be collected after the fact."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names no jurisdiction and quotes no retention period, routing the data-protection questions to the organizer's own counsel."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that a list a sponsor has already exported cannot be recalled."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Promotes the moderator, technical watcher and host-on-the-feed staffing on the strength of the sponsor deliverables naming the stream."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Warns that booths, breakouts and a directory cost procurement, ops effort and a data-handling review whether or not anyone opens them."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Recommends the single one-way feed with comments closed rather than opening the Discord."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that an open space in the event's name with nobody on duty is a code-of-conduct obligation with no responder."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that the published digital-harassment warning applies to an unstaffed open space exactly as it does during a staffed session."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Skips the moderation staffing question entirely once the posture is a single one-way feed, rather than proposing a reduced or best-effort staffing option."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Names the single one-way feed as the minimum viable posture and notes it wins outright more often than it looks."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Names its advantages: no accounts, nothing to moderate, the lowest compliance exposure, and the most robust delivery to a person on a phone."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Still requires a written fallback line published before the day, naming where the audience should go if the feed dies."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Still requires every speaker to join the platform the event actually runs on at least once before the day."
+      }
+    ]
+  }
+}

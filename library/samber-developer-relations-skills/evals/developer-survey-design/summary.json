@@ -1,0 +1,494 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "developer-survey-design",
+  "scenarios": 12,
+  "expectations_total": 140,
+  "expectations_subjective": 0,
+  "expectations_objective": 140,
+  "pass_rate_with_skill_pct": 84.3,
+  "pass_rate_without_skill_pct": 35.7,
+  "delta_pp": 48.6,
+  "uplift_multiplier": 2.36,
+  "trigger_accuracy_pct": 52.9,
+  "trigger_queries": 102,
+  "trigger_positive_fire_rate": 0.294,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": null,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Produces a decision table before any polished questionnaire, and does not return a final questionnaire as the first deliverable."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Uses the deployment-target telemetry (self-hosted vs cloud) as a bias check rather than adding it as a survey question."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Instructs booking a readout with Noor and the marketing owner before launch, or states that results with no meeting waiting for them go unused."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Rewrites the headline to the respondents rung: a percentage of the 1,480 respondents who use both the CLI and the console, carrying n and the question wording."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Explains what rung 2 would require: a random invitation through a product surface, with the invited-to-completed rate printed beside the number."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Supplies a chart caption carrying exact wording, who was asked, n, and either 'not weighted' or the weighting statement."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The proposed headline contains neither 'of developers' nor 'of the ecosystem'."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Treats the claim rules as release blockers rather than suggestions, since publication is planned."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Presents the incentive ranking with efficiency, effort, value and compliance-cost axes stated out loud, and names 'none, with results shared first with respondents' as the default."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Warns that any public incentive draws bots and machine-written answers and requires switching on fraud checks before announcing: an attention or consistency check, a trap option nobody can have used, and detection of templated open text."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Keeps results posted to every recruitment channel before any press release as part of the incentive design."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Allows the Go trend only in rung-1 form with both years' n (1,880 and 2,410), the unchanged wording, and the source-mix difference stated."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends freezing the core-module wording and position from this edition forward and splitting a rotating module for yearly topics."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Stores the core-module wording, the channel list with source tags and this edition's funnel in `devrel-context.md` or the memory system in use."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Raises the age floor to 18 because sensitive items are asked, and places the age gate right after the notice and before question 1."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Releases open-data rows only for respondents who agreed, under the explicit licence."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Does not produce a recruitment channel plan or an incentive recommendation."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that n=3,104 is a size caveat and never a substitute for the bias sentence."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States the channel ranking on three axes (efficiency, effort, value) out loud, with the efficiency order: random calibration subsample > owned channels > partner-sent > targeted outreach > paid ads."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Specifies the calibration mechanics: invite each install once, at most one reminder to the same draw, single-use tokens stored apart from the answers."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Assigns a source tag per channel via distinct links or a hidden field and commits to publishing the source mix."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Demotes cognitive interviews to 'next edition' because the date is under four weeks away, and logs that gap in the methodology."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Produces a decision table before any polished questionnaire, and does not return a final questionnaire as the first deliverable."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Every kept row carries the original draft number, the decision it informs, the owner, and the answer that would change the decision."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Cuts items 1 and 2 (name, work email) from the response table and moves contact collection to a separate form."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Phrases every cut reason as 'no decision named' or 'telemetry answers this' or an equivalent traceable reason, never as 'bad question' or a quality judgment on the author."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Cuts or rewrites item 5 ('How much do you love Kelpline?'), naming praise in the stem and no decision attached."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Cuts item 6 (agree/disagree 'faster than Flagpole'), stating that agree/disagree inflates agreement and that a performance claim needs a benchmark rather than opinions."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Cuts items 7 and 8 ('Would you like more tutorials / better SDK docs?') as questions that return yes either way, and points to item 12's trade-off question as the replacement."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Cuts items 9 and 10 (budget, demo interest) as lead capture that turns the survey into marketing, and proposes linking the existing signup page from the thank-you screen under its own consent."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Keeps item 11 with randomised option order and an 'Other (please specify)' option."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Adds a production-stage question (furthest stage reached in the last 12 months) to carry marketing's headline, marked `publish` in the table and assigned to the core module."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Uses the deployment-target telemetry (self-hosted vs cloud) as a bias check rather than adding it as a survey question."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Instructs booking a readout with Noor and the marketing owner before launch, or states that results with no meeting waiting for them go unused."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Rewrites the headline to the respondents rung: a percentage of the 1,480 respondents who use both the CLI and the console, carrying n and the question wording."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Explains what rung 2 would require: a random invitation through a product surface, with the invited-to-completed rate printed beside the number."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Explains that weighting to region (rung 3) needs a published benchmark per weighting variable with the unweighted figure beside it, and flags the team's own guess at the user base as a self-estimated benchmark that must be disclosed as such."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Writes a plain bias sentence naming who the sample over-represents (engaged community members, users of the company's own channels)."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Supplies a chart caption carrying exact wording, who was asked, n, and either 'not weighted' or the weighting statement."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Treats the claim rules as release blockers rather than suggestions, since publication is planned."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that response rate is undefined for the open-link channels (newsletter, docs banner, Discord) because they have no denominator."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Reports a funnel per channel instead: views where known, starts, completes, kept."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Identifies the random first-launch prompt as the only channel with a denominator and reports its invited (2,000), started and completed (240) counts."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Presents the incentive ranking with efficiency, effort, value and compliance-cost axes stated out loud, and names 'none, with results shared first with respondents' as the default."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Ranks the prize draw low on compliance cost, naming contact data, a separate store and sweepstakes rules per jurisdiction."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that prize-draw effects on completes are small and inconsistent."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends a fixed donation per complete as the next rung before paid responses, given the near date and the shortfall."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Warns that any public incentive draws bots and machine-written answers and requires switching on fraud checks before announcing: an attention or consistency check, a trap option nobody can have used, and detection of templated open text."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names the salted IP hash as the proportionate duplicate check: separate column, declared in the notice, dropped at cleaning."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Keeps results posted to every recruitment channel before any press release as part of the incentive design."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Flags EU-based respondents and a French organisation as making the privacy pack a release blocker and pushing the prize draw to the bottom of the incentive list."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Lists at least one recruitment lever from the channel ranking (one reminder to the same random draw, partner-sent invitations, targeted outreach) before reaching for an incentive."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Runs the core-module check, listing per question whether wording and position are unchanged between editions."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Allows the Go trend only in rung-1 form with both years' n (1,880 and 2,410), the unchanged wording, and the source-mix difference stated."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Rewrites 'Go adoption up 5 points' into 'among respondents, X% reported ... up from Y%' form and does not use the word 'adoption' for the respondent share."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Produces an explicit comparable list and a non-comparable list."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Reports this year's Kubernetes figure as a standalone rung-1 number with its new wording and the screener base (asked of respondents who run Saltmarsh in production)."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends freezing the core-module wording and position from this edition forward and splitting a rotating module for yearly topics."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Stores the core-module wording, the channel list with source tags and this edition's funnel in `devrel-context.md` or the memory system in use."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Carries 'multiple answers allowed' on the Kubernetes chart caption."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Rejects the five-minute rule, stating that no study sets an ideal length and that published developer surveys run from a 12-13 minute median to about 30 minutes."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Sets a target median completion time before deciding which questions survive."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Budgets the longest routed path, not the average path."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Prices each free-text box at a minute or more of respondent time plus analyst coding time."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Instructs timing the coding of 50 open answers and extrapolating to 1,500 completes, then capping boxes at what six analyst hours cover."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Moves the decision-feeding questions early in the order."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Instructs re-pricing the length from the soft launch's measured median time."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Assigns a legal basis per purpose: aggregate results on legitimate interest with an opt-out; follow-up contact, panel enrolment, raw-data release and the sensitive items each on separate unticked consent."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Identifies Kestrelworks as a joint controller because it co-designs and uses the results, and requires writing down who answers rights requests and who publishes what."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Puts the gender identity and disability items behind a separate explicit consent block that is unticked by default and skips past the block when declined, each with 'Prefer not to say' and self-describe text, reported in aggregate only."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Raises the age floor to 18 because sensitive items are asked, and places the age gate right after the notice and before question 1."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Removes all open-text answers from the open-data release and publishes coded themes instead."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Applies the under-10 suppression floor to every combination of quasi-identifiers in the open data, and runs the three tests (single out, link, infer), coarsening bands until all three fail."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Rewrites the rights sentence: without identifiers in the response table, answers cannot be retrieved or deleted after submission (GDPR Art. 11), while contact details in the separate form can be."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Produces a data map with at least the response table, the contact form, platform logs and invitation tokens, each with who can read it and when it is deleted."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Sets retention: identifiable raw answers deleted once cleaning and analysis finish, with only the anonymised extract carried into the next edition."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Releases open-data rows only for respondents who agreed, under the explicit licence."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Does not draft the questionnaire."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Asks or confirms the gating questions about which decisions the results feed and who owns each, and whether anything will be published, before any design work."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Recommends not running the survey yet because no decision owner and no publication plan exist."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Offers five user interviews as the alternative, stating that they answer 'what should we ask' faster than a survey."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names the condition that reopens the survey: a named decision with an owner, or a publication plan."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Does not produce a recruitment channel plan or an incentive recommendation."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Flags 'what they'd like to see' as a wishlist question that returns yes either way, rather than keeping it."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Routes the standing 'pulse' ask to samber/developer-relations-skills@developer-community-health by name rather than designing pulse items here."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Places '58% of backend developers' on rung 4 and states that an open-link methodology supports only the respondents rung."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that n=3,104 is a size caveat and never a substitute for the bias sentence."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Notes that 'backend' was a self-reported role selection, so the base is self-described backend respondents, and carries the exact question wording into the slide."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States the channel ranking on three axes (efficiency, effort, value) out loud, with the efficiency order: random calibration subsample > owned channels > partner-sent > targeted outreach > paid ads."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Puts a random calibration subsample through the CLI first-run message first, explaining that only it makes rung-2 claims and a bias measurement possible."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Specifies the calibration mechanics: invite each install once, at most one reminder to the same draw, single-use tokens stored apart from the answers."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Sizes the calibration group to clear the subgroup minimum for the subgroups to be compared."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Demotes or deletes the $8k LinkedIn ads, stating that paid ads are promoted only when the bias check shows a large group owned channels miss and someone can screen fraud."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Labels owned channels (newsletter, Discord, repo) as volume, never representative."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Shows Moorhen the questionnaire outline only when everyone else sees it, and names in the methodology who could see and change it."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names the first-run message's own skew (interactive users on the new release only) in the bias sentence."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Replaces the 4.1 out of 5 mean with the full distribution across the scale, with n and exact wording."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Applies the segment-gap reading rule: the gap counts only if it is large enough to change a decision and its direction holds in every source channel that clears the subgroup minimum."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Sets a self-set minimum subgroup n above the privacy floor of 10, labels it self-set, and hides subgroups below it."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Refuses the 25 verbatim answers; publishes coded themes and quotes checked for names and employers, and states whether coding was by hand or model-assisted with a person checking."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Refuses weighting to install counts because installs count machines rather than people, and uses the Linux 61% vs 40% comparison as a bias check reported in the methodology instead."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Reports the cleaning rules with the count each removed (qualifiers, speeders, straight-liners, duplicates and bots)."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Drafts a methodology section covering who ran it, population, dates, channels and source mix, funnel, cleaning rules, 'not weighted', a link to the full questionnaire, and a plain sentence naming who the sample over-represents."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Supplies a chart caption template with exact wording, who was asked, n, 'multiple answers allowed' where true, and the recruitment channels."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States 'Don't know' handling once and applies it the same way to every chart."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Drops the 40 Discord responses from the main dataset because wording changed after they answered, and states that pilot responses tagged `pilot` are kept only when no wording changes follow."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Adds an expert review: one person outside the team reads every question against the question-writing rules and completes the survey on a phone and with a screen reader."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Demotes cognitive interviews to 'next edition' because the date is under four weeks away, and logs that gap in the methodology."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Runs a soft launch to a small slice of one channel before the full send, checking median completion time against the budget, the breakoff point and empty answers."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Re-prices the length budget from the soft launch's measured median."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Keeps the newsletter as an owned channel for volume and does not present it as representative."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Tags the soft-launch and full-launch responses with distinct source tags."
+      }
+    ]
+  }
+}

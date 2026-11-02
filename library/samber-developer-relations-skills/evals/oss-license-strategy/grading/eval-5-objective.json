@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Classifies the go-to-market motion as product-led (PLG) B2B, and treats the monetization axis as motion rather than buyer type",
+        "evidence": "\"This is product-led B2B: individual adoption with zero procurement, converting to a company contract later.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the PLG path as individual developer adoption leading to a company contract without procurement",
+        "evidence": "same quote as above",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that source-available terms blocking the individual developer's free adoption break the PLG funnel",
+        "evidence": "\"source-available terms that block the individual developer's free adoption break the PLG funnel.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Shifts the evaluation metric from surviving procurement review to developer adoption friction",
+        "evidence": "\"Anything that makes an individual developer pause to read a license before running `brew install finchgate`... taxes the exact number that currently costs you nothing\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that FSL freezes BUSL's parameters at two years, converting to MIT or Apache-2.0, with no per-adopter use grant",
+        "evidence": "\"FSL's actual mechanics: two-year clock, converts to MIT or Apache-2.0 automatically, no per-adopter grant\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Attributes FSL to Sentry and gives its framing that you can do anything with FSL software except economically undermine its producer",
+        "evidence": "\"Sentry's own history actually supports this...\" and \"'you can do anything with FSL software except economically undermine its producer.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that FSL is source-available and not OSI-approved, so it may not be called open source",
+        "evidence": "\"FSL is explicitly *not* OSI-approved.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires naming the specific competitor being defended against, and states the restriction buys nothing and costs adoption if none is plausible",
+        "evidence": "\"It only bites someone who copies your actual source... what you're actually reacting to is competition, and no license fixes that.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Offers dual licensing and open core as levers that still work under a product-led motion",
+        "evidence": "Only 'open-core split' is offered; 'dual licensing' is never mentioned anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names hosting the software themselves as monetizing operations rather than terms, costing no contributors",
+        "evidence": "Posture 1 speaks of a separate closed-source service for team-plan features, not explicitly framed as the company hosting the software itself.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that 'no lever needed' is a finding to report rather than a failure",
+        "evidence": "\"Stop here \u2014 posture 1 is functionally what you already have, just say so and skip the rest of this document.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that published releases keep their terms forever, so a lever pulled after adoption arrives is mostly symbolic",
+        "evidence": "No statement about past releases keeping terms forever or a lever being symbolic appears in this transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Classifies the go-to-market motion as product-led (PLG) B2B, and treats the monetization axis as motion rather than buyer type",
+        "evidence": "The transcript never uses 'PLG', 'product-led', or frames monetization as a 'motion' vs 'buyer type'. It discusses 'brew install' as a growth/funnel channel and a $400/mo team plan, but never explicitly classifies or names the GTM motion.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the PLG path as individual developer adoption leading to a company contract without procurement",
+        "evidence": "No mention of 'procurement' or an explicit individual-adoption-to-company-contract mechanism anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that source-available terms blocking the individual developer's free adoption break the PLG funnel",
+        "evidence": "\"This forces every one of your 9,000 weekly installs through `brew tap finchgate/tap && brew install finchgate` instead of `brew install finchgate` \u2014 real, measurable install friction, on the one channel that currently feeds your entire pipeline with zero sales cost.\" and \"Keep the CLI ... exactly as licensed today. This is your top-of-funnel. Don't touch it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Shifts the evaluation metric from surviving procurement review to developer adoption friction",
+        "evidence": "Procurement is never mentioned as an evaluation metric anywhere in the transcript, so no such shift is stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that FSL freezes BUSL's parameters at two years, converting to MIT or Apache-2.0, with no per-adopter use grant",
+        "evidence": "\"Each release converts automatically to a permissive license (you pick MIT or Apache-2.0 up front) after a fixed \"Change Date\" ... is 2 years from that version's release\" and \"BSL ... lets each adopter write a custom \"Additional Use Grant\" ... FSL is a fixed template \u2014 less flexible, more predictable\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Attributes FSL to Sentry and gives its framing that you can do anything with FSL software except economically undermine its producer",
+        "evidence": "\"Sentry's own standard\" and \"Restricts one thing: \"Competing Use.\" Roughly: offering the software (or a derivative) to third parties as a hosted/embedded substitute for your own paid product. Internal use, non-competing commercial use, and personal use stay free even during the restricted period.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that FSL is source-available and not OSI-approved, so it may not be called open source",
+        "evidence": "\"Not open source. OSI doesn't recognize it. Sentry and the fair.io group call the category \"fair source\" on purpose \u2014 say that in public, don't call it open source, or you'll get corrected loudly and correctly.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires naming the specific competitor being defended against, and states the restriction buys nothing and costs adoption if none is plausible",
+        "evidence": "\"Did the Polish competitor fork Finchgate's code, or build their own? ... If their tool doesn't contain your code, relicensing changes nothing about that threat \u2014 you'd be adding friction to your own distribution for a problem the license can't touch.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Offers dual licensing and open core as levers that still work under a product-led motion",
+        "evidence": "Only 'open-core' is actually recommended (\"Recommended shape: open-core, not blanket relicense\"); dual licensing is mentioned solely as a historical fact about Redis (\"Redis \u2192 dual-license (2024) produced the Valkey fork\"), not offered as a lever for Finchgate, and no 'product-led motion' framing is used.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names hosting the software themselves as monetizing operations rather than terms, costing no contributors",
+        "evidence": "The transcript never proposes self-hosting/operating the software as an alternative monetization lever distinct from license terms; it only discusses FSL-restricting the hosted dashboard/server code itself.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that 'no lever needed' is a finding to report rather than a failure",
+        "evidence": "\"If it's independent, the real levers are trademark, execution speed, and the team-plan feature gap \u2014 not licensing.\" and \"If diagnostic #2 comes back ... say so explicitly to your leadership before proceeding\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that published releases keep their terms forever, so a lever pulled after adoption arrives is mostly symbolic",
+        "evidence": "\"Not retroactive. Every version already released under your current license stays under that license forever, for everyone who has it, including a competitor who already grabbed it. FSL only governs future releases.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

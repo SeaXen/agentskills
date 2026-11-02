@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Directs the work to findability and the corporate lane first, rather than rewriting the sponsorship page copy.",
+        "evidence": "\"You're polishing step 5 (the ask) when your own numbers are the textbook signature of steps 6 and 7 never having happened \u2014 findability and the corporate lane.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that when usage is proven and income is near zero, the ladder is rarely the problem.",
+        "evidence": "\"when usage is proven and income is zero, **the ladder is rarely the problem; findability and the absence of a working company tier usually are.**\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Checks for .github/FUNDING.yml on the default branch.",
+        "evidence": "\"Does `.github/FUNDING.yml` exist on the default branch, sponsor button enabled in repo settings?\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Checks that the repository sponsor button is enabled in repository settings.",
+        "evidence": "Same quote: \"sponsor button enabled in repo settings?\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Checks the organization-level fallback at {owner}/.github for a stale or wrong FUNDING.yml.",
+        "evidence": "\"Check the org-level fallback too (`{owner}/.github`) \u2014 a stale one silently overrides nothing.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires every funding link to be fetched and verified live, noting that a 404 removes the project from a funder's list entirely.",
+        "evidence": "\"Fetch every funding link live. One 404 removes the project from a funder's list entirely \u2014 this is a hard filter, not a scoring ding.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Tells the maintainer to fill the npm manifest funding field, not only the repository file.",
+        "evidence": "\"Is `funding` filled in `package.json`? Funder tooling... reads the manifest, not just the repo.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains automatic dependency-share sponsorship, where a funder covers most of their fundable dependency tree at roughly $4-$10 each with no outreach required.",
+        "evidence": "\"the kind that gave one company's dependency tree 95%+ coverage at $4\u201310/dependency with zero outreach\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that having no funding mechanism is a hard filter in funder programs, not merely a low score.",
+        "evidence": "\"If any of this is missing, you're invisible to the automatic 'breadth' money\" combined with \"this is a hard filter, not a scoring ding\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends checking the OpenSSF Scorecard 'Maintained' score and fixing commit and release cadence before pitching if it reads dormant.",
+        "evidence": "Not mentioned anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Puts a funding link within about two clicks of every surface users already touch: repository sponsor button, README, docs footer, release notes.",
+        "evidence": "The transcript only lists FUNDING.yml, sponsor button, and npm funding field \u2014 no mention of README/docs footer/release-notes placement or a \"two clicks\" framing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Turns the three Series-B startups into named outreach targets, recording the lockfile and issue evidence per company.",
+        "evidence": "\"a direct email to a named person... at each of your 3 known dependents, naming their exposure\" \u2014 targets are named but no explicit mention of recording lockfile/issue evidence per company.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not treat sponsorship page views as the success metric, measuring conversion per surface instead.",
+        "evidence": "The transcript recommends tracking \"sponsor count split individual vs. company,\" not conversion per surface; page views/conversion-per-surface framing is absent.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Directs the work to findability and the corporate lane first, rather than rewriting the sponsorship page copy.",
+        "evidence": "\"Rewriting the tier copy optimizes conversion *inside* a flow that was never built to take company money... Stop treating 'everyone says rewrite the copy' as consensus worth following.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that when usage is proven and income is near zero, the ladder is rarely the problem.",
+        "evidence": "\"Four individuals paying $35/mo total, against three companies with money on the line, isn't a copy problem. Copy affects conversion within a channel. You have the wrong channel for the buyer you actually have.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Checks for .github/FUNDING.yml on the default branch.",
+        "evidence": "FUNDING.yml is never mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Checks that the repository sponsor button is enabled in repository settings.",
+        "evidence": "No mention of the repository sponsor button setting.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Checks the organization-level fallback at {owner}/.github for a stale or wrong FUNDING.yml.",
+        "evidence": "No mention of the org-level .github fallback.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires every funding link to be fetched and verified live, noting that a 404 removes the project from a funder's list entirely.",
+        "evidence": "No mention of verifying funding links or 404 risk.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Tells the maintainer to fill the npm manifest funding field, not only the repository file.",
+        "evidence": "No mention of a package manifest funding field.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains automatic dependency-share sponsorship, where a funder covers most of their fundable dependency tree at roughly $4-$10 each with no outreach required.",
+        "evidence": "No mention of dependency-share/automatic sponsorship mechanisms.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that having no funding mechanism is a hard filter in funder programs, not merely a low score.",
+        "evidence": "No such statement appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends checking the OpenSSF Scorecard 'Maintained' score and fixing commit and release cadence before pitching if it reads dormant.",
+        "evidence": "No mention of OpenSSF Scorecard or commit cadence.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Puts a funding link within about two clicks of every surface users already touch: repository sponsor button, README, docs footer, release notes.",
+        "evidence": "Only a README section is proposed; sponsor button, docs footer, and release notes are not addressed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Turns the three Series-B startups into named outreach targets, recording the lockfile and issue evidence per company.",
+        "evidence": "\"Send three direct, personal emails \u2014 one per company... Reference their actual usage (the lockfile, the issues they filed) specifically.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not treat sponsorship page views as the success metric, measuring conversion per surface instead.",
+        "evidence": "No metric of success (page views or conversion-per-surface) is discussed at all.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

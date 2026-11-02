@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States an outgoing bandwidth requirement of 10 Mbit/s per room streamed.",
+        "evidence": "'10 Mbit/s of outgoing bandwidth per room'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Applies that figure per room rather than per event, giving 50 Mbit/s for five rooms.",
+        "evidence": "'Five rooms at 10 Mbit/s is 50 Mbit/s, twice your line.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Concludes the 25 Mbit/s uplink is insufficient for five simultaneous room feeds.",
+        "evidence": "'Not as planned.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names a 2 Mbit/s floor and states it sacrifices resilience rather than being a safe minimum, so the budget should sit above it.",
+        "evidence": "'which fits but has no resilience'; budget above the floor.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the assembled stack's seams: a schedule that has to be updated in several places, a login the audience holds twice, and a question arriving somewhere the speaker is not looking.",
+        "evidence": "Hand-edited schedule, two logins, questions landing where the speaker isn't looking.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the assembled stack's real price is organizer hours, and that it is the heaviest rung on ops effort.",
+        "evidence": "Says cost is 'your hours and the seams', but never says it is the heaviest rung.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns against under-estimating the work, framing a well-run digital event as far more than a chat server.",
+        "evidence": "Has an 'underestimating' list but not the framing that a well-run event is far more than a chat server.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reads that warning as a caution about the hours rather than as a verdict on the components, noting it was written about a hackathon's own stack.",
+        "evidence": "Not present.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Calibrates multi-track concurrency against FOSDEM 2021 provisioning for about 100 concurrent interactive video rooms and peaking at 46 in simultaneous use on the first day.",
+        "evidence": "Not cited.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes the assembled stack is cheap to start and reversible up to the day, with nothing signed.",
+        "evidence": "'free and reversible until the week before'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that with an assembled stack the organizer chooses each component's jurisdiction, which is a review they own rather than one a vendor's terms performed for them.",
+        "evidence": "Only says to take data-location questions to counsel.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires one rehearsal on the platform the event actually runs on.",
+        "evidence": "'Rehearse once, on the real platform, with all five rooms live'.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States an outgoing bandwidth requirement of 10 Mbit/s per room streamed.",
+        "evidence": "It uses 4.5\u20136 Mbit/s for 1080p30 and ~2.5\u20133 Mbit/s for the lower settings.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Applies that figure per room rather than per event, giving 50 Mbit/s for five rooms.",
+        "evidence": "It computes 22\u201330 Mbit/s for five rooms.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Concludes the 25 Mbit/s uplink is insufficient for five simultaneous room feeds.",
+        "evidence": "\"It is tight if it only carries the ingest, and it is fine if the home line carries almost nothing.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names a 2 Mbit/s floor and states it sacrifices resilience rather than being a safe minimum, so the budget should sit above it.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the assembled stack's seams: a schedule that has to be updated in several places, a login the audience holds twice, and a question arriving somewhere the speaker is not looking.",
+        "evidence": "Only schedule drift is covered. There is no double login or question seam.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the assembled stack's real price is organizer hours, and that it is the heaviest rung on ops effort.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns against under-estimating the work, framing a well-run digital event as far more than a chat server.",
+        "evidence": "\"What else you're probably underestimating\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reads that warning as a caution about the hours rather than as a verdict on the components, noting it was written about a hackathon's own stack.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Calibrates multi-track concurrency against FOSDEM 2021 provisioning for about 100 concurrent interactive video rooms and peaking at 46 in simultaneous use on the first day.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes the assembled stack is cheap to start and reversible up to the day, with nothing signed.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that with an assembled stack the organizer chooses each component's jurisdiction, which is a review they own rather than one a vendor's terms performed for them.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires one rehearsal on the platform the event actually runs on.",
+        "evidence": "\"Do a full dress rehearsal with all five rooms live at once.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

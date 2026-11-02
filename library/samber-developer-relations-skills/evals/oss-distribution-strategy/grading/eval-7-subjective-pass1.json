@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Drops or sharply caps the framework-integration plan, naming unbounded adapter sprawl a solo maintainer cannot keep green.",
+        "evidence": "Stage 3 is explicitly capped to one adapter with the named reason: \"Pick ONE adapter, not two. This family's cost is 'high and recurring per integration' \u2014 a second adapter doubles your permanent maintenance surface, and unbounded adapter sprawl is the named trap for solo maintainers.\" The cap is reinforced in Refused (\"Second framework integration \u2014 deferred... Reopens: 2028, after first adapter's maintenance load is proven sustainable for a year\"), the integration is spread over 4 months with a stated recurring hold cost (~0.5-1 hr/month) folded into the \u22641.8 hr/month threshold check, the ch",
+        "score": 5,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Drops or sharply caps the framework-integration plan, naming unbounded adapter sprawl a solo maintainer cannot keep green.",
+        "evidence": "The transcript makes this the load-bearing cut and names the sprawl mechanism explicitly: \"The thing that has to give is **\\\"integrations\\\" meaning published adapter packages.** A `@slatevane/react-hook-form` ... is not a one-time cost \u2014 it's a second (and third) repo with its own issue queue, its own semver, and its own breaking-change exposure every time React or Vue ships a major version. For a solo maintainer at 3h/month, that's the single most common way an OSS side project quietly turns into a second job.\" It then substitutes a zero-maintenance form (\"'Integration' in this plan means a d",
+        "score": 5,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

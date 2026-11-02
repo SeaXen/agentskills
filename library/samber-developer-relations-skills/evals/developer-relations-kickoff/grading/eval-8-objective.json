@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Routes the immediate task to `samber/developer-relations-skills@oss-sponsors-brand-strategy`",
+        "evidence": "\"**Route: `samber/developer-relations-skills@oss-sponsors-brand-strategy`.**\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not route the immediate task to `samber/developer-relations-skills@oss-sponsors-fundraising`",
+        "evidence": "\"Not `oss-sponsors-fundraising`.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the disambiguation as who is paying whom, read from the subject of the question",
+        "evidence": "\"Disambiguation \u2014 who pays whom, not whose page it's on.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies \"which tier should we pick on this maintainer's page\" as company-side work despite the maintainer's page being named",
+        "evidence": "\"'Which tier should we pick on this maintainer's page' is still company side \u2014 payer's decision, even though page named belongs to maintainer.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Moves `samber/developer-relations-skills@oss-sponsors-fundraising` to the \"not now\" list rather than onto the short-list",
+        "evidence": "\"**Not now**\\n- `oss-sponsors-fundraising` \u2014 CLI funding (3k stars, inbound interest).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives that not-now entry an explicit unblocking condition",
+        "evidence": "\"Unblocks when Ardent decides to act on maintainer side: build CLI's own sponsor tiers, reward design, invoice path.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not route to `samber/developer-relations-skills@developer-event-sponsorship`",
+        "evidence": "\"Ruled out: ... `developer-event-sponsorship` \u2014 conference/meetup sponsorship, not OSS dependency sponsorship.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not route the project-by-project allocation to `samber/developer-relations-skills@devrel-budget-allocation`",
+        "evidence": "\"Ruled out: `devrel-budget-allocation` \u2014 splits internal program budget across pillars, not naming outside projects/tiers.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not invent per-project funding amounts",
+        "evidence": "\"Do not invent: no per-project dollar split given here. That's `oss-sponsors-brand-strategy`'s own interview to derive... not a guess to hand over now.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the board-proof requirement as inside the routed skill's scope rather than as a separate skill",
+        "evidence": "\"Board-proof ask ... stays inside `oss-sponsors-brand-strategy` too \u2014 its own step covers measuring return on sponsor money. No separate metrics skill needed this session.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes or updates `devrel-context.md` with a session-log line",
+        "evidence": "Session log: \"2026-09-19 - \\\"$4k/month OSS sponsorship, which projects/tiers, board proof\\\" \u2192 `oss-sponsors-brand-strategy`...\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Routes the immediate task to `samber/developer-relations-skills@oss-sponsors-brand-strategy`",
+        "evidence": "No skill name appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not route the immediate task to `samber/developer-relations-skills@oss-sponsors-fundraising`",
+        "evidence": "oss-sponsors-fundraising is never named.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the disambiguation as who is paying whom, read from the subject of the question",
+        "evidence": "No such disambiguation statement appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies \"which tier should we pick on this maintainer's page\" as company-side work despite the maintainer's page being named",
+        "evidence": "The 'Picking the tier' section gives buyer-side advice directly but never explicitly identifies or reasons about this disambiguation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Moves `samber/developer-relations-skills@oss-sponsors-fundraising` to the \"not now\" list rather than onto the short-list",
+        "evidence": "No such list exists anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives that not-now entry an explicit unblocking condition",
+        "evidence": "No list, hence no unblocking condition given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not route to `samber/developer-relations-skills@developer-event-sponsorship`",
+        "evidence": "developer-event-sponsorship is never named.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not route the project-by-project allocation to `samber/developer-relations-skills@devrel-budget-allocation`",
+        "evidence": "devrel-budget-allocation is never named.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not invent per-project funding amounts",
+        "evidence": "The starter portfolio table assigns specific dollar amounts per project (core-js $400, Vite/Vitest $300, pnpm $250, Caddy $250, pytest $250, ripgrep $250, Zod $150, pgx $150).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats the board-proof requirement as inside the routed skill's scope rather than as a separate skill",
+        "evidence": "No skill is ever routed to at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes or updates `devrel-context.md` with a session-log line",
+        "evidence": "No file-write action is shown.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

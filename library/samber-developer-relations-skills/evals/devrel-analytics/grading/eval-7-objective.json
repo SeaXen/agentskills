@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Advises against converting the existing plan's casing, and instructs matching the convention already in place.",
+        "evidence": "\"per skill's own rule (\\\"match existing plan's casing instead of converting it\\\"), no mechanics reason forces this change.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that consistency is the sourced rule and that no particular casing is mandated by the naming framework.",
+        "evidence": "\"Casing isn't mandated by source framework (Segment Object-Action). Segment allows Proper Case for events, only requires consistency.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the Object-Action naming framework as the convention the plan should follow: object then action, past tense.",
+        "evidence": "\"source framework (Segment Object-Action)\" combined with \"Past tense convention: OK.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that renaming a shipped event splits its history in two.",
+        "evidence": "\"Skill rule: \\\"Renaming shipped event splits its history in two.\\\"\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Offers the alternative to renaming: add a property, or version the plan and note the break.",
+        "evidence": "\"Bump plan version (e.g. v1.0 \u2192 v2.0). Log rename in \\\"Known gaps\\\" / changelog with cutover date.\" combined with moving step/section context into properties in points 2 and 3.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects splitting the page-view event into three per-section events, because that pushes context into the event name.",
+        "evidence": "\"Rules broken: \\\"Put context in properties, never in name.\\\"\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Instructs carrying the section as a property on one event instead.",
+        "evidence": "\"Fix: keep docs_page_viewed. Add/reuse property content_type, closed list reference / guide / blog, entered in property registry.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the step number baked into the event name and instructs carrying step_number as a property.",
+        "evidence": "\"Keeps \\\"3\\\" baked into name \u2014 still bad ... Fix: rename to quickstart_step_completed. Move 3 into step_number property.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that 140 events is past the readability limit, and that the list should be small enough to fit on one screen.",
+        "evidence": "\"it does cost: grows already-large 140-event list further, against skill's \\\"fits on one screen\\\" guardrail.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a property registry giving a type and an allowed-value list per property.",
+        "evidence": "\"Add/reuse property content_type, closed list reference / guide / blog, entered in property registry.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Bans PII and PII-shaped identifiers from every property.",
+        "evidence": "No mention of PII or PII-shaped identifiers appears anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Advises against converting the existing plan's casing, and instructs matching the convention already in place.",
+        "evidence": "\"Direction is right.\" \u2014 the transcript endorses converting to snake_case rather than advising against the rename.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that consistency is the sourced rule and that no particular casing is mandated by the naming framework.",
+        "evidence": "The transcript asserts snake_case is correct because \"every downstream tool...expects it natively,\" not that any casing works as long as it's consistent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the Object-Action naming framework as the convention the plan should follow: object then action, past tense.",
+        "evidence": "\"snake_case matches the object-action convention (`event_name` lowercase, underscores, no spaces)\" and examples like `docs_page_viewed`/`quickstart_step_3_completed` follow object-then-past-tense-action.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that renaming a shipped event splits its history in two.",
+        "evidence": "\"Every dashboard/funnel spanning the cutover date shows a cliff (old name stops, new name starts) unless...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Offers the alternative to renaming: add a property, or version the plan and note the break.",
+        "evidence": "The mitigations offered (\"double-emit both names for a transition window, or add a name-mapping layer in the warehouse\") are cutover mitigations, not \"add a property\" or an explicit \"version the plan and note the break\" framing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects splitting the page-view event into three per-section events, because that pushes context into the event name.",
+        "evidence": "\"Splitting into `reference_page_viewed` / `guide_page_viewed` / `blog_page_viewed` violates object-action naming: content-type is *context*, and context belongs in a property\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Instructs carrying the section as a property on one event instead.",
+        "evidence": "\"Better: keep one event, `docs_page_viewed`, add a `doc_type: reference|guide|blog` property.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the step number baked into the event name and instructs carrying step_number as a property.",
+        "evidence": "\"If there's only one quickstart, `quickstart_step_3_completed` is fine.\" \u2014 this accepts the step number baked into the name rather than rejecting it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that 140 events is past the readability limit, and that the list should be small enough to fit on one screen.",
+        "evidence": "No mention of a readability limit or one-screen sizing for the event list.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a property registry giving a type and an allowed-value list per property.",
+        "evidence": "No property registry or type/allowed-value list requirement appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Bans PII and PII-shaped identifiers from every property.",
+        "evidence": "No mention of PII restrictions anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

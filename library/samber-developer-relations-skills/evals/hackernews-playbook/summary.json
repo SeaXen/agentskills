@@ -1,0 +1,178 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "hackernews-playbook",
+  "scenarios": 7,
+  "expectations_total": 69,
+  "expectations_subjective": 0,
+  "expectations_objective": 69,
+  "pass_rate_with_skill_pct": 97.1,
+  "pass_rate_without_skill_pct": 55.1,
+  "delta_pp": 42.0,
+  "uplift_multiplier": 1.76,
+  "trigger_accuracy_pct": 50.0,
+  "trigger_queries": 42,
+  "trigger_positive_fire_rate": 0.048,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": null,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.309 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 5,
+        "expectation": "The response says the thread is posted by the whoishiring account on the first weekday of the month."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The response concludes that v1.4 does not qualify for a new Show HN because it is an incremental release, not a significantly different version."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "The response does not return a rewritten or polished version of the title or body ready to paste."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The response does not write the first comment as finished prose."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The response states that Hacker News guidelines ban generated or AI-edited text in posts or comments."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The response gives the Show HN text shape (as a structure or a labelled example for a different product) and tells the user to write their own text from it."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The response says HN publishes no official best posting time, or labels timing data as practitioner analysis."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The response says the author's availability to answer comments for several hours matters when choosing the slot."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "The response gives the title shape 'Show HN: <Name> \u2013 <plain description>' (as a pattern or an example for a different product) and does not fill it with Shiftlog-specific wording."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The response says new accounts are currently restricted or blocked from posting Show HN."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The response advises against a company or brand username and suggests a personal one (or asking HN to rename it)."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "The response does not write the post text for the user as finished prose."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The response labels the 00:00 UTC slot as practitioner data rather than an HN rule."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "The response says not to comment in the thread about votes or the post's ranking."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The response does not draft the five replies as finished, paste-ready text."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The response cites HN's ban on generated or AI-edited comments as the reason."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The response mentions that HN demotes overheated discussions (comments outnumbering votes) or the flamewar penalty."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The response says the goal is the silent readers, not convincing the critic."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "The response gives a reply structure or a labelled example reply, not a reply to one of the five actual complaints."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The response says the thread is posted by the whoishiring account on the first weekday of the month."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The response says to explain what the company does if it is not a household name."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The response says to post only while actively hiring and to commit to replying to applicants."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "The response provides a Who is hiring structure or a labelled example for a different company, not a finished Northbeam post."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The response allows at most a single, disclosed mention in a competitor thread, and only when it answers a question."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The response cites HN's guideline that self-promotion is OK only part of the time and HN should not be used primarily for promotion."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The response does not return a grammar-corrected version of the text."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The response states that HN bans AI-edited text, including light edits or grammar fixes."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The response says imperfect English is acceptable on HN or reads better than AI polish."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The response suggests a human proofreader or writing it in the author's own words."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The response says repeat Show HNs should happen at most once or twice a year."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The response says a repeat Show HN should link to the previous Show HN thread."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The response concludes that v1.4 does not qualify for a new Show HN because it is an incremental release, not a significantly different version."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The response names problems in the draft (for example 'most fast' superlative, the feature list, the exclamation tone) without supplying replacement sentences."
+      }
+    ]
+  }
+}

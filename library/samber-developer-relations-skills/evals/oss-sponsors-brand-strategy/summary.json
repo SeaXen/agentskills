@@ -1,0 +1,650 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "oss-sponsors-brand-strategy",
+  "scenarios": 12,
+  "expectations_total": 150,
+  "expectations_subjective": 1,
+  "expectations_objective": 149,
+  "pass_rate_with_skill_pct": 70.7,
+  "pass_rate_without_skill_pct": 28.7,
+  "delta_pp": 42.0,
+  "uplift_multiplier": 2.46,
+  "trigger_accuracy_pct": 50.0,
+  "trigger_queries": 132,
+  "trigger_positive_fire_rate": 0.0,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Identifies that the $25k paid to Priya Raghunathan does not count, because she is a maintainer the company already employs"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Advises re-checking the published figures before they go into the post, because such figures drift"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Asks which mandate the money serves, or states the headline number cannot be judged without one, rather than endorsing the announcement as framed"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Requires the user to name exactly one primary mandate and one secondary mandate"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States the default efficiency order as breadth, then depth, then foundation membership, then the employee-nominated fund"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States a $10-a-month sponsorship can never clear a purchase order"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Presents two or three candidate portfolios with their allocation splits before recommending one"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names, for each candidate portfolio, what it deliberately fails at"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends one portfolio and explains why the others lose"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Asks for explicit agreement on the chosen shape before building any target list"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States the switch must be sequenced before sponsorships are established, never after, and identifies the current plan as the wrong order"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes that below the invoice minimum the company pays by card or routes money through a fiscal host instead"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that fiscal hosts commonly take 3-10% of funds received and pay out against a public ledger"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires deduplicating resolved packages by owner or maintainer rather than by package, because one maintainer often stands behind many packages"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Scores candidates on exposure, fragility, audience fit and relationship value"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States those four axes and their weights are this skill's own defaults and invites the user to reweight them"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes depth allocations need not be uniform, citing a published spread running from $1,750 to $15,000 per project per year"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Advises quoting figures verbatim from whatever produced them rather than rounding a score or a download count"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends pulling a per-repository maintenance or health signal instead of a subjective judgement"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires each destination to be resolved before payment, checking the repository funding manifest, then the owner-level fallback manifest, then registry funding metadata, then the project's own site"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States the owner-level fallback applies to every repository of that owner that has none of its own, and should be looked up once per owner and reused"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires each URL to be fetched and verified: a live page included, a 404 or not-enrolled page excluded, a redirect followed and the final URL recorded"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Routes the two projects with no funding link to a separate support-in-kind list such as contribution time, CI credits, hosting or security review, framed as an opportunity rather than a failing"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Refuses to pressure any maintainer into setting up a funding link, and notes some maintainers decline funding deliberately to protect their autonomy"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States payability is a filter rather than one of the scoring axes"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Asks which surface each tier's placement lands on before any tier is chosen"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Asks which mandate this sponsorship serves before recommending a tier"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Warns against requesting any benefit the maintainer will resent in six months, because a tier's rewards are recurring work for one person"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that if supply chain were the mandate, the smallest recurring amount across many projects would be correct, because coverage rather than prominence is the goal"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Restricts voting to employees who made an open-source contribution during that voting cycle, and explains the franchise is earned by contributing"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Rejects the whole-company Slack poll as the voting rule"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Excludes the subscription-only candidate because the budget pays one-off amounts"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Requires the fixed per-cycle amount to be paid promptly, because a fund that pays late loses its internal credibility first"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Asks who administers the cycle and for how many hours a month, treating the fund as a standing job"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that an arrangement returning substantial, non-incidental benefits beyond minimal acknowledgment stops counting as open-source funding"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that an agreement listing deliverables is a services contract, and advises calling it and booking it as one rather than describing it as funding open source"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States the exposure concretely, citing the dependency graph or SBOM showing quarrystone in the critical path, rather than generic enthusiasm"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Makes any placement conditional: taken if an existing tier grants it, with the sponsorship standing if it does not"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Recommends publishing the company's funding policy, including the section on what sponsorship does not buy, before the first payment"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires employees who publicly advocate for a funded project to disclose the relationship"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Notes vendor onboarding, tax forms and sanctions screening apply to an individual maintainer as they do to any supplier, and that the paperwork starts before a date is promised"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Allows funding a dormant project only as an explicit revival bet agreed with the maintainer"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Recommends cutting the portfolio to a size the team can actually renew thoughtfully, labelling the roughly-a-dozen figure as a default rather than a rule"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Asks whether these sponsorships were announced as recurring or one-off, because that changes what dropping them costs"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Identifies that the $90k of engineer time does not count, because it funds a company-controlled project"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States the per-developer floor as more than $2,000 per full-time-equivalent developer per year and attributes it to an industry pledge's membership terms rather than to a market average"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Runs the floor against the 140-developer headcount, giving a figure above $280,000 per year"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Flags that $62k across 140 developers falls far below that floor"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Presents $3,700 per developer as what one company published about its own program, explicitly a single self-reported data point, never as an industry average or a market rate"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Asks which mandate the money serves, or states the headline number cannot be judged without one, rather than endorsing the announcement as framed"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Refuses to convert the four mandates into a percentage weighting, and says so explicitly rather than quietly producing one"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States the four mandates are four different goals rather than four routes to one, so a ratio across them would be false precision"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Requires the user to name exactly one primary mandate and one secondary mandate"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Explains the primary mandate breaks ties later, deciding which project wins the last money and which metric renewal is judged on"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Keeps the internal-engagement mandate and the public-values mandate distinct, noting engagement targets projects employees already touch while a values commitment targets whatever the commitment named"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States the values or pledge mandate is judged on that commitment's own terms: the floor met and the annual report published"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Maps supply-chain assurance to a default breadth allocation across the dependency graph, measured on coverage of fundable dependencies and reachability of maintainers"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Maps reach and credibility to a default depth allocation on a few projects the buyers already use, measured on verified placements and referral traffic"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Maps internal engagement to an employee-nominated fund, measured on employees contributing and nominations per cycle"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Distinguishes mandate selection, which gets no ratio, from allocation-model selection, which is ranked and does get a budget split"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Asks whether developers buy or choose the product before treating reach as a marketing return rather than an employer-brand return"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Promotes the employee-nominated fund above every other model because internal engagement is the primary mandate, explicitly overriding the default efficiency order"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States the default efficiency order as breadth, then depth, then foundation membership, then the employee-nominated fund"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Explains that the efficiency ratio can never select the employee-nominated fund, because the return it buys appears on no other model's row"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States a $10-a-month sponsorship can never clear a purchase order"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Flags the four-hours-a-month ceiling as incompatible with an employee-nominated fund, which is a standing job: a cycle to run, eligibility to check, a vote to administer, a result to communicate"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Presents two or three candidate portfolios with their allocation splits before recommending one"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names, for each candidate portfolio, what it deliberately fails at"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends one portfolio and explains why the others lose"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Asks for explicit agreement on the chosen shape before building any target list"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Does not recommend foundation membership without first checking whether a foundation governs anything in the company's stack"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Sets aside a reserve of 10-20% for opportunistic funding and labels that reserve as a starting default rather than a standard"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Warns that switching the organization to invoiced billing cancels its existing sponsorships, which then have to be re-established"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States the 23 sponsored maintainers will receive a cancellation email that reads to them as a withdrawal"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States the switch must be sequenced before sponsorships are established, never after, and identifies the current plan as the wrong order"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names the $5,000 minimum per invoice on invoiced corporate billing"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names the 30-day payment term"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names the 3% service fee on invoiced billing"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names the three-year agreement term and flags it as a commitment legal has to review"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes that below the invoice minimum the company pays by card or routes money through a fiscal host instead"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that fiscal hosts commonly take 3-10% of funds received and pay out against a public ledger"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Requires vendor onboarding, tax forms and sanctions screening to be started before any date is promised"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Recommends telling the affected maintainers before the switch rather than letting the cancellation email be the first they hear of it"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires deduplicating resolved packages by owner or maintainer rather than by package, because one maintainer often stands behind many packages"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Scores candidates on exposure, fragility, audience fit and relationship value"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States those four axes and their weights are this skill's own defaults and invites the user to reweight them"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that no funding destination in this list has been verified, and that a phrase like a great logo spot names no surface, no traffic and no tier"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes depth allocations need not be uniform, citing a published spread running from $1,750 to $15,000 per project per year"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Asks which mandate the $200k serves before ranking anything"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Advises quoting figures verbatim from whatever produced them rather than rounding a score or a download count"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends resolving the dependency graph from a lockfile, an SBOM or a public dependency-resolution API rather than from a manual list"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends pulling a per-repository maintenance or health signal instead of a subjective judgement"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes eyeballed download figures have been wrong by orders of magnitude, including being reported as zero for a package moving well over a hundred million a week"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires each destination to be resolved before payment, checking the repository funding manifest, then the owner-level fallback manifest, then registry funding metadata, then the project's own site"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States the owner-level fallback applies to every repository of that owner that has none of its own, and should be looked up once per owner and reused"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires each URL to be fetched and verified: a live page included, a 404 or not-enrolled page excluded, a redirect followed and the final URL recorded"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that paying into a stale destination fails silently and wastes the budget"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Routes the two projects with no funding link to a separate support-in-kind list such as contribution time, CI credits, hosting or security review, framed as an opportunity rather than a failing"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Refuses to pressure any maintainer into setting up a funding link, and notes some maintainers decline funding deliberately to protect their autonomy"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States payability is a filter rather than one of the scoring axes"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Asks which surface each tier's placement lands on before any tier is chosen"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Warns that card-paid organization sponsorships carry up to 6% in total fees, 3% processing plus 3% service, while personal-account sponsorships pass through at 0%"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Asks which mandate this sponsorship serves before recommending a tier"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Advises sizing the spend against hiring rather than inflating a marketing case that will not survive review"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Recommends asking the maintainer for published or shared traffic figures on the granted surface before pricing the tier"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that a logo in a backers file nobody opens is not a media buy at any price"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Notes that maintainers who sell placement usually publish or will share view counts for the surfaces on their ladder"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Warns against requesting any benefit the maintainer will resent in six months, because a tier's rewards are recurring work for one person"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Says the tier question belongs to a later step of a portfolio, and offers the mandate, budget and measurement work around it"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that if supply chain were the mandate, the smallest recurring amount across many projects would be correct, because coverage rather than prominence is the goal"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Names the FOSS Contributor Fund as the published method and attributes it to Duane O'Brien and Mandy Grover, Investing in Open Source: The FOSS Contributor Fund, O'Reilly, 2021"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Restricts voting to employees who made an open-source contribution during that voting cycle, and explains the franchise is earned by contributing"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Rejects the whole-company Slack poll as the voting rule"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Applies four eligibility filters before the ballot: in use by the company, OSI-approved license, has a mechanism to receive funds, and not maintained by an employee"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Excludes the subscription-only candidate because the budget pays one-off amounts"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Reuses the nomination list internally as an onboarding menu for employees who want somewhere to start contributing"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Requires the fixed per-cycle amount to be paid promptly, because a fund that pays late loses its internal credibility first"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Asks who administers the cycle and for how many hours a month, treating the fund as a standing job"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Refuses to request roadmap position or priority outcomes in the note"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that an arrangement returning substantial, non-incidental benefits beyond minimal acknowledgment stops counting as open-source funding"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that an agreement listing deliverables is a services contract, and advises calling it and booking it as one rather than describing it as funding open source"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Warns that asking a single volunteer maintainer for quarterly syncs and account management is how a sponsorship becomes a story about a company buying a project"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States the exposure concretely, citing the dependency graph or SBOM showing quarrystone in the critical path, rather than generic enthusiasm"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names the amount, the term and the invoicing shape the company's procurement needs"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Asks the maintainer what they need in order to invoice, such as an entity name, a purchase order or tax forms"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Makes any placement conditional: taken if an existing tier grants it, with the sponsorship standing if it does not"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Recommends publishing the company's funding policy, including the section on what sponsorship does not buy, before the first payment"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires employees who publicly advocate for a funded project to disclose the relationship"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Notes vendor onboarding, tax forms and sanctions screening apply to an individual maintainer as they do to any supplier, and that the paperwork starts before a date is promised"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Refuses to build a last-click attribution model for sponsorship and states nobody clicks a README logo and buys"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Leads with the supply-chain measures, because that is the primary mandate: share of fundable dependencies covered, dormant-dependency count, and response time on issues the company filed upstream"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Measures the secondary reach mandate on placements live and verified, referral traffic from placement URLs, and unaided mentions in developer surveys and community threads"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Sets a pass threshold of at least 80% of fundable direct dependencies covered for a supply-chain primary mandate"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Labels that 80% threshold as this skill's own default rather than an industry standard"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Notes the only company to publish a higher coverage figure reported 95% or greater and described itself as the first to approach 100%, and presents anything above 80% as ambitious rather than standard"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Requires a baseline captured before the first payment"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Requires a named owner on every metric row"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Requires every placement the company paid for to be live and verified at review"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Requires every depth sponsee to have at least one documented interaction beyond the payment"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Sets the first review at 12 months and annually after, with a renewal decision made for every target before budget close"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Recommends publishing an annual report giving the year, the full-time-equivalent developer count, the total paid, and the amount per recipient"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Lists the legitimate reasons to end a sponsorship: the dependency is gone, the project is dormant, the mandate changed, or a policy breach"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Reads dormancy from a maintenance signal rather than intuition, naming the maintained-score band of 0-3 as the disqualifying band absent a revival agreement"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Allows funding a dormant project only as an explicit revival bet agreed with the maintainer"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Refuses the quiet lapse and requires telling the maintainer before the sponsorship ends, with a reason and a date"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States a silent cancellation is remembered far longer than the money was, and does more relationship damage than a sponsorship that was never started"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Requires a renewal decision on every target before budget close rather than letting four sponsorships roll into next year unreviewed"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Refuses to reuse last year's target list and requires discovery to be re-run annually, because dependency graphs move, maintainers hand over projects, and funding destinations go stale"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that last year's verified list is this year's unverified list"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Recommends cutting the portfolio to a size the team can actually renew thoughtfully, labelling the roughly-a-dozen figure as a default rather than a rule"
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Asks whether these sponsorships were announced as recurring or one-off, because that changes what dropping them costs"
+      }
+    ]
+  }
+}

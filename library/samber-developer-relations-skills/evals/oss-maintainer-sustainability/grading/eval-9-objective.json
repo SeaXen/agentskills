@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Sets the seven-week due date as the deadline, not the six-month horizon, and states that the earlier date wins when the two disagree.",
+        "evidence": "'The earliest date is the deadline. Seven weeks to the baby beats a six-month horizon.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Promotes moves that land in a day before the date (publish the contract, declare a tier, cut intake, automate releases) and defers the onboarding program, mentoring cohort and steering group until after the leave.",
+        "evidence": "The contract, tier, intake and release automation come before the leave. Item 7: 'Defer until you're back: ... co-maintainer recruitment, the contributor program'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Promotes release automation (wheels built and published from CI with trusted publishing, grouped dependency updates, release tooling) because release chores are the stated top drain.",
+        "evidence": "'Publish to PyPI through a tag-triggered workflow using trusted publishing'; cibuildwheel.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Produces an announced-pause notice for the leave: dated, forge status set, issues and PRs stay open but unread, and who reads security reports meanwhile or that they will not be read until a date.",
+        "evidence": "'Paused until 2027-03-15... Issues and PRs stay open but won't be read until then. Security reports... read by <name>... or \"will not be read until 2027-03-15\".'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not treat the steering group as a sustainability move; routes any governance structure to samber/developer-relations-skills@oss-governance and keeps it off the pre-leave list.",
+        "evidence": "It keeps governance off the pre-leave list ('A steering group stays a one-page GOVERNANCE.md'). It never routes governance to oss-governance.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the contributor onboarding program to samber/developer-relations-skills@oss-contributor-onboarding as a later step, not a pre-leave one.",
+        "evidence": "'April: ... start `oss-contributor-onboarding` at its smallest version.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Builds the ledger: inflow, backlog split, 12 hours now versus the 4-hour budget, and who else can publish to PyPI.",
+        "evidence": "The ledger shows hours 12 now vs 4, inflow and backlog unknown, 'Publish rights: Assumed you alone hold them.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Budgets the setup work as transition hours with an end date before the due date, above the steady-state budget.",
+        "evidence": "'About 3 days over the next 6 weeks... it ends 2026-12-04.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Derives the post-return response window from 4 hours a week rather than keeping the current implicit cadence.",
+        "evidence": "'4 \u00d7 60 \u00d7 \u00bd \u00f7 15 min = 8 first replies a week, about 30 a month' and a 30-day window.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the single PyPI publisher and plans a second release holder, or a written emergency-fix statement, before the leave as health-check item 3.",
+        "evidence": "'If you have no vetted person by 2026-12-04, nobody holds publish... \"emergency fix path: none\"'. Health check 3: 'Every publish right has two holders, or the plan names an end date.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes the README status block with 'Paused until <date>' for the leave, the post-return status, and in-scope and out-of-scope lines.",
+        "evidence": "The maintenance-only block with in/out scope, plus the 'Paused until 2027-03-15' replacement.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets the review date after the return, with an earlier trigger such as a security report arriving during the pause.",
+        "evidence": "'Re-read the ledger on 2027-04-12... Look earlier if... a security report arrives during the pause'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Sets the seven-week due date as the deadline, not the six-month horizon, and states that the earlier date wins when the two disagree.",
+        "evidence": "The plan runs over weeks 1-7, but the seven-week deadline is never stated as winning over the six-month horizon.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Promotes moves that land in a day before the date (publish the contract, declare a tier, cut intake, automate releases) and defers the onboarding program, mentoring cohort and steering group until after the leave.",
+        "evidence": "Automation is promoted and the cohort deferred, but no contract, tier or intake cut.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Promotes release automation (wheels built and published from CI with trusted publishing, grouped dependency updates, release tooling) because release chores are the stated top drain.",
+        "evidence": "Step 1: Trusted Publishing, GitHub Actions on tag push, release-please, RELEASING.md.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Produces an announced-pause notice for the leave: dated, forge status set, issues and PRs stay open but unread, and who reads security reports meanwhile or that they will not be read until a date.",
+        "evidence": "Only \"Pin an issue announcing your leave dates\". No forge status, no reading policy.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not treat the steering group as a sustainability move; routes any governance structure to samber/developer-relations-skills@oss-governance and keeps it off the pre-leave list.",
+        "evidence": "No skill routing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the contributor onboarding program to samber/developer-relations-skills@oss-contributor-onboarding as a later step, not a pre-leave one.",
+        "evidence": "No skill routing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Builds the ledger: inflow, backlog split, 12 hours now versus the 4-hour budget, and who else can publish to PyPI.",
+        "evidence": "Only an hours check.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Budgets the setup work as transition hours with an end date before the due date, above the steady-state budget.",
+        "evidence": "Hours are listed per step, with no bridge above steady state.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Derives the post-return response window from 4 hours a week rather than keeping the current implicit cadence.",
+        "evidence": "Not derived.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the single PyPI publisher and plans a second release holder, or a written emergency-fix statement, before the leave as health-check item 3.",
+        "evidence": "\"Aim for at least 2 PyPI owners besides you.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes the README status block with 'Paused until <date>' for the leave, the post-return status, and in-scope and out-of-scope lines.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets the review date after the return, with an earlier trigger such as a security report arriving during the pause.",
+        "evidence": "Absent.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The first line of the model names the format as ticketed and states the revenue posture assumed",
+        "evidence": "\"Format: ticketed two-day conference, sponsor-led.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Per-head quantities are computed from the expected show-up figure (about 390), never from the 500 registrations",
+        "evidence": "\"Catering and badges are budgeted on show-ups, never on 500.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Each cost line is classified fixed or per-head with its per-head driver named",
+        "evidence": "Cost-line table has Side and Driver columns, e.g. \"Catering | Per-head | show-ups + staff\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Speaker expenses are carried under a per-speaker driver, named as distinct from both fixed lines and per-attendee lines",
+        "evidence": "\"Speaker expenses | Per-speaker | speaker count\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The venue line carries the dated October 14 quote",
+        "evidence": "\"Quote, 14 Oct. Amount missing.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Catering, AV, badges and swag are carried as explicit 'no quote yet' placeholders or ranges - no invented market prices despite the request to fill them in",
+        "evidence": "\"No quote yet. Range: ___ to ___\" for catering, AV, badges, swag.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The fiscal sponsor's 8% share and card processing fees are deducted off the top, applied to both the ticket rail and the sponsor rail, before any cost line is funded",
+        "evidence": "\"Off the top (on all money in): Fiscal sponsor 8% of everything, tickets and sponsorship. Card processing: p\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "No ticket price is set; instead a ticket revenue target (expenses minus the sponsorship share) plus paid capacity after comps is defined for handoff to ticket pricing",
+        "evidence": "\"Hand event-ticket-pricing T and N_paid... I don't set the price here.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sponsorship is set as a share target for handoff to sponsor pricing; no tier split is produced here",
+        "evidence": "\"Sponsorship target: S = s \u00d7 G. Sponsor pricing splits this into tiers\" with s left open.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Three scope tiers (Good/Better/Best or equivalent) are each fully costed with a separate break-even",
+        "evidence": "Tiers only list contents and symbolic break-even drivers (F_good + c_good\u00b7N); none is costed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "A dated cash-flow schedule appears with its lowest cash point identified",
+        "evidence": "Section 7 table; \"Lowest cash point: the day the venue deposit leaves\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response warns against announcing the date before a working way to process money exists, given the account is not live",
+        "evidence": "\"Hold the date announcement. The bank account isn't live\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "A total cost per head figure is computed from the fixed/per-head cut",
+        "evidence": "Only the symbolic k = G / N_paid appears. No cost-per-head figure is computed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The tax and jurisdiction question is written as an open question routed to the fiscal sponsor or an accountant, not answered with a rate or rule",
+        "evidence": "Section 9: \"I have not stated any rate or rule\" and the question is routed to the fiscal sponsor or a Portuguese accountant.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The first line of the model names the format as ticketed and states the revenue posture assumed",
+        "evidence": "The first line is only the heading 'KernelKraft Conf: budget and ticket price'. It states no revenue posture.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Per-head quantities are computed from the expected show-up figure (about 390), never from the 500 registrations",
+        "evidence": "The recommendation is built on 250 attendees. 390 appears only as a ceiling scenario, alongside 150 and 250.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Each cost line is classified fixed or per-head with its per-head driver named",
+        "evidence": "The table has a 'Fixed subtotal' of 36,300 and a 'Variable subtotal' of 85 per attendee. Catering, badges and swag are priced per attendee.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Speaker expenses are carried under a per-speaker driver, named as distinct from both fixed lines and per-attendee lines",
+        "evidence": "'Speaker travel and lodging (about 10 speakers) | 6,000' sits in the fixed subtotal as a lump sum, not as a per-speaker driver.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The venue line carries the dated October 14 quote",
+        "evidence": "The venue is a '\u20ac15,000 placeholder'. The Oct 14 date is only flagged as a possible typo.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Catering, AV, badges and swag are carried as explicit 'no quote yet' placeholders or ranges - no invented market prices despite the request to fill them in",
+        "evidence": "It invents figures: catering 70 per attendee, AV 10,000, badges 3 and swag 12, marked 'est.'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The fiscal sponsor's 8% share and card processing fees are deducted off the top, applied to both the ticket rail and the sponsor rail, before any cost line is funded",
+        "evidence": "'Sponsors pay by bank transfer, so they carry no card fee.' The card fee is applied to tickets only.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "No ticket price is set; instead a ticket revenue target (expenses minus the sponsorship share) plus paid capacity after comps is defined for handoff to ticket pricing",
+        "evidence": "It sets a break-even of \u20ac77 and recommends '\u20ac89 standard and \u20ac69 early-bird'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sponsorship is set as a share target for handoff to sponsor pricing; no tier split is produced here",
+        "evidence": "It uses \u20ac45k gross as an illustrative sponsor amount and offers a sensitivity table. It sets no sponsorship share target.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Three scope tiers (Good/Better/Best or equivalent) are each fully costed with a separate break-even",
+        "evidence": "The Low, Mid and Ceiling scenarios differ by attendance, not by scope.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "A dated cash-flow schedule appears with its lowest cash point identified",
+        "evidence": "No cash-flow schedule appears in the response.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response warns against announcing the date before a working way to process money exists, given the account is not live",
+        "evidence": "It says 'Announce the date and open an interest or waitlist form'. It warns only against opening paid sales.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "A total cost per head figure is computed from the fixed/per-head cut",
+        "evidence": "Total cost is given per scenario (for example 63,305). No total cost per head is stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The tax and jurisdiction question is written as an open question routed to the fiscal sponsor or an accountant, not answered with a rate or rule",
+        "evidence": "It states 'Portugal's standard VAT is 23%' and '\u20ac89 nets about \u20ac72'.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

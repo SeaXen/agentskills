@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects re-tuning the point weights as the wrong project.",
+        "evidence": "\"Re-tuning the weights won't fix this. The model itself is the wrong shape\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the scoring model as the MQL construction rather than a genuine product-qualified-lead model.",
+        "evidence": "\"Your score is a marketing-qualified-lead (MQL) construction wearing a developer-motion costume.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that email opens and pricing-page visits measure marketing exposure, not a developer's product usage.",
+        "evidence": "\"A lead that accumulates points for opening an email and visiting the pricing page tells you about marketing exposure, not about product usage.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the bank's 40 signups as one account rather than forty leads.",
+        "evidence": "\"the bank's 40 signups become **one account** with a spread signal already tripped... one qualification decision, one contact, not 40.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires usage to be rolled up to an account before any qualification rule is applied.",
+        "evidence": "\"Fix 1 \u2014 Roll usage up to an account before anything else / ...it has to ship before any new threshold means anything.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names at least two account rollup sources from the set: organization or workspace object, license or API key or install ID, email domain, self-reported company at signup, enrichment from IP or company data.",
+        "evidence": "\"Best: an organization/workspace object... Otherwise combine **email domain** + **API key / install ID**\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Advises combining at least two rollup sources rather than relying on a single one.",
+        "evidence": "\"Otherwise combine **email domain** + **API key / install ID** \u2014 imperfect, but immediate\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Introduces the three signal families by name: depth, spread and boundary contact.",
+        "evidence": "Headers: \"Depth \u2014 is the product doing real work?\", \"Spread \u2014 is more than one developer involved?\", \"Boundary contact \u2014 did someone touch something only an org needs?\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Orders the three families by increasing intent, with boundary contact the strongest.",
+        "evidence": "Listed Depth, Spread, then \"Boundary contact... (strongest signal \u2014 maps directly to your paid boundary)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Justifies boundary contact as strongest because it maps directly onto the paid boundary the business model defined.",
+        "evidence": "\"(strongest signal \u2014 maps directly to your paid boundary)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives concrete boundary-contact examples such as SSO/SAML, RBAC, audit log, repeated rate or seat limit hits, a security questionnaire, SOC 2 report, DPA, or billing and procurement pages.",
+        "evidence": "\"Visited/clicked SSO/SAML, RBAC, or audit-log pages / Hit a seat, environment, or flag-volume limit repeatedly / Requested a SOC 2 report, security questionnaire, or DPA / Opened billing/invoicing/procurement pages\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes depth without spread, which usually means a solo power user, from spread without depth, which usually means an evaluation that has not committed.",
+        "evidence": "\"Depth without spread is usually a solo power user (not yet an org decision). Spread without depth is usually an evaluation that hasn't committed\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends having a human read raw new signups in an internal channel for a few weeks before building any scoring system, or cites Zapier's four sales-assist qualification signals as a published cross-check.",
+        "evidence": "Neither a manual-read-signups recommendation nor a Zapier citation appears anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects re-tuning the point weights as the wrong project.",
+        "evidence": "\"Four separate problems are stacked here, and re-weighting alone won't fix them\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the scoring model as the MQL construction rather than a genuine product-qualified-lead model.",
+        "evidence": "The terms 'MQL' and 'PQL' never appear in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that email opens and pricing-page visits measure marketing exposure, not a developer's product usage.",
+        "evidence": "Table reweights 'Marketing email open' to 0 and 'Docs visit (generic page)' down, while adding new high-value entries for 'Created first feature flag', 'Invited a teammate', 'Connected an SDK/integration' as 'much stronger signal than any marketing touch for a dev tool'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the bank's 40 signups as one account rather than forty leads.",
+        "evidence": "\"40 individual employees each independently crossed 60 points, each fired an independent SDR trigger... Nothing in the model recognizes 'these 40 people work at the same place' as a single event\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires usage to be rolled up to an account before any qualification rule is applied.",
+        "evidence": "\"Score and route at the account level (company domain), not the contact level. One account = one score, one queue entry, aggregated across every contact at that domain.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names at least two account rollup sources from the set: organization or workspace object, license or API key or install ID, email domain, self-reported company at signup, enrichment from IP or company data.",
+        "evidence": "Uses 'company domain' (email domain) for account grouping and \"Company size (via domain enrichment \u2014 Clearbit/Apollo)\" as a second source.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Advises combining at least two rollup sources rather than relying on a single one.",
+        "evidence": "Domain is used as the primary account key and enrichment only supplies company-size data for the fit gate; there's no explicit advice to combine multiple sources for rollup reliability.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Introduces the three signal families by name: depth, spread and boundary contact.",
+        "evidence": "None of 'depth', 'spread', or 'boundary contact' terminology appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Orders the three families by increasing intent, with boundary contact the strongest.",
+        "evidence": "Not applicable \u2014 no such family framework exists in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Justifies boundary contact as strongest because it maps directly onto the paid boundary the business model defined.",
+        "evidence": "Not present anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives concrete boundary-contact examples such as SSO/SAML, RBAC, audit log, repeated rate or seat limit hits, a security questionnaire, SOC 2 report, DPA, or billing and procurement pages.",
+        "evidence": "Only 'SSO/SAML' appears, listed merely as a high-intent docs page under 'Docs visit \u2014 high-intent pages', not as part of a named boundary-contact signal family with the other listed examples.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes depth without spread, which usually means a solo power user, from spread without depth, which usually means an evaluation that has not committed.",
+        "evidence": "No such distinction appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends having a human read raw new signups in an internal channel for a few weeks before building any scoring system, or cites Zapier's four sales-assist qualification signals as a published cross-check.",
+        "evidence": "No mention of manual signup review in a channel, nor any reference to Zapier's qualification signals.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

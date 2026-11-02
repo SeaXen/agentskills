@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Keeps the drafted constraints to things a judge could actually check",
+        "evidence": "The draft has five constraints, and most are concrete enough to verify in a demo: 'must not require new in-store hardware', 'output must reach an associate in one action, not a dashboard', 'must not use real customer or employee personal data', and 'must work from data a store already has: [POS sales, stock counts, planogram]'. The response makes checkability an explicit design rule twice: 'Write them so a judge can verify each one by looking at the demo' and 'Every constraint is checkable by a judge.' It also uses the ISRO '<100 ms' example to show a constraint can carry a number. Points are ",
+        "score": 4,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Keeps the drafted constraints to things a judge could actually check",
+        "evidence": "Most floor constraints can be checked: `make run` must write `out/alerts.jsonl` with named fields and a 0\u20131 confidence; the held-out precision/recall metric is defined (top 20 alerts per store per shift, at least 2 h of lead time); the 10-submission cap and every-2-hours limit are concrete; and the floor test checks schema and runtime. Several constraints are weaker. Constraint 4, 'never uses data timestamped after the alert's ts', is very hard to verify, and `test_no_lookahead` is left as `...` with only a vague comment about 'logged data access', so no check is designed. Determinism 'or docu",
+        "score": 3,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

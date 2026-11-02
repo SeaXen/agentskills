@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Recommends auditing against the site's existing DITA taxonomy rather than converting it to Diataxis",
+        "evidence": "'not a rewrite of the authoring schema underneath it' and 'Don't specialize a new DTD-level tutorial topic type... Flag mode in metadata instead' \u2014 keeps DITA as the authoring schema.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that consistency of application matters more than which framework supplies the taxonomy",
+        "evidence": "'typed correctly and consistently against DITA's three base types across ~1,400 topics \u2014 that rigor is a real asset, not the problem.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the conditions that would justify a switch: the declared taxonomy applied inconsistently, or leaving a whole reader need uncovered",
+        "evidence": "No general statement of switching conditions appears; the tutorial gap is discussed as a specific finding, not framed as an instance of a stated general rule for when to switch taxonomies.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the missing beginner entry point as a real gap rather than a mapping artefact, because concept/task/reference has no tutorial equivalent",
+        "evidence": "'the missing one, tutorial, has no DITA equivalent by design, so it is a genuine structural gap, not a mapping artefact.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names DITA's three base topic types as concept, task and reference",
+        "evidence": "'typed `concept`/`task`/`reference`, plus one demand signal' and the crosswalk table header 'DITA type'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that later DITA versions added topic types such as general-task, troubleshooting and glossentry",
+        "evidence": "No mention of general-task, troubleshooting, or glossentry anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites the documented precedent of a team spending months debating a single new DITA topic type before dropping it entirely",
+        "evidence": "'This is the exact trap Paligo documents: a team spent months debating a new topic type for troubleshooting content, dropped it, and got the same result from plain topics plus writing guidelines.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a Diataxis tutorial has a different rhetorical shape, tailored for education rather than problem-solving",
+        "evidence": "'Does the page promise learning or a finished task for someone already competent?' and tutorial criteria: 'contrived, single-path, guaranteed-success walkthrough'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends adding a learning path or tutorial entry point rather than retyping existing topics",
+        "evidence": "'Write the tutorial content net-new. Don't strip branches out of an existing task topic to force it into tutorial shape' and 'Assemble tutorial topics into their own ditamap(s)'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says up front in the report which taxonomy the findings are stated against, so the VP can read them",
+        "evidence": "The Verdict section, near the top, immediately juxtaposes 'DITA's three base types' against 'Di\u00e1taxis needs four quadrants', framing which taxonomy is used throughout.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not deliver a topic-by-topic DITA-to-Diataxis mapping table as the main output",
+        "evidence": "The crosswalk table maps DITA type\u2192Di\u00e1taxis mode at the type level (not each of the 1,400 topics individually); main output is findings/remediation queue, not an exhaustive per-topic table.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the full-year migration as the recommended action",
+        "evidence": "'Deleted, not deferred: a full re-type of all 1,400 topics to Di\u00e1taxis's four labels at the schema level. That's the teardown Di\u00e1taxis explicitly warns against...'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Recommends auditing against the site's existing DITA taxonomy rather than converting it to Diataxis",
+        "evidence": "The entire document is structured as a full migration ('Mapping rubric, per DITA type,' 'Build 4 new ditamaps') converting the whole corpus to Diataxis, not an audit against DITA's own taxonomy.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that consistency of application matters more than which framework supplies the taxonomy",
+        "evidence": "No such statement appears; the framing is entirely about DITA's type system lacking an axis Diataxis has, not about consistency of application.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the conditions that would justify a switch: the declared taxonomy applied inconsistently, or leaving a whole reader need uncovered",
+        "evidence": "No general conditions for justifying a switch are stated; the document proceeds directly to a full migration plan.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the missing beginner entry point as a real gap rather than a mapping artefact, because concept/task/reference has no tutorial equivalent",
+        "evidence": "'DITA never had axis for \"content built for learner\" vs \"content built for competent user solving one goal.\" Diataxis splits exactly on that axis. DITA type system doesn't.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names DITA's three base topic types as concept, task and reference",
+        "evidence": "'DITA's 3 canonical types (concept/task/reference) sort content by shape.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that later DITA versions added topic types such as general-task, troubleshooting and glossentry",
+        "evidence": "No mention of general-task, troubleshooting, or glossentry anywhere in the document.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites the documented precedent of a team spending months debating a single new DITA topic type before dropping it entirely",
+        "evidence": "No such precedent or anecdote is cited.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a Diataxis tutorial has a different rhetorical shape, tailored for education rather than problem-solving",
+        "evidence": "'tutorial means learner, guaranteed success, single path, narrated, no branching. How-to means competent user, assumes context, may branch, skips explaining why.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends adding a learning path or tutorial entry point rather than retyping existing topics",
+        "evidence": "'Draft tutorial as new document. Single narrative, one path... Pull facts from existing task/concept topics \u2014 don't reuse the topics themselves.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says up front in the report which taxonomy the findings are stated against, so the VP can read them",
+        "evidence": "No upfront disclaimer states which taxonomy the findings are framed against; the report launches directly into the DITA-to-Diataxis mapping analysis.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not deliver a topic-by-topic DITA-to-Diataxis mapping table as the main output",
+        "evidence": "The mapping is given as a type-level rubric plus an automated triage/query method ('Query corpus first, sample-review second') rather than a manual topic-by-topic table for all 1,400 topics.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the full-year migration as the recommended action",
+        "evidence": "The 'Phased plan, this year' spans Weeks 1 through Month 12, i.e. a full year of migration work, not a rejection of the year-long scope.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The output states the sourcing window as two explicit dates, the first being 2026-04-30 or the last issue's sourcing cutoff.",
+        "evidence": "\"Window: 2026-04-30 12:00 UTC to 2026-05-27 12:00 UTC.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The Node SDK 6.0.0 removal of v1 auth header support is placed in the Heads-up section, as an action-required item.",
+        "evidence": "Issue order row 1: \"Heads-up | Node SDK 6.0.0 removes v1 auth header support | 1, action required\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The Node SDK 6.0.0 item links the changelog entry (ferrolink.dev/changelog#node-6-0-0), not the Hacker News thread.",
+        "evidence": "Primary link: \"ferrolink.dev/changelog#node-6-0-0\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The Hacker News thread is not kept as its own item; it is cut or merged as commentary on the Node 6.0.0 change.",
+        "evidence": "HN row: \"cut | Commentary on #2. The primary page is the changelog.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The Payouts GA item links the docs page (ferrolink.dev/docs/payouts) rather than the CEO's tweet.",
+        "evidence": "Kept row links \"ferrolink.dev/docs/payouts\"; the CEO tweet is cut: \"Collapsed into #4.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The 9x benchmark post is held or cut, with a reason naming missing method, account age, or authenticity.",
+        "evidence": "\"hold | Authenticity gate. ... a 3-week-old account and shows no method, no author history and no disclosed stake.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output says that popularity (points, claps, replies or upvotes) does not by itself raise an item's position or earn inclusion.",
+        "evidence": "\"412 points never raises a rung\"; \"2.1k claps is not a quality signal\"; \"most upvoted thread this month does not matter.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The aggregator repost of the dev.to tutorial is cut as a duplicate, and the dev.to tutorial itself is the item kept.",
+        "evidence": "\"DailyDevLinks repost of #6 ... cut | Duplicate of #6\"; #6 dev.to post kept.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Every one of the 10 candidates appears in the output with a verdict (keep, hold or cut).",
+        "evidence": "Full sheet lists #1-#10 each with keep, cut or hold.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Every cut or held candidate carries a one-line reason.",
+        "evidence": "Each cut/hold row has a Reason cell, e.g. \"A typo fix in an error message has no reader consequence.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output counts own versus external kept items and states whether the one-third external share is met.",
+        "evidence": "\"3 own, 1 external, which is 25% against the one-third floor. That is a shortfall\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output does not invent items beyond the 10 supplied to fill a section.",
+        "evidence": "\"Learn | Dropped for now (0 of the minimum 1)\"; no extra items added.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The forum 429 thread is not kept in From the community as a news item on the strength of its reply count.",
+        "evidence": "\"hold ... Being the most upvoted thread this month does not matter.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The output states the sourcing window as two explicit dates, the first being 2026-04-30 or the last issue's sourcing cutoff.",
+        "evidence": "\"I assumed this issue covers 2026-05-01 to about 2026-05-28, since your last issue went out 2026-04-30.\" The start is 05-01 and the end is approximate.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The Node SDK 6.0.0 removal of v1 auth header support is placed in the Heads-up section, as an action-required item.",
+        "evidence": "Running order row 1: \"Heads-up | Node SDK 6.0.0 removes v1 auth header support\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The Node SDK 6.0.0 item links the changelog entry (ferrolink.dev/changelog#node-6-0-0), not the Hacker News thread.",
+        "evidence": "Source column: \"#2, our changelog\" for the Node item; HN is a separate source. No URL is printed.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The Hacker News thread is not kept as its own item; it is cut or merged as commentary on the Node 6.0.0 change.",
+        "evidence": "Row 5: \"From the community | HN thread on v1 auth headers | #1 | Yes\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The Payouts GA item links the docs page (ferrolink.dev/docs/payouts) rather than the CEO's tweet.",
+        "evidence": "\"Payouts API GA | #4, docs page (2026-05-20)\"; the CEO tweet #3 is cut.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The 9x benchmark post is held or cut, with a reason naming missing method, account age, or authenticity.",
+        "evidence": "\"The account is three weeks old, there's no method section, and the claim can't be verified.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output says that popularity (points, claps, replies or upvotes) does not by itself raise an item's position or earn inclusion.",
+        "evidence": "Never stated. It says of the 429s thread that \"38 replies suggest it is\" a real issue.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The aggregator repost of the dev.to tutorial is cut as a duplicate, and the dev.to tutorial itself is the item kept.",
+        "evidence": "\"#7, DailyDevLinks repost: It's a copy of #6. Link the original author\"; #6 is item 4.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Every one of the 10 candidates appears in the output with a verdict (keep, hold or cut).",
+        "evidence": "#1, #2, #4, #6 and #9 are kept in the table; #3, #5, #7, #8 and #10 are listed under Cuts.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Every cut or held candidate carries a one-line reason.",
+        "evidence": "Each entry under Cuts gives a reason, for example \"#10, Go SDK 2.8.1: It fixes a typo in an error message.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output counts own versus external kept items and states whether the one-third external share is met.",
+        "evidence": "\"External share: 2 of 5 is 40%, which clears the one-third floor.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The output does not invent items beyond the 10 supplied to fill a section.",
+        "evidence": "All items are numbered #1\u2013#10 from the supplied candidates.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The forum 429 thread is not kept in From the community as a news item on the strength of its reply count.",
+        "evidence": "\"#8, forum thread... it's on our forum, so it isn't external and can't fill the community slot.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

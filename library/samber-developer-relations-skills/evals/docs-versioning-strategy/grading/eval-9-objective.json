@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Deletes the cumulative-badges rung and does not deliver the requested tagging spec, naming the absence of CI or lint capacity as what deleted it",
+        "evidence": "\"Cumulative badges for 2.x/3.x are allowed\"; it delivers the full tagging spec and lint.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that cumulative badges require a lint that rejects untagged changes, and that one untagged change silently misleads old-line readers",
+        "evidence": "\"any untagged change silently misleads 2.x readers.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ranks cumulative badges last on durability and says so",
+        "evidence": "No durability ranking is stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Promotes per-major frozen sites because a major rewrite (4.0 config schema) lands within a quarter, citing React or Vue switching topology at a rewrite",
+        "evidence": "Per-major sets at 4.0 are mentioned, but there is no React or Vue citation and no frozen-site promotion.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Announces brainstorming mode and presents two or three surviving topologies before recommending one",
+        "evidence": "Only one chosen topology; no brainstorming mode or surviving options.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names what eliminated each rejected topology",
+        "evidence": "\"Latest-only strands supported 2.x readers.\" and \"A selector across 2.x and 3.x costs backports on two versions\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists the standing hours each surviving topology costs",
+        "evidence": "Gives only one total (about 2.6 h/month before the cut).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends freezing 3.x as a static site at the 4.0 cut with a redirect map at the split",
+        "evidence": "3.x becomes `maintained` at the 4.0 cut.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Marks whether 2.x and 3.x instructions differ as ASSUMED, or asks it, rather than deciding the selector rung without it",
+        "evidence": "\"2.x and 3.x differ in some instructions, but share one config schema.\" is listed under ASSUMED.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Writes the 4.0 release cut into the release checklist: 3.x moves to `maintained` or `frozen`, the alias moves, banners swap",
+        "evidence": "\"Put the `maintained` banner on `/3.x/`\", \"Move the `latest` alias to `/4.x/`\", \"Update the switcher.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks for the user's choice before the source layout step, or marks the topology section unvalidated",
+        "evidence": "\"Unvalidated sections: all of them.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Deletes the cumulative-badges rung and does not deliver the requested tagging spec, naming the absence of CI or lint capacity as what deleted it",
+        "evidence": "Delivers the full badge spec.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that cumulative badges require a lint that rejects untagged changes, and that one untagged change silently misleads old-line readers",
+        "evidence": "Relies on a weekly sweep instead.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Ranks cumulative badges last on durability and says so",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Promotes per-major frozen sites because a major rewrite (4.0 config schema) lands within a quarter, citing React or Vue switching topology at a rewrite",
+        "evidence": "Only a config-v4 section.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Announces brainstorming mode and presents two or three surviving topologies before recommending one",
+        "evidence": "Not done.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names what eliminated each rejected topology",
+        "evidence": "Not done.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Lists the standing hours each surviving topology costs",
+        "evidence": "Gives only rollout hours.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends freezing 3.x as a static site at the 4.0 cut with a redirect map at the split",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Marks whether 2.x and 3.x instructions differ as ASSUMED, or asks it, rather than deciding the selector rung without it",
+        "evidence": "Not asked.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Writes the 4.0 release cut into the release checklist: 3.x moves to `maintained` or `frozen`, the alias moves, banners swap",
+        "evidence": "Only a \"Week 8\" flip of versions.json.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks for the user's choice before the source layout step, or marks the topology section unvalidated",
+        "evidence": "Not done.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Ranks the candidate events by how many fit criteria they satisfy rather than by name recognition or attendee count",
+        "evidence": "\"Event ranking (fit, not name recognition):\" followed by a 1-4 ranked list based on track match.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends RegionDB Days ahead of GlobalScale Summit for this talk",
+        "evidence": "\"Skip all-in on GlobalScale. Submit RegionDB Days first \u2014 best fit, lowest risk, earliest deadline.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites the \"Production War Stories\" track description as matching the incident material",
+        "evidence": "\"RegionDB Days \u2014 track literally called 'Production War Stories.' Exact angle match.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that GlobalScale Summit publishes no track matching this talk",
+        "evidence": "\"GlobalScale Summit \u2014 tracks are AI, Security, Developer Experience. None is a natural home for a Postgres incident post-mortem.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a strong proposal in the wrong track loses to a weaker one in the right track",
+        "evidence": "No such explicit statement appears in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that a first-time speaker at a flagship event competes against speakers with a recorded track record there",
+        "evidence": "\"you'd be competing against 6,000-attendee-scale speakers with track records, as a first-timer with no recording.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Pulls every candidate event's deadline, notification date and event date into one calendar rather than handling the events one at a time",
+        "evidence": "Deadlines and notify dates are given (20 Nov; 5/8/10 Jan; 20 Feb/25 Feb/1 Mar) but no actual conference/event dates are ever stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies that submitting the same material to events with overlapping review windows requires deciding in advance which acceptance the user would take",
+        "evidence": "\"decide now which you'd actually take if more than one accepts \u2014 their notify dates cluster tight (20 Feb, 25 Feb, 1 Mar), so a late 'which one do I pick' scramble is avoidable\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sequences the earlier-deadline regional event first so the material gets talked through before the flagship submission",
+        "evidence": "\"Now \u2192 mid-Nov: prep + submit RegionDB Days... Early Jan: submit the same war story... to DataPlatform World, OpenInfra Nordics, GlobalScale\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends submitting the lower-effort angle first where two deadlines fall close together, so a rejection still leaves preparation time",
+        "evidence": "No such reasoning about close deadlines and a lower-effort angle appears; only one angle (war story) is discussed throughout.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Suggests running the talk at a meetup before the conference submission, given this is a first proposal",
+        "evidence": "No mention of a meetup run anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Ranks the candidate events by how many fit criteria they satisfy rather than by name recognition or attendee count",
+        "evidence": "'Track fit beats prestige for a first-time speaker... RegionDB\u2019s \"Production War Stories\" track is a direct, no-reframing match... at a much smaller review bar.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends RegionDB Days ahead of GlobalScale Summit for this talk",
+        "evidence": "'Draft the RegionDB abstract now (deadline 20 Nov, closest and best fit) \u2014 this is your base version.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites the \"Production War Stories\" track description as matching the incident material",
+        "evidence": "'RegionDB\u2019s \"Production War Stories\" track is a direct, no-reframing match for exactly this story.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that GlobalScale Summit publishes no track matching this talk",
+        "evidence": "'GlobalScale\u2019s tracks are AI, Security, DX \u2014 none of those is a natural home for a connection-pooler outage story.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a strong proposal in the wrong track loses to a weaker one in the right track",
+        "evidence": "No explicit comparative statement of this form appears; the text discusses forcing a fit but not a strong-vs-weak-in-right-track tradeoff explicitly.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that a first-time speaker at a flagship event competes against speakers with a recorded track record there",
+        "evidence": "The text says 'as an unknown speaker with no track record' but never states that competing speakers have recorded track records.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Pulls every candidate event's deadline, notification date and event date into one calendar rather than handling the events one at a time",
+        "evidence": "Dates are scattered through prose (e.g. 'deadline 20 Nov', 'notify 15 Dec', 'notifies 1 Mar', 'deadline 10 Jan') rather than compiled into one calendar/table.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies that submitting the same material to events with overlapping review windows requires deciding in advance which acceptance the user would take",
+        "evidence": "No discussion of needing to pre-decide between overlapping acceptances appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sequences the earlier-deadline regional event first so the material gets talked through before the flagship submission",
+        "evidence": "'If accepted..., you get a real audience, a recording, a rehearsed version of the talk...all *before* GlobalScale even notifies (1 Mar).'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends submitting the lower-effort angle first where two deadlines fall close together, so a rejection still leaves preparation time",
+        "evidence": "No 'lower-effort angle first' framing is present; the plan is sequencing by deadline/fit, not effort level.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Suggests running the talk at a meetup before the conference submission, given this is a first proposal",
+        "evidence": "No meetup suggestion appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,634 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "developer-tutorial",
+  "scenarios": 10,
+  "expectations_total": 127,
+  "expectations_subjective": 1,
+  "expectations_objective": 126,
+  "pass_rate_with_skill_pct": 66.1,
+  "pass_rate_without_skill_pct": 18.1,
+  "delta_pp": 48.0,
+  "uplift_multiplier": 3.65,
+  "trigger_accuracy_pct": 50.0,
+  "trigger_queries": 116,
+  "trigger_positive_fire_rate": 0.017,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.274 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Draws the distinction as learning-oriented (serving the reader at study) versus task-oriented (serving the reader at work)."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Cites the ban on presenting choices in a tutorial (Di\u00e1taxis' don't-list: abstraction and generalisation, explanation, choices, excess information)."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States the required order: learning objective first, then the evidence (final checkpoint and transfer test), then the steps."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names backward design as the framework and attributes it to Wiggins & McTighe, Understanding by Design."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Rejects \"understand\" or \"learn about\" style objective wording as untestable."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Defines the final checkpoint and the unaided variation before redrafting any step."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes the draft carries no checkpoints, and places them every 3-5 steps as a baseline."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States the summary must restate capabilities the learner now has, worded differently from the objectives, rather than topics the page covered."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Prescribes fading across three stages: full file with all imports early, only the added lines in a named file with the insertion point stated in the middle, and the requirement plus expected output late."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names guidance fading as a cognitive-load result and attributes it to Renkl (and Atkinson)."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that the three-stage early/middle/late split is a self-set baseline shape, not part of the published finding."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States the blanked block is the full solution minus about three lines and teaches the most."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Attributes the blanked-block rung to the completion-problem effect (Paas, 1992)."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Distinguishes the learner's escalation order (pointer, pseudocode, blanked solution, full solution) from the authoring priority order."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that skeleton and core concept are not optional, because without them the objective is unmet."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that the ladder's row order is the build order, not the ranking."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Deletes the polish rung outright (Docker Compose, CI workflow, pytest, logging config) rather than parking it at the bottom of the plan, because the page has no named owner."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Deletes the robustness rung, the companion repository and CI-run checkpoints, because leadership called the page a one-off rather than a compounding asset."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States a ranking out loud (for example core concept above robustness above real data above polish on efficiency) rather than implying it by row order."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes that real data drags fixtures, a seed script and a sandbox that drift whenever the schema moves, while robustness costs one error path that survives releases."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that one dominant abandonment checkpoint marks a broken step rather than a hard concept, so that step gets fixed before the concept is rewritten around it."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that completion rate and median completion time tie on both value and wiring effort, because they are two readings of the same start-and-finish event pair."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names the default order (instrument the first two, read the third) and says explicitly that the headcount question overrides it."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Declines to produce the revision plan from reading alone, and requires cold runs before any rewrite."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Specifies the audit deliverable as a table rather than prose."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Defines the table columns as step number, what breaks, the event kind, and the fix."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Orders the rows by how many learners each step blocks, not by page order."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Rejects \"add more explanation\" at step 4 as the fix, on the grounds that explanation is what blocks learning in a tutorial."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Sends the revision through one more cold run before publishing."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Adds a run on one version newer than the declared runtime versions, to see how loudly it breaks."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires timestamping the start of each step and each checkpoint, treating the gap between timestamps as the friction measurement."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires recording every hesitation, re-read, scroll-back and tab-switch away from the page."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires letting failures play out, because the recovery path is part of the artefact under test."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Cites Di\u00e1taxis on a tutorial having to inspire confidence and being so well constructed that it works for every user, every time."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Attributes desirable difficulty to Bjork and defines it as difficulty that slows acquisition but raises long-term retention."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names the permitted difficulty forms: predicting an output before running it, breaking something on purpose and reading the error, extending the feature by one parameter."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that one step that fails costs more than three that succeed earn, because the learner concludes they are not smart enough and leaves."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Explains that reliability and desirable difficulty are not contradictory because they govern different parts of the page."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names the 15-60 minute range as the sourced ceiling the 95-minute run breaks, while noting that splitting rather than trimming is a judgement call."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that the failure mode for this audience is silent misunderstanding rather than a closed tab, because the learner cannot abandon."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires an offline or on-prem variant of every command that assumes internet or external registry access."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Promotes the polish rung of the concept ladder, because the production shape is the objective when a tutorial doubles as onboarding onto an internal tool."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Does not apply the self-serve rules (front-loading the visible result against abandonment, keeping the path inside a free tier, holding billing prompts until after the last checkpoint)."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Classifies the requested artefact as a how-to guide, not a tutorial."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Draws the distinction as learning-oriented (serving the reader at study) versus task-oriented (serving the reader at work)."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Attributes the tutorial/how-to distinction to Di\u00e1taxis."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that conflating the two is described as the single most common conflation made in software product documentation."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names each of the four branch points in the request (cloud provider, Terraform versus console, Postgres versus MongoDB, workload tuning) as forks a tutorial cannot carry."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that every imported fork destroys the tutorial's single guaranteed path."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Makes the scope call out loud instead of silently absorbing the request and producing a branching tutorial."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Routes the branching artefact to a how-to guide, naming it as the owner of the other answer."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Cites the ban on presenting choices in a tutorial (Di\u00e1taxis' don't-list: abstraction and generalisation, explanation, choices, excess information)."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Any tutorial alternative it proposes pins exactly one environment: one cloud, one provisioning method, one database, with versions stated."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Produces no outline section shaped as \"if you use X\u2026 if you use Y\u2026\" on the main path."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States the learning objective of any proposed tutorial as a demonstrable capability the learner performs, not as \"understand deployment\"."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Declines to write the learning objective to fit the nine steps that already exist."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States the required order: learning objective first, then the evidence (final checkpoint and transfer test), then the steps."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names backward design as the framework and attributes it to Wiggins & McTighe, Understanding by Design."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Diagnoses the draft as a feature tour with a learning-shaped title, because the steps were chosen by what the product does rather than what the learner needs."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Proposes a learning objective phrased as a verb the learner performs and testable by asking them to do it."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Rejects \"understand\" or \"learn about\" style objective wording as untestable."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names the steps that do not serve the objective (the config-file tour, the admin dashboard tour, the other-SDKs overview) and recommends deleting them rather than keeping them."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Defines the final checkpoint and the unaided variation before redrafting any step."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes the draft carries no checkpoints, and places them every 3-5 steps as a baseline."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States the summary must restate capabilities the learner now has, worded differently from the objectives, rather than topics the page covered."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Counts nine primary steps against the Good Docs Project's seven-primary-step maximum and flags the overrun."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Rejects handing the complete file at every step, stating that a tutorial copy-pasting as much at the last step as at the first has taught nothing."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Prescribes fading across three stages: full file with all imports early, only the added lines in a named file with the insertion point stated in the middle, and the requirement plus expected output late."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names guidance fading as a cognitive-load result and attributes it to Renkl (and Atkinson)."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that the three-stage early/middle/late split is a self-set baseline shape, not part of the published finding."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Ranks the four hint rungs by value per authoring hour as: blanked solution, then pointer, then full solution, then pseudocode."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Recommends authoring the blanked solution and the pointer, and rejects the proposed pseudocode-plus-full-solution pair."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States the blanked block is the full solution minus about three lines and teaches the most."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States pseudocode must be rewritten on every API change and says only what the blanked block already says."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Attributes the blanked-block rung to the completion-problem effect (Paas, 1992)."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Distinguishes the learner's escalation order (pointer, pseudocode, blanked solution, full solution) from the authoring priority order."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Ties late-step fading to the learner being able to perform the objective unaided on a variation they were never walked through."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Applies a layered concept ladder (skeleton, core concept, real data, robustness, polish) to decide where to stop."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that skeleton and core concept are not optional, because without them the objective is unmet."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that the ladder's row order is the build order, not the ranking."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Deletes the polish rung outright (Docker Compose, CI workflow, pytest, logging config) rather than parking it at the bottom of the plan, because the page has no named owner."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Deletes the robustness rung, the companion repository and CI-run checkpoints, because leadership called the page a one-off rather than a compounding asset."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names the condition that would promote the real data rung: the learner's own input being what the objective names, or an existing sandbox making it near-free."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States the chosen stop rung explicitly rather than leaving it implied by what was cut."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States a ranking out loud (for example core concept above robustness above real data above polish on efficiency) rather than implying it by row order."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes that real data drags fixtures, a seed script and a sandbox that drift whenever the schema moves, while robustness costs one error path that survives releases."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Sorts the proposed metrics with Kirkpatrick's four levels and identifies completion rate, the thumbs widget and the NPS question as level 1 (reaction) only."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names the documented trap: teams measure levels 1-2 and stop, so a tutorial with a strong completion rate and no behaviour change looks like a success for years."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Prescribes comparing each figure against this tutorial's own previous version instead of an outside number."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends the transfer-test pass rate from the cold runs and identifies it as level 2 (learning)."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States the transfer-test pass rate costs near-zero to wire because the cold-run pass threshold already runs the test; only the result is recorded."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends per-checkpoint drop-off, costing roughly an hour to wire, since the checkpoints already exist."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that one dominant abandonment checkpoint marks a broken step rather than a hard concept, so that step gets fixed before the concept is rewritten around it."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Promotes the level-3 behaviour share (completers who perform the same task in the product within a week) above the rest, because the page is being asked to justify its own headcount."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that the identity plumbing joining the learning surface to the product must land before publishing, or the first cohort is unmeasurable."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that completion rate and median completion time tie on both value and wiring effort, because they are two readings of the same start-and-finish event pair."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names the default order (instrument the first two, read the third) and says explicitly that the headcount question overrides it."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that completion rate says nothing about whether anyone learned."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Declines to produce the revision plan from reading alone, and requires cold runs before any rewrite."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Specifies runners who match the tutorial's declared audience level, and excludes the author and ideally the author's team."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Specifies the audit deliverable as a table rather than prose."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Defines the table columns as step number, what breaks, the event kind, and the fix."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names all four event kinds: defect, hidden prerequisite, concept gap, friction."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Orders the rows by how many learners each step blocks, not by page order."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Rejects \"add more explanation\" at step 4 as the fix, on the grounds that explanation is what blocks learning in a tutorial."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Treats the screenshots and tone notes as cosmetics to confirm against observed hesitation rather than rewrite on assumption."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that anything a runner \"figured out\" is logged as a defect, not a success."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Specifies that the observer stays silent during the run and does not answer the runner's questions."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Sends the revision through one more cold run before publishing."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Rejects a senior engineer as runner for a beginner-declared tutorial, stating they patch the gaps unconsciously and report success."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires the runner to narrate aloud while the observer stays silent and takes notes."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Adds a run on one version newer than the declared runtime versions, to see how loudly it breaks."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires timestamping the start of each step and each checkpoint, treating the gap between timestamps as the friction measurement."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires recording every hesitation, re-read, scroll-back and tab-switch away from the page."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires letting failures play out, because the recovery path is part of the artefact under test."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Rejects \"reaches the end in under an hour\" as the ship gate and requires the transfer test: roughly ten minutes after the last checkpoint, the runner performs the objective on a variation never demonstrated, with reference docs and no help."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Rejects all four proposed changes as applied to the tutorial's main path."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that the main path (environment, commands, the code the learner types) is governed by reliability, and every failure there is the author's defect."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Cites Di\u00e1taxis on a tutorial having to inspire confidence and being so well constructed that it works for every user, every time."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that difficulty created by omission or ambiguity is not desirable difficulty, and the learner absorbs it as their own failure."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Attributes desirable difficulty to Bjork and defines it as difficulty that slows acquisition but raises long-term retention."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Keeps step 5's requirement stated precisely, rejecting deliberate vagueness."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States where difficulty may legitimately go: optional, clearly marked additions placed after a passed checkpoint, with the answer available."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names the permitted difficulty forms: predicting an output before running it, breaking something on purpose and reading the error, extending the feature by one parameter."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Rejects the deliberate off-by-one bug on the main path, converting it at most into a marked optional break-it-on-purpose exercise after a checkpoint."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that one step that fails costs more than three that succeed earn, because the learner concludes they are not smart enough and leaves."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Explains that reliability and desirable difficulty are not contradictory because they govern different parts of the page."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Splits the listed rules into those with a published source and those that are self-set defaults, instead of citing a source for all of them."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Attributes the 15-60 minute range to the Good Docs Project tutorial template."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Attributes the seven-primary-step maximum to the Good Docs Project tutorial template."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Attributes the four-substep maximum to the Good Docs Project tutorial template."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Identifies checkpoint spacing of every 3-5 steps as a self-set default with no published source."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Identifies the three-stage fading split as self-set, while noting guidance fading itself is a published effect."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Identifies the weekly companion-branch CI cadence as a self-set default and recommends matching it to the release train instead."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Refuses the 55% completion-rate standard, stating no trustworthy published tutorial completion benchmark exists."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Notes that the activation-style benchmarks quoted in developer-marketing material are self-reported vendor signup-funnel numbers, not tutorial numbers."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Offers published comparables for checkpoint spacing: Di\u00e1taxis arguing every step should produce a comprehensible result, Google Codelabs constraining a codelab to five to ten steps, freeCodeCamp's two-minute rule."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that Renkl and Atkinson's own experimental designs fade continuously rather than in three fixed stages."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Warns that presenting a self-set number as an industry standard leaves the team defending a figure nobody can source."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Recommends labelling each rule in the style guide as sourced or self-set, so a reviewer can tell which ones are negotiable."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Splits the tutorial at a checkpoint into two tutorials with a stated order, rather than trimming prose to fit the time budget."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Names the 15-60 minute range as the sourced ceiling the 95-minute run breaks, while noting that splitting rather than trimming is a judgement call."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Flags 11 primary steps against the seven-primary-step maximum."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that the failure mode for this audience is silent misunderstanding rather than a closed tab, because the learner cannot abandon."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Requires an offline or on-prem variant of every command that assumes internet or external registry access."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Promotes the polish rung of the concept ladder, because the production shape is the objective when a tutorial doubles as onboarding onto an internal tool."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Keeps the objective, the ladder and the checkpoint structure identical to any other tutorial, changing only what the audience context requires."
+      }
+    ]
+  }
+}

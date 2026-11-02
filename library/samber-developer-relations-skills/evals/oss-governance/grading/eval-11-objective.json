@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Reports that the named fiscal sponsor requires a licence that is both OSI-approved and DFSG-free, and that BUSL-1.1 does not meet it, so that route is closed as things stand.",
+        "evidence": "\"Software Freedom Conservancy's own published fiscal-sponsorship terms require a license that is both OSI-approved and DFSG-free. BUSL-1.1, as generally written, is not OSI-approved\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to use the 15-20% archival figure as a planning input, and states that it is unverified against any foundation's own data.",
+        "evidence": "\"don't use it. It's explicitly flagged as an unverified, commonly-repeated number with no foundation's own data behind it\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes lightweight fiscal hosting (donation handling, no governance imposed, a percentage of donations) from a fiscal sponsor with legal services (around 10% of processed revenue, written decision-making required, asset assignment optional).",
+        "evidence": "The transcript only contrasts \"a lightweight fiscal host... no license gate stated... just donation plumbing\" vs. SFC's legal services, with no percentage figures or asset-assignment/decision-making details given for either.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a fiscal host removes the need to incorporate, and that a legal entity is unnecessary until money is involved.",
+        "evidence": "\"you need *some* legal receiving entity (a fiscal host is the cheapest form of one)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Runs the join-or-not test on all three axes: money, neutrality, and the autonomy budget.",
+        "evidence": "The Foundation section is organized around \"Does Cinderpath even clear SFC's door?\" and money routing, not an explicit three-axis money/neutrality/autonomy test.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the money-governance components required once funds exist: a written conflict-of-interest policy, a budget approved by the governing body rather than by whoever holds the payment credentials, spending-authorization thresholds, a reserve target, and a transparency mechanism.",
+        "evidence": "Only a COI clause and a 'public note' transparency element appear; no budget-approval, spending-threshold, or reserve-target discussion exists.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names paid maintainers as the recurring friction once some contributors draw project funds and others do not.",
+        "evidence": "No discussion anywhere of paid-vs-unpaid maintainer friction.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends funding a defined administrative or triage role rather than feature development, separating paying for upkeep from paying to decide direction.",
+        "evidence": "No such recommendation appears; the bank contract is treated as a services-contract classification question, not routed toward funding an admin/triage role.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the two-of-three same-employer maintainer ratio as a neutrality signal the sponsor and the bank will read.",
+        "evidence": "\"2 of 3 maintainers (a majority) share one employer... this is the exact pattern a bank's own procurement/legal review is trained to look for\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Tells the user to confirm which legal entity actually holds the funds, and to write the exit plan while nothing is wrong, citing the 2024 staged dissolution of a charitable fiscal host that affected more than 600 collectives with roughly seven months to spend down or transfer.",
+        "evidence": "\"a charitable host affiliated with Open Collective gave ~600 collectives roughly seven months to move funds in 2024\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that a fiscal sponsor holding assigned assets typically cannot later transfer them to an individual or a for-profit, and that the irreversibility is what an adopter reads.",
+        "evidence": "\"a fiscal sponsor holding assigned assets typically can't transfer them back to an individual or a for-profit\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes any licence change, the sponsorship or membership agreement, and contributor agreements to legal counsel rather than advising on their terms.",
+        "evidence": "\"That's a fact about SFC's stated intake bar, not legal advice about your license\" and \"This is a question for SFC and for counsel, not for this review.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that a US charitable-status application is not a formality, citing a denial that arrived after roughly four and a half years.",
+        "evidence": "No mention anywhere in Section 11 of a charitable-status denial or a multi-year timeline for such an application.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Reports that the named fiscal sponsor requires a licence that is both OSI-approved and DFSG-free, and that BUSL-1.1 does not meet it, so that route is closed as things stand.",
+        "evidence": "The transcript states 'Software Freedom Conservancy only fiscally sponsors projects released under an OSI- or FSF-approved free license' \u2014 citing FSF-approved, not DFSG-free, so the specific dual criterion in the rubric is not matched.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to use the 15-20% archival figure as a planning input, and states that it is unverified against any foundation's own data.",
+        "evidence": "'That figure tracks CNCF's Sandbox tier... It is not the risk profile of SFC-style fiscal sponsorship... None of these are the \"1-in-5 gets abandoned\" risk you read about \u2014 that's a different program solving a different problem.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes lightweight fiscal hosting (donation handling, no governance imposed, a percentage of donations) from a fiscal sponsor with legal services (around 10% of processed revenue, written decision-making required, asset assignment optional).",
+        "evidence": "No distinction between tiers/types of fiscal sponsorship is drawn anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a fiscal host removes the need to incorporate, and that a legal entity is unnecessary until money is involved.",
+        "evidence": "The transcript instead recommends incorporating a normal commercial entity as Step 1, the opposite of avoiding incorporation via a fiscal host.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Runs the join-or-not test on all three axes: money, neutrality, and the autonomy budget.",
+        "evidence": "No structured three-axis test is presented; money and licensing tradeoffs are discussed but not framed as 'money, neutrality, autonomy' axes.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the money-governance components required once funds exist: a written conflict-of-interest policy, a budget approved by the governing body rather than by whoever holds the payment credentials, spending-authorization thresholds, a reserve target, and a transparency mechanism.",
+        "evidence": "The transcript only broadly mentions 'decision rules that prevent the consultancy pair from unilaterally controlling the project' without naming COI policy, budget approval body, spending thresholds, reserve target, or transparency mechanism.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names paid maintainers as the recurring friction once some contributors draw project funds and others do not.",
+        "evidence": "Not discussed anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends funding a defined administrative or triage role rather than feature development, separating paying for upkeep from paying to decide direction.",
+        "evidence": "The transcript discusses payment for 'two features' as a services contract without recommending a distinct administrative/triage funding structure.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the two-of-three same-employer maintainer ratio as a neutrality signal the sponsor and the bank will read.",
+        "evidence": "'Address the 2-of-3-same-consultancy structure explicitly... Any serious funder (a fiscal sponsor, a bigger sponsor down the line, the bank's own diligence) will ask this question.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Tells the user to confirm which legal entity actually holds the funds, and to write the exit plan while nothing is wrong, citing the 2024 staged dissolution of a charitable fiscal host that affected more than 600 collectives with roughly seven months to spend down or transfer.",
+        "evidence": "No mention of any fiscal-host dissolution incident, the 600-collective figure, or a 7-month spend-down window.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that a fiscal sponsor holding assigned assets typically cannot later transfer them to an individual or a for-profit, and that the irreversibility is what an adopter reads.",
+        "evidence": "Not discussed anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes any licence change, the sponsorship or membership agreement, and contributor agreements to legal counsel rather than advising on their terms.",
+        "evidence": "The transcript gives direct substantive advice on the license decision itself ('Ask whether you actually want to drop BUSL's non-compete protection') rather than routing it to legal counsel.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that a US charitable-status application is not a formality, citing a denial that arrived after roughly four and a half years.",
+        "evidence": "No such warning or citation appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

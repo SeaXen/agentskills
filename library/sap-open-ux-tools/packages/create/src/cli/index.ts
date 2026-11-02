@@ -1,0 +1,228 @@
+import { readFileSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { Command, type Option } from 'commander';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+import { getLogger } from '../tracing/index.js';
+import { initI18n } from '../i18n.js';
+import { getAddCommands } from './add/index.js';
+import { getRemoveCommands } from './remove/index.js';
+import { getGenerateCommands } from './generate/index.js';
+import { getChangeCommands } from './change/index.js';
+import { getConvertCommands } from './convert/index.js';
+import { getListCommands } from './list/index.js';
+import { getGetCommands } from './get/index.js';
+import { getUpdateCommands } from './update/index.js';
+import { getMigrateCommand } from './migrate/index.js';
+
+/*
+ * We've chosen 'commander' over 'minimist' and 'yargs' for this CLI implementation. Reasons:
+ * (if it still up: https://npmtrends.com/commander-vs-minimist-vs-yargs)
+ * At the time this was written in August 2022, 'commander' was the most feature rich, active, and popular module with decent size and built-in types support
+ * - 'minimist' is super small but very limited functionality, no automatic help support
+ * - 'yarg' was in closer consideration, but larger (1.7 times) and not as feature rich
+ */
+
+/**
+ * Run the command line interface.
+ *
+ * @param argv - arguments, typically 'process.argv'
+ */
+export async function handleCreateFioriCommand(argv: string[]): Promise<void> {
+    const logger = getLogger();
+    if (!Array.isArray(argv) || argv.length < 2) {
+        throw Error(`This function must be called from command line interface (cli). Or provide meaningful arguments.`);
+    }
+    try {
+        // Initialize i18n before executing commands
+        await initI18n();
+        const program = getCommanderProgram();
+        await program.parseAsync(argv);
+    } catch (error) {
+        // Commander report meaningful error messages, output only if log level is set to debug
+        logger.debug(error as string | object);
+    }
+}
+
+/**
+ * Returns an instance of the command line program (commander command) ready to be executed (parsed), like 'program.parse(argv)'.
+ *
+ * @returns - commander program
+ */
+function getCommanderProgram(): Command {
+    const logger = getLogger();
+    const program = new Command();
+    const version = getVersion();
+    program.description(`Configure features for SAP Fiori applications and projects.`);
+    program.addHelpText(
+        'after',
+        `\nExample Usage:
+  'npx --yes @sap-ux/create@latest add --help'              Get the available subcommands for the 'add' command.
+  'npx --yes @sap-ux/create@latest add html --help'         Get the available options for the 'add html' command.
+  'npx --yes @sap-ux/create@latest add html --simulate'     Execute the 'add html' command using the 'simulate' option.\n`
+    );
+    program.option('--generateJsonSpec', 'Output the command structure as JSON');
+    program.action((options) => {
+        if (options.generateJsonSpec) {
+            logger.info(generateJsonSpec(program));
+        } else if (options.V || options.version) {
+            logger.info(version);
+        } else {
+            program.outputHelp();
+        }
+    });
+    program.version(version);
+
+    // Handler for create-fiori generate <feature> ..
+    const genCommands = getGenerateCommands();
+    genCommands.description(
+        `Command group for generating SAP Fiori applications. A subcommand is required.
+                    Usage: \`npx --yes @sap-ux/create@latest generate [subcommand] [options]\`
+                    The available subcommands are: ${getFeatureSummary(genCommands.commands)}\n`
+    );
+    program.addCommand(genCommands);
+
+    // Handler for create-fiori add <feature> ..
+    const addCommands = getAddCommands();
+    addCommands.description(
+        `Command group for adding features to existing SAP Fiori applications. A subcommand is required.
+                    Usage: \`npx --yes @sap-ux/create@latest add [subcommand] [options]\`
+                    The available subcommands are: ${getFeatureSummary(addCommands.commands)}\n`
+    );
+    program.addCommand(addCommands);
+
+    // Handler for create-fiori convert <feature> ..
+    const convertCommands = getConvertCommands();
+    convertCommands.description(
+        `Command group for converting existing SAP Fiori applications. A subcommand is required.
+                    Usage: \`npx --yes @sap-ux/create@latest convert [subcommand] [options]\`
+                    The available subcommands are: ${getFeatureSummary(convertCommands.commands)}\n`
+    );
+    program.addCommand(convertCommands);
+
+    // Handler for create-fiori remove <feature> ..
+    const removeCommands = getRemoveCommands();
+    removeCommands.description(
+        `Command group for removing features from existing SAP Fiori applications. A subcommand is required.
+                    Usage: \`npx --yes @sap-ux/create@latest remove [subcommand] [options]\`
+                    The available subcommands are: ${getFeatureSummary(removeCommands.commands)}\n`
+    );
+    program.addCommand(removeCommands);
+
+    // Handler for create-fiori update <feature> ..
+    const updateCommands = getUpdateCommands();
+    updateCommands.description(
+        `Command group for updating saved resources. A subcommand is required.
+                    Usage: \`npx --yes @sap-ux/create@latest update [subcommand] [options]\`
+                    The available subcommands are: ${getFeatureSummary(updateCommands.commands)}\n`
+    );
+    program.addCommand(updateCommands);
+
+    // Handler for create-fiori change <feature> ..
+    const changeCommands = getChangeCommands();
+    changeCommands.description(
+        `Command group for changing existing SAP Fiori applications. A subcommand is required.
+                    Usage: \`npx --yes @sap-ux/create@latest change [subcommand] [options]\`
+                    The available subcommands are: ${getFeatureSummary(changeCommands.commands)}`
+    );
+    program.addCommand(changeCommands);
+
+    // Handler for create-fiori list <feature> ..
+    const listCommands = getListCommands();
+    listCommands.description(
+        `Command group for listing saved resources. A subcommand is required.
+                    Usage: \`npx --yes @sap-ux/create@latest list [subcommand] [options]\`
+                    The available subcommands are: ${getFeatureSummary(listCommands.commands)}\n`
+    );
+    program.addCommand(listCommands);
+
+    // Handler for create-fiori get <feature> ..
+    const getCommands = getGetCommands();
+    getCommands.description(
+        `Command group for retrieving saved resources. A subcommand is required.
+                    Usage: \`npx --yes @sap-ux/create@latest get [subcommand] [options]\`
+                    The available subcommands are: ${getFeatureSummary(getCommands.commands)}\n`
+    );
+    program.addCommand(getCommands);
+
+    // Handler for create-fiori migrate ..
+    program.addCommand(getMigrateCommand());
+
+    return program;
+}
+
+/**
+ * Return a summary of the subcommands from the provided commands.
+ *
+ * @param commands - List of commands
+ * @returns - Summary of the subcommands
+ */
+function getFeatureSummary(commands: readonly Command[]): string {
+    const subCommandNames = commands.map((cmd) => `\`${cmd.name()}\``);
+    return subCommandNames.join(', ').replace(/, ([^,]*)$/, ' and $1');
+}
+
+/**
+ * Parses a commander.Option object into a simpler format for the JSON spec.
+ *
+ * @param {Option} opt - The Commander Option object.
+ * @returns {object} A simplified option object.
+ */
+function parseOption(opt: Option) {
+    return {
+        name: opt.flags,
+        description: opt.description,
+        required: opt.mandatory === true, // Only true for .requiredOption() not for required values (.option('<value>'))
+        ...(opt.defaultValue !== undefined && { defaultValue: opt.defaultValue })
+    };
+}
+
+/**
+ * Recursively parses a commander.Command object and its subcommands.
+ *
+ * @param cmd - The Commander Command object to parse.
+ * @returns A structured object representing the command.
+ */
+function parseCommand(cmd: Command): {} {
+    const options = 'options' in cmd ? (cmd.options as Option[]) : [];
+    return {
+        name: cmd.name(),
+        description: cmd.description(),
+        ...(options?.length > 0 && { options: options.map(parseOption) }),
+        ...(cmd.commands?.length > 0 && { subcommands: cmd.commands.map(parseCommand) })
+    };
+}
+
+/**
+ * Generates the full MCP specification for a top-level commander program.
+ *
+ * @param cmd - The main Commander program instance.
+ * @returns A JSON string representing the CLI's capabilities.
+ */
+export function generateJsonSpec(cmd: Command) {
+    const spec = {
+        description: cmd.description(),
+        commands: cmd.commands.map(parseCommand)
+    };
+    return JSON.stringify(spec, null, 2);
+}
+
+/**
+ * Return the version from the package.json file.
+ *
+ *  @returns - version from package.json
+ */
+function getVersion(): string {
+    let version = '';
+    try {
+        version = JSON.parse(
+            readFileSync(join(__dirname, '../../package.json'), { encoding: 'utf8' }).toString()
+        ).version;
+    } catch (error) {
+        const logger = getLogger();
+        logger.warn(`Could not read version from 'package.json'`);
+        logger.debug(error);
+    }
+    return version;
+}

@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that YouTube itself reports no correlation between upload frequency (or time between uploads) and growth in views",
+        "evidence": "\"YouTube found growth 'not correlated with time between uploads' [YouTube].\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels that statement as platform-published (e.g. [YouTube]) rather than as opinion",
+        "evidence": "The statement carries the [YouTube] tag.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Computes a cadence from the 8 weekly hours and narrator hours per finished video, not from a fixed daily or weekly rule",
+        "evidence": "\"8 h/week minus about 1 h for comment replies = 7 h \u00d7 4 = 28 h a month. 28 \u00f7 8 h per video = 3.5, rounded down to 3 videos a month.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "If the computed cadence falls below one video a month, says so and proposes the docs-embedded or creator rung instead",
+        "evidence": "The condition is not triggered, because the computed cadence is 3 a month. The stop rule also names the docs-embedded and creator fallback.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says subscribers are not viewers or not an outcome, citing YouTube",
+        "evidence": "\"Subscribers are not viewers [YouTube].\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Proposes an outcome metric tied to signups via tagged long-form links or a 'how did you hear about us' field",
+        "evidence": "The metrics table lists \"Signups from tagged links\" and \"Signups naming YouTube or a creator in 'how did you hear'\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says Shorts should be cut from long-form videos rather than produced as a separate stream",
+        "evidence": "\"Cut Shorts from long-form, never the reverse.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says each Short should point to its long-form source via the Related video link",
+        "evidence": "\"Each Short's Related video points at its source long-form.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Excludes Shorts from the share of Help or search-led content it recommends",
+        "evidence": "The two-thirds rule is stated for long-form only (\"Long-form stays at least two thirds Help\"). The transcript never says Shorts are excluded from that share.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives a stop or fallback rule if search watch time and attributed signups stay flat",
+        "evidence": "\"If search watch time and attributed signups are both flat, fall back to the docs-embedded and creator rungs, and say so.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks or states the deadline / one-off versus compounding / effort ceiling before or while ranking options",
+        "evidence": "The assumptions give a 30 June 2027 deadline and 8 team hours per video. The ranking table has a Payoff column (compounding vs one-shot).",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that YouTube itself reports no correlation between upload frequency (or time between uploads) and growth in views",
+        "evidence": "Says only that \"YouTube staff have said publicly that upload frequency alone does not rank videos\" and \"I could not re-check this source today\". It does not state a no-correlation finding.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels that statement as platform-published (e.g. [YouTube]) rather than as opinion",
+        "evidence": "Attributes it loosely to \"YouTube staff have said publicly\", with no platform-published label, and flags it as unverified.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Computes a cadence from the 8 weekly hours and narrator hours per finished video, not from a fixed daily or weekly rule",
+        "evidence": "Estimates ~6h per long-form video, ~0.5h per Short, ~15.5h total against 8h, then builds a steady-state cadence of 1 long-form and 3 Shorts a week from the 8h budget table.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "If the computed cadence falls below one video a month, says so and proposes the docs-embedded or creator rung instead",
+        "evidence": "The computed cadence is about 1 long-form a week. No docs-embedded or creator rung is proposed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says subscribers are not viewers or not an outcome, citing YouTube",
+        "evidence": "Calls subscribers \"a vanity metric here. A subscriber is not a trial signup\", with no YouTube citation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Proposes an outcome metric tied to signups via tagged long-form links or a 'how did you hear about us' field",
+        "evidence": "\"Signups or demo requests via UTM link in descriptions\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says Shorts should be cut from long-form videos rather than produced as a separate stream",
+        "evidence": "\"only cut Shorts from long-form footage. Never write original Shorts.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says each Short should point to its long-form source via the Related video link",
+        "evidence": "No mention of the Related video link.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Excludes Shorts from the share of Help or search-led content it recommends",
+        "evidence": "No such exclusion appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives a stop or fallback rule if search watch time and attributed signups stay flat",
+        "evidence": "The 8-week gate only adds hours or people if Shorts convert. It has no stop or fallback rule for flat results.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks or states the deadline / one-off versus compounding / effort ceiling before or while ranking options",
+        "evidence": "It states the 8h ceiling and asks about contractor hours. It never asks about the deadline or one-off versus compounding, and it ranks no options.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

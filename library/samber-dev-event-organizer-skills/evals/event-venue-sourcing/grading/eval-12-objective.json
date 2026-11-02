@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Replaces the sequential queue with a grid of candidate venues against candidate date windows.",
+        "evidence": "\"Fill the grid. Put venues against windows\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the grid filled before any venue or window is chosen.",
+        "evidence": "\"Don't open a price conversation with any venue before all three quotes are in.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Instructs desk-checking every candidate first and visiting only the survivors.",
+        "evidence": "It says \"Visit the survivors\" but never mentions a desk check.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a written quote from every surviving candidate on the identical requirements sheet before a serious price conversation opens with any of them.",
+        "evidence": "\"with a written quote from each survivor on the identical sheet\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that handing every venue the same sheet is what makes two venues comparable at all.",
+        "evidence": "The identical sheet is prescribed, but it is never said to be what makes quotes comparable.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Lets availability rank the date windows rather than fixing window 1 in advance.",
+        "evidence": "\"Availability then ranks your windows, and total committed cost ranks your venues.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies date-window ranking by availability as the job handed over by samber/dev-event-organizer-skills@event-date-selection.",
+        "evidence": "`event-date-selection` is not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a single filled cell is a request while a filled grid is a negotiation.",
+        "evidence": "\"Window 1 only, to one venue, is 'one venue, one date'. It turns the conversation into a request.\" Step 5 is \"Negotiate with the grid in hand.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects telling the other candidates no before a contract is signed.",
+        "evidence": "\"Hold both venues until you've signed.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names one local organizer as the venue's day-to-day operational contact as an explicit role, rather than assuming whoever signed or whoever receives the handoff owns it.",
+        "evidence": "\"She becomes the local organizer who is the venue's day-to-day contact... Write that down\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists handoff-pack contents with the cancellation-fee dates and percentages and the insurance requirement called out separately from the contract body.",
+        "evidence": "\"Extract two items verbatim and hand them over: the cancellation-fee dates and percentages... the insurance requirement with its amounts\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Includes the catering headcount deadline, roughly two weeks before the event and distinct from the ticket-sales deadline.",
+        "evidence": "The pack lists \"headcount deadline\" with no timing and no distinction from ticket sales.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes every requirement marked not met, with the workaround agreed for it.",
+        "evidence": "\"every requirement marked 'not met' with its workaround.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Replaces the sequential queue with a grid of candidate venues against candidate date windows.",
+        "evidence": "Keeps a sequential Quayside-first plan.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the grid filled before any venue or window is chosen.",
+        "evidence": "Not present.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Instructs desk-checking every candidate first and visiting only the survivors.",
+        "evidence": "Not present.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a written quote from every surviving candidate on the identical requirements sheet before a serious price conversation opens with any of them.",
+        "evidence": "Not present.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that handing every venue the same sheet is what makes two venues comparable at all.",
+        "evidence": "Not present.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Lets availability rank the date windows rather than fixing window 1 in advance.",
+        "evidence": "Fixes the ordering in advance: \"all three windows, in order\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies date-window ranking by availability as the job handed over by samber/dev-event-organizer-skills@event-date-selection.",
+        "evidence": "Not present.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a single filled cell is a request while a filled grid is a negotiation.",
+        "evidence": "Not present.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects telling the other candidates no before a contract is signed.",
+        "evidence": "\"Release the other two places only after you've signed a contract and paid any deposit.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names one local organizer as the venue's day-to-day operational contact as an explicit role, rather than assuming whoever signed or whoever receives the handoff owns it.",
+        "evidence": "Hands over to Priya without naming the role.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Lists handoff-pack contents with the cancellation-fee dates and percentages and the insurance requirement called out separately from the contract body.",
+        "evidence": "Lists \"cancellation cutoff\" among deadlines. No insurance requirement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes the catering headcount deadline, roughly two weeks before the event and distinct from the ticket-sales deadline.",
+        "evidence": "Only \"final numbers\" appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes every requirement marked not met, with the workaround agreed for it.",
+        "evidence": "Not present.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

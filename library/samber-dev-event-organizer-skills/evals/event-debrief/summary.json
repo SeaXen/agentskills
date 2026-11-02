@@ -1,0 +1,374 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-debrief",
+  "scenarios": 8,
+  "expectations_total": 98,
+  "expectations_subjective": 1,
+  "expectations_objective": 97,
+  "pass_rate_with_skill_pct": 82.7,
+  "pass_rate_without_skill_pct": 33.7,
+  "delta_pp": 49.0,
+  "uplift_multiplier": 2.45,
+  "trigger_accuracy_pct": 76.1,
+  "trigger_queries": 88,
+  "trigger_positive_fire_rate": 0.75,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": 1.0,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "States that no standard interval after the event exists and proposes a concrete date anyway"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Warns against manufacturing action items to look thorough, and allows an explicit 'no action, because [reason]' as a complete outcome"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Identifies the unscored bucket as the most valuable output of the risk check"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Attaches a one-sentence cause per material variance drawn from price move, volume miss, unplanned line, or estimate that was always wrong"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Does not propose surveying or contacting attendees now to fill the gap"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Records the two-week gap between doors closing and the debrief as a signal to note, not a target to hit"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States zero orphan entries as the single binary pass threshold for the log"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Checks whether edition three's action items were actually done as a carry-through input, while leaving the trend claim to the continuous-improvement process"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "References precedent that events historically published this kind of self-assessment only at shutdown (e.g. JSConf EU's closing statement or !!Con's burnout statement) and that the debrief exists to surface it years earlier"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that nothing said in the room becomes a performance judgment and only agreed written findings leave it"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names recap plus retrospective as the default posture, or anchors it to the published recap-plus-retrospective precedent shape"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes the retrospective's marginal drafting cost is low because findings already exist in three-part form"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Cites recap-level publishing as endorsed practice (results blogging described as optional but strongly recommended)"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "On this mixed volunteer/staffed team, Ingrid as the reporting-line holder delivers the frame herself"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The workshop-room disagreement is recorded as disputed rather than settled first thing, and the dispute itself is treated as a finding that nobody knew what was happening at that moment"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that a log full of unowned entries is meeting notes, not a lessons-learned log"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Contrasts costs when steering the choice: carry-over and check-in cost roughly a calendar entry and under half an hour, versus the tracker as ongoing maintenance"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Recommends setting and calendaring the debrief date immediately, before the team disperses, rather than deferring the scheduling decision"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that no standard interval after the event exists and proposes a concrete date anyway"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Removes both track-based depth options entirely for the three-person team rather than merely ranking them lower"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Warns against manufacturing action items to look thorough, and allows an explicit 'no action, because [reason]' as a complete outcome"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Requires every log entry to carry a named owner and a due date, or an explicit no-action"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Runs what-went-well and what-went-poorly as two separate passes with the well pass first, and does not compare this edition against previous editions"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Writes each finding as a three-part entry: what happened, what was done in the moment, what changes next edition"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Registration entry describes the structural condition (e.g. one staffed position against the arrival curve) rather than Priya being overwhelmed"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Rewrites 'we need better volunteers' into a concrete mechanism (e.g. sizing the desk against the arrival curve, a named float role) with a named owner and a due date"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Rain/tent entry keeps an explicitly empty middle part ('nothing could be done during the event') instead of inventing an in-the-moment response"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Declines to run root-cause or 5-Whys analysis on every entry, keeping entries deliberately shallow"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "If any deeper analysis is allowed, it is capped at one or two findings and gated on recurrence, structural cost, and the obvious fix being symptomatic"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Sorts entries into gap categories such as nobody-owned-it, known-risk-no-treatment, first-time failure, or checklist miss"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Routes the rain finding to the risk register as a new unscored risk category rather than proposing a tent fix as the whole answer"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Uses the ownership/staffing category to route the registration finding toward a team-structure fix"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Every entry describes gaps and systems, never a person, and the log is dated"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Declines to re-score the risk register inside the debrief and hands back a reconciliation to the risk-management owner instead"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Risk handback uses three buckets: fired with treatment held, fired with treatment failed, and fired but unscored"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Places the keynote cancellation in the fired-and-treatment-held bucket since risk #3's backup list worked"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Places the two-hour wifi outage in the fired-and-unscored bucket and frames it as a new risk category, not a fix"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Identifies the unscored bucket as the most valuable output of the risk check"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Budget check is actual-versus-planned variance ordered by largest absolute variance first: catering $6,800, then sponsorship $4,000, then AV $1,200"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Attaches a one-sentence cause per material variance drawn from price move, volume miss, unplanned line, or estimate that was always wrong"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Declines to set next year's catering number; the variance table is handed to the budget owner without proposed next-edition figures"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Run-of-show output is a list of divergences as observations (Track A 25 minutes long, transitions eating time), not a rewritten cue sheet with 10-minute transitions"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that revising the cue sheet belongs to the run-of-show owner, not the debrief"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Each reconciliation is routed to its owning sibling process, separate from the team's own dated lessons log"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Declines to build the cross-edition trend comparison inside the debrief and scopes the output to one edition's dated log"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that aggregating across editions belongs to a separate continuous-improvement process which receives this log"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Keeps the goals verdict strictly internal: a signal about this edition's own targets, never a go/no-go on whether the event should continue"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Routes any demand-relevant signal (attendance shortfall, financial miss) to the market-fit owner as a signal, not a conclusion"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Records the two-week gap between doors closing and the debrief as a signal to note, not a target to hit"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States zero orphan entries as the single binary pass threshold for the log"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Proposes instrumenting satisfaction (or writing goals down) for next edition as an action item carrying a named owner and a due date"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Checks whether edition three's action items were actually done as a carry-through input, while leaving the trend claim to the continuous-improvement process"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Routes the workload redesign to the team-structure owner rather than solving the redistribution inside the debrief"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States the debrief surfaces and routes team-health findings but does not redesign the team"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Notes that a criticised volunteer simply stops volunteering, and that this loss is invisible in the log"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "References precedent that events historically published this kind of self-assessment only at shutdown (e.g. JSConf EU's closing statement or !!Con's burnout statement) and that the debrief exists to surface it years earlier"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "On a mixed volunteer/staffed team, the blameless frame must be stated most explicitly and delivered by whoever holds the reporting line, because from anyone else it does not bind"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Writes the finding into the log now as a three-part entry with a named owner and a due date, instead of deferring it to next year's debrief agenda"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that nothing said in the room becomes a performance judgment and only agreed written findings leave it"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Frames the choice as a ranked menu of postures (nothing published, recap only, recap plus retrospective, plus transparency report) rather than a binary publish-or-not"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Gates the transparency report on the code-of-conduct pipeline's own sign-off on anonymisation, and on the reports actually having been resolved"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that a published incident description cannot be unpublished"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Specifies the transparency report as an anonymised account of reports and how each was handled, with no identifying detail about the speaker"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Names recap plus retrospective as the default posture, or anchors it to the published recap-plus-retrospective precedent shape"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes the retrospective's marginal drafting cost is low because findings already exist in three-part form"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "The publication decision is made by the team, in the room, while findings are fresh - not taken away as one person's homework"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Distinguishes the exposure each rung carries (photo consent for a recap, contractual for a retrospective, code-of-conduct sign-off for a transparency report) from mere drafting effort"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Cites recap-level publishing as endorsed practice (results blogging described as optional but strongly recommended)"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "On this mixed volunteer/staffed team, Ingrid as the reporting-line holder delivers the frame herself"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Timeline reconstruction of the edition comes before any analysis, judgment, or fixing"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Timeline is built from artifacts first (run of show, comms channel history, ticketing, photo timestamps) with memory only filling gaps"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "The workshop-room disagreement is recorded as disputed rather than settled first thing, and the dispute itself is treated as a finding that nobody knew what was happening at that moment"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Justifies the well-first ordering by the risk that an unnamed working practice gets quietly dropped next edition"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Agenda includes a reconciliation segment checking what happened against the documents that already exist (risk register, budget, run of show, pre-set goals)"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Team health appears as an explicit agenda item rather than being left to whoever is brave enough to raise it"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Publication posture is decided in the session by the team, not taken away afterwards"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends a written well/poorly pre-read from every named role so the session discusses rather than collects, preventing the first speaker from anchoring the room"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Tags the three repeated mistakes as incomplete fixes from last edition and identifies that category as the most valuable one, only existing from the second edition onward"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Positions a mid-cycle check-in as one dated calendar entry reserved for short-fuse items (vendor conversation, refund, deposit), not a recurring meeting series"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Records the 0-of-15 carry-through rate as an input while leaving the trend across editions to the continuous-improvement process"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that a log full of unowned entries is meeting notes, not a lessons-learned log"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Contrasts costs when steering the choice: carry-over and check-in cost roughly a calendar entry and under half an hour, versus the tracker as ongoing maintenance"
+      }
+    ]
+  }
+}

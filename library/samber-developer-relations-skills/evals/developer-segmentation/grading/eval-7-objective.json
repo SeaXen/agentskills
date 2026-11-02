@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Classifies the company as developer-plus rather than developer-first, and gives the reason.",
+        "evidence": "No use of 'developer-plus' or 'developer-first' terminology anywhere in this transcript; the closest is describing the audience as a 'closed, contracted, enumerable set,' without an explicit company-shape classification.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names, for each segment, who evaluates, who approves and who signs.",
+        "evidence": "'User/champion evaluates and builds the POC; an architect and/or security reviewer approves; a budget/priority owner (e.g. Head of Ops) has to allocate ongoing engineering time to finish it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies an approver role (architect, platform lead, security or legal reviewer) as the likely cause of integrations dying after the technical proof of concept.",
+        "evidence": "'it's by how much internal permission an integration needs to survive past the POC, because that's where your two dead deals actually died' combined with 'Presumed source of the 2\u20133 dead deals' for Governed platform brokers.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that one unanswered risk question is enough for an approver to say no.",
+        "evidence": "No statement to this effect appears; the closest is 'webhook security model written for a reviewer who never opens the sandbox,' which does not state that one unanswered question is sufficient to kill a deal.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies champion material as the highest-leverage artefact in company adoption, because the champion argues when nobody from the vendor is in the room.",
+        "evidence": "No such statement about champions arguing internally without the vendor present appears anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Splits a nominal segment into two when its decision unit differs, rather than recording the difference as a footnote.",
+        "evidence": "'Regulated/high-sensitivity governed brokers | A governed-platform broker additionally bound by a stricter data regime... adding a legal/DPO sign-off on top of architecture/security' is split out as its own row.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names a concrete trigger that adds an approver, such as a regulated vertical or a company-size threshold.",
+        "evidence": "'A governed-platform broker additionally bound by a stricter data regime (e.g. health-adjacent claims lines, a specific regional residency rule).'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Directs its diagnostic questions at the recorded recent wins and recent losses rather than at an abstract org chart.",
+        "evidence": "'code all 7 deals (4 won, 3 lost) against the decision-unit questions \u2014 who first tried it, who else had to say yes, which question stalled it longest, who signed, in the losses which role blocked it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks which role blocked each loss and what would have unblocked them.",
+        "evidence": "The diagnostic list asks 'in the losses which role blocked it' but never explicitly asks what would have unblocked them.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Warns that developer-delight material alone loses at the security or risk review.",
+        "evidence": "'Stop: any instinct to fix the post-POC drop-off with better docs or a nicer sandbox \u2014 that's optimizing the stage that already works.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names which artefacts serve both adoption paths so they get built once.",
+        "evidence": "No shared-artefact list is given; Solo integrator and Governed platform needs are listed as entirely separate ('quickstart, sandbox realism' vs. 'production-readiness doc... compliance pack') with no statement of overlap built once.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Classifies the company as developer-plus rather than developer-first, and gives the reason.",
+        "evidence": "'There's no standalone purchase decision for the API \u2014 it ships inside a broker contract that's already been won through one of six channels.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names, for each segment, who evaluates, who approves and who signs.",
+        "evidence": "POC team 'evaluates feasibility', channel owner 'owns the process the API would replace' (approves), sponsor 'decides if API integration was ever a committed line item' (signs).",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies an approver role (architect, platform lead, security or legal reviewer) as the likely cause of integrations dying after the technical proof of concept.",
+        "evidence": "The roles identified as the likely cause are 'channel owner' and 'sponsor' (business/ops roles), not an architect, platform lead, security or legal reviewer type.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that one unanswered risk question is enough for an approver to say no.",
+        "evidence": "No statement that a single unanswered risk question is enough for an approver to say no.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies champion material as the highest-leverage artefact in company adoption, because the champion argues when nobody from the vendor is in the room.",
+        "evidence": "No discussion of 'champion material' as the highest-leverage artefact.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Splits a nominal segment into two when its decision unit differs, rather than recording the difference as a footnote.",
+        "evidence": "The broker is split into 'The POC team,' 'The channel owner,' and 'The sponsor' rather than treated as one segment with a footnote.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names a concrete trigger that adds an approver, such as a regulated vertical or a company-size threshold.",
+        "evidence": "No concrete trigger like a regulated vertical or company-size threshold is named for adding an approver.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Directs its diagnostic questions at the recorded recent wins and recent losses rather than at an abstract org chart.",
+        "evidence": "'Run your 4 wins and 3 losses through this table before touching anything DX-related.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks which role blocked each loss and what would have unblocked them.",
+        "evidence": "'If the wins cluster on \"replacement + named ops owner + dedicated team\" and the losses cluster on \"addition + no ops owner + solo champion,\" you've confirmed the lever is a cutover playbook...' identifies the missing role and the fix.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Warns that developer-delight material alone loses at the security or risk review.",
+        "evidence": "No statement that developer-delight material alone loses at a security or risk review.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names which artefacts serve both adoption paths so they get built once.",
+        "evidence": "No naming of artefacts that serve both the POC path and the ops-adoption path so they get built once.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

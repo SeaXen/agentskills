@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses a plain re-announcement of the existing rota as the fix",
+        "evidence": "'Re-announcing the same rota unchanged reproduces that exact failure'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the failure that documentation still implying coverage is worse than having had no rotation, citing the dormant volunteer triage team precedent",
+        "evidence": "'a rotation that exists only on paper is worse than no rotation... documented worked example (Fedora's BugZappers)'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the rota to be retired loudly if it has lapsed, rather than left published while inactive",
+        "evidence": "'Say the gap out loud. Don't resume as if nothing happened \u2014 state that triage lapsed since March...'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Designs a two-tier model: a long-term triage owner accountable per component plus a triage duty rotating on a stated shift length",
+        "evidence": "Accountable person is for 'the rotation's health' overall, not per-component ownership; no component-based tier is described.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Automates who is on duty rather than what to decide, by syncing the tracker's triage-owner field from a rotation calendar",
+        "evidence": "No calendar-sync automation is proposed in this section.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names a backup per shift",
+        "evidence": "'Name a backup per shift, not just the primary... \"if the primary misses their week, backup covers it\" as a written rule'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Adds a liveness check: one metric that would visibly move if the rotation stopped",
+        "evidence": "'Add a liveness check someone can actually see... untriaged-issue count pinned somewhere, or \"if nothing's labeled by day 3...\"'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets a stop rule where a session ends at its time box rather than at inbox zero",
+        "evidence": "No session time-boxing rule is discussed in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets the session order as newest untriaged first, then items where the reporter replied, then a fixed backlog quota",
+        "evidence": "No such session ordering is specified in this section.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Grants triage-level permissions for labelling, closing and assigning rather than commit or push access",
+        "evidence": "No discussion of permission levels (triage vs commit) appears in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Defines the escalation rule: what a triager decides alone, what waits for a maintainer, and how long that wait may be",
+        "evidence": "No escalation rule of this kind is defined anywhere in the section.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "For the recurring call, requires a dedicated queue view, asynchronous pre-triage, and decisions recorded as label or state changes rather than only in minutes",
+        "evidence": "'Fix the structure (a queue view, async pre-triage in a thread beforehand)' covers two of three elements but never mentions decisions being recorded as label/state changes.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not treat writing the rotation down or re-announcing it as the finish line",
+        "evidence": "The answer adds backup coverage, liveness check, accountable owner, and structural fixes beyond mere re-announcement.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses a plain re-announcement of the existing rota as the fix",
+        "evidence": "\"Fix the failure mode, not just the symptom. Add a public tracker \u2014 pinned issue or bot ping \u2014 showing whose week it is. Six months died silently because nothing surfaced the gap.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the failure that documentation still implying coverage is worse than having had no rotation, citing the dormant volunteer triage team precedent",
+        "evidence": "No statement that documentation implying coverage is worse than no rotation, and no dormant-team precedent is cited.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the rota to be retired loudly if it has lapsed, rather than left published while inactive",
+        "evidence": "The plan reactivates and re-announces the rota rather than retiring it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Designs a two-tier model: a long-term triage owner accountable per component plus a triage duty rotating on a stated shift length",
+        "evidence": "No per-component ownership tier is designed; only the existing weekly-slot volunteer system is addressed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Automates who is on duty rather than what to decide, by syncing the tracker's triage-owner field from a rotation calendar",
+        "evidence": "The fix is a manual \"pinned issue or bot ping\" showing whose week it is, not a synced tracker field from a calendar.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names a backup per shift",
+        "evidence": "No backup-per-shift mechanism is mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Adds a liveness check: one metric that would visibly move if the rotation stopped",
+        "evidence": "No explicit liveness metric is defined.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets a stop rule where a session ends at its time box rather than at inbox zero",
+        "evidence": "No time-boxed stop rule is discussed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets the session order as newest untriaged first, then items where the reporter replied, then a fixed backlog quota",
+        "evidence": "No such ordering rule is specified; only \"whether week one clears backlog or starts fresh from today\" is raised as an open question.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Grants triage-level permissions for labelling, closing and assigning rather than commit or push access",
+        "evidence": "Permissions/access level is not discussed anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Defines the escalation rule: what a triager decides alone, what waits for a maintainer, and how long that wait may be",
+        "evidence": "No escalation rule is defined.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "For the recurring call, requires a dedicated queue view, asynchronous pre-triage, and decisions recorded as label or state changes rather than only in minutes",
+        "evidence": "Only \"real date/time/link for next biweekly call\" is specified \u2014 no queue view, pre-triage, or recorded-decision requirement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not treat writing the rotation down or re-announcing it as the finish line",
+        "evidence": "The plan pairs the announcement with an operational fix (a persistent pinned-issue/bot tracker of whose week it is), not just a rewritten announcement.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,130 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Names the outcomes using the SPACES vocabulary and maps each of the three stated goals to its letter: Support, Product, and Acquisition and advocacy",
+        "evidence": "The brief writes '**Primary outcome (S \u2014 Support):**' and lists secondary outcomes as '**P \u2014 Product:**' and '**A \u2014 Acquisition and advocacy:**', explicitly mapping all three stated goals to their SPACES letters.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to accept all three as co-primary and requires exactly one primary outcome",
+        "evidence": "The opening states 'I picked **Support** as your single primary outcome (not all three)' and later: 'Running all three as co-equal goals from day one is exactly the failure mode the skill flags.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Marks the purpose gate as not passing while the three outcomes remain unranked",
+        "evidence": "The gate table shows 'Purpose | Pass | Support, named as one measurable claim (below) \u2014 not three unranked wishes.' The gate is shown as already Pass, using the assistant's own post-hoc resolution \u2014 there is no point in the transcript where the Purpose gate is marked as failing while the three outcomes are still unranked.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the primary outcome decides the community model, the venue class and the thresholds",
+        "evidence": "The transcript labels 'Community model: Support-driven' and lists venue choice and thresholds, but never explicitly states a causal rule that the primary outcome determines the venue class and thresholds \u2014 e.g. the Venue section justifies GitHub Discussions via 'durable-answer test' and existing GitHub issue patterns, not an explicit 'because Support is primary' statement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Attributes the one-objective rule to CMX's SPACES model rather than presenting it as the assistant's own preference",
+        "evidence": "The text only says 'exactly the failure mode the skill flags (\"trying to accomplish too many things makes it hard to track community value\")' \u2014 it never names CMX or the SPACES model; 'CMX' does not appear anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Allows secondary outcomes but requires them stated explicitly and ranked below the primary",
+        "evidence": "'**Secondary outcomes, unranked, sequenced in \u2014 not started day one:**' followed by P and A entries \u2014 explicitly labeled secondary and subordinate to the chosen primary (Support), even though the two secondaries aren't ranked against each other.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Converts the chosen primary into a measurable claim carrying a number and a timeframe, not a restatement of the goal",
+        "evidence": "'**Primary outcome (S \u2014 Support):** \"Cut repeat DM/support questions reaching you directly by 50% within two quarters, holding a <24h answer time inside the community.\"' includes a percentage, a timeframe, and a concrete SLA figure.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not propose a venue, platform or channel structure before the primary outcome is settled",
+        "evidence": "The very first line of the transcript announces '**Verdict: Launch. Platform: GitHub Discussions (forge-native), not Discord/Slack/Discourse.**' before explaining 'I picked **Support** as your single primary outcome' \u2014 the platform choice is stated ahead of (or simultaneous with) the outcome being settled.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks the user to pick the primary rather than silently choosing one for them",
+        "evidence": "'I picked **Support** as your single primary outcome (not all three)' \u2014 the assistant unilaterally selects the primary outcome itself; the only 'Next action' posed to the user at the end concerns picking cohort members, not the primary outcome.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that if acquisition and advocacy becomes the primary, none of the four named community models (support-driven, product-development, education and enablement, founder-led) applies and the shape has to be designed from the outcome instead",
+        "evidence": "The transcript never mentions this contingency or the four named model types; it only states 'Community model: Support-driven' with no discussion of what would happen if Acquisition and advocacy were primary instead.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Names the outcomes using the SPACES vocabulary and maps each of the three stated goals to its letter: Support, Product, and Acquisition and advocacy",
+        "evidence": "No SPACES terminology (Support/Product/Acquisition and advocacy) appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to accept all three as co-primary and requires exactly one primary outcome",
+        "evidence": "The plan builds #help and #roadmap and vocal-community goals together without ever forcing a single ranked primary outcome, e.g. \"That's support deflection and roadmap input built into the platform choice itself.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Marks the purpose gate as not passing while the three outcomes remain unranked",
+        "evidence": "No 'purpose gate' concept or unranked-outcomes flag appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the primary outcome decides the community model, the venue class and the thresholds",
+        "evidence": "Not stated; the transcript moves directly to platform choice without deriving it from a ranked primary outcome.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Attributes the one-objective rule to CMX's SPACES model rather than presenting it as the assistant's own preference",
+        "evidence": "No attribution to CMX or SPACES exists in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Allows secondary outcomes but requires them stated explicitly and ranked below the primary",
+        "evidence": "No ranking of primary/secondary outcomes is performed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Converts the chosen primary into a measurable claim carrying a number and a timeframe, not a restatement of the goal",
+        "evidence": "The \"What 'working' looks like by end of week 1\" section gives generic activity targets (e.g. \"target 30+\") but is not tied to a ranked single primary outcome.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not propose a venue, platform or channel structure before the primary outcome is settled",
+        "evidence": "The transcript opens with \"# Platform: Discord \u2014 not Slack, not a forum\" immediately, before any outcome-prioritization discussion.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks the user to pick the primary rather than silently choosing one for them",
+        "evidence": "No question is posed to the user about ranking outcomes; the platform and structure are simply presented as decided.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that if acquisition and advocacy becomes the primary, none of the four named community models (support-driven, product-development, education and enablement, founder-led) applies and the shape has to be designed from the outcome instead",
+        "evidence": "No discussion of community models or this contingency appears in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

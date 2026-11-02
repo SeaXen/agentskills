@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to push the fix to the public main branch before the patched releases exist, stating that the fix diff itself discloses the vulnerability and a one-liner is the easiest diff to reverse-engineer",
+        "evidence": "\"The diff is the disclosure. A one-line depth check is trivial to reverse-engineer.\" Keep fix local, unpushed.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the commit message 'fix: bounds check in table nesting parser' and supplies a generic one that names neither the bug class nor the affected component",
+        "evidence": "Generic message \"fix: improve parser robustness on malformed input\"; don't name component or bug class.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reorders the plan so the 1.x and 0.9.x releases are tagged and confirmed on crates.io before the advisory is published, rejecting advisory-tonight-release-tomorrow as a window with no upgrade path",
+        "evidence": "Step 5 order: tag, push, cargo publish, confirm install, then publish advisory; \"worst window you can create\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies the situation as the fast track because the crashing sample is already public, and schedules fix, release and advisory for the same day rather than tomorrow",
+        "evidence": "\"The sample is already public, so this is the fast track\"; ship today during working hours.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Instructs hiding or deleting the public issue where the host allows it and asking the reporter to continue in the private advisory, rather than leaving the issue up",
+        "evidence": "Edit issue body to remove sample, ask reporter to delete it, lock the issue, invite to private advisory.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that only what the reporter already published is public and keeps additional detail (affected code path, input variants) private until the release exists",
+        "evidence": "\"Only what the reporter posted is public. Keep your analysis and the fix private.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prepares the 0.9.x backport for the same release window, not as a later follow-up",
+        "evidence": "\"Release a 0.9.x patch in the same window.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Scores the crash with a full CVSS 3.1 base vector and a precondition in prose, treating a panic in memory-safe Rust as availability-only impact while checking for unsafe blocks before ruling out memory corruption",
+        "evidence": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H 7.5; precondition prose; \"<<confirm: no unsafe on this path>>\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Asks the reporter whether anyone else was told, whether they hold a CVE, how they want to be credited, and their time zone",
+        "evidence": "Only asks how they'd like to be credited and time zone; never asks whether anyone else was told or whether they hold a CVE.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requests the CVE through the code-host CNA now rather than at publication, and states the release does not wait for it",
+        "evidence": "\"Request a CVE through GitHub's CNA on the draft today. The release won't wait for it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists yanking the affected crate versions and opening a RustSec advisory as a pull request among the crates.io release-day steps",
+        "evidence": "Opens RustSec PR but says \"Don't yank the vulnerable versions.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces the incident record with Report, Verdict, Severity, Affected/patched per line, Identifier, Timeline, Decision gate, Disclosure, Downstream notice and Open questions fields, kept only in the private advisory draft and not in any committed file or persistent memory",
+        "evidence": "No incident record block (Report/Verdict/Severity/Timeline/Decision gate etc.) is produced.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names Lena as the second responder to add to the private advisory draft and flags the single-responder window as a risk instead of proceeding silently",
+        "evidence": "Note to Lena adds her to the draft, but says \"Don't wait for her. You can release alone\" and never flags the single-responder window as a risk.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to push the fix to the public main branch before the patched releases exist, stating that the fix diff itself discloses the vulnerability and a one-liner is the easiest diff to reverse-engineer",
+        "evidence": "\"Today: push the fix to `main`\" \u2014 pushes today, before releases.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the commit message 'fix: bounds check in table nesting parser' and supplies a generic one that names neither the bug class nor the affected component",
+        "evidence": "New subject \"fix(parser): reject table nesting deeper than 128 levels\" names the component and the bug.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reorders the plan so the 1.x and 0.9.x releases are tagged and confirmed on crates.io before the advisory is published, rejecting advisory-tonight-release-tomorrow as a window with no upgrade path",
+        "evidence": "\"Publish it once 1.4.3 is on crates.io.\" and \"Don't publish the advisory tonight.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Classifies the situation as the fast track because the crashing sample is already public, and schedules fix, release and advisory for the same day rather than tomorrow",
+        "evidence": "Releases and advisory are scheduled for \"Tomorrow\".",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Instructs hiding or deleting the public issue where the host allows it and asking the reporter to continue in the private advisory, rather than leaving the issue up",
+        "evidence": "\"leave the issue up\" and \"Post the issue reply.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that only what the reporter already published is public and keeps additional detail (affected code path, input variants) private until the release exists",
+        "evidence": "Says only that the reproducer is public; never says to hold back further detail.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Prepares the 0.9.x backport for the same release window, not as a later follow-up",
+        "evidence": "\"Backport the check and release a 0.9.x patch alongside 1.4.3.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Scores the crash with a full CVSS 3.1 base vector and a precondition in prose, treating a panic in memory-safe Rust as availability-only impact while checking for unsafe blocks before ruling out memory corruption",
+        "evidence": "Gives vector AV:N/AC:L/.../A:H and a precondition, but asserts \"There is no memory corruption\" with no unsafe-block check.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Asks the reporter whether anyone else was told, whether they hold a CVE, how they want to be credited, and their time zone",
+        "evidence": "No questions to the reporter other than credit placeholders.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requests the CVE through the code-host CNA now rather than at publication, and states the release does not wait for it",
+        "evidence": "No CVE request is mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Lists yanking the affected crate versions and opening a RustSec advisory as a pull request among the crates.io release-day steps",
+        "evidence": "\"then yank nothing\"; RustSec is filed, but yanking is not listed as a step.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Produces the incident record with Report, Verdict, Severity, Affected/patched per line, Identifier, Timeline, Decision gate, Disclosure, Downstream notice and Open questions fields, kept only in the private advisory draft and not in any committed file or persistent memory",
+        "evidence": "No incident record fields appear.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names Lena as the second responder to add to the private advisory draft and flags the single-responder window as a risk instead of proceeding silently",
+        "evidence": "\"Lena doesn't need to approve. Send her a short note\" \u2014 she is not added to the advisory draft and the single-responder risk is not flagged.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

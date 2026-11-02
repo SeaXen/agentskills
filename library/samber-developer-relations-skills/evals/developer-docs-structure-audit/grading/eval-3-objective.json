@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Orders the queue by reader need fixed per hour of effort rather than by cheapest action or by number of findings closed",
+        "evidence": "'Ordered by reader need fixed per hour of effort, with one explicit override...'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the ordering explicitly rather than leaving it implied by row order",
+        "evidence": "Explicit sentence stating the ordering principle precedes the table, rather than leaving it to be inferred.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places splitting the 6 mixed pages ahead of merging the duplicate pair on the efficiency ordering",
+        "evidence": "'the Snowflake merge jumps the line ahead of the (cheaper) splits' \u2014 implies under default/cheaper-cost efficiency terms splits would otherwise precede the merge.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Explains that split outranks merge on efficiency because a merge blocks on someone with authority deciding which text is true, and a split does not",
+        "evidence": "The merge finding mentions needing the security owner to confirm the role, but this is never explicitly connected to why splits would outrank merges in the efficiency ordering.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes the 9 page moves from the queue entirely rather than demoting them, because the team cannot ship redirects",
+        "evidence": "Deletion is conditional: 'Decoupled nav \u2192 re-point 9 nav entries... Coupled nav \u2192 this is a real move; delete it' \u2014 not an unconditional deletion.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes the 3 section renames from the queue entirely for the same redirect reason",
+        "evidence": "For renames under the coupled case, an alternative action is substituted rather than deletion: 'Coupled \u2192 don't rename this quarter... instead add a one-line description under the existing label'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names explicitly which actions were deleted and why, rather than silently dropping them",
+        "evidence": "'if your nav is coupled to file paths, delete rows 2 and 3 from this quarter's queue outright \u2014 don't demote them, they become broken links otherwise'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Promotes the missing Terraform provider tutorial above its default rank and cites the 18 recurring support tickets as the promoting signal",
+        "evidence": "Queue row 10 evidence: '18 tickets / 90 days \u2014 promoted above its default starved rank'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that writing a missing page otherwise loses every round under an efficiency ordering, because it is high value and high effort",
+        "evidence": "'promoted above its default starved rank' implies the item would otherwise rank low (starved) under a pure need/hour ranking due to its high effort (8-10h).",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Promotes merging the Snowflake duplicate on the grounds that the two copies give contradictory answers on the adoption path",
+        "evidence": "'the Snowflake merge jumps the line ahead of the (cheaper) splits, because a diverging duplicate on the mandatory onboarding path is the one failure mode this skill's own ranking logic promotes on sight.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Emits separate orderings for efficiency and value rather than one blended ranking",
+        "evidence": "Only a single 'Remediation queue' table is presented with an inline override note; no separate efficiency-ranking and value-ranking lists are given.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Caps the queue at what 6 writer-hours a week can absorb before the next re-score, and names what was deferred",
+        "evidence": "'Suggested sequencing at 6h/week' and 'That's roughly 21\u201325 hours against a ~78-hour quarter... raise the redirect-layer ask for next quarter if rows 2\u20133 turned out coupled.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not make building a redirect layer a prerequisite for the rest of the queue",
+        "evidence": "Rows 1, 4-9, and 10 proceed regardless of redirect status; only rows 2-3 are conditionally gated, and 'Nothing above proposes new empty sections or a re-platform; every row ships and improves the docs on its own.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Orders the queue by reader need fixed per hour of effort rather than by cheapest action or by number of findings closed",
+        "evidence": "Ordering is driven by P0\u2013P3 urgency tags (e.g., IAM conflict is P0 due to active production harm) rather than an explicit per-hour-efficiency ranking; no such ratio-based ordering principle is stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the ordering explicitly rather than leaving it implied by row order",
+        "evidence": "No sentence states the ordering rationale as a whole; priority is only conveyed via P0\u2013P3 labels and per-item reasoning.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places splitting the 6 mixed pages ahead of merging the duplicate pair on the efficiency ordering",
+        "evidence": "Splitting (item 5, P3, 'Lowest urgency') is ranked last, while merging the Snowflake duplicate (item 1, P0) is ranked first \u2014 the opposite order.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Explains that split outranks merge on efficiency because a merge blocks on someone with authority deciding which text is true, and a split does not",
+        "evidence": "No such reasoning appears anywhere in the document.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes the 9 page moves from the queue entirely rather than demoting them, because the team cannot ship redirects",
+        "evidence": "Item 4 keeps the 9 pages in the queue, reframing as either a cheap nav-field fix or a cross-link instead of deletion: 'Cross-link, don't relocate.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes the 3 section renames from the queue entirely for the same redirect reason",
+        "evidence": "Item 2 is conditionally kept or parked for 'next quarter's planning,' not deleted: 'Flag it instead as \"needs URL migration + redirect layer\" for next quarter's planning, and park it.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names explicitly which actions were deleted and why, rather than silently dropping them",
+        "evidence": "No actions are stated as deleted; items are conditionally modified/parked instead.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Promotes the missing Terraform provider tutorial above its default rank and cites the 18 recurring support tickets as the promoting signal",
+        "evidence": "'18 tickets in 90 days = real, measurable support cost, highest ROI item in this queue.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that writing a missing page otherwise loses every round under an efficiency ordering, because it is high value and high effort",
+        "evidence": "No such general claim about efficiency-ordering dynamics is made.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Promotes merging the Snowflake duplicate on the grounds that the two copies give contradictory answers on the adoption path",
+        "evidence": "'Two copies disagree on required IAM role, sitting at onboarding step 3. Wrong role = broken or over-permissioned connections for every new customer right now.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Emits separate orderings for efficiency and value rather than one blended ranking",
+        "evidence": "Only a single blended P0\u2013P3 queue is presented; there are no two separate orderings.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Caps the queue at what 6 writer-hours a week can absorb before the next re-score, and names what was deferred",
+        "evidence": "'Total: ~20-30 writer-hours across 8 weeks, fits the 6 hr/week budget'; deferred item named: 'Flag it instead as \"needs URL migration + redirect layer\" for next quarter's planning, and park it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not make building a redirect layer a prerequisite for the rest of the queue",
+        "evidence": "'No redirect layer this quarter \u2014 every item below is written to avoid new 404s.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

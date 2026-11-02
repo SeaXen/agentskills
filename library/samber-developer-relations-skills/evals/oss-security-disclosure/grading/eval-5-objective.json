@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to offer the researcher money for a deadline extension, stating that paying for silence becomes the public story and the project has no leverage",
+        "evidence": "\"never pay for an extension. You have no leverage, and the payment becomes the public story.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines to bring in CERT/CC, because a coordinator is for several vendors that must ship together, not one project with packagers",
+        "evidence": "Coordinator reserved for several vendors that must ship together.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Picks the counter-offer because the estimate (around 30 hours of fix plus backports) does not fit the 10 available hours, and drafts it with a specific proposed date, time and time zone",
+        "evidence": "\"Tue 2026-11-24, 14:00 UTC\"; ~33h vs 10h.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names what the researcher gets in the counter-offer: credit in the advisory and CVE record, review of the fix before release, and a co-reviewed advisory text",
+        "evidence": "Credit in advisory and CVE record, review of 5.x fix, reviews advisory text.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Anchors the counter-offer on published ranges attributed to their owners (OpenSSF 45 to 90 days, CERT/CC 45 days) and says none is a standard",
+        "evidence": "Attributes CERT/CC 45 and OpenSSF 45\u201390 but never says none is a standard.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Offers an advisory with a workaround at the 7-day date only if a workaround fully mitigates and is easy to apply, and otherwise states that this fallback is unavailable",
+        "evidence": "\"[Keep only if a complete workaround exists...]\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects 'just crashes, medium DoS' for a heap overflow in C++ and scores confidentiality and integrity impact unless memory corruption can be ruled out, with the reasoning in prose",
+        "evidence": "\"memory corruption until proven otherwise\"; C:H/I:H/A:H.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps Attack Complexity Low, because how an integrator wires the decoder is not a condition outside the attacker's control",
+        "evidence": "Vector AV:N/AC:L/... in both provisional and incident record.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Schedules a downstream embargo notice to the two distributions' published security contacts, because packagers must rebuild and the severity is High or Critical",
+        "evidence": "Send to packagers of 3.x via published security contacts, ~11-17.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Instructs using the distros list with `[vs]` in the subject, a proposed public date and time, an embargo of at most 14 days with under 7 preferred, and a full-detail post to oss-security when the embargo ends",
+        "evidence": "\"[vs] in the subject... 14 days maximum and under 7 preferred\"; \"Post to oss-security if you used the distro lists\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Shares the patch with downstreams at release time by default, giving early private-fork access only to a recipient that must build before release",
+        "evidence": "\"Share the patch at release time unless they must build before then.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the private fork's CI does not run, so the full suite and fuzzing run locally, and that the 4.x and 3.x backports are prepared as separate branches since only one fork pull request may target the default branch",
+        "evidence": "Mentions CI doesn't run, but nothing about only one fork PR targeting default branch / separate branches.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the single maintainer as a single point of failure and names recruiting a second responder with advisory-publish rights as an immediate step",
+        "evidence": "Second pair of hands is a 'thing to check', \"Ask for their consent first\"; not flagged as SPOF or immediate.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to offer the researcher money for a deadline extension, stating that paying for silence becomes the public story and the project has no leverage",
+        "evidence": "\"Money for a longer deadline is a bad trade. It looks like paying for delay or silence. It also sets a precedent.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines to bring in CERT/CC, because a coordinator is for several vendors that must ship together, not one project with packagers",
+        "evidence": "Declines because \"CERT/CC doesn't fix anything. It adds a second disclosure clock\" \u2014 not the multi-vendor rationale.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Picks the counter-offer because the estimate (around 30 hours of fix plus backports) does not fit the 10 available hours, and drafts it with a specific proposed date, time and time zone",
+        "evidence": "Argues the minimal fix fits the 10 hours; dates have no time or time zone.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names what the researcher gets in the counter-offer: credit in the advisory and CVE record, review of the fix before release, and a co-reviewed advisory text",
+        "evidence": "Offers credit and patch review in the fork but no co-reviewed advisory text.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Anchors the counter-offer on published ranges attributed to their owners (OpenSSF 45 to 90 days, CERT/CC 45 days) and says none is a standard",
+        "evidence": "Mentions CERT/CC 45 days \"from memory\" only; no OpenSSF and no standard disclaimer.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Offers an advisory with a workaround at the 7-day date only if a workaround fully mitigates and is easy to apply, and otherwise states that this fallback is unavailable",
+        "evidence": "The fallback publishes the advisory \"with the 3.x workaround\" with no condition.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects 'just crashes, medium DoS' for a heap overflow in C++ and scores confidentiality and integrity impact unless memory corruption can be ruled out, with the reasoning in prose",
+        "evidence": "Rejects \"just DoS\" but defers CVSS: \"Raise the advisory to High, with CVSS pending the trace.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps Attack Complexity Low, because how an integrator wires the decoder is not a condition outside the attacker's control",
+        "evidence": "Not addressed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Schedules a downstream embargo notice to the two distributions' published security contacts, because packagers must rebuild and the severity is High or Critical",
+        "evidence": "\"Email the security contacts of the two 3.x distros under embargo.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Instructs using the distros list with `[vs]` in the subject, a proposed public date and time, an embargo of at most 14 days with under 7 preferred, and a full-detail post to oss-security when the embargo ends",
+        "evidence": "Mentions the 14-day cap only; no [vs], no under-7-days preference, no oss-security.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Shares the patch with downstreams at release time by default, giving early private-fork access only to a recipient that must build before release",
+        "evidence": "Recommends attaching patches to the private fork and adding distro maintainers as collaborators.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the private fork's CI does not run, so the full suite and fuzzing run locally, and that the 4.x and 3.x backports are prepared as separate branches since only one fork pull request may target the default branch",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Flags the single maintainer as a single point of failure and names recruiting a second responder with advisory-publish rights as an immediate step",
+        "evidence": "Only asks a reporter or distro to review the 3.x patch for hours; no second responder with publish rights.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

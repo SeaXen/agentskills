@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to include an emotion score column.",
+        "evidence": "'Two columns from the CX template are dropped, not just left blank: emotion score (out of 10) and opportunities.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason: emotion scores get invented at developer volumes and crowd out the columns carrying accountability.",
+        "evidence": "'Emotion scores get invented at developer volumes \u2014 nobody is surveying platform engineers stage-by-stage, so a number here would be fiction wearing a metric's clothes, and it would crowd out the owner/signal columns that make the map actionable.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Refuses to fill an opportunities column in the same pass as the map.",
+        "evidence": "'An opportunities column turns this into a backlog before any evidence says which stage actually leaks; the Leak section below carries the one prioritized action instead, once there's evidence to support it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason: writing opportunities in the same pass turns the map into a backlog before anyone knows which stage leaks.",
+        "evidence": "Same quote as above: 'An opportunities column turns this into a backlog before any evidence says which stage actually leaks.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects 'developer understands the value proposition' as an exit event because it cannot be observed, counted or owned.",
+        "evidence": "'This skill's own reference material uses \"developer understands the value proposition\" as *the* textbook example of an unusable exit event: nobody can be accountable for a feeling.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects 'developer feels confident in the product' on the same grounds.",
+        "evidence": "The same rejection paragraph covers all five draft names, including 'developer feels confident in the product' as a 'state of mind, not something a developer does that can be observed, counted, or timestamped.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Replaces each unobservable stage name or exit criterion with a concrete observable event.",
+        "evidence": "Table: 'developer feels confident in the product' \u2192 'Integration', with Journey table giving concrete exit events like 'agent exporting into the team's existing stack... with one alert rule configured'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names the eight fields a row carries: stage, developer's job, entry trigger, exit event, touchpoints, owner, friction evidence, signal.",
+        "evidence": "Table header: '| Stage | Developer's job | Entry trigger | Exit event | Touchpoints | Owner | Friction evidence | Signal |'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies exit event, owner and signal as the three fields without which a row is not finished.",
+        "evidence": "'an exit event (what proves the developer moved on), an owner (who's accountable), and a signal (what number tracks it) \u2014 these are what make a developer journey map different from a poster.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires exactly one exit event per stage.",
+        "evidence": "Quality gate check: 'One exit event per stage, phrased as an observable event: **pass**.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires exactly one signal per stage.",
+        "evidence": "Every stage row in the Journey table carries exactly one Signal cell, consistently through all five rows.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Applies the test 'would a developer recognise this as something they did?' to each stage name.",
+        "evidence": "No such phrase or equivalent explicit test is applied anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to include an emotion score column.",
+        "evidence": "The table includes an 'Emotion (0\u201310)' column filled for every stage, e.g. 'Developer becomes aware of need... 3'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason: emotion scores get invented at developer volumes and crowd out the columns carrying accountability.",
+        "evidence": "No such reasoning appears; emotion scores are included without objection.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Refuses to fill an opportunities column in the same pass as the map.",
+        "evidence": "An 'Opportunities' column is fully filled for every stage in the same table.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Gives the reason: writing opportunities in the same pass turns the map into a backlog before anyone knows which stage leaks.",
+        "evidence": "Not stated; opportunities are simply provided.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects 'developer understands the value proposition' as an exit event because it cannot be observed, counted or owned.",
+        "evidence": "This exact stage name is used unchanged as a table row: 'Developer understands the value proposition.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects 'developer feels confident in the product' on the same grounds.",
+        "evidence": "This exact stage name is also used unchanged: 'Developer feels confident in the product.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Replaces each unobservable stage name or exit criterion with a concrete observable event.",
+        "evidence": "'Stage model: as given by CX (Awareness of need \u2192 Value prop \u2192 Confidence \u2192 Commit \u2192 Champion)' is adopted as-is with no replacement.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the eight fields a row carries: stage, developer's job, entry trigger, exit event, touchpoints, owner, friction evidence, signal.",
+        "evidence": "The actual table columns are Stage, Customer Goal, Emotion, Pain Points, Opportunities \u2014 none of the eight named fields appear.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies exit event, owner and signal as the three fields without which a row is not finished.",
+        "evidence": "No exit event, owner, or signal columns exist in the table at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires exactly one exit event per stage.",
+        "evidence": "No exit event concept is used in the table.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires exactly one signal per stage.",
+        "evidence": "No signal concept is used in the table.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Applies the test 'would a developer recognise this as something they did?' to each stage name.",
+        "evidence": "No such test is applied; the CX-given stage names are used verbatim.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

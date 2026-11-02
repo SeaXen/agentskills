@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The update includes tickets per 100 signups with the 10.9 value",
+        "evidence": "Table row: \"Tickets per 100 new signups | 10.9 | 8.2 / under 9\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The update contains a section titled or functioning as 'What did not work' (misses)",
+        "evidence": "\"## What did not work\" table.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The tickets row in the misses section gives a likely cause, a change, and a next read date or period",
+        "evidence": "Cause: working hypothesis on migration questions; change: tag tickets, ship guide; next read: 30 November.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The tickets metric is marked with a non-green status (yellow, red, amber or missed)",
+        "evidence": "Status \"red\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response tells the user why omitting tickets is a problem (it was in last month's report, so its absence reads as cherry-picking)",
+        "evidence": "\"A metric disappearing between two reports reads as cherry-picking once someone compares them.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response does not remove tickets under a kill rule, or if it mentions a kill rule it notes the rule's criteria are not met",
+        "evidence": "Tickets kept; \"Dropped since last time: none.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The headline states an outcome (for example the quickstart completion or search success movement) rather than the tutorial series launch",
+        "evidence": "\"Quickstart completion rose from 37% to 41% and docs search success from 61% to 66%...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The tutorial series appears only as an activity item or appendix line, not as the headline",
+        "evidence": "Appendix: \"Activity: tutorial series published\"; not in the headline.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The update does not credit DevRel with causing the search-success rise unless the user's data attributes it; it uses co-movement wording such as rose or while",
+        "evidence": "\"That is co-movement, not proof the work caused it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Each number carries a claim label such as measured",
+        "evidence": "All three table rows labelled \"measured (...)\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The update includes a decision asked or explicitly states that no decision is needed this month",
+        "evidence": "\"Decision asked: confirm the migration guide as the top docs priority...\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The update includes tickets per 100 signups with the 10.9 value",
+        "evidence": "'Tickets per 100 signups rose to 10.9'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The update contains a section titled or functioning as 'What did not work' (misses)",
+        "evidence": "'Watch item: support tickets' section",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The tickets row in the misses section gives a likely cause, a change, and a next read date or period",
+        "evidence": "'Likely cause' hypothesis, '+2.7 (+33%)', 'What I'll report next month'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The tickets metric is marked with a non-green status (yellow, red, amber or missed)",
+        "evidence": "Status: '**Over threshold (<9)**'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response tells the user why omitting tickets is a problem (it was in last month's report, so its absence reads as cherry-picking)",
+        "evidence": "'An omission also reads as concealment... a VP who tracked it last month will notice.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response does not remove tickets under a kill rule, or if it mentions a kill rule it notes the rule's criteria are not met",
+        "evidence": "Tickets stay in; only a separate-thread note is mentioned, and no kill rule is invoked.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The headline states an outcome (for example the quickstart completion or search success movement) rather than the tutorial series launch",
+        "evidence": "Summary leads with 'Docs search success rose to 66%'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The tutorial series appears only as an activity item or appendix line, not as the headline",
+        "evidence": "The tutorial series is a Summary bullet and has its own paragraph under 'What improved', next to the outcome metrics.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The update does not credit DevRel with causing the search-success rise unless the user's data attributes it; it uses co-movement wording such as rose or while",
+        "evidence": "'rose to 66% (from 61%)'; the cause is left as a bracket to fill only if known.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Each number carries a claim label such as measured",
+        "evidence": "No measured/estimated labels in the metrics table.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The update includes a decision asked or explicitly states that no decision is needed this month",
+        "evidence": "No decision section and no 'no decision needed' statement.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

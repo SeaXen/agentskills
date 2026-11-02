@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Names the personal ownership of the domain and social accounts as a bus factor of 1 on the event's whole identity, not a tooling preference.",
+        "evidence": "\"you are the single admin of the event's identity\"; the skill \"names this exact failure mode\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires shared custody with at least one backup admin on every account, domain, and social property, framed as immediate rather than eventual.",
+        "evidence": "\"This week... Make at least two admins, you plus one backup.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the single shared address carrying all three events' mail as the same bus-factor-1 exposure, just moved into the inbox.",
+        "evidence": "\"A shared address that also carries every event's mail is the same bus-factor-1 exposure, just moved into the inbox.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a two-tier address split: one standing address for the organization's own ongoing affairs and shared tools, plus a separate address per event for that event's own outreach.",
+        "evidence": "\"Standing team address\" plus \"One address per event\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends per-organizer aliases on each event address rather than six people sharing one mailbox password.",
+        "evidence": "\"Per-organizer aliases on each event address\"; \"Drop the shared password.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Produces a bus-factor map naming, for each role, who could run that area next edition.",
+        "evidence": "The diagnosis table maps assets, not roles. No per-role \"who could run it\" map is produced.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes the person asking in the bus-factor map rather than mapping only the other five.",
+        "evidence": "There is no role map. The asker appears only as single admin of the assets.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets the target that every named role, lead included, has a bus factor of at least 2 or a named active mechanism closing the gap, with an owner.",
+        "evidence": "Success measures say \"Every role has a backup\", with no lead-included clause or named mechanism and owner.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places the credential change inside a written charter rung that also records roles, scopes, join-paths, and decision rights.",
+        "evidence": "\"the skill's 'written charter + shared admin access' rung\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that leadership visibility matters because an opaque organizing team reads as a clique to a technical audience, and that public join-paths in the charter are the cheap fix.",
+        "evidence": "\"An opaque leadership reads as a clique to the technical audience\"; the charter covers \"join-paths\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not treat a shared password manager or single sign-on tool as sufficient on its own to close the bus-factor gap.",
+        "evidence": "It rejects the shared password but never says a password manager or SSO is insufficient on its own.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Names the personal ownership of the domain and social accounts as a bus factor of 1 on the event's whole identity, not a tooling preference.",
+        "evidence": "\"If your account is locked, hacked, or you leave, Nordhack loses its domain... and both social accounts.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires shared custody with at least one backup admin on every account, domain, and social property, framed as immediate rather than eventual.",
+        "evidence": "\"Give every asset at least two owners\" under \"Do first\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the single shared address carrying all three events' mail as the same bus-factor-1 exposure, just moved into the inbox.",
+        "evidence": "Framed as an access-control and audit problem, not a bus-factor exposure.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends a two-tier address split: one standing address for the organization's own ongoing affairs and shared tools, plus a separate address per event for that event's own outreach.",
+        "evidence": "Splits by function (sponsors@, hackathon@, meetup@), with no organization-level versus per-event tiering.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends per-organizer aliases on each event address rather than six people sharing one mailbox password.",
+        "evidence": "\"Give each of the six an individual login\" and a shared group alias per stream.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Produces a bus-factor map naming, for each role, who could run that area next edition.",
+        "evidence": "Not produced.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Includes the person asking in the bus-factor map rather than mapping only the other five.",
+        "evidence": "No map.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets the target that every named role, lead included, has a bus factor of at least 2 or a named active mechanism closing the gap, with an owner.",
+        "evidence": "The access register covers assets, not roles.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Places the credential change inside a written charter rung that also records roles, scopes, join-paths, and decision rights.",
+        "evidence": "No charter.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that leadership visibility matters because an opaque organizing team reads as a clique to a technical audience, and that public join-paths in the charter are the cheap fix.",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not treat a shared password manager or single sign-on tool as sufficient on its own to close the bus-factor gap.",
+        "evidence": "Lists the password manager as a fix with no caveat about bus factor.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

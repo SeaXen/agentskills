@@ -1,0 +1,278 @@
+{
+  "repo": "dev-event-organizer-skills",
+  "skill": "event-date-selection",
+  "scenarios": 7,
+  "expectations_total": 76,
+  "expectations_subjective": 0,
+  "expectations_objective": 76,
+  "pass_rate_with_skill_pct": 88.2,
+  "pass_rate_without_skill_pct": 35.5,
+  "delta_pp": 52.7,
+  "uplift_multiplier": 2.48,
+  "trigger_accuracy_pct": 89.2,
+  "trigger_queries": 74,
+  "trigger_positive_fire_rate": 0.919,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": null,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.284 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 2,
+        "expectation": "Applies the dodge-or-piggyback criteria explicitly (who the other event draws, whether the audience travels or commutes, overlap in sponsors, speakers, or venues) and makes a per-event call"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Describes piggybacking - scheduling immediately before or after a nearby major event so one trip covers both - as a documented deliberate tactic, not a consolation"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Widens the competing-event scan beyond hackathon listings to adjacent topics, different organizers, and call-for-papers listings"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Includes asking two or three students what else they plan to attend that season as part of the scan"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Asks or confirms who could actually move the constraint before accepting it as immovable"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Establishes whose time the attendee spends as the first and deciding question before any other constraint"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Treats the internal work-back schedule as what adjusts, not the public date"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Does not propose a retract-and-reannounce or tentative-new-date maneuver"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names the several-windows-into-the-venue-conversation practice as \"Get Options\" or attributes it to the DevOpsDays guide"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Recommends a weekday slot and rejects the proposed Saturday-Sunday for this working-professional audience"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Justifies the weekday choice by whose time attendance spends: work topics belong to work life, and a weekend slot competes with family time rather than with the office"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Attributes the weekday rule for professional audiences to the DevOpsDays organizing guide"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Treats the May window as a hypothesis to test against the event's own prior edition, not as a seasonal fact"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Produces three to five candidate windows to carry into the venue conversation instead of fixing the single second-weekend-of-May date"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Treats date and venue as one joint decision, letting venue availability rank the surviving windows"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Refuses to schedule the announcement until a working way to handle money (ticketing, payment processing, or an entity that can receive it) is confirmed"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Extends the competing-event scan to adjacent topics and different organizers rather than only same-brand platform-engineering events"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Includes employer quarter-end and the school holidays of attendees' children among the professional audience's calendar checks"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Cites the MLH hackathon organizer guide as the source of the weekend rule for student events"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States the recommended weekend shape: start no earlier than Friday evening and end by Sunday"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Does not endorse reflexively moving a month away from the downtown conference; treats proximity to it as a two-sided decision"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Applies the dodge-or-piggyback criteria explicitly (who the other event draws, whether the audience travels or commutes, overlap in sponsors, speakers, or venues) and makes a per-event call"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Describes piggybacking - scheduling immediately before or after a nearby major event so one trip covers both - as a documented deliberate tactic, not a consolation"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Widens the competing-event scan beyond hackathon listings to adjacent topics, different organizers, and call-for-papers listings"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Includes asking two or three students what else they plan to attend that season as part of the scan"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Records every rejected window together with the constraint it failed"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Refuses to endorse publishing the date on Monday because no working way to handle money exists yet"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Treats money handling as a hard prerequisite gate on announcing, not one factor to weigh against the competitor threat"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Cites the documented consequence of skipping the gate: teams have rescheduled or cancelled events"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Advises keeping the date decided internally and publishing nothing until the gate clears"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that an unannounced date is still a variable while a published one is a promise"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Does not present the announcement-trigger options as currently selectable; brings that menu back only after money handling exists"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Specifies what clears the gate: a ticketing arrangement, a payment processor, or an entity able to receive money, whichever the event's model needs"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Requires a named person accountable for the money"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Acknowledges the contested slot maps to the money-ready trigger (publishing before the venue signs) once, and only once, the money gate clears"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Raises the program-teased option for this first edition: waiting for an anchor speaker or an openable CFP so the announcement carries more than a bare date from an unknown event"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Confirms the announcement remains gated on money handling regardless of the forced window"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Rejects the Friday-plus-Saturday compromise rather than endorsing it"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Explains the specific failure: the compromise takes the worst half of each rule - an employer day students cannot take off and a personal day professionals will not give"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Presents picking one audience pole and accepting lower attendance from the other as the primary route"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Presents the programme-split alternative - a weekday main programme plus a weekend-adjacent satellite day - with its stated cost of a second day of logistics and a second volunteer roster"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Labels boundary days (Friday and Monday) the weakest option: the day both audiences are most easily pulled away from, endorsed by neither guide"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires the deliverable to name which pole was picked and why"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Frames the pole choice as a positioning decision to make explicitly, not a scheduling detail"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Grounds the two opposing day-type defaults in their sources: the DevOpsDays guide for the weekday rule and the MLH guide for the weekend rule"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Declines to give a percentage attendance penalty for a wrong day type, stating the guides say which day but not how much a mistake costs"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Does not fabricate any substitute attendance statistic for the committee member"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Establishes whose time the attendee spends as the first and deciding question before any other constraint"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States the published date is a promise, and moving it burns speaker, sponsor, and attendee trust"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes the retraction cost is higher for a recurring annual event than for a one-off"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends cutting scope instead - shrinking or dropping the unready parts such as the workshop track - to rescue the plan"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Does not accept the keynote loss or late CFP as sufficient grounds to reschedule"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Treats the internal work-back schedule as what adjusts, not the public date"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Does not propose a retract-and-reannounce or tentative-new-date maneuver"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Gives the reason: a ranked list invites the venue to offer only the top window and decline the rest"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Recommends asking the venue about its own quiet periods, where rate flexibility lives"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names the several-windows-into-the-venue-conversation practice as \"Get Options\" or attributes it to the DevOpsDays guide"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Suggests restoring the option count so three to five genuinely acceptable windows enter the conversation"
+      }
+    ]
+  }
+}

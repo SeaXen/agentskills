@@ -1,0 +1,24 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Declines to run root-cause or 5-Whys analysis on every entry, keeping entries deliberately shallow",
+        "evidence": "The response runs 5-Whys on L1 (registration) only. It states the rule for using it and warns that 5-Whys on every entry \"buries the one finding that needs it.\" L3 says \"No deeper analysis, by design... a 5-Whys here would crowd out L1.\" L2 and L4 keep the three-part entry. L2 sets a conditional trigger for a later RCA instead of running one now. L4 says an empty middle part \"doesn't mean the entry is unfinished.\"",
+        "score": 5,
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Declines to run root-cause or 5-Whys analysis on every entry, keeping entries deliberately shallow",
+        "evidence": "The transcript does the opposite. Every entry has a 'Root cause' field in the summary table. Entries 1 and 4 have numbered 'Root-cause analysis' why-chains of five steps each, e.g. 'arrivals outpaced check-in throughput' \u2192 'one person was effectively running check-in' \u2192 'Nobody was assigned to check-in surge capacity'. Entries 2 and 3 list several causal hypotheses each. The entries are deep, not deliberately shallow.",
+        "score": 0,
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Reports each of the seven publication-gate checks individually as pass or fail, rather than returning a single overall verdict.",
+        "evidence": "Gate report table lists all 7 checks (#1-7) each with its own Status column value.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Fails the unsupported-superlatives check and removes or backs with a number every instance of 'seamless', 'game-changing', 'effortless', 'transformative' and 'faster than ever before'.",
+        "evidence": "Only 'seamless / game-changing / effortless / transformative' are cut; 'faster than ever before' is never mentioned or addressed anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Fails the quote check and restores the director's verbatim sentence about deploying Tuesdays only, about nine times a week, and the Friday rollback ping.",
+        "evidence": "'\"We went from deploying Tuesdays only to about nine times a week, and I stopped getting the Friday rollback ping.\" ... That's the actual quote.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the tightened-for-blog-voice version is not a quote and must not be published as one.",
+        "evidence": "'Quote is fabricated, not transcribed.' and ledger notes the paraphrase should be dropped.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Fails the claim-classification check, because 'deployments rose sharply and incidents fell' carries no evidence class.",
+        "evidence": "'\"Incidents fell\" | Unsupported \u2014 not in the director's quote at all, no source given'; gate row 1 marked Fail.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Fails the instrument-and-window check, stating that 'in our internal deck' does not satisfy it and each number needs its instrument and window stated or one click away.",
+        "evidence": "'none cited yet \u2014 check if deck pulls from CI/CD deploy logs'; gate row 2: 'none yet \u2014 needs deck sourcing.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Fails the limitations check: no limitation is published that is specific enough for a reader to decide against you on it.",
+        "evidence": "'7 | Cost and unsolved \u2014 MISSING' and gate row 3: 'section doesn't exist.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Fails the alternatives check: no rejected alternative is named.",
+        "evidence": "'4. Why this technology \u2014 MISSING.' and gate row 4: 'section doesn't exist.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Fails the approval-evidence check: nothing is on file for company name, logo, quotes or security review.",
+        "evidence": "Gate row 6: 'nothing on file yet.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the director's confirmed exact name and title for attribution rather than the bare role.",
+        "evidence": "'1. Director's real name and title \u2014 quote is currently unattributable without it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places the humanizer pass before the publication gate rather than in place of it.",
+        "evidence": "No mention of a 'humanizer' pass anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the humanizer pass must preserve every quote, every number, version strings, component names and the architecture description exactly as written, because a humanised quote is a fabricated quote.",
+        "evidence": "No humanizer-pass discussion exists in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires two human reads before publishing: the interviewed engineer confirming technical accuracy, and someone outside the account checking it is comprehensible without insider vocabulary.",
+        "evidence": "No such two-read requirement appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Reports each of the seven publication-gate checks individually as pass or fail, rather than returning a single overall verdict.",
+        "evidence": "The response opens with one overall verdict, \"Not ready to ship \u2014 one hard blocker, one easy fix,\" and addresses only two issues, not seven itemized gate checks.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Fails the unsupported-superlatives check and removes or backs with a number every instance of 'seamless', 'game-changing', 'effortless', 'transformative' and 'faster than ever before'.",
+        "evidence": "\"'nine times a week,' 'Friday rollback ping' > 'game-changing,' 'transformative,' 'seamless'\" \u2014 the fabricated quote containing 'transformative' and 'faster than ever before' is entirely replaced by the concrete real quote.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Fails the quote check and restores the director's verbatim sentence about deploying Tuesdays only, about nine times a week, and the Friday rollback ping.",
+        "evidence": "\"'We went from deploying Tuesdays only to about nine times a week, and I stopped getting the Friday rollback ping,' said [Director's name]...\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the tightened-for-blog-voice version is not a quote and must not be published as one.",
+        "evidence": "\"That's not 'tightening for blog voice,' it's a false quote on the record.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Fails the claim-classification check, because 'deployments rose sharply and incidents fell' carries no evidence class.",
+        "evidence": "\"'Deployments rose sharply and incidents fell' is unsupported filler \u2014 you said the real numbers are sitting in the internal deck, so use them.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Fails the instrument-and-window check, stating that 'in our internal deck' does not satisfy it and each number needs its instrument and window stated or one click away.",
+        "evidence": "The response simply says to pull the two figures from the deck without critiquing the deck as an insufficient instrument/window source.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Fails the limitations check: no limitation is published that is specific enough for a reader to decide against you on it.",
+        "evidence": "The transcript never mentions limitations or a limitations check at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Fails the alternatives check: no rejected alternative is named.",
+        "evidence": "No alternatives or rejected-options check is mentioned anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Fails the approval-evidence check: nothing is on file for company name, logo, quotes or security review.",
+        "evidence": "No approval-evidence check is discussed; only the director's name/title and deck numbers are requested.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the director's confirmed exact name and title for attribution rather than the bare role.",
+        "evidence": "\"the director's name/title (confirm spelling and title match what they approved)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places the humanizer pass before the publication gate rather than in place of it.",
+        "evidence": "No humanizer pass is mentioned anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States the humanizer pass must preserve every quote, every number, version strings, component names and the architecture description exactly as written, because a humanised quote is a fabricated quote.",
+        "evidence": "No such statement appears; humanizing is not discussed at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires two human reads before publishing: the interviewed engineer confirming technical accuracy, and someone outside the account checking it is comprehensible without insider vocabulary.",
+        "evidence": "The only requested confirmations are the director's name/title and the deck figures \u2014 no dual-read process is specified.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

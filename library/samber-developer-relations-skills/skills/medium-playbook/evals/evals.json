@@ -1,0 +1,343 @@
+{
+  "skill_name": "medium-playbook",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "I run marketing at Driftwave (observability SaaS, Series A). Plan for Q1: open a Medium account called 'Driftwave', and three times a week post a 300-word summary of each driftwave.io blog post ending with 'Read the full post on driftwave.io' plus a signup link. Our content intern will generate the summaries with Claude so it costs nothing. The idea is Medium's domain authority gets us backlinks and page-1 Google rankings in a few days. Can you turn this into a 12-week plan?",
+      "expected_output": "Rejects the teaser format and the brand-account-only approach, explains that traffic-first stories are spam, that content-marketing and signup-first stories get followers-only distribution, that AI-generated summaries get no General distribution even when labelled, and that new accounts are held back from search indexing; proposes full canonical imports under named engineers in a company publication.",
+      "files": [],
+      "expectations": [
+        "States that a summary that sends readers to the rest of the article on another site counts as spam under Medium's rules",
+        "States that a story posted primarily to drive traffic or search rankings to an external site is spam that Medium removes",
+        "Says that stories whose main purpose is signups, traffic or selling (or content marketing) receive only follower (Network) distribution",
+        "States that AI-generated summaries get no General distribution even when disclosed",
+        "Says AI-assisted text must be labelled within the first two paragraphs, or it is restricted to followers (Network only)",
+        "Challenges the fast page-1 ranking claim by noting Medium holds new or untrusted accounts back from search indexing for days to weeks",
+        "Recommends that named engineers publish under their own accounts rather than relying on a brand account",
+        "Recommends creating a company publication (or equivalent hub) that the named authors submit to",
+        "Mentions Medium's import tool sets the canonical link and original date automatically",
+        "Reduces the three-posts-a-week volume or ties cadence to stories worth publishing rather than keeping 3 per week",
+        "Includes an earn-first step of responding to other writers' stories before publishing",
+        "Says first-party promotion is allowed but is not the same as being distributed"
+      ]
+    },
+    {
+      "id": 2,
+      "prompt": "Head of DevRel at Kiln (CI/CD tool, free tier + paid teams plan). Our CFO wants the dev content program to partly pay for itself. Plan: enroll the Kiln company Medium account in the Partner Program (I read you don't even need a paid membership anymore, just 6 stories and 3 months), put all 40 of our tutorials behind the paywall, and submit them to a big publication I found that only accepts paywalled stories. Some tutorials were drafted by our AI pipeline. What revenue should I forecast?",
+      "expected_output": "Corrects eligibility (active paid membership, one story), refuses to forecast meaningful revenue, explains the paywall hides vendor tutorials from non-member developers, flags that fully AI-generated stories cannot be paywalled, and recommends keeping tutorials free and skipping paywall-required publications when reach is the goal.",
+      "files": [],
+      "expectations": [
+        "States that the Partner Program requires an active paid Medium membership",
+        "States the current eligibility needs only one published story, contradicting the 6-stories-and-3-months claim",
+        "Says a non-member who converts to a paid membership on the story earns the writer only a one-time amount",
+        "Cites practitioner reports that typical writers earn small amounts (single to low double digits of dollars a month)",
+        "Explains that paywalled stories are readable in full only by paying members, cutting reach to non-member developers",
+        "States that fully AI-generated writing is not allowed behind the paywall",
+        "Recommends keeping vendor tutorials outside the paywall when adoption is the goal",
+        "Advises against the publication that requires paywalled stories, or treats its paywall requirement as a reason to skip it",
+        "Says earnings come from member reading time rather than views or claps from non-members",
+        "Mentions that non-member reads via the author's Friend Link earn nothing",
+        "Proposes measuring the program by referral traffic or signups rather than Partner Program revenue"
+      ]
+    },
+    {
+      "id": 3,
+      "prompt": "I maintain quill-rs (Rust parser combinator lib, 4k stars). I write on my own blog. For my next post I'll import it to Medium, then submit the same story to ITNEXT and Level Up Coding at the same time to double my chances. If it flops I'll unlist it and republish with a punchier title the week after. Also there are 8 of us in the core team and everyone will clap 50 times in the first hour to kick the algorithm. Good plan?",
+      "expected_output": "Rejects double submission, unlist-and-republish and coordinated clapping as duplicate-content or engagement-manipulation violations, explains per-clapper claps weighting, and proposes one publication chosen by its guidelines, a native original if that publication requires it, and a canonical import to the maintainer's own profile otherwise.",
+      "files": [],
+      "expectations": [
+        "States that the same story cannot be included in two publications on Medium",
+        "States that unlisting a story and republishing the same content as a new post violates the duplicate content rule",
+        "Warns that duplicate-content violations lead to suspension",
+        "Warns that coordinated clapping by the team is engagement manipulation against Medium's rules",
+        "Says Medium weighs a reader's claps relative to how many claps that reader usually gives",
+        "Recommends picking one publication by reading its current submission guidelines",
+        "Notes that an established publication may require an original story, so an imported post may be refused",
+        "Mentions the limit of 3 active submissions per guest writer in an open publication",
+        "Recommends fixing title, subtitle or cover on the next story rather than re-posting the flopped one",
+        "Says the duplicate rule applies to unlisted stories as well as public ones"
+      ]
+    },
+    {
+      "id": 4,
+      "prompt": "Our Medium posts die at about 40 views and I need to explain why to my VP. Context: we're Basalt (managed Postgres). We post from the 'Basalt' account: 'Announcing Basalt 2.3', 'Why Basalt beats RDS', etc., each ending with a free-trial link. Topics we use: Technology, AI, Startup, Productivity, Programming. We @mention ~25 Postgres influencers in each post to get attention. Half our posts are in Portuguese for our Brazil community. Drafts come from ChatGPT and get a light edit. Stats show presentations near zero apart from our 300 followers.",
+      "expected_output": "Diagnoses followers-only (Network) distribution from presentations, names each cause (product-first and signup-first stories, off-topic topics, mass mentions, non-English text, AI-generated drafts that stay low-value even when labelled), and gives a fix order starting with first-hand engineering stories by named authors.",
+      "files": [],
+      "expectations": [
+        "Uses presentations at or below the follower count as the sign the stories are in Network (followers-only) distribution",
+        "Names product announcements and comparison or trial-driven posts as content marketing that loses General distribution",
+        "Says topics unrelated to the story's content (e.g. AI, Startup, Productivity on a release note) count as topic spam",
+        "Says mentioning large numbers of users makes a story ineligible for General distribution",
+        "States that stories not written in English receive no Boost and no General distribution",
+        "States that ChatGPT drafts with only a light edit count as AI-generated content, which gets no General distribution or Boost even when disclosed",
+        "Recommends first-hand engineering stories by named engineers as the replacement",
+        "Recommends limiting topics to at most 5 that describe the story",
+        "Distinguishes presentations, views and reads when explaining the funnel",
+        "Advises not to re-post the failed stories"
+      ]
+    },
+    {
+      "id": 5,
+      "prompt": "We just launched 'Lattice Engineering', a Medium publication for our data-catalog startup. Owner is our brand account (no paid plan). Next steps I was told: 1) apply to the Boost Nomination Program so our editor can nominate posts for Boost, 2) submit our best piece to Towards Data Science, 3) point eng.lattice.io at the publication and add Google Analytics so marketing can track it. Anything to fix?",
+      "expected_output": "Corrects the stale Boost nomination path (featured-story credits instead), notes Towards Data Science left Medium in 2025, explains custom domains need a membership and allow no analytics scripts, flags that owning a publication needs a paid membership, and recommends keeping the canonical original on the company domain.",
+      "files": [],
+      "expectations": [
+        "States that publication editors can no longer nominate stories for Boost through a nomination program",
+        "Recommends using the publication's featured-story credits instead",
+        "Gives the featured-story allowance: up to 4 credits, one new credit every 7 days",
+        "Says featured stories are prioritized for review by Medium's curators for Boost",
+        "States that Towards Data Science left Medium (2025) and no longer accepts Medium submissions",
+        "States that Medium custom domains do not support Google Analytics or any added scripts",
+        "States that creating or owning a publication requires an active paid Medium membership",
+        "Says Medium can redirect a custom domain's URLs to medium.com, citing the Towards Data Science case, as a durability risk of hosting the blog there",
+        "Recommends keeping the original stories on the company's own domain with canonical links",
+        "Warns that stories in a Medium publication cannot be moved off Medium without each author's permission, or that a custom domain pointed away gets disconnected"
+      ]
+    },
+    {
+      "id": 6,
+      "prompt": "Can you write me a Python script for our DevRel automation: when a new post hits our blog RSS (blog.tessera.dev/rss), create a Medium integration token, post the article to Medium via the API with canonicalUrl set, then search Medium for new stories tagged 'kubernetes' and auto-reply to each one with a short comment linking to our operator. We want to be everywhere k8s people read.",
+      "expected_output": "Declines the API pipeline because Medium issues no new integration tokens, points to the import tool or the editor, refuses automated replies as spam and promotion through responses, and offers a manual earn-first response pattern with an example.",
+      "files": [],
+      "expectations": [
+        "States that Medium no longer issues new API integration tokens",
+        "Does not deliver a working script that posts to Medium through the API with a new token",
+        "Recommends Medium's import tool (or the web editor) with a canonical link instead",
+        "Cites Medium's ban on interacting with users or content automatically, systematically or programmatically",
+        "Says responses on other writers' stories that point at your own content are spam under Medium's rules",
+        "Cites the ban on using responses as a method of promotion or marketing",
+        "Offers a manual response pattern that adds a fact and carries no product link",
+        "Says only the story's author can set the canonical link, or that the import must run under the author's account",
+        "Recommends publishing the stories under named engineers rather than a bot or brand account"
+      ]
+    },
+    {
+      "id": 7,
+      "prompt": "DevRel lead at Orbitkit (TypeScript SDK for feature flags). Two things this month. 1) We pay four community writers $300 per article to write about our SDK on their own Medium accounts, and a big JavaScript publication on Medium offered us a sponsored post for $1,200 - which one gives better ROI? 2) Priya, our senior engineer, imported 12 company blog posts to her Medium account last year and they're the backbone of our 'Orbitkit Engineering' publication. She leaves next month. Anything we should do?",
+      "expected_output": "Treats a sponsored post in a Medium publication as banned third-party advertising and paid community articles as sponsored content that must disclose payment, recommends running paid placements off Medium, explains the departing engineer keeps control of her Medium copies while the originals stay on the company blog, and proposes retention terms in employment or IP agreements and a company-controlled publication owner.",
+      "files": [],
+      "expectations": [
+        "States that a sponsored post promoting the product inside a Medium publication is third-party advertising, which Medium bans",
+        "Says paid community articles count as sponsored content (no General distribution) and must disclose the payment, and that a paid placement promoting the product risks the third-party advertising ban",
+        "Says a writer who received anything of value related to the post's topic must disclose it in the story",
+        "Suggests running paid placements off Medium instead of comparing the two Medium options on ROI",
+        "Says Priya's stories stay under her control on Medium after she leaves, including deleting them or removing them from the paywall",
+        "Notes the 12 originals live on the company blog, so deleting the Medium copies loses reach and followers, not the content",
+        "Recommends a written agreement with Priya now covering whether the stories stay up, free and in the publication",
+        "Recommends keeping or confirming the canonical originals on the company's own domain",
+        "Recommends that the publication be owned by a company-controlled account rather than an individual employee",
+        "Says the agreement belongs in employment or IP terms, not as a condition for submitting to the publication"
+      ]
+    }
+  ],
+  "trigger_queries": [
+    {
+      "query": "our Medium stories die at 40 views, what are we doing wrong? we post release notes from the company account",
+      "should_trigger": true
+    },
+    {
+      "query": "Should we start a Medium publication for our engineering blog or just have engineers post on their own Medium profiles?",
+      "should_trigger": true
+    },
+    {
+      "query": "how do I cross-post our company blog articles to Medium without hurting SEO, canonical and all that",
+      "should_trigger": true
+    },
+    {
+      "query": "is it worth putting our devtool tutorials behind the Medium paywall to earn from the Partner Program?",
+      "should_trigger": true
+    },
+    {
+      "query": "We're a database startup. Which big Medium tech publications take vendor-written articles and how do I pitch them?",
+      "should_trigger": true
+    },
+    {
+      "query": "how does Medium Boost work and how can our engineering posts get boosted",
+      "should_trigger": true
+    },
+    {
+      "query": "Can I submit the same article to ITNEXT and Level Up Coding at the same time?",
+      "should_trigger": true
+    },
+    {
+      "query": "my teammate says we need to disclose AI on Medium posts, is that true and where does the label go?",
+      "should_trigger": true
+    },
+    {
+      "query": "Plan our Medium presence for the next quarter, we're an open source observability project with 3 maintainers",
+      "should_trigger": true
+    },
+    {
+      "query": "medium import tool isn't working on our next.js blog, how else do we get posts over with the right canonical",
+      "should_trigger": true
+    },
+    {
+      "query": "What topics should we pick on Medium for a post about Kubernetes operators, and how many can we add?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our Medium publication has 2k followers but our stories never show up in anyone's feed besides theirs",
+      "should_trigger": true
+    },
+    {
+      "query": "is syndicating our engineering blog to Medium still a good idea in 2026 for a B2B dev tool?",
+      "should_trigger": true
+    },
+    {
+      "query": "how do featured stories work in a Medium publication, we're editors",
+      "should_trigger": true
+    },
+    {
+      "query": "We publish in Portuguese for our Brazilian devs on Medium and get nothing, why?",
+      "should_trigger": true
+    },
+    {
+      "query": "can our company account join the Medium Partner Program and what does it need",
+      "should_trigger": true
+    },
+    {
+      "query": "set up a canonical-first workflow to republish our posts on Medium under each engineer's name",
+      "should_trigger": true
+    },
+    {
+      "query": "how do we grow followers for our devtool's Medium publication without spamming",
+      "should_trigger": true
+    },
+    {
+      "query": "Is our Medium story about our product launch going to get distributed or will curators ignore it?",
+      "should_trigger": true
+    },
+    {
+      "query": "Our engineers want to pitch a postmortem to a big Medium publication, how should the pitch look?",
+      "should_trigger": true
+    },
+    {
+      "query": "Write a 2,000-word engineering blog post about how we cut Postgres queue latency, from these notes",
+      "should_trigger": false
+    },
+    {
+      "query": "We cross-post to dev.to, our RSS import made drafts without canonical, how do we fix the organization setup?",
+      "should_trigger": false
+    },
+    {
+      "query": "Help me grow our Substack newsletter for backend engineers, recommendations and Notes strategy",
+      "should_trigger": false
+    },
+    {
+      "query": "Plan our Show HN launch for next Tuesday, title and first comment",
+      "should_trigger": false
+    },
+    {
+      "query": "build our devrel content calendar for Q3 across blog, video and newsletter",
+      "should_trigger": false
+    },
+    {
+      "query": "Write a Medium-length LinkedIn post announcing our Series A",
+      "should_trigger": false
+    },
+    {
+      "query": "Optimize our docs site SEO: canonicals across versions, sitemaps, indexing issues",
+      "should_trigger": false
+    },
+    {
+      "query": "Write a script that scrapes Medium articles behind the paywall for a dataset",
+      "should_trigger": false
+    },
+    {
+      "query": "I'm a freelance writer, how do I make $1,000 a month on Medium writing about self-improvement?",
+      "should_trigger": false
+    },
+    {
+      "query": "Should our Discord community have a channel for sharing blog posts? moderation rules?",
+      "should_trigger": false
+    },
+    {
+      "query": "Post our tutorials on daily.dev Squads, which Squads accept vendor content?",
+      "should_trigger": false
+    },
+    {
+      "query": "Design the launch plan for our open-source project across HN, Reddit, newsletters and Twitter",
+      "should_trigger": false
+    },
+    {
+      "query": "attribute signups from our blog and community channels in our analytics, UTMs and self-reported source",
+      "should_trigger": false
+    },
+    {
+      "query": "Choose between Ghost, Hashnode and a static site for our new engineering blog",
+      "should_trigger": false
+    },
+    {
+      "query": "Rate my medium-risk refactor plan for the payment service",
+      "should_trigger": false
+    },
+    {
+      "query": "Write release notes for v2.3 of our CLI",
+      "should_trigger": false
+    },
+    {
+      "query": "Our Product Hunt launch is Thursday, maker comment and hunter outreach please",
+      "should_trigger": false
+    },
+    {
+      "query": "draft a tweet thread version of our blog post about Rust async",
+      "should_trigger": false
+    },
+    {
+      "query": "Write a guest post pitch to The New Stack about our architecture",
+      "should_trigger": false
+    },
+    {
+      "query": "We want our docs cited by ChatGPT and Perplexity, what should we change?",
+      "should_trigger": false
+    },
+    {
+      "query": "our CTO wants every engineer to clap and highlight our company's Medium posts on publish day, any downside?",
+      "should_trigger": true
+    },
+    {
+      "query": "can I put a newsletter signup link in my medium article for our dev tool, is that allowed",
+      "should_trigger": true
+    },
+    {
+      "query": "Medium vs our own blog for a 4-person devrel team: where should the original live and what goes where?",
+      "should_trigger": true
+    },
+    {
+      "query": "we got suspended on medium for duplicate content after re-posting an old story, what now and how do we avoid it",
+      "should_trigger": true
+    },
+    {
+      "query": "Which Medium publications still matter for programming articles now that Towards Data Science left?",
+      "should_trigger": true
+    },
+    {
+      "query": "I'm a backend engineer writing about Go on my personal Medium, how do I grow to 1k followers and earn from the Partner Program?",
+      "should_trigger": false
+    },
+    {
+      "query": "Turn our conference talk into a technical article outline",
+      "should_trigger": false
+    },
+    {
+      "query": "Our Hashnode blog: custom domain and newsletter settings help",
+      "should_trigger": false
+    },
+    {
+      "query": "find developer influencers to sponsor for our launch video",
+      "should_trigger": false
+    },
+    {
+      "query": "Write the README for our new Rust crate so it converts visitors",
+      "should_trigger": false
+    },
+    {
+      "query": "Medium, Hashnode or a static site for our brand-new engineering blog - which platform should we pick?",
+      "should_trigger": false
+    },
+    {
+      "query": "Our engineering blog lives on a Medium custom domain and we want to move it to our own site without losing traffic",
+      "should_trigger": true
+    }
+  ]
+}

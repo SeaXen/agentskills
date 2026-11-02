@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The 2.4x pace projection to about 432 is rejected; multiplicative pickup is called unstable because under 15% of the reference curve is in at 95 days out",
+        "evidence": "'its share at 95 days is 5%, below the 15% floor'; multiplicative 'unstable'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The additive projection is reported only as a bound because this year runs at more than double the reference count at the same days-out, and it is kept out of the band",
+        "evidence": "'2.44x... outside the trust range... only a lower bound and stays out of the band'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The response says the forecast cannot be made yet rather than presenting a band from these readings",
+        "evidence": "'the forecast can't be made yet'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "No catering tier is locked and no second hotel block is signed on this reading; both are deferred to a later run",
+        "evidence": "'Don't sign the top catering tier or a second hotel block'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The launch-period reading is characterised as measuring reach, not demand, with the pace to be read from about week two of sales onward",
+        "evidence": "Calls launch and 'Week two reads reach, not demand'; no pace-from-week-two guidance",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the 150-to-400-seat scale change is carried by multiplicative pickup (the shape transfers across scale) but not by additive pickup",
+        "evidence": "Says 'A bigger room changes the final, not the shape'; no multiplicative vs additive transfer statement",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The script is still run with last edition's export and the pooled curve as references, and its bounds-only or no-usable-projection output is reported as-is",
+        "evidence": "'I couldn't run forecast-registrations.py'; hand-computed",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the days-out at which last edition's curve reaches 15% of its final as the earliest point a stable multiplicative read becomes possible",
+        "evidence": "Only the pooled curve's 15% point is given, '~90 days'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "No demand verdict (ahead, behind, on track) is issued; any demand question is routed to event-market-fit",
+        "evidence": "'the demand question... goes to event-market-fit, and I don't issue that verdict here'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The comparison is made at matching days-out (95 against 95), not on calendar date or days since sales opened",
+        "evidence": "'This year, 95 days out | 22'; 'Last year, 95 days out | 9'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that with 9 reference registrations at this days-out, a single stray registration moves the multiplicative figure by several registrations",
+        "evidence": "'one registration moves it by 20'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Today's reading and the no-forecast outcome are recorded unedited for the error record",
+        "evidence": "No mention of recording the reading or no-forecast outcome",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The 2.4x pace projection to about 432 is rejected; multiplicative pickup is called unstable because under 15% of the reference curve is in at 95 days out",
+        "evidence": "Rejected as noisy (\"one noisy ratio\"); the 15% reason is absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The additive projection is reported only as a bound because this year runs at more than double the reference count at the same days-out, and it is kept out of the band",
+        "evidence": "No additive projection.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The response says the forecast cannot be made yet rather than presenting a band from these readings",
+        "evidence": "Presents \"Honest range for final registrations: about 220 to 400\" and scenarios.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "No catering tier is locked and no second hotel block is signed on this reading; both are deferred to a later run",
+        "evidence": "\"don't lock it on 432\"; \"Hold both\" below threshold; ask vendors for hold terms.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The launch-period reading is characterised as measuring reach, not demand, with the pace to be read from about week two of sales onward",
+        "evidence": "Mentions a launch burst but not reach vs demand or the week-two rule.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that the 150-to-400-seat scale change is carried by multiplicative pickup (the shape transfers across scale) but not by additive pickup",
+        "evidence": "Says demand doesn't scale with seats; no pickup-method point.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The script is still run with last edition's export and the pooled curve as references, and its bounds-only or no-usable-projection output is reported as-is",
+        "evidence": "No script.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the days-out at which last edition's curve reaches 15% of its final as the earliest point a stable multiplicative read becomes possible",
+        "evidence": "Not named.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "No demand verdict (ahead, behind, on track) is issued; any demand question is routed to event-market-fit",
+        "evidence": "\"Ahead of last year.\" No routing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The comparison is made at matching days-out (95 against 95), not on calendar date or days since sales opened",
+        "evidence": "\"Compare registrations by days since sales opened, not by days until the event.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that with 9 reference registrations at this days-out, a single stray registration moves the multiplicative figure by several registrations",
+        "evidence": "Notes small samples and a wide interval, but not the several-registration swing.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Today's reading and the no-forecast outcome are recorded unedited for the error record",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

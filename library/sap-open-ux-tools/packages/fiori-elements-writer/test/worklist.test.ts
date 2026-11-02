@@ -1,0 +1,189 @@
+import { jest } from '@jest/globals';
+import type { FioriElementsApp } from '../src/index.js';
+import { join } from 'node:path';
+import fsExtra from 'fs-extra';
+const { removeSync } = fsExtra;
+import type { WorklistSettings } from '../src/types.js';
+import { OdataVersion } from '@sap-ux/odata-service-writer';
+import { create as createStorage } from 'mem-fs';
+import { create } from 'mem-fs-editor';
+
+const mockGenerateAnnotations = jest.fn() as jest.Mock;
+
+jest.unstable_mockModule('@sap-ux/annotation-generator', () => ({
+    generateAnnotations: mockGenerateAnnotations
+}));
+
+const { generate, TemplateType, TableType } = await import('../src/index.js');
+const {
+    testOutputDir,
+    debug,
+    v2Service,
+    feBaseConfig,
+    v2TemplateSettings,
+    v4TemplateSettings,
+    v4Service,
+    projectChecks,
+    updatePackageJSONDependencyToUseLocalPath,
+    applyBaseConfigToFEApp,
+    sampleCapService
+} = await import('./common.js');
+
+const TEST_NAME = 'worklistTemplate';
+if (debug?.enabled) {
+    jest.setTimeout(360000);
+}
+
+describe(`Fiori Elements template: ${TEST_NAME}`, () => {
+    const curTestOutPath = join(testOutputDir, TEST_NAME);
+
+    const configuration: Array<{ name: string; config: FioriElementsApp<WorklistSettings> }> = [
+        {
+            name: 'worklistV2',
+            config: {
+                ...Object.assign(feBaseConfig('fewrk1'), {
+                    template: {
+                        type: TemplateType.Worklist,
+                        settings: v2TemplateSettings
+                    }
+                }),
+                service: v2Service
+            } as FioriElementsApp<WorklistSettings>
+        },
+        {
+            name: 'worklistV2_table_type',
+            config: {
+                ...Object.assign(feBaseConfig('fewrk1'), {
+                    template: {
+                        type: TemplateType.Worklist,
+                        settings: { ...v2TemplateSettings, tableType: TableType.TREE }
+                    }
+                }),
+                service: v2Service
+            } as FioriElementsApp<WorklistSettings>
+        },
+        {
+            name: 'worklistV4',
+            config: {
+                ...Object.assign(feBaseConfig('fewrk2'), {
+                    template: {
+                        type: TemplateType.Worklist,
+                        settings: v4TemplateSettings
+                    },
+                    ui5: {
+                        ...feBaseConfig('fewrk2', true),
+                        version: '1.99.0'
+                    }
+                }),
+                service: v4Service
+            } as FioriElementsApp<WorklistSettings>
+        },
+        {
+            name: 'worklistV4_Add_tests',
+            config: {
+                ...Object.assign(feBaseConfig('fewrk2'), {
+                    template: {
+                        type: TemplateType.Worklist,
+                        settings: v4TemplateSettings
+                    },
+                    ui5: {
+                        ...feBaseConfig('fewrk2', true),
+                        version: '1.99.0'
+                    }
+                }),
+                service: v4Service,
+                appOptions: {
+                    ...feBaseConfig('fewrk2').appOptions,
+                    addTests: true
+                }
+            } as FioriElementsApp<WorklistSettings>
+        }
+    ];
+
+    beforeAll(() => {
+        removeSync(curTestOutPath); // even for in memory
+    });
+
+    test.each(configuration)('Generate files for template: $name', async ({ name, config }) => {
+        const testPath = join(curTestOutPath, name);
+        const fs = await generate(testPath, config);
+        expect(fs.dump(testPath)).toMatchSnapshot();
+
+        return new Promise(async (resolve) => {
+            // write out the files for debugging
+            if (debug?.enabled) {
+                await updatePackageJSONDependencyToUseLocalPath(testPath, fs);
+                fs.commit(resolve);
+            } else {
+                resolve(true);
+            }
+        }).then(async () => {
+            await projectChecks(testPath, config, debug?.debugFull);
+        });
+    });
+});
+
+describe('Should generate annotations correctly for Worklist projects', () => {
+    const curTestOutPath = join(testOutputDir, TEST_NAME);
+    const fs = create(createStorage());
+
+    afterEach(() => {
+        jest.clearAllMocks();
+        jest.resetAllMocks();
+    });
+
+    test('Should generate annotations for Worklist projects when service is OData V4 and addAnnotations is enabled', async () => {
+        const fioriElementsApp = {
+            ...applyBaseConfigToFEApp('worklistV4', TemplateType.Worklist),
+            appOptions: {
+                addAnnotations: true
+            }
+        };
+        await generate(curTestOutPath, fioriElementsApp, fs);
+        expect(mockGenerateAnnotations).toHaveBeenCalledTimes(1);
+
+        expect(mockGenerateAnnotations).toHaveBeenCalledWith(
+            fs,
+            {
+                serviceName: sampleCapService.serviceName,
+                appName: fioriElementsApp.package.name,
+                project: sampleCapService.projectPath
+            },
+            {
+                entitySetName: v4TemplateSettings?.entityConfig?.mainEntityName,
+                annotationFilePath: join('test', 'path', 'worklistV4', 'annotations.cds'),
+                addFacets: true,
+                addLineItems: true,
+                addValueHelps: true
+            }
+        );
+    });
+
+    test('Should not generate annotations for Worklist projects when service is OData V4 and addAnnotations is disabled', async () => {
+        const fioriElementsApp = {
+            ...applyBaseConfigToFEApp('worklistV4', TemplateType.Worklist),
+            appOptions: {
+                addAnnotations: false
+            }
+        };
+        await generate(curTestOutPath, fioriElementsApp, fs);
+        expect(mockGenerateAnnotations).not.toHaveBeenCalled();
+    });
+
+    test('Should not generate annotations for Worklist projects when service is OData V2 and addAnnotations is enabled', async () => {
+        const appInfo = applyBaseConfigToFEApp('worklistV2', TemplateType.Worklist);
+        const fioriElementsApp = {
+            ...appInfo,
+            appOptions: {
+                addAnnotations: true
+            },
+            service: {
+                ...appInfo.service,
+                version: OdataVersion.v2
+            }
+        };
+        fioriElementsApp.service.version = OdataVersion.v2;
+        await generate(curTestOutPath, fioriElementsApp, fs);
+        expect(mockGenerateAnnotations).not.toHaveBeenCalled();
+    });
+});

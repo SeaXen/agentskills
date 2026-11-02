@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Prescribes choosing docs.ridgeline.sh as the primary domain, canonicalizing the readthedocs.io host at it, and redirecting where the platform allows",
+        "evidence": "\"pick the domain you want to win (almost certainly docs.ridgeline.sh, since that's the direction you're already headed), canonical or redirect the .readthedocs.io host to it\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the sitemap to list the custom-domain URLs rather than the platform subdomain",
+        "evidence": "\"...canonical or redirect the .readthedocs.io host to it, and make the sitemap agree.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Advises against the ridgeline.sh/docs migration, and states that migrating an established docs site costs more than the subdomain-versus-subfolder difference is worth",
+        "evidence": "\"for a site that's already established and already indexed, migrating it costs more than that difference is worth.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the JavaScript-injected body text, canonical tag and navigation links as a blocking defect",
+        "evidence": "\"Canonical tag, page body, and sidebar nav all arriving via JavaScript is a blocking defect, not a stylistic detail\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places the rendering defect above title, description and internal-linking work in the fix order",
+        "evidence": "The document ranks the rendering-defect check above the URL migration, but never compares or ranks it against title, description, or internal-linking work, which are not discussed in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Prescribes fetching a page with JavaScript disabled to confirm the body text, the canonical link and the internal links are already present in the HTML",
+        "evidence": "\"curl -s https://docs.ridgeline.sh/some-page | grep -c 'rel=\\\"canonical\\\"' \u2014 confirm the canonical is in the raw HTML, not just the rendered DOM. Same check for body text and nav <a href>s\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes that a search widget owning navigation leaves whole sections with no crawlable anchor href path",
+        "evidence": "\"A search widget with no plain links means whichever pages aren't reachable through the sidebar nav (also JS-injected) have no crawlable path\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that Read the Docs can supply the canonical URL to the build, for example through READTHEDOCS_CANONICAL_URL",
+        "evidence": "The transcript only vaguely says \"RTD lets you set this without moving a single URL\" \u2014 it never names a specific mechanism like READTHEDOCS_CANONICAL_URL.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that the server-side rendering fix touches few pages and takes real engineering time, so a (pages affected x severity) divided by effort ordering starves it and it must be promoted by hand",
+        "evidence": "The transcript instead states the SSR fix \"is a change that reaches every one of the 4,000 pages at once, same as the migration would, at a fraction of the risk\" \u2014 the opposite framing of 'touches few pages'; no ratio-starvation argument is made.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend the 4,000-page URL migration as the remedy for the traffic decline",
+        "evidence": "\"Only revisit the subfolder move once 1\u20133 are done... If there isn't [a gap left], the migration has no case left to make.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Starts the crawl set from the sitemap and treats any gap between the sitemap and reality as a finding in its own right",
+        "evidence": "The transcript only raises this as something \"worth confirming\" for the future (\"Worth confirming there's a complete, accurate sphinx-sitemap output covering all 4,000 pages\") rather than reporting an actual sitemap-vs-reality gap as a finding.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Prescribes choosing docs.ridgeline.sh as the primary domain, canonicalizing the readthedocs.io host at it, and redirecting where the platform allows",
+        "evidence": "The transcript only proposes a single mechanism: \"301 `readthedocs.io/*` \u2192 `docs.ridgeline.sh/*` now.\" It never discusses canonicalizing the readthedocs.io host (e.g. via canonical tag) as a distinct/fallback action, nor any caveat about doing so 'where the platform allows'.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the sitemap to list the custom-domain URLs rather than the platform subdomain",
+        "evidence": "Sitemap is mentioned only once, as a migration cost item ('Sitemap, Search Console reverification, historical performance data reset'), never as a requirement that it list docs.ridgeline.sh URLs instead of the readthedocs.io subdomain.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Advises against the ridgeline.sh/docs migration, and states that migrating an established docs site costs more than the subdomain-versus-subfolder difference is worth",
+        "evidence": "\"'Subfolder inherits authority' \u2014 weak, unproven claim\" combined with the \"Cost math for 4,000-page move, if pushed anyway\" section (4,000+ redirects, reverse proxy/infra project, sitemap/Search Console reset, 1-3 month dip) and the recommendation to defer: \"Only then, if growth head still wants folder bet: scope full migration separately.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Identifies the JavaScript-injected body text, canonical tag and navigation links as a blocking defect",
+        "evidence": "\"Three broken pieces: Canonical tag injected by JS ... Page body injected by JS ... Sidebar nav injected by JS.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places the rendering defect above title, description and internal-linking work in the fix order",
+        "evidence": "The proposed fix order (redirect, check Search Console, fix canonical/body/nav rendering, measure, optional migration) never mentions title tags, meta descriptions, or internal-linking work as competing items to be outranked.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Prescribes fetching a page with JavaScript disabled to confirm the body text, the canonical link and the internal links are already present in the HTML",
+        "evidence": "The only verification step given is \"check Search Console Coverage report on both domains\"; no mention of fetching/viewing a page with JavaScript disabled to check the raw HTML.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that a search widget owning navigation leaves whole sections with no crawlable anchor href path",
+        "evidence": "The transcript explicitly denies this is a crawl problem: \"Search widget with no plain links isn't itself a crawl bug (search results shouldn't be indexed), but confirms front end built with zero SEO care.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that Read the Docs can supply the canonical URL to the build, for example through READTHEDOCS_CANONICAL_URL",
+        "evidence": "No mention of READTHEDOCS_CANONICAL_URL or any Read the Docs build-configuration mechanism for canonical URLs anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes that the server-side rendering fix touches few pages and takes real engineering time, so a (pages affected x severity) divided by effort ordering starves it and it must be promoted by hand",
+        "evidence": "No prioritization-formula discussion appears anywhere; the fix order is just presented as a numbered list (\"Now / Now / Next / After 4-6 weeks / Only then\") with no mention of an effort/impact scoring model or the risk of it being starved.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend the 4,000-page URL migration as the remedy for the traffic decline",
+        "evidence": "\"Consequence for the proposal: move this same React app to `ridgeline.sh/docs`, same broken canonical/body/nav stays broken. Slide continues on new URL. Migration risk spent, root cause untouched.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Starts the crawl set from the sitemap and treats any gap between the sitemap and reality as a finding in its own right",
+        "evidence": "There is no mention of crawling from the sitemap or comparing sitemap contents against actual indexed/crawled pages as a diagnostic step.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

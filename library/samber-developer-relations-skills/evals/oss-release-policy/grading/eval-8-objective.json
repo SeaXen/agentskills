@@ -1,0 +1,106 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Keeps only the open-source webhook library inside the deliverable",
+        "evidence": "Only the library RELEASES.md is written; other items routed.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the hosted REST API version scheme to samber/developer-platform-skills@api-versioning-policy and does not write that policy",
+        "evidence": "\"`samber/developer-platform-skills@api-versioning-policy`\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the SDKs whose version must track the hosted API to samber/developer-platform-skills@sdk-portfolio-strategy",
+        "evidence": "\"`samber/developer-platform-skills@sdk-portfolio-strategy`\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Declines the Renovate configuration, stating that the skill writes the maintainer's release contract and never configures the user's own dependency bots",
+        "evidence": "\"`oss-release-policy` excludes configuring your own dependency bots.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Routes the 1.5.0 release notes to samber/developer-relations-skills@changelog-writing rather than drafting them",
+        "evidence": "\"`samber/developer-relations-skills@changelog-writing`\" with skeleton only.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not produce one combined document covering all four items",
+        "evidence": "\"I didn't merge everything into one document\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Either starts the interview for the webhook library or proceeds to its RELEASES.md, treating its 1.4.0 SemVer line as independent of the API version",
+        "evidence": "\"This package's version is independent of any API or SDK version\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Presents the sibling-collection skills as recommendations rather than as content it writes itself",
+        "evidence": "Next steps: \"Run `api-versioning-policy` and `sdk-portfolio-strategy`\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Keeps only the open-source webhook library inside the deliverable",
+        "evidence": "Writes the API, SDK, webhook and Renovate sections.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the hosted REST API version scheme to samber/developer-platform-skills@api-versioning-policy and does not write that policy",
+        "evidence": "Writes \u00a72 Hosted REST API policy itself.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the SDKs whose version must track the hosted API to samber/developer-platform-skills@sdk-portfolio-strategy",
+        "evidence": "Writes \u00a73 SDK policy itself.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Declines the Renovate configuration, stating that the skill writes the maintainer's release contract and never configures the user's own dependency bots",
+        "evidence": "Provides a full renovate.json5.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the 1.5.0 release notes to samber/developer-relations-skills@changelog-writing rather than drafting them",
+        "evidence": "Drafts 1.5.0 release notes.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not produce one combined document covering all four items",
+        "evidence": "One combined policy plus release notes.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Either starts the interview for the webhook library or proceeds to its RELEASES.md, treating its 1.4.0 SemVer line as independent of the API version",
+        "evidence": "The webhook library is one section of a combined policy; no interview or RELEASES.md.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Presents the sibling-collection skills as recommendations rather than as content it writes itself",
+        "evidence": "No sibling skills are mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,178 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to build a last-click attribution model for sponsorship and states nobody clicks a README logo and buys",
+        "evidence": "\"1. Pipeline sourced from sponsorship, last-click model \u2014 refused.\" ... \"Nobody clicks a README logo and buys.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects impressions estimated from stars",
+        "evidence": "\"2. Impressions estimated from combined GitHub stars \u2014 refused.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects total dollars given as a headline metric",
+        "evidence": "\"3. Total dollars given as the headline metric \u2014 refused.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Leads with the supply-chain measures, because that is the primary mandate: share of fundable dependencies covered, dormant-dependency count, and response time on issues the company filed upstream",
+        "evidence": "\"Supply chain \u2014 primary mandate, breaks every tie\" table (listed before Reach) contains \"Share of fundable direct dependencies covered\", \"Dependencies with a dormant maintenance score\", \"Median response time on issues the company filed upstream\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Measures the secondary reach mandate on placements live and verified, referral traffic from placement URLs, and unaided mentions in developer surveys and community threads",
+        "evidence": "\"Reach \u2014 secondary mandate\" table: \"Placements live and verified\", \"Referral sessions from placement URLs\", \"Unaided mentions of the program in developer surveys / community threads\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets a pass threshold of at least 80% of fundable direct dependencies covered for a supply-chain primary mandate",
+        "evidence": "\"At least 80% of fundable direct dependencies covered (supply chain is primary here, so this is the line the program is actually judged on).\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Labels that 80% threshold as this skill's own default rather than an industry standard",
+        "evidence": "\"**80%** (this skill's own default, not an industry standard \u2014 see note below)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Notes the only company to publish a higher coverage figure reported 95% or greater and described itself as the first to approach 100%, and presents anything above 80% as ambitious rather than standard",
+        "evidence": "\"The only company that has published a higher coverage figure reported \\\"95% or greater,\\\" and described itself as the first company to approach 100%... Present anything above 80% as ambitious, not as the bar everyone else clears.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a baseline captured before the first payment",
+        "evidence": "\"Populate **Baseline** from the company's own measurement *before* the next payment goes out\" and \"a baseline pull ... captured now, before the next sponsorship payment \u2014 not retrofitted later.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a named owner on every metric row",
+        "evidence": "\"Every row carries a named owner; a metric with no owner doesn't get reviewed.\" plus an \"Owner\" column with \"*assign*\" in every table row",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires every placement the company paid for to be live and verified at review",
+        "evidence": "\"Every placement paid for is live and verified.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires every depth sponsee to have at least one documented interaction beyond the payment",
+        "evidence": "\"Every depth sponsee has at least one documented interaction beyond the payment.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Sets the first review at 12 months and annually after, with a renewal decision made for every target before budget close",
+        "evidence": "\"Checked at **12 months**, then annually\" ... \"A renewal decision made for **every** target before budget close \u2014 no target carries over into next year by default.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends publishing an annual report giving the year, the full-time-equivalent developer count, the total paid, and the amount per recipient",
+        "evidence": "\"Minimum disclosure inside it: the year, the number of full-time-equivalent developers on staff, the total paid, the amount per recipient.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Refuses to build a last-click attribution model for sponsorship and states nobody clicks a README logo and buys",
+        "evidence": "The dashboard still includes a \"Last-click (requested)\" column marked \"pending\" and recommends \"Report both numbers side by side, always\" rather than refusing to build it, despite stating \"nobody clicks a README badge and closes in the same session.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects impressions estimated from stars",
+        "evidence": "\"Flag \u2014 stars are not impressions. Stars are an all-time cumulative count with no time window; they can't substitute for a period metric like impressions.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects total dollars given as a headline metric",
+        "evidence": "\"Total dollars given, FY26 | $240,000 | Confirmed... This is spend, not impact \u2014 keep it visible but don't let it stand in for 'did it work.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Leads with the supply-chain measures, because that is the primary mandate: share of fundable dependencies covered, dormant-dependency count, and response time on issues the company filed upstream",
+        "evidence": "Section 2 leads with supply chain but uses different metrics (\"Critical dependency coverage\", \"Maintainer bus-factor uplift\", \"Median vulnerability patch time\", \"Avg. OpenSSF Scorecard score\", \"SBOM audit coverage\") \u2014 no dormant-dependency count or filed-issue response time metric.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Measures the secondary reach mandate on placements live and verified, referral traffic from placement URLs, and unaided mentions in developer surveys and community threads",
+        "evidence": "Proposed substitutes are \"GitHub repo traffic\", \"Referral traffic\", and \"Earned-media impressions... a mention-monitoring tool\" \u2014 no placements-live-verified check or developer-survey/community-thread mentions metric.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets a pass threshold of at least 80% of fundable direct dependencies covered for a supply-chain primary mandate",
+        "evidence": "No threshold percentage is stated anywhere for any metric; all supply-chain rows are formula-only, marked pending.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Labels that 80% threshold as this skill's own default rather than an industry standard",
+        "evidence": "No 80% threshold appears to be labeled at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Notes the only company to publish a higher coverage figure reported 95% or greater and described itself as the first to approach 100%, and presents anything above 80% as ambitious rather than standard",
+        "evidence": "No such benchmark company or figure is mentioned anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a baseline captured before the first payment",
+        "evidence": "Not discussed; the dashboard is retrospective (FY2026 QBR), with no baseline-before-payment requirement stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a named owner on every metric row",
+        "evidence": "The metric tables in Sections 1-4 have no Owner column; only the separate Section 5 \"data connection\" table assigns owners to data feeds, not to each metric row directly.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires every placement the company paid for to be live and verified at review",
+        "evidence": "Not stated anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires every depth sponsee to have at least one documented interaction beyond the payment",
+        "evidence": "Not discussed anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Sets the first review at 12 months and annually after, with a renewal decision made for every target before budget close",
+        "evidence": "No review cadence or renewal-decision requirement is mentioned; this is a QBR snapshot with no forward review schedule specified.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends publishing an annual report giving the year, the full-time-equivalent developer count, the total paid, and the amount per recipient",
+        "evidence": "No such publishing recommendation appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

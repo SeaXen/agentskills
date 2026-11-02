@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "The price row leads the tier table",
+        "evidence": "\"| **Investment** | **EUR 8,000** | **EUR 4,500** |\" is the first row.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Prints a max-available row only for the lanyard, the coffee cart and the after-party, each capped at 1",
+        "evidence": "Add-ons show \"1 of 1\"; tiers read \"Open, no cap\" with no number printed.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not print an invented cap on Platinum, Gold or any other row",
+        "evidence": "\"Platinum and Gold are unlimited, so no 'max available' number is printed\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the 1-to-5 star rating and uses a plain mark for inclusion and a blank cell for exclusion",
+        "evidence": "\"The skill prints plain marks for included items\"; table uses \u2713 and blank.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Reserves numeric cells for genuine quantities such as ticket counts and discount percentages",
+        "evidence": "\"uses numbers only for real quantities such as tickets or discount percentages\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the '3-star premium branding package' label in favour of individually named perk line items",
+        "evidence": "\"says nothing a budget holder can route internally\"; table lists named perks.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Moves the three single-exclusive surfaces out of the grid into named a-la-carte add-on cards",
+        "evidence": "\"They belong in the add-on cards, not in the tier grid.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Each add-on card carries an icon, a name, a price and one line of description",
+        "evidence": "\"Each is one card with an icon, a name, a price and one line.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps named perk items per tier within roughly 3 to 7 before readability breaks down",
+        "evidence": "\"Keep each tier to 3-7 named perks.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places a custom-tier invitation and the contact call to action on the same page as the table rather than a page later",
+        "evidence": "\"keeps the escape hatch and the contact email on the same page as the table.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats the incoming 'what does it include / what does it cost' emails as a defect in the document rather than a sales problem",
+        "evidence": "\"so the 'what does the coffee thing cost' emails stop\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "The price row leads the tier table",
+        "evidence": "The packages table's first row is 'Conference passes'; price is only in column headers.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Prints a max-available row only for the lanyard, the coffee cart and the after-party, each capped at 1",
+        "evidence": "The Availability column shows '1' for the three exclusives.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not print an invented cap on Platinum, Gold or any other row",
+        "evidence": "'Platinum and Gold don't, because you can sell as many as you like.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the 1-to-5 star rating and uses a plain mark for inclusion and a blank cell for exclusion",
+        "evidence": "It rejects stars but specifies 'a number, a yes/no, or a size' rather than a mark or blank.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Reserves numeric cells for genuine quantities such as ticket counts and discount percentages",
+        "evidence": "It does not articulate this rule.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects the '3-star premium branding package' label in favour of individually named perk line items",
+        "evidence": "'List each benefit as a concrete item or quantity.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Moves the three single-exclusive surfaces out of the grid into named a-la-carte add-on cards",
+        "evidence": "The exclusives are a second table, not cards.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Each add-on card carries an icon, a name, a price and one line of description",
+        "evidence": "There are no cards or icons.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Keeps named perk items per tier within roughly 3 to 7 before readability breaks down",
+        "evidence": "The packages table has seven benefit rows.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places a custom-tier invitation and the contact call to action on the same page as the table rather than a page later",
+        "evidence": "No custom-tier invitation or CTA is included.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats the incoming 'what does it include / what does it cost' emails as a defect in the document rather than a sales problem",
+        "evidence": "'Stars hide the content sponsors keep emailing you about'; the table should answer 'what does the coffee thing cost?'.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

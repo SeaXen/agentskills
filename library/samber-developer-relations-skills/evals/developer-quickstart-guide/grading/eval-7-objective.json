@@ -1,0 +1,142 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Identifies access provisioning rather than the code path as the bottleneck, stating that a 4-minute code path is wrapped in a multi-week access path the page never mentions.",
+        "evidence": "'The gap between \"4 minutes\" and \"2\u20134 weeks\" is a 1000x difference. No amount of copy-editing produces that. That ratio is the tell that the page's actual defect is upstream of step 1, not inside it.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Adds an upfront block naming exactly what must exist before step 1, such as tenant or licence, sandbox environment, role or permission, and allow-listed network or registry egress.",
+        "evidence": "'## Get access first (do this before anything else)' names 'registry pull credentials (or an offline image bundle...), plus a trial license key' and network egress confirmation before step 1.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names who inside the customer's own organisation provisions each of those items.",
+        "evidence": "Only network egress names an internal role ('confirm with your network team'); the license key and offline-bundle transfer process name no internal provisioner, just 'your organization's normal approved file-transfer channel.'",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Rejects any 'contact your administrator' instruction that does not state exactly what to ask for.",
+        "evidence": "The verbatim request text specifies exactly: 'registry pull credentials (or an offline image bundle...), plus a trial license key. Account/organization: <YOUR_ORG_NAME> Contact: <YOUR_EMAIL>'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Supplies an offline or air-gapped variant of every command that assumes internet access, including the image pull.",
+        "evidence": "'1b. If you received the offline bundle instead: docker load -i ferrous-engine-2.4.tar.gz'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the success moment, step shape and verification identical to the self-serve version, changing only the access path.",
+        "evidence": "Steps 2-4 (Run Ferrous, Confirm healthy, Mask a sample record) mirror the author's original 4-minute flow verbatim; only the access pre-step and step-1 offline branch are added.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Pins the container image tag rather than using a floating tag.",
+        "evidence": "'docker pull ferrous/engine:2.4' and 'docker run ... ferrous/engine:2.4' use a pinned version tag, not `latest`.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States resource requirements such as CPU, memory and disk as prerequisites, instead of letting the reader discover them mid-run.",
+        "evidence": "'## Before you start ... 2 CPUs, 4 GB RAM free'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Uses 30 to 60 minutes as the baseline budget for this self-hosted infrastructure quickstart, rather than carrying over the author's 4-minute laptop figure.",
+        "evidence": "'Hands-on-keyboard path: 5 minutes... This matches your own 4-minute run with a small margin' \u2014 it keeps close to the author's 4-minute figure rather than adopting a 30-60 minute baseline.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats the 'stuck at step 1' tickets as a signal localising an ambiguous instruction to a specific sentence, and uses them as an input to the fix.",
+        "evidence": "'This is your literal \"stuck at step 1\" ticket. It fails for at least three distinct reasons... so every one of them becomes the same undifferentiated support ticket' \u2014 directly informing the three fail-branch fixes added to step 1.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires the cold run on a clean machine with a freshly provisioned tenant and no cached credentials, not the author's laptop.",
+        "evidence": "'Clean-environment cold run on a normal unrestricted VM, timing from page load... A second cold run on a network shaped like your actual customers'... no registry egress, no pre-cached image.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Identifies access provisioning rather than the code path as the bottleneck, stating that a 4-minute code path is wrapped in a multi-week access path the page never mentions.",
+        "evidence": "\"a 4-minute local run vs. a 2\u20134 week customer run isn't a copy-editing gap... Step 1 is docker pull + run. In a bank or insurer that step routes through things your laptop never sees... The page can't fix a security-review queue.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Adds an upfront block naming exactly what must exist before step 1, such as tenant or licence, sandbox environment, role or permission, and allow-listed network or registry egress.",
+        "evidence": "\"Step 0: Tell us your environment\" classifies by network posture/local admin, and the \"Security Pre-Clearance Packet\" lists SBOM, CVE scan, signing key, and compliance docs to be handed over \"before you reach Step 0.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Names who inside the customer's own organisation provisions each of those items.",
+        "evidence": "\"Ask your desktop team to confirm `nested virtualization: enabled`\"; troubleshooting table references \"platform team\" and \"security/network team\".",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects any 'contact your administrator' instruction that does not state exactly what to ask for.",
+        "evidence": "\"Ask your desktop team to confirm `nested virtualization: enabled` before filing a ticket that looks like 'Docker won't start'\" \u2014 specifies exactly what to ask for rather than a generic 'contact IT'.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Supplies an offline or air-gapped variant of every command that assumes internet access, including the image pull.",
+        "evidence": "\"Path B / C \u2014 Offline Bundle (restricted network or air-gapped)\" gives a full download/verify/load/tag/push sequence replacing `docker pull`.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Keeps the success moment, step shape and verification identical to the self-serve version, changing only the access path.",
+        "evidence": "\"Run and test exactly as in Path A, pointing at your internal registry\" \u2014 same health-check and mask-record verification reused for the offline path.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Pins the container image tag rather than using a floating tag.",
+        "evidence": "Path A still runs \"docker pull ferrous/engine:latest\" \u2014 a floating tag, not pinned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States resource requirements such as CPU, memory and disk as prerequisites, instead of letting the reader discover them mid-run.",
+        "evidence": "No CPU, memory, or disk requirements are mentioned anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Uses 30 to 60 minutes as the baseline budget for this self-hosted infrastructure quickstart, rather than carrying over the author's 4-minute laptop figure.",
+        "evidence": "The comparison table explicitly keeps \"Deploy it here | 4 min once cleared\" \u2014 carrying over the original 4-minute figure rather than adopting a 30-60 minute baseline.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Treats the 'stuck at step 1' tickets as a signal localising an ambiguous instruction to a specific sentence, and uses them as an input to the fix.",
+        "evidence": "The transcript explicitly rejects the ambiguous-sentence framing: \"The page can't fix a security-review queue\" \u2014 treating tickets as evidence of a structural/process gap outside any specific sentence, not localising to one.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires the cold run on a clean machine with a freshly provisioned tenant and no cached credentials, not the author's laptop.",
+        "evidence": "No cold-run verification methodology is described; the closing note only asks the reader to \"Swap in real error strings and current page content before publishing.\"",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

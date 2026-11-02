@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the resend-to-non-openers plan rather than adopting or deferring it",
+        "evidence": "\"Plan A... Don't do it.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The rejection is structural: every send moment is a calendar date, never a per-recipient behaviour",
+        "evidence": "\"Every send here fires on a calendar date, not on what a recipient did.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends the role split at the week-before send as the default segmentation",
+        "evidence": "The `role` field: \"Role split at the week-before send.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Registration-state segmentation (registered / not-yet-registered) is added because both a registered list and an open registration window exist, executed as a manually filtered list",
+        "evidence": "`registered_2027` field; \"re-export registrations... manual is fine.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Dietary and accessibility fields are flagged as health-adjacent personal data carrying retention, access and deletion obligations",
+        "evidence": "\"health-adjacent personal data... retention and deletion date, who can see the data\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a field once collected cannot be un-collected before endorsing any collection of it",
+        "evidence": "\"a field once collected cannot be un-collected\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Attribute segmentation (first-timer vs returning, etc.) is presented as the high-effort top rung with named promotion conditions, not the default for a two-volunteer team",
+        "evidence": "\"the skill's 'starved option'\"; first-timer only if large share or orientation is a goal.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "The recommendation is re-ranked against the stated team: two volunteers with basic filters get at most the role split plus registration-state, not full attribute segmentation",
+        "evidence": "\"Segment on role and registration state instead\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Only the attendee variant of the week-before email is owned here; speaker, sponsor and volunteer variants are left to whoever owns those audiences",
+        "evidence": "\"You write the attendee variant only.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "No send in the final plan targets an opened, clicked, or gone-quiet state",
+        "evidence": "Segments S1-S3 are based on role, registration state, and consent.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Behavioural segmentation is not parked as a future upgrade pending better tooling; it is treated as a different mechanic that does not belong to a dated arc",
+        "evidence": "It is rejected outright, with no \"later\" framing.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "If dietary or accessibility collection is endorsed at all, it is for on-site accommodation with a stated data-handling posture, not as a default email segmentation axis",
+        "evidence": "\"Collect them, but as operations data... Don't make them filterable fields\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Rejects the resend-to-non-openers plan rather than adopting or deferring it",
+        "evidence": "\"Plan A: non-opener resend. Keep it, with these rules.\"",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The rejection is structural: every send moment is a calendar date, never a per-recipient behaviour",
+        "evidence": "Adopts the behavioural resend and sets resend_done flags.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends the role split at the week-before send as the default segmentation",
+        "evidence": "Segments are prospects, first-timers, returning and registered, with no role split.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Registration-state segmentation (registered / not-yet-registered) is added because both a registered list and an open registration window exist, executed as a manually filtered list",
+        "evidence": "Adds a `registered` yes/no field and asks whether the form pushes automatically or by CSV import.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Dietary and accessibility fields are flagged as health-adjacent personal data carrying retention, access and deletion obligations",
+        "evidence": "\"special-category data under GDPR Art. 9... Delete it after the event.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that a field once collected cannot be un-collected before endorsing any collection of it",
+        "evidence": "Not stated.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Attribute segmentation (first-timer vs returning, etc.) is presented as the high-effort top rung with named promotion conditions, not the default for a two-volunteer team",
+        "evidence": "Syncs first-timer/returning immediately, with no promotion conditions.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "The recommendation is re-ranked against the stated team: two volunteers with basic filters get at most the role split plus registration-state, not full attribute segmentation",
+        "evidence": "Builds three fields and four filters, including attribute segments.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Only the attendee variant of the week-before email is owned here; speaker, sponsor and volunteer variants are left to whoever owns those audiences",
+        "evidence": "No scoping of speaker, sponsor or volunteer variants.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "No send in the final plan targets an opened, clicked, or gone-quiet state",
+        "evidence": "Plan A resends to non-openers.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Behavioural segmentation is not parked as a future upgrade pending better tooling; it is treated as a different mechanic that does not belong to a dated arc",
+        "evidence": "Behavioural resend is adopted now and not treated as a different mechanic.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "If dietary or accessibility collection is endorsed at all, it is for on-site accommodation with a stated data-handling posture, not as a default email segmentation axis",
+        "evidence": "Collect in registration form, aggregate counts to caterer, \"Don't sync it to the newsletter tool\", delete after event.",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Builds two or three whole-program candidates rather than a single plan.",
+        "evidence": "\"That leaves three survivors... Candidate A \u2014 Enablement-first (recommended)... Candidate B \u2014 Evaluation-support... Candidate C \u2014 Reach-first\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Announces it is in brainstorming mode and writes no plan during that step.",
+        "evidence": "No explicit announcement of \"brainstorming mode\" appears; the candidates section is embedded directly inside the same single-pass document that also finalizes the full charter and bets.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes product-feedback from the candidate set because the roadmap is fixed for a year.",
+        "evidence": "\"**Product-feedback** \u2014 deleted. The roadmap is locked through next year around the enterprise commitment; there's no capacity to act on anything this archetype would surface.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes community-first from the candidate set because the founder refuses to run a venue of its own.",
+        "evidence": "\"**Community-first** \u2014 deleted. The founder will not fund a venue of Hestbury's own\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Deletes ruled-out shapes from the candidate set instead of ranking them last, and says why: a ruled-out shape parked at the bottom returns as scope in month two.",
+        "evidence": "\"Two archetypes were deleted outright rather than ranked last, per the skill's own instruction not to park ruled-out shapes at the bottom where they come back as scope.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Presents each surviving candidate with the same six facts: the pillar it over-invests in, its first three bets, what it deliberately starves, the capacity it needs, the fastest signal that it is working, and the condition that makes it the wrong pick.",
+        "evidence": "Candidate A lists \"Over-invests in:\", \"First three bets:\", \"Deliberately starves:\", \"Capacity needed:\", \"Fastest signal:\", \"Wrong pick when:\" \u2014 repeated identically for B and C",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends the highest-ranked survivor and says why.",
+        "evidence": "\"**Recommendation: Enablement-first.** It's the archetype your own funding language already names, it targets the one drop-off you've actually observed\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lets the program owner choose the shape before detailing hires or channels.",
+        "evidence": "The assistant itself makes the recommendation and proceeds directly to build the full Bets/Staffing/Refused sections without pausing for the owner's confirmation.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends enablement-first, given the developer-enablement driver and partner questions the documentation should have answered.",
+        "evidence": "\"It's the archetype your own funding language already names, it targets the one drop-off you've actually observed\" tied to \"Driver: Primary: developer enablement \u2014 your own words\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Commits one signal per bet rather than producing a ten-metric monthly dashboard.",
+        "evidence": "The transcript explicitly produces a separate \"# KPI dashboard: ten metrics, reported monthly\" section with ten rows.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the measurement framework to samber/developer-relations-skills@devrel-metrics.",
+        "evidence": "\"the skill this charter hands measurement decisions to (`devrel-metrics`) caps its own recommended sheet at five to eight rows\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Records the locked roadmap and the refusal to run a venue on the written refused list.",
+        "evidence": "\"No Discord or Slack of Hestbury's own... No product-feedback loop or promise to route partner friction into the roadmap this horizon. The roadmap is locked around the enterprise commitment\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Builds two or three whole-program candidates rather than a single plan.",
+        "evidence": "A single plan (Three pillars: docs, async channels, champion track) is delivered directly with no alternative candidates presented.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Announces it is in brainstorming mode and writes no plan during that step.",
+        "evidence": "No brainstorming-mode announcement occurs; a full plan is written immediately.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes product-feedback from the candidate set because the roadmap is fixed for a year.",
+        "evidence": "No candidate set exists to delete from; the plan only notes 'No engineering asks beyond DX polish' as a constraint within the single delivered plan.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes community-first from the candidate set because the founder refuses to run a venue of its own.",
+        "evidence": "No candidate set exists; the constraint is only reflected as a design choice within the single plan (GitHub Discussions instead of Discord).",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Deletes ruled-out shapes from the candidate set instead of ranking them last, and says why: a ruled-out shape parked at the bottom returns as scope in month two.",
+        "evidence": "This reasoning/statement does not appear anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Presents each surviving candidate with the same six facts: the pillar it over-invests in, its first three bets, what it deliberately starves, the capacity it needs, the fastest signal that it is working, and the condition that makes it the wrong pick.",
+        "evidence": "No multi-candidate comparison structure exists in the transcript at all.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends the highest-ranked survivor and says why.",
+        "evidence": "No ranking/candidate process occurs to recommend a survivor from.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Lets the program owner choose the shape before detailing hires or channels.",
+        "evidence": "The plan's full shape, channels and mechanism are detailed directly with no checkpoint for the program owner to choose first.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends enablement-first, given the developer-enablement driver and partner questions the documentation should have answered.",
+        "evidence": "\"DevRel here has one job: make the docs answer the question before a partner opens a ticket.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Commits one signal per bet rather than producing a ten-metric monthly dashboard.",
+        "evidence": "\"Monthly KPI dashboard: Ten metrics, all answerable from data Hestbury already has\" \u2014 an explicit ten-metric dashboard is produced.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Routes the measurement framework to samber/developer-relations-skills@devrel-metrics.",
+        "evidence": "The full ten-metric dashboard is built directly in the document; no routing to a skill occurs.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Records the locked roadmap and the refusal to run a venue on the written refused list.",
+        "evidence": "\"Guardrails... No Discord, Slack, or any owned real-time channel \u2014 not 'for now,' a permanent constraint per founder direction. No feature requests to engineering framed as roadmap asks.\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

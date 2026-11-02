@@ -1,0 +1,154 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that documented roles contradicted by repository permissions is a named review-blocking anti-pattern that reviewers check for.",
+        "evidence": "\"written roles the repository contradicts read as theatre to a reviewer, and an OSS office checks repo settings before it reads prose\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the premise that the document reading fine is sufficient.",
+        "evidence": "\"The model isn't the problem. The repository doesn't implement it\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Produces a diff of the actual repository and organization settings against the document, item by item.",
+        "evidence": "Bulleted list: \"Admin \u2260 maintainer list\", \"No enforcement mechanism\", \"Review routing contradicts the area-owner model\", \"'Release authority rests with the maintainer group' is fiction\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the nine admin accounts, including the two departed people, as the roles-versus-permissions contradiction to fix first.",
+        "evidence": "\"9 accounts hold repo admin; the doc names 4 people. Two admins left the company in 2025\" and Enforcement step 1: \"Revoke the two departed employees' admin today.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats a departed person retaining access as a security matter rather than a tidiness matter.",
+        "evidence": "\"it's an open incident \u2014 a credential held by someone no longer at the company is exactly the row the succession playbook calls 'a security incident waiting to be discovered.'\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags branch protection being off as contradicting any documented review requirement.",
+        "evidence": "\"Branch protection is off on main. Nothing requires review... The written 'maintainer group decides' rule has no technical backing\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that code-owner routing must match both the areas named in governance and who actually touches them in the commit history, and calls this a computable diff rather than an opinion.",
+        "evidence": "\"Confirm CODEOWNERS routing matches who actually reviews each area in recent commit history, not who used to.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the 19-month-inactive code owner and ties it to a written inactivity definition and an emeritus path.",
+        "evidence": "\"The 19-month CODEOWNERS holder clears any of those thresholds\" and \"Emeritus, so the 19-month-inactive CODEOWNERS holder has somewhere to go\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags Bo as the sole registry publisher, and requires more than one holder for registry publishing, release signing and organization ownership.",
+        "evidence": "\"Registry publish | Bo, alone | \ud83d\udd34 absence factor of 1\" and \"Add a second registry publisher among the maintainer group\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Requires a people file listing current affiliations plus a separate emeritus section.",
+        "evidence": "No MAINTAINERS.md or equivalent people file is referenced anywhere in Section 12.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that zero contradictions between documented roles and repository permissions is binary and not a threshold the project can adjust downward.",
+        "evidence": "\"the skill's own health check: rule coverage... alignment (zero contradictions between doc and repo settings, checked directly, not assumed)\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that where the forge exposes no setting for a documented rule, the manual convention replacing it must be written down.",
+        "evidence": "No such statement appears anywhere in Section 12.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that documented roles contradicted by repository permissions is a named review-blocking anti-pattern that reviewers check for.",
+        "evidence": "'The doc isn't the problem \u2014 the doc describes a governance model your infrastructure doesn't enforce. An OSPO review will test controls, not prose, so treat every mismatch below as a finding to close.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Rejects the premise that the document reading fine is sufficient.",
+        "evidence": "'Get reality to match the doc, not the doc to match reality \u2014 rewriting GOVERNANCE.md to describe \"nine admins and one publisher\" would pass a proofreading pass but fail the actual review.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Produces a diff of the actual repository and organization settings against the document, item by item.",
+        "evidence": "Items 1-6 each name a specific contradiction: departed admins vs. doc, no branch protection vs. 'release authority rests with the maintainer group', nine admins vs. four documented maintainers, CODEOWNERS routing vs. area-owner claim, sole publisher vs. collective release authority.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the nine admin accounts, including the two departed people, as the roles-versus-permissions contradiction to fix first.",
+        "evidence": "'## 1. Revoke access for departed employees (do this today) Two people who left in 2025 still hold repo admin. This is the single most damning finding...'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Treats a departed person retaining access as a security matter rather than a tidiness matter.",
+        "evidence": "'\"former employee retains write/admin access\" is a checklist-failing item on almost every vendor security questionnaire, independent of anything else in the repo.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags branch protection being off as contradicting any documented review requirement.",
+        "evidence": "'Currently anyone with push access can force-push or merge without review \u2014 the doc's \"release authority rests with the maintainer group\" is unenforceable without this.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that code-owner routing must match both the areas named in governance and who actually touches them in the commit history, and calls this a computable diff rather than an opinion.",
+        "evidence": "'a reviewer who cross-references CODEOWNERS against commit history will find this in under five minutes' \u2014 framed as a mechanically checkable mismatch.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags the 19-month-inactive code owner and ties it to a written inactivity definition and an emeritus path.",
+        "evidence": "'gives approval authority to someone with no commits in 19 months... Add an inactivity rule to GOVERNANCE.md itself (e.g., \"no review activity in 6 months \u2192 moved to emeritus, can be reinstated on request\").'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Flags Bo as the sole registry publisher, and requires more than one holder for registry publishing, release signing and organization ownership.",
+        "evidence": "Only registry publishing is addressed ('Only Bo can publish... get a second maintainer enrolled as a publisher'); release signing is never mentioned, so the three-credential requirement is not fully met.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Requires a people file listing current affiliations plus a separate emeritus section.",
+        "evidence": "No dedicated 'people file' with affiliations plus emeritus section is requested; emeritus is only discussed for the one inactive CODEOWNERS member.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that zero contradictions between documented roles and repository permissions is binary and not a threshold the project can adjust downward.",
+        "evidence": "No such binary/threshold framing appears anywhere in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that where the forge exposes no setting for a documented rule, the manual convention replacing it must be written down.",
+        "evidence": "No general statement of this kind appears; the closest is the specific CODEOWNERS/inactivity-rule recommendation, not a general principle.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

@@ -1,0 +1,622 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "developer-event-sponsorship",
+  "scenarios": 11,
+  "expectations_total": 134,
+  "expectations_subjective": 0,
+  "expectations_objective": 134,
+  "pass_rate_with_skill_pct": 67.2,
+  "pass_rate_without_skill_pct": 25.4,
+  "delta_pp": 41.8,
+  "uplift_multiplier": 2.65,
+  "trigger_accuracy_pct": 50.0,
+  "trigger_queries": 118,
+  "trigger_positive_fire_rate": 0.017,
+  "trigger_run_suspect": true,
+  "trigger_suspect_reason": "fewer than half the should-trigger queries fired at all: re-measure with --redo-trigger before reading this as a routing score",
+  "subjective_ac2": null,
+  "subjective_pass_disagreements": [],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.274 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Gives each candidate portfolio its own allocation split, the staffing it consumes, and what it deliberately fails at"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Asks for explicit agreement on the chosen portfolio before discussing any negotiation or purchase"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States the efficiency ordering of the portfolio shapes explicitly, with ecosystem-anchored ahead of flagship-led, farm-team and regional spread"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that flagship-led and ecosystem-anchored tie on effort, and justifies why they are equal on effort while differing on efficiency"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States which interview answer moved which option, naming the three-engineer, 12-day-each staffing ceiling as a driver"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Reads three clauses before price: what contact data the sponsor receives, how a stage slot is obtained, and which surfaces are sold separately"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States the within-event efficiency ordering as lower tier plus the one add-on that reaches the audience, ahead of the cheapest tier clearing the booth price floor, ahead of logo-only, ahead of top tier"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Treats included passes as a subtractable money line and conditions their value on being able to staff them"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Checks whether an eligibility-gated startup or end-user tier exists before settling on a rung"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes that a booth sits behind a price floor, so deciding whether a booth is needed sets the minimum spend before the tier list is read"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Costs both options fully loaded - fee, add-ons, booth build and shipping, swag, travel and accommodation, and loaded staff time - before any verdict"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names staff time as the cost line most often omitted and the one that most often doubles the total"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Sets a target cost per qualified conversation and a minimum conversation count before recommending either purchase, and derives the target from the company's blended acquisition cost rather than from the sponsorship fee"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Lists the audience evidence to demand before pricing anything, covering role mix and seniority, company size or buying influence, geography and travel mix, prior editions and returning-sponsor rate, package line items, program balance between technical and sponsor content, and follow-up rights"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Records the decline with its reason so the event is not rebought next year on the strength of its headcount"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Offers the organizer evidence request as the concrete next step before any signature"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names the compliance exposure specific to a prize track: prize promotions are regulated in some jurisdictions, criteria fix once entries open, and prize value can be reportable"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Defines the qualified-conversation bar and the named next step before the event and briefs every staffer on both"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Lists prizes the audience actually wants - cash, quality hardware, conference tickets, credits with no redemption maze, time with someone interesting - rather than product credits alone"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Rejects badge scans as a measure of value and names the qualified conversation as the only unit that compares across a hackathon, a community day and a mega-conference"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Defines the qualified conversation as all three of: has the problem the product solves, holds or influences the decision, and agreed to a named next step"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Gives the conversation routing table - case-study material to marketing, feedback and beta candidates to product, bugs to engineering, partner interest to partnerships, candidates to recruiting, buyers to sales - rather than defaulting everything to sales"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recomputes the fully loaded cost including loaded staff time for four people across preparation, travel, on-site days and follow-up, not just the $22,000 fee"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires a pre-event baseline of the primary metric captured one to four weeks before the next event"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires one event-specific URL and one promo or credit code per event, never reused across events, and requires the post-event review to run within two weeks while the conversation log is still accurate"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Deletes both the workshop and the evening side event, on the grounds that a team of two travelling can staff exactly one activation"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Brainstorms two or three activation options with the trade-off in each, recommends one, and validates it before anything is bought"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States the activation efficiency ordering explicitly - help-desk booth ahead of prize track, ahead of side event, ahead of workshop"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Routes the stage ambition to the CFP process, referencing samber/developer-relations-skills@conference-cfp-submission"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes the sponsor code of conduct a community conference asks a sponsor to sign"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the asks compete for a finite budget - the number of things the organizer says yes to before the conversation turns - rather than for money"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Gives the efficiency ordering of asks with the previous edition's post-event report first, ahead of extra staff passes, lead-data delivery timing, placement on a specific high-traffic surface, a workshop or demo-theatre slot, permission to publish content, and a written attendance estimate with a remedy"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Justifies the post-event report leading: it costs nothing to ask, arrives before signature, and can still cancel the deal"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names what the default ordering starves - the attendance remedy and the workshop slot - rather than silently dropping them"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the ordering sequences the asks and never shortens the list"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names the conditions under which packages genuinely move: early commitment, multi-event or multi-year deals, off-peak editions, growing events, and bringing something the organizer wants such as a workshop, a mentor pool or a scholarship fund"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names what must not be claimed per objective, including attributed revenue for an awareness objective and activations from anyone who merely saw the logo for an adoption objective"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Requires a pre-event baseline of each event's primary metric captured one to four weeks before that event"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Defines the event cohort as everyone arriving through the event's own URL, code, workshop signup or consented scan, tagged once and never merged into a generic campaign"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Deletes the October workshop outright, on the grounds that a quarter of preparation does not fit inside a result date eight weeks away"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Promotes buying an add-on at the already-contracted February conference over committing to the new May event"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Separates the date the result must be visible from the contract deadline, and asks for both"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Checks which branded surfaces or add-ons are still available at the February event, noting that the best ones sell out months ahead"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Routes running their own conference to samber/developer-relations-skills@developer-meetup-program rather than answering it here"
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Names exactly one primary objective for the plan, or one per event, and states that a sponsorship cannot carry two primary objectives"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Presents two or three candidate portfolios for the year rather than a single recommended list of events"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Gives each candidate portfolio its own allocation split, the staffing it consumes, and what it deliberately fails at"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends one portfolio and states why each rejected portfolio loses"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Asks for explicit agreement on the chosen portfolio before discussing any negotiation or purchase"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Deletes the farm-team shape (student hackathons plus one practitioner conference) rather than ranking it last, because one person owns event measurement"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Names ecosystem-anchored as the default portfolio shape, and either applies it or names the specific condition that would move the plan to flagship-led"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States the efficiency ordering of the portfolio shapes explicitly, with ecosystem-anchored ahead of flagship-led, farm-team and regional spread"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that flagship-led and ecosystem-anchored tie on effort, and justifies why they are equal on effort while differing on efficiency"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Holds 15-25% of the EUR 90,000 unallocated as a reserve and names what the reserve is for"
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Expresses effort as staff-days, travel overhead, reusable preparation and follow-up capacity, never as a currency amount"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Rejects comparing the two events by tier name and states that tier names carry no meaning across events"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Reads three clauses before price: what contact data the sponsor receives, how a stage slot is obtained, and which surfaces are sold separately"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States the within-event efficiency ordering as lower tier plus the one add-on that reaches the audience, ahead of the cheapest tier clearing the booth price floor, ahead of logo-only, ahead of top tier"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Treats the $12,000 workshop add-on as correctly priced hands-on attention rather than as an overpriced upsell, noting it outprices whole tiers"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Treats included passes as a subtractable money line and conditions their value on being able to staff them"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Checks whether an eligibility-gated startup or end-user tier exists before settling on a rung"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that a community or volunteer-run conference typically sells no attendee contact data at any price, and does not assume badge scanning exists at Plumbline"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes that a booth sits behind a price floor, so deciding whether a booth is needed sets the minimum spend before the tier list is read"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Costs both options fully loaded - fee, add-ons, booth build and shipping, swag, travel and accommodation, and loaded staff time - before any verdict"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names staff time as the cost line most often omitted and the one that most often doubles the total"
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Sets a target cost per qualified conversation and a minimum conversation count before recommending either purchase, and derives the target from the company's blended acquisition cost rather than from the sponsorship fee"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Names the offered attendee-list CSV as a walk-away signal rather than a differentiating benefit"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Refuses the attendee list as an ethics failure where the attendees never consented, not as a point to caveat or negotiate"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Lists the audience evidence to demand before pricing anything, covering role mix and seniority, company size or buying influence, geography and travel mix, prior editions and returning-sponsor rate, package line items, program balance between technical and sponsor content, and follow-up rights"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that a missing post-event report or missing demographic actuals is itself the answer rather than a neutral gap"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Scores the event against the company's own objective rather than against other events' prices"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes that a zero on ICP overlap ends the evaluation regardless of any total score"
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Records the decline with its reason so the event is not rebought next year on the strength of its headcount"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Reframes the prize category around the problem rather than the product, and rejects 'Best Use of the Tessellate API' as the category name"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States that judging criteria must be published before entries open and cannot be changed afterwards"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Brainstorms two or three activation options for the package already bought, names the trade-off in each, and recommends one before anything is purchased"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Deletes or defers the hands-on workshop because no curriculum exists and building one runs to roughly a quarter of preparation rather than seven weeks"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Names the compliance exposure specific to a prize track: prize promotions are regulated in some jurisdictions, criteria fix once entries open, and prize value can be reportable"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Defines the qualified-conversation bar and the named next step before the event and briefs every staffer on both"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Lists prizes the audience actually wants - cash, quality hardware, conference tickets, credits with no redemption maze, time with someone interesting - rather than product credits alone"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Sets follow-up inside 48 hours, personal and on the substance of each conversation, with no generic sequence and no automatic addition to a sales sequence"
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Sets a fully loaded cost and a threshold even though the fee is already spent, so the sponsorship can be judged at renewal"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Rejects badge scans as a measure of value and names the qualified conversation as the only unit that compares across a hackathon, a community day and a mega-conference"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Defines the qualified conversation as all three of: has the problem the product solves, holds or influences the decision, and agreed to a named next step"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Gives the conversation routing table - case-study material to marketing, feedback and beta candidates to product, bugs to engineering, partner interest to partnerships, candidates to recruiting, buyers to sales - rather than defaulting everything to sales"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recomputes the fully loaded cost including loaded staff time for four people across preparation, travel, on-site days and follow-up, not just the $22,000 fee"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Returns one of the three verdicts - renew, renegotiate or drop - rather than a maybe, and states what evidence each would need"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Fixes the process for the next sponsorship: a target cost per qualified conversation and a minimum conversation count set before signing"
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires one event-specific URL and one promo or credit code per event, never reused across events, and requires the post-event review to run within two weeks while the conversation log is still accurate"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Deletes both the workshop and the evening side event, on the grounds that a team of two travelling can staff exactly one activation"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Recommends the help-desk booth as the activation: technical staff who debug a stranger's code, a demo the attendee drives, and a win reachable in about five minutes"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Brainstorms two or three activation options with the trade-off in each, recommends one, and validates it before anything is bought"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States the activation efficiency ordering explicitly - help-desk booth ahead of prize track, ahead of side event, ahead of workshop"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that a volunteer-run community conference holds no attendee contact data and offers no badge scanning, so the scan-data request has no answer there"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Requires opt-in consent capture instead - an opt-in draw, a workshop signup, or a QR to the event landing page - and states that a smaller clean list beats a larger invented one"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Refuses to buy a main-stage slot at an event that runs a CFP, and names it as an ethics failure rather than a negotiating position"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Routes the stage ambition to the CFP process, referencing samber/developer-relations-skills@conference-cfp-submission"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Keeps the scholarship fund off the activation ranking, states it produces no conversations by design, and frames it as a deliberate awareness or employer-brand purchase"
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Notes the sponsor code of conduct a community conference asks a sponsor to sign"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Refuses the attendee-list ask outright as an ethics failure, not as a low-probability ask, and states these refusals are not gray areas to probe in negotiation"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Refuses to buy the CTO a main-stage slot at an event running a CFP, and refuses the keynote backdrop as buying a keynote's content or an implied speaking slot"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the asks compete for a finite budget - the number of things the organizer says yes to before the conversation turns - rather than for money"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Gives the efficiency ordering of asks with the previous edition's post-event report first, ahead of extra staff passes, lead-data delivery timing, placement on a specific high-traffic surface, a workshop or demo-theatre slot, permission to publish content, and a written attendance estimate with a remedy"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Justifies the post-event report leading: it costs nothing to ask, arrives before signature, and can still cancel the deal"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Overrides the default order for this case and makes the written attendance estimate with a remedy the first ask, because this is a first edition"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names what the default ordering starves - the attendance remedy and the workshop slot - rather than silently dropping them"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "States that the ordering sequences the asks and never shortens the list"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Checks whether the event series already publishes multi-event discounts before inventing the 25% bundle ask"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Notes that some event families fix multi-event discounts at published single-digit percentages rather than negotiating them"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names the conditions under which packages genuinely move: early commitment, multi-event or multi-year deals, off-peak editions, growing events, and bringing something the organizer wants such as a workshop, a mentor pool or a scholarship fund"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Does not lead the email with the 20% price cut as the primary ask"
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Produces an actual draft email carrying the surviving asks in the recommended order"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Refuses the single 'pipeline sourced from events' KPI applied across both events"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Sets the objective per event rather than per year, and says explicitly which event carries which objective"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Assigns the student hackathon an awareness or recruiting objective rather than pipeline, and the Chicago conference a pipeline objective"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that for the enterprise product the attendee is usually a champion rather than a signer, so the event's contribution is influence rather than source"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Makes the self-serve follow-up a product invitation rather than a sales sequence"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names what must not be claimed per objective, including attributed revenue for an awareness objective and activations from anyone who merely saw the logo for an adoption objective"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Requires one event-specific URL and one promo or credit code per event, never reused across events"
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Requires a pre-event baseline of each event's primary metric captured one to four weeks before that event"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Deletes the October workshop outright, on the grounds that a quarter of preparation does not fit inside a result date eight weeks away"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Promotes buying an add-on at the already-contracted February conference over committing to the new May event"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Promotes the meetup and community rungs, and the help-desk booth activation, specifically because of the near result date"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Separates the date the result must be visible from the contract deadline, and asks for both"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Checks which branded surfaces or add-ons are still available at the February event, noting that the best ones sell out months ahead"
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Sets a target cost per qualified conversation and a minimum conversation count for whatever is bought, before the money moves"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Reframes 'cost per lead' as cost per qualified conversation and defines the bar as all three of: has the problem, holds or influences the decision, and agreed to a named next step"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Rejects the $34,600 total as incomplete"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Adds loaded staff time for four people across preparation, travel, on-site days and follow-up, and shows how much it changes the total"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that staff time is the line most teams omit and the line that most often doubles the total"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Adds the remaining missing cost lines to the worksheet, including booth build, shipping and storage between editions"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Notes opportunity cost of the engineer-days even if it is not priced"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Derives the target cost per qualified conversation from the $1,100 blended acquisition cost and the 35% conversation-to-opportunity rate, not from the sponsorship fee"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Sets a minimum conversation count alongside the target cost per conversation, not one without the other"
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Fixes both numbers before signing rather than computing them after the event"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Refuses to treat the roughly 41% published events share as a target to cut to"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States what the figure is usable for - evidence that events historically dominate DevRel spend - and names its published source and year"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names the weaknesses of the figure explicitly: a small respondent count and reported shares summing to more than 100%"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Bases the event budget on the objective, the per-event threshold and the staffing ceiling rather than on an industry percentage"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Routes running their own conference to samber/developer-relations-skills@developer-meetup-program rather than answering it here"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Routes the open-source project sponsorship to samber/developer-relations-skills@oss-sponsors-brand-strategy rather than answering it here"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Routes the pillar-level budget split to samber/developer-relations-skills@devrel-budget-allocation"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Does not answer with a recommended percentage of DevRel budget for events"
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Keeps its own answer scoped to which events to sponsor, at what tier, with which activation and against what threshold"
+      }
+    ]
+  }
+}

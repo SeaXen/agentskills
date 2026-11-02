@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Diagnoses the blocker as procurement rather than awareness.",
+        "evidence": "\"It's an **approver gap**... this is not an awareness gap.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Escalates the trust posture before adding any awareness channel.",
+        "evidence": "Foundation ring item 3 (trust/procurement posture) precedes the Test ring's reference-wall/integration/list activities in the sequence.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ships the trust posture inside the first four weeks alongside the foundation ring, rather than placing it later in the sequence.",
+        "evidence": "'Foundation ring (weeks 1\u20136...)' includes item 3 trust posture, explicitly stretched from '4 weeks to 6' but still placed in the foundation stage, not the test ring.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Lists the minimum trust posture concretely, covering at least four of: signed releases, build provenance, a published SBOM, a SECURITY.md with a disclosure path, and an automated supply-chain score in CI.",
+        "evidence": "'SECURITY.md with a named contact and a disclosure SLA. Signed releases (Sigstore/cosign...). SBOM (SPDX or CycloneDX)... OpenSSF Scorecard wired into CI, target score above 7.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Defines legibility as an approver being able to verify the license, versioning promise, security contact, release rhythm and artifact signatures without asking anyone.",
+        "evidence": "'legibility (can an approver verify license, versioning, security contact and release rhythm without asking anyone)' \u2014 omits artifact signatures from the definition.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes the evaluator who finds the project from the approver who decides, and notes an artifact proxy or review board can block the install outright.",
+        "evidence": "\"It's an **approver gap** \u2014 a person who never used the product decides whether it's allowed in, and can block it without ever being wrong on the merits.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Applies the reference catch-22 named by Crossing the Chasm: pragmatic buyers want references from peers in their own segment, and none exist until someone adopts first.",
+        "evidence": "\"Geoffrey Moore's framing (Crossing the Chasm) is exact here: pragmatic buyers want peer references in their own segment, and right now harrowbase has zero visible references... every champion who tried is fighting from zero social proof.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends a visible wall of named adopters in the target segment, and treats making existing usage visible as a distribution move rather than a vanity one.",
+        "evidence": "'T1 \u2014 Reference wall. Get 1\u20132 named case studies... live on the site' and 'Growth in named companies on a \"used by\" page.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that one named company adopter beats a thousand anonymous downloads on this path.",
+        "evidence": "No such comparison statement appears anywhere in this transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends the downstream-first mix, or otherwise ranks families using the company-adoption value ordering rather than the efficiency ordering.",
+        "evidence": "No explicit 'downstream-first mix' or company-adoption-value ranking table is presented; downstream packaging is explicitly refused.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the March 2027 decision as a hard date that promotes fast-acting families and demotes anything needing a full release cycle to reach an install path.",
+        "evidence": "March 2027 and the metrics-freeze date are mentioned for scheduling, but no explicit statement connects the hard date to promoting fast-acting families over release-cycle-bound ones.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites the dependency-selection figures as stated preference rather than proven adoption drivers: maturity/stability 62%, usability 55%, documentation 51%, license 45%, active maintenance 44%.",
+        "evidence": "'found the highest-rated adoption factors are maturity/stability (62%)...' is cited as a finding without the caveat that these are stated preferences rather than proven adoption drivers.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend more documentation work as the fix, given the docs are already strong.",
+        "evidence": "'Docs are already strong, so this is a check, not a rebuild.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Diagnoses the blocker as procurement rather than awareness.",
+        "evidence": "'That pattern points at risk/procurement gates, not product gaps... distribution in 2027 means removing procurement friction, not increasing awareness.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Escalates the trust posture before adding any awareness channel.",
+        "evidence": "'Don't invest in Discord/Slack/community growth... Don't run launch pushes (HN, Product Hunt, content marketing) to chase more downloads or stars. Top-of-funnel isn't broken.' \u2014 trust packet is Phase 1, ahead of any awareness work.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Ships the trust posture inside the first four weeks alongside the foundation ring, rather than placing it later in the sequence.",
+        "evidence": "Phase 1 is explicitly scoped as 'Months 1\u20132, ~20h,' spanning beyond a four-week window, after a separate Month-1 diagnosis-confirmation step.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Lists the minimum trust posture concretely, covering at least four of: signed releases, build provenance, a published SBOM, a SECURITY.md with a disclosure path, and an automated supply-chain score in CI.",
+        "evidence": "Phase 1 lists SECURITY.md and SBOM only from the named set (plus governance note, procurement FAQ, license explainer, which are not in the rubric's list) \u2014 signed releases, build provenance, and an automated supply-chain CI score are absent.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Defines legibility as an approver being able to verify the license, versioning promise, security contact, release rhythm and artifact signatures without asking anyone.",
+        "evidence": "No unified 'legibility' definition combining these five elements appears in the transcript.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Distinguishes the evaluator who finds the project from the approver who decides, and notes an artifact proxy or review board can block the install outright.",
+        "evidence": "'An engineer can win a technical argument alone. They cannot win a security review, a vendor-risk questionnaire, or a \"who do we call\" objection alone \u2014 those get decided by people who never read the docs.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Applies the reference catch-22 named by Crossing the Chasm: pragmatic buyers want references from peers in their own segment, and none exist until someone adopts first.",
+        "evidence": "No explicit catch-22 framing or citation of Crossing the Chasm appears anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends a visible wall of named adopters in the target segment, and treats making existing usage visible as a distribution move rather than a vanity one.",
+        "evidence": "Phase 4 proposes only a single anonymized case-study piece, not a 'wall' of named adopters, and doesn't explicitly frame visibility itself as the distribution move.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that one named company adopter beats a thousand anonymous downloads on this path.",
+        "evidence": "Closest statement is 'Don't lead with downloads \u2014 they already prove individual product-market fit and don't need re-proving,' which does not make the explicit one-adopter-vs-thousand-downloads comparison.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends the downstream-first mix, or otherwise ranks families using the company-adoption value ordering rather than the efficiency ordering.",
+        "evidence": "No explicit naming or contrast of a 'downstream-first mix' or 'value ordering vs efficiency ordering' framework appears.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Names the March 2027 decision as a hard date that promotes fast-acting families and demotes anything needing a full release cycle to reach an install path.",
+        "evidence": "March 2027 is referenced as the funding conversation deadline, but the transcript never states it demotes items needing a full release cycle.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Cites the dependency-selection figures as stated preference rather than proven adoption drivers: maturity/stability 62%, usability 55%, documentation 51%, license 45%, active maintenance 44%.",
+        "evidence": "No such statistics (62%/55%/51%/45%/44%) are cited anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not recommend more documentation work as the fix, given the docs are already strong.",
+        "evidence": "'unprompted doc compliments mean top-of-funnel and individual activation already work. Don't spend the 20 hours/month there.'",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  }
+}

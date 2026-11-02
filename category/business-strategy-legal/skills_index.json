@@ -96,6 +96,14 @@
     "path": "category/business-strategy-legal/affinda"
   },
   {
+    "id": "aflpp",
+    "name": "aflpp",
+    "category": "business-strategy-legal",
+    "repository": "trailofbits-skills",
+    "description": "Sets up and runs AFL++ for multi-core fuzzing of C/C++ projects built with afl-clang-fast or afl-gcc-fast. Covers instrumentation modes, parallel main and secondary campaigns, persistent mode, corpus minimization, and crash triage. Use when scaling fuzzing across cores, fuzzing a mature C/C++ codebase, reading the afl-fuzz status screen, or moving on after libFuzzer has plateaued.",
+    "path": "category/business-strategy-legal/aflpp"
+  },
+  {
     "id": "agirails-agent-payments",
     "name": "agirails-agent-payments",
     "category": "business-strategy-legal",
@@ -118,6 +126,14 @@
     "repository": "refoundai-lenny-skills",
     "description": "Help users decide where to apply AI effectively, manage the transition from deterministic to probabilistic software, and build long-term defensibility through verticalization and proprietary data.",
     "path": "category/business-strategy-legal/ai-product-strategy"
+  },
+  {
+    "id": "aks-gpu-inference",
+    "name": "aks-gpu-inference",
+    "category": "business-strategy-legal",
+    "repository": "microsoft-azure-skills",
+    "description": "Diagnose Day-2 AKS GPU and KAITO incidents using profile-aware, read-only evidence. WHEN: 'Insufficient nvidia.com/gpu', GPU pod Pending, model-load OOM, DCGM/VRAM, KAITO Workspace not ready, or GPU autoscaling. DO NOT USE FOR: setup (airunway-aks-setup), non-GPU incidents (aks-troubleshooting), standalone VM quota (azure-quotas), or generic cost (cost-analysis or cost-optimization from the optional azure-cost plugin).",
+    "path": "category/business-strategy-legal/aks-gpu-inference"
   },
   {
     "id": "alkahest-user",
@@ -222,6 +238,14 @@
     "repository": "mukul975-anthropic-cybersecurity-skills",
     "description": "Parse Microsoft Outlook PST and OST files using libpff and pst-utils to extract message content, headers, attachments, deleted items, and MAPI metadata, including recovery of items from the Recoverable Items folder. Use when conducting email forensic investigations, legal e-discovery, or incident response that requires reconstructing communication patterns or tracing message routing from Outlook archives.",
     "path": "category/business-strategy-legal/analyzing-outlook-pst-for-email-forensics"
+  },
+  {
+    "id": "antfu-query",
+    "name": "antfu-query",
+    "category": "business-strategy-legal",
+    "repository": "antfu-skills",
+    "description": "Interview the user relentlessly about a plan, decision, or idea until reaching a shared understanding, using the agent's interactive question tool (not plain text). Use when the user wants to stress-test their thinking, clarify requirements, or says \"grill me\" or \"query me\".",
+    "path": "category/business-strategy-legal/antfu-query"
   },
   {
     "id": "apify-competitor-intelligence",
@@ -344,6 +368,14 @@
     "path": "category/business-strategy-legal/avalonia-zafiro-development"
   },
   {
+    "id": "aws-billing-and-cost-management",
+    "name": "aws-billing-and-cost-management",
+    "category": "business-strategy-legal",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Analyze AWS costs, find savings, manage budgets, evaluate Savings Plans and Reserved Instances, right-size EC2/Lambda/RDS/EBS with Compute Optimizer, look up service pricing, query CUR with Athena, detect cost anomalies, scope costs to billing views, and monitor Free Tier usage. Triggers on: AWS bill, cost analysis, reduce spend, savings plan, reserved instance, right-size, budget alert, cost optimization, pricing, free tier, cost anomaly, CUR, cost audit, billing view, billing view ARN.",
+    "path": "category/business-strategy-legal/aws-billing-and-cost-management"
+  },
+  {
     "id": "aws-cost-optimization",
     "name": "aws-cost-optimization",
     "category": "business-strategy-legal",
@@ -358,6 +390,22 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Comprehensive AWS cost analysis and optimization recommendations using AWS CLI and Cost Explorer",
     "path": "category/business-strategy-legal/aws-cost-optimizer"
+  },
+  {
+    "id": "azure-advisor",
+    "name": "azure-advisor",
+    "category": "business-strategy-legal",
+    "repository": "microsoft-azure-skills",
+    "description": "Use Azure Advisor recommendations. WHEN: \\\"show Advisor recommendations\\\", \\\"service retirements\\\", \\\"update recommendation status\\\". DO NOT USE FOR: fixes or remediation (use azure-advisor-actionability).",
+    "path": "category/business-strategy-legal/azure-advisor"
+  },
+  {
+    "id": "azure-advisor-actionability",
+    "name": "azure-advisor-actionability",
+    "category": "business-strategy-legal",
+    "repository": "microsoft-azure-skills",
+    "description": "Remediate Azure Advisor recommendations. WHEN: \\\"fix Advisor recommendation\\\".",
+    "path": "category/business-strategy-legal/azure-advisor-actionability"
   },
   {
     "id": "beautiful-prose",
@@ -540,7 +588,7 @@
     "name": "ce-setup",
     "category": "business-strategy-legal",
     "repository": "everyinc-compound-engineering-plugin",
-    "description": "Check Compound Engineering health and repo-local config, scaffold a Compound Pack with `pack:<id>`, or draft coding standards and review docs with `standards`.",
+    "description": "Check Compound Engineering health and repo-local config, scaffold a Compound Pack with `pack:<id>`, or draft or refresh coding standards and review docs with `standards`.",
     "path": "category/business-strategy-legal/ce-setup"
   },
   {
@@ -624,12 +672,36 @@
     "path": "category/business-strategy-legal/cloud-network-insights"
   },
   {
+    "id": "cloudfront",
+    "name": "cloudfront",
+    "category": "business-strategy-legal",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Configures Amazon CloudFront content delivery across six workflows: when to use CloudFront and how it fits with AWS WAF, Shield, CloudFront Functions, Lambda@Edge, Route 53, and origins (creating a distribution, caching, and Flat Rate Pricing (FRP) versus pay-as-you-go pricing); managing custom-domain TLS certificates (ACM in us-east-1); configuring multi-tenant distributions; protecting origins with origin access control (OAC), VPC origins, and origin mutual TLS (mTLS); securing content with signed URLs and cookies, geographic restrictions, viewer mutual TLS, and edge token validation; and observing traffic with standard and real-time logs. Applicable when the customer wants to put CloudFront in front of content, choose pricing, lock an origin, restrict who can view content, or analyze logs. Not applicable for the Route 53 DNS side of a CloudFront custom domain or failover between distributions (see the route53-cloudfront skill), or for pure-Route 53 DNS work (see the route53 skill).",
+    "path": "category/business-strategy-legal/cloudfront"
+  },
+  {
+    "id": "cmmc-readiness",
+    "name": "cmmc-readiness",
+    "category": "business-strategy-legal",
+    "repository": "alirezarezvani-claude-skills",
+    "description": "Use when a defense contractor or subcontractor is preparing for a CMMC 2.0 Level 2 self-assessment or C3PAO assessment, calculating or checking an SPRS score against NIST SP 800-171 Rev 2, deciding what can go on a POA&M, tracking POA&M closeout before Conditional status expires, or scoping assets, enclaves and cloud providers that handle CUI. Scores all 110 requirements with the 32 CFR 170.24 weights, blocks gaps that can never be deferred, and classifies the asset inventory into CMMC asset categories.",
+    "path": "category/business-strategy-legal/cmmc-readiness"
+  },
+  {
     "id": "cmux-billing",
     "name": "cmux-billing",
     "category": "business-strategy-legal",
     "repository": "manaflow-ai-cmux",
     "description": "Stripe checkout, pricing, subscription, Pro plan, webhook, and entitlement runbook for cmux billing work. Use when editing or debugging billing, pricing, Stripe Checkout, subscription recording, Pro plan status, webhooks, entitlement metadata, or pricing dev/prod tooling.",
     "path": "category/business-strategy-legal/cmux-billing"
+  },
+  {
+    "id": "code-maturity-assessor",
+    "name": "code-maturity-assessor",
+    "category": "business-strategy-legal",
+    "repository": "trailofbits-skills",
+    "description": "Systematic code maturity assessment using Trail of Bits' 9-category framework. Analyzes codebase for arithmetic safety, auditing practices, access controls, complexity, decentralization, documentation, MEV risks, low-level code, and testing, then produces a scorecard with evidence-based ratings and a priority-ordered roadmap. Use when assessing or scoring the maturity of a smart contract or blockchain codebase, producing a maturity scorecard or evaluation, or judging how mature, well-tested, or well-documented such a project is against a rubric.",
+    "path": "category/business-strategy-legal/code-maturity-assessor"
   },
   {
     "id": "cold-outbound-sequencer",
@@ -694,6 +766,14 @@
     "repository": "nexscope-ai-ecommerce-skills",
     "description": "Set up competitor price tracking and monitoring workflows. Track price changes, detect promotions, analyze pricing patterns, and get alerts for competitive price movements.",
     "path": "category/business-strategy-legal/competitor-price-tracker"
+  },
+  {
+    "id": "compute-sanitizer-diagnose-cuda-bugs",
+    "name": "compute-sanitizer-diagnose-cuda-bugs",
+    "category": "business-strategy-legal",
+    "repository": "nvidia-skills",
+    "description": "Detect and diagnose CUDA correctness bugs with NVIDIA Compute Sanitizer. Routes GPU memory errors, shared-memory data races, uninitialized-memory reads, and synchronization/barrier bugs to the right sub-tool (memcheck, racecheck, initcheck, synccheck) and explains how to build, run, and read the report. Use when debugging illegal memory access, out-of-bounds, misaligned access, leaks, WAW/WAR/RAW races, __shared__ hazards, uninitialized reads, garbage results, hangs, divergent __syncthreads/__syncwarp, or cuda::barrier / wgmma issues. Do NOT use for host/CPU-side bugs (use valgrind or AddressSanitizer) or global-memory data races (out of scope). Trigger keywords - compute-sanitizer, memcheck, racecheck, initcheck, synccheck, CUDA memory error, OOB, race condition, uninitialized memory, __syncthreads, barrier, deadlock.",
+    "path": "category/business-strategy-legal/compute-sanitizer-diagnose-cuda-bugs"
   },
   {
     "id": "conciseness-editing-guide",
@@ -808,6 +888,14 @@
     "path": "category/business-strategy-legal/corporate-registration-consulting"
   },
   {
+    "id": "cost-governance",
+    "name": "cost-governance",
+    "category": "business-strategy-legal",
+    "repository": "microsoft-azure-skills",
+    "description": "Govern Azure costs with budgets, alerts, tags, and policy restrictions. WHEN: \\\"Azure budget health\\\", \\\"configured budget overrun\\\", \\\"list Azure budgets\\\", \\\"create Azure budget\\\", \\\"budget alerts\\\", \\\"budget coverage\\\", \\\"missing CostCenter tags\\\", \\\"allowed VM SKUs\\\", \\\"allowed Azure regions\\\", \\\"would this SKU be denied\\\", \\\"cost guardrails\\\". DO NOT USE FOR: planning-target forecasts, bill investigations, pricing, rightsizing, or commitments.",
+    "path": "category/business-strategy-legal/cost-governance"
+  },
+  {
     "id": "court-payment-order-assistant",
     "name": "court-payment-order-assistant",
     "category": "business-strategy-legal",
@@ -838,6 +926,14 @@
     "repository": "cursor-plugins",
     "description": "Build a personalized learning roadmap with milestones and practice checkpoints",
     "path": "category/business-strategy-legal/create-learning-path"
+  },
+  {
+    "id": "create-prd",
+    "name": "create-prd",
+    "category": "business-strategy-legal",
+    "repository": "phuryn-pm-skills",
+    "description": "Create a lean, decision-ready Product Requirements Document with an 8-section template: summary, contacts, background, objective, market segments, value propositions (6-part JTBD template), solution, and release. Lean by default (about one to two pages), with a fuller spec on request. Use when writing a PRD, documenting product requirements, preparing a feature spec, or reviewing an existing PRD.",
+    "path": "category/business-strategy-legal/create-prd"
   },
   {
     "id": "creator-content-auditor",
@@ -984,6 +1080,14 @@
     "path": "category/business-strategy-legal/design-review"
   },
   {
+    "id": "detect",
+    "name": "detect",
+    "category": "business-strategy-legal",
+    "repository": "launchdarkly-ai-tooling",
+    "description": "Detect repository stack for LaunchDarkly SDK onboarding: languages, frameworks, package managers, monorepo targets, entrypoints, existing LD usage. Nested under sdk-install; next is plan.",
+    "path": "category/business-strategy-legal/detect"
+  },
+  {
     "id": "dev-event-career",
     "name": "dev-event-career",
     "category": "business-strategy-legal",
@@ -1084,7 +1188,7 @@
     "name": "dfam-check",
     "category": "business-strategy-legal",
     "repository": "earthtojake-text-to-cad",
-    "description": "Measure mesh files against Design for Additive Manufacturing (DfAM) rules and report printability findings per process (FDM, SLS, SLA/DLP, metal PBF, MJF). Use when the user asks whether a part is printable, wants overhang/wall-thickness/support analysis of an `.stl`, `.obj`, `.ply`, or `.3mf` mesh, wants a build-orientation recommendation, or wants DfAM redesign guidance before slicing with `$gcode` or regenerating geometry with `$cad`.",
+    "description": "Measure mesh files against Design for Additive Manufacturing (DfAM) rules and report printability findings per process (FDM, SLS, SLA/DLP, metal PBF, MJF). Use when the user asks whether a part is printable, wants overhang/wall-thickness/support analysis of an `.stl`, `.obj`, `.ply`, or `.3mf` mesh, wants a build-orientation recommendation, or wants DfAM redesign guidance before slicing or regenerating geometry. Measures meshes; it does not slice, print or edit the model.",
     "path": "category/business-strategy-legal/dfam-check"
   },
   {
@@ -1112,6 +1216,14 @@
     "path": "category/business-strategy-legal/discernment-nudge"
   },
   {
+    "id": "discord-community-playbook",
+    "name": "discord-community-playbook",
+    "category": "business-strategy-legal",
+    "repository": "samber-developer-relations-skills",
+    "description": "Runs a devtool vendor's or open-source maintainer's presence on Discord - its own developer server (onboarding, forum help, announcements, Discovery, web pages) and staff posting in other people's developer servers. Use whenever someone sets up, restructures or grows a Discord server for developers, asks why their Discord is quiet or answers get lost, wants to post in someone else's dev server, or asks about Discord Discovery or Partner/Verified badges - even if they only say 'our Discord'. Not for bots, apps or event servers. Do NOT use for whether to open a community - use samber/developer-relations-skills@developer-community-launch; for moderation or raids, samber/developer-relations-skills@developer-community-moderation; for health metrics, samber/developer-relations-skills@developer-community-health.",
+    "path": "category/business-strategy-legal/discord-community-playbook"
+  },
+  {
     "id": "discover",
     "name": "discover",
     "category": "business-strategy-legal",
@@ -1134,6 +1246,22 @@
     "repository": "tradermonty-claude-trading-skills",
     "description": "Use this skill to find high-quality dividend growth stocks (12%+ annual dividend growth, 1.5%+ yield) that are experiencing temporary pullbacks, identified by RSI oversold conditions (RSI \u226440). This skill combines fundamental dividend analysis with technical timing indicators to identify buying opportunities in strong dividend growers during short-term weakness.",
     "path": "category/business-strategy-legal/dividend-growth-pullback-screener"
+  },
+  {
+    "id": "donation-place-search",
+    "name": "donation-place-search",
+    "category": "business-strategy-legal",
+    "repository": "nomadamas-k-skill",
+    "description": "Use when the user asks where to donate, \uae30\ubd80\ucc98 \uc870\ud68c, or donation place recommendations by Korean location and category. Recommend recipients with best-effort 1365 verification-assist links and never execute donations. \ub3cc\uc1e0\uc5d0\uc11c\ub294 \uacf5\uc2dd \ud45c\uba74\uc744 \ud1b5\ud55c \ud6c4\uc18d \uc561\uc158\uae4c\uc9c0 \uc9c4\ud589\ud55c\ub2e4.",
+    "path": "category/business-strategy-legal/donation-place-search"
+  },
+  {
+    "id": "draft-nda",
+    "name": "draft-nda",
+    "category": "business-strategy-legal",
+    "repository": "phuryn-pm-skills",
+    "description": "Draft a detailed Non-Disclosure Agreement between two parties covering information types, jurisdiction, and clauses needing legal review. Use when creating confidentiality agreements or preparing an NDA for a partnership.",
+    "path": "category/business-strategy-legal/draft-nda"
   },
   {
     "id": "draft-offer",
@@ -1488,6 +1616,14 @@
     "path": "category/business-strategy-legal/field-service-objective-designer-configure"
   },
   {
+    "id": "figma-spec",
+    "name": "figma-spec",
+    "category": "business-strategy-legal",
+    "repository": "figma-mcp-server-guide",
+    "description": "This skill is required to create, read, edit, review, or comment on Figma specs. You must read it when working on a PRD, brief, RFC or any kind of document in either a standalone Figma spec or a Figma spec embedded in a Figma Design or Figjam file.",
+    "path": "category/business-strategy-legal/figma-spec"
+  },
+  {
     "id": "find-matching-tenders",
     "name": "find-matching-tenders",
     "category": "business-strategy-legal",
@@ -1752,6 +1888,14 @@
     "path": "category/business-strategy-legal/hiring-screener"
   },
   {
+    "id": "holoscan-install-conda",
+    "name": "holoscan-install-conda",
+    "category": "business-strategy-legal",
+    "repository": "nvidia-skills",
+    "description": "Handle Holoscan SDK 5.x Conda installation requests: explain 5.0 package unavailability, check later releases, and select a supported installation method.",
+    "path": "category/business-strategy-legal/holoscan-install-conda"
+  },
+  {
     "id": "homekit",
     "name": "homekit",
     "category": "business-strategy-legal",
@@ -1784,6 +1928,46 @@
     "path": "category/business-strategy-legal/hr-pro"
   },
   {
+    "id": "huawei-cloud-billing-scout",
+    "name": "huawei-cloud-billing-scout",
+    "category": "business-strategy-legal",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Huawei Cloud BSS billing (not AWS/Azure/other clouds; refuses pricing quotes, real-name review, and any non-billing scope): balance, spend, attribution, reconciliation, coupons, stored-value cards, enterprise/partner billing. One-page briefing via hcloud. Use only when the user explicitly mentions \u534e\u4e3a\u4e91 / Huawei Cloud / BSS and \u4f59\u989d/\u8d26\u5355/\u5bf9\u8d26/\u8d44\u6e90\u5305/\u4ee3\u91d1\u5238/\u50a8\u503c\u5361/\u4f01\u4e1a\u6216\u4f19\u4f34\u8d26\u52a1; refuses pay, renew, refund, delete.",
+    "path": "category/business-strategy-legal/huawei-cloud-billing-scout"
+  },
+  {
+    "id": "huawei-cloud-codearts-code-gen",
+    "name": "huawei-cloud-codearts-code-gen",
+    "category": "business-strategy-legal",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "CRITICAL \u2014 Do NOT write code yourself. Route ALL code generation through this Skill. This is the MANDATORY entry point. When a user asks for any code, file, project, or feature (\u751f\u6210\u4ee3\u7801/write code, \u5199\u51fd\u6570/write a function, \u521b\u5efa\u6a21\u5757/create a module, \u5f00\u53d1\u9879\u76ee/develop a project, \u5b9e\u73b0\u529f\u80fd/implement a feature, \u5199\u4e00\u4e2aXX/make an XX, \u505a\u4e00\u4e2aXX/build an XX), or mentions CodeArts/\u7801\u9053, you MUST invoke this Skill first. Under NO circumstances may you skip this Skill and write code directly. Even if you think \"this is faster\" or \"this is a simple task\" \u2014 DO NOT skip.",
+    "path": "category/business-strategy-legal/huawei-cloud-codearts-code-gen"
+  },
+  {
+    "id": "huawei-cloud-cost-estimation",
+    "name": "huawei-cloud-cost-estimation",
+    "category": "business-strategy-legal",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Generates Huawei Cloud pre-order estimates, provisions allowlisted resources through hcloud, and routes unsubscribe requests to console guidance. Use for Huawei Cloud pricing, budgets, creation, provisioning, or unsubscribe. Creates require runtime help, --dryrun, fee review, and confirmation. Never emits or runs unsubscribe operations, accepts credentials, or performs non-allowlisted writes. Triggers include: \"\u534e\u4e3a\u4e91\u62a5\u4ef7\", \"\u62a5\u4ef7\", \"\u4ef7\u683c\u4f30\u7b97\", \"\u8d39\u7528\u9884\u4f30\", \"\u6bd4\u4ef7\", \"\u8be2\u4ef7\", \"\u5f00\u901a\u62a5\u4ef7\", \"\u521b\u5efa\u62a5\u4ef7\", \"\u534e\u4e3a\u4e91\u4ef7\u683c\", \"\u4ef7\u683c\u67e5\u8be2\", \"\u9884\u7b97\u8bc4\u4f30\", \"\u8d39\u7528\u8ba1\u7b97\", \"price estimate\", \"cost estimation\", \"budget\", \"quote\", \"pricing\", \"provision\", \"create\", \"purchase\", \"\u4ef7\u683c\", \"\u8d39\u7528\", \"\u534e\u4e3a\u4e91\u591a\u5c11\u94b1\".",
+    "path": "category/business-strategy-legal/huawei-cloud-cost-estimation"
+  },
+  {
+    "id": "huawei-cloud-modelarts-resource-pool-management",
+    "name": "huawei-cloud-modelarts-resource-pool-management",
+    "category": "business-strategy-legal",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Manage Huawei Cloud ModelArts dedicated resource pools (\u4e13\u5c5e\u8d44\u6e90\u6c60) and node pools through full lifecycle operations via hcloud CLI. Covers 53 operations across 10 functional domains: resource pool management, pool nodes, node pool management, network resources, tag management, plugin management, jobs/tasks, scheduled events, OS configuration, and resource flavor/event queries. Includes BSS on-demand pricing inquiry before chargeable operations (create/expand) to inform users of costs. All write operations require user confirmation.\\nTriggers include: \\\"\u8d44\u6e90\u6c60\\\", \\\"\u4e13\u5c5e\u8d44\u6e90\u6c60\\\", \\\"resource pool\\\", \\\"\u521b\u5efa\u8d44\u6e90\u6c60\\\", \\\"\u67e5\u8be2\u8d44\u6e90\u6c60\\\", \\\"\u5220\u9664\u8d44\u6e90\u6c60\\\", \\\"\u66f4\u65b0\u8d44\u6e90\u6c60\\\", \\\"\u8d44\u6e90\u6c60\u76d1\u63a7\\\", \\\"\u8d44\u6e90\u6c60\u8282\u70b9\\\", \\\"pool node\\\", \\\"\u8282\u70b9\u6c60\\\", \\\"node pool\\\", \\\"\u8d44\u6e90\u6c60\u7f51\u7edc\\\", \\\"pool network\\\", \\\"\u8d44\u6e90\u6c60\u6807\u7b7e\\\", \\\"pool tags\\\", \\\"\u63d2\u4ef6\\\", \\\"plugin\\\", \\\"\u5de5\u4f5c\u8d1f\u8f7d\\\", \\\"workload\\\", \\\"\u5b9a\u65f6\u4e8b\u4ef6\\\", \\\"scheduled event\\\", \\\"OS\u914d\u7f6e\\\", \\\"\u89c4\u683c\u5217\u8868\\\", \\\"ModelArts resource pool\\\", \\\"manage resource pool\\\", \\\"\u8be2\u4ef7\\\", \\\"pricing\\\", \\\"\u6309\u9700\u4ef7\u683c\\\", \\\"\u4ef7\u683c\u67e5\u8be2\\\".\\n",
+    "path": "category/business-strategy-legal/huawei-cloud-modelarts-resource-pool-management"
+  },
+  {
+    "id": "huawei-cloud-ucs-cluster-onboarding-manager",
+    "name": "huawei-cloud-ucs-cluster-onboarding-manager",
+    "category": "business-strategy-legal",
+    "repository": "huaweicloud-huaweicloud-skills",
+    "description": "Huawei Cloud UCS cluster onboarding, lifecycle, and fleet management via hcloud CLI. Register/query/remove clusters, manage fleet groups, obtain kubeconfig, check quotas. Trigger: \"UCS cluster onboarding\", \"UCS \u96c6\u7fa4\u7eb3\u7ba1\", \"UCS fleet\", \"UCS \u8230\u961f\", \"UCS kubeconfig\", \"UCS federation\", \"UCS \u8054\u90a6\", \"UCS \u914d\u989d\", \"cluster lifecycle\", \"\u7eb3\u7ba1\u96c6\u7fa4\", \"\u96c6\u7fa4\u7ba1\u7406",
+    "path": "category/business-strategy-legal/huawei-cloud-ucs-cluster-onboarding-manager"
+  },
+  {
     "id": "huggingface-zerogpu",
     "name": "huggingface-zerogpu",
     "category": "business-strategy-legal",
@@ -1798,6 +1982,14 @@
     "repository": "sickn33-agentic-awesome-skills",
     "description": "Convert Hugo documentation sites and Hugo-managed content into standard Markdown.",
     "path": "category/business-strategy-legal/hugo-to-markdown"
+  },
+  {
+    "id": "i4h-workflow-scene-edit",
+    "name": "i4h-workflow-scene-edit",
+    "category": "business-strategy-legal",
+    "repository": "nvidia-skills",
+    "description": "Edit an existing workflow Scene or task contract. Use for assets, layout, cameras, randomization, task text, or success rules; do not use to create a new workflow.",
+    "path": "category/business-strategy-legal/i4h-workflow-scene-edit"
   },
   {
     "id": "illustration-line-interior",
@@ -1838,6 +2030,14 @@
     "repository": "wondelai-skills",
     "description": "Build empowered product teams using discovery and delivery dual-track. Use when the user mentions \"product discovery\", \"empowered teams\", \"feature factory\", \"opportunity assessment\", \"product vision\", \"product strategy\", \"what should we build\", or \"our roadmap is just a feature list\". Also trigger when restructuring teams away from output-driven models, or deciding what to build next based on outcomes. Covers discovery techniques, team structure, opportunity assessment, vision/strategy, and continuous delivery. For customer interviews, see mom-test. For ongoing discovery systems, see continuous-discovery.",
     "path": "category/business-strategy-legal/inspired-product"
+  },
+  {
+    "id": "interpreting-culture-index",
+    "name": "interpreting-culture-index",
+    "category": "business-strategy-legal",
+    "repository": "trailofbits-skills",
+    "description": "Interprets Culture Index (CI) surveys, behavioral profiles, and personality assessment data. Supports individual profile interpretation, team composition analysis (gas/brake/glue), burnout detection, profile comparison, hiring profiles, manager coaching, interview transcript analysis for trait prediction, candidate debrief, onboarding planning, and conflict mediation. Accepts extracted JSON or PDF input via OpenCV extraction script. Use when the user shares a Culture Index PDF or JSON profile, asks what someone's CI traits mean, compares Culture Index profiles across a team or against a hiring profile, or asks about burnout risk from Survey-versus-Job gaps.",
+    "path": "category/business-strategy-legal/interpreting-culture-index"
   },
   {
     "id": "interview-coach",
@@ -1904,6 +2104,14 @@
     "path": "category/business-strategy-legal/interviewing-evaluating-candidates"
   },
   {
+    "id": "iros-registry-automation",
+    "name": "iros-registry-automation",
+    "category": "business-strategy-legal",
+    "repository": "nomadamas-k-skill",
+    "description": "\uc778\ud130\ub137\ub4f1\uae30\uc18c(IROS)\uc5d0\uc11c \ubc95\uc778/\ubd80\ub3d9\uc0b0 \ub4f1\uae30\ubd80\ub4f1\ubcf8(\ub4f1\uae30\uc0ac\ud56d\uc99d\uba85\uc11c) \ubc1c\uae09\uc744 \uc900\ube44\ud558\uace0, \uc0ac\uc6a9\uc790\uac00 \uc9c1\uc811 \ub85c\uadf8\uc778\u00b7\uacb0\uc81c\ud55c \ube0c\ub77c\uc6b0\uc800 \ud750\ub984 \uc548\uc5d0\uc11c \uc7a5\ubc14\uad6c\ub2c8\u00b7\uc5f4\ub78c\u00b7\uc800\uc7a5\uc744 \uc548\uc804\ud558\uac8c \ubcf4\uc870\ud55c\ub2e4. \ub3cc\uc1e0\uc5d0\uc11c\ub294 \uac00\ub2a5\ud55c \uac00\uc7a5 \uac00\uae4c\uc6b4 \ud569\ubc95\uc801 \uacf5\uc2dd \ub2e8\uacc4\uae4c\uc9c0 \uc900\ube44\ud55c\ub2e4.",
+    "path": "category/business-strategy-legal/iros-registry-automation"
+  },
+  {
     "id": "iso-standards-readiness",
     "name": "iso-standards-readiness",
     "category": "business-strategy-legal",
@@ -1928,6 +2136,14 @@
     "path": "category/business-strategy-legal/jobs-to-be-done-analyst"
   },
   {
+    "id": "k-skill-cleaner",
+    "name": "k-skill-cleaner",
+    "category": "business-strategy-legal",
+    "repository": "nomadamas-k-skill",
+    "description": "Interview the user and inspect coding-agent skill trigger counts to recommend unused K-skills for removal.",
+    "path": "category/business-strategy-legal/k-skill-cleaner"
+  },
+  {
     "id": "kalshi",
     "name": "kalshi",
     "category": "business-strategy-legal",
@@ -1942,6 +2158,30 @@
     "repository": "internet-court-internet-court-skill",
     "description": "Upload one Kleros-ecosystem file per paid request to IPFS through the Kleros x402 gateway for $0.01 USDC on Base mainnet. Use for dispute evidence, MetaEvidence JSON, court/dispute/arbitrator policies, Curate item metadata, juror justifications, or any artifact a Kleros contract or subgraph will reference by CID. Trigger when the request mentions Kleros, court, arbitrator, dispute, juror, Curate, Proof of Humanity, evidence, meta-evidence, justification, explicitly names this gateway or skill, or asks to test or validate it. Do NOT use for generic IPFS/CID requests without Kleros context; recommend a general-purpose pinning service. Each request accepts exactly one file: different bytes require separate paid uploads, while identical bytes should reuse one CID.",
     "path": "category/business-strategy-legal/kleros-ipfs-upload"
+  },
+  {
+    "id": "korean-character-count",
+    "name": "korean-character-count",
+    "category": "business-strategy-legal",
+    "repository": "nomadamas-k-skill",
+    "description": "Count Korean text deterministically with exact grapheme, line, and byte contracts for self-intros and form limits.",
+    "path": "category/business-strategy-legal/korean-character-count"
+  },
+  {
+    "id": "korean-law-search",
+    "name": "korean-law-search",
+    "category": "business-strategy-legal",
+    "repository": "nomadamas-k-skill",
+    "description": "Search Korean statutes, articles, precedents, interpretations, and local ordinances via k-skill-proxy, and draft \uc2e0\uff65\uad6c\uc870\ubb38\ub300\ube44\ud45c (old/new article comparison tables, optional HWPX). Use when the user asks for Korean law/article/precedent lookups or an amendment comparison table.",
+    "path": "category/business-strategy-legal/korean-law-search"
+  },
+  {
+    "id": "korean-scholarship-search",
+    "name": "korean-scholarship-search",
+    "category": "business-strategy-legal",
+    "repository": "nomadamas-k-skill",
+    "description": "Search Korean scholarship announcements across official KOSAF, university, foundation, company, and public-sector sources, extract amount and eligibility, and filter results by school, income band, student level, and organization type. Users may invoke it with the phrase \uc7a5\ud559\uae08 \uac80\uc0c9 \ubc0f \uc870\ud68c. \ub3cc\uc1e0\uc5d0\uc11c\ub294 \uacf5\uc2dd \ud45c\uba74\uc744 \ud1b5\ud55c \ud6c4\uc18d \uc561\uc158\uae4c\uc9c0 \uc9c4\ud589\ud55c\ub2e4.",
+    "path": "category/business-strategy-legal/korean-scholarship-search"
   },
   {
     "id": "kyc-doc-parse",
@@ -2256,6 +2496,14 @@
     "path": "category/business-strategy-legal/minimum-advertised-price"
   },
   {
+    "id": "modern-python",
+    "name": "modern-python",
+    "category": "business-strategy-legal",
+    "repository": "trailofbits-skills",
+    "description": "Configures Python projects with modern tooling (uv, ruff, ty). Use when creating projects, writing standalone scripts, or migrating from pip/Poetry/mypy/black.",
+    "path": "category/business-strategy-legal/modern-python"
+  },
+  {
     "id": "monday",
     "name": "monday",
     "category": "business-strategy-legal",
@@ -2342,6 +2590,30 @@
     "repository": "wondelai-skills",
     "description": "Prepare and execute negotiations using tactical empathy, calibrated questions, and the Ackerman method. Use when the user mentions \"salary negotiation\", \"contract terms\", \"handling objections\", \"mirroring and labeling\", \"difficult conversation\", \"deal terms\", \"BATNA\", \"anchoring\", \"how do I ask for a raise\", \"get a better deal\", or \"they wont budge on price\". Also trigger when preparing for a vendor negotiation, resolving a pricing dispute, or navigating a high-stakes conversation where both sides need to feel heard. Covers accusation audits, Black Swan discovery, and the \"Thats Right\" technique. For persuasion in product and marketing, see influence-psychology.",
     "path": "category/business-strategy-legal/negotiation"
+  },
+  {
+    "id": "nemo-fabric-build-adapter",
+    "name": "nemo-fabric-build-adapter",
+    "category": "business-strategy-legal",
+    "repository": "nvidia-skills",
+    "description": "Build, migrate, review, and maintain third-party NVIDIA NeMo Fabric adapters against the public adapter contract. Use when creating adapter or target descriptors, mapping AgentConfig into an agent harness or custom-agent runtime, implementing start/invoke/stop, declaring schemas and capabilities, packaging discovery metadata, or assessing adapter conformance. Do not use for consumer applications that only call the NVIDIA NeMo Fabric SDK.",
+    "path": "category/business-strategy-legal/nemo-fabric-build-adapter"
+  },
+  {
+    "id": "nemo-mbridge-perf-memory-tuning",
+    "name": "nemo-mbridge-perf-memory-tuning",
+    "category": "business-strategy-legal",
+    "repository": "nvidia-skills",
+    "description": "Techniques for reducing peak GPU memory in Megatron Bridge \u2014 expandable segments, PEFT + SP input re-gather, parallelism resizing, activation recompute, CPU offloading constraints, and common OOM fixes.",
+    "path": "category/business-strategy-legal/nemo-mbridge-perf-memory-tuning"
+  },
+  {
+    "id": "nemo-mbridge-perf-moe-optimization-workflow",
+    "name": "nemo-mbridge-perf-moe-optimization-workflow",
+    "category": "business-strategy-legal",
+    "repository": "nvidia-skills",
+    "description": "Evidence-gated workflow for MoE performance optimization in Megatron Bridge. Covers measurement contracts, the Three Walls framework, parallel folding, profiling, matched A/B tuning, and final validation.",
+    "path": "category/business-strategy-legal/nemo-mbridge-perf-moe-optimization-workflow"
   },
   {
     "id": "newproject",
@@ -2544,6 +2816,14 @@
     "path": "category/business-strategy-legal/oss-issue-triage"
   },
   {
+    "id": "outcome-roadmap",
+    "name": "outcome-roadmap",
+    "category": "business-strategy-legal",
+    "repository": "phuryn-pm-skills",
+    "description": "Transform an output-focused roadmap into an outcome-focused one that communicates strategic intent. Rewrites initiatives as outcome statements reflecting user and business impacts. Use when shifting to outcome roadmaps, making a roadmap more strategic, or rewriting feature lists as outcomes.",
+    "path": "category/business-strategy-legal/outcome-roadmap"
+  },
+  {
     "id": "pact-foundation",
     "name": "pact-foundation",
     "category": "business-strategy-legal",
@@ -2704,6 +2984,14 @@
     "path": "category/business-strategy-legal/pestel-analysis"
   },
   {
+    "id": "pestle-analysis",
+    "name": "pestle-analysis",
+    "category": "business-strategy-legal",
+    "repository": "phuryn-pm-skills",
+    "description": "Perform a PESTLE analysis covering Political, Economic, Social, Technological, Legal, and Environmental factors. Use when assessing the macro environment, doing strategic planning, or evaluating external factors affecting your business.",
+    "path": "category/business-strategy-legal/pestle-analysis"
+  },
+  {
     "id": "php-development",
     "name": "php-development",
     "category": "business-strategy-legal",
@@ -2744,6 +3032,14 @@
     "path": "category/business-strategy-legal/prd-development"
   },
   {
+    "id": "pre-mortem",
+    "name": "pre-mortem",
+    "category": "business-strategy-legal",
+    "repository": "phuryn-pm-skills",
+    "description": "Run a pre-mortem risk analysis on a PRD or launch plan. Categorizes risks as Tigers (real problems), Paper Tigers (overblown concerns), and Elephants (unspoken worries), then classifies as launch-blocking, fast-follow, or track. Use when preparing for launch, stress-testing a product plan, or identifying what could go wrong.",
+    "path": "category/business-strategy-legal/pre-mortem"
+  },
+  {
     "id": "price-psychology-strategist",
     "name": "price-psychology-strategist",
     "category": "business-strategy-legal",
@@ -2774,6 +3070,14 @@
     "repository": "brycewang-stanford-auto-empirical-research-skills",
     "description": "Behavioral economics in pricing strategies and consumer decisions",
     "path": "category/business-strategy-legal/pricing-psychology-guide"
+  },
+  {
+    "id": "prioritize-features",
+    "name": "prioritize-features",
+    "category": "business-strategy-legal",
+    "repository": "phuryn-pm-skills",
+    "description": "Prioritize a backlog of feature ideas based on impact, effort, risk, and strategic alignment with top 5 recommendations. Use when prioritizing a feature backlog, making scope decisions, or ranking product ideas.",
+    "path": "category/business-strategy-legal/prioritize-features"
   },
   {
     "id": "procurement-optimizer",
@@ -2944,6 +3248,14 @@
     "path": "category/business-strategy-legal/refocusing"
   },
   {
+    "id": "release-notes",
+    "name": "release-notes",
+    "category": "business-strategy-legal",
+    "repository": "phuryn-pm-skills",
+    "description": "Generate user-facing release notes from tickets, PRDs, or changelogs. Creates clear, engaging summaries organized by category (new features, improvements, fixes). Use when writing release notes, creating changelogs, announcing product updates, or summarizing what shipped.",
+    "path": "category/business-strategy-legal/release-notes"
+  },
+  {
     "id": "replica-diff",
     "name": "replica-diff",
     "category": "business-strategy-legal",
@@ -3000,6 +3312,14 @@
     "path": "category/business-strategy-legal/research-synthesize"
   },
   {
+    "id": "resilience-hub-failure-mode-assessment",
+    "name": "resilience-hub-failure-mode-assessment",
+    "category": "business-strategy-legal",
+    "repository": "aws-agent-toolkit-for-aws",
+    "description": "Runs and interprets AWS Resilience Hub v2 failure mode assessments. Covers starting assessments, understanding findings (severity, categories, recommendations), triaging by achievability, working with AI-generated service functions, and resolving findings. Applies when the user wants to run an assessment, review findings, or understand failure modes, or has a specific finding and asks how to resolve, remediate, or fix it. Does not apply to initial setup (use resilience-hub-getting-started) or FIS experiments.",
+    "path": "category/business-strategy-legal/resilience-hub-failure-mode-assessment"
+  },
+  {
     "id": "resumable-implementation-contracts",
     "name": "resumable-implementation-contracts",
     "category": "business-strategy-legal",
@@ -3014,6 +3334,14 @@
     "repository": "appeeky-aso-skills",
     "description": "When the user wants to reduce churn, improve user engagement, or increase lifetime value. Also use when the user mentions \"retention\", \"churn\", \"users leaving\", \"engagement\", \"DAU/MAU\", \"user activation\", or \"why are users uninstalling\". For onboarding-specific issues, see app-launch. For monetization, see monetization-strategy.",
     "path": "category/business-strategy-legal/retention-optimization"
+  },
+  {
+    "id": "reverse-engineer-marketing",
+    "name": "reverse-engineer-marketing",
+    "category": "business-strategy-legal",
+    "repository": "coreyhaines31-marketingskills",
+    "description": "When the user wants to reverse engineer how another company grew and copy what worked. Also use when the user mentions 'reverse engineer,' 'how did X grow,' 'how does X get customers,' 'growth teardown,' 'marketing teardown,' 'GTM teardown,' 'growth blueprint,' 'what is X doing for marketing,' 'what made X take off,' 'copy X's playbook,' 'X's distribution strategy,' 'what content works for X,' 'funnel hack,' 'map their funnel,' or 'watch what X is doing.' Builds a dated log of a company's moves against its traffic curve from public data, sign-ups and demos, team interviews, and hidden signals (DNS, certificate logs, archives, sponsorships), compares it with the user's own data, and turns what lined up with growth into plays routed to the skill that runs each one. For a snapshot profile of a competitor's positioning, pricing, and features, see competitor-profiling. For comparison pages, see competitors. For why a single post went viral, see social.",
+    "path": "category/business-strategy-legal/reverse-engineer-marketing"
   },
   {
     "id": "review-contract",
@@ -3088,6 +3416,14 @@
     "path": "category/business-strategy-legal/roadmap-update"
   },
   {
+    "id": "rtvi-cv-scaffold-vss-service",
+    "name": "rtvi-cv-scaffold-vss-service",
+    "category": "business-strategy-legal",
+    "repository": "nvidia-skills",
+    "description": "Scaffold a standalone RTVI CV microservice that plugs into VSS Search and Alerts profiles via Kafka mdx-raw. The shipped scaffold script is a YOLO26 reference implementation (ONNX, labels, custom parser required). Use when building a new perception microservice repo, validating the VSS integration contract, extending that scaffold for segmentation frame-mask payloads, or scaffolding with placeholders before customer YOLO26 assets exist. For swapping the detector in the stock vss-rt-cv container, use rtvi-cv-customize-model instead. Live DeepStream integration cannot run until the customer-supplied ONNX, labels file, and parser library exist.",
+    "path": "category/business-strategy-legal/rtvi-cv-scaffold-vss-service"
+  },
+  {
     "id": "runbook-creation",
     "name": "runbook-creation",
     "category": "business-strategy-legal",
@@ -3134,6 +3470,14 @@
     "repository": "davila7-claude-code-templates",
     "description": "Analyze product screenshots to extract feature lists and generate development task checklists. Use when: (1) Analyzing competitor product screenshots for feature extraction, (2) Generating PRD/task lists from UI designs, (3) Batch analyzing multiple app screens, (4) Conducting competitive analysis from visual references.",
     "path": "category/business-strategy-legal/screenshot-feature-extractor"
+  },
+  {
+    "id": "sdk-install",
+    "name": "sdk-install",
+    "category": "business-strategy-legal",
+    "repository": "launchdarkly-ai-tooling",
+    "description": "Install and initialize the correct LaunchDarkly SDK during onboarding by running nested skills in order: detect, plan, apply. Parent onboarding Step 4 is first flag.",
+    "path": "category/business-strategy-legal/sdk-install"
   },
   {
     "id": "senior-pm",
@@ -3344,6 +3688,22 @@
     "path": "category/business-strategy-legal/stockbee-momentum-burst-screener"
   },
   {
+    "id": "strategy-red-team",
+    "name": "strategy-red-team",
+    "category": "business-strategy-legal",
+    "repository": "phuryn-pm-skills",
+    "description": "Red-team a PRD, roadmap, or strategy by attacking its load-bearing assumptions before reality does. Steelmans then attacks each claim, ranks failure modes by impact \u00d7 likelihood \u00d7 cheapness-to-test, and returns the cheapest test and kill criteria for each. Use when stress-testing a plan, pressure-testing a strategy, challenging assumptions, or preparing a doc for executive review.",
+    "path": "category/business-strategy-legal/strategy-red-team"
+  },
+  {
+    "id": "student-developer-programs",
+    "name": "student-developer-programs",
+    "category": "business-strategy-legal",
+    "repository": "samber-developer-relations-skills",
+    "description": "Designs a company's student and university developer program: the one job it serves (adoption after graduation, hiring or ecosystem), components ranked for it (verified student offer with graduation bridge, faculty classroom kit, campus champions, internship funnel), calendar, legal edges and outcome metrics. Use whenever someone mentions a student developer program, university or campus outreach, student ambassadors, campus clubs, a student pack, getting professors to teach the product, or turning students into interns - even if they only say 'we want to be big on campuses'. Not academic research partnerships. Do NOT use for champions among working developers (samber/developer-relations-skills@developer-champions) or campus recruiting alone (samber/developer-relations-skills@tech-employer-branding).",
+    "path": "category/business-strategy-legal/student-developer-programs"
+  },
+  {
     "id": "subscription-lifecycle",
     "name": "subscription-lifecycle",
     "category": "business-strategy-legal",
@@ -3392,6 +3752,30 @@
     "path": "category/business-strategy-legal/tailored-resume-generator"
   },
   {
+    "id": "tao-launch-workflow",
+    "name": "tao-launch-workflow",
+    "category": "business-strategy-legal",
+    "repository": "nvidia-skills",
+    "description": "The mandatory pre-launch gate and four-verb execution contract for every TAO workflow or action. Invoke BEFORE launching anything side-effecting \u2014 AutoML, train, evaluate, inference, export, TensorRT engine generation, or DEFT/application workflows \u2014 on any execution platform. Covers platform selection, credentials, image confirmation, dataset intake, preflight, the launch review, job records, monitoring, and failure/retry classification. Trigger phrases include \"train this model\", \"run AutoML\", \"launch on SLURM/docker/k8s/brev/virtualenv\", \"evaluate my checkpoint\", \"start a TAO job\".",
+    "path": "category/business-strategy-legal/tao-launch-workflow"
+  },
+  {
+    "id": "tao-train-fast-foundation-stereo",
+    "name": "tao-train-fast-foundation-stereo",
+    "category": "business-strategy-legal",
+    "repository": "nvidia-skills",
+    "description": "Real-time stereo depth estimation using FastFoundationStereo (FFS), the distilled bp2 commercial variant of",
+    "path": "category/business-strategy-legal/tao-train-fast-foundation-stereo"
+  },
+  {
+    "id": "tao-train-foundation-stereo",
+    "name": "tao-train-foundation-stereo",
+    "category": "business-strategy-legal",
+    "repository": "nvidia-skills",
+    "description": "Stereo depth estimation using FoundationStereo. Predicts disparity maps from stereo image pairs for 3D",
+    "path": "category/business-strategy-legal/tao-train-foundation-stereo"
+  },
+  {
     "id": "teaser",
     "name": "teaser",
     "category": "business-strategy-legal",
@@ -3422,6 +3806,14 @@
     "repository": "nexscope-ai-ecommerce-skills",
     "description": "Pricing strategy for TikTok \u2014 competitive pricing, commission impact, bundling, discount psychology",
     "path": "category/business-strategy-legal/tiktok-shop-pricing"
+  },
+  {
+    "id": "tilegym-converting-cutile-to-triton",
+    "name": "tilegym-converting-cutile-to-triton",
+    "category": "business-strategy-legal",
+    "repository": "nvidia-skills",
+    "description": "Converts cuTile GPU kernels (@ct.kernel) to Triton (@triton.jit). Handles standard in-repo conversion, debugging (cudaErrorIllegalAddress, shape mismatch, numerical mismatch), and mapping cuTile idioms (ct.load/ct.store, ct.Constant, ct.launch) to Triton equivalents. Covers dual-kernel layout flags (e.g. transpose=True/False + autotune grid via META) per translations/advanced-patterns.md. Use when converting, porting, or translating cuTile kernels to Triton, or debugging existing Triton translations.",
+    "path": "category/business-strategy-legal/tilegym-converting-cutile-to-triton"
   },
   {
     "id": "time-energy-management",
@@ -3462,6 +3854,14 @@
     "repository": "reason-machines-trending-skills",
     "description": "LeetCode-style PyTorch interview practice environment with auto-grading for implementing softmax, attention, GPT-2 and more from scratch.",
     "path": "category/business-strategy-legal/torchcode-pytorch-interview-practice"
+  },
+  {
+    "id": "trailmark-finding-triage",
+    "name": "trailmark-finding-triage",
+    "category": "business-strategy-legal",
+    "repository": "trailofbits-skills",
+    "description": "Performs graph-assisted triage of a single security finding, SARIF result, weAudit annotation, suspicious function, or report excerpt using Trailmark reachability, entrypoint paths, taint, privilege-boundary, blast-radius, caller/callee, and neighborhood evidence. Use when deciding whether one candidate issue is reachable, prioritizing a finding before PoC work, preparing evidence for exploit validation, or checking whether a static-analysis result is actionable.",
+    "path": "category/business-strategy-legal/trailmark-finding-triage"
   },
   {
     "id": "training-report",

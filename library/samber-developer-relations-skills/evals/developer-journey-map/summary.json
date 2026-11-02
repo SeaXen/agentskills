@@ -1,0 +1,722 @@
+{
+  "repo": "developer-relations-skills",
+  "skill": "developer-journey-map",
+  "scenarios": 12,
+  "expectations_total": 156,
+  "expectations_subjective": 1,
+  "expectations_objective": 155,
+  "pass_rate_with_skill_pct": 73.1,
+  "pass_rate_without_skill_pct": 19.9,
+  "delta_pp": 53.2,
+  "uplift_multiplier": 3.67,
+  "trigger_accuracy_pct": 67.9,
+  "trigger_queries": 140,
+  "trigger_positive_fire_rate": 0.6,
+  "trigger_run_suspect": false,
+  "trigger_suspect_reason": null,
+  "subjective_ac2": 0.2,
+  "subjective_pass_disagreements": [
+    {
+      "eval_id": 7,
+      "condition": "without_skill",
+      "expectation": "Writes the developer's job in the developer's own words rather than vendor funnel language.",
+      "pass1": true,
+      "pass2": false
+    }
+  ],
+  "concern_flag": false,
+  "concern_reason": null,
+  "models": {
+    "trial": "sonnet",
+    "objective_grader": "sonnet",
+    "subjective_grader": "opus",
+    "trigger": "sonnet"
+  },
+  "harness_version": "2.1.236 (Claude Code)",
+  "conditions": {
+    "mcp_servers": "disabled",
+    "project_claude_md": "not loaded (trials and grading)",
+    "user_claude_md": "loaded",
+    "dynamic_prompt_sections": "excluded"
+  },
+  "empty_trials": {
+    "with_skill": [],
+    "without_skill": []
+  },
+  "ungraded_expectations": 0,
+  "run_degraded": false,
+  "failed_expectations": {
+    "with_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Attributes the six-stage model to Matthew Revell, developerrelations.com, 2016."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Offers two or three candidate models with what each makes visible and what it hides, and asks the user to choose before writing rows."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Declines to write the 14,200 absolute session count into any stage cell."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Cites the measurement that 58% of a tech audience blocks third-party analytics scripts."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Attributes that figure to Plausible Analytics' August 2021 measurement, and notes it is a single-site measurement by an interested vendor."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that only ratios inside a single source survive."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Labels the awareness and evaluation stages as inferred wherever they appear in the map."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Orders any proposed instrumentation fixes by cost: first-party or proxied script, then server or CDN log analysis, then a product-side event for anything past signup."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes those endpoints require write access to the repository."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States explicitly that the raw 340-to-9 comparison is unreadable without that rollup, because many signups from one company read as many leads."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names the three buyer-lane signal families in increasing order of buying intent: depth, then spread, then boundary contact."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Defines spread as a second and third active developer inside the same account."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends instrumenting boundary contact first, and states it is the rarest and strongest of the three."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States the developer lane continues in parallel rather than ending where the buyer lane begins."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Records the champion as a participant carrying a specific artefact, not as a persona note."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that the earliest leaking stage with an owner able to change it wins, because every downstream fix is diluted by the losses above it."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Ranks the candidate stages by developers recovered per unit of fix effort before applying the earliest-and-owned tiebreak."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Explicitly names what that ordering starves: a late stage with a large payoff and a heavy fix, here advocacy."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Applies B=MAP only to the chosen stage, naming motivation, ability and prompt."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that B=MAP explains one stage and cannot rank stages against each other."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Declines to deliver a motivation or incentive strategy for advocacy."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Applies the test 'would a developer recognise this as something they did?' to each stage name."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Identifies local setup and waiting for review as the two steps that leak hardest and most silently."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States the gate that at least 60% of stages must carry a real current value, and reports that this map carries 2 of 6 and fails that line."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Labels the 60% coverage figure as this skill's own working default rather than an industry standard."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Applies the 'so what' test and the ownership test to each proposed signal."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Declines to write the map from the team's existing belief."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that a map assembled from opinion documents the team's beliefs, not the developer's path."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Orders evidence collection cheapest source first: walk the path and keep a friction log, mine what developers already wrote, interview developers, then read the funnel data that already exists."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names the inverse signal: a stage with almost no questions and low conversion is a stage where people leave without speaking."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Specifies the friction log as one realistic scenario recorded as a running narrative, explicitly not minimal reproduction steps."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Requires the friction log to record verbatim search terms, clicked URLs and pasted commands, plus emotional reactions."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names the green / yellow / red convention for delight, friction and blocking."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that whoever is newest to the product makes the best friction logger."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Recommends interviewing 5 to 8 developers who completed the journey and 3 who abandoned it, and labels both counts as this skill's own defaults."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Instructs tagging each piece of evidence with the stage it belongs to before analysing it."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Declines to rewrite the quickstart page as part of this run."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Routes the quickstart rewrite to samber/developer-relations-skills@developer-quickstart-guide by name."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Gives the reason for routing it out: a one-stage fix does not need a seven-stage artefact."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Declines to build the DevRel KPI framework as part of this run."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Routes the KPI framework to samber/developer-relations-skills@devrel-metrics by name."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Presents the document section by section for agreement rather than delivering it all at once."
+      }
+    ],
+    "without_skill": [
+      {
+        "eval_id": 1,
+        "expectation": "Deletes candidate stage models whose terminal stage is not standardisation, rather than ranking all of them."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Records which models were deleted and why in the map's Scope section."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Recommends Revell's six-stage model."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Lists Revell's stages: initial awareness, deep awareness, evaluation and validation, commitment, standardization, community and advocacy."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Attributes the six-stage model to Matthew Revell, developerrelations.com, 2016."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "States that Revell's is the only published model carrying an explicit standardisation stage."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Notes Revell normally costs on the order of a quarter, because its standardisation boundary needs account rollup and buyer-side interviews."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Explicitly re-ranks Revell upward because Tarnhelm already has account rollup built for sales, which removes most of that cost."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Offers two or three candidate models with what each makes visible and what it hides, and asks the user to choose before writing rows."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Does not blend the existing discover -> try -> adopt -> contribute -> advocate spine with a published model."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Identifies discover -> try -> adopt -> contribute -> advocate as an unsourced default rather than a published framework."
+      },
+      {
+        "eval_id": 1,
+        "expectation": "Does not produce filled stage rows before the stage model is agreed."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Refuses to use the 40-60% quickstart conversion figure as a benchmark."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Refuses to use the 20-40% self-serve activation figure as a benchmark."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that circulating per-stage conversion figures are single-company anecdotes with incompatible stage definitions."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that no normal discovery-to-production rate for a developer product can be quoted."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that the only honest comparison is against this same map's own previous version."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Does not open the map with a benchmark-gap framing."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Notes that the leading developer-tools product benchmark survey declines to publish a single activation-rate figure, because the activation milestone differs by product."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Names a real published activation figure with its methodology when discussing activation at all, for example the self-reported 25% median / 34% average survey band, and labels it self-reported."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Distinguishes that self-reported activation band from instrumented day-7 return figures (about 2.1% median, 7% top quartile) as different metrics under different definitions."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that the popular round 20-40% figure collapses two different metrics into one number."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "States that Northwind's activation definition (topic created plus one message consumed in 7 days) is product-specific and not comparable to another company's milestone."
+      },
+      {
+        "eval_id": 2,
+        "expectation": "Does not declare either stage broken on the strength of a borrowed rate."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Declines to write the 14,200 absolute session count into any stage cell."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Cites the measurement that 58% of a tech audience blocks third-party analytics scripts."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Attributes that figure to Plausible Analytics' August 2021 measurement, and notes it is a single-site measurement by an interested vendor."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Gives at least one sub-breakdown from that measurement: 82.3% on Linux, 88.3% on Firefox, or 68.2% desktop versus 49.9% mobile."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that the blocking rate varies page by page, so absolute developer-surface traffic is wrong by a factor that changes per page."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "States that only ratios inside a single source survive."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Notes roughly 70% of AI-assistant-driven traffic arrives with no referrer, and labels that as a newsletter estimate rather than a study."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Labels the awareness and evaluation stages as inferred wherever they appear in the map."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Puts the instrumentation need in the map's Gaps section."
+      },
+      {
+        "eval_id": 3,
+        "expectation": "Orders any proposed instrumentation fixes by cost: first-party or proxied script, then server or CDN log analysis, then a product-side event for anything past signup."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Notes those endpoints require write access to the repository."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States npm download data retains 18 months."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States npm counts HTTP 200 responses for tarballs, including build servers and mirrors, making it a request count rather than a person count."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "States PyPI excludes known mirrors by default."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Concludes npm and PyPI download counts are not comparable to each other, and that neither is a user count."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Rejects the 4.1M all-time download counter as a signal because it is monotonic and cannot fall when the journey breaks."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Proposes a rate or a period delta in place of the all-time counter."
+      },
+      {
+        "eval_id": 4,
+        "expectation": "Places the missing historical baseline in the map's Gaps section."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Adds a second, shorter buyer lane alongside the developer lane rather than one merged funnel."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States that the developer lane counts people while the buyer lane counts organisations or accounts."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Requires usage to be rolled up to accounts before the buyer lane can be read at all."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names at least one concrete rollup key: email domain, workspace or organisation object, licence or API key, or self-reported company."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States explicitly that the raw 340-to-9 comparison is unreadable without that rollup, because many signups from one company read as many leads."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Names the three buyer-lane signal families in increasing order of buying intent: depth, then spread, then boundary contact."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Defines spread as a second and third active developer inside the same account."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Gives at least two concrete boundary-contact examples, such as an SSO or RBAC page view, a compliance or audit question, a seat or rate limit hit, a security questionnaire request, or an enterprise terms page view."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "Recommends instrumenting boundary contact first, and states it is the rarest and strongest of the three."
+      },
+      {
+        "eval_id": 5,
+        "expectation": "States the developer lane continues in parallel rather than ending where the buyer lane begins."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Ranks the candidate stages by developers recovered per unit of fix effort before applying the earliest-and-owned tiebreak."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Explicitly names what that ordering starves: a late stage with a large payoff and a heavy fix, here advocacy."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States the conditions that would promote advocacy anyway: the earliest leaking stage being unowned, its fix already in flight, or advocacy being the funded end state."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Attributes B=MAP to BJ Fogg."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "States that B=MAP explains one stage and cannot rank stages against each other."
+      },
+      {
+        "eval_id": 6,
+        "expectation": "Declines to deliver a motivation or incentive strategy for advocacy."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Refuses to include an emotion score column."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Gives the reason: emotion scores get invented at developer volumes and crowd out the columns carrying accountability."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Refuses to fill an opportunities column in the same pass as the map."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Gives the reason: writing opportunities in the same pass turns the map into a backlog before anyone knows which stage leaks."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Rejects 'developer understands the value proposition' as an exit event because it cannot be observed, counted or owned."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Rejects 'developer feels confident in the product' on the same grounds."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Replaces each unobservable stage name or exit criterion with a concrete observable event."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Names the eight fields a row carries: stage, developer's job, entry trigger, exit event, touchpoints, owner, friction evidence, signal."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Identifies exit event, owner and signal as the three fields without which a row is not finished."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires exactly one exit event per stage."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Requires exactly one signal per stage."
+      },
+      {
+        "eval_id": 7,
+        "expectation": "Applies the test 'would a developer recognise this as something they did?' to each stage name."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Selects the OSS contributor funnel as the stage model, because the funded end state is sustained contribution."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Names its stages: land, find work, set up, change, submit, survive review, return."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Identifies local setup and waiting for review as the two steps that leak hardest and most silently."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Cites the finding that contributors who received code review within 48 hours returned and contributed again at a much higher rate."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Attributes that finding to GitHub's Open Source Guides."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Proposes time-to-first-review as the contribution stage's signal."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Cites that it only takes one negative experience to make someone not want to come back."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "States that newcomers pick tasks by the API domain a task requires rather than by a maintainer's difficulty label."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Attributes that finding to the newcomer-barriers study of 74 participants."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Recommends re-labelling issues by API domain or area rather than easy/medium/hard."
+      },
+      {
+        "eval_id": 8,
+        "expectation": "Models the adopting company's internal approval - licence compatibility, dependency policy - as friction inside the adoption stage rather than as a lane."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Refuses to fold two audience segments into one map."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States the reason: a small-team path and an enterprise platform team's path are different journeys, so one map per segment."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Offers a second, separate map for the enterprise platform-team segment instead."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Keeps the five-stage API arc for this refresh rather than switching to AAARRRP."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States that on a refresh, comparability against the map's own history outranks a better-fitting vocabulary, and the model changes only if it actually broke."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Skips the stage-model selection step and goes straight to evidence collection for this refresh."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Acknowledges the company-wide AARRR funnel as a genuine argument for AAARRRP, while subordinating it to continuity on a refresh."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "States what would justify switching models later: the current model actually breaking."
+      },
+      {
+        "eval_id": 9,
+        "expectation": "Sets a re-read date, defaulting to 90 days and also triggered by a launch, a pricing change, a docs rewrite or a new SDK."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Rejects total GitHub stars as a signal because it is a monotonic counter that cannot fall when the stage breaks."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Rejects cumulative signups on the same grounds."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Converts each monotonic counter into a rate or a period delta."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Refuses to invent numbers for the uninstrumented stages."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Writes 'not instrumented' in those rows instead."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Lists the uninstrumented stages in the map's Gaps section."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States the gate that at least 60% of stages must carry a real current value, and reports that this map carries 2 of 6 and fails that line."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "States that an honest map with named holes beats a complete map with invented numbers."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Labels the 60% coverage figure as this skill's own working default rather than an industry standard."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Replaces the 3.6% advocacy rate with a dated raw list, because 4 events sit below the roughly-30-event floor."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Pairs the signups OKR with a quality counter-metric, such as 30-day retention of the same signup cohort."
+      },
+      {
+        "eval_id": 10,
+        "expectation": "Applies the 'so what' test and the ownership test to each proposed signal."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Declines to write the map from the team's existing belief."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that a map assembled from opinion documents the team's beliefs, not the developer's path."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Records 'SDK reference docs' as the team's hypothesis rather than as friction evidence."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Orders evidence collection cheapest source first: walk the path and keep a friction log, mine what developers already wrote, interview developers, then read the funnel data that already exists."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that developers who fail at setup rarely file anything, they leave."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names the inverse signal: a stage with almost no questions and low conversion is a stage where people leave without speaking."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Specifies the friction log as one realistic scenario recorded as a running narrative, explicitly not minimal reproduction steps."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Requires the friction log to record verbatim search terms, clicked URLs and pasted commands, plus emotional reactions."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Names the green / yellow / red convention for delight, friction and blocking."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "States that whoever is newest to the product makes the best friction logger."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Recommends interviewing 5 to 8 developers who completed the journey and 3 who abandoned it, and labels both counts as this skill's own defaults."
+      },
+      {
+        "eval_id": 11,
+        "expectation": "Instructs tagging each piece of evidence with the stage it belongs to before analysing it."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Declines to rewrite the quickstart page as part of this run."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Routes the quickstart rewrite to samber/developer-relations-skills@developer-quickstart-guide by name."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Gives the reason for routing it out: a one-stage fix does not need a seven-stage artefact."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Declines to build the DevRel KPI framework as part of this run."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Routes the KPI framework to samber/developer-relations-skills@devrel-metrics by name."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Reports DevRel owning every row as a finding about the organisation, not merely a detail of the map."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "States that it means the surfaces have no accountable owner, which is a bigger problem than the leak itself."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Names the gate line that at least one owner must sit outside the DevRel team, and reports this map failing it."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Produces the deliverable under its seven headings: Scope, Journey, Buyer lane, Moments, Leak, Handoff, Gaps."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Names the three moments separately: first success, moment of truth, abandonment point."
+      },
+      {
+        "eval_id": 12,
+        "expectation": "Presents the document section by section for agreement rather than delivering it all at once."
+      }
+    ]
+  }
+}

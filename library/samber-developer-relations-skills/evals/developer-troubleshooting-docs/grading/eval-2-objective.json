@@ -1,0 +1,166 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "Merges the 61-ticket and 57-ticket Connection refused clusters into one cluster on the grounds that they are one failure worded two ways",
+        "evidence": "\"Two clusters get merged first: the 61-ticket and 57-ticket 'connection refused' tickets are one failure (wrong port) worded two ways by two client versions \u2014 that's the skill's own textbook example of 'merge clusters that are one failure worded two ways.' Combined: **118 tickets**, now your largest cluster.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the ranking criterion as reader-hours unblocked per hour of writing and verification rather than raw ticket frequency",
+        "evidence": "\"Highest volume, single cause (wrong port), reproducible in minutes, fully self-serviceable. Best reader-hours-unblocked-per-writing-hour ratio in the set \u2014 write it first.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not present a queue ordered purely by ticket count",
+        "evidence": "The writing order is 118, 84, 14, then 22 (WAL-exhaustion at 14 tickets is placed ahead of the 22-ticket branch-hang cluster), which is not a pure descending count order.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places the connection-slots cluster and the merged wrong-port cluster early as frequent, reproducible work",
+        "evidence": "\"1 | ... (merged) | 118 | ... Highest volume, single cause (wrong port), reproducible in minutes... 2 | `FATAL: remaining connection slots are reserved` | 84 | Error reference entry | Same efficiency profile as #1: reproducible, single fix, ~4 min support cost today.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Promotes the 22-ticket signup-time branch-creation hang above at least one higher-count cluster because it blocks first use",
+        "evidence": "The branch-hang cluster (22 tickets) is placed at slot #4, below the 14-ticket WAL-exhaustion cluster at slot #3 \u2014 i.e. it is ranked below a lower-count cluster, not promoted above a higher-count one. The text even says: \"The rule says promote it above the frequent/reproducible clusters \u2014 but it's gated,\" showing the promotion was withheld, not applied.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a reader who abandons on the first-use path never files the ticket that would have ranked the cluster",
+        "evidence": "The closest statement is \"22 tickets at 35 min each is real support cost, but the churn (half never come back) is the number that should move engineering, not the ticket count\" \u2014 this describes post-ticket churn/abandonment of the product, not the specific claim that abandoning readers never file a ticket in the first place.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the 7-ticket `panic: send on closed channel` cluster as a regression to file against 4.6 rather than a page to write",
+        "evidence": "\"`panic: send on closed channel` during failover (all 7 filed within 2 weeks of 4.6) | 7 | Engineering regression report | Textbook 'cluster right after a release' \u2014 that's a regression to report, not a page to write.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes the 11-ticket `permission denied for schema public` cluster from the queue entirely because 5.0 eliminates it, rather than ranking it last",
+        "evidence": "Listed under \"Routed away from docs \u2014 do not queue these for the writer\": \"The skill's rule is explicit: a cluster the next release removes is a changelog entry and a product ticket, not a page held in the queue.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes the 9-ticket account-suspension cluster from the queue because the reader cannot act on the answer, rather than ranking it last",
+        "evidence": "The stated reasoning is \"Cause is account state, not something a doc page explains better than the error string itself. A doc page here would just be a slower version of fixing the message,\" which routes it away because the error message itself is a better fix vehicle \u2014 not because the reader is unable to act on an answer.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that such clusters are deleted rather than demoted, because a demoted cluster silently returns as scope",
+        "evidence": "The transcript only says \"the other four clusters are routed away below, correctly, not because they're low priority but because a docs page is the wrong artifact for them\" \u2014 it explains why they're routed away, but never states the deletion-vs-demotion rationale about scope silently returning.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Promotes the 14-ticket WAL-exhaustion cluster despite its low count, citing the contract customer or the incident review",
+        "evidence": "\"Low raw count, but the skill's rule is explicit: *promote a rare-and-expensive cluster when it hits a contract-bound customer in production or shows up in an incident review.* Yours hits both.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the efficiency order starves the rare and expensive failure and names the condition that overrides it",
+        "evidence": "\"Low raw count, but the skill's rule is explicit: promote a rare-and-expensive cluster when it hits a contract-bound customer in production or shows up in an incident review. Yours hits both,\" naming the override condition against the otherwise low-count (low reader-hours-unblocked) ranking.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Presents the ranked queue for the user's agreement before any entry is written",
+        "evidence": "The transcript ends by asking only for two informational inputs (\"your target ship date for the first batch, and how many writing/verification hours per cycle this one writer actually has\") and explicitly states \"Neither changes the order above\" \u2014 it does not ask the user to confirm or agree to the queue before writing begins.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "Merges the 61-ticket and 57-ticket Connection refused clusters into one cluster on the grounds that they are one failure worded two ways",
+        "evidence": "\"The last two are the same root cause (wrong port) in two client-version wordings \u2014 write one article, index both exact error strings so search/AI-answer hits either.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States the ranking criterion as reader-hours unblocked per hour of writing and verification rather than raw ticket frequency",
+        "evidence": "States the criterion as \"Sequence by cost and risk avoided, use ticket count as the tiebreaker\" \u2014 not reader-hours-unblocked-per-writing-hour.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Does not present a queue ordered purely by ticket count",
+        "evidence": "\"Raw ticket volume (84 > 61 > 57 > 22 > 14 > 11 > 9 > 7) would put the WAL and signup-hang issues near the bottom. That's the wrong ranking\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Places the connection-slots cluster and the merged wrong-port cluster early as frequent, reproducible work",
+        "evidence": "Connection & pool errors is item #2, described as \"202 tickets is 59% of the 340 you tallied \u2014 biggest single dent in ticket count, cheapest to write, ships in under a day.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Promotes the 22-ticket signup-time branch-creation hang above at least one higher-count cluster because it blocks first use",
+        "evidence": "Signup hang (22, ranked #3) sits below WAL (14, ranked #1) and below Connection & pool (202, ranked #2) \u2014 no higher-count cluster is ranked below it.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that a reader who abandons on the first-use path never files the ticket that would have ranked the cluster",
+        "evidence": "Only states \"rank it by the fact that half your affected signups never come back\" \u2014 does not connect this to under-reporting via unfiled tickets.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Identifies the 7-ticket `panic: send on closed channel` cluster as a regression to file against 4.6 rather than a page to write",
+        "evidence": "\"reads like a regression that's already been patched. Confirm with engineering before writing anything: if it's fixed, there's nothing customer-facing to document... this is an engineering ticket, not a writing one.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes the 11-ticket `permission denied for schema public` cluster from the queue entirely because 5.0 eliminates it, rather than ranking it last",
+        "evidence": "Listed under \"Don't write\": \"Grants change in 5.0 next month and the error disappears... don't spend real writer time here.\" \u2014 excluded from the Writing order list entirely.",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Removes the 9-ticket account-suspension cluster from the queue because the reader cannot act on the answer, rather than ranking it last",
+        "evidence": "Account suspension is kept as item #4 in \"Writing order\": \"Cheap filler between bigger docs... Low volume, near-zero effort, do it opportunistically\" \u2014 ranked last, not removed.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "States that such clusters are deleted rather than demoted, because a demoted cluster silently returns as scope",
+        "evidence": "No such reasoning about deletion vs. demotion appears anywhere.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Promotes the 14-ticket WAL-exhaustion cluster despite its low count, citing the contract customer or the incident review",
+        "evidence": "\"One of those cases already got a formal incident review for a contract customer \u2014 that's renewal/SLA risk, not just a slow ticket.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "States that the efficiency order starves the rare and expensive failure and names the condition that overrides it",
+        "evidence": "\"That's the wrong ranking: 14 WAL tickets cost more engineer-hours than the top three connection issues combined by roughly an order of magnitude, and the signup hang is bleeding customers, not just support time.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Presents the ranked queue for the user's agreement before any entry is written",
+        "evidence": "The text presents the order as a settled recommendation with no request for the user's sign-off before writing begins.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

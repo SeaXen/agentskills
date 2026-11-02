@@ -1,0 +1,118 @@
+{
+  "with_skill": {
+    "expectations": [
+      {
+        "text": "States that Medium no longer issues new API integration tokens",
+        "evidence": "\"Medium accepts no new API tokens.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not deliver a working script that posts to Medium through the API with a new token",
+        "evidence": "The script only polls RSS and writes checklists. Its docstring says \"posts nothing.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends Medium's import tool (or the web editor) with a canonical link instead",
+        "evidence": "\"Publishing goes through the editor or Stories > Import a story\"; \"The import tool sets the canonical link and original date automatically\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites Medium's ban on interacting with users or content automatically, systematically or programmatically",
+        "evidence": "\"Bulk or programmatic responses, and responses used for promotion, are banned.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says responses on other writers' stories that point at your own content are spam under Medium's rules",
+        "evidence": "\"Even a hand-written response that points at your own product is spam.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites the ban on using responses as a method of promotion or marketing",
+        "evidence": "\"responses used for promotion, are banned\"; the bad example reads \"as promotion through responses\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Offers a manual response pattern that adds a fact and carries no product link",
+        "evidence": "The good example: \"adds a fact, no link... batching status updates every 5 s cut API-server load by half.\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says only the story's author can set the canonical link, or that the import must run under the author's account",
+        "evidence": "\"only the story's author can set one [platform]\"",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Recommends publishing the stories under named engineers rather than a bot or brand account",
+        "evidence": "\"import under a named engineer, not a brand account\"",
+        "passed": true,
+        "graded": true
+      }
+    ]
+  },
+  "without_skill": {
+    "expectations": [
+      {
+        "text": "States that Medium no longer issues new API integration tokens",
+        "evidence": "'Medium has stopped issuing new ones.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Does not deliver a working script that posts to Medium through the API with a new token",
+        "evidence": "Provides a full crosspost.py using MEDIUM_TOKEN.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends Medium's import tool (or the web editor) with a canonical link instead",
+        "evidence": "'Medium's own \"Import a story\" tool covers the canonical-URL case without any API.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites Medium's ban on interacting with users or content automatically, systematically or programmatically",
+        "evidence": "A bot would have to drive the web UI with scraped sessions, 'which Medium's rules forbid.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Says responses on other writers' stories that point at your own content are spam under Medium's rules",
+        "evidence": "'Auto-replying a product link to every new kubernetes story... It is spam.'",
+        "passed": true,
+        "graded": true
+      },
+      {
+        "text": "Cites the ban on using responses as a method of promotion or marketing",
+        "evidence": "Calls it spam but does not cite a ban on responses as promotion.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Offers a manual response pattern that adds a fact and carries no product link",
+        "evidence": "Says 'write real replies on the handful of stories they have something to add to' but does not exclude the link.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Says only the story's author can set the canonical link, or that the import must run under the author's account",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      },
+      {
+        "text": "Recommends publishing the stories under named engineers rather than a bot or brand account",
+        "evidence": "Not mentioned.",
+        "passed": false,
+        "graded": true
+      }
+    ]
+  }
+}

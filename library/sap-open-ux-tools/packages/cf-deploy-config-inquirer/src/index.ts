@@ -1,0 +1,103 @@
+import { getQuestions, getAppRouterQuestions } from './prompts/index.js';
+import type {
+    CfDeployConfigPromptOptions,
+    CfDeployConfigQuestions,
+    CfSystemChoice,
+    CfDeployConfigAnswers,
+    CfAppRouterDeployConfigPromptOptions,
+    CfAppRouterDeployConfigQuestions,
+    CfAppRouterDeployConfigAnswers,
+    CfDeployConfigRouterAnswers,
+    CfDeployConfigRouterQuestions
+} from './types.js';
+import { initI18nCfDeployConfigInquirer } from './i18n.js';
+import type { InquirerAdapter } from '@sap-ux/inquirer-common';
+import autocomplete from 'inquirer-autocomplete-prompt';
+import type { Logger } from '@sap-ux/logger';
+import LoggerHelper from './logger-helper.js';
+import type { PromptModule } from 'inquirer';
+
+function registerAutocompletePlugin(
+    questions: CfDeployConfigQuestions[],
+    promptModule: PromptModule | undefined
+): void {
+    if (promptModule && questions.some((q) => q.type === 'autocomplete')) {
+        promptModule.registerPrompt('autocomplete', autocomplete);
+    }
+}
+
+/**
+ * Retrieves Cloud Foundry deployment configuration prompts.
+ *
+ * This function returns a list of cf deployment questions based on the provided application root and prompt options.
+ *
+ * @param {CfDeployConfigPromptOptions} promptOptions - The configuration options for prompting during cf target deployment.
+ * @param logger - The logger instance to use for logging.
+ * @param promptModule - Optional inquirer prompt module; if provided, the autocomplete plugin is registered automatically.
+ * @returns {Promise<CfDeployConfigQuestions[]>} A promise that resolves to an array of questions for cf target prompting.
+ */
+async function getPrompts(
+    promptOptions: CfDeployConfigPromptOptions,
+    logger?: Logger,
+    promptModule?: PromptModule
+): Promise<CfDeployConfigQuestions[]> {
+    if (logger) {
+        LoggerHelper.logger = logger;
+    }
+    await initI18nCfDeployConfigInquirer();
+    const questions = await getQuestions(promptOptions, LoggerHelper.logger);
+    registerAutocompletePlugin(questions, promptModule);
+    return questions;
+}
+
+/**
+ * Retrieves the application router configuration prompts.
+ *
+ * @param {CfDeployConfigPromptOptions} promptOptions - The options for configuring application router prompts.
+ * @param {Logger} [logger] - An optional logger instance.
+ * @returns {Promise<CfAppRouterDeployConfigQuestions[]>} A promise that resolves to an array of
+ * application router deployment configuration questions.
+ */
+async function getAppRouterPrompts(
+    promptOptions: CfAppRouterDeployConfigPromptOptions,
+    logger?: Logger
+): Promise<CfAppRouterDeployConfigQuestions[]> {
+    if (logger) {
+        LoggerHelper.logger = logger;
+    }
+    await initI18nCfDeployConfigInquirer();
+    return getAppRouterQuestions(promptOptions, LoggerHelper.logger);
+}
+
+/**
+ * Prompt for cf inquirer inputs.
+ *
+ * @param adapter - optionally provide references to a calling inquirer instance, this supports integration to Yeoman generators, for example
+ * @param promptOptions - options that can control some of the prompt behavior. See {@link CfDeployConfigPromptOptions} for details
+ * @param logger - logger instance to use for logging
+ * @returns the prompt answers
+ */
+async function prompt(
+    adapter: InquirerAdapter,
+    promptOptions: CfDeployConfigPromptOptions,
+    logger?: Logger
+): Promise<CfDeployConfigAnswers> {
+    const cfPrompts = await getPrompts(promptOptions, logger, adapter?.promptModule);
+    return await adapter.prompt<CfDeployConfigAnswers>(cfPrompts);
+}
+
+export {
+    getPrompts,
+    type CfDeployConfigPromptOptions,
+    type CfSystemChoice,
+    prompt,
+    getAppRouterPrompts,
+    type CfAppRouterDeployConfigPromptOptions,
+    type CfDeployConfigQuestions,
+    type CfDeployConfigAnswers,
+    type CfAppRouterDeployConfigAnswers,
+    type CfAppRouterDeployConfigQuestions,
+    type CfDeployConfigRouterAnswers,
+    type CfDeployConfigRouterQuestions
+};
+export { promptNames, appRouterPromptNames, RouterModuleType } from './types.js';
